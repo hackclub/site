@@ -86,21 +86,16 @@ export default () => (
         </Slide>
       </Container>
     </Box>
-    <Box as="section" sx={{ bg: 'white', color: 'black', py: [4, 5, 6] }}>
+    <Box as="section" bg="muted" py={5}>
       <Container
-        sx={{
-          textAlign: 'center',
-          maxWidth: [null, 'copyPlus', 'copyUltra'],
-          strong: { color: 'red' }
-        }}
+        sx={{ textAlign: 'center', maxWidth: [null, 'copyPlus', 'copyUltra'] }}
       >
         <Text
           as="p"
           variant="subtitle"
           sx={{
-            mb: 4,
             fontSize: [4, 28],
-            // color: 'cyan',
+            color: 'white',
             mx: 'auto',
             maxWidth: 'copyPlus'
           }}
@@ -108,11 +103,23 @@ export default () => (
           <strong>HACK CLUB</strong> used to be a network of high school coding
           clubs & hackathons. Someday, we’ll get back to that.
         </Text>
+      </Container>
+    </Box>
+    <Box
+      as="section"
+      sx={{
+        bg: 'white',
+        color: 'black',
+        textAlign: 'center',
+        py: [4, 5, null, 6]
+      }}
+    >
+      <Container sx={{ maxWidth: [null, 'copyPlus', 'copyUltra'] }}>
         <Heading
           as="h2"
           variant="headline"
           sx={{
-            fontSize: [3, 4],
+            fontSize: [4, 4],
             color: 'cyan',
             textTransform: 'uppercase',
             letterSpacing: 'headline'
@@ -120,7 +127,11 @@ export default () => (
         >
           During COVID-19
         </Heading>
-        <Heading as="h2" variant="title" sx={{ fontSize: [5, 6], mb: 4 }}>
+        <Heading
+          as="h2"
+          variant="title"
+          sx={{ fontSize: [5, 6], mb: 4, strong: { color: 'red' } }}
+        >
           We’re trying to make <strong>Hack Club</strong> the best place on the
           internet to be a teenager in tech.
         </Heading>
