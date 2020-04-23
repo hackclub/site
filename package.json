@@ -12,8 +12,8 @@
   "dependencies": {
     "@hackclub/icons": "^0.0.3",
     "@hackclub/meta": "^0.1.0-alpha.0",
-    "@hackclub/theme": "^0.1.0-alpha.0",
-    "@mdx-js/loader": "^1.5.8",
+    "@hackclub/theme": "^0.1.1",
+    "@mdx-js/loader": "^1.5.9",
     "@next/mdx": "^9.3.5",
     "lodash": "^4.17.15",
     "next": "^9.3.5",
