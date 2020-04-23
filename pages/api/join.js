@@ -10,13 +10,12 @@ const joinTable = new AirtablePlus({
 export default async (req, res) => {
 	if (req.method === 'POST') {
 		const data = JSON.parse(req.body)
-		console.log(data)
-		/*await joinTable.create({
+		await joinTable.create({
 			'Full Name': data.name,
 			'Email Address': data.email,
 			'Student': data.hs ? true : false,
 			'Reason': data.reason
-		})*/
+		})
 		res.json({ status: 'success' })
 	}
 }
