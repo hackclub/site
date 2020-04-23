@@ -35,6 +35,11 @@ const CardLink = (props) => (
   />
 )
 
+const grad = (theme, from, to) => `radial-gradient(
+  ellipse farthest-corner at top left, ${theme.colors[from] || from}, ${
+  theme.colors[to] || to
+})`
+
 export default () => (
   <>
     <Box as="header" sx={{ bg: 'dark', py: 6 }}>
@@ -204,11 +209,166 @@ export default () => (
       </Container>
     </Box>
     <Box
+      as="section"
+      sx={{
+        backgroundImage:
+          'url(https://d2wkqk610zk1ag.cloudfront.net/items/413x2P2K242H0C3Z193Z/team_extended_compressed.jpg)',
+        backgroundPosition: 'top center',
+        backgroundSize: 'cover',
+        '@media (hover: hover)': { backgroundAttachment: 'fixed' },
+        pt: [6, 7, 8]
+      }}
+    >
+      <Box
+        sx={{
+          '@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)': {
+            backgroundColor: 'rgba(255,255,255,0.5)',
+            WebkitBackdropFilter: 'saturate(180%) blur(20px)'
+          },
+          py: [4, 5]
+        }}
+      >
+        <Container>
+          <Heading
+            as="h2"
+            variant="title"
+            sx={{
+              color: 'white',
+              maxWidth: 'copyUltra'
+            }}
+          >
+            A{' '}
+            <Text as="span" color="cyan">
+              24/7
+            </Text>{' '}
+            high schooler community. Get coding help, share projects, meet your
+            closest friends.
+          </Heading>
+          <Text as="p" sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3 }}>
+            Have a coding question? Looking for project feedback? You’ll find
+            some fabulous people to talk to in our global Slack (Discord-style
+            online groupchat) with 3,000+ members, active at all hours.
+          </Text>
+        </Container>
+      </Box>
+    </Box>
+    <Box
+      as="section"
+      sx={{ bg: 'snow', color: 'black', position: 'relative', py: [4, 5] }}
+    >
+      <Container>
+        <Heading
+          as="h2"
+          variant="title"
+          sx={{
+            fontSize: [4, 5],
+            color: 'red',
+            textTransform: 'uppercase',
+            letterSpacing: 'headline'
+          }}
+        >
+          Channels on our Slack
+        </Heading>
+        <Grid
+          columns={[null, 2]}
+          gap={[3, 4]}
+          sx={{
+            py: [3, 4],
+            div: { color: 'white' },
+            h3: { my: 0 }
+          }}
+        >
+          <Card
+            sx={{
+              bg: 'blue',
+              backgroundImage: (theme) => `radial-gradient(
+    ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`
+            }}
+          >
+            <Heading as="h3" variant="headline">
+              #ship
+            </Heading>
+            <Text as="p" sx={{ color: 'smoke', fontSize: 2 }}>
+              Share your latest projects & get feedback
+            </Text>
+          </Card>
+          <Card
+            sx={{
+              bg: 'dark',
+              backgroundImage: (theme) => `radial-gradient(
+    ellipse farthest-corner at top left, ${theme.colors.darkless}, ${theme.colors.darker})`
+            }}
+          >
+            <Heading as="h3" variant="headline">
+              #hack-night
+            </Heading>
+            <Text as="p" sx={{ color: 'smoke', fontSize: 2 }}>
+              Biweekly mini-hackathon & video call hangout
+            </Text>
+          </Card>
+        </Grid>
+        <Grid
+          columns={[2, 3, 5]}
+          gap={3}
+          sx={{
+            '> div': {
+              px: [3, 3],
+              py: [4, 4],
+              minHeight: 12 * 16,
+              display: 'flex',
+              flexDirection: 'column',
+              // justifyContent: 'center',
+              position: 'relative'
+            },
+            h3: {
+              variant: 'text.headline',
+              color: 'white',
+              mt: 0
+            }
+          }}
+        >
+          <Card bg="cyan">
+            <h3>#lounge</h3>
+          </Card>
+          <Card bg="blue">
+            <h3>#code</h3>
+          </Card>
+          <Card bg="orange">
+            <h3>#support</h3>
+          </Card>
+          <Card bg="dark">
+            <h3>#gamedev</h3>
+          </Card>
+          <Card bg="red">
+            <h3>#lgbtq</h3>
+          </Card>
+          <Card bg="green">
+            <h3>
+              #photo-
+              <br />
+              graphy
+            </h3>
+          </Card>
+          <Card bg="yellow">
+            <h3>#dogs</h3>
+          </Card>
+          <Card bg="red">
+            <h3>#design</h3>
+          </Card>
+          <Card bg="green">
+            <h3>#music</h3>
+          </Card>
+          <Card bg="orange">
+            <h3>#lounge</h3>
+          </Card>
+        </Grid>
+      </Container>
+    </Box>
+    <Box
       as="footer"
       sx={{
         bg: 'cyan',
-        backgroundImage: (theme) => `radial-gradient(
-    ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`,
+        backgroundImage: (theme) => grad(theme, 'yellow', 'orange'),
         color: 'white',
         py: [5, 6]
       }}
@@ -224,7 +384,7 @@ export default () => (
           variant="subtitle"
           sx={{
             fontSize: 3,
-            color: 'smoke',
+            opacity: 0.875,
             maxWidth: 'copy',
             mx: 'auto',
             mb: 4
@@ -269,6 +429,7 @@ export default () => (
               name="reason"
               placeholder="Write a few sentences."
               variant="forms.input"
+              sx={{ boxShadow: 'none !important' }}
             />
           </Label>
           <Button
@@ -281,7 +442,8 @@ export default () => (
               mt: 3,
               fontSize: 2,
               width: '100%',
-              fontFamily: 'inherit'
+              fontFamily: 'inherit',
+              backgroundImage: (theme) => grad(theme, 'cyan', 'blue')
             }}
             value="Request invitation"
           />
