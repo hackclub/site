@@ -82,7 +82,7 @@ export default () => (
         bg: 'dark',
         py: 6,
         backgroundImage: 'url(http://i.giphy.com/zHZWKipjmTLA4.gif)',
-        backgroundSize: ['100%', '50%'],
+        backgroundSize: '100%',
         '@media (hover: hover)': { backgroundAttachment: 'fixed' },
         '@media (prefers-reduced-motion: reduce)': {
           background: (theme) =>
@@ -144,7 +144,7 @@ export default () => (
         bg: 'white',
         color: 'black',
         textAlign: 'center',
-        py: [4, 5, null, 6]
+        py: [4, 5]
       }}
     >
       <Container sx={{ maxWidth: [null, 'copyPlus', 'copyUltra'] }}>
@@ -158,7 +158,7 @@ export default () => (
             letterSpacing: 'headline'
           }}
         >
-          During COVID-19
+          During COVID
         </Heading>
         <Heading
           as="h2"
@@ -166,11 +166,11 @@ export default () => (
           sx={{ fontSize: [5, 6], mb: 4, strong: { color: 'red' } }}
         >
           We’re trying to make <strong>Hack Club</strong> the best place on the
-          internet to be a teenager in tech.
+          internet to be a teenager into technology.
         </Heading>
-        <Button as="a" href="#join" variant="cta">
+        {/* <Button as="a" href="#join" variant="cta">
           Join our Slack
-        </Button>
+        </Button> */}
       </Container>
     </Box>
     <Box as="section" sx={{ bg: 'dark', color: 'white', py: [4, 5, 6] }}>
@@ -242,7 +242,7 @@ export default () => (
         sx={{
           '@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)': {
             backgroundColor: 'rgba(255,255,255,0.5)',
-            WebkitBackdropFilter: 'saturate(180%) blur(20px)'
+            WebkitBackdropFilter: 'saturate(180%) brightness(90%) blur(20px)'
           },
           py: [4, 5]
         }}
