@@ -4,9 +4,8 @@ import Head from 'next/head'
 
 import Meta from '@hackclub/meta'
 import '@hackclub/theme/fonts/reg-bold.css'
-import theme from '@hackclub/theme'
+import theme from '../lib/theme'
 import { ThemeProvider } from 'theme-ui'
-import ColorSwitcher from '../components/color-switcher'
 
 export default class App extends NextApp {
   render() {
@@ -17,7 +16,6 @@ export default class App extends NextApp {
           <title>Hack Club</title>
           <Meta />
         </Head>
-        <ColorSwitcher />
         <Component {...pageProps} />
       </ThemeProvider>
     )
