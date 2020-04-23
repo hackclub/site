@@ -100,7 +100,7 @@ export default () => (
           We’re trying to make Hack Club the best place on the internet to be a
           teenager in tech.
         </Heading>
-        <Button as="a" href="#join" variant="primary">
+        <Button as="a" href="#join" variant="cta">
           Join our Slack
         </Button>
       </Container>
@@ -274,7 +274,7 @@ export default () => (
           <Button
             as="input"
             type="submit"
-            variant="primary"
+            variant="cta"
             sx={{
               py: 2,
               px: 3,
