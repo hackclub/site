@@ -14,6 +14,7 @@ import {
   Text,
   Textarea
 } from 'theme-ui'
+import { Slide } from 'react-reveal'
 
 const CardLink = (props) => (
   <Link
@@ -42,59 +43,77 @@ const grad = (theme, from, to) => `radial-gradient(
 
 export default () => (
   <>
-    <Box as="header" sx={{ bg: 'dark', py: 6 }}>
+    <Box
+      as="header"
+      sx={{
+        bg: 'dark',
+        py: 6,
+        backgroundImage: 'url(http://i.giphy.com/zHZWKipjmTLA4.gif)',
+        backgroundSize: ['100%', '50%'],
+        '@media (hover: hover)': { backgroundAttachment: 'fixed' },
+        '@media (prefers-reduced-motion: reduce)': {
+          background: (theme) =>
+            `${theme.colors.dark} url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODYyRjhERDU2N0YyMTFFNjg2MzZDQjkwNkQ4MjgwMEIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODYyRjhERDQ2N0YyMTFFNjg2MzZDQjkwNkQ4MjgwMEIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3NjcyQkQ3QTY3QzUxMUU2QjJCQ0UyNDA4MTAwMjE3MSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3NjcyQkQ3QjY3QzUxMUU2QjJCQ0UyNDA4MTAwMjE3MSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvCS01IAAABMSURBVHjaYmR4/5+BFPBfAMFm/MBgx8RAGWCn1AAmSg34Q6kBDKMGMDCwICeMIemF/5QawEipAWwUhwEjMDvbAWlWkvVBwu8vQIABAEwBCph8U6c0AAAAAElFTkSuQmCC) repeat top left`
+        }
+      }}
+    >
       <Container sx={{ textAlign: 'center' }}>
-        <Heading
-          as="h1"
-          variant="title"
-          sx={{
-            mt: 0,
-            fontSize: [7, 8, 9],
-            color: 'white',
-            lineHeight: [0.875, 0.8],
-            textShadow: (theme) => `0 0 6px ${theme.colors.red}`
-          }}
-        >
-          COVID has changed{' '}
-          <Text
-            as="span"
+        <Slide top>
+          <Heading
+            as="h1"
+            variant="title"
             sx={{
-              WebkitTextStroke: (theme) => theme.colors.red,
-              WebkitTextStrokeWidth: '3px',
-              WebkitTextFillColor: (theme) => theme.colors.white
+              mt: 0,
+              fontSize: [7, 8, 9],
+              color: 'white',
+              lineHeight: [0.875, 0.8],
+              textShadow: (theme) => `0 0 6px ${theme.colors.red}`
             }}
           >
-            everything
-          </Text>
-          .
-        </Heading>
+            COVID has changed{' '}
+            <Text
+              as="span"
+              sx={{
+                WebkitTextStroke: (theme) => theme.colors.red,
+                WebkitTextStrokeWidth: '3px',
+                WebkitTextFillColor: (theme) => theme.colors.white
+              }}
+            >
+              everything
+            </Text>
+            .
+          </Heading>
+        </Slide>
+      </Container>
+    </Box>
+    <Box as="section" sx={{ bg: 'white', color: 'black', py: [4, 5, 6] }}>
+      <Container
+        sx={{
+          textAlign: 'center',
+          maxWidth: [null, 'copyPlus', 'copyUltra'],
+          strong: { color: 'red' }
+        }}
+      >
         <Text
           as="p"
           variant="subtitle"
           sx={{
-            mt: 4,
-            fontSize: 4,
-            color: 'cyan',
+            mb: 4,
+            fontSize: [4, 28],
+            // color: 'cyan',
             mx: 'auto',
-            maxWidth: 'copyPlus',
-            strong: { color: 'red' }
+            maxWidth: 'copyPlus'
           }}
         >
           <strong>HACK CLUB</strong> used to be a network of high school coding
           clubs & hackathons. Someday, we’ll get back to that.
         </Text>
-      </Container>
-    </Box>
-    <Box as="section" sx={{ bg: 'white', color: 'black', py: [4, 5, 6] }}>
-      <Container
-        sx={{ textAlign: 'center', maxWidth: [null, 'copyPlus', 'copyUltra'] }}
-      >
         <Heading
           as="h2"
           variant="headline"
           sx={{
-            fontSize: [4, 5],
-            color: 'red',
+            fontSize: [3, 4],
+            color: 'cyan',
             textTransform: 'uppercase',
             letterSpacing: 'headline'
           }}
@@ -102,8 +121,8 @@ export default () => (
           During COVID-19
         </Heading>
         <Heading as="h2" variant="title" sx={{ fontSize: [5, 6], mb: 4 }}>
-          We’re trying to make Hack Club the best place on the internet to be a
-          teenager in tech.
+          We’re trying to make <strong>Hack Club</strong> the best place on the
+          internet to be a teenager in tech.
         </Heading>
         <Button as="a" href="#join" variant="cta">
           Join our Slack
