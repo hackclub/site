@@ -39,7 +39,7 @@ const JoinForm = () => {
       }}
     >
       <form action={`/api/join`} onSubmit={(e) => {
-        e.preventDefault()
+        e.preventDefault();
         fetch(`/api/join`, {
           method: 'POST',
           headers: {
