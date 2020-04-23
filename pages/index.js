@@ -15,6 +15,7 @@ import {
   Textarea
 } from 'theme-ui'
 import { Slide } from 'react-reveal'
+import ForceTheme from '../components/force-theme'
 
 const CardLink = (props) => (
   <Link
@@ -74,6 +75,7 @@ const grad = (theme, from, to) => `radial-gradient(
 
 export default () => (
   <>
+    <ForceTheme theme="light" />
     <Box
       as="header"
       sx={{
