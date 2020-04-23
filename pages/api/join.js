@@ -1,4 +1,3 @@
-require('dotenv').config()
 const AirtablePlus = require('airtable-plus')
 
 const joinTable = new AirtablePlus({
@@ -6,6 +5,7 @@ const joinTable = new AirtablePlus({
 	baseID: 'appaqcJtn33vb59Au',
 	tableName: 'Join Requests'
 })
+console.log(joinTable)
 
 export default async (req, res) => {
 	if (req.method === 'POST') {
