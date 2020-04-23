@@ -42,6 +42,10 @@ const JoinForm = () => {
         e.preventDefault()
         fetch(`/api/join`, {
           method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
           body: JSON.stringify({ name, email, hs, reason })
         })
           .then((r) => r.json())
