@@ -38,9 +38,9 @@ const JoinForm = () => {
         }
       }}
     >
-      <form action={`https://v3-git-join-form.hack-club.now.sh/api/join`} onSubmit={(e) => {
+      <form action={`/api/join`} onSubmit={(e) => {
         e.preventDefault()
-        fetch(`https://v3-git-join-form.hack-club.now.sh/api/join`, {
+        fetch(`/api/join`, {
           method: 'POST',
           body: JSON.stringify({ name, email, hs, reason })
         })
