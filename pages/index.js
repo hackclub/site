@@ -209,6 +209,9 @@ export default () => (
               as="video"
               src="https://d2wkqk610zk1ag.cloudfront.net/items/0k222h2k1Z2h1S1y3t0u/chris-cox-ama.mov"
               controls
+              muted
+              autoPlay
+              loop
               sx={{
                 width: '100%',
                 borderRadiusBottomLeft: 'default',
