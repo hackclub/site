@@ -41,13 +41,11 @@ const JoinForm = () => {
       }}
     >
       <form
-        action="https://hackclub-slacker.glitch.me/join"
+        action="https://hooks.zapier.com/hooks/catch/507705/o5lw2on/"
         method="post"
         onSubmit={(e) => {
           e.preventDefault()
-          console.log({ name, email, teen, reason })
-          debugger
-          fetch('https://hackclub-slacker.glitch.me/join', {
+          fetch('https://hooks.zapier.com/hooks/catch/507705/o5lw2on/', {
             method: 'POST',
             body: JSON.stringify({ name, email, teen, reason })
           })
