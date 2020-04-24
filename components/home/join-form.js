@@ -77,6 +77,7 @@ const JoinForm = () => {
           <Checkbox
             name="teen"
             sx={{ color: 'muted' }}
+            value={teen}
             onChange={(e) => setTeen(e.target.checked)}
           />
           Are you a teenager?
@@ -87,6 +88,7 @@ const JoinForm = () => {
             name="reason"
             placeholder="Write a few sentences."
             variant="forms.input"
+            value={reason}
             onChange={(e) => setReason(e.target.value)}
             sx={{ boxShadow: 'none !important' }}
           />
