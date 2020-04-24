@@ -16,6 +16,10 @@ import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
 
 const fade = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
+const slide = keyframes({
+  from: { transform: 'translateY(-200%)' },
+  to: { transform: 'translateY(0)' }
+})
 
 const CardLink = (props) => (
   <Link
@@ -126,45 +130,45 @@ export default () => (
         sx={{
           position: 'absolute',
           width: '100%',
-          top: 0,
-          left: 0,
           right: 0,
           bottom: 0,
-          objectFit: 'center',
+          minWidth: '100%',
+          minHeight: '100%',
+          objectPosition: 'center',
           objectFit: 'cover',
-          animation: `${fade} 2s ease-in`,
+          animation: `${fade} 2s ease-out`,
           '@media (prefers-reduced-motion: reduce)': { display: 'none' }
         }}
       />
       <Container sx={{ textAlign: 'center' }}>
-        <Slide top>
-          <Heading
-            as="h1"
-            variant="title"
+        <Heading
+          as="h1"
+          variant="title"
+          sx={{
+            mt: 0,
+            fontSize: [6, 8, 9],
+            color: 'white',
+            lineHeight: [0.875, 0.8],
+            position: 'relative',
+            zIndex: 1,
+            textShadow: (theme) => `0 0 6px ${theme.colors.red}`,
+            animation: `${slide} 0.5s ease-in-out`,
+            '@media (prefers-reduced-motion: reduce)': { animation: 'none' }
+          }}
+        >
+          COVID has changed{' '}
+          <Text
+            as="span"
             sx={{
-              mt: 0,
-              fontSize: [6, 8, 9],
-              color: 'white',
-              lineHeight: [0.875, 0.8],
-              position: 'relative',
-              zIndex: 1,
-              textShadow: (theme) => `0 0 6px ${theme.colors.red}`
+              WebkitTextStroke: (theme) => theme.colors.red,
+              WebkitTextStrokeWidth: ['1px', '3px'],
+              WebkitTextFillColor: (theme) => theme.colors.white
             }}
           >
-            COVID has changed{' '}
-            <Text
-              as="span"
-              sx={{
-                WebkitTextStroke: (theme) => theme.colors.red,
-                WebkitTextStrokeWidth: ['1px', '3px'],
-                WebkitTextFillColor: (theme) => theme.colors.white
-              }}
-            >
-              everything
-            </Text>
-            .
-          </Heading>
-        </Slide>
+            everything
+          </Text>
+          .
+        </Heading>
       </Container>
     </Box>
     <Box as="section" bg="dark" py={[4, 5]}>
