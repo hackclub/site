@@ -228,7 +228,7 @@ export default () => (
             letterSpacing: 'headline'
           }}
         >
-          During COVID
+          We won't stop hacking.
         </Heading>
         <Heading
           as="h2"
