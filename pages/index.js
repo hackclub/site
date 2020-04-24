@@ -132,6 +132,7 @@ export default () => (
           left: 0,
           right: 0,
           bottom: 0,
+          objectFit: 'center',
           objectFit: 'cover',
           '@media (prefers-reduced-motion: reduce)': { display: 'none' }
         }}
@@ -143,9 +144,11 @@ export default () => (
             variant="title"
             sx={{
               mt: 0,
-              fontSize: [7, 8, 9],
+              fontSize: [6, 8, 9],
               color: 'white',
               lineHeight: [0.875, 0.8],
+              position: 'relative',
+              zIndex: 1,
               textShadow: (theme) => `0 0 6px ${theme.colors.red}`
             }}
           >
@@ -165,7 +168,7 @@ export default () => (
         </Slide>
       </Container>
     </Box>
-    <Box as="section" bg="muted" py={5}>
+    <Box as="section" bg="orange" py={5}>
       <Container
         sx={{ textAlign: 'center', maxWidth: [null, 'copyPlus', 'copyUltra'] }}
       >
@@ -279,7 +282,7 @@ export default () => (
         sx={{ alignItems: 'center' }}
       >
         <Slide up>
-          <Window title="Student Workshop">
+          <Window title="Student Workshops">
             <Image
               src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fworkshops.jpg?v=1587692925751"
               alt="Students going wild on a Zoom call"
@@ -371,7 +374,7 @@ export default () => (
             }}
           >
             A{' '}
-            <Text as="span" color="cyan">
+            <Text as="span" color="red">
               24/7
             </Text>{' '}
             high schooler community. Get coding help, share projects, meet your
@@ -380,7 +383,7 @@ export default () => (
           <Text as="p" sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3 }}>
             Have a coding question? Looking for project feedback? You’ll find
             some fabulous people to talk to in our global Slack (Discord-style
-            online groupchat) with 3,000+ members, active at all hours.
+            online groupchat) with 8,000+ members, active at all hours.
           </Text>
         </Container>
       </Box>
@@ -502,7 +505,7 @@ export default () => (
             bg="yellow"
             sx={{
               backgroundImage:
-                'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fdogs.jpg?v=1587692925464)',
+                'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2FImage%20from%20iOS%202.jpg?v=1587695033603)',
               backgroundSize: '100%',
               backgroundPosition: 'center',
               textShadow: 'text'

@@ -62,7 +62,7 @@ export default ({ sx, ...props }) => {
       sx={{
         minHeight: '2em',
         height: '100%',
-        maxHeight: ['12em', 'none'],
+        maxHeight: ['12em', '100%'],
         overflow: 'hidden',
         listStyle: 'none',
         lineHeight: 'heading',
@@ -90,13 +90,13 @@ export default ({ sx, ...props }) => {
       {...props}
     >
       {events.length === 0 && <Spinner color="cyan" />}
-      {take(events, 3).map(({ timestamp, type, emoji, ...channel }) => (
+      {take(events, 7).map(({ timestamp, type, emoji, ...channel }) => (
         <Slide top duration={256} key={timestamp}>
           <>
             Someone{' '}
             {type === 'message' && (
               <>
-                sent a message in <Channel {...channel} />
+                messaged <Channel {...channel} />
               </>
             )}
             {type === 'typing' && (

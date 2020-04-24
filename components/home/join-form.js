@@ -58,7 +58,7 @@ const JoinForm = () => {
           Full name
           <Input
             name="name"
-            placeholder="Amanda Hackworth"
+            placeholder="Fiona Hackworth"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -69,7 +69,7 @@ const JoinForm = () => {
             name="email"
             type="email"
             value={email}
-            placeholder="amanda@hackclub.com"
+            placeholder="fiona@hackclub.com"
             onChange={(e) => setEmail(e.target.value)}
           />
         </Label>
