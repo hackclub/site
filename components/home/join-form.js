@@ -41,11 +41,11 @@ const JoinForm = () => {
       }}
     >
       <form
-        action="https://hooks.zapier.com/hooks/catch/507705/o5lw2on/"
+        action="/api/join"
         method="post"
         onSubmit={(e) => {
           e.preventDefault()
-          fetch('https://hooks.zapier.com/hooks/catch/507705/o5lw2on/', {
+          fetch('/api/join', {
             method: 'POST',
             body: JSON.stringify({ name, email, teen, reason })
           })
