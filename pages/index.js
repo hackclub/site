@@ -119,7 +119,7 @@ export default () => (
     <Box as="section" sx={{ bg: 'dark', py: [5, 6] }}>
       <Container sx={{ height: [256, 512, 680] }}>
         <YouTubePlayer
-          url="https://www.youtube.com/watch?v=N3Myt-9iOTw"
+          url="https://youtu.be/riru9OzScwk"
           width="100%"
           height="100%"
         />
