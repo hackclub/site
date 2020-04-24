@@ -38,19 +38,19 @@ const JoinForm = () => {
         }
       }}
     >
-      <form action={`/api/join`} onSubmit={(e) => {
-        e.preventDefault()
-        fetch(`/api/join`, {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ name, email, hs, reason })
-        })
-          .then((r) => r.json())
-          .then((r) => setStatus(r.status))
-      }}>
+      <form
+        action={`https://auspicious-spring-concavenator.glitch.me/join`}
+        method={`post`}
+        onSubmit={(e) => {
+          e.preventDefault()
+          fetch(`https://auspicious-spring-concavenator.glitch.me/join`, {
+            method: 'POST',
+            body: JSON.stringify({ name, email, hs, reason })
+          })
+            .then((r) => r.json())
+            .then((r) => { setStatus(r.status) })
+        }}
+      >
         <Label htmlFor="name">
           Full name
             <Input name="name" placeholder="Amanda Hackworth" value={name} onChange={(e) => setName(e.target.value)} />
