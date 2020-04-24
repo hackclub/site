@@ -32,11 +32,8 @@ const CardLink = (props) => (
       fontSize: 3,
       color: 'red',
       lineHeight: 'subheading',
-      textDecoration: 'none',
-      ':focus,:hover': {
-        textDecoration: 'underline',
-        textDecorationStyle: 'wavy'
-      },
+      textDecoration: 'underline',
+      textDecorationStyle: 'wavy',
       ':after': { content: '"›"', pl: 1 },
       ...props.sx
     }}
@@ -147,7 +144,7 @@ export default () => (
           minHeight: '100%',
           objectPosition: 'center',
           objectFit: 'cover',
-          animation: `${fade} 4s ease-out`,
+          animation: `${fade} 6s ease-out`,
           '@media (prefers-reduced-motion: reduce)': { display: 'none' }
         }}
       />
@@ -561,8 +558,9 @@ export default () => (
             mb: 4
           }}
         >
-          Due to high demand from the Elon Musk AMA, we’re temporarily making
-          our community invite-only. But we still want to meet you!
+          Due to high demand from the Elon Musk AMA, we’re temporarily pausing
+          Slack signups. But we still want to meet you! Add yourself to the
+          signup queue—we’ll be adding everyone over the next week.
         </Text>
         <JoinForm />
       </Container>

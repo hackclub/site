@@ -106,7 +106,7 @@ const JoinForm = () => {
             fontFamily: 'inherit',
             backgroundImage: (theme) => grad(theme, 'cyan', 'blue')
           }}
-          value={status === 'success' ? 'Signed up!' : 'Request Invitation'}
+          value={status === 'success' ? 'Submitted!' : 'Queue signup'}
         />
       </form>
     </Card>

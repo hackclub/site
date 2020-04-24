@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react'
 import useWebSocket from 'react-use-websocket'
-import { Box, Text, Spinner } from 'theme-ui'
+import { Box, Text } from 'theme-ui'
 import { take, sample } from 'lodash'
 import { Slide } from 'react-reveal'
 
@@ -12,7 +12,7 @@ const types = {
 }
 
 const emoji = ['🚀', '🥳', '😂', '💖', '👀']
-const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue']
+const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', '#8067c3']
 
 const Channel = ({ color, channel }) => (
   <Text as="strong" color={color} children={channel} />
@@ -20,7 +20,10 @@ const Channel = ({ color, channel }) => (
 
 export default ({ sx, ...props }) => {
   const didUnmount = useRef(false)
-  const [events, setEvents] = useState([])
+  const [events, setEvents] = useState([
+    { type: 'typing', channel: '#lounge', color: 'cyan' },
+    { type: 'message', channel: '#design', color: 'red' }
+  ])
   const STATIC_OPTIONS = useMemo(
     () => ({
       shouldReconnect: () => !didUnmount.current,
@@ -89,9 +92,6 @@ export default ({ sx, ...props }) => {
       aria-hidden="true"
       {...props}
     >
-      {events.length === 0 && (
-        <Spinner color="cyan" sx={{ display: ['none', 'block'] }} />
-      )}
       {take(events, 7).map(({ timestamp, type, emoji, ...channel }) => (
         <Slide top duration={256} key={timestamp}>
           <>
