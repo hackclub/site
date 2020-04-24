@@ -11,7 +11,7 @@ const types = {
   message: 'message'
 }
 
-const emoji = ['🚀', '🥳', '😂', '💖', '👀']
+const emoji = ['🚀', '🥳', '😂', '💖', '👀', '👍', '🙌', '🙂', '👏']
 const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', '#8067c3']
 
 const Channel = ({ color, channel }) => (
