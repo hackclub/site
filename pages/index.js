@@ -70,6 +70,33 @@ const Event = ({ title, month, day }) => (
   </Grid>
 )
 
+const Window = ({ title, children, ...props }) => (
+  <Card
+    sx={{
+      p: [0, 0],
+      boxShadow: 'elevated',
+      lineHeight: 0,
+      border: '1px solid',
+      borderColor: 'black'
+    }}
+  >
+    <Box
+      sx={{
+        bg: 'muted',
+        color: 'smoke',
+        backgroundImage: (theme) =>
+          `linear-gradient(${theme.colors.darkless}, ${theme.colors.darker})`,
+        p: 2,
+        lineHeight: 'body',
+        textAlign: 'center'
+      }}
+    >
+      {title}
+    </Box>
+    {children}
+  </Card>
+)
+
 const grad = (theme, from, to) => `radial-gradient(
   ellipse farthest-corner at top left, ${theme.colors[from] || from}, ${
   theme.colors[to] || to
@@ -180,7 +207,7 @@ export default () => (
         variant="layout.container"
         columns={[null, '1fr 2fr']}
         gap={[4, 5]}
-        sx={{ alignItems: 'end' }}
+        sx={{ alignItems: 'end', pb: [4, 5] }}
       >
         <Box as="aside">
           <Heading as="h2" variant="headline">
@@ -189,6 +216,9 @@ export default () => (
             </Text>{' '}
             with the most interesting people in tech.
           </Heading>
+          <CardLink href="https://youtu.be/1pn8h2q3Cas">
+            Watch a recent AMA
+          </CardLink>
           <Grid columns={[2, 'initial']} gap={3} mt={4}>
             <Event month="April" day={24} title="Elon Musk" />
             <Event month="April" day={30} title="Jack Conte" />
@@ -197,28 +227,7 @@ export default () => (
           </Grid>
         </Box>
         <Slide up>
-          <Card
-            sx={{
-              p: [0, 0],
-              boxShadow: 'elevated',
-              lineHeight: 0,
-              border: '1px solid',
-              borderColor: 'black'
-            }}
-          >
-            <Box
-              sx={{
-                bg: 'muted',
-                color: 'smoke',
-                backgroundImage: (theme) =>
-                  `linear-gradient(${theme.colors.darkless}, ${theme.colors.darker})`,
-                p: 2,
-                lineHeight: 'body',
-                textAlign: 'center'
-              }}
-            >
-              Weekly Hack Club AMA
-            </Box>
+          <Window title="Weekly Hack Club AMA">
             <Box
               as="video"
               src="https://d2wkqk610zk1ag.cloudfront.net/items/0k222h2k1Z2h1S1y3t0u/chris-cox-ama.mov"
@@ -234,15 +243,68 @@ export default () => (
             >
               Clip from our Chris Cox AMA
             </Box>
-          </Card>
+          </Window>
         </Slide>
+      </Grid>
+      <Grid
+        variant="layout.container"
+        columns={[null, '3fr 2fr 2fr']}
+        gap={[4, 5]}
+        sx={{ alignItems: 'center' }}
+      >
+        <Slide up>
+          <Window title="Student Workshop">
+            <Image
+              src="/home/workshops.jpg"
+              alt="Students going wild on a Zoom call"
+              sx={{
+                width: '100%',
+                borderRadiusBottomLeft: 'default',
+                borderRadiusBottomRight: 'default',
+                mt: '-2px'
+              }}
+            />
+          </Window>
+        </Slide>
+        <div>
+          <Heading as="h3" variant="headline" my={0}>
+            Student-run workshops every week on coding, cooking, drawing,
+            everything.
+          </Heading>
+          <CardLink href="https://youtu.be/Xy_owni1ZVk">
+            Watch a recent live-code
+          </CardLink>
+        </div>
+        <div>
+          <Heading as="h3" variant="headline" my={0}>
+            Sharpen your coding skills in online hackathons like the{' '}
+            <Link
+              href="https://covidglobalhackathon.com"
+              sx={{
+                color: '#0f65ff',
+                textDecoration: 'none',
+                ':focus,:hover': {
+                  WebkitTextStroke: 'currentColor',
+                  WebkitTextStrokeWidth: '1px',
+                  WebkitTextFillColor: (theme) => theme.colors.white,
+                  textShadow: '0 0 4px currentColor'
+                }
+              }}
+            >
+              COVID-19 Global Hackathon
+            </Link>
+            .
+          </Heading>
+          <CardLink href="https://hackathons.hackclub.com/">
+            See upcoming hackathons
+          </CardLink>
+        </div>
       </Grid>
     </Box>
     <Box
       as="section"
       sx={{
-        backgroundImage:
-          'url(https://d2wkqk610zk1ag.cloudfront.net/items/413x2P2K242H0C3Z193Z/team_extended_compressed.jpg)',
+        backgroundImage: 'url(/home/flagship_4.jpg)',
         backgroundPosition: 'top center',
         backgroundSize: 'cover',
         '@media (hover: hover)': { backgroundAttachment: 'fixed' },
@@ -365,7 +427,7 @@ export default () => (
             sx={{
               gridColumn: ['span 2', 'span 6'],
               bg: 'dark',
-              backgroundImage: 'url(https://hackclub.com/photos/night.jpg)',
+              backgroundImage: 'url(/home/night.jpg)',
               backgroundPosition: 'top center',
               backgroundSize: 'cover'
             }}
@@ -407,104 +469,6 @@ export default () => (
           </Card>
           <Card bg="green">
             <h3>#music</h3>
-          </Card>
-        </Grid>
-      </Container>
-    </Box>
-    <Box as="section" sx={{ bg: 'snow', color: 'black', py: [4, 5, 6] }}>
-      <Container>
-        <Heading
-          as="h2"
-          variant="title"
-          sx={{ maxWidth: 'copyUltra', span: { display: ['inline', 'block'] } }}
-        >
-          <Text as="span" color="muted">
-            We’re some of the 15 million U.S.&nbsp;high schoolers isolated.{' '}
-          </Text>
-          <Text as="span" color="orange">
-            Here’s&nbsp;how we’re coming together.
-          </Text>
-        </Heading>
-        <Grid
-          columns={[null, 2]}
-          gap={[3, 4]}
-          sx={{
-            mt: [4, 5],
-            '> div': {
-              p: [3, 4],
-              display: 'flex',
-              flexDirection: 'column',
-              // justifyContent: 'center',
-              position: 'relative'
-            },
-            h3: {
-              mt: 0
-            }
-          }}
-        >
-          <Card>
-            <Heading as="h3" variant="headline">
-              AMAs with some of the most interesting people in tech.
-            </Heading>
-            <Text as="p" sx={{ color: 'muted', fontSize: 2 }}>
-              Elon Musk, Simone Giertz, Tom Preston-Werner, & more
-            </Text>
-            <CardLink href="https://youtu.be/1pn8h2q3Cas">
-              Watch a recent AMA
-            </CardLink>
-          </Card>
-          <Card>
-            <Heading as="h3" variant="headline">
-              Social coding events to keep you leveling up.
-            </Heading>
-            <CardLink href="https://events.hackclub.com/">
-              See upcoming events
-            </CardLink>
-          </Card>
-          <Card bg="dark" color="white">
-            <Heading
-              as="h3"
-              variant="headline"
-              my={0}
-              sx={{ wordBreak: 'break-word' }}
-            >
-              Student-run workshops on coding, cooking, drawing, everything.
-            </Heading>
-            <Grid columns={[null, '3fr 2fr']} gap={[3, 4]} mt={3}>
-              <Image
-                src="/home/workshops.jpg"
-                alt="Video call with students going wild"
-                sx={{ borderRadius: 'default', maxWidth: '100%' }}
-              />
-              <CardLink href="https://youtu.be/Xy_owni1ZVk">
-                Watch a recent live-code
-              </CardLink>
-            </Grid>
-          </Card>
-          <Card>
-            <Heading as="h3" variant="headline">
-              Online hackathons like the{' '}
-              <Link
-                href="https://covidglobalhackathon.com"
-                sx={{
-                  color: '#0f65ff',
-                  display: ['inline', 'block'],
-                  textDecoration: 'none',
-                  ':focus,:hover': {
-                    WebkitTextStroke: 'currentColor',
-                    WebkitTextStrokeWidth: '1px',
-                    WebkitTextFillColor: (theme) => theme.colors.white,
-                    textShadow: '0 0 4px currentColor'
-                  }
-                }}
-              >
-                COVID-19 Global Hackathon
-              </Link>{' '}
-              to grow as a developer.
-            </Heading>
-            <CardLink href="https://hackathons.hackclub.com/">
-              See upcoming hackathons
-            </CardLink>
           </Card>
         </Grid>
       </Container>
