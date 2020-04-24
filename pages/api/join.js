@@ -13,7 +13,7 @@ export default async (req, res) => {
 		await joinTable.create({
 			'Full Name': data.name,
 			'Email Address': data.email,
-			'Student': data.hs ? true : false,
+			'Student': data.teen ? true : false,
 			'Reason': data.reason
 		})
 		res.json({ status: 'success' })
