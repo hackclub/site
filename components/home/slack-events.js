@@ -69,7 +69,7 @@ export default ({ sx, ...props }) => {
         pl: 0,
         color: 'black',
         fontSize: 2,
-        overflowY: 'auto',
+        overflowY: 'hidden',
         position: 'relative',
         ':after': {
           content: '""',

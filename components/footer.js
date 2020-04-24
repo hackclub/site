@@ -83,7 +83,7 @@ const Service = ({ href, icon, ...props }) => (
     mr={2}
     mb={2}
     color="muted"
-    aria-label={`hack club on ${icon}`}
+    title={`Hack Club on ${icon}`}
     children={<Icon glyph={icon} />}
     {...props}
   />
