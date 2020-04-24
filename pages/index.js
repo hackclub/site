@@ -17,6 +17,7 @@ import {
 import { keyframes } from '@emotion/core'
 import { Slide } from 'react-reveal'
 import ForceTheme from '../components/force-theme'
+import Footer from '../components/footer'
 import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
 
@@ -161,7 +162,7 @@ export default () => (
               as="span"
               sx={{
                 WebkitTextStroke: (theme) => theme.colors.red,
-                WebkitTextStrokeWidth: '3px',
+                WebkitTextStrokeWidth: ['1px', '3px'],
                 WebkitTextFillColor: (theme) => theme.colors.white
               }}
             >
@@ -261,7 +262,7 @@ export default () => (
           </Grid>
         </Box>
         <Slide up>
-          <Window title="Weekly Hack Club AMA">
+          <Window title="Weekly Hack Club AMAs">
             <Box
               as="video"
               src="https://d2wkqk610zk1ag.cloudfront.net/items/0k222h2k1Z2h1S1y3t0u/chris-cox-ama.mov"
@@ -556,5 +557,6 @@ export default () => (
         <JoinForm />
       </Container>
     </Box>
+    <Footer />
   </>
 )
