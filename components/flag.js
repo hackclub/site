@@ -33,8 +33,9 @@ const scrolled = (props) =>
   `
 
 const Base = styled('a')`
-  background: url(https://assets.hackclub.com/flag-orpheus-top.svg) no-repeat;
-  background-position: top center;
+  background-image: url(https://assets.hackclub.com/flag-orpheus-top.svg);
+  background-repeat: no-repeat;
+  background-position: top left;
   background-size: contain;
   cursor: pointer;
   flex-shrink: 0;
@@ -57,8 +58,8 @@ const Base = styled('a')`
 `
 
 const Flag = (props) => (
-  <Link href="/" aria-label="Homepage" passHref>
-    <Base {...props} />
+  <Link href="/" passHref>
+    <Base title="Homepage" {...props} />
   </Link>
 )
 

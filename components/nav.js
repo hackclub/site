@@ -80,8 +80,8 @@ const hoverColor = (name) =>
   }[name] || 'black')
 
 const slide = keyframes({
-  from: { transform: 'translateY(-100%)' },
-  to: { transform: 'translateY(0)' }
+  from: { transform: 'translateY(-25%)', opacity: 0 },
+  to: { transform: 'translateY(0)', opacity: 1 }
 })
 
 const layout = (props) =>
@@ -92,7 +92,7 @@ const layout = (props) =>
         overflow-y: auto;
         text-align: left;
         height: 100vh;
-        animation: ${slide} 0.375s ease-in;
+        animation: ${slide} 0.25s ease-in;
         @media (prefers-reduced-motion: reduce) {
           animation: none;
         }
