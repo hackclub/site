@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 import { Box, Container, Flex, Heading, Link, Text } from 'theme-ui'
 import theme from '@hackclub/theme'
 import Icon from './icon'
@@ -14,7 +15,7 @@ const Base = styled(Box)`
       : `${theme.colors.snow} url('https://hackclub.com/pattern.svg') repeat`};
   ${(props) =>
     props.dark &&
-    `
+    css`
       background-size: ${theme.space[4]}px ${theme.space[4]}px;
       h2 {
         color: ${theme.colors.muted};
@@ -45,7 +46,7 @@ const Columns = styled(Container)`
   }
   a {
     text-decoration: none;
-    color: ${theme.colors.muted};
+    color: ${theme.colors.muted} !important;
   }
   h2,
   p {
@@ -106,11 +107,12 @@ const Footer = ({ dark = false, children, ...props }) => (
     py={[4, 5]}
     dark={dark}
     sx={{ textAlign: 'left' }}
+    as="footer"
     {...props}
   >
     {children}
     <Container px={3}>
-      <Columns px={0}>
+      <Columns px={0} as="article">
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
             Hack Club
