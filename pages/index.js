@@ -15,7 +15,7 @@ import {
   Textarea
 } from 'theme-ui'
 import { Slide } from 'react-reveal'
-import JoinForm from '../components/JoinForm'
+import JoinForm from '../components/home/join-form'
 import ForceTheme from '../components/force-theme'
 import SlackEvents from '../components/home/slack-events'
 
@@ -73,7 +73,7 @@ const Event = ({ title, month, day }) => (
 const grad = (theme, from, to) => `radial-gradient(
   ellipse farthest-corner at top left, ${theme.colors[from] || from}, ${
   theme.colors[to] || to
-  })`
+})`
 
 export default () => (
   <>
