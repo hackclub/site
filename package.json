@@ -15,6 +15,7 @@
     "@hackclub/theme": "^0.1.1",
     "@mdx-js/loader": "^1.5.9",
     "@next/mdx": "^9.3.5",
+    "@segment/snippet": "^4.9.0",
     "isomorphic-unfetch": "^3.0.0",
     "lodash": "^4.17.15",
     "next": "^9.3.5",
