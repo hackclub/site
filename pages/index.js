@@ -421,7 +421,7 @@ export default () => (
           >
             <Heading
               as="h2"
-              variant="headline"
+              variant="subheadline"
               sx={{
                 mt: 0,
                 color: 'red',
