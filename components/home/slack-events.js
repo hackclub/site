@@ -22,10 +22,15 @@ const whitelistedChannels = new Set(`
   3d-printing all-hands apple art blockchain cats
   challenges code college-apps coronavirus deals 
   debate design design dogs ethical-hacking film
-  gamedev hack-night hackathons hardware hq india
+  functional
+  gamedev go-bears hack-night hackathons hardware 
+  homelab
+  hq india
   languages late-night-hq-club lgbtq linux lounge
   mason math memes minecraft music photography python
-  ship sleep social studycorner support us-politics
+  rust
+  ship sink-my-ship
+  sleep social studycorner support us-politics
   welcome westborough workshops
 `.split(/\s+/ig).filter((i) => i.length > 0).map((i) => "#" + i));
 
