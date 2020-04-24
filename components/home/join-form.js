@@ -77,7 +77,7 @@ const JoinForm = () => {
           <Checkbox
             name="teen"
             sx={{ color: 'muted' }}
-            onChange={(e) => { console.log(e.target.checked); setTeen(e.target.checked) }}
+            onChange={(e) => { console.log(e.target.checked); setTeen(currentTeen => !currentTeen) }}
           />
           Are you a teenager?
         </Label>
