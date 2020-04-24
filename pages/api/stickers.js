@@ -50,7 +50,7 @@ export default async (req, res) => {
       address = personRecord[0]
     }
 
-    fetch('https://hooks.zapier.com/hooks/catch/507705/o2dbufn/', {
+    fetch(`${process.env.MAIL_MISSION_WEBHOOK}`, {
       method: 'POST',
       body: {
         'test': false,
