@@ -39,11 +39,11 @@ const JoinForm = () => {
       }}
     >
       <form
-        action={`https://auspicious-spring-concavenator.glitch.me/join`}
+        action={`https://hackclub-slacker.glitch.me/join`}
         method={`post`}
         onSubmit={(e) => {
           e.preventDefault()
-          fetch(`https://auspicious-spring-concavenator.glitch.me/join`, {
+          fetch(`https://hackclub-slacker.glitch.me/join`, {
             method: 'POST',
             body: JSON.stringify({ name, email, hs, reason })
           })
