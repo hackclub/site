@@ -3,21 +3,23 @@ import { Card, Label, Input, Button, Checkbox, Textarea } from 'theme-ui'
 import fetch from 'isomorphic-unfetch'
 
 const grad = (theme, from, to) => `radial-gradient(
-  ellipse farthest-corner at top left, ${theme.colors[from] || from}, ${
-  theme.colors[to] || to
-  })`
+  ellipse farthest-corner at top left,
+  ${theme.colors[from] || from},
+  ${theme.colors[to] || to})`
 
 const JoinForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [hs, setHs] = useState('')
+  const [teen, setTeen] = useState(false)
   const [reason, setReason] = useState('')
+
   const [status, setStatus] = useState('')
+
   useEffect(() => {
     setTimeout(() => {
       setName('')
       setEmail('')
-      setHs('')
+      setTeen(false)
       setReason('')
       setStatus('')
     }, 1500)
@@ -39,25 +41,33 @@ const JoinForm = () => {
       }}
     >
       <form
-        action={`https://auspicious-spring-concavenator.glitch.me/join`}
-        method={`post`}
+        action="https://hackclub-slacker.glitch.me/join"
+        method="post"
         onSubmit={(e) => {
           e.preventDefault()
-          fetch(`https://auspicious-spring-concavenator.glitch.me/join`, {
+          console.log({ name, email, teen, reason })
+          debugger
+          fetch('https://hackclub-slacker.glitch.me/join', {
             method: 'POST',
-            body: JSON.stringify({ name, email, hs, reason })
+            body: JSON.stringify({ name, email, teen, reason })
           })
             .then((r) => r.json())
-            .then((r) => { setStatus(r.status) })
+            .then((r) => setStatus(r.status))
+            .catch((e) => console.error(e))
         }}
       >
         <Label htmlFor="name">
           Full name
-            <Input name="name" placeholder="Amanda Hackworth" value={name} onChange={(e) => setName(e.target.value)} />
+          <Input
+            name="name"
+            placeholder="Amanda Hackworth"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </Label>
         <Label htmlFor="email">
           Email address
-            <Input
+          <Input
             name="email"
             type="email"
             value={email}
@@ -65,13 +75,20 @@ const JoinForm = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Label>
-        <Label htmlFor="student" sx={{ flexDirection: 'row !important', alignItems: 'center' }}>
-          <Checkbox name="student" sx={{ color: 'muted' }} onChange={(e) => setHs(e.target.value)} />
-            Are you a high school or college student?
-      </Label>
+        <Label
+          htmlFor="teen"
+          sx={{ flexDirection: 'row !important', alignItems: 'center' }}
+        >
+          <Checkbox
+            name="teen"
+            sx={{ color: 'muted' }}
+            onChange={(e) => setTeen(e.target.checked)}
+          />
+          Are you a teenager?
+        </Label>
         <Label htmlFor="reason">
           Why do you want to join Hack Club?
-            <Textarea
+          <Textarea
             name="reason"
             placeholder="Write a few sentences."
             variant="forms.input"
@@ -95,7 +112,7 @@ const JoinForm = () => {
           value={status === 'success' ? 'Signed up!' : 'Request Invitation'}
         />
       </form>
-    </Card >
+    </Card>
   )
 }
 
