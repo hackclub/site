@@ -41,11 +41,11 @@ const JoinForm = () => {
       }}
     >
       <form
-        action="/api/join"
+        action="https://v3.hackclub.com/api/join"
         method="post"
         onSubmit={(e) => {
           e.preventDefault()
-          fetch('/api/join', {
+          fetch('https://v3.hackclub.com/api/join', {
             method: 'POST',
             body: JSON.stringify({ name, email, teen, reason })
           })
