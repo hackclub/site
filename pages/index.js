@@ -13,7 +13,7 @@ import { Slide } from 'react-reveal'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
-// import ForceTheme from '../components/force-theme'
+import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
@@ -112,7 +112,7 @@ export default () => (
         image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fhackclub.jpg?v=1587740807714"
       />
     </Head>
-    {/* <ForceTheme theme="light" /> */}
+    <ForceTheme theme="light" />
     <Nav />
     <Box
       as="header"
