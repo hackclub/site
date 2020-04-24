@@ -255,7 +255,7 @@ export default () => (
         <Slide up>
           <Window title="Student Workshop">
             <Image
-              src="/home/workshops.jpg"
+              src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fworkshops.jpg?v=1587692925751"
               alt="Students going wild on a Zoom call"
               sx={{
                 width: '100%',
@@ -304,7 +304,8 @@ export default () => (
     <Box
       as="section"
       sx={{
-        backgroundImage: 'url(/home/flagship_4.jpg)',
+        backgroundImage:
+          'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fflagship_4.jpg?v=1587692929877)',
         backgroundPosition: 'top center',
         backgroundSize: 'cover',
         '@media (hover: hover)': { backgroundAttachment: 'fixed' },
@@ -427,7 +428,8 @@ export default () => (
             sx={{
               gridColumn: ['span 2', 'span 6'],
               bg: 'dark',
-              backgroundImage: 'url(/home/night.jpg)',
+              backgroundImage:
+                'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fnight.jpg?v=1587692925213)',
               backgroundPosition: 'top center',
               backgroundSize: 'cover'
             }}
@@ -448,7 +450,13 @@ export default () => (
           <Card bg="blue">
             <h3>#code</h3>
           </Card>
-          <Card bg="red">
+          <Card
+            bg="red"
+            sx={{
+              backgroundImage: ({ colors }) =>
+                `linear-gradient(${colors.red} 0%, ${colors.red} 16.6666%, ${colors.orange} 16.6666%, ${colors.orange} 33.333%, ${colors.yellow} 33.333%, ${colors.yellow} 50%, ${colors.green} 50%, ${colors.green} 66.6666%, ${colors.blue} 66.6666%, ${colors.blue} 83.3333%, #8067C3 83.3333%, #8067C3 100%)`
+            }}
+          >
             <h3>#lgbtq</h3>
           </Card>
           <Card bg="dark">
@@ -464,7 +472,16 @@ export default () => (
               graphy
             </h3>
           </Card>
-          <Card bg="yellow">
+          <Card
+            bg="yellow"
+            sx={{
+              backgroundImage:
+                'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fdogs.jpg?v=1587692925464)',
+              backgroundSize: '100%',
+              backgroundPosition: 'center',
+              textShadow: 'text'
+            }}
+          >
             <h3>#dogs</h3>
           </Card>
           <Card bg="green">
