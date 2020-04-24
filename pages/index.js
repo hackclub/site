@@ -18,6 +18,8 @@ import Footer from '../components/footer'
 import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
 
+import YouTubePlayer from 'react-player/lib/players/YouTube'
+
 const fade = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
 const slide = keyframes({
   from: { transform: 'translateY(-200%)' },
@@ -114,6 +116,15 @@ export default () => (
     </Head>
     <ForceTheme theme="light" />
     <Nav />
+    <Box as="section" sx={{ bg: 'dark', py: [5, 6] }}>
+      <Container sx={{ height: [256, 512, 680] }}>
+        <YouTubePlayer
+          url="https://www.youtube.com/watch?v=N3Myt-9iOTw"
+          width="100%"
+          height="100%"
+        />
+      </Container>
+    </Box>
     <Box
       as="header"
       sx={{
