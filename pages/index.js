@@ -18,8 +18,6 @@ import Footer from '../components/footer'
 import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
 
-import YouTubePlayer from 'react-player/lib/players/YouTube'
-
 const fade = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
 const slide = keyframes({
   from: { transform: 'translateY(-200%)' },
@@ -116,15 +114,6 @@ export default () => (
     </Head>
     <ForceTheme theme="light" />
     <Nav />
-    <Box as="section" sx={{ bg: 'dark', py: [5, 6] }}>
-      <Container sx={{ height: [256, 512, 680] }}>
-        <YouTubePlayer
-          url="https://youtu.be/riru9OzScwk"
-          width="100%"
-          height="100%"
-        />
-      </Container>
-    </Box>
     <Box
       as="header"
       sx={{
@@ -268,8 +257,8 @@ export default () => (
             </Text>{' '}
             with the most interesting people in tech.
           </Heading>
-          <CardLink href="https://youtu.be/1pn8h2q3Cas">
-            Watch a recent AMA
+          <CardLink href="https://youtu.be/riru9OzScwk">
+            Watch our Elon Musk AMA
           </CardLink>
           <Grid columns={[2, 'initial']} gap={3} mt={4}>
             <Event month="April" day={24} title="Elon Musk" />
