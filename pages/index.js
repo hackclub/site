@@ -269,9 +269,8 @@ export default () => (
               loop
               sx={{
                 width: '100%',
-                borderRadiusBottomLeft: 'default',
-                borderRadiusBottomRight: 'default',
-                mt: '-2px'
+                borderBottomLeftRadius: 'default',
+                borderBottomRightRadius: 'default'
               }}
             >
               Clip from our Chris Cox AMA
@@ -292,14 +291,13 @@ export default () => (
               alt="Students going wild on a Zoom call"
               sx={{
                 width: '100%',
-                borderRadiusBottomLeft: 'default',
-                borderRadiusBottomRight: 'default',
-                mt: '-2px'
+                borderBottomLeftRadius: 'default',
+                borderBottomRightRadius: 'default'
               }}
             />
           </Window>
         </Slide>
-        <div>
+        <Box sx={{ gridRow: ['1', 'initial'] }}>
           <Heading as="h3" variant="headline" my={0}>
             Student-run workshops every week on coding, cooking, drawing,
             everything.
@@ -307,7 +305,7 @@ export default () => (
           <CardLink href="https://youtu.be/Xy_owni1ZVk">
             Watch a recent live-code
           </CardLink>
-        </div>
+        </Box>
         <div>
           <Heading as="h3" variant="headline" my={0}>
             Sharpen your coding skills in online hackathons like the{' '}
