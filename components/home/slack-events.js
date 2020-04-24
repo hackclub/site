@@ -18,6 +18,8 @@ const Channel = ({ color, channel }) => (
   <Text as="strong" color={color} children={channel} />
 )
 
+const whitelistedChannels = ["#lounge", "#ship", "#design", "#minecraft", "#hq", "#welcome", "#studycorner"]
+
 export default ({ sx, ...props }) => {
   const didUnmount = useRef(false)
   const [events, setEvents] = useState([
@@ -41,7 +43,7 @@ export default ({ sx, ...props }) => {
     if (e) {
       try {
         e = JSON.parse(e)
-        if (Object.keys(types).includes(e.type)) {
+        if (Object.keys(types).includes(e.type) && whitelistedChannels.includes(e.channel)) {
           e.type = types[e.type]
           e.color = sample(colors)
           if (e.type === 'reaction') e.emoji = sample(emoji)
