@@ -27,7 +27,7 @@ const whitelistedChannels = new Set(`
   mason math memes minecraft music photography python
   ship sleep social studycorner support us-politics
   welcome westborough workshops
-`.filter((i) => i.length > 0).map((i) => "#" + i));
+`.split(/\s+/ig).filter((i) => i.length > 0).map((i) => "#" + i));
 
 export default ({ sx, ...props }) => {
   const didUnmount = useRef(false)
