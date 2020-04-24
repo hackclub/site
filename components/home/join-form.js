@@ -73,10 +73,7 @@ const JoinForm = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Label>
-        <Label
-          htmlFor="teen"
-          sx={{ flexDirection: 'row !important', alignItems: 'center' }}
-        >
+        <Label sx={{ flexDirection: 'row !important', alignItems: 'center' }}>
           <Checkbox
             name="teen"
             sx={{ color: 'muted' }}
