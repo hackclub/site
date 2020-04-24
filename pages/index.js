@@ -15,9 +15,9 @@ import {
   Textarea
 } from 'theme-ui'
 import { Slide } from 'react-reveal'
-import JoinForm from '../components/home/join-form'
 import ForceTheme from '../components/force-theme'
 import SlackEvents from '../components/home/slack-events'
+import JoinForm from '../components/home/join-form'
 
 const CardLink = (props) => (
   <Link
@@ -121,6 +121,7 @@ export default () => (
       <Box
         as="video"
         src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fheader.mp4?v=1587692929387"
+        aria-hidden="true"
         muted
         autoPlay
         loop
@@ -175,11 +176,20 @@ export default () => (
             fontSize: [4, 28],
             color: 'white',
             mx: 'auto',
-            maxWidth: 'copyPlus'
+            maxWidth: 'copyPlus',
+            lineHeight: 'caption',
+            a: { color: 'inherit' }
           }}
         >
-          <strong>HACK CLUB</strong> used to be a network of high school coding
-          clubs & hackathons. Someday, we’ll get back to that.
+          <strong>HACK CLUB</strong> used to be a network of{' '}
+          <Link href="https://hackclub.com/clubs/">
+            high school coding clubs
+          </Link>
+          {' & '}
+          <Link href="https://hackathons.hackclub.com/">
+            in-person hackathons
+          </Link>
+          . Someday, we’ll get back to that.
         </Text>
       </Container>
     </Box>
@@ -198,7 +208,7 @@ export default () => (
           variant="headline"
           sx={{
             fontSize: [4, 4],
-            color: 'cyan',
+            color: 'blue',
             textTransform: 'uppercase',
             letterSpacing: 'headline'
           }}
