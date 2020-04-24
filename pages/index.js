@@ -16,6 +16,7 @@ import {
 } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import JoinForm from '../components/JoinForm'
+import ForceTheme from '../components/force-theme'
 
 const CardLink = (props) => (
   <Link
@@ -37,6 +38,37 @@ const CardLink = (props) => (
   />
 )
 
+const Event = ({ title, month, day }) => (
+  <Grid columns="auto 1fr" gap={3} sx={{ alignItems: 'center' }}>
+    <Box
+      sx={{
+        borderRadius: 'default',
+        lineHeight: 'caption',
+        textAlign: 'center',
+        border: '3px solid',
+        borderColor: 'primary',
+        width: 60
+      }}
+    >
+      <Box
+        sx={{
+          bg: 'primary',
+          color: 'white',
+          letterSpacing: 'headline',
+          fontWeight: 'bold',
+          fontSize: 0
+        }}
+      >
+        {month}
+      </Box>
+      <Box sx={{ color: 'white', fontSize: [2, 3] }}>{day}</Box>
+    </Box>
+    <Text as="p" variant="subheadline" sx={{ my: 0 }}>
+      {title}
+    </Text>
+  </Grid>
+)
+
 const grad = (theme, from, to) => `radial-gradient(
   ellipse farthest-corner at top left, ${theme.colors[from] || from}, ${
   theme.colors[to] || to
@@ -44,13 +76,14 @@ const grad = (theme, from, to) => `radial-gradient(
 
 export default () => (
   <>
+    <ForceTheme theme="light" />
     <Box
       as="header"
       sx={{
         bg: 'dark',
         py: 6,
         backgroundImage: 'url(http://i.giphy.com/zHZWKipjmTLA4.gif)',
-        backgroundSize: ['100%', '50%'],
+        backgroundSize: '100%',
         '@media (hover: hover)': { backgroundAttachment: 'fixed' },
         '@media (prefers-reduced-motion: reduce)': {
           background: (theme) =>
@@ -87,21 +120,16 @@ export default () => (
         </Slide>
       </Container>
     </Box>
-    <Box as="section" sx={{ bg: 'white', color: 'black', py: [4, 5, 6] }}>
+    <Box as="section" bg="muted" py={5}>
       <Container
-        sx={{
-          textAlign: 'center',
-          maxWidth: [null, 'copyPlus', 'copyUltra'],
-          strong: { color: 'red' }
-        }}
+        sx={{ textAlign: 'center', maxWidth: [null, 'copyPlus', 'copyUltra'] }}
       >
         <Text
           as="p"
           variant="subtitle"
           sx={{
-            mb: 4,
             fontSize: [4, 28],
-            // color: 'cyan',
+            color: 'white',
             mx: 'auto',
             maxWidth: 'copyPlus'
           }}
@@ -109,124 +137,96 @@ export default () => (
           <strong>HACK CLUB</strong> used to be a network of high school coding
           clubs & hackathons. Someday, we’ll get back to that.
         </Text>
+      </Container>
+    </Box>
+    <Box
+      as="section"
+      sx={{
+        bg: 'white',
+        color: 'black',
+        textAlign: 'center',
+        py: [4, 5]
+      }}
+    >
+      <Container sx={{ maxWidth: [null, 'copyPlus', 'copyUltra'] }}>
         <Heading
           as="h2"
           variant="headline"
           sx={{
-            fontSize: [3, 4],
+            fontSize: [4, 4],
             color: 'cyan',
             textTransform: 'uppercase',
             letterSpacing: 'headline'
           }}
         >
-          During COVID-19
+          During COVID
         </Heading>
-        <Heading as="h2" variant="title" sx={{ fontSize: [5, 6], mb: 4 }}>
-          We’re trying to make <strong>Hack Club</strong> the best place on the
-          internet to be a teenager in tech.
-        </Heading>
-        <Button as="a" href="#join" variant="cta">
-          Join our Slack
-        </Button>
-      </Container>
-    </Box>
-    <Box as="section" sx={{ bg: 'snow', color: 'black', py: [4, 5, 6] }}>
-      <Container>
         <Heading
           as="h2"
           variant="title"
-          sx={{ maxWidth: 'copyUltra', span: { display: ['inline', 'block'] } }}
+          sx={{ fontSize: [5, 6], mb: 4, strong: { color: 'red' } }}
         >
-          <Text as="span" color="muted">
-            We’re some of the 15 million U.S.&nbsp;high schoolers isolated.{' '}
-          </Text>
-          <Text as="span" color="orange">
-            Here’s&nbsp;how we’re coming together.
-          </Text>
+          We’re trying to make <strong>Hack Club</strong> the best place on the
+          internet to be a teenager into technology.
         </Heading>
-        <Grid
-          columns={[null, 2]}
-          gap={[3, 4]}
-          sx={{
-            mt: [4, 5],
-            '> div': {
-              p: [3, 4],
-              display: 'flex',
-              flexDirection: 'column',
-              // justifyContent: 'center',
-              position: 'relative'
-            },
-            h3: {
-              mt: 0
-            }
-          }}
-        >
-          <Card>
-            <Heading as="h3" variant="headline">
-              AMAs with some of the most interesting people in tech.
-            </Heading>
-            <Text as="p" sx={{ color: 'muted', fontSize: 2 }}>
-              Elon Musk, Simone Giertz, Tom Preston-Werner, & more
-            </Text>
-            <CardLink href="https://youtu.be/1pn8h2q3Cas">
-              Watch a recent AMA
-            </CardLink>
-          </Card>
-          <Card>
-            <Heading as="h3" variant="headline">
-              Social coding events to keep you leveling up.
-            </Heading>
-            <CardLink href="https://events.hackclub.com/">
-              See upcoming events
-            </CardLink>
-          </Card>
-          <Card bg="dark" color="white">
-            <Heading
-              as="h3"
-              variant="headline"
-              my={0}
-              sx={{ wordBreak: 'break-word' }}
-            >
-              Student-run workshops on coding, cooking, drawing, everything.
-            </Heading>
-            <Grid columns={[null, '3fr 2fr']} gap={[3, 4]} mt={3}>
-              <Image
-                src="/home/workshops.jpg"
-                alt="Video call with students going wild"
-                sx={{ borderRadius: 'default', maxWidth: '100%' }}
-              />
-              <CardLink href="https://youtu.be/Xy_owni1ZVk">
-                Watch a recent live-code
-              </CardLink>
-            </Grid>
-          </Card>
-          <Card>
-            <Heading as="h3" variant="headline">
-              Online hackathons like the{' '}
-              <Link
-                href="https://covidglobalhackathon.com"
-                sx={{
-                  color: '#0f65ff',
-                  display: ['inline', 'block'],
-                  textDecoration: 'none',
-                  ':focus,:hover': {
-                    WebkitTextStroke: 'currentColor',
-                    WebkitTextStrokeWidth: '1px',
-                    WebkitTextFillColor: (theme) => theme.colors.white,
-                    textShadow: '0 0 4px currentColor'
-                  }
-                }}
-              >
-                COVID-19 Global Hackathon
-              </Link>{' '}
-              to grow as a developer.
-            </Heading>
-            <CardLink href="https://hackathons.hackclub.com/">
-              See upcoming hackathons
-            </CardLink>
-          </Card>
-        </Grid>
+        {/* <Button as="a" href="#join" variant="cta">
+          Join our Slack
+        </Button> */}
       </Container>
+    </Box>
+    <Box as="section" sx={{ bg: 'dark', color: 'white', py: [4, 5, 6] }}>
+      <Grid
+        variant="layout.container"
+        columns={[null, '1fr 2fr']}
+        gap={[4, 5]}
+        sx={{ alignItems: 'end' }}
+      >
+        <Box as="aside">
+          <Heading as="h2" variant="headline">
+            <Text as="span" variant="title">
+              Weekly&nbsp;AMAs
+            </Text>{' '}
+            with the most interesting people in tech.
+          </Heading>
+          <Grid columns={[2, 'initial']} gap={3} mt={4}>
+            <Event month="April" day={24} title="Elon Musk" />
+            <Event month="April" day={30} title="Jack Conte" />
+            <Event month="May" day={7} title="Simone Giertz" />
+            <Event month="May" day={14} title="Guillermo Rauch" />
+          </Grid>
+        </Box>
+        <Slide up>
+          <Card sx={{ p: [0, 0], lineHeight: 0 }}>
+            <Box
+              sx={{
+                bg: 'muted',
+                backgroundImage: (theme) => `linear-gradient(#C0CCDA, #8492A6)`,
+                p: 2,
+                lineHeight: 'body',
+                textAlign: 'center'
+              }}
+            >
+              Weekly Hack Club AMA
+            </Box>
+            <Box
+              as="video"
+              src="https://d2wkqk610zk1ag.cloudfront.net/items/0k222h2k1Z2h1S1y3t0u/chris-cox-ama.mov"
+              controls
+              muted
+              autoPlay
+              loop
+              sx={{
+                width: '100%',
+                borderRadiusBottomLeft: 'default',
+                borderRadiusBottomRight: 'default',
+                mt: '-2px'
+              }}
+            >
+              chris-cox-ama.mov
+            </Box>
+          </Card>
+        </Slide>
+      </Grid>
     </Box>
     <Box
       as="section"
@@ -243,7 +243,7 @@ export default () => (
         sx={{
           '@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)': {
             backgroundColor: 'rgba(255,255,255,0.5)',
-            WebkitBackdropFilter: 'saturate(180%) blur(20px)'
+            WebkitBackdropFilter: 'saturate(180%) brightness(90%) blur(20px)'
           },
           py: [4, 5]
         }}
@@ -380,6 +380,104 @@ export default () => (
           </Card>
           <Card bg="orange">
             <h3>#lounge</h3>
+          </Card>
+        </Grid>
+      </Container>
+    </Box>
+    <Box as="section" sx={{ bg: 'snow', color: 'black', py: [4, 5, 6] }}>
+      <Container>
+        <Heading
+          as="h2"
+          variant="title"
+          sx={{ maxWidth: 'copyUltra', span: { display: ['inline', 'block'] } }}
+        >
+          <Text as="span" color="muted">
+            We’re some of the 15 million U.S.&nbsp;high schoolers isolated.{' '}
+          </Text>
+          <Text as="span" color="orange">
+            Here’s&nbsp;how we’re coming together.
+          </Text>
+        </Heading>
+        <Grid
+          columns={[null, 2]}
+          gap={[3, 4]}
+          sx={{
+            mt: [4, 5],
+            '> div': {
+              p: [3, 4],
+              display: 'flex',
+              flexDirection: 'column',
+              // justifyContent: 'center',
+              position: 'relative'
+            },
+            h3: {
+              mt: 0
+            }
+          }}
+        >
+          <Card>
+            <Heading as="h3" variant="headline">
+              AMAs with some of the most interesting people in tech.
+            </Heading>
+            <Text as="p" sx={{ color: 'muted', fontSize: 2 }}>
+              Elon Musk, Simone Giertz, Tom Preston-Werner, & more
+            </Text>
+            <CardLink href="https://youtu.be/1pn8h2q3Cas">
+              Watch a recent AMA
+            </CardLink>
+          </Card>
+          <Card>
+            <Heading as="h3" variant="headline">
+              Social coding events to keep you leveling up.
+            </Heading>
+            <CardLink href="https://events.hackclub.com/">
+              See upcoming events
+            </CardLink>
+          </Card>
+          <Card bg="dark" color="white">
+            <Heading
+              as="h3"
+              variant="headline"
+              my={0}
+              sx={{ wordBreak: 'break-word' }}
+            >
+              Student-run workshops on coding, cooking, drawing, everything.
+            </Heading>
+            <Grid columns={[null, '3fr 2fr']} gap={[3, 4]} mt={3}>
+              <Image
+                src="/home/workshops.jpg"
+                alt="Video call with students going wild"
+                sx={{ borderRadius: 'default', maxWidth: '100%' }}
+              />
+              <CardLink href="https://youtu.be/Xy_owni1ZVk">
+                Watch a recent live-code
+              </CardLink>
+            </Grid>
+          </Card>
+          <Card>
+            <Heading as="h3" variant="headline">
+              Online hackathons like the{' '}
+              <Link
+                href="https://covidglobalhackathon.com"
+                sx={{
+                  color: '#0f65ff',
+                  display: ['inline', 'block'],
+                  textDecoration: 'none',
+                  ':focus,:hover': {
+                    WebkitTextStroke: 'currentColor',
+                    WebkitTextStrokeWidth: '1px',
+                    WebkitTextFillColor: (theme) => theme.colors.white,
+                    textShadow: '0 0 4px currentColor'
+                  }
+                }}
+              >
+                COVID-19 Global Hackathon
+              </Link>{' '}
+              to grow as a developer.
+            </Heading>
+            <CardLink href="https://hackathons.hackclub.com/">
+              See upcoming hackathons
+            </CardLink>
           </Card>
         </Grid>
       </Container>
