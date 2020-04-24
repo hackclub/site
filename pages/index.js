@@ -15,6 +15,7 @@ import {
   Textarea
 } from 'theme-ui'
 import { Slide } from 'react-reveal'
+import JoinForm from '../components/JoinForm'
 import ForceTheme from '../components/force-theme'
 
 const CardLink = (props) => (
@@ -71,7 +72,7 @@ const Event = ({ title, month, day }) => (
 const grad = (theme, from, to) => `radial-gradient(
   ellipse farthest-corner at top left, ${theme.colors[from] || from}, ${
   theme.colors[to] || to
-})`
+  })`
 
 export default () => (
   <>
@@ -510,61 +511,7 @@ export default () => (
           Due to high demand from the Elon Musk AMA, we’re temporarily making
           our community invite-only. But we still want to meet you!
         </Text>
-        <Card
-          sx={{
-            bg: 'rgba(255,255,255,0.875)',
-            maxWidth: 'narrow',
-            mx: 'auto',
-            label: {
-              display: 'flex',
-              flexDirection: 'column',
-              textAlign: 'left',
-              fontSize: 2,
-              mb: 3
-            }
-          }}
-        >
-          <Label>
-            Full name
-            <Input name="name" placeholder="Amanda Hackworth" />
-          </Label>
-          <Label>
-            Email address
-            <Input
-              name="email"
-              type="email"
-              placeholder="amanda@hackclub.com"
-            />
-          </Label>
-          <Label sx={{ flexDirection: 'row !important', alignItems: 'center' }}>
-            <Checkbox name="student" sx={{ color: 'muted' }} />
-            Are you a high school or college student?
-          </Label>
-          <Label>
-            Why do you want to join Hack Club?
-            <Textarea
-              name="reason"
-              placeholder="Write a few sentences."
-              variant="forms.input"
-              sx={{ boxShadow: 'none !important' }}
-            />
-          </Label>
-          <Button
-            as="input"
-            type="submit"
-            variant="cta"
-            sx={{
-              py: 2,
-              px: 3,
-              mt: 3,
-              fontSize: 2,
-              width: '100%',
-              fontFamily: 'inherit',
-              backgroundImage: (theme) => grad(theme, 'cyan', 'blue')
-            }}
-            value="Request invitation"
-          />
-        </Card>
+        <JoinForm />
       </Container>
     </Box>
   </>
