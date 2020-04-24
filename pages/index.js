@@ -10,6 +10,7 @@ import {
 } from 'theme-ui'
 import { keyframes } from '@emotion/core'
 import { Slide } from 'react-reveal'
+import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import SlackEvents from '../components/home/slack-events'
@@ -107,6 +108,7 @@ const grad = (theme, from, to) => `radial-gradient(
 export default () => (
   <>
     <ForceTheme theme="light" />
+    <Nav />
     <Box
       as="header"
       sx={{

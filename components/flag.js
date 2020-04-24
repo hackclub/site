@@ -1,19 +1,65 @@
-import { Link as A, Image } from 'theme-ui'
+import theme from '../lib/theme'
+import styled from '@emotion/styled'
+import { css, keyframes } from '@emotion/core'
+import Link from 'next/link'
 
-const Flag = () => (
-  <A
-    href="https://hackclub.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Hack Club homepage"
-    sx={{ ineHeight: 0, position: 'absolute', top: 0, left: 3 }}
-  >
-    <Image
-      src="https://assets.hackclub.com/flag-orpheus-top.svg"
-      alt="Hack Club flag"
-      sx={{ width: [96, 128] }}
-    />
-  </A>
+const waveFlag = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-5deg);
+  }
+`
+
+const waveFlagScaled = keyframes`
+  from {
+    transform: scale(.75) rotate(0deg);
+  }
+  to {
+    transform: scale(.75) rotate(-5deg);
+  }
+`
+
+const scrolled = (props) =>
+  props.scrolled &&
+  css`
+    transform: scale(0.875);
+    height: 56px;
+    &:hover,
+    &:focus {
+      animation: ${waveFlagScaled} 0.5s linear infinite alternate;
+    }
+  `
+
+const Base = styled('a')`
+  background: url(https://assets.hackclub.com/flag-orpheus-top.svg) no-repeat;
+  background-position: top center;
+  background-size: contain;
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 112px;
+  height: 48px;
+  transition: ${3 / 16}s cubic-bezier(0.375, 0, 0.675, 1) transform;
+  transform-origin: top left;
+  @media (min-width: ${theme.breakpoints[1]}) {
+    width: 172px;
+    height: 64px;
+  }
+  &:hover,
+  &:focus {
+    animation: ${waveFlag} 0.5s linear infinite alternate;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+  }
+  ${scrolled};
+`
+
+const Flag = (props) => (
+  <Link href="/" aria-label="Homepage" passHref>
+    <Base {...props} />
+  </Link>
 )
 
 export default Flag
