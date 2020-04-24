@@ -22,6 +22,7 @@
     "next": "^9.3.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-player": "^1.15.3",
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
     "react-use-websocket": "^1.7.3",
