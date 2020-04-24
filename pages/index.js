@@ -17,6 +17,7 @@ import {
 import { Slide } from 'react-reveal'
 import JoinForm from '../components/JoinForm'
 import ForceTheme from '../components/force-theme'
+import SlackEvents from '../components/home/slack-events'
 
 const CardLink = (props) => (
   <Link
@@ -196,11 +197,21 @@ export default () => (
           </Grid>
         </Box>
         <Slide up>
-          <Card sx={{ p: [0, 0], lineHeight: 0 }}>
+          <Card
+            sx={{
+              p: [0, 0],
+              boxShadow: 'elevated',
+              lineHeight: 0,
+              border: '1px solid',
+              borderColor: 'black'
+            }}
+          >
             <Box
               sx={{
                 bg: 'muted',
-                backgroundImage: (theme) => `linear-gradient(#C0CCDA, #8492A6)`,
+                color: 'smoke',
+                backgroundImage: (theme) =>
+                  `linear-gradient(${theme.colors.darkless}, ${theme.colors.darker})`,
                 p: 2,
                 lineHeight: 'body',
                 textAlign: 'center'
@@ -211,7 +222,6 @@ export default () => (
             <Box
               as="video"
               src="https://d2wkqk610zk1ag.cloudfront.net/items/0k222h2k1Z2h1S1y3t0u/chris-cox-ama.mov"
-              controls
               muted
               autoPlay
               loop
@@ -222,7 +232,7 @@ export default () => (
                 mt: '-2px'
               }}
             >
-              chris-cox-ama.mov
+              Clip from our Chris Cox AMA
             </Box>
           </Card>
         </Slide>
@@ -241,19 +251,33 @@ export default () => (
     >
       <Box
         sx={{
+          position: 'relative',
+          backgroundColor: 'rgba(255,255,255,0.875)',
           '@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)': {
             backgroundColor: 'rgba(255,255,255,0.5)',
-            WebkitBackdropFilter: 'saturate(180%) brightness(90%) blur(20px)'
+            backdropFilter: 'blur(20px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%)'
+          },
+          ':after': {
+            content: '""',
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            display: 'block',
+            height: 256,
+            backgroundImage: (theme) =>
+              `linear-gradient(rgba(255,255,255,0), ${theme.colors.white})`
           },
           py: [4, 5]
         }}
       >
-        <Container>
+        <Container sx={{ position: 'relative', zIndex: 2 }}>
           <Heading
             as="h2"
             variant="title"
             sx={{
-              color: 'white',
+              color: 'black',
               maxWidth: 'copyUltra'
             }}
           >
@@ -274,32 +298,56 @@ export default () => (
     </Box>
     <Box
       as="section"
-      sx={{ bg: 'snow', color: 'black', position: 'relative', py: [4, 5] }}
+      sx={{ bg: 'white', color: 'black', position: 'relative', pb: [4, 5] }}
     >
       <Container>
-        <Heading
-          as="h2"
-          variant="title"
-          sx={{
-            fontSize: [4, 5],
-            color: 'red',
-            textTransform: 'uppercase',
-            letterSpacing: 'headline'
-          }}
-        >
-          Channels on our Slack
-        </Heading>
         <Grid
-          columns={[null, 2]}
-          gap={[3, 4]}
+          columns={[2, 15]}
+          gap={3}
           sx={{
             py: [3, 4],
-            div: { color: 'white' },
-            h3: { my: 0 }
+            h3: { my: 0 },
+            '> div': {
+              px: [2, 3],
+              py: [4, 4],
+              display: 'flex',
+              flexDirection: 'column',
+              gridColumn: ['span 1', 'span 3'],
+              position: 'relative'
+            },
+            h3: {
+              variant: 'text.headline',
+              color: 'white',
+              lineHeight: 'title',
+              my: 0
+            }
           }}
         >
-          <Card
+          <Box
+            as="aside"
             sx={{
+              gridRow: [null, 'span 2'],
+              gridColumn: ['span 2', 'span 3']
+            }}
+          >
+            <Heading
+              as="h2"
+              variant="headline"
+              sx={{
+                mt: 0,
+                color: 'red',
+                textTransform: 'uppercase',
+                letterSpacing: 'headline'
+              }}
+            >
+              Live from our&nbsp;Slack
+            </Heading>
+            <SlackEvents />
+          </Box>
+          <Card
+            as="aside"
+            sx={{
+              gridColumn: ['span 2', 'span 6'],
               bg: 'blue',
               backgroundImage: (theme) => `radial-gradient(
     ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`
@@ -308,59 +356,44 @@ export default () => (
             <Heading as="h3" variant="headline">
               #ship
             </Heading>
-            <Text as="p" sx={{ color: 'smoke', fontSize: 2 }}>
+            <Text as="p" sx={{ color: 'smoke', fontSize: 2, mt: 1 }}>
               Share your latest projects & get feedback
             </Text>
           </Card>
           <Card
+            as="aside"
             sx={{
+              gridColumn: ['span 2', 'span 6'],
               bg: 'dark',
-              backgroundImage: (theme) => `radial-gradient(
-    ellipse farthest-corner at top left, ${theme.colors.darkless}, ${theme.colors.darker})`
+              backgroundImage: 'url(https://hackclub.com/photos/night.jpg)',
+              backgroundPosition: 'top center',
+              backgroundSize: 'cover'
             }}
           >
             <Heading as="h3" variant="headline">
               #hack-night
             </Heading>
-            <Text as="p" sx={{ color: 'smoke', fontSize: 2 }}>
+            <Text as="p" sx={{ color: 'smoke', fontSize: 2, mt: 1 }}>
               Biweekly mini-hackathon & video call hangout
             </Text>
           </Card>
-        </Grid>
-        <Grid
-          columns={[2, 3, 5]}
-          gap={3}
-          sx={{
-            '> div': {
-              px: [3, 3],
-              py: [4, 4],
-              minHeight: 12 * 16,
-              display: 'flex',
-              flexDirection: 'column',
-              // justifyContent: 'center',
-              position: 'relative'
-            },
-            h3: {
-              variant: 'text.headline',
-              color: 'white',
-              mt: 0
-            }
-          }}
-        >
           <Card bg="cyan">
             <h3>#lounge</h3>
+          </Card>
+          <Card bg="orange">
+            <h3>#support</h3>
           </Card>
           <Card bg="blue">
             <h3>#code</h3>
           </Card>
-          <Card bg="orange">
-            <h3>#support</h3>
+          <Card bg="red">
+            <h3>#lgbtq</h3>
           </Card>
           <Card bg="dark">
             <h3>#gamedev</h3>
           </Card>
           <Card bg="red">
-            <h3>#lgbtq</h3>
+            <h3>#design</h3>
           </Card>
           <Card bg="green">
             <h3>
@@ -372,14 +405,8 @@ export default () => (
           <Card bg="yellow">
             <h3>#dogs</h3>
           </Card>
-          <Card bg="red">
-            <h3>#design</h3>
-          </Card>
           <Card bg="green">
             <h3>#music</h3>
-          </Card>
-          <Card bg="orange">
-            <h3>#lounge</h3>
           </Card>
         </Grid>
       </Container>
