@@ -5404,6 +5404,11 @@ react-reveal@^1.2.2:
   dependencies:
     prop-types "^15.5.10"
 
+react-use-websocket@^1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/react-use-websocket/-/react-use-websocket-1.7.3.tgz#1f67d3b5140761f14b1a65ee2329071e9082597a"
+  integrity sha512-m2hlmcKkp3F0ksa+awEF3R8oFXbbnb2+wcfPWNWOIOVAB1kkfJCXDXmCI3M4lho+yW4yRwTAYIhLXx4iOQJ/Mw==
+
 react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
