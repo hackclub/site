@@ -145,7 +145,6 @@ export default () => (
           objectPosition: 'center',
           objectFit: 'cover',
           animation: `${fade} 6s ease-out`,
-          animationDelay: '1.5s',
           '@media (prefers-reduced-motion: reduce)': { display: 'none' }
         }}
       />
