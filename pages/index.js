@@ -1,18 +1,12 @@
 import {
   Box,
-  Button,
   Card,
-  Checkbox,
   Container,
-  Flex,
   Grid,
   Heading,
   Image,
-  Input,
-  Label,
   Link,
-  Text,
-  Textarea
+  Text
 } from 'theme-ui'
 import { keyframes } from '@emotion/core'
 import { Slide } from 'react-reveal'
@@ -124,7 +118,7 @@ export default () => (
     >
       <Box
         as="video"
-        src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fheader.mp4?v=1587692929387"
+        src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fv3gif-2.mp4?v=1587697528651"
         aria-hidden="true"
         muted
         autoPlay
@@ -265,7 +259,7 @@ export default () => (
           <Window title="Weekly Hack Club AMAs">
             <Box
               as="video"
-              src="https://d2wkqk610zk1ag.cloudfront.net/items/0k222h2k1Z2h1S1y3t0u/chris-cox-ama.mov"
+              src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fchris-cox-ama-2.mov?v=1587697462677"
               muted
               autoPlay
               loop
