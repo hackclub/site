@@ -10,6 +10,8 @@ import {
 } from 'theme-ui'
 import { keyframes } from '@emotion/core'
 import { Slide } from 'react-reveal'
+import Head from 'next/head'
+import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
@@ -107,6 +109,12 @@ const grad = (theme, from, to) => `radial-gradient(
 
 export default () => (
   <>
+    <Head>
+      <Meta
+        description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
+        image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fhackclub.jpg?v=1587740807714"
+      />
+    </Head>
     <ForceTheme theme="light" />
     <Nav />
     <Box
