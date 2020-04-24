@@ -50,7 +50,7 @@ const JoinForm = () => {
             body: JSON.stringify({ name, email, teen, reason })
           })
             .then((r) => r.json())
-            .then((r) => setStatus(r.status))
+            .then((r) => { console.log(r); setStatus(r.status) })
             .catch((e) => console.error(e))
         }}
       >
