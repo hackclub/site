@@ -28,7 +28,7 @@ export default ({ sx, ...props }) => {
     }),
     []
   )
-  const [sendEvent, lastEvent, readyState, getWebSocket] = useWebSocket(
+  const [sendEvent, lastEvent] = useWebSocket(
     'wss://streambot-hackclub.herokuapp.com/',
     STATIC_OPTIONS
   )
@@ -60,9 +60,9 @@ export default ({ sx, ...props }) => {
     <Box
       as="ol"
       sx={{
-        minHeight: '2em',
         height: '100%',
-        maxHeight: ['12em', '100%'],
+        minHeight: events.length === 0 ? 'none' : '4em',
+        maxHeight: ['6em', '100%'],
         overflow: 'hidden',
         listStyle: 'none',
         lineHeight: 'heading',
@@ -89,7 +89,9 @@ export default ({ sx, ...props }) => {
       aria-hidden="true"
       {...props}
     >
-      {events.length === 0 && <Spinner color="cyan" />}
+      {events.length === 0 && (
+        <Spinner color="cyan" sx={{ display: ['none', 'block'] }} />
+      )}
       {take(events, 7).map(({ timestamp, type, emoji, ...channel }) => (
         <Slide top duration={256} key={timestamp}>
           <>
