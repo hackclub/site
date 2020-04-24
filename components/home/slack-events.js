@@ -18,7 +18,16 @@ const Channel = ({ color, channel }) => (
   <Text as="strong" color={color} children={channel} />
 )
 
-const whitelistedChannels = ["#lounge", "#ship", "#design", "#minecraft", "#hq", "#welcome", "#studycorner"]
+const whitelistedChannels = new Set(`
+  3d-printing all-hands apple art blockchain cats
+  challenges code college-apps coronavirus deals 
+  debate design design dogs ethical-hacking film
+  gamedev hack-night hackathons hardware hq india
+  languages late-night-hq-club lgbtq linux lounge
+  mason math memes minecraft music photography python
+  ship sleep social studycorner support us-politics
+  welcome westborough workshops
+`.filter((i) => i.length > 0).map((i) => "#" + i));
 
 export default ({ sx, ...props }) => {
   const didUnmount = useRef(false)
@@ -43,7 +52,7 @@ export default ({ sx, ...props }) => {
     if (e) {
       try {
         e = JSON.parse(e)
-        if (Object.keys(types).includes(e.type) && whitelistedChannels.includes(e.channel)) {
+        if (Object.keys(types).includes(e.type) && whitelistedChannels.has(e.channel)) {
           e.type = types[e.type]
           e.color = sample(colors)
           if (e.type === 'reaction') e.emoji = sample(emoji)
