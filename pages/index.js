@@ -337,12 +337,14 @@ export default () => (
     <Box
       as="section"
       sx={{
-        backgroundImage:
-          'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fflagship_4.jpg?v=1587692929877)',
+        backgroundImage: [
+          'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fflagship_4-sm.jpg?v=1587739393628)',
+          'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fflagship_4.jpg?v=1587739446618)'
+        ],
         backgroundPosition: 'top center',
         backgroundSize: 'cover',
         '@media (hover: hover)': { backgroundAttachment: 'fixed' },
-        pt: [6, 7, 8]
+        pt: [7, 8]
       }}
     >
       <Box
