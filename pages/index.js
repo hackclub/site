@@ -14,10 +14,13 @@ import {
   Text,
   Textarea
 } from 'theme-ui'
+import { keyframes } from '@emotion/core'
 import { Slide } from 'react-reveal'
 import ForceTheme from '../components/force-theme'
 import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
+
+const fade = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
 
 const CardLink = (props) => (
   <Link
@@ -109,7 +112,7 @@ export default () => (
       as="header"
       sx={{
         bg: 'dark',
-        py: 6,
+        py: [5, 6],
         position: 'relative',
         overflow: 'hidden',
         '@media (prefers-reduced-motion: reduce)': {
@@ -134,6 +137,7 @@ export default () => (
           bottom: 0,
           objectFit: 'center',
           objectFit: 'cover',
+          animation: `${fade} 2s ease-in`,
           '@media (prefers-reduced-motion: reduce)': { display: 'none' }
         }}
       />
@@ -168,7 +172,7 @@ export default () => (
         </Slide>
       </Container>
     </Box>
-    <Box as="section" bg="orange" py={5}>
+    <Box as="section" bg="dark" py={[4, 5]}>
       <Container
         sx={{ textAlign: 'center', maxWidth: [null, 'copyPlus', 'copyUltra'] }}
       >
@@ -176,12 +180,13 @@ export default () => (
           as="p"
           variant="subtitle"
           sx={{
-            fontSize: [4, 28],
+            fontSize: [3, 28],
             color: 'white',
             mx: 'auto',
             maxWidth: 'copyPlus',
             lineHeight: 'caption',
-            a: { color: 'inherit' }
+            a: { color: 'inherit' },
+            strong: { color: 'red' }
           }}
         >
           <strong>HACK CLUB</strong> used to be a network of{' '}
