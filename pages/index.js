@@ -257,7 +257,7 @@ export default () => (
             </Text>{' '}
             with the most interesting people in tech.
           </Heading>
-          <CardLink href="https://youtu.be/riru9OzScwk">
+          <CardLink href="https://www.youtube.com/watch?v=riru9OzScwk&t=545s">
             Watch our Elon Musk AMA
           </CardLink>
           <Grid columns={[2, 'initial']} gap={3} mt={4}>
