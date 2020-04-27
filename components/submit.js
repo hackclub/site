@@ -6,6 +6,10 @@ const bg = {
     bg: 'blue',
     backgroundImage: theme.util.gradient('cyan', 'blue')
   },
+  submitting: {
+    bg: 'blue',
+    backgroundImage: theme.util.gradient('cyan', 'blue')
+  },
   success: {
     bg: 'green',
     backgroundImage: theme.util.gradient('green', 'cyan')
@@ -17,9 +21,20 @@ const bg = {
   }
 }
 
+const submitting = {
+  ...bg.default,
+  opacity: 0.5,
+  pointerEvents: 'none',
+  cursor: 'not-allowed'
+}
+
 const Submit = ({
   status,
-  labels = { default: 'Submit', error: 'Error!', success: 'Submitted!' },
+  labels = {
+    default: 'Submit',
+    error: 'Error!',
+    success: 'Submitted!'
+  },
   width = '100%',
   sx,
   ...props
@@ -33,10 +48,11 @@ const Submit = ({
       mt: 3,
       fontSize: 2,
       width,
-      ...bg[status],
+      ...(status === 'submitting' ? submitting : bg[status]),
       ...sx
     }}
-    children={labels[status]}
+    disabled={status === 'submitting'}
+    children={status === 'submitting' ? 'Submitting…' : labels[status]}
     {...props}
   />
 )
