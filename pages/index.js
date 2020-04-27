@@ -99,12 +99,6 @@ const Window = ({ title, children, ...props }) => (
   </Card>
 )
 
-const grad = (theme, from, to) => `radial-gradient(
-  ellipse farthest-corner at top left, ${theme.colors[from] || from}, ${
-  theme.colors[to] || to
-})`
-
-export default () => (
   <>
     <Head>
       <Meta
@@ -536,7 +530,7 @@ export default () => (
       as="footer"
       sx={{
         bg: 'cyan',
-        backgroundImage: (theme) => grad(theme, 'yellow', 'orange'),
+        backgroundImage: (theme) => theme.util.gradient('yellow', 'orange'),
         color: 'white',
         py: [5, 6]
       }}
