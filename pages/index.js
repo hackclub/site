@@ -99,6 +99,7 @@ const Window = ({ title, children, ...props }) => (
   </Card>
 )
 
+export default () => (
   <>
     <Head>
       <Meta
