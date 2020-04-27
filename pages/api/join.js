@@ -10,13 +10,37 @@ export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   if (req.method === 'POST') {
     const data = JSON.parse(req.body)
-    console.log(data)
-    await joinTable.create({
-      'Full Name': data.name,
-      'Email Address': data.email,
-      Student: data.teen,
-      Reason: data.reason
-    })
+
+    const exists = await isDuplicate(data.name, data.email, data.reason)
+    const empty = await isEmpty(data)
+
+    if (!exists && !empty) {
+      await joinTable.create({
+        'Full Name': data.name,
+        'Email Address': data.email,
+        Student: data.teen,
+        Reason: data.reason
+      })
+    }
     res.json({ status: 'success' })
   }
+}
+
+async function isDuplicate(name, email, reason) {
+  reason = reason.replace(`'`, `\\'`)
+  const exists = await joinTable.read({
+    filterByFormula: `AND({Full Name} = '${name}', {Email Address} = '${email}', Reason = '${reason}')`
+  })
+  return typeof exists[0] !== 'undefined'
+}
+
+function isEmpty(jsonObject) {
+  let empty = true
+  for (let key of Object.entries(jsonObject)) {
+    if (key[1] !== '' && key[0] !== 'teen') {
+      empty = false
+      break
+    }
+  }
+  return empty
 }
