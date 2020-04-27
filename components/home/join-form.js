@@ -2,11 +2,6 @@ import { useState, useEffect } from 'react'
 import { Card, Label, Input, Button, Checkbox, Textarea } from 'theme-ui'
 import fetch from 'isomorphic-unfetch'
 
-const grad = (theme, from, to) => `radial-gradient(
-  ellipse farthest-corner at top left,
-  ${theme.colors[from] || from},
-  ${theme.colors[to] || to})`
-
 const JoinForm = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -104,7 +99,7 @@ const JoinForm = () => {
             fontSize: 2,
             width: '100%',
             fontFamily: 'inherit',
-            backgroundImage: (theme) => grad(theme, 'cyan', 'blue')
+            backgroundImage: (theme) => theme.util.gradient('cyan', 'blue')
           }}
           value={status === 'success' ? 'Submitted!' : 'Queue signup'}
         />
