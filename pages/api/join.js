@@ -11,7 +11,7 @@ export default async (req, res) => {
   if (req.method === 'POST') {
     const data = JSON.parse(req.body)
 
-    const exists = await isDuplicate(data.name)
+    const exists = await isDuplicate(data.name, data.email, data.reason)
     const empty = await isEmpty(data)
 
     if (!exists && !empty) {
@@ -26,9 +26,10 @@ export default async (req, res) => {
   }
 }
 
-async function isDuplicate(name, email, teen, reason) {
+async function isDuplicate(name, email, reason) {
+  reason = reason.replace(`'`, `\\'`)
   const exists = await joinTable.read({
-    filterByFormula: `AND({Full Name} = '${name}', {Email Address} = '${email}', {Studnet} = '${teen}', {Reason} = '${reason}')`
+    filterByFormula: `AND({Full Name} = '${name}', {Email Address} = '${email}', Reason = '${reason}')`
   })
   return typeof exists[0] !== 'undefined'
 }
