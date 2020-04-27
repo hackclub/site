@@ -30,15 +30,16 @@ async function recordExists(name) {
   const exists = await joinTable.read({
     filterByFormula: `{Full Name} = '${name}'`
   })
-  return typeof exists !== 'undefined'
+  return typeof exists[0] !== 'undefined'
 }
 
 function isEmpty(jsonObject) {
   let empty = true
-  Object.entries(jsonObject).map(key => {
-    if (key[1] !== '') {
+  for (let key of Object.entries(jsonObject)) {
+    if (key[1] !== '' && key[0] !== 'teen') {
       empty = false
+      break
     }
-  })
+  }
   return empty
 }
