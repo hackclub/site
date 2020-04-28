@@ -1,4 +1,4 @@
-import { Card, Label, Input, Checkbox, Textarea, Select } from 'theme-ui'
+import { Label, Input, Select } from 'theme-ui'
 import useForm from '../../lib/use-form'
 import { countries } from '../../lib/countries'
 import Submit from '../submit'
