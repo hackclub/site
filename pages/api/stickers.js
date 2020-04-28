@@ -37,12 +37,22 @@ export default async (req, res) => {
         'Address (zip code)': data.zipCode
       })
       address = await addressesTable.create({
+<<<<<<< HEAD
         'Address (first line)': data.addressFirst,
         'Address (second line)': data.addressSecond,
         'Address (city)': data.city,
         'Address (state)': data.state,
         'Address (zip code)': data.zipCode,
         'Person': personRecord.id
+=======
+        'Street (First Line)': data.addressFirst,
+        'Street (Second Line': data.addressSecond,
+        'City': data.city,
+        'State/Province': data.state,
+        'Postal Code': data.zipCode,
+        'Country': data.country,
+        'Person': [personRecord.id]
+>>>>>>> 1f2caee (Add formatted countries)
       })
     }
     else {
