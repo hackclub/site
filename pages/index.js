@@ -139,7 +139,7 @@ export default () => (
           minHeight: '100%',
           objectPosition: 'center',
           objectFit: 'cover',
-          animation: `${fade} 6s ease-out`,
+          animation: `${fade} 15s ease-in`,
           '@media (prefers-reduced-motion: reduce)': { display: 'none' }
         }}
       />
@@ -155,7 +155,7 @@ export default () => (
             position: 'relative',
             zIndex: 1,
             textShadow: (theme) => `0 0 6px ${theme.colors.red}`,
-            animation: `${slide} 0.5s ease-in-out`,
+            animation: `${slide} 1s ease-in-out`,
             '@media (prefers-reduced-motion: reduce)': { animation: 'none' }
           }}
         >
