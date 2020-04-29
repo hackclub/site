@@ -1,0 +1,62 @@
+import { Card, Text } from 'theme-ui'
+import { keyframes } from '@emotion/core'
+import Icon from '../icon'
+
+const unfold = keyframes({
+  from: { transform: 'scaleY(0)' },
+  to: { transform: 'scaleY(100%)' }
+})
+
+const Announcement = ({
+  caption,
+  copy,
+  iconLeft,
+  iconRight = 'info',
+  color = 'accent',
+  ...props
+}) => (
+  <Card
+    as={props.href ? 'a' : 'div'}
+    variant="interactive"
+    sx={{
+      mx: 'auto',
+      maxWidth: 'narrow',
+      width: '100%',
+      bg: 'rgba(255, 255, 255, 0.98)',
+      textAlign: 'left',
+      textDecoration: 'none',
+      lineHeight: 'caption',
+      display: 'flex',
+      alignItems: 'center',
+      p: [2, 3],
+      mb: [3, 4],
+      mt: [null, -3, -5],
+      transform: 'scale(1)',
+      willChange: 'transform',
+      animation: `${unfold} 0.5s ease-out`,
+      '@media (prefers-reduced-motion: reduce)': { animation: 'none' }
+    }}
+    {...props}
+  >
+    {iconLeft && (
+      <Icon
+        glyph={iconLeft}
+        sx={{ mr: [2, 3], color, display: ['none', 'block'] }}
+      />
+    )}
+    <Text
+      as="p"
+      sx={{ flex: '1 1 auto', strong: { display: ['inline', 'block'] } }}
+    >
+      {caption && (
+        <Text as="span" variant="caption" color="secondary">
+          {caption}{' '}
+        </Text>
+      )}
+      <strong>{copy}</strong>
+    </Text>
+    <Icon glyph={iconRight} sx={{ ml: [2, 3], color }} />
+  </Card>
+)
+
+export default Announcement
