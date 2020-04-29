@@ -144,6 +144,27 @@ export default () => (
         }}
       />
       <Container sx={{ textAlign: 'center' }}>
+        <Card
+          as="a"
+          href="https://events.hackclub.com/ama-with-jack-conte"
+          variant="interactive"
+          sx={{
+            mx: 'auto',
+            maxWidth: 'narrow',
+            width: '100%',
+            textDecoration: 'none',
+            lineHeight: 'caption',
+            display: 'block',
+            py: [2, 3],
+            mb: [3, 4, 5],
+            mt: [null, -3, -4],
+            animation: `${slide} 0.25s ease-out`,
+            '@media (prefers-reduced-motion: reduce)': { animation: 'none' }
+          }}
+        >
+          Tomorrow @ 1PM PT/4PM ET:{' '}
+          <strong>AMA with Patreon CEO Jack&nbsp;Conte</strong>
+        </Card>
         <Heading
           as="h1"
           variant="title"
@@ -457,9 +478,7 @@ export default () => (
             <Heading as="h3" variant="headline">
               #ship
             </Heading>
-            <Text as="p">
-              Share your latest projects & get feedback
-            </Text>
+            <Text as="p">Share your latest projects & get feedback</Text>
           </Card>
           <Card
             as="aside"
@@ -476,9 +495,7 @@ export default () => (
             <Heading as="h3" variant="headline">
               #hack-night
             </Heading>
-            <Text as="p">
-              Biweekly mini-hackathon & video call hangout
-            </Text>
+            <Text as="p">Biweekly mini-hackathon & video call hangout</Text>
           </Card>
           <Card bg="cyan">
             <h3>#lounge</h3>
