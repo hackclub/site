@@ -14,6 +14,7 @@ import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
+import Icon from '../components/icon'
 import Footer from '../components/footer'
 import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
@@ -22,6 +23,10 @@ const fade = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
 const slide = keyframes({
   from: { transform: 'translateY(-200%)' },
   to: { transform: 'translateY(0)' }
+})
+const unfold = keyframes({
+  from: { transform: 'scaleY(0)' },
+  to: { transform: 'scaleY(100%)' }
 })
 
 const CardLink = (props) => (
@@ -139,6 +144,7 @@ export default () => (
           minHeight: '100%',
           objectPosition: 'center',
           objectFit: 'cover',
+          pointerEvents: 'none',
           animation: `${fade} 15s ease-in`,
           '@media (prefers-reduced-motion: reduce)': { display: 'none' }
         }}
@@ -152,18 +158,33 @@ export default () => (
             mx: 'auto',
             maxWidth: 'narrow',
             width: '100%',
+            backgroundColor: 'rgba(255, 255, 255, 0.98)',
+            textAlign: 'left',
             textDecoration: 'none',
             lineHeight: 'caption',
-            display: 'block',
-            py: [2, 3],
-            mb: [3, 4, 5],
-            mt: [null, -3, -4],
-            animation: `${slide} 0.25s ease-out`,
+            display: 'flex',
+            alignItems: 'center',
+            p: [2, 3],
+            mb: [3, 4],
+            mt: [null, -3, -5],
+            transform: 'scale(1)',
+            strong: { display: ['inline', 'block'] },
+            willChange: 'transform',
+            animation: `${unfold} 0.5s ease-out`,
             '@media (prefers-reduced-motion: reduce)': { animation: 'none' }
           }}
         >
-          Tomorrow @ 1PM PT/4PM ET:{' '}
-          <strong>AMA with Patreon CEO Jack&nbsp;Conte</strong>
+          <Icon
+            glyph="event-check"
+            sx={{ mr: [2, 3], color: 'cyan', display: ['none', 'block'] }}
+          />
+          <Text as="span" sx={{ flex: '1 1 auto' }}>
+            <Text as="span" variant="caption" color="secondary">
+              Tomorrow @ 1PM PT/4PM ET:{' '}
+            </Text>
+            <strong>AMA with Patreon CEO Jack&nbsp;Conte</strong>
+          </Text>
+          <Icon glyph="info" sx={{ ml: [2, 3], color: 'cyan' }} />
         </Card>
         <Heading
           as="h1"
