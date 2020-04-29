@@ -540,7 +540,9 @@ export default () => (
         sx={{ textAlign: 'center', maxWidth: [null, 'copyPlus', 'copyUltra'] }}
       >
         <Heading as="h2" variant="title" sx={{ fontSize: [5, 6, 7], mb: 3 }}>
-          Join our Slack
+          <span id="slack">
+            Join our Slack
+          </span>
         </Heading>
         <Text
           as="p"
