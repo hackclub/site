@@ -18,7 +18,8 @@ const Channel = ({ color, channel }) => (
   <Text as="strong" color={color} children={channel} />
 )
 
-const whitelistedChannels = new Set(`
+const whitelistedChannels = new Set(
+  `
   3d-printing all-hands apple art blockchain cats
   challenges code college-apps coronavirus deals 
   debate design design dogs ethical-hacking film
@@ -32,14 +33,26 @@ const whitelistedChannels = new Set(`
   ship sink-my-ship
   sleep social studycorner support us-politics
   welcome westborough workshops
-`.split(/\s+/ig).filter((i) => i.length > 0).map((i) => "#" + i));
+`
+    .split(/\s+/gi)
+    .filter((i) => i.length > 0)
+    .map((i) => '#' + i)
+)
 
-export default ({ sx, ...props }) => {
+const generateEvent = () => ({
+  type: sample(['message', 'typing']),
+  color: sample(colors),
+  channel: sample(Array.from(whitelistedChannels)),
+  timestamp: new Date().toISOString()
+})
+
+const SlackEvents = ({ sx, ...props }) => {
   const didUnmount = useRef(false)
-  const [events, setEvents] = useState([
-    { type: 'typing', channel: '#lounge', color: 'cyan' },
-    { type: 'message', channel: '#design', color: 'red' }
-  ])
+  const [events, setEvents] = useState([generateEvent(), generateEvent()])
+  useEffect(() => {
+    setTimeout(() => setEvents((e) => [...e, generateEvent()]), 5000)
+  }, [])
+
   const STATIC_OPTIONS = useMemo(
     () => ({
       shouldReconnect: () => !didUnmount.current,
@@ -57,7 +70,10 @@ export default ({ sx, ...props }) => {
     if (e) {
       try {
         e = JSON.parse(e)
-        if (Object.keys(types).includes(e.type) && whitelistedChannels.has(e.channel)) {
+        if (
+          Object.keys(types).includes(e.type) &&
+          whitelistedChannels.has(e.channel)
+        ) {
           e.type = types[e.type]
           e.color = sample(colors)
           if (e.type === 'reaction') e.emoji = sample(emoji)
@@ -133,3 +149,5 @@ export default ({ sx, ...props }) => {
     </Box>
   )
 }
+
+export default SlackEvents

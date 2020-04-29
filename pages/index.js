@@ -450,13 +450,14 @@ export default () => (
               gridColumn: ['span 2', 'span 6'],
               bg: 'blue',
               backgroundImage: (theme) => `radial-gradient(
-    ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`
+    ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`,
+              p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
             }}
           >
             <Heading as="h3" variant="headline">
               #ship
             </Heading>
-            <Text as="p" sx={{ color: 'smoke', fontSize: 2, mt: 1 }}>
+            <Text as="p">
               Share your latest projects & get feedback
             </Text>
           </Card>
@@ -468,13 +469,14 @@ export default () => (
               backgroundImage:
                 'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fnight.jpg?v=1587692925213)',
               backgroundPosition: 'top center',
-              backgroundSize: 'cover'
+              backgroundSize: 'cover',
+              p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
             }}
           >
             <Heading as="h3" variant="headline">
               #hack-night
             </Heading>
-            <Text as="p" sx={{ color: 'smoke', fontSize: 2, mt: 1 }}>
+            <Text as="p">
               Biweekly mini-hackathon & video call hangout
             </Text>
           </Card>
