@@ -529,6 +529,7 @@ export default () => (
     </Box>
     <Box
       as="footer"
+      id="slack"
       sx={{
         bg: 'cyan',
         backgroundImage: (theme) => theme.util.gradient('yellow', 'orange'),
