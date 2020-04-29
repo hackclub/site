@@ -247,7 +247,7 @@ class Header extends Component {
             dark={dark}
           />
           <ToggleContainer color={toggleColor} onClick={this.handleToggleMenu}>
-            <Icon glyph={toggled ? 'view-close' : 'menu'} toggled={toggled} />
+            <Icon glyph={toggled ? 'view-close' : 'menu'} />
           </ToggleContainer>
         </Content>
         <Navigation

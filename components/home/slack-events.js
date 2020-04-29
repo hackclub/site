@@ -23,15 +23,10 @@ const whitelistedChannels = new Set(
   3d-printing all-hands apple art blockchain cats
   challenges code college-apps coronavirus deals 
   debate design design dogs ethical-hacking film
-  functional
-  gamedev go-bears hack-night hackathons hardware 
-  homelab
-  hq india
-  languages late-night-hq-club lgbtq linux lounge
+  functional gamedev go-bears hack-night hackathons hardware 
+  homelab hq india languages late-night-hq-club lgbtq linux lounge
   mason math memes minecraft music photography python
-  rust
-  ship sink-my-ship
-  sleep social studycorner support us-politics
+  rust ship sink-my-ship sleep social studycorner support us-politics
   welcome westborough workshops
 `
     .split(/\s+/gi)
@@ -48,8 +43,9 @@ const generateEvent = () => ({
 
 const SlackEvents = ({ sx, ...props }) => {
   const didUnmount = useRef(false)
-  const [events, setEvents] = useState([generateEvent(), generateEvent()])
+  const [events, setEvents] = useState([])
   useEffect(() => {
+    setEvents([generateEvent(), generateEvent()])
     setTimeout(() => setEvents((e) => [...e, generateEvent()]), 5000)
   }, [])
 
@@ -96,7 +92,7 @@ const SlackEvents = ({ sx, ...props }) => {
       as="ol"
       sx={{
         height: '100%',
-        minHeight: events.length === 0 ? 'none' : '4em',
+        minHeight: '4em',
         maxHeight: ['6em', '100%'],
         overflow: 'hidden',
         listStyle: 'none',
@@ -125,7 +121,7 @@ const SlackEvents = ({ sx, ...props }) => {
       {...props}
     >
       {take(events, 7).map(({ timestamp, type, emoji, ...channel }) => (
-        <Slide top duration={256} key={timestamp}>
+        <Slide top duration={256} key={timestamp + JSON.stringify(channel)}>
           <>
             Someone{' '}
             {type === 'message' && (
