@@ -529,6 +529,7 @@ export default () => (
     </Box>
     <Box
       as="footer"
+      id="slack"
       sx={{
         bg: 'cyan',
         backgroundImage: (theme) => theme.util.gradient('yellow', 'orange'),
@@ -540,9 +541,7 @@ export default () => (
         sx={{ textAlign: 'center', maxWidth: [null, 'copyPlus', 'copyUltra'] }}
       >
         <Heading as="h2" variant="title" sx={{ fontSize: [5, 6, 7], mb: 3 }}>
-          <span id="slack">
-            Join our Slack
-          </span>
+          Join our Slack
         </Heading>
         <Text
           as="p"
