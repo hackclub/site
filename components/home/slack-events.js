@@ -24,7 +24,7 @@ const whitelistedChannels = new Set(
   challenges code college-apps coronavirus deals 
   debate design design dogs ethical-hacking film
   functional gamedev go-bears hack-night hackathons hardware 
-  homelab hq india languages late-night-hq-club lgbtq linux lounge
+  homelab hours hq india languages late-night-hq-club lgbtq linux lounge
   mason math memes minecraft music photography python
   rust ship sink-my-ship sleep social studycorner support us-politics
   welcome westborough workshops
