@@ -22,9 +22,9 @@ const whitelistedChannels = new Set(
   `
   3d-printing ai all-hands apple art blockchain books cats
   challenges code college-apps confessions cooking coronavirus deals
-  debate design design dogs ethical-hacking film food
+  debate design dogs ethical-hacking film food
   functional gamedev go-bears hack-night hackathons hardware
-  homelab hours hq india languages late-night-hq-club lgbtq linux lounge
+  homelab hours hq india languages late-night-hw-club lgbtq linux lounge
   mason math memes minecraft music neuroscience photography python
   rust ship sink-my-ship sleep social studycorner support todayilearned
   us-politics welcome westborough wip workshops writing
