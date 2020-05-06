@@ -15,7 +15,7 @@ import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
-// import Announcement from '../components/home/announcement'
+import Announcement from '../components/home/announcement'
 import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
 
@@ -146,14 +146,14 @@ export default () => (
         }}
       />
       <Container sx={{ textAlign: 'center' }}>
-        {/* <Announcement
+        <Announcement
           iconLeft="message-new"
           iconRight="info"
-          caption="Today at 1PM PT/4PM ET:"
-          copy="AMA with Patreon CEO Jack&nbsp;Conte"
-          href="https://events.hackclub.com/ama-with-jack-conte"
+          caption="Tomorrow at 2PM PT/5PM ET:"
+          copy="AMA with inventor Simone&nbsp;Giertz"
+          href="https://events.hackclub.com/ama-with-simone-giertz"
           color="cyan"
-        /> */}
+        />
         <Heading
           as="h1"
           variant="title"
