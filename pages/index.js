@@ -149,7 +149,7 @@ export default () => (
         <Announcement
           iconLeft="message-new"
           iconRight="info"
-          caption="Tomorrow at 2PM PT/5PM ET:"
+          caption="Today at 2PM PT/5PM ET:"
           copy="AMA with inventor Simone&nbsp;Giertz"
           href="https://events.hackclub.com/ama-with-simone-giertz"
           color="cyan"
