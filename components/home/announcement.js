@@ -34,7 +34,8 @@ const Announcement = ({
       transform: 'scale(1)',
       willChange: 'transform',
       animation: `${unfold} 0.5s ease-out`,
-      '@media (prefers-reduced-motion: reduce)': { animation: 'none' }
+      '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
+      svg: { flexShrink: 'none' }
     }}
     {...props}
   >
