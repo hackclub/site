@@ -18,6 +18,7 @@ import Footer from '../components/footer'
 import Announcement from '../components/home/announcement'
 import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
+import { timeSince } from '../lib/dates'
 
 const fade = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
 const slide = keyframes({
@@ -149,9 +150,9 @@ export default () => (
         <Announcement
           iconLeft="message-new"
           iconRight="info"
-          caption="Today at 2PM PT/5PM ET:"
-          copy="AMA with inventor Simone&nbsp;Giertz"
-          href="https://events.hackclub.com/ama-with-simone-giertz"
+          caption={`May 14th at 1PM PT/4PM ET`} // (${timeSince('2020-05-14T20:00:00.000Z', true)})`}
+          copy="AMA with JavaScript sourcerer Guillermo Rauch"
+          href="https://events.hackclub.com/ama-with-guillermo-rauch"
           color="cyan"
         />
         <Heading
