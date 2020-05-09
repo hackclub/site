@@ -46,7 +46,7 @@ const SlackEvents = ({ sx, ...props }) => {
   const [events, setEvents] = useState([])
   useEffect(() => {
     setEvents([generateEvent(), generateEvent()])
-    setTimeout(() => setEvents((e) => [...e, generateEvent()]), 5000)
+    setTimeout(() => setEvents((e) => [generateEvent(), ...e]), 5000)
   }, [])
 
   const STATIC_OPTIONS = useMemo(
