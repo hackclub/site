@@ -75,7 +75,7 @@ export default async (req, res) => {
             'Authorization': `Bearer ${process.env.SLACK_BOT_TOKEN}`
           },
           body: JSON.stringify(postData)
-        }).catch(err => console.log(err))
+        }).catch(err => console.error(err))
       }
     }
     res.json({ status: 'success' })
