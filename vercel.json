@@ -3,8 +3,5 @@
   "trailingSlash": true,
   "github": {
     "silent": true
-  },
-  "env": {
-    "AIRTABLE_API_KEY": "@airtable-api-key"
   }
 }
