@@ -5,7 +5,6 @@
     "silent": true
   },
   "env": {
-    "AIRTABLE_API_KEY": "@airtable-api-key",
     "SLACK_BOT_TOKEN": "@slack-bot-token-production-8avf"
   }
 }
