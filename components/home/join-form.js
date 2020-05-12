@@ -3,7 +3,7 @@ import useForm from '../../lib/use-form'
 import Submit from '../submit'
 
 const JoinForm = () => {
-  const { status, formProps, useField } = useForm('/api/join')
+  const { status, formProps, useField } = useForm('https://v3.hackclub.com/api/join')
 
   return (
     <Card
