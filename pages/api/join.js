@@ -8,6 +8,7 @@ const joinTable = new AirtablePlus({
 
 export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Headers', "*");
   if (req.method === 'POST') {
     const data = JSON.parse(req.body)
 
