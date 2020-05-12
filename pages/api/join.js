@@ -21,6 +21,13 @@ export default async (req, res) => {
         Student: data.teen,
         Reason: data.reason
       })
+      fetch('https://hackclub-slacker.glitch.me/newmember', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(r => r.json())
     }
     res.json({ status: 'success' })
   }
