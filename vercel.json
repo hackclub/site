@@ -6,5 +6,16 @@
   },
   "env": {
     "SLACK_BOT_TOKEN": "@slack-bot-token-production-8avf"
-  }
+  },
+  "headers": [
+    {
+      "source": "/api/join",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ]
 }
