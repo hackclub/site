@@ -75,12 +75,20 @@ export default async (req, res) => {
             }
           ]
         }
-        axios.post('https://slack.com/api/chat.postMessage', JSON.stringify(postData), {
+        await fetch('https://slack.com/api/chat.postMessage', {
+          method: 'post',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${process.env.SLACK_BOT_TOKEN}`
           },
-        }).then(r => console.log(r)).catch(err => console.error(err))
+          body: JSON.stringify(postData)
+        }).catch(err => console.error(err))
+        /*axios.post('https://slack.com/api/chat.postMessage', JSON.stringify(postData), {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.SLACK_BOT_TOKEN}`
+          },
+        }).then(r => console.log(r)).catch(err => console.error(err))*/
       }
     }
     res.json({ status: 'success' })
