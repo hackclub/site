@@ -29,6 +29,7 @@ export default async (req, res) => {
         Reason: data.reason
       })
       if (data.teen) {
+        console.log(data)
         let testData = { token: process.env.SLACK_BOT_TOKEN }
         let postData = {
           channel: 'G0147KPNHU0', //G0132DNFE7J
