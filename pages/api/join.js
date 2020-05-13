@@ -33,7 +33,7 @@ export default async (req, res) => {
       })
       if (data.teen) {
         let postData = {
-          channel: 'G0147KPNHU0', //G0132DNFE7J
+          channel: 'G0132DNFE7J', // G0147KPNHU0
           blocks: [
             {
               "type": "section",
