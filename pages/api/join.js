@@ -2,11 +2,11 @@ import AirtablePlus from 'airtable-plus'
 import fetch from 'isomorphic-unfetch'
 import axios from 'axios'
 
-/*const joinTable = new AirtablePlus({
+const joinTable = new AirtablePlus({
   apiKey: process.env.AIRTABLE_API_KEY,
   baseID: 'appaqcJtn33vb59Au',
   tableName: 'Join Requests'
-})*/
+})
 
 export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -18,17 +18,16 @@ export default async (req, res) => {
     console.log(`token: ${process.env.SLACK_BOT_TOKEN}`)
     console.log(`AIRTABLE: ${process.env.AIRTABLE_API_KEY}`)
 
-    const exists = false
-    //const exists = await isDuplicate(data.name, data.email, data.reason)
+    const exists = await isDuplicate(data.name, data.email, data.reason)
     const empty = await isEmpty(data)
 
     if (!exists && !empty) {
-      /*await joinTable.create({
+      await joinTable.create({
         'Full Name': data.name,
         'Email Address': data.email,
         Student: data.teen,
         Reason: data.reason
-      })*/
+      })
       if (data.teen) {
         let testData = { token: process.env.SLACK_BOT_TOKEN }
         let postData = {
@@ -83,12 +82,12 @@ export default async (req, res) => {
           },
           body: JSON.stringify(postData)
         }).catch(err => console.error(err))
-        axios.post('https://slack.com/api/chat.postMessage', JSON.stringify(postData), {
+        /*axios.post('https://slack.com/api/chat.postMessage', JSON.stringify(postData), {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${process.env.SLACK_BOT_TOKEN}`
           },
-        }).then(r => console.log(r)).catch(err => console.error(err))
+        }).then(r => console.log(r)).catch(err => console.error(err))*/
       }
     }
     res.json({ status: 'success' })
