@@ -1,5 +1,13 @@
 import AirtablePlus from 'airtable-plus'
 import fetch from 'isomorphic-unfetch'
+import Cors from 'cors'
+import initMiddleware from '../../lib/init-middleware'
+
+const cors = initMiddleware(
+  Cors({
+    methods: ['GET', 'POST'],
+  })
+)
 
 const joinTable = new AirtablePlus({
   apiKey: process.env.AIRTABLE_API_KEY,
@@ -8,7 +16,7 @@ const joinTable = new AirtablePlus({
 })
 
 export default async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
+  await cors(req, res)
   if (req.method === 'POST') {
     const data = JSON.parse(req.body)
 
