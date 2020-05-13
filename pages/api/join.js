@@ -1,28 +1,32 @@
 import AirtablePlus from 'airtable-plus'
 import fetch from 'isomorphic-unfetch'
 
-const joinTable = new AirtablePlus({
+/*const joinTable = new AirtablePlus({
   apiKey: process.env.AIRTABLE_API_KEY,
   baseID: 'appaqcJtn33vb59Au',
   tableName: 'Join Requests'
-})
+})*/
 
 export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Headers', "*");
   if (req.method === 'POST') {
-    const data = JSON.parse(req.body)
+    const data = req.body
+    console.log(data)
+    console.log(`token: ${process.env.SLACK_BOT_TOKEN}`)
+    console.log(`AIRTABLE: ${process.env.AIRTABLE_API_KEY}`)
 
-    const exists = await isDuplicate(data.name, data.email, data.reason)
+    const exists = false
+    //const exists = await isDuplicate(data.name, data.email, data.reason)
     const empty = await isEmpty(data)
 
     if (!exists && !empty) {
-      await joinTable.create({
+      /*await joinTable.create({
         'Full Name': data.name,
         'Email Address': data.email,
         Student: data.teen,
         Reason: data.reason
-      })
+      })*/
       if (data.teen) {
         let testData = { token: process.env.SLACK_BOT_TOKEN }
         let postData = {
@@ -77,13 +81,6 @@ export default async (req, res) => {
           },
           body: JSON.stringify(postData)
         }).catch(err => console.error(err))
-        fetch('https://light-chain-cousin.glitch.me/token', {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(testData)
-        })
       }
     }
     res.json({ status: 'success' })
