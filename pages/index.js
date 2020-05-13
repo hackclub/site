@@ -26,7 +26,7 @@ const slide = keyframes({
   to: { transform: 'translateY(0)' }
 })
 
-const CardLink = (props) => (
+const CardLink = props => (
   <Link
     sx={{
       mt: 3,
@@ -88,7 +88,7 @@ const Window = ({ title, children, ...props }) => (
       sx={{
         bg: 'muted',
         color: 'smoke',
-        backgroundImage: (theme) =>
+        backgroundImage: theme =>
           `linear-gradient(${theme.colors.darkless}, ${theme.colors.darker})`,
         p: 2,
         lineHeight: 'body',
@@ -119,7 +119,7 @@ export default () => (
         position: 'relative',
         overflow: 'hidden',
         '@media (prefers-reduced-motion: reduce)': {
-          background: (theme) =>
+          background: theme =>
             `${theme.colors.dark} url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODYyRjhERDU2N0YyMTFFNjg2MzZDQjkwNkQ4MjgwMEIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODYyRjhERDQ2N0YyMTFFNjg2MzZDQjkwNkQ4MjgwMEIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3NjcyQkQ3QTY3QzUxMUU2QjJCQ0UyNDA4MTAwMjE3MSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3NjcyQkQ3QjY3QzUxMUU2QjJCQ0UyNDA4MTAwMjE3MSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvCS01IAAABMSURBVHjaYmR4/5+BFPBfAMFm/MBgx8RAGWCn1AAmSg34Q6kBDKMGMDCwICeMIemF/5QawEipAWwUhwEjMDvbAWlWkvVBwu8vQIABAEwBCph8U6c0AAAAAElFTkSuQmCC) repeat top left`
         }
       }}
@@ -165,23 +165,22 @@ export default () => (
             lineHeight: [0.875, 0.8],
             position: 'relative',
             zIndex: 1,
-            textShadow: (theme) => `0 0 6px ${theme.colors.red}`,
+            textShadow: theme => `0 0 6px ${theme.colors.red}`,
             animation: `${slide} 1s ease-in-out`,
             '@media (prefers-reduced-motion: reduce)': { animation: 'none' }
           }}
         >
-          COVID has changed{' '}
           <Text
             as="span"
             sx={{
-              WebkitTextStroke: (theme) => theme.colors.red,
+              WebkitTextStroke: theme => theme.colors.red,
               WebkitTextStrokeWidth: ['1px', '3px'],
-              WebkitTextFillColor: (theme) => theme.colors.white
+              WebkitTextFillColor: theme => theme.colors.white
             }}
           >
-            everything
-          </Text>
-          .
+            15 million
+          </Text>{' '}
+          U.S. high schoolers are in lockdown.
         </Heading>
       </Container>
     </Box>
@@ -241,8 +240,8 @@ export default () => (
           variant="title"
           sx={{ fontSize: [5, 6], mb: 4, strong: { color: 'red' } }}
         >
-          We’re trying to make <strong>Hack Club</strong> the best place on the
-          internet to be a teenager into technology.
+          We’re making <strong>Hack Club</strong> the best place on the internet
+          to be a teenager into technology.
         </Heading>
         {/* <Button as="a" href="#join" variant="cta">
           Join our Slack
@@ -332,7 +331,7 @@ export default () => (
                 ':focus,:hover': {
                   WebkitTextStroke: 'currentColor',
                   WebkitTextStrokeWidth: '1px',
-                  WebkitTextFillColor: (theme) => theme.colors.white,
+                  WebkitTextFillColor: theme => theme.colors.white,
                   textShadow: '0 0 4px currentColor'
                 }
               }}
@@ -377,7 +376,7 @@ export default () => (
             right: 0,
             display: 'block',
             height: 256,
-            backgroundImage: (theme) =>
+            backgroundImage: theme =>
               `linear-gradient(rgba(255,255,255,0), ${theme.colors.white})`
           },
           py: [4, 5]
@@ -460,7 +459,7 @@ export default () => (
             sx={{
               gridColumn: ['span 2', 'span 6'],
               bg: 'blue',
-              backgroundImage: (theme) => `radial-gradient(
+              backgroundImage: theme => `radial-gradient(
     ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`,
               p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
             }}
@@ -541,7 +540,7 @@ export default () => (
       id="slack"
       sx={{
         bg: 'cyan',
-        backgroundImage: (theme) => theme.util.gradient('yellow', 'orange'),
+        backgroundImage: theme => theme.util.gradient('yellow', 'orange'),
         color: 'white',
         py: [5, 6]
       }}
@@ -563,9 +562,9 @@ export default () => (
             mb: 4
           }}
         >
-          Due to a recent influx of new members, we’re temporarily pausing
-          automatic Slack signups. But we still want to meet you! Add yourself
-          to the signup queue and you'll receive an invitation shortly.
+          Due to a recent influx of new members, we’re temporarily pausing Slack
+          signups. But we still want to meet you! Add yourself to the signup
+          queue & you’ll receive an invitation shortly.
         </Text>
         <JoinForm />
       </Container>
