@@ -5,7 +5,7 @@ import initMiddleware from '../../lib/init-middleware'
 
 const cors = initMiddleware(
   Cors({
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST']
   })
 )
 
