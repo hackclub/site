@@ -25,6 +25,7 @@ export default async (req, res) => {
     } catch {
       data = req.body
     }
+    console.log(data)
 
     const exists = await isDuplicate(data.name, data.email, data.reason)
     const empty = await isEmpty(data)
