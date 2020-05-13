@@ -19,7 +19,12 @@ export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   await cors(req, res)
   if (req.method === 'POST') {
-    const data = JSON.parse(req.body)
+    let data
+    try {
+      data = JSON.parse(req.body)
+    } catch {
+      data = req.body
+    }
 
     const exists = await isDuplicate(data.name, data.email, data.reason)
     const empty = await isEmpty(data)
