@@ -17,7 +17,6 @@
     "@next/mdx": "^9.3.6",
     "@segment/snippet": "^4.9.0",
     "airtable-plus": "^1.0.4",
-    "axios": "^0.19.2",
     "isomorphic-unfetch": "^3.0.0",
     "lodash": "^4.17.15",
     "next": "^9.3.6",
