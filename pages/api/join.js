@@ -77,7 +77,7 @@ export default async (req, res) => {
         }).catch(err => console.error(err))
       }
     }
-    res.json({ status: 'success' })
+    res.status(200).json({ status: 'success' })
   }
 }
 
