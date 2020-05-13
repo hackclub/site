@@ -83,7 +83,7 @@ export default async (req, res) => {
           },
           body: JSON.stringify(postData)
         }).catch(err => console.error(err))*/
-        axios.post('https://slack.com/api/chat.postMessage', postData, {
+        axios.post('https://slack.com/api/chat.postMessage', JSON.stringify(postData), {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${process.env.SLACK_BOT_TOKEN}`
