@@ -75,14 +75,6 @@ export default async (req, res) => {
             }
           ]
         }
-        await fetch('https://slack.com/api/chat.postMessage', {
-          method: 'post',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.SLACK_BOT_TOKEN}`
-          },
-          body: JSON.stringify(postData)
-        }).catch(err => console.error(err))
         axios.post('https://slack.com/api/chat.postMessage', JSON.stringify(postData), {
           headers: {
             'Content-Type': 'application/json',
