@@ -563,9 +563,9 @@ export default () => (
             mb: 4
           }}
         >
-          Due to high demand from the Simone Giertz AMA, we’re temporarily pausing
-          Slack signups. But we still want to meet you! Add yourself to the
-          signup queue—we’ll be adding everyone over the next week.
+          Due to a recent influx of new members, we’re temporarily pausing
+          automatic Slack signups. But we still want to meet you! Add yourself
+          to the signup queue and you'll receive an invitation shortly.
         </Text>
         <JoinForm />
       </Container>
