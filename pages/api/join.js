@@ -12,7 +12,7 @@ export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Headers', "*");
   if (req.method === 'POST') {
-    const data = req.body
+    const data = JSON.parse(req.body)
     console.log(data)
     console.log(`name: ${data.name}`)
     console.log(`token: ${process.env.SLACK_BOT_TOKEN}`)
