@@ -13,7 +13,6 @@ export default async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed, use POST' })
   }
-  res.json({ status: 'success' })
 
   let data = JSON.parse(req?.body || '{}')
   const exists = await isDuplicate(data.name, data.email, data.reason)
@@ -85,6 +84,7 @@ export default async (req, res) => {
       }).catch(err => console.error(err))
     }
   }
+  res.json({ status: 'success' })
 }
 
 async function isDuplicate(name, email, reason) {
