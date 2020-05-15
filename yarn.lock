@@ -5714,10 +5714,10 @@ react-scrolllock@^5.0.1:
   dependencies:
     exenv "^1.2.2"
 
-react-use-websocket@1.7.3:
-  version "1.7.3"
-  resolved "https://registry.yarnpkg.com/react-use-websocket/-/react-use-websocket-1.7.3.tgz#1f67d3b5140761f14b1a65ee2329071e9082597a"
-  integrity sha512-m2hlmcKkp3F0ksa+awEF3R8oFXbbnb2+wcfPWNWOIOVAB1kkfJCXDXmCI3M4lho+yW4yRwTAYIhLXx4iOQJ/Mw==
+react-use-websocket@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-use-websocket/-/react-use-websocket-2.0.1.tgz#5c95587bd08e58101e1d7294c55015cd323f5e28"
+  integrity sha512-qoma+wcYrtmmZrNVP8FQtjO14Uo3ZTofCwqS7l3tR0xex8PFjv10gBW8ZaOvApdMXuyzqa6sQAya1Tel/7dneg==
 
 react@^16.13.1:
   version "16.13.1"
