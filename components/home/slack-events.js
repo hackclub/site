@@ -56,7 +56,7 @@ const SlackEvents = ({ sx, ...props }) => {
     }),
     []
   )
-  const [sendEvent, lastEvent] = useWebSocket(
+  const { lastEvent } = useWebSocket(
     'wss://streambot-hackclub.herokuapp.com/',
     STATIC_OPTIONS
   )
