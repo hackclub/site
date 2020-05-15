@@ -13,6 +13,7 @@ export default async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed, use POST' })
   }
+  res.status(200).json({ status: 'success' })
 
   let data = JSON.parse(req?.body || '{}')
   const exists = await isDuplicate(data.name, data.email, data.reason)
@@ -42,9 +43,9 @@ export default async (req, res) => {
               type: 'mrkdwn',
               text: `*Full name:* ${data.name}\n*Email:* ${
                 data.email
-              }\n*Student:* ${data.teen ? 'true' : 'false'}\n*Reason:* ${
+                }\n*Student:* ${data.teen ? 'true' : 'false'}\n*Reason:* ${
                 data.reason
-              }`
+                }`
             }
           },
           {
@@ -84,7 +85,6 @@ export default async (req, res) => {
       }).catch(err => console.error(err))
     }
   }
-  res.status(200).json({ status: 'success' })
 }
 
 async function isDuplicate(name, email, reason) {
