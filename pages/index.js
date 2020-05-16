@@ -122,7 +122,8 @@ export default () => (
         backgroundImage:
           'linear-gradient(rgba(0,0,0,0.125),rgba(0,0,0,0.375)), url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855)',
         backgroundPosition: 'center',
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        '@media (hover: hover)': { backgroundAttachment: 'fixed' }
       }}
     >
       <Container pt={[3, 4]} pb={[5, 6]}>
