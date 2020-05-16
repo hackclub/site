@@ -115,38 +115,18 @@ export default () => (
       as="header"
       sx={{
         bg: 'dark',
-        py: [5, 6],
-        position: 'relative',
-        overflow: 'hidden',
-        '@media (prefers-reduced-motion: reduce)': {
-          background: theme =>
-            `${theme.colors.dark} url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODYyRjhERDU2N0YyMTFFNjg2MzZDQjkwNkQ4MjgwMEIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODYyRjhERDQ2N0YyMTFFNjg2MzZDQjkwNkQ4MjgwMEIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3NjcyQkQ3QTY3QzUxMUU2QjJCQ0UyNDA4MTAwMjE3MSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3NjcyQkQ3QjY3QzUxMUU2QjJCQ0UyNDA4MTAwMjE3MSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvCS01IAAABMSURBVHjaYmR4/5+BFPBfAMFm/MBgx8RAGWCn1AAmSg34Q6kBDKMGMDCwICeMIemF/5QawEipAWwUhwEjMDvbAWlWkvVBwu8vQIABAEwBCph8U6c0AAAAAElFTkSuQmCC) repeat top left`
-        }
+        pt: [5, 6],
+        display: 'flex',
+        flexDirection: 'column',
+        textAlign: 'center',
+        backgroundImage:
+          'linear-gradient(rgba(0,0,0,0.125),rgba(0,0,0,0.375)), url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855)',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
       }}
     >
-      <Box
-        as="video"
-        src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fv3gif-2.mp4?v=1587697528651"
-        aria-hidden="true"
-        muted
-        autoPlay
-        playsInline
-        loop
-        sx={{
-          position: 'absolute',
-          width: '100%',
-          right: 0,
-          bottom: 0,
-          minWidth: '100%',
-          minHeight: '100%',
-          objectPosition: 'center',
-          objectFit: 'cover',
-          pointerEvents: 'none',
-          animation: `${fade} 15s ease-in`,
-          '@media (prefers-reduced-motion: reduce)': { display: 'none' }
-        }}
-      />
-      <Container sx={{ textAlign: 'center' }}>
+      <Container pt={[3, 4]} pb={[5, 6]}>
+        {/*
         <Announcement
           iconLeft="message-new"
           iconRight="info"
@@ -155,6 +135,7 @@ export default () => (
           href="https://events.hackclub.com/ama-with-guillermo-rauch"
           color="cyan"
         />
+        */}
         <Heading
           as="h1"
           variant="title"
@@ -165,53 +146,48 @@ export default () => (
             lineHeight: [0.875, 0.8],
             position: 'relative',
             zIndex: 1,
-            textShadow: theme => `0 0 6px ${theme.colors.red}`,
+            textShadow: 'text',
             animation: `${slide} 1s ease-in-out`,
             '@media (prefers-reduced-motion: reduce)': { animation: 'none' }
           }}
         >
+          Stuck home? Join{' '}
           <Text
             as="span"
             sx={{
-              WebkitTextStroke: theme => theme.colors.red,
+              WebkitTextStroke: theme => theme.colors.white,
               WebkitTextStrokeWidth: ['1px', '3px'],
-              WebkitTextFillColor: theme => theme.colors.white
+              WebkitTextFillColor: theme => theme.colors.red
             }}
           >
-            15 million
-          </Text>{' '}
-          U.S. high schoolers are in lockdown.
+            Hack Club
+          </Text>
+          .
         </Heading>
       </Container>
-    </Box>
-    <Box as="section" bg="dark" py={[4, 5]}>
-      <Container
-        sx={{ textAlign: 'center', maxWidth: [null, 'copyPlus', 'copyUltra'] }}
-      >
-        <Text
-          as="p"
-          variant="subtitle"
-          sx={{
-            fontSize: [3, 28],
-            color: 'white',
-            mx: 'auto',
-            maxWidth: 'copyPlus',
-            lineHeight: 'caption',
-            a: { color: 'inherit' },
-            strong: { color: 'red' }
-          }}
-        >
-          <strong>HACK CLUB</strong> used to be a network of{' '}
-          <Link href="https://hackclub.com/clubs/">
-            high school coding clubs
-          </Link>
-          {' & '}
-          <Link href="https://hackathons.hackclub.com/">
-            in-person hackathons
-          </Link>
-          . Someday, we’ll get back to that.
-        </Text>
-      </Container>
+      <Box as="section" bg="dark" variant="cards.translucentDark" py={4}>
+        <Container sx={{ maxWidth: [null, 'copyPlus'] }}>
+          <Text
+            as="p"
+            variant="subtitle"
+            sx={{
+              my: 0,
+              fontSize: [2, 3],
+              color: 'white',
+              lineHeight: 'caption',
+              a: { color: 'inherit' }
+            }}
+          >
+            Join the global <Text as="strong">Hack Club</Text> high school
+            community chatroom, weekly&nbsp;AMAs,{' '}
+            <Link href="https://hackclub.com/clubs/">online clubs</Link>
+            {' & '}
+            <Link href="https://hackathons.hackclub.com/">
+              hackathons
+            </Link>. <Text as="strong">You’ve found your home.</Text>
+          </Text>
+        </Container>
+      </Box>
     </Box>
     <Box
       as="section"
@@ -536,7 +512,7 @@ export default () => (
       </Container>
     </Box>
     <Box
-      as="footer"
+      as="section"
       id="slack"
       sx={{
         bg: 'cyan',
@@ -562,9 +538,9 @@ export default () => (
             mb: 4
           }}
         >
-          Due to a recent influx of new members, we’re temporarily pausing automated
-          Slack signups. But we still want to meet you! Add yourself to the signup
-          queue & you’ll receive an invitation shortly.
+          Due to a recent influx of new members, we’re temporarily pausing
+          automated Slack signups. But we still want to meet you! Add yourself
+          to the signup queue & you’ll receive an invitation shortly.
         </Text>
         <JoinForm />
       </Container>
