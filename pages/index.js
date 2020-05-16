@@ -562,8 +562,8 @@ export default () => (
             mb: 4
           }}
         >
-          Due to a recent influx of new members, we’re temporarily pausing Slack
-          signups. But we still want to meet you! Add yourself to the signup
+          Due to a recent influx of new members, we’re temporarily pausing automated
+          Slack signups. But we still want to meet you! Add yourself to the signup
           queue & you’ll receive an invitation shortly.
         </Text>
         <JoinForm />
