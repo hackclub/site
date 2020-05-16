@@ -32,8 +32,7 @@ const {
 
 const renderSnippet = () => {
   const opts = { apiKey: ANALYTICS_WRITE_KEY, page: true }
-  if (NODE_ENV !== 'development') return snippet.max(opts)
-  return snippet.min(opts)
+  return NODE_ENV === 'production' ? snippet.min(opts) : ''
 }
 
 export default class extends Document {

@@ -1327,10 +1327,10 @@
   resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-9.4.0.tgz#6f8732e1909fb12f6dca8a82b7fc4b79c6c8cfcd"
   integrity sha512-AaEC/diS2two2JLsEItGhuAux8UfPo0o34/7l1SIw0t4SYunUYJsxM/Y55OR2ljiVn9ffKR1n1U9IEQhsK80jw==
 
-"@segment/snippet@^4.10.0":
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.10.0.tgz#549dfbdf2fd636ae44d948cf905a1af863a77c63"
-  integrity sha512-ID3nBS18uK4psQInAVqolpfOHDxuuCvbDhlUY8qyR1668vGo5P2TW9MzSZs3AO7HMMRRnUT407XaNMj1HXHSbw==
+"@segment/snippet@^4.11.0":
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/@segment/snippet/-/snippet-4.11.0.tgz#e67984da0920a68cb08ff4f1c5fe3587d690278f"
+  integrity sha512-JNY3zqSC7pglPgbiZcWFQHmZ7dw0nIVqyqhNXqkf5FyFWHw5ZYQJ3OsE8em+Sfc8aCUnmLUTKJFNxvTkeWWfaw==
   dependencies:
     "@ndhoule/map" "^2.0.1"
 
