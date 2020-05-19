@@ -1,10 +1,12 @@
 import {
+  Avatar,
   Badge,
   BaseStyles,
   Box,
   Button,
   Card,
   Container,
+  Flex,
   Grid,
   Heading,
   Image,
@@ -14,7 +16,7 @@ import {
 import { styled } from '@emotion/styled'
 import Head from 'next/head'
 import NextLink from 'next/link'
-import Meta from '@hackclub/meta'
+import Meta from '../components/meta'
 import Nav from '../components/nav'
 import Icon from '../components/icon'
 import ForceTheme from '../components/force-theme'
@@ -26,8 +28,8 @@ export default () => (
     <Head>
       <Meta
         title="Elon Musk announcement"
-        description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
-        image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fhackclub.jpg?v=1587740807714"
+        description="We’re thrilled to announce Elon Musk has donated $500k to Hack Club, a global nonprofit network of high school hackers & coding clubs."
+        image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F94239BAB-4660-4387-9A07-8F0585D584E8.jpeg?v=1589920219237"
       />
     </Head>
     <ForceTheme theme="light" />
@@ -48,7 +50,6 @@ export default () => (
           variant="title"
           sx={{
             fontSize: [5, 6, null, 7],
-            // textShadow: '2px -2px 0 rgba(151,100,213,0.78),-2px -2px 0 rgba(254,143,155,0.78),0 4px 0 rgba(96,35,180,0.78)',
             span: {
               WebkitTextStroke: 'currentColor',
               WebkitTextStrokeWidth: '2px',
@@ -56,10 +57,10 @@ export default () => (
             }
           }}
         >
-          Hack Club “makes me feel <span>much more optimistic</span> about the
-          future.”
+          Hack Club “makes me feel <span>much more optimistic</span>{' '}
+          about&nbsp;the future.”
         </Heading>
-        <Text variant="headline" sx={{}}>
+        <Text variant="headline">
           —Elon Musk
         </Text>
       </Container>
@@ -77,21 +78,47 @@ export default () => (
         }
       }}
     >
-      <Badge
-        variant="pill"
-        sx={{
-          mt: 0,
-          mb: [2, 3],
-          px: 3,
-          bg: 'white',
-          color: 'muted',
-          border: '1px solid currentColor',
-          fontSize: 2,
-          fontWeight: 'body'
-        }}
-      >
-        May 15, 2020
-      </Badge>
+      <Flex sx={{ flexWrap: 'wrap', alignItems: 'center' }}>
+        <Badge
+          variant="pill"
+          sx={{
+            mt: 0,
+            mr: [2, 3],
+            mb: [2, 3],
+            px: 3,
+            bg: 'white',
+            color: 'muted',
+            border: '1px solid currentColor',
+            fontSize: 2,
+            fontWeight: 'body',
+            display: 'inline-flex',
+            alignItems: 'center'
+          }}
+        >
+          <Avatar
+            src="https://hackclub.com/team/zach.jpg"
+            alt="Zach"
+            size={24}
+            mr={2}
+          />
+          Zach Latta, founder
+        </Badge>
+        <Badge
+          variant="pill"
+          sx={{
+            mt: 0,
+            mb: [2, 3],
+            px: 3,
+            bg: 'white',
+            color: 'muted',
+            border: '1px solid currentColor',
+            fontSize: 2,
+            fontWeight: 'body'
+          }}
+        >
+          May 15, 2020
+        </Badge>
+      </Flex>
       <ElonCopy />
     </Container>
     <Box
