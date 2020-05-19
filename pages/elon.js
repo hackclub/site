@@ -120,6 +120,9 @@ export default () => (
       </Flex>
       <ElonCopy />
       <Signature />
+      <Text>
+        Zach Latta, Founder
+      </Text>
     </Container>
     <Box
       as="section"
