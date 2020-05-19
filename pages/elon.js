@@ -21,6 +21,7 @@ import Nav from '../components/nav'
 import Icon from '../components/icon'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
+import Signature from '../components/signature'
 import ElonCopy from '../components/elon.mdx'
 
 export default () => (
@@ -60,9 +61,7 @@ export default () => (
           Hack Club “makes me feel <span>much more optimistic</span>{' '}
           about&nbsp;the future.”
         </Heading>
-        <Text variant="headline">
-          —Elon Musk
-        </Text>
+        <Text variant="headline">—Elon Musk</Text>
       </Container>
     </Box>
     <Container
@@ -120,6 +119,7 @@ export default () => (
         </Badge>
       </Flex>
       <ElonCopy />
+      <Signature />
     </Container>
     <Box
       as="section"
