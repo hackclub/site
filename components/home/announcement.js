@@ -10,7 +10,7 @@ const unfold = keyframes({
 const Announcement = ({
   caption,
   copy,
-  iconLeft,
+  iconLeft = 'announcement',
   iconRight = 'info',
   color = 'accent',
   ...props
@@ -49,12 +49,13 @@ const Announcement = ({
       as="p"
       sx={{ flex: '1 1 auto', strong: { display: ['inline', 'block'] } }}
     >
+      <strong>{copy}</strong>
       {caption && (
         <Text as="span" variant="caption" color="secondary">
-          {caption}{' '}
+          {' '}
+          {caption}
         </Text>
       )}
-      <strong>{copy}</strong>
     </Text>
     <Icon glyph={iconRight} sx={{ ml: [2, 3], color }} />
   </Card>
