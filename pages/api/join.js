@@ -16,9 +16,8 @@ export default async (req, res) => {
 
   let data = JSON.parse(req?.body || '{}')
   const exists = await isDuplicate(data.name, data.email, data.reason)
-  const empty = await isEmpty(data)
 
-  if (!exists && !empty) {
+  if (!exists) {
     await joinTable.create({
       'Full Name': data.name,
       'Email Address': data.email,
@@ -42,9 +41,9 @@ export default async (req, res) => {
               type: 'mrkdwn',
               text: `*Full name:* ${data.name}\n*Email:* ${
                 data.email
-              }\n*Student:* ${data.teen ? 'true' : 'false'}\n*Reason:* ${
+                }\n*Student:* ${data.teen ? 'true' : 'false'}\n*Reason:* ${
                 data.reason
-              }`
+                }`
             }
           },
           {
@@ -84,7 +83,7 @@ export default async (req, res) => {
       }).catch(err => console.error(err))
     }
   }
-  res.status(200).json({ status: 'success' })
+  res.json({ status: 'success' })
 }
 
 async function isDuplicate(name, email, reason) {
@@ -93,15 +92,4 @@ async function isDuplicate(name, email, reason) {
     filterByFormula: `AND({Full Name} = '${name}', {Email Address} = '${email}', Reason = '${reason}')`
   })
   return typeof exists[0] !== 'undefined'
-}
-
-function isEmpty(jsonObject) {
-  let empty = true
-  for (let key of Object.entries(jsonObject)) {
-    if (key[1] !== '' && key[0] !== 'teen') {
-      empty = false
-      break
-    }
-  }
-  return empty
 }

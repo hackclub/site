@@ -9,6 +9,7 @@ const Signature = () => {
       }.png`}
       width={96}
       alt="Zach's signature"
+      sx={{ '+ p': { mt: 0 } }}
     />
   )
 }

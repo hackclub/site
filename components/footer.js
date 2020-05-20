@@ -6,14 +6,14 @@ import theme from '@hackclub/theme'
 import Icon from './icon'
 
 const Base = styled(Box)`
-  background: ${(props) =>
+  background: ${props =>
     props.dark
       ? `${theme.colors.darker} radial-gradient(${hexa(
           theme.colors.black,
           0.5
         )} 1px, transparent 1px)`
       : `${theme.colors.snow} url('https://hackclub.com/pattern.svg') repeat`};
-  ${(props) =>
+  ${props =>
     props.dark &&
     css`
       background-size: ${theme.space[4]}px ${theme.space[4]}px;
@@ -111,7 +111,7 @@ const Footer = ({ dark = false, children, ...props }) => (
     {...props}
   >
     {children}
-    <Container px={3}>
+    <Container px={[3, null, 4]}>
       <Columns px={0} as="article">
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
@@ -152,7 +152,7 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Heading as="h2" variant="subheadline" mb={3}>
             Join the Club
           </Heading>
-          <Services sx={{ flexWrap: 'wrap', alignItems: 'center' }}>
+          <Services sx={{ flexWrap: 'wrap', alignItems: 'center', ml: -1 }}>
             <Service href="/community/" icon="slack-fill" target="_self" />
             <Service href="https://twitter.com/hackclub" icon="twitter" />
             <Service href="https://github.com/hackclub" icon="github" />
