@@ -10,6 +10,7 @@ import {
 } from 'theme-ui'
 import { keyframes } from '@emotion/core'
 import { Slide } from 'react-reveal'
+import NextLink from 'next/link'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
@@ -18,7 +19,7 @@ import Footer from '../components/footer'
 import Announcement from '../components/home/announcement'
 import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
-import { timeSince } from '../lib/dates'
+// import { timeSince } from '../lib/dates'
 
 const fade = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
 const slide = keyframes({
@@ -127,16 +128,14 @@ export default () => (
       }}
     >
       <Container pt={[3, 4]} pb={[5, 6]}>
-        {/*
-        <Announcement
-          iconLeft="message-new"
-          iconRight="info"
-          caption={`May 14th at 1PM PT/4PM ET`} // (${timeSince('2020-05-14T20:00:00.000Z', true)})`}
-          copy="AMA with JavaScript sourcerer Guillermo Rauch"
-          href="https://events.hackclub.com/ama-with-guillermo-rauch"
-          color="cyan"
-        />
-        */}
+        <NextLink href="/elon" passHref>
+          <Announcement
+            copy="Elon Musk donates $500K"
+            caption="Read the open letter" // (${timeSince('2020-05-14T20:00:00.000Z', true)})`}
+            href="/elon"
+            color="green"
+          />
+        </NextLink>
         <Heading
           as="h1"
           variant="title"
