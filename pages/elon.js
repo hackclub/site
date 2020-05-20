@@ -4,16 +4,12 @@ import {
   BaseStyles,
   Box,
   Button,
-  Card,
   Container,
   Flex,
   Grid,
   Heading,
-  Image,
-  Link,
   Text
 } from 'theme-ui'
-import { styled } from '@emotion/styled'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import Meta from '../components/meta'
@@ -21,7 +17,6 @@ import Nav from '../components/nav'
 import Icon from '../components/icon'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
-import Signature from '../components/signature'
 import ElonCopy from '../components/elon/copy.mdx'
 
 export default () => (
@@ -41,8 +36,7 @@ export default () => (
         pt: [5, 6],
         pb: [4, 5],
         bg: 'rgb(104, 41, 205)',
-        backgroundImage: theme =>
-          theme.util.gradient('rgb(207, 45, 228)', 'rgb(40, 59, 205)')
+        backgroundImage: theme => theme.util.gradient('yellow', 'green')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
@@ -72,25 +66,28 @@ export default () => (
         fontSize: [2, 3],
         h1: {
           textAlign: ['left', 'center'],
-          color: 'rgb(104, 41, 205)',
-          mt: 4,
-          mb: [4, 5]
+          color: 'cyan',
+          my: 4
         }
       }}
     >
-      <Flex sx={{
-        flexWrap: 'wrap', alignItems: 'center',
-        div: {
-          mt: 0,
-          mb: 2,
-          px: 3,
-          bg: 'white',
-          color: 'muted',
-          border: '1px solid currentColor',
-          fontSize: 2,
-          fontWeight: 'body',
-        }
-      }}>
+      <Flex
+        sx={{
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
+          div: {
+            mt: 0,
+            mb: 2,
+            px: 3,
+            bg: 'white',
+            color: 'muted',
+            border: '1px solid currentColor',
+            fontSize: 2,
+            fontWeight: 'body'
+          }
+        }}
+      >
         <Badge
           variant="pill"
           sx={{
@@ -107,15 +104,9 @@ export default () => (
           />
           Zach Latta, founder
         </Badge>
-        <Badge variant="pill">
-          May 15, 2020
-        </Badge>
+        <Badge variant="pill">May 15, 2020</Badge>
       </Flex>
       <ElonCopy />
-      <Signature />
-      <Text>
-        Zach Latta, Founder
-      </Text>
     </Container>
     <Box
       as="section"
