@@ -8,11 +8,14 @@ import {
   Flex,
   Grid,
   Heading,
+  Image,
+  Link,
   Text
 } from 'theme-ui'
+import { styled } from '@emotion/styled'
 import Head from 'next/head'
 import NextLink from 'next/link'
-import Meta from '../components/meta'
+import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import Icon from '../components/icon'
 import ForceTheme from '../components/force-theme'
@@ -47,7 +50,7 @@ export default () => (
             fontSize: [5, 6, null, 7],
             span: {
               WebkitTextStroke: 'currentColor',
-              WebkitTextStrokeWidth: '2px',
+              WebkitTextStrokeWidth: '3px',
               WebkitTextFillColor: 'transparent'
             }
           }}
@@ -67,7 +70,8 @@ export default () => (
         h1: {
           textAlign: ['left', 'center'],
           color: 'cyan',
-          my: 4
+          my: 4,
+          a: { color: 'inherit' }
         }
       }}
     >
@@ -108,7 +112,9 @@ export default () => (
           />
           Zach Latta, founder
         </Badge>
-        <Badge variant="pill" px={3}>May 15, 2020</Badge>
+        <Badge variant="pill" px={3}>
+          May 15, 2020
+        </Badge>
       </Flex>
       <ElonCopy />
     </Container>

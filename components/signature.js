@@ -6,7 +6,7 @@ const Signature = () => {
     <Image
       src={`https://workshops.hackclub.com/signature-${
         colorMode === 'dark' ? 'light' : 'dark'
-        }.png`}
+      }.png`}
       width={96}
       alt="Zach's signature"
       sx={{ '+ p': { mt: 0 } }}
