@@ -50,7 +50,7 @@ export default () => (
             fontSize: [5, 6, null, 7],
             span: {
               WebkitTextStroke: 'currentColor',
-              WebkitTextStrokeWidth: '2px',
+              WebkitTextStrokeWidth: '3px',
               WebkitTextFillColor: 'transparent'
             }
           }}
@@ -70,7 +70,8 @@ export default () => (
         h1: {
           textAlign: ['left', 'center'],
           color: 'cyan',
-          my: 4
+          my: 4,
+          a: { color: 'inherit' }
         }
       }}
     >
