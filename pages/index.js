@@ -130,8 +130,7 @@ export default () => (
       <Container pt={[3, 4]} pb={[5, 6]}>
         <NextLink href="/elon" passHref>
           <Announcement
-            copy="Elon Musk donates $500K"
-            caption="Read the open letter" // (${timeSince('2020-05-14T20:00:00.000Z', true)})`}
+            copy="Elon Musk has donated $500K!"
             href="/elon"
             color="green"
           />
