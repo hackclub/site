@@ -75,7 +75,7 @@ const Event = ({ title, month, day }) => (
   </Grid>
 )
 
-const Window = ({ title, children, ...props }) => (
+const Window = ({ title, children }) => (
   <Card
     sx={{
       p: [0, 0],
@@ -104,12 +104,11 @@ const Window = ({ title, children, ...props }) => (
 
 export default () => (
   <>
-    <Head>
-      <Meta
-        description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
-        image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fhackclub.jpg?v=1587740807714"
-      />
-    </Head>
+    <Meta
+      as={Head}
+      description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
+      image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fhackclub.jpg?v=1587740807714"
+    />
     <ForceTheme theme="light" />
     <Nav />
     <Box

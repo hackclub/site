@@ -23,7 +23,7 @@ export default () => (
   <>
     <Meta
       as={Head}
-      title="Elon Musk announcement"
+      title="Elon Musk is Giving $500K"
       description="We’re thrilled to announce Elon Musk has donated $500k to Hack Club, a global nonprofit network of high school hackers & coding clubs."
       image="https://assets.hackclub.com/log/HC-500k@1080w.png"
     />
@@ -46,7 +46,7 @@ export default () => (
             fontSize: [5, 6, null, 7],
             span: {
               WebkitTextStroke: 'currentColor',
-              WebkitTextStrokeWidth: '3px',
+              WebkitTextStrokeWidth: ['2px', '3px'],
               WebkitTextFillColor: 'transparent'
             }
           }}
