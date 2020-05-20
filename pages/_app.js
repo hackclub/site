@@ -12,10 +12,7 @@ export default class App extends NextApp {
     const { Component, pageProps } = this.props
     return (
       <ThemeProvider theme={theme}>
-        <Head>
-          <title>Hack Club</title>
-          <Meta />
-        </Head>
+        <Meta as={Head} />
         <Component {...pageProps} />
       </ThemeProvider>
     )
