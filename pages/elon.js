@@ -79,12 +79,14 @@ export default () => (
           div: {
             mt: 0,
             mb: 2,
-            px: 3,
             bg: 'white',
             color: 'muted',
-            border: '1px solid currentColor',
+            border: '1px solid',
+            borderColor: 'border',
+            bg: 'snow',
             fontSize: 2,
-            fontWeight: 'body'
+            fontWeight: 'body',
+            lineHeight: '36px'
           }
         }}
       >
@@ -92,6 +94,8 @@ export default () => (
           variant="pill"
           sx={{
             mr: [2, 3],
+            pl: 0,
+            pr: 3,
             display: 'inline-flex',
             alignItems: 'center'
           }}
@@ -99,12 +103,12 @@ export default () => (
           <Avatar
             src="https://hackclub.com/team/zach.jpg"
             alt="Zach"
-            size={24}
+            size={36}
             mr={2}
           />
           Zach Latta, founder
         </Badge>
-        <Badge variant="pill">May 15, 2020</Badge>
+        <Badge variant="pill" px={3}>May 15, 2020</Badge>
       </Flex>
       <ElonCopy />
     </Container>
