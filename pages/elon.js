@@ -8,11 +8,8 @@ import {
   Flex,
   Grid,
   Heading,
-  Image,
-  Link,
   Text
 } from 'theme-ui'
-import { styled } from '@emotion/styled'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import Meta from '@hackclub/meta'
@@ -24,13 +21,12 @@ import ElonCopy from '../components/elon/copy.mdx'
 
 export default () => (
   <>
-    <Head>
-      <Meta
-        title="Elon Musk announcement"
-        description="We’re thrilled to announce Elon Musk has donated $500k to Hack Club, a global nonprofit network of high school hackers & coding clubs."
-        image="https://assets.hackclub.com/log/HC-500k@1080w.png"
-      />
-    </Head>
+    <Meta
+      as={Head}
+      title="Elon Musk announcement"
+      description="We’re thrilled to announce Elon Musk has donated $500k to Hack Club, a global nonprofit network of high school hackers & coding clubs."
+      image="https://assets.hackclub.com/log/HC-500k@1080w.png"
+    />
     <ForceTheme theme="light" />
     <Nav />
     <Box
