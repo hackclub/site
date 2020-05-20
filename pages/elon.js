@@ -22,7 +22,7 @@ import Icon from '../components/icon'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Signature from '../components/signature'
-import ElonCopy from '../components/elon.mdx'
+import ElonCopy from '../components/elon/copy.mdx'
 
 export default () => (
   <>
@@ -73,23 +73,28 @@ export default () => (
         h1: {
           textAlign: ['left', 'center'],
           color: 'rgb(104, 41, 205)',
-          my: [4, 5]
+          mt: 4,
+          mb: [4, 5]
         }
       }}
     >
-      <Flex sx={{ flexWrap: 'wrap', alignItems: 'center' }}>
+      <Flex sx={{
+        flexWrap: 'wrap', alignItems: 'center',
+        div: {
+          mt: 0,
+          mb: 2,
+          px: 3,
+          bg: 'white',
+          color: 'muted',
+          border: '1px solid currentColor',
+          fontSize: 2,
+          fontWeight: 'body',
+        }
+      }}>
         <Badge
           variant="pill"
           sx={{
-            mt: 0,
             mr: [2, 3],
-            mb: [2, 3],
-            px: 3,
-            bg: 'white',
-            color: 'muted',
-            border: '1px solid currentColor',
-            fontSize: 2,
-            fontWeight: 'body',
             display: 'inline-flex',
             alignItems: 'center'
           }}
@@ -102,19 +107,7 @@ export default () => (
           />
           Zach Latta, founder
         </Badge>
-        <Badge
-          variant="pill"
-          sx={{
-            mt: 0,
-            mb: [2, 3],
-            px: 3,
-            bg: 'white',
-            color: 'muted',
-            border: '1px solid currentColor',
-            fontSize: 2,
-            fontWeight: 'body'
-          }}
-        >
+        <Badge variant="pill">
           May 15, 2020
         </Badge>
       </Flex>
