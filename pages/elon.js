@@ -25,7 +25,7 @@ export default () => (
       <Meta
         title="Elon Musk announcement"
         description="We’re thrilled to announce Elon Musk has donated $500k to Hack Club, a global nonprofit network of high school hackers & coding clubs."
-        image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F94239BAB-4660-4387-9A07-8F0585D584E8.jpeg?v=1589920219237"
+        image="https://assets.hackclub.com/log/HC-500k@1080w.png"
       />
     </Head>
     <ForceTheme theme="light" />
