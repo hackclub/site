@@ -210,8 +210,8 @@ export default ({ ships, stats }) => (
       </Grid>
       <Grid
         as="article"
-        gap={[3, 4]}
-        p={[3, 4, null, 5]}
+        gap={[3, null, 4]}
+        p={[3, null, 4, 5]}
         variant="layout.wide"
         sx={{
           alignItems: 'start',
