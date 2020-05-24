@@ -8,7 +8,7 @@ const JoinForm = () => {
   return (
     <Card
       sx={{
-        bg: 'rgba(255,255,255,0.875)',
+        variant: 'cards.translucent',
         maxWidth: 'narrow',
         mx: 'auto',
         label: {

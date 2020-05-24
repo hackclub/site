@@ -10,7 +10,7 @@ const unfold = keyframes({
 const Announcement = ({
   caption,
   copy,
-  iconLeft = 'announcement',
+  iconLeft,
   iconRight = 'info',
   color = 'accent',
   ...props
@@ -19,22 +19,23 @@ const Announcement = ({
     as={props.href ? 'a' : 'div'}
     variant="interactive"
     sx={{
+      variant: 'cards.translucent',
       mx: 'auto',
       maxWidth: 'narrow',
       width: '100%',
-      bg: 'rgba(255, 255, 255, 0.98)',
       textAlign: 'left',
       textDecoration: 'none',
       lineHeight: 'caption',
       display: 'flex',
       alignItems: 'center',
-      p: [2, 3],
+      p: [2, 2],
+      px: 3,
       mb: [3, 4],
-      mt: [null, -3, -5],
+      mt: [null, -3, -5, -84],
       transform: 'scale(1)',
-      willChange: 'transform',
-      animation: `${unfold} 0.5s ease-out`,
-      '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
+      '@media (prefers-reduced-motion: no-preference)': {
+        animation: `${unfold} 0.5s ease-out`
+      },
       svg: { flexShrink: 'none' }
     }}
     {...props}
