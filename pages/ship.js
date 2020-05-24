@@ -259,9 +259,9 @@ export default ({ ships, stats }) => (
           Hack&nbsp;Club Slack, where 9k teenagers from around the world share
           what they’re working on & help each other.
         </Text>
-        <NextLink href="/" passHref>
-          <Button bg="red" as="a">
-            Learn more
+        <NextLink href="/slack" passHref>
+          <Button variant="cta" sx={{ py: 2, px: 3, fontSize: 2 }} as="a">
+            Join our Slack
           </Button>
         </NextLink>
       </Container>

@@ -131,6 +131,7 @@ export default () => (
           <Announcement
             copy="Elon Musk has donated $500K!"
             href="/elon"
+            iconLeft="announcement"
             color="green"
           />
         </NextLink>

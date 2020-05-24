@@ -14,14 +14,14 @@ const waveFlag = keyframes`
 
 const waveFlagScaled = keyframes`
   from {
-    transform: scale(.75) rotate(0deg);
+    transform: scale(.875) rotate(0deg);
   }
   to {
-    transform: scale(.75) rotate(-5deg);
+    transform: scale(.875) rotate(-5deg);
   }
 `
 
-const scrolled = (props) =>
+const scrolled = props =>
   props.scrolled &&
   css`
     transform: scale(0.875);
@@ -57,7 +57,7 @@ const Base = styled('a')`
   ${scrolled};
 `
 
-const Flag = (props) => (
+const Flag = props => (
   <Link href="/" passHref>
     <Base title="Homepage" {...props} />
   </Link>
