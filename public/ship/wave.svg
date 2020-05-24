@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1500" height="1200">
+<g id="y"><g id="x">
+<path id="w" fill="none" stroke="#42a1ec" stroke-width="66" d="m-115,50q38-30 75,0t75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0 75,0"/>
+<use xlink:href="#w" transform="translate(0,146)"/></g>
+<use xlink:href="#x" transform="translate(0,292)"/></g>
+<use xlink:href="#y" transform="translate(0,584)"/>
+</svg>
