@@ -1,9 +1,7 @@
 {
   "public": true,
   "trailingSlash": true,
-  "github": {
-    "silent": true
-  },
+  "github": { "silent": true },
   "env": {
     "SLACK_BOT_TOKEN": "@slack-bot-token-production-8avf"
   },
@@ -11,10 +9,7 @@
     {
       "source": "/api/join",
       "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        }
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
     }
   ]
