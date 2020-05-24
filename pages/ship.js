@@ -54,48 +54,56 @@ const Ship = ({ timestamp, message, url, img, username, avatar }) => (
         }}
       />
     )}
-    <Box p={[2, 3]} pb={[2, 2]}>
+    <Box p={3}>
       <Text
         as="p"
         title={message}
         sx={{
+          display: message ? null : 'none',
           fontSize: 2,
           lineHeight: 'caption',
           whiteSpace: 'pre-wrap',
+          wordBreak: 'break-word',
           overflowY: 'hidden',
+          maxWidth: '100%',
           '@supports (-webkit-line-clamp: 4)': {
             display: '-webkit-box',
-            WebkitLineClamp: '8',
+            WebkitLineClamp: ['6', null, '8'],
             WebkitBoxOrient: 'vertical'
           }
         }}
       >
         {message}
       </Text>
-      <Flex
+      <Box
         as="footer"
         sx={{
-          flexDirection: ['row-reverse', 'row'],
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          mt: 2
+          mt: 2,
+          display: 'grid',
+          gridGap: [2, null, 3],
+          gridTemplateColumns: [null, null, '1fr auto'],
+          alignItems: 'center'
         }}
       >
-        <Avatar size={48} src={avatar} alt={`${username} avatar`} mb={2} />
-        <Box sx={{ flex: '1 1 auto', px: 2, mb: 2 }}>
-          <Text
-            as="strong"
-            variant="caption"
-            sx={{ color: 'secondary', display: 'block' }}
-          >
-            {username}
-          </Text>
-          <Text as="time" variant="caption">
-            {timeSince(new Date(timestamp), false, true)}
-          </Text>
-        </Box>
+        <Flex sx={{ alignItems: 'center' }}>
+          {avatar && (
+            <Avatar size={48} src={avatar} alt={`${username} avatar`} mr={2} />
+          )}
+          <Box sx={{ flex: '1 1 auto' }}>
+            <Text
+              as="strong"
+              variant="caption"
+              sx={{ color: 'secondary', display: 'block' }}
+            >
+              {username}
+            </Text>
+            <Text as="time" variant="caption" sx={{ lineHeight: 'title' }}>
+              {timeSince(new Date(timestamp), false, true)}
+            </Text>
+          </Box>
+        </Flex>
         {url && !url?.includes('hackclub.slack.com') && (
-          <Button as="a" href={url} sx={{ bg: 'cyan', mb: 2, svg: { ml: -1 } }}>
+          <Button as="a" href={url} sx={{ bg: 'cyan', svg: { ml: -1 } }}>
             {url.includes('slack-files') ? (
               <>
                 <Icon glyph="attachment" size={24} />
@@ -105,13 +113,18 @@ const Ship = ({ timestamp, message, url, img, username, avatar }) => (
               <>
                 <Icon glyph="link" size={24} />
                 <Text as="span" sx={{ textTransform: 'lowercase' }}>
-                  {url.replace(/https?:\/\//, '').split(/[/?#]/)[0]}
+                  {
+                    url
+                      .replace(/https?:\/\//, '')
+                      .replace('www.', '')
+                      .split(/[/?#]/)[0]
+                  }
                 </Text>
               </>
             )}
           </Button>
         )}
-      </Flex>
+      </Box>
     </Box>
   </Card>
 )
@@ -197,7 +210,7 @@ export default ({ ships, stats }) => (
         gap={[3, 4]}
         variant="layout.container"
         sx={{
-          mt: [3, 4],
+          mt: [2, 4],
           textAlign: 'left',
           span: { color: 'white' }
         }}
@@ -210,8 +223,8 @@ export default ({ ships, stats }) => (
       </Grid>
       <Grid
         as="article"
-        gap={[3, null, 4]}
-        p={[3, null, 4, 5]}
+        gap={[3, null, null, 4]}
+        p={[3, null, null, 4]}
         variant="layout.wide"
         sx={{
           alignItems: 'start',
@@ -244,7 +257,7 @@ export default ({ ships, stats }) => (
         <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
           These projects are streamed live from the #ship channel on the
           Hack&nbsp;Club Slack, where 9k teenagers from around the world share
-          what they’re working on & help one another.
+          what they’re working on & help each other.
         </Text>
         <NextLink href="/" passHref>
           <Button bg="red" as="a">
@@ -264,18 +277,17 @@ export const getStaticProps = async () => {
       const monthAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000
       return filter(data, s => new Date(s.fields.Timestamp) > monthAgo)
     })
-    .then(data => orderBy(data, { 'fields.Timestamp': 'asc' }))
-    .then(data => reverse(data))
     .then(data =>
       data.map(({ fields }) => ({
-        timestamp: fields['Timestamp'],
-        avatar: fields['User Avatar'],
-        username: fields['User Name'],
-        message: fields['Message'],
+        timestamp: fields['Timestamp'] || new Date().toISOString(),
+        avatar: fields['User Avatar'] || null,
+        username: fields['User Name'] || '@unknown',
+        message: fields['Message'] || '',
         url: fields['Project URL'] || null,
         img: fields['Image URL'] || null
       }))
     )
+    .then(data => orderBy(data, { timestamp: 'desc' }))
   const stats = {
     projects: ships.length,
     makers: uniq(map(ships, 'username')).length
