@@ -517,30 +517,15 @@ export default () => (
         bg: 'cyan',
         backgroundImage: theme => theme.util.gradient('yellow', 'orange'),
         color: 'white',
-        py: [5, 6]
+        py: 5
       }}
     >
       <Container
         sx={{ textAlign: 'center', maxWidth: [null, 'copyPlus', 'copyUltra'] }}
       >
-        <Heading as="h2" variant="title" sx={{ fontSize: [5, 6, 7], mb: 3 }}>
+        <Heading as="h2" variant="title" sx={{ fontSize: [5, 6, 7], mb: 4 }}>
           Join our Slack
         </Heading>
-        <Text
-          as="p"
-          variant="subtitle"
-          sx={{
-            fontSize: 3,
-            opacity: 0.875,
-            maxWidth: 'copy',
-            mx: 'auto',
-            mb: 4
-          }}
-        >
-          Due to a recent influx of new members, we’re temporarily pausing
-          automated Slack signups. But we still want to meet you! Add yourself
-          to the signup queue & you’ll receive an invitation shortly.
-        </Text>
         <JoinForm />
       </Container>
     </Box>
