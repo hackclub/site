@@ -21,7 +21,6 @@ import SlackEvents from '../components/home/slack-events'
 import JoinForm from '../components/home/join-form'
 // import { timeSince } from '../lib/dates'
 
-const fade = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
 const slide = keyframes({
   from: { transform: 'translateY(-200%)' },
   to: { transform: 'translateY(0)' }
@@ -44,21 +43,30 @@ const CardLink = props => (
   />
 )
 
-const Event = ({ title, month, day }) => (
-  <Grid columns="auto 1fr" gap={3} sx={{ alignItems: 'center' }}>
+const Event = ({ title, month, day, past = false }) => (
+  <Grid
+    as="a"
+    href={`https://events.hackclub.com/ama-with-${title
+      .toLowerCase()
+      .replace(' ', '-')}`}
+    target="_blank"
+    columns="auto 1fr"
+    gap={3}
+    sx={{ alignItems: 'center', textDecoration: 'none', color: 'inherit' }}
+  >
     <Box
       sx={{
         borderRadius: 'default',
         lineHeight: 'caption',
         textAlign: 'center',
         border: '3px solid',
-        borderColor: 'primary',
+        borderColor: past ? 'muted' : 'primary',
         width: 60
       }}
     >
       <Box
         sx={{
-          bg: 'primary',
+          bg: past ? 'muted' : 'primary',
           color: 'white',
           letterSpacing: 'headline',
           fontWeight: 'bold',
@@ -241,10 +249,10 @@ export default () => (
             Watch our Elon Musk AMA
           </CardLink>
           <Grid columns={[2, 'initial']} gap={3} mt={4}>
-            <Event month="April" day={24} title="Elon Musk" />
-            <Event month="April" day={30} title="Jack Conte" />
-            <Event month="May" day={7} title="Simone Giertz" />
-            <Event month="May" day={14} title="Guillermo Rauch" />
+            <Event month="May" day={7} title="Simone Giertz" past />
+            <Event month="May" day={14} title="Guillermo Rauch" past />
+            <Event month="June" day={24} title="Audrey Tang" />
+            <Event month="June" day={30} title="Patrick Collison" />
           </Grid>
         </Box>
         <Slide up>
