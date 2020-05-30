@@ -384,7 +384,7 @@ export default () => (
           <Text as="p" sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3 }}>
             Have a coding question? Looking for project feedback? You’ll find
             some fabulous people to talk to in our global Slack (Discord-style
-            online groupchat) with 8,000+ members, active at all hours.
+            online groupchat) with 9,000+ members, active at all hours.
           </Text>
         </Container>
       </Box>
