@@ -251,8 +251,8 @@ export default () => (
           <Grid columns={[2, 'initial']} gap={3} mt={4}>
             <Event month="May" day={7} title="Simone Giertz" past />
             <Event month="May" day={14} title="Guillermo Rauch" past />
-            <Event month="June" day={24} title="Audrey Tang" />
-            <Event month="June" day={30} title="Patrick Collison" />
+            <Event month="June" day={4} title="Audrey Tang" />
+            <Event month="June" day={11} title="Patrick Collison" />
           </Grid>
         </Box>
         <Slide up>
