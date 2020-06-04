@@ -68,7 +68,7 @@ export default () => (
           Hack Club Slack
         </Heading>
         <SlideUp>
-          <JoinForm />
+          <JoinForm sx={{ variant: 'cards.translucent' }} />
         </SlideUp>
       </Container>
     </Box>
@@ -139,9 +139,7 @@ export default () => (
             gridColumn: ['span 2', 'span 6'],
             bg: 'blue',
             backgroundImage: theme => `radial-gradient(
-	ellipse farthest-corner at top left, ${theme.colors.cyan}, ${
-              theme.colors.blue
-            })`,
+	ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`,
             p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
           }}
         >
@@ -180,15 +178,7 @@ export default () => (
           bg="red"
           sx={{
             backgroundImage: ({ colors }) =>
-              `linear-gradient(${colors.red} 0%, ${colors.red} 16.6666%, ${
-                colors.orange
-              } 16.6666%, ${colors.orange} 33.333%, ${colors.yellow} 33.333%, ${
-                colors.yellow
-              } 50%, ${colors.green} 50%, ${colors.green} 66.6666%, ${
-                colors.blue
-              } 66.6666%, ${
-                colors.blue
-              } 83.3333%, #8067C3 83.3333%, #8067C3 100%)`
+              `linear-gradient(${colors.red} 0%, ${colors.red} 16.6666%, ${colors.orange} 16.6666%, ${colors.orange} 33.333%, ${colors.yellow} 33.333%, ${colors.yellow} 50%, ${colors.green} 50%, ${colors.green} 66.6666%, ${colors.blue} 66.6666%, ${colors.blue} 83.3333%, #8067C3 83.3333%, #8067C3 100%)`
           }}
         >
           <h3>#lgbtq</h3>
