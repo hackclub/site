@@ -2,22 +2,15 @@ import { Card, Label, Input, Checkbox, Textarea } from 'theme-ui'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 
-const JoinForm = () => {
+const JoinForm = ({ sx = {} }) => {
   const { status, formProps, useField } = useForm('/api/join')
 
   return (
     <Card
       sx={{
-        variant: 'cards.translucent',
         maxWidth: 'narrow',
         mx: 'auto',
-        label: {
-          display: 'flex',
-          flexDirection: 'column',
-          textAlign: 'left',
-          fontSize: 2,
-          mb: 3
-        }
+        ...sx
       }}
     >
       <form {...formProps}>

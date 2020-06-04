@@ -10,7 +10,7 @@ import {
 } from 'theme-ui'
 import { keyframes } from '@emotion/core'
 import { Slide } from 'react-reveal'
-import NextLink from 'next/link'
+// import NextLink from 'next/link'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
@@ -135,14 +135,12 @@ export default () => (
       }}
     >
       <Container pt={[3, 4]} pb={[5, 6]}>
-        <NextLink href="/elon" passHref>
-          <Announcement
-            copy="Elon Musk has donated $500K!"
-            href="/elon"
-            iconLeft="announcement"
-            color="green"
-          />
-        </NextLink>
+        <Announcement
+          copy="Audrey Tang AMA @ 8pm ET"
+          href="https://events.hackclub.com/ama-with-audrey-tang"
+          iconLeft="event-check"
+          color="red"
+        />
         <Heading
           as="h1"
           variant="title"
@@ -534,7 +532,7 @@ export default () => (
         <Heading as="h2" variant="title" sx={{ fontSize: [5, 6, 7], mb: 4 }}>
           Join our Slack
         </Heading>
-        <JoinForm />
+        <JoinForm sx={{ bg: 'rgba(255,255,255,0.75)' }} />
       </Container>
     </Box>
     <Footer />
