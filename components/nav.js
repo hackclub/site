@@ -92,9 +92,8 @@ const layout = props =>
         overflow-y: auto;
         text-align: left;
         height: 100vh;
-        animation: ${slide} 0.25s ease-in;
-        @media (prefers-reduced-motion: reduce) {
-          animation: none;
+        @media (prefers-reduced-motion: no-preference) {
+          animation: ${slide} 0.25s ease-in;
         }
         a {
           color: ${theme.colors[props.dark ? 'white' : 'black']} !important;
@@ -220,13 +219,13 @@ class Header extends Component {
     const baseColor = dark
       ? color || 'white'
       : color === 'white' && scrolled
-        ? 'black'
-        : color
+      ? 'black'
+      : color
     const toggleColor = dark
       ? color || 'snow'
       : toggled || (color === 'white' && scrolled)
-        ? 'slate'
-        : color
+      ? 'slate'
+      : color
 
     return (
       <Root
