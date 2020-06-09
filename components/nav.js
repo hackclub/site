@@ -181,6 +181,9 @@ class Header extends Component {
         this.setState({ mobile: true, toggled: false })
       })
     }
+    if (window.location.pathname === '/') {
+      this.setState({ dark: true })
+    }
   }
 
   componentWillUnmount = () => {
@@ -201,21 +204,21 @@ class Header extends Component {
     const { scrolled: oldState } = this.state
 
     if (newState !== oldState) {
-      this.setState({
-        scrolled: newState
-      })
+      this.setState({ scrolled: newState })
+    }
+    if (window.location.pathname === '/') {
+      this.setState({ dark: window.scrollY < document.body.clientHeight / 2 })
     }
   }
 
   handleToggleMenu = () => {
-    this.setState(state => ({
-      toggled: !state.toggled
-    }))
+    this.setState(state => ({ toggled: !state.toggled }))
   }
 
   render() {
-    const { color, dark, fixed, bgColor, ...props } = this.props
+    const { color, fixed, bgColor, ...props } = this.props
     const { mobile, scrolled, toggled } = this.state
+    const dark = this.props.dark || this.state.dark
     const baseColor = dark
       ? color || 'white'
       : color === 'white' && scrolled
