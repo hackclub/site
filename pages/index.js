@@ -118,7 +118,7 @@ export default () => (
       image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fhackclub.jpg?v=1587740807714"
     />
     <ForceTheme theme="light" />
-    <Nav dark />
+    <Nav />
     <Box
       as="header"
       sx={{
