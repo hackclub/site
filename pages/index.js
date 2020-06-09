@@ -135,14 +135,12 @@ export default () => (
       }}
     >
       <Container pt={[3, 4]} pb={[5, 6]}>
-        {/*
         <Announcement
-          copy="Audrey Tang AMA @ 8pm ET"
-          href="https://events.hackclub.com/ama-with-audrey-tang"
-          iconLeft="event-check"
+          copy="AMA with Patrick Collison this Thursday"
+          href="https://events.hackclub.com/ama-with-patrick-collison"
+          iconLeft="emoji"
           color="red"
         />
-        */}
         <Heading
           as="h1"
           variant="title"
@@ -251,7 +249,7 @@ export default () => (
           <Grid columns={[2, 'initial']} gap={3} mt={4}>
             <Event month="May" day={7} title="Simone Giertz" past />
             <Event month="May" day={14} title="Guillermo Rauch" past />
-            <Event month="June" day={4} title="Audrey Tang" />
+            <Event month="June" day={4} title="Audrey Tang" past />
             <Event month="June" day={11} title="Patrick Collison" />
           </Grid>
         </Box>
