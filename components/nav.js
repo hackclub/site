@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/core'
-import { Box, Container, Flex, Link } from 'theme-ui'
+import { Box, Container, Flex, Link, Text } from 'theme-ui'
 import theme from '../lib/theme'
 import Icon from './icon'
 import Flag from './flag'
@@ -227,9 +227,34 @@ class Header extends Component {
       ? 'slate'
       : color
 
-    return (
+    return [
+      <Box
+        sx={{
+          pt: 5,
+          pb: 3,
+          bg: 'dark',
+          color: 'white',
+          textAlign: 'center',
+          a: { color: 'inherit', fontWeight: 'bold' }
+        }}
+        key="blm"
+      >
+        <Container variant="copy">
+          <Text as="p">
+            <Link href="https://twitter.com/hackclub/status/1266565380820160514?s=21">
+              Black Lives Matter
+            </Link>
+            {'. We’re sending '}
+            <Link href="https://twitter.com/lachlanjc/status/1269702361037058048?s=21">
+              laptops to 80&nbsp;Black & underserved teenagers
+            </Link>
+            .
+          </Text>
+        </Container>
+      </Box>,
       <Root
         {...props}
+        key="nav"
         fixed={fixed}
         scrolled={scrolled}
         toggled={toggled}
@@ -259,7 +284,7 @@ class Header extends Component {
         />
         {toggled && <ScrollLock />}
       </Root>
-    )
+    ]
   }
 }
 

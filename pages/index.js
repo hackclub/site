@@ -118,7 +118,7 @@ export default () => (
       image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fhackclub.jpg?v=1587740807714"
     />
     <ForceTheme theme="light" />
-    <Nav />
+    <Nav dark />
     <Box
       as="header"
       sx={{
@@ -138,7 +138,7 @@ export default () => (
         <Announcement
           copy="AMA with Patrick Collison this Thursday"
           href="https://events.hackclub.com/ama-with-patrick-collison"
-          iconLeft="emoji"
+          iconLeft="event-code"
           color="red"
         />
         <Heading
