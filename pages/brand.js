@@ -13,8 +13,8 @@ import {
 import theme from '@hackclub/theme'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import Flag from '../components/flag'
-import ColorSwitcher from '../components/color-switcher'
+import Nav from '../components/nav'
+import Footer from '../components/footer'
 import { startCase } from 'lodash'
 
 export const Logo = ({ name }) => (
@@ -99,6 +99,13 @@ const ColorSwatch = ({ bg }) => (
 
 export default ({ css }) => (
   <>
+    <Meta
+      as={Head}
+      title="Branding"
+      description="Download Hack Club HQ’s logos and preview our brand fonts & colors."
+      image="https://workshop-cards.hackclub.com/Branding.png?theme=dark&fontSize=350px&brand=HQ"
+    />
+    <Nav />
     <Box
       as="header"
       sx={{
@@ -109,16 +116,6 @@ export default ({ css }) => (
         textAlign: 'center'
       }}
     >
-      <Flag />
-      <ColorSwitcher />
-      <Head>
-        <title>Branding – Hack Club</title>
-        <Meta
-          title="Branding"
-          description="Download Hack Club HQ’s logos and preview our brand fonts & colors."
-          image="https://workshop-cards.hackclub.com/Branding.png?theme=dark&fontSize=350px&brand=HQ"
-        />
-      </Head>
       <Container variant="copy">
         <Heading as="h1" variant="title" sx={{ color: 'primary', mt: [2, 4] }}>
           Hack Club Brand
@@ -146,7 +143,7 @@ export default ({ css }) => (
           'flag-standalone-bw',
           'icon-rounded',
           'icon-square'
-        ].map((key) => (
+        ].map(key => (
           <Logo name={key} key={key} />
         ))}
       </Grid>
@@ -215,7 +212,7 @@ export default ({ css }) => (
           'blue',
           'muted',
           'black'
-        ].map((key) => (
+        ].map(key => (
           <ColorSwatch key={key} bg={key} />
         ))}
       </Grid>
@@ -245,6 +242,7 @@ export default ({ css }) => (
         Theme Starter on GitHub →
       </Button>
     </Container>
+    <Footer />
   </>
 )
 

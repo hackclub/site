@@ -1,13 +1,20 @@
 import { BaseStyles, Box, Button, Container, Grid, Heading } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import Flag from '../components/flag'
-import ColorSwitcher from '../components/color-switcher'
+import Nav from '../components/nav'
+import Footer from '../components/footer'
 import Press from '../components/press.mdx'
 import { Logo } from './brand'
 
 export default () => (
   <>
+    <Meta
+      as={Head}
+      title="Press"
+      description="Hack Club HQ’s resources for press."
+      image="https://workshop-cards.hackclub.com/Press.png?fontSize=350px&brand=HQ"
+    />
+    <Nav />
     <Box
       as="header"
       sx={{
@@ -18,16 +25,6 @@ export default () => (
         textAlign: 'center'
       }}
     >
-      <Flag />
-      <ColorSwitcher />
-      <Head>
-        <title>Press – Hack Club</title>
-        <Meta
-          title="Press"
-          description="Hack Club’s resources for press."
-          image="https://workshop-cards.hackclub.com/Press.png?fontSize=350px&brand=HQ"
-        />
-      </Head>
       <Container variant="copy">
         <Heading as="h1" variant="title" sx={{ color: 'primary', mt: [2, 4] }}>
           Press
@@ -41,6 +38,7 @@ export default () => (
       variant="main"
       sx={{
         py: [3, 4],
+        px: 3,
         maxWidth: [null, 'copyUltra'],
         h2: { variant: 'text.headline' }
       }}
@@ -52,7 +50,6 @@ export default () => (
         as={BaseStyles}
         sx={{
           mx: 0,
-          px: 0,
           fontSize: 2,
           '> p': { maxWidth: 'copy' },
           h2: { variant: 'text.headline', mt: 4 }
@@ -67,7 +64,7 @@ export default () => (
         mt={4}
         mb={4}
       >
-        Download all →
+        View all →
       </Button>
       <Heading variant="headline">Logos</Heading>
       <Grid columns={[null, 2, 3]} gap={3} sx={{ input: { display: 'none' } }}>
@@ -80,7 +77,7 @@ export default () => (
           // 'flag-orpheus-left-bw',
           'icon-rounded',
           'icon-square'
-        ].map((key) => (
+        ].map(key => (
           <Logo name={key} key={key} />
         ))}
       </Grid>
@@ -88,11 +85,11 @@ export default () => (
         as="a"
         href="https://assets.hackclub.com/2020_branding.zip"
         variant="outline"
-        mt={3}
-        mb={4}
+        my={4}
       >
         Download all →
       </Button>
     </Container>
+    <Footer />
   </>
 )
