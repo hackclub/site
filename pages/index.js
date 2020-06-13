@@ -135,12 +135,14 @@ export default () => (
       }}
     >
       <Container pt={[3, 4]} pb={[5, 6]}>
+        {/*
         <Announcement
           copy="AMA with Patrick Collison this Thursday"
           href="https://events.hackclub.com/ama-with-patrick-collison"
           iconLeft="event-code"
           color="red"
         />
+        */}
         <Heading
           as="h1"
           variant="title"
