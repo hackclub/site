@@ -296,11 +296,12 @@ export default () => (
         </Slide>
         <Box sx={{ gridRow: ['1', 'initial'] }}>
           <Heading as="h3" variant="headline" my={0}>
-            Student-run workshops every week on coding, cooking, drawing,
+            Professional mentorship, $50k of hardware grants, weekly get-togethers, 
+            loads of fun & an awards show.
             everything.
           </Heading>
-          <CardLink href="https://youtu.be/Xy_owni1ZVk">
-            Watch a recent live-code
+          <CardLink href="https://summer.hackclub.com">
+            Explore Summer of Making
           </CardLink>
         </Box>
         <div>
