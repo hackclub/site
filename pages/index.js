@@ -298,7 +298,6 @@ export default () => (
           <Heading as="h3" variant="headline" my={0}>
             Professional mentorship, $50k of hardware grants, weekly get-togethers, 
             loads of fun & an awards show.
-            everything.
           </Heading>
           <CardLink href="https://summer.hackclub.com">
             Explore Summer of Making
