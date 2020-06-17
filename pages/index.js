@@ -249,10 +249,10 @@ export default () => (
             Watch our Elon Musk AMA
           </CardLink>
           <Grid columns={[2, 'initial']} gap={3} mt={4}>
-            <Event month="May" day={7} title="Simone Giertz" past />
             <Event month="May" day={14} title="Guillermo Rauch" past />
             <Event month="June" day={4} title="Audrey Tang" past />
-            <Event month="June" day={11} title="Patrick Collison" />
+            <Event month="June" day={11} title="Patrick Collison" past />
+            <Event month="June" day={25} title="ladyada" />
           </Grid>
         </Box>
         <Slide up>
