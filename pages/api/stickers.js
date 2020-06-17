@@ -83,7 +83,7 @@ export default async (req, res) => {
     })
     address = await addressesTable.create({
       'Street (First Line)': data.addressFirst,
-      'Street (Second Line': data.addressSecond,
+      'Street (Second Line)': data.addressSecond,
       'City': data.city,
       'State/Province': data.state,
       'Postal Code': data.zipCode,
@@ -109,4 +109,7 @@ export default async (req, res) => {
     .then(r => { console.log(r.statusText); res.json({ status: 'success' }) })
     .catch(err => console.log(err))
 }
+<<<<<<< HEAD
 >>>>>>> e36e684 (Small edits)
+=======
+>>>>>>> f216e9c (Fix typo)
