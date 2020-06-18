@@ -7,7 +7,7 @@
   },
   "headers": [
     {
-      "source": "/api/join",
+      "source": "/api/(.+)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
