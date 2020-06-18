@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-unfetch'
 const AirtablePlus = require('airtable-plus')
 
 const mailScenariosTable = new AirtablePlus({
