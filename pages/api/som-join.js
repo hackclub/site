@@ -24,7 +24,7 @@ export default async (req, res) => {
   await joinTable.create({
     'Full Name': data.name,
     'Email Address': data.email,
-    Student: data.teen === 'on',
+    Student: data.teen,
     Reason: data.reason,
     Invited: true,
     Notes: 'Added by the som-apply flow in the v3 codebase'
