@@ -21,7 +21,7 @@ export default async (req, res) => {
     return res.status(405).json({ error: 'Method not allowed, use POST' })
   }
 
-  const data = JSON.parse(req?.body || '{}')
+  const data = req.body || {}
 
   await joinTable.create({
     'Full Name': data.name,
