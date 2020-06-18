@@ -1,5 +1,4 @@
 {
-  "public": true,
   "trailingSlash": true,
   "github": { "silent": true },
   "env": {
@@ -7,10 +6,8 @@
   },
   "headers": [
     {
-      "source": "/api/join",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
-      ]
+      "source": "/api/(.+)",
+      "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
     }
   ]
 }

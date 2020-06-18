@@ -3,16 +3,10 @@ import useForm from '../../lib/use-form'
 import Submit from '../submit'
 
 const JoinForm = ({ sx = {} }) => {
-  const { status, formProps, useField } = useForm('/api/join')
+  const { status, formProps, useField } = useForm('/api/som-join')
 
   return (
-    <Card
-      sx={{
-        maxWidth: 'narrow',
-        mx: 'auto',
-        ...sx
-      }}
-    >
+    <Card sx={{ maxWidth: 'narrow', mx: 'auto', ...sx }}>
       <form {...formProps}>
         <Label>
           Full name
