@@ -1,5 +1,4 @@
 import AirtablePlus from 'airtable-plus'
-import fetch from 'isomorphic-unfetch'
 
 const joinTable = new AirtablePlus({
   apiKey: process.env.AIRTABLE_API_KEY,

@@ -33,7 +33,7 @@ const Submit = ({
   labels = {
     default: 'Submit',
     error: 'Error!',
-    success: 'Submitted!'
+    success: 'Check your email!'
   },
   width = '100%',
   sx,
