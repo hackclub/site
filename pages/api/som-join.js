@@ -42,7 +42,6 @@ export default async (req, res) => {
     `email=${data.email}`,
     `token=${process.env.SLACK_LEGACY_TOKEN}`,
     `real_name=${data.name}`,
-    'channels=C015ZDB0GRF,C015LQDP2Q2,C01504DCLVD',
     'restricted=true',
     'resend=true'
   ].join('&')
