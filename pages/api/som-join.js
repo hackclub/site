@@ -19,10 +19,12 @@ export default async (req, res) => {
 
   const data = req.body || {}
 
+  console.log(data)
+
   await joinTable.create({
     'Full Name': data.name,
     'Email Address': data.email,
-    Student: data.teen == "on",
+    Student: data.teen === 'on',
     Reason: data.reason,
     Invited: true,
     Notes: 'Added by the som-apply flow in the v3 codebase'
@@ -31,6 +33,7 @@ export default async (req, res) => {
   // This is a private api method found in https://github.com/ErikKalkoken/slackApiDoc/blob/master/users.admin.invite.md
   // I only got a successful response by putting all the args in URL params
   // Giving JSON body DID NOT WORK when testing locally
+  // —@MaxWofford
 
   const params = [
     `email=${data.email}`,
@@ -41,7 +44,7 @@ export default async (req, res) => {
     'resend=true'
   ].join('&')
   const url = `https://slack.com/api/users.admin.invite?${params}`
-  const slackReq = await fetch(url, { method: 'POST', }).then(r => r.json())
+  await fetch(url, { method: 'POST', }).then(r => r.json()).then(r => console.log('Slack response', r))
 
-  res.json({ status: 'success', slackRes: slackReq })
+  res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
 }
