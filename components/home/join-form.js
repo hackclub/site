@@ -6,13 +6,7 @@ const JoinForm = ({ sx = {} }) => {
   const { status, formProps, useField } = useForm('/api/som-join/')
 
   return (
-    <Card
-      sx={{
-        maxWidth: 'narrow',
-        mx: 'auto',
-        ...sx
-      }}
-    >
+    <Card sx={{ maxWidth: 'narrow', mx: 'auto', ...sx }}>
       <form {...formProps}>
         <Label>
           Full name
