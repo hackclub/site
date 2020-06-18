@@ -7,6 +7,9 @@ const joinTable = new AirtablePlus({
 })
 
 export default async (req, res) => {
+  if (req.method == 'OPTIONS') {
+    return res.status(204).json({ status: "YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED." })
+  }
   if (req.method == 'GET') {
     return res.status(405).json({ error: '*GET outta here!* (Method not allowed, use POST)' })
   }
