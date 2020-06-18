@@ -43,7 +43,7 @@ export default async (req, res) => {
     `token=${process.env.SLACK_LEGACY_TOKEN}`,
     `real_name=${data.name}`,
     'restricted=true',
-    `channels=''`
+    `channels=''`,
     'resend=true'
   ].join('&')
   const url = `https://slack.com/api/users.admin.invite?${params}`
