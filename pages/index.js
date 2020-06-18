@@ -135,14 +135,14 @@ export default () => (
       }}
     >
       <Container pt={[3, 4]} pb={[5, 6]}>
-        {/*
         <Announcement
-          copy="AMA with Patrick Collison this Thursday"
-          href="https://events.hackclub.com/ama-with-patrick-collison"
+          copy="Summer of Making starts today!"
+          caption="$50k in hardware grants, streaks, & more"
+          href="https://summer.hackclub.com"
           iconLeft="event-code"
-          color="red"
+          iconRight="door-enter"
+          color="orange"
         />
-        */}
         <Heading
           as="h1"
           variant="title"
@@ -296,10 +296,10 @@ export default () => (
         </Slide>
         <Box sx={{ gridRow: ['1', 'initial'] }}>
           <Heading as="h3" variant="headline" my={0}>
-            Professional mentorship, $50k of hardware grants, weekly get-togethers, 
-            loads of fun & an awards show.
+            $50k of hardware grants, daily streaks & project updates, & weekly
+            Zoom events all summer.
           </Heading>
-          <CardLink href="https://summer.hackclub.com">
+          <CardLink href="https://summer.hackclub.com/">
             Explore Summer of Making
           </CardLink>
         </Box>
