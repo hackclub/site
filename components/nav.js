@@ -143,7 +143,7 @@ const Navigation = props => (
   <NavBar role="navigation" {...props}>
     <Link href="https://hackclub.com/clubs/" children="Clubs" />
     <Link href="https://workshops.hackclub.com/" children="Workshops" />
-    <Link href="https://hackathons.hackclub.com/" children="Hackathons" />
+    <Link href="https://scrapbook.hackclub.com/" children="Scrapbook" />
     <Link href="https://hackclub.com/bank/" children="Bank" />
     <Link href="https://hackclub.com/donate/" children="Donate" />
   </NavBar>
