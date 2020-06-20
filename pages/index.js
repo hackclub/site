@@ -136,7 +136,7 @@ export default () => (
     >
       <Container pt={[3, 4]} pb={[5, 6]}>
         <Announcement
-          copy="Summer of Making starts today!"
+          copy="We just launched Summer of Making!"
           caption="$50k in hardware grants, streaks, & more"
           href="https://summer.hackclub.com"
           iconLeft="event-code"
