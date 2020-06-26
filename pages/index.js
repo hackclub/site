@@ -115,7 +115,7 @@ export default () => (
     <Meta
       as={Head}
       description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
-      image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fhackclub.jpg?v=1587740807714"
+      image="https://d1fmxjrxw87eps.cloudfront.net/2020-06-26T14:51:43-04:00.jpeg"
     />
     <ForceTheme theme="light" />
     <Nav />
