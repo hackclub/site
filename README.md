@@ -8,3 +8,7 @@ Our new, new website—powered by [Next.js] with [MDX], [Theme UI], & [Hack Club
 [hack club theme]: https://github.com/hackclub/theme
 
 Code under MIT License, assets may not be re-used or re-distributed.
+
+---
+
+By [@lachlanjc](https://lachlanjc.com) for Hack Club, 2020. MIT License.
