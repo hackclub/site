@@ -28,7 +28,7 @@ const ShipBadge = props => (
   <Badge
     as="mark"
     sx={{
-      bg: 'orange',
+      bg: '#FF62DC',
       color: 'inherit',
       fontSize: 'inherit',
       display: 'inline-block',
@@ -41,6 +41,7 @@ const ShipBadge = props => (
   />
 )
 
+/*
 const Ship = ({ timestamp, message, url, img, username, avatar }) => (
   <Card as="section" p={[0, 0]} sx={{ width: '100%' }}>
     {img && (
@@ -110,18 +111,18 @@ const Ship = ({ timestamp, message, url, img, username, avatar }) => (
                 View file
               </>
             ) : (
-              <>
-                <Icon glyph="link" size={24} />
-                <Text as="span" sx={{ textTransform: 'lowercase' }}>
-                  {
-                    url
-                      .replace(/https?:\/\//, '')
-                      .replace('www.', '')
-                      .split(/[/?#]/)[0]
-                  }
-                </Text>
-              </>
-            )}
+                <>
+                  <Icon glyph="link" size={24} />
+                  <Text as="span" sx={{ textTransform: 'lowercase' }}>
+                    {
+                      url
+                        .replace(/https?:\/\//, '')
+                        .replace('www.', '')
+                        .split(/[/?#]/)[0]
+                    }
+                  </Text>
+                </>
+              )}
           </Button>
         )}
       </Box>
@@ -133,13 +134,16 @@ const waves = keyframes({
   '0%': { backgroundPositionX: '0' },
   '100%': { backgroundPositionX: '-100%' }
 })
+*/
 
-export default ({ ships, stats }) => (
+export default ({ stats }) => (
   <>
     <Meta
       as={Head}
       name="Ship"
-      description={`Hack Clubbers ship projects: a real-time list of the ${stats.projects} projects created by the Hack Club high school community in the last month.`}
+      description={`Hack Clubbers ship projects: a real-time list of the ${
+        stats.projects
+      } projects created by the Hack Club high school community in the last month.`}
       image="https://assets.hackclub.com/log/2020-05-22-ship.png"
     />
     <Nav />
@@ -151,8 +155,7 @@ export default ({ ships, stats }) => (
           `linear-gradient(to bottom, ${t.colors.cyan}, ${t.colors.blue})`,
         color: 'white',
         textAlign: 'center',
-        pt: [5, 6],
-        pb: [3, 4]
+        py: [5, 6]
       }}
     >
       <Container
@@ -190,6 +193,7 @@ export default ({ ships, stats }) => (
         </Grid>
       </SlideUp>
     </Box>
+    {/*
     <Box
       as="section"
       id="projects"
@@ -241,6 +245,7 @@ export default ({ ships, stats }) => (
         ))}
       </Grid>
     </Box>
+        */}
     <Box
       as="section"
       sx={{
@@ -255,9 +260,8 @@ export default ({ ships, stats }) => (
           Want to ship your own projects?
         </Heading>
         <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
-          These projects are streamed live from the #ship channel on the
-          Hack&nbsp;Club Slack, where 10k+ teenagers from around the world share
-          what they’re working on & help each other.
+          The #ship channel on the Hack&nbsp;Club Slack is where 10k+ teenagers
+          from around the world share what they’re working on & help each other.
         </Text>
         <NextLink href="/slack" passHref>
           <Button variant="cta" sx={{ py: 2, px: 3, fontSize: 2 }} as="a">
@@ -271,7 +275,7 @@ export default ({ ships, stats }) => (
 )
 
 export const getStaticProps = async () => {
-  const ships = await fetch('http://api2.hackclub.com/v0.1/Ships/Ships')
+  const ships = await fetch('https://airbridge.hackclub.com/v0.1/Ships/Ships')
     .then(r => r.json())
     .then(data => {
       const monthAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000
@@ -292,5 +296,5 @@ export const getStaticProps = async () => {
     projects: ships.length,
     makers: uniq(map(ships, 'username')).length
   }
-  return { props: { ships, stats }, unstable_revalidate: 1 }
+  return { props: { stats }, unstable_revalidate: 1 }
 }
