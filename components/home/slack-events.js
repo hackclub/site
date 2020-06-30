@@ -124,20 +124,19 @@ const SlackEvents = ({ sx, ...props }) => {
       {take(events, 7).map(({ timestamp, type, emoji, ...channel }) => (
         <Slide top duration={256} key={timestamp + JSON.stringify(channel)}>
           <>
-            Someone{' '}
             {type === 'message' && (
               <>
-                messaged <Channel {...channel} />
+                Message in <Channel {...channel} />
               </>
             )}
             {type === 'typing' && (
               <>
-                is typing in <Channel {...channel} />
+                …typing in <Channel {...channel} />
               </>
             )}
             {type === 'reaction' && (
               <>
-                in <Channel {...channel} /> reacted with {emoji}
+                Reaction in <Channel {...channel} />: {emoji}
               </>
             )}
           </>
