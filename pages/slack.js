@@ -24,7 +24,7 @@ export default () => (
     <Meta
       as={Head}
       name="Join our Slack"
-      description="Hack Club’s Slack is a community of 9k high school hackers around the world. Chat, meet new friends, code together, share your work."
+      description="Hack Club’s Slack is a community of 10k+ high school hackers around the world. Chat, meet new friends, code together, share your work."
       image="https://hackclub.com/cards/community.png"
     />
     <ForceTheme theme="light" />

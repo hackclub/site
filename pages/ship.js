@@ -256,7 +256,7 @@ export default ({ ships, stats }) => (
         </Heading>
         <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
           These projects are streamed live from the #ship channel on the
-          Hack&nbsp;Club Slack, where 9k teenagers from around the world share
+          Hack&nbsp;Club Slack, where 10k+ teenagers from around the world share
           what they’re working on & help each other.
         </Text>
         <NextLink href="/slack" passHref>
