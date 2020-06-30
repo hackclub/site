@@ -20,13 +20,13 @@ const Channel = ({ color, channel }) => (
 
 const whitelistedChannels = new Set(
   `
-  3d-printing ai all-hands apple art blockchain books cats
+  3d-printing ai all-hands apple art bank blockchain books cats
   challenges code college-apps confessions cooking coronavirus counttoamillion deals
   debate design dogs ethical-hacking film food
   functional gamedev go-bears hack-night hackathons hardware
-  homelab hours hq india languages late-night-hw-club lgbtq linux lounge
+  homelab hours hq india javascript languages late-night-hw-club lgbtq linux lounge
   mason math memes minecraft music neuroscience photography python
-  rust ship sink-my-ship sleep social studycorner support todayilearned
+  rust scrapbook ship sink-my-ship sleep social studycorner support swift todayilearned
   us-politics welcome westborough wip workshops writing
 `
     .split(/\s+/gi)
@@ -56,19 +56,20 @@ const SlackEvents = ({ sx, ...props }) => {
     }),
     []
   )
-  const { lastEvent } = useWebSocket(
+  const { lastMessage } = useWebSocket(
     'wss://streambot-hackclub.herokuapp.com/',
     STATIC_OPTIONS
   )
 
   useEffect(() => {
-    let e = lastEvent?.data
+    let e = lastMessage?.data
     if (e) {
       try {
         e = JSON.parse(e)
+        console.log(e)
         if (
-          Object.keys(types).includes(e.type) &&
-          whitelistedChannels.has(e.channel)
+          Object.keys(types).includes(e.type)
+          && whitelistedChannels.has(e.channel)
         ) {
           e.type = types[e.type]
           e.color = sample(colors)
@@ -79,7 +80,7 @@ const SlackEvents = ({ sx, ...props }) => {
         true
       }
     }
-  }, [lastEvent])
+  }, [lastMessage])
 
   useEffect(() => {
     return () => {
@@ -93,7 +94,7 @@ const SlackEvents = ({ sx, ...props }) => {
       sx={{
         height: '100%',
         minHeight: '4em',
-        maxHeight: ['6em', '100%'],
+        maxHeight: [128, 256],
         overflow: 'hidden',
         listStyle: 'none',
         lineHeight: 'heading',
