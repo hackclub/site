@@ -10,6 +10,7 @@ import {
 } from 'theme-ui'
 import { keyframes } from '@emotion/core'
 import Head from 'next/head'
+import NextLink from 'next/link'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
@@ -88,7 +89,7 @@ export default () => (
       <Text as="p" sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3 }}>
         Have a coding question? Looking for project feedback? You’ll find some
         fabulous people to talk to in our global Slack (Discord-style online
-        groupchat) with 8,000+ members, active at all hours.
+        groupchat) with 10,000+ members, active at all hours.
       </Text>
       <Grid
         columns={[2, 15]}
@@ -133,28 +134,35 @@ export default () => (
           </Heading>
           <SlackEvents />
         </Box>
+        <NextLink href="/ship" passHref>
+          <Card
+            as="a"
+            variant="interactive"
+            sx={{
+              gridColumn: ['span 2', 'span 6'],
+              textDecoration: 'none',
+              bg: 'blue',
+              backgroundImage: theme => `radial-gradient(
+    ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`,
+              p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
+            }}
+          >
+            <Heading as="h3" variant="headline">
+              #ship
+            </Heading>
+            <Text as="p">Share your latest projects & get feedback</Text>
+          </Card>
+        </NextLink>
         <Card
-          as="aside"
+          as="a"
+          variant="interactive"
+          href="https://hackclub.com/night/"
           sx={{
             gridColumn: ['span 2', 'span 6'],
-            bg: 'blue',
-            backgroundImage: theme => `radial-gradient(
-	ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`,
-            p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
-          }}
-        >
-          <Heading as="h3" variant="headline">
-            #ship
-          </Heading>
-          <Text as="p">Share your latest projects & get feedback</Text>
-        </Card>
-        <Card
-          as="aside"
-          sx={{
-            gridColumn: ['span 2', 'span 6'],
+            textDecoration: 'none',
             bg: 'dark',
             backgroundImage:
-              'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fnight.jpg?v=1587692925213)',
+              'url(https://assets.hackclub.com/log/2020-06-29_night.jpg)',
             backgroundPosition: 'top center',
             backgroundSize: 'cover',
             p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
@@ -200,7 +208,7 @@ export default () => (
           bg="yellow"
           sx={{
             backgroundImage:
-              'url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2FImage%20from%20iOS%202.jpg?v=1587695033603)',
+              'url(https://assets.hackclub.com/log/2020-06-29_dog.jpg)',
             backgroundSize: '100%',
             backgroundPosition: 'center',
             textShadow: 'text'
