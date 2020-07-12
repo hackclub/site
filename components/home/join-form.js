@@ -1,4 +1,4 @@
-import { Card, Label, Input, Checkbox, Textarea } from 'theme-ui'
+import { Card, Label, Input, Checkbox, Heading, Textarea } from 'theme-ui'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 
@@ -7,6 +7,23 @@ const JoinForm = ({ sx = {} }) => {
 
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', ...sx }}>
+      <Heading
+          as="h1"
+          variant="title"
+          sx={{
+            mt: 0,
+            mb: [1, 2, 3],
+            fontSize: 6,
+            textAlign: 'center',
+            color: 'white',
+            lineHeight: [0.875, 0.8],
+            position: 'relative',
+            zIndex: 1,
+            textShadow: 'text'
+          }}
+      >
+        Join our Slack
+      </Heading>
       <form {...formProps}>
         <Label>
           Full name

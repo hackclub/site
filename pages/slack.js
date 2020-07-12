@@ -34,7 +34,7 @@ export default () => (
       as="header"
       sx={{
         bg: 'dark',
-        pt: [5, 6],
+        pt: [5],
         display: 'flex',
         flexDirection: 'column',
         backgroundImage:
@@ -45,29 +45,6 @@ export default () => (
       }}
     >
       <Container pt={[3, 4]} pb={[5, 6]}>
-        <Announcement
-          copy="Already have an account?"
-          href="https://hackclub.slack.com"
-          iconRight="door-enter"
-          color="red"
-        />
-        <Heading
-          as="h1"
-          variant="title"
-          sx={{
-            mt: 0,
-            mb: [3, 4, 5],
-            fontSize: [6, 8, 9],
-            textAlign: 'center',
-            color: 'white',
-            lineHeight: [0.875, 0.8],
-            position: 'relative',
-            zIndex: 1,
-            textShadow: 'text'
-          }}
-        >
-          Hack Club Slack
-        </Heading>
         <SlideUp>
           <JoinForm sx={{ variant: 'cards.translucent' }} />
         </SlideUp>
