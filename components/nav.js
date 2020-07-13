@@ -169,7 +169,6 @@ class Header extends Component {
   }
 
   static defaultProps = {
-    // dark: false,
     color: 'white'
   }
 
@@ -180,9 +179,6 @@ class Header extends Component {
       mobileQuery.addListener(() => {
         this.setState({ mobile: true, toggled: false })
       })
-    }
-    if (window.location.pathname === '/') {
-      this.setState({ dark: true })
     }
   }
 
@@ -206,9 +202,6 @@ class Header extends Component {
     if (newState !== oldState) {
       this.setState({ scrolled: newState })
     }
-    // if (window.location.pathname === '/') {
-    //   this.setState({ dark: window.scrollY < document.body.clientHeight / 2 })
-    // }
   }
 
   handleToggleMenu = () => {
@@ -218,17 +211,16 @@ class Header extends Component {
   render() {
     const { color, fixed, bgColor, dark, ...props } = this.props
     const { mobile, scrolled, toggled } = this.state
-    // const dark = this.props.dark || this.state.dark
     const baseColor = dark
       ? color || 'white'
       : color === 'white' && scrolled
-        ? 'black'
-        : color
+      ? 'black'
+      : color
     const toggleColor = dark
       ? color || 'snow'
       : toggled || (color === 'white' && scrolled)
-        ? 'slate'
-        : color
+      ? 'slate'
+      : color
 
     return (
       <Root
