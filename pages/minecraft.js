@@ -21,6 +21,7 @@ export default () => (
       as={Head}
       title="Minecraft"
       description="Join the Minecrafters of Hack Club on our official server, hang out on Minecraft Monday video calls, and build plugins with our technical community."
+      image="https://cloud-4i6tavcro.vercel.app/2020-07-16_xuyhwktf92atdc6k0rf93vqwendrfvy5.jpeg"
     />
     <Nav color="#759B40" dark />
     <Box
