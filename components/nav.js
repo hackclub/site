@@ -134,7 +134,7 @@ const NavBar = styled(Box)`
     padding: ${theme.space[3]}px;
     text-decoration: none;
     @media (min-width: 56em) {
-      color: ${props => theme.colors[props.color] || color};
+      color: ${props => theme.colors[props.color] || props.color};
     }
   }
 `
