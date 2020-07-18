@@ -57,7 +57,7 @@ export default () => (
           sx={{
             mt: 0,
             mb: [3, 4, 5],
-            fontSize: [6, 8, 9],
+            fontSize: [6, 7, 8],
             textAlign: 'center',
             color: 'white',
             lineHeight: [0.875, 0.8],
@@ -103,7 +103,8 @@ export default () => (
             display: 'flex',
             flexDirection: 'column',
             gridColumn: ['span 1', 'span 3'],
-            position: 'relative'
+            position: 'relative',
+            p: { opacity: 0.75, fontSize: 2, mt: 1, lineHeight: 'caption' }
           },
           h3: {
             variant: 'text.headline',
@@ -142,9 +143,7 @@ export default () => (
               gridColumn: ['span 2', 'span 6'],
               textDecoration: 'none',
               bg: 'blue',
-              backgroundImage: theme => `radial-gradient(
-    ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`,
-              p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
+              backgroundImage: t => t.util.gradient('cyan', 'blue')
             }}
           >
             <Heading as="h3" variant="headline">
@@ -191,13 +190,25 @@ export default () => (
         >
           <h3>#lgbtq</h3>
         </Card>
+        <NextLink href="/minecraft" passHref>
+          <Card
+            as="a"
+            variant="interactive"
+            sx={{
+              gridColumn: ['span 2', 'span 6'],
+              textDecoration: 'none',
+              bg: '#759B40',
+              backgroundImage: t => t.util.gradient('#759B40', '#4F6728'),
+              
+            }}
+          >
+            <Heading as="h3" variant="headline">
+              #minecraft
+            </Heading>
+            <Text as="p">Play on our server, build OSS plugins, compete</Text>
+          </Card>
+        </NextLink>
         <Card bg="dark">
-          <h3>#gamedev</h3>
-        </Card>
-        <Card bg="red">
-          <h3>#design</h3>
-        </Card>
-        <Card bg="green">
           <h3>
             #photo-
             <br />
@@ -216,8 +227,8 @@ export default () => (
         >
           <h3>#dogs</h3>
         </Card>
-        <Card bg="green">
-          <h3>#music</h3>
+        <Card bg="red">
+          <h3>#design</h3>
         </Card>
       </Grid>
     </Container>
