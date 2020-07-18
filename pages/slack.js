@@ -103,14 +103,14 @@ export default () => (
             display: 'flex',
             flexDirection: 'column',
             gridColumn: ['span 1', 'span 3'],
-            position: 'relative',
-            p: { opacity: 0.75, fontSize: 2, mt: 1, lineHeight: 'caption' }
+            position: 'relative'
           },
           h3: {
             variant: 'text.headline',
             color: 'white',
             lineHeight: 'title',
-            my: 0
+            my: 0,
+            '+ p': { color: 'white', opacity: 0.75, fontSize: 2, mt: 1, lineHeight: 'caption' }
           }
         }}
       >
@@ -118,7 +118,9 @@ export default () => (
           as="aside"
           sx={{
             gridRow: [null, 'span 2'],
-            gridColumn: ['span 2', 'span 3']
+            gridColumn: ['span 2', 'span 3'],
+            maxHeight: '100%',
+            overflow: 'hidden'
           }}
         >
           <Heading
@@ -198,8 +200,7 @@ export default () => (
               gridColumn: ['span 2', 'span 6'],
               textDecoration: 'none',
               bg: '#759B40',
-              backgroundImage: t => t.util.gradient('#759B40', '#4F6728'),
-              
+              backgroundImage: t => t.util.gradient('#759B40', '#4F6728')
             }}
           >
             <Heading as="h3" variant="headline">
