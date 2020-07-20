@@ -35,7 +35,7 @@ export default () => (
         pt: [5, 6],
         pb: [4, 5],
         bg: 'rgb(104, 41, 205)',
-        backgroundImage: theme => theme.util.gradient('yellow', 'green')
+        backgroundImage: theme => theme.util.gx('yellow', 'green')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
@@ -118,7 +118,7 @@ export default () => (
       as="section"
       sx={{
         bg: 'orange',
-        backgroundImage: t => t.util.gradient('yellow', 'orange'),
+        backgroundImage: t => t.util.gx('yellow', 'orange'),
         color: 'white',
         py: [4, 5]
       }}

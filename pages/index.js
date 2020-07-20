@@ -179,7 +179,7 @@ export default () => (
         </Text>
         <Button
           as="a"
-          variant="cta"
+          variant="ctaLg"
           href="https://summer.hackclub.com"
           sx={{
             backgroundImage:
@@ -491,9 +491,7 @@ export default () => (
               gridColumn: ['span 2', 'span 6'],
               bg: 'blue',
               backgroundImage: theme => `radial-gradient(
-    ellipse farthest-corner at top left, ${theme.colors.cyan}, ${
-                theme.colors.blue
-                })`,
+    ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`,
               p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
             }}
           >
@@ -573,7 +571,7 @@ export default () => (
       id="slack"
       sx={{
         bg: 'cyan',
-        backgroundImage: theme => theme.util.gradient('yellow', 'orange'),
+        backgroundImage: theme => theme.util.gx('yellow', 'orange'),
         color: 'white',
         py: 5
       }}

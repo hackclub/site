@@ -143,7 +143,7 @@ const Footer = ({ dark = false, children, ...props }) => (
             Join the Club
           </Heading>
           <Services sx={{ flexWrap: 'wrap', alignItems: 'center', ml: -1 }}>
-            <Service href="/slack/" icon="slack-fill" target="_self" />
+            <Service href="/slack" icon="slack-fill" target="_self" />
             <Service href="https://twitter.com/hackclub" icon="twitter" />
             <Service href="https://github.com/hackclub" icon="github" />
             <Service

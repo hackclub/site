@@ -110,7 +110,13 @@ export default () => (
             color: 'white',
             lineHeight: 'title',
             my: 0,
-            '+ p': { color: 'white', opacity: 0.75, fontSize: 2, mt: 1, lineHeight: 'caption' }
+            '+ p': {
+              color: 'white',
+              opacity: 0.75,
+              fontSize: 2,
+              mt: 1,
+              lineHeight: 'caption'
+            }
           }
         }}
       >
@@ -145,7 +151,7 @@ export default () => (
               gridColumn: ['span 2', 'span 6'],
               textDecoration: 'none',
               bg: 'blue',
-              backgroundImage: t => t.util.gradient('cyan', 'blue')
+              backgroundImage: t => t.util.gx('cyan', 'blue')
             }}
           >
             <Heading as="h3" variant="headline">
@@ -200,7 +206,7 @@ export default () => (
               gridColumn: ['span 2', 'span 6'],
               textDecoration: 'none',
               bg: '#759B40',
-              backgroundImage: t => t.util.gradient('#759B40', '#4F6728')
+              backgroundImage: t => t.util.gx('#759B40', '#4F6728')
             }}
           >
             <Heading as="h3" variant="headline">
