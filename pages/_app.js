@@ -14,7 +14,8 @@ const App = ({ Component, pageProps }) => {
 
   useEffect(() => {
     Fathom.load('OGIMJEFA', {
-      includedDomains: ['hackclub.com', 'v3.hackclub.com']
+      includedDomains: ['hackclub.com', 'v3.hackclub.com'],
+      url: 'https://aardvark.hackclub.com/script.js'
     })
     const onRouteChangeComplete = () => Fathom.trackPageview()
     router.events.on('routeChangeComplete', onRouteChangeComplete)
