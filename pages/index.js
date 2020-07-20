@@ -99,7 +99,7 @@ const Window = ({ title, children }) => (
         bg: 'muted',
         color: 'smoke',
         backgroundImage: theme =>
-          `linear-gradient(${theme.colors.darkless}, ${theme.colors.darker})`,
+          `linear-gx(${theme.colors.darkless}, ${theme.colors.darker})`,
         p: 2,
         lineHeight: 'body',
         textAlign: 'center'
@@ -128,8 +128,8 @@ export default () => (
         display: 'flex',
         flexDirection: 'column',
         backgroundImage:
-          'radial-gradient(ellipse farthest-corner at top left, rgba(255, 98, 220, 0.66), rgba(255, 91, 0, 0.66)), url(https://assets.hackclub.com/log/2020-06-29_flagship_1.jpg)',
-        // 'radial-gradient(ellipse farthest-corner at top left, rgba(0, 164, 255, 0.66), rgba(194, 16, 255, 0.66)), url(https://assets.hackclub.com/log/2020-06-29_flagship_1.jpg)',
+          'radial-gx(ellipse farthest-corner at top left, rgba(255, 98, 220, 0.66), rgba(255, 91, 0, 0.66)), url(https://assets.hackclub.com/log/2020-06-29_flagship_1.jpg)',
+        // 'radial-gx(ellipse farthest-corner at top left, rgba(0, 164, 255, 0.66), rgba(194, 16, 255, 0.66)), url(https://assets.hackclub.com/log/2020-06-29_flagship_1.jpg)',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         '@media (hover: hover)': { backgroundAttachment: 'fixed' }
@@ -183,7 +183,7 @@ export default () => (
           href="https://summer.hackclub.com"
           sx={{
             backgroundImage:
-              'radial-gradient(at left top, rgb(0, 255, 255), rgb(0, 164, 255))'
+              'radial-gx(at left top, rgb(0, 255, 255), rgb(0, 164, 255))'
           }}
         >
           Join the Summer
@@ -408,7 +408,7 @@ export default () => (
             display: 'block',
             height: 256,
             backgroundImage: theme =>
-              `linear-gradient(rgba(255,255,255,0), ${theme.colors.white})`
+              `linear-gx(rgba(255,255,255,0), ${theme.colors.white})`
           },
           py: [4, 5]
         }}
@@ -490,10 +490,8 @@ export default () => (
             sx={{
               gridColumn: ['span 2', 'span 6'],
               bg: 'blue',
-              backgroundImage: theme => `radial-gradient(
-    ellipse farthest-corner at top left, ${theme.colors.cyan}, ${
-                theme.colors.blue
-                })`,
+              backgroundImage: theme => `radial-gx(
+    ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`,
               p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
             }}
           >
@@ -532,7 +530,7 @@ export default () => (
             bg="red"
             sx={{
               backgroundImage: ({ colors }) =>
-                `linear-gradient(${colors.red} 0%, ${colors.red} 16.6666%, ${colors.orange} 16.6666%, ${colors.orange} 33.333%, ${colors.yellow} 33.333%, ${colors.yellow} 50%, ${colors.green} 50%, ${colors.green} 66.6666%, ${colors.blue} 66.6666%, ${colors.blue} 83.3333%, #8067C3 83.3333%, #8067C3 100%)`
+                `linear-gx(${colors.red} 0%, ${colors.red} 16.6666%, ${colors.orange} 16.6666%, ${colors.orange} 33.333%, ${colors.yellow} 33.333%, ${colors.yellow} 50%, ${colors.green} 50%, ${colors.green} 66.6666%, ${colors.blue} 66.6666%, ${colors.blue} 83.3333%, #8067C3 83.3333%, #8067C3 100%)`
             }}
           >
             <h3>#lgbtq</h3>
@@ -573,7 +571,7 @@ export default () => (
       id="slack"
       sx={{
         bg: 'cyan',
-        backgroundImage: theme => theme.util.gradient('yellow', 'orange'),
+        backgroundImage: theme => theme.util.gx('yellow', 'orange'),
         color: 'white',
         py: 5
       }}

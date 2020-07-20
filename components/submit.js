@@ -4,19 +4,19 @@ import theme from '../lib/theme'
 const bg = {
   default: {
     bg: 'blue',
-    backgroundImage: theme.util.gradient('cyan', 'blue')
+    backgroundImage: theme.util.gx('cyan', 'blue')
   },
   submitting: {
     bg: 'blue',
-    backgroundImage: theme.util.gradient('cyan', 'blue')
+    backgroundImage: theme.util.gx('cyan', 'blue')
   },
   success: {
     bg: 'green',
-    backgroundImage: theme.util.gradient('green', 'cyan')
+    backgroundImage: theme.util.gx('yellow', 'green')
   },
   error: {
     bg: 'orange',
-    backgroundImage: theme.util.gradient('orange', 'red'),
+    backgroundImage: theme.util.gx('orange', 'red'),
     boxShadow: `0 0 0 1px ${theme.colors.white}, 0 0 0 4px ${theme.colors.primary}`
   }
 }
