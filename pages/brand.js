@@ -37,8 +37,7 @@ export const Logo = ({ name }) => (
         a: {
           bg: 'elevated',
           color: 'cyan',
-          transition: 'all .125s ease-in-out',
-          justifyContent: 'center',
+          boxShadow: 'none',
           py: 1,
           ':hover,:focus': { bg: 'cyan', color: 'white' }
         }
@@ -55,7 +54,8 @@ export const Logo = ({ name }) => (
       </Button>
     </Grid>
     <Input
-      type="url"
+      as="textarea"
+      rows={2}
       value={`https://assets.hackclub.com/${name}.svg`}
       sx={{ mt: 2, py: 1 }}
       disabled
@@ -210,8 +210,8 @@ export default ({ css }) => (
           'green',
           'cyan',
           'blue',
-          'muted',
-          'black'
+          'purple',
+          'muted'
         ].map(key => (
           <ColorSwatch key={key} bg={key} />
         ))}

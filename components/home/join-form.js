@@ -3,10 +3,12 @@ import useForm from '../../lib/use-form'
 import Submit from '../submit'
 
 const JoinForm = ({ sx = {} }) => {
-  const { status, formProps, useField } = useForm('https://v3.hackclub.com/api/som-join/')
+  const { status, formProps, useField } = useForm(
+    'https://v3.hackclub.com/api/som-join'
+  )
 
   return (
-    <Card sx={{ maxWidth: 'narrow', mx: 'auto', ...sx }}>
+    <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
         <Label>
           Full name
@@ -20,7 +22,7 @@ const JoinForm = ({ sx = {} }) => {
             required
           />
         </Label>
-        <Label variant="labelCheckbox">
+        <Label variant="labelHoriz">
           <Checkbox {...useField('teen', 'checkbox')} />
           Are you a teenager?
         </Label>

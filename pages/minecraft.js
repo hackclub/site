@@ -104,7 +104,7 @@ export default () => (
                 as="a"
                 sx={{
                   mt: 2,
-                  backgroundImage: t => t.util.gradient('#759B40', '#4F6728')
+                  backgroundImage: t => t.util.gx('#759B40', '#4F6728')
                 }}
               >
                 <Icon glyph="slack-fill" size={24} />
