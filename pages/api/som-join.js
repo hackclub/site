@@ -8,13 +8,19 @@ const joinTable = new AirtablePlus({
 
 export default async (req, res) => {
   if (req.method == 'OPTIONS') {
-    return res.status(204).json({ status: "YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED." })
+    return res
+      .status(204)
+      .json({ status: 'YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.' })
   }
   if (req.method == 'GET') {
-    return res.status(405).json({ error: '*GET outta here!* (Method not allowed, use POST)' })
+    return res
+      .status(405)
+      .json({ error: '*GET outta here!* (Method not allowed, use POST)' })
   }
   if (req.method == 'PUT') {
-    return res.status(405).json({ error: '*PUT that request away!* (Method not allowed, use POST)' })
+    return res.status(405).json({
+      error: '*PUT that request away!* (Method not allowed, use POST)'
+    })
   }
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed, use POST' })
@@ -47,7 +53,9 @@ export default async (req, res) => {
     'resend=true'
   ].join('&')
   const url = `https://slack.com/api/users.admin.invite?${params}`
-  await fetch(url, { method: 'POST', }).then(r => r.json()).then(r => console.log('Slack response', r))
+  await fetch(url, { method: 'POST' })
+    .then((r) => r.json())
+    .then((r) => console.log('Slack response', r))
 
   res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
 }

@@ -68,8 +68,8 @@ const SlackEvents = ({ sx, ...props }) => {
         e = JSON.parse(e)
         console.log(e)
         if (
-          Object.keys(types).includes(e.type)
-          && whitelistedChannels.has(e.channel)
+          Object.keys(types).includes(e.type) &&
+          whitelistedChannels.has(e.channel)
         ) {
           e.type = types[e.type]
           e.color = sample(colors)

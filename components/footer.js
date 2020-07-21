@@ -6,11 +6,11 @@ import theme from '@hackclub/theme'
 import Icon from './icon'
 
 const Base = styled(Box)`
-  background: ${props =>
+  background: ${(props) =>
     props.dark
       ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
       : `${theme.colors.snow} url('https://hackclub.com/pattern.svg') repeat`};
-  ${props =>
+  ${(props) =>
     props.dark &&
     `
       background-size: ${theme.space[4]}px ${theme.space[4]}px;

@@ -27,5 +27,8 @@
     "react-scrolllock": "^5.0.1",
     "react-use-websocket": "2.1.1",
     "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
   }
 }

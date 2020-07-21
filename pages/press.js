@@ -77,7 +77,7 @@ export default () => (
           // 'flag-orpheus-left-bw',
           'icon-rounded',
           'icon-square'
-        ].map(key => (
+        ].map((key) => (
           <Logo name={key} key={key} />
         ))}
       </Grid>

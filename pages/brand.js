@@ -143,7 +143,7 @@ export default ({ css }) => (
           'flag-standalone-bw',
           'icon-rounded',
           'icon-square'
-        ].map(key => (
+        ].map((key) => (
           <Logo name={key} key={key} />
         ))}
       </Grid>
@@ -212,7 +212,7 @@ export default ({ css }) => (
           'blue',
           'purple',
           'muted'
-        ].map(key => (
+        ].map((key) => (
           <ColorSwatch key={key} bg={key} />
         ))}
       </Grid>

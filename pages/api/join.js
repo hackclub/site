@@ -40,9 +40,9 @@ export default async (req, res) => {
               type: 'mrkdwn',
               text: `*Full name:* ${data.name}\n*Email:* ${
                 data.email
-                }\n*Student:* ${data.teen ? 'true' : 'false'}\n*Reason:* ${
+              }\n*Student:* ${data.teen ? 'true' : 'false'}\n*Reason:* ${
                 data.reason
-                }`
+              }`
             }
           },
           {
@@ -79,7 +79,7 @@ export default async (req, res) => {
           Authorization: `Bearer ${process.env.SLACK_BOT_TOKEN}`
         },
         body: JSON.stringify(postData)
-      }).catch(err => console.error(err))
+      }).catch((err) => console.error(err))
     }
   }
   res.json({ status: 'success' })

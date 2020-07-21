@@ -24,7 +24,7 @@ import { timeSince } from '../lib/dates'
 import { orderBy, filter, take, map, uniq, reverse } from 'lodash'
 import { keyframes } from '@emotion/core'
 
-const ShipBadge = props => (
+const ShipBadge = (props) => (
   <Badge
     as="mark"
     sx={{
@@ -141,9 +141,7 @@ export default ({ stats }) => (
     <Meta
       as={Head}
       name="Ship"
-      description={`Hack Clubbers ship projects: a real-time list of the ${
-        stats.projects
-      } projects created by the Hack Club high school community in the last month.`}
+      description={`Hack Clubbers ship projects: a real-time list of the ${stats.projects} projects created by the Hack Club high school community in the last month.`}
       image="https://assets.hackclub.com/log/2020-05-22-ship.png"
     />
     <Nav />
@@ -151,7 +149,7 @@ export default ({ stats }) => (
       as="header"
       sx={{
         bg: 'blue',
-        backgroundImage: t =>
+        backgroundImage: (t) =>
           `linear-gradient(to bottom, ${t.colors.cyan}, ${t.colors.blue})`,
         color: 'white',
         textAlign: 'center',
@@ -276,12 +274,12 @@ export default ({ stats }) => (
 
 export const getStaticProps = async () => {
   const ships = await fetch('https://airbridge.hackclub.com/v0.1/Ships/Ships')
-    .then(r => r.json())
-    .then(data => {
+    .then((r) => r.json())
+    .then((data) => {
       const monthAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000
-      return filter(data, s => new Date(s.fields.Timestamp) > monthAgo)
+      return filter(data, (s) => new Date(s.fields.Timestamp) > monthAgo)
     })
-    .then(data =>
+    .then((data) =>
       data.map(({ fields }) => ({
         timestamp: fields['Timestamp'] || new Date().toISOString(),
         avatar: fields['User Avatar'] || null,
@@ -291,7 +289,7 @@ export const getStaticProps = async () => {
         img: fields['Image URL'] || null
       }))
     )
-    .then(data => orderBy(data, { timestamp: 'desc' }))
+    .then((data) => orderBy(data, { timestamp: 'desc' }))
   const stats = {
     projects: ships.length,
     makers: uniq(map(ships, 'username')).length

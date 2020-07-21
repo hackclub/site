@@ -27,7 +27,7 @@ const slide = keyframes({
   to: { transform: 'translateY(0)' }
 })
 
-const CardLink = props => (
+const CardLink = (props) => (
   <Link
     sx={{
       mt: 3,
@@ -98,7 +98,7 @@ const Window = ({ title, children }) => (
       sx={{
         bg: 'muted',
         color: 'smoke',
-        backgroundImage: theme =>
+        backgroundImage: (theme) =>
           `linear-gradient(${theme.colors.darkless}, ${theme.colors.darker})`,
         p: 2,
         lineHeight: 'body',
@@ -362,7 +362,7 @@ export default () => (
                 ':focus,:hover': {
                   WebkitTextStroke: 'currentColor',
                   WebkitTextStrokeWidth: '1px',
-                  WebkitTextFillColor: theme => theme.colors.white,
+                  WebkitTextFillColor: (theme) => theme.colors.white,
                   textShadow: '0 0 4px currentColor'
                 }
               }}
@@ -407,7 +407,7 @@ export default () => (
             right: 0,
             display: 'block',
             height: 256,
-            backgroundImage: theme =>
+            backgroundImage: (theme) =>
               `linear-gradient(rgba(255,255,255,0), ${theme.colors.white})`
           },
           py: [4, 5]
@@ -490,7 +490,7 @@ export default () => (
             sx={{
               gridColumn: ['span 2', 'span 6'],
               bg: 'blue',
-              backgroundImage: theme => `radial-gradient(
+              backgroundImage: (theme) => `radial-gradient(
     ellipse farthest-corner at top left, ${theme.colors.cyan}, ${theme.colors.blue})`,
               p: { color: 'smoke', fontSize: 2, mt: 1, lineHeight: 'caption' }
             }}
@@ -571,7 +571,7 @@ export default () => (
       id="slack"
       sx={{
         bg: 'cyan',
-        backgroundImage: theme => theme.util.gx('yellow', 'orange'),
+        backgroundImage: (theme) => theme.util.gx('yellow', 'orange'),
         color: 'white',
         py: 5
       }}

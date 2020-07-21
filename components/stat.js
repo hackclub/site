@@ -21,8 +21,8 @@ const Stat = ({
       gridColumn: lg
         ? ['initial', 'span 1']
         : half
-          ? 'span 1 !important'
-          : 'initial',
+        ? 'span 1 !important'
+        : 'initial',
       lineHeight: 1,
       ...props.sx
     }}

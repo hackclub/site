@@ -29,7 +29,7 @@ export default async (req, res) => {
     if (typeof personRecord === 'undefined') {
       let personRecord = await peopleTable.create({
         'Full Name': data.name,
-        'Email': data.email,
+        Email: data.email,
         'Address (first line)': data.addressFirst,
         'Address (second line)': data.addressSecond,
         'Address (city)': data.city,
@@ -42,23 +42,22 @@ export default async (req, res) => {
         'Address (city)': data.city,
         'Address (state)': data.state,
         'Address (zip code)': data.zipCode,
-        'Person': personRecord.id
+        Person: personRecord.id
       })
-    }
-    else {
+    } else {
       address = personRecord[0]
     }
 
     fetch(`${process.env.MAIL_MISSION_WEBHOOK}`, {
       method: 'POST',
       body: {
-        'test': false,
-        'scenarioRecordID': 'recNDwjb7Zr04Szix',
-        'receiverAddressRecordID': address.id,
-        'missionNotes': 'Requested via hackclub.com'
+        test: false,
+        scenarioRecordID: 'recNDwjb7Zr04Szix',
+        receiverAddressRecordID: address.id,
+        missionNotes: 'Requested via hackclub.com'
       }
     })
-      .then(r => r.json())
-      .then(r => res.json({ status: r.status }))
+      .then((r) => r.json())
+      .then((r) => res.json({ status: r.status }))
   }
 }

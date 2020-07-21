@@ -8,7 +8,7 @@ import theme from '@hackclub/theme'
 import useRandomInterval from '../lib/use-random-interval'
 import usePrefersReducedMotion from '../lib/use-prefers-reduced-motion'
 
-const generateSparkle = color => {
+const generateSparkle = (color) => {
   const sparkle = {
     id: String(random(10000, 99999)),
     createdAt: Date.now(),
@@ -22,8 +22,14 @@ const generateSparkle = color => {
   return sparkle
 }
 
-const Sparkles = ({ colors = ['orange', 'yellow', 'green'], children, sx, props, ...delegated }) => {
-  const allColors = colors.map(n => theme.colors[n])
+const Sparkles = ({
+  colors = ['orange', 'yellow', 'green'],
+  children,
+  sx,
+  props,
+  ...delegated
+}) => {
+  const allColors = colors.map((n) => theme.colors[n])
   const getColor = () => sample(allColors)
   const [sparkles, setSparkles] = React.useState(() => {
     return range(3).map(() => generateSparkle(getColor()))
@@ -33,7 +39,7 @@ const Sparkles = ({ colors = ['orange', 'yellow', 'green'], children, sx, props,
     () => {
       const sparkle = generateSparkle(getColor())
       const now = Date.now()
-      const nextSparkles = sparkles.filter(sp => {
+      const nextSparkles = sparkles.filter((sp) => {
         const delta = now - sp.createdAt
         return delta < 750
       })
@@ -46,7 +52,7 @@ const Sparkles = ({ colors = ['orange', 'yellow', 'green'], children, sx, props,
 
   return (
     <Wrapper {...delegated}>
-      {sparkles.map(sparkle => (
+      {sparkles.map((sparkle) => (
         <Sparkle
           key={sparkle.id}
           color={sparkle.color}
@@ -54,7 +60,9 @@ const Sparkles = ({ colors = ['orange', 'yellow', 'green'], children, sx, props,
           style={sparkle.style}
         />
       ))}
-      <ChildWrapper as="strong" sx={sx} {...props}>{children}</ChildWrapper>
+      <ChildWrapper as="strong" sx={sx} {...props}>
+        {children}
+      </ChildWrapper>
     </Wrapper>
   )
 }

@@ -148,7 +148,7 @@ const Blinking = styled(Heading)`
   line-height: 1;
   &:before,
   &:after {
-    content: '${props => props.children}';
+    content: '${(props) => props.children}';
     position: absolute;
     top: 0;
     color: ${theme.colors.smoke};
