@@ -1,5 +1,8 @@
 # Hack Club v3
 
+![format](https://github.com/hackclub/v3/workflows/format/badge.svg)
+![build](https://github.com/hackclub/v3/workflows/build/badge.svg)
+
 Our new, new website—powered by [Next.js] with [MDX], [Theme UI], & [Hack Club Theme].
 
 [next.js]: https://nextjs.org
