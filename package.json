@@ -8,7 +8,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --check ."
+    "format": "prettier --write .",
+    "checkFormat": "prettier --check ."
   },
   "dependencies": {
     "@hackclub/icons": "^0.0.3",
