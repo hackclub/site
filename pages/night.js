@@ -27,6 +27,14 @@ const floating = keyframes`
   }
 `
 
+// (msw) Credit for this totally goes to https://codepen.io/WebSonick/pen/vjmgu
+const twinkling = keyframes`
+{
+  from {background-position:0 0;}
+  to {background-position:-10000px 5000px;}
+}
+`
+
 const color = '#50E3C2'
 
 export default () => (
@@ -51,7 +59,22 @@ export default () => (
         backgroundSize: '512px auto'
       }}
     >
-      <SlideDown variant="layout.narrow" duration={768}>
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100%',
+          height: '100%',
+          display: 'block',
+          background: 'transparent url(https://files.slack.com/files-pri/T0266FRGM-F0182MN4WF3/twinkling.png?pub_secret=e3df702805) repeat top center',
+          animation: `${twinkling} 200s linear infinite`
+        }}
+      >
+      </Box>
+      <SlideDown variant="layout.narrow" duration={768} sx={{position: 'relative'}}>
         <Heading
           as="h1"
           variant="ultratitle"
