@@ -16,6 +16,16 @@ import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
 import Icon from '../components/icon'
 import Footer from '../components/footer'
+import { keyframes } from '@emotion/core'
+
+const floating = keyframes`
+  from {
+    transform: translatey(20px);
+  }
+  to {
+    transform: translatey(-20px);
+  }
+`
 
 const color = '#50E3C2'
 
@@ -66,18 +76,33 @@ export default () => (
           Join in Saturday at 8:30 PM ET on #hack-night!
         </Text>
       </SlideDown>
-      <Image
-        src="https://cloud-kdlw29prn.vercel.app/2020-07-24_q5d0042r924xpehetdwha7p9vjkz6r1j.png"
-        alt="Illustration of Orpheus with a moon"
-        width={512}
+      <Container
+        variant="narrow"
         sx={{
+          position: 'relative',
           width: '100%',
           maxWidth: 512,
+          minHeight: 512,
+          mx: 'auto',
           mt: [4, 5],
-          transition: 'transform .25s ease-in-out',
-          ':hover': { transform: 'rotate(-6deg)' }
+          img: { position: 'absolute', top: 0, left: 0, right: 0, maxWidth: '100%' }
         }}
-      />
+      >
+        <Image
+          src="https://cloud-2oi5yv0i8.vercel.app/2020-07-24_gbetd0kafcxjp2e5hkv4w9u3m40pmmmt.png"
+          alt="Moon background"
+          width={512}
+        />
+        <Image
+          src="https://cloud-9pj8ga86m.vercel.app/2020-07-24_zdd8ycnkp9q0bbf1fj8a1amjv3zndufz.png"
+          alt="Illustration of Orpheus with a moon"
+          width={512}
+          sx={{
+            zIndex: 1,
+            animation: `${floating} ease-in-out 5s infinite alternate`
+          }}
+        />
+      </Container>
     </Box>
     <Footer dark />
   </>
