@@ -28,7 +28,7 @@ export default ({ upcoming, past }) => (
       as={Head}
       title="AMAs"
       description="Every 2 weeks, the Hack Club community gets on a Zoom call with someone awesome for a 1-hour AMA. Past guests have included Elon Musk, Simone Giertz, Tom Preston-Werner, & more."
-      image="https://cloud-ikyqyywbg.vercel.app/2020-07-23_amas.jpeg"
+      image="https://cloud-h93w3gmy3.vercel.app/2020-07-24_03dp4nhf5acfeyhvg84whafyhe1q30zq.jpeg"
     />
     <ForceTheme theme="dark" />
     <Nav dark />
