@@ -69,7 +69,7 @@ export default () => (
           width: '100%',
           height: '100%',
           display: 'block',
-          background: 'transparent url(https://files.slack.com/files-pri/T0266FRGM-F0182MN4WF3/twinkling.png?pub_secret=e3df702805) repeat top center',
+          background: 'transparent url(https://cloud-c5tvihg15.vercel.app/2020-07-24_afnkcwju2hfkbrkc1ee0h5a5y72a2r5f.png) repeat top center',
           animation: `${twinkling} 200s linear infinite`
         }}
       >
