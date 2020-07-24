@@ -141,9 +141,7 @@ export default ({ stats }) => (
     <Meta
       as={Head}
       name="Ship"
-      description={`Hack Clubbers ship projects: a real-time list of the ${
-        stats.projects
-      } projects created by the Hack Club high school community in the last month.`}
+      description={`Hack Clubbers ship projects: a real-time list of the ${stats.projects} projects created by the Hack Club high school community in the last month.`}
       image="https://assets.hackclub.com/log/2020-05-22-ship.png"
     />
     <Nav />
@@ -167,7 +165,7 @@ export default ({ stats }) => (
         <Text variant="eyebrow" sx={{ color: 'white', opacity: 0.875 }}>
           All aboard!
         </Text>
-        <Heading as="h1" variant="titleUltra" sx={{ mb: [3, 4] }}>
+        <Heading as="h1" variant="ultratitle" sx={{ mb: [3, 4] }}>
           Hack Clubbers focus on one thing: <ShipBadge>shipping.</ShipBadge>
         </Heading>
         <Text as="p" variant="subtitle">
