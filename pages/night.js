@@ -122,7 +122,7 @@ export default () => (
           width={512}
           sx={{
             zIndex: 1,
-            animation: `${floating} ease-in-out 5s infinite alternate`
+            animation: `${floating} cubic-bezier(.55,.03,.43,.98) 8s infinite alternate`
           }}
         />
       </Container>
