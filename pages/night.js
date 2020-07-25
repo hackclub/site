@@ -6,11 +6,12 @@ import {
   Grid,
   Heading,
   Image,
+  Link,
   Text
 } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import Nav from '../components/nav'
 import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
@@ -20,19 +21,17 @@ import { keyframes } from '@emotion/core'
 
 const floating = keyframes`
   from {
-    transform: translatey(20px);
+    transform: translateY(20px);
   }
   to {
-    transform: translatey(-20px);
+    transform: translateY(-20px);
   }
 `
 
 // (msw) Credit for this totally goes to https://codepen.io/WebSonick/pen/vjmgu
 const twinkling = keyframes`
-{
-  from {background-position:0 0;}
-  to {background-position:-10000px 5000px;}
-}
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
 `
 
 const color = '#50E3C2'
@@ -69,12 +68,16 @@ export default () => (
           width: '100%',
           height: '100%',
           display: 'block',
-          background: 'transparent url(https://cloud-c5tvihg15.vercel.app/2020-07-24_afnkcwju2hfkbrkc1ee0h5a5y72a2r5f.png) repeat top center',
+          background:
+            'transparent url(https://cloud-c5tvihg15.vercel.app/2020-07-24_afnkcwju2hfkbrkc1ee0h5a5y72a2r5f.png) repeat top center',
           animation: `${twinkling} 200s linear infinite`
         }}
+      ></Box>
+      <SlideDown
+        variant="layout.narrow"
+        duration={768}
+        sx={{ position: 'relative' }}
       >
-      </Box>
-      <SlideDown variant="layout.narrow" duration={768} sx={{position: 'relative'}}>
         <Heading
           as="h1"
           variant="ultratitle"
@@ -82,10 +85,10 @@ export default () => (
           sx={{
             color,
             textTransform: 'uppercase',
-            // textShadow: '0 0 4px currentColor',
-            WebkitTextStroke: 'currentColor',
+            WebkitTextStroke: 'white',
             WebkitTextStrokeWidth: '2px',
-            WebkitTextFillColor: 'transparent'
+            WebkitTextFillColor: 'transparent',
+            filter: `drop-shadow(0 0 1px ${color}) drop-shadow(0 0 2px ${color}) drop-shadow(0 0 6px ${color})`
           }}
         >
           Hack Night
@@ -96,7 +99,11 @@ export default () => (
           out on a chill call.
         </Text>
         <Text as="p" variant="subtitle">
-          Join in Saturday at 8:30 PM ET on #hack-night!
+          Join in Saturday at 8:30 PM ET on{' '}
+          <NextLink href="/slack" passHref>
+            <Link sx={{ color, opacity: 0.75 }}>#hack-night</Link>
+          </NextLink>
+          !
         </Text>
       </SlideDown>
       <Container
@@ -108,7 +115,13 @@ export default () => (
           minHeight: 512,
           mx: 'auto',
           mt: [4, 5],
-          img: { position: 'absolute', top: 0, left: 0, right: 0, maxWidth: '100%' }
+          img: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            maxWidth: '100%'
+          }
         }}
       >
         <Image
