@@ -17,9 +17,9 @@ import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
-import Announcement from '../components/home/announcement'
-import SlackEvents from '../components/home/slack-events'
-import JoinForm from '../components/home/join-form'
+// import Announcement from '../components/announcement'
+import SlackEvents from '../components/slack/slack-events'
+import JoinForm from '../components/slack/join-form'
 // import { timeSince } from '../lib/dates'
 
 const slide = keyframes({
