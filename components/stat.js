@@ -18,11 +18,6 @@ const Stat = ({
     sx={{
       fontFamily: 'heading',
       flexDirection: reversed ? 'column-reverse' : 'column',
-      gridColumn: lg
-        ? ['initial', 'span 1']
-        : half
-          ? 'span 1 !important'
-          : 'initial',
       lineHeight: 1,
       ...props.sx
     }}
