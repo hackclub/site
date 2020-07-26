@@ -1,6 +1,6 @@
 import { Card, Text } from 'theme-ui'
 import { keyframes } from '@emotion/core'
-import Icon from '../icon'
+import Icon from './icon'
 
 const unfold = keyframes({
   from: { transform: 'scaleY(0)' },
@@ -13,6 +13,7 @@ const Announcement = ({
   iconLeft,
   iconRight = 'info',
   color = 'accent',
+  sx = {},
   ...props
 }) => (
   <Card
@@ -36,7 +37,8 @@ const Announcement = ({
       '@media (prefers-reduced-motion: no-preference)': {
         animation: `${unfold} 0.5s ease-out`
       },
-      svg: { flexShrink: 'none' }
+      svg: { flexShrink: 'none' },
+      ...sx
     }}
     {...props}
   >

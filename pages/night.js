@@ -42,7 +42,7 @@ export default () => (
       as={Head}
       title="Hack Night"
       description="Every Saturday night, the Hack Club community gathers on Zoom to show off what we’re working on & hang out."
-      image="https://cloud-lomgv8fgv.vercel.app/2020-07-24_night.jpeg"
+      image="https://cloud-9h1w4lj4d.vercel.app/2020-07-25_52g0nw40p2b00dh39mt93xq5ubku6yaj.jpeg"
     />
     <Nav color={color} dark />
     <Box

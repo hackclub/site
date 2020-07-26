@@ -30,8 +30,8 @@ const whitelistedChannels = new Set(
   us-politics welcome westborough wip workshops writing
 `
     .split(/\s+/gi)
-    .filter((i) => i.length > 0)
-    .map((i) => '#' + i)
+    .filter(i => i.length > 0)
+    .map(i => '#' + i)
 )
 
 const generateEvent = () => ({
@@ -46,7 +46,7 @@ const SlackEvents = ({ sx, ...props }) => {
   const [events, setEvents] = useState([])
   useEffect(() => {
     setEvents([generateEvent(), generateEvent()])
-    setTimeout(() => setEvents((e) => [generateEvent(), ...e]), 5000)
+    setTimeout(() => setEvents(e => [generateEvent(), ...e]), 5000)
   }, [])
 
   const STATIC_OPTIONS = useMemo(
@@ -66,15 +66,14 @@ const SlackEvents = ({ sx, ...props }) => {
     if (e) {
       try {
         e = JSON.parse(e)
-        console.log(e)
         if (
-          Object.keys(types).includes(e.type)
-          && whitelistedChannels.has(e.channel)
+          Object.keys(types).includes(e.type) &&
+          whitelistedChannels.has(e.channel)
         ) {
           e.type = types[e.type]
           e.color = sample(colors)
           if (e.type === 'reaction') e.emoji = sample(emoji)
-          setEvents((prev) => [e, ...prev])
+          setEvents(prev => [e, ...prev])
         }
       } catch (err) {
         true
@@ -111,7 +110,7 @@ const SlackEvents = ({ sx, ...props }) => {
           right: 0,
           display: 'block',
           height: '2em',
-          backgroundImage: (theme) =>
+          backgroundImage: theme =>
             `linear-gradient(rgba(255,255,255,0), ${theme.colors.white})`
         },
         div: { mb: [1, 2] },
@@ -136,7 +135,7 @@ const SlackEvents = ({ sx, ...props }) => {
             )}
             {type === 'reaction' && (
               <>
-                Reaction in <Channel {...channel} />: {emoji}
+                <Channel {...channel} /> reaction: {emoji}
               </>
             )}
           </>
