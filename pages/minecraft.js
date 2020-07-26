@@ -18,6 +18,8 @@ import FadeIn from '../components/fade-in'
 import Icon from '../components/icon'
 import Footer from '../components/footer'
 
+const color = '#4F6728'
+
 export default () => (
   <>
     <Meta
