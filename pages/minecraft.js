@@ -81,8 +81,7 @@ export default () => (
                 <Link sx={{ color, opacity: 0.75 }}>
                   online map{' '}
                 </Link>
-              </NextLink>
-              !
+              </NextLink>!
             </Text>
           </Card>
           <Card>
