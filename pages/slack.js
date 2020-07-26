@@ -87,7 +87,20 @@ export default () => (
             gridColumn: ['span 1', 'span 3']
           },
           a: {
-            position: 'relative'
+            position: 'relative',
+            ':hover,:focus': {
+              svg: {
+                transform: 'translateX(28px) translateY(-28px)',
+                opacity: 0
+              }
+            }
+          },
+          svg: {
+            position: 'absolute',
+            top: 2,
+            right: 2,
+            fill: 'white',
+            transition: 'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
           },
           h3: {
             variant: 'text.headline',
@@ -101,15 +114,6 @@ export default () => (
               fontSize: 2,
               lineHeight: 'caption'
             }
-          },
-          a: {
-            position: 'relative'
-          },
-          svg: {
-            position: 'absolute',
-            top: 2,
-            right: 2,
-            fill: 'white'
           }
         }}
       >
@@ -253,10 +257,6 @@ export default () => (
         gap={3}
         sx={{
           py: [3, 4],
-          a: {
-            position: 'relative',
-            pb: [4, 5]
-          },
           h3: {
             variant: 'text.title',
             color: 'white',
@@ -269,11 +269,22 @@ export default () => (
             lineHeight: 'caption',
             mt: 2
           },
+          a: {
+            position: 'relative',
+            pb: [4, 5],
+            ':hover,:focus': {
+              svg: {
+                transform: 'translateX(28px) translateY(-28px)',
+                opacity: 0
+              }
+            }
+          },
           svg: {
             position: 'absolute',
             top: 2,
             right: 2,
-            fill: 'white'
+            fill: 'white',
+            transition: 'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
           }
         }}
       >
