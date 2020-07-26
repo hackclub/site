@@ -76,12 +76,13 @@ export default () => (
             </Heading>
             <Text as="p">
               Hang out with the tree-punchers of Hack&nbsp;Club playing on the
-              official server, mc.hackclub.com. Check out our{' '}
+              official server, mc.hackclub.com. Visit out our{' '}
               <NextLink href="https://vmc.hackclub.com/map/" passHref>
                 <Link sx={{ color, opacity: 0.75 }}>
                   online map{' '}
                 </Link>
-              </NextLink>!
+              </NextLink>
+              !
             </Text>
           </Card>
           <Card>
