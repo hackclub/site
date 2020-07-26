@@ -21,6 +21,11 @@ import SlideUp from '../components/slide-up'
 import Header from '../components/slack/header'
 import SlackEvents from '../components/slack/slack-events'
 
+const zoomSlide = keyframes({
+  from: { backgroundPosition: '-32px bottom' },
+  to: { backgroundPosition: '32px bottom' }
+})
+
 export default () => (
   <>
     <Meta
@@ -34,7 +39,7 @@ export default () => (
     <Header />
     <Container sx={{ py: [4, 5] }}>
       <Grid
-        columns={[2, 3]}
+        columns={[2, 5]}
         gap={2}
         sx={{ maxWidth: 'copyPlus', alignItems: 'end' }}
       >
@@ -43,7 +48,7 @@ export default () => (
           label="total members"
           color="red"
           lg
-          sx={{ gridColumn: ['span 2', 'initial'] }}
+          sx={{ gridColumn: 'span 2' }}
         />
         <Stat value={6} label="continents" />
         <Stat value="1M+" label="messages/yr" />
@@ -254,9 +259,10 @@ export default () => (
       </Heading>
       <Grid
         columns={[null, 2]}
-        gap={3}
+        gap={[3, 4]}
         sx={{
           py: [3, 4],
+          mx: [null, null, null, -4],
           h3: {
             variant: 'text.title',
             color: 'white',
@@ -351,15 +357,19 @@ export default () => (
           href="https://events.hackclub.com/"
           variant="interactive"
           sx={{
-            bg: 'red',
-            background: t =>
-              `linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.25)), ${t.colors.red}`,
-            p: { variant: 'styles.a', color: 'white' }
+            bg: '#3b6fce',
+            backgroundImage:
+              'url(https://cloud-1k2khgx4q.vercel.app/2020-07-25_zoomus-icon.svg)',
+            backgroundRepeat: 'repeat-x',
+            backgroundPosition: '0 bottom',
+            '@media (prefers-reduced-motion: no-preference)': {
+              animation: `${zoomSlide} 2s linear infinite`
+            }
           }}
         >
           <Icon glyph="external" size={24} />
-          <h3>& more</h3>
-          <p>See all upcoming events »</p>
+          <h3>Community fun</h3>
+          <p>Members run their own events—all with Zoom Pro</p>
         </Card>
       </Grid>
     </Container>
