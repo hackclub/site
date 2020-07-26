@@ -6,11 +6,12 @@ import {
   Grid,
   Heading,
   Image,
+  Link,
   Text
 } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import Nav from '../components/nav'
 import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
@@ -118,8 +119,8 @@ export default () => (
             </Heading>
             <Text as="p">
               View a {' '}
-              <NextLink href="/slack" passHref>
-              <Link sx={{ color, opacity: 0.75 }}>virtual map of the server </Link>
+              <NextLink href="https://vmc.hackclub.com/map/" passHref>
+                <Link sx={{ color, opacity: 0.75 }}>virtual map of the server </Link>
               </NextLink>
               that is updated daily!
             </Text>
