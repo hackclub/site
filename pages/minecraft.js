@@ -112,6 +112,18 @@ export default () => (
               </Button>
             </Link>
           </Card>
+          <Card>
+            <Heading as="h3" variant="subheadline">
+              Live Map
+            </Heading>
+            <Text as="p">
+              View a {' '}
+              <NextLink href="/slack" passHref>
+              <Link sx={{ color, opacity: 0.75 }}>virtual map of the server </Link>
+              </NextLink>
+              that is updated daily!
+            </Text>
+          </Card>
         </Grid>
       </FadeIn>
     </Box>
