@@ -18,7 +18,7 @@ import FadeIn from '../components/fade-in'
 import Icon from '../components/icon'
 import Footer from '../components/footer'
 
-const color = '#4F6728'
+const color = '#ec3750'
 
 export default () => (
   <>
@@ -76,7 +76,12 @@ export default () => (
             </Heading>
             <Text as="p">
               Hang out with the tree-punchers of Hack&nbsp;Club playing on the
-              official server, mc.hackclub.com.
+              official server, mc.hackclub.com. Check out a{' '}
+              <NextLink href="https://vmc.hackclub.com/map/" passHref>
+                <Link sx={{ color, opacity: 0.75 }}>
+                  virtual map of the server {' '}
+                </Link>
+              </NextLink>!
             </Text>
           </Card>
           <Card>
@@ -114,18 +119,6 @@ export default () => (
                 Join our Slack
               </Button>
             </Link>
-          </Card>
-          <Card>
-            <Heading as="h3" variant="subheadline">
-              Live Map
-            </Heading>
-            <Text as="p">
-              View a {' '}
-              <NextLink href="https://vmc.hackclub.com/map/" passHref>
-                <Link sx={{ color, opacity: 0.75 }}>virtual map of the server </Link>
-              </NextLink>
-              that is updated daily!
-            </Text>
           </Card>
         </Grid>
       </FadeIn>
