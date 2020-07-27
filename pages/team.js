@@ -30,8 +30,7 @@ const Avatar = ({ alt, src }) => (
         bottom: 0,
         left: 0,
         right: 0,
-        clipPath: 'url(#avatar-mask)',
-        WebkitClipPath: 'url(#avatar-mask)'
+        // clipPath: 'url(#avatar-mask)'
       }
     }}
   >
