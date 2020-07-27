@@ -18,8 +18,6 @@ import FadeIn from '../components/fade-in'
 import Icon from '../components/icon'
 import Footer from '../components/footer'
 
-const color = '#ec3750'
-
 export default () => (
   <>
     <Meta
@@ -76,13 +74,10 @@ export default () => (
             </Heading>
             <Text as="p">
               Hang out with the tree-punchers of Hack&nbsp;Club playing on the
-              official server, mc.hackclub.com. Visit out our{' '}
-              <NextLink href="https://vmc.hackclub.com/map/" passHref>
-                <Link sx={{ color, opacity: 0.75 }}>
-                  online map{' '}
-                </Link>
-              </NextLink>
-              !
+              official server, mc.hackclub.com.{' '}
+              <Link href="https://vmc.hackclub.com/map/" color="#759B40">
+                Check out the map »
+              </Link>
             </Text>
           </Card>
           <Card>
@@ -108,7 +103,7 @@ export default () => (
               Chat in #minecraft on Slack
             </Heading>
             <Text as="p">Hundreds of players around the world.</Text>
-            <Link href="/slack" passHref>
+            <NextLink href="/slack" passHref>
               <Button
                 as="a"
                 sx={{
@@ -119,7 +114,7 @@ export default () => (
                 <Icon glyph="slack-fill" size={24} />
                 Join our Slack
               </Button>
-            </Link>
+            </NextLink>
           </Card>
         </Grid>
       </FadeIn>
