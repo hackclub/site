@@ -64,7 +64,7 @@ const Cover = () => (
       right: 0,
       backgroundImage: t => t.util.gx('cyan', 'purple'),
       opacity: 0.625,
-      zIndex: 0
+      zIndex: 1
     }}
   />
 )
