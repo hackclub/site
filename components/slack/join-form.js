@@ -4,7 +4,7 @@ import Submit from '../submit'
 
 const JoinForm = ({ sx = {} }) => {
   const { status, formProps, useField } = useForm(
-    'https://v3.hackclub.com/api/som-join'
+    'https://v3.hackclub.com/api/join'
   )
 
   return (
