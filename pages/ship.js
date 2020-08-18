@@ -136,7 +136,7 @@ const waves = keyframes({
 })
 */
 
-export default ({ stats }) => (
+export default ({ stats = {} }) => (
   <>
     <Meta
       as={Head}
@@ -272,6 +272,7 @@ export default ({ stats }) => (
   </>
 )
 
+/*
 export const getStaticProps = async () => {
   const ships = await fetch('https://airbridge.hackclub.com/v0.1/Ships/Ships')
     .then(r => r.json())
@@ -294,5 +295,6 @@ export const getStaticProps = async () => {
     projects: ships.length,
     makers: uniq(map(ships, 'username')).length
   }
-  return { props: { stats }, unstable_revalidate: 1 }
+  return { props: { stats }, revalidate: 1 }
 }
+*/
