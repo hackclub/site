@@ -3,9 +3,7 @@ import useForm from '../../lib/use-form'
 import Submit from '../submit'
 
 const JoinForm = ({ sx = {} }) => {
-  const { status, formProps, useField } = useForm(
-    'https://v3.hackclub.com/api/som-join'
-  )
+  const { status, formProps, useField } = useForm('/api/join')
 
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
@@ -39,7 +37,7 @@ const JoinForm = ({ sx = {} }) => {
           labels={{
             default: 'Request invitation',
             error: 'Something went wrong',
-            success: 'Check your email!'
+            success: 'Email coming soon!'
           }}
         />
       </form>
