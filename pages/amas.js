@@ -190,5 +190,5 @@ export const getStaticProps = async () => {
       past = filter(events, e => d(e.start) < today)
     })
     .catch(e => console.error(e, 'Failed to fetch AMAs'))
-  return { props: { upcoming, past }, unstable_revalidate: 10 }
+  return { props: { upcoming, past }, revalidate: 10 }
 }
