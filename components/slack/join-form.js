@@ -37,7 +37,7 @@ const JoinForm = ({ sx = {} }) => {
           labels={{
             default: 'Request invitation',
             error: 'Something went wrong',
-            success: 'Check your email!'
+            success: 'Email coming soon!'
           }}
         />
       </form>
