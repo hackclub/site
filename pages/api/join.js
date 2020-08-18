@@ -14,7 +14,9 @@ export default async (req, res) => {
   }
 
   let data = req?.body || JSON.parse(req?.body || '{}')
+  console.log(data)
   const exists = await isDuplicate(data.name, data.email, data.reason)
+  console.log('Exists:', exists)
 
   if (!exists) {
     await joinTable.create({
@@ -24,6 +26,7 @@ export default async (req, res) => {
       Reason: data.reason
     })
     if (data.teen) {
+      console.log('Posting to Slack…')
       let postData = {
         channel: 'G0132DNFE7J', // G0147KPNHU0
         blocks: [
