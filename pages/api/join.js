@@ -86,7 +86,7 @@ export default async (req, res) => {
 }
 
 async function isDuplicate(name, email, reason) {
-  reason = reason.replace(`'`, `\\'`)
+  reason = reason?.replace(`'`, `\\'`)
   const exists = await joinTable.read({
     filterByFormula: `AND({Full Name} = '${name}', {Email Address} = '${email}', Reason = '${reason}')`
   })
