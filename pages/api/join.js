@@ -9,6 +9,10 @@ const joinTable = new AirtablePlus({
 export default async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Headers', '*')
+  if (req.method === 'OPTIONS') {
+    console.log('OPTIONS request made')
+    return res.status(201)
+  }
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed, use POST' })
   }
@@ -19,6 +23,7 @@ export default async (req, res) => {
   console.log('Exists:', exists)
 
   if (!exists) {
+    console.log('Posting to Airtable…')
     await joinTable.create({
       'Full Name': data.name,
       'Email Address': data.email,
