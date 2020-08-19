@@ -3,7 +3,7 @@ import useForm from '../../lib/use-form'
 import Submit from '../submit'
 
 const JoinForm = ({ sx = {} }) => {
-  const { status, formProps, useField } = useForm('/api/join')
+  const { status, formProps, useField } = useForm('https://v3-6arfu6pu5.hackclub.dev/api/som-join/')
 
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
