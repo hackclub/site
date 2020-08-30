@@ -142,7 +142,9 @@ export default ({ css }) => (
           'flag-orpheus-left-bw',
           'flag-standalone-bw',
           'icon-rounded',
-          'icon-square'
+          'icon-square',
+          'icon-progress-rounded',
+          'icon-progress-square'
         ].map(key => (
           <Logo name={key} key={key} />
         ))}
