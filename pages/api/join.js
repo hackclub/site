@@ -7,96 +7,68 @@ const joinTable = new AirtablePlus({
 })
 
 export default async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Headers', '*')
-  if (req.method === 'OPTIONS') {
-    console.log('OPTIONS request made')
-    return res.status(201)
+  if (req.method == 'OPTIONS') {
+    return res
+      .status(204)
+      .json({ status: 'YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.' })
+  }
+  if (req.method == 'GET') {
+    return res
+      .status(405)
+      .json({ error: '*GET outta here!* (Method not allowed, use POST)' })
+  }
+  if (req.method == 'PUT') {
+    return res
+      .status(405)
+      .json({
+        error: '*PUT that request away!* (Method not allowed, use POST)'
+      })
   }
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed, use POST' })
   }
 
-  let data = req?.body || JSON.parse(req?.body || '{}')
-  console.log(data)
-  const exists = await isDuplicate(data.name, data.email, data.reason)
-  console.log('Exists:', exists)
+  const data = req.body || {}
 
-  if (!exists) {
-    console.log('Posting to Airtable…')
-    await joinTable.create({
-      'Full Name': data.name,
-      'Email Address': data.email,
-      Student: data.teen,
-      Reason: data.reason
-    })
-    if (data.teen) {
-      console.log('Posting to Slack…')
-      let postData = {
-        channel: 'G0132DNFE7J', // G0147KPNHU0
-        blocks: [
-          {
-            type: 'section',
-            text: {
-              type: 'mrkdwn',
-              text: 'Someone just requested to join the Slack.'
-            }
-          },
-          {
-            type: 'section',
-            text: {
-              type: 'mrkdwn',
-              text: `*Full name:* ${data.name}\n*Email:* ${
-                data.email
-              }\n*Student:* ${data.teen ? 'true' : 'false'}\n*Reason:* ${
-                data.reason
-              }`
-            }
-          },
-          {
-            type: 'actions',
-            elements: [
-              {
-                type: 'button',
-                text: {
-                  type: 'plain_text',
-                  emoji: true,
-                  text: 'Send Invitation'
-                },
-                style: 'primary',
-                action_id: 'invite_member'
-              },
-              {
-                type: 'button',
-                text: {
-                  type: 'plain_text',
-                  emoji: true,
-                  text: 'Deny'
-                },
-                style: 'danger',
-                action_id: 'deny'
-              }
-            ]
-          }
-        ]
-      }
-      await fetch('https://slack.com/api/chat.postMessage', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.SLACK_BOT_TOKEN}`
-        },
-        body: JSON.stringify(postData)
-      }).catch(err => console.error(err))
+  console.log(data)
+
+  let secrets = (process.env.NAUGHTY || '').split(',')
+
+  for (const secret of secrets) {
+    if (secret === req.headers['x-forwarded-for']) {
+      return res.json({
+        status: 'success',
+        message: 'You’ve been invited to Slack!'
+      })
     }
   }
-  res.json({ status: 'success' })
-}
 
-async function isDuplicate(name, email, reason) {
-  reason = reason?.replace(`'`, `\\'`)
-  const exists = await joinTable.read({
-    filterByFormula: `AND({Full Name} = '${name}', {Email Address} = '${email}', Reason = '${reason}')`
+  await joinTable.create({
+    'Full Name': data.name,
+    'Email Address': data.email,
+    Student: data.teen,
+    Reason: data.reason,
+    Invited: true,
+    Notes: 'Added by the som-apply flow in the v3 codebase'
   })
-  return typeof exists[0] !== 'undefined'
+
+  // This is a private api method found in https://github.com/ErikKalkoken/slackApiDoc/blob/master/users.admin.invite.md
+  // I only got a successful response by putting all the args in URL params
+  // Giving JSON body DID NOT WORK when testing locally
+  // —@MaxWofford
+
+  const params = [
+    `email=${data.email}`,
+    `token=${process.env.SLACK_LEGACY_TOKEN}`,
+    `real_name=${data.name}`,
+    'restricted=true',
+    `channels=C75M7C0SY`,
+    'resend=true'
+  ].join('&')
+  const url = `https://slack.com/api/users.admin.invite?${params}`
+  await fetch(url, { method: 'POST' })
+    .then(r => r.json())
+    .then(r => console.log('Slack response', r))
+
+  res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
 }
