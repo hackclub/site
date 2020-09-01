@@ -48,8 +48,7 @@ export default async (req, res) => {
     'Email Address': data.email,
     Student: data.teen,
     Reason: data.reason,
-    Invited: true,
-    Notes: 'Added by the som-apply flow in the v3 codebase'
+    Invited: true
   })
 
   // This is a private api method found in https://github.com/ErikKalkoken/slackApiDoc/blob/master/users.admin.invite.md
@@ -62,7 +61,7 @@ export default async (req, res) => {
     `token=${process.env.SLACK_LEGACY_TOKEN}`,
     `real_name=${data.name}`,
     'restricted=true',
-    `channels=C75M7C0SY`,
+    `channels=C74HZS5A5`,
     'resend=true'
   ].join('&')
   const url = `https://slack.com/api/users.admin.invite?${params}`
