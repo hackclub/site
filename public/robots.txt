@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://hackclub.com/sitemap.xml
