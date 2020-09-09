@@ -26,23 +26,6 @@ import Footer from '../components/footer'
 // import Announcement from '../components/announcement'
 // import { timeSince } from '../lib/dates'
 
-const CardLink = props => (
-  <Link
-    sx={{
-      mt: 3,
-      display: 'block',
-      fontSize: 3,
-      color: 'red',
-      lineHeight: 'subheading',
-      textDecoration: 'underline',
-      textDecorationStyle: 'wavy',
-      ':after': { content: '"›"', pl: 1 },
-      ...props.sx
-    }}
-    {...props}
-  />
-)
-
 let Highlight = styled(Text)`
   color: inherit;
   border-radius: 1em 0 1em 0;
@@ -54,33 +37,6 @@ let Highlight = styled(Text)`
   );
 `
 Highlight = Highlight.withComponent('mark')
-
-const Window = ({ title, children }) => (
-  <Card
-    sx={{
-      p: [0, 0],
-      boxShadow: 'elevated',
-      lineHeight: 0,
-      border: '1px solid',
-      borderColor: 'black'
-    }}
-  >
-    <Box
-      sx={{
-        bg: 'muted',
-        color: 'smoke',
-        backgroundImage: theme =>
-          `linear-gradient(${theme.colors.darkless}, ${theme.colors.darker})`,
-        p: 2,
-        lineHeight: 'body',
-        textAlign: 'center'
-      }}
-    >
-      {title}
-    </Box>
-    {children}
-  </Card>
-)
 
 const Feature = ({ icon, color, name, desc, children, ...props }) => (
   <Box {...props}>
@@ -122,7 +78,7 @@ const Page = () => (
   <>
     <Meta
       as={Head}
-      title="Don’t run your coding club alone."
+      title="Don’t run your coding club alone"
       description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
       image="https://cloud-epiki4yvg.vercel.app/2020-09-09_drbp62kayjuyyy0ek89mf9fwcp5t4kuz.jpeg"
     />
@@ -328,7 +284,7 @@ const Page = () => (
     <Box
       as="section"
       sx={{
-        py: [5, 6],
+        py: 6,
         bg: 'dark',
         color: 'white',
         'h2,p': { textShadow: 'text' },
@@ -350,9 +306,10 @@ const Page = () => (
         <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
           Learning to code is uniquely like gaining a superpower—turning you
           from a consumer of technology into a creator. So it shouldn’t be
-          taught like a class, with lessons & exams—it should be a creative,
-          exploratory space. To foster this environment,{' '}
-          <Highlight>every Hack Club is student-led</Highlight>.
+          taught like a class—it should be a creative, inclusive space. To
+          foster this environment,{' '}
+          <Highlight>every&nbsp;Hack&nbsp;Club is student-led</Highlight> &
+          members make self-directed projects.
         </Text>
         <Button
           as="a"
@@ -583,7 +540,7 @@ const Page = () => (
             sx={{
               borderRadius: 'default',
               px: 2,
-              mx: [-2, 0],
+              ml: [-2, 0],
               whiteSpace: 'nowrap',
               color: '#fb558e',
               bg: '#6f31b7'
@@ -630,7 +587,7 @@ const Page = () => (
               icon="send"
               color="white"
               name="1. Application"
-              desc="Start by telling us about your club."
+              desc="Start by telling us about your club & who’s leading it."
             />
           </Card>
           <Card
@@ -645,7 +602,7 @@ const Page = () => (
               icon="emoji"
               color="white"
               name="2. Onboarding call"
-              desc="We’ll chat on Zoom to get to know you."
+              desc="Hop on a quick Zoom with someone from Hack Club HQ."
             />
           </Card>
           <Card
