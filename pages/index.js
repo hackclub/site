@@ -412,10 +412,14 @@ const Page = () => (
                 how to run it live.
               </>
             }
-          />
+          >
+            <Photo
+              src="https://cloud-5l827972h.vercel.app/2020-09-09_jwn3zheyafktu0hj5mb4tu7mrz49u6j3.png"
+              alt="Megan presenting a workshop at Flagship 2019"
+              sx={{ maxWidth: [null, 332] }}
+            />
+          </Feature>
           <Feature
-            icon="payment-transfer"
-            color="green"
             name="Workshop Bounty Program"
             desc={
               <>
@@ -429,7 +433,13 @@ const Page = () => (
                 have fun with your bounties.
               </>
             }
-          />
+          >
+            <Image
+              src="https://cloud-7p08n03ez.vercel.app/2020-09-09_4kmbqakaxvjax13rzwhfq6qutzvyxn34.jpeg"
+              alt="Wanted poster for $200"
+              width={180}
+            />
+          </Feature>
           <Feature
             icon="slack-fill"
             color="#5d114c"
@@ -494,7 +504,7 @@ const Page = () => (
             <Photo
               src="https://assets.hackclub.com/log/2020-06-29_workshops.jpg"
               alt="Students going wild on a Zoom call"
-              sx={{ maxWidth: [null, 384] }}
+              sx={{ maxWidth: [null, 332] }}
             />
           </Feature>
         </Grid>
