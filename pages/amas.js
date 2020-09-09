@@ -22,7 +22,7 @@ import Icon from '../components/icon'
 import Footer from '../components/footer'
 import { dt } from '../lib/dates'
 
-export default ({ upcoming, past }) => (
+const Page = ({ upcoming, past }) => (
   <>
     <Meta
       as={Head}
@@ -84,44 +84,48 @@ export default ({ upcoming, past }) => (
       as="section"
       sx={{ py: 5, bg: 'dark', color: 'white', textAlign: 'center' }}
     >
-      <Heading as="h2" variant="title" px={3}>
-        Upcoming guests
-      </Heading>
-      <Flex
-        variant="layout.container"
-        sx={{
-          py: 4,
-          flexWrap: 'wrap',
-          placeContent: 'center'
-        }}
-      >
-        {upcoming.map(event => (
-          <Card
-            as="a"
-            href={`https://events.hackclub.com/${event.slug}`}
-            variant="interactive"
-            m={[2, 3]}
-            key={event.id}
+      {upcoming.length > 0 && (
+        <>
+          <Heading as="h2" variant="title" px={3}>
+            Upcoming guests
+          </Heading>
+          <Flex
+            variant="layout.container"
+            sx={{
+              py: 4,
+              flexWrap: 'wrap',
+              placeContent: 'center'
+            }}
           >
-            <Avatar
-              width={96}
-              height={96}
-              sx={{ width: [96, 128] }}
-              src={event.amaAvatar}
-              alt={event.title}
-            />
-            <Heading as="h3" variant="subheadline" my={2}>
-              {event.title.replace('AMA with ', '')}
-            </Heading>
-            <Text as="p" variant="caption" mb={3}>
-              {dt(event.start)}
-            </Text>
-            <Button as="strong" variant="outline" sx={{ py: 0 }}>
-              RSVP
-            </Button>
-          </Card>
-        ))}
-      </Flex>
+            {upcoming.map(event => (
+              <Card
+                as="a"
+                href={`https://events.hackclub.com/${event.slug}`}
+                variant="interactive"
+                m={[2, 3]}
+                key={event.id}
+              >
+                <Avatar
+                  width={96}
+                  height={96}
+                  sx={{ width: [96, 128] }}
+                  src={event.amaAvatar}
+                  alt={event.title}
+                />
+                <Heading as="h3" variant="subheadline" my={2}>
+                  {event.title.replace('AMA with ', '')}
+                </Heading>
+                <Text as="p" variant="caption" mb={3}>
+                  {dt(event.start)}
+                </Text>
+                <Button as="strong" variant="outline" sx={{ py: 0 }}>
+                  RSVP
+                </Button>
+              </Card>
+            ))}
+          </Flex>
+        </>
+      )}
       <Link
         href="https://events.hackclub.com/"
         sx={{ display: 'block', px: 3, fontSize: [2, 3] }}
@@ -175,6 +179,8 @@ export default ({ upcoming, past }) => (
     <Footer dark />
   </>
 )
+
+export default Page
 
 export const getStaticProps = async () => {
   const { filter } = require('lodash')
