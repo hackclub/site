@@ -3,6 +3,7 @@ import {
   Button,
   Card,
   Container,
+  Flex,
   Grid,
   Heading,
   Image,
@@ -12,6 +13,7 @@ import {
 } from 'theme-ui'
 import theme from '@hackclub/theme'
 import Meta from '@hackclub/meta'
+import Icon from '@hackclub/icons'
 import Head from 'next/head'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
@@ -97,7 +99,7 @@ const ColorSwatch = ({ bg }) => (
   </Card>
 )
 
-export default ({ css }) => (
+const Page = ({ css }) => (
   <>
     <Meta
       as={Head}
@@ -231,6 +233,32 @@ export default ({ css }) => (
           {css}
         </Text>
       </Box>
+      <Heading variant="headline">Icons</Heading>
+      <Text variant="subtitle" sx={{ a: { variant: 'styles.a' }, mb: 3 }}>
+        We have a custom iconset, published as{' '}
+        <a href="https://github.com/hackclub/icons">@hackclub/icons</a>.
+      </Text>
+      <Flex sx={{ flexWrap: 'wrap', svg: { fill: 'muted', mr: 3, mb: 3 } }}>
+        {[
+          'clubs',
+          'bank-circle',
+          'event-code',
+          'home',
+          'transactions',
+          'bolt',
+          'photo',
+          'emoji'
+        ].map(k => (
+          <Icon glyph={k} key={k} size={64} />
+        ))}
+      </Flex>
+      <Button
+        as="a"
+        href="https://icons.hackclub.com"
+        sx={{ mt: 3, mb: [4, 5] }}
+      >
+        Explore Hack Club Icons →
+      </Button>
       <Heading variant="headline">UI components</Heading>
       <Button as="a" href="https://theme.hackclub.com/" sx={{ mr: 3, mb: 3 }}>
         Explore Hack Club Theme →
@@ -247,6 +275,8 @@ export default ({ css }) => (
     <Footer />
   </>
 )
+
+export default Page
 
 export const getStaticProps = () => {
   const fs = require('fs')
