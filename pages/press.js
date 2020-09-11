@@ -6,7 +6,7 @@ import Footer from '../components/footer'
 import Press from '../components/press.mdx'
 import { Logo } from './brand'
 
-export default () => (
+const Page = () => (
   <>
     <Meta
       as={Head}
@@ -93,3 +93,5 @@ export default () => (
     <Footer />
   </>
 )
+
+export default Press
