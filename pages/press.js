@@ -94,4 +94,4 @@ const Page = () => (
   </>
 )
 
-export default Press
+export default Page
