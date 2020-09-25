@@ -451,7 +451,8 @@ const Page = () => (
                   <a>Slack community</a>
                 </Link>{' '}
                 of 10k+ teen hackers, you’ll join a private space for
-                Hack&nbsp;Club leaders to ask questions & chat.
+                Hack&nbsp;Club leaders to ask questions & chat, share projects,
+                & attend weekly live events.
               </>
             }
           />
@@ -459,7 +460,16 @@ const Page = () => (
             icon="purse"
             color="orange"
             name="A basket of free tools"
-            desc="Subscriptions to Notion Pro, Figma Pro, repl.it and more for running a great club, provided free."
+            desc={
+              <>
+                Free subscriptions to Notion Pro, Figma Pro, repl.it and more
+                for running a great club. And instant access for every member to{' '}
+                <a href="https://education.github.com/pack">
+                  GitHub Student Developer Pack
+                </a>
+                .
+              </>
+            }
           />
           <Feature
             icon="bank-account"
