@@ -1,4 +1,5 @@
 // Full credit to https://joshwcomeau.com/react/animated-sparkles-in-react/
+import { useState } from 'react'
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
 import { range, sample, random } from 'lodash'
@@ -22,10 +23,16 @@ const generateSparkle = color => {
   return sparkle
 }
 
-const Sparkles = ({ colors = ['orange', 'yellow', 'green'], children, sx, props, ...delegated }) => {
+const Sparkles = ({
+  colors = ['orange', 'yellow', 'green'],
+  children,
+  sx,
+  props,
+  ...delegated
+}) => {
   const allColors = colors.map(n => theme.colors[n])
   const getColor = () => sample(allColors)
-  const [sparkles, setSparkles] = React.useState(() => {
+  const [sparkles, setSparkles] = useState(() => {
     return range(3).map(() => generateSparkle(getColor()))
   })
   const prefersReducedMotion = usePrefersReducedMotion()
@@ -54,7 +61,9 @@ const Sparkles = ({ colors = ['orange', 'yellow', 'green'], children, sx, props,
           style={sparkle.style}
         />
       ))}
-      <ChildWrapper as="strong" sx={sx} {...props}>{children}</ChildWrapper>
+      <ChildWrapper as="strong" sx={sx} {...props}>
+        {children}
+      </ChildWrapper>
     </Wrapper>
   )
 }
