@@ -1,4 +1,5 @@
-import { Box } from 'theme-ui'
+/** @jsx jsx */
+import { jsx } from 'theme-ui'
 import Icon from '@hackclub/icons'
 
-export default (props) => <Box as={Icon} {...props} />
+export default (props) => <Icon {...props} />
