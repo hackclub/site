@@ -127,11 +127,11 @@ const Footer = ({ dark = false, children, ...props }) => (
             <Service href="/slack" icon="slack-fill" target="_self" />
             <Service href="https://twitter.com/hackclub" icon="twitter" />
             <Service href="https://github.com/hackclub" icon="github" />
+            <Service href="https://figma.com/@hackclub" icon="figma" />
             <Service
               href="https://www.facebook.com/Hack-Club-741805665870458"
               icon="facebook"
             />
-            <Service href="https://twitch.tv/HackClubHQ" icon="twitch" />
             <Service
               href="https://www.youtube.com/c/HackClubHQ"
               icon="youtube"

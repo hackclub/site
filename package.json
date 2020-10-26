@@ -10,22 +10,21 @@
     "start": "next start"
   },
   "dependencies": {
-    "@hackclub/icons": "^0.0.4",
+    "@hackclub/icons": "^0.0.5",
     "@hackclub/meta": "1.0.0",
     "@hackclub/theme": "^0.3.0",
-    "@mdx-js/loader": "^1.6.18",
-    "@next/mdx": "^9.5.3",
+    "@mdx-js/loader": "^1.6.19",
+    "@next/mdx": "^9.5.5",
     "airtable-plus": "^1.0.4",
     "fathom-client": "^3.0.0",
     "globby": "^11.0.1",
-    "isomorphic-unfetch": "^3.0.0",
     "lodash": "^4.17.20",
-    "next": "^9.5.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "next": "^9.5.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
-    "react-use-websocket": "2.1.1",
+    "react-use-websocket": "2.2.0",
     "theme-ui": "^0.3.1"
   }
 }
