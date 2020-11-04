@@ -108,6 +108,7 @@ const Page = () => (
         width={2224}
         height={1249}
         alt="Hack Clubbers gather at the Flagship 2019 conference"
+        priority
       />
       {/*
         <Announcement
