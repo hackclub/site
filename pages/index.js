@@ -17,6 +17,7 @@ import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import Icon from '../components/icon'
+import BGImg from '../components/background-image'
 import ForceTheme from '../components/force-theme'
 import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
@@ -98,15 +99,16 @@ const Page = () => (
         pt: [5, 6],
         pb: [4, 5],
         textAlign: 'center',
-        backgroundImage: [
-          'linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url(https://cloud-cgq5irgc3.vercel.app/2020-09-09_fmn6e5hb62u7cq8eqrt07gz2gg0jp7ej.png)',
-          'linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.5)), url(https://cloud-j0rimxpbu.vercel.app/2020-09-09_4e10mkbdhjrewfzjerjrz5cpdc3dp7cn.png)'
-        ],
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        '@media (hover: hover)': { backgroundAttachment: 'fixed' }
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
+      <BGImg
+        src="/home/hero.png"
+        width={2224}
+        height={1249}
+        alt="Hack Clubbers gather at the Flagship 2019 conference"
+      />
       {/*
         <Announcement
           copy="The Summer of Making has begun!"
@@ -172,7 +174,13 @@ const Page = () => (
           Hack Club is a nonprofit network of high school coding&nbsp;clubs and
           makers around the world. <strong>Applications just opened.</strong>
         </Text>
-        <Button as="a" variant="ctaLg" href="https://apply.hackclub.com">
+        <Button
+          as="a"
+          variant="ctaLg"
+          href="https://apply.hackclub.com"
+          target="_blank"
+          rel="noopener"
+        >
           Apply now
         </Button>
       </FadeIn>
@@ -298,13 +306,17 @@ const Page = () => (
         color: 'white',
         'h2,p': { textShadow: 'text' },
         textAlign: [null, 'center'],
-        backgroundImage:
-          'linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625)), url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855)',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        '@media (hover: hover)': { backgroundAttachment: 'fixed' }
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
+      <BGImg
+        gradient="linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625))"
+        src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855"
+        width={2048}
+        height={1170}
+        alt="Hack Clubbers gather at the Flagship 2019 conference"
+      />
       <Container>
         <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
           ~ Philosophy ~
@@ -506,11 +518,11 @@ const Page = () => (
             desc={
               <>
                 From{' '}
-                <Link href="/night" passHref>
+                <Link href="/night">
                   <a>Hack Night</a>
                 </Link>{' '}
                 to{' '}
-                <Link href="/amas" passHref>
+                <Link href="/amas">
                   <a>AMAs</a>
                 </Link>
                 {' to '}
@@ -657,6 +669,7 @@ const Page = () => (
           as="a"
           href="https://apply.hackclub.com"
           target="_blank"
+          rel="noopener"
           variant="ctaLg"
         >
           Apply to Hack Club
@@ -666,20 +679,26 @@ const Page = () => (
     <Footer
       dark
       sx={{
+        backgroundColor: 'dark',
+        position: 'relative',
+        overflow: 'hidden',
         textShadow: '0 1px 2px rgba(0,0,0,0.375)',
         'h2,span,p,a': { color: 'white !important' },
+        '> div img': { objectPosition: ['left', 'center'] },
         svg: {
           fill: 'white',
           filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
         }
       }}
-      style={{
-        backgroundColor: 'dark',
-        backgroundImage:
-          'linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25)), url(https://cloud-amc544xl2.vercel.app/2020-09-08_e1377hdc0ngeqek6xp1rehka2rhkazy4.png)',
-        backgroundSize: 'cover'
-      }}
-    />
+    >
+      <BGImg
+        width={2544}
+        height={2048}
+        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
+        src="/home/footer.png"
+        alt="Globe with hundreds of Hack Clubs"
+      />
+    </Footer>
   </>
 )
 
