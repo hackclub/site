@@ -3,6 +3,5 @@
 .next
 node_modules
 .DS_Store
-public/home
 public/sitemap.xml
 .vercel
