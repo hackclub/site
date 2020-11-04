@@ -4,6 +4,9 @@ module.exports = withMDX({
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
   assetPrefix: isProd ? '/v3' : '',
+  images: {
+    domains: ['dl.airtable.com']
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
       require('./lib/sitemap')

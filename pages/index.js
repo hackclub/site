@@ -206,16 +206,18 @@ const Page = () => (
           work at their own pace, building websites, apps, & games, and
           presenting them at the end.
         </Text>
-        <Grid columns={[null, null, '3fr 2fr']} gap={[3, 4]} pt={[3, 4]}>
+        <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 4]}>
           <Photo
-            src="https://cloud-7incndho1.vercel.app/2020-09-03_5dby0c0pac7ch2r7fy66q5dvy58x762p.png"
-            alt="Hack Club meeting at State College Area High School, 2017-06-01"
+            src="https://dl.airtable.com/.attachmentThumbnails/904cf56ceac6b0921eceae02958dcd29/5851864a"
+            alt="Summer Creek Hack Club meeting, February 2020"
+            width={3000}
+            height={2550}
             showAlt
           />
           <Grid
             columns="auto 1fr"
-            gap={3}
             sx={{
+              gridColumnGap: 3,
               span: {
                 width: 36,
                 height: 36,
@@ -227,7 +229,7 @@ const Page = () => (
                 fontWeight: 'bold',
                 border: '3px solid currentColor'
               },
-              p: { mt: 0 },
+              p: { my: 0 },
               strong: { display: 'block' }
             }}
           >
@@ -421,8 +423,10 @@ const Page = () => (
             }
           >
             <Photo
-              src="https://cloud-5l827972h.vercel.app/2020-09-09_jwn3zheyafktu0hj5mb4tu7mrz49u6j3.png"
+              src="/home/flagship_megan.png"
               alt="Megan presenting a workshop at Flagship 2019"
+              width={980}
+              height={653}
               sx={{ maxWidth: [null, 332] }}
             />
           </Feature>
@@ -519,8 +523,10 @@ const Page = () => (
             }
           >
             <Photo
-              src="https://assets.hackclub.com/log/2020-06-29_workshops.jpg"
+              src="/home/workshops.jpg"
               alt="Students going wild on a Zoom call"
+              width={768}
+              height={463}
               sx={{ maxWidth: [null, 332] }}
             />
           </Feature>

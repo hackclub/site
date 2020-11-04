@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import { Box, Card, Text, Image, useColorMode } from 'theme-ui'
+import { Box, Card, Text, useColorMode } from 'theme-ui'
+import Image from 'next/image'
 import theme from '../lib/theme'
 
 const Caption = styled(Text)`
@@ -15,12 +16,13 @@ const Caption = styled(Text)`
   z-index: 0;
 `
 
-const Photo = ({ src, alt, showAlt, dark, ...props }) => {
+const Photo = ({ src, width, height, alt, showAlt, dark, ...props }) => {
   const [colorMode] = useColorMode()
   const showCaption = showAlt && alt
   return (
     <Card
       {...props}
+      as="figure"
       sx={{
         p: [0, 0, 0],
         boxShadow: 'elevated',
@@ -28,17 +30,21 @@ const Photo = ({ src, alt, showAlt, dark, ...props }) => {
         position: 'relative',
         maxWidth: '100%',
         lineHeight: 0,
-        ...props.sx
+        height: 'fit-content',
+        ...props.sx,
+        img: { objectFit: 'cover', objectPosition: 'center' }
       }}
     >
       <Image
         src={src}
         alt={alt}
-        loading="lazy"
-        sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        width={width}
+        height={height}
+        layout="responsive"
       />
       {showCaption && (
         <Caption
+          as="figcaption"
           variant={dark ? 'cards.translucentDark' : 'cards.translucent'}
           children={alt}
         />
