@@ -5,7 +5,12 @@ module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'mdx'],
   assetPrefix: isProd ? '/v3' : '',
   images: {
-    domains: ['hackclub.com', 'dl.airtable.com', 'cdn.glitch.com']
+    domains: [
+      'hackclub.com',
+      'dl.airtable.com',
+      'emoji.slack-edge.com',
+      'cdn.glitch.com'
+    ]
   },
   webpack: (config, { isServer }) => {
     if (isServer) {
