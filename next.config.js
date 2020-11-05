@@ -7,6 +7,7 @@ module.exports = withMDX({
   images: {
     domains: [
       'hackclub.com',
+      'v3.hackclub.com',
       'dl.airtable.com',
       'emoji.slack-edge.com',
       'cdn.glitch.com'
