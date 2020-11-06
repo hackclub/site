@@ -394,7 +394,7 @@ const Page = () => (
             }}
           >
             <Image
-              src="https://hackclub.com/stickers/mac.svg"
+              src="https://hackclub.com/stickers/macintosh.svg"
               alt="Macintosh sticker"
               sx={{
                 transform: 'rotate(-12deg)',
@@ -403,7 +403,7 @@ const Page = () => (
               }}
             />
             <Image
-              src="https://hackclub.com/stickers/progress.svg"
+              src="https://hackclub.com/stickers/2020_progress.png"
               alt="Pride sticker"
               sx={{
                 transform: 'rotate(3deg)',

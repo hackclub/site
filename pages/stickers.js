@@ -6,7 +6,8 @@ import {
   Flex,
   Grid,
   Heading,
-  Image
+  Image,
+  Text
 } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
@@ -15,9 +16,13 @@ import Footer from '../components/footer'
 import ForceTheme from '../components/force-theme'
 import StickerForm from '../components/stickers/request-form'
 
+import fs from 'fs'
+import path from 'path'
+import { startCase } from 'lodash'
+
 const color = '#EC37AD'
 
-const StickersPage = () => [
+const StickersPage = ({ stickers = [] }) => [
   <Box
     as="main"
     key="main"
@@ -26,7 +31,7 @@ const StickersPage = () => [
       backgroundImage: theme => theme.util.gx('darkless', 'darker'),
       color: 'white',
       minHeight: '100vh',
-      pt: [5, null, null, null, 6],
+      pt: 5,
       pb: [3, 4, 5, null, 6],
       textAlign: 'center'
     }}
@@ -42,8 +47,11 @@ const StickersPage = () => [
     <Card
       sx={{
         variant: 'translucentDark',
-        maxWidth: 'copy',
+        position: 'relative',
+        overflow: 'visible',
+        maxWidth: 'copyPlus',
         mx: 'auto',
+        pt: [3, 4],
         my: [4, 5]
       }}
     >
@@ -51,11 +59,19 @@ const StickersPage = () => [
         sx={{
           justifyContent: 'center',
           alignItems: 'center',
-          img: { mr: 4, filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))' }
+          position: 'absolute',
+          top: 0,
+          left: '50%',
+          transform: 'translateX(-50%) translateY(-50%)',
+          img: {
+            mx: 3,
+            flexShrink: 0,
+            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))'
+          }
         }}
       >
         <Image
-          src="https://hackclub.com/stickers/mac.svg"
+          src="/stickers/macintosh.svg"
           alt="Macintosh sticker"
           sx={{
             transform: 'rotate(-12deg)',
@@ -64,17 +80,16 @@ const StickersPage = () => [
           }}
         />
         <Image
-          src="https://hackclub.com/stickers/progress.svg"
+          src="/stickers/2020_progress.png"
           alt="Pride sticker"
           sx={{
             transform: 'rotate(3deg)',
             width: ['4rem', '6rem'],
-            height: ['4rem', '6rem'],
-            borderRadius: 'extra'
+            height: ['4rem', '6rem']
           }}
         />
         <Image
-          src="https://hackclub.com/stickers/enjoy.svg"
+          src="/stickers/enjoy.svg"
           alt="Enjoy Hack Club Coca-Cola sticker"
           sx={{
             transform: 'rotate(-12deg)',
@@ -89,7 +104,7 @@ const StickersPage = () => [
         sx={theme => ({
           color: 'primary',
           ...theme.util.gxText(color, 'red'),
-          my: [3, 4]
+          my: [5, 4]
         })}
       >
         Unparalleled stickers.
@@ -99,8 +114,60 @@ const StickersPage = () => [
       </Heading>
       <StickerForm />
     </Card>
+    <Card
+      sx={{
+        bg: 'darkless',
+        maxWidth: 'copyPlus',
+        mx: 'auto',
+        my: [4, 5],
+        textAlign: 'center',
+        overflow: 'visible'
+      }}
+    >
+      <Heading as="h2" variant="title" color="white">
+        Gotta collect ‘em all.
+      </Heading>
+      <Grid columns={[2, 3]} gap={[3, 4]} mt={[3, 4]}>
+        {stickers.map(st => (
+          <Flex
+            key={st}
+            sx={{
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              img: {
+                objectFit: 'contain',
+                width: [128, 160],
+                height: [128, 160],
+                transition: '.25s transform ease-in-out',
+                ':hover': {
+                  transform: 'scale(1.5)',
+                  filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.25))'
+                }
+              }
+            }}
+          >
+            <Image
+              src={`/stickers/${st}`}
+              width={128}
+              height={128}
+              alt={st.split('.')[0]}
+            />
+            <Text as="span" variant="caption" sx={{ fontSize: 2, mt: [2, 3] }}>
+              {startCase(st.replace(/\.(svg|png)/, ''))}
+            </Text>
+          </Flex>
+        ))}
+      </Grid>
+    </Card>
   </Box>,
   <Footer dark key="footer" />
 ]
 
 export default StickersPage
+
+export const getStaticProps = () => {
+  const stickersDir = path.join(process.cwd(), 'public', 'stickers')
+  const stickers = fs.readdirSync(stickersDir)
+  return { props: { stickers } }
+}
