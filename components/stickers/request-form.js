@@ -35,12 +35,17 @@ const RequestForm = () => {
         <Input
           {...useField('addressFirst')}
           placeholder="8605 Santa Monica Blvd"
+          autoComplete="address-line1"
           required
         />
       </Label>
       <Label>
         Address (second line) (optional)
-        <Input {...useField('addressSecond')} placeholder="#86294" />
+        <Input
+          {...useField('addressSecond')}
+          autoComplete="address-line2"
+          placeholder="#86294"
+        />
       </Label>
       <Label sx={{ gridColumn: 'span 1 !important' }}>
         City
