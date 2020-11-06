@@ -94,8 +94,8 @@
       "destination": "https://map.hackclub.dev/"
     },
     {
-      "source": "/(.*)/",
-      "destination": "https://site.hackclub.dev/$1/"
+      "source": "/(.*)",
+      "destination": "https://site.hackclub.dev/$1"
     }
   ],
   "github": { "silent": true }
