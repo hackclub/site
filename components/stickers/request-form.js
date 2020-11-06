@@ -1,13 +1,23 @@
-import { Label, Input, Select } from 'theme-ui'
+import { Grid, Card, Label, Input, Select } from 'theme-ui'
 import useForm from '../../lib/use-form'
 import { countries } from '../../lib/countries'
 import Submit from '../submit'
 
 const RequestForm = () => {
-  const { status, formProps, useField } = useForm('/api/join')
+  const { status, formProps, useField } = useForm('/api/stickers')
 
   return (
-    <form {...formProps}>
+    <Grid
+      as="form"
+      columns={2}
+      gap={3}
+      {...formProps}
+      sx={{
+        label: { gridColumn: ['span 2', 'auto'] },
+        button: { gridColumn: 'span 2', maxWidth: '75%', mx: 'auto' },
+        'input, select': { bg: 'dark' }
+      }}
+    >
       <Label>
         Full name
         <Input {...useField('name')} placeholder="Fiona Hackworth" required />
@@ -32,22 +42,22 @@ const RequestForm = () => {
         Address (second line) (optional)
         <Input {...useField('addressSecond')} placeholder="#86294" />
       </Label>
-      <Label>
+      <Label sx={{ gridColumn: 'span 1 !important' }}>
         City
         <Input {...useField('city')} placeholder="West Hollywood" required />
       </Label>
-      <Label>
+      <Label sx={{ gridColumn: 'span 1 !important' }}>
         State/Province
-        <Input {...useField('state')} placeholder="California" required />
+        <Input {...useField('state')} placeholder="CA" required />
       </Label>
-      <Label>
+      <Label sx={{ gridColumn: 'span 1 !important' }}>
         Zip Code
         <Input {...useField('zipCode')} placeholder="90069" />
       </Label>
-      <Label>
+      <Label sx={{ gridColumn: 'span 1 !important' }}>
         Country
         <Select {...useField('country')} defaultValue="Choose a country">
-          <option value="" selected="selected">
+          <option value="" selected disabled>
             Choose a country
           </option>
           {Object.entries(countries).map(country => (
@@ -55,8 +65,15 @@ const RequestForm = () => {
           ))}
         </Select>
       </Label>
-      <Submit status={status} />
-    </form>
+      <Submit
+        status={status}
+        labels={{
+          default: 'Request stickers',
+          error: 'Something went wrong',
+          success: 'Coming your way!'
+        }}
+      />
+    </Grid>
   )
 }
 
