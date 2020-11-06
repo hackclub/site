@@ -5,6 +5,6 @@ export default async (req, res) => {
     .then(r => r.json())
     .catch(err => res.status(400).send(err))
 
-  const file = fileList.files[0].url_private
+  const file = fileList.files ? fileList.files[0].url_private : 'https://slack-files.com/T0266FRGM-F01DYH13S1X-132dcdb6ab'
   res.redirect(file)
 }
