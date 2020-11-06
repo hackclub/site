@@ -6,5 +6,5 @@ export default async (req, res) => {
     .catch(err => res.status(400).send(err))
 
   const file = fileList.files[0].url_private
-  res.status(200).send(file)
+  res.redirect(file)
 }
