@@ -35,7 +35,7 @@ export default async (req, res) => {
         'City': data.city,
         'State/Province': data.state,
         'Country': data.country,
-        'Person': [personRecord[0]]
+        'Person': [personRecord[0].id]
       })
       address = await addressesTable.create({
         'Address (first line)': data.addressFirst,
@@ -43,7 +43,7 @@ export default async (req, res) => {
         'Address (city)': data.city,
         'Address (state)': data.state,
         'Address (zip code)': data.zipCode,
-        'Person': personRecord[0].id
+        'Person': [personRecord[0].id]
       })
     }
     else {
