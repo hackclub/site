@@ -46,7 +46,7 @@ export default async (req, res) => {
         'Person': [personRecord[0].id]
       })
       
-      console.log('created address:', address
+      console.log('created address:', address)
     }
     else {
       address = (await addressesTable.read({
