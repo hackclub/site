@@ -45,11 +45,15 @@ export default async (req, res) => {
         'Address (zip code)': data.zipCode,
         'Person': [personRecord[0].id]
       })
+      
+      console.log('created address:', address
     }
     else {
       address = (await addressesTable.read({
         filterByFormula: `AND({Email} = '${data.email}', {Status} = '👍')`
       }))[0]
+      
+      console.log('found address:', address)
     }
 
     const url = process.env.MAIL_MISSION_WEBHOOK
