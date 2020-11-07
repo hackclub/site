@@ -388,7 +388,16 @@ const Page = () => (
           />
           <Feature
             name="Stickers"
-            desc="Get great stickers for marketing your club shipped to you or directly to your members."
+            desc={
+              <>
+                Get{' '}
+                <Link href="/stickers">
+                  <a>amazing stickers </a>
+                </Link>{' '}
+                for marketing your club shipped to you or directly to your
+                members.
+              </>
+            }
             sx={{
               img: { mr: 4, filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))' }
             }}
