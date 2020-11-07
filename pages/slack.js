@@ -185,10 +185,10 @@ export default ({ millionData }) => (
           <Text as="p">A daily diary of project updates</Text>
         </Card>
         <Card bg="red" sx={{
-          gridColumn: ['span 1 !important', 'span 2 !important'],
-          gridRow: 'span 3 !important',
+          gridColumn: ['span 2 !important', 'span 2 !important'],
+          gridRow: ['span 1 !important','span 3 !important'],
           position: 'relative',
-          writingMode: 'tb-rl',
+          writingMode: ['lr-tb','tb-rl'],
         }}>
           <Heading as='h3'>#counttoamillion</Heading>
           <Text as='p' sx={{
