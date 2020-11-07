@@ -27,26 +27,32 @@ export default async (req, res) => {
     if (personRecord.length === 0) {
       personRecord = await peopleTable.create({
         'Full Name': data.name,
-        Email: data.email
+        'Email': data.email
       })
-      address = await addressesTable.create({
+      let addressRecord = await addressesTable.create({
         'Street (First Line)': data.addressFirst,
         'Street (Second Line)': data.addressSecond,
-        City: data.city,
+        'City': data.city,
         'State/Province': data.state,
-        'Postal Code': data.zipCode,
-        Person: [personRecord.id]
+        'Country': data.country,
+        'Person': [personRecord[0]]
       })
-    } else {
-      address = (
-        await addressesTable.read({
-          filterByFormula: `{Person ID} = '${personRecord[0].fields['ID']}'`
-        })
-      )[0]
+      address = await addressesTable.create({
+        'Address (first line)': data.addressFirst,
+        'Address (second line)': data.addressSecond,
+        'Address (city)': data.city,
+        'Address (state)': data.state,
+        'Address (zip code)': data.zipCode,
+        'Person': personRecord[0].id
+      })
     }
-    console.log('Address', address)
+    else {
+      address = (await addressesTable.read({
+        filterByFormula: `AND({Email} = '${data.email}', {Status} = '👍')`
+      }))[0]
+    }
 
-    const url = `https://hooks.zapier.com/hooks/catch/507705/o2dbufn/`
+    const url = process.env.MAIL_MISSION_WEBHOOK
     const body = JSON.stringify({
       test: false,
       scenarioRecordID: 'recNDwjb7Zr04Szix',
