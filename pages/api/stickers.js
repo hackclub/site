@@ -17,6 +17,7 @@ export default async (req, res) => {
     let address = (await addressesTable.read({
       filterByFormula: `AND({Email} = '${data.email}', {Status} = '👍')`
     }))[0]
+    console.log('address', address)
 
     if (!address) {
       let personRecord = await peopleTable.create({
@@ -29,7 +30,7 @@ export default async (req, res) => {
         'City': data.city,
         'State/Province': data.state,
         'Country': data.country,
-        'Person': [personRecord[0].id]
+        'Person': [personRecord.id]
       })
       
       console.log('created address:', address)
