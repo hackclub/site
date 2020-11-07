@@ -35,7 +35,7 @@ export default async (req, res) => {
       
       console.log('created address:', address)
     }
-    if (!(address.fields['Street (First Line)'].equalsIgnoreCase(data.addressFirst))) {
+    if (!(address.fields['Street (First Line)'].toLowerCase() === data.addressFirst.toLowerCase())) {
       address = await addressesTable.create({
         'Street (First Line)': data.addressFirst,
         'Street (Second Line)': data.addressSecond,
