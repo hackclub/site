@@ -7,14 +7,15 @@ import {
   Flex,
   Grid,
   Heading,
-  Image,
   Link,
   Text
 } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../components/force-theme'
+import BGImg from '../components/background-image'
 import NextLink from 'next/link'
+import Image from 'next/image'
 import Nav from '../components/nav'
 import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
@@ -27,7 +28,7 @@ const Page = ({ upcoming, past }) => (
     <Meta
       as={Head}
       title="AMAs"
-      description="Every 2 weeks, the Hack Club community gets on a Zoom call with someone awesome for a 1-hour AMA. Past guests have included Elon Musk, Simone Giertz, Tom Preston-Werner, & more."
+      description="Every month, the Hack Club community gets on a Zoom call with someone awesome for a 1-hour AMA. Past guests have included Elon Musk, Simone Giertz, Tom Preston-Werner, & more."
       image="https://cloud-h93w3gmy3.vercel.app/2020-07-24_03dp4nhf5acfeyhvg84whafyhe1q30zq.jpeg"
     />
     <ForceTheme theme="dark" />
@@ -37,13 +38,17 @@ const Page = ({ upcoming, past }) => (
       sx={{
         bg: 'dark',
         textAlign: 'center',
-        backgroundImage:
-          'linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625)), url(https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855)',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        '@media (hover: hover)': { backgroundAttachment: 'fixed' }
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
+      <BGImg
+        gradient="linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625))"
+        src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855"
+        width={2048}
+        height={1170}
+        alt="Screenshot of Elon Musk AMA on Zoom"
+      />
       <SlideDown
         variant="layout.narrow"
         duration={768}
@@ -60,14 +65,11 @@ const Page = ({ upcoming, past }) => (
           AMAs
         </Heading>
         <Text as="p" variant="subtitle" sx={{ a: { color: 'inherit' } }}>
-          Every 2 weeks, we call someone we’ve always wanted to talk to—but the
+          Every month, we call someone we’ve always wanted to talk to—but the
           entire Hack&nbsp;Club Slack community is invited, to ask questions &
           chat with the guest. They’re streamed live publicly on{' '}
-          <Link href="https://twitch.tv/HackClubHQ">Twitch</Link>
-          {' & '}
           <Link href="https://www.youtube.com/c/HackClubHQ">YouTube</Link>.
         </Text>
-        {/*
         <NextLink href="/slack" passHref>
           <Button
             variant="outlineLg"
@@ -77,7 +79,6 @@ const Page = ({ upcoming, past }) => (
             Join Slack
           </Button>
         </NextLink>
-        */}
       </SlideDown>
     </Box>
     <Box
@@ -103,12 +104,18 @@ const Page = ({ upcoming, past }) => (
                 href={`https://events.hackclub.com/${event.slug}`}
                 variant="interactive"
                 m={[2, 3]}
+                sx={{
+                  img: {
+                    width: [96, 128],
+                    height: [96, 128],
+                    borderRadius: 'circle'
+                  }
+                }}
                 key={event.id}
               >
-                <Avatar
-                  width={96}
-                  height={96}
-                  sx={{ width: [96, 128] }}
+                <Image
+                  width={128}
+                  height={128}
                   src={event.amaAvatar}
                   alt={event.title}
                 />
@@ -145,13 +152,14 @@ const Page = ({ upcoming, past }) => (
       >
         {past.map(event => (
           <Card
-            as="a"
+            as={event.youtube ? 'a' : 'section'}
             href={event.youtube}
             variant="interactive"
             sx={{
               display: 'flex',
               alignItems: 'center',
-              p: [0, 0]
+              p: [0, 0],
+              img: { borderRadius: 'extra' }
             }}
             key={event.id}
           >
@@ -162,15 +170,17 @@ const Page = ({ upcoming, past }) => (
               alt={event.title}
             />
             <Box ml={3}>
-              <Heading as="h3" variant="subheadline">
+              <Heading as="h3" variant="subheadline" mb={1}>
                 {event.title.replace('AMA with ', '')}
               </Heading>
-              <Text as="p" variant="caption" my={2}>
+              <Text as="p" variant="caption" mb={2}>
                 {dt(event.start)}
               </Text>
-              <Text as="span" variant="styles.a">
-                Watch now »
-              </Text>
+              {event.youtube && (
+                <Text as="span" variant="styles.a">
+                  Watch now »
+                </Text>
+              )}
             </Box>
           </Card>
         ))}
@@ -188,7 +198,6 @@ export const getStaticProps = async () => {
   let past = []
   const d = dt => new Date(new Date(dt).toISOString().substring(0, 10))
   const today = d(new Date())
-  console.log(today)
   await fetch('https://events.hackclub.com/api/amas')
     .then(r => r.json())
     .then(events => {
