@@ -14,16 +14,22 @@ const addressesTable = new AirtablePlus({
 export default async (req, res) => {
   if (req.method === 'POST') {
     const data = req.body
+    
+    let personRecord = (await peopleTable.read({
+      filterByFormula: `{Email} = '${data.email}'`  
+    }))[0]
+    if (!personRecord) {
+      personRecord = await peopleTable.create({
+        'Full Name': data.name,
+        'Email': data.email
+      })
+    }
+    
     let address = (await addressesTable.read({
       filterByFormula: `AND({Email} = '${data.email}', {Is Valid?} = '1', {Club} = '')`
     }))[0]
     console.log('address', address)
-
     if (!address) {
-      let personRecord = await peopleTable.create({
-        'Full Name': data.name,
-        'Email': data.email
-      })
       address = await addressesTable.create({
         'Street (First Line)': data.addressFirst,
         'Street (Second Line)': data.addressSecond,
@@ -35,6 +41,7 @@ export default async (req, res) => {
       
       console.log('created address:', address)
     }
+    
     if (!(address.fields['Street (First Line)'].toLowerCase() === data.addressFirst.toLowerCase())) {
       address = await addressesTable.create({
         'Street (First Line)': data.addressFirst,
