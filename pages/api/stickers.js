@@ -14,18 +14,15 @@ const addressesTable = new AirtablePlus({
 export default async (req, res) => {
   if (req.method === 'POST') {
     const data = req.body
-    let address
-
-    // fetch person record
-    let personRecord = await peopleTable
+    let address = await addressesTable
       .read({
         filterByFormula: `{Email} = '${data.email}'`,
         maxRecords: 1
       })
       .catch(err => console.error(err))
 
-    if (personRecord.length === 0) {
-      personRecord = await peopleTable.create({
+    if (address.length === 0) {
+      let personRecord = await peopleTable.create({
         'Full Name': data.name,
         'Email': data.email
       })
@@ -41,9 +38,8 @@ export default async (req, res) => {
       console.log('created address:', address)
     }
     else {
-      console.log('found person record:', personRecord[0])
       address = (await addressesTable.read({
-        filterByFormula: `AND({Person Email} = '${personRecord[0].fields['Email']}', {Status} = '👍')`
+        filterByFormula: `AND({Email} = '${address[0].fields['Email']}', {Status} = '👍')`
       }))[0]
       
       console.log('found address:', address)
