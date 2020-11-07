@@ -14,14 +14,11 @@ const addressesTable = new AirtablePlus({
 export default async (req, res) => {
   if (req.method === 'POST') {
     const data = req.body
-    let address = await addressesTable
-      .read({
-        filterByFormula: `{Email} = '${data.email}'`,
-        maxRecords: 1
-      })
-      .catch(err => console.error(err))
+    let address = (await addressesTable.read({
+      filterByFormula: `AND({Email} = '${data.email}', {Status} = '👍')`
+    }))[0]
 
-    if (address.length === 0) {
+    if (!address) {
       let personRecord = await peopleTable.create({
         'Full Name': data.name,
         'Email': data.email
@@ -36,13 +33,6 @@ export default async (req, res) => {
       })
       
       console.log('created address:', address)
-    }
-    else {
-      address = (await addressesTable.read({
-        filterByFormula: `AND({Email} = '${address[0].fields['Email']}', {Status} = '👍')`
-      }))[0]
-      
-      console.log('found address:', address)
     }
 
     const url = process.env.MAIL_MISSION_WEBHOOK
