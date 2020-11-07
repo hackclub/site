@@ -127,8 +127,12 @@ module.exports = withMDX({
         destination: 'https://map.hackclub.dev/'
       },
       {
-        source: '/(.*)',
-        destination: 'https://site.hackclub.dev/$1'
+        source: '/:path*',
+        destination: '/:path*'
+      },
+      {
+        source: '/:slug*',
+        destination: 'https://site.hackclub.dev/:slug*'
       }
     ]
   },
