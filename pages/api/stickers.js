@@ -29,7 +29,7 @@ export default async (req, res) => {
         'Full Name': data.name,
         'Email': data.email
       })
-      let addressRecord = await addressesTable.create({
+      address = await addressesTable.create({
         'Street (First Line)': data.addressFirst,
         'Street (Second Line)': data.addressSecond,
         'City': data.city,
@@ -37,20 +37,13 @@ export default async (req, res) => {
         'Country': data.country,
         'Person': [personRecord[0].id]
       })
-      address = await addressesTable.create({
-        'Address (first line)': data.addressFirst,
-        'Address (second line)': data.addressSecond,
-        'Address (city)': data.city,
-        'Address (state)': data.state,
-        'Address (zip code)': data.zipCode,
-        'Person': [personRecord[0].id]
-      })
       
       console.log('created address:', address)
     }
     else {
+      console.log('found person record:', personRecord[0])
       address = (await addressesTable.read({
-        filterByFormula: `AND({Email} = '${data.email}', {Status} = '👍')`
+        filterByFormula: `AND({Person Email} = '${personRecord[0].fields['Email']}', {Status} = '👍')`
       }))[0]
       
       console.log('found address:', address)
