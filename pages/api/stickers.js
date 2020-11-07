@@ -15,7 +15,7 @@ export default async (req, res) => {
   if (req.method === 'POST') {
     const data = req.body
     let address = (await addressesTable.read({
-      filterByFormula: `AND({Email} = '${data.email}', {Status} = '👍')`
+      filterByFormula: `AND({Email} = '${data.email}', {Is Valid?} = '1', {Club} = '')`
     }))[0]
     console.log('address', address)
 
