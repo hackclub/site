@@ -35,6 +35,7 @@ export default async (req, res) => {
         'Street (Second Line)': data.addressSecond,
         'City': data.city,
         'State/Province': data.state,
+        'Postal Code': data.zipCode,
         'Country': data.country,
         'Person': [personRecord.id]
       })
@@ -48,6 +49,7 @@ export default async (req, res) => {
         'Street (Second Line)': data.addressSecond,
         'City': data.city,
         'State/Province': data.state,
+        'Postal Code': data.zipCode,
         'Country': data.country,
         'Person': [personRecord.id]
       })
