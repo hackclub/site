@@ -12,42 +12,63 @@ module.exports = withMDX({
   async redirects() {
     return [
       { source: '/clubs/', destination: '/', permanent: false },
-      { source: '/c9/', destination: '/cloud9_setup/' },
-      { source: '/slack_invite/', destination: '/slack/' },
-      { source: '/workshops/slack/', destination: '/slack/' },
-      { source: '/community/', destination: '/slack/' },
-      { source: '/hack_camp/', destination: '/camp/' },
-      { source: '/repl/', destination: '/' },
-      { source: '/coc/', destination: '/conduct/' },
-      { source: '/code_of_conduct/', destination: '/conduct/' },
-      { source: '/branding/', destination: '/brand/' },
-      { source: '/ama/', destination: '/amas/' },
-      { source: '/finder/', destination: 'https://finder.hackclub.com' },
-      { source: '/apply/', destination: 'https://apply.hackclub.com' },
-      { source: '/icons/', destination: 'https://icons.hackclub.com' },
+      { source: '/c9/', destination: '/cloud9/', permanent: true },
+      { source: '/cloud9_setup/', destination: '/cloud9/', permanent: true },
+      { source: '/slack_invite/', destination: '/slack/', permanent: true },
+      { source: '/workshops/slack/', destination: '/slack/', permanent: true },
+      { source: '/community/', destination: '/slack/', permanent: true },
+      { source: '/hack_camp/', destination: '/camp/', permanent: true },
+      { source: '/repl/', destination: '/', permanent: true },
+      { source: '/branding/', destination: '/brand/', permanent: true },
+      { source: '/ama/', destination: '/amas/', permanent: false },
+      { source: '/coc/', destination: '/conduct/', permanent: true },
+      {
+        source: '/code_of_conduct/',
+        destination: '/conduct/',
+        permanent: true
+      },
+      {
+        source: '/finder/',
+        destination: 'https://finder.hackclub.com',
+        permanent: true
+      },
+      {
+        source: '/apply/',
+        destination: 'https://apply.hackclub.com',
+        permanent: true
+      },
+      {
+        source: '/icons/',
+        destination: 'https://icons.hackclub.com',
+        permanent: true
+      },
       {
         source: '/updates/',
         destination:
-          'https://www.youtube.com/playlist?list=PLbNbddgD-XxEC5-_KQTye6nFPBLtI_mds'
+          'https://www.youtube.com/playlist?list=PLbNbddgD-XxEC5-_KQTye6nFPBLtI_mds',
+        permanent: false
       },
       {
         source: '/admin/',
         destination:
-          'https://5c8804a629a378000833619c--hackclub.netlify.com/admin/'
+          'https://5c8804a629a378000833619c--hackclub.netlify.com/admin/',
+        permanent: false
       },
       {
         source: '/checkup/',
         destination:
           'https://5c8804a629a378000833619c--hackclub.netlify.com/checkup/',
-        statusCode: 302
+        permanent: false
       },
       {
         source: '/workshops/',
-        destination: 'https://workshops.hackclub.com/'
+        destination: 'https://workshops.hackclub.com/',
+        permanent: false
       },
       {
         source: '/workshops/([a-z_]+)/',
-        destination: 'https://workshops.hackclub.com/$1/'
+        destination: 'https://workshops.hackclub.com/$1/',
+        permanent: true
       }
     ]
   },
