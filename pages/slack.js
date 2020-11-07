@@ -27,10 +27,12 @@ const zoomSlide = keyframes({
 })
 
 export async function getStaticProps() {
-  const million = await fetch('https://hackclub.com/api/channels/count-to-a-million/');
-  const millionData = await million.text();
-  return { props: { millionData } };
-};
+  const million = await fetch(
+    'https://hackclub.com/api/channels/count-to-a-million/'
+  )
+  const millionData = await million.text()
+  return { props: { millionData }, revalidate: 1 }
+}
 
 export default ({ millionData }) => (
   <>
@@ -184,16 +186,25 @@ export default ({ millionData }) => (
           </Heading>
           <Text as="p">A daily diary of project updates</Text>
         </Card>
-        <Card bg="red" sx={{
-          gridColumn: ['span 2 !important', 'span 2 !important'],
-          gridRow: ['span 1 !important','span 3 !important'],
-          position: 'relative',
-          writingMode: ['lr-tb','tb-rl'],
-        }}>
-          <Heading as='h3'>#counttoamillion</Heading>
-          <Text as='p' sx={{
-            mt: 4
-          }}> We're at <b>{ millionData }</b>!</Text>
+        <Card
+          bg="red"
+          sx={{
+            gridColumn: ['span 2 !important', 'span 2 !important'],
+            gridRow: ['span 1 !important', 'span 3 !important'],
+            position: 'relative',
+            writingMode: ['lr-tb', 'tb-rl']
+          }}
+        >
+          <Heading as="h3">#counttoamillion</Heading>
+          <Text
+            as="p"
+            sx={{
+              mt: 4
+            }}
+          >
+            {' '}
+            We're at <b>{millionData}</b>!
+          </Text>
         </Card>
         <Card bg="cyan">
           <h3>#lounge</h3>
