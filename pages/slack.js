@@ -26,7 +26,13 @@ const zoomSlide = keyframes({
   to: { backgroundPosition: '32px bottom' }
 })
 
-export default () => (
+export async function getStaticProps() {
+  const million = await fetch('https://hackclub.com/api/channels/count-to-a-million/');
+  const millionData = await million.text();
+  return { props: { millionData } };
+};
+
+export default ({ millionData }) => (
   <>
     <Meta
       as={Head}
@@ -150,7 +156,7 @@ export default () => (
             as="a"
             variant="interactive"
             sx={{
-              gridColumn: ['span 2', 'span 6'],
+              gridColumn: ['span 2', 'span 5'],
               bg: 'blue',
               backgroundImage: t => t.util.gx('cyan', 'blue')
             }}
@@ -167,7 +173,7 @@ export default () => (
           href="https://scrapbook.hackclub.com/"
           variant="interactive"
           sx={{
-            gridColumn: ['span 2', 'span 6'],
+            gridColumn: ['span 2', 'span 5'],
             bg: 'dark',
             backgroundImage: t => t.util.gx('yellow', 'orange')
           }}
@@ -177,6 +183,17 @@ export default () => (
             #scrapbook
           </Heading>
           <Text as="p">A daily diary of project updates</Text>
+        </Card>
+        <Card bg="red" sx={{
+          gridColumn: ['span 1 !important', 'span 2 !important'],
+          gridRow: 'span 3 !important',
+          position: 'relative',
+          writingMode: 'tb-rl',
+        }}>
+          <Heading as='h3'>#counttoamillion</Heading>
+          <Text as='p' sx={{
+            mt: 4
+          }}> We're at <b>{ millionData }</b>!</Text>
         </Card>
         <Card bg="cyan">
           <h3>#lounge</h3>
@@ -200,16 +217,6 @@ export default () => (
           sx={{ h3: { color: 'green', textShadow: '0 0 4px currentColor' } }}
         >
           <h3>#code</h3>
-        </Card>
-        <Card
-          bg="red"
-          sx={{
-            gridColumn: ['span 1 !important', 'span 2 !important'],
-            gridRow: 'span 2 !important',
-            writingMode: 'tb-rl'
-          }}
-        >
-          <h3>#confessions</h3>
         </Card>
         <Card
           bg="yellow"
