@@ -29,12 +29,15 @@ export default async (req, res) => {
     if (typeof personRecord === 'undefined') {
       let personRecord = await peopleTable.create({
         'Full Name': data.name,
-        'Email': data.email,
-        'Address (first line)': data.addressFirst,
-        'Address (second line)': data.addressSecond,
-        'Address (city)': data.city,
-        'Address (state)': data.state,
-        'Address (zip code)': data.zipCode
+        'Email': data.email
+      })
+      let addressRecord = await addressesTable.create({
+        'Street (First Line)': data.addressFirst,
+        'Street (Second Line)': data.addressSecond,
+        'City': data.city,
+        'State/Province': data.state,
+        'Country': data.country,
+        'Person': [personRecord[0]]
       })
       address = await addressesTable.create({
         'Address (first line)': data.addressFirst,
@@ -42,11 +45,13 @@ export default async (req, res) => {
         'Address (city)': data.city,
         'Address (state)': data.state,
         'Address (zip code)': data.zipCode,
-        'Person': personRecord.id
+        'Person': personRecord[0].id
       })
     }
     else {
-      address = personRecord[0]
+      address = (await addressesTable.read({
+        filterByFormula: `AND({Email} = '${data.email}', {Status} = '👍')`
+      }))[0]
     }
 
     fetch(`${process.env.MAIL_MISSION_WEBHOOK}`, {
