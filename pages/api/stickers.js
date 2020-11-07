@@ -35,6 +35,16 @@ export default async (req, res) => {
       
       console.log('created address:', address)
     }
+    if (!(address.fields['Street (First Line)'].equalsIgnoreCase(data.addressFirst))) {
+      address = await addressesTable.create({
+        'Street (First Line)': data.addressFirst,
+        'Street (Second Line)': data.addressSecond,
+        'City': data.city,
+        'State/Province': data.state,
+        'Country': data.country,
+        'Person': [personRecord.id]
+      })
+    }
 
     const url = process.env.MAIL_MISSION_WEBHOOK
     const body = JSON.stringify({
