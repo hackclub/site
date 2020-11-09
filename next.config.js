@@ -107,6 +107,26 @@ module.exports = withMDX({
         destination: 'https://summer.hackclub.com/_next/:path*'
       },
       {
+        source: '/team/',
+        destination: 'https://v2.hackclub.dev/team/'
+      },
+      {
+        source: '/donate/',
+        destination: 'https://v2.hackclub.dev/donate/'
+      },
+      {
+        source: '/philosophy/',
+        destination: 'https://v2.hackclub.dev/philosophy/'
+      },
+      {
+        source: '/bank/',
+        destination: 'https://v2.hackclub.dev/bank/'
+      },
+      {
+        source: '/camp/',
+        destination: 'https://v2.hackclub.dev/camp/'
+      },
+      {
         source: '/sponsorship/',
         destination: 'https://workshops.hackclub.com/sponsorship/'
       },
@@ -145,10 +165,6 @@ module.exports = withMDX({
       {
         source: '/map/',
         destination: 'https://map.hackclub.dev/'
-      },
-      {
-        source: '/:path*',
-        destination: '/:path*'
       },
       {
         source: '/:path*',

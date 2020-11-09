@@ -27,9 +27,9 @@ const DeprecatedPage = ({ page: { name, desc, icon, link } = {} }) => (
         textAlign: 'center'
       }}
     >
-      <Container variant="copy" as="article">
+      <Container variant="narrow" as="article">
         <Icon size={128} glyph={icon} />
-        <Heading as="h1" variant="headline" sx={{ color: 'snow', my: [2, 3] }}>
+        <Heading as="h1" variant="title" sx={{ color: 'snow', my: [2, 3] }}>
           We no longer offer {name}.
         </Heading>
         <Heading as="h2" variant="subtitle" sx={{ mb: 4 }}>
