@@ -168,7 +168,7 @@ const Blinking = styled(Heading)`
   }
 `
 
-const NotFoundPage = () => (
+export default () => (
   <>
     <Meta as={Head} title="404" />
     <ForceTheme theme="dark" />
@@ -190,5 +190,3 @@ const NotFoundPage = () => (
     <Footer dark />
   </>
 )
-
-export default NotFoundPage

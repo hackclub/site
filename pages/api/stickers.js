@@ -1,83 +1,69 @@
-import AirtablePlus from 'airtable-plus'
+const AirtablePlus = require('airtable-plus')
 
-const peopleTable = new AirtablePlus({
+const mailScenariosTable = new AirtablePlus({
   apiKey: process.env.AIRTABLE_API_KEY,
   baseID: 'apptEEFG5HTfGQE7h',
+  tableName: 'Mail Scenarios'
+})
+const peopleTable = new AirtablePlus({
+  apiKey: process.env.AIRTABLE_API_KEY,
+  basedID: 'apptEEFG5HTfGQE7h',
   tableName: 'People'
 })
 const addressesTable = new AirtablePlus({
   apiKey: process.env.AIRTABLE_API_KEY,
-  baseID: 'apptEEFG5HTfGQE7h',
+  basedID: 'apptEEFG5HTfGQE7h',
   tableName: 'Addresses'
 })
 
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const data = req.body
-    
-    let personRecord = (await peopleTable.read({
-      filterByFormula: `{Email} = '${data.email}'`  
-    }))[0]
-    if (!personRecord) {
-      personRecord = await peopleTable.create({
+    const data = JSON.parse(body)
+    let address
+
+    // fetch person record
+    const personRecord = await peopleTable.read({
+      filterByFormula: `{Email} = '${data.email}'`,
+      maxRecords: 1
+    })
+    if (typeof personRecord === 'undefined') {
+      let personRecord = await peopleTable.create({
         'Full Name': data.name,
         'Email': data.email
       })
-    }
-    
-    let address = (await addressesTable.read({
-      filterByFormula: `AND({Email} = '${data.email}', {Is Valid?} = '1', {Club} = '')`
-    }))[0]
-    console.log('address', address)
-    if (!address) {
-      address = await addressesTable.create({
+      let addressRecord = await addressesTable.create({
         'Street (First Line)': data.addressFirst,
         'Street (Second Line)': data.addressSecond,
         'City': data.city,
         'State/Province': data.state,
-        'Postal Code': data.zipCode,
         'Country': data.country,
-        'Person': [personRecord.id]
+        'Person': [personRecord[0]]
       })
-      
-      console.log('created address:', address)
-    }
-    
-    if (!(address.fields['Street (First Line)'].toLowerCase() === data.addressFirst.toLowerCase())) {
       address = await addressesTable.create({
-        'Street (First Line)': data.addressFirst,
-        'Street (Second Line)': data.addressSecond,
-        'City': data.city,
-        'State/Province': data.state,
-        'Postal Code': data.zipCode,
-        'Country': data.country,
-        'Person': [personRecord.id]
+        'Address (first line)': data.addressFirst,
+        'Address (second line)': data.addressSecond,
+        'Address (city)': data.city,
+        'Address (state)': data.state,
+        'Address (zip code)': data.zipCode,
+        'Person': personRecord[0].id
       })
+    }
+    else {
+      address = (await addressesTable.read({
+        filterByFormula: `AND({Email} = '${data.email}', {Status} = '👍')`
+      }))[0]
     }
 
-    const url = process.env.MAIL_MISSION_WEBHOOK
-    const body = JSON.stringify({
-      test: false,
-      scenarioRecordID: 'recNDwjb7Zr04Szix',
-      receiverAddressRecordID: address.id,
-      missionNotes: 'Requested via hackclub.com'
-    })
-    fetch(url, {
-      body,
+    fetch(`${process.env.MAIL_MISSION_WEBHOOK}`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
+      body: {
+        'test': false,
+        'scenarioRecordID': 'recNDwjb7Zr04Szix',
+        'receiverAddressRecordID': address.id,
+        'missionNotes': 'Requested via hackclub.com'
       }
     })
-      .then(r => {
-        res.json({ status: 'success' })
-        console.log(r.statusText)
-      })
-      .catch(error => {
-        console.log(error)
-        res.json({ status: 'error', error })
-      })
-  } else {
-    res.status(405).json({ status: 'error', error: 'Must send POST request' })
+      .then(r => r.json())
+      .then(r => res.json({ status: r.status }))
   }
 }
