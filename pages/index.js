@@ -388,13 +388,22 @@ const Page = () => (
           />
           <Feature
             name="Stickers"
-            desc="Get great stickers for marketing your club shipped to you or directly to your members."
+            desc={
+              <>
+                Get{' '}
+                <Link href="/stickers">
+                  <a>amazing stickers </a>
+                </Link>{' '}
+                for marketing your club shipped to you or directly to your
+                members.
+              </>
+            }
             sx={{
               img: { mr: 4, filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))' }
             }}
           >
             <Image
-              src="https://hackclub.com/stickers/mac.svg"
+              src="https://hackclub.com/stickers/macintosh.svg"
               alt="Macintosh sticker"
               sx={{
                 transform: 'rotate(-12deg)',
@@ -403,7 +412,7 @@ const Page = () => (
               }}
             />
             <Image
-              src="https://hackclub.com/stickers/progress.svg"
+              src="https://hackclub.com/stickers/2020_progress.png"
               alt="Pride sticker"
               sx={{
                 transform: 'rotate(3deg)',
