@@ -11,14 +11,34 @@ module.exports = withMDX({
   },
   async redirects() {
     return [
+      { source: '/start/', destination: '/', permanent: false },
       { source: '/clubs/', destination: '/', permanent: false },
-      { source: '/c9/', destination: '/cloud9/', permanent: true },
-      { source: '/cloud9_setup/', destination: '/cloud9/', permanent: true },
+      { source: '/repl/', destination: '/', permanent: true },
+      { source: '/c9/', destination: '/deprecated/cloud9/', permanent: true },
+      {
+        source: '/cloud9_setup/',
+        destination: '/deprecated/cloud9/',
+        permanent: true
+      },
+      {
+        source: '/redeem_tech_domain/',
+        destination: '/deprecated/tech_domains/',
+        permanent: true
+      },
+      {
+        source: '/challenge/',
+        destination: '/deprecated/challenge/',
+        permanent: true
+      },
+      {
+        source: '/santa/',
+        destination: '/deprecated/santa/',
+        permanent: false
+      },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
       { source: '/workshops/slack/', destination: '/slack/', permanent: true },
       { source: '/community/', destination: '/slack/', permanent: true },
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
-      { source: '/repl/', destination: '/', permanent: true },
       { source: '/branding/', destination: '/brand/', permanent: true },
       { source: '/ama/', destination: '/amas/', permanent: false },
       { source: '/coc/', destination: '/conduct/', permanent: true },
@@ -127,8 +147,12 @@ module.exports = withMDX({
         destination: 'https://map.hackclub.dev/'
       },
       {
-        source: '/:slug*',
-        destination: 'https://site.hackclub.dev/:slug*'
+        source: '/:path*',
+        destination: '/:path*'
+      },
+      {
+        source: '/:path*',
+        destination: 'https://v2.hackclub.dev/:path*'
       }
     ]
   },
