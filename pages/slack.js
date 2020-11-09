@@ -20,6 +20,7 @@ import Footer from '../components/footer'
 import SlideUp from '../components/slide-up'
 import Header from '../components/slack/header'
 import SlackEvents from '../components/slack/slack-events'
+import getCount from '../pages/api/channels/count-to-a-million'
 
 const zoomSlide = keyframes({
   from: { backgroundPosition: '-32px bottom' },
@@ -27,10 +28,7 @@ const zoomSlide = keyframes({
 })
 
 export async function getStaticProps() {
-  const million = await fetch(
-    'https://hackclub.com/api/channels/count-to-a-million/'
-  )
-  const millionData = await million.text()
+  const millionData = await getCount();
   return { props: { millionData }, revalidate: 1 }
 }
 
