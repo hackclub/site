@@ -1,0 +1,23 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="7" clip-path="url(#clip0)">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+<path id="Vector" fill-rule="evenodd" clip-rule="evenodd" d="M128 256C230.4 256 256 230.4 256 128C256 25.6 230.4 0 128 0C25.6 0 0 25.6 0 128C0 230.4 25.6 256 128 256Z" fill="black"/>
+</mask>
+<g mask="url(#mask0)">
+<g id="stripes">
+<rect id="red" x="294.122" y="-45.106" width="48" height="382.927" transform="rotate(81 294.122 -45.106)" fill="#ED7482"/>
+<rect id="orange" x="302.618" y="2.14661" width="48" height="384" transform="rotate(81 302.618 2.14661)" fill="#EA9763"/>
+<rect id="yellow" x="310.127" y="49.5557" width="48" height="384" transform="rotate(81 310.127 49.5557)" fill="#E9D858"/>
+<rect id="green" x="317.636" y="96.9646" width="48" height="384" transform="rotate(81 317.636 96.9646)" fill="#63EB97"/>
+<rect id="blue" x="325.145" y="144.374" width="48" height="384" transform="rotate(81 325.145 144.374)" fill="#61B6EA"/>
+<rect id="purple" x="332.654" y="191.783" width="48" height="384" transform="rotate(81 332.654 191.783)" fill="#A172EC"/>
+</g>
+<path id="path3866" d="M112.84 32L71 39.1043V224H112.84V154.049C112.84 133.465 123.755 120.714 132.851 120.714C141.037 120.714 143.402 128.911 143.402 141.298V224H185.424V135.287C185.424 107.233 174.873 89.1992 147.404 89.1992C134.488 89.1992 121.936 92.8425 112.84 101.04V32Z" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="256" height="256" fill="white" transform="translate(256) rotate(90)"/>
+</clipPath>
+</defs>
+</svg>
