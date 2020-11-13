@@ -3,7 +3,12 @@ module.exports = withMDX({
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
   images: {
-    domains: ['hackclub.com', 'dl.airtable.com', 'cdn.glitch.com']
+    domains: [
+      'hackclub.com',
+      'dl.airtable.com',
+      'emoji.slack-edge.com',
+      'cdn.glitch.com'
+    ]
   },
   webpack: (config, { isServer }) => {
     if (isServer) require('./lib/sitemap')

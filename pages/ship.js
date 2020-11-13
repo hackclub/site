@@ -18,7 +18,7 @@ import Nav from '../components/nav'
 import SlideUp from '../components/slide-up'
 import Why from '../components/ship/why.mdx'
 import Icon from '../components/icon'
-import Stat from '../components/stat'
+import Posts from '../components/posts'
 import Footer from '../components/footer'
 import { timeSince } from '../lib/dates'
 import { orderBy, filter, take, map, uniq, reverse } from 'lodash'
@@ -41,107 +41,17 @@ const ShipBadge = props => (
   />
 )
 
-/*
-const Ship = ({ timestamp, message, url, img, username, avatar }) => (
-  <Card as="section" p={[0, 0]} sx={{ width: '100%' }}>
-    {img && (
-      <Image
-        src={img}
-        sx={{
-          width: '100%',
-          maxHeight: 16 * 16,
-          bg: 'snow',
-          objectFit: 'contain'
-        }}
-      />
-    )}
-    <Box p={3}>
-      <Text
-        as="p"
-        title={message}
-        sx={{
-          display: message ? null : 'none',
-          fontSize: 2,
-          lineHeight: 'caption',
-          whiteSpace: 'pre-wrap',
-          wordBreak: 'break-word',
-          overflowY: 'hidden',
-          maxWidth: '100%',
-          '@supports (-webkit-line-clamp: 4)': {
-            display: '-webkit-box',
-            WebkitLineClamp: ['6', null, '8'],
-            WebkitBoxOrient: 'vertical'
-          }
-        }}
-      >
-        {message}
-      </Text>
-      <Box
-        as="footer"
-        sx={{
-          mt: 2,
-          display: 'grid',
-          gridGap: [2, null, 3],
-          gridTemplateColumns: [null, null, '1fr auto'],
-          alignItems: 'center'
-        }}
-      >
-        <Flex sx={{ alignItems: 'center' }}>
-          {avatar && (
-            <Avatar size={48} src={avatar} alt={`${username} avatar`} mr={2} />
-          )}
-          <Box sx={{ flex: '1 1 auto' }}>
-            <Text
-              as="strong"
-              variant="caption"
-              sx={{ color: 'secondary', display: 'block' }}
-            >
-              {username}
-            </Text>
-            <Text as="time" variant="caption" sx={{ lineHeight: 'title' }}>
-              {timeSince(new Date(timestamp), false, true)}
-            </Text>
-          </Box>
-        </Flex>
-        {url && !url?.includes('hackclub.slack.com') && (
-          <Button as="a" href={url} sx={{ bg: 'cyan', svg: { ml: -1 } }}>
-            {url.includes('slack-files') ? (
-              <>
-                <Icon glyph="attachment" size={24} />
-                View file
-              </>
-            ) : (
-                <>
-                  <Icon glyph="link" size={24} />
-                  <Text as="span" sx={{ textTransform: 'lowercase' }}>
-                    {
-                      url
-                        .replace(/https?:\/\//, '')
-                        .replace('www.', '')
-                        .split(/[/?#]/)[0]
-                    }
-                  </Text>
-                </>
-              )}
-          </Button>
-        )}
-      </Box>
-    </Box>
-  </Card>
-)
-
 const waves = keyframes({
   '0%': { backgroundPositionX: '0' },
   '100%': { backgroundPositionX: '-100%' }
 })
-*/
 
-export default ({ stats = {} }) => (
+const ShipPage = ({ posts = [] }) => (
   <>
     <Meta
       as={Head}
       name="Ship"
-      description={`Hack Clubbers ship projects: a real-time list of the ${stats.projects} projects created by the Hack Club high school community in the last month.`}
+      description={`Hack Clubbers ship projects: a real-time list of the projects created by the Hack Club high school community in the last month.`}
       image="https://assets.hackclub.com/log/2020-05-22-ship.png"
     />
     <Nav />
@@ -191,14 +101,13 @@ export default ({ stats = {} }) => (
         </Grid>
       </SlideUp>
     </Box>
-    {/*
     <Box
       as="section"
       id="projects"
       sx={{
         bg: 'blue',
         color: 'white',
-        py: [4, 5],
+        py: 4,
         backgroundImage: 'url(/ship/wave.svg)',
         backgroundSize: '200% auto',
         '@media (prefers-reduced-motion: no-preference)': {
@@ -206,44 +115,15 @@ export default ({ stats = {} }) => (
         }
       }}
     >
-      <Grid
-        as="header"
-        columns={[2, null, 4]}
-        gap={[3, 4]}
-        variant="layout.container"
-        sx={{
-          mt: [2, 4],
-          textAlign: 'left',
-          span: { color: 'white' }
-        }}
+      <Heading
+        as="h2"
+        variant="title"
+        sx={{ px: 3, mb: 4, textAlign: 'center' }}
       >
-        <Heading as="h2" variant="title" sx={{ my: 0, gridColumn: 'span 2' }}>
-          In the last month on Hack&nbsp;Club…
-        </Heading>
-        <Stat value={stats.projects} label="Projects shipped" lg />
-        <Stat value={stats.makers} label="Makers" lg />
-      </Grid>
-      <Grid
-        as="article"
-        gap={[3, null, null, 4]}
-        p={[3, null, null, 4]}
-        variant="layout.wide"
-        sx={{
-          alignItems: 'start',
-          gridTemplateColumns: [
-            null,
-            'repeat(2,minmax(0, 1fr))',
-            'repeat(3,minmax(0, 1fr))'
-          ],
-          '> div': { width: '100%' }
-        }}
-      >
-        {ships.map(s => (
-          <Ship key={s.timestamp} {...s} />
-        ))}
-      </Grid>
+        Recently shipped…
+      </Heading>
+      <Posts data={posts} />
     </Box>
-        */}
     <Box
       as="section"
       sx={{
@@ -272,29 +152,19 @@ export default ({ stats = {} }) => (
   </>
 )
 
-/*
+export default ShipPage
+
 export const getStaticProps = async () => {
-  const ships = await fetch('https://airbridge.hackclub.com/v0.1/Ships/Ships')
+  const posts = await fetch('https://scrapbook.hackclub.com/api/r/ship')
     .then(r => r.json())
-    .then(data => {
-      const monthAgo = new Date().getTime() - 30 * 24 * 60 * 60 * 1000
-      return filter(data, s => new Date(s.fields.Timestamp) > monthAgo)
-    })
-    .then(data =>
-      data.map(({ fields }) => ({
-        timestamp: fields['Timestamp'] || new Date().toISOString(),
-        avatar: fields['User Avatar'] || null,
-        username: fields['User Name'] || '@unknown',
-        message: fields['Message'] || '',
-        url: fields['Project URL'] || null,
-        img: fields['Image URL'] || null
-      }))
+    .then(posts =>
+      filter(posts, p =>
+        ['image/jpg', 'image/jpeg', 'image/png'].includes(
+          p.attachments?.[0]?.type
+        )
+      )
     )
-    .then(data => orderBy(data, { timestamp: 'desc' }))
-  const stats = {
-    projects: ships.length,
-    makers: uniq(map(ships, 'username')).length
-  }
-  return { props: { stats }, revalidate: 1 }
+    .then(posts => orderBy(posts, 'postedAt', 'desc'))
+    .then(posts => take(posts, 24))
+  return { props: { posts }, revalidate: 2 }
 }
-*/
