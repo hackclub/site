@@ -1,9 +1,10 @@
 import {
+  Badge,
   Box,
   Card,
   Container,
-  Grid,
   Heading,
+  Grid,
   Image,
   Link,
   Text
@@ -20,7 +21,7 @@ import Footer from '../components/footer'
 import SlideUp from '../components/slide-up'
 import Header from '../components/slack/header'
 import SlackEvents from '../components/slack/slack-events'
-import getCount from '../pages/api/channels/count-to-a-million'
+import { getCount } from '../pages/api/channels/count-to-a-million'
 
 const zoomSlide = keyframes({
   from: { backgroundPosition: '-32px bottom' },
@@ -28,11 +29,11 @@ const zoomSlide = keyframes({
 })
 
 export async function getStaticProps() {
-  const millionData = await getCount();
-  return { props: { millionData }, revalidate: 1 }
+  const millionCount = (await getCount()) || null
+  return { props: { millionCount }, revalidate: 1 }
 }
 
-export default ({ millionData }) => (
+const SlackPage = ({ millionCount }) => (
   <>
     <Meta
       as={Head}
@@ -194,11 +195,16 @@ export default ({ millionData }) => (
           }}
         >
           <Heading as="h3">#counttoamillion</Heading>
-          <Text
-            as="p"
-          >
-            {' '}
-            We're at <b>{millionData}</b>!
+          <Text as="p" sx={{ display: 'flex', alignItems: 'baseline' }}>
+            We’re at{' '}
+            <Badge
+              variant="outline"
+              as="span"
+              sx={{ ml: [2, 0], mt: [0, 2], px: [2, 0], py: [0, 2] }}
+            >
+              {millionCount}
+            </Badge>
+            !
           </Text>
         </Card>
         <Card bg="cyan">
@@ -389,3 +395,5 @@ export default ({ millionData }) => (
     <Footer />
   </>
 )
+
+export default SlackPage
