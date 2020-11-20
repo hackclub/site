@@ -173,7 +173,7 @@ const Page = () => (
           }}
         >
           Hack Club is a nonprofit network of high school coding&nbsp;clubs and
-          makers around the world. <strong>Applications just opened.</strong>
+          makers around the world. <strong>Applications are now open.</strong>
         </Text>
         <Button
           as="a"
