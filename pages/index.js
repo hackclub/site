@@ -510,7 +510,7 @@ const Page = () => (
             name="A nonprofit bank account"
             desc={
               <>
-                Get 501(c)(3) status (US-only) and a club bank account with{' '}
+                Use our 501(c)(3) status (US-only) and a club bank account with{' '}
                 <a href="https://hackclub.com/bank/">Hack Club Bank</a>.
                 Fundraise, accept donations, buy things!
               </>
