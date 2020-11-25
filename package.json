@@ -12,7 +12,7 @@
   "dependencies": {
     "@hackclub/icons": "^0.0.5",
     "@hackclub/meta": "1.1.0",
-    "@hackclub/theme": "^0.3.0",
+    "@hackclub/theme": "^0.3.1",
     "@mdx-js/loader": "^1.6.19",
     "@next/mdx": "^10.0.3",
     "airtable-plus": "^1.0.4",
