@@ -51,7 +51,7 @@ const Submit = ({
       ...(status === 'submitting' ? submitting : bg[status]),
       ...sx
     }}
-    disabled={status === 'submitting'}
+    disabled={status === 'submitting' || status === 'success'}
     children={status === 'submitting' ? 'Submitting…' : labels[status]}
     {...props}
   />
