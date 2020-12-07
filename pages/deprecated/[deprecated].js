@@ -65,7 +65,12 @@ const pages = {
     link: 'https://hack.af/pack',
     icon: 'web'
   },
-
+  santa: {
+    name: 'Secret Santa 2019',
+    desc: 'Community members are planning our 2020 Secret Santa in our Slack.',
+    link: 'https://hackclub.com/slack/',
+    icon: 'freeze'
+  }
 }
 
 export const getStaticPaths = () => {
