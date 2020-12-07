@@ -35,11 +35,6 @@ module.exports = withMDX({
         destination: '/deprecated/challenge/',
         permanent: true
       },
-      {
-        source: '/santa/',
-        destination: '/deprecated/santa/',
-        permanent: false
-      },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
       { source: '/workshops/slack/', destination: '/slack/', permanent: true },
       { source: '/community/', destination: '/slack/', permanent: true },
@@ -130,6 +125,10 @@ module.exports = withMDX({
       {
         source: '/camp/',
         destination: 'https://v2.hackclub.dev/camp/'
+      },
+      {
+        source: '/santa/',
+        destination: 'https://v2.hackclub.dev/santa/'
       },
       {
         source: '/sponsorship/',
