@@ -11,6 +11,7 @@ import Nav from '../components/nav'
 import Icon from '../components/icon'
 import Footer from '../components/footer'
 
+// Credit for animation from https://codepen.io/igli/pen/mPMqGz?html-preprocessor=none
 const animation1 = keyframes`
   0% {
     clip: rect(62px, 9999px, 68px, 0);
