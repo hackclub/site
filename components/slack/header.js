@@ -48,8 +48,14 @@ const Content = () => (
         Sign back in
       </Button>
     </Box>
-    <SlideUp sx={{zIndex: 5, display: "flex", alignItems: "center"}}>
-        <Announcement caption="Due to holiday traffic, we've temporarily disabled Slack signups." />
+    <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
+      <JoinForm
+        sx={{
+          variant: 'cards.translucent',
+          position: 'relative',
+          zIndex: 3
+        }}
+      />
     </SlideUp>
   </Grid>
 )
