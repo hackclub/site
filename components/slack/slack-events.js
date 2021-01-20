@@ -22,12 +22,12 @@ const whitelistedChannels = new Set(
   `
   3d-printing ai all-hands apple art bank blockchain books cats
   challenges code college-apps confessions cooking coronavirus counttoamillion deals
-  debate design dogs ethical-hacking film food
-  functional gamedev go-bears hack-night hackathons hardware
+  debate design dogs ethical-hacking flutter film food
+  functional gamedev gh go go-bears hack-night hackathons hardware
   homelab hours hq india javascript languages late-night-hw-club lgbtq linux lounge
   mason math memes minecraft music neuroscience photography python
-  rust scrapbook ship sink-my-ship sleep social studycorner support swift todayilearned
-  politics welcome westborough wip workshops writing
+  ricing rust scrapbook ship sink-my-ship sleep social studycorner support swift
+  todayilearned politics welcome westborough wip workshops writing
 `
     .split(/\s+/gi)
     .filter(i => i.length > 0)
