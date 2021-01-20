@@ -27,7 +27,7 @@ const whitelistedChannels = new Set(
   homelab hours hq india javascript languages late-night-hw-club lgbtq linux lounge
   mason math memes minecraft music neuroscience photography python
   ricing rust scrapbook ship sink-my-ship sleep social studycorner support swift
-  todayilearned politics welcome westborough wip workshops writing    
+  todayilearned politics welcome westborough wip workshops writing
 `
     .split(/\s+/gi)
     .filter(i => i.length > 0)
