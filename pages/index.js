@@ -453,27 +453,6 @@ const Page = () => (
             />
           </Feature>
           <Feature
-            name="Workshop Bounty Program"
-            desc={
-              <>
-                <Highlight>
-                  Get paid $200{' '}
-                  <a href="https://workshops.hackclub.com/workshop-bounty">
-                    for submitting curriculum
-                  </a>
-                </Highlight>{' '}
-                you make for your club for every club to use. Fund your club, or
-                have fun with your bounties.
-              </>
-            }
-          >
-            <Image
-              src="https://cloud-7p08n03ez.vercel.app/2020-09-09_4kmbqakaxvjax13rzwhfq6qutzvyxn34.jpeg"
-              alt="Wanted poster for $200"
-              width={180}
-            />
-          </Feature>
-          <Feature
             icon="slack-fill"
             color="#5d114c"
             name="Talk to 100s of club leaders"
