@@ -23,8 +23,8 @@ export default () => (
   <>
     <Meta
       as={Head}
-      title="Elon Musk is Giving $500K"
-      description="We’re thrilled to announce Elon Musk has donated $500k to Hack Club, a global nonprofit network of high school hackers & coding clubs."
+      title="Tom and Theresa Preston-Werner are Giving $500K"
+      description="We’re thrilled to announce Tom and Theresa Preston-Werner have donated $500k to Hack Club, a global nonprofit network of high school hackers & coding clubs."
       image="https://assets.hackclub.com/log/HC-500k@1080w.png"
     />
     <ForceTheme theme="light" />
@@ -35,7 +35,7 @@ export default () => (
         pt: [5, 6],
         pb: [4, 5],
         bg: 'rgb(104, 41, 205)',
-        backgroundImage: theme => theme.util.gx('yellow', 'green')
+        backgroundImage: theme => theme.util.gx('yellow', 'red')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
@@ -54,7 +54,17 @@ export default () => (
            
           “I love that Hack Club is <span>helping me make it possible</span>{''} for more students to have opportunities like I had as a young person" 
         </Heading>
-        <Text variant="headline">—Tom Preston-Werner</Text>
+        <Text variant="headline" sx={{ display: 'inline-flex' }}>
+          —
+          <Avatar
+            src="https://avatars.githubusercontent.com/u/1?s=460&v=4"
+            alt="Tom"
+            size={36}
+            mr={2}
+            ml={2}
+          />
+          Tom Preston-Werner
+        </Text>
       </Container>
     </Box>
     <Container
@@ -93,7 +103,26 @@ export default () => (
         <Badge
           variant="pill"
           sx={{
-            mr: [2, 3],
+            mr: [1, 2],
+            pl: 0,
+            pr: 3,
+            display: 'inline-flex',
+            alignItems: 'center'
+          }}
+        >
+          <Avatar
+            src="https://cloud-macp9mbpq.vercel.app/0image.png"
+            alt="Christina"
+            size={36}
+            ml={2}
+            mr={2}
+          />
+          Christina Asquith, COO
+        </Badge>
+        <Badge
+          variant="pill"
+          sx={{
+            mr: [1, 2],
             pl: 0,
             pr: 3,
             display: 'inline-flex',
@@ -104,12 +133,13 @@ export default () => (
             src="https://hackclub.com/team/zach.jpg"
             alt="Zach"
             size={36}
+            ml={2}
             mr={2}
           />
           Zach Latta, founder
         </Badge>
         <Badge variant="pill" px={3}>
-          May 15, 2020
+          Jan 27, 2021
         </Badge>
       </Flex>
       <PrestonWernerCopy/>
@@ -130,9 +160,9 @@ export default () => (
             Teenager? New here? Welcome!
           </Heading>
           <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
-            Hack Club is a global community of high school makers & student-led
-            coding clubs. We’ve got a 24/7 Slack chatroom of 10k+ teenagers
-            learning to code & building amazing projects, & you’ll fit right in.
+            Hack Club is a global community of high school hackers & student-led
+            Hack Clubs. Join the community-led 24/7 Hack Club Slack of 11k+ teenagers
+            learning to code & building amazing projects. You’ll fit right in.
           </Text>
           <NextLink href="/" passHref>
             <Button bg="cyan" as="a">
