@@ -25,7 +25,7 @@ export default () => (
       as={Head}
       title="Tom and Theresa Preston-Werner are Giving $500K"
       description="We’re thrilled to announce Tom and Theresa Preston-Werner have donated $500k to Hack Club, a global nonprofit network of high school hackers & coding clubs."
-      image="https://assets.hackclub.com/log/HC-500k@1080w.png"
+      image="https://workshop-cards.hackclub.com/Preston-Werner%20Gift%20Announcement.png?fontSize=175px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -62,6 +62,7 @@ export default () => (
             size={36}
             mr={2}
             ml={2}
+            style={{ maxHeight: 36 }}
           />
           Tom Preston-Werner
         </Text>
