@@ -18,11 +18,9 @@ export default async (req, res) => {
       .json({ error: '*GET outta here!* (Method not allowed, use POST)' })
   }
   if (req.method == 'PUT') {
-    return res
-      .status(405)
-      .json({
-        error: '*PUT that request away!* (Method not allowed, use POST)'
-      })
+    return res.status(405).json({
+      error: '*PUT that request away!* (Method not allowed, use POST)'
+    })
   }
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed, use POST' })
@@ -48,7 +46,8 @@ export default async (req, res) => {
     'Email Address': data.email,
     Student: data.teen,
     Reason: data.reason,
-    Invited: true
+    Invited: true,
+    IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
   })
 
   // This is a private api method found in https://github.com/ErikKalkoken/slackApiDoc/blob/master/users.admin.invite.md
