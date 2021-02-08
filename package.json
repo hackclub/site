@@ -10,7 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@hackclub/icons": "^0.0.5",
+    "@hackclub/icons": "^0.0.9",
     "@hackclub/meta": "1.1.0",
     "@hackclub/theme": "^0.3.1",
     "@mdx-js/loader": "^1.6.22",
