@@ -1,10 +1,4 @@
-import {
-  BaseStyles,
-  Box,
-  Container,
-  Heading,
-  Text,
-} from 'theme-ui'
+import { BaseStyles, Box, Container, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
@@ -30,9 +24,7 @@ export default () => (
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
-        <Heading
-          as="h1"
-          variant="title" >
+        <Heading as="h1" variant="title">
           Hack Club Creative Director
         </Heading>
         <Text variant="headline">
@@ -46,7 +38,7 @@ export default () => (
       sx={{
         pt: [3, 4],
         pb: [4, 5],
-        fontSize: [2, 3],
+        fontSize: [2, 3]
       }}
     >
       <JobDescription />
