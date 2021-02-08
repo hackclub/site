@@ -38,7 +38,7 @@ const SlackPage = ({ millionCount }) => (
     <Meta
       as={Head}
       name="Join our Slack"
-      description="Hack Club’s Slack is a community of 10k+ high school hackers around the world. Chat, meet new friends, code together, share your work."
+      description="Hack Club’s Slack is a community of 11k+ high school hackers around the world. Chat, meet new friends, code together, share your work."
       image="https://cloud-ls9rh3hok.vercel.app/2020-07-25_d2dd4egb1th5k71w4uj0abbfkvvtnc01.jpeg"
     />
     <ForceTheme theme="light" />
