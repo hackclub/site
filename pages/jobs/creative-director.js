@@ -5,12 +5,20 @@ import {
   Heading,
   Text,
 } from 'theme-ui'
+import Head from 'next/head'
 import Nav from '../../components/nav'
-import Copy from '../../components/jobs/creative-director/jd.mdx'
+import Meta from '@hackclub/meta'
+import JobDescription from '../../components/jobs/creative-director/jd.mdx'
 import ForceTheme from '../../components/force-theme'
 
 export default () => (
   <>
+    <Meta
+      as={Head}
+      title="Creative Director"
+      description="Hack Club is a hiring a Creative Director as the 8th full-time member of our team in Burlington, Vermont."
+      image="https://workshop-cards.hackclub.com/Creative Director @ Hack Club.png?fontSize=175px&brand=HQ"
+    />
     <ForceTheme theme="light" />
     <Nav />
     <Box
@@ -36,11 +44,12 @@ export default () => (
       as={BaseStyles}
       variant="copy"
       sx={{
-        py: [3, 4],
+        pt: [3, 4],
+        pb: [4, 5],
         fontSize: [2, 3],
       }}
     >
-      <Copy />
+      <JobDescription />
     </Container>
   </>
 )
