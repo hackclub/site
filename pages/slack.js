@@ -67,7 +67,7 @@ const SlackPage = ({ millionCount }) => (
       >
         Have a coding question? Looking for project feedback? You’ll find some
         fabulous people to talk to in our global Slack (Discord-style online
-        groupchat) with 10,000+ members, active at all hours.
+        groupchat) with 11,000+ members, active at all hours.
       </Text>
       <Heading
         as="h2"
