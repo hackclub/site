@@ -423,10 +423,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@hackclub/icons@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@hackclub/icons/-/icons-0.0.5.tgz#12506ff5d29fad488d82c5f09a2514d763cfcf68"
-  integrity sha512-1S+9TuY23+ju9Qdks0fJCFJ0fsWZSUxD8j+2Gm0Mosn2lcMZfRotT8cv5d+mhuJZM6lS2nA4I0IbzR0ODeUzcg==
+"@hackclub/icons@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@hackclub/icons/-/icons-0.0.9.tgz#77a6a6420b7381f54c8be3a0713915d503624951"
+  integrity sha512-6doI5dv8BaTjgfDhRMaudOuk0j0ir9DAP1vBn0lXrJ/QCkpoMrGOwILGOkV2Pa1EJ67dVSrbf+k/rvP7c36gAA==
 
 "@hackclub/meta@1.1.0":
   version "1.1.0"
