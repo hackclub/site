@@ -169,6 +169,7 @@ const StickersPage = ({ stickers = [] }) => [
         ))}
       </Grid>
     </Card>
+{/*
     <Card
       as="section"
       sx={{
@@ -184,6 +185,7 @@ const StickersPage = ({ stickers = [] }) => [
       </Heading>
       <StickerForm />
     </Card>
+*/}
   </Box>,
   <Footer dark key="footer" />
 ]
