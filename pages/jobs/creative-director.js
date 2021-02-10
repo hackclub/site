@@ -10,7 +10,7 @@ export default () => (
     <Meta
       as={Head}
       title="Creative Director"
-      description="Hack Club is a hiring a Creative Director as the 8th full-time member of our team in Burlington, Vermont."
+      description="Hack Club is a hiring a Creative Director as the 7th full-time member of our team in Burlington, Vermont."
       image="https://workshop-cards.hackclub.com/Creative Director @ Hack Club.png?fontSize=175px&brand=HQ"
     />
     <ForceTheme theme="light" />
