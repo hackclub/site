@@ -289,7 +289,7 @@ const Page = () => (
               Hack the Fog
             </a>
             , run summer programs like{' '}
-            <a href="http://thecspn.com/?p=43434">Hack Camp</a>, and compete in
+            <a href="https://web.archive.org/web/20200808171549/http://thecspn.com/?p=43434">Hack Camp</a>, and compete in
             events like the{' '}
             <a href="http://www.congressionalappchallenge.us">
               Congressional App Challenge
