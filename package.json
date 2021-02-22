@@ -25,7 +25,7 @@
     "react-masonry-css": "^1.0.14",
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
-    "react-use-websocket": "2.4.1",
+    "react-use-websocket": "2.5.0",
     "theme-ui": "^0.3.1"
   }
 }
