@@ -2,7 +2,7 @@
 <h1 align="center"><a href="https://hackclub.com/">Hack Club v3 Site</a></h1>
 <p align="center"><i>The source code for hackclub.com</i></p>
 
-Hack Club's new website. For new developers getting started, run the following in your terminal:
+Hack Club's new website. This codebase is what runs on https://hackclub.com. For new developers getting started, run the following in your terminal:
 
 Download the code to your computer:
 
