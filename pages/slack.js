@@ -244,7 +244,7 @@ const SlackPage = ({ millionCount }) => (
           <h3>#dogs</h3>
         </Card>
         <Card bg="purple">
-          <h3>#support</h3>
+          <h3>#music</h3>
         </Card>
         <Card
           bg="red"
