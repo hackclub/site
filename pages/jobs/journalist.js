@@ -2,7 +2,7 @@ import { BaseStyles, Box, Container, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
-import JobDescription from '../../components/jobs/journalism-hire/jd.mdx'
+import JobDescription from '../../components/jobs/journalist/jd.mdx'
 import ForceTheme from '../../components/force-theme'
 
 export default () => (
@@ -11,7 +11,7 @@ export default () => (
       as={Head}
       title="Journalist"
       description="Hack Club is a hiring a talented reporter/editor as the 9th full-time member of our team in Burlington, Vermont."
-      image="https://workshop-cards.hackclub.com/Creative Director @ Hack Club.png?fontSize=175px&brand=HQ"
+      image="https://workshop-cards.hackclub.com/Journalist @ Hack Club.png?fontSize=175px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -20,7 +20,7 @@ export default () => (
       sx={{
         pt: [5, 6],
         pb: [4, 5],
-        backgroundImage: theme => theme.util.gx('blue', 'purple')
+        backgroundImage: theme => theme.util.gx('purple', 'yellow')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
