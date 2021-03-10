@@ -2,16 +2,16 @@ import { BaseStyles, Box, Container, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
-import JobDescription from '../../components/jobs/creative-director/jd.mdx'
+import JobDescription from '../../components/jobs/brand-director/jd.mdx'
 import ForceTheme from '../../components/force-theme'
 
 export default () => (
   <>
     <Meta
       as={Head}
-      title="Creative Director"
-      description="Hack Club is a hiring a Creative Director as the 7th full-time member of our team in Burlington, Vermont."
-      image="https://workshop-cards.hackclub.com/Creative Director @ Hack Club.png?fontSize=175px&brand=HQ"
+      title="Brand Director"
+      description="Hack Club is a hiring a Brand Director as the 7th full-time member of our team in Burlington, Vermont."
+      image="https://workshop-cards.hackclub.com/Brand Director @ Hack Club.png?fontSize=175px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -25,7 +25,7 @@ export default () => (
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading as="h1" variant="title">
-          Hack Club Creative Director
+          Hack Club Brand Director
         </Heading>
         <Text variant="headline">
           Tell the story of Hack Club. New job open as of February 8th, 2021.
