@@ -89,6 +89,11 @@ module.exports = withMDX({
         source: '/workshops/([a-z_]+)/',
         destination: 'https://workshops.hackclub.com/$1/',
         permanent: true
+      },
+      {
+        source: '/jobs/creative-director/',
+        destination: '/jobs/brand-director/',
+        permanent: false
       }
     ]
   },
