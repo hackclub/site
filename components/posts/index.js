@@ -108,25 +108,24 @@ const Post = ({
             alignItems: 'center',
             textAlign: 'center',
             mt: 2,
-            '> div': {
+            div: {
               maxWidth: '100%',
               maxHeight: 256,
               bg: 'sunken',
               gridColumn: attachments.length === 1 ? 'span 2' : null
             },
-            img: { objectFit: 'contain' }
+            img: { objectFit: 'cover' }
           }}
         >
-          {filter(attachments, a => a.type.startsWith('image')).map(img => (
-            <Image
-              key={img.url}
-              alt={img.filename}
-              src={img.thumbnails?.large?.url || img.url}
-              width={img.thumbnails?.large?.width}
-              height={img.thumbnails?.large?.height}
-              layout="responsive"
-            />
-          ))}
+            {filter(attachments, a => a.type.startsWith('image')).map(img => (
+              <Image
+                key={img.url}
+                alt={img.filename}
+                src={img.thumbnails?.large?.url || img.url}
+                width={img.thumbnails?.large?.width || 1920}
+                height={img.thumbnails?.large?.height || 1080}
+              />
+            ))}
         </Grid>
       </>
     )}
@@ -212,6 +211,7 @@ const Posts = ({ data = [] }) => (
           margin-bottom: 24px;
         }
       }
+
     `}</style>
   </Box>
 )
