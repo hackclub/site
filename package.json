@@ -17,7 +17,6 @@
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^10.0.4",
     "airtable-plus": "^1.0.4",
-    "fathom-client": "^3.0.0",
     "globby": "^11.0.2",
     "lodash": "^4.17.21",
     "next": "^10.0.9",
