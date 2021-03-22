@@ -9,7 +9,7 @@ import {
   Link,
   Text
 } from 'theme-ui'
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import Meta from '@hackclub/meta'

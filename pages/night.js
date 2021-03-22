@@ -17,7 +17,7 @@ import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
 import Icon from '../components/icon'
 import Footer from '../components/footer'
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 
 const floating = keyframes`
   from {

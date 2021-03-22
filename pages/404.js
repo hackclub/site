@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 import { Heading, Container, Button, Text } from 'theme-ui'
 import NextLink from 'next/link'
 import Head from 'next/head'
