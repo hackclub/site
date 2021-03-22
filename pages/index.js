@@ -10,7 +10,7 @@ import {
   Text
 } from 'theme-ui'
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 import { Slide } from 'react-reveal'
 import NextLink from 'next/link'
 import Head from 'next/head'

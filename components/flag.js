@@ -1,6 +1,6 @@
 import theme from '../lib/theme'
 import styled from '@emotion/styled'
-import { css, keyframes } from '@emotion/core'
+import { css, keyframes } from '@emotion/react'
 import Link from 'next/link'
 
 const waveFlag = keyframes`
