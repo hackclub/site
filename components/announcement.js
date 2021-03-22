@@ -1,5 +1,5 @@
 import { Card, Text } from 'theme-ui'
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 import Icon from './icon'
 
 const unfold = keyframes({

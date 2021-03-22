@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from '@emotion/styled'
-import { css, keyframes } from '@emotion/core'
+import { css, keyframes } from '@emotion/react'
 import { Box, Container, Flex, Link, Text } from 'theme-ui'
 import theme from '../lib/theme'
 import Icon from './icon'

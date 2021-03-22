@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from 'theme-ui'
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 
 const fadeIn = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
 

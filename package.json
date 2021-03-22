@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.5",
     "@hackclub/icons": "^0.0.9",
     "@hackclub/meta": "1.1.0",
     "@hackclub/theme": "^0.3.1",
@@ -26,6 +27,6 @@
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
     "react-use-websocket": "2.5.0",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.6"
   }
 }

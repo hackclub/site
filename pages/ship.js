@@ -22,7 +22,7 @@ import Posts from '../components/posts'
 import Footer from '../components/footer'
 import { timeSince } from '../lib/dates'
 import { orderBy, filter, take, map, uniq, reverse } from 'lodash'
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 
 const ShipBadge = props => (
   <Badge
