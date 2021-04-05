@@ -22,7 +22,7 @@
     "next": "^10.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-masonry-css": "^1.0.14",
+    "react-masonry-css": "^1.0.16",
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
     "react-use-websocket": "2.5.0",
