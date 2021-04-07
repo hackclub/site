@@ -384,7 +384,7 @@ const Page = () => (
             icon="sam"
             color="blue"
             name="Free Zoom Pro"
-            desc="A paid Zoom subscription for your club to run online meetings without the time limit."
+            desc="24/7 access to Zoom Pro enabled meeting rooms for your club (that means no time limit)."
           />
           <Feature
             name="Stickers"
