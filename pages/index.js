@@ -354,7 +354,7 @@ const Page = () => (
       >
         <Box as="header" sx={{ textAlign: [null, 'center'], pb: [4, 5] }}>
           <Text as="p" variant="eyebrow">
-            Resources this semester
+            Crazy useful resources
           </Text>
           <Heading as="h2" variant="title">
             Get your club{' '}
@@ -384,7 +384,7 @@ const Page = () => (
             icon="sam"
             color="blue"
             name="Free Zoom Pro"
-            desc="A paid Zoom subscription for your club to run online meetings without the time limit."
+            desc="24/7 access to Zoom Pro enabled meeting rooms for your club (that means no time limit)."
           />
           <Feature
             name="Stickers"
@@ -394,8 +394,8 @@ const Page = () => (
                 <Link href="/stickers">
                   <a>amazing stickers </a>
                 </Link>{' '}
-                for marketing your club shipped to you or directly to your
-                members.
+                for marketing your club shipped directly to you & your
+                club members.
               </>
             }
             sx={{
@@ -437,10 +437,9 @@ const Page = () => (
             name="Curriculum"
             desc={
               <>
-                We’re dropping a new{' '}
-                <a href="https://workshops.hackclub.com/">workshop</a> every
-                Monday afternoon, and you can join our Protoclub meeting to see
-                how to run it live.
+                Come prepared to every meeting with over 100{' '}
+                <a href="https://workshops.hackclub.com">workshops</a> (3 years’ 
+                worth!) that guide your club members through making fun, creative projects.
               </>
             }
           >
@@ -453,24 +452,21 @@ const Page = () => (
             />
           </Feature>
           <Feature
-            name="Workshop Bounty Program"
+            name="A comprehensive leader guide"
             desc={
               <>
-                <Highlight>
-                  Get paid $200{' '}
-                  <a href="https://workshops.hackclub.com/workshop-bounty">
-                    for submitting curriculum
-                  </a>
-                </Highlight>{' '}
-                you make for your club for every club to use. Fund your club, or
-                have fun with your bounties.
+                Need help getting started? Watch real club leaders run meetings, and
+                learn how to run them in your own club, with{' '}
+                <a href="https://meetings.hackclub.com">Hack Club Meetings</a>.
               </>
             }
           >
-            <Image
-              src="https://cloud-7p08n03ez.vercel.app/2020-09-09_4kmbqakaxvjax13rzwhfq6qutzvyxn34.jpeg"
-              alt="Wanted poster for $200"
-              width={180}
+            <Photo
+              src="/home/meetings.png"
+              alt="Claire running a workshop on Generative Art in an online meeting"
+              width={1000}
+              height={653}
+              sx={{ maxWidth: [null, 332] }}
             />
           </Feature>
           <Feature
