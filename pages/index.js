@@ -354,7 +354,7 @@ const Page = () => (
       >
         <Box as="header" sx={{ textAlign: [null, 'center'], pb: [4, 5] }}>
           <Text as="p" variant="eyebrow">
-            Crazy useful resources
+            Hit the ground running
           </Text>
           <Heading as="h2" variant="title">
             Get your club{' '}
