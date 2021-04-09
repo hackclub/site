@@ -394,7 +394,7 @@ const Page = () => (
                 <Link href="/stickers">
                   <a>amazing stickers </a>
                 </Link>{' '}
-                for marketing your club shipped to you and your
+                for marketing your club shipped directly to you & your
                 club members.
               </>
             }
@@ -438,7 +438,7 @@ const Page = () => (
             desc={
               <>
                 Come prepared to every meeting with over 100{' '}
-                <a href="https://workshops.hackclub.com">workshops</a> (3 years 
+                <a href="https://workshops.hackclub.com">workshops</a> (3 years’ 
                 worth!) that guide your club members through making fun, creative projects.
               </>
             }
