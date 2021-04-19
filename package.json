@@ -26,6 +26,6 @@
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
     "react-use-websocket": "2.5.0",
-    "theme-ui": "^0.6"
+    "theme-ui": "^0.7"
   }
 }
