@@ -615,76 +615,76 @@
     "@styled-system/core" "^5.1.2"
     "@styled-system/css" "^5.1.5"
 
-"@theme-ui/color-modes@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@theme-ui/color-modes/-/color-modes-0.7.0.tgz#30b9eab4ee5d3b7b7cbd08dc30d2ee5cfc3c1dfa"
-  integrity sha512-HMN8LhxWtpycRy5OwFBDYAG0P3thEPEJyRyNDg0QZ7ZGzk9zqyI7cBqmVqCujSq8k8gDCUqs/c3k6GSHS3QtDA==
+"@theme-ui/color-modes@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@theme-ui/color-modes/-/color-modes-0.7.3.tgz#6fb4ad451597aaa36d9922383ad33df80b7a16f8"
+  integrity sha512-zYifMQ/1xiYhNjS5Id6f6M80yCdRl6qxOCmOag3aePTLGIty75y9VcqtI6/ggrXxbOykV/dzpZ0fj8mXVJ5CoA==
   dependencies:
     "@emotion/react" "^11.1.1"
-    "@theme-ui/core" "0.7.0"
-    "@theme-ui/css" "0.7.0"
+    "@theme-ui/core" "0.7.3"
+    "@theme-ui/css" "0.7.3"
     deepmerge "^4.2.2"
 
-"@theme-ui/components@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@theme-ui/components/-/components-0.7.0.tgz#113c7077857afadc0d0f0ab71872cb35192eca11"
-  integrity sha512-lrMLJe7R5g10QIkD9YBeQ1Mq+xCalY72qO8pUYj0uYRcXXweXiNTeBgyPXjxGsyTSJAlkRJeA81vdeVJzJmNfg==
+"@theme-ui/components@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@theme-ui/components/-/components-0.7.3.tgz#7c72a43d96c84b402986fe71cbf152fa616d3732"
+  integrity sha512-DkkNa7T1HSqzZZjdniwPJuvNVKzTaW+gwXkakjZQXyMHiddKFoPz/IMhbMizc3Z6YSHs+FI/S8IeLxvzoqAwsQ==
   dependencies:
     "@emotion/react" "^11.1.1"
     "@emotion/styled" "^11.0.0"
     "@styled-system/color" "^5.1.2"
     "@styled-system/should-forward-prop" "^5.1.2"
     "@styled-system/space" "^5.1.2"
-    "@theme-ui/css" "0.7.0"
+    "@theme-ui/css" "0.7.3"
     "@types/styled-system" "^5.1.10"
 
-"@theme-ui/core@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@theme-ui/core/-/core-0.7.0.tgz#94aa3f3cb432b3027a4c3cc239d391ebc6e77bde"
-  integrity sha512-pZ37ThdaFzGXQgjua1kKRGW6+yRU/0VlE2Yw07iuJ30mnY+yjr/Wb9zAlsQbAML/+RGgwx+Us64/ymsuiiu4fA==
+"@theme-ui/core@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@theme-ui/core/-/core-0.7.3.tgz#59c9f66a790d6f6a4f21809d780379cfb5b1d89d"
+  integrity sha512-cYf91bTkw77n0VHUSE6QsZsR3xSpPuj3TGahbYeyYCPAMvWYy1a56OpK+nKuzsJjVj6f0VKh+fg0NqWKWA1gAg==
   dependencies:
     "@emotion/react" "^11.1.1"
-    "@theme-ui/css" "0.7.0"
-    "@theme-ui/parse-props" "0.7.0"
+    "@theme-ui/css" "0.7.3"
+    "@theme-ui/parse-props" "0.7.3"
     deepmerge "^4.2.2"
 
-"@theme-ui/css@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@theme-ui/css/-/css-0.7.0.tgz#b3739512935138ffbf5fe4686e8e2ca73f625f2f"
-  integrity sha512-08o8hbINqjDMaCa6Fy0pwbhclWtIQuFZxIpD+k+uw/X2g1u0lR1Ve62gEm+JyE2bDq3ixpCQ3LotVj/2uk/vdw==
+"@theme-ui/css@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@theme-ui/css/-/css-0.7.3.tgz#7940ea3f221e00ea51c5b5d7c17a6b871ede262e"
+  integrity sha512-kjO49BZpfUi/4vbEqPynqLHhUlp/PgH3LanADTToyms+4tdXEQvaecqQr2Bk94GRgbFAbBrXsIBfSkZh36UTfg==
   dependencies:
     "@emotion/react" "^11.1.1"
     csstype "^3.0.5"
 
-"@theme-ui/mdx@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@theme-ui/mdx/-/mdx-0.7.0.tgz#4559221a2d975d9b8a5f3fc2cbfcd871a0dbfd05"
-  integrity sha512-s+VBGV5d2917Kj6nQhh40A1I7IoPmugnOWe804HzBJDufp9hdBuEeRAu8R1A7ZasXY6K+dWrn++gERLvn+27gA==
+"@theme-ui/mdx@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@theme-ui/mdx/-/mdx-0.7.3.tgz#d93c633d981c2c0dba66e0e63695a6875399579e"
+  integrity sha512-mHX+rUNjLqPsXYdwho2VbtJXleejiccpop8eHJzDkXXHyg0FbfyXLAU2iQfdSx2dyEME/xlATfTUefdbpkq69w==
   dependencies:
     "@emotion/react" "^11.1.1"
     "@emotion/styled" "^11.0.0"
     "@mdx-js/react" "^1.6.22"
-    "@theme-ui/core" "0.7.0"
-    "@theme-ui/css" "0.7.0"
+    "@theme-ui/core" "0.7.3"
+    "@theme-ui/css" "0.7.3"
 
-"@theme-ui/parse-props@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@theme-ui/parse-props/-/parse-props-0.7.0.tgz#3386d8c694d3fef3ef4c61d6e45400c4a8b29ec9"
-  integrity sha512-ZEX2sHImb8uEnbbU/E3TCWV/K6gXmFnqxaV+pwiRU3OI9R7c9jq7w/WxJ1zQtnVLfsX6unzqxBa6rUCDMMSa6A==
+"@theme-ui/parse-props@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@theme-ui/parse-props/-/parse-props-0.7.3.tgz#9eb3fb2f2ea708a3539e2444a88af5a1115d1c80"
+  integrity sha512-XwYpyNacEzev7SwOSx91MlkjqF0ErwLp7c92CzqRdP74Z0CzYA4wKF0NZX3m/oxzkV5uaR3hjQq6xjzEqDgTVQ==
   dependencies:
     "@emotion/react" "^11.1.1"
-    "@theme-ui/css" "0.7.0"
+    "@theme-ui/css" "0.7.3"
 
-"@theme-ui/theme-provider@0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@theme-ui/theme-provider/-/theme-provider-0.7.0.tgz#3a2f17edfb60d3ccdff1da227712b203e7edd267"
-  integrity sha512-zh6DZzhsdbydgG42jSbIn96jA6QULtNpEClq07Li1XktHPg6pp6WVLyoLhnN7EqxAywoMEqzEz8xHX5wmu5rug==
+"@theme-ui/theme-provider@0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@theme-ui/theme-provider/-/theme-provider-0.7.3.tgz#ca091c4fbf2d01270aac204bc701243e70a4431a"
+  integrity sha512-cX1blLPkpbXaebUuFeIqlq/dNsYxu7gAYClarA7nOUjzNz60moNpUhZq1RHtDVyH2PX/z1Udb6W4GYMVPG60zQ==
   dependencies:
     "@emotion/react" "^11.1.1"
-    "@theme-ui/color-modes" "0.7.0"
-    "@theme-ui/core" "0.7.0"
-    "@theme-ui/css" "0.7.0"
-    "@theme-ui/mdx" "0.7.0"
+    "@theme-ui/color-modes" "0.7.3"
+    "@theme-ui/core" "0.7.3"
+    "@theme-ui/css" "0.7.3"
+    "@theme-ui/mdx" "0.7.3"
 
 "@types/hast@^2.0.0":
   version "2.3.1"
@@ -3322,16 +3322,16 @@ supports-color@^8.0.0:
     has-flag "^4.0.0"
 
 theme-ui@^0.7:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.7.0.tgz#009ca60376dd8937d1b6d350704a388de694289c"
-  integrity sha512-DX1hBsAKJktrUynJ4WU4p6vZdWhrbfdblnQO7CqcHAV+LAIFMMh4UXQ0xUHaHCgSV5afs0xG0c0j9xNi+5z6bQ==
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/theme-ui/-/theme-ui-0.7.3.tgz#8bd709c03356dcb696443830256b70a8ade37e28"
+  integrity sha512-cFFtewF+yWpxguvAeG/vUM2f2VEeb6zkZ3Q0dToPXPzmtOLGJy8PTfXtB7imfHKArUDUokRLyOsHQXqcCQ/bdQ==
   dependencies:
-    "@theme-ui/color-modes" "0.7.0"
-    "@theme-ui/components" "0.7.0"
-    "@theme-ui/core" "0.7.0"
-    "@theme-ui/css" "0.7.0"
-    "@theme-ui/mdx" "0.7.0"
-    "@theme-ui/theme-provider" "0.7.0"
+    "@theme-ui/color-modes" "0.7.3"
+    "@theme-ui/components" "0.7.3"
+    "@theme-ui/core" "0.7.3"
+    "@theme-ui/css" "0.7.3"
+    "@theme-ui/mdx" "0.7.3"
+    "@theme-ui/theme-provider" "0.7.3"
 
 timers-browserify@2.0.12, timers-browserify@^2.0.4:
   version "2.0.12"
