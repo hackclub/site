@@ -11,7 +11,7 @@ export default () => (
       as={Head}
       title="Clubs Lead"
       description="Hack Club is a hiring a Clubs Lead as the 8th full-time member of our team in Burlington, Vermont."
-      image="https://workshop-cards.hackclub.com/Clubs Lead @ Hack Club.png?fontSize=175px&brand=HQ"
+      image="https://workshop-cards.hackclub.com/Clubs Lead @ Hack Club.png?fontSize=225px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
