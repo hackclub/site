@@ -492,11 +492,7 @@ const Page = () => (
             desc={
               <>
                 Free subscriptions to Notion Pro, Figma Pro, repl.it and more
-                for running a great club. And instant access for every member to{' '}
-                <a href="https://education.github.com/pack">
-                  GitHub Student Developer Pack
-                </a>
-                .
+                for running a great club.
               </>
             }
           />
