@@ -94,6 +94,11 @@ module.exports = withMDX({
         source: '/jobs/creative-director/',
         destination: '/jobs/brand-director/',
         permanent: false
+      },
+      {
+        source: '/jobs/bank-ops-assistant/',
+        destination: '/jobs/bank-ops-associate/',
+        permanent: false
       }
     ]
   },
