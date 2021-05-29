@@ -75,9 +75,18 @@ export default () => (
             <Text as="p">
               Hang out with the tree-punchers of Hack&nbsp;Club playing on the
               official server, mc.hackclub.com.{' '}
-              <Link href="https://vmc.hackclub.com/map/" color="#759B40">
+              <Link href="https://mc.hackclub.com/map/" color="#759B40">
                 Check out the map »
               </Link>
+            </Text>
+          </Card>
+          <Card>
+            <Heading as="h3" variant="subheadline">
+              Modded Server
+            </Heading>
+            <Text as="p">
+              Want a unique Minecraft experience? Come explore the limits of 
+              Minecraft with us on the official modded server!
             </Text>
           </Card>
           <Card>
