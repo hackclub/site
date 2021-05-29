@@ -89,7 +89,7 @@ export default () => (
               Minecraft with us on the official modded server!
             </Text>
           </Card>
-          <Card>
+          <Card sx={{ display: 'none'}}>
             <Heading as="h3" variant="subheadline">
               Compete weekly
             </Heading>
