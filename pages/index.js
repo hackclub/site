@@ -110,16 +110,16 @@ const Page = () => (
         alt="Hack Clubbers gather at the Flagship 2019 conference"
         priority
       />
-      {/*
+      
         <Announcement
-          copy="The Summer of Making has begun!"
-          caption="$50k in hardware grants, daily streaks, & more"
-          href="https://summer.hackclub.com/"
-          iconLeft="event-code"
+          copy="All aboard the the Hacker Zephyr!"
+          caption="Explore America across rail and build."
+          href="https://zephyr.hackclub.com"
+          iconLeft="explore"
           iconRight="door-enter"
           color="orange"
         />
-        */}
+      
       <SlideDown duration={768}>
         <Heading
           as="h1"
