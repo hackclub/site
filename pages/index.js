@@ -23,6 +23,7 @@ import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
 import Photo from '../components/photo'
 import Footer from '../components/footer'
+
 import Announcement from '../components/announcement'
 // import { timeSince } from '../lib/dates'
 
