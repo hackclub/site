@@ -32,7 +32,7 @@ const Announcement = ({
       p: [2, 2],
       px: 3,
       mb: [3, 4],
-      mt: [null, -3, -5, -84],
+      mt: [null, -3, -5],
       transform: 'scale(1)',
       '@media (prefers-reduced-motion: no-preference)': {
         animation: `${unfold} 0.5s ease-out`
