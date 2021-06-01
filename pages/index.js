@@ -113,7 +113,7 @@ const Page = () => (
       
         <Announcement
           copy="All aboard the the Hacker Zephyr!"
-          caption="Explore America across rail and build."
+          caption="Travel across America by railroad."
           href="https://zephyr.hackclub.com"
           iconLeft="explore"
           iconRight="door-enter"
