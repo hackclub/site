@@ -316,7 +316,7 @@ const Page = () => (
         src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855"
         width={2048}
         height={1170}
-        alt="Hack Clubbers gather at the Flagship 2019 conference"
+        alt="Hack Clubbers gather at the Elon Musk AMA in 2020"
       />
       <Container>
         <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
