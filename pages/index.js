@@ -75,6 +75,12 @@ const Feature = ({ icon, color, name, desc, children, ...props }) => (
   </Box>
 )
 
+const BANNER_CAPTIONS = [
+  "A hackathon on a train, from sea to shining sea.",
+  "Hack your way across America by rail, from coast to coast.",
+//   "Coast-to-coast hackathon on a train? Let's break a world record!",
+]
+
 const Page = () => (
   <>
     <Meta
@@ -112,8 +118,8 @@ const Page = () => (
       />
       
         <Announcement
-          copy="All aboard the Hacker Zephyr!"
-          caption="Travel across America by railroad."
+          copy="All aboard The Hacker Zephyr!"
+          caption={BANNER_CAPTIONS[Math.floor(Math.random() * BANNER_CAPTIONS.length)]}
           href="https://zephyr.hackclub.com"
           iconLeft="explore"
           iconRight="door-enter"
