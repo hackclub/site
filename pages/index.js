@@ -76,7 +76,7 @@ const Feature = ({ icon, color, name, desc, children, ...props }) => (
 )
 
 const BANNER_CAPTIONS = [
-  "A hackathon on a train, rom sea to shining sea.",
+  "A hackathon on a train, from sea to shining sea.",
   "Hack your way across America by railroad, from coast to coast.",
 //   "Coast-to-coast hackathon on a train? Let's break a world record!",
 ]
