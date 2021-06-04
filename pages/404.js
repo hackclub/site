@@ -178,8 +178,14 @@ const NotFoundPage = () => (
       <Blinking as="h1" variant="title" sx={{ fontSize: [128, 256] }}>
         404!
       </Blinking>
-      <Text mt={2} mb={4} color="muted" variant="subtitle">
-        We couldn’t find that page.
+      <Text
+        mt={2}
+        mb={4}
+        color="muted"
+        variant="lead"
+        sx={{ display: 'block' }}
+      >
+        We&nbsp;couldn’t&nbsp;find&nbsp;that&nbsp;page.
       </Text>
       <NextLink href="/" passHref>
         <Button as="a" variant="cta">
