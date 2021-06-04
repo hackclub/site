@@ -33,9 +33,10 @@ const JoinForm = ({ sx = {} }) => {
           />
         </Label>
         <Submit
+          disabled
           status={status}
           labels={{
-            default: 'Request invitation',
+            default: 'Temporarily Disabled',
             error: 'Something went wrong',
             success: 'Email coming soon!'
           }}
