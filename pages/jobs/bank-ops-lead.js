@@ -28,7 +28,7 @@ export default () => (
           Bank Operations Lead
         </Heading>
         <Text variant="headline">
-          New job open as of February 10th, 2021.
+          Closed as of March 5th, 2021.
         </Text>
       </Container>
     </Box>
