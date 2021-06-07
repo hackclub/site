@@ -63,7 +63,7 @@ export default async (req, res) => {
     `channels=C74HZS5A5`,
     'resend=true'
   ].join('&')
-  const url = ``
+  const url = `https://slack.com/api/users.admin.invite?${params}`
   await fetch(url, { method: 'POST' })
     .then(r => r.json())
     .then(r => console.log('Slack response', r))
