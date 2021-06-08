@@ -12,7 +12,7 @@ Install dependencies:
 
     $ yarn
 
-Start running the wbsite on your computer:
+Start running the website on your computer:
 
     $ yarn run dev
 
