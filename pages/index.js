@@ -45,6 +45,7 @@ const Feature = ({ icon, color, name, desc, children, ...props }) => (
       <Box
         as="span"
         sx={{
+          width: 'fit-content',
           bg: color,
           borderRadius: 18,
           lineHeight: 0,
