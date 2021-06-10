@@ -36,12 +36,12 @@ const Logo = props => (
   </svg>
 )
 
-const Service = ({ href, icon, ...props }) => (
+const Service = ({ href, icon, name = "", ...props }) => (
   <Link
     target="_blank"
     rel="noopener"
     href={href}
-    title={`Hack Club on ${icon}`}
+    title={`Hack Club on ${name ? name : icon}`}
     children={<Icon glyph={icon} />}
     {...props}
   />
@@ -124,21 +124,24 @@ const Footer = ({ dark = false, children, ...props }) => (
               }
             }}
           >
-            <Service href="/slack" icon="slack-fill" target="_self" />
-            <Service href="https://twitter.com/hackclub" icon="twitter" />
-            <Service href="https://github.com/hackclub" icon="github" />
-            <Service href="https://figma.com/@hackclub" icon="figma" />
+            <Service href="/slack" icon="slack-fill" name="Slack" target="_self" />
+            <Service href="https://twitter.com/hackclub" icon="twitter" name="Twitter" />
+            <Service href="https://github.com/hackclub" icon="github" name="GitHub" />
+            <Service href="https://figma.com/@hackclub" icon="figma" name="Figma" />
             <Service
               href="https://www.facebook.com/Hack-Club-741805665870458"
               icon="facebook"
+              name="Facebook"
             />
             <Service
               href="https://www.youtube.com/c/HackClubHQ"
               icon="youtube"
+              name="YouTube"
             />
             <Service
               href="https://www.instagram.com/starthackclub"
               icon="instagram"
+              name="Instagram"
             />
             <Service href="mailto:team@hackclub.com" icon="email" />
           </Grid>
