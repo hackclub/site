@@ -70,7 +70,7 @@ export default () => (
         >
           <Card>
             <Heading as="h3" variant="subheadline">
-              Official server
+             Vanilla Server
             </Heading>
             <Text as="p">
               Hang out with the tree-punchers of Hack&nbsp;Club playing on the
