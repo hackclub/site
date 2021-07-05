@@ -377,10 +377,10 @@
   resolved "https://registry.yarnpkg.com/@hackclub/meta/-/meta-1.1.0.tgz#08051822921ff1406b23ff242d3ce395908c7817"
   integrity sha512-YgDkhrKVzElaoEAf5xcXu0C5RKqwft2g2Rk26dHdcRrb3oOUDa9mJM6O0KC2VJ4G7/iLO+qotUnc/vtsREugVw==
 
-"@hackclub/theme@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@hackclub/theme/-/theme-0.3.1.tgz#ab1f473178e3f1fa857a41e5edf53d30c42562e9"
-  integrity sha512-Kl1emuTu+LQdo+g1RqOwUr8Q3eV/A9Xn6hcwwhiKnsI2hFnSVxjvP1ZKTzdUdQjhSqgl2FAMg84AAn7ZjZRJWg==
+"@hackclub/theme@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@hackclub/theme/-/theme-0.3.2.tgz#2e849037adc552ca1d90141b39880069b9e52bb6"
+  integrity sha512-F4MHh/ONqH66o1eRurXnqfngLj2YcQHh3rv2VbUJzmaT2WkYd58bz05tErfPblk2alyLFuKq23z01hT7TqhZhw==
 
 "@hapi/accept@5.0.2":
   version "5.0.2"
