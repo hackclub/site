@@ -2979,6 +2979,11 @@ request@2.88.0:
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
 
+resnow@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/resnow/-/resnow-1.0.0.tgz#c5928fd8af134d18dfd6ba6099cf43769c8088e0"
+  integrity sha512-lsqv4IQcFdfkS0cFMzyLAMSn0PF0PKGa6r3PXYtgBBpIthtKHWA3hEXaTiE9ZwJ7wujZKliCQAiVaBADBd/yFg==
+
 resolve-from@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6"
