@@ -25,24 +25,26 @@ export default function Team() {
           title="Team"
           description="Meet the team that runs Hack Club, a global nonprofit network of high school computer science clubs."
         />
-        <Box bg="#24B7C9" pt={6} pb={4} px={[2, 4]}>
+        <Box
+          pt={6}
+          pb={5}
+          px={[2, 4]}
+          sx={{ background: theme => theme.util.gx('#24B5A5', '#1E9789') }}
+        >
           <Text variant="ultratitle" color="snow">
-            By the students, <br /> for the students.
+            By the students,
+            <br /> for the students.
           </Text>
           <br />
-          <Text
-            variant="subtitle"
-            color="smoke"
-            sx={{
-              marginRight: '64'
-            }}
-          >
-            We believe in a world where every young person is empowered to be
-            the change they want to see around them. At Hack Club, we’re working
-            hard to make it reality.
+          <br />
+
+          <Text variant="lead" color="smoke">
+            We believe in a world where every young person is <br />
+            empowered to be the change they want to see around <br />
+            them. At Hack Club, we’re working hard to make it reality.
           </Text>
         </Box>
-        <Box bg="snow" py={4} mx={[null, null, 4]}>
+        <Box bg="#f9f9fa" py={4} mx={[null, null, 4]}>
           <Grid columns={[1, null, 2]} gap={4}>
             <Bio
               img="/team/zach.jpg"
@@ -94,7 +96,8 @@ export default function Team() {
               pronouns="he/him"
             />
           </Grid>
-          <Text variant="title" color="orange">
+          <br />
+          <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
             Behind the Scenes
           </Text>
           <Grid columns={[1, null, 2]} gap={4}>
@@ -127,7 +130,8 @@ export default function Team() {
               img="/team/cnewton.jpg"
             />
           </Grid>
-          <Text variant="title" color="orange">
+          <br />
+          <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
             Acknowledgements
           </Text>
           <Grid columns={[1, null, 2]} gap={4}>
