@@ -42,7 +42,7 @@ export default function Team() {
             hard to make it reality.
           </Text>
         </Box>
-        <Box bg="snow" py={4}>
+        <Box bg="snow" py={4} mx={[null, null, 4]}>
           <Grid columns={[1, null, 2]} gap={4}>
             <Bio
               img="/team/zach.jpg"
