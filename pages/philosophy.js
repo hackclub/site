@@ -252,9 +252,22 @@ export default function Philosophy() {
             p: 4
           }}
         >
-          <Heading as="h1" sx={{fontSize: 5, mb:2}}>Join the movement!</Heading>
-          <Button mr={[0, 3]} mb={[3, 0]} sx={{bg: 'white', color: 'red', display: ['block', 'inline-block'], mx: 'auto'}}>Start a club</Button>
-          <Button sx={{bg: 'white', color: 'red'}}>Join our Slack</Button>
+          <Heading as="h1" sx={{ fontSize: 5, mb: 2 }}>
+            Join the movement!
+          </Heading>
+          <Button
+            mr={[0, 3]}
+            mb={[3, 0]}
+            sx={{
+              bg: 'white',
+              color: 'red',
+              display: ['block', 'inline-block'],
+              mx: 'auto'
+            }}
+          >
+            Start a club
+          </Button>
+          <Button sx={{ bg: 'white', color: 'red' }}>Join our Slack</Button>
         </Box>
       </Box>
       <Footer light />
