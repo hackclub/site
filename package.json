@@ -28,5 +28,6 @@
     "react-use-websocket": "2.7.1",
     "resnow": "^1.0.0",
     "theme-ui": "^0.10"
-  }
+  },
+  "devDependencies": {}
 }
