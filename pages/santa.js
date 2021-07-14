@@ -35,7 +35,7 @@ const Lead = styled(Box)`
 `
 
 const Page = () => (
-  <>
+  <Box sx={{overflowX: 'hidden'}}>
     <Meta
       as={Head}
       title="Hack Club Secret Santa – Holiday 2020"
@@ -82,6 +82,6 @@ const Page = () => (
       </Container>
     </Hero>
     <Footer />
-  </>
+  </Box>
 )
 export default Page
