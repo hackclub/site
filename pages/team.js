@@ -36,12 +36,10 @@ export default function Team() {
               By the students,
               <br /> for the students.
             </Text>
-            <br />
-            <br />
 
-            <Text variant="lead" color="smoke">
-              We believe in a world where every young person is <br />
-              empowered to be the change they want to see around <br />
+            <Text as="div" variant="lead" color="smoke" sx={{maxWidth: '650px'}}>
+              We believe in a world where every young person is
+              empowered to be the change they want to see around 
               them. At Hack Club, we’re working hard to make it reality.
             </Text>
           </Container>
