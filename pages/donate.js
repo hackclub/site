@@ -16,7 +16,7 @@ import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import Sponsors from '../components/donate/Sponsors'
+import Sponsors from '../components/donate/sponsors'
 import donors from '../components/donate/donors.json'
 
 const Header = styled(Box)`
