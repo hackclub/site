@@ -516,8 +516,8 @@ const Page = () => (
             }
           >
             <Image
-              src="https://cloud-2h80yq67z.vercel.app/2020-09-09_ucfp9auvepwxumy0vk3kyzm6rqh5r26a.png"
-              alt="Screenshot of Hack Club Bank on a Chromebook"
+              src="/home/hackClubBank.png"
+              alt="Screenshot of Hack Club Bank on a MacBook"
               width={256}
               loading="lazy"
             />
