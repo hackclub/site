@@ -264,10 +264,12 @@ export default function Philosophy() {
               display: ['block', 'inline-block'],
               mx: 'auto'
             }}
+            as="a"
+            href="https://apply.hackclub.com"
           >
             Start a club
           </Button>
-          <Button sx={{ bg: 'white', color: 'red' }}>Join our Slack</Button>
+          <Button sx={{ bg: 'white', color: 'red' }} as="a" href="https://hackclub.com/slack">Join our Slack</Button>
         </Box>
       </Box>
       <Footer light />
