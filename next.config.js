@@ -117,20 +117,12 @@ module.exports = withMDX({
         destination: 'https://summer.hackclub.com/_next/:path*'
       },
       {
-        source: '/philosophy/',
-        destination: 'https://v2.hackclub.dev/philosophy/'
-      },
-      {
         source: '/bank/',
         destination: 'https://v2.hackclub.dev/bank/'
       },
       {
         source: '/camp/',
         destination: 'https://v2.hackclub.dev/camp/'
-      },
-      {
-        source: '/santa/',
-        destination: 'https://v2.hackclub.dev/santa/'
       },
       {
         source: '/sponsorship/',
