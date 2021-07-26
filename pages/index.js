@@ -76,12 +76,6 @@ const Feature = ({ icon, color, name, desc, children, ...props }) => (
   </Box>
 )
 
-const BANNER_CAPTIONS = [
-  "A hackathon on a train, from sea to shining sea.",
-  "Hack your way across America by rail, from coast to coast.",
-//   "Coast-to-coast hackathon on a train? Let's break a world record!",
-]
-
 const Page = () => (
   <>
     <Meta
@@ -119,12 +113,11 @@ const Page = () => (
       />
       
         <Announcement
-          copy="All aboard The Hacker Zephyr!"
-          caption={BANNER_CAPTIONS[Math.floor(Math.random() * BANNER_CAPTIONS.length)]}
-          href="https://zephyr.hackclub.com"
-          iconLeft="explore"
-          iconRight="door-enter"
-          color="orange"
+          copy="Let's hack Slack Huddles!"
+          caption="Join us for our first Shipathon on Slack and earn some pizza!"
+          href="https://hackclub.slack.com/archives/C0266FRGT/p1627227990148900"
+          iconLeft="slack-fill"
+          color="green"
         />
       
       <SlideDown duration={768}>
