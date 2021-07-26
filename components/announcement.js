@@ -11,7 +11,7 @@ const Announcement = ({
   caption,
   copy,
   iconLeft,
-  iconRight = 'info',
+  iconRight,
   color = 'accent',
   sx = {},
   ...props
