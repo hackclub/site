@@ -117,7 +117,7 @@ const Page = () => (
           caption="Join us for our first Shipathon on Slack and earn some pizza!"
           href="https://hackclub.slack.com/archives/C0266FRGT/p1627227990148900"
           iconLeft="slack-fill"
-          color="green"
+          color="purple"
         />
       
       <SlideDown duration={768}>
