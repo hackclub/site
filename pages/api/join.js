@@ -47,6 +47,7 @@ export default async (req, res) => {
     Student: data.teen,
     Reason: data.reason,
     Invited: true,
+    Club: data.club ? data.club : '',
     IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
   })
 
