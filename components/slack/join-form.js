@@ -5,7 +5,7 @@ import Submit from '../submit'
 
 const JoinForm = ({ sx = {} }) => {
   const router = useRouter()
-  const { status, formProps, useField } = useForm('/api/join/', null, { clearOnSubmit: 5000, method: 'POST', initData: router.query.club ? {club: router.query.club} : {} })
+  const { status, formProps, useField } = useForm('/api/join/', null, { clearOnSubmit: 5000, method: 'POST', initData: router.query.c ? {club: router.query.c} : {} })
 
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
