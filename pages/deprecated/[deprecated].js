@@ -65,7 +65,12 @@ const pages = {
     link: 'https://hack.af/pack',
     icon: 'web'
   },
-
+  pack: {
+    name: 'the Hack Pack',
+    desc: 'GitHub still offers the GitHub Student Developer Pack through the standard application flow.',
+    link: 'https://education.github.com/pack',
+    icon: 'github'
+  },
 }
 
 export const getStaticPaths = () => {
