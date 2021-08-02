@@ -113,11 +113,11 @@ const Page = () => (
       />
       
         <Announcement
-          copy="Let's hack Slack Huddles!"
-          caption="Join us for our first Shipathon on Slack and earn some pizza!"
-          href="https://hackclub.slack.com/archives/C0266FRGT/p1627227990148900"
-          iconLeft="slack-fill"
-          color="purple"
+          copy="It's almost back to school!"
+          caption="We're working on some exciting new features of our clubs program..."
+          href="https://apply.hackclub.com"
+          iconLeft="clubs"
+          color="blue"
         />
       
       <SlideDown duration={768}>
