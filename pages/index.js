@@ -114,7 +114,7 @@ const Page = () => (
       
         <Announcement
           copy="It's almost back to school!"
-          caption="We're working on some exciting new features of our clubs program..."
+          caption="Exciting new things for our clubs program coming soon..."
           href="https://apply.hackclub.com"
           iconLeft="clubs"
           color="blue"
