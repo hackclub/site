@@ -76,12 +76,6 @@ const Feature = ({ icon, color, name, desc, children, ...props }) => (
   </Box>
 )
 
-const BANNER_CAPTIONS = [
-  "A hackathon on a train, from sea to shining sea.",
-  "Hack your way across America by rail, from coast to coast.",
-//   "Coast-to-coast hackathon on a train? Let's break a world record!",
-]
-
 const Page = () => (
   <>
     <Meta
@@ -119,12 +113,11 @@ const Page = () => (
       />
       
         <Announcement
-          copy="All aboard The Hacker Zephyr!"
-          caption={BANNER_CAPTIONS[Math.floor(Math.random() * BANNER_CAPTIONS.length)]}
-          href="https://zephyr.hackclub.com"
-          iconLeft="explore"
-          iconRight="door-enter"
-          color="orange"
+          copy="It's almost back to school!"
+          caption="Exciting new things for our clubs program coming soon..."
+          href="https://apply.hackclub.com"
+          iconLeft="clubs"
+          color="blue"
         />
       
       <SlideDown duration={768}>
@@ -516,8 +509,8 @@ const Page = () => (
             }
           >
             <Image
-              src="https://cloud-2h80yq67z.vercel.app/2020-09-09_ucfp9auvepwxumy0vk3kyzm6rqh5r26a.png"
-              alt="Screenshot of Hack Club Bank on a Chromebook"
+              src="/home/hackClubBank.png"
+              alt="Screenshot of Hack Club Bank on a MacBook"
               width={256}
               loading="lazy"
             />

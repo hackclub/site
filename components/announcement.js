@@ -11,7 +11,7 @@ const Announcement = ({
   caption,
   copy,
   iconLeft,
-  iconRight = 'info',
+  iconRight,
   color = 'accent',
   sx = {},
   ...props
@@ -60,7 +60,9 @@ const Announcement = ({
         </Text>
       )}
     </Text>
-    <Icon glyph={iconRight} sx={{ ml: [2, 3], color }} />
+    {iconRight && (
+      <Icon glyph={iconRight} sx={{ ml: [2, 3], color }} />
+    )}
   </Card>
 )
 

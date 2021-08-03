@@ -1,9 +1,11 @@
 import { Card, Label, Input, Checkbox, Textarea } from 'theme-ui'
+import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 
 const JoinForm = ({ sx = {} }) => {
-  const { status, formProps, useField } = useForm('/api/join/')
+  const router = useRouter()
+  const { status, formProps, useField } = useForm('/api/join/', null, { clearOnSubmit: 5000, method: 'POST', initData: router.query.c ? {club: router.query.c} : (router.query["C"] ? {club: router.query["C"]} : {}) })
 
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>

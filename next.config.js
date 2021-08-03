@@ -53,6 +53,11 @@ module.exports = withMDX({
         permanent: true
       },
       {
+        source: '/camp/',
+        destination: 'https://camp.hackclub.com',
+        permanent: true
+      },
+      {
         source: '/apply/',
         destination: 'https://apply.hackclub.com',
         permanent: true
@@ -115,22 +120,6 @@ module.exports = withMDX({
       {
         source: '/summer/_next/:path*',
         destination: 'https://summer.hackclub.com/_next/:path*'
-      },
-      {
-        source: '/donate/',
-        destination: 'https://v2.hackclub.dev/donate/'
-      },
-      {
-        source: '/philosophy/',
-        destination: 'https://v2.hackclub.dev/philosophy/'
-      },
-      // {
-      //   source: '/bank/',
-      //   destination: 'https://v2.hackclub.dev/bank/'
-      // },
-      {
-        source: '/camp/',
-        destination: 'https://v2.hackclub.dev/camp/'
       },
       {
         source: '/sponsorship/',
