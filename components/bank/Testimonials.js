@@ -1,6 +1,7 @@
-import { Box, Avatar, Button, Image, Text, Heading } from 'theme-ui'
+import { Box, Avatar, Button, Image, Text, Heading, Container } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Stat from '../stat'
+import kebabCase from 'lodash/kebabCase'
 
 const events = [
   {
@@ -64,7 +65,7 @@ export default function Testimonials() {
   return (
     <>
       <Box>
-        <Box>
+        <Container align="center" variant="narrow">
           <Heading variant="title">
             The best events across the country run on Bank.
           </Heading>
@@ -72,16 +73,107 @@ export default function Testimonials() {
             Everywhere from Philadelphia to Phoenix to Portland,
             Hack&nbsp;Club&nbsp;Bank powers events of all sizes.
           </Text>
-        </Box>
+        </Container>
+        <Container
+          sx={{
+            color: 'smoke',
+            px: [3, null, 4],
+            mt: 2,
+            maxWidth: 84,
+            borderRadius: 0,
+            position: 'relative',
+            overflow: 'hidden',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)'
+          }}
+        >
+          {events.map(event => {
+            const id = kebabCase(event.name)
+            return <Event {...event} img={`/bank/events/${id}.jpg`} key={id} />
+          })}
+        </Container>
       </Box>
     </>
   )
 }
 
-function Event() {
+function Event({
+  img,
+  name,
+  location,
+  budget,
+  attendees,
+  organizer,
+  testimonial,
+  transparency
+}) {
   return (
     <Slide bottom>
-      <Box></Box>
+      <Box>
+        <Image
+          src={img}
+          alt={location}
+          sx={{ maxHeight: '20rem', objectFit: 'cover', borderRadius: '30px' }}
+        />
+        <Box p={[3, 4]}>
+          {/** event header below */}
+          <Box sx={{ display: 'grid' }}>
+            <Text
+              align="left"
+              color="white"
+              variant="headline"
+              children={name}
+            />
+            <Box sx={{ display: 'flex' }}>
+              <DetailStat value={attendees} label="attendees" />
+              <DetailStat value={`$${budget}k`} label="budget" />
+            </Box>
+          </Box>
+          <Quote>"{testimonial}"</Quote>
+          <Box
+            sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
+            mt={3}
+          >
+            <Avatar
+              src={require(`../../public/hackers/${organizer
+                .split(' ')[0]
+                .toLowerCase()}.jpg`)}
+              size={48}
+              mr={2}
+            />
+            <Text color="white">
+              <strong>{organizer}</strong>, Lead Organizer
+            </Text>
+            {transparency && (
+              <a
+                href={`https://bank.hackclub.com/${transparency}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Button ml={[0, 'auto']} mt={[2, 0]} variant="primary">
+                  See Finances
+                </Button>
+              </a>
+            )}
+          </Box>
+        </Box>
+      </Box>
     </Slide>
+  )
+}
+
+function DetailStat({ children }) {
+  return (
+    <Box sx={{ alignContent: 'left', fontSize: 5, px: 0, mb: 0 }}>
+      {children}
+    </Box>
+  )
+}
+
+function Quote({ children }) {
+  return (
+    <Text sx={{ fontSize: 2, color: 'muted', textIndent: '-.375em' }}>
+      {children}
+    </Text>
   )
 }
