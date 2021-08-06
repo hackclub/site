@@ -112,13 +112,13 @@ const Page = () => (
         priority
       />
       
-          {/*<Announcement
-          copy="It's almost back to school!"
-          caption="Exciting new things for our clubs program coming soon..."
+        <Announcement
+          copy="Applications are now open"
+          caption="It's feeling the like the end of the end of the world. Fall semester is coming"
           href="https://apply.hackclub.com"
           iconLeft="clubs"
-          color="blue"
-        />*/}
+          color="primary"
+        />
       
       <SlideDown duration={768}>
         <Heading
