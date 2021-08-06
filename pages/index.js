@@ -381,11 +381,59 @@ const Page = () => (
           sx={{ alignItems: 'end', span: { color: 'white' } }}
         >
           <Feature
-            icon="sam"
-            color="blue"
-            name="Free Zoom Pro"
-            desc="24/7 access to Zoom Pro enabled meeting rooms for your club (that means no time limit)."
+            icon="slack-fill"
+            color="#5d114c"
+            name="Chats with 100s of club leaders"
+            desc={
+              <>
+                In our{' '}
+                <Link href="/slack" passHref>
+                  <a>Slack community</a>
+                </Link>{' '}
+                of 10k+ teen hackers, you’ll join a private space for
+                Hack&nbsp;Club leaders to ask questions & chat, share projects,
+                & attend weekly live events.
+              </>
+            }
           />
+          <Feature
+            icon="docs"
+            color="red"
+            name="Meeting content"
+            desc={
+              <>
+                Come prepared to every meeting with over 100{' '}
+                <a href="https://workshops.hackclub.com">workshops</a> (3 years’ 
+                worth!) that guide your club members through making fun, creative projects.
+              </>
+            }
+          >
+            <Photo
+              src="/home/flagship_megan.png"
+              alt="Megan presenting a workshop at Flagship 2019"
+              width={980}
+              height={653}
+              sx={{ maxWidth: [null, 332] }}
+            />
+          </Feature>
+          {/* <Feature
+            name="A comprehensive leader guide"
+            desc={
+              <>
+                Need help getting started? Watch real club leaders run meetings, and
+                learn how to run them in your own club, with{' '}
+                <a href="https://meetings.hackclub.com">Hack Club Meetings</a>.
+              </>
+            }
+          >
+            <Photo
+              src="/home/meetings.png"
+              alt="Claire running a workshop on Generative Art in an online meeting"
+              width={1000}
+              height={653}
+              sx={{ maxWidth: [null, 332] }}
+            />
+          </Feature> */}
           <Feature
             name="Stickers"
             desc={
@@ -426,76 +474,11 @@ const Page = () => (
               alt="Enjoy Hack Club Coca-Cola sticker"
               sx={{
                 transform: 'rotate(-12deg)',
-                width: ['6rem', '7.5rem'],
+                width: ['6rem', '8rem'],
                 height: ['4rem', '5rem']
               }}
             />
           </Feature>
-          <Feature
-            icon="docs"
-            color="red"
-            name="Curriculum"
-            desc={
-              <>
-                Come prepared to every meeting with over 100{' '}
-                <a href="https://workshops.hackclub.com">workshops</a> (3 years’ 
-                worth!) that guide your club members through making fun, creative projects.
-              </>
-            }
-          >
-            <Photo
-              src="/home/flagship_megan.png"
-              alt="Megan presenting a workshop at Flagship 2019"
-              width={980}
-              height={653}
-              sx={{ maxWidth: [null, 332] }}
-            />
-          </Feature>
-          <Feature
-            name="A comprehensive leader guide"
-            desc={
-              <>
-                Need help getting started? Watch real club leaders run meetings, and
-                learn how to run them in your own club, with{' '}
-                <a href="https://meetings.hackclub.com">Hack Club Meetings</a>.
-              </>
-            }
-          >
-            <Photo
-              src="/home/meetings.png"
-              alt="Claire running a workshop on Generative Art in an online meeting"
-              width={1000}
-              height={653}
-              sx={{ maxWidth: [null, 332] }}
-            />
-          </Feature>
-          <Feature
-            icon="slack-fill"
-            color="#5d114c"
-            name="Talk to 100s of club leaders"
-            desc={
-              <>
-                In our{' '}
-                <Link href="/slack" passHref>
-                  <a>Slack community</a>
-                </Link>{' '}
-                of 10k+ teen hackers, you’ll join a private space for
-                Hack&nbsp;Club leaders to ask questions & chat, share projects,
-                & attend weekly live events.
-              </>
-            }
-          />
-          <Feature
-            icon="purse"
-            color="orange"
-            name="A basket of free tools"
-            desc={
-              <>
-                Free subscriptions to Notion Pro, Figma Pro, repl.it and more
-                for running a great club.
-              </>
-            }
-          />
           <Feature
             icon="bank-account"
             color="muted"
@@ -544,6 +527,23 @@ const Page = () => (
               sx={{ maxWidth: [null, 332] }}
             />
           </Feature>
+          <Feature
+            icon="purse"
+            color="orange"
+            name="A basket of free tools"
+            desc={
+              <>
+                Free subscriptions to Notion Pro, Figma Pro, repl.it and more
+                for running a great club.
+              </>
+            }
+          />
+          {/* <Feature
+            icon="sam"
+            color="blue"
+            name="Free Zoom Pro"
+            desc="24/7 access to Zoom Pro enabled meeting rooms for your club (that means no time limit)."
+          /> */}
         </Grid>
         <Feature
           icon="welcome"
