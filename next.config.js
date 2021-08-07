@@ -7,9 +7,7 @@ module.exports = withMDX({
       'hackclub.com',
       'dl.airtable.com',
       'emoji.slack-edge.com',
-      'cdn.glitch.com',
-      'github.com',
-      'localhost'
+      'cdn.glitch.com'
     ]
   },
   webpack: (config, { isServer }) => {
