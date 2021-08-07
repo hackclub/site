@@ -311,7 +311,7 @@ const Page = () => (
       }}
     >
       <BGImg
-        src="http://localhost:3000/golden-train.png"
+        src="/golden-train.png"
         width={2048}
         height={1170}
         alt="Hack Clubbers on the 2021 Hacker Zephyr"
