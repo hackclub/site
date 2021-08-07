@@ -192,7 +192,7 @@ const Page = () => (
           The rundown
         </Text>
         <Heading as="h2" variant="title">
-          Teen clubs for the {' '}
+          High school clubs for{' '}
           <Text
             as="span"
             sx={{
@@ -204,15 +204,16 @@ const Page = () => (
               bg: 'rgb(255, 212, 64)'
             }}
           >
-            joy of code
+            creative coding
           </Text>
           .
         </Heading>
         <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus' }}>
-          Hack Clubs typically meet for 1.5 hours each week in high schools, 
-          makerspaces, community centers, churches, and any other venue
-          where teenagers can gather. Each club is unique but a typical meeting
-          would look like:
+          Hack Clubs at high schools meet weekly (this year, via Zoom),
+          typically for 1.5hrs after school. As a club leader, you get members
+          (mostly beginners) started on something to learn/create, then members
+          work at their own pace, building websites, apps, & games, and
+          presenting them at the end.
         </Text>
         <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 4]}>
           <Photo
@@ -246,7 +247,7 @@ const Page = () => (
             </Text>
             <Text as="p" variant="subtitle">
               <strong>
-                A group of teens, many beginners, gather to start coding.
+                A group of students—many beginners—gather to start coding.
               </strong>
               The leader (that’s you!) presents for a few minutes, getting the
               group started building something new.
@@ -256,7 +257,7 @@ const Page = () => (
             </Text>
             <Text as="p" variant="subtitle">
               <strong>Everyone gets hacking, individually.</strong> Not hacking
-              bank accounts, being creative and <a>making something awesome</a>.
+              bank accounts—being creative & making something awesome with code.
             </Text>
             <Text as="span" color="blue">
               3
@@ -311,10 +312,11 @@ const Page = () => (
       }}
     >
       <BGImg
-        src="/golden-train.png"
+        gradient="linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625))"
+        src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855"
         width={2048}
         height={1170}
-        alt="Hack Clubbers on the 2021 Hacker Zephyr"
+        alt="Hack Clubbers gather at the Elon Musk AMA in 2020"
       />
       <Container>
         <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
