@@ -22,6 +22,7 @@ import BGImg from '../components/background-image'
 import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
 import Footer from '../components/footer'
+import FooterImgFile from '../public/home/footer.png'
 let Highlight = styled(Text)`
   color: inherit;
   border-radius: 1em 0 1em 0;
@@ -486,6 +487,30 @@ export default function Page({ dataPieces }) {
           </Button>
         </Container>
       </Box>
+      <Footer
+        dark
+        sx={{
+          backgroundColor: 'dark',
+          position: 'relative',
+          overflow: 'hidden',
+          textShadow: '0 1px 2px rgba(0,0,0,0.375)',
+          'h2,span,p,a': { color: 'white !important' },
+          '> div img': { objectPosition: ['left', 'center'] },
+          svg: {
+            fill: 'white',
+            filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
+          }
+        }}
+      >
+        <BGImg
+          width={2544}
+          height={2048}
+          gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
+          src={FooterImgFile}
+          placeholder="blur"
+          alt="Globe with hundreds of Hack Clubs"
+        />
+      </Footer>
     </>
   )
 }
@@ -660,7 +685,7 @@ export async function getStaticProps() {
     )
   )
     .map(x =>
-      (x.fields['Meeting sizes'] && x.fields['Address Country'])
+      x.fields['Meeting sizes'] && x.fields['Address Country']
         ? `🎒 A club meeting ${
             x.fields['Address Country']
               ? x.fields['Address Country'][0]?.split(' ')[0] == 'United'
@@ -678,8 +703,12 @@ export async function getStaticProps() {
     })
     .sort(() => 0.5 - Math.random())
     .slice(0, 20)
-  
-  let eventsData = (await fetch('https://events.hackclub.com/api/events/upcoming/').then(r => r.json())).map(x => `📆 ${x.title} is coming up soon!`)
+
+  let eventsData = (
+    await fetch('https://events.hackclub.com/api/events/upcoming/').then(r =>
+      r.json()
+    )
+  ).map(x => `📆 ${x.title} is coming up soon!`)
 
   dataPieces = [
     ...newScrapbooks,
@@ -698,9 +727,11 @@ export async function getStaticProps() {
   ]
   dataPieces = [
     ...dataPieces,
-    ...(88 - dataPieces.length > 0 ? [...Array(88 - dataPieces.length)].map(
-      (u, i) => dataPieces[Math.floor(Math.random() * dataPieces.length)]
-    ) : [])
+    ...(88 - dataPieces.length > 0
+      ? [...Array(88 - dataPieces.length)].map(
+          (u, i) => dataPieces[Math.floor(Math.random() * dataPieces.length)]
+        )
+      : [])
   ]
   return { props: { dataPieces }, revalidate: 30 }
 }
