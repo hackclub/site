@@ -9,7 +9,8 @@ export default function Landing() {
         <Vignette />
         <Box
           style={{
-            zIndex: '100'
+            zIndex: '100',
+            paddingTop: '96px'
           }}
         >
           <Fade duration={625} bottom>

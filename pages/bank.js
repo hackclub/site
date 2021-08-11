@@ -32,7 +32,7 @@ export default function Bank() {
           title="Bank"
           description="Hack Club Bank provides a 501(c)(3) status-backed bank account optimized for high school hackathons including invoicing, debit cards, check sending, pre-written legal forms, automated tax filing, and transparent finances. Get fiscal sponsorship designed to help you run great events."
         />
-        <Box sx={{ marginTop: '5rem' }}>
+        <Box>
           <Landing />
           <Features />
           <Testimonials />
