@@ -23,6 +23,7 @@ import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
 import Footer from '../components/footer'
 import FooterImgFile from '../public/home/footer.png'
+import GoldenTrainImgFile from '../public/golden-train.png'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -255,7 +256,6 @@ export default function Page({ dataPieces }) {
               width={3000}
               height={2550}
               showAlt
-              priority
             />
             <Grid
               columns="auto 1fr"
@@ -353,7 +353,8 @@ export default function Page({ dataPieces }) {
         }}
       >
         <BGImg
-          src="/golden-train.png"
+          src={GoldenTrainImgFile}
+          placeholder="blur"
           width={2048}
           height={1170}
           alt="Hack Clubbers on the 2021 Hacker Zephyr"
