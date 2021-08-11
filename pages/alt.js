@@ -661,7 +661,7 @@ export async function getStaticProps() {
   )
     .map(x =>
       (x.fields['Meeting sizes'] && x.fields['Address Country'])
-        ? `📆 A club meeting ${
+        ? `🎒 A club meeting ${
             x.fields['Address Country']
               ? x.fields['Address Country'][0]?.split(' ')[0] == 'United'
                 ? 'in the ' +
