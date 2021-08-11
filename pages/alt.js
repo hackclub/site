@@ -627,7 +627,7 @@ export async function getStaticProps() {
             : 'a hacker'
         }!`
     )
-    .slice(0, 20)
+    .slice(0, 30)
 
   let clubsData = (
     await fetch(
@@ -677,9 +677,9 @@ export async function getStaticProps() {
       return el != null
     })
     .sort(() => 0.5 - Math.random())
-    .slice(0, 8)
-
-  console.log(meetingsData)
+    .slice(0, 15)
+  
+  let eventsData = (await fetch('https://events.hackclub.com/api/events/upcoming/').then(r => r.json())).map(x => `📆 ${x.title} is coming up soon!`)
 
   dataPieces = [
     ...newScrapbooks,
@@ -689,25 +689,18 @@ export async function getStaticProps() {
     ...new Set(packagesData),
     ...new Set(clubsData),
     ...meetingsData,
+    ...eventsData,
     ...new Set(
       initialGitHubData.filter(function (el) {
         return el != null
       })
     )
   ]
-
-  const experiments = [
-    ...dataPieces.sort(() => 0.5 - Math.random()),
-    '🚢 New ship by Sam Poder',
-    '256 Slack Members Online',
-    '💸 $10,000 just raised!'
-  ]
-  console.log(dataPieces.length)
   dataPieces = [
     ...dataPieces,
-    ...[...Array(88 - dataPieces.length)].map(
-      (u, i) => '💸 $10,000 just raised!'
-    )
+    ...(88 - dataPieces.length > 0 ? [...Array(88 - dataPieces.length)].map(
+      (u, i) => dataPieces[Math.floor(Math.random() * dataPieces.length)]
+    ) : [])
   ]
   return { props: { dataPieces }, revalidate: 30 }
 }
