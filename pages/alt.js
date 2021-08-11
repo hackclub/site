@@ -19,7 +19,7 @@ import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Icon from '../components/icon'
 import BGImg from '../components/background-image'
-import SlideDown from '../components/slide-down'
+import Slack from '../components/slack'
 import FadeIn from '../components/fade-in'
 import Footer from '../components/footer'
 import FooterImgFile from '../public/home/footer.png'
@@ -385,7 +385,242 @@ export default function Page({ dataPieces }) {
             Our philosophy →
           </Button>
         </Container>
-      </Box>{' '}
+      </Box>
+      <Box as="section" sx={{ py: [4, 5, 6], color: 'black' }}>
+        <Container
+          sx={{
+            maxWidth: [null, 'copyUltra'],
+            svg: { filter: 'drop-shadow(0 2px 3px rgba(0,0,0,.125))' }
+          }}
+        >
+          <Box as="header" sx={{ textAlign: [null, 'center'], pb: [4, 5] }}>
+            <Text as="p" variant="eyebrow">
+              Hit the ground running
+            </Text>
+            <Heading as="h2" variant="title">
+              Get your club{' '}
+              <Text
+                as="span"
+                sx={{
+                  borderRadius: 'default',
+                  px: 2,
+                  mx: [-2, 0],
+                  bg: 'rgb(91, 255, 205)',
+                  color: '#095365',
+                  display: 'inline-block',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                going & growing
+              </Text>
+              with Hack&nbsp;Club.
+            </Heading>
+          </Box>
+          <Grid
+            columns={[null, 2]}
+            gap={[2, 4]}
+            sx={{ alignItems: 'end', span: { color: 'white' } }}
+          >
+            <Feature
+              icon="slack-fill"
+              color="#5d114c"
+              name="Chats with 100s of club leaders"
+              desc={
+                <>
+                  In our{' '}
+                  <Link href="/slack" passHref>
+                    <a>Slack community</a>
+                  </Link>{' '}
+                  of 10k+ teen hackers, you’ll join a private space for
+                  Hack&nbsp;Club leaders to ask questions & chat, share
+                  projects, & attend weekly live events.
+                </>
+              }
+            />
+            <Feature
+              icon="docs"
+              color="red"
+              name="Meeting content"
+              desc={
+                <>
+                  Come prepared to every meeting with over 100{' '}
+                  <a href="https://workshops.hackclub.com">workshops</a> (3
+                  years’ worth!) that guide your club members through making
+                  fun, creative projects.
+                </>
+              }
+            >
+              <Photo
+                src="/home/flagship_megan.png"
+                alt="Megan presenting a workshop at Flagship 2019"
+                width={980}
+                height={653}
+                sx={{ maxWidth: [null, 332] }}
+              />
+            </Feature>
+            {/* <Feature
+            name="A comprehensive leader guide"
+            desc={
+              <>
+                Need help getting started? Watch real club leaders run meetings, and
+                learn how to run them in your own club, with{' '}
+                <a href="https://meetings.hackclub.com">Hack Club Meetings</a>.
+              </>
+            }
+          >
+            <Photo
+              src="/home/meetings.png"
+              alt="Claire running a workshop on Generative Art in an online meeting"
+              width={1000}
+              height={653}
+              sx={{ maxWidth: [null, 332] }}
+            />
+          </Feature> */}
+            <Feature
+              name="Stickers"
+              desc={
+                <>
+                  Get{' '}
+                  <Link href="/stickers">
+                    <a>amazing stickers </a>
+                  </Link>{' '}
+                  for marketing your club shipped directly to you & your club
+                  members.
+                </>
+              }
+              sx={{
+                img: {
+                  mr: 4,
+                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))'
+                }
+              }}
+            >
+              <Image
+                src="https://hackclub.com/stickers/macintosh.svg"
+                alt="Macintosh sticker"
+                sx={{
+                  transform: 'rotate(-12deg)',
+                  width: '4.5rem',
+                  height: '6rem'
+                }}
+              />
+              <Image
+                src="https://hackclub.com/stickers/2020_progress.png"
+                alt="Pride sticker"
+                sx={{
+                  transform: 'rotate(3deg)',
+                  width: ['4rem', '6rem'],
+                  height: ['4rem', '6rem'],
+                  borderRadius: 'extra'
+                }}
+              />
+              <Image
+                src="https://hackclub.com/stickers/enjoy.svg"
+                alt="Enjoy Hack Club Coca-Cola sticker"
+                sx={{
+                  transform: 'rotate(-12deg)',
+                  width: ['6rem', '8rem'],
+                  height: ['4rem', '5rem']
+                }}
+              />
+            </Feature>
+            <Feature
+              icon="bank-account"
+              color="muted"
+              name="A nonprofit bank account"
+              desc={
+                <>
+                  Use our 501(c)(3) status (US-only) and a club bank account
+                  with <a href="https://hackclub.com/bank/">Hack Club Bank</a>.
+                  Fundraise, accept donations, buy things!
+                </>
+              }
+            >
+              <Image
+                src="/home/hackClubBank.png"
+                alt="Screenshot of Hack Club Bank on a MacBook"
+                width={256}
+                loading="lazy"
+              />
+            </Feature>
+            <Feature
+              name="Weekly events"
+              desc={
+                <>
+                  From{' '}
+                  <Link href="/night">
+                    <a>Hack Night</a>
+                  </Link>{' '}
+                  to{' '}
+                  <Link href="/amas">
+                    <a>AMAs</a>
+                  </Link>
+                  {' to '}
+                  <a href="https://twitter.com/hackclub/status/1300494921997193217?s=21">
+                    weirder events
+                  </a>
+                  , the Slack community has live events for leaders & members
+                  alike every week.
+                </>
+              }
+            >
+              <Photo
+                src="/home/workshops.jpg"
+                alt="Students going wild on a Zoom call"
+                width={768}
+                height={463}
+                sx={{ maxWidth: [null, 332] }}
+              />
+            </Feature>
+            <Feature
+              icon="purse"
+              color="orange"
+              name="A basket of free tools"
+              desc={
+                <>
+                  Free subscriptions to Notion Pro, Figma Pro, repl.it and more
+                  for running a great club.
+                </>
+              }
+            />
+            {/* <Feature
+            icon="sam"
+            color="blue"
+            name="Free Zoom Pro"
+            desc="24/7 access to Zoom Pro enabled meeting rooms for your club (that means no time limit)."
+          /> */}
+          </Grid>
+          <Feature
+            icon="welcome"
+            color="rgb(255,88,88)"
+            name="Existing clubs welcome."
+            desc={
+              <>
+                When established CS clubs join, they get all the Hack&nbsp;Club
+                benefits: Zoom&nbsp;Pro, stickers, our Slack community,{' '}
+                <a href="https://workshops.hackclub.com/">workshops</a>, the
+                works. They’re welcome to use the “Hack&nbsp;Club” name or keep
+                their existing one.
+              </>
+            }
+            as="aside"
+            sx={{
+              display: 'grid',
+              gridGap: [0, 4],
+              gridTemplateColumns: [null, 'auto 1fr'],
+              alignItems: 'start',
+              justifyContent: 'start',
+              bg: 'rgba(255,88,88,0.125)',
+              mt: [4, 5],
+              p: [3, 4],
+              borderRadius: 'extra',
+              span: { transform: 'none', width: 'min-intrinsic' },
+              svg: { color: 'white' }
+            }}
+          />
+        </Container>
+      </Box>
+      <Slack />
       <Box bg="snow" color="black" py={[5, 6]}>
         <Container sx={{ textAlign: ['left', 'center'] }}>
           <Text as="p" variant="eyebrow">
