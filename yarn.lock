@@ -2378,6 +2378,11 @@ minimist@^1.2.0, minimist@^1.2.5:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
 
+mojier@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/mojier/-/mojier-1.0.8.tgz#64edaa39d1fcdbc171082a5bd2fa763e304f5364"
+  integrity sha1-ZO2qOdH828FxCCpb0vp2PjBPU2Q=
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"

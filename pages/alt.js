@@ -138,10 +138,10 @@ export default function Page({ dataPieces }) {
                     overflow: 'hidden',
                     maxHeight: '422px',
                     flexBasis: 'auto',
-                    width: '170vw'
+                    width: ['130vw', '130vw', '130vw', null, '110vw']
                   }}
                 >
-                  {dataPieces.slice(0 + 10 * i, 10 + 10 * i).map((u, i) => (
+                  {dataPieces.slice(0 + 8 * i, 8 + 8 * i).map((u, i) => (
                     <Node text={u} />
                   ))}
                 </Flex>
@@ -495,6 +495,7 @@ export default function Page({ dataPieces }) {
 // Bank Stats
 
 export async function getStaticProps() {
+  var mojier = require('mojier')
   let dataPieces = []
   let initialBankData = await fetch('https://bank.hackclub.com/stats').then(r =>
     r.json()
@@ -564,25 +565,98 @@ export async function getStaticProps() {
     .map(
       x => `${emojiPeople[Math.floor(Math.random() * emojiPeople.length)]} ${x}`
     )
-  // console.log(newScrapbookUsers)
+
+  const newScrapbooks = [
+    '🎨 New piece of art made!',
+    '💾 Hew CLI shipped!',
+    '🌐 A new website has been created!',
+    '💡 A new circuit has been shipped!',
+    '🛠 New Rust project created!',
+    '🌈 A new personal website has been shipped!',
+    '🎬 New animation shipped!',
+    '🤖 New Slack bot added!',
+    '✏️ New sketch sketched!'
+  ]
+
+  let reactionsUsed = await fetch(
+    'http://streamboot-bot.herokuapp.com/api/top/emoji'
+  ).then(r => r.json())
+
+  reactionsUsed = reactionsUsed
+    .map(x => {
+      let emoji = mojier.get(x.emoji_id)
+      if (
+        emoji != null &&
+        emoji != 'eggplant' &&
+        emoji != 'peach' &&
+        emoji != 'sweat_drops'
+      ) {
+        return `${emoji} reaction used${
+          x.count > 3 ? ' ' + x.count + ' times this hour' : ''
+        }!`
+      } else {
+        return null
+      }
+    })
+    .filter(function (el) {
+      return el != null
+    })
+    .slice(0, 15)
+
+  let packagesText = [
+    '📦 New package shipped',
+    '✉️ New envelope shipped',
+    '💌 Stickers shipped',
+    '😁 Swag pack shipped',
+    '💌 Goodies shipped'
+  ]
+
+  let packagesData = (
+    await fetch(
+      'https://api2.hackclub.com/v0.1/Operations/Mail%20Missions?select={"sort":[{"field":"Mail%20Team%20Thread%20Timestamp","direction":"desc"}]}'
+    ).then(r => r.json())
+  )
+    .map(
+      x =>
+        `${packagesText[Math.floor(packagesText.length * Math.random())]} to ${
+          x.fields['Receiver Country']
+            ? (x.fields['Receiver Country'][0]?.split(' ')[0] == 'United'
+              ? 'the ' + x.fields['Receiver Country'][0]?.split('(')[0]
+              : x.fields['Receiver Country'][0]?.split('(')[0])
+            : 'a hacker'
+        }!`
+    )
+    .slice(0, 20)
+
+  console.log(packagesData)
+
   dataPieces = [
+    ...newScrapbooks,
     ...newScrapbookUsers,
     ...dataPieces,
+    ...reactionsUsed,
+    ...new Set(
+      packagesData
+    ),
     ...new Set(
       initialGitHubData.filter(function (el) {
         return el != null
       })
     )
   ]
+
   const experiments = [
     ...dataPieces.sort(() => 0.5 - Math.random()),
     '🚢 New ship by Sam Poder',
     '256 Slack Members Online',
     '💸 $10,000 just raised!'
   ]
+  console.log(dataPieces.length)
   dataPieces = [
     ...dataPieces,
-    ...[...Array(90)].map((u, i) => '💸 $10,000 just raised!')
+    ...[...Array(88 - dataPieces.length)].map(
+      (u, i) => '💸 $10,000 just raised!'
+    )
   ]
   return { props: { dataPieces }, revalidate: 30 }
 }
