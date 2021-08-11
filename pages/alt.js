@@ -670,14 +670,14 @@ export async function getStaticProps() {
               : ''
           } of ${
             x.fields['Meeting sizes'][x.fields['Meeting sizes'].length - 1]
-          } just happened!`
+          } hackers just happened!`
         : null
     )
     .filter(function (el) {
       return el != null
     })
     .sort(() => 0.5 - Math.random())
-    .slice(0, 15)
+    .slice(0, 20)
   
   let eventsData = (await fetch('https://events.hackclub.com/api/events/upcoming/').then(r => r.json())).map(x => `📆 ${x.title} is coming up soon!`)
 
@@ -687,8 +687,8 @@ export async function getStaticProps() {
     ...dataPieces,
     ...reactionsUsed,
     ...new Set(packagesData),
+    ...new Set(meetingsData),
     ...new Set(clubsData),
-    ...meetingsData,
     ...eventsData,
     ...new Set(
       initialGitHubData.filter(function (el) {
