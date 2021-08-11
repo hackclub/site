@@ -5,7 +5,8 @@ import Icon from '../icon'
 export default function Run() {
   return (
     <>
-      <Box
+      <Container
+        variant="container"
         maxWidth={60}
         my={5}
         sx={{
@@ -41,7 +42,7 @@ export default function Run() {
             body="You always have access to historical financial data"
           />
         </List>
-      </Box>
+      </Container>
     </>
   )
 }

@@ -17,7 +17,7 @@ export default function Everything() {
   return (
     <>
       <Box>
-        <Container align="center" mb={[4, 5]} px={3}>
+        <Container mb={[4, 5]} px={3} sx={{ textAlign: 'center' }}>
           <Heading variant="ultratitle">Everything you’ll&nbsp;need.</Heading>
         </Container>
         <Container px={3}>
@@ -107,26 +107,28 @@ export default function Everything() {
               of revenue. No upfront costs.
             </Text>
           </Box>
-          <Text
-            variant="lead"
-            maxWidth={28}
-            color="slate"
-            fontSize={2}
-            align="center"
-            mt={[4, 5]}
-          >
-            Hack Club Bank is a{' '}
-            <Link
-              color="primary"
-              href="https://en.wikipedia.org/wiki/Fiscal_sponsorship"
-              hoverline
+          <Container variant="copy" sx={{ textAlign: 'center', fontSize: 24 }}>
+            <Text
+              variant="lead"
+              maxWidth={28}
+              color="slate"
+              fontSize={2}
+              align="center"
+              mt={[4, 5]}
             >
-              fiscal sponsor
-            </Link>{' '}
-            for your&nbsp;project.
-            <br />
-            Industry standard varies between 7-14% of&nbsp;revenue.
-          </Text>
+              Hack Club Bank is a{' '}
+              <Link
+                color="primary"
+                href="https://en.wikipedia.org/wiki/Fiscal_sponsorship"
+                hoverline
+              >
+                fiscal sponsor
+              </Link>{' '}
+              for your&nbsp;project.
+              <br />
+              Industry standard varies between 7-14% of&nbsp;revenue.
+            </Text>
+          </Container>
         </Container>
       </Box>
     </>
