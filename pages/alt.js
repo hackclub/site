@@ -23,6 +23,7 @@ import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
 import Footer from '../components/footer'
 import FooterImgFile from '../public/home/footer.png'
+
 let Highlight = styled(Text)`
   color: inherit;
   border-radius: 1em 0 1em 0;
@@ -254,6 +255,7 @@ export default function Page({ dataPieces }) {
               width={3000}
               height={2550}
               showAlt
+              priority
             />
             <Grid
               columns="auto 1fr"
