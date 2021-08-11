@@ -141,7 +141,7 @@ export default function Page({ dataPieces }) {
                     overflow: 'hidden',
                     maxHeight: '422px',
                     flexBasis: 'auto',
-                    width: ['130vw', '130vw', '130vw', null, '110vw']
+                    width: ['160vw', '130vw', '130vw', null, '110vw']
                   }}
                 >
                   {dataPieces.slice(0 + 8 * i, 8 + 8 * i).map((u, i) => (
@@ -167,7 +167,6 @@ export default function Page({ dataPieces }) {
               sx={{
                 borderRadius: 8,
                 flexGrow: 1,
-                maxHeight: '336px',
                 width: '90vw',
                 maxWidth: '700px',
                 display: 'flex',
@@ -181,7 +180,7 @@ export default function Page({ dataPieces }) {
                 <Heading
                   as="h1"
                   sx={{
-                    fontSize: 5,
+                    fontSize: [3, 5],
                     marginBlockEnd: '0em',
                     marginBlockStart: '0em'
                   }}
@@ -191,28 +190,38 @@ export default function Page({ dataPieces }) {
                 <Heading
                   as="h1"
                   sx={{
-                    fontSize: 7,
+                    fontSize: [6, 7],
                     WebkitTextStroke: 'currentColor',
                     WebkitTextStrokeWidth: ['2px', '3px'],
                     WebkitTextFillColor: 'transparent',
                     color: 'blue',
                     marginBlockEnd: '0em',
                     marginBlockStart: '0em',
-                    mt: '-16px'
+                    mt: [0, '-16px'],
+                    lineHeight: '0.9',
+                    mb: [3, 0]
                   }}
                 >
-                  <i>HACKERVERSE</i>
+                  <i>
+                    HACKER
+                    <Text sx={{ display: ['inline', 'none'] }}>
+                      {' '}
+                    </Text>
+                    VERSE
+                  </i>
                 </Heading>
-                <Box sx={{ fontSize: 2, px: 5, mt: '-10px' }}>
+                <Box sx={{ fontSize: [1, 2], px: [2, 5], mt: '-10px' }}>
                   We're a nonprofit network of high school coding clubs and
                   makers around the world.{' '}
                   <strong>Applications are now open.</strong>
                 </Box>
-                <Flex sx={{ justifyContent: 'center', mt: 2 }}>
-                  <Button mr={2} variant="cta">
+                <Flex
+                  sx={{ justifyContent: 'center', mt: 2 }}
+                >
+                  <Button mr={2} variant="cta" sx={{ mt: 2}}>
                     Start a Club
                   </Button>
-                  <Button variant="outline">Join the Slack</Button>
+                  <Button variant="outline" sx={{ display: ['none', 'block']}}>Join the Slack</Button>
                 </Flex>
               </Box>{' '}
             </Box>{' '}
