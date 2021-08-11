@@ -496,6 +496,7 @@ export default function Page({ dataPieces }) {
 
 export async function getStaticProps() {
   var mojier = require('mojier')
+  const { flag } = require('country-emoji')
   let dataPieces = []
   let initialBankData = await fetch('https://bank.hackclub.com/stats').then(r =>
     r.json()
@@ -620,24 +621,74 @@ export async function getStaticProps() {
       x =>
         `${packagesText[Math.floor(packagesText.length * Math.random())]} to ${
           x.fields['Receiver Country']
-            ? (x.fields['Receiver Country'][0]?.split(' ')[0] == 'United'
+            ? x.fields['Receiver Country'][0]?.split(' ')[0] == 'United'
               ? 'the ' + x.fields['Receiver Country'][0]?.split('(')[0]
-              : x.fields['Receiver Country'][0]?.split('(')[0])
+              : x.fields['Receiver Country'][0]?.split('(')[0]
             : 'a hacker'
         }!`
     )
     .slice(0, 20)
 
-  console.log(packagesData)
+  let clubsData = (
+    await fetch(
+      'https://api2.hackclub.com/v0.1/Operations/Clubs?select={"sort":[{"field":"Acceptance%20Time","direction":"desc"}]}'
+    ).then(r => r.json())
+  )
+    .map(
+      x =>
+        `${
+          flag(
+            x.fields['Address Country']
+              ? x.fields['Address Country'][0]
+              : 'hgfdhsbuvisulr'
+          ) === undefined
+            ? '🚩'
+            : flag(x.fields['Address Country'][0])
+        } New club started ${
+          x.fields['Address Country']
+            ? x.fields['Address Country'][0]?.split(' ')[0] == 'United'
+              ? 'in the ' + x.fields['Address Country'][0]?.split('(')[0].trim()
+              : 'in ' + x.fields['Address Country'][0]?.split('(')[0].trim()
+            : 'by a hacker'
+        }!`
+    )
+    .slice(0, 40)
+
+  let meetingsData = (
+    await fetch('https://api2.hackclub.com/v0.1/Operations/Clubs').then(r =>
+      r.json()
+    )
+  )
+    .map(x =>
+      (x.fields['Meeting sizes'] && x.fields['Address Country'])
+        ? `📆 A club meeting ${
+            x.fields['Address Country']
+              ? x.fields['Address Country'][0]?.split(' ')[0] == 'United'
+                ? 'in the ' +
+                  x.fields['Address Country'][0]?.split('(')[0].trim()
+                : 'in ' + x.fields['Address Country'][0]?.split('(')[0].trim()
+              : ''
+          } of ${
+            x.fields['Meeting sizes'][x.fields['Meeting sizes'].length - 1]
+          } just happened!`
+        : null
+    )
+    .filter(function (el) {
+      return el != null
+    })
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 8)
+
+  console.log(meetingsData)
 
   dataPieces = [
     ...newScrapbooks,
     ...newScrapbookUsers,
     ...dataPieces,
     ...reactionsUsed,
-    ...new Set(
-      packagesData
-    ),
+    ...new Set(packagesData),
+    ...new Set(clubsData),
+    ...meetingsData,
     ...new Set(
       initialGitHubData.filter(function (el) {
         return el != null
