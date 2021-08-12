@@ -1,4 +1,13 @@
-import { Box, Avatar, Button, Image, Text, Heading, Container } from 'theme-ui'
+import {
+  Box,
+  Avatar,
+  Button,
+  Image,
+  Text,
+  Heading,
+  Container,
+  Card
+} from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Stat from '../stat'
 import kebabCase from 'lodash/kebabCase'
@@ -92,7 +101,8 @@ export default function Testimonials() {
             position: 'relative',
             overflow: 'hidden',
             display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)'
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gridGap: 32
           }}
         >
           {events.map(event => {
@@ -117,55 +127,71 @@ function Event({
 }) {
   return (
     <Slide bottom>
-      <Box>
-        <Image
-          src={img}
-          alt={location}
-          sx={{ maxHeight: '20rem', objectFit: 'cover', borderRadius: '30px' }}
-        />
-        <Box p={[3, 4]}>
-          {/** event header below */}
-          <Box sx={{ display: 'grid' }}>
-            <Text
-              align="left"
-              color="white"
-              variant="headline"
-              children={name}
-            />
-            <Box sx={{ display: 'flex' }}>
-              <DetailStat value={attendees} label="attendees" />
-              <DetailStat value={`$${budget}k`} label="budget" />
+      <Card
+        variant="sunken"
+        sx={{
+          bg: 'darkless',
+          color: 'smoke'
+        }}
+      >
+        <Container sx={{ padding: 0, margin: 0 }}>
+          <Image
+            src={img}
+            alt={location}
+            sx={{
+              maxHeight: '20rem',
+              objectFit: 'cover',
+              borderRadius: 'default'
+            }}
+          />
+          <Box p={[3, 4]}>
+            {/** event header below */}
+            <Box sx={{ display: 'grid' }}>
+              <Text
+                align="left"
+                color="white"
+                variant="headline"
+                children={name}
+              />
+              <Box sx={{ display: 'flex' }}>
+                <DetailStat value={attendees} label="attendees" />
+                <DetailStat value={`$${budget}k`} label="budget" />
+              </Box>
+            </Box>
+            <Quote>"{testimonial}"</Quote>
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center'
+              }}
+              mt={3}
+            >
+              <Avatar
+                src={require(`../../public/hackers/${organizer
+                  .split(' ')[0]
+                  .toLowerCase()}.jpg`)}
+                size={48}
+                mr={2}
+              />
+              <Text color="white">
+                <strong>{organizer}</strong>, Lead Organizer
+              </Text>
+              {transparency && (
+                <a
+                  href={`https://bank.hackclub.com/${transparency}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Button ml={[0, 'auto']} mt={[2, 0]} variant="primary">
+                    See Finances
+                  </Button>
+                </a>
+              )}
             </Box>
           </Box>
-          <Quote>"{testimonial}"</Quote>
-          <Box
-            sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
-            mt={3}
-          >
-            <Avatar
-              src={require(`../../public/hackers/${organizer
-                .split(' ')[0]
-                .toLowerCase()}.jpg`)}
-              size={48}
-              mr={2}
-            />
-            <Text color="white">
-              <strong>{organizer}</strong>, Lead Organizer
-            </Text>
-            {transparency && (
-              <a
-                href={`https://bank.hackclub.com/${transparency}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Button ml={[0, 'auto']} mt={[2, 0]} variant="primary">
-                  See Finances
-                </Button>
-              </a>
-            )}
-          </Box>
-        </Box>
-      </Box>
+        </Container>
+      </Card>
     </Slide>
   )
 }
