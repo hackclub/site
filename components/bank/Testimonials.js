@@ -65,7 +65,15 @@ export default function Testimonials() {
   return (
     <>
       <Box>
-        <Container align="center" variant="narrow">
+        <Container
+          variant="copy"
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            textAlign: 'center'
+          }}
+        >
           <Heading variant="title">
             The best events across the country run on Bank.
           </Heading>
