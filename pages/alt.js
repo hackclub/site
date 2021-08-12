@@ -40,7 +40,59 @@ function randomIntFromInterval(min, max) {
   // min and max included
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
-const Feature = ({ icon, color, name, desc, children, ...props }) => (
+const Feature = ({ icon, color, name, desc, children, sx, ...props }) => (
+  <Box
+    sx={{
+      display: 'grid',
+      gridGap: [0, 4],
+      gridTemplateColumns: [null, 'auto 1fr'],
+      alignItems: 'start',
+      justifyContent: 'start',
+      bg: 'rgba(224, 230, 237, 0.25)',
+      p: [3, 4],
+      mt: [1, 1],
+      borderRadius: 'extra',
+      span: { transform: 'none', width: 'min-intrinsic' },
+      svg: { color: 'white' },
+      ...sx
+    }}
+  >
+    {children || (
+      <Box
+        as="span"
+        sx={{
+          width: 'fit-content',
+          bg: color,
+          borderRadius: 18,
+          lineHeight: 0,
+          p: 2,
+          mb: 1,
+          display: 'inline-block',
+          transform: ['scale(0.75)', 'none'],
+          transformOrigin: 'bottom left',
+          boxShadow:
+            'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
+        }}
+      >
+        <Icon glyph={icon} size={48} />
+      </Box>
+    )}
+    <Box>
+      <Heading as="h3" variant="headline" mb={2} mt={0}>
+        {name}
+      </Heading>
+      <Text
+        as="p"
+        variant="subtitle"
+        sx={{ mt: 0, pb: 2, a: { variant: 'styles.a', color: 'blue' } }}
+      >
+        {desc}
+      </Text>
+    </Box>
+  </Box>
+)
+
+const Stage = ({ icon, color, name, desc, children, ...props }) => (
   <Box {...props}>
     {children || (
       <Box
@@ -76,6 +128,7 @@ const Feature = ({ icon, color, name, desc, children, ...props }) => (
     </Box>
   </Box>
 )
+
 
 export default function Page({ dataPieces }) {
   const experiments = [
@@ -204,9 +257,7 @@ export default function Page({ dataPieces }) {
                 >
                   <i>
                     HACKER
-                    <Text sx={{ display: ['inline', 'none'] }}>
-                      {' '}
-                    </Text>
+                    <Text sx={{ display: ['inline', 'none'] }}> </Text>
                     VERSE
                   </i>
                 </Heading>
@@ -215,13 +266,13 @@ export default function Page({ dataPieces }) {
                   makers around the world.{' '}
                   <strong>Applications are now open.</strong>
                 </Box>
-                <Flex
-                  sx={{ justifyContent: 'center', mt: 2 }}
-                >
-                  <Button mr={2} variant="cta" sx={{ mt: 2}}>
+                <Flex sx={{ justifyContent: 'center', mt: 2 }}>
+                  <Button mr={2} variant="cta" sx={{ mt: 2 }}>
                     Start a Club
                   </Button>
-                  <Button variant="outline" sx={{ display: ['none', 'block']}}>Join the Slack</Button>
+                  <Button variant="outline" sx={{ display: ['none', 'block'] }}>
+                    Join the Slack
+                  </Button>
                 </Flex>
               </Box>{' '}
             </Box>{' '}
@@ -426,8 +477,8 @@ export default function Page({ dataPieces }) {
             </Heading>
           </Box>
           <Grid
-            columns={[null, 2]}
-            gap={[2, 4]}
+            columns={[null, 1]}
+            gap={[2, 3]}
             sx={{ alignItems: 'end', span: { color: 'white' } }}
           >
             <Feature
@@ -439,8 +490,7 @@ export default function Page({ dataPieces }) {
                   In our{' '}
                   <Link href="/slack" passHref>
                     <a>Slack community</a>
-                  </Link>{' '}
-                  of 10k+ teen hackers, you’ll join a private space for
+                  </Link>, you’ll join a private space for
                   Hack&nbsp;Club leaders to ask questions & chat, share
                   projects, & attend weekly live events.
                 </>
@@ -459,13 +509,6 @@ export default function Page({ dataPieces }) {
                 </>
               }
             >
-              <Photo
-                src="/home/flagship_megan.png"
-                alt="Megan presenting a workshop at Flagship 2019"
-                width={980}
-                height={653}
-                sx={{ maxWidth: [null, 332] }}
-              />
             </Feature>
             {/* <Feature
             name="A comprehensive leader guide"
@@ -497,45 +540,14 @@ export default function Page({ dataPieces }) {
                   members.
                 </>
               }
-              sx={{
-                img: {
-                  mr: 4,
-                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))'
-                }
-              }}
+              color="green"
+              icon="sticker"
             >
-              <Image
-                src="https://hackclub.com/stickers/macintosh.svg"
-                alt="Macintosh sticker"
-                sx={{
-                  transform: 'rotate(-12deg)',
-                  width: '4.5rem',
-                  height: '6rem'
-                }}
-              />
-              <Image
-                src="https://hackclub.com/stickers/2020_progress.png"
-                alt="Pride sticker"
-                sx={{
-                  transform: 'rotate(3deg)',
-                  width: ['4rem', '6rem'],
-                  height: ['4rem', '6rem'],
-                  borderRadius: 'extra'
-                }}
-              />
-              <Image
-                src="https://hackclub.com/stickers/enjoy.svg"
-                alt="Enjoy Hack Club Coca-Cola sticker"
-                sx={{
-                  transform: 'rotate(-12deg)',
-                  width: ['6rem', '8rem'],
-                  height: ['4rem', '5rem']
-                }}
-              />
+          
             </Feature>
             <Feature
               icon="bank-account"
-              color="muted"
+              color="black"
               name="A nonprofit bank account"
               desc={
                 <>
@@ -544,14 +556,7 @@ export default function Page({ dataPieces }) {
                   Fundraise, accept donations, buy things!
                 </>
               }
-            >
-              <Image
-                src="/home/hackClubBank.png"
-                alt="Screenshot of Hack Club Bank on a MacBook"
-                width={256}
-                loading="lazy"
-              />
-            </Feature>
+            />
             <Feature
               name="Weekly events"
               desc={
@@ -572,14 +577,10 @@ export default function Page({ dataPieces }) {
                   alike every week.
                 </>
               }
+              icon="event-code"
+              color="blue"
             >
-              <Photo
-                src="/home/workshops.jpg"
-                alt="Students going wild on a Zoom call"
-                width={768}
-                height={463}
-                sx={{ maxWidth: [null, 332] }}
-              />
+        
             </Feature>
             <Feature
               icon="purse"
@@ -620,8 +621,8 @@ export default function Page({ dataPieces }) {
               alignItems: 'start',
               justifyContent: 'start',
               bg: 'rgba(255,88,88,0.125)',
-              mt: [4, 5],
               p: [3, 4],
+              mt: [3, 4],
               borderRadius: 'extra',
               span: { transform: 'none', width: 'min-intrinsic' },
               svg: { color: 'white' }
@@ -686,7 +687,7 @@ export default function Page({ dataPieces }) {
                 svg: { color: 'rgb(51, 142, 218)' }
               }}
             >
-              <Feature
+              <Stage
                 icon="send"
                 color="white"
                 name="1. Application"
@@ -701,7 +702,7 @@ export default function Page({ dataPieces }) {
                 svg: { color: 'rgb(236, 55, 80)' }
               }}
             >
-              <Feature
+              <Stage
                 icon="emoji"
                 color="white"
                 name="2. Onboarding call"
@@ -715,7 +716,7 @@ export default function Page({ dataPieces }) {
                 svg: { color: '#fb558e' }
               }}
             >
-              <Feature
+              <Stage
                 icon="event-check"
                 color="white"
                 name="3. First meeting"
