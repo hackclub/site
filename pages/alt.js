@@ -16,6 +16,7 @@ import ForceTheme from '../components/force-theme'
 import { motion } from 'framer-motion'
 import Photo from '../components/photo'
 import Head from 'next/head'
+import Link from 'next/link'
 import Meta from '@hackclub/meta'
 import Icon from '../components/icon'
 import BGImg from '../components/background-image'
@@ -261,10 +262,10 @@ export default function Page({ dataPieces }) {
                   <strong>Applications are now open.</strong>
                 </Box>
                 <Flex sx={{ justifyContent: 'center', mt: 2 }}>
-                  <Button mr={2} variant="cta" sx={{ mt: 2 }}>
+                  <Button mr={2} variant="cta" as="a" href="https://apply.hackclub.com">
                     Start a Club
                   </Button>
-                  <Button variant="outline" sx={{ display: ['none', 'block'] }}>
+                  <Button variant="outline" sx={{ display: ['none', 'block'] }} as="a" href="https://hackclub.com/slack">
                     Join the Slack
                   </Button>
                 </Flex>
