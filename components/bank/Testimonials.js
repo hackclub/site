@@ -128,9 +128,9 @@ function Event({
   return (
     <Slide bottom>
       <Card
-        variant="sunken"
+        variant="translucentDark"
         sx={{
-          bg: 'darkless',
+          backgroundColor: 'darkless',
           color: 'smoke'
         }}
       >

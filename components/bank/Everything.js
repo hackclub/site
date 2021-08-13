@@ -158,26 +158,28 @@ function List({ children }) {
 
 function ListItem({ icon = 'enter', start, ...props }) {
   return (
-    <li
-      style={{
-        lineHeight: 1.25,
-        breakInside: 'avoid',
-        display: 'flex',
-        alignItems: 'center',
-        paddingBottom: 4,
-        marginBottom: 8
-      }}
-    >
-      {start || (
-        <Icon
-          glyph={icon}
-          sx={{ color: 'muted', marginRight: 2 }}
-          size={32}
-          mr={2}
-        />
-      )}
-      <Text sx={{ fontSize: 24, color: 'smoke' }} {...props} />
-    </li>
+    <Fade left>
+      <li
+        style={{
+          lineHeight: 1.25,
+          breakInside: 'avoid',
+          display: 'flex',
+          alignItems: 'center',
+          paddingBottom: 4,
+          marginBottom: 8
+        }}
+      >
+        {start || (
+          <Icon
+            glyph={icon}
+            sx={{ color: 'muted', marginRight: 2 }}
+            size={32}
+            mr={2}
+          />
+        )}
+        <Text sx={{ fontSize: 24, color: 'smoke' }} {...props} />
+      </li>
+    </Fade>
   )
 }
 
