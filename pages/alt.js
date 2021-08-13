@@ -131,12 +131,6 @@ const Stage = ({ icon, color, name, desc, children, ...props }) => (
 
 
 export default function Page({ dataPieces }) {
-  const experiments = [
-    ...dataPieces.sort(() => 0.5 - Math.random()),
-    '🚢 New ship by Sam Poder',
-    '256 Slack Members Online',
-    '💸 $10,000 just raised!'
-  ]
   const Node = ({ text }) => (
     <Box
       bg="dark"
@@ -250,9 +244,9 @@ export default function Page({ dataPieces }) {
                     color: 'blue',
                     marginBlockEnd: '0em',
                     marginBlockStart: '0em',
-                    mt: [0, '-16px'],
+                    mt: [0, '-8px'],
                     lineHeight: '0.9',
-                    mb: [3, 0]
+                    mb: [3, '8px']
                   }}
                 >
                   <i>
