@@ -1,4 +1,13 @@
-import { Box, Button, Heading, Link, Text, Flex, Badge } from 'theme-ui'
+import {
+  Box,
+  Button,
+  Heading,
+  Link,
+  Text,
+  Flex,
+  Container,
+  Badge
+} from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from './ScrollHint'
 
@@ -14,24 +23,37 @@ export default function Landing() {
           }}
         >
           <Fade duration={625} bottom>
-            <Heading variant="ultratitle">
-              The bank for hackers to <Underline>make ideas real</Underline>.
-            </Heading>
-            <Text variant="lead">
-              The team behind{' '}
-              <Link
-                href="https://hackaz.io/?ref=bank"
-                target="_blank"
-                color="inherit"
-                bold
-                hoverline
-              >
-                Hack&nbsp;Arizona
-              </Link>{' '}
-              is one of 100+ teams who uses{' '}
-              <strong>Hack&nbsp;Club&nbsp;Bank</strong> to run world-class
-              hackathons.
-            </Text>
+            <Container
+              variant="container"
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                textAlign: 'center',
+                paddingX: 16
+              }}
+            >
+              <Heading variant="ultratitle">
+                The bank for hackers to <Underline>make ideas real</Underline>.
+              </Heading>
+              <Container variant="copy">
+                <Text variant="lead">
+                  The team behind{' '}
+                  <Link
+                    href="https://hackaz.io/?ref=bank"
+                    target="_blank"
+                    color="inherit"
+                    bold
+                    hoverline
+                  >
+                    Hack&nbsp;Arizona
+                  </Link>{' '}
+                  is one of 100+ teams who uses{' '}
+                  <strong>Hack&nbsp;Club&nbsp;Bank</strong> to run world-class
+                  hackathons.
+                </Text>
+              </Container>
+            </Container>
           </Fade>
         </Box>
         <br />
