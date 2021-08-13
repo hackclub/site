@@ -79,9 +79,13 @@ export default function Everything() {
               >
                 {item}{' '}
                 <Badge
+                  variant="pill"
                   bg={recent(date) ? 'primary' : 'slate'}
-                  fontSize={0}
-                  ml={1}
+                  sx={{
+                    fontWeight: 'body',
+                    marginLeft: 2,
+                    textTransform: 'uppercase'
+                  }}
                 >
                   Added {timeSince(date)}
                 </Badge>
@@ -138,7 +142,16 @@ export default function Everything() {
 function List({ children }) {
   return (
     <Container>
-      <ol style={{ paddingLeft: 0, listStyle: 'none' }}>{children}</ol>
+      <ol
+        style={{
+          paddingLeft: 0,
+          listStyle: 'none',
+          display: 'grid',
+          gridTemplateColumns: ['1fr 1fr', null]
+        }}
+      >
+        {children}
+      </ol>
     </Container>
   )
 }
@@ -151,11 +164,19 @@ function ListItem({ icon = 'enter', start, ...props }) {
         breakInside: 'avoid',
         display: 'flex',
         alignItems: 'center',
-        paddingBottom: 4
+        paddingBottom: 4,
+        marginBottom: 8
       }}
     >
-      {start || <Icon glyph={icon} color="muted" size={32} mr={2} />}
-      <Text fontSize={24} {...props} />
+      {start || (
+        <Icon
+          glyph={icon}
+          sx={{ color: 'muted', marginRight: 2 }}
+          size={32}
+          mr={2}
+        />
+      )}
+      <Text sx={{ fontSize: 24, color: 'smoke' }} {...props} />
     </li>
   )
 }
