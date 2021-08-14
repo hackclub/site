@@ -711,6 +711,11 @@ const Page = () => (
         placeholder="blur"
         alt="Globe with hundreds of Hack Clubs"
       />
+      <style>
+        {`a{
+          color: #338eda
+        }`}
+      </style>
     </Footer>
   </>
 )
