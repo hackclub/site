@@ -142,6 +142,7 @@ function Event({
             sx={{
               maxHeight: '20rem',
               objectFit: 'cover',
+              width: '100%',
               borderRadius: 'default'
             }}
           />

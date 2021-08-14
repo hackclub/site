@@ -17,7 +17,7 @@ export default function Landing() {
       <Slide>
         <Vignette />
         <Box
-          style={{
+          sx={{
             zIndex: '100',
             paddingTop: '96px'
           }}
@@ -30,14 +30,25 @@ export default function Landing() {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 textAlign: 'center',
-                paddingX: 16
+                marginTop: 32
               }}
             >
-              <Heading variant="ultratitle">
+              <Heading
+                variant="ultratitle"
+                sx={{
+                  marginBottom: 4,
+                  lineHeight: 1.125,
+                  textShadow: '0 0 16px rgba(0, 0, 0, 1)',
+                  letterSpacing: '-0.02em'
+                }}
+              >
                 The bank for hackers to <Underline>make ideas real</Underline>.
               </Heading>
               <Container variant="copy">
-                <Text variant="lead">
+                <Text
+                  variant="lead"
+                  sx={{ textShadow: '0 3px 6px rgba(0, 0, 0, 0.5)' }}
+                >
                   The team behind{' '}
                   <Link
                     href="https://hackaz.io/?ref=bank"
@@ -58,13 +69,22 @@ export default function Landing() {
         </Box>
         <br />
 
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-          <Button variant="outlineLg" as="a" style={{ zIndex: '100' }}>
+        <Box
+          sx={{ display: 'flex', justifyContent: 'center', marginBottom: 3 }}
+        >
+          <Button
+            variant="outlineLg"
+            as="a"
+            href="#apply"
+            style={{ zIndex: '100' }}
+          >
             Apply Now
           </Button>
         </Box>
         <ScrollHint />
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <Box
+          sx={{ display: 'flex', justifyContent: 'flex-end', marginRight: 2 }}
+        >
           <Badge
             variant="pill"
             sx={{
