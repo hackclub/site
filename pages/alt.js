@@ -6,8 +6,7 @@ import {
   Grid,
   Heading,
   Image,
-  Flex,
-  Link,
+  Flex, 
   Text
 } from 'theme-ui'
 import styled from '@emotion/styled'
