@@ -45,7 +45,7 @@ const Announcement = ({
     {iconLeft && (
       <Icon
         glyph={iconLeft}
-        sx={{ mr: [2, 3], color, display: ['none', 'block'] }}
+        sx={{ mr: [2, 3], ml:2, color, display: ['none', 'block'] }}
       />
     )}
     <Text
