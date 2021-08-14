@@ -24,7 +24,17 @@ import Start from '../components/bank/Start'
 export default function Bank() {
   return (
     <>
-      <Box as="main" key="main">
+      <Box
+        as="main"
+        key="main"
+        sx={{
+          '::selection': {
+            backgroundColor: 'red',
+            color: 'white',
+            textShadow: 'none'
+          }
+        }}
+      >
         <Nav dark />
         <ForceTheme theme="dark" />
         <Meta

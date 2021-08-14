@@ -1,30 +1,41 @@
 import { Box, Container, Link, Text, Heading, Grid } from 'theme-ui'
 import { Fade } from 'react-reveal'
-import Signup from './Signup'
+import Form from './Signup'
 import Process from './Timeline'
 
 export default function Start() {
   return (
     <>
-      <Box as="section" id="apply">
-        <Container px={3} mb={[4, 5]} align="center">
+      <Box as="section" id="apply" pt={6}>
+        <Container
+          px={3}
+          mb={[4, 5]}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            textAlign: 'center',
+            justifyContent: 'center'
+          }}
+        >
           <Heading variant="ultratitle" color="white" mb={2}>
             Sign up for Hack&nbsp;Club Bank.
           </Heading>
-          <Text variant="lead" maxWidth={32} color="muted">
-            Open to all US-based registered Hack Clubs, hackathons, and your
-            next amazing project.
-          </Text>
+          <Container variant="narrow" sx={{ color: 'muted' }}>
+            <Text variant="lead">
+              Open to all US-based registered Hack Clubs, hackathons, and your
+              next amazing project.
+            </Text>
+          </Container>
         </Container>
         <Process />
-        <Signup />
+        <Form />
         <Grid mt={[4, 5]} mb={[3, 4]} px={3}>
           <Fade bottom>
             {/* <Sheet bg="#252429" color="snow" maxWidth={32} p={[3, 4, 5]}> */}
             <Text variant="subheading" fontSize={[3, 4]} mb={3}>
               Your project
             </Text>
-            <Signup />
+            <Form />
             {/* </Sheet> */}
           </Fade>
           <div>

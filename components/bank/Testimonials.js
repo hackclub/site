@@ -132,7 +132,8 @@ function Event({
         variant="translucentDark"
         sx={{
           backgroundColor: 'darkless',
-          color: 'smoke'
+          color: 'smoke',
+          borderRadius: 'extra'
         }}
       >
         <Container sx={{ padding: 0, margin: 0 }}>

@@ -7,23 +7,25 @@ export default function Run() {
     <>
       <Container
         variant="container"
-        maxWidth={60}
-        my={5}
         sx={{
           display: 'flex',
           flexDirection: ['column', null, 'row'],
+          alignItems: 'center',
+          width: ['100%', '100%', '100%', '85%'],
           bg: '#252429',
           color: 'smoke',
-          p: [3, 4, 5],
-          borderRadius: 2,
+          px: 4,
+
+          borderRadius: 'default',
           position: 'relative'
         }}
       >
-        <Container maxWidth={32} mx={0}>
-          <Heading variant="title" fontSize={96}>
+        <Container maxWidth={28} mx={0}>
+          <Text variant="heading" sx={{ fontSize: 48 }}>
             Bank doesn’t stop at closing ceremony.
-          </Heading>
-          <Text variant="lead" color="muted" fontWeight={3}>
+          </Text>
+          <br />
+          <Text variant="lead" sx={{ color: 'muted', fontSize: 28 }}>
             Setting up a bank account is just the start. Hack Club Bank helps
             you handle ongoing obligations while you’re organizing.
           </Text>
@@ -66,8 +68,13 @@ function ListItem({ icon, body }) {
           alignItems: 'center'
         }}
       >
-        <Icon glyph={icon} color="red" size={64} mr={2} />
-        <Text fontSize={[32, 48]} variant="lead" children={body} />
+        <Icon glyph={icon} color="red" size={48} mr={2} />
+        <Text
+          fontSize={[32, 48]}
+          variant="lead"
+          sx={{ marginLeft: 2 }}
+          children={body}
+        />
       </li>
     </Fade>
   )

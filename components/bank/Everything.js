@@ -16,9 +16,15 @@ import Icon from '../icon'
 export default function Everything() {
   return (
     <>
-      <Box>
+      <Box
+        sx={{
+          marginTop: 6
+        }}
+      >
         <Container mb={[4, 5]} px={3} sx={{ textAlign: 'center' }}>
-          <Heading variant="ultratitle">Everything you’ll&nbsp;need.</Heading>
+          <Heading variant="ultratitle" sx={{ color: 'smoke' }}>
+            Everything you’ll&nbsp;need.
+          </Heading>
         </Container>
         <Container px={3}>
           <List>
@@ -105,23 +111,23 @@ export default function Everything() {
               alignItems: 'center'
             }}
           >
-            <Text variant="lead" sx={{ fontSize: 32 }} mr={[2, 3]}>
-              You pay just
-            </Text>
+            <Text sx={{ fontSize: 32, mr: [2, 3] }}>You pay just</Text>
             <Percentage>7</Percentage>
-            <Text variant="lead" fontSize={[4, 5]} ml={[2, 3]} mr={2}>
+            <Text sx={{ fontSize: 32, ml: [2, 3] }}>
               of revenue. No upfront costs.
             </Text>
           </Box>
-          <Container variant="copy" sx={{ textAlign: 'center', fontSize: 24 }}>
-            <Text
-              variant="lead"
-              maxWidth={28}
-              color="slate"
-              fontSize={2}
-              align="center"
-              mt={[4, 5]}
-            >
+          <Container
+            variant="copy"
+            sx={{
+              textAlign: 'center',
+              fontSize: 18,
+              lineHeight: '1.25',
+              letterSpacing: '-.03ch',
+              marginTop: 4
+            }}
+          >
+            <Text sx={{ color: 'slate', lineHeight: 1.375 }}>
               Hack Club Bank is a{' '}
               <Link
                 color="primary"
@@ -191,7 +197,7 @@ function Percentage({ children }) {
       sx={{
         display: 'flex',
 
-        bg: 'black',
+        bg: 'slate',
         color: 'green',
         width: 128,
         height: 128,
@@ -202,10 +208,10 @@ function Percentage({ children }) {
         fontSize: 96,
         '&:after': {
           content: '"%"',
-          verticalAlign: 'bottom',
-          fontSize: 48,
+          mt: 4,
+          fontSize: 40,
           fontWeight: 'normal',
-          marginLeft: 0,
+          marginLeft: 2,
           color: 'muted'
         }
       }}

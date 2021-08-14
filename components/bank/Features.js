@@ -5,18 +5,18 @@ export default function Features() {
   return (
     <Box sx={{ marginTop: 6, marginBottom: 6 }}>
       <Container>
-        <Text variant="heading" sx={{ fontSize: 48 }}>
+        <Text variant="heading" sx={{ fontSize: 50 }}>
           A full-stack toolkit for organizing anything.
         </Text>
         <br />
-        <Text
-          variant="lead"
-          sx={{ color: 'muted', maxWidth: '48', marginX: '0' }}
-        >
+        <br />
+        <Text sx={{ color: 'muted', maxWidth: '48', fontSize: 28 }}>
           Invoice sponsors, issue debit cards to your team, and view history.
           <br />
           Ongoing support so you can focus on organizing, not the paperwork.
         </Text>
+        <br />
+        <br />
       </Container>
       <Container>
         <Box
