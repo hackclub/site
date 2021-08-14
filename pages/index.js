@@ -167,13 +167,15 @@ const Page = () => (
         priority
       />
 
-     { /* <Announcement
-        copy="Applications are now open"
-        caption="Apply now to bring a Hack Club to your community this fall!"
-        href="https://apply.hackclub.com"
-        iconLeft="clubs"
-        color="primary"
-      /> */}
+     { 
+       /* <Announcement
+          copy="Applications are now open"
+          caption="Apply now to bring a Hack Club to your community this fall!"
+          href="https://apply.hackclub.com"
+          iconLeft="clubs"
+          color="primary"
+        /> */
+      }
 
       <SlideDown duration={768}>
         <Heading
