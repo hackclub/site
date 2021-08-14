@@ -6,7 +6,8 @@ import {
   Text,
   Heading,
   Container,
-  Card
+  Card,
+  Link
 } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Stat from '../stat'
@@ -100,8 +101,8 @@ export default function Testimonials() {
             borderRadius: 0,
             position: 'relative',
             overflow: 'hidden',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
+            display: ['flex', 'grid'],
+            gridTemplateColumns: ['repeat(2, 1fr)'],
             gridGap: 32
           }}
         >
@@ -145,12 +146,12 @@ function Event({
             }}
           />
           <Box p={[3, 4]}>
-            {/** event header below */}
-            <Box sx={{ display: 'grid' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Text
                 align="left"
                 color="white"
                 variant="headline"
+                sx={{ fontSize: 48 }}
                 children={name}
               />
               <Box sx={{ display: 'flex' }}>
@@ -163,30 +164,37 @@ function Event({
               sx={{
                 display: 'flex',
                 flexWrap: 'wrap',
-                justifyContent: 'center'
+                justifyContent: 'space-between'
               }}
               mt={3}
             >
-              <Avatar
-                src={require(`../../public/hackers/${organizer
-                  .split(' ')[0]
-                  .toLowerCase()}.jpg`)}
-                size={48}
-                mr={2}
-              />
-              <Text color="white">
-                <strong>{organizer}</strong>, Lead Organizer
-              </Text>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <Avatar
+                  src={require(`../../public/hackers/${organizer
+                    .split(' ')[0]
+                    .toLowerCase()}.jpg`)}
+                  size={48}
+                  mr={2}
+                />
+                <Text color="white" sx={{ fontSize: 19 }}>
+                  <strong>{organizer}</strong>, Lead Organizer
+                </Text>
+              </Box>
               {transparency && (
-                <a
+                <Link
                   href={`https://bank.hackclub.com/${transparency}`}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Button ml={[0, 'auto']} mt={[2, 0]} variant="primary">
+                  <Button
+                    ml={[0, 'auto']}
+                    mt={[2, 0]}
+                    sx={{ textTransform: 'none' }}
+                    variant="primary"
+                  >
                     See Finances
                   </Button>
-                </a>
+                </Link>
               )}
             </Box>
           </Box>
@@ -198,15 +206,23 @@ function Event({
 
 function DetailStat({ children }) {
   return (
-    <Box sx={{ alignContent: 'left', fontSize: 5, px: 0, mb: 0 }}>
-      {children}
+    <Box sx={{ fontSize: 5, px: 0, mb: 0 }}>
+      <Stat>{children}</Stat>
     </Box>
   )
 }
 
 function Quote({ children }) {
   return (
-    <Text sx={{ fontSize: 2, color: 'muted', textIndent: '-.375em' }}>
+    <Text
+      sx={{
+        fontSize: 2,
+        color: 'muted',
+        textIndent: '-.375em',
+        lineHeight: 'caption',
+        fontSize: 18
+      }}
+    >
       {children}
     </Text>
   )
