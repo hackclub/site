@@ -64,30 +64,28 @@ Timeline.Step = ({ icon, name, duration, mb = 4 }) => (
   </TimelineStep>
 )
 
-export default function Process() {
-  return (
-    <Timeline px={3}>
-      <Timeline.Step
-        icon="send"
-        name="Sign up, explore, order debit cards"
-        duration="Day 1"
-      />
-      <Timeline.Step
-        icon="welcome"
-        name="Intro meeting with Hack Club Bank"
-        duration="Day 3"
-      />
-      <Timeline.Step
-        icon="post"
-        name="Sign the contract & unlock full access"
-        duration="Day 4"
-      />
-      <Timeline.Step
-        icon="card"
-        name="Receive debit cards in the mail"
-        duration="Day 10"
-        mb={0}
-      />
-    </Timeline>
-  )
-}
+export default () => (
+  <Timeline px={3}>
+    <Timeline.Step
+      icon="send"
+      name="Sign up, explore, order debit cards"
+      duration="Day 1"
+    />
+    <Timeline.Step
+      icon="welcome"
+      name="Intro meeting with Hack Club Bank"
+      duration="Day 3"
+    />
+    <Timeline.Step
+      icon="post"
+      name="Sign the contract & unlock full access"
+      duration="Day 4"
+    />
+    <Timeline.Step
+      icon="card"
+      name="Receive debit cards in the mail"
+      duration="Day 10"
+      mb={0}
+    />
+  </Timeline>
+)

@@ -25,7 +25,7 @@ import Start from '../components/bank/Start'
 const styles = `
   ::selection {
     background-color: #e42d42;
-    color: 'white';
+    color: #ffffff;
     text-shadow: none;
   }
 `

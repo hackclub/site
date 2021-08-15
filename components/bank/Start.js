@@ -1,7 +1,7 @@
 import { Box, Container, Link, Text, Heading, Grid } from 'theme-ui'
 import { Fade } from 'react-reveal'
 import Form from './Signup'
-import Process from './Timeline'
+import Timeline from './Timeline'
 
 export default function Start() {
   return (
@@ -27,7 +27,7 @@ export default function Start() {
             </Text>
           </Container>
         </Container>
-        <Process />
+        <Timeline />
         <Form />
         <Grid mt={[4, 5]} mb={[3, 4]} px={3}>
           <Fade bottom>

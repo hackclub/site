@@ -6,7 +6,7 @@ import {
   Avatar,
   Badge,
   Link,
-  Flex
+  Grid
 } from 'theme-ui'
 import Run from './Run'
 import { Fade } from 'react-reveal'
@@ -153,12 +153,12 @@ function List({ children }) {
       <ol
         style={{
           paddingLeft: 0,
-          listStyle: 'none',
-          display: 'grid',
-          gridTemplateColumns: ['1fr 1fr', null]
+          listStyle: 'none'
         }}
       >
-        {children}
+        <Grid gap={2} columns={[1, 1, '1fr 1fr']}>
+          {children}
+        </Grid>
       </ol>
     </Container>
   )
