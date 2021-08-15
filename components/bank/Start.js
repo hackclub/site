@@ -41,7 +41,7 @@ export default function Start() {
                 marginRight: 2
               }}
             >
-              <Text variant="heading" sx={{ fontSize: 24 }}>
+              <Text variant="heading" sx={{ fontSize: 24, lineHeight: 2 }}>
                 Your project
               </Text>
               <Signup />

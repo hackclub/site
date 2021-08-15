@@ -1,20 +1,39 @@
 import { Text, Heading, Box, Container, Input, Label, Button } from 'theme-ui'
 import { withFormik } from 'formik'
 
-function Base() {
+function Base({ children }) {
   return (
-    <Box
-      as="form"
-      sx={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)' }}
-    ></Box>
+    <Box as="form" sx={{ display: 'grid', gridTemplateColumns: '1fr' }}>
+      {children}
+    </Box>
   )
 }
 
-function Field() {
+function Field({
+  placeholder,
+  label,
+  name,
+  type,
+  value,
+  handleChange,
+  handleBlur
+}) {
   return (
-    <Box>
-      <Label>hi</Label>
-      <Input placeholder="hi" />
+    <Box sx={{ my: 2 }}>
+      <Label htmlFor={name} sx={{ color: 'muted', fontSize: 18 }}>
+        {label}
+      </Label>
+      <Input
+        id={name}
+        placeholder={placeholder}
+        name={name}
+        type={type}
+        sx={{ bg: 'dark' }}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      >
+        {value}
+      </Input>
     </Box>
   )
 }
@@ -34,22 +53,24 @@ function InnerForm({ values, errors, touched, handleChange, handleBlur }) {
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      <Field
-        label="First name"
-        name="prefill_First Name"
-        placeholder="Fiona"
-        value={values.first_name}
-        onChange={handleChange}
-        onBlur={handleBlur}
-      />
-      <Field
-        label="Last name"
-        name="prefill_Last Name"
-        placeholder="Hackworth"
-        value={values.last_name}
-        onChange={handleChange}
-        onBlur={handleBlur}
-      />
+      <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+        <Field
+          label="First name"
+          name="prefill_First Name"
+          placeholder="Fiona"
+          value={values.first_name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
+        <Field
+          label="Last name"
+          name="prefill_Last Name"
+          placeholder="Hackworth"
+          value={values.last_name}
+          onChange={handleChange}
+          onBlur={handleBlur}
+        />
+      </Box>
       <Field
         label="Email address"
         name="prefill_Email Address"
@@ -59,14 +80,9 @@ function InnerForm({ values, errors, touched, handleChange, handleBlur }) {
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      <Button
-        bg="info"
-        width={1}
-        mt={[2, 3]}
-        value={`Finish ${
-          10 - Object.values(values).filter(n => n !== '').length
-        } fields to apply`}
-      />
+      <Button sx={{ bg: 'blue', mt: [2, 3], py: 3 }} type="submit">{`Finish ${
+        10 - Object.values(values).filter(n => n !== '').length
+      } fields to apply`}</Button>
     </Base>
   )
 }
