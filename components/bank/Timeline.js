@@ -44,48 +44,51 @@ function Circle({ children }) {
   )
 }
 
-Timeline.Step = ({ icon, name, duration, mb = 4 }) => (
-  <TimelineStep pb={mb}>
-    <Slide left>
-      <Circle mr={[3, null, 0]} mb={[null, null, 4]}>
-        <Icon glyph={icon} size={32} />
-      </Circle>
-      <Box align={['left', null, 'center']}>
-        <Badge
-          bg="muted"
-          color="darker"
-          fontSize={[0, 2]}
-          mb={[1, 2]}
-          children={duration}
-        />
-        <Text color="white" fontSize={[3, 4]} children={name} />
-      </Box>
-    </Slide>
-  </TimelineStep>
-)
+function Step({ icon, name, duration }) {
+  return (
+    <TimelineStep pb={4}>
+      <Slide left>
+        <Circle mr={[3, null, 0]} mb={[null, null, 4]}>
+          <Icon glyph={icon} size={32} />
+        </Circle>
+        <Box align={['left', null, 'center']}>
+          <Badge
+            bg="muted"
+            color="darker"
+            fontSize={[0, 2]}
+            mb={[1, 2]}
+            children={duration}
+          />
+          <Text color="white" fontSize={[3, 4]} children={name} />
+        </Box>
+      </Slide>
+    </TimelineStep>
+  )
+}
 
-export default () => (
-  <Timeline px={3}>
-    <Timeline.Step
-      icon="send"
-      name="Sign up, explore, order debit cards"
-      duration="Day 1"
-    />
-    <Timeline.Step
-      icon="welcome"
-      name="Intro meeting with Hack Club Bank"
-      duration="Day 3"
-    />
-    <Timeline.Step
-      icon="post"
-      name="Sign the contract & unlock full access"
-      duration="Day 4"
-    />
-    <Timeline.Step
-      icon="card"
-      name="Receive debit cards in the mail"
-      duration="Day 10"
-      mb={0}
-    />
-  </Timeline>
-)
+export default function RealTimeline() {
+  return (
+    <Timeline px={3}>
+      <Step
+        icon="send"
+        name="Sign up, explore, order debit cards"
+        duration="Day 1"
+      />
+      <Step
+        icon="welcome"
+        name="Intro meeting with Hack Club Bank"
+        duration="Day 3"
+      />
+      <Step
+        icon="post"
+        name="Sign the contract &amp; unlock full access"
+        duration="Day 4"
+      />
+      <Step
+        icon="card"
+        name="Receive debit cards in the mail"
+        duration="Day 10"
+      />
+    </Timeline>
+  )
+}

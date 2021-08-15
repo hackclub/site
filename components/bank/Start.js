@@ -1,7 +1,8 @@
-import { Box, Container, Link, Text, Heading, Grid } from 'theme-ui'
+import { Box, Container, Link, Text, Heading, Card, Grid } from 'theme-ui'
 import { Fade } from 'react-reveal'
-import Form from './Signup'
+import Signup from './Signup'
 import Timeline from './Timeline'
+import Stats from './Stats'
 
 export default function Start() {
   return (
@@ -28,18 +29,29 @@ export default function Start() {
           </Container>
         </Container>
         <Timeline />
-        <Form />
-        <Grid mt={[4, 5]} mb={[3, 4]} px={3}>
+        <Signup />
+        <Grid mt={[4, 5]} mb={[3, 4]} px={3} columns={[1, 1, '1fr 1fr']}>
           <Fade bottom>
             {/* <Sheet bg="#252429" color="snow" maxWidth={32} p={[3, 4, 5]}> */}
-            <Text variant="subheading" fontSize={[3, 4]} mb={3}>
-              Your project
-            </Text>
-            <Form />
+            <Card
+              variant="primary"
+              sx={{
+                backgroundColor: 'darkless',
+                color: 'snow',
+                width: 356,
+                float: 'right',
+                marginRight: 4
+              }}
+            >
+              <Text variant="heading" sx={{ fontSize: 24 }}>
+                Your project
+              </Text>
+              <Signup />
+            </Card>
             {/* </Sheet> */}
           </Fade>
           <div>
-            {/* <Stats
+            <Stats
               color="smoke"
               labelColor="muted"
               fontSize={[7, 8]}
@@ -47,8 +59,8 @@ export default function Start() {
               px={[0, 0]}
               width="auto"
               align="left"
-            /> */}
-            <Text variant="lead" color="slate" fontSize={2}>
+            />
+            <Text sx={{ fontSize: 20, color: 'muted', maxWidth: 96 }}>
               Starting in February 2020, we started running Hack Club HQ on Bank
               (&amp; we don’t count our numbers in these stats).{' '}
               <Link

@@ -28,7 +28,8 @@
     "react-scrolllock": "^5.0.1",
     "react-use-websocket": "2.7.1",
     "resnow": "^1.0.0",
-    "theme-ui": "^0.10"
+    "theme-ui": "^0.10",
+    "unfetch": "^4.2.0"
   },
   "devDependencies": {}
 }
