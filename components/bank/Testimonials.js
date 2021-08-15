@@ -7,6 +7,7 @@ import {
   Heading,
   Container,
   Card,
+  Grid,
   Link
 } from 'theme-ui'
 import { Slide } from 'react-reveal'
@@ -97,19 +98,19 @@ export default function Testimonials() {
             color: 'smoke',
             px: [3, null, 4],
             mt: 2,
-            maxWidth: 84,
             borderRadius: 0,
             position: 'relative',
-            overflow: 'hidden',
-            display: ['flex', 'grid'],
-            gridTemplateColumns: ['repeat(2, 1fr)'],
-            gridGap: 32
+            overflow: 'hidden'
           }}
         >
-          {events.map(event => {
-            const id = kebabCase(event.name)
-            return <Event {...event} img={`/bank/events/${id}.jpg`} key={id} />
-          })}
+          <Grid gap={4} columns={[1, null, 2]}>
+            {events.map(event => {
+              const id = kebabCase(event.name)
+              return (
+                <Event {...event} img={`/bank/events/${id}.jpg`} key={id} />
+              )
+            })}
+          </Grid>
         </Container>
       </Box>
     </>
@@ -128,8 +129,7 @@ function Event({
 }) {
   return (
     <Slide bottom>
-      <Card
-        variant="translucentDark"
+      <Box
         sx={{
           backgroundColor: 'darkless',
           color: 'smoke',
@@ -148,7 +148,13 @@ function Event({
             }}
           />
           <Box p={[3, 4]}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: ['column', 'row'],
+                justifyContent: 'space-between'
+              }}
+            >
               <Text
                 align="left"
                 color="white"
@@ -171,10 +177,15 @@ function Event({
               mt={3}
             >
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <Avatar
+                {/* <Avatar
                   src={require(`../../public/hackers/${organizer
                     .split(' ')[0]
                     .toLowerCase()}.jpg`)}
+                  size={48}
+                  mr={2}
+                /> */}
+                <Avatar
+                  src={`/hackers/${organizer.split(' ')[0].toLowerCase()}.jpg`}
                   size={48}
                   mr={2}
                 />
@@ -201,7 +212,7 @@ function Event({
             </Box>
           </Box>
         </Container>
-      </Card>
+      </Box>
     </Slide>
   )
 }

@@ -20,7 +20,7 @@ export default function Run() {
           position: 'relative'
         }}
       >
-        <Container maxWidth={28} mx={0}>
+        <Container maxWidth={28} sx={{ mx: 0, py: 4 }}>
           <Text variant="heading" sx={{ fontSize: 48 }}>
             Bank doesn’t stop at closing ceremony.
           </Text>

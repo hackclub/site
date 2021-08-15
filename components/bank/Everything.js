@@ -108,12 +108,13 @@ export default function Everything() {
               display: 'flex',
               justifyContent: 'center',
               flexWrap: 'wrap',
-              alignItems: 'center'
+              alignItems: 'center',
+              textAlign: 'center'
             }}
           >
-            <Text sx={{ fontSize: 32, mr: [2, 3] }}>You pay just</Text>
+            <Text sx={{ fontSize: 32, mr: 2 }}>You pay just</Text>
             <Percentage>7</Percentage>
-            <Text sx={{ fontSize: 32, ml: [2, 3] }}>
+            <Text sx={{ fontSize: 32, ml: 2 }}>
               of revenue. No upfront costs.
             </Text>
           </Box>
@@ -199,19 +200,19 @@ function Percentage({ children }) {
 
         bg: 'slate',
         color: 'green',
-        width: 128,
-        height: 128,
+        width: [64, 128],
+        height: [64, 128],
         borderRadius: 'circle',
         fontWeight: 'bold',
         justifyContent: 'center',
         boxShadow: '0 8px 32px rgba(255, 255, 255, 0.125)',
-        fontSize: 96,
+        fontSize: [48, 96],
         '&:after': {
           content: '"%"',
-          mt: 4,
+          mt: [2, 4],
           fontSize: 40,
           fontWeight: 'normal',
-          marginLeft: 2,
+          marginLeft: [null, 2],
           color: 'muted'
         }
       }}

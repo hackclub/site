@@ -1,4 +1,4 @@
-import { Box, Heading, Link, Text, Container } from 'theme-ui'
+import { Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
 import Icon from '../icon'
 
 export default function Features() {
@@ -19,13 +19,7 @@ export default function Features() {
         <br />
       </Container>
       <Container>
-        <Box
-          sx={{
-            display: 'grid',
-            gridGap: 2,
-            gridTemplateColumns: 'repeat(3, 1fr)'
-          }}
-        >
+        <Grid gap={2} columns={[1, null, 3]}>
           <Box>
             <Module
               icon="bank-account"
@@ -46,6 +40,7 @@ export default function Features() {
           <Laptop
             href="https://bank.hackclub.com/hackpenn"
             title="See Hack Pennsylvania’s finances in public"
+            sx={{ gridColumn: 2, gridRow: 2 }}
           />
           <Module
             icon="card"
@@ -95,7 +90,7 @@ export default function Features() {
             name="Support anytime"
             body="We’ll never leave you hanging with best-effort 24hr response time."
           />
-        </Box>
+        </Grid>
       </Container>
       <Container
         variant="copy"
@@ -160,7 +155,8 @@ function ModuleDetails({ children }) {
         ml: 3,
         py: 3,
         px: 2,
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.0625)'
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.0625)',
+        borderRadius: 'default'
       }}
     >
       {children}
