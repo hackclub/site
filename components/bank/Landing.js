@@ -30,7 +30,7 @@ export default function Landing() {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 textAlign: 'center',
-                marginTop: 32
+                marginTop: [200, 32, 32]
               }}
             >
               <Heading
