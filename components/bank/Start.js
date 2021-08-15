@@ -29,10 +29,8 @@ export default function Start() {
           </Container>
         </Container>
         <Timeline />
-        <Signup />
         <Grid mt={[4, 5]} mb={[3, 4]} px={3} columns={[1, 1, '1fr 1fr']}>
           <Fade bottom>
-            {/* <Sheet bg="#252429" color="snow" maxWidth={32} p={[3, 4, 5]}> */}
             <Card
               variant="primary"
               sx={{
@@ -40,7 +38,7 @@ export default function Start() {
                 color: 'snow',
                 width: 356,
                 float: 'right',
-                marginRight: 4
+                marginRight: 2
               }}
             >
               <Text variant="heading" sx={{ fontSize: 24 }}>
@@ -48,9 +46,8 @@ export default function Start() {
               </Text>
               <Signup />
             </Card>
-            {/* </Sheet> */}
           </Fade>
-          <div>
+          <Container variant="narrow">
             <Stats
               color="smoke"
               labelColor="muted"
@@ -60,9 +57,10 @@ export default function Start() {
               width="auto"
               align="left"
             />
-            <Text sx={{ fontSize: 20, color: 'muted', maxWidth: 96 }}>
-              Starting in February 2020, we started running Hack Club HQ on Bank
-              (&amp; we don’t count our numbers in these stats).{' '}
+            <Text sx={{ fontSize: 18, color: 'muted' }}>
+              Starting in February 2020, we started running
+              <br /> Hack Club HQ on Bank (&amp; we don’t count our <br />{' '}
+              numbers in these stats).{' '}
               <Link
                 href="https://bank.hackclub.com/hq"
                 color="primary"
@@ -71,7 +69,7 @@ export default function Start() {
                 See our finances here.
               </Link>
             </Text>
-          </div>
+          </Container>
         </Grid>
         <Container
           variant="copy"
@@ -81,15 +79,10 @@ export default function Start() {
             textAlign: 'center'
           }}
         >
-          <Text
-            variant="lead"
-            maxWidth={36}
-            color="slate"
-            align="center"
-            fontSize={2}
-          >
+          <Text sx={{ fontSize: 18, color: 'muted' }}>
             Hack Club does not directly provide banking services. Banking
-            services provided by Silicon Valley Bank, an FDIC-certified
+            services
+            <br /> provided by Silicon Valley Bank, an FDIC-certified
             institution.
           </Text>
         </Container>
