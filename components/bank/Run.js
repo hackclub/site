@@ -68,7 +68,7 @@ function ListItem({ icon, body }) {
           alignItems: 'center'
         }}
       >
-        <Icon glyph={icon} color="red" size={48} mr={2} />
+        <Icon glyph={icon} size={60} sx={{ mr: 2, color: 'primary' }} />
         <Text
           fontSize={[32, 48]}
           variant="lead"
