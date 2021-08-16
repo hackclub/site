@@ -390,8 +390,11 @@ const Page = () => (
       }}
     >
       <BGImg
-        src={GoldenTrainImgFile}
-        placeholder="blur"
+        gradient="linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625))"
+        src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855"
+        width={2048}
+        height={1170}
+        alt="Hack Clubbers gather at the Elon Musk AMA in 2020"
         width={2048}
         height={1170}
         alt="Hack Clubbers on the 2021 Hacker Zephyr"
