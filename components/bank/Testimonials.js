@@ -153,6 +153,7 @@ function Event({
               sx={{
                 display: 'flex',
                 flexDirection: ['column', null, 'row'],
+                alignItems: 'center',
                 justifyContent: 'space-between'
               }}
             >
