@@ -13,11 +13,12 @@ const renderMoney = amount =>
     })
     .replace('.00', '')
 
-const flashing = keyframes`
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-`
+const flashing = keyframes({
+  from: { opacity: 0 },
+  '50%': { opacity: 1 },
+  to: { opacity: 0 }
+})
+
 function Dot() {
   return (
     <Text
@@ -31,7 +32,11 @@ function Dot() {
         height: '.4em',
         marginRight: '.4em',
         marginBottom: '.12em',
-        animation: `3s ${flashing} easin-in-out infinite`
+        animationName: `${flashing}`,
+        animationDuration: '3s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite'
+        // animation: `3s ${flashing} easin-in-out infinite`
       }}
     />
   )
