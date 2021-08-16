@@ -160,10 +160,10 @@ const Page = () => (
       }}
     >
       <BGImg
-        src="/home/hero.png"
+        src="https://cloud-k18c7grqc-hack-club-bot.vercel.app/0spacex_and_hack_club.jpg"
         width={2224}
         height={1249}
-        alt="Hack Clubbers gather at the Flagship 2019 conference"
+        alt="Hack Clubbers gather at the SpaceX HQ"
         priority
       />
 
