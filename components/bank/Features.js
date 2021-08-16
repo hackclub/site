@@ -200,7 +200,7 @@ function Laptop({ href, title, sx }) {
           height: '100%',
           minHeight: '16rem',
           backgroundSize: 'auto 115%',
-          backgroundImage: "url('/bank/laptop-light.png')",
+          backgroundImage: "url('/bank/laptop-dark.png')",
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat',
         }}
