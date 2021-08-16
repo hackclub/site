@@ -159,8 +159,8 @@ export const getStaticProps = async () => {
     .then(r => r.json())
     .then(posts =>
       filter(posts, p =>
-        ['image/jpg', 'image/jpeg', 'image/png'].includes(
-          p.attachments?.[0]?.type
+        ['jpg', 'jpeg', 'png'].includes(
+          p.attachments[0]?.split('.')[p.attachments[0]?.split('.').length - 1]
         )
       )
     )
