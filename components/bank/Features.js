@@ -40,7 +40,7 @@ export default function Features() {
           <Laptop
             href="https://bank.hackclub.com/hackpenn"
             title="See Hack Pennsylvania’s finances in public"
-            sx={{ gridColumn: 2, gridRow: 2 }}
+            sx={{ gridColumn: 'span 2', gridRow: 'span 2' }}
           />
           <Module
             icon="card"
@@ -190,23 +190,21 @@ function Document({ name, cost }) {
   )
 }
 
-function Laptop({ href, title }) {
+function Laptop({ href, title, sx }) {
   return (
-    <a href={href} title={title}>
+    <Link href={href} title={title} sx={sx}>
       <Box
         sx={{
           display: 'block',
           width: '100%',
           height: '100%',
           minHeight: '16rem',
-          gridColumn: 2,
-          gridRow: 2,
           backgroundSize: 'auto 115%',
           backgroundImage: "url('/bank/laptop-light.png')",
           backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
         }}
       ></Box>
-    </a>
+    </Link>
   )
 }
