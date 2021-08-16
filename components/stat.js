@@ -11,6 +11,7 @@ const Stat = ({
   reversed = false,
   half = false,
   lg = false,
+  sm = false,
   ...props
 }) => (
   <Flex
@@ -33,7 +34,7 @@ const Stat = ({
         as="span"
         sx={{
           color,
-          fontSize: lg ? [5, 6, 7] : [4, 5, 6],
+          fontSize: lg ? [5, 6, 7] : sm ? [3, 4] : [4, 5, 6],
           fontWeight: 'heading',
           letterSpacing: 'title',
           my: 0
@@ -44,7 +45,7 @@ const Stat = ({
         <Text
           as="sup"
           sx={{
-            fontSize: lg ? [2, 3] : [1, 2],
+            fontSize: lg ? [2, 3] : sm ? [1, 1] : [1, 2],
             color: color === 'text' ? 'secondary' : color,
             ml: [null, unit === '%' ? 1 : null],
             mr: [null, 1],

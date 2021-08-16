@@ -213,8 +213,8 @@ function Event({
 
 function DetailStat({ value, label }) {
   return (
-    <Box sx={{ fontSize: 19, px: 0, mb: 0, mx: 3 }}>
-      <Stat value={value} label={label} />
+    <Box sx={{ px: 0, mb: 0, mx: 3 }}>
+      <Stat value={value} label={label} sm />
     </Box>
   )
 }
