@@ -131,8 +131,7 @@ function Module({ icon, name, body }) {
       <Icon
         size={48}
         glyph={icon}
-        color="red"
-        sx={{ flexShrink: 0, marginRight: 3 }}
+        sx={{ flexShrink: 0, marginRight: 3, color: 'primary' }}
       />
       <Box>
         <Heading sx={{ color: 'snow', lineHeight: '1.5' }}>{name}</Heading>
@@ -152,7 +151,7 @@ function ModuleDetails({ children }) {
         bg: '#252429',
         color: 'smoke',
         mt: 2,
-        ml: 3,
+        ml: 0,
         py: 3,
         px: 2,
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.0625)',
@@ -202,7 +201,7 @@ function Laptop({ href, title, sx }) {
           backgroundSize: 'auto 115%',
           backgroundImage: "url('/bank/laptop-dark.png')",
           backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat',
+          backgroundRepeat: 'no-repeat'
         }}
       ></Box>
     </Link>
