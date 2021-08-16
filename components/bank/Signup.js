@@ -1,9 +1,15 @@
 import { Text, Heading, Box, Container, Input, Label, Button } from 'theme-ui'
 import { withFormik } from 'formik'
 
-function Base({ children }) {
+function Base({ children, action, target, method }) {
   return (
-    <Box as="form" sx={{ display: 'grid', gridTemplateColumns: '1fr' }}>
+    <Box
+      as="form"
+      sx={{ display: 'grid', gridTemplateColumns: '1fr' }}
+      action={action}
+      target={target}
+      method={method}
+    >
       {children}
     </Box>
   )
@@ -31,6 +37,7 @@ function Field({
         sx={{ bg: 'dark' }}
         onChange={handleChange}
         onBlur={handleBlur}
+        required
       >
         {value}
       </Input>
