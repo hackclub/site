@@ -7,7 +7,7 @@ import Stats from './Stats'
 export default function Start() {
   return (
     <>
-      <Box as="section" id="apply" pt={6}>
+      <Box as="section" id="apply" sx={{ bg: 'darker', pt: 6 }}>
         <Container
           px={3}
           mb={[4, 5]}

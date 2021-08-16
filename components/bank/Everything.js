@@ -125,7 +125,8 @@ export default function Everything() {
               fontSize: 18,
               lineHeight: '1.25',
               letterSpacing: '-.03ch',
-              marginTop: 4
+              marginTop: 4,
+              marginBottom: 5
             }}
           >
             <Text sx={{ color: 'muted', lineHeight: 1.375 }}>
