@@ -62,6 +62,7 @@ const events = [
       'Hack Club Bank removed the barriers to starting fundraising for MAHacks. In mere days, vs months of nonprofit paperwork, Bank enabled my team to invoice sponsors professionally and manage our finances on a clear, up-to-date dashboard. I highly recommend using Bank & joining the Hack Club community.'
   },
   {
+    transparency: 'dv-hacks',
     name: 'DV Hacks',
     location: 'Santa Clara, CA',
     organizer: 'Khushi Wadhwa',
@@ -151,7 +152,7 @@ function Event({
             <Box
               sx={{
                 display: 'flex',
-                flexDirection: ['column', 'row'],
+                flexDirection: ['column', null, 'row'],
                 justifyContent: 'space-between'
               }}
             >
@@ -162,7 +163,7 @@ function Event({
                 sx={{ fontSize: 48 }}
                 children={name}
               />
-              <Box sx={{ display: 'flex' }}>
+              <Box sx={{ display: 'flex', flexDirection: 'row', my: 2 }}>
                 <DetailStat value={attendees} label="attendees" />
                 <DetailStat value={`$${budget}k`} label="budget" />
               </Box>
@@ -177,13 +178,6 @@ function Event({
               mt={3}
             >
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                {/* <Avatar
-                  src={require(`../../public/hackers/${organizer
-                    .split(' ')[0]
-                    .toLowerCase()}.jpg`)}
-                  size={48}
-                  mr={2}
-                /> */}
                 <Avatar
                   src={`/hackers/${organizer.split(' ')[0].toLowerCase()}.jpg`}
                   size={48}
@@ -217,10 +211,10 @@ function Event({
   )
 }
 
-function DetailStat({ children }) {
+function DetailStat({ value, label }) {
   return (
-    <Box sx={{ fontSize: 5, px: 0, mb: 0 }}>
-      <Stat>{children}</Stat>
+    <Box sx={{ fontSize: 19, px: 0, mb: 0, mx: 3 }}>
+      <Stat value={value} label={label} />
     </Box>
   )
 }

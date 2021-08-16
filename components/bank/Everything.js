@@ -49,7 +49,7 @@ export default function Everything() {
             <ListItem
               start={
                 <Avatar
-                  src="https://cloud-pwcbafyg3-hack-club-bot.vercel.app/0mel.png"
+                  src="/team/mel.png"
                   size={32}
                   alt="Mel’s avatar"
                   mr={2}

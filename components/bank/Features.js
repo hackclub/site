@@ -19,7 +19,7 @@ export default function Features() {
         <br />
       </Container>
       <Container>
-        <Grid gap={2} columns={[1, null, 3]}>
+        <Grid gap={3} columns={[1, null, 3]}>
           <Box>
             <Module
               icon="bank-account"

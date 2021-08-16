@@ -76,7 +76,8 @@ export default function Start() {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            textAlign: 'center'
+            textAlign: 'center',
+            paddingBottom: 6
           }}
         >
           <Text sx={{ fontSize: 18, color: 'muted' }}>

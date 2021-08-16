@@ -1,4 +1,4 @@
-import { Box, Flex, Avatar, Text, Badge } from 'theme-ui'
+import { Box, Flex, Avatar, Container, Text, Badge } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Icon from '../icon'
 
@@ -12,28 +12,51 @@ function Timeline({ children }) {
   )
 }
 
-function TimelineStep() {
+function TimelineStep({ children }) {
   return (
     <Flex
       sx={{
         paddingX: [null, null, 3, 4],
+        paddingY: [4, null, 0],
         flexDirection: ['row', null, 'column'],
-        alignItems: 'center'
+        alignItems: 'center',
+        '&:before': {
+          content: '""',
+          background: '#3c4858',
+          height: ['100%', null, '4px'],
+          width: ['4px', null, '100%'],
+          marginLeft: [26, null, 0],
+          marginTop: [null, null, '34px'],
+          position: 'absolute',
+          zIndex: -1
+        },
+        '&:first-of-type:before': {
+          top: ['50%', null, 'auto'],
+          width: [0, null, '50%'],
+          left: [0, null, '50%']
+        },
+        '&:last-of-type:before': {
+          bottom: ['50%', null, 'auto'],
+          left: [null, null, 0],
+          width: [null, null, '50%']
+        }
       }}
-    ></Flex>
+    >
+      {children}
+    </Flex>
   )
 }
 
 function Circle({ children }) {
   return (
     <Box
-      sx={{
-        padding: 2,
-        background: 'primary',
+      style={{
+        padding: 12,
+        background: 'red',
         color: 'white',
         backgroundImage:
-          "radial-gradient(ellipse farthest-corner at top left, 'orange', 'red'",
-        borderRadius: 'circle',
+          'radial-gradient(ellipse farthest-corner at top left, #ff8c37, #ec3750',
+        borderRadius: '100%',
         display: 'inline-block',
         lineHeight: 0,
         zIndex: 9999
@@ -49,18 +72,36 @@ function Step({ icon, name, duration }) {
     <TimelineStep pb={4}>
       <Slide left>
         <Circle mr={[3, null, 0]} mb={[null, null, 4]}>
-          <Icon glyph={icon} size={32} />
+          <Icon glyph={icon} size={48} />
         </Circle>
-        <Box align={['left', null, 'center']}>
+        <Container
+          sx={{
+            marginTop: 3,
+            display: 'flex',
+            justifyContent: ['left', null, 'center'],
+            flexDirection: 'column',
+            textAlign: ['left', null, 'center']
+          }}
+        >
           <Badge
-            bg="muted"
-            color="darker"
-            fontSize={[0, 2]}
-            mb={[1, 2]}
+            variant="pill"
+            sx={{
+              bg: 'muted',
+              color: 'darker',
+              fontWeight: 'normal',
+              textTransform: 'uppercase',
+              width: 64,
+              fontSize: 18,
+              px: 2,
+              mx: [null, null, 'auto']
+            }}
             children={duration}
           />
-          <Text color="white" fontSize={[3, 4]} children={name} />
-        </Box>
+          <Text
+            sx={{ color: 'white', fontSize: 24, maxWidth: [200, null, 300] }}
+            children={name}
+          />
+        </Container>
       </Slide>
     </TimelineStep>
   )
@@ -88,6 +129,7 @@ export default function RealTimeline() {
         icon="card"
         name="Receive debit cards in the mail"
         duration="Day 10"
+        mb={0}
       />
     </Timeline>
   )
