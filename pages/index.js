@@ -6,6 +6,7 @@ import {
   Grid,
   Heading,
   Image,
+  Badge,
   Link,
   Text
 } from 'theme-ui'
@@ -153,29 +154,27 @@ const Page = () => (
       sx={{
         bg: 'dark',
         pt: [5, 6],
-        pb: [4, 5],
+        pb: [2, 3],
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
       <BGImg
-        src="https://cloud-k18c7grqc-hack-club-bot.vercel.app/0spacex_and_hack_club.jpg"
+        src={GoldenTrainImgFile}
         width={2224}
         height={1249}
         alt="Hack Clubbers gather at the SpaceX HQ"
         priority
       />
 
-     { 
-       /* <Announcement
+      {/* <Announcement
           copy="Applications are now open"
           caption="Apply now to bring a Hack Club to your community this fall!"
           href="https://apply.hackclub.com"
           iconLeft="clubs"
           color="primary"
-        /> */
-      }
+        /> */}
 
       <SlideDown duration={768}>
         <Heading
@@ -242,6 +241,24 @@ const Page = () => (
           Apply now
         </Button>
       </FadeIn>
+      <Box sx={{ display: 'flex', justifyContent: ['center', 'center', 'flex-end'], marginRight: 2, mt: [2, 2,  1] }}>
+        <Badge
+          as="a"
+          href="https://zephyr.hackclub.com"
+          variant="pill"
+          sx={{
+            zIndex: '1',
+            bg: '#000',
+            color: 'white',
+            opacity: 0.5,
+            textDecoration: 'none',
+            fontWeight: 'normal',
+            ':hover': {opacity: 1}
+          }}
+        >
+          Hackers onboard the Hacker Zephyr
+        </Badge>
+      </Box>
     </Box>
     <Box as="section" sx={{ py: [4, 5], color: 'black' }}>
       <Container>
