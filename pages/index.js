@@ -256,7 +256,7 @@ const Page = () => (
             ':hover': {opacity: 1}
           }}
         >
-          Hackers onboard the Hacker Zephyr
+          Hackers onboard The Hacker Zephyr
         </Badge>
       </Box>
     </Box>
