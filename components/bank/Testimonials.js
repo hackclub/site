@@ -173,6 +173,7 @@ function Event({
             <Box
               sx={{
                 display: 'flex',
+                flexDirection: ['row', 'row', 'column', 'row'],
                 flexWrap: 'wrap',
                 justifyContent: 'space-between'
               }}
@@ -195,8 +196,8 @@ function Event({
                   rel="noreferrer"
                 >
                   <Button
+                    mt={[null, null, 4, 0]}
                     ml={[0, 'auto']}
-                    mt={[2, 0]}
                     sx={{ textTransform: 'none' }}
                     variant="primary"
                   >
