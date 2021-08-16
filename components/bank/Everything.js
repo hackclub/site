@@ -59,15 +59,15 @@ export default function Everything() {
               Amazing support team
             </ListItem>
             {Object.entries({
-              'Physical check sending & voiding': '2019-09-18',
-              'Online ACH transfers': '2019-09-18',
-              'Generate attendee legal waivers': '2020-01-15',
-              'Instant Google Workspace & email addresses': '2020-01-15',
-              'Virtual debit cards (with Apple Pay)': '2020-03-08',
-              'Debit card transaction paper trail': '2020-03-10',
-              'Self-serve, no-contract signup': '2020-05-05',
-              'Transparency Mode (optional)': '2020-05-15',
-              'Online, embeddable donation form': '2020-08-20'
+              'Physical check sending & voiding': '',
+              'Online ACH transfers': '',
+              'Generate attendee legal waivers': '',
+              'Instant Google Workspace & email addresses': '',
+              'Virtual debit cards (with Apple Pay)': '',
+              'Debit card transaction paper trail': '',
+              'Self-serve, no-contract signup': '',
+              'Transparency Mode (optional)': '',
+              'Online, embeddable donation form': ''
             }).map(([item, date]) => (
               <ListItem
                 key={item}
@@ -85,8 +85,8 @@ export default function Everything() {
                     : 'enter'
                 }
               >
-                {item}{' '}
-                <Badge
+                {item}
+                {/* <Badge
                   variant="pill"
                   bg={recent(date) ? 'primary' : 'slate'}
                   sx={{
@@ -96,7 +96,7 @@ export default function Everything() {
                   }}
                 >
                   Added {timeSince(date)}
-                </Badge>
+                </Badge> */}
               </ListItem>
             ))}
           </List>
