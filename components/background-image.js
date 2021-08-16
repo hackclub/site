@@ -36,6 +36,7 @@ const BGImg = ({
     }}
   >
     <Image layout="responsive" {...props} />
+    
   </Box>
 )
 
