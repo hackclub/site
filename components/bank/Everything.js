@@ -128,7 +128,7 @@ export default function Everything() {
               marginTop: 4
             }}
           >
-            <Text sx={{ color: 'slate', lineHeight: 1.375 }}>
+            <Text sx={{ color: 'muted', lineHeight: 1.375 }}>
               Hack Club Bank is a{' '}
               <Link
                 color="primary"
