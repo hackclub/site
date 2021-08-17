@@ -19,7 +19,7 @@ export default function Features() {
         <br />
       </Container>
       <Container>
-        <Grid gap={3} columns={[1, null, 3]}>
+        <Grid gap={4} columns={[1, null, 3]}>
           <Box>
             <Module
               icon="bank-account"
@@ -153,7 +153,7 @@ function ModuleDetails({ children }) {
       sx={{
         bg: '#252429',
         color: 'smoke',
-        mt: 2,
+        mt: 4,
         ml: 0,
         py: 3,
         px: 2,
@@ -173,8 +173,7 @@ function Document({ name, cost }) {
         size={28}
         mr={1}
         glyph="payment"
-        color="green"
-        style={{ flexShrink: 0 }}
+        sx={{ flexShrink: 0, color: 'green' }}
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Text fontSize={2} children={name} />

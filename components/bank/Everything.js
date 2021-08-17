@@ -28,7 +28,7 @@ export default function Everything() {
             Everything you’ll&nbsp;need.
           </Heading>
         </Container>
-        <Container px={3}>
+        <Container px={[3, null, 5]}>
           <List>
             {Object.entries({
               'Legal entity with 501(c)(3) status': 'briefcase',

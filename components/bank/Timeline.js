@@ -24,21 +24,21 @@ function TimelineStep({ children }) {
           content: '""',
           background: '#3c4858',
           height: ['70%', null, '4px'],
-          width: ['4px', null, '70%'],
+          width: ['4px', null, '50%'],
           marginLeft: [26, null, 0],
           marginTop: [null, null, '34px'],
           position: 'absolute',
           zIndex: -1
         },
         '&:first-of-type:before': {
-          top: ['50%', null, 'auto'],
-          width: [0, null, '50%'],
-          left: [0, null, '50%']
+          top: [0, null, 'auto'],
+          width: [0, null, 0],
+          left: [0, null, 0]
         },
         '&:last-of-type:before': {
-          bottom: ['50%', null, 'auto'],
+          bottom: [0, null, 'auto'],
           left: [null, null, 0],
-          width: [null, null, '50%']
+          width: [null, null, 0]
         }
       }}
     >

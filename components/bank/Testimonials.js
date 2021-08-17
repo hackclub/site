@@ -35,6 +35,24 @@ const events = [
       'For our hackathon, Hack Club Bank has given us the tools to make sure our organization is professional with sponsors. Bank and their team have created an easily manageable resource to make sure any event is run successfully. We would highly recommend any organization be a part of the Hack Club ecosystem.'
   },
   {
+    name: 'Los Altos Hacks',
+    location: 'Sunnyvale, CA',
+    organizer: 'Jamsheed Mistri',
+    budget: 30,
+    attendees: 350,
+    testimonial:
+      'Hack Club Bank has made it incredibly easy to handle our event’s funds and has provided countless tools to increase our productivity. With Bank, I can focus on making the event the best it can be.'
+  },
+  {
+    name: 'SLO Hacks',
+    location: 'San Luis Obispo, CA',
+    organizer: 'Selynna Sun',
+    budget: 50,
+    attendees: 300,
+    testimonial:
+      'Hack Club Bank significantly improved the fiscal sponsorship process for SLO Hacks, through a beautifully-designed platform full of useful features, in addition to a responsive team addressed our questions as quickly as possible.'
+  },
+  {
     name: 'MAHacks',
     location: 'Boston, MA',
     organizer: 'Kat Huang',
@@ -81,11 +99,16 @@ export default function Testimonials() {
             px: [3, null, 4],
             mt: 2,
             borderRadius: 0,
-            position: 'relative',
-            overflow: 'hidden'
+            position: 'relative'
           }}
         >
-          <Grid gap={4} columns={[1, null, 2]}>
+          <Grid
+            gap={4}
+            columns={[1, null, 2]}
+            sx={{
+              gridTemplateColumns: 'repeat(auto-fill, minmax(32em, 1fr))'
+            }}
+          >
             {events.map(event => {
               const id = kebabCase(event.name)
               return (
