@@ -16,75 +16,90 @@ export default function Landing() {
     <>
       <Slide>
         <Vignette />
-        <Box
-          sx={{
-            zIndex: '100',
-            paddingTop: '96px'
-          }}
-        >
-          <Fade duration={625} bottom>
-            <Container
-              variant="container"
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                textAlign: 'center',
-                marginTop: [200, 32, 32]
-              }}
-            >
-              <Heading
-                variant="ultratitle"
-                sx={{
-                  marginBottom: 4,
-                  lineHeight: 1.125,
-                  textShadow: '0 0 16px rgba(0, 0, 0, 1)',
-                  letterSpacing: '-0.02em'
-                }}
-              >
-                The bank for hackers to <Underline>make ideas real</Underline>.
-              </Heading>
-              <Container variant="copy">
-                <Text
-                  variant="lead"
-                  sx={{ textShadow: '0 3px 6px rgba(0, 0, 0, 0.5)' }}
-                >
-                  The team behind{' '}
-                  <Link
-                    href="https://hackaz.io/?ref=bank"
-                    target="_blank"
-                    color="inherit"
-                    bold
-                    hoverline
-                  >
-                    Hack&nbsp;Arizona
-                  </Link>{' '}
-                  is one of 100+ teams who uses{' '}
-                  <strong>Hack&nbsp;Club&nbsp;Bank</strong> to run world-class
-                  hackathons.
-                </Text>
-              </Container>
-            </Container>
-          </Fade>
-        </Box>
-        <br />
 
         <Box
-          sx={{ display: 'flex', justifyContent: 'center', marginBottom: 3 }}
+          sx={{
+            position: 'absolute',
+            display: 'inline-flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            bottom: 5,
+            mx: 'auto',
+            width: '100%'
+          }}
         >
-          <Button
-            variant="outlineLg"
-            as="a"
-            href="#apply"
-            style={{ zIndex: '100' }}
+          <Box
+            sx={{
+              zIndex: '100',
+              paddingTop: '96px'
+            }}
           >
-            Apply Now
-          </Button>
+            <Fade duration={625} bottom>
+              <Container
+                variant="container"
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  textAlign: 'center'
+                  // marginTop: [200, 32, 32],
+                }}
+              >
+                <Heading
+                  variant="ultratitle"
+                  sx={{
+                    marginBottom: 4,
+                    lineHeight: 1.125,
+                    textShadow: '0 0 16px rgba(0, 0, 0, 1)',
+                    letterSpacing: '-0.02em'
+                  }}
+                >
+                  The bank for hackers to <Underline>make ideas real</Underline>
+                  .
+                </Heading>
+                <Container variant="copy">
+                  <Text
+                    variant="lead"
+                    sx={{ textShadow: '0 3px 6px rgba(0, 0, 0, 0.5)' }}
+                  >
+                    The team behind{' '}
+                    <Link
+                      href="https://hackaz.io/?ref=bank"
+                      target="_blank"
+                      color="inherit"
+                      bold
+                      hoverline
+                    >
+                      Hack&nbsp;Arizona
+                    </Link>{' '}
+                    is one of 100+ teams who uses{' '}
+                    <strong>Hack&nbsp;Club&nbsp;Bank</strong> to run world-class
+                    hackathons.
+                  </Text>
+                </Container>
+              </Container>
+            </Fade>
+          </Box>
+          <br />
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginBottom: 3
+            }}
+          >
+            <Button
+              variant="outlineLg"
+              as="a"
+              href="#apply"
+              style={{ zIndex: '100' }}
+            >
+              Apply Now
+            </Button>
+          </Box>
+          <ScrollHint />
         </Box>
-        <ScrollHint />
-        <Box
-          sx={{ display: 'flex', justifyContent: 'flex-end', marginRight: 2 }}
-        >
+        <Box sx={{ position: 'absolute', bottom: 2, right: 2 }}>
           <Badge
             variant="pill"
             sx={{
