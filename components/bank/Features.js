@@ -3,7 +3,7 @@ import Icon from '../icon'
 
 export default function Features() {
   return (
-    <Box sx={{ marginTop: 6, marginBottom: 6 }}>
+    <Box sx={{ py: 6 }}>
       <Container>
         <Text variant="heading" sx={{ fontSize: 50 }}>
           A full-stack toolkit for organizing anything.
