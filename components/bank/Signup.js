@@ -1,5 +1,5 @@
 import { Text, Heading, Box, Container, Input, Label, Button } from 'theme-ui'
-import { withFormik } from 'formik'
+import { useState } from 'react'
 
 function Base({ children, action, target, method }) {
   return (
@@ -21,8 +21,7 @@ function Field({
   name,
   type,
   value,
-  handleChange,
-  handleBlur
+  onChange,
 }) {
   return (
     <Box sx={{ my: 2 }}>
@@ -35,8 +34,7 @@ function Field({
         name={name}
         type={type}
         sx={{ bg: 'dark' }}
-        onChange={handleChange}
-        onBlur={handleBlur}
+        onChange={onChange}
         value={value}
         required
       />
@@ -44,7 +42,8 @@ function Field({
   )
 }
 
-function InnerForm({ values, errors, touched, handleChange, handleBlur }) {
+export default function Signup() {
+  const [values, setValues] = useState({})
   return (
     <Base
       method="get"
@@ -56,8 +55,7 @@ function InnerForm({ values, errors, touched, handleChange, handleBlur }) {
         name="prefill_Event Name"
         placeholder="Windy City Hacks"
         value={values.name}
-        onChange={handleChange}
-        onBlur={handleBlur}
+        onChange={e => setValues({...values, name: e.target.value})}
       />
       <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
         <Field
@@ -65,16 +63,14 @@ function InnerForm({ values, errors, touched, handleChange, handleBlur }) {
           name="prefill_First Name"
           placeholder="Fiona"
           value={values.first_name}
-          onChange={handleChange}
-          onBlur={handleBlur}
+          onChange={e => setValues({...values, first_name: e.target.value})}
         />
         <Field
           label="Last name"
           name="prefill_Last Name"
           placeholder="Hackworth"
           value={values.last_name}
-          onChange={handleChange}
-          onBlur={handleBlur}
+          onChange={e => setValues({...values, last_name: e.target.value})}
         />
       </Box>
       <Field
@@ -83,8 +79,7 @@ function InnerForm({ values, errors, touched, handleChange, handleBlur }) {
         placeholder="fiona@hackclub.com"
         type="email"
         value={values.email}
-        onChange={handleChange}
-        onBlur={handleBlur}
+        onChange={e => setValues({...values, email: e.target.value})}
       />
       <Button sx={{ bg: 'blue', mt: [2, 3], py: 3 }} type="submit">{`Finish ${
         10 - Object.values(values).filter(n => n !== '').length
@@ -93,8 +88,3 @@ function InnerForm({ values, errors, touched, handleChange, handleBlur }) {
   )
 }
 
-const Signup = withFormik({
-  enableReinitialize: true,
-  displayName: 'Signup'
-})(InnerForm)
-export default Signup
