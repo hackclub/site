@@ -563,7 +563,7 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-              Your Favorite tools, at your fingertips. Figma Pro, Repl.it, and more for running a great club
+              Free subscriptions to Figma Pro, repl.it, Postman and more for running a great club.
               </>
             }
           />
