@@ -215,6 +215,7 @@ function Percentage({ children }) {
           mt: [2, 4],
           fontSize: 40,
           fontWeight: 'normal',
+          marginRight: -3,
           marginLeft: [null, 2],
           color: 'muted'
         }
