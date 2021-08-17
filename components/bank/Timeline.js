@@ -55,7 +55,7 @@ function Circle({ children }) {
         background: 'red',
         color: 'white',
         backgroundImage:
-          'radial-gradient(ellipse farthest-corner at top left, #ff8c37, #ec3750',
+          'radial-gradient(ellipse farthest-corner at top left, #ff8c37, #ec3750)',
         borderRadius: '100%',
         display: 'inline-block',
         lineHeight: 0,
