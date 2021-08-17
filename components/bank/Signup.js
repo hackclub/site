@@ -37,10 +37,9 @@ function Field({
         sx={{ bg: 'dark' }}
         onChange={handleChange}
         onBlur={handleBlur}
+        value={value}
         required
-      >
-        {value}
-      </Input>
+      />
     </Box>
   )
 }
