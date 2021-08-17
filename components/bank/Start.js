@@ -7,7 +7,15 @@ import Stats from './Stats'
 export default function Start() {
   return (
     <>
-      <Box as="section" id="apply" sx={{ bg: 'darker', pt: 6 }}>
+      <Box
+        as="section"
+        id="apply"
+        sx={{
+          // bg: 'darker',
+          pt: 6,
+          zIndex: -999
+        }}
+      >
         <Container
           px={3}
           mb={[4, 5]}
@@ -36,8 +44,8 @@ export default function Start() {
               sx={{
                 backgroundColor: 'darkless',
                 color: 'snow',
-                width: 356,
-                float: 'right',
+                width: ['100%', null, 356],
+                float: [null, null, 'right'],
                 marginRight: 2
               }}
             >

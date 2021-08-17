@@ -40,7 +40,10 @@ export default function Features() {
           <Laptop
             href="https://bank.hackclub.com/hackpenn"
             title="See Hack Pennsylvania’s finances in public"
-            sx={{ gridColumn: 'span 2', gridRow: 'span 2' }}
+            sx={{
+              gridColumn: [null, null, 'span 2'],
+              gridRow: [null, null, 'span 2']
+            }}
           />
           <Module
             icon="card"

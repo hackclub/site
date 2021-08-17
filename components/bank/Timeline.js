@@ -23,8 +23,8 @@ function TimelineStep({ children }) {
         '&:before': {
           content: '""',
           background: '#3c4858',
-          height: ['100%', null, '4px'],
-          width: ['4px', null, '100%'],
+          height: ['70%', null, '4px'],
+          width: ['4px', null, '70%'],
           marginLeft: [26, null, 0],
           marginTop: [null, null, '34px'],
           position: 'absolute',
@@ -59,7 +59,8 @@ function Circle({ children }) {
         borderRadius: '100%',
         display: 'inline-block',
         lineHeight: 0,
-        zIndex: 9999
+        position: 'relative',
+        zIndex: 999
       }}
     >
       {children}

@@ -35,24 +35,6 @@ const events = [
       'For our hackathon, Hack Club Bank has given us the tools to make sure our organization is professional with sponsors. Bank and their team have created an easily manageable resource to make sure any event is run successfully. We would highly recommend any organization be a part of the Hack Club ecosystem.'
   },
   {
-    name: 'Los Altos Hacks',
-    location: 'Sunnyvale, CA',
-    organizer: 'Jamsheed Mistri',
-    budget: 30,
-    attendees: 350,
-    testimonial:
-      'Hack Club Bank has made it incredibly easy to handle our event’s funds and has provided countless tools to increase our productivity. With Bank, I can focus on making the event the best it can be.'
-  },
-  {
-    name: 'SLO Hacks',
-    location: 'San Luis Obispo, CA',
-    organizer: 'Selynna Sun',
-    budget: 50,
-    attendees: 300,
-    testimonial:
-      'Hack Club Bank significantly improved the fiscal sponsorship process for SLO Hacks, through a beautifully-designed platform full of useful features, in addition to a responsive team addressed our questions as quickly as possible.'
-  },
-  {
     name: 'MAHacks',
     location: 'Boston, MA',
     organizer: 'Kat Huang',
@@ -62,7 +44,6 @@ const events = [
       'Hack Club Bank removed the barriers to starting fundraising for MAHacks. In mere days, vs months of nonprofit paperwork, Bank enabled my team to invoice sponsors professionally and manage our finances on a clear, up-to-date dashboard. I highly recommend using Bank & joining the Hack Club community.'
   },
   {
-    transparency: 'dv-hacks',
     name: 'DV Hacks',
     location: 'Santa Clara, CA',
     organizer: 'Khushi Wadhwa',
@@ -158,17 +139,17 @@ function Event({
               }}
             >
               <Text
-                align="left"
                 color="white"
                 variant="headline"
                 sx={{ fontSize: 48 }}
                 children={name}
               />
-              <Box sx={{ display: 'flex', flexDirection: 'row', my: 2 }}>
+              <Box sx={{ display: 'flex', flexDirection: 'row', my: 0 }}>
                 <DetailStat value={attendees} label="attendees" />
                 <DetailStat value={`$${budget}k`} label="budget" />
               </Box>
             </Box>
+            <br />
             <Quote>"{testimonial}"</Quote>
             <Box
               sx={{

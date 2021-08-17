@@ -18,7 +18,9 @@ export default function Everything() {
     <>
       <Box
         sx={{
-          marginTop: 6
+          py: 6,
+          marginTop: 6,
+          bg: 'darker'
         }}
       >
         <Container mb={[4, 5]} px={3} sx={{ textAlign: 'center' }}>
