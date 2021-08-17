@@ -115,7 +115,9 @@ const Slack = () => {
             left: 0,
             right: 0,
             height: '100%',
-            zIndex: -1
+            zIndex: -1,
+            width: '100vw',
+            objectFit: 'cover'
           }}
         >
           <source
