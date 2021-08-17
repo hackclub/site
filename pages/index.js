@@ -563,8 +563,7 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                Free subscriptions to Notion Pro, Figma Pro, repl.it and more
-                for running a great club.
+              Your Favorite tools, at your fingertips. Figma Pro, Repl.it, and more for running a great club
               </>
             }
           />
