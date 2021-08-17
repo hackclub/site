@@ -45,8 +45,7 @@ export default function Start() {
                 backgroundColor: 'darkless',
                 color: 'snow',
                 width: ['100%', null, 356],
-                float: [null, null, 'right'],
-                marginRight: 2
+                float: [null, null, 'right']
               }}
             >
               <Text variant="heading" sx={{ fontSize: 24, lineHeight: 2 }}>
@@ -61,7 +60,7 @@ export default function Start() {
               labelColor="muted"
               fontSize={[7, 8]}
               my={[3, 4]}
-              px={[0, 0]}
+              px={0}
               width="auto"
               align="left"
             />
