@@ -62,6 +62,7 @@ const events = [
       'Hack Club Bank removed the barriers to starting fundraising for MAHacks. In mere days, vs months of nonprofit paperwork, Bank enabled my team to invoice sponsors professionally and manage our finances on a clear, up-to-date dashboard. I highly recommend using Bank & joining the Hack Club community.'
   },
   {
+    transparency: 'dv-hacks',
     name: 'DV Hacks',
     location: 'Santa Clara, CA',
     organizer: 'Khushi Wadhwa',
@@ -104,7 +105,6 @@ export default function Testimonials() {
         >
           <Grid
             gap={4}
-            columns={[1, null, 2]}
             sx={{
               gridTemplateColumns: 'repeat(auto-fill, minmax(32em, 1fr))'
             }}
@@ -156,7 +156,7 @@ function Event({
             <Box
               sx={{
                 display: 'flex',
-                flexDirection: ['column', null, 'row'],
+                flexDirection: ['column', 'row', 'row'],
                 alignItems: 'center',
                 justifyContent: 'space-between'
               }}
@@ -177,7 +177,7 @@ function Event({
             <Box
               sx={{
                 display: 'flex',
-                flexDirection: ['row', 'row', 'column', 'row'],
+                flexDirection: 'row',
                 flexWrap: 'wrap',
                 justifyContent: 'space-between'
               }}
