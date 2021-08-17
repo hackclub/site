@@ -401,7 +401,7 @@ const Page = () => (
       />
       <Container>
         <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
-          ~ The Hackerverse ~
+          ~ Welcome to Hackerland ~
         </Text>
         <Heading as="h2" variant="title">
           By the students, for the students.
