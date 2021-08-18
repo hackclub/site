@@ -253,7 +253,8 @@ const Page = () => (
             opacity: 0.5,
             textDecoration: 'none',
             fontWeight: 'normal',
-            ':hover': {opacity: 1}
+            ':hover': {opacity: 1},
+            transition: '0.3s ease'
           }}
         >
           Hackers onboard The Hacker Zephyr
@@ -330,10 +331,13 @@ const Page = () => (
             <Text as="span" color="cyan">
               2
             </Text>
-            <Text as="p" variant="subtitle">
+            <Text as="p" variant="subtitle" as="p"
+            variant="lead"
+            sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}>
               <strong>Everyone gets hacking, individually.</strong> Not hacking
               bank accounts, being creative and{' '}
-              <NextLink href="/ship">making something awesome</NextLink>.
+              
+              <NextLink href="/ship"><a>making something awesome</a></NextLink>.
             </Text>
             <Text as="span" color="blue">
               3
@@ -395,9 +399,6 @@ const Page = () => (
         width={2048}
         height={1170}
         alt="Hack Clubbers gather at the Elon Musk AMA in 2020"
-        width={2048}
-        height={1170}
-        alt="Hack Clubbers on the 2021 Hacker Zephyr"
       />
       <Container>
         <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
