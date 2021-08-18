@@ -159,7 +159,8 @@ function Event({
                 display: 'flex',
                 flexDirection: ['column', 'row', 'row'],
                 alignItems: 'center',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                marginBottom: -4
               }}
             >
               <Text
@@ -187,7 +188,6 @@ function Event({
               <Box
                 sx={{
                   display: 'flex',
-
                   alignItems: 'center'
                 }}
               >
@@ -201,10 +201,12 @@ function Event({
                   sx={{
                     fontSize: 19,
                     display: 'flex',
-                    flexDirection: ['column', 'row']
+                    flexDirection: 'column'
                   }}
                 >
-                  <Text sx={{ fontWeight: 'bold' }}>{organizer},&nbsp;</Text>
+                  <Text sx={{ fontWeight: 'bold', lineHeight: 1.125 }}>
+                    {organizer}
+                  </Text>
                   <Text>Lead Organizer</Text>
                 </Text>
               </Box>
