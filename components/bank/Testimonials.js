@@ -166,7 +166,7 @@ function Event({
               <Text
                 color="white"
                 variant="headline"
-                sx={{ fontSize: [48, null, 34], letterSpacing: -0.1 }}
+                sx={{ fontSize: [48, null, 30], letterSpacing: -0.1 }}
                 children={name}
               />
               <Box sx={{ display: 'flex', flexDirection: 'row', my: 0, ml: 0 }}>
