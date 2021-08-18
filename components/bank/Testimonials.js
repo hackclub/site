@@ -106,7 +106,7 @@ export default function Testimonials() {
           <Grid
             gap={4}
             sx={{
-              gridTemplateColumns: 'repeat(auto-fill, minmax(32em, 1fr))'
+              gridTemplateColumns: 'repeat(auto-fill, minmax(25em, 1fr))'
             }}
           >
             {events.map(event => {
@@ -138,7 +138,8 @@ function Event({
         sx={{
           backgroundColor: 'darkless',
           color: 'smoke',
-          borderRadius: 'extra'
+          borderRadius: 'extra',
+          mx: 'auto'
         }}
       >
         <Container sx={{ padding: 0, margin: 0 }}>
@@ -183,14 +184,28 @@ function Event({
               }}
               mt={3}
             >
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box
+                sx={{
+                  display: 'flex',
+
+                  alignItems: 'center'
+                }}
+              >
                 <Avatar
                   src={`/hackers/${organizer.split(' ')[0].toLowerCase()}.jpg`}
                   size={48}
                   mr={2}
                 />
-                <Text color="white" sx={{ fontSize: 19 }}>
-                  <strong>{organizer}</strong>, Lead Organizer
+                <Text
+                  color="white"
+                  sx={{
+                    fontSize: 19,
+                    display: 'flex',
+                    flexDirection: ['column', 'row']
+                  }}
+                >
+                  <Text sx={{ fontWeight: 'bold' }}>{organizer},&nbsp;</Text>
+                  <Text>Lead Organizer</Text>
                 </Text>
               </Box>
               {transparency && (

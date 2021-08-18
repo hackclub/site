@@ -20,7 +20,6 @@ export default function Landing() {
         <Box
           sx={{
             position: 'absolute',
-            display: 'inline-flex',
             flexDirection: 'column',
             justifyContent: 'center',
             bottom: 5,
@@ -141,6 +140,7 @@ function Slide({ children }) {
         justifyContent: 'end',
         width: '100vw',
         background: 'url("/bank/bg.jpg")',
+        backgroundColor: '#000000',
         boxShadow: 'inset 0 0 4rem 1rem rgba(0, 0, 0, 0.5)',
         backgroundPosition: 'center',
         backgroundSize: 'cover',
