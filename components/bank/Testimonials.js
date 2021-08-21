@@ -158,9 +158,9 @@ function Event({
               sx={{
                 display: 'flex',
                 flexDirection: ['column', 'row', 'row'],
-                alignItems: 'center',
+                alignItems: ['baseline', 'center'],
                 justifyContent: 'space-between',
-                marginBottom: -4
+                marginBottom: -3
               }}
             >
               <Text
@@ -169,7 +169,15 @@ function Event({
                 sx={{ fontSize: [48, null, 30], letterSpacing: -0.1 }}
                 children={name}
               />
-              <Box sx={{ display: 'flex', flexDirection: 'row', my: 0, ml: 0 }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'flex-start',
+                  my: 0,
+                  ml: 0
+                }}
+              >
                 <DetailStat value={attendees} label="attendees" />
                 <DetailStat value={`$${budget}k`} label="budget" />
               </Box>
@@ -236,7 +244,7 @@ function Event({
 
 function DetailStat({ value, label }) {
   return (
-    <Box sx={{ px: 0, mb: 0, mx: 3 }}>
+    <Box sx={{ px: 0, mb: [3, 0], ml: [-1, 0], mx: 3 }}>
       <Stat value={value} label={label} sm />
     </Box>
   )

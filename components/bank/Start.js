@@ -54,7 +54,7 @@ export default function Start() {
               <Signup />
             </Card>
           </Fade>
-          <Container variant="narrow">
+          <Container variant="narrow" sx={{ pr: [null, null, 2, 6], m: 0 }}>
             <Stats
               color="smoke"
               labelColor="muted"
@@ -64,10 +64,14 @@ export default function Start() {
               width="auto"
               align="left"
             />
-            <Text sx={{ fontSize: 18, color: 'muted' }}>
-              Starting in February 2020, we started running
-              <br /> Hack Club HQ on Bank (&amp; we don’t count our <br />{' '}
-              numbers in these stats).{' '}
+            <Text
+              sx={{
+                fontSize: 18,
+                color: 'muted'
+              }}
+            >
+              Starting in February 2020, we started running Hack Club HQ on Bank
+              (&amp; we don’t count our numbers in these stats). &nbsp;
               <Link
                 href="https://bank.hackclub.com/hq"
                 color="primary"
@@ -87,10 +91,9 @@ export default function Start() {
             paddingBottom: 6
           }}
         >
-          <Text sx={{ fontSize: 18, color: 'muted' }}>
+          <Text sx={{ fontSize: 18, color: 'muted', mx: [3, null, 6] }}>
             Hack Club does not directly provide banking services. Banking
-            services
-            <br /> provided by Silicon Valley Bank, an FDIC-certified
+            services provided by Silicon Valley Bank, an FDIC-certified
             institution.
           </Text>
         </Container>

@@ -10,7 +10,6 @@ import {
 } from 'theme-ui'
 import Run from './Run'
 import { Fade } from 'react-reveal'
-import { timeSince } from '../../lib/helpers'
 import Icon from '../icon'
 
 export default function Everything() {
@@ -18,7 +17,8 @@ export default function Everything() {
     <>
       <Box
         sx={{
-          py: 6,
+          pt: 6,
+          pb: [3, 6],
           marginTop: 6,
           bg: 'darker'
         }}
@@ -88,17 +88,6 @@ export default function Everything() {
                 }
               >
                 {item}
-                {/* <Badge
-                  variant="pill"
-                  bg={recent(date) ? 'primary' : 'slate'}
-                  sx={{
-                    fontWeight: 'body',
-                    marginLeft: 2,
-                    textTransform: 'uppercase'
-                  }}
-                >
-                  Added {timeSince(date)}
-                </Badge> */}
               </ListItem>
             ))}
           </List>
@@ -131,19 +120,20 @@ export default function Everything() {
               marginBottom: 5
             }}
           >
-            <Text sx={{ color: 'muted', lineHeight: 1.375 }}>
-              Hack Club Bank is a{' '}
-              <Link
-                color="primary"
-                href="https://en.wikipedia.org/wiki/Fiscal_sponsorship"
-                hoverline
-              >
-                fiscal sponsor
-              </Link>{' '}
-              for your&nbsp;project.
-              <br />
-              Industry standard varies between 7-14% of&nbsp;revenue.
-            </Text>
+            <Container variant="narrow">
+              <Text sx={{ color: 'muted', lineHeight: 1.375 }}>
+                Hack Club Bank is a{' '}
+                <Link
+                  color="primary"
+                  href="https://en.wikipedia.org/wiki/Fiscal_sponsorship"
+                  hoverline
+                >
+                  fiscal sponsor
+                </Link>{' '}
+                for your&nbsp;project. Industry standard varies between 7-14%
+                of&nbsp;revenue.
+              </Text>
+            </Container>
           </Container>
         </Container>
       </Box>
@@ -200,7 +190,6 @@ function Percentage({ children }) {
     <Box
       sx={{
         display: 'flex',
-
         bg: 'slate',
         color: 'green',
         width: [64, 128],
@@ -212,8 +201,8 @@ function Percentage({ children }) {
         fontSize: [48, 96],
         '&:after': {
           content: '"%"',
-          mt: [2, 4],
-          fontSize: 40,
+          mt: [3, 4],
+          fontSize: [24, 40],
           fontWeight: 'normal',
           marginRight: -3,
           marginLeft: [null, 2],
