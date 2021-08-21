@@ -224,7 +224,7 @@ const Page = ({ css }) => (
       </Grid>
       <Heading variant="headline">Fonts</Heading>
       <Text variant="title">Phantom Sans</Text>
-      <Text variant="subtitle" sx={{ mb: 3 }}>
+      <Text variant="subtitle" sx={{ mb: 3 , ml: 2}}>
         is our brand font.
       </Text>
       <Box as="details" mb={[4, 5]}>
