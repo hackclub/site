@@ -63,18 +63,17 @@ function ListItem({ icon, body }) {
       <li
         style={{
           lineHeight: 1.25,
-          breakInside: 'avoid',
           display: 'flex',
-          alignItems: 'center'
+          alignItems: 'center',
+          pl: 0
         }}
       >
-        <Icon glyph={icon} size={60} sx={{ mr: 2, color: 'primary' }} />
-        <Text
-          fontSize={[32, 48]}
-          variant="lead"
-          sx={{ marginLeft: 2 }}
-          children={body}
+        <Icon
+          glyph={icon}
+          size={45}
+          sx={{ color: 'primary', flexShrink: 'none', flexShrink: 0, mr: 2 }}
         />
+        <Text fontSize={[32, 48]} variant="lead" children={body} />
       </li>
     </Fade>
   )

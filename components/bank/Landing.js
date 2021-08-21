@@ -41,16 +41,21 @@ export default function Landing() {
                   flexDirection: 'column',
                   justifyContent: 'center',
                   textAlign: 'center'
-                  // marginTop: [200, 32, 32],
                 }}
               >
                 <Heading
                   variant="ultratitle"
                   sx={{
                     marginBottom: 4,
-                    lineHeight: 1.125,
+                    // lineHeight: 0.875,
                     textShadow: '0 0 16px rgba(0, 0, 0, 1)',
-                    letterSpacing: '-0.02em'
+                    letterSpacing: '-0.02em',
+                    '@media screen and (max-height: 600px)': {
+                      lineHeight: 0.875
+                    },
+                    '@media screen and (min-height: 610px)': {
+                      lineHeight: 1.125
+                    }
                   }}
                 >
                   The bank for hackers to <Underline>make ideas real</Underline>
@@ -59,7 +64,12 @@ export default function Landing() {
                 <Container variant="copy">
                   <Text
                     variant="lead"
-                    sx={{ textShadow: '0 3px 6px rgba(0, 0, 0, 0.5)' }}
+                    sx={{
+                      textShadow: '0 3px 6px rgba(0, 0, 0, 0.5)',
+                      '@media screen and (max-height: 600px)': {
+                        lineHeight: 1
+                      }
+                    }}
                   >
                     The team behind{' '}
                     <Link

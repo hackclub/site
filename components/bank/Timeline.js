@@ -24,7 +24,7 @@ function TimelineStep({ children }) {
         '&:before': {
           content: '""',
           background: '#3c4858',
-          height: ['40%', null, '4px'],
+          height: ['420px', null, '4px'],
           width: ['4px', null, '50%'],
           marginLeft: [26, null, 0],
           marginTop: [null, null, '34px'],

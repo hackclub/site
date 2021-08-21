@@ -97,7 +97,8 @@ export default function Testimonials() {
         <Container
           sx={{
             color: 'smoke',
-            px: [3, null, 4],
+            px: [null, null, 4],
+            mx: 'auto',
             mt: 2,
             borderRadius: 0,
             position: 'relative'
@@ -106,7 +107,8 @@ export default function Testimonials() {
           <Grid
             gap={4}
             sx={{
-              gridTemplateColumns: 'repeat(auto-fill, minmax(25em, 1fr))'
+              // gridTemplateColumns: 'repeat(auto-fill, minmax(18em, 1fr))'
+              gridTemplateColumns: ['100%', null, null, '1fr 1fr']
             }}
           >
             {events.map(event => {
@@ -150,7 +152,8 @@ function Event({
               maxHeight: '20rem',
               objectFit: 'cover',
               width: '100%',
-              borderRadius: 'default'
+              borderRadius: 'default',
+              mb: -3
             }}
           />
           <Box p={[3, null, 4]}>
@@ -175,7 +178,8 @@ function Event({
                   flexDirection: 'row',
                   justifyContent: 'flex-start',
                   my: 0,
-                  ml: 0
+                  ml: -2,
+                  pl: 0
                 }}
               >
                 <DetailStat value={attendees} label="attendees" />
