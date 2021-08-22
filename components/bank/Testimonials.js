@@ -194,7 +194,7 @@ function Event({
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 justifyContent: 'space-between',
-                marginTop: ['-16px', 3]
+                marginTop: ['0px', 3]
               }}
             >
               <Box
