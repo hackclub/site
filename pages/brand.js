@@ -99,7 +99,7 @@ const ColorSwatch = ({ bg }) => (
   </Card>
 )
 
-const color = 'text'
+const color = theme.colors.dark
 
 const Page = ({ css }) => (
   <>
