@@ -161,10 +161,6 @@ module.exports = withMDX({
       {
         source: '/map/',
         destination: 'https://map.hackclub.dev/'
-      },
-      {
-        source: '/:path*',
-        destination: 'https://v2.hackclub.dev/:path*'
       }
     ]
   },
