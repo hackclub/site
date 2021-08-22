@@ -438,7 +438,7 @@ const Page = () => (
           <Text as="p" variant="eyebrow">
             Hit the ground running
           </Text>
-          <Heading as={["h3", "h2"]} variant="title">
+          <Heading as="h2" variant="title">
             Get your club{' '}
             <Text
               as="span"
