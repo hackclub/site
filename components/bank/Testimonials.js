@@ -193,14 +193,16 @@ function Event({
                 display: 'flex',
                 flexDirection: 'row',
                 flexWrap: 'wrap',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                marginTop: ['-10px', '0px']
               }}
               mt={3}
             >
               <Box
                 sx={{
                   display: 'flex',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  mt: ['10px', '0px']
                 }}
               >
                 <Avatar
@@ -227,6 +229,7 @@ function Event({
                   href={`https://bank.hackclub.com/${transparency}`}
                   target="_blank"
                   rel="noreferrer"
+                  sx={{mt: ['10px', '0px']}}
                 >
                   <Button
                     mt={[null, null, 4, 0]}

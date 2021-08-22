@@ -108,7 +108,7 @@ export default function Landing() {
           </Box>
           <ScrollHint />
         </Box>
-        <Box sx={{ position: 'absolute', bottom: 2, right: 2 }}>
+        <Box sx={{ position: 'absolute', bottom: 3, right: 2 }}>
           <Badge
             variant="pill"
             sx={{
