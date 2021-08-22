@@ -123,10 +123,6 @@ module.exports = withMDX({
         destination: 'https://summer.hackclub.com/_next/:path*'
       },
       {
-        source: '/bank/',
-        destination: 'https://v2.hackclub.dev/bank/'
-      },
-      {
         source: '/sponsorship/',
         destination: 'https://workshops.hackclub.com/sponsorship/'
       },
