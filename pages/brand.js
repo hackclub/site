@@ -99,7 +99,7 @@ const ColorSwatch = ({ bg }) => (
   </Card>
 )
 
-const color = '#000000'
+const color = 'text'
 
 const Page = ({ css }) => (
   <>
