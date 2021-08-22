@@ -189,7 +189,7 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                img="/camp/fernanda.jpg"
+                img="/team/fernanda.jpg"
                 name="Fernanda Lozano"
                 teamRole="Flagship"
                 text="Fernanda is a student of computational neuroscience, entrepreneur, & organizer of events like the Entrepreneurial Learning Academy for students in Mexico. In summer 2019, she helped organize the Flagship Summit in San Francisco."
