@@ -2,19 +2,22 @@ import { BaseStyles, Box, Button, Container, Grid, Heading } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../components/nav'
+import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Press from '../components/press.mdx'
 import { Logo } from './brand'
 
 const Page = () => (
   <>
+  
     <Meta
       as={Head}
       title="Press"
       description="Hack Club HQ’s resources for press."
       image="https://workshop-cards.hackclub.com/Press.png?fontSize=350px&brand=HQ"
     />
-    <Nav />
+    <ForceTheme theme="light" />
+    <Nav color="text" />
     <Box
       as="header"
       sx={{
