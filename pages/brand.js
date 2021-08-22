@@ -99,8 +99,6 @@ const ColorSwatch = ({ bg }) => (
   </Card>
 )
 
-const color = theme.colors.dark
-
 const Page = ({ css }) => (
   <>
     <Meta
@@ -109,7 +107,7 @@ const Page = ({ css }) => (
       description="Download Hack Club HQ’s logos and preview our brand fonts & colors."
       image="https://workshop-cards.hackclub.com/Branding.png?theme=dark&fontSize=350px&brand=HQ"
     />
-    <Nav color={color} />
+    <Nav />
     <Box
       as="header"
       sx={{
