@@ -449,7 +449,7 @@ const Page = () => (
                 bg: 'rgb(91, 255, 205)',
                 color: '#095365',
                 display: 'inline-block',
-                whiteSpace: 'nowrap'
+                whiteSpace: ['wrap', 'nowrap']
               }}
             >
               going & growing
@@ -619,7 +619,7 @@ const Page = () => (
               borderRadius: 'default',
               px: 2,
               ml: [-2, 0],
-              whiteSpace: 'nowrap',
+              whiteSpace: ['wrap', 'nowrap'],
               color: 'white',
               bg: '#6f31b7'
             }}
