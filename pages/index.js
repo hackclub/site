@@ -578,7 +578,7 @@ const Page = () => (
         <Feature
           icon="welcome"
           color="rgb(255,88,88)"
-          name="Existing clubs welcome."
+          name="Existing clubs welcome"
           desc={
             <>
               When established CS clubs join, they get all the Hack&nbsp;Club
