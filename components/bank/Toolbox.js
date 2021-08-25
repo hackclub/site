@@ -26,14 +26,21 @@ export default function Toolbox() {
           organization of your dreams.
         </Text>
       </Container>
-      <Item />
+      <Grid columns={[1, null, 2]}>
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+        <Item />
+      </Grid>
+
     </Box>
   )
 }
 
 function Item() {
   return (
-    <Card variant="interactive">
+    <Card variant="primary">
       <Box>
         <Icon glyph="bank-account" size={45} sx={{ color: 'primary' }} />
         <Text variant="heading">Hihihi</Text>
