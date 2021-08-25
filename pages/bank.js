@@ -1,15 +1,4 @@
-import {
-  Card,
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  Image,
-  Text,
-  Grid,
-  theme
-} from 'theme-ui'
+import { Box } from 'theme-ui'
 import ForceTheme from '../components/force-theme'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
@@ -21,6 +10,8 @@ import Features from '../components/bank/Features'
 import Testimonials from '../components/bank/Testimonials'
 import Everything from '../components/bank/Everything'
 import Start from '../components/bank/Start'
+import Nonprofits from '../components/bank/Nonprofits'
+import Toolbox from '../components/bank/Toolbox'
 
 const styles = `
   ::selection {
@@ -46,6 +37,8 @@ export default function Bank() {
           <Landing />
           <Features />
           <Testimonials />
+          <Nonprofits />
+          <Toolbox />
           <Everything />
           <Start />
         </Box>
