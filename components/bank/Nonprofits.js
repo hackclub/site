@@ -27,6 +27,7 @@ const orgs = [
   },
   {
     logo: '/bank/nonprofits/techshift.png',
+    transparency: 'techshift',
     name: 'TechShift',
     director: 'Daniel Jin',
     role: 'Co-Executive Director',
@@ -62,7 +63,7 @@ const orgs = [
 
 export default function Nonprofits() {
   return (
-    <Box sx={{ pt: 6, pb: 3 }}>
+    <Box sx={{ pt: 6, pb: 5, mx: "auto", px: [null, null, 4] }}>
       <Container
         variant="copy"
         sx={{
@@ -146,7 +147,7 @@ function Organization({
                     borderRadius: 'default'
                   }}
                 />
-                <Box sx={{ ml: 2 }}>
+                <Box sx={{ ml: 3 }}>
                   <Text
                     color="white"
                     variant="headline"
