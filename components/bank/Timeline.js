@@ -100,7 +100,7 @@ function Step({ icon, name, duration }) {
             children={duration}
           />
           <Text
-            sx={{ color: 'white', fontSize: 24, maxWidth: [200, null, 300] }}
+            sx={{ color: 'white', fontSize: 24, maxWidth: [250, null, 500] }}
             children={name}
           />
         </Container>
@@ -115,22 +115,22 @@ export default function RealTimeline() {
       <Step
         icon="send"
         name="Sign up, explore, order debit cards"
-        duration="Day 1"
+        duration="Step 1"
       />
       <Step
         icon="welcome"
         name="Intro meeting with Hack Club Bank"
-        duration="Day 3"
+        duration="Step 2"
       />
       <Step
         icon="post"
         name="Sign the contract &amp; unlock full access"
-        duration="Day 4"
+        duration="Step 3"
       />
       <Step
         icon="card"
         name="Receive debit cards in the mail"
-        duration="Day 10"
+        duration="Step 4"
         mb={0}
       />
     </Timeline>

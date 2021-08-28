@@ -119,7 +119,7 @@ export default function Toolbox() {
 function Item({ icon, color, name, desc, children, sx, ...props }) {
   return (
     <Slide left>
-      <Card
+      <Box
         sx={{
           display: 'grid',
           gridGap: [0, 3],
@@ -127,8 +127,10 @@ function Item({ icon, color, name, desc, children, sx, ...props }) {
           alignItems: 'center',
           justifyContent: 'start',
           bg: 'darkless',
-          p: 0,
+          px: 3,
+          py: 2,
           borderRadius: 'extra',
+          height: '100%',
           span: { transform: 'none', width: 'min-intrinsic' },
           svg: { color: 'white' },
           ...sx
@@ -151,7 +153,7 @@ function Item({ icon, color, name, desc, children, sx, ...props }) {
                 'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
             }}
           >
-            <Icon glyph={icon} size={50} />
+            <Icon glyph={icon} size={42} />
           </Box>
         )}
         <Box>
@@ -172,7 +174,7 @@ function Item({ icon, color, name, desc, children, sx, ...props }) {
             {desc}
           </Text>
         </Box>
-      </Card>
+      </Box>
     </Slide>
   )
 }
