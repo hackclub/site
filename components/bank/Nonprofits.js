@@ -22,6 +22,8 @@ const orgs = [
     role: 'Executive Director',
     budget: 5,
     website: 'girlgeniusmag.tech',
+    oldDescription:
+      'Girl Genius was founded by a high schooler in California running an online community of female and non-binary leaders in STEAM. They joined Hack Club Bank to publish their magazine, now 5 issues deep with 11k+ readers.',
     description:
       'Girl Genius Magazine inspires the next generation of female and non-binary leaders in STEAM through our magazine and online community. Fully student-ran, they are destroying conventional gender standards. Becoming fiscally sponsored allowed them to scale up their impact and reach a larger audience– now at 5 issues and with 11k+ readers globally.'
   },
@@ -33,6 +35,8 @@ const orgs = [
     role: 'Co-Executive Director',
     budget: 100,
     website: 'techshift.org',
+    oldDescription:
+      'TechShift supports student groups at colleges across the United States by providing mentorship and microgrants for local initiatives. The 30+ student-run chapters launch programs in their communities, both on and off campus.',
     description:
       'TechShift member organizations organize tech ethics and CS + Social Good courses, work with local community partners on technical projects, and build community spaces that focus on the intersection of tech and social issues.'
   },
@@ -45,6 +49,8 @@ const orgs = [
     budget: '5.6',
     budgetLabel: 'raised',
     website: 'projectboom.org',
+    oldDescription:
+      'In spring of 2020, Kunal started sending used laptops to students in need. With his tech background, the only thing holding him back was the ability to accept and store donations. Fiscal sponsorship helped him raise funds to repair computers otherwise designated for electronic waste and donate them to 50+ students.',
     description:
       'Project Boom is a student-run organization with a simple mission: to get students access to computers. Computers that would otherwise become electronic waste instead go to students in need. Joining Hack Club Bank gave Project Boom a platform to begin raising donations to repair these computers.'
   },
@@ -56,6 +62,8 @@ const orgs = [
     budget: '4',
     budgetLabel: 'funded',
     website: 'executebig.org',
+    oldDescription:
+      'One of the our earliest fiscally sponsored projects, Execute Big was founded on Hack Club Bank providing travel grants to high schoolers attending hackathons. They have since been granted their own 501(c)(3) and have expanded to running many additional programs.',
     description:
       'Execute Big is a minimal & transparent student-run nonprofit founded to enable all students to experience and explore computer science education. They started by using funds left over from hackathons to give out travel grants to students. Now their own non-profit, they’ve scaled up and share computer science with underrepresented students nationally.'
   }
@@ -63,7 +71,7 @@ const orgs = [
 
 export default function Nonprofits() {
   return (
-    <Box sx={{ pt: 6, pb: 5, mx: "auto", px: [null, null, 4] }}>
+    <Box sx={{ pt: 6, pb: 5, mx: 'auto', px: [null, null, 4] }}>
       <Container
         variant="copy"
         sx={{
@@ -151,7 +159,11 @@ function Organization({
                   <Text
                     color="white"
                     variant="headline"
-                    sx={{ fontSize: [48, null, 30], letterSpacing: -0.1 }}
+                    sx={{
+                      fontSize: [48, null, 38],
+                      lineHeight: 1,
+                      letterSpacing: -0.1
+                    }}
                     children={name}
                   />
                   <br />
@@ -175,7 +187,7 @@ function Organization({
 
             <br />
             <About>{description}</About>
-            <Box
+            {/* <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -225,7 +237,7 @@ function Organization({
                   </Button>
                 </Link>
               )}
-            </Box>
+            </Box> */}
           </Box>
         </Container>
       </Box>
