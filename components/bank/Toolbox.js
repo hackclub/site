@@ -15,47 +15,28 @@ import Icon from '@hackclub/icons'
 
 const perks = [
   {
-    icon: 'slack-fill',
-    color: 'purple',
-    name: 'Founders Community',
-    desc: `<>
-      In our{' '}
-      <Link href="/slack" passHref>
-        <a>Slack community</a>
-      </Link>
-      , you’ll join a private space for founders to ask questions, chat,
-      share advice, and events.
-    </>`
-  },
-  {
-    icon: 'flag',
-    color: 'primary',
-    name: 'PVSA',
-    desc: 'Earn national recognition for volunteer service through the Presidential Volunteer Service Award'
-  },
-  {
-    icon: 'sam',
-    color: 'blue',
-    name: 'Zoom Pro',
-    desc: 'Stream events virtually and host meetings with Zoom Pro through slash-z'
-  },
-  {
     icon: 'sticker',
     color: 'orange',
     name: 'Sticker Mule',
-    desc: 'Get up to $400 of Sticker Mule credits  for custom stickers that kick ass'
+    desc: 'Get up to $400 of Sticker Mule credits for custom swag'
   },
   {
-    icon: 'email',
+    icon: 'code',
     color: 'secondary',
     name: 'Repl.it Hacker',
-    desc: 'Free Hacker Plans for your  team on repl.it, an amazing web IDE'
+    desc: 'Free Hacker Plans for your team for 1 year on repl.it, a versatile web IDE'
   },
   {
     icon: 'email',
     color: 'slate',
     name: 'Sendy',
-    desc: 'Access to a straight-forward, reliable mass-emailing software for sending newsletters'
+    desc: 'A straightforward, reliable mass-emailing software for sending newsletters, provided free for all Bank projects'
+  },
+  {
+    icon: 'google',
+    color: 'green',
+    name: 'Google Workspace',
+    desc: 'Free, instant Google Workspace accounts including Gmail, Calendar, Drive, and more, under your custom domain'
   }
 ]
 
@@ -79,12 +60,39 @@ export default function Toolbox() {
           name="Founders community"
           desc={
             <>
-              In our{' '}
-              <Link href="/slack" passHref>
+              In the{' '}
+              <Link href="/slack">
                 <a>Slack community</a>
               </Link>
-              , you’ll join a private space for founders to ask questions, chat,
-              share advice, and events.
+              , you’ll gain access to a private space for founders to connect,
+              ask questions, and share advice
+            </>
+          }
+        />
+        <Item
+          icon="flag"
+          color="primary"
+          name="Volunteer Awards"
+          desc={
+            <>
+              Earn national recognition for volunteer service through the{' '}
+              <Link href="https://www.presidentialserviceawards.gov" passHref>
+                <a>President's Volunteer Service Award</a>
+              </Link>
+            </>
+          }
+        />
+        <Item
+          icon="sam"
+          color="blue"
+          name="Zoom Pro"
+          desc={
+            <>
+              Stream virtual events and host meetings with Zoom Pro through{' '}
+              <Link href="https://js-slash-z.hackclub.com" passHref>
+                <a>Slash Z</a>
+              </Link>
+              , an open-source tool built for Hack Club
             </>
           }
         />
@@ -99,18 +107,6 @@ export default function Toolbox() {
             />
           )
         })}
-        {/* <Item
-          icon="flag"
-          color="primary"
-          name="PVSA"
-          desc="Earn national recognition for volunteer service through the Presidential Volunteer Service Award"
-        />
-        <Item
-          icon="sam"
-          color="blue"
-          name="Zoom Pro"
-          desc="Stream events virtually and host meetings with Zoom Pro through slash-z"
-        /> */}
       </Grid>
     </Box>
   )
