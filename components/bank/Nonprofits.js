@@ -71,7 +71,7 @@ const orgs = [
 
 export default function Nonprofits() {
   return (
-    <Box sx={{ pt: 6, pb: 5, mx: 'auto', px: [null, null, 4] }}>
+    <Container sx={{ pt: 6, pb: 5, mx: 'auto', px: [null, null, 4] }}>
       <Container
         variant="copy"
         sx={{
@@ -111,7 +111,7 @@ export default function Nonprofits() {
           )
         })}
       </Grid>
-    </Box>
+    </Container>
   )
 }
 

@@ -228,7 +228,7 @@ function Event({
                   href={`https://bank.hackclub.com/${transparency}`}
                   target="_blank"
                   rel="noreferrer"
-                  sx={{mt: ['16px', '0px']}}
+                  sx={{ mt: ['16px', '0px'] }}
                 >
                   <Button
                     mt={[null, null, 4, 0]}

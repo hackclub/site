@@ -42,7 +42,7 @@ const perks = [
 
 export default function Toolbox() {
   return (
-    <Box sx={{ pt: 4 }}>
+    <Container sx={{ pt: 4 }}>
       <Container>
         <Text variant="heading" sx={{ fontSize: 50 }}>
           The Founder's Toolbox.
@@ -53,7 +53,13 @@ export default function Toolbox() {
           organization of your dreams.
         </Text>
       </Container>
-      <Grid columns={[1, null, 2]} sx={{ mx: [2, null, 4] }}>
+      <Grid
+        columns={[1, null, 2]}
+        gap={3}
+        sx={{
+          mx: 'auto'
+        }}
+      >
         <Item
           icon="slack-fill"
           color="purple"
@@ -108,7 +114,7 @@ export default function Toolbox() {
           )
         })}
       </Grid>
-    </Box>
+    </Container>
   )
 }
 
@@ -162,7 +168,7 @@ function Item({ icon, color, name, desc, children, sx, ...props }) {
               fontSize: 18,
               color: 'muted',
               mt: 0,
-              pb: 1,
+              pb: 2,
               lineHeight: 1.175,
               a: { variant: 'styles.a', color: 'primary' }
             }}
