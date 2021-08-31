@@ -36,7 +36,6 @@ export default function Everything() {
               'Collect donations via card, check, or ACH': 'enter',
               'Share access with your whole team': 'member-add',
               'Bank account backed by Silicon Valley Bank': 'bank-account',
-              // 'Negotiated nonprofit rates with Stripe': 'enter',
               'Instant invoice sending': 'transactions',
               'Real-time dashboard of finances': 'analytics',
               'Transaction data export': 'download',
@@ -48,24 +47,12 @@ export default function Everything() {
                 {item}
               </ListItem>
             ))}
-            {/* <ListItem
-              start={
-                <Avatar
-                  src="/team/mel.png"
-                  size={32}
-                  alt="Mel’s avatar"
-                  mr={2}
-                />
-              }
-            >
-              Amazing support team
-            </ListItem> */}
             {Object.entries({
               // 'Physical check sending & voiding': '',
               'Online direct deposit / ACH transfers': '',
               'Generate attendee legal waivers': '',
               'Instant Google Workspace & email addresses': '',
-              'Virtual debit cards (with Apple Pay)': '',
+              'Virtual debit cards (with Apple & Google Pay)': '',
               'Debit card transaction paper trail': '',
               'Self-serve, no-contract signup': '',
               'Transparency Mode (optional)': '',
