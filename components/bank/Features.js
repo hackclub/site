@@ -94,6 +94,41 @@ export default function Features() {
             body="We’ll never leave you hanging with best-effort 24hr response time."
           />
         </Grid>
+        <Text sx={{ color: 'muted', fontSize: 32, lineHeight: 3 }}>
+          and a suite of free perks...
+        </Text>
+        <Grid gap={4} columns={[1, null, 3]}>
+          <Module
+            icon="sticker"
+            name="Sticker Mule"
+            body="Get up to $400 in Sticker Mule credit for custom swag."
+          />
+          <Module
+            icon="flag"
+            name="Volunteer Awards"
+            body="National recognition through the President's Volunteer Service Award."
+          />
+          <Module
+            icon="explore"
+            name="Repl.it Hacker"
+            body="Free Hacker Plans from Repl.it for 1 year."
+          />
+          <Module
+            icon="email"
+            name="Sendy"
+            body="An easy-to-use, straightforward software for sending newsletters."
+          />
+          <Module
+            icon="slack"
+            name="Founder's Community"
+            body="A private space on the Hack Club Slack for all things nonprofits."
+          />
+          <Module
+            icon="slack"
+            name="Something else"
+            body="We’ll never leave you hanging with best-effort 24hr response time."
+          />
+        </Grid>
       </Container>
       <Container
         variant="copy"
