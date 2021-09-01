@@ -31,12 +31,6 @@ const perks = [
     color: 'primary',
     name: 'Sendy',
     desc: 'A straightforward, reliable mass-emailing software for sending newsletters, provided free for all Bank projects'
-  },
-  {
-    icon: 'google',
-    color: 'primary',
-    name: 'Google Workspace',
-    desc: 'Free, instant Google Workspace accounts including Gmail, Calendar, Drive, and more, under your custom domain'
   }
 ]
 
