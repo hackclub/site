@@ -38,7 +38,7 @@ const orgs = [
     oldDescription:
       'TechShift supports student groups at colleges across the United States by providing mentorship and microgrants for local initiatives. The 30+ student-run chapters launch programs in their communities, both on and off campus.',
     description:
-      'TechShift member organizations organize tech ethics and CS + Social Good courses, work with local community partners on technical projects, and build community spaces that focus on the intersection of tech and social issues.'
+      'TechShift member organizations organize tech ethics and CS + Social Good courses, work with local community partners on technical projects, and build community spaces that focus on the intersection of tech and social issues. The 30+ student-run chapters launch programs in their communities, both on and off campus.'
   },
   {
     logo: '/bank/nonprofits/projectboom.jpg',
@@ -78,7 +78,8 @@ export default function Nonprofits() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          textAlign: 'center'
+          textAlign: 'center',
+          pb: 3
         }}
       >
         <Heading variant="title">Become a founder.</Heading>
@@ -87,6 +88,7 @@ export default function Nonprofits() {
           us for as long as you need, or transition to your own entity.
         </Text>
       </Container>
+
       <Grid
         gap={4}
         sx={{

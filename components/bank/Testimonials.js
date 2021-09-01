@@ -107,7 +107,6 @@ export default function Testimonials() {
           <Grid
             gap={4}
             sx={{
-              // gridTemplateColumns: 'repeat(auto-fill, minmax(18em, 1fr))'
               gridTemplateColumns: ['100%', null, null, '1fr 1fr']
             }}
           >

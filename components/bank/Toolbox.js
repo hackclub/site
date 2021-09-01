@@ -16,25 +16,25 @@ import Icon from '@hackclub/icons'
 const perks = [
   {
     icon: 'sticker',
-    color: 'orange',
+    color: 'primary',
     name: 'Sticker Mule',
     desc: 'Get up to $400 of Sticker Mule credits for custom swag'
   },
   {
     icon: 'code',
-    color: 'secondary',
+    color: 'primary',
     name: 'Repl.it Hacker',
     desc: 'Free Hacker Plans for your team for 1 year on repl.it, a versatile web IDE'
   },
   {
     icon: 'email',
-    color: 'slate',
+    color: 'primary',
     name: 'Sendy',
     desc: 'A straightforward, reliable mass-emailing software for sending newsletters, provided free for all Bank projects'
   },
   {
     icon: 'google',
-    color: 'green',
+    color: 'primary',
     name: 'Google Workspace',
     desc: 'Free, instant Google Workspace accounts including Gmail, Calendar, Drive, and more, under your custom domain'
   }
@@ -43,7 +43,7 @@ const perks = [
 export default function Toolbox() {
   return (
     <Container sx={{ pt: 4 }}>
-      <Container>
+      <Container sx={{ pb: 3 }}>
         <Text variant="heading" sx={{ fontSize: 50 }}>
           The Founder's Toolbox.
         </Text>
@@ -55,14 +55,14 @@ export default function Toolbox() {
       </Container>
       <Grid
         columns={[1, null, 2]}
-        gap={3}
+        gap={4}
         sx={{
           mx: 'auto'
         }}
       >
         <Item
           icon="slack-fill"
-          color="purple"
+          color="primary"
           name="Founders community"
           desc={
             <>
@@ -90,7 +90,7 @@ export default function Toolbox() {
         />
         <Item
           icon="sam"
-          color="blue"
+          color="primary"
           name="Zoom Pro"
           desc={
             <>
