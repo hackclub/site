@@ -82,10 +82,9 @@ export default function Nonprofits() {
           pb: 3
         }}
       >
-        <Heading variant="title">Become a founder.</Heading>
+        <Heading variant="title">Nonprofit? No problem.</Heading>
         <Text variant="lead" color="muted">
-          Launch your own non-profit with the right financial tools. Stay with
-          us for as long as you need, or transition to your own entity.
+          Hack Club Bank is a powerful, safe, and easy-to-use financial platform, whether you're receiving your first donation or spend $100,000/year.
         </Text>
       </Container>
 
