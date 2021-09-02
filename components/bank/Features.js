@@ -157,7 +157,7 @@ export default function Features() {
               <>
                 Access to Zoom Pro for free through{' '}
                 <Link
-                  href="https://js-slash-z.hackclub.com"
+                  href="https://hack.af/z-home"
                   color="smoke"
                   hoverline
                   target="_blank"
