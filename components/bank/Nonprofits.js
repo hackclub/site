@@ -52,7 +52,7 @@ const orgs = [
     oldDescription:
       'In spring of 2020, Kunal started sending used laptops to students in need. With his tech background, the only thing holding him back was the ability to accept and store donations. Fiscal sponsorship helped him raise funds to repair computers otherwise designated for electronic waste and donate them to 50+ students.',
     description:
-      'Project Boom is a student-run organization with a simple mission: to get students access to computers. Computers that would otherwise become electronic waste instead go to students in need. Joining Hack Club Bank gave Project Boom a platform to begin raising donations to repair these computers.'
+      'Project Boom is a student-run organization with a simple mission: to get students access to computers. Computers that would otherwise become electronic waste instead go to students in need. Joining Hack Club Bank gave Project Boom a platform to accept and store donations to support their mission to repair these computers.'
   },
   {
     logo: '/bank/nonprofits/executebig.png',
@@ -65,7 +65,7 @@ const orgs = [
     oldDescription:
       'One of the our earliest fiscally sponsored projects, Execute Big was founded on Hack Club Bank providing travel grants to high schoolers attending hackathons. They have since been granted their own 501(c)(3) and have expanded to running many additional programs.',
     description:
-      'Execute Big is a minimal & transparent student-run nonprofit founded to enable all students to experience and explore computer science education. They started by using funds left over from hackathons to give out travel grants to students. Now their own non-profit, they’ve scaled up and share computer science with underrepresented students nationally.'
+      'Execute Big is a minimal & transparent student-run nonprofit enabling all students to experience computer science education. They started by using left over hackathon funds to provide travel grants to students. Now their own nonprofit, they’ve expanded to share computer science with underrepresented students nationally.'
   }
 ]
 

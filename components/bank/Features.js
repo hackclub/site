@@ -106,27 +106,67 @@ export default function Features() {
           <Module
             icon="flag"
             name="Volunteer Awards"
-            body="National recognition through the President's Volunteer Service Award."
+            body={
+              <>
+                Earn national recognition through the{' '}
+                <Link
+                  href="https://www.presidentialserviceawards.gov"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  President's Volunteer Service Award
+                </Link>
+                .
+              </>
+            }
           />
           <Module
-            icon="explore"
+            icon="embed"
             name="Repl.it Hacker"
-            body="Free Hacker Plans from Repl.it for 1 year."
+            body={
+              <>
+                Free Hacker Plans for your team on{' '}
+                <Link
+                  href="https://repl.it"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  repl.it
+                </Link>{' '}
+                for 1 year.
+              </>
+            }
           />
           <Module
             icon="email"
             name="Sendy"
-            body="An easy-to-use, straightforward software for sending newsletters."
+            body="A straightforward, easy-to-use service for sending newsletters."
           />
           <Module
             icon="slack"
             name="Founder's Community"
-            body="A private space on the Hack Club Slack for all things nonprofits."
+            body="A private space on the Slack for nonprofit founders and event organizers."
           />
           <Module
-            icon="slack"
-            name="Something else"
-            body="We’ll never leave you hanging with best-effort 24hr response time."
+            icon="sam"
+            name="Zoom Pro"
+            body="Access to free Zoom Pro through Slash Z to run virtual events and meetings."
+            body={
+              <>
+                Access to Zoom Pro for free through{' '}
+                <Link
+                  href="https://js-slash-z.hackclub.com"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  Slash Z
+                </Link>{' '}
+                to run virtual events and meetings.
+              </>
+            }
           />
         </Grid>
       </Container>

@@ -11,7 +11,6 @@ import Testimonials from '../components/bank/Testimonials'
 import Everything from '../components/bank/Everything'
 import Start from '../components/bank/Start'
 import Nonprofits from '../components/bank/Nonprofits'
-import Toolbox from '../components/bank/Toolbox'
 
 const styles = `
   ::selection {
@@ -38,7 +37,6 @@ export default function Bank() {
           <Features />
           <Testimonials />
           <Nonprofits />
-          <Toolbox />
           <Everything />
           <Start />
         </Box>
