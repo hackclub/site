@@ -11,7 +11,6 @@ export default function Start() {
         as="section"
         id="apply"
         sx={{
-          // bg: 'darker',
           pt: 6,
           zIndex: -999
         }}
@@ -27,7 +26,7 @@ export default function Start() {
           }}
         >
           <Heading variant="ultratitle" color="white" mb={2}>
-            Sign up for Hack&nbsp;Club Bank.
+            Sign up for Hack&nbsp;Club&nbsp;Bank.
           </Heading>
           <Container variant="narrow" sx={{ color: 'muted' }}>
             <Text variant="lead">

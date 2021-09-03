@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Text, Box, Container } from 'theme-ui'
+import { Text } from 'theme-ui'
 import Stat from '../stat'
 import api from '../../lib/api'
 import { timeSince } from '../../lib/helpers'
@@ -36,7 +36,6 @@ function Dot() {
         animationDuration: '3s',
         animationTimingFunction: 'ease-in-out',
         animationIterationCount: 'infinite'
-        // animation: `3s ${flashing} easin-in-out infinite`
       }}
     />
   )

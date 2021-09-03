@@ -241,7 +241,14 @@ const Page = () => (
           Apply now
         </Button>
       </FadeIn>
-      <Box sx={{ display: 'flex', justifyContent: ['center', 'center', 'flex-end'], marginRight: 2, mt: [2, 2,  1] }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: ['center', 'center', 'flex-end'],
+          marginRight: 2,
+          mt: [2, 2, 1]
+        }}
+      >
         <Badge
           as="a"
           href="https://zephyr.hackclub.com"
@@ -253,7 +260,7 @@ const Page = () => (
             opacity: 0.5,
             textDecoration: 'none',
             fontWeight: 'normal',
-            ':hover': {opacity: 1},
+            ':hover': { opacity: 1 },
             transition: '0.3s ease'
           }}
         >
@@ -331,13 +338,19 @@ const Page = () => (
             <Text as="span" color="cyan">
               2
             </Text>
-            <Text as="p" variant="subtitle" as="p"
-            variant="lead"
-            sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}>
+            <Text
+              as="p"
+              variant="subtitle"
+              as="p"
+              variant="lead"
+              sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
+            >
               <strong>Everyone gets hacking, individually.</strong> Not hacking
               bank accounts, being creative and{' '}
-              
-              <NextLink href="/ship"><a>making something awesome</a></NextLink>.
+              <NextLink href="/ship">
+                <a>making something awesome</a>
+              </NextLink>
+              .
             </Text>
             <Text as="span" color="blue">
               3
@@ -529,8 +542,10 @@ const Page = () => (
             name="A nonprofit bank account"
             desc={
               <>
-                Use our 501(c)(3) status (US-only) and a club bank account with{' '}
-                <a href="https://hackclub.com/bank/">Hack Club Bank</a>.
+                Use our 501(c)(3) status (US-only) and a club fund with{' '}
+                <Link href="/bank">
+                  <a>Hack Club Bank</a>
+                </Link>.
                 Fundraise, accept donations, buy things!
               </>
             }
@@ -564,7 +579,8 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-               Free subscriptions to Figma Pro, repl.it, Postman and more for running a great club.
+                Free subscriptions to Figma Pro, repl.it, Postman and more for
+                running a great club.
               </>
             }
           />

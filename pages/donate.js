@@ -18,7 +18,6 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Sponsors from '../components/donate/sponsors'
 import donors from '../components/donate/donors.json'
-import ForceTheme from '../components/force-theme'
 
 const Header = styled(Box)`
   background: url('/pattern.svg');
@@ -171,7 +170,6 @@ export default function Donate() {
         description={desc}
         image="https://cloud-cz9a6kt0a-hack-club-bot.vercel.app/0social-photo_2.jpg"
       />
-      <ForceTheme theme="light" />
       <Nav color="muted" />
       <Header pt={[5, 5, 6]}>
         <Grid
