@@ -94,9 +94,9 @@ export default function Features() {
             body="We’ll never leave you hanging with best-effort 24hr response time."
           />
         </Grid>
-        <Text sx={{ color: 'muted', fontSize: 32, lineHeight: 3 }}>
+        {/* <Text sx={{ color: 'muted', fontSize: 32, lineHeight: 3 }}>
           and a suite of free perks...
-        </Text>
+        </Text> */}
         <Grid gap={4} columns={[1, null, 3]}>
           <Module
             icon="sticker"

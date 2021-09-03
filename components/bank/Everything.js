@@ -1,13 +1,4 @@
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  Avatar,
-  Badge,
-  Link,
-  Grid
-} from 'theme-ui'
+import { Box, Container, Heading, Text, Link, Grid } from 'theme-ui'
 import Run from './Run'
 import { Fade } from 'react-reveal'
 import Icon from '../icon'
