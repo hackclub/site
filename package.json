@@ -17,6 +17,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^11.1.0",
     "airtable-plus": "^1.0.4",
+    "animated-value": "^0.2.4",
     "globby": "^11.0.4",
     "lodash": "^4.17.21",
     "next": "^11.1.0",
