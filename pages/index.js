@@ -543,7 +543,9 @@ const Page = () => (
             desc={
               <>
                 Use our 501(c)(3) status (US-only) and a club fund with{' '}
-                <a href="https://hackclub.com/bank/">Hack Club Bank</a>.
+                <Link href="/bank">
+                  <a>Hack Club Bank</a>
+                </Link>.
                 Fundraise, accept donations, buy things!
               </>
             }
