@@ -89,26 +89,28 @@ export default function Features() {
             body="Get instant, free accounts for your team (like joy@hackpenn.com)."
           />
           <Module
-            icon="support"
-            name="Support anytime"
-            body="We’ll never leave you hanging with best-effort 24hr response time."
-          />
-        </Grid>
-        {/* <Text sx={{ color: 'muted', fontSize: 32, lineHeight: 3 }}>
-          and a suite of free perks...
-        </Text> */}
-        <Grid gap={4} columns={[1, null, 3]}>
-          <Module
-            icon="sticker"
-            name="Sticker Mule"
-            body="Get up to $400 in Sticker Mule credit for custom swag."
+            icon="email"
+            name="Postal"
+            body={
+              <>
+                Send email newsletters for free using our hosted instance of{' '}
+                <Link
+                  href="https://sendy.co/"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  Sendy
+                </Link>.
+              </>
+            }
           />
           <Module
             icon="flag"
-            name="Volunteer Awards"
+            name="PVSA Awards"
             body={
               <>
-                Earn national recognition through the{' '}
+                Issue the{' '}
                 <Link
                   href="https://www.presidentialserviceawards.gov"
                   color="smoke"
@@ -116,10 +118,33 @@ export default function Features() {
                   target="_blank"
                 >
                   President's Volunteer Service Award
-                </Link>
-                .
+                </Link>{' '}
+                to your volunteers.
               </>
             }
+          />
+          <Module
+            icon="sam"
+            name="Zoom Pro"
+            body="Access to free Zoom Pro through Slash Z to run virtual events and meetings."
+            body={
+              <>
+                Create Zoom Pro meetings for free from your calendar using{' '}
+                <Link
+                  href="https://hack.af/z-home"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  Slash Z
+                </Link>.
+              </>
+            }
+          />
+          <Module
+            icon="sticker"
+            name="Sticker Mule"
+            body="Get up to $400 in Sticker Mule credit for custom swag."
           />
           <Module
             icon="embed"
@@ -140,33 +165,14 @@ export default function Features() {
             }
           />
           <Module
-            icon="email"
-            name="Sendy"
-            body="A straightforward, easy-to-use service for sending newsletters."
-          />
-          <Module
             icon="slack"
             name="Founder's Community"
-            body="A private space on the Slack for nonprofit founders and event organizers."
+            body="A space on the Slack for nonprofit founders and event organizers."
           />
           <Module
-            icon="sam"
-            name="Zoom Pro"
-            body="Access to free Zoom Pro through Slash Z to run virtual events and meetings."
-            body={
-              <>
-                Access to Zoom Pro for free through{' '}
-                <Link
-                  href="https://hack.af/z-home"
-                  color="smoke"
-                  hoverline
-                  target="_blank"
-                >
-                  Slash Z
-                </Link>{' '}
-                to run virtual events and meetings.
-              </>
-            }
+            icon="support"
+            name="Support anytime"
+            body="We’ll never leave you hanging with 24hr response time on week days."
           />
         </Grid>
       </Container>
