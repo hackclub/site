@@ -52,7 +52,9 @@ const orgs = [
 
 export default function Nonprofits() {
   return (
-    <Container sx={{ pt: 6, pb: 5, mx: 'auto', px: [null, null, 4] }}>
+    <Container
+      sx={{ pt: 6, pb: [2, null, 5], mx: 'auto', px: [null, null, 4] }}
+    >
       <Container
         variant="copy"
         sx={{
@@ -83,13 +85,10 @@ export default function Nonprofits() {
             <Organization
               logo={org.logo}
               name={org.name}
-              director={org.director}
-              role={org.role}
               budget={org.budget}
               budgetLabel={org.budgetLabel}
               website={org.website}
               description={org.description}
-              transparency={org.transparency}
               key={id}
             />
           )
@@ -141,7 +140,7 @@ function Organization({
                     color="white"
                     variant="headline"
                     sx={{
-                      fontSize: [48, null, 38],
+                      fontSize: [28, null, 38],
                       lineHeight: 1,
                       letterSpacing: -0.1
                     }}
