@@ -1,5 +1,4 @@
-const withMDX = require('@next/mdx')({ extension: /\.mdx?$/ })
-module.exports = withMDX({
+const nextConfig = {
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
   images: {
@@ -187,4 +186,11 @@ module.exports = withMDX({
       }
     ]
   }
-})
+}
+
+const withPlugins = require('next-compose-plugins')
+
+const withMDX = require('@next/mdx')({ extension: /\.mdx?$/ })
+const withTM = require('next-transpile-modules')(['animejs'])
+
+module.exports = withPlugins([withTM, withMDX], nextConfig)
