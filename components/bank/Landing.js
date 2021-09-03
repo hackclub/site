@@ -58,8 +58,7 @@ export default function Landing() {
                     }
                   }}
                 >
-                  The bank for hackers to <Underline>make ideas real</Underline>
-                  .
+                  <Underline>Make your ideas real</Underline> with Hack&nbsp;Club&nbsp;Bank.
                 </Heading>
                 <Container variant="copy">
                   <Text
