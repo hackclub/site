@@ -1,13 +1,4 @@
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  Avatar,
-  Badge,
-  Link,
-  Grid
-} from 'theme-ui'
+import { Box, Container, Heading, Text, Link, Grid } from 'theme-ui'
 import Run from './Run'
 import { Fade } from 'react-reveal'
 import Icon from '../icon'
@@ -36,7 +27,6 @@ export default function Everything() {
               'Collect donations via card, check, or ACH': 'enter',
               'Share access with your whole team': 'member-add',
               'Bank account backed by Silicon Valley Bank': 'bank-account',
-              'Negotiated nonprofit rates with Stripe': 'enter',
               'Instant invoice sending': 'transactions',
               'Real-time dashboard of finances': 'analytics',
               'Transaction data export': 'download',
@@ -48,24 +38,12 @@ export default function Everything() {
                 {item}
               </ListItem>
             ))}
-            <ListItem
-              start={
-                <Avatar
-                  src="/team/mel.png"
-                  size={32}
-                  alt="Mel’s avatar"
-                  mr={2}
-                />
-              }
-            >
-              Amazing support team
-            </ListItem>
             {Object.entries({
               'Physical check sending & voiding': '',
-              'Online ACH transfers': '',
+              'Online direct deposit & ACH transfers': '',
               'Generate attendee legal waivers': '',
               'Instant Google Workspace & email addresses': '',
-              'Virtual debit cards (with Apple Pay)': '',
+              'Virtual debit cards (with Apple & Google Pay)': '',
               'Debit card transaction paper trail': '',
               'Self-serve, no-contract signup': '',
               'Transparency Mode (optional)': '',
@@ -131,7 +109,7 @@ export default function Everything() {
                   fiscal sponsor
                 </Link>{' '}
                 for your&nbsp;project. Industry standard varies between 7-14%
-                of&nbsp;revenue.
+                of&nbsp;revenue. Hack Club is a 501(c)(3) nonprofit.
               </Text>
             </Container>
           </Container>

@@ -101,10 +101,7 @@ export default function Team() {
               />
             </Grid>
             <br />
-            <Text variant="title" color="orange" sx={{
-              lineHeight: '1.75em',
-              fontSize: [4, 5, 6]
-            }}>
+            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
               Behind the Scenes
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
@@ -138,10 +135,7 @@ export default function Team() {
               />
             </Grid>
             <br />
-            <Text variant="title" color="orange" sx={{
-              lineHeight: '1.75em',
-              fontSize: [4, 5, 6]
-            }}>
+            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
               Acknowledgements
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>

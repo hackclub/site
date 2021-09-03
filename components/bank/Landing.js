@@ -47,7 +47,6 @@ export default function Landing() {
                   variant="ultratitle"
                   sx={{
                     marginBottom: 4,
-                    // lineHeight: 0.875,
                     textShadow: '0 0 16px rgba(0, 0, 0, 1)',
                     letterSpacing: '-0.02em',
                     '@media screen and (max-height: 600px)': {
@@ -58,8 +57,8 @@ export default function Landing() {
                     }
                   }}
                 >
-                  The bank for hackers to <Underline>make ideas real</Underline>
-                  .
+                  <Underline>Make your ideas real</Underline> with
+                  Hack&nbsp;Club&nbsp;Bank.
                 </Heading>
                 <Container variant="copy">
                   <Text
@@ -81,7 +80,7 @@ export default function Landing() {
                     >
                       Hack&nbsp;Arizona
                     </Link>{' '}
-                    is one of 100+ teams who uses{' '}
+                    is one of 300+ teams who uses{' '}
                     <strong>Hack&nbsp;Club&nbsp;Bank</strong> to run world-class
                     hackathons.
                   </Text>

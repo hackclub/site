@@ -5,7 +5,6 @@ import Nav from '../components/nav'
 import styled from '@emotion/styled'
 import Footer from '../components/footer'
 import t from '@hackclub/theme'
-import ForceTheme from '../components/force-theme'
 
 const Header = styled(Box)`
   color: white;
@@ -112,7 +111,6 @@ export default function Philosophy() {
         description="Read about Hack Club, a network of high school computer science clubs. We want to make building apps and websites accessible to everyone through programming clubs at every high school."
         image="https://cloud-cz9a6kt0a-hack-club-bot.vercel.app/0social-photo_2.jpg"
       />
-      <ForceTheme theme="light" />
       <Box>
         <Header>
           <Container

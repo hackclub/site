@@ -89,9 +89,91 @@ export default function Features() {
             body="Get instant, free accounts for your team (like joy@hackpenn.com)."
           />
           <Module
+            icon="email"
+            name="Postal"
+            body={
+              <>
+                Send email newsletters for free using our hosted instance of{' '}
+                <Link
+                  href="https://sendy.co/"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  Sendy
+                </Link>
+                .
+              </>
+            }
+          />
+          <Module
+            icon="flag"
+            name="PVSA Awards"
+            body={
+              <>
+                Issue the{' '}
+                <Link
+                  href="https://www.presidentialserviceawards.gov"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  President's Volunteer Service Award
+                </Link>{' '}
+                to your volunteers.
+              </>
+            }
+          />
+          <Module
+            icon="sam"
+            name="Zoom Pro"
+            body={
+              <>
+                Create Zoom Pro meetings for free from your calendar using{' '}
+                <Link
+                  href="https://hack.af/z-home"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  Slash Z
+                </Link>
+                .
+              </>
+            }
+          />
+          <Module
+            icon="sticker"
+            name="Sticker Mule"
+            body="Get up to $400 in Sticker Mule credit for custom swag."
+          />
+          <Module
+            icon="embed"
+            name="Repl.it Hacker"
+            body={
+              <>
+                Free Hacker Plans for your team on{' '}
+                <Link
+                  href="https://repl.it"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  repl.it
+                </Link>{' '}
+                for 1 year.
+              </>
+            }
+          />
+          <Module
+            icon="slack"
+            name="Founder's Community"
+            body="A space on the Slack for nonprofit founders and event organizers."
+          />
+          <Module
             icon="support"
             name="Support anytime"
-            body="We’ll never leave you hanging with best-effort 24hr response time."
+            body="We’ll never leave you hanging with 24hr response time on week days."
           />
         </Grid>
       </Container>
