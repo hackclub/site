@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Container } from 'theme-ui'
+import { Box, Text, Container } from 'theme-ui'
 import { Fade } from 'react-reveal'
 import Icon from '../icon'
 

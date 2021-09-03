@@ -101,7 +101,8 @@ export default function Features() {
                   target="_blank"
                 >
                   Sendy
-                </Link>.
+                </Link>
+                .
               </>
             }
           />
@@ -126,7 +127,6 @@ export default function Features() {
           <Module
             icon="sam"
             name="Zoom Pro"
-            body="Access to free Zoom Pro through Slash Z to run virtual events and meetings."
             body={
               <>
                 Create Zoom Pro meetings for free from your calendar using{' '}
@@ -137,7 +137,8 @@ export default function Features() {
                   target="_blank"
                 >
                   Slash Z
-                </Link>.
+                </Link>
+                .
               </>
             }
           />

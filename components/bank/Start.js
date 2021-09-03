@@ -11,7 +11,6 @@ export default function Start() {
         as="section"
         id="apply"
         sx={{
-          // bg: 'darker',
           pt: 6,
           zIndex: -999
         }}

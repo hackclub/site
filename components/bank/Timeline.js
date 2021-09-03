@@ -1,4 +1,4 @@
-import { Box, Flex, Avatar, Container, Text, Badge } from 'theme-ui'
+import { Box, Flex, Container, Text, Badge } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Icon from '../icon'
 

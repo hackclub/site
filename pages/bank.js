@@ -4,7 +4,6 @@ import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-
 import Landing from '../components/bank/Landing'
 import Features from '../components/bank/Features'
 import Testimonials from '../components/bank/Testimonials'

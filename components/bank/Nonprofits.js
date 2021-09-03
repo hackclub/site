@@ -1,15 +1,4 @@
-import {
-  Box,
-  Avatar,
-  Button,
-  Image,
-  Text,
-  Heading,
-  Container,
-  Card,
-  Grid,
-  Link
-} from 'theme-ui'
+import { Box, Image, Text, Heading, Container, Grid, Link } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Stat from '../stat'
 import kebabCase from 'lodash/kebabCase'
@@ -22,8 +11,6 @@ const orgs = [
     role: 'Executive Director',
     budget: 5,
     website: 'girlgeniusmag.tech',
-    oldDescription:
-      'Girl Genius was founded by a high schooler in California running an online community of female and non-binary leaders in STEAM. They joined Hack Club Bank to publish their magazine, now 5 issues deep with 11k+ readers.',
     description:
       'Girl Genius Magazine inspires the next generation of female and non-binary leaders in STEAM through their magazine and online community. Fully student-ran, they are destroying conventional gender standards. Becoming fiscally sponsored allowed them to scale up their impact and reach a larger audience– now at 5 issues and with 11k+ readers globally.'
   },
@@ -35,8 +22,6 @@ const orgs = [
     role: 'Co-Executive Director',
     budget: 100,
     website: 'techshift.org',
-    oldDescription:
-      'TechShift supports student groups at colleges across the United States by providing mentorship and microgrants for local initiatives. The 30+ student-run chapters launch programs in their communities, both on and off campus.',
     description:
       'TechShift member organizations organize tech ethics and CS + Social Good courses, work with local community partners on technical projects, and build community spaces that focus on the intersection of tech and social issues. The 30+ student-run chapters launch programs in their communities, both on and off campus.'
   },
@@ -49,8 +34,6 @@ const orgs = [
     budget: '5.6',
     budgetLabel: 'raised',
     website: 'projectboom.org',
-    oldDescription:
-      'In spring of 2020, Kunal started sending used laptops to students in need. With his tech background, the only thing holding him back was the ability to accept and store donations. Fiscal sponsorship helped him raise funds to repair computers otherwise designated for electronic waste and donate them to 50+ students.',
     description:
       'Project Boom is a student-run organization with a simple mission: to get students access to computers. Computers that would otherwise become electronic waste instead go to students in need. Joining Hack Club Bank gave Project Boom a platform to accept and store donations to support their mission to repair these computers.'
   },
@@ -62,8 +45,6 @@ const orgs = [
     budget: '4',
     budgetLabel: 'funded',
     website: 'executebig.org',
-    oldDescription:
-      'One of the our earliest fiscally sponsored projects, Execute Big was founded on Hack Club Bank providing travel grants to high schoolers attending hackathons. They have since been granted their own 501(c)(3) and have expanded to running many additional programs.',
     description:
       'Execute Big is a minimal & transparent student-run nonprofit enabling all students to experience computer science education. They started by using left over hackathon funds to provide travel grants to students. Now their own nonprofit, they’ve expanded to share computer science with underrepresented students nationally.'
   }
@@ -84,7 +65,9 @@ export default function Nonprofits() {
       >
         <Heading variant="title">Nonprofit? No problem.</Heading>
         <Text variant="lead" color="muted">
-          Hack Club Bank is a powerful, safe, and easy-to-use financial platform, whether you're receiving your first donation or spend $100,000 a year.
+          Hack Club Bank is a powerful, safe, and easy-to-use financial
+          platform, whether you're receiving your first donation or spend
+          $100,000 a year.
         </Text>
       </Container>
 
@@ -119,13 +102,10 @@ export default function Nonprofits() {
 function Organization({
   logo,
   name,
-  role,
   budget,
   budgetLabel,
-  director,
   website,
-  description,
-  transparency
+  description
 }) {
   return (
     <Slide bottom>
@@ -188,57 +168,6 @@ function Organization({
 
             <br />
             <About>{description}</About>
-            {/* <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                justifyContent: 'space-between'
-              }}
-              mt={3}
-            >
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center'
-                }}
-              >
-                <Avatar
-                  src={`/hackers/${director.split(' ')[0].toLowerCase()}.jpg`}
-                  size={48}
-                  mr={2}
-                />
-                <Text
-                  sx={{
-                    fontSize: 19,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    color: 'smoke'
-                  }}
-                >
-                  <Text sx={{ fontWeight: 'bold', lineHeight: 1.125 }}>
-                    {director}
-                  </Text>
-                  <Text>{role}</Text>
-                </Text>
-              </Box>
-              {transparency && (
-                <Link
-                  href={`https://bank.hackclub.com/${transparency}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Button
-                    mt={[null, null, 4, 0]}
-                    ml={[0, 'auto']}
-                    sx={{ textTransform: 'none' }}
-                    variant="primary"
-                  >
-                    See Finances
-                  </Button>
-                </Link>
-              )}
-            </Box> */}
           </Box>
         </Container>
       </Box>
