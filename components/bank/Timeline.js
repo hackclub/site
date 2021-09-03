@@ -119,7 +119,7 @@ export default function RealTimeline() {
       />
       <Step
         icon="welcome"
-        name="Intro meeting with Hack Club Bank"
+        name="Intro meeting with the Bank team"
         duration="Step 2"
       />
       <Step

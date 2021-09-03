@@ -109,7 +109,7 @@ export default function Everything() {
                   fiscal sponsor
                 </Link>{' '}
                 for your&nbsp;project. Industry standard varies between 7-14%
-                of&nbsp;revenue.
+                of&nbsp;revenue. Hack Club is a 501(c)(3) nonprofit.
               </Text>
             </Container>
           </Container>

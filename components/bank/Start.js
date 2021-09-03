@@ -27,7 +27,7 @@ export default function Start() {
           }}
         >
           <Heading variant="ultratitle" color="white" mb={2}>
-            Sign up for Hack&nbsp;Club Bank.
+            Sign up for Hack&nbsp;Club&nbsp;Bank.
           </Heading>
           <Container variant="narrow" sx={{ color: 'muted' }}>
             <Text variant="lead">

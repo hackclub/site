@@ -26,7 +26,7 @@ export default function Run() {
           </Text>
           <br />
           <Text variant="lead" sx={{ color: 'muted', fontSize: 28 }}>
-            Setting up a bank account is just the start. Hack Club Bank helps
+            Receiving and managing money is just the start. Hack Club Bank helps
             you handle ongoing obligations while you’re organizing.
           </Text>
         </Container>
