@@ -25,7 +25,7 @@ const orgs = [
     oldDescription:
       'Girl Genius was founded by a high schooler in California running an online community of female and non-binary leaders in STEAM. They joined Hack Club Bank to publish their magazine, now 5 issues deep with 11k+ readers.',
     description:
-      'Girl Genius Magazine inspires the next generation of female and non-binary leaders in STEAM through our magazine and online community. Fully student-ran, they are destroying conventional gender standards. Becoming fiscally sponsored allowed them to scale up their impact and reach a larger audience– now at 5 issues and with 11k+ readers globally.'
+      'Girl Genius Magazine inspires the next generation of female and non-binary leaders in STEAM through their magazine and online community. Fully student-ran, they are destroying conventional gender standards. Becoming fiscally sponsored allowed them to scale up their impact and reach a larger audience– now at 5 issues and with 11k+ readers globally.'
   },
   {
     logo: '/bank/nonprofits/techshift.png',
