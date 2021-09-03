@@ -48,8 +48,8 @@ export default function Everything() {
               </ListItem>
             ))}
             {Object.entries({
-              // 'Physical check sending & voiding': '',
-              'Online direct deposit / ACH transfers': '',
+              'Physical check sending & voiding': '',
+              'Online direct deposit & ACH transfers': '',
               'Generate attendee legal waivers': '',
               'Instant Google Workspace & email addresses': '',
               'Virtual debit cards (with Apple & Google Pay)': '',
