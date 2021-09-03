@@ -1,16 +1,18 @@
 import { Box } from 'theme-ui'
-import AnimatedValue from 'animated-value'
+import anime from 'animejs/lib/anime.es.js'
 
 const handleClick = () => {
-  const scrollValue = new AnimatedValue({
-    start: document.scrollingElement.scrollTop,
-    end: window.innerHeight,
-    ease: AnimatedValue.CURVES.EXPO_OUT,
-  })
-  scrollValue.play(800, () => {
-    document.scrollingElement.scrollTop = scrollValue.value()
-  })
+  const scroll = { x: document.scrollingElement.scrollTop }
 
+  anime({
+    targets: scroll,
+    x: window.innerHeight,
+    easing: 'easeOutExpo',
+    duration: 800,
+    update: () => {
+      document.scrollingElement.scrollTop = scroll.x
+    }
+  })
 }
 const ScrollHint = () => (
   <Box
