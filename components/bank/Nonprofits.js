@@ -12,7 +12,7 @@ const orgs = [
     budget: 5,
     website: 'girlgeniusmag.tech',
     description:
-      'Girl Genius Magazine inspires the next generation of female and non-binary leaders in STEAM through their magazine and online community. Fully student-ran, they are destroying conventional gender standards. Becoming fiscally sponsored allowed them to scale up their impact and reach a larger audience– now at 5 issues and with 11k+ readers globally.'
+      'Girl Genius Magazine is a fully student-run publication inspiring the next generation of female and non-binary leaders in STEAM. Their journalism and inclusive online community are dedicated to breaking down tech’s lingering gender barriers. Becoming fiscally sponsored allowed them to publish more issues, host over 40 workshops, organize a conference, and reach a global audience of 11k readers (and counting).'
   },
   {
     logo: '/bank/nonprofits/techshift.png',
@@ -23,7 +23,7 @@ const orgs = [
     budget: 100,
     website: 'techshift.org',
     description:
-      'TechShift member organizations organize tech ethics and CS + Social Good courses, work with local community partners on technical projects, and build community spaces that focus on the intersection of tech and social issues. The 30+ student-run chapters launch programs in their communities, both on and off campus.'
+      'Founded in 2017, TechShift supports a network of 30+ student-run chapters across 3 continents leading initiatives at the intersection of technology and social impact. With the help of Hack Club Bank, they are bringing about a more equitable technological future through their mentorship programs, community partnerships, microgrants, and the STEM For Social Good Toolkit.'
   },
   {
     logo: '/bank/nonprofits/projectboom.jpg',
@@ -35,7 +35,7 @@ const orgs = [
     budgetLabel: 'raised',
     website: 'projectboom.org',
     description:
-      'Project Boom is a student-run organization with a simple mission: to get students access to computers. Computers that would otherwise become electronic waste instead go to students in need. Joining Hack Club Bank gave Project Boom a platform to accept and store donations to support their mission to repair these computers.'
+      'Project Boom is a student-led organization with a simple mission: getting computers to those who need them. Instead of becoming e-waste, old machines are given new life to deserving students worldwide. Joining Hack Club Bank provided Project Boom with a platform to easily accept and manage donations, helping them to repair and ship more computers than ever before.'
   },
   {
     logo: '/bank/nonprofits/executebig.png',
@@ -46,7 +46,7 @@ const orgs = [
     budgetLabel: 'funded',
     website: 'executebig.org',
     description:
-      'Execute Big is a minimal & transparent student-run nonprofit enabling all students to experience computer science education. They started by using left over hackathon funds to provide travel grants to students. Now their own nonprofit, they’ve expanded to share computer science with underrepresented students nationally.'
+      'Execute Big began by using leftover hackathon funds to provide travel grants for students. Hack Club Bank helped make possible their array of grants, fellowships, and innovative programs to share computer science with students nationally. Now their own 501(c)(3) nonprofit, they leverage existing resources to make STEM activities accessible to everyone.'
   }
 ]
 
