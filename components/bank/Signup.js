@@ -26,7 +26,9 @@ function Field({ placeholder, label, name, type, value, onChange }) {
         placeholder={placeholder}
         name={name}
         type={type}
-        sx={{ bg: 'dark' }}
+        sx={{
+          bg: 'dark'
+        }}
         onChange={onChange}
         value={value}
         required
