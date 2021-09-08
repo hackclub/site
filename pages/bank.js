@@ -17,6 +17,10 @@ const styles = `
     color: #ffffff;
     text-shadow: none;
   }
+input:-webkit-autofill {
+  -webkit-text-fill-color: white;
+}
+
 `
 
 export default function Bank() {
