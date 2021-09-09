@@ -45,7 +45,7 @@ export default function Everything() {
               'Instant Google Workspace & email addresses': '',
               'Virtual debit cards (with Apple & Google Pay)': '',
               'Debit card transaction paper trail': '',
-              'Self-serve, no-contract signup': '',
+              'Self-serve signup': '',
               'Transparency Mode (optional)': '',
               'Online, embeddable donation form': ''
             }).map(([item, date]) => (
