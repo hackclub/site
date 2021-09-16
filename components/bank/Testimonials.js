@@ -215,6 +215,7 @@ function Event({
                     ml={[0, 'auto']}
                     sx={{ textTransform: 'none' }}
                     variant="primary"
+                    title="🎶 take a look, it's in our books 🎵"
                   >
                     See Finances
                   </Button>
