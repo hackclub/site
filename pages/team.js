@@ -99,6 +99,13 @@ export default function Team() {
                 img="/team/leo.png"
                 pronouns="he/him"
               />
+             <Bio
+                name="Your Name"
+                teamRole="Your Role"
+                text="Your write up/bio"
+                img="/team/tevan.png"
+                pronouns="he/him"
+              />
             </Grid>
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
