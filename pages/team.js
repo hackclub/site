@@ -103,7 +103,7 @@ export default function Team() {
                 name="Tevan Goldberg"
                 teamRole="Clubs Operations Manager"
                 text="Tevan is a professional musician, avid reader, mediocre fisherman, pathological conversationalist, and proud dropout of Harvard Divinity School, among other diversions. He believes self-motivated education is one of the most worthwhile things you can do in life, besides perhaps owning a dog. Tevan also enjoys writing about himself in the third person. "
-                img="/team/tevan.jpg"
+                img="/team/tevan.png"
                 pronouns="he/him"
               />
             </Grid>
@@ -112,13 +112,6 @@ export default function Team() {
               Behind the Scenes
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
-                img="/team/robert.jpg"
-                name="Robert Caldwell"
-                teamRole="Philanthropy"
-                text=" After serving for thirty-two years in education management and advancement, Robert joined Hack Club to help raise the resources necessary to provide students with 21st century technical skills and develop a new generation of programmers, coders and makers. Robert is from Canada and lives in Charlotte, Vermont with his wife and children."
-                pronouns="he/him"
-              />
               <Bio
                 img="/team/scott.jpg"
                 name="Scott Motte"
