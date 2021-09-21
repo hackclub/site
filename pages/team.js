@@ -88,6 +88,13 @@ export default function Team() {
                 pronouns="she/her"
               />
               <Bio
+                name="Liv Cook"
+                teamRole="Bank Operations"
+                text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
+                img="/team/liv.png"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Leo McElroy"
                 teamRole="Clubs Lead"
                 text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
