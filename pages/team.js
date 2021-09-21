@@ -108,13 +108,6 @@ export default function Team() {
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
-                img="/team/robert.jpg"
-                name="Robert Caldwell"
-                teamRole="Philanthropy"
-                text=" After serving for thirty-two years in education management and advancement, Robert joined Hack Club to help raise the resources necessary to provide students with 21st century technical skills and develop a new generation of programmers, coders and makers. Robert is from Canada and lives in Charlotte, Vermont with his wife and children."
-                pronouns="he/him"
-              />
-              <Bio
                 img="/team/scott.jpg"
                 name="Scott Motte"
                 teamRole="Hack Club Bank"
