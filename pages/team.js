@@ -106,7 +106,6 @@ export default function Team() {
                 img="/team/tevan.jpg"
                 pronouns="he/him"
               />
-              />
             </Grid>
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
