@@ -1,11 +1,6 @@
 import {
-  Card,
   Box,
-  Button,
   Container,
-  Flex,
-  Heading,
-  Image,
   Text,
   Grid
 } from 'theme-ui'
