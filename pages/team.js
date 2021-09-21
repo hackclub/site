@@ -99,6 +99,14 @@ export default function Team() {
                 img="/team/leo.png"
                 pronouns="he/him"
               />
+              <Bio
+                name="Tevan Goldberg"
+                teamRole="Clubs Operations Manager"
+                text="Tevan is a professional musician, avid reader, mediocre fisherman, pathological conversationalist, and proud dropout of Harvard Divinity School, among other diversions. He believes self-motivated education is one of the most worthwhile things you can do in life, besides perhaps owning a dog. Tevan also enjoys writing about himself in the third person. "
+                img="/team/tevan.jpg"
+                pronouns="he/him"
+              />
+              />
             </Grid>
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
