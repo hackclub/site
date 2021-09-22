@@ -37,17 +37,19 @@ export default function Team() {
               <br /> for the students.
             </Text>
 
-            <Text as="div" variant="lead" color="smoke" sx={{maxWidth: '650px'}}>
-              We believe in a world where every young person is
-              empowered to be the change they want to see around 
-              them. At Hack Club, we’re working hard to make it reality.
+            <Text
+              as="div"
+              variant="lead"
+              color="smoke"
+              sx={{ maxWidth: '650px' }}
+            >
+              We believe in a world where every young person is empowered to be
+              the change they want to see around them. At Hack Club, we’re
+              working hard to make it reality.
             </Text>
           </Container>
         </Box>
-        <Box
-          bg="#f9f9fa"
-          py={4}
-        >
+        <Box bg="#f9f9fa" py={4}>
           <Container>
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
@@ -104,6 +106,13 @@ export default function Team() {
                 teamRole="Clubs Operations Manager"
                 text="Tevan is a professional musician, avid reader, mediocre fisherman, pathological conversationalist, and proud dropout of Harvard Divinity School, among other diversions. He believes self-motivated education is one of the most worthwhile things you can do in life, besides perhaps owning a dog. Tevan also enjoys writing about himself in the third person. "
                 img="/team/tevan.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Harsh Bajpai"
+                teamRole="Clubs Lead Asia-Pacific Region"
+                text="Harsh is a gentle force in both his local and the Slack community. He is a vegetarian musician who enjoys traveling around India. When he is not reading ancient mythology, he is programming with purpose and passion."
+                img="/team/harsh.png"
                 pronouns="he/him"
               />
             </Grid>
