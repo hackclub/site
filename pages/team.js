@@ -1,11 +1,6 @@
 import {
-  Card,
   Box,
-  Button,
   Container,
-  Flex,
-  Heading,
-  Image,
   Text,
   Grid
 } from 'theme-ui'
@@ -92,6 +87,13 @@ export default function Team() {
                 teamRole="Bank Operations Lead"
                 text="Melanie grew up in northern New England where she obtained a degree in Marine Biology. She then spent several years running a pet store with 20+ employees and recently decided to change career paths. This led her to Hack Club where she is excited about helping students pursue their dreams."
                 img="/team/mel.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Liv Cook"
+                teamRole="Bank Operations"
+                text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
+                img="/team/liv.png"
                 pronouns="she/her"
               />
               <Bio
