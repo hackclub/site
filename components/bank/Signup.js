@@ -77,7 +77,7 @@ export default function Signup() {
         onChange={e => setValues({ ...values, email: e.target.value })}
       />
       <Button sx={{ bg: 'blue', mt: [2, 3], py: 3 }} type="submit">{`Finish ${
-        10 - Object.values(values).filter(n => n !== '').length
+        11 - Object.values(values).filter(n => n !== '').length
       } fields to apply`}</Button>
     </Base>
   )
