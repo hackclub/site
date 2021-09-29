@@ -126,6 +126,14 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
                 pronouns="he/him"
               />
               <Bio
+                name="Anna Grace Benny"
+                teamRole="Clubs Lead Asia-Pacific Region"
+                text={`Anna is a visual communication graduate and a social media buff. 
+                She loves films and everything related to it. Managing and meeting new hackclubers is her jam. She helps with onboarding new hackclubers in the APAC region and manages their social media pages`}
+                img="/team/anna.png"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Shubhangi Gupta"
                 teamRole="Community Asia-Pacific Region"
                 text={`Shubhangi is the founder of Raahee, a mental health startup aiming to provide affordable therapy. She is a Gold Microsoft Learn Student Ambassador and the runner up of Microsoft Imagine Cup, Healthcare Category. She loves to interact with people and dogs. She loves to talk about everything Harry Potter.`}
