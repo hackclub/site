@@ -118,7 +118,7 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Annlee Foress"
+                name="Annlee Fores"
                 teamRole="Operations Asia-Pacific Region"
                 text={`As the COO of APAC, he oversees operations, handles event organisation & logistics at Hack Club APAC.
 When not seen busy juggling between different tasks he takes up, he can be seen enjoying tinkering & building fun projects`}
