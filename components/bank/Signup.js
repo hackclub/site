@@ -43,7 +43,7 @@ export default function Signup() {
     <Base
       method="get"
       target="_blank"
-      action="https://airtable.com/shrW33gWaPnSDBhYj"
+      action="https://hack.af/bank-apply"
     >
       <Field
         label="Project name"
