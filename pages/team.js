@@ -118,12 +118,20 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Annlee Foress"
+                name="Annlee Fores"
                 teamRole="Operations Asia-Pacific Region"
                 text={`As the COO of APAC, he oversees operations, handles event organisation & logistics at Hack Club APAC.
 When not seen busy juggling between different tasks he takes up, he can be seen enjoying tinkering & building fun projects`}
                 img="/team/annlee.jpg"
                 pronouns="he/him"
+              />
+              <Bio
+                name="Anna Grace Benny"
+                teamRole="Clubs Lead Asia-Pacific Region"
+                text={`Anna is a visual communication graduate and a social media buff. 
+                She loves films and everything related to it. Managing and meeting new hackclubers is her jam. She helps with onboarding new hackclubers in the APAC region and manages their social media pages`}
+                img="/team/anna.png"
+                pronouns="she/her"
               />
               <Bio
                 name="Shubhangi Gupta"
