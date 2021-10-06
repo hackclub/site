@@ -12,20 +12,42 @@ import {
 } from 'theme-ui'
 import Head from 'next/head'
 import NextLink from 'next/link'
+import styled from '@emotion/styled'
+import theme from '../lib/theme'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import Icon from '../components/icon'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
-import ElonCopy from '../components/elon/copy.mdx'
 
-const ElonPage = () => (
+import Amount from '../components/relon/amount' // TODO should move this file to a more logical place... maybe inline?
+// FIXME: use new copy here :)
+import ElonCopy from '../components/relon/copy.mdx'
+
+const StyledLink = styled.a`
+  //text-decoration: none;
+  color: ${theme.colors.white};
+`;
+
+const RelonLink = (props) => {
+  const {href} = props
+  return (
+    <NextLink href={href} passHref>
+      <StyledLink>
+        {props.children}
+      </StyledLink>
+    </NextLink>
+  )
+
+}
+
+const RelonPage = () => (
   <>
     <Meta
       as={Head}
-      title="Elon Musk is Giving $500K"
-      description="We’re thrilled to announce Elon Musk has donated $500k to Hack Club, a global nonprofit network of high school hackers & coding clubs."
-      image="https://assets.hackclub.com/log/HC-500k@1080w.png"
+      title="Elon Musk's $1M Donation"
+      description="We’re thrilled to announce Elon Musk has donated $1M to Hack Club, a global nonprofit network of high school hackers & coding clubs."
+      image="/relon/social-card.png"
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -35,7 +57,7 @@ const ElonPage = () => (
         pt: [5, 6],
         pb: [4, 5],
         bg: 'rgb(104, 41, 205)',
-        backgroundImage: theme => theme.util.gx('yellow', 'green')
+        backgroundImage: theme => theme.util.gx('purple', 'orange')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
@@ -51,10 +73,9 @@ const ElonPage = () => (
             }
           }}
         >
-          Hack Club “makes me feel <span>much more optimistic</span>{' '}
-          about&nbsp;the future.”
+          {/* TODO fix link styling */}
+          Elon Musk is donating <Amount /> to <RelonLink href="/">Hack Club</RelonLink>
         </Heading>
-        <Text variant="headline">—Elon Musk</Text>
       </Container>
     </Box>
     <Container
@@ -77,9 +98,9 @@ const ElonPage = () => (
           justifyContent: 'center',
           alignItems: 'center',
           div: {
-            mt: 0,
-            mb: 2,
-            bg: 'white',
+            mt: 1,
+            mb: 3,
+            //bg: 'white',
             color: 'muted',
             border: '1px solid',
             borderColor: 'border',
@@ -101,17 +122,35 @@ const ElonPage = () => (
           }}
         >
           <Avatar
+            src="https://hackclub.com/team/christina.jpg"
+            alt="Christina"
+            size={36}
+            mr={2}
+          />
+          Christina Asquith, COO
+        </Badge>
+        <Badge
+          variant="pill"
+          sx={{
+            mr: [2, 3],
+            pl: 0,
+            pr: 3,
+            display: 'inline-flex',
+            alignItems: 'center'
+          }}
+        >
+          <Avatar
             src="https://hackclub.com/team/zach.jpg"
             alt="Zach"
             size={36}
             mr={2}
           />
-          Zach Latta, founder
-        </Badge>
-        <Badge variant="pill" px={3}>
-          May 15, 2020
+          Zach Latta, Founder
         </Badge>
       </Flex>
+      <Heading as="h4" variant="headline" py={3} sx={{'textAlign': 'center',}}>
+        Wednesday, October 6th, 2021
+      </Heading>
       <ElonCopy />
     </Container>
     <Box
@@ -146,4 +185,4 @@ const ElonPage = () => (
   </>
 )
 
-export default ElonPage
+export default RelonPage

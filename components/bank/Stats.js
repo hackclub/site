@@ -41,7 +41,7 @@ function Dot() {
   )
 }
 
-export default props => {
+const Stats = props => {
   const [volume, setVolume] = useState(100 * 1000 * 1000) // 1MM default
   const [raised, setRaised] = useState(100 * 1000 * 500) // half million default
   const [lastUpdated, setLastUpdated] = useState(Date.now()) // now default
@@ -89,4 +89,6 @@ export default props => {
       </div>
     </div>
   )
-}
+};
+
+export default Stats;
