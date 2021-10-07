@@ -14,6 +14,7 @@ import {
 } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
+import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Sponsors from '../components/donate/sponsors'
@@ -171,6 +172,7 @@ export default function Donate() {
         image="https://cloud-cz9a6kt0a-hack-club-bot.vercel.app/0social-photo_2.jpg"
       />
       <Nav color="muted" />
+      <ForceTheme theme="light" />
       <Header pt={[5, 5, 6]}>
         <Grid
           color="black"
