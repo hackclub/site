@@ -1,17 +1,18 @@
 import { Image, useColorMode } from 'theme-ui'
 
-const Signature = ({fname, lname, width}) => {
+
+const Signatures = ({fileName, width}) => {
   // enforce a sane color mode (typescript should do this in the future)
   let [colorMode] = useColorMode()
   colorMode = colorMode === 'dark' ? 'light' : 'dark'
   return (
     <Image
-      src={`/signatures/${fname}_${lname}-${colorMode}.png`.toLowerCase()}
+      src={`/signatures/${fileName}-${colorMode}.png`.toLowerCase()}
       width={width || 96}
-      alt={`${fname} ${lname}'s signature`}
+      alt={`${fileName}'s signature`}
       sx={{ '+ p': { mt: 0 } }}
     />
   )
 }
 
-export default Signature
+export default Signatures
