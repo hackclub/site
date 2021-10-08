@@ -149,7 +149,7 @@ const RelonPage = () => (
         </Badge>
       </Flex>
       <Heading as="h4" variant="headline" py={3} sx={{'textAlign': 'center',}}>
-        Wednesday, October 6th, 2021
+        Friday, October 8th, 2021
       </Heading>
       <ElonCopy />
     </Container>
