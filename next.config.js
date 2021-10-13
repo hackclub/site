@@ -158,7 +158,7 @@ const nextConfig = {
         destination: 'https://workshops.hackclub.com/transparency-may/'
       },
       {
-        source: '/map/',
+        source: '/map/(.*)',
         destination: 'https://map.hackclub.dev/'
       }
     ]
