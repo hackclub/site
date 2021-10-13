@@ -62,6 +62,20 @@ export default function Team() {
                 pronouns="she/her"
               />
               <Bio
+                name="Abby Fischler"
+                teamRole="Coordinator to the COO"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Belle See"
+                teamRole="Coordinator to the COO"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="she/her"
+              />
+              <Bio
                 img="/team/max.jpg"
                 name="Max Wofford"
                 teamRole="Operations"
@@ -71,7 +85,7 @@ export default function Team() {
               <Bio
                 img="/team/athul.jpg"
                 name="Athul Blesson"
-                teamRole="Director Asia-Pacific Region"
+                teamRole="Director, Asia-Pacific Region"
                 text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined as the Regional Manager of Asia-Pacific & Africa, where he actively manages 117 clubs."
                 pronouns="he/him"
               />
@@ -97,6 +111,69 @@ export default function Team() {
                 pronouns="she/her"
               />
               <Bio
+                name="Kunal Botla"
+                teamRole="Bank Operations"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Gary Tou"
+                teamRole="Bank Operations"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Deven"
+                teamRole="Bank Operations, Asia-Pacific Region"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Sam Poder"
+                teamRole="Engineering Contributor"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Ella Xu"
+                teamRole="Bank Operations"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Hugo Hu"
+                teamRole="Mail Team Coordinator"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Claire Wang"
+                teamRole="Community Team"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Caleb Denio"
+                teamRole="Community Team"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Rishi Kothari"
+                teamRole="Community Team"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
                 name="Leo McElroy"
                 teamRole="Clubs Lead"
                 text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
@@ -112,14 +189,14 @@ export default function Team() {
               />
               <Bio
                 name="Harsh Bajpai"
-                teamRole="Clubs Lead Asia-Pacific Region"
+                teamRole="Clubs Lead, Asia-Pacific Region"
                 text="Harsh is a gentle force in both his local and the Slack community. He is a vegetarian musician who enjoys traveling around India. When he is not reading ancient mythology, he is programming with purpose and passion."
                 img="/team/harsh.png"
                 pronouns="he/him"
               />
               <Bio
                 name="Annlee Fores"
-                teamRole="Operations Asia-Pacific Region"
+                teamRole="Operations, Asia-Pacific Region"
                 text={`As the COO of APAC, he oversees operations, handles event organisation & logistics at Hack Club APAC.
 When not seen busy juggling between different tasks he takes up, he can be seen enjoying tinkering & building fun projects`}
                 img="/team/annlee.jpg"
@@ -127,7 +204,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               />
               <Bio
                 name="Anna Grace Benny"
-                teamRole="Clubs Lead Asia-Pacific Region"
+                teamRole="Clubs Lead, Asia-Pacific Region"
                 text={`Anna is a visual communication graduate and a social media buff. 
                 She loves films and everything related to it. Managing and meeting new hackclubers is her jam. She helps with onboarding new hackclubers in the APAC region and manages their social media pages`}
                 img="/team/anna.png"
@@ -135,11 +212,12 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               />
               <Bio
                 name="Shubhangi Gupta"
-                teamRole="Community Asia-Pacific Region"
+                teamRole="Community, Asia-Pacific Region"
                 text={`Shubhangi is the founder of Raahee, a mental health startup aiming to provide affordable therapy. She is a Gold Microsoft Learn Student Ambassador and the runner up of Microsoft Imagine Cup, Healthcare Category. She loves to interact with people and dogs. She loves to talk about everything Harry Potter.`}
                 img="/team/shubhangi.jpeg"
                 pronouns="she/her"
               />
+              
             </Grid>
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
