@@ -1,9 +1,4 @@
-import {
-  Box,
-  Container,
-  Text,
-  Grid
-} from 'theme-ui'
+import { Box, Container, Text, Grid } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../components/nav'
@@ -62,31 +57,10 @@ export default function Team() {
                 pronouns="she/her"
               />
               <Bio
-                name="Abby Fischler"
-                teamRole="Coordinator to the COO"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Belle See"
-                teamRole="Coordinator to the COO"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="she/her"
-              />
-              <Bio
                 img="/team/max.jpg"
                 name="Max Wofford"
                 teamRole="Operations"
                 text="After teaching himself to code in junior year of high school, Max joined a group of nomadic hackers in Costa Rica to experience coding in a real-world setting. He has been with Hack Club since day one and is now working full-time in Vermont to grow the movement."
-                pronouns="he/him"
-              />
-              <Bio
-                img="/team/athul.jpg"
-                name="Athul Blesson"
-                teamRole="Director, Asia-Pacific Region"
-                text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined as the Regional Manager of Asia-Pacific & Africa, where he actively manages 117 clubs."
                 pronouns="he/him"
               />
               <Bio
@@ -95,6 +69,20 @@ export default function Team() {
                 text="Before he helped start Bitcamp, one of the largest & longest-running annual collegic hackathons, Zach Fogg was homeschooled in Maryland. He's been a mentor at tons of student hackathons and worked as software engineer for the past 8 years in SF."
                 pronouns="he/him"
                 img="/team/zfogg.jpg"
+              />
+              <Bio
+                name="Leo McElroy"
+                teamRole="Clubs Lead"
+                text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
+                img="/team/leo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Tevan Goldberg"
+                teamRole="Clubs Operations Manager"
+                text="Tevan is a professional musician, avid reader, mediocre fisherman, pathological conversationalist, and proud dropout of Harvard Divinity School, among other diversions. He believes self-motivated education is one of the most worthwhile things you can do in life, besides perhaps owning a dog. Tevan also enjoys writing about himself in the third person. "
+                img="/team/tevan.png"
+                pronouns="he/him"
               />
               <Bio
                 name="Melanie Smith"
@@ -110,81 +98,17 @@ export default function Team() {
                 img="/team/liv.png"
                 pronouns="she/her"
               />
+            </Grid>
+            <br />
+            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
+              Asia-Pacific HQ
+            </Text>
+            <Grid columns={[1, null, 2]} gap={4}>
               <Bio
-                name="Kunal Botla"
-                teamRole="Bank Operations"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Gary Tou"
-                teamRole="Bank Operations"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Deven"
-                teamRole="Bank Operations, Asia-Pacific Region"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Sam Poder"
-                teamRole="Engineering Contributor"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Ella Xu"
-                teamRole="Bank Operations"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Hugo Hu"
-                teamRole="Mail Team Coordinator"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Claire Wang"
-                teamRole="Community Team"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Caleb Denio"
-                teamRole="Community Team"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Rishi Kothari"
-                teamRole="Community Team"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Leo McElroy"
-                teamRole="Clubs Lead"
-                text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
-                img="/team/leo.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Tevan Goldberg"
-                teamRole="Clubs Operations Manager"
-                text="Tevan is a professional musician, avid reader, mediocre fisherman, pathological conversationalist, and proud dropout of Harvard Divinity School, among other diversions. He believes self-motivated education is one of the most worthwhile things you can do in life, besides perhaps owning a dog. Tevan also enjoys writing about himself in the third person. "
-                img="/team/tevan.png"
+                img="/team/athul.jpg"
+                name="Athul Blesson"
+                teamRole="Director, Asia-Pacific Region"
+                text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined as the Regional Manager of Asia-Pacific & Africa, where he actively manages 117 clubs."
                 pronouns="he/him"
               />
               <Bio
@@ -217,7 +141,89 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
                 img="/team/shubhangi.jpeg"
                 pronouns="she/her"
               />
-              
+            </Grid>
+            <br />
+            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
+              Student Team
+            </Text>
+            <Grid columns={[1, null, 2]} gap={4}>
+              <Bio
+                name="Claire Wang"
+                teamRole="Community Team"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Caleb Denio"
+                teamRole="Community Team"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Rishi Kothari"
+                teamRole="Community Team"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Abby Fischler"
+                teamRole="Coordinator to the COO"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Belle See"
+                teamRole="Coordinator to the COO"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Kunal Botla"
+                teamRole="Bank Operations"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Gary Tou"
+                teamRole="Bank Operations"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Ella Xu"
+                teamRole="Bank Operations"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Deven"
+                teamRole="Bank Operations (APAC)"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Sam Poder"
+                teamRole="Engineering & Operations"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Hugo Hu"
+                teamRole="Mail Team Coordinator"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
             </Grid>
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
