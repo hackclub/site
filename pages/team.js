@@ -213,8 +213,10 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               <Bio
                 name="Sam Poder"
                 teamRole="Engineering & Operations"
-                text={`yeah`}
-                img="/stickers/logo.png"
+                text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. 
+Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys travelling with his family 
+and participating in academic competitions with his friends.`}
+                img="https://change-my-pfp.vercel.app/api/current/"
                 pronouns="he/him"
               />
               <Bio
