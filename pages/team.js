@@ -171,7 +171,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               <Bio
                 name="Abby Fischler"
                 teamRole="Coordinator to the COO"
-                text={`yeah`}
+                text={`Abby is a high school sophomore passionate about STEM living in Los Angeles! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding. `}
                 img="/stickers/logo.png"
                 pronouns="she/her"
               />
@@ -204,9 +204,9 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
                 pronouns="she/her"
               />
               <Bio
-                name="Deven"
+                name="Deven Jadhav"
                 teamRole="Bank Operations (APAC)"
-                text={`yeah`}
+                text={`Deven is a Hack-clubber from India who enjoys building meaningful things from the intersections of art and technology. He also loves music, and plays the guitar and drums! Along with this, he also likes talking to strangers over the internet and having interesting and deep conversations. He is also a sucker for nature photography, and enjoys hikes and treks into the wild!`}
                 img="/stickers/logo.png"
                 pronouns="he/him"
               />
