@@ -546,7 +546,7 @@ const Page = () => (
                 <Link href="/bank">
                   <a>Hack Club Bank</a>
                 </Link>
-                to fundraise, accept donations, buy things!
+                {' '}to fundraise, accept donations, buy things!
               </>
             }
           />
