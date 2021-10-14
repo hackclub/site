@@ -107,20 +107,20 @@ export default function Team() {
               <Bio
                 img="/team/athul.jpg"
                 name="Athul Blesson"
-                teamRole="Director, Asia-Pacific Region"
+                teamRole="APAC Director"
                 text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined as the Regional Manager of Asia-Pacific & Africa, where he actively manages 117 clubs."
                 pronouns="he/him"
               />
               <Bio
                 name="Harsh Bajpai"
-                teamRole="Clubs Lead, Asia-Pacific Region"
+                teamRole="Clubs Lead"
                 text="Harsh is a gentle force in both his local and the Slack community. He is a vegetarian musician who enjoys traveling around India. When he is not reading ancient mythology, he is programming with purpose and passion."
                 img="/team/harsh.png"
                 pronouns="he/him"
               />
               <Bio
                 name="Annlee Fores"
-                teamRole="Operations, Asia-Pacific Region"
+                teamRole="Operations"
                 text={`As the COO of APAC, he oversees operations, handles event organisation & logistics at Hack Club APAC.
 When not seen busy juggling between different tasks he takes up, he can be seen enjoying tinkering & building fun projects`}
                 img="/team/annlee.jpg"
@@ -128,7 +128,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               />
               <Bio
                 name="Anna Grace Benny"
-                teamRole="Clubs Lead, Asia-Pacific Region"
+                teamRole="Clubs Lead"
                 text={`Anna is a visual communication graduate and a social media buff. 
                 She loves films and everything related to it. Managing and meeting new hackclubers is her jam. She helps with onboarding new hackclubers in the APAC region and manages their social media pages`}
                 img="/team/anna.png"
@@ -136,7 +136,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               />
               <Bio
                 name="Shubhangi Gupta"
-                teamRole="Community, Asia-Pacific Region"
+                teamRole="Community"
                 text={`Shubhangi is the founder of Raahee, a mental health startup aiming to provide affordable therapy. She is a Gold Microsoft Learn Student Ambassador and the runner up of Microsoft Imagine Cup, Healthcare Category. She loves to interact with people and dogs. She loves to talk about everything Harry Potter.`}
                 img="/team/shubhangi.jpeg"
                 pronouns="she/her"
