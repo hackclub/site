@@ -107,7 +107,7 @@ export default function Philosophy() {
       <Nav />
       <Meta
         as={Head}
-        title="Philosophy – Hack Club"
+        title="Philosophy"
         description="Read about Hack Club, a network of high school computer science clubs. We want to make building apps and websites accessible to everyone through programming clubs at every high school."
         image="https://cloud-cz9a6kt0a-hack-club-bot.vercel.app/0social-photo_2.jpg"
       />
