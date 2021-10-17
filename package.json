@@ -16,6 +16,8 @@
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^11.1.2",
+    "@octokit/core": "^3.5.1",
+    "@octokit/rest": "^18.12.0",
     "airtable-plus": "^1.0.4",
     "animated-value": "^0.2.4",
     "animejs": "^3.2.1",
