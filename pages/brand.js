@@ -15,6 +15,7 @@ import theme from '@hackclub/theme'
 import Meta from '@hackclub/meta'
 import Icon from '@hackclub/icons'
 import Head from 'next/head'
+import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import { startCase } from 'lodash'
@@ -107,7 +108,8 @@ const Page = ({ css }) => (
       description="Download Hack Club HQ’s logos and preview our brand fonts & colors."
       image="https://workshop-cards.hackclub.com/Branding.png?theme=dark&fontSize=350px&brand=HQ"
     />
-    <Nav />
+    <ForceTheme theme="light" />
+    <Nav color="text" />
     <Box
       as="header"
       sx={{
@@ -222,7 +224,7 @@ const Page = ({ css }) => (
       </Grid>
       <Heading variant="headline">Fonts</Heading>
       <Text variant="title">Phantom Sans</Text>
-      <Text variant="subtitle" sx={{ mb: 3 }}>
+      <Text variant="subtitle" sx={{ mb: 3 , ml: 2}}>
         is our brand font.
       </Text>
       <Box as="details" mb={[4, 5]}>

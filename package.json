@@ -15,18 +15,23 @@
     "@hackclub/meta": "1.1.32",
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
-    "@next/mdx": "^11.1.0",
+    "@next/mdx": "^11.1.2",
     "airtable-plus": "^1.0.4",
+    "animated-value": "^0.2.4",
+    "animejs": "^3.2.1",
     "globby": "^11.0.4",
     "lodash": "^4.17.21",
-    "next": "^11.1.0",
+    "next": "^11.1.2",
+    "next-compose-plugins": "^2.2.1",
+    "next-transpile-modules": "^8.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-masonry-css": "^1.0.16",
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
-    "react-use-websocket": "2.7.1",
+    "react-use-websocket": "2.8.0",
     "resnow": "^1.0.0",
-    "theme-ui": "^0.10"
-  }
+    "theme-ui": "^0.11"
+  },
+  "devDependencies": {}
 }

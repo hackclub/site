@@ -1,0 +1,20 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="256" height="256">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M128 256C230.4 256 256 230.4 256 128C256 25.6 230.4 1.11901e-05 128 1.11901e-05C25.6 1.11901e-05 0 25.6 0 128C0 230.4 25.6 256 128 256Z" fill="black"/>
+</mask>
+<g mask="url(#mask0)">
+<rect y="1.11901e-05" width="256" height="256" rx="2" fill="url(#paint0_radial)"/>
+<path d="M115.103 47L80 52.9604V208.085H115.103V149.397C115.103 132.127 124.261 121.429 131.892 121.429C138.76 121.429 140.744 128.307 140.744 138.699V208.085H176V133.656C176 110.12 167.148 94.9892 144.102 94.9892C133.266 94.9892 122.735 98.0458 115.103 104.923V47Z" fill="white"/>
+</g>
+</g>
+<defs>
+<radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="rotate(63.4349) scale(286.217)">
+<stop stop-color="#E4732D"/>
+<stop offset="1" stop-color="#E42D42"/>
+</radialGradient>
+<clipPath id="clip0">
+<rect x="256" y="1.11901e-05" width="256" height="256" transform="rotate(90 256 1.11901e-05)" fill="white"/>
+</clipPath>
+</defs>
+</svg>

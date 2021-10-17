@@ -1,5 +1,4 @@
-const withMDX = require('@next/mdx')({ extension: /\.mdx?$/ })
-module.exports = withMDX({
+const nextConfig = {
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
   images: {
@@ -123,10 +122,6 @@ module.exports = withMDX({
         destination: 'https://summer.hackclub.com/_next/:path*'
       },
       {
-        source: '/bank/',
-        destination: 'https://v2.hackclub.dev/bank/'
-      },
-      {
         source: '/sponsorship/',
         destination: 'https://workshops.hackclub.com/sponsorship/'
       },
@@ -167,8 +162,8 @@ module.exports = withMDX({
         destination: 'https://map.hackclub.dev/'
       },
       {
-        source: '/:path*',
-        destination: 'https://v2.hackclub.dev/:path*'
+        source: '/map/(.*)',
+        destination: 'https://map.hackclub.dev/$1'
       }
     ]
   },
@@ -195,4 +190,11 @@ module.exports = withMDX({
       }
     ]
   }
-})
+}
+
+const withPlugins = require('next-compose-plugins')
+
+const withMDX = require('@next/mdx')({ extension: /\.mdx?$/ })
+const withTM = require('next-transpile-modules')(['animejs'])
+
+module.exports = withPlugins([withTM, withMDX], nextConfig)
