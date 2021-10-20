@@ -28,7 +28,7 @@ export default () => (
         Philanthropy Position @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline">
-          New job open as of October 19th, 2021.
+          New job open as of October 20th, 2021.
         </Text>
       </Container>
     </Box>
