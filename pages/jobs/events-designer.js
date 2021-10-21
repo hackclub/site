@@ -11,7 +11,7 @@ export default () => (
       as={Head}
       title="Events Designer"
       description="Hack Club is looking for an events designer / producer with coding skills to create events for Hack Clubbers."
-      image="https://workshop-cards.hackclub.com/Events Designer@ Hack Club.png?fontSize=185x&brand=HQ"
+      image="https://workshop-cards.hackclub.com/Events Designer@ Hack Club.png?fontSize=185px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
