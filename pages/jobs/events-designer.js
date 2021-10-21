@@ -10,7 +10,7 @@ export default () => (
     <Meta
       as={Head}
       title="Events Designer"
-      description="Hack Club is looking for someone to make Hack Club a greater place for girls."
+      description="Hack Club is looking for an events designer / producer with coding skills to create events for Hack Clubbers."
       image="https://workshop-cards.hackclub.com/Events Designer@ Hack Club.png?fontSize=185x&brand=HQ"
     />
     <ForceTheme theme="light" />
@@ -28,7 +28,7 @@ export default () => (
           Events Designer @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline">
-          New job open as of October 20th, 2021.
+          New job open as of October 21th, 2021.
         </Text>
       </Container>
     </Box>
