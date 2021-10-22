@@ -28,7 +28,7 @@ export default () => (
           Events Designer @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline">
-          New job open as of October 21th, 2021.
+          New job open as of October 21st, 2021.
         </Text>
       </Container>
     </Box>
