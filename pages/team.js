@@ -178,7 +178,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               <Bio
                 name="Belle See"
                 teamRole="Coordinator to the COO"
-                text={`yeah`}
+                text={`Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club! `}
                 img="/stickers/logo.png"
                 pronouns="she/her"
               />
