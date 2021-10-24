@@ -39,7 +39,7 @@ const Content = () => (
       to play football or a club to play chess, the stereotype of a
       programmer is a person alone in a dark room. But it doesn't have to be
       that way, you’ll find some <Highlight>fabulous people to talk</Highlight>{' '}
-      to in our global Slack (Discord-style online groupchat) with 11,000+
+      to in our global Slack (Discord-style online groupchat) with 14,000+
       members, active at all hours. For leaders, you'll be able to connect with
       other leaders and support one another.
     </Text>
