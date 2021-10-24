@@ -222,7 +222,7 @@ and participating in academic competitions with his friends.`}
               <Bio
                 name="Hugo Hu"
                 teamRole="Mail Team Coordinator"
-                text={`yeah`}
+                text={`Hugo is an avid fan of corgis, hardware, and shipping. He works with club leaders to get stickers to clubs and events, as well as working with community members to assist with logistical challenges. He ships for Hack Club Mail Team and handles a portion of Hack Club’s logistical requirements, as well as running Hack Shop and helping plan, design, produce, and distribute various types of swag for different events.`}
                 img="/stickers/logo.png"
                 pronouns="he/him"
               />
