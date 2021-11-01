@@ -2937,10 +2937,10 @@ react-scrolllock@^5.0.1:
   dependencies:
     exenv "^1.2.2"
 
-react-use-websocket@2.8.0:
-  version "2.8.0"
-  resolved "https://registry.npmjs.org/react-use-websocket/-/react-use-websocket-2.8.0.tgz"
-  integrity sha512-0J1gsX7NFTsZYBBfAQo9vKjIyGE/uxBfb0p8yq6Iza+rZF3mQocj3kkIJujFiXCYQIBt00pWJzNj+YI5srfxZg==
+react-use-websocket@2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/react-use-websocket/-/react-use-websocket-2.9.1.tgz#ef4a73a618b24f2a5875829ac0a0a0573c524710"
+  integrity sha512-jV6OxXuxWi6BiPVlbAJd/uWNaoQwkeGARFO9f6HidJeWUatB4J2UopbxI/fduiGpcpHGhRAmpLdfVjeRzrcTnQ==
 
 react@^17.0.2:
   version "17.0.2"
