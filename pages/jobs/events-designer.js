@@ -1,4 +1,4 @@
-import { BaseStyles, Box, Container, Heading, Text } from 'theme-ui'
+import { Box, Container, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
@@ -15,6 +15,7 @@ export default () => (
     />
     <ForceTheme theme="light" />
     <Nav />
+
     <Box
       as="section"
       sx={{
@@ -24,17 +25,17 @@ export default () => (
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
-        <Heading as="h1" variant="title">
+        <Heading as="h1" variant="title" mb={30}>
           Events Designer @&nbsp;Hack&nbsp;Club
         </Heading>
-        <Text variant="headline">
+        <Text variant="headline" sx={{ fontWeight: 400 }}>
           New job open as of October 21st, 2021.
         </Text>
       </Container>
     </Box>
+
     <Container
-      as={BaseStyles}
-      variant="copy"
+      as="section"
       sx={{
         pt: [3, 4],
         pb: [4, 5],

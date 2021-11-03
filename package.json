@@ -30,6 +30,7 @@
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
     "react-use-websocket": "2.9.1",
+    "remark-disable-tokenizers": "^1.1.0",
     "resnow": "^1.0.0",
     "theme-ui": "^0.12",
     "turndown": "^7.1.1"
