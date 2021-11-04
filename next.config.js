@@ -194,17 +194,7 @@ const nextConfig = {
 
 const withPlugins = require('next-compose-plugins')
 
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [
-      [
-        require('remark-disable-tokenizers'),
-        { block: ['indentedCode'] }
-      ]
-    ]
-  }
-})
+const withMDX = require('@next/mdx')({ extension: /\.mdx?$/ })
 const withTM = require('next-transpile-modules')(['animejs'])
 
 module.exports = withPlugins([withTM, withMDX], nextConfig)
