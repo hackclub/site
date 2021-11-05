@@ -134,7 +134,7 @@ export default () => (
         Hack Club is where 16,000+ teenage programmers talk, build, and have fun together.
       </Heading>
 
-      <Grid my={4} gap={3} columns={[null, 3]}>
+      <Grid my={4} gap={3} columns={[null, 2, 3]}>
         <Photo
           src="/home/flagship_4.jpg"
           alt="Hack Clubbers at our Flagship event"
@@ -147,6 +147,7 @@ export default () => (
           alt={<>The <Link href="https://zephyr.hackclub.com/" target="_blank" rel="noopener noreferrer">world's longest hackathon</Link> on land</>}
           width={500}
           height={326.5}
+          sx={{ display: ['none', 'none', 'block'] }}
           showAlt
         />
         <Photo
@@ -154,6 +155,7 @@ export default () => (
           alt="One of the workshops run by community members"
           width={500}
           height={326.5}
+          sx={{ display: ['none', 'block', 'block'] }}
           showAlt
         />
       </Grid>
