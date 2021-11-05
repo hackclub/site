@@ -137,7 +137,7 @@ export default () => (
       <Grid my={4} gap={3} columns={[null, 2, 3]}>
         <Photo
           src="/home/flagship_4.jpg"
-          alt="Hack Clubbers at our Flagship event"
+          alt={<>Hack Clubbers at our <Link href="https://photos.app.goo.gl/F5JDxq5FzfhofTMD9" target="_blank" rel="noopener noreferrer">Flagship</Link></>}
           width={500}
           height={326.5}
           showAlt
