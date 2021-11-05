@@ -1,4 +1,6 @@
-# MIT License
+_Code under MIT License, assets may not be re-used or re-distributed._
+
+### MIT License
 
 Copyright 2021 The Hack Foundation
 
