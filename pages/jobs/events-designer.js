@@ -100,9 +100,9 @@ export default () => (
           </Flex>
 
           <Box sx={{ fontSize: 2, p: { my: 3 } }}>
-            <Text as="p">We have a strong preference for someone in-person in Burlington, VT, but we will consider applications from people who want to work remotely, provided they are willing to travel to our offices.</Text>
+            <Text as="p">We have a strong preference for someone in-person in Vermont, but we will consider applications from people who want to work remotely, provided they are willing to travel to our offices.</Text>
 
-            <Text as="p">We have COVID protocols and take them seriously. Relocation assistance available.</Text>
+            <Text as="p">Relocation assistance available. We have COVID protocols and take them seriously.</Text>
           </Box>
         </Box>
 
@@ -174,7 +174,7 @@ export default () => (
         <Box sx={{ flex: 1, maxWidth: [null, null, 400] }}>
           <Photo
             src="/hq.jpg"
-            alt="Our headquarters in beautiful Burlington, VT"
+            alt="Our headquarters in beautiful Shelburne, Vermont"
             width={500}
             height={326.5}
             showAlt
