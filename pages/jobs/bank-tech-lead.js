@@ -9,9 +9,9 @@ export default () => (
   <>
     <Meta
       as={Head}
-      title="Bank Operations Lead"
-      description="Hack Club is a hiring a Bank Operations Lead as the 7th full-time member of our team in Burlington, Vermont."
-      image="https://workshop-cards.hackclub.com/Bank Ops Lead @ Hack Club.png?fontSize=175px&brand=HQ"
+      title="Bank Tech Lead"
+      description="Hack Club is a hiring a Bank Tech Lead as the 7th full-time member of our team in Burlington, Vermont."
+      image="https://workshop-cards.hackclub.com/Bank Tech Lead @ Hack Club.png?fontSize=175px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
