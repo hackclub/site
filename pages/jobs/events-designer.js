@@ -41,6 +41,10 @@ export default () => (
         fontSize: [2, 3]
       }}
     >
+      <Heading variant="headline" sx={{ fontWeight: 700, fontSize: [4, 5], mb: 4 }}>
+        Hack Club is hiring an Events Designer!
+      </Heading>
+
       <Text as="p" sx={{ fontWeight: 700 }}>We do crazy things...</Text>
 
       <Grid
