@@ -24,10 +24,10 @@ export default () => (
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
-        <Heading as="h1" variant="title">
-        Philanthropy Position @&nbsp;Hack&nbsp;Club
+        <Heading as="h1" variant="title" mb={30}>
+          Philanthropy Position @&nbsp;Hack&nbsp;Club
         </Heading>
-        <Text variant="headline">
+        <Text variant="headline" sx={{ fontWeight: 400 }}>
           New job open as of October 20th, 2021.
         </Text>
       </Container>

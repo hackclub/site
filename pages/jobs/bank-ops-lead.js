@@ -24,10 +24,10 @@ export default () => (
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
-        <Heading as="h1" variant="title">
+        <Heading as="h1" variant="title" mb={30}>
           Bank Operations Lead
         </Heading>
-        <Text variant="headline">
+        <Text variant="headline" sx={{ fontWeight: 400 }}>
           Closed as of March 5th, 2021.
         </Text>
       </Container>
