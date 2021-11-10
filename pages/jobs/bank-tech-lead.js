@@ -10,7 +10,7 @@ export default () => (
     <Meta
       as={Head}
       title="Bank Tech Lead"
-      description="Hack Club is a hiring a Bank Tech Lead as the 7th full-time member of our team in Burlington, Vermont."
+      description="Hack Club is a hiring a Tech Lead for Hack Club Bank as the 9th full-time member of our team in Burlington, Vermont."
       image="https://workshop-cards.hackclub.com/Bank Tech Lead @ Hack Club.png?fontSize=175px&brand=HQ"
     />
     <ForceTheme theme="light" />
@@ -28,7 +28,7 @@ export default () => (
           Bank Tech Lead
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New job open as of December 11th, 2021.
+          New job open as of November 10th, 2021.
         </Text>
       </Container>
     </Box>
