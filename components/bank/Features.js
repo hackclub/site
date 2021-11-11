@@ -125,22 +125,9 @@ export default function Features() {
             }
           />
           <Module
-            icon="sam"
-            name="Zoom Pro"
-            body={
-              <>
-                Create Zoom Pro meetings for free from your calendar using{' '}
-                <Link
-                  href="https://hack.af/z-home"
-                  color="smoke"
-                  hoverline
-                  target="_blank"
-                >
-                  Slash Z
-                </Link>
-                .
-              </>
-            }
+            icon="web"
+            name="Free Domains"
+            body="We'll pay for your organization's domain name for 1 year."
           />
           <Module
             icon="sticker"
