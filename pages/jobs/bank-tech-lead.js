@@ -25,7 +25,7 @@ export default () => (
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading as="h1" variant="title" mb={30} sx={{ fontSize: [5, 5] }}>
-          Tech Lead for Hack Club Bank / for good startup CTO
+          Tech Lead for Hack Club Bank
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
           New job open as of November 10th, 2021.
