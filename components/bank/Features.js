@@ -136,17 +136,17 @@ export default function Features() {
           />
           <Module
             icon="embed"
-            name="Repl.it Hacker"
+            name="Replit Hacker"
             body={
               <>
                 Free Hacker Plans for your team on{' '}
                 <Link
-                  href="https://repl.it"
+                  href="https://replit.com"
                   color="smoke"
                   hoverline
                   target="_blank"
                 >
-                  repl.it
+                  Replit
                 </Link>{' '}
                 for 1 year.
               </>
