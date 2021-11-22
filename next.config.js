@@ -96,6 +96,11 @@ const nextConfig = {
         permanent: true
       },
       {
+        source: '/jobs/',
+        destination: 'https://jobs.hackclub.com',
+        permanent: false
+      },
+      {
         source: '/jobs/creative-director/',
         destination: '/jobs/brand-director/',
         permanent: false
