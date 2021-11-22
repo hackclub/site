@@ -15,7 +15,7 @@
     "@hackclub/meta": "1.1.32",
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
-    "@next/mdx": "^12.0.3",
+    "@next/mdx": "^12.0.4",
     "airtable-plus": "^1.0.4",
     "animated-value": "^0.2.4",
     "animejs": "^3.2.1",
