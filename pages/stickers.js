@@ -25,10 +25,10 @@ const color = '#EC37AD'
 
 const StickersPage = ({ stickers = [] }) => [
   <Box
-    as="main"
-    key="main"
-    sx={{ textAlign: 'center'}}
-  >
+  as="main"
+  key="main"
+  sx={{ textAlign: 'center'}}
+>
     <ForceTheme theme="dark" />
     <Nav dark />
     <Meta
