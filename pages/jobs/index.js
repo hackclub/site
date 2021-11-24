@@ -54,14 +54,14 @@ const DonateSheet = styled(Sheet)`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0625), 0 16px 32px rgba(0, 0, 0, 0.125) !important;
 `
 //making a function / component BOXWIDTH BUTTON
-const JobListing = ({positionName = 'unnamed', positionDesc = 'this is lorem ipsum', positionLink = 'testlink(hackclub.com)' }) => (
+const JobListing = ({positionName = 'unnamed', positionDesc = 'this is lorem ipsum', positionLink = 'testlink(hackclub.com)'}) => (
   <DonateSheet
       bg="primary"
       color="white"
       align="center"
       style={{
-        backgroundImage: `radial-gradient( ellipse farthest-corner at top left, #e4732d 0%, #e42d42 100%)`,
-        position: 'relative',
+        backgroundImage:`radial-gradient( ellipse farthest-corner at top left, red, blue)`,
+        position: 'relative', //{gradientColors}, //  background-image: radial-gradient(
         width: '100%',
         color: 'white',
         textAlign: 'center'
@@ -79,13 +79,13 @@ const JobListing = ({positionName = 'unnamed', positionDesc = 'this is lorem ips
       </Text>
       <Button
         as="a"
-        href="https://bank.hackclub.com/donations/start/hq"
+        href= {positionLink}
         width={1}
         chevronRight
         inverted
         sx={{ width: '100%', bg: 'white', color: 'red', py: 3 }}
       >
-        Apply now »
+        Apply now 
       </Button>
     </DonateSheet>
 )
@@ -93,14 +93,19 @@ const JobListing = ({positionName = 'unnamed', positionDesc = 'this is lorem ips
 
 export default () => (
   <>
+  <Meta
+          as={Head}
+          title="Jobs"
+          description="Hack Club is looking to hire please find our job listings below."
+        />
   <Box
     as="main"
     key="main"
-    sx={{ textAlign: 'center', bg: 'dark', color: 'white' }}
+    sx={{ textAlign: 'center', color: 'black' }}
   >
     <Box
       as="article"
-      sx={{ position: 'relative', overflow: 'hidden', py: [3, 4], px: 4 }}
+      sx={{ position: 'relative', overflow: 'hidden', py: [3, 4], px: 4}}
     ></Box>
   <Nav color="muted" />
   <Container sx={{ maxWidth: '48rem' }}>
@@ -126,12 +131,13 @@ export default () => (
           px={3}
           columns={[1, '2fr 2fr']}
         >
-         <JobListing positionName="cake baker"positionDesc="Win cakewars"></JobListing>
-         <JobListing>Abby</JobListing>
-         <JobListing>Abby</JobListing>
-         <JobListing>Abby</JobListing>
-         <JobListing>Abby</JobListing>
-         <JobListing>Abby</JobListing>
+          {/*Change so gradient colors*/}
+         <JobListing positionName="Executive Assistant" positionDesc="The leadership is looking for an executive assistant to play a vital role in supporting the leadership in administrative management of day-to-day operations." positionLink="https://hackclub.com/jobs/executive-assistant/"></JobListing>
+         <JobListing positionName="Events Designer" positionDesc="We're looking for someone fun, creative, and technical to excite and grow the community." positionLink="https://hackclub.com/jobs/events-designer/"></JobListing>
+         <JobListing positionName="Philanthropy Position" positionDesc="We are looking for a highly-experienced senior executive, who has advised donors, and who has proven success in stewarding collaborations and closing major gifts." positionLink="https://hackclub.com/jobs/philanthropy-position/"></JobListing>
+         <JobListing positionName="Education Engineer" positionDesc="We are looking for an engineer/educator to create and lead on technical projects for Hack Clubbers, with a strong focus on young women and non-binary individuals at Hack Club." positionLink="https://hackclub.com/jobs/education-engineer/"></JobListing>
+         <JobListing positionName="Tech Lead for Hack Club Bank" positionDesc="Hack Club is hiring a Tech Lead for Hack Club Bank, our in-house financial software used by 1,500 Hack Clubbers to financially power their Hack Clubs, hackathons, and student-organized nonprofits." positionLink="https://hackclub.com/jobs/bank-tech-lead/"></JobListing>
+         <JobListing positionName="Communications Manager" positionDesc="We are looking for a lead to focus on communications.This person's main goal will be to make sure every teenager who would want to know about Hack Club knows about Hack Club, and create comms that meet teens where they're at." positionLink="https://hackclub.com/jobs/communications-manager/"></JobListing>
             {/* <DonateSheet
             bg="primary"
             color="white"
@@ -167,10 +173,11 @@ export default () => (
           </DonateSheet> */}
     </Grid>
 
-<p>HI WORLD!</p>
-<h1>TEST</h1> =
-</Box><
-  />
+
+</Box>
+
+  <Footer key="footer" />
+</>
 
 )
 
