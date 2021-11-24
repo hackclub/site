@@ -34,7 +34,7 @@ const StickersPage = ({ stickers = [] }) => [
     <Meta
       as={Head}
       title="Stickers"
-      description="Check out Hack Club’s stickers & order some for yourself."
+      description="Check out Hack Club’s stickers."
       image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fstickers.png?v=1588012712143"
     />
     <Box
