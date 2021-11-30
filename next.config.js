@@ -95,11 +95,11 @@ const nextConfig = {
         destination: 'https://workshops.hackclub.com/$1/',
         permanent: true
       },
-      {
-        source: '/jobs/',
-        destination: 'https://jobs.hackclub.com',
-        permanent: false
-      },
+      // {
+      //   source: '/jobs/',
+      //   destination: 'https://jobs.hackclub.com',
+      //   permanent: false
+      // },
       {
         source: '/jobs/creative-director/',
         destination: '/jobs/brand-director/',
