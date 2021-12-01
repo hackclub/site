@@ -97,7 +97,7 @@ export default () => (
     >
       <Box
         sx={{
-          py: [4, 6],
+          py: [5, 6],
           background:
             'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%), url(https://pbs.twimg.com/media/E25MY-EXIAcfwfM?format=jpg&name=4096x4096)',
           backgroundSize: 'cover',
