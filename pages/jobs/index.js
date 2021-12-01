@@ -140,7 +140,7 @@ export default () => (
             mx: [0, 'auto']
           }}
           align="left"
-          columns={['1fr 1fr']}
+          columns={['1fr', '1fr 1fr']}
         >
           <JobListing
             positionName="Executive Assistant"
