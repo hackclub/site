@@ -14,12 +14,10 @@ import {
 } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
-import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import Sponsors from '../components/donate/sponsors'
-import donors from '../components/donate/donors.json'
 import ColorSwitcher from '../components/color-switcher'
+import ForceTheme from '../components/force-theme'
 
 const Header = styled(Box)`
   background: url('/pattern.svg');
@@ -105,6 +103,7 @@ export default () => (
       description="Hack Club is looking to hire please find our job listings below."
     />
     <Box as="main" key="main" sx={{ textAlign: 'center', color: 'black', mb: 4}}>
+    <ForceTheme theme="light" />
       <Box
         as="article"
         sx={{ position: 'relative', overflow: 'hidden', py: [3, 4], px: 4 }}
