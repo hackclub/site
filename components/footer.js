@@ -86,6 +86,7 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Link href="/slack" children="Slack" />
           <Link href="/donate" children="Donate" />
           <Link href="/team" children="Team" />
+          <Link href="/jobs" children="Jobs" />
           <Link href="/philosophy" children="Philosophy" />
           <Link href="/brand" children="Branding" />
           <Link href="/press" children="Press Inquiries" />
@@ -103,6 +104,7 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Link href="https://hackathons.hackclub.com/" children="Hackathons" />
           <Link href="/bank" children="Bank" />
           <Link href="https://hackclub.com/map/" children="Clubs Map" />
+          <Link href="https://toolbox.hackclub.com/" children="Toolbox" />
         </Box>
         <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
           <Logo aria-label="Hack Club logo" width={128} height={45} />
