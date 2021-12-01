@@ -111,11 +111,11 @@ export async function getStaticProps({ params }) {
         }
     }
     if (md == '404: Not Found') {
-      return { props: { fourOhFour: true } }
+      return { props: { fourOhFour: true }, revalidate: 30 }
     }
     const html = await markdownToHtml(md, `${params.job}.md`, '', true)
     return { props: { html, title } }
   } catch {
-    return { props: { fourOhFour: true } }
+    return { props: { fourOhFour: true }, revalidate: 30 }
   }
 }
