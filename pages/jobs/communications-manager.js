@@ -20,7 +20,7 @@ export default () => (
       sx={{
         pt: [5, 6],
         pb: [4, 5],
-        backgroundImage: theme => theme.util.gx('#FC5C7D', '#6A82FB')
+        backgroundImage: theme => theme.util.gx('blue', 'cyan')
       }}
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
