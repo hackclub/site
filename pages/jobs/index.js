@@ -145,35 +145,35 @@ export default () => (
           <JobListing
             positionName="Executive Assistant"
             positionDesc="Someone to play a role in supporting the leadership in administrative management of day-to-day operations."
-            positionLink="/jobs/executive-assistant/"
+            positionLink="/jobs/executive_assistant/"
             color={theme.util.cx('blue')}
             color1={theme.util.cx('green')}
           ></JobListing>
           <JobListing
             positionName="Events Designer"
             positionDesc="We're looking for someone fun, creative, and technical to excite and grow the community."
-            positionLink="/jobs/events-designer/"
+            positionLink="/jobs/events_designer/"
             color="#516395"
             color1="#614385"
           ></JobListing>
           <JobListing
             positionName="Philanthropy Position"
             positionDesc="We are looking for a highly-experienced senior executive, who has advised donors, and who has proven success in stewarding collaborations and closing major gifts."
-            positionLink="/jobs/philanthropy-position/"
+            positionLink="/jobs/philanthropy_position/"
             color={theme.util.cx('purple')}
             color1={theme.util.cx('blue')}
           ></JobListing>
           <JobListing
             positionName="Education Engineer"
             positionDesc="We are looking for an engineer & educator to create and lead on technical projects for Hack Clubbers, with a strong focus on young women and non-binary individuals at Hack&nbsp;Club."
-            positionLink="/jobs/education-engineer/"
+            positionLink="/jobs/education_engineer/"
             color={theme.util.cx('red')}
             color1={theme.util.cx('orange')}
           ></JobListing>
           <JobListing
             positionName="Bank Tech Lead"
             positionDesc="Hack Club Bank is our in-house financial software used by 1,500 Hack Clubbers to financially power their Hack Clubs, hackathons, and student-organized nonprofits."
-            positionLink="/jobs/bank-tech-lead/"
+            positionLink="/jobs/tech_lead/"
             color={theme.util.cx('red')}
             color1={theme.util.cx('purple')}
           ></JobListing>
