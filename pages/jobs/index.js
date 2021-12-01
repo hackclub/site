@@ -84,7 +84,7 @@ export default () => (
     <Meta
       as={Head}
       title="Jobs"
-      description="Hack Club is looking to hire please find our job listings below."
+      description="Hack Club is hiring! Check out the open positions."
     />
     <ForceTheme theme="light" />
     <Nav />
