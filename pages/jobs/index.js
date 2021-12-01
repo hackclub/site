@@ -137,7 +137,7 @@ export default () => (
         <Grid
           sx={{
             maxWidth: '64rem',
-            mx: [0, 'auto']
+            mx: 'auto'
           }}
           align="left"
           columns={['1fr', '1fr 1fr']}
