@@ -115,14 +115,14 @@ export default () => (
           >
             Join the Hack Club Team
           </Heading>
-          <Heading sx={{ color: 'smoke', mt: 3 }}>
+          <Heading sx={{ color: 'smoke', mt: 3, fontSize: ["18px", "24px"], lineHeight: ["1.5", "1.125"] }}>
             <Text
               sx={{
                 bg: 'dark',
                 color: 'green',
                 width: 'fit-content',
                 px: 3,
-                py: 2,
+                py: [1, 2],
                 borderRadius: 6,
                 mr: 1
               }}
