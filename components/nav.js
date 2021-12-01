@@ -150,6 +150,9 @@ const Navigation = props => (
     <NextLink href="/bank" passHref>
       <Link children="Bank" />
     </NextLink>
+    <NextLink href="/jobs" passHref>
+      <Link children="Jobs" />
+    </NextLink>
     <NextLink href="/donate" passHref>
       <Link children="Donate" />
     </NextLink>
