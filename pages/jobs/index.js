@@ -133,7 +133,7 @@ export default () => (
           </Heading>
         </Container>
       </Box>
-      <Container sx={{ py: [3, 4], px: [0, 'auto'] }}>
+      <Container sx={{ py: [3, 4], px: [2, 2, 0] }}>
         <Grid
           sx={{
             maxWidth: '64rem',
