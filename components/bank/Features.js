@@ -71,7 +71,7 @@ export default function Features() {
           <Module
             icon="payment"
             name="Built-in invoicing"
-            body="Accept sponsor payments with low negotiated rates from Stripe."
+            body="Accept sponsor payments with fee-free invoicing, powered by Stripe."
           />
           <Module
             icon="docs"
