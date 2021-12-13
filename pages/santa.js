@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
-import { Box, Container, Heading, Text, Button } from 'theme-ui'
+import { Box, Container, Heading, Button } from 'theme-ui'
 import styled from '@emotion/styled'
 import Snow from 'resnow'
 import Footer from '../components/footer'
+import Link from 'next/Link'
 
 const Hero = styled(Box)`
   background-image: linear-gradient(
@@ -35,10 +36,10 @@ const Lead = styled(Box)`
 `
 
 const Page = () => (
-  <Box sx={{overflowX: 'hidden'}}>
+  <Box sx={{ overflowX: 'hidden' }}>
     <Meta
       as={Head}
-      title="Hack Club Secret Santa – Holiday 2020"
+      title="Hack Club Secret Santa – Holiday 2021"
       description="Find your holiday zen this year with Hack Club’s Secret Santa."
       image="https://cloud-9kgqrlg7o-hack-club-bot.vercel.app/0santa.png"
     />
@@ -57,9 +58,12 @@ const Page = () => (
           bold
           caps
         >
-          2020 holidays
+          2021 holidays
         </Heading>
-        <Heading as="h1" sx={{ fontSize: [5, 6], color: 'white', margin: 'auto' }}>
+        <Heading
+          as="h1"
+          sx={{ fontSize: [5, 6], color: 'white', margin: 'auto' }}
+        >
           Hack Club Secret Santa
         </Heading>
         <Lead
@@ -76,9 +80,9 @@ const Page = () => (
           time for the holidays!
           <span role="img" aria-label="Present emoji" children={' 🎁'} />
         </Lead>
-        <Button href="https://airtable.com/shrnRJ3YxQYawSDW0" chevronRight>
-          Register Now
-        </Button>
+        <Link href="https://hack.af/santa-signup" passhref>
+          <Button chevronRight>Register Now</Button>
+        </Link>
       </Container>
     </Hero>
     <Footer />
