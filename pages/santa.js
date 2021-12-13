@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
-import { Box, Container, Heading, Button } from 'theme-ui'
+import { Box, Container, Heading, Button, Text, Image } from 'theme-ui'
 import styled from '@emotion/styled'
 import Snow from 'resnow'
 import Footer from '../components/footer'
 import Link from 'next/link'
+import FadeIn from '../components/fade-in'
+import { keyframes } from '@emotion/react'
 
 const Hero = styled(Box)`
   background-image: linear-gradient(
@@ -35,6 +37,25 @@ const Lead = styled(Box)`
   max-width: 48rem;
 `
 
+const Space = styled(Text)`
+  white-space: pre;
+  transition: 1s;
+`
+const RemoveSpace = styled(Text)`
+  &:hover .space {
+    font-size: 0;
+  }
+`
+
+const floating = keyframes`
+  from {
+    transform: translateY(20px) rotate(0deg);
+  }
+  to {
+    transform: translateY(-20px) rotate(5deg);
+  }
+`
+
 const Page = () => (
   <Box sx={{ overflowX: 'hidden' }}>
     <Meta
@@ -47,19 +68,33 @@ const Page = () => (
     <Hero py={4}>
       <Snow />
       <Container px={3} py={[3, 4]}>
-        <img
+        <Heading
+          sx={{ py: [3, 5], fontSize: [4, 5], color: 'white', opacity: 0.8 }}
+          bold
+          caps
+        >
+          <FadeIn delay={300} duration={600}>
+            It's&nbsp;2021,
+          </FadeIn>
+          <FadeIn delay={1200} duration={600}>
+           the&nbsp;holidays&nbsp;have&nbsp;come,<br />
+          </FadeIn>
+          <FadeIn delay={2300} duration={600}>
+           now&nbsp;let's&nbsp;all
+           have&nbsp;some&nbsp;fun!
+          </FadeIn>
+        </Heading>
+        <Image
           src="https://cloud-k3gxm6uem.vercel.app/2020-12-07_0vmfbtyfzec2kqeujbwmp3q4bu50pr0y.png"
           alt="Illustration of a holiday themed Orpheus"
           width={384}
           height={384}
+          sx={{
+            zIndex: 1,
+            animation: `${floating} cubic-bezier(.55,.03,.43,.98) 8s infinite alternate`
+          }}
         />
-        <Heading
-          sx={{ fontSize: [3, 4], textTransform: 'uppercase', color: 'white' }}
-          bold
-          caps
-        >
-          2021 holidays
-        </Heading>
+        <FadeIn delay={3000}>
         <Heading
           as="h1"
           sx={{ fontSize: [5, 6], color: 'white', margin: 'auto' }}
@@ -74,7 +109,7 @@ const Page = () => (
           mx="auto"
         >
           Christmas time has come and it's time for some fun! The holiday season
-          is among us and the elves have assembled, which means its time for
+          is <RemoveSpace>among<Space className="space" children={' '} />us</RemoveSpace> and the elves have assembled, which means its time for
           gift-giving to begin! The magical elf will assign you a partner, send
           them something fun, & you’ll get your own gift in the mail just in
           time for the holidays!
@@ -83,6 +118,7 @@ const Page = () => (
         <Link href="https://hack.af/santa-signup" passhref>
           <Button chevronRight>Register Now</Button>
         </Link>
+        </FadeIn>
       </Container>
     </Hero>
     <Footer />
