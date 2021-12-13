@@ -191,7 +191,7 @@ function Signup() {
   const [values, setValues] = useState({})
   return (
     <Base method="get" target="_blank" action="https://hack.af/santa-signup">
-      <Heading>Register!</Heading>
+      <Heading sx={{ color: 'black' }}>Register!</Heading>
       <Field
         label="Your Name"
         name="prefill_Real Name"
