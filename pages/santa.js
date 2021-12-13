@@ -5,7 +5,7 @@ import { Box, Container, Heading, Button } from 'theme-ui'
 import styled from '@emotion/styled'
 import Snow from 'resnow'
 import Footer from '../components/footer'
-import Link from 'next/Link'
+import Link from 'next/link'
 
 const Hero = styled(Box)`
   background-image: linear-gradient(
