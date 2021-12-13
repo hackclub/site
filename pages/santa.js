@@ -1,13 +1,23 @@
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
-import { Box, Container, Heading, Button, Text, Image } from 'theme-ui'
+import {
+  Box,
+  Container,
+  Heading,
+  Button,
+  Text,
+  Image,
+  Input,
+  Label
+} from 'theme-ui'
 import styled from '@emotion/styled'
 import Snow from 'resnow'
 import Footer from '../components/footer'
 import Link from 'next/link'
 import FadeIn from '../components/fade-in'
 import { keyframes } from '@emotion/react'
+import { useState } from 'react'
 
 const Hero = styled(Box)`
   background-image: linear-gradient(
@@ -77,11 +87,11 @@ const Page = () => (
             It's&nbsp;2021,
           </FadeIn>
           <FadeIn delay={1200} duration={600}>
-           the&nbsp;holidays&nbsp;have&nbsp;come,<br />
+            the&nbsp;holidays&nbsp;have&nbsp;come,
+            <br />
           </FadeIn>
           <FadeIn delay={2300} duration={600}>
-           now&nbsp;let's&nbsp;all
-           have&nbsp;some&nbsp;fun!
+            now&nbsp;let's&nbsp;all have&nbsp;some&nbsp;fun!
           </FadeIn>
         </Heading>
         <Image
@@ -95,29 +105,36 @@ const Page = () => (
           }}
         />
         <FadeIn delay={3000}>
-        <Heading
-          as="h1"
-          sx={{ fontSize: [5, 6], color: 'white', margin: 'auto' }}
-        >
-          Hack Club Secret Santa
-        </Heading>
-        <Lead
-          fontSize={[3, null, 4]}
-          color="snow"
-          maxWidth={48}
-          my={3}
-          mx="auto"
-        >
-          Christmas time has come and it's time for some fun! The holiday season
-          is <RemoveSpace>among<Space className="space" children={' '} />us</RemoveSpace> and the elves have assembled, which means its time for
-          gift-giving to begin! The magical elf will assign you a partner, send
-          them something fun, & you’ll get your own gift in the mail just in
-          time for the holidays!
-          <span role="img" aria-label="Present emoji" children={' 🎁'} />
-        </Lead>
-        <Link href="https://hack.af/santa-signup" passhref>
-          <Button chevronRight>Register Now</Button>
-        </Link>
+          <Heading
+            as="h1"
+            sx={{ fontSize: [5, 6], color: 'white', margin: 'auto' }}
+          >
+            Hack Club Secret Santa
+          </Heading>
+          <Lead
+            fontSize={[3, null, 4]}
+            color="snow"
+            maxWidth={48}
+            my={3}
+            mx="auto"
+          >
+            Christmas time has come and it's time for some fun! The holiday
+            season is{' '}
+            <RemoveSpace>
+              among
+              <Space className="space" children={' '} />
+              us
+            </RemoveSpace>{' '}
+            and the elves have assembled, which means its time for gift-giving
+            to begin! The magical elf will assign you a partner, send them
+            something fun, & you’ll get your own gift in the mail just in time
+            for the holidays!
+            <span role="img" aria-label="Present emoji" children={' 🎁'} />
+          </Lead>
+          {/* <Link href="https://hack.af/santa-signup" passhref>
+            <Button chevronRight>Register Now</Button>
+          </Link> */}
+          <Signup />
         </FadeIn>
       </Container>
     </Hero>
@@ -125,3 +142,83 @@ const Page = () => (
   </Box>
 )
 export default Page
+
+function Base({ children, action, target, method }) {
+  return (
+    <Box
+      as="form"
+      sx={{
+        display: 'grid',
+        width: ['full', 512],
+        bg: 'white',
+        borderRadius: 'extra',
+        mx: 'auto',
+        p: 4,
+        mt: 4
+      }}
+      action={action}
+      target={target}
+      method={method}
+    >
+      {children}
+    </Box>
+  )
+}
+
+function Field({ placeholder, label, name, type, value, onChange }) {
+  return (
+    <Box sx={{ my: 2 }}>
+      <Label htmlFor={name} sx={{ color: 'muted', fontSize: 18 }}>
+        {label}
+      </Label>
+      <Input
+        id={name}
+        placeholder={placeholder}
+        name={name}
+        type={type}
+        sx={{
+          bg: 'smoke'
+        }}
+        onChange={onChange}
+        value={value}
+        required
+      />
+    </Box>
+  )
+}
+
+function Signup() {
+  const [values, setValues] = useState({})
+  return (
+    <Base method="get" target="_blank" action="https://hack.af/santa-signup">
+      <Heading>Register!</Heading>
+      <Field
+        label="Your Name"
+        name="prefill_Real Name"
+        placeholder="Fiona Hackworth"
+        value={values.name}
+        onChange={e => setValues({ ...values, name: e.target.value })}
+      />
+
+      <Field
+        label="Likes"
+        name="prefill_Likes"
+        placeholder="Hardware, plushies, microwaved apples?"
+        type="text"
+        value={values.likes}
+        onChange={e => setValues({ ...values, text: e.target.value })}
+      />
+      <Field
+        label="Dislikes"
+        name="prefill_Dislikes"
+        placeholder="Socks, cheese, coal..."
+        type="text"
+        value={values.dislikes}
+        onChange={e => setValues({ ...values, text: e.target.value })}
+      />
+      <Button sx={{ bg: 'blue', mt: [2, 3], py: 3 }} type="submit">{`Finish ${
+        7 - Object.values(values).filter(n => n !== '').length
+      } fields to sign up`}</Button>
+    </Base>
+  )
+}
