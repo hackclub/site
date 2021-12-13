@@ -70,7 +70,7 @@ const Page = () => (
   <Box sx={{ overflowX: 'hidden' }}>
     <Meta
       as={Head}
-      title="Hack Club Secret Santa – Holiday 2021"
+      title="Secret Santa – Holiday 2021"
       description="Find your holiday zen this year with Hack Club’s Secret Santa."
       image="https://cloud-9kgqrlg7o-hack-club-bot.vercel.app/0santa.png"
     />
