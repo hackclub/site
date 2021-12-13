@@ -131,9 +131,6 @@ const Page = () => (
             for the holidays!
             <span role="img" aria-label="Present emoji" children={' 🎁'} />
           </Lead>
-          {/* <Link href="https://hack.af/santa-signup" passhref>
-            <Button chevronRight>Register Now</Button>
-          </Link> */}
           <Signup />
         </FadeIn>
       </Container>
@@ -206,7 +203,7 @@ function Signup() {
         placeholder="Hardware, plushies, microwaved apples?"
         type="text"
         value={values.likes}
-        onChange={e => setValues({ ...values, text: e.target.value })}
+        onChange={e => setValues({ ...values, likes: e.target.value })}
       />
       <Field
         label="Dislikes"
@@ -214,7 +211,7 @@ function Signup() {
         placeholder="Socks, cheese, coal..."
         type="text"
         value={values.dislikes}
-        onChange={e => setValues({ ...values, text: e.target.value })}
+        onChange={e => setValues({ ...values, dislikes: e.target.value })}
       />
       <Button sx={{ bg: 'blue', mt: [2, 3], py: 3 }} type="submit">{`Finish ${
         7 - Object.values(values).filter(n => n !== '').length
