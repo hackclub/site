@@ -174,7 +174,8 @@ function Field({ placeholder, label, name, type, value, onChange }) {
         name={name}
         type={type}
         sx={{
-          bg: 'smoke'
+          bg: 'smoke',
+          color: 'text'
         }}
         onChange={onChange}
         value={value}
