@@ -76,7 +76,7 @@ const Page = () => (
     />
     <Nav />
     <Hero py={4}>
-      <Snow />
+      <Snow style={{ width: '100vw' }} />
       <Container px={3} py={[3, 4]}>
         <Heading
           sx={{ py: [3, 5], fontSize: [4, 5], color: 'white', opacity: 0.8 }}
