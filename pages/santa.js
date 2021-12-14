@@ -118,8 +118,7 @@ const Page = () => (
             my={3}
             mx="auto"
           >
-            Christmas time has come and it's time for some fun! The holiday
-            season is{' '}
+            Christmas is here and it's time for some fun! The holiday season is{' '}
             <RemoveSpace>
               among
               <Space className="space" children={' '} />
@@ -129,7 +128,6 @@ const Page = () => (
             to begin! The magical elf will assign you a partner, send them
             something fun, & you’ll get your own gift in the mail just in time
             for the holidays!
-            <span role="img" aria-label="Present emoji" children={' 🎁'} />
           </Lead>
           <Signup />
         </FadeIn>
