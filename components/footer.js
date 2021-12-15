@@ -8,7 +8,7 @@ const Base = styled(Box)`
   background: ${props =>
     props.dark
       ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
-      : `${theme.colors.snow} url('https://hackclub.com/pattern.svg') repeat`};
+      : `${theme.colors.snow} url('/pattern.svg') repeat`};
   ${props =>
     props.dark &&
     `
@@ -36,7 +36,7 @@ const Logo = props => (
   </svg>
 )
 
-const Service = ({ href, icon, name = "", ...props }) => (
+const Service = ({ href, icon, name = '', ...props }) => (
   <Link
     target="_blank"
     rel="noopener"
@@ -126,10 +126,27 @@ const Footer = ({ dark = false, children, ...props }) => (
               }
             }}
           >
-            <Service href="/slack" icon="slack-fill" name="Slack" target="_self" />
-            <Service href="https://twitter.com/hackclub" icon="twitter" name="Twitter" />
-            <Service href="https://github.com/hackclub" icon="github" name="GitHub" />
-            <Service href="https://figma.com/@hackclub" icon="figma" name="Figma" />
+            <Service
+              href="/slack"
+              icon="slack-fill"
+              name="Slack"
+              target="_self"
+            />
+            <Service
+              href="https://twitter.com/hackclub"
+              icon="twitter"
+              name="Twitter"
+            />
+            <Service
+              href="https://github.com/hackclub"
+              icon="github"
+              name="GitHub"
+            />
+            <Service
+              href="https://figma.com/@hackclub"
+              icon="figma"
+              name="Figma"
+            />
             <Service
               href="https://www.facebook.com/Hack-Club-741805665870458"
               icon="facebook"
