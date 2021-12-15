@@ -127,7 +127,9 @@ const Page = () => (
             and the elves have assembled, which means its time for gift-giving
             to begin! The magical elf will assign you a partner, send them
             something fun, & you’ll get your own gift in the mail just in time
-            for the holidays!
+            for the holidays! Check out <A sx={{ color: 'blue' }} href="https://hack.af/rules-santa">
+              the rules
+            </A> for more info!
           </Lead>
           <Signup />
         </FadeIn>
