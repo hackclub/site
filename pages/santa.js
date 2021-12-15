@@ -186,7 +186,7 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 function Signup() {
   const [values, setValues] = useState({})
   return (
-    <Base method="get" target="_blank" action="https://hack.af/santa-signup">
+    <Base method="get" action="https://hack.af/santa-signup">
       <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>
         Register!
       </Heading>
