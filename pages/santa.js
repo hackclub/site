@@ -9,7 +9,8 @@ import {
   Text,
   Image,
   Input,
-  Label
+  Label,
+  Link as A
 } from 'theme-ui'
 import styled from '@emotion/styled'
 import Snow from 'resnow'
@@ -127,9 +128,15 @@ const Page = () => (
             and the elves have assembled, which means its time for gift-giving
             to begin! The magical elf will assign you a partner, send them
             something fun, & you’ll get your own gift in the mail just in time
-            for the holidays! Check out <A sx={{ color: 'blue' }} href="https://hack.af/rules-santa">
+            for the holidays! Check out{' '}
+            <A
+              sx={{ color: 'white' }}
+              target="_blank"
+              href="https://hack.af/rules-santa"
+            >
               the rules
-            </A> for more info!
+            </A>{' '}
+            for more info!
           </Lead>
           <Signup />
         </FadeIn>
