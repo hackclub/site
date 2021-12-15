@@ -30,12 +30,13 @@ const BGImg = ({
         right: 0,
         bottom: 0
       },
-      '> div': { height: '100%', width: '100%' },
+      '> span': { height: '100% !important', width: '100% !important' },
       img: { objectFit: 'cover', objectPosition: 'center' },
       '~ *': { position: 'relative' }
     }}
   >
     <Image layout="responsive" {...props} />
+    
   </Box>
 )
 

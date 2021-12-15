@@ -114,16 +114,14 @@ const Post = ({
               bg: 'sunken',
               gridColumn: attachments.length === 1 ? 'span 2' : null
             },
-            img: { objectFit: 'cover' }
+            img: { objectFit: 'cover', width: '100%' }
           }}
         >
-            {filter(attachments, a => a.type.startsWith('image')).map(img => (
-              <Image
-                key={img.url}
-                alt={img.filename}
-                src={img.thumbnails?.large?.url || img.url}
-                width={img.thumbnails?.large?.width || 1920}
-                height={img.thumbnails?.large?.height || 1080}
+            {filter(attachments, a => ['jpg', 'jpeg', 'png'].includes(a.split('.')[a.split('.').length - 1])).map(img => (
+              <img
+                key={img}
+                alt={img}
+                src={img}
               />
             ))}
         </Grid>

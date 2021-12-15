@@ -1,14 +1,14 @@
 import { Image, useColorMode } from 'theme-ui'
 
-const Signature = () => {
-  const [colorMode] = useColorMode()
+const Signature = ({fname, lname, width}) => {
+  // enforce a sane color mode (typescript should do this in the future)
+  let [colorMode] = useColorMode()
+  colorMode = colorMode === 'dark' ? 'light' : 'dark'
   return (
     <Image
-      src={`https://workshops.hackclub.com/signature-${
-        colorMode === 'dark' ? 'light' : 'dark'
-      }.png`}
-      width={96}
-      alt="Zach's signature"
+      src={`/signatures/${fname}_${lname}-${colorMode}.png`.toLowerCase()}
+      width={width || 96}
+      alt={`${fname} ${lname}'s signature`}
       sx={{ '+ p': { mt: 0 } }}
     />
   )

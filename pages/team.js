@@ -1,11 +1,6 @@
 import {
-  Card,
   Box,
-  Button,
   Container,
-  Flex,
-  Heading,
-  Image,
   Text,
   Grid
 } from 'theme-ui'
@@ -37,17 +32,19 @@ export default function Team() {
               <br /> for the students.
             </Text>
 
-            <Text as="div" variant="lead" color="smoke" sx={{maxWidth: '650px'}}>
-              We believe in a world where every young person is
-              empowered to be the change they want to see around 
-              them. At Hack Club, we’re working hard to make it reality.
+            <Text
+              as="div"
+              variant="lead"
+              color="smoke"
+              sx={{ maxWidth: '650px' }}
+            >
+              We believe in a world where every young person is empowered to be
+              the change they want to see around them. At Hack Club, we’re
+              working hard to make it reality.
             </Text>
           </Container>
         </Box>
-        <Box
-          bg="#f9f9fa"
-          py={4}
-        >
+        <Box bg="#f9f9fa" py={4}>
           <Container>
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
@@ -74,7 +71,7 @@ export default function Team() {
               <Bio
                 img="/team/athul.jpg"
                 name="Athul Blesson"
-                teamRole="Asia-Pacific Region"
+                teamRole="Director Asia-Pacific Region"
                 text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined as the Regional Manager of Asia-Pacific & Africa, where he actively manages 117 clubs."
                 pronouns="he/him"
               />
@@ -93,18 +90,55 @@ export default function Team() {
                 pronouns="she/her"
               />
               <Bio
+                name="Liv Cook"
+                teamRole="Bank Operations"
+                text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
+                img="/team/liv.png"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Leo McElroy"
                 teamRole="Clubs Lead"
                 text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
                 img="/team/leo.png"
                 pronouns="he/him"
               />
-             <Bio
-                name="Your Name"
-                teamRole="Your Role"
-                text="Your write up/bio"
+              <Bio
+                name="Tevan Goldberg"
+                teamRole="Clubs Operations Manager"
+                text="Tevan is a professional musician, avid reader, mediocre fisherman, pathological conversationalist, and proud dropout of Harvard Divinity School, among other diversions. He believes self-motivated education is one of the most worthwhile things you can do in life, besides perhaps owning a dog. Tevan also enjoys writing about himself in the third person. "
                 img="/team/tevan.png"
                 pronouns="he/him"
+              />
+              <Bio
+                name="Harsh Bajpai"
+                teamRole="Clubs Lead Asia-Pacific Region"
+                text="Harsh is a gentle force in both his local and the Slack community. He is a vegetarian musician who enjoys traveling around India. When he is not reading ancient mythology, he is programming with purpose and passion."
+                img="/team/harsh.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Annlee Fores"
+                teamRole="Operations Asia-Pacific Region"
+                text={`As the COO of APAC, he oversees operations, handles event organisation & logistics at Hack Club APAC.
+When not seen busy juggling between different tasks he takes up, he can be seen enjoying tinkering & building fun projects`}
+                img="/team/annlee.jpg"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Anna Grace Benny"
+                teamRole="Clubs Lead Asia-Pacific Region"
+                text={`Anna is a visual communication graduate and a social media buff. 
+                She loves films and everything related to it. Managing and meeting new hackclubers is her jam. She helps with onboarding new hackclubers in the APAC region and manages their social media pages`}
+                img="/team/anna.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Shubhangi Gupta"
+                teamRole="Community Asia-Pacific Region"
+                text={`Shubhangi is the founder of Raahee, a mental health startup aiming to provide affordable therapy. She is a Gold Microsoft Learn Student Ambassador and the runner up of Microsoft Imagine Cup, Healthcare Category. She loves to interact with people and dogs. She loves to talk about everything Harry Potter.`}
+                img="/team/shubhangi.jpeg"
+                pronouns="she/her"
               />
             </Grid>
             <br />
@@ -112,13 +146,6 @@ export default function Team() {
               Behind the Scenes
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
-                img="/team/robert.jpg"
-                name="Robert Caldwell"
-                teamRole="Philanthropy"
-                text=" After serving for thirty-two years in education management and advancement, Robert joined Hack Club to help raise the resources necessary to provide students with 21st century technical skills and develop a new generation of programmers, coders and makers. Robert is from Canada and lives in Charlotte, Vermont with his wife and children."
-                pronouns="he/him"
-              />
               <Bio
                 img="/team/scott.jpg"
                 name="Scott Motte"
@@ -196,7 +223,7 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                img="/camp/fernanda.jpg"
+                img="/team/fernanda.jpg"
                 name="Fernanda Lozano"
                 teamRole="Flagship"
                 text="Fernanda is a student of computational neuroscience, entrepreneur, & organizer of events like the Entrepreneurial Learning Academy for students in Mexico. In summer 2019, she helped organize the Flagship Summit in San Francisco."

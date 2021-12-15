@@ -83,12 +83,13 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Heading as="h2" variant="subheadline" mb={3}>
             Hack Club
           </Heading>
-          <Link href="https://hackclub.com/slack/" children="Slack" />
-          <Link href="https://hackclub.com/donate/" children="Donate" />
-          <Link href="https://hackclub.com/team/" children="Team" />
-          <Link href="https://hackclub.com/philosophy/" children="Philosophy" />
-          <Link href="https://hackclub.com/brand/" children="Branding" />
-          <Link href="https://hackclub.com/press/" children="Press Inquiries" />
+          <Link href="/slack" children="Slack" />
+          <Link href="/donate" children="Donate" />
+          <Link href="/team" children="Team" />
+          <Link href="/jobs" children="Jobs" />
+          <Link href="/philosophy" children="Philosophy" />
+          <Link href="/brand" children="Branding" />
+          <Link href="/press" children="Press Inquiries" />
         </Box>
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
@@ -101,8 +102,9 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Link href="https://events.hackclub.com/" children="Events" />
           <Link href="https://workshops.hackclub.com/" children="Workshops" />
           <Link href="https://hackathons.hackclub.com/" children="Hackathons" />
-          <Link href="https://hackclub.com/bank/" children="Bank" />
+          <Link href="/bank" children="Bank" />
           <Link href="https://hackclub.com/map/" children="Clubs Map" />
+          <Link href="https://toolbox.hackclub.com/" children="Toolbox" />
         </Box>
         <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
           <Logo aria-label="Hack Club logo" width={128} height={45} />

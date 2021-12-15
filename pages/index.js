@@ -6,6 +6,7 @@ import {
   Grid,
   Heading,
   Image,
+  Badge,
   Link,
   Text
 } from 'theme-ui'
@@ -23,6 +24,9 @@ import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
 import Photo from '../components/photo'
 import Footer from '../components/footer'
+import FooterImgFile from '../public/home/footer.png'
+import GoldenTrainImgFile from '../public/home/golden-train.png'
+import Slack from '../components/slack'
 
 import Announcement from '../components/announcement'
 // import { timeSince } from '../lib/dates'
@@ -39,7 +43,59 @@ let Highlight = styled(Text)`
 `
 Highlight = Highlight.withComponent('mark')
 
-const Feature = ({ icon, color, name, desc, children, ...props }) => (
+const Feature = ({ icon, color, name, desc, children, sx, ...props }) => (
+  <Box
+    sx={{
+      display: 'grid',
+      gridGap: [0, 4],
+      gridTemplateColumns: [null, 'auto 1fr'],
+      alignItems: 'start',
+      justifyContent: 'start',
+      bg: 'rgba(224, 230, 237, 0.25)',
+      p: [3, 4],
+      mt: [1, 1],
+      borderRadius: 'extra',
+      span: { transform: 'none', width: 'min-intrinsic' },
+      svg: { color: 'white' },
+      ...sx
+    }}
+  >
+    {children || (
+      <Box
+        as="span"
+        sx={{
+          width: 'fit-content',
+          bg: color,
+          borderRadius: 18,
+          lineHeight: 0,
+          p: 2,
+          mb: 1,
+          display: 'inline-block',
+          transform: ['scale(0.75)', 'none'],
+          transformOrigin: 'bottom left',
+          boxShadow:
+            'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
+        }}
+      >
+        <Icon glyph={icon} size={48} />
+      </Box>
+    )}
+    <Box>
+      <Heading as="h3" variant="headline" mb={2} mt={0}>
+        {name}
+      </Heading>
+      <Text
+        as="p"
+        variant="subtitle"
+        sx={{ mt: 0, pb: 2, a: { variant: 'styles.a', color: 'blue' } }}
+      >
+        {desc}
+      </Text>
+    </Box>
+  </Box>
+)
+
+const Stage = ({ icon, color, name, desc, children, ...props }) => (
   <Box {...props}>
     {children || (
       <Box
@@ -98,28 +154,28 @@ const Page = () => (
       sx={{
         bg: 'dark',
         pt: [5, 6],
-        pb: [4, 5],
+        pb: [2, 3],
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
       <BGImg
-        src="/home/hero.png"
+        src={GoldenTrainImgFile}
         width={2224}
         height={1249}
-        alt="Hack Clubbers gather at the Flagship 2019 conference"
+        alt="Hack Clubbers gather at the SpaceX HQ"
         priority
       />
-      
-        <Announcement
-          copy="Let's hack Slack Huddles!"
-          caption="Join us for our first Shipathon on Slack and earn some pizza!"
-          href="https://hackclub.slack.com/archives/C0266FRGT/p1627227990148900"
-          iconLeft="slack-fill"
-          color="purple"
-        />
-      
+
+      {/* <Announcement
+          copy="Applications are now open"
+          caption="Apply now to bring a Hack Club to your community this fall!"
+          href="https://apply.hackclub.com"
+          iconLeft="clubs"
+          color="primary"
+        /> */}
+
       <SlideDown duration={768}>
         <Heading
           as="h1"
@@ -185,6 +241,32 @@ const Page = () => (
           Apply now
         </Button>
       </FadeIn>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: ['center', 'center', 'flex-end'],
+          marginRight: 2,
+          mt: [2, 2, 1]
+        }}
+      >
+        <Badge
+          as="a"
+          href="https://zephyr.hackclub.com"
+          variant="pill"
+          sx={{
+            zIndex: '1',
+            bg: '#000',
+            color: 'white',
+            opacity: 0.5,
+            textDecoration: 'none',
+            fontWeight: 'normal',
+            ':hover': { opacity: 1 },
+            transition: '0.3s ease'
+          }}
+        >
+          Hackers onboard The Hacker Zephyr
+        </Badge>
+      </Box>
     </Box>
     <Box as="section" sx={{ py: [4, 5], color: 'black' }}>
       <Container>
@@ -192,7 +274,7 @@ const Page = () => (
           The rundown
         </Text>
         <Heading as="h2" variant="title">
-          High school clubs for{' '}
+          Clubs discovering the{' '}
           <Text
             as="span"
             sx={{
@@ -204,18 +286,19 @@ const Page = () => (
               bg: 'rgb(255, 212, 64)'
             }}
           >
-            creative coding
+            joy of code
           </Text>
           .
         </Heading>
         <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus' }}>
-          Hack Clubs at high schools meet weekly (this year, via Zoom),
-          typically for 1.5hrs after school. As a club leader, you get members
-          (mostly beginners) started on something to learn/create, then members
-          work at their own pace, building websites, apps, & games, and
-          presenting them at the end.
+          Hack Clubs typically meet for 1.5 hours each week in high schools,
+          makerspaces, community centers, churches, and any other venue where
+          teenagers can gather. As a club leader, you get members (mostly
+          beginners) started on something to learn/create, then members work at
+          their own pace, building websites, apps, & games, and presenting them
+          at the end.
         </Text>
-        <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 4]}>
+        <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
           <Photo
             src="https://dl.airtable.com/.attachmentThumbnails/904cf56ceac6b0921eceae02958dcd29/5851864a"
             alt="Summer Creek Hack Club meeting, February 2020"
@@ -247,7 +330,7 @@ const Page = () => (
             </Text>
             <Text as="p" variant="subtitle">
               <strong>
-                A group of students—many beginners—gather to start coding.
+                A group of teens, many beginners, gather to start coding.
               </strong>
               The leader (that’s you!) presents for a few minutes, getting the
               group started building something new.
@@ -255,9 +338,19 @@ const Page = () => (
             <Text as="span" color="cyan">
               2
             </Text>
-            <Text as="p" variant="subtitle">
+            <Text
+              as="p"
+              variant="subtitle"
+              as="p"
+              variant="lead"
+              sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
+            >
               <strong>Everyone gets hacking, individually.</strong> Not hacking
-              bank accounts—being creative & making something awesome with code.
+              bank accounts, being creative and{' '}
+              <NextLink href="/ship">
+                <a>making something awesome</a>
+              </NextLink>
+              .
             </Text>
             <Text as="span" color="blue">
               3
@@ -289,8 +382,10 @@ const Page = () => (
               Hack the Fog
             </a>
             , run summer programs like{' '}
-            <a href="https://web.archive.org/web/20200808171549/http://thecspn.com/?p=43434">Hack Camp</a>, and compete in
-            events like the{' '}
+            <a href="https://web.archive.org/web/20200808171549/http://thecspn.com/?p=43434">
+              Hack Camp
+            </a>
+            , and compete in events like the{' '}
             <a href="http://www.congressionalappchallenge.us">
               Congressional App Challenge
             </a>
@@ -320,16 +415,16 @@ const Page = () => (
       />
       <Container>
         <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
-          ~ Philosophy ~
+          ~ Welcome to Hackerland ~
         </Text>
         <Heading as="h2" variant="title">
           By the students, for the students.
         </Heading>
         <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
-          Learning to code is uniquely like gaining a superpower—turning you
-          from a consumer of technology into a creator. So it shouldn’t be
-          taught like a class—it should be a creative, inclusive space. To
-          foster this environment,{' '}
+          Learning to code is like gaining a superpower — turning you from a
+          consumer of technology into a creator. It shouldn’t be taught like a
+          class — it should be a creative, inclusive space. To foster this
+          environment,{' '}
           <Highlight>every&nbsp;Hack&nbsp;Club is student-led</Highlight> &
           members make self-directed projects.
         </Text>
@@ -367,7 +462,7 @@ const Page = () => (
                 bg: 'rgb(91, 255, 205)',
                 color: '#095365',
                 display: 'inline-block',
-                whiteSpace: 'nowrap'
+                whiteSpace: ['wrap', 'nowrap']
               }}
             >
               going & growing
@@ -376,82 +471,39 @@ const Page = () => (
           </Heading>
         </Box>
         <Grid
-          columns={[null, 2]}
-          gap={[2, 4]}
+          columns={[null, 1]}
+          gap={[2, 3]}
           sx={{ alignItems: 'end', span: { color: 'white' } }}
         >
           <Feature
-            icon="sam"
-            color="blue"
-            name="Free Zoom Pro"
-            desc="24/7 access to Zoom Pro enabled meeting rooms for your club (that means no time limit)."
-          />
-          <Feature
-            name="Stickers"
+            icon="slack-fill"
+            color="#5d114c"
+            name="Chats with 100s of club leaders"
             desc={
               <>
-                Get{' '}
-                <Link href="/stickers">
-                  <a>amazing stickers </a>
-                </Link>{' '}
-                for marketing your club shipped directly to you & your
-                club members.
+                In our{' '}
+                <Link href="/slack" passHref>
+                  <a>Slack community</a>
+                </Link>
+                , you’ll join a private space for Hack&nbsp;Club leaders to ask
+                questions & chat, share projects, & attend weekly live events.
               </>
             }
-            sx={{
-              img: { mr: 4, filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.25))' }
-            }}
-          >
-            <Image
-              src="https://hackclub.com/stickers/macintosh.svg"
-              alt="Macintosh sticker"
-              sx={{
-                transform: 'rotate(-12deg)',
-                width: '4.5rem',
-                height: '6rem'
-              }}
-            />
-            <Image
-              src="https://hackclub.com/stickers/2020_progress.png"
-              alt="Pride sticker"
-              sx={{
-                transform: 'rotate(3deg)',
-                width: ['4rem', '6rem'],
-                height: ['4rem', '6rem'],
-                borderRadius: 'extra'
-              }}
-            />
-            <Image
-              src="https://hackclub.com/stickers/enjoy.svg"
-              alt="Enjoy Hack Club Coca-Cola sticker"
-              sx={{
-                transform: 'rotate(-12deg)',
-                width: ['6rem', '7.5rem'],
-                height: ['4rem', '5rem']
-              }}
-            />
-          </Feature>
+          />
           <Feature
             icon="docs"
             color="red"
-            name="Curriculum"
+            name="Meeting content"
             desc={
               <>
                 Come prepared to every meeting with over 100{' '}
-                <a href="https://workshops.hackclub.com">workshops</a> (3 years’ 
-                worth!) that guide your club members through making fun, creative projects.
+                <a href="https://workshops.hackclub.com">workshops</a> (3 years’
+                worth!) that guide your club members through making fun,
+                creative projects.
               </>
             }
-          >
-            <Photo
-              src="/home/flagship_megan.png"
-              alt="Megan presenting a workshop at Flagship 2019"
-              width={980}
-              height={653}
-              sx={{ maxWidth: [null, 332] }}
-            />
-          </Feature>
-          <Feature
+          ></Feature>
+          {/* <Feature
             name="A comprehensive leader guide"
             desc={
               <>
@@ -468,53 +520,36 @@ const Page = () => (
               height={653}
               sx={{ maxWidth: [null, 332] }}
             />
-          </Feature>
+          </Feature> */}
           <Feature
-            icon="slack-fill"
-            color="#5d114c"
-            name="Talk to 100s of club leaders"
+            name="Stickers"
             desc={
               <>
-                In our{' '}
-                <Link href="/slack" passHref>
-                  <a>Slack community</a>
+                Get{' '}
+                <Link href="/stickers">
+                  <a>amazing stickers </a>
                 </Link>{' '}
-                of 10k+ teen hackers, you’ll join a private space for
-                Hack&nbsp;Club leaders to ask questions & chat, share projects,
-                & attend weekly live events.
+                for marketing your club shipped directly to you & your club
+                members.
               </>
             }
-          />
-          <Feature
-            icon="purse"
-            color="orange"
-            name="A basket of free tools"
-            desc={
-              <>
-                Free subscriptions to Notion Pro, Figma Pro, repl.it and more
-                for running a great club.
-              </>
-            }
-          />
+            color="green"
+            icon="sticker"
+          ></Feature>
           <Feature
             icon="bank-account"
-            color="muted"
+            color="black"
             name="A nonprofit bank account"
             desc={
               <>
-                Use our 501(c)(3) status (US-only) and a club bank account with{' '}
-                <a href="https://hackclub.com/bank/">Hack Club Bank</a>.
-                Fundraise, accept donations, buy things!
+                Use our 501(c)(3) status and a restricted fund with{' '}
+                <Link href="/bank">
+                  <a>Hack Club Bank</a>
+                </Link>
+                {' '}to fundraise, accept donations, buy things!
               </>
             }
-          >
-            <Image
-              src="/home/hackClubBank.png"
-              alt="Screenshot of Hack Club Bank on a MacBook"
-              width={256}
-              loading="lazy"
-            />
-          </Feature>
+          />
           <Feature
             name="Weekly events"
             desc={
@@ -535,20 +570,31 @@ const Page = () => (
                 alike every week.
               </>
             }
-          >
-            <Photo
-              src="/home/workshops.jpg"
-              alt="Students going wild on a Zoom call"
-              width={768}
-              height={463}
-              sx={{ maxWidth: [null, 332] }}
-            />
-          </Feature>
+            icon="event-code"
+            color="blue"
+          ></Feature>
+          <Feature
+            icon="purse"
+            color="orange"
+            name="A basket of free tools"
+            desc={
+              <>
+                Free subscriptions to Figma Pro, replit, Postman and more for
+                running a great club.
+              </>
+            }
+          />
+          {/* <Feature
+            icon="sam"
+            color="blue"
+            name="Free Zoom Pro"
+            desc="24/7 access to Zoom Pro enabled meeting rooms for your club (that means no time limit)."
+          /> */}
         </Grid>
         <Feature
           icon="welcome"
           color="rgb(255,88,88)"
-          name="Existing clubs welcome."
+          name="Existing clubs welcome"
           desc={
             <>
               When established CS clubs join, they get all the Hack&nbsp;Club
@@ -566,8 +612,8 @@ const Page = () => (
             alignItems: 'start',
             justifyContent: 'start',
             bg: 'rgba(255,88,88,0.125)',
-            mt: [4, 5],
             p: [3, 4],
+            mt: [3, 4],
             borderRadius: 'extra',
             span: { transform: 'none', width: 'min-intrinsic' },
             svg: { color: 'white' }
@@ -575,6 +621,7 @@ const Page = () => (
         />
       </Container>
     </Box>
+    <Slack />
     <Box bg="snow" color="black" py={[5, 6]}>
       <Container sx={{ textAlign: ['left', 'center'] }}>
         <Text as="p" variant="eyebrow">
@@ -588,8 +635,8 @@ const Page = () => (
               borderRadius: 'default',
               px: 2,
               ml: [-2, 0],
-              whiteSpace: 'nowrap',
-              color: '#fb558e',
+              whiteSpace: ['wrap', 'nowrap'],
+              color: 'white',
               bg: '#6f31b7'
             }}
           >
@@ -626,11 +673,12 @@ const Page = () => (
             variant="interactive"
             sx={{
               background:
-                'linear-gradient(32deg, rgba(24, 218, 255, 0.9) 0%, rgba(91, 255, 205, 0.9) 100%)',
-              color: '#095365'
+                'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
+              color: 'white',
+              svg: { color: 'rgb(51, 142, 218)' }
             }}
           >
-            <Feature
+            <Stage
               icon="send"
               color="white"
               name="1. Application"
@@ -640,12 +688,12 @@ const Page = () => (
           <Card
             sx={{
               background:
-                'linear-gradient(to bottom, rgba(255, 212, 64, 0.9) 0%, rgba(255, 88, 88, 0.9) 100%)',
-              color: '#5d114c',
-              svg: { color: 'rgb(255,88,88)' }
+                'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
+              color: 'white',
+              svg: { color: 'rgb(236, 55, 80)' }
             }}
           >
-            <Feature
+            <Stage
               icon="emoji"
               color="white"
               name="2. Onboarding call"
@@ -659,7 +707,7 @@ const Page = () => (
               svg: { color: '#fb558e' }
             }}
           >
-            <Feature
+            <Stage
               icon="event-check"
               color="white"
               name="3. First meeting"
@@ -697,9 +745,15 @@ const Page = () => (
         width={2544}
         height={2048}
         gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
-        src="/home/footer.png"
+        src={FooterImgFile}
+        placeholder="blur"
         alt="Globe with hundreds of Hack Clubs"
       />
+      <style>
+        {`a{
+          color: #338eda
+        }`}
+      </style>
     </Footer>
   </>
 )

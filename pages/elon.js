@@ -19,7 +19,7 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import ElonCopy from '../components/elon/copy.mdx'
 
-export default () => (
+const ElonPage = () => (
   <>
     <Meta
       as={Head}
@@ -133,7 +133,7 @@ export default () => (
             Hack Club is a global community of high school makers & student-led
             coding clubs. We’ve got a 24/7 Slack chatroom of 10k+ teenagers
             learning to code & building amazing projects, & you’ll fit right in.
-          </Text>
+          </Text><br /><br />
           <NextLink href="/" passHref>
             <Button bg="cyan" as="a">
               Learn more
@@ -145,3 +145,5 @@ export default () => (
     <Footer />
   </>
 )
+
+export default ElonPage

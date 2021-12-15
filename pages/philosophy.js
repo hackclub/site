@@ -1,10 +1,9 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import { Box, Heading, Container, Text, Button } from 'theme-ui'
+import { Box, Heading, Container, Text, Button, Link } from 'theme-ui'
 import Nav from '../components/nav'
 import styled from '@emotion/styled'
 import Footer from '../components/footer'
-import t from '@hackclub/theme'
 
 const Header = styled(Box)`
   color: white;
@@ -107,7 +106,7 @@ export default function Philosophy() {
       <Nav />
       <Meta
         as={Head}
-        title="Philosophy – Hack Club"
+        title="Philosophy"
         description="Read about Hack Club, a network of high school computer science clubs. We want to make building apps and websites accessible to everyone through programming clubs at every high school."
         image="https://cloud-cz9a6kt0a-hack-club-bot.vercel.app/0social-photo_2.jpg"
       />
@@ -218,7 +217,7 @@ export default function Philosophy() {
           <Box sx={{ fontSize: [3, 3] }}>
             Just as the best carpenters didn’t learn in the classroom, neither
             did the best programmers. Through our{' '}
-            <a href="/workshops">workshops</a>, you’ll be walked through
+            <Link href="/workshops">workshops</Link>, you’ll be walked through
             building projects. Starting out, you won’t understand how the code
             works, but you’ll build understanding as you go. You’ll get stuck
             along the way, but we’re here to help.
@@ -269,7 +268,13 @@ export default function Philosophy() {
           >
             Start a club
           </Button>
-          <Button sx={{ bg: 'white', color: 'red' }} as="a" href="https://hackclub.com/slack">Join our Slack</Button>
+          <Button
+            sx={{ bg: 'white', color: 'red' }}
+            as="a"
+            href="https://hackclub.com/slack"
+          >
+            Join our Slack
+          </Button>
         </Box>
       </Box>
       <Footer light />
