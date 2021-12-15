@@ -9,12 +9,12 @@ import {
   Text,
   Image,
   Input,
-  Label
+  Label,
+  Link
 } from 'theme-ui'
 import styled from '@emotion/styled'
 import Snow from 'resnow'
 import Footer from '../components/footer'
-import Link from 'next/link'
 import FadeIn from '../components/fade-in'
 import { keyframes } from '@emotion/react'
 import { useState } from 'react'
@@ -187,7 +187,14 @@ function Signup() {
   const [values, setValues] = useState({})
   return (
     <Base method="get" target="_blank" action="https://hack.af/santa-signup">
-      <Heading sx={{ color: 'black' }}>Register!</Heading>
+      <Heading sx={{ color: 'black', textAlign: 'left' }}>Register!</Heading>
+      <Text sx={{ textAlign: 'left', color: 'muted' }}>
+        Be sure to check out the{' '}
+        <Link href="https://hack.af/rules-santa" sx={{ color: 'blue' }}>
+          rules
+        </Link>{' '}
+        before you sign up!
+      </Text>
       <Field
         label="Your Name"
         name="prefill_Real Name"
