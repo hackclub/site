@@ -173,7 +173,7 @@ function Field({ placeholder, label, name, type, value, onChange }) {
         type={type}
         sx={{
           bg: 'smoke',
-          color: 'text'
+          color: 'black'
         }}
         onChange={onChange}
         value={value}
@@ -187,7 +187,9 @@ function Signup() {
   const [values, setValues] = useState({})
   return (
     <Base method="get" target="_blank" action="https://hack.af/santa-signup">
-      <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>Register!</Heading>
+      <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>
+        Register!
+      </Heading>
       <Text sx={{ textAlign: 'left', color: 'muted' }}>
         Be sure to check out the{' '}
         <Link href="https://hack.af/rules-santa" sx={{ color: 'blue' }}>
