@@ -175,6 +175,7 @@ function Field({ placeholder, label, name, type, value, onChange }) {
           bg: 'smoke',
           color: 'black'
         }}
+        autofillBackgroundColor="smoke"
         onChange={onChange}
         value={value}
         required
