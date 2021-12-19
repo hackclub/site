@@ -129,7 +129,11 @@ const Page = () => (
             something fun, & you’ll get your own gift in the mail just in time
             for the holidays!
           </Lead>
-          <Signup />
+          {/* Signup form */}
+          {/* <Signup /> */}
+          <Button disabled sx={{ bg: 'primary', mb: 4 }}>
+            Signups closed. Check back next year!
+          </Button>
         </FadeIn>
       </Container>
     </Hero>
