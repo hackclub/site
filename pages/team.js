@@ -104,13 +104,6 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Tevan Goldberg"
-                teamRole="Clubs Operations Manager"
-                text="Tevan is a professional musician, avid reader, mediocre fisherman, pathological conversationalist, and proud dropout of Harvard Divinity School, among other diversions. He believes self-motivated education is one of the most worthwhile things you can do in life, besides perhaps owning a dog. Tevan also enjoys writing about himself in the third person. "
-                img="/team/tevan.png"
-                pronouns="he/him"
-              />
-              <Bio
                 name="Harsh Bajpai"
                 teamRole="Clubs Lead Asia-Pacific Region"
                 text="Harsh is a gentle force in both his local and the Slack community. He is a vegetarian musician who enjoys traveling around India. When he is not reading ancient mythology, he is programming with purpose and passion."
