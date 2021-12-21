@@ -78,13 +78,6 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Tevan Goldberg"
-                teamRole="Clubs Operations Manager"
-                text="Tevan is a professional musician, avid reader, mediocre fisherman, pathological conversationalist, and proud dropout of Harvard Divinity School, among other diversions. He believes self-motivated education is one of the most worthwhile things you can do in life, besides perhaps owning a dog. Tevan also enjoys writing about himself in the third person. "
-                img="/team/tevan.png"
-                pronouns="he/him"
-              />
-              <Bio
                 name="Melanie Smith"
                 teamRole="Bank Operations Lead"
                 text="Melanie grew up in northern New England where she obtained a degree in Marine Biology. She then spent several years running a pet store with 20+ employees and recently decided to change career paths. This led her to Hack Club where she is excited about helping students pursue their dreams."
