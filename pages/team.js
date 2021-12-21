@@ -147,7 +147,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               Student Team
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
+              {/*<<Bio
                 name="Claire Wang"
                 teamRole="Community Team"
                 text={`yeah`}
@@ -167,7 +167,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
                 text={`yeah`}
                 img="/stickers/logo.png"
                 pronouns="he/him"
-              />
+              /> */}
               <Bio
                 name="Abby Fischler"
                 teamRole="Coordinator to the COO"
@@ -182,7 +182,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
                 img="/stickers/logo.png"
                 pronouns="she/her"
               />
-              <Bio
+              {/*<Bio
                 name="Kunal Botla"
                 teamRole="Bank Operations"
                 text={`yeah`}
@@ -202,7 +202,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
                 text={`yeah`}
                 img="/stickers/logo.png"
                 pronouns="she/her"
-              />
+              /> */}
               <Bio
                 name="Deven Jadhav"
                 teamRole="Bank Operations (APAC)"
