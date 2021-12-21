@@ -172,14 +172,14 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
                 name="Abby Fischler"
                 teamRole="Coordinator to the COO"
                 text={`Abby is a high school sophomore passionate about STEM living in Los Angeles! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding. `}
-                img="/stickers/logo.png"
+                img="https://github.com/abbyfischler.png"
                 pronouns="she/her"
               />
               <Bio
                 name="Belle See"
                 teamRole="Coordinator to the COO"
                 text={`Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club! `}
-                img="/stickers/logo.png"
+                img="https://github.com/bellesea.png"
                 pronouns="she/her"
               />
               {/*<Bio
@@ -207,7 +207,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
                 name="Deven Jadhav"
                 teamRole="Bank Operations (APAC)"
                 text={`Deven is a Hack-clubber from India who enjoys building meaningful things from the intersections of art and technology. He also loves music, and plays the guitar and drums! Along with this, he also likes talking to strangers over the internet and having interesting and deep conversations. He is also a sucker for nature photography, and enjoys hikes and treks into the wild!`}
-                img="/stickers/logo.png"
+                img="https://github.com/devenjadhav.png"
                 pronouns="he/him"
               />
               <Bio
@@ -223,7 +223,7 @@ and participating in academic competitions with his friends.`}
                 name="Hugo Hu"
                 teamRole="Mail Team Coordinator"
                 text={`Hugo is an avid fan of corgis, hardware, and shipping. He works with club leaders to get stickers to clubs and events, as well as working with community members to assist with logistical challenges. He ships for Hack Club Mail Team and handles a portion of Hack Club’s logistical requirements, as well as running Hack Shop and helping plan, design, produce, and distribute various types of swag for different events.`}
-                img="/stickers/logo.png"
+                img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
                 pronouns="he/him"
               />
             </Grid>
