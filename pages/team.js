@@ -1,9 +1,4 @@
-import {
-  Box,
-  Container,
-  Text,
-  Grid
-} from 'theme-ui'
+import { Box, Container, Text, Grid } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../components/nav'
@@ -69,18 +64,18 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                img="/team/athul.jpg"
-                name="Athul Blesson"
-                teamRole="Director Asia-Pacific Region"
-                text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined as the Regional Manager of Asia-Pacific & Africa, where he actively manages 117 clubs."
-                pronouns="he/him"
-              />
-              <Bio
                 name="Zach Fogg"
                 teamRole="Community Game Designer"
                 text="Before he helped start Bitcamp, one of the largest & longest-running annual collegic hackathons, Zach Fogg was homeschooled in Maryland. He's been a mentor at tons of student hackathons and worked as software engineer for the past 8 years in SF."
                 pronouns="he/him"
                 img="/team/zfogg.jpg"
+              />
+              <Bio
+                name="Leo McElroy"
+                teamRole="Clubs Lead"
+                text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
+                img="/team/leo.png"
+                pronouns="he/him"
               />
               <Bio
                 name="Melanie Smith"
@@ -96,30 +91,29 @@ export default function Team() {
                 img="/team/liv.png"
                 pronouns="she/her"
               />
+            </Grid>
+            <br />
+            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
+              Asia-Pacific HQ
+            </Text>
+            <Grid columns={[1, null, 2]} gap={4}>
               <Bio
-                name="Leo McElroy"
-                teamRole="Clubs Lead"
-                text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
-                img="/team/leo.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Tevan Goldberg"
-                teamRole="Clubs Operations Manager"
-                text="Tevan is a professional musician, avid reader, mediocre fisherman, pathological conversationalist, and proud dropout of Harvard Divinity School, among other diversions. He believes self-motivated education is one of the most worthwhile things you can do in life, besides perhaps owning a dog. Tevan also enjoys writing about himself in the third person. "
-                img="/team/tevan.png"
+                img="/team/athul.jpg"
+                name="Athul Blesson"
+                teamRole="APAC Director"
+                text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined as the Regional Manager of Asia-Pacific & Africa, where he actively manages 117 clubs."
                 pronouns="he/him"
               />
               <Bio
                 name="Harsh Bajpai"
-                teamRole="Clubs Lead Asia-Pacific Region"
+                teamRole="Clubs Lead"
                 text="Harsh is a gentle force in both his local and the Slack community. He is a vegetarian musician who enjoys traveling around India. When he is not reading ancient mythology, he is programming with purpose and passion."
                 img="/team/harsh.png"
                 pronouns="he/him"
               />
               <Bio
                 name="Annlee Fores"
-                teamRole="Operations Asia-Pacific Region"
+                teamRole="Operations"
                 text={`As the COO of APAC, he oversees operations, handles event organisation & logistics at Hack Club APAC.
 When not seen busy juggling between different tasks he takes up, he can be seen enjoying tinkering & building fun projects`}
                 img="/team/annlee.jpg"
@@ -127,7 +121,7 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               />
               <Bio
                 name="Anna Grace Benny"
-                teamRole="Clubs Lead Asia-Pacific Region"
+                teamRole="Clubs Lead"
                 text={`Anna is a visual communication graduate and a social media buff. 
                 She loves films and everything related to it. Managing and meeting new hackclubers is her jam. She helps with onboarding new hackclubers in the APAC region and manages their social media pages`}
                 img="/team/anna.png"
@@ -135,10 +129,95 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               />
               <Bio
                 name="Shubhangi Gupta"
-                teamRole="Community Asia-Pacific Region"
+                teamRole="Community"
                 text={`Shubhangi is the founder of Raahee, a mental health startup aiming to provide affordable therapy. She is a Gold Microsoft Learn Student Ambassador and the runner up of Microsoft Imagine Cup, Healthcare Category. She loves to interact with people and dogs. She loves to talk about everything Harry Potter.`}
                 img="/team/shubhangi.jpeg"
                 pronouns="she/her"
+              />
+            </Grid>
+            <br />
+            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
+              Student Team
+            </Text>
+            <Grid columns={[1, null, 2]} gap={4}>
+              {/*<<Bio
+                name="Claire Wang"
+                teamRole="Community Team"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Caleb Denio"
+                teamRole="Community Team"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Rishi Kothari"
+                teamRole="Community Team"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              /> */}
+              <Bio
+                name="Abby Fischler"
+                teamRole="Coordinator to the COO"
+                text={`Abby is a high school sophomore passionate about STEM living in Los Angeles! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding. `}
+                img="https://github.com/abbyfischler.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Belle See"
+                teamRole="Coordinator to the COO"
+                text={`Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club! `}
+                img="https://github.com/bellesea.png"
+                pronouns="she/her"
+              />
+              {/*<Bio
+                name="Kunal Botla"
+                teamRole="Bank Operations"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Gary Tou"
+                teamRole="Bank Operations"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Ella Xu"
+                teamRole="Bank Operations"
+                text={`yeah`}
+                img="/stickers/logo.png"
+                pronouns="she/her"
+              /> */}
+              <Bio
+                name="Deven Jadhav"
+                teamRole="Bank Operations (APAC)"
+                text={`Deven is a Hack-clubber from India who enjoys building meaningful things from the intersections of art and technology. He also loves music, and plays the guitar and drums! Along with this, he also likes talking to strangers over the internet and having interesting and deep conversations. He is also a sucker for nature photography, and enjoys hikes and treks into the wild!`}
+                img="https://github.com/devenjadhav.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Sam Poder"
+                teamRole="Engineering & Operations"
+                text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. 
+Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys travelling with his family 
+and participating in academic competitions with his friends.`}
+                img="https://change-my-pfp.vercel.app/api/current/"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Hugo Hu"
+                teamRole="Mail Team Coordinator"
+                text={`Hugo is an avid fan of corgis, hardware, and shipping. He works with club leaders to get stickers to clubs and events, as well as working with community members to assist with logistical challenges. He ships for Hack Club Mail Team and handles a portion of Hack Club’s logistical requirements, as well as running Hack Shop and helping plan, design, produce, and distribute various types of swag for different events.`}
+                img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
+                pronouns="he/him"
               />
             </Grid>
             <br />

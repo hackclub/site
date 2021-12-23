@@ -65,7 +65,7 @@ const Page = ({ upcoming, past }) => (
           AMAs
         </Heading>
         <Text as="p" variant="subtitle" sx={{ a: { color: 'inherit' } }}>
-          Every month, we call someone we’ve always wanted to talk to—but the
+          When we call someone we’ve always wanted to talk to—but the
           entire Hack&nbsp;Club Slack community is invited, to ask questions &
           chat with the guest. They’re streamed live publicly on{' '}
           <Link href="https://www.youtube.com/c/HackClubHQ">YouTube</Link>.

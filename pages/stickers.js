@@ -25,16 +25,16 @@ const color = '#EC37AD'
 
 const StickersPage = ({ stickers = [] }) => [
   <Box
-    as="main"
-    key="main"
-    sx={{ textAlign: 'center', bg: 'dark', color: 'white' }}
-  >
+  as="main"
+  key="main"
+  sx={{ textAlign: 'center'}}
+>
     <ForceTheme theme="dark" />
     <Nav dark />
     <Meta
       as={Head}
       title="Stickers"
-      description="Check out Hack Club’s stickers & order some for yourself."
+      description="Check out Hack Club’s stickers."
       image="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2Fstickers.png?v=1588012712143"
     />
     <Box

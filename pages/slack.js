@@ -327,7 +327,7 @@ const SlackPage = ({ millionCount }) => (
           >
             <Icon glyph="external" size={24} />
             <h3>AMAs</h3>
-            <p>Every 2 weeks, Zoom with someone remarkable</p>
+            <p>Zoom with someone remarkable</p>
           </Card>
         </NextLink>
         <NextLink href="/night" passHref>

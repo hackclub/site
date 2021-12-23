@@ -71,7 +71,7 @@ export default function Features() {
           <Module
             icon="payment"
             name="Built-in invoicing"
-            body="Accept sponsor payments with low negotiated rates from Stripe."
+            body="Accept sponsor payments with fee-free invoicing, powered by Stripe."
           />
           <Module
             icon="docs"
@@ -125,22 +125,9 @@ export default function Features() {
             }
           />
           <Module
-            icon="sam"
-            name="Zoom Pro"
-            body={
-              <>
-                Create Zoom Pro meetings for free from your calendar using{' '}
-                <Link
-                  href="https://hack.af/z-home"
-                  color="smoke"
-                  hoverline
-                  target="_blank"
-                >
-                  Slash Z
-                </Link>
-                .
-              </>
-            }
+            icon="web"
+            name="Free Domains"
+            body="We'll pay for your organization's domain name for 1 year."
           />
           <Module
             icon="sticker"
@@ -149,17 +136,17 @@ export default function Features() {
           />
           <Module
             icon="embed"
-            name="Repl.it Hacker"
+            name="Replit Hacker"
             body={
               <>
                 Free Hacker Plans for your team on{' '}
                 <Link
-                  href="https://repl.it"
+                  href="https://replit.com"
                   color="smoke"
                   hoverline
                   target="_blank"
                 >
-                  repl.it
+                  Replit
                 </Link>{' '}
                 for 1 year.
               </>
