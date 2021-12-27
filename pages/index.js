@@ -478,7 +478,7 @@ const Page = () => (
           <Feature
             icon="slack-fill"
             color="#5d114c"
-            name="Chats with 100s of club leaders"
+            name="Chat with 100s of club leaders"
             desc={
               <>
                 In our{' '}
