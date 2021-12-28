@@ -579,7 +579,7 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                Free subscriptions to Figma Pro, replit, Postman and more for
+                Free subscriptions to Figma Pro, Postman, and more for
                 running a great club.
               </>
             }
