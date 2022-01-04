@@ -11,13 +11,14 @@
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@hackclub/icons": "^0.0.9",
     "@hackclub/meta": "1.1.32",
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^12.0.7",
     "@octokit/core": "^3.5.1",
     "@octokit/rest": "^18.12.0",
-    "@next/mdx": "^12.0.7",
     "airtable-plus": "^1.0.4",
     "animated-value": "^0.2.4",
     "animejs": "^3.2.1",
@@ -33,7 +34,7 @@
     "react-scrolllock": "^5.0.1",
     "react-use-websocket": "2.9.1",
     "resnow": "^1.0.0",
-    "theme-ui": "^0.12",
+    "theme-ui": "^0.13",
     "turndown": "^7.1.1"
   },
   "devDependencies": {}
