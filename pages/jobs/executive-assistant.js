@@ -28,7 +28,7 @@ export default () => (
           Executive Assistant @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New job open as of October 18th, 2021.
+          New job open as of January 11th, 2022.
         </Text>
       </Container>
     </Box>
