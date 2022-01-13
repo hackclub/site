@@ -14,7 +14,7 @@ const TransparencyReport = () => (
       description="An update with the latest open finances from Hack Club HQ."
       image="https://workshop-cards.hackclub.com/Transparency%20Update.png?theme=light&brand=HQ&fontSize=225px&caption=May%202020"
     />
-    <Nav />
+    <Nav color="text" />
     <ForceTheme theme="light" />
     <Box
       as="header"
