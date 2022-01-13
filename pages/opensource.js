@@ -1,17 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Image,
-  Input,
-  Link as A,
-  Text
-} from 'theme-ui'
-import theme from '@hackclub/theme'
+import { Box, Card, Container, Flex, Grid, Heading, Text } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Icon from '@hackclub/icons'
 import Head from 'next/head'
