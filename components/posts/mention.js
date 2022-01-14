@@ -2,7 +2,7 @@ import { Link, Avatar } from 'theme-ui'
 import { memo, useState, useEffect } from 'react'
 import { trim } from 'lodash'
 
-const Mention = memo(({ username }) => {
+const Mention = memo(function Mention({ username }) {
   const [img, setImg] = useState(null)
   useEffect(() => {
     try {

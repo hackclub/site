@@ -24,7 +24,7 @@ const org = {
   ]
 }
 
-export default class extends Document {
+class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
@@ -49,3 +49,5 @@ export default class extends Document {
     )
   }
 }
+
+export default MyDocument

@@ -73,7 +73,9 @@ function ListItem({ icon, body }) {
           size={45}
           sx={{ color: 'primary', flexShrink: 'none', flexShrink: 0, mr: 2 }}
         />
-        <Text fontSize={[32, 48]} variant="lead" children={body} />
+        <Text fontSize={[32, 48]} variant="lead">
+          {body}
+        </Text>
       </li>
     </Fade>
   )

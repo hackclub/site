@@ -1,13 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import {
-  Box,
-  Container,
-  Heading,
-  Card,
-  Text,
-  Grid
-} from 'theme-ui'
+import { Box, Container, Heading, Card, Text, Grid } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import ForceTheme from '/components/force-theme'
@@ -79,7 +72,7 @@ const JobListing = ({
   </Sheet>
 )
 
-export default () => (
+const Page = () => (
   <>
     <Meta
       as={Head}
@@ -115,7 +108,14 @@ export default () => (
           >
             Join the Hack Club Team
           </Heading>
-          <Heading sx={{ color: 'smoke', mt: 3, fontSize: ["18px", "24px"], lineHeight: ["1.5", "1.125"] }}>
+          <Heading
+            sx={{
+              color: 'smoke',
+              mt: 3,
+              fontSize: ['18px', '24px'],
+              lineHeight: ['1.5', '1.125']
+            }}
+          >
             <Text
               sx={{
                 bg: 'dark',
@@ -197,3 +197,5 @@ export default () => (
     <Footer key="footer" />
   </>
 )
+
+export default Page

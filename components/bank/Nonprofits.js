@@ -144,8 +144,9 @@ function Organization({
                       lineHeight: 1,
                       letterSpacing: -0.1
                     }}
-                    children={name}
-                  />
+                  >
+                    {name}
+                  </Text>
                   <br />
                   <Link
                     href={`https://${website}`}

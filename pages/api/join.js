@@ -6,18 +6,18 @@ const joinTable = new AirtablePlus({
   tableName: 'Join Requests'
 })
 
-export default async (req, res) => {
-  if (req.method == 'OPTIONS') {
+export default async function handler(req, res) {
+  if (req.method === 'OPTIONS') {
     return res
       .status(204)
       .json({ status: 'YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.' })
   }
-  if (req.method == 'GET') {
+  if (req.method === 'GET') {
     return res
       .status(405)
       .json({ error: '*GET outta here!* (Method not allowed, use POST)' })
   }
-  if (req.method == 'PUT') {
+  if (req.method === 'PUT') {
     return res.status(405).json({
       error: '*PUT that request away!* (Method not allowed, use POST)'
     })
