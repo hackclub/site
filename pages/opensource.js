@@ -168,6 +168,7 @@ const Page = ({ repos }) => (
         })
         .map(repo => (
           <Flex
+            key={id}
             sx={{
               alignItems: 'center',
               color: 'black',

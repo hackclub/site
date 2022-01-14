@@ -5,7 +5,7 @@ import Meta from '@hackclub/meta'
 import ForceTheme from '../../components/force-theme'
 import Photo from '../../components/photo'
 
-export default () => (
+const Page = () => (
   <>
     <Meta
       as={Head}
@@ -63,7 +63,7 @@ export default () => (
         <Card variant="sunken">We gave 300 teenagers $50,000 for <Link href="https://summer.hackclub.com/" target="_blank" rel="noopener noreferrer">their hardware projects</Link>.</Card>
       </Grid>
 
-      <Text as="p">We're looking for someone <strong>fun, creative, and technical</strong> to excite and grow the community.</Text>
+      <Text as="p">We&apos;re looking for someone <strong>fun, creative, and technical</strong> to excite and grow the community.</Text>
 
       <Grid my={5} gap={5} columns={[null, null, 2]}>
         <Box>
@@ -85,14 +85,14 @@ export default () => (
               background: 'radial-gradient(ellipse farthest-corner at top left, #ff8c37, #ec3750)',
               color: 'white'
             }}>
-              You're passionate about building technical projects and find tinkering fun
+              You&apos;re passionate about building technical projects and find tinkering fun
             </Card>
 
             <Card sx={{
               background: 'linear-gradient(-32deg, #6f31b7 14%, #c6479e 82%)',
               color: 'white'
             }}>
-              You've worked with teenagers and are excited to work 1:1 with them every day
+              You&apos;ve worked with teenagers and are excited to work 1:1 with them every day
             </Card>
 
             <Card sx={{
@@ -111,7 +111,7 @@ export default () => (
         </Box>
 
         <Box>
-          <strong>Projects you'll lead on:</strong>
+          <strong>Projects you&apos;ll lead on:</strong>
 
           <Flex
             sx={{
@@ -148,7 +148,7 @@ export default () => (
         />
         <Photo
           src="/home/golden-train.png"
-          alt={<>The <Link href="https://zephyr.hackclub.com/" target="_blank" rel="noopener noreferrer">world's longest hackathon</Link> on land</>}
+          alt={<>The <Link href="https://zephyr.hackclub.com/" target="_blank" rel="noopener noreferrer">world&apos;s longest hackathon</Link> on land</>}
           width={500}
           height={326.5}
           sx={{ display: ['none', 'none', 'block'] }}
@@ -165,13 +165,13 @@ export default () => (
       </Grid>
 
       <Box sx={{ p: { my: [3, 4] } }}>
-        <Text as="p">This is not a normal job. For the last 18 months, a <Link href="https://hackclub.com/team/" target="_blank" rel="noopener noreferrer">small team</Link> has produced a series of online events, and we're excited to hire an incredible, technical person to carry forward and build on these ideas. You'd be our 9th or so full-time staff member.</Text>
+        <Text as="p">This is not a normal job. For the last 18 months, a <Link href="https://hackclub.com/team/" target="_blank" rel="noopener noreferrer">small team</Link> has produced a series of online events, and we&apos;re excited to hire an incredible, technical person to carry forward and build on these ideas. You&apos;d be our 9th or so full-time staff member.</Text>
 
-        <Text as="p">In the <Link href="https://hackclub.com/slack/" target="_blank" rel="noopener noreferrer">Hack Club Slack</Link>, you'll work with our community to create the best and most inclusive place on the internet for technical teenagers. To work at Hack Club, you need to have a background in programming, but <strong>you should be inspired by making things fun.</strong></Text>
+        <Text as="p">In the <Link href="https://hackclub.com/slack/" target="_blank" rel="noopener noreferrer">Hack Club Slack</Link>, you&apos;ll work with our community to create the best and most inclusive place on the internet for technical teenagers. To work at Hack Club, you need to have a background in programming, but <strong>you should be inspired by making things fun.</strong></Text>
 
-        <Text as="p">We are actively looking for candidates who have worked successfully with girl hackers before. We invite and encourage all interested candidates to apply even if they don't feel they meet all of the criteria.</Text>
+        <Text as="p">We are actively looking for candidates who have worked successfully with girl hackers before. We invite and encourage all interested candidates to apply even if they don&apos;t feel they meet all of the criteria.</Text>
 
-        <Text as="p">This role pays between $60K - $100K, depending on your experience&mdash; and we know that's probably less than you'd make elsewhere. We offer healthcare and 4 weeks paid vacation.</Text>
+        <Text as="p">This role pays between $60K - $100K, depending on your experience&mdash; and we know that&apos;s probably less than you&apos;d make elsewhere. We offer healthcare and 4 weeks paid vacation.</Text>
       </Box>
 
       <Flex sx={{ flexDirection: ['column', 'column', 'row'], gap: 4, fontSize: 2, my: 5 }}>
@@ -193,8 +193,10 @@ export default () => (
       </Flex>
 
       <Box as="p" mt={5}>
-        <strong>How to apply:</strong> Email <Link href="mailto:jobs@hackclub.com" target="_blank" rel="noopener noreferrer">jobs@hackclub.com</Link> with "golden" in the subject line, 3 bullet points demonstrating why you would be exceptional for the role, and your resume.
+        <strong>How to apply:</strong> Email <Link href="mailto:jobs@hackclub.com" target="_blank" rel="noopener noreferrer">jobs@hackclub.com</Link> with &quot;golden&quot; in the subject line, 3 bullet points demonstrating why you would be exceptional for the role, and your resume.
       </Box>
     </Container>
   </>
 )
+
+export default Page

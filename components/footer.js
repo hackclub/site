@@ -42,9 +42,10 @@ const Service = ({ href, icon, name = '', ...props }) => (
     rel="noopener"
     href={href}
     title={`Hack Club on ${name ? name : icon}`}
-    children={<Icon glyph={icon} />}
     {...props}
-  />
+  >
+    <Icon glyph={icon} />
+  </Link>
 )
 
 const Footer = ({ dark = false, children, ...props }) => (
@@ -83,28 +84,25 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Heading as="h2" variant="subheadline" mb={3}>
             Hack Club
           </Heading>
-          <Link href="/slack" children="Slack" />
-          <Link href="/donate" children="Donate" />
-          <Link href="/team" children="Team" />
-          <Link href="/jobs" children="Jobs" />
-          <Link href="/philosophy" children="Philosophy" />
-          <Link href="/brand" children="Branding" />
-          <Link href="/press" children="Press Inquiries" />
+          <Link href="/slack">Slack</Link>
+          <Link href="/donate">Donate</Link>
+          <Link href="/team">Team</Link>
+          <Link href="/jobs">Jobs</Link>
+          <Link href="/philosophy">Philosophy</Link>
+          <Link href="/brand">Branding</Link>
+          <Link href="/press">Press Inquiries</Link>
         </Box>
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
             Resources
           </Heading>
-          <Link
-            href="https://hackclub.com/conduct/"
-            children="Code of Conduct"
-          />
-          <Link href="https://events.hackclub.com/" children="Events" />
-          <Link href="https://workshops.hackclub.com/" children="Workshops" />
-          <Link href="https://hackathons.hackclub.com/" children="Hackathons" />
-          <Link href="/bank" children="Bank" />
-          <Link href="https://hackclub.com/map/" children="Clubs Map" />
-          <Link href="https://toolbox.hackclub.com/" children="Toolbox" />
+          <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
+          <Link href="https://events.hackclub.com/">Events</Link>
+          <Link href="https://workshops.hackclub.com/">Workshops</Link>
+          <Link href="https://hackathons.hackclub.com/">Hackathons</Link>
+          <Link href="/bank">Bank</Link>
+          <Link href="https://hackclub.com/map/">Clubs Map</Link>
+          <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
         </Box>
         <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
           <Logo aria-label="Hack Club logo" width={128} height={45} />
@@ -167,7 +165,9 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Text my={2}>
             <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>
             <br />
-            <Text as="span" color="muted" children="(call toll-free)" />
+            <Text as="span" color="muted">
+              (call toll-free)
+            </Text>
           </Text>
         </Box>
       </Grid>

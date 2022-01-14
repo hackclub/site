@@ -84,14 +84,14 @@ const Page = () => (
           caps
         >
           <FadeIn delay={300} duration={600}>
-            It's&nbsp;2021,
+            It&apos;s 2021,
           </FadeIn>
           <FadeIn delay={1200} duration={600}>
-            the&nbsp;holidays&nbsp;have&nbsp;come,
+            the holidays have come,
             <br />
           </FadeIn>
           <FadeIn delay={2300} duration={600}>
-            now&nbsp;let's&nbsp;all have&nbsp;some&nbsp;fun!
+            now let&apos;s all have some fun!
           </FadeIn>
         </Heading>
         <Image
@@ -118,15 +118,10 @@ const Page = () => (
             my={3}
             mx="auto"
           >
-            Christmas is here and it's time for some fun! The holiday season is{' '}
-            <RemoveSpace>
-              among
-              <Space className="space" children={' '} />
-              us
-            </RemoveSpace>{' '}
+            Christmas is here and it&apos;s time for some fun! The holiday season is among us
             and the elves have assembled, which means its time for gift-giving
             to begin! The magical elf will assign you a partner, send them
-            something fun, & you’ll get your own gift in the mail just in time
+            something fun, &amp; you&apos;ll get your own gift in the mail just in time
             for the holidays!
           </Lead>
           {/* Signup form */}

@@ -79,7 +79,7 @@ const JobListing = ({
   </Sheet>
 )
 
-export default () => (
+const Page = () => (
   <>
     <Meta
       as={Head}
@@ -183,7 +183,7 @@ export default () => (
               <>
                 Your main goal will be to make sure every teenager who{' '}
                 <em>would</em> want to know about Hack Club knows about Hack
-                Club, and create comms that meet teens where they're at.
+                Club, and create comms that meet teens where they&apos;re at.
               </>
             }
             positionLink="/jobs/communications-manager/"
@@ -197,3 +197,5 @@ export default () => (
     <Footer key="footer" />
   </>
 )
+
+export default Page

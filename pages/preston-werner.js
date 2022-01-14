@@ -19,7 +19,7 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import PrestonWernerCopy from '../components/preston-werner/copy.mdx'
 
-export default () => (
+const Page = () => (
   <>
     <Meta
       as={Head}
@@ -52,7 +52,7 @@ export default () => (
           }}
         >
            
-          “I love that Hack Club is <span>helping me make it possible</span>{''} for more students to have opportunities like I had as a young person" 
+          “I love that Hack Club is <span>helping me make it possible</span>{''} for more students to have opportunities like I had as a young person&quot; 
         </Heading>
         <Text variant="headline" sx={{ display: 'inline-flex' }}>
           —
@@ -176,3 +176,5 @@ export default () => (
     <Footer />
   </>
 )
+
+export default Page

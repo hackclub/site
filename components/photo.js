@@ -46,8 +46,9 @@ const Photo = ({ src, width, height, alt, showAlt, dark, ...props }) => {
         <Caption
           as="figcaption"
           variant={dark ? 'cards.translucentDark' : 'cards.translucent'}
-          children={alt}
-        />
+        >
+          {alt}
+        </Caption>
       )}
     </Card>
   )

@@ -39,8 +39,9 @@ const Stat = ({
           letterSpacing: 'title',
           my: 0
         }}
-        children={value || '—'}
-      />
+      >
+        {value || '—'}
+      </Text>
       {!isEmpty(unit) && (
         <Text
           as="sup"
@@ -51,8 +52,9 @@ const Stat = ({
             mr: [null, 1],
             pt: [null, 1]
           }}
-          children={unit}
-        />
+        >
+          {unit}
+        </Text>
       )}
       {!isEmpty(of) && (
         <Text
@@ -66,8 +68,9 @@ const Stat = ({
               content: '"/"'
             }
           }}
-          children={of}
-        />
+        >
+          {of}
+        </Text>
       )}
     </Flex>
     {!isEmpty(label) && (
@@ -79,8 +82,9 @@ const Stat = ({
           letterSpacing: 'headline',
           textTransform: 'uppercase'
         }}
-        children={label}
-      />
+      >
+        {label}
+      </Text>
     )}
   </Flex>
 )

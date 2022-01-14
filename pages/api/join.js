@@ -6,7 +6,7 @@ const joinTable = new AirtablePlus({
   tableName: 'Join Requests'
 })
 
-export default async (req, res) => {
+export default async function handler(req, res) {
   if (req.method == 'OPTIONS') {
     return res
       .status(204)

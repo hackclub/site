@@ -118,7 +118,7 @@ export default function Features() {
                   hoverline
                   target="_blank"
                 >
-                  President's Volunteer Service Award
+                  President&apos;s Volunteer Service Award
                 </Link>{' '}
                 to your volunteers.
               </>
@@ -207,10 +207,9 @@ function Module({ icon, name, body }) {
       />
       <Box>
         <Heading sx={{ color: 'snow', lineHeight: '1.5' }}>{name}</Heading>
-        <Text
-          sx={{ color: 'muted', lineHeight: '1.375', fontSize: 17 }}
-          children={body}
-        />
+        <Text sx={{ color: 'muted', lineHeight: '1.375', fontSize: 17 }}>
+          {body}
+        </Text>
       </Box>
     </Box>
   )
@@ -245,15 +244,12 @@ function Document({ name, cost }) {
         sx={{ flexShrink: 0, color: 'green' }}
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Text fontSize={2} children={name} />
+        <Text fontSize={2}>{name}</Text>
 
         {cost && (
-          <Text
-            fontSize={1}
-            color="muted"
-            style={{ lineHeight: '1.375' }}
-            children={cost}
-          />
+          <Text fontSize={1} color="muted" style={{ lineHeight: '1.375' }}>
+            {cost}
+          </Text>
         )}
       </Box>
     </Box>

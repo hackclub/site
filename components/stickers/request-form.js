@@ -1,6 +1,6 @@
 import { Grid, Card, Label, Input, Select } from 'theme-ui'
 import useForm from '../../lib/use-form'
-import { countries } from '../../lib/countries'
+import countries from '../../lib/countries'
 import Submit from '../submit'
 
 const RequestForm = () => {
@@ -65,8 +65,8 @@ const RequestForm = () => {
           <option value="" selected disabled>
             Choose a country
           </option>
-          {Object.entries(countries).map(country => (
-            <option value={country.slice(1)}>{country.slice(1)}</option>
+          {countries.countries.map(country => (
+            <option value={country} key={country}>{country}</option>
           ))}
         </Select>
       </Label>

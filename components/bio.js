@@ -24,20 +24,13 @@ export default function Bio({ img, name, teamRole, pronouns, text, ...props }) {
         </Box>
         <Box sx={{ gridColumn: 'span 5' }}>
           <Box>
-            <Text
-              fontSize={[4, 5]}
-              variant="headline"
-              color="black"
-              children={name}
-            />
+            <Text fontSize={[4, 5]} variant="headline" color="black">
+              {name}
+            </Text>
             <Flex>
-              <Text
-                color="#24B5A5"
-                variant="subheadline"
-                fontSize={2}
-                mr={2}
-                children={teamRole}
-              />
+              <Text color="#24B5A5" variant="subheadline" fontSize={2} mr={2}>
+                {teamRole}
+              </Text>
               {pronouns && (
                 <Text fontSize={1} color="muted" align="center">
                   ({pronouns})
@@ -45,7 +38,9 @@ export default function Bio({ img, name, teamRole, pronouns, text, ...props }) {
               )}
             </Flex>
           </Box>
-          <Text mt={1} mb={0} color="black" children={text} />
+          <Text mt={1} mb={0} color="black">
+            {text}
+          </Text>
         </Box>
       </Grid>
     </Card>
