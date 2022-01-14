@@ -1,17 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Image,
-  Input,
-  Link as A,
-  Text
-} from 'theme-ui'
-import theme from '@hackclub/theme'
+import { Box, Card, Container, Flex, Grid, Heading, Text } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Icon from '@hackclub/icons'
 import Head from 'next/head'
@@ -60,7 +47,7 @@ const Page = ({ repos }) => (
       description="Explore our finances, code, planning documents and more."
       image="https://workshop-cards.hackclub.com/Open%20Source.png?theme=dark&fontSize=350px&brand=HQ"
     />
-    <Nav />
+    <Nav color="text" />
     <Box
       as="header"
       sx={{
@@ -154,15 +141,15 @@ const Page = ({ repos }) => (
         Content
       </Heading>
       <Grid columns={2} gap={3} mt={2} mb={[4]}>
-        <BankProject name="Workshops" url={`https://github.com/hackclub/hackclub/tree/main/workshops`} />
+        <BankProject
+          name="Workshops"
+          url={`https://github.com/hackclub/hackclub/tree/main/workshops`}
+        />
         <BankProject
           name="VIP Newsletters"
           url={`https://github.com/hackclub/vip-newsletters`}
         />
-        <BankProject
-          name="Meetings"
-          url={`https://meetings.hackclub.com`}
-        />
+        <BankProject name="Meetings" url={`https://meetings.hackclub.com`} />
       </Grid>
       <Heading
         variant="headline"
