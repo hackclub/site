@@ -130,7 +130,7 @@ const nextConfig = {
       },
       {
         source: '/covid19/',
-        destination: 'https://workshops.hackclub.com/covid19/'
+        destination: '/content/covid19/'
       },
       {
         source: '/sunsetting-som/',
