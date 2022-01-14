@@ -154,9 +154,9 @@ const nextConfig = {
         destination: 'https://workshops.hackclub.com/vip-newsletters/$1'
       },
       {
-        source: '/transparency/may-2020/',
-        destination: 'https://workshops.hackclub.com/transparency-may/'
-      },
+         source: '/transparency/may-2020/',
+         destination: '/content/transparency/may-2020/'
+       },
       {
         source: '/map/',
         destination: 'https://map.hackclub.dev/'
