@@ -1,6 +1,9 @@
+import { Avatar, Badge, Box, Container, Flex, Heading } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
-import { Container } from 'theme-ui'
+import Nav from './nav'
+import Footer from './footer'
+import ForceTheme from './force-theme'
 
 const Authored = ({ name, avatar, url, date, ...props }) => (
   <Flex
