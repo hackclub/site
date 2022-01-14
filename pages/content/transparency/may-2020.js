@@ -4,7 +4,7 @@ import Meta from '@hackclub/meta'
 import Nav from '../../../components/nav'
 import Footer from '../../../components/footer'
 import ForceTheme from '../../../components/force-theme'
-import May2020 from '../../components/may-2020.mdx'
+import May2020 from '../../../components/may-2020.mdx'
 
 const TransparencyReport = () => (
   <>
