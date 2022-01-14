@@ -126,7 +126,7 @@ const nextConfig = {
       },
       {
         source: '/sponsorship/',
-        destination: 'https://workshops.hackclub.com/sponsorship/'
+        destination: '/content/sponsorship/'
       },
       {
         source: '/covid19/',
