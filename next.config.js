@@ -134,7 +134,7 @@ const nextConfig = {
       },
       {
         source: '/sunsetting-som/',
-        destination: 'https://workshops.hackclub.com/sunsetting-som/'
+        destination: '/content/sunsetting-som/'
       },
       {
         source: '/banner/',
