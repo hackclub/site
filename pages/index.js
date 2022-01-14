@@ -341,8 +341,6 @@ const Page = () => (
             <Text
               as="p"
               variant="subtitle"
-              as="p"
-              variant="lead"
               sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
             >
               <strong>Everyone gets hacking, individually.</strong> Not hacking
@@ -545,8 +543,8 @@ const Page = () => (
                 Use our 501(c)(3) status and a restricted fund with{' '}
                 <Link href="/bank">
                   <a>Hack Club Bank</a>
-                </Link>
-                {' '}to fundraise, accept donations, buy things!
+                </Link>{' '}
+                to fundraise, accept donations, buy things!
               </>
             }
           />
@@ -579,8 +577,8 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                Free subscriptions to Figma Pro, Postman, and more for
-                running a great club.
+                Free subscriptions to Figma Pro, Postman, and more for running a
+                great club.
               </>
             }
           />

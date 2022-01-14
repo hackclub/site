@@ -36,7 +36,7 @@ const twinkling = keyframes`
 
 const color = '#50E3C2'
 
-export default () => (
+const Page = () => (
   <>
     <Meta
       as={Head}
@@ -143,3 +143,5 @@ export default () => (
     <Footer dark />
   </>
 )
+
+export default Page

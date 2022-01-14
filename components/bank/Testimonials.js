@@ -150,8 +150,9 @@ function Event({
                 color="white"
                 variant="headline"
                 sx={{ fontSize: [48, null, 30], letterSpacing: -0.1 }}
-                children={name}
-              />
+              >
+                {name}
+              </Text>
               <Box
                 sx={{
                   display: 'flex',

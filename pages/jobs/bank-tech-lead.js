@@ -5,7 +5,7 @@ import Meta from '@hackclub/meta'
 import JobDescription from '../../components/jobs/bank-tech-lead/jd.mdx'
 import ForceTheme from '../../components/force-theme'
 
-export default () => (
+const Page = () => (
   <>
     <Meta
       as={Head}
@@ -45,3 +45,5 @@ export default () => (
     </Container>
   </>
 )
+
+export default Page
