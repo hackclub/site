@@ -68,7 +68,7 @@ export default function Nonprofits() {
         <Heading variant="title">Nonprofit? No problem.</Heading>
         <Text variant="lead" color="muted">
           Hack Club Bank is a powerful, safe, and easy-to-use financial
-          platform, whether you&apos;re receiving your first donation or spend
+          platform, whether you're receiving your first donation or spend
           $100,000 a year.
         </Text>
       </Container>

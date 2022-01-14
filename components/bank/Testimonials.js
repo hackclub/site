@@ -168,7 +168,7 @@ function Event({
               </Box>
             </Box>
             <br />
-            <Quote>&quot;{testimonial}&quot;</Quote>
+            <Quote>"{testimonial}"</Quote>
             <Box
               sx={{
                 display: 'flex',

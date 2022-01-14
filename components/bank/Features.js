@@ -118,7 +118,7 @@ export default function Features() {
                   hoverline
                   target="_blank"
                 >
-                  President&apos;s Volunteer Service Award
+                  President's Volunteer Service Award
                 </Link>{' '}
                 to your volunteers.
               </>

@@ -51,8 +51,9 @@ const Page = () => (
             }
           }}
         >
-           
-          “I love that Hack Club is <span>helping me make it possible</span>{''} for more students to have opportunities like I had as a young person&quot; 
+          “I love that Hack Club is <span>helping me make it possible</span>
+          {''} for more students to have opportunities like I had as a young
+          person"
         </Heading>
         <Text variant="headline" sx={{ display: 'inline-flex' }}>
           —
@@ -143,7 +144,7 @@ const Page = () => (
           Jan 27, 2021
         </Badge>
       </Flex>
-      <PrestonWernerCopy/>
+      <PrestonWernerCopy />
     </Container>
     <Box
       as="section"
@@ -162,8 +163,9 @@ const Page = () => (
           </Heading>
           <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
             Hack Club is a global community of high school hackers & student-led
-            Hack Clubs. Join the community-led 24/7 Hack Club Slack of 11k+ teenagers
-            learning to code & building amazing projects. You’ll fit right in.
+            Hack Clubs. Join the community-led 24/7 Hack Club Slack of 11k+
+            teenagers learning to code & building amazing projects. You’ll fit
+            right in.
           </Text>
           <NextLink href="/" passHref>
             <Button bg="cyan" as="a">

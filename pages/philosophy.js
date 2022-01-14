@@ -118,9 +118,9 @@ export default function Philosophy() {
             px={3}
             align="left"
           >
-            <Ultraline>We&apos;re</Ultraline>
+            <Ultraline>We're</Ultraline>
             <Ultraline>at our best</Ultraline>
-            <Ultraline>when we&apos;re</Ultraline>
+            <Ultraline>when we're</Ultraline>
             <Ultraline>making.</Ultraline>
             <Seal pt={[3, 4]}>
               <Heading
