@@ -1,4 +1,7 @@
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
   images: {
