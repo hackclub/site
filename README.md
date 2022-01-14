@@ -26,7 +26,7 @@ Code under MIT License, assets may not be re-used or re-distributed.
 
 ---
 
-By [@lachlanjc](https://lachlanjc.com) for Hack Club, 2021. MIT License.
+By [@lachlanjc](https://lachlanjc.com) for Hack Club, 2022. MIT License.
 
 [next.js]: https://nextjs.org
 [mdx]: https://mdxjs.com
