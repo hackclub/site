@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { memo, useState, useEffect } from 'react'
+import { memo } from 'react'
 
 export const StaticMention = memo(({ avatar, username, link }) => (
   <Link href={link}>
