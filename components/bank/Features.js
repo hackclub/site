@@ -135,24 +135,6 @@ export default function Features() {
             body="Get up to $400 in Sticker Mule credit for custom swag."
           />
           <Module
-            icon="embed"
-            name="Replit Hacker"
-            body={
-              <>
-                Free Hacker Plans for your team on{' '}
-                <Link
-                  href="https://replit.com"
-                  color="smoke"
-                  hoverline
-                  target="_blank"
-                >
-                  Replit
-                </Link>{' '}
-                for 1 year.
-              </>
-            }
-          />
-          <Module
             icon="slack"
             name="Founder's Community"
             body="A space on the Slack for nonprofit founders and event organizers."
