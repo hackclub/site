@@ -107,6 +107,11 @@ export default function Features() {
             }
           />
           <Module
+            icon="friend"
+            name="Donation Page"
+            body="Receive donations through a custom, online embeddable form."
+          />
+          <Module
             icon="flag"
             name="PVSA Awards"
             body={
