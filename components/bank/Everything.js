@@ -34,7 +34,7 @@ export default function Everything() {
               '24-hour response support': 'clock',
               'Reimbursement process': 'enter'
             }).map(([item, icon = 'enter']) => (
-              <ListItem key={icon} icon={icon}>
+              <ListItem key={item} icon={icon}>
                 {item}
               </ListItem>
             ))}
