@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Link,
-  Text,
-  Flex,
-  Container,
-  Badge
-} from 'theme-ui'
+import { Box, Button, Heading, Link, Text, Container, Badge } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from './ScrollHint'
 
@@ -72,7 +63,7 @@ export default function Landing() {
                   >
                     The team behind{' '}
                     <Link
-                      href="https://hackaz.io/?ref=bank"
+                      href="https://web.archive.org/web/20210204063213/https://hackaz.io/"
                       target="_blank"
                       color="inherit"
                       bold
