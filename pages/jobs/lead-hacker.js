@@ -109,7 +109,7 @@ const Page = () => (
               color: 'white'
             }}
           >
-            Loves working with teenagers and / or has experience building resilient systems and implementing security best practices
+            Loves working with teenagers and/or has experience building resilient systems and implementing security best practices
           </Card>
         </Grid>
 
