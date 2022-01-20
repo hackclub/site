@@ -39,6 +39,7 @@ const nextConfig = {
         permanent: true
       },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
+      { source: '/jobs/bank-tech-lead/', destination: '/jobs/lead-hacker/', permanent: true },
       { source: '/workshops/slack/', destination: '/slack/', permanent: true },
       { source: '/community/', destination: '/slack/', permanent: true },
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
