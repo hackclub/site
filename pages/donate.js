@@ -114,7 +114,7 @@ const contentContainer = {
 }
 const content = { maxWidth: 48, mx: 0, color: 'black' }
 
-const title = 'Donate – Hack Club'
+const title = 'Donate'
 const desc =
   'Contribute today to empower the next generation and help start a coding club at every high school.'
 
