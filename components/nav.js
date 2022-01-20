@@ -232,7 +232,6 @@ class Header extends Component {
     return (
       <Root
         {...props}
-        key="nav"
         fixed={fixed}
         scrolled={scrolled}
         toggled={toggled}
