@@ -29,7 +29,7 @@ const Page = () => (
           Lead Hacker @&nbsp;Hack&nbsp;Club Bank
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New job open as of November 10th, 2021.
+          New role open as of January 19th, 2022.
         </Text>
       </Container>
     </Box>
@@ -49,15 +49,15 @@ const Page = () => (
       </Heading>
 
       <Text as="p" mb={4}>
-	      Starting a nonprofit is hard, so we built <Link href="/bank" target="_blank">Hack Club Bank</Link> in-house for our community of 16,000+ teenage programmers. In less than 24 hours users can get access to beautiful software for managing and spending their own funds, backed by our nonprofit status through fiscal sponsorship. 50% of high school hackathons in the world now run on Hack Club Bank, and Elon Musk has tweeted that we're a <Link href="https://twitter.com/elonmusk/status/1263275969743216640" target="_blank" rel="noopener noreferrer">"cool group"</Link>.
+        Starting a nonprofit is hard, so we built <Link href="/bank" target="_blank">Hack Club Bank</Link> for our community of 16,000+ teenage programmers. Within 24 hours of joining Bank, organizations get 501(c)(3) nonprofit status, access to a beautiful dashboard for managing their finances, and all financial and legal matters - from tax filings to payroll - handled. 50% of high school hackathons worldwide run on Hack Club Bank, and Elon Musk has tweeted that we're a <Link href="https://twitter.com/elonmusk/status/1263275969743216640" target="_blank" rel="noopener noreferrer">"cool group"</Link>.
       </Text>
 
       <Text as="p" mb={4}>
-        Now, Hack Club Bank is expanding beyond just Hack Clubbers. <strong>Over 400 organizations relying on Bank have transacted upwards of $4,000,000;</strong> from teenage-run hackathons to <Link href="https://vtdigger.org/2021/04/13/frustrated-with-one-local-newspaper-prominent-charlotte-journalists-help-start-another/" target="_blank" rel="noopener noreferrer">independent small-town newspapers</Link>.
+        Now, Hack Club Bank is expanding beyond just Hack Clubbers. <strong>Over 400 organizations running on Bank have transacted upwards of $4,000,000;</strong> from teenage-run hackathons to <Link href="https://vtdigger.org/2021/04/13/frustrated-with-one-local-newspaper-prominent-charlotte-journalists-help-start-another/" target="_blank" rel="noopener noreferrer">small-town newspapers</Link>.
       </Text>
 
       <Text as="p">
-        With the right leadership, we want to bring Hack Club Bank to thousands of organizations across the United States and process tens of millions of dollars in transactions. Right now, Bank is the <strong>only part of Hack Club that isn't <Link href="https://github.com/hackclub/" target="_blank" rel="noopener noreferrer">open source</Link>.</strong> In the next year we want to open source it, build an amazing community of Hack Clubbers around it, and sign up 1,000 new organizations.
+        With the right leadership, we hope to bring Hack Club Bank to thousands of organizations across the United States and process tens of millions of dollars in transactions. We think do-gooders need the same tools that software engineers do. For them, Bank is like GitHub: transformative. Right now, Bank is the <strong>only part of Hack Club that isn't <Link href="https://github.com/hackclub/" target="_blank" rel="noopener noreferrer">open source</Link>.</strong> In the next year we want to open source it, build an amazing community of Hack Clubbers contributing to it, and onboard 1,000 new organizations through our <Link href="https://givebutter.com/fiscal-sponsorship" target="_blank" rel="noopener noreferrer">partnership with Givebutter</Link>.
       </Text>
 
       <Box my={5}>
@@ -81,7 +81,7 @@ const Page = () => (
               color: 'white'
             }}
           >
-            Loves coding and has senior-level expertise in Ruby on Rails, and has managed small teams of engineers before
+            Loves coding, has senior-level expertise in Ruby on Rails, and has managed small teams of engineers before
           </Card>
 
           <Card
@@ -109,7 +109,7 @@ const Page = () => (
               color: 'white'
             }}
           >
-            Loves working with teenagers and/or has experience building resilient systems and implementing security best practices
+            Loves working with teenagers and / or has experience building resilient systems and implementing security best practices
           </Card>
         </Grid>
 
@@ -136,7 +136,7 @@ const Page = () => (
 
         <Text as="p">
           Hack Club Bank already powers <Link href="https://bank.hackclub.com/hq" target="_blank">our own transparent
-          finances</Link> as well as those of <Link href="https://bank.hackclub.com/miami-hack-week/" target="_blank">many</Link>{' '}
+            finances</Link> as well as those of <Link href="https://bank.hackclub.com/miami-hack-week/" target="_blank">many</Link>{' '}
           <Link href="https://bank.hackclub.com/mesto/" target="_blank">other</Link>{' '}
           <Link href="https://bank.hackclub.com/techshift/" target="_blank">organizations</Link>! These are just some
           of the initiatives we support:
@@ -197,7 +197,7 @@ const Page = () => (
         <Text as="p">
           This role is like being a founder or CTO of Bank; you'll work directly with real users as well as
           Zach, Hack Club's Executive Director, to define product roadmap and business strategy around <strong>making
-          Bank better for Hack Clubbers.</strong> You will build and lead a team of Hack Clubbers to execute on the
+            Bank better for Hack Clubbers.</strong> You will build and lead a team of Hack Clubbers to execute on the
           engineering roadmap and create a strong shipping culture around Bank, and lead and manage relationships with
           technical partners that integrate Bank into their products.
         </Text>
