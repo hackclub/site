@@ -79,7 +79,7 @@ export default function PartnerEverything({ fee }) {
             }}
           >
             <Text sx={{ fontSize: 32, mr: 2 }}>You pay just</Text>
-            <Percentage>{fee}</Percentage>
+            <Percentage fee={fee} />
             <Text sx={{ fontSize: 32, ml: 2 }}>
               of revenue. No upfront costs.
             </Text>
