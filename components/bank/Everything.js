@@ -3,7 +3,7 @@ import Run from './Run'
 import { Fade } from 'react-reveal'
 import Icon from '../icon'
 
-export default function Everything({ fee }) {
+export default function Everything({ fee, partner: false }) {
   return (
     <>
       <Box
@@ -42,23 +42,19 @@ export default function Everything({ fee }) {
               'Physical check sending & voiding': '',
               'Online direct deposit & ACH transfers': '',
               'Generate attendee legal waivers': '',
-              'Instant Google Workspace & email addresses': '',
               'Virtual debit cards (with Apple & Google Pay)': '',
               'Debit card transaction paper trail': '',
               'Transparency Mode (optional)': '',
-              'Online, embeddable donation form': ''
             }).map(([item, date]) => (
               <ListItem
                 key={item}
                 icon={
-                  item.startsWith('Instant') || item.includes('signup')
+                  item.includes('signup')
                     ? 'bolt'
                     : item.includes('card')
                     ? 'card'
                     : item.includes('Transparency')
                     ? 'explore'
-                    : item.includes('form')
-                    ? 'link'
                     : item.includes('Physical')
                     ? 'email'
                     : 'enter'
@@ -67,6 +63,23 @@ export default function Everything({ fee }) {
                 {item}
               </ListItem>
             ))}
+            {!partner ? Object.entries({
+              'Instant Google Workspace & email addresses': '',
+              'Online, embeddable donation form': ''
+            }).map(([item, date]) => (
+              <ListItem
+                key={item}
+                icon={
+                  item.startsWith('Instant')
+                    ? 'bolt'
+                    : item.includes('form')
+                    ? 'link'
+                    : 'enter'
+                }
+              >
+                {item}
+              </ListItem>
+            )) : ""}
           </List>
         </Container>
         <Run />
