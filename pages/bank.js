@@ -11,7 +11,6 @@ import Everything from '../components/bank/Everything'
 import Start from '../components/bank/Start'
 import Nonprofits from '../components/bank/Nonprofits'
 import { useRouter } from 'next/router'
-import PartnerFeatures from '../components/bank/PartnerFeatures'
 
 const styles = `
   ::selection {
@@ -19,10 +18,9 @@ const styles = `
     color: #ffffff;
     text-shadow: none;
   }
-input:-webkit-autofill {
-  -webkit-text-fill-color: white;
-}
-
+  input:-webkit-autofill {
+    -webkit-text-fill-color: white;
+  }
 `
 
 function Bank() {
@@ -42,7 +40,7 @@ function Bank() {
         <style>{styles}</style>
         <Box>
           {isGivebutter ? <Landing /> : <Landing showButton />}
-          {isGivebutter ? <PartnerFeatures /> : <Features />}
+          {isGivebutter ? <Features partner={true} /> : <Features partner={false} />}
           <Testimonials />
           <Nonprofits />
           {isGivebutter ? (
