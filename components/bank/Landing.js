@@ -2,7 +2,7 @@ import { Box, Button, Heading, Link, Text, Container, Badge } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from './ScrollHint'
 
-export default function Landing() {
+export default function Landing({ showButton }) {
   return (
     <>
       <Slide>
@@ -87,14 +87,16 @@ export default function Landing() {
               marginBottom: 3
             }}
           >
-            <Button
-              variant="outlineLg"
-              as="a"
-              href="#apply"
-              style={{ zIndex: '100' }}
-            >
-              Apply Now
-            </Button>
+            {showButton && (
+              <Button
+                variant="outlineLg"
+                as="a"
+                href="#apply"
+                style={{ zIndex: '100' }}
+              >
+                Apply Now
+              </Button>
+            )}
           </Box>
           <ScrollHint />
         </Box>

@@ -10,6 +10,9 @@ import Testimonials from '../components/bank/Testimonials'
 import Everything from '../components/bank/Everything'
 import Start from '../components/bank/Start'
 import Nonprofits from '../components/bank/Nonprofits'
+import { useRouter } from 'next/router'
+import PartnerFeatures from '../components/bank/PartnerFeatures'
+import PartnerEverything from '../components/bank/PartnerEverything'
 
 const styles = `
   ::selection {
@@ -23,10 +26,11 @@ input:-webkit-autofill {
 
 `
 
-function Bank({ ref }) {
+function Bank() {
+  const { ref } = useRouter().query
+  const isGivebutter = ref === 'gb_help_center'
   return (
     <>
-      <h1>{ref}</h1>
       <Box as="main" key="main">
         <Nav dark />
         <ForceTheme theme="dark" />
@@ -38,25 +42,21 @@ function Bank({ ref }) {
         />
         <style>{styles}</style>
         <Box>
-          <Landing />
-          <Features />
+          {isGivebutter ? <Landing /> : <Landing showButton />}
+          {isGivebutter ? <PartnerFeatures /> : <Features />}
           <Testimonials />
           <Nonprofits />
-          <Everything />
-          <Start />
+          {isGivebutter ? (
+            <PartnerEverything fee="10" />
+          ) : (
+            <Everything fee="7" />
+          )}
+          {!isGivebutter && <Start />}
         </Box>
       </Box>
       <Footer dark key="footer" />
     </>
   )
-}
-
-export async function getServerSideProps({ query }) {
-  return {
-    props: {
-      ref: query.ref
-    } // will be passed to the page component as props
-  }
 }
 
 export default Bank

@@ -3,7 +3,7 @@ import Run from './Run'
 import { Fade } from 'react-reveal'
 import Icon from '../icon'
 
-export default function Everything({ fee }) {
+export default function PartnerEverything({ fee }) {
   return (
     <>
       <Box
@@ -42,11 +42,9 @@ export default function Everything({ fee }) {
               'Physical check sending & voiding': '',
               'Online direct deposit & ACH transfers': '',
               'Generate attendee legal waivers': '',
-              'Instant Google Workspace & email addresses': '',
               'Virtual debit cards (with Apple & Google Pay)': '',
               'Debit card transaction paper trail': '',
-              'Transparency Mode (optional)': '',
-              'Online, embeddable donation form': ''
+              'Transparency Mode (optional)': ''
             }).map(([item, date]) => (
               <ListItem
                 key={item}

@@ -1,7 +1,7 @@
 import { Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
 import Icon from '../icon'
 
-export default function Features() {
+export default function PartnerFeatures() {
   return (
     <Box sx={{ py: 6 }}>
       <Container>
@@ -83,11 +83,7 @@ export default function Features() {
             name="Transparency Mode"
             body="If you’d like, show your finances on public pages for full transparency."
           />
-          <Module
-            icon="google"
-            name="Google Workspace"
-            body="Get instant, free accounts for your team (like joy@hackpenn.com)."
-          />
+
           <Module
             icon="email"
             name="Postal"
@@ -129,21 +125,13 @@ export default function Features() {
               </>
             }
           />
-          <Module
-            icon="web"
-            name="Free Domains"
-            body="We'll pay for your organization's domain name for 1 year."
-          />
+
           <Module
             icon="sticker"
             name="Sticker Mule"
             body="Get up to $400 in Sticker Mule credit for custom swag."
           />
-          <Module
-            icon="slack"
-            name="Founder's Community"
-            body="A space on the Slack for nonprofit founders and event organizers."
-          />
+
           <Module
             icon="support"
             name="Support anytime"
