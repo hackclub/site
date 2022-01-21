@@ -163,13 +163,7 @@ const Page = () => (
             color="#516395"
             color1="#614385"
           />
-          <JobListing
-            positionName="Philanthropy Position"
-            positionDesc="We are looking for a highly-experienced senior executive, who has advised donors, and who has proven success in stewarding collaborations and closing major gifts."
-            positionLink="/jobs/philanthropy-position/"
-            color={theme.util.cx('purple')}
-            color1={theme.util.cx('blue')}
-          />
+          
           <JobListing
             positionName="Education Engineer"
             positionDesc="We are looking for an engineer & educator to create and lead on technical projects for Hack Clubbers, with a strong focus on young women and non-binary individuals at Hack&nbsp;Club."
