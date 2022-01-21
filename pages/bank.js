@@ -23,9 +23,9 @@ const styles = `
   }
 `
 
-function Bank() {
+export default function Bank() {
   const { ref } = useRouter().query
-  const isGivebutter = ref === 'gb_help_desk'
+  const isPartner = ref === 'gb_help_desk'
   return (
     <>
       <Box as="main" key="main">
@@ -39,21 +39,23 @@ function Bank() {
         />
         <style>{styles}</style>
         <Box>
-          {isGivebutter ? <Landing /> : <Landing showButton />}
-          {isGivebutter ? <Features partner={true} /> : <Features partner={false} />}
+          {isPartner ? <Landing /> : <Landing showButton />}
+          {isPartner ? (
+            <Features partner={true} />
+          ) : (
+            <Features partner={false} />
+          )}
           <Testimonials />
           <Nonprofits />
-          {isGivebutter ? (
+          {isPartner ? (
             <Everything fee="10" partner={true} />
           ) : (
             <Everything fee="7" partner={false} />
           )}
-          {!isGivebutter && <Start />}
+          {!isPartner && <Start />}
         </Box>
       </Box>
       <Footer dark key="footer" />
     </>
   )
 }
-
-export default Bank
