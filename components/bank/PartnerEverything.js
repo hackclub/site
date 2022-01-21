@@ -160,35 +160,35 @@ function ListItem({ icon = 'enter', start, ...props }) {
   )
 }
 
-function Percentage({ children }) {
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-        bg: 'slate',
-        color: 'green',
-        width: [70, 128],
-        height: [70, 128],
-        borderRadius: 'circle',
-        fontWeight: 'bold',
-        justifyContent: 'center',
-        boxShadow: '0 8px 32px rgba(255, 255, 255, 0.125)',
-        fontSize: [48, 84],
-        '&:after': {
-          content: '"%"',
-          mt: [3, 4],
-          fontSize: [24, 40],
-          fontWeight: 'normal',
-          marginRight: -2,
-          marginLeft: [null, 2],
-          color: 'muted'
-        }
-      }}
-    >
-      {children}
-    </Box>
-  )
-}
+function Percentage({ fee }) {
+   return (
+     <Box
+       sx={{
+         display: 'flex',
+         alignItems: 'center',
+         bg: 'slate',
+         color: 'green',
+         width: [fee.length == 1 ? 70 : 80, fee.length == 1 ? 128 : 138],
+         height: [fee.length == 1 ? 70 : 80, fee.length == 1 ? 128 : 138],
+         borderRadius: 'circle',
+         fontWeight: 'bold',
+         justifyContent: 'center',
+         boxShadow: '0 8px 32px rgba(255, 255, 255, 0.125)',
+         fontSize: [48, 84],
+         '&:after': {
+           content: '"%"',
+           fontSize: [24, 40],
+           fontWeight: 'normal',
+           marginRight: fee.length == 1 ? -2 : 0,
+           marginLeft: [null, fee.length == 1 ? 2 : 0],
+           color: 'muted'
+         }
+       }}
+     >
+       {fee}
+     </Box>
+   )
+ }
 
 const recent = dt => {
   const past = new Date()
