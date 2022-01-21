@@ -1,7 +1,7 @@
 import { Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
 import Icon from '../icon'
 
-export default function Features() {
+export default function Features({partner = false}) {
   return (
     <Box sx={{ py: 6 }}>
       <Container>
@@ -71,7 +71,7 @@ export default function Features() {
           <Module
             icon="payment"
             name="Built-in invoicing"
-            body="Accept sponsor payments with fee-free invoicing, powered by Stripe."
+            body="Accept sponsor payments with instant invoicing, powered by Stripe."
           />
           <Module
             icon="docs"
@@ -83,11 +83,13 @@ export default function Features() {
             name="Transparency Mode"
             body="If you’d like, show your finances on public pages for full transparency."
           />
-          <Module
-            icon="google"
-            name="Google Workspace"
-            body="Get instant, free accounts for your team (like joy@hackpenn.com)."
-          />
+          {!partner &&
+            <Module
+              icon="google"
+              name="Google Workspace"
+              body="Get instant, free accounts for your team (like joy@hackpenn.com)."
+            />
+          }
           <Module
             icon="email"
             name="Postal"
@@ -106,11 +108,13 @@ export default function Features() {
               </>
             }
           />
-          <Module
-            icon="friend"
-            name="Donation Page"
-            body="Receive donations through a custom, online embeddable form."
-          />
+          {!partner &&
+            <Module
+              icon="friend"
+              name="Donation Page"
+              body="Receive donations through a custom, online embeddable form."
+            />
+          }
           <Module
             icon="flag"
             name="PVSA Awards"
@@ -129,21 +133,25 @@ export default function Features() {
               </>
             }
           />
-          <Module
-            icon="web"
-            name="Free Domains"
-            body="We'll pay for your organization's domain name for 1 year."
-          />
+          {!partner &&
+            <Module
+              icon="web"
+              name="Free Domains"
+              body="We'll pay for your organization's domain name for 1 year."
+            />
+          }
           <Module
             icon="sticker"
             name="Sticker Mule"
             body="Get up to $400 in Sticker Mule credit for custom swag."
           />
-          <Module
-            icon="slack"
-            name="Founder's Community"
-            body="A space on the Slack for nonprofit founders and event organizers."
-          />
+          {!partner &&
+            <Module
+              icon="slack"
+              name="Founder's Community"
+              body="A space on the Slack for nonprofit founders and event organizers."
+            />
+          }
           <Module
             icon="support"
             name="Support anytime"
