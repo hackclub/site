@@ -28,7 +28,7 @@ input:-webkit-autofill {
 
 function Bank() {
   const { ref } = useRouter().query
-  const isGivebutter = ref === 'gb_help_center'
+  const isGivebutter = ref === 'gb_help_desk'
   return (
     <>
       <Box as="main" key="main">
