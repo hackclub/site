@@ -81,7 +81,7 @@ export default function Everything({ fee }) {
             }}
           >
             <Text sx={{ fontSize: 32, mr: 2 }}>You pay just</Text>
-            <Percentage>{fee}</Percentage>
+            <Percentage fee={fee} />
             <Text sx={{ fontSize: 32, ml: 2 }}>
               of revenue. No upfront costs.
             </Text>
@@ -162,15 +162,16 @@ function ListItem({ icon = 'enter', start, ...props }) {
   )
 }
 
-function Percentage({ children }) {
+function Percentage({ fee }) {
   return (
     <Box
       sx={{
         display: 'flex',
+        alignItems: 'center',
         bg: 'slate',
         color: 'green',
-        width: [70, 128],
-        height: [70, 128],
+        width: [fee.length == 1 ? 70 : 80, fee.length == 1 ? 128 : 138],
+        height: [fee.length == 1 ? 70 : 80, fee.length == 1 ? 128 : 138],
         borderRadius: 'circle',
         fontWeight: 'bold',
         justifyContent: 'center',
@@ -178,16 +179,15 @@ function Percentage({ children }) {
         fontSize: [48, 84],
         '&:after': {
           content: '"%"',
-          mt: [3, 4],
           fontSize: [24, 40],
           fontWeight: 'normal',
-          marginRight: -2,
-          marginLeft: [null, 2],
+          marginRight: fee.length == 1 ? -2 : 0,
+          marginLeft: [null, fee.length == 1 ? 2 : 0],
           color: 'muted'
         }
       }}
     >
-      {children}
+      {fee}
     </Box>
   )
 }
