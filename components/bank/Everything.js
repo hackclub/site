@@ -3,7 +3,7 @@ import Run from './Run'
 import { Fade } from 'react-reveal'
 import Icon from '../icon'
 
-export default function Everything() {
+export default function Everything({ fee, partner = false }) {
   return (
     <>
       <Box
@@ -42,24 +42,19 @@ export default function Everything() {
               'Physical check sending & voiding': '',
               'Online direct deposit & ACH transfers': '',
               'Generate attendee legal waivers': '',
-              'Instant Google Workspace & email addresses': '',
               'Virtual debit cards (with Apple & Google Pay)': '',
               'Debit card transaction paper trail': '',
-              'Self-serve signup': '',
               'Transparency Mode (optional)': '',
-              'Online, embeddable donation form': ''
             }).map(([item, date]) => (
               <ListItem
                 key={item}
                 icon={
-                  item.startsWith('Instant') || item.includes('signup')
+                  item.includes('signup')
                     ? 'bolt'
                     : item.includes('card')
                     ? 'card'
                     : item.includes('Transparency')
                     ? 'explore'
-                    : item.includes('form')
-                    ? 'link'
                     : item.includes('Physical')
                     ? 'email'
                     : 'enter'
@@ -68,6 +63,23 @@ export default function Everything() {
                 {item}
               </ListItem>
             ))}
+            {!partner ? Object.entries({
+              'Instant Google Workspace & email addresses': '',
+              'Online, embeddable donation form': ''
+            }).map(([item, date]) => (
+              <ListItem
+                key={item}
+                icon={
+                  item.startsWith('Instant')
+                    ? 'bolt'
+                    : item.includes('form')
+                    ? 'link'
+                    : 'enter'
+                }
+              >
+                {item}
+              </ListItem>
+            )) : ""}
           </List>
         </Container>
         <Run />
@@ -82,7 +94,7 @@ export default function Everything() {
             }}
           >
             <Text sx={{ fontSize: 32, mr: 2 }}>You pay just</Text>
-            <Percentage>7</Percentage>
+            <Percentage fee={fee} />
             <Text sx={{ fontSize: 32, ml: 2 }}>
               of revenue. No upfront costs.
             </Text>
@@ -163,32 +175,32 @@ function ListItem({ icon = 'enter', start, ...props }) {
   )
 }
 
-function Percentage({ children }) {
+function Percentage({ fee }) {
   return (
     <Box
       sx={{
         display: 'flex',
+        alignItems: 'center',
         bg: 'slate',
         color: 'green',
-        width: [64, 128],
-        height: [64, 128],
+        width: [fee.length == 1 ? 70 : 80, fee.length == 1 ? 128 : 138],
+        height: [fee.length == 1 ? 70 : 80, fee.length == 1 ? 128 : 138],
         borderRadius: 'circle',
         fontWeight: 'bold',
         justifyContent: 'center',
         boxShadow: '0 8px 32px rgba(255, 255, 255, 0.125)',
-        fontSize: [48, 96],
+        fontSize: [48, 84],
         '&:after': {
           content: '"%"',
-          mt: [3, 4],
           fontSize: [24, 40],
           fontWeight: 'normal',
-          marginRight: -3,
-          marginLeft: [null, 2],
+          marginRight: fee.length == 1 ? -2 : 0,
+          marginLeft: [null, fee.length == 1 ? 2 : 0],
           color: 'muted'
         }
       }}
     >
-      {children}
+      {fee}
     </Box>
   )
 }
