@@ -23,9 +23,7 @@ const styles = `
   }
 `
 
-export default function Bank() {
-  const { ref } = useRouter().query
-  const isPartner = ref === 'gb_help_desk'
+export default function Bank({ isPartner }) {
   return (
     <>
       <Box as="main" key="main">
@@ -58,4 +56,12 @@ export default function Bank() {
       <Footer dark key="footer" />
     </>
   )
+}
+
+export function getServerSideProps(context) {
+  return {
+    props: {
+      isPartner: context.query.ref === 'gb_help_desk'
+    }
+  }
 }
