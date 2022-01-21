@@ -12,7 +12,6 @@ import Start from '../components/bank/Start'
 import Nonprofits from '../components/bank/Nonprofits'
 import { useRouter } from 'next/router'
 import PartnerFeatures from '../components/bank/PartnerFeatures'
-import PartnerEverything from '../components/bank/PartnerEverything'
 
 const styles = `
   ::selection {
@@ -47,9 +46,9 @@ function Bank() {
           <Testimonials />
           <Nonprofits />
           {isGivebutter ? (
-            <PartnerEverything fee="10" />
+            <Everything fee="10" partner={true} />
           ) : (
-            <Everything fee="7" />
+            <Everything fee="7" partner={false} />
           )}
           {!isGivebutter && <Start />}
         </Box>
