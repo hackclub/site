@@ -3,7 +3,7 @@ import Run from './Run'
 import { Fade } from 'react-reveal'
 import Icon from '../icon'
 
-export default function Everything({ fee, partner: false }) {
+export default function Everything({ fee, partner = false }) {
   return (
     <>
       <Box
