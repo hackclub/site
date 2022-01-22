@@ -71,7 +71,7 @@ export default function Landing({ showButton }) {
                     >
                       Hack&nbsp;Arizona
                     </Link>{' '}
-                    is one of 300+ teams who uses{' '}
+                    is one of 300+ teams who use{' '}
                     <strong>Hack&nbsp;Club&nbsp;Bank</strong> to run world-class
                     hackathons.
                   </Text>
