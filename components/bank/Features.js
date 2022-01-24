@@ -24,7 +24,20 @@ export default function Features({partner = false}) {
             <Module
               icon="bank-account"
               name="Bank account"
-              body="Backed by Silicon Valley Bank with a custom, beautiful dashboard."
+              body={
+                <>
+                  Backed by{' '}
+                  <Link
+                    href="https://www.svb.com"
+                    color="smoke"
+                    hoverline
+                    target="_blank"
+                  >
+                    Silicon Valley Bank
+                  </Link>
+                  {' '}with a custom, beautiful dashboard.
+                </>
+              }
             />
             <ModuleDetails>
               <Document
