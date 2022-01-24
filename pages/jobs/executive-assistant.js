@@ -28,7 +28,7 @@ const Page = () => (
           Executive Assistant @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New job open as of January 11th, 2022.
+          New job open as of January 24th, 2022.
         </Text>
       </Container>
     </Box>
