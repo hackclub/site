@@ -207,7 +207,7 @@ export default function Features({partner = false}) {
           <Module
             icon="support"
             name="Support anytime"
-            body="We’ll never leave you hanging with 24hr response time on week days."
+            body="We’ll never leave you hanging with 24hr response time on weekdays."
           />
         </Grid>
       </Container>
