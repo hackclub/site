@@ -24,7 +24,20 @@ export default function Features({partner = false}) {
             <Module
               icon="bank-account"
               name="Bank account"
-              body="Backed by Silicon Valley Bank with a custom, beautiful dashboard."
+              body={
+                <>
+                  Backed by{' '}
+                  <Link
+                    href="https://www.svb.com"
+                    color="smoke"
+                    hoverline
+                    target="_blank"
+                  >
+                    Silicon Valley Bank
+                  </Link>
+                  {' '}with a custom, beautiful dashboard.
+                </>
+              }
             />
             <ModuleDetails>
               <Document
@@ -71,7 +84,20 @@ export default function Features({partner = false}) {
           <Module
             icon="payment"
             name="Built-in invoicing"
-            body="Accept sponsor payments with instant invoicing, powered by Stripe."
+            body={
+              <>
+                Accept sponsor payments with instant invoicing, powered by{' '}
+                <Link
+                  href="https://stripe.com/issuing"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  Stripe
+                </Link>
+                .
+              </>
+            }
           />
           <Module
             icon="docs"
@@ -143,13 +169,39 @@ export default function Features({partner = false}) {
           <Module
             icon="sticker"
             name="Sticker Mule"
-            body="Get up to $400 in Sticker Mule credit for custom swag."
+            body={
+              <>
+                Get up to $400 in {' '}
+                <Link
+                  href="https://www.stickermule.com"
+                  color="smoke"
+                  hoverline
+                  target="_blank"
+                >
+                  Sticker Mule
+                </Link>
+                {' '}credit for custom swag.
+              </>
+            }
           />
           {!partner &&
             <Module
               icon="slack"
               name="Founder's Community"
-              body="A space on the Slack for nonprofit founders and event organizers."
+              body={
+                <>
+                  A space on {' '}
+                  <Link
+                    href="/slack"
+                    color="smoke"
+                    hoverline
+                    target="_blank"
+                  >
+                    the Slack
+                  </Link>
+                  {' '}for nonprofit founders and event organizers.
+                </>
+               }
             />
           }
           <Module
