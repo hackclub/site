@@ -88,7 +88,7 @@ export default function Features({partner = false}) {
               <>
                 Accept sponsor payments with instant invoicing, powered by{' '}
                 <Link
-                  href="https://stripe.com/issuing"
+                  href="https://stripe.com/invoicing"
                   color="smoke"
                   hoverline
                   target="_blank"
