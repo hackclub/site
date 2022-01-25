@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-const Analytics () => (
+const Analytics = () => (
   <Script 
     defer 
     data-domain="hackclub.com" 
