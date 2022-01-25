@@ -203,7 +203,7 @@ const Page = () => (
         </Text>
 
         <Text as="p">
-          This role pays between $100K - $200K, depending on your experience&mdash; and we know that's probably
+          This role pays between $100K - $130K, depending on your experience&mdash; and we know that's probably
           less than you'd make elsewhere. We offer healthcare and 4 weeks paid vacation.
         </Text>
 
