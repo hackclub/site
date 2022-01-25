@@ -1,9 +1,11 @@
+import Script from 'next/script'
 
-export default () => (
-  <script 
+const Analytics = () => (
+  <Script 
     defer 
     data-domain="hackclub.com" 
-    src="https://plausible.io/js/plausible.js">
-  </script>
-
+    src="https://plausible.io/js/plausible.js"
+  />
 )
+
+export default Analytics
