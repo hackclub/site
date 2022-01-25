@@ -261,7 +261,7 @@ const Page = () => (
         >
           jobs@hackclub.com
         </Link>{' '}
-        with "the spice must flow" in the subject line, 3 bullet points demonstrating why you
+        with "Hack Club Bank" in the subject line, 3 bullet points demonstrating why you
         would be exceptional for the role, and your resume / GitHub / GitLab / sourcehut.
       </Box>
     </Container>
