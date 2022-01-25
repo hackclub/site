@@ -156,13 +156,6 @@ const Page = () => (
             color={theme.util.cx('blue')}
             color1={theme.util.cx('green')}
           />
-          <JobListing
-            positionName="Events Designer"
-            positionDesc="We're looking for someone fun, creative, and technical to excite and grow the community."
-            positionLink="/jobs/events-designer/"
-            color="#516395"
-            color1="#614385"
-          />
           
           <JobListing
             positionName="Education Engineer"
