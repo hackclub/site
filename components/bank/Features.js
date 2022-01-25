@@ -184,26 +184,6 @@ export default function Features({partner = false}) {
               </>
             }
           />
-          {!partner &&
-            <Module
-              icon="slack"
-              name="Founder's Community"
-              body={
-                <>
-                  A space on {' '}
-                  <Link
-                    href="/slack"
-                    color="smoke"
-                    hoverline
-                    target="_blank"
-                  >
-                    the Slack
-                  </Link>
-                  {' '}for nonprofit founders and event organizers.
-                </>
-               }
-            />
-          }
           <Module
             icon="support"
             name="Support anytime"
