@@ -1,7 +1,7 @@
 import { Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
 import Icon from '../icon'
 
-export default function Features({partner = false}) {
+export default function Features({ partner = false }) {
   return (
     <Box sx={{ py: 6 }}>
       <Container>
@@ -34,8 +34,8 @@ export default function Features({partner = false}) {
                     target="_blank"
                   >
                     Silicon Valley Bank
-                  </Link>
-                  {' '}with a custom, beautiful dashboard.
+                  </Link>{' '}
+                  with a custom, beautiful dashboard.
                 </>
               }
             />
@@ -105,17 +105,22 @@ export default function Features({partner = false}) {
             body="Download liability + photo forms custom written by expert lawyers."
           />
           <Module
+            icon="payment-transfer"
+            name="Transfer money"
+            body="Flexible money transfer options including ACH, check, and PayPal."
+          />
+          <Module
             icon="explore"
             name="Transparency Mode"
             body="If you’d like, show your finances on public pages for full transparency."
           />
-          {!partner &&
+          {!partner && (
             <Module
               icon="google"
               name="Google Workspace"
               body="Get instant, free accounts for your team (like joy@hackpenn.com)."
             />
-          }
+          )}
           <Module
             icon="email"
             name="Postal"
@@ -134,13 +139,13 @@ export default function Features({partner = false}) {
               </>
             }
           />
-          {!partner &&
+          {!partner && (
             <Module
               icon="friend"
               name="Donation Page"
               body="Receive donations through a custom, online embeddable form."
             />
-          }
+          )}
           <Module
             icon="flag"
             name="PVSA Awards"
@@ -159,19 +164,19 @@ export default function Features({partner = false}) {
               </>
             }
           />
-          {!partner &&
+          {!partner && (
             <Module
               icon="web"
               name="Free Domains"
               body="We'll pay for your organization's domain name for 1 year."
             />
-          }
+          )}
           <Module
             icon="sticker"
             name="Sticker Mule"
             body={
               <>
-                Get up to $400 in {' '}
+                Get up to $400 in{' '}
                 <Link
                   href="https://www.stickermule.com"
                   color="smoke"
@@ -179,31 +184,11 @@ export default function Features({partner = false}) {
                   target="_blank"
                 >
                   Sticker Mule
-                </Link>
-                {' '}credit for custom swag.
+                </Link>{' '}
+                credit for custom swag.
               </>
             }
           />
-          {!partner &&
-            <Module
-              icon="slack"
-              name="Founder's Community"
-              body={
-                <>
-                  A space on {' '}
-                  <Link
-                    href="/slack"
-                    color="smoke"
-                    hoverline
-                    target="_blank"
-                  >
-                    the Slack
-                  </Link>
-                  {' '}for nonprofit founders and event organizers.
-                </>
-               }
-            />
-          }
           <Module
             icon="support"
             name="Support anytime"
