@@ -57,7 +57,7 @@ export default function BankApplyForm() {
         helperText="If applicable, please format as: City, State."
       />
 
-      <Label htmlFor="eventCountry" sx={{ color: 'muted', fontSize: 18 }}>
+      <Label htmlFor="eventCountry" sx={{ color: 'smoke', fontSize: 18 }}>
         Country
         <Select
           name="eventCountry"

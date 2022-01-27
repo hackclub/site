@@ -2,7 +2,7 @@ import { Box, Image } from 'theme-ui'
 
 export default function Retrowave({ children }) {
   return (
-    <Box sx={{ w: '100vw' }}>
+    <Box sx={{ width: '100vw' }}>
       <Box
         as="div"
         sx={{
@@ -20,7 +20,7 @@ export default function Retrowave({ children }) {
       </Box>
       <Image
         src="https://cloud-4xn6fchhb-hack-club-bot.vercel.app/0retro-bank.svg"
-        alt="hi"
+        alt=""
         sx={{
           position: 'fixed',
           w: '100%',
@@ -38,7 +38,6 @@ export default function Retrowave({ children }) {
       >
         <Box
           as="div"
-          id="hihihihih"
           sx={{
             background:
               'linear-gradient(180deg, rgba(0, 0, 0, 0) 0px, #ec3750 0%, #ec3750 3px, rgba(0, 0, 0, 0) 0px), linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, #ec3750 0%, #ec3750 3px, rgba(0, 0, 0, 0) 0px)',
