@@ -23,11 +23,11 @@ export default function BankApplyForm() {
         <ol>
           <li>Fill out this form</li>
           <li>
-            Have a 20 minute introductory call with a member of the Hack Club
+            Have a 30 minute introductory call with a member of the Hack Club
             Bank team
           </li>
           <li>
-            Sign the Hack Club Bank fiscal sponsorship agreement (which will be
+            Sign the Hack Club Bank fiscal sponsorship agreement (which can be
             sent right after the call)
           </li>
         </ol>
