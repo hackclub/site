@@ -11,7 +11,7 @@ import {
 import countries from '../../../lib/countries'
 export default function BankApplyForm() {
   return (
-    <Base method="POST" action="http://localhost:3000/api/bank-apply">
+    <Base method="POST" action="/api/bank-apply">
       <Text sx={{ fontSize: 48, fontWeight: 'bold' }}>
         Sign up for Hack Club Bank!
       </Text>

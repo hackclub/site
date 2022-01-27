@@ -26,8 +26,7 @@ export default async function handler(req, res) {
         data.returningUser
     })
 
-    const url = 'http://localhost:3000/api/bank-apply'
-    const body = JSON.stringify(url, {
+    const body = JSON.stringify({
       application
     })
     fetch({
