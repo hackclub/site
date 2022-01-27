@@ -28,7 +28,7 @@ export default function Retrowave({ children }) {
           transition: 'top 1s'
         }}
       />
-      {/* graph container and graph */}
+      {/* Grid part at the bottom */}
       <Box
         as="div"
         sx={{
@@ -38,6 +38,7 @@ export default function Retrowave({ children }) {
       >
         <Box
           as="div"
+          id="hihihihih"
           sx={{
             background:
               'linear-gradient(180deg, rgba(0, 0, 0, 0) 0px, #ec3750 0%, #ec3750 3px, rgba(0, 0, 0, 0) 0px), linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, #ec3750 0%, #ec3750 3px, rgba(0, 0, 0, 0) 0px)',
@@ -53,13 +54,3 @@ export default function Retrowave({ children }) {
     </Box>
   )
 }
-
-// .graph {
-//     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0px, rgba(54, 226, 248, .5) 0%, rgba(54, 226, 248, 0.5) 3px, rgba(0, 0, 0, 0) 0px), linear-gradient(90deg, rgba(0, 0, 0, 0) 0px, rgba(54, 226, 248, 0.5) 0%, rgba(54, 226, 248, 0.5) 3px, rgba(0, 0, 0, 0) 0px);
-//     background-size: 4em 2em, 4em 2em;
-//     background-color: black;
-//     height: 40em;
-//     perspective: 1000px;
-//     margin-top: 20em;
-//     transform: perspective(200px) rotateX(45deg) scale(2);
-// }

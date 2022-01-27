@@ -19,13 +19,15 @@ export default async function handler(req, res) {
       'Event Name': data.eventName,
       'Event Website': data.eventWebsite,
       'Tell us about your event': data.eventDescription,
+      'Mailing Address': data.mailingAddress,
       Country: data.eventCountry,
       'Event Location': data.eventLocation,
       'Have you used Hack Club Bank for any previous events?':
         data.returningUser
     })
 
-    const body = JSON.stringify({
+    const url = 'http://localhost:3000/api/bank-apply'
+    const body = JSON.stringify(url, {
       application
     })
     fetch({
@@ -36,12 +38,12 @@ export default async function handler(req, res) {
       }
     })
       .then(r => {
-        res.redirect('https://hackclub.com/bank')
+        res.redirect('/bank')
         console.log(r.statusText)
       })
       .catch(error => {
         console.log(error)
-        res.json({ status: 'error', error })
+        res.json({ status: 'Something went wrong', error })
       })
   } else {
     res.status(405).json({ status: 'error', error: 'Must send POST request' })
