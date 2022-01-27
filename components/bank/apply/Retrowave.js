@@ -20,6 +20,7 @@ export default function Retrowave({ children }) {
       </Box>
       <Image
         src="https://cloud-4xn6fchhb-hack-club-bot.vercel.app/0retro-bank.svg"
+        // src="/bank/bg.jpg"
         alt=""
         sx={{
           position: 'fixed',

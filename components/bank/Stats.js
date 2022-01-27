@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Text } from 'theme-ui'
+import { Text, Box } from 'theme-ui'
 import Stat from '../stat'
 import api from '../../lib/api'
 import { timeSince } from '../../lib/helpers'
@@ -59,26 +59,19 @@ const Stats = props => {
   }
 
   return (
-    <div>
-      {/* styled-components has a rendering bug that applies classes
-          to incorrect components in this particular tree, but I didn't
-          have time to upgrade styled-components or fix root cause.
-          This <div> soup seemed to remove the symptoms in the UI for now.
-          - @thesephist */}
-      <div>
-        <Text
-          variant="lead"
-          fontSize={[2, 3]}
-          color={props.labelColor}
-          mt={[2, 4]}
-          mb={[2, 3]}
-        >
-          <span></span>
-          <Dot />
-          As of {timeSince(lastUpdated, false, true)}...
-        </Text>
-      </div>
-      <div>
+    <Box>
+      <Text
+        variant="lead"
+        fontSize={[2, 3]}
+        color={props.labelColor}
+        mt={[2, 4]}
+        mb={[2, 3]}
+      >
+        <Dot />
+        As of {timeSince(lastUpdated, false, true)}...
+      </Text>
+
+      <Box as="div">
         <Stat {...props} value={raised} label="raised on Hack Club Bank" />
         <Stat
           {...props}
@@ -86,9 +79,9 @@ const Stats = props => {
           value={volume}
           label="total amount transacted"
         />
-      </div>
-    </div>
+      </Box>
+    </Box>
   )
-};
+}
 
-export default Stats;
+export default Stats

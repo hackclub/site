@@ -6,12 +6,17 @@ import {
   Select,
   Text,
   Container,
-  Textarea
+  Textarea,
+  Divider,
+  Link
 } from 'theme-ui'
 import countries from '../../../lib/countries'
 export default function BankApplyForm() {
   return (
     <Base method="POST" action="/api/bank-apply">
+      <Link href="/bank" as="a" sx={{ textTransform: 'uppercase' }}>
+        &larr; Back
+      </Link>
       <Text sx={{ fontSize: 48, fontWeight: 'bold' }}>
         Sign up for Hack Club Bank!
       </Text>
@@ -34,7 +39,7 @@ export default function BankApplyForm() {
         If you have any questions, give us a shout at bank@hackclub.com or in
         the #bank channel on the Hack Club Slack!
       </Text>
-      <hr />
+      <Divider />
       <Text variant="headline">Your project</Text>
       <Field
         label="Project name"
@@ -74,7 +79,7 @@ export default function BankApplyForm() {
           ))}
         </Select>
       </Label>
-      <hr />
+      <Divider />
       <Label htmlFor="eventDescription" sx={{ color: 'smoke', fontSize: 18 }}>
         Tell us about your project!
         <Textarea name="eventDescription" sx={{ bg: 'dark' }} />
@@ -84,7 +89,7 @@ export default function BankApplyForm() {
         </Text>
       </Label>
 
-      <hr />
+      <Divider />
       <Text variant="headline">Your profile</Text>
 
       <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>

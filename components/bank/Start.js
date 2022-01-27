@@ -1,4 +1,13 @@
-import { Box, Container, Link, Text, Heading, Card, Grid } from 'theme-ui'
+import {
+  Box,
+  Container,
+  Link,
+  Text,
+  Heading,
+  Card,
+  Grid,
+  Button
+} from 'theme-ui'
 import { Fade } from 'react-reveal'
 import Signup from './Signup'
 import Timeline from './Timeline'
@@ -30,12 +39,50 @@ export default function Start() {
           </Heading>
           <Container variant="narrow" sx={{ color: 'muted' }}>
             <Text variant="lead">
-              Open to all registered Hack Clubs, hackathons, and your
-              next amazing project.
+              Open to all registered Hack Clubs, hackathons, and your next
+              amazing project.
             </Text>
           </Container>
+          <Box
+            as="div"
+            sx={{ display: 'flex', justifyContent: 'center', mt: 3 }}
+          >
+            <Button
+              variant="ctaLg"
+              as="a"
+              href="/bank/apply"
+              sx={{ zIndex: '99' }}
+            >
+              Apply Now
+            </Button>
+          </Box>
         </Container>
         <Timeline />
+        {/* jank  below */}
+        {/* <Container variant="narrow" sx={{ px: 6, m: 0 }}>
+          <Stats
+            color="smoke"
+            labelColor="muted"
+            fontSize={[7, 8]}
+            my={[3, 4]}
+            px={0}
+            width="auto"
+            align="left"
+          />
+          <Text
+            sx={{
+              fontSize: 18,
+              color: 'muted'
+            }}
+          >
+            Starting in February 2020, we started running Hack Club HQ on Bank
+            (&amp; we don’t count our numbers in these stats). &nbsp;
+            <Link href="https://bank.hackclub.com/hq" color="primary" hoverline>
+              See our finances here.
+            </Link>
+          </Text>
+        </Container> */}
+        {/* end jank, start old thing */}
         <Grid mt={[4, 5]} mb={[3, 4]} px={3} columns={[1, 1, '1fr 1fr']}>
           <Fade bottom>
             <Card
@@ -81,6 +128,7 @@ export default function Start() {
             </Text>
           </Container>
         </Grid>
+
         <Container
           variant="copy"
           sx={{

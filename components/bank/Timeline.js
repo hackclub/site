@@ -25,7 +25,7 @@ function TimelineStep({ children }) {
           content: '""',
           background: '#3c4858',
           height: ['420px', null, '4px'],
-          width: ['4px', null, '50%'],
+          width: ['4px', null, '48%'],
           marginLeft: [26, null, 0],
           marginTop: [null, null, '34px'],
           position: 'absolute',
@@ -73,7 +73,7 @@ function Step({ icon, name, duration, href }) {
   return (
     <TimelineStep pb={4}>
       <Slide left>
-        <Circle mr={[3, null, 0]} mb={[null, null, 4]}>
+        <Circle>
           {href ? (
             <Link href={href} sx={{ cursor: 'pointer' }}>
               <Icon glyph={icon} size={48} color="white" />
@@ -128,7 +128,7 @@ export default function RealTimeline() {
       />
       <Step
         icon="welcome"
-        name="Intro meeting with the Bank team"
+        name="Hop on an intro call with the Bank team"
         duration="Step 2"
       />
       <Step
@@ -138,7 +138,7 @@ export default function RealTimeline() {
       />
       <Step
         icon="card"
-        name="Receive debit cards in the mail"
+        name="Issue debit cards and do fun things"
         duration="Step 4"
         mb={0}
       />
