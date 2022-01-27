@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       }
     })
       .then(r => {
-        res.redirect('/')
+        res.redirect('https://hackclub.com/bank')
         console.log(r.statusText)
       })
       .catch(error => {

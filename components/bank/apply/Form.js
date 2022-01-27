@@ -2,7 +2,10 @@ import { Box, Label, Input, Button, Select } from 'theme-ui'
 import countries from '../../../lib/countries'
 export default function BankApplyForm() {
   return (
-    <Base method="POST" action="/api/bank-apply">
+    <Base
+      method="POST"
+      action="https://v3-oka39citq.hackclub.dev/api/bank-apply"
+    >
       <Field
         label="Project name"
         name="eventName"
