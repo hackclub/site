@@ -6,7 +6,7 @@ Hack Club's new website. This codebase is what runs on [hackclub.com](https://ha
 
 Download the code to your computer:
 
-    $ git clone https://github.com/hackclub/v3
+    $ git clone https://github.com/hackclub/site
 
 Install dependencies:
 
@@ -26,7 +26,7 @@ Code under MIT License, assets may not be re-used or re-distributed.
 
 ---
 
-By [@lachlanjc](https://lachlanjc.com) for Hack Club, 2020. MIT License.
+By [@lachlanjc](https://lachlanjc.com) for Hack Club, 2022. MIT License.
 
 [next.js]: https://nextjs.org
 [mdx]: https://mdxjs.com

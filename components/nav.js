@@ -143,15 +143,15 @@ const NavBar = styled(Box)`
 const Navigation = props => (
   <NavBar role="navigation" {...props}>
     <NextLink href="/slack" passHref>
-      <Link children="Slack" />
+      <Link>Slack</Link>
     </NextLink>
-    <Link href="https://workshops.hackclub.com/" children="Workshops" />
-    <Link href="https://scrapbook.hackclub.com/" children="Scrapbook" />
+    <Link href="https://workshops.hackclub.com/">Workshops</Link>
+    <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
     <NextLink href="/bank" passHref>
-      <Link children="Bank" />
+      <Link>Bank</Link>
     </NextLink>
     <NextLink href="/donate" passHref>
-      <Link children="Donate" />
+      <Link>Donate</Link>
     </NextLink>
   </NavBar>
 )
@@ -232,7 +232,6 @@ class Header extends Component {
     return (
       <Root
         {...props}
-        key="nav"
         fixed={fixed}
         scrolled={scrolled}
         toggled={toggled}

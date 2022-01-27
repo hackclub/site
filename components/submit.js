@@ -52,9 +52,10 @@ const Submit = ({
       ...sx
     }}
     disabled={status === 'submitting'}
-    children={status === 'submitting' ? 'Submitting…' : labels[status]}
     {...props}
-  />
+  >
+    {status === 'submitting' ? 'Submitting…' : labels[status]}
+  </Button>
 )
 
 export default Submit

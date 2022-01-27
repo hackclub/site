@@ -1,0 +1,70 @@
+import Letterhead from '../../components/letterhead'
+import Link from 'next/link'
+import { memo, useState, useEffect } from 'react'
+import StaticMention from '../../components/mention'
+
+<Letterhead
+title="The Sun Sets on the Summer of Making"
+desc="A bit of looking back, a lot of looking forward."
+img="https://workshop-cards.hackclub.com/Sunsetting%20Summer%20of%20Making.png?theme=dark&brand=HQ&fontSize=215px&images=https%3A%2F%2Fgithub.com%2Fsampoder.png"
+author={{
+  name: '@sampoder',
+  avatar: 'https://github.com/sampoder.png',
+  url: 'https://scrapbook.hackclub.com/sampoder'
+}}
+date="2020-08-31"
+path="sunsetting-som.mdx">
+
+_Sam Poder proposed the initial idea for Summer of Making, led logistics for Hardware Party, and is a 15-year-old Hack Club leader from Singapore._
+
+**Make something amazing this summer.** At its core, that’s what [Summer of Making](https://summer.hackclub.com/landing) was. We were there to support Hack Clubbers and it was all of you who made this summer special. We set a challenge and teen hackers from 129 countries took it on!
+
+We partnered with GitHub to fund $50,000 in hardware projects. With GitHub providing the financial backing and both Adafruit and Arduino providing discounts and community support, we funded hundreds of hardware projects, making 1,950 electronics purchases on behalf of 268 makers, the average age of whom was 16. You can see many of [their journeys on Scrapbook](http://scrapbook.hackclub.com/r/hardware).
+
+Did someone mention Scrapbook? 414 Hack Clubbers shared 5,628 unique creations on [Scrapbook](https://scrapbook.hackclub.com/), a place for sharing project updates with the Hack Club community. It kept Snapchat-like streaks, and <StaticMention username="caleb" avatar="https://cloud-5v0kfmsva.vercel.app/image.png" link="https://scrapbook.hackclub.com/caleb" /> posted for 74 consecutive days! The most common post time was 11 PM. (If you’re interested, <StaticMention username="lachlanjc" avatar="https://dl.airtable.com/.attachmentThumbnails/6a8e07714d446b0dbc70209ac77b2453/8e93fe10" link="https://scrapbook.hackclub.com/lachlanjc" /> [wrote about how Scrapbook works](http://notebook.lachlanjc.com/2020-07-30_how_scrapbook_works/).)
+
+Beyond Scrapbook & our hardware grants, so much more happened this summer. We ran [AMAs](https://hackclub.com/amas/)—[chatting](https://youtu.be/DvROZ-OBszU) [with](https://www.youtube.com/watch?v=IWFtj9cCaB0) [six](https://www.youtube.com/watch?v=fDKYjX37cbo) [absolutely](https://www.youtube.com/watch?v=tDtBCcLJ2xU&list=PLbNbddgD-XxFFLLLaODUtif9v99eFXub3) [remarkable](https://youtu.be/thXsjHVcxx4) [guests](https://youtu.be/KKEYTSUvsS8)—the Scrapbook CSS contest, the first ever Hack Club CTF, Open Source Fiesta, a chess tournament, a scavenger hunt on Slack, and weekly [Hack Nights](https://hackclub.com/night/). Personally, I learned Next.js, MDX, & Theme UI to make [a recap site, which is now temporarily Hack Club’s homepage](https://hackclub.com/).
+
+![GIF demoing the Smart Album Cover project](https://cloud-hdaoelc0g.vercel.app/ezgif-4-2e8542881d0b.gif)
+
+_One of my favourite projects: <StaticMention username="phultquist" avatar="https://avatars1.githubusercontent.com/u/46694203?s=460&u=9aa5512e640c5c2c2b2847af1f95fcf77479ac7f&v=4" link="https://github.com/phultquist"/> & <StaticMention username="amhenikoff" link="https://github.com/amhenikoff" />’s [Smart Album Cover](https://github.com/phultquist/smart-album-cover)_
+
+### Today (Monday, August 31st) we’re drawing the Summer of Making to a close. Here’s what’s next.
+
+<br />
+
+## Hardware Party
+
+Through the summer, we’ve grown a substantial community of hardware hackers on the Slack and we want to keep the spirit alive. **To celebrate, we’ll be shipping custom, Orpheus-themed [Arduino Leonardos](https://www.arduino.cc/en/Main/Arduino_BoardLeonardo), which we’ve named the [Orpheus Leap](https://github.com/kevin200617/Orpheus-Leap-Micro).** These are fully-functional Arduino clones, packed into a dino shape, shipped for free.
+
+![Orpheus Leap PCB](http://cloud-jrox24mrn.vercel.app/orpheus_leap_micro_final.png)
+
+A few weeks ago, <StaticMention username="kevinyang" avatar="https://ca.slack-edge.com/T0266FRGM-U015X5P6KAM-gc35567f1dbb-512" link="http://bykevinyang.com/"/>, a 9th grade Hack Clubber from Massachusetts, designed the board. Then <StaticMention username="roshan" avatar="https://ca.slack-edge.com/T0266FRGM-UNGNM3H9A-d31a2d1b4dac-512" link="https://scrapbook.hackclub.com/roshan"/> found a factory in China, got a quote, and is now managing the pre-fab process to verify that the board works before we finalize the order and start final production. Since we’re manufacturing in China, it will be many months before the final boards are shipped to everyone who participated.
+
+Last hardware thing: we’re hosting a show & tell with Adafruit & the wonderful [John Park](https://en.wikipedia.org/wiki/John_Edgar_Park). More details will be shared in the next few weeks.
+
+## Slack - Some Clean-Up Items
+
+Today we’ve archived all the SoM channels (those prefixed with `#som-`), to shift conversation into the standard Slack channels like `#lounge`, `#code`, and `#welcome`. We’ve kept `#hardware-party` and its affiliated channels open for now, since we’re still shipping out the final grants & want to continue support as folks complete their projects. In the future, we’ll redirect folks to `#hardware`.
+
+A handful of folks are yet to be promoted. We’ll be finding many of you who are active on Scrapbook & promoting you, but message anyone on `@summer` if you need a promotion.
+
+**New users:** We’ve redesigned the flow for joining the Slack. New users now join as multi-channel guests, added only to `#welcome` and a private channel where they’re introduced to the Slack. Once they complete the tutorial, they’re automatically promoted to full users & unlock the rest of the community.
+
+**Stickers:** Everyone who filled out the form at <https://hack.af/som-stickers> will receive stickers in the upcoming 4-8 weeks! Over 7,000 people from 122 countries requested stickers and we're still trying to figure out how to ship them all. Hang tight.
+
+## Scrapbook from Anywhere
+
+While originally Scrapbook was merely a summer project, shutting it down didn’t feel right. Thanks to <StaticMention username="caleb" avatar="https://cloud-5v0kfmsva.vercel.app/image.png" link="https://scrapbook.hackclub.com/caleb" />, today we’re launching **“Scrapbook from Anywhere”**. When you post in a public channel with the Scrappy bot, add a `:scrappy:` emoji reaction & your message will be posted to your Scrapbook. We’ve added this to help Scrapbook mix with the rest of Slack more, and while the `#scrapbook` channel will remain as-is, it allows you to Scrapbook the projects you `#ship`, get feedback in `#design` or `#wip`, show off your photo in `#photography`, or share with your club without cross-posting.
+
+[![Amogh's Scrapbook on a MacBook Air](https://cloud-2iw372frd.vercel.app/2020-08-31_83wk7n4zpuzkfjwdmwqgm22ccccqz0r9.jpeg)](https://scrapbook.hackclub.com/amogh)
+
+---
+
+In summary, thank you—to everyone who helped run parts of the Summer, who made a Scrapbook post, built something epic with a hardware grant, attended a live event or just dropped by the Slack. Back in April, I posted my original summer idea in `#hq`. It’s been an experience of a lifetime helping put it together.
+
+With gratitude,
+
+Sam Poder, the Summer of Making team, & Hack Club HQ
+
+</Letterhead>

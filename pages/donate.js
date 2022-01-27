@@ -114,7 +114,7 @@ const contentContainer = {
 }
 const content = { maxWidth: 48, mx: 0, color: 'black' }
 
-const title = 'Donate – Hack Club'
+const title = 'Donate'
 const desc =
   'Contribute today to empower the next generation and help start a coding club at every high school.'
 
@@ -282,8 +282,8 @@ export default function Donate() {
           </Box>
           <Box mb={3} sx={{ fontSize: '27px' }}>
             Please get in touch at{' '}
-            <A sx={{ color: 'blue' }} href="mailto:donate@hackclub.com">
-              donate@hackclub.com
+            <A sx={{ color: 'blue' }} href="mailto:bank@hackclub.com">
+              bank@hackclub.com
             </A>{' '}
             if you’re interested in making a contribution with an unsupported
             token or have questions.

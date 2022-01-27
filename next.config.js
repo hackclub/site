@@ -1,4 +1,7 @@
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true
+  },
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
   images: {
@@ -36,6 +39,7 @@ const nextConfig = {
         permanent: true
       },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
+      { source: '/jobs/bank-tech-lead/', destination: '/jobs/lead-hacker/', permanent: true },
       { source: '/workshops/slack/', destination: '/slack/', permanent: true },
       { source: '/community/', destination: '/slack/', permanent: true },
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
@@ -123,15 +127,15 @@ const nextConfig = {
       },
       {
         source: '/sponsorship/',
-        destination: 'https://workshops.hackclub.com/sponsorship/'
+        destination: '/content/sponsorship/'
       },
       {
         source: '/covid19/',
-        destination: 'https://workshops.hackclub.com/covid19/'
+        destination: '/content/covid19/'
       },
       {
         source: '/sunsetting-som/',
-        destination: 'https://workshops.hackclub.com/sunsetting-som/'
+        destination: '/content/sunsetting-som/'
       },
       {
         source: '/banner/',
@@ -154,9 +158,9 @@ const nextConfig = {
         destination: 'https://workshops.hackclub.com/vip-newsletters/$1'
       },
       {
-        source: '/transparency/may-2020/',
-        destination: 'https://workshops.hackclub.com/transparency-may/'
-      },
+         source: '/transparency/may-2020/',
+         destination: '/content/transparency/may-2020/'
+       },
       {
         source: '/map/',
         destination: 'https://map.hackclub.dev/'

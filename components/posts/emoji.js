@@ -27,7 +27,7 @@ export const EmojiImg = ({ name, ...props }) => (
   />
 )
 
-const CustomEmoji = memo(({ name }) => {
+const CustomEmoji = memo(function CustomEmoji({ name }) {
   const emoji = stripColons(name)
   let [image, setImage] = useState()
   useEffect(() => {

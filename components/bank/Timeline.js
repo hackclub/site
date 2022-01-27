@@ -97,12 +97,14 @@ function Step({ icon, name, duration }) {
               px: 2,
               mx: [null, null, 'auto']
             }}
-            children={duration}
-          />
+          >
+            {duration}
+          </Badge>
           <Text
             sx={{ color: 'white', fontSize: 24, maxWidth: [250, null, 500] }}
-            children={name}
-          />
+          >
+            {name}
+          </Text>
         </Container>
       </Slide>
     </TimelineStep>

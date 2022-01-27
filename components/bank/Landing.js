@@ -1,17 +1,8 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Link,
-  Text,
-  Flex,
-  Container,
-  Badge
-} from 'theme-ui'
+import { Box, Button, Heading, Link, Text, Container, Badge } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from './ScrollHint'
 
-export default function Landing() {
+export default function Landing({ showButton }) {
   return (
     <>
       <Slide>
@@ -72,7 +63,7 @@ export default function Landing() {
                   >
                     The team behind{' '}
                     <Link
-                      href="https://hackaz.io/?ref=bank"
+                      href="https://web.archive.org/web/20210204063213/https://hackaz.io/"
                       target="_blank"
                       color="inherit"
                       bold
@@ -80,7 +71,7 @@ export default function Landing() {
                     >
                       Hack&nbsp;Arizona
                     </Link>{' '}
-                    is one of 300+ teams who uses{' '}
+                    is one of 400+ teams who use{' '}
                     <strong>Hack&nbsp;Club&nbsp;Bank</strong> to run world-class
                     hackathons.
                   </Text>
@@ -96,14 +87,16 @@ export default function Landing() {
               marginBottom: 3
             }}
           >
-            <Button
-              variant="outlineLg"
-              as="a"
-              href="#apply"
-              style={{ zIndex: '100' }}
-            >
-              Apply Now
-            </Button>
+            {showButton && (
+              <Button
+                variant="outlineLg"
+                as="a"
+                href="#apply"
+                style={{ zIndex: '100' }}
+              >
+                Apply Now
+              </Button>
+            )}
           </Box>
           <ScrollHint />
         </Box>

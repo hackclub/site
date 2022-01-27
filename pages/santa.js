@@ -9,12 +9,12 @@ import {
   Text,
   Image,
   Input,
-  Label
+  Label,
+  Link
 } from 'theme-ui'
 import styled from '@emotion/styled'
 import Snow from 'resnow'
 import Footer from '../components/footer'
-import Link from 'next/link'
 import FadeIn from '../components/fade-in'
 import { keyframes } from '@emotion/react'
 import { useState } from 'react'
@@ -84,14 +84,14 @@ const Page = () => (
           caps
         >
           <FadeIn delay={300} duration={600}>
-            It's&nbsp;2021,
+            It's 2021,
           </FadeIn>
           <FadeIn delay={1200} duration={600}>
-            the&nbsp;holidays&nbsp;have&nbsp;come,
+            the holidays have come,
             <br />
           </FadeIn>
           <FadeIn delay={2300} duration={600}>
-            now&nbsp;let's&nbsp;all have&nbsp;some&nbsp;fun!
+            now let's all have some fun!
           </FadeIn>
         </Heading>
         <Image
@@ -118,18 +118,17 @@ const Page = () => (
             my={3}
             mx="auto"
           >
-            Christmas is here and it's time for some fun! The holiday season is{' '}
-            <RemoveSpace>
-              among
-              <Space className="space" children={' '} />
-              us
-            </RemoveSpace>{' '}
-            and the elves have assembled, which means its time for gift-giving
-            to begin! The magical elf will assign you a partner, send them
-            something fun, & you’ll get your own gift in the mail just in time
-            for the holidays!
+            Christmas is here and it's time for some fun! The holiday season is
+            among us and the elves have assembled, which means its time for
+            gift-giving to begin! The magical elf will assign you a partner,
+            send them something fun, &amp; you'll get your own gift in the mail
+            just in time for the holidays!
           </Lead>
-          <Signup />
+          {/* Signup form */}
+          {/* <Signup /> */}
+          <Button disabled sx={{ bg: 'primary', mb: 4 }}>
+            Signups closed. Check back next year!
+          </Button>
         </FadeIn>
       </Container>
     </Hero>
@@ -173,8 +172,9 @@ function Field({ placeholder, label, name, type, value, onChange }) {
         type={type}
         sx={{
           bg: 'smoke',
-          color: 'text'
+          color: 'black'
         }}
+        autofillBackgroundColor="smoke"
         onChange={onChange}
         value={value}
         required
@@ -186,8 +186,17 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 function Signup() {
   const [values, setValues] = useState({})
   return (
-    <Base method="get" target="_blank" action="https://hack.af/santa-signup">
-      <Heading sx={{ color: 'black' }}>Register!</Heading>
+    <Base method="get" action="https://hack.af/santa-signup">
+      <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>
+        Register!
+      </Heading>
+      <Text sx={{ textAlign: 'left', color: 'muted' }}>
+        Be sure to check out the{' '}
+        <Link href="https://hack.af/rules-santa" sx={{ color: 'blue' }}>
+          rules
+        </Link>{' '}
+        before you sign up!
+      </Text>
       <Field
         label="Your Name"
         name="prefill_Real Name"

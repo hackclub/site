@@ -11,9 +11,6 @@ import {
   Text
 } from 'theme-ui'
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/react'
-import { Slide } from 'react-reveal'
-import NextLink from 'next/link'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
@@ -28,7 +25,7 @@ import FooterImgFile from '../public/home/footer.png'
 import GoldenTrainImgFile from '../public/home/golden-train.png'
 import Slack from '../components/slack'
 
-import Announcement from '../components/announcement'
+// import Announcement from '../components/announcement'
 // import { timeSince } from '../lib/dates'
 
 let Highlight = styled(Text)`
@@ -341,16 +338,11 @@ const Page = () => (
             <Text
               as="p"
               variant="subtitle"
-              as="p"
-              variant="lead"
               sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
             >
               <strong>Everyone gets hacking, individually.</strong> Not hacking
               bank accounts, being creative and{' '}
-              <NextLink href="/ship">
-                <a>making something awesome</a>
-              </NextLink>
-              .
+              <Link href="/ship">making something awesome</Link>.
             </Text>
             <Text as="span" color="blue">
               3
@@ -478,15 +470,12 @@ const Page = () => (
           <Feature
             icon="slack-fill"
             color="#5d114c"
-            name="Chats with 100s of club leaders"
+            name="Chat with 100s of club leaders"
             desc={
               <>
-                In our{' '}
-                <Link href="/slack" passHref>
-                  <a>Slack community</a>
-                </Link>
-                , you’ll join a private space for Hack&nbsp;Club leaders to ask
-                questions & chat, share projects, & attend weekly live events.
+                In our <Link href="/slack">Slack community</Link>, you’ll join a
+                private space for Hack&nbsp;Club leaders to ask questions &
+                chat, share projects, & attend weekly live events.
               </>
             }
           />
@@ -525,12 +514,8 @@ const Page = () => (
             name="Stickers"
             desc={
               <>
-                Get{' '}
-                <Link href="/stickers">
-                  <a>amazing stickers </a>
-                </Link>{' '}
-                for marketing your club shipped directly to you & your club
-                members.
+                Get <Link href="/stickers">amazing stickers</Link> for marketing
+                your club shipped directly to you & your club members.
               </>
             }
             color="green"
@@ -543,10 +528,8 @@ const Page = () => (
             desc={
               <>
                 Use our 501(c)(3) status and a restricted fund with{' '}
-                <Link href="/bank">
-                  <a>Hack Club Bank</a>
-                </Link>
-                {' '}to fundraise, accept donations, buy things!
+                <Link href="/bank">Hack Club Bank</Link> to fundraise, accept
+                donations, buy things!
               </>
             }
           />
@@ -554,14 +537,8 @@ const Page = () => (
             name="Weekly events"
             desc={
               <>
-                From{' '}
-                <Link href="/night">
-                  <a>Hack Night</a>
-                </Link>{' '}
-                to{' '}
-                <Link href="/amas">
-                  <a>AMAs</a>
-                </Link>
+                From <Link href="/night">Hack Night</Link> to{' '}
+                <Link href="/amas">AMAs</Link>
                 {' to '}
                 <a href="https://twitter.com/hackclub/status/1300494921997193217?s=21">
                   weirder events
@@ -579,8 +556,8 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                Free subscriptions to Figma Pro, replit, Postman and more for
-                running a great club.
+                Free subscriptions to Figma Pro, Postman, and more for running a
+                great club.
               </>
             }
           />

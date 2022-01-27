@@ -118,10 +118,10 @@ export default function Philosophy() {
             px={3}
             align="left"
           >
-            <Ultraline children="We’re" />
-            <Ultraline children="at our best" />
-            <Ultraline children="when we’re" />
-            <Ultraline children="making." />
+            <Ultraline>We're</Ultraline>
+            <Ultraline>at our best</Ultraline>
+            <Ultraline>when we're</Ultraline>
+            <Ultraline>making.</Ultraline>
             <Seal pt={[3, 4]}>
               <Heading
                 fontSize={[1, 2]}
