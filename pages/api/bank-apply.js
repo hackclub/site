@@ -25,11 +25,11 @@ export default async function handler(req, res) {
       'Have you used Hack Club Bank for any previous events?':
         data.returningUser
     })
-
+    const url = 'https://hackclub.com/api/bank-apply'
     const body = JSON.stringify({
       application
     })
-    fetch({
+    fetch(url, {
       body,
       method: 'POST',
       headers: {
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
       }
     })
       .then(r => {
-        res.redirect('/bank')
+        res.redirect('/bank/apply?=success')
         console.log(r.statusText)
       })
       .catch(error => {
