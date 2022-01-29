@@ -31,7 +31,7 @@ export default async function handler(req, res) {
       'Have you used Hack Club Bank for any previous events?':
         data.returningUser
     })
-    const url = 'https://hackclub.com/api/bank-apply'
+    const url = process.env.BANK_NOTIFS_WEBHOOK
     const body = JSON.stringify({
       application
     })
