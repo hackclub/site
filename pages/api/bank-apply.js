@@ -20,6 +20,12 @@ export default async function handler(req, res) {
       'Event Website': data.eventWebsite,
       'Tell us about your event': data.eventDescription,
       'Mailing Address': data.mailingAddress,
+      'Address Line 1': data.addressLine1,
+      'Address Line 2': data.addressLine2,
+      City: data.addressCity,
+      State: data.addressState,
+      'Zip Code': data.addressZip,
+      'Address Country': data.addressCountry,
       Country: data.eventCountry,
       'Event Location': data.eventLocation,
       'Have you used Hack Club Bank for any previous events?':
@@ -37,7 +43,7 @@ export default async function handler(req, res) {
       }
     })
       .then(r => {
-        res.redirect('/bank/apply?=success')
+        res.redirect('/bank/apply/success')
         console.log(r.statusText)
       })
       .catch(error => {

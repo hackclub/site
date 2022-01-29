@@ -17,7 +17,9 @@ export default function BankApplyForm() {
       <Link href="/bank" as="a" sx={{ textTransform: 'uppercase' }}>
         &larr; Back
       </Link>
-      <Text sx={{ fontSize: 48, fontWeight: 'bold' }}>
+      <Text
+        sx={{ fontSize: [36, null, 48], fontWeight: 'bold', color: 'primary' }}
+      >
         Sign up for Hack Club Bank!
       </Text>
       <Text sx={{ pl: 2 }}>
@@ -40,12 +42,16 @@ export default function BankApplyForm() {
         the #bank channel on the Hack Club Slack!
       </Text>
       <Divider />
-      <Text variant="headline">Your project</Text>
+      <Text variant="headline" sx={{ color: 'primary' }}>
+        Your project
+      </Text>
+      <Divider sx={{ borderColor: 'slate', mt: -2 }} />
       <Field
         label="Project name"
         name="eventName"
         placeholder="Windy City Hacks"
         helperText="What's the name of your event or project?"
+        required
       />
       <Field
         label="Project website"
@@ -60,9 +66,13 @@ export default function BankApplyForm() {
         placeholder="San Francisco, CA"
         type="text"
         helperText="If applicable, please format as: City, State."
+        required
       />
 
-      <Label htmlFor="eventCountry" sx={{ color: 'smoke', fontSize: 18 }}>
+      <Label
+        htmlFor="eventCountry"
+        sx={{ color: 'smoke', fontSize: 18, pb: 2 }}
+      >
         Country
         <Select
           name="eventCountry"
@@ -78,29 +88,46 @@ export default function BankApplyForm() {
             </option>
           ))}
         </Select>
+        <Text variant="caption" sx={{ color: 'muted', fontSize: 16 }}>
+          We're testing out limited support for international organizations, and
+          want to know in advance if you're operating outside the US.
+        </Text>
       </Label>
-      <Divider />
+
       <Label htmlFor="eventDescription" sx={{ color: 'smoke', fontSize: 18 }}>
         Tell us about your project!
-        <Textarea name="eventDescription" sx={{ bg: 'dark' }} />
+        <Textarea name="eventDescription" sx={{ bg: 'dark' }} required />
         <Text variant="caption" sx={{ color: 'muted', fontSize: 16 }}>
           1-2 sentences summarizing what you'd like to use Hack Club Bank for.
           This is just to help us know what to expect during the call!
         </Text>
       </Label>
 
-      <Divider />
-      <Text variant="headline">Your profile</Text>
+      <Text variant="headline" sx={{ color: 'primary' }}>
+        Your profile
+      </Text>
+      <Divider sx={{ borderColor: 'slate', mt: -2 }} />
 
       <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
-        <Field label="First name" name="firstName" placeholder="Fiona" />
-        <Field label="Last name" name="lastName" placeholder="Hackworth" />
+        <Field
+          label="First name"
+          name="firstName"
+          placeholder="Fiona"
+          required
+        />
+        <Field
+          label="Last name"
+          name="lastName"
+          placeholder="Hackworth"
+          required
+        />
       </Box>
       <Field
         label="Email address"
         name="userEmail"
         placeholder="fiona@hackclub.com"
         type="email"
+        required
       />
       <Field
         label="Phone"
@@ -108,16 +135,65 @@ export default function BankApplyForm() {
         placeholder="1-855-625-HACK"
         type="tel"
         helperText="We'll only use this if we need to get in touch with you urgently."
+        required
       />
-      <Field label="Birthday" name="userBirthday" type="date" />
+      <Field label="Birthday" name="userBirthday" type="date" required />
+
+      <Text sx={{ fontSize: 18, pt: 2 }}>Mailing address</Text>
+      <Text variant="caption" sx={{ color: 'muted', fontSize: 16, mt: -1 }}>
+        This is so we can send you some swag and goodies if you ever request
+        them!
+      </Text>
 
       <Field
-        label="Mailing Address"
-        name="mailingAddress"
-        placeholder="FIXME - separate this field into fieldssss"
+        label="Address (line 1)"
+        name="addressLine1"
+        placeholder="8605 Santa Monica Blvd"
         type="text"
-        helperText="This is so we can send you some swag and goodies if you ever request them!"
+        required
       />
+      <Field
+        label="Address (line 2)"
+        name="addressLine2"
+        placeholder="Suite 86294"
+        type="text"
+      />
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          columnGap: 2
+        }}
+      >
+        <Field
+          label="City"
+          name="addressCity"
+          placeholder="West Hollywood"
+          type="text"
+          required
+        />
+        <Field
+          label="State"
+          name="addressState"
+          placeholder="CA"
+          type="text"
+          required
+        />
+        <Field
+          label="Zip Code"
+          name="addressZip"
+          placeholder="90069"
+          type="text"
+          required
+        />
+        <Field
+          label="Country"
+          name="addressCountry"
+          placeholder="USA"
+          type="text"
+          required
+        />
+      </Box>
 
       <Label htmlFor="returningUser" sx={{ color: 'smoke', fontSize: 18 }}>
         Have you used Hack Club Bank before?
@@ -135,27 +211,27 @@ export default function BankApplyForm() {
   )
 }
 
-function Field({ placeholder, label, name, type, helperText }) {
+function Field({ placeholder, label, name, type, helperText, required }) {
   return (
     <Box sx={{ my: 2 }}>
       <Label htmlFor={name} sx={{ color: 'smoke', fontSize: 18 }}>
         {label}
+        <Input
+          id={name}
+          placeholder={placeholder}
+          name={name}
+          type={type}
+          sx={{
+            bg: 'dark'
+          }}
+          required={required}
+        />
+        {helperText && (
+          <Text variant="caption" sx={{ color: 'muted', fontSize: 16 }}>
+            {helperText}
+          </Text>
+        )}
       </Label>
-      <Input
-        id={name}
-        placeholder={placeholder}
-        name={name}
-        type={type}
-        sx={{
-          bg: 'dark'
-        }}
-        required
-      />
-      {helperText && (
-        <Text variant="caption" sx={{ color: 'muted' }}>
-          {helperText}
-        </Text>
-      )}
     </Box>
   )
 }

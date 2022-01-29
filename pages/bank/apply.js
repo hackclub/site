@@ -5,13 +5,15 @@ import ForceTheme from '../../components/force-theme'
 
 export default function Apply() {
   return (
-    <Box sx={{ bg: '#000' }}>
+    <Box sx={{ bg: 'dark', py: 4 }}>
       <ForceTheme theme="dark" />
-      <Retrowave>
-        <Card sx={{ mx: 'auto', w: '100vw' }}>
+      {/* <Retrowave> */}
+      <Container variant="copy">
+        <Card variant="primary">
           <BankApplyForm />
         </Card>
-      </Retrowave>
+      </Container>
+      {/* </Retrowave> */}
     </Box>
   )
 }
