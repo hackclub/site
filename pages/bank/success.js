@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Container, Text, Flex, Link, Image } from 'theme-ui'
+import ForceTheme from '../../components/force-theme'
 
 export default function ApplicationSuccess() {
   return (
@@ -7,6 +8,7 @@ export default function ApplicationSuccess() {
       <Head>
         <meta httpEquiv="refresh" content="7;url=https://hackclub.com/bank" />
       </Head>
+      <ForceTheme theme="dark" />
       <Flex
         sx={{
           flexDirection: 'column',
