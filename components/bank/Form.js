@@ -10,7 +10,8 @@ import {
   Divider,
   Link
 } from 'theme-ui'
-import countries from '../../../lib/countries'
+import countries from '../../lib/countries'
+
 export default function BankApplyForm() {
   return (
     <Base method="POST" action="/api/bank-apply">
@@ -92,19 +93,19 @@ export default function BankApplyForm() {
             </option>
           ))}
         </Select>
-        <Text variant="caption" sx={{ color: 'muted', fontSize: 16 }}>
+        <HelperText>
           We're testing out limited support for international organizations, and
           want to know in advance if you're operating outside the US.
-        </Text>
+        </HelperText>
       </Label>
 
       <Label htmlFor="eventDescription" sx={{ color: 'smoke', fontSize: 18 }}>
         Tell us about your project!
         <Textarea name="eventDescription" sx={{ bg: 'dark' }} required />
-        <Text variant="caption" sx={{ color: 'muted', fontSize: 16 }}>
+        <HelperText>
           1-2 sentences summarizing what you'd like to use Hack Club Bank for.
           This is just to help us know what to expect during the call!
-        </Text>
+        </HelperText>
       </Label>
 
       <Text variant="headline" sx={{ color: 'primary' }}>
@@ -144,10 +145,10 @@ export default function BankApplyForm() {
       <Field label="Birthday" name="userBirthday" type="date" required />
 
       <Text sx={{ fontSize: 18, pt: 2 }}>Mailing address</Text>
-      <Text variant="caption" sx={{ color: 'muted', fontSize: 16, mt: -1 }}>
+      <HelperText>
         This is so we can send you some swag and goodies if you ever request
         them!
-      </Text>
+      </HelperText>
 
       <Field
         label="Address (line 1)"
@@ -230,13 +231,17 @@ function Field({ placeholder, label, name, type, helperText, required }) {
           }}
           required={required}
         />
-        {helperText && (
-          <Text variant="caption" sx={{ color: 'muted', fontSize: 16 }}>
-            {helperText}
-          </Text>
-        )}
+        {helperText && <HelperText>{helperText}</HelperText>}
       </Label>
     </Box>
+  )
+}
+
+function HelperText({ children }) {
+  return (
+    <Text variant="caption" sx={{ color: 'muted', fontSize: 16 }}>
+      {children}
+    </Text>
   )
 }
 

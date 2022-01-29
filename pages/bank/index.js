@@ -10,7 +10,6 @@ import Testimonials from '../../components/bank/Testimonials'
 import Everything from '../../components/bank/Everything'
 import Start from '../../components/bank/Start'
 import Nonprofits from '../../components/bank/Nonprofits'
-import { useRouter } from 'next/router'
 
 const styles = `
   ::selection {
