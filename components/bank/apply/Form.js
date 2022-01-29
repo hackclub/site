@@ -34,12 +34,16 @@ export default function BankApplyForm() {
             Bank team
           </li>
           <li>
-            Sign the Hack Club Bank fiscal sponsorship agreement (which can be
-            sent right after the call)
+            Sign the Hack Club Bank fiscal sponsorship agreement (sent right
+            after the call)
           </li>
         </ol>
-        If you have any questions, give us a shout at bank@hackclub.com or in
-        the #bank channel on the Hack Club Slack!
+        If you have any questions, give us a shout at{' '}
+        <Link as="a" href="mailto:bank@hackclub.com">
+          bank@hackclub.com
+        </Link>{' '}
+        or in the <strong>#bank</strong> channel on the{' '}
+        <Link href="/slack">Hack Club Slack</Link>!
       </Text>
       <Divider />
       <Text variant="headline" sx={{ color: 'primary' }}>
