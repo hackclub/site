@@ -51,7 +51,7 @@ const SlackPage = ({ millionCount }) => (
         sx={{ maxWidth: 'copyPlus', alignItems: 'end' }}
       >
         <Stat
-          value="10k+"
+          value="15k+"
           label="total members"
           color="red"
           lg
@@ -67,7 +67,7 @@ const SlackPage = ({ millionCount }) => (
       >
         Have a coding question? Looking for project feedback? You’ll find some
         fabulous people to talk to in our global Slack (Discord-style online
-        groupchat) with 11,000+ members, active at all hours.
+        groupchat) with 15,000+ members, active at all hours.
       </Text>
       <Heading
         as="h2"
@@ -81,7 +81,7 @@ const SlackPage = ({ millionCount }) => (
         variant="subtitle"
         sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3 }}
       >
-        Across 1,000 public channels, find the community for your favorite
+        Across 2,000 public channels, find the community for your favorite
         programming language, ask for advice, or just hang out.
       </Text>
       <Grid
