@@ -1,0 +1,233 @@
+import { Box, Image, Grid, Text, Link } from 'theme-ui'
+import Head from 'next/head'
+import Meta from '@hackclub/meta'
+import React, { useEffect, useState } from 'react'
+import tt from 'tinytime'
+
+export default function Vitalik() {
+  const calculateTimeLeft = () => {
+
+    const difference = +new Date(`2022-02-04T01:00:00.000Z`) - +new Date()
+
+    let timeLeft = {}
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        min: Math.floor((difference / 1000 / 60) % 60),
+        sec: Math.floor((difference / 1000) % 60)
+      }
+    }
+
+    return timeLeft
+  }
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft())
+    }, 1000)
+
+    return () => clearTimeout(timer)
+  })
+
+  const timer = []
+
+  Object.keys(timeLeft).forEach(e => {
+    if (!timeLeft[e]) {
+      return
+    }
+
+    timer.push(
+      <Box
+        sx={theme => ({
+          color: 'primary',
+          ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+          position: 'relative',
+          width: ['16vw', '15vw', '15vw'],
+          height: ['15vh', '20vh', '35vh'],
+          borderRadius: '5px',
+          border: ['none', '1.5px solid'],
+          borderColor: theme.util.gxText('#CDAEFB', '#82A9F9'),
+          fontSize: [4, 5, 7],
+          fontWeight: 'bold',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          textAlign: 'center'
+        })}
+      >
+        <Box>
+          <Text>{timeLeft[e]} </Text>
+          <Text
+            sx={theme => ({
+              color: 'primary',
+              ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+              position: 'relative',
+              fontSize: [1, 3, 4],
+              fontWeight: 'bold',
+              display: 'block',
+              pb: '15px'
+            })}
+          >
+            {e}
+          </Text>
+        </Box>
+      </Box>
+    )
+  })
+
+  return (
+    <>
+      <Meta
+        as={Head}
+        title="Vitalik Buterin | AMA"
+        description="We’re excited to welcome Vitalik Buterin ( Co-creator of Ethereum ) to speak to teenagers at Hack Club!"
+        image="https://assets.hackclub.com/log/HC-500k@1080w.png"
+      />
+      <Box
+        sx={{
+          minHeight: '100vh',
+          width: '100vw',
+          bg: '#222222',
+          position: 'relative',
+          zIndex: '0',
+        }}
+      >
+        <Link href="https://hackclub.com" target="_blank" color="inherit">
+          <Image
+            src={`/ama/logo-purple.svg`}
+            width={150}
+            height={75}
+            sx={{
+              position: 'absolute',
+              top: '0',
+              left: ['10vw', '5vw']
+            }}
+          />
+        </Link>
+        <Box>
+          <Box sx={{ position: 'absolute', top: '10px', right: '5%' }}>
+            <Text
+              sx={theme => ({
+                color: 'primary',
+                ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+                mt: [3, 4],
+                px: '10px',
+                py: '5px',
+                borderRadius: '5px',
+                border: '1px solid',
+                fontSize: [1, 2],
+                display: 'block',
+                fontWeight: 'bold',
+              })}
+            >
+              {tt('{MM} {Do} {h}:{mm} {a}').render(
+                new Date(`2022-02-04T01:00:00.000Z`)
+              )}
+            </Text>
+            <Text
+              sx={theme => ({
+                color: 'primary',
+                ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+                display: 'block'
+              })}
+            >
+              in your local date/time
+            </Text>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            p: ['15vh 20px 0 20px', '100px 50px 0 50px'],
+            height: '80%',
+            width: '90%',
+            bg: 'transparent',
+            position: 'relative',
+            left: '5%',
+            top: '10%',
+          }}
+        >
+          <Image
+            src={`/ama/vitalikName2.svg`}
+            width={700}
+            height={500}
+            sx={{ display: ['none', 'block'], pb: '50px' }}
+          />
+          <Image
+            src={`/ama/vitalikNameMobile.svg`}
+            width={250}
+            height={200}
+            sx={{ display: ['block', 'none'], pt: '30px', pb: '10px' }}
+          />
+          <Grid
+            key="{e}"
+            gap={[1, 2, 4]}
+            columns={['1fr 1fr 1fr 1fr', '1fr 1fr 1fr 1fr', '1fr 1fr 1fr 1fr 1fr']}
+            sx={{
+              width: ['100%', '100%']
+            }}
+          >
+            {timer.length ? timer : <h2>Join the AMA now!</h2>}
+          </Grid>
+          <Box
+            sx={{
+              color: '#82A9F9',
+              width: ['40vw', '50vw', '50vw'],
+              pt: ['10px', '50px'],
+              zIndex: '2',
+              fontSize: ['12px', 1, 2],
+              '@media screen and (min-width: 768px) and (max-width: 1200px)': {
+                fontSize: '15px',
+              },
+            }}
+          >
+            <Text>
+              <strong>Teenager? New here? Welcome!</strong>{' '}
+              <Link href="https://hackclub.com" target="_blank" color="inherit">
+                Hack Club
+              </Link>{' '}
+              is a global community of high school makers & student-led coding
+              clubs. We’ve got a 24/7 Slack chatroom of 10k+ teenagers learning
+              to code & building amazing projects, & you’ll fit right in.
+            </Text>
+          </Box>
+        </Box>
+        {/* <Image
+          src={`/ama/vitalikImage.svg`}
+          width={600}
+          height={400}
+          sx={{
+            position: 'absolute',
+            bottom: '0',
+            right: '0'
+          }}
+        /> */}
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: '0',
+            right: '0',
+            width: ['70vw', '50vw', '40vw'],
+            '@media screen and (min-width: 333px) and (max-width: 512px)': {
+                width: ['50vw']
+              },
+          }}
+        >
+         <Image
+            src={`/ama/vitalikImage.svg`}
+            layout="responsive"
+            sx={{ display: ['none', 'block']}}
+          />
+          <Image
+            src={`/ama/vitalikImageMobile.svg`}
+            layout="responsive"
+            sx={{ display: ['block', 'none'], textAlign: 'right'}}
+          />
+        </Box>
+      </Box>
+    </>
+  )
+}
