@@ -43,7 +43,7 @@ export default async function handler(req, res) {
       }
     })
       .then(r => {
-        res.redirect('/bank/apply/success')
+        res.writeHead(302, { Location: '/bank/apply/success' }).end();
         console.log(r.statusText)
       })
       .catch(error => {
