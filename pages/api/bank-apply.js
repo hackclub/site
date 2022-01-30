@@ -28,7 +28,7 @@ export default async function handler(req, res) {
       'Address Country': data.addressCountry,
       Country: data.eventCountry,
       'Event Location': data.eventLocation,
-      'Have you used Hack Club Bank for any previous events?':
+      'Have you used Hack Club Bank for any previous projects?':
         data.returningUser
     })
     const url = process.env.BANK_NOTIFS_WEBHOOK
