@@ -16,10 +16,8 @@ import countries from '../../lib/countries'
 
 export default function BankApplyForm() {
   const { query } = useRouter()
-  console.log(query)
   const handleSubmit = e => {
     e.preventDefault()
-    console.log('submitted')
   }
   return (
     <>
