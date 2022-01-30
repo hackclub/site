@@ -11,9 +11,12 @@ import {
   Link,
   Flex
 } from 'theme-ui'
+import { useRouter } from 'next/router'
 import countries from '../../lib/countries'
 
 export default function BankApplyForm() {
+  const { query } = useRouter()
+  console.log(query)
   const handleSubmit = e => {
     e.preventDefault()
     console.log('submitted')
@@ -73,6 +76,8 @@ export default function BankApplyForm() {
           name="eventName"
           placeholder="Windy City Hacks"
           helperText="What's the name of your event or project?"
+          value={query.eventName}
+          onChange={e => setValues({ ...values, eventName: e.target.value })}
           required
         />
         <Field
@@ -81,6 +86,8 @@ export default function BankApplyForm() {
           placeholder="https://hackclub.com"
           type="url"
           helperText="If you don't have one yet, you can leave this blank."
+          value={query.eventWebsite}
+          onChange={e => setValues({ ...values, eventWebsite: e.target.value })}
         />
         <Field
           label="Project Location"
@@ -88,6 +95,10 @@ export default function BankApplyForm() {
           placeholder="San Francisco, CA"
           type="text"
           helperText="If applicable, please format as: City, State."
+          value={query.eventLocation}
+          onChange={e =>
+            setValues({ ...values, eventLocation: e.target.value })
+          }
           required
         />
 
@@ -135,12 +146,16 @@ export default function BankApplyForm() {
             label="First name"
             name="firstName"
             placeholder="Fiona"
+            value={query.firstName}
+            onChange={e => setValues({ ...values, firstName: e.target.value })}
             required
           />
           <Field
             label="Last name"
             name="lastName"
             placeholder="Hackworth"
+            value={query.lastName}
+            onChange={e => setValues({ ...values, lastName: e.target.value })}
             required
           />
         </Box>
@@ -149,6 +164,8 @@ export default function BankApplyForm() {
           name="userEmail"
           placeholder="fiona@hackclub.com"
           type="email"
+          value={query.userEmail}
+          onChange={e => setValues({ ...values, userEmail: e.target.value })}
           required
         />
         <Field
@@ -157,6 +174,8 @@ export default function BankApplyForm() {
           placeholder="1-855-625-HACK"
           type="tel"
           helperText="We'll only use this if we need to get in touch with you urgently."
+          value={query.userPhone}
+          onChange={e => setValues({ ...values, userPhone: e.target.value })}
           required
         />
         <Field
@@ -169,7 +188,14 @@ export default function BankApplyForm() {
 
         <Label htmlFor="returningUser" sx={{ color: 'smoke', fontSize: 18 }}>
           Have you used Hack Club Bank before?
-          <Select name="returningUser" sx={{ bg: 'dark' }}>
+          <Select
+            name="returningUser"
+            sx={{ bg: 'dark' }}
+            value={query.returningUser}
+            onChange={e =>
+              setValues({ ...values, returningUser: e.target.value })
+            }
+          >
             <option value="No, first time!">No, first time!</option>
             <option value="Yes, I have used Hack Club Bank before">
               Yes, I have used Hack Club Bank before
@@ -254,6 +280,8 @@ function Field({
   type,
   helperText,
   width,
+  value,
+  onChange,
   required
 }) {
   return (
@@ -269,6 +297,8 @@ function Field({
             bg: 'dark',
             width: `${width ? width : '100%'}`
           }}
+          value={value}
+          onChange={onChange}
           required={required}
         />
         {helperText && <HelperText>{helperText}</HelperText>}

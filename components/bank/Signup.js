@@ -42,39 +42,40 @@ export default function Signup() {
   return (
     <Base
       method="get"
-      target="_blank"
-      action="https://hack.af/bank-apply"
+      // target="_blank"
+      // action="https://hack.af/bank-apply"
+      action="/bank/apply"
     >
       <Field
         label="Project name"
-        name="prefill_Event Name"
+        name="eventName"
         placeholder="Windy City Hacks"
-        value={values.name}
-        onChange={e => setValues({ ...values, name: e.target.value })}
+        value={values.eventName}
+        onChange={e => setValues({ ...values, eventName: e.target.value })}
       />
       <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
         <Field
           label="First name"
-          name="prefill_First Name"
+          name="firstName"
           placeholder="Fiona"
-          value={values.first_name}
-          onChange={e => setValues({ ...values, first_name: e.target.value })}
+          value={values.firstName}
+          onChange={e => setValues({ ...values, firstName: e.target.value })}
         />
         <Field
           label="Last name"
-          name="prefill_Last Name"
+          name="lastName"
           placeholder="Hackworth"
-          value={values.last_name}
-          onChange={e => setValues({ ...values, last_name: e.target.value })}
+          value={values.lastName}
+          onChange={e => setValues({ ...values, lastName: e.target.value })}
         />
       </Box>
       <Field
         label="Email address"
-        name="prefill_Email Address"
+        name="userEmail"
         placeholder="fiona@hackclub.com"
         type="email"
-        value={values.email}
-        onChange={e => setValues({ ...values, email: e.target.value })}
+        value={values.userEmail}
+        onChange={e => setValues({ ...values, userEmail: e.target.value })}
       />
       <Button sx={{ bg: 'blue', mt: [2, 3], py: 3 }} type="submit">{`Finish ${
         11 - Object.values(values).filter(n => n !== '').length
