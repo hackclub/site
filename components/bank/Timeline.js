@@ -138,6 +138,7 @@ export default function RealTimeline() {
       />
       <Step
         icon="card"
+        // TODO: fix this
         name="Issue debit cards and do fun things"
         duration="Step 4"
         mb={0}
