@@ -28,7 +28,7 @@ export default async function handler(req, res) {
       'Address Country': data.addressCountry,
       Country: data.eventCountry,
       'Event Location': data.eventLocation,
-      'Have you used Hack Club Bank for any previous projects?':
+      'Have you used Hack Club Bank for any previous events?':
         data.returningUser
     })
     const url = process.env.BANK_NOTIFS_WEBHOOK
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
       }
     })
       .then(r => {
-        res.writeHead(302, { Location: '/bank/apply/success' }).end();
+        res.writeHead(302, { Location: '/bank/apply/success' }).end()
         console.log(r.statusText)
       })
       .catch(error => {
