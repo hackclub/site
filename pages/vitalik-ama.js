@@ -85,7 +85,7 @@ export default function Vitalik() {
         as={Head}
         title="Vitalik Buterin | AMA"
         description="We’re excited to welcome Vitalik Buterin ( Co-creator of Ethereum ) to speak to teenagers at Hack Club!"
-        image="https://assets.hackclub.com/log/HC-500k@1080w.png"
+        image="https://cloud-je16il79h-hack-club-bot.vercel.app/0slack.png"
       />
       <Box
         sx={{
