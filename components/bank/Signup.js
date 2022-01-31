@@ -42,8 +42,6 @@ export default function Signup() {
   return (
     <Base
       method="get"
-      // target="_blank"
-      // action="https://hack.af/bank-apply"
       action="/bank/apply"
     >
       <Field
