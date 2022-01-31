@@ -20,16 +20,7 @@ export default function BankApplyForm() {
     e.preventDefault()
   }
   return (
-    <>
-      <Link
-        href="/bank"
-        sx={{ textTransform: 'uppercase', textDecoration: 'none' }}
-        passHref
-      >
-        <Button variant="outline" sx={{ py: 1, ml: 3, mb: 2 }}>
-          &larr; Back
-        </Button>
-      </Link>
+    <Box>
       <Flex sx={{ flexDirection: 'column', pl: 3 }}>
         <Text
           sx={{
@@ -40,11 +31,9 @@ export default function BankApplyForm() {
         >
           Sign up for Hack Club Bank!
         </Text>
-        <Text>
+        <Text sx={{ fontSize: 18}}>
           Hack Club Bank is open to all US-based Hack Clubs, hackathons, and
-          student-led nonprofits.
-          <br />
-          There are three steps to getting on Hack Club Bank:
+          student-led nonprofits. There are three steps to getting on Hack Club Bank:
           <ol>
             <li>Fill out this form</li>
             <li>
@@ -102,13 +91,13 @@ export default function BankApplyForm() {
 
         <Label
           htmlFor="eventCountry"
-          sx={{ color: 'smoke', fontSize: 18, pb: 2 }}
+          sx={{ color: 'smoke', fontSize: 18, pb: 2, my: 2 }}
         >
           Country
           <Select
             name="eventCountry"
             defaultValue="Choose a country"
-            sx={{ bg: 'dark' }}
+            sx={{ bg: 'dark', my: 1 }}
           >
             <option value="" selected disabled>
               Choose a country
@@ -181,6 +170,7 @@ export default function BankApplyForm() {
           name="userBirthday"
           type="date"
           width="20%"
+          sx={{height: '44px'}}
           required
         />
 
@@ -201,7 +191,7 @@ export default function BankApplyForm() {
           </Select>
         </Label>
 
-        <Text variant="subheadline" sx={{ mt: 3, mb: 0 }}>
+        <Text variant="subheadline" sx={{ mt: 3, mb: 1 }}>
           Mailing address
         </Text>
         <HelperText>
@@ -267,7 +257,7 @@ export default function BankApplyForm() {
           Apply
         </Button>
       </Base>
-    </>
+    </Box>
   )
 }
 
@@ -293,7 +283,9 @@ function Field({
           type={type}
           sx={{
             bg: 'dark',
-            width: `${width ? width : '100%'}`
+            width: `${width ? width : '100%'}`,
+            my: helperText ? 1 : 0,
+            mt: 1
           }}
           value={value}
           onChange={onChange}
