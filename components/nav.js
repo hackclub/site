@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
 import { Box, Container, Flex, Link, Text } from 'theme-ui'
@@ -16,12 +16,6 @@ const rgbaBgColor = (props, opacity) =>
     ${opacity}
   )`
 
-const unfixed = props =>
-  !props.unfixed &&
-  css`
-    position: absolute;
-    top: 0;
-  `
 // const bg = (props) =>
 //   props.dark
 //     ? css`
@@ -35,7 +29,6 @@ const unfixed = props =>
 const fixed = props =>
   (props.scrolled || props.toggled || props.fixed) &&
   css`
-    position: fixed;
     background-color: ${rgbaBgColor(props, 0.96875)};
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -49,7 +42,8 @@ const fixed = props =>
   `
 
 const Root = styled(Box)`
-  ${unfixed};
+  position: fixed;
+  top: 0;
   width: 100%;
   z-index: 1000;
   ${fixed};
@@ -169,100 +163,87 @@ const ToggleContainer = styled(Flex)`
   }
 `
 
-class Header extends Component {
-  state = {
-    scrolled: false,
-    toggled: false
+function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
+  const [scrolled, setScrolled] = useState(false)
+  const [toggled, setToggled] = useState(false)
+  const [mobile, setMobile] = useState(false)
+
+  const onScroll = () => {
+    const newState = window.scrollY >= 16
+
+    setScrolled(newState)
   }
 
-  static defaultProps = {
-    color: 'white'
+  const handleToggleMenu = () => {
+    setToggled(t => !t)
   }
 
-  componentDidMount() {
-    this.bindScroll(true)
+  useEffect(() => {
     if (typeof window !== 'undefined') {
+      if (!unfixed) {
+        window.addEventListener('scroll', onScroll)
+      }
+
       const mobileQuery = window.matchMedia('(max-width: 48em)')
-      mobileQuery.addListener(() => {
-        this.setState({ mobile: true, toggled: false })
+      mobileQuery.addEventListener('change', () => {
+        setMobile(true)
+        setToggled(false)
       })
     }
-  }
 
-  componentWillUnmount = () => {
-    this.bindScroll(false)
-  }
-
-  bindScroll = add => {
-    if (typeof window !== 'undefined' && !this.props.unfixed) {
-      window[add ? 'addEventListener' : 'removeEventListener'](
-        'scroll',
-        this.onScroll
-      )
+    return () => {
+      window.removeEventListener('scroll', onScroll)
     }
-  }
+  }, [unfixed])
 
-  onScroll = () => {
-    const newState = window.scrollY >= 16
-    const { scrolled: oldState } = this.state
+  const baseColor = dark
+    ? color || 'white'
+    : color === 'white' && scrolled
+    ? 'black'
+    : color
+  const toggleColor = dark
+    ? color || 'snow'
+    : toggled || (color === 'white' && scrolled)
+    ? 'slate'
+    : color
 
-    if (newState !== oldState) {
-      this.setState({ scrolled: newState })
-    }
-  }
-
-  handleToggleMenu = () => {
-    this.setState(state => ({ toggled: !state.toggled }))
-  }
-
-  render() {
-    const { color, fixed, bgColor, dark, ...props } = this.props
-    const { mobile, scrolled, toggled } = this.state
-    const baseColor = dark
-      ? color || 'white'
-      : color === 'white' && scrolled
-      ? 'black'
-      : color
-    const toggleColor = dark
-      ? color || 'snow'
-      : toggled || (color === 'white' && scrolled)
-      ? 'slate'
-      : color
-
-    return (
-      <Root
-        {...props}
-        fixed={fixed}
-        scrolled={scrolled}
-        toggled={toggled}
-        dark={dark}
-        bgColor={bgColor || (dark ? [32, 34, 36] : [255, 255, 255])}
-        as="header"
-      >
-        <Content>
-          <Flag scrolled={scrolled || fixed} />
-          <Navigation
-            as="nav"
-            aria-hidden={!!mobile}
-            color={baseColor}
-            dark={dark}
-          />
-          <ToggleContainer color={toggleColor} onClick={this.handleToggleMenu}>
-            <Icon glyph={toggled ? 'view-close' : 'menu'} />
-          </ToggleContainer>
-        </Content>
+  return (
+    <Root
+      {...props}
+      fixed={fixed}
+      scrolled={scrolled}
+      toggled={toggled}
+      dark={dark}
+      bgColor={bgColor || (dark ? [32, 34, 36] : [255, 255, 255])}
+      as="header"
+    >
+      <Content>
+        <Flag scrolled={scrolled || fixed} />
         <Navigation
           as="nav"
-          aria-hidden={!mobile}
-          isMobile
-          toggled={toggled}
+          aria-hidden={!!mobile}
           color={baseColor}
           dark={dark}
         />
-        {toggled && <ScrollLock />}
-      </Root>
-    )
-  }
+        <ToggleContainer color={toggleColor} onClick={handleToggleMenu}>
+          <Icon glyph={toggled ? 'view-close' : 'menu'} />
+        </ToggleContainer>
+      </Content>
+      <Navigation
+        as="nav"
+        aria-hidden={!mobile}
+        isMobile
+        toggled={toggled}
+        color={baseColor}
+        dark={dark}
+      />
+      {toggled && <ScrollLock />}
+    </Root>
+  )
+}
+
+Header.defaultProps = {
+  color: 'white'
 }
 
 export default Header
