@@ -5,6 +5,7 @@ import Head from 'next/head'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import { Octokit } from '@octokit/rest'
+import ForceTheme from '../components/force-theme'
 
 export const BankProject = ({ name, url }) => (
   <Card
@@ -47,6 +48,7 @@ const Page = ({ repos }) => (
       description="Explore our finances, code, planning documents and more."
       image="https://workshop-cards.hackclub.com/Open%20Source.png?theme=dark&fontSize=350px&brand=HQ"
     />
+    <ForceTheme theme="light" />
     <Nav color="text" />
     <Box
       as="header"
