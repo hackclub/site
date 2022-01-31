@@ -3,11 +3,11 @@ import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import React, { useEffect, useState } from 'react'
 import tt from 'tinytime'
+import Particle from '../components/particles'
 
 export default function Vitalik() {
   const calculateTimeLeft = () => {
-
-    const difference = +new Date(`2022-02-04T01:00:00.000Z`) - +new Date()
+    const difference = +new Date(`2022-02-04T08:00:00.000Z`) - +new Date() //2022-02-04T01:00:00.000Z
 
     let timeLeft = {}
 
@@ -37,7 +37,41 @@ export default function Vitalik() {
 
   Object.keys(timeLeft).forEach(e => {
     if (!timeLeft[e]) {
-      return
+      if (e == 'days') {
+        return
+      } else if (e == 'hours') {
+        if (!timeLeft['days']) {
+          return
+        }
+      } else if (e == 'min') {
+        if (!timeLeft['days'] && !timeLeft['hours']) {
+          return
+        }
+      } else {
+        if (!timeLeft['days'] && !timeLeft['hours'] && !timeLeft['min']) {
+          return
+        }
+      }
+    }
+
+    var name = ''
+
+    if (e == 'days') {
+      if (timeLeft[e] == 1 || timeLeft[e] == 0) {
+        name = 'day'
+      } else {
+        name = 'days'
+      }
+    } else if (e == 'hours') {
+      if (timeLeft[e] == 1 || timeLeft[e] == 0) {
+        name = 'hour'
+      } else {
+        name = 'hours'
+      }
+    } else if (e == 'min') {
+      name = 'min'
+    } else {
+      name = 'sec'
     }
 
     timer.push(
@@ -60,7 +94,14 @@ export default function Vitalik() {
         })}
       >
         <Box>
-          <Text>{timeLeft[e]} </Text>
+          <Text
+            sx={theme => ({
+              color: 'primary',
+              ...theme.util.gxText('#CDAEFB', '#82A9F9')
+            })}
+          >
+            {timeLeft[e]}{' '}
+          </Text>
           <Text
             sx={theme => ({
               color: 'primary',
@@ -72,7 +113,7 @@ export default function Vitalik() {
               pb: '15px'
             })}
           >
-            {e}
+            {name}
           </Text>
         </Box>
       </Box>
@@ -87,6 +128,10 @@ export default function Vitalik() {
         description="We’re excited to welcome Vitalik Buterin ( Co-creator of Ethereum ) to speak to teenagers at Hack Club!"
         image="https://cloud-je16il79h-hack-club-bot.vercel.app/0slack.png"
       />
+      <Head>
+        <meta name="theme-color" content="#CDAEFB" />
+      </Head>
+
       <Box
         sx={{
           minHeight: '100vh',
@@ -94,6 +139,7 @@ export default function Vitalik() {
           bg: '#222222',
           position: 'relative',
           zIndex: '0',
+          overflow: 'hidden'
         }}
       >
         <Link href="https://hackclub.com" target="_blank" color="inherit">
@@ -108,6 +154,7 @@ export default function Vitalik() {
             }}
           />
         </Link>
+        <Particle />
         <Box>
           <Box sx={{ position: 'absolute', top: '10px', right: '5%' }}>
             <Text
@@ -121,7 +168,7 @@ export default function Vitalik() {
                 border: '1px solid',
                 fontSize: [1, 2],
                 display: 'block',
-                fontWeight: 'bold',
+                fontWeight: 'bold'
               })}
             >
               {tt('{MM} {Do} {h}:{mm} {a}').render(
@@ -147,7 +194,7 @@ export default function Vitalik() {
             bg: 'transparent',
             position: 'relative',
             left: '5%',
-            top: '10%',
+            top: '10%'
           }}
         >
           <Image
@@ -165,23 +212,38 @@ export default function Vitalik() {
           <Grid
             key="{e}"
             gap={[1, 2, 4]}
-            columns={['1fr 1fr 1fr 1fr', '1fr 1fr 1fr 1fr', '1fr 1fr 1fr 1fr 1fr']}
+            columns={[
+              '1fr 1fr 1fr 1fr',
+              '1fr 1fr 1fr 1fr',
+              '1fr 1fr 1fr 1fr 1fr'
+            ]}
             sx={{
               width: ['100%', '100%']
             }}
           >
-            {timer.length ? timer : <h2>Join the AMA now!</h2>}
+            {timer.length ? (
+              timer
+            ) : (
+              <h1
+                sx={theme => ({
+                  color: 'primary',
+                  ...theme.util.gxText('#CDAEFB', '#82A9F9')
+                })}
+              >
+                Join the AMA now!
+              </h1>
+            )}
           </Grid>
           <Box
             sx={{
               color: '#82A9F9',
-              width: ['40vw', '50vw', '50vw'],
+              width: ['25vw', '50vw', '50vw'],
               pt: ['10px', '50px'],
               zIndex: '2',
               fontSize: ['12px', 1, 2],
               '@media screen and (min-width: 768px) and (max-width: 1200px)': {
-                fontSize: '15px',
-              },
+                fontSize: '15px'
+              }
             }}
           >
             <Text>
@@ -210,21 +272,24 @@ export default function Vitalik() {
             position: 'absolute',
             bottom: '0',
             right: '0',
-            width: ['70vw', '50vw', '40vw'],
-            '@media screen and (min-width: 333px) and (max-width: 512px)': {
-                width: ['50vw']
-              },
+            marginRight: ['-100px', '-50px', '-50px'],
+            width: ['100vw', '70vw', '40vw']
+            // '@media screen and (min-width: 333px) and (max-width: 512px)': {
+            //     width: ['50vw']
+            //   },
           }}
         >
-         <Image
+          <Image
             src={`/ama/vitalikImage.svg`}
             layout="responsive"
-            sx={{ display: ['none', 'block']}}
+            sx={{ display: ['none', 'block'] }}
           />
           <Image
             src={`/ama/vitalikImageMobile.svg`}
-            layout="responsive"
-            sx={{ display: ['block', 'none'], textAlign: 'right'}}
+            // layout="fill"
+            width={400}
+            height={400}
+            sx={{ display: ['block', 'none'] }}
           />
         </Box>
       </Box>
