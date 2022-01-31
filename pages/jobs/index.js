@@ -7,6 +7,7 @@ import ForceTheme from '/components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import theme from '../../lib/theme'
+import Link from 'next/link'
 
 const Sheet = styled(Card)`
   position: relative;
@@ -32,44 +33,45 @@ const JobListing = ({
   color,
   color1
 }) => (
-  <Sheet
-    bg="primary"
-    color="white"
-    align="center"
-    as="a"
-    href={positionLink}
-    sx={{
-      boxShadow:
-        '0 4px 8px rgba(0, 0, 0, 0.0625), 0 16px 32px rgba(0, 0, 0, 0.125) !important;',
-      backgroundImage: `radial-gradient( ellipse farthest-corner at bottom right, ${color}, ${color1})`,
-      position: 'relative',
-      width: '100%',
-      color: 'white',
-      textDecoration: 'none'
-    }}
-    variant="interactive"
-  >
-    <Heading
-      mb={1}
+  <Link href={positionLink} passHref>
+    <Sheet
+      bg="primary"
+      color="white"
+      align="center"
+      as="a"
       sx={{
-        fontSize: '42px',
-        color: 'white'
+        boxShadow:
+          '0 4px 8px rgba(0, 0, 0, 0.0625), 0 16px 32px rgba(0, 0, 0, 0.125) !important;',
+        backgroundImage: `radial-gradient( ellipse farthest-corner at bottom right, ${color}, ${color1})`,
+        position: 'relative',
+        width: '100%',
+        color: 'white',
+        textDecoration: 'none'
       }}
+      variant="interactive"
     >
-      {positionName}
-    </Heading>
-    <Text
-      color="snow"
-      sx={{
-        fontSize: ['22px'],
-        my: 2,
-        display: 'block',
-        textAlign: 'left'
-      }}
-    >
-      {positionDesc}
-    </Text>
-  </Sheet>
+      <Heading
+        mb={1}
+        sx={{
+          fontSize: '42px',
+          color: 'white'
+        }}
+      >
+        {positionName}
+      </Heading>
+      <Text
+        color="snow"
+        sx={{
+          fontSize: ['22px'],
+          my: 2,
+          display: 'block',
+          textAlign: 'left'
+        }}
+      >
+        {positionDesc}
+      </Text>
+    </Sheet>
+  </Link>
 )
 
 const Page = () => (
@@ -156,7 +158,7 @@ const Page = () => (
             color={theme.util.cx('blue')}
             color1={theme.util.cx('green')}
           />
-          
+
           <JobListing
             positionName="Education Engineer"
             positionDesc="We are looking for an engineer & educator to create and lead on technical projects for Hack Clubbers, with a strong focus on young women and non-binary individuals at Hack&nbsp;Club."
