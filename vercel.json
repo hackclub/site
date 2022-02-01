@@ -1,6 +1,3 @@
 {
-  "env": {
-    "SLACK_BOT_TOKEN": "@slack-bot-token-production-8avf"
-  },
   "github": { "silent": true }
 }
