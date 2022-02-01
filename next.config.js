@@ -39,7 +39,11 @@ const nextConfig = {
         permanent: true
       },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
-      { source: '/jobs/bank-tech-lead/', destination: '/jobs/lead-hacker/', permanent: true },
+      {
+        source: '/jobs/bank-tech-lead/',
+        destination: '/jobs/lead-hacker/',
+        permanent: true
+      },
       { source: '/workshops/slack/', destination: '/slack/', permanent: true },
       { source: '/community/', destination: '/slack/', permanent: true },
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
@@ -138,6 +142,10 @@ const nextConfig = {
         destination: '/content/sunsetting-som/'
       },
       {
+        source: '/bank/apply/success',
+        destination: '/bank/success'
+      },
+      {
         source: '/banner/',
         destination: 'https://workshops.hackclub.com/banner/'
       },
@@ -158,9 +166,9 @@ const nextConfig = {
         destination: 'https://workshops.hackclub.com/vip-newsletters/$1'
       },
       {
-         source: '/transparency/may-2020/',
-         destination: '/content/transparency/may-2020/'
-       },
+        source: '/transparency/may-2020/',
+        destination: '/content/transparency/may-2020/'
+      },
       {
         source: '/map/',
         destination: 'https://map.hackclub.dev/'
