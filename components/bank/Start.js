@@ -1,8 +1,18 @@
-import { Box, Container, Link, Text, Heading, Card, Grid } from 'theme-ui'
+import {
+  Box,
+  Container,
+  Link,
+  Text,
+  Heading,
+  Card,
+  Flex,
+  Grid,
+  Button
+} from 'theme-ui'
 import { Fade } from 'react-reveal'
-import Signup from './Signup'
 import Timeline from './Timeline'
 import Stats from './Stats'
+import Signup from './Signup'
 
 export default function Start() {
   return (
@@ -30,8 +40,8 @@ export default function Start() {
           </Heading>
           <Container variant="narrow" sx={{ color: 'muted' }}>
             <Text variant="lead">
-              Open to all registered Hack Clubs, hackathons, and your
-              next amazing project.
+              Open to all registered Hack Clubs, hackathons, and your next
+              amazing project.
             </Text>
           </Container>
         </Container>
