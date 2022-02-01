@@ -8,7 +8,7 @@ import {
   Flex,
   Grid,
   Heading,
-  Text
+  Text,
 } from 'theme-ui'
 import Head from 'next/head'
 import NextLink from 'next/link'
@@ -19,13 +19,21 @@ import Nav from '../components/nav'
 import Icon from '../components/icon'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
-
-import Amount from '../components/relon/amount' // TODO should move this file to a more logical place... maybe inline?
-// FIXME: use new copy here :)
 import ElonCopy from '../components/relon/copy.mdx'
+import Sparkles from '../components/sparkles'
+
+const Amount = () => (
+  <Sparkles sx={{
+    WebkitTextStroke: 'currentColor',
+    WebkitTextStrokeWidth: '2px',
+    WebkitTextFillColor: 'transparent'
+  }}>
+    $1,000,000
+  </Sparkles>
+)
 
 const StyledLink = styled.a`
-  //text-decoration: none;
+  text-decoration: none;
   color: ${theme.colors.white};
 `;
 
@@ -73,7 +81,6 @@ const RelonPage = () => (
             }
           }}
         >
-          {/* TODO fix link styling */}
           Elon Musk is donating <Amount /> to <RelonLink href="/">Hack Club</RelonLink>
         </Heading>
       </Container>
@@ -100,7 +107,6 @@ const RelonPage = () => (
           div: {
             mt: 1,
             mb: 3,
-            //bg: 'white',
             color: 'muted',
             border: '1px solid',
             borderColor: 'border',
