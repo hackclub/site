@@ -144,7 +144,7 @@ const Page = () => (
 
         <Grid mb={5} gap={3} columns={[null, 2, 3]}>
           <Photo
-            src="/charlotte-vt.jpg"
+            src="/jobs/charlotte-vt.jpg"
             alt={<>
               <Link
                 href="https://thecharlottebridge.org/"
@@ -176,7 +176,7 @@ const Page = () => (
             showAlt
           />
           <Photo
-            src="/hack-penn.jpg"
+            src="/jobs/hack-penn.jpg"
             alt={
               <>
                 <Link
@@ -224,7 +224,7 @@ const Page = () => (
       >
         <Box sx={{ flex: 1, maxWidth: [null, null, 400] }}>
           <Photo
-            src="/hq.jpg"
+            src="/jobs/hq.jpg"
             alt="Our headquarters in beautiful Shelburne, Vermont"
             width={500}
             height={326.5}
