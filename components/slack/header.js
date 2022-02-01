@@ -1,8 +1,6 @@
 import { Button, Box, Container, Heading, Flex, Grid, Text } from 'theme-ui'
 import SlideUp from '../slide-up'
-import Announcement from '../announcement'
 import Icon from '../icon'
-import Stat from '../stat'
 import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
