@@ -1,4 +1,4 @@
-import { Box, Flex, Container, Text, Badge } from 'theme-ui'
+import { Box, Flex, Container, Text, Badge, Link } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Icon from '../icon'
 
@@ -25,7 +25,7 @@ function TimelineStep({ children }) {
           content: '""',
           background: '#3c4858',
           height: ['420px', null, '4px'],
-          width: ['4px', null, '50%'],
+          width: ['4px', null, '48%'],
           marginLeft: [26, null, 0],
           marginTop: [null, null, '34px'],
           position: 'absolute',
@@ -69,12 +69,18 @@ function Circle({ children }) {
   )
 }
 
-function Step({ icon, name, duration }) {
+function Step({ icon, name, duration, href }) {
   return (
     <TimelineStep pb={4}>
       <Slide left>
-        <Circle mr={[3, null, 0]} mb={[null, null, 4]}>
-          <Icon glyph={icon} size={48} />
+        <Circle>
+          {href ? (
+            <Link href={href} sx={{ cursor: 'pointer' }}>
+              <Icon glyph={icon} size={48} color="white" />
+            </Link>
+          ) : (
+            <Icon glyph={icon} size={48} />
+          )}
         </Circle>
         <Container
           sx={{
@@ -101,7 +107,7 @@ function Step({ icon, name, duration }) {
             {duration}
           </Badge>
           <Text
-            sx={{ color: 'white', fontSize: 24, maxWidth: [250, null, 500] }}
+            sx={{ color: 'white', fontSize: 24, maxWidth: [300, null, 550] }}
           >
             {name}
           </Text>
@@ -116,12 +122,13 @@ export default function RealTimeline() {
     <Timeline px={3}>
       <Step
         icon="send"
-        name="Sign up, explore, order debit cards"
+        name="Submit an application telling us about your project"
         duration="Step 1"
+        href="/bank/apply"
       />
       <Step
         icon="welcome"
-        name="Intro meeting with the Bank team"
+        name="Hop on an intro call with the Bank team"
         duration="Step 2"
       />
       <Step
@@ -131,7 +138,7 @@ export default function RealTimeline() {
       />
       <Step
         icon="card"
-        name="Receive debit cards in the mail"
+        name="Invite your team &amp; start fundraising"
         duration="Step 4"
         mb={0}
       />
