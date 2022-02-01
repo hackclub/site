@@ -29,9 +29,9 @@ export default function BankApplyForm() {
             color: 'primary'
           }}
         >
-          Sign up for Hack Club Bank!
+          Apply for Hack Club Bank
         </Text>
-        <Text sx={{ fontSize: 18}}>
+        <Text sx={{ fontSize: 18, mb: 2}}>
           Hack Club Bank is open to all US-based Hack Clubs, hackathons, and
           student-led nonprofits. There are three steps to getting on Hack Club Bank:
           <ol>
@@ -55,7 +55,7 @@ export default function BankApplyForm() {
       </Flex>
       <Base method="POST" action="/api/bank-apply">
         <Text variant="headline" sx={{ color: 'primary' }}>
-          Your project
+          Your Project
         </Text>
         <Divider sx={{ borderColor: 'slate', mt: -2 }} />
         <Field
@@ -64,7 +64,7 @@ export default function BankApplyForm() {
           placeholder="Windy City Hacks"
           helperText="What's the name of your event or project?"
           value={query.eventName}
-          onChange={e => setValues({ ...values, eventName: e.target.value })}
+          
           required
         />
         <Field
@@ -74,7 +74,7 @@ export default function BankApplyForm() {
           type="url"
           helperText="If you don't have one yet, you can leave this blank."
           value={query.eventWebsite}
-          onChange={e => setValues({ ...values, eventWebsite: e.target.value })}
+          
         />
         <Field
           label="Project Location"
@@ -83,9 +83,6 @@ export default function BankApplyForm() {
           type="text"
           helperText="If applicable, please format as: City, State."
           value={query.eventLocation}
-          onChange={e =>
-            setValues({ ...values, eventLocation: e.target.value })
-          }
           required
         />
 
@@ -114,9 +111,9 @@ export default function BankApplyForm() {
           </HelperText>
         </Label>
 
-        <Label htmlFor="eventDescription" sx={{ color: 'smoke', fontSize: 18 }}>
+        <Label htmlFor="eventDescription" sx={{ color: 'smoke', fontSize: 18, my: 2 }}>
           Tell us about your project!
-          <Textarea name="eventDescription" sx={{ bg: 'dark' }} required />
+          <Textarea name="eventDescription" sx={{ bg: 'dark', my: 1 }} required />
           <HelperText>
             1-2 sentences summarizing what you'd like to use Hack Club Bank for.
             This is just to help us know what to expect during the call!
@@ -124,7 +121,7 @@ export default function BankApplyForm() {
         </Label>
 
         <Text variant="headline" sx={{ color: 'primary' }}>
-          Your profile
+          Your Profile
         </Text>
         <Divider sx={{ borderColor: 'slate', mt: -2 }} />
 
@@ -134,7 +131,6 @@ export default function BankApplyForm() {
             name="firstName"
             placeholder="Fiona"
             value={query.firstName}
-            onChange={e => setValues({ ...values, firstName: e.target.value })}
             required
           />
           <Field
@@ -142,7 +138,6 @@ export default function BankApplyForm() {
             name="lastName"
             placeholder="Hackworth"
             value={query.lastName}
-            onChange={e => setValues({ ...values, lastName: e.target.value })}
             required
           />
         </Box>
@@ -152,7 +147,6 @@ export default function BankApplyForm() {
           placeholder="fiona@hackclub.com"
           type="email"
           value={query.userEmail}
-          onChange={e => setValues({ ...values, userEmail: e.target.value })}
           required
         />
         <Field
@@ -162,27 +156,23 @@ export default function BankApplyForm() {
           type="tel"
           helperText="We'll only use this if we need to get in touch with you urgently."
           value={query.userPhone}
-          onChange={e => setValues({ ...values, userPhone: e.target.value })}
           required
         />
         <Field
           label="Birthday"
           name="userBirthday"
           type="date"
-          width="20%"
+          width="fit-content"
           sx={{height: '44px'}}
           required
         />
 
-        <Label htmlFor="returningUser" sx={{ color: 'smoke', fontSize: 18 }}>
+        <Label htmlFor="returningUser" sx={{ color: 'smoke', fontSize: 18, my: 2 }}>
           Have you used Hack Club Bank before?
           <Select
             name="returningUser"
-            sx={{ bg: 'dark' }}
+            sx={{ bg: 'dark', mt: 1 }}
             value={query.returningUser}
-            onChange={e =>
-              setValues({ ...values, returningUser: e.target.value })
-            }
           >
             <option value="No, first time!">No, first time!</option>
             <option value="Yes, I have used Hack Club Bank before">
@@ -190,15 +180,15 @@ export default function BankApplyForm() {
             </option>
           </Select>
         </Label>
-
-        <Text variant="subheadline" sx={{ mt: 3, mb: 1 }}>
-          Mailing address
-        </Text>
-        <HelperText>
-          This is so we can send you some swag and goodies if you ever request
-          them!
-        </HelperText>
-
+        <Box sx={{ mb: 2}}>
+          <Text variant="subheadline" sx={{ mt: 3, mb: 1, display: 'block', fontSize: 3 }}>
+            Mailing Address
+          </Text>
+          <HelperText>
+            This is so we can send you some swag and goodies if you ever request
+            them!
+          </HelperText>
+        </Box>
         <Field
           label="Address (line 1)"
           name="addressLine1"
@@ -270,7 +260,8 @@ function Field({
   width,
   value,
   onChange,
-  required
+  required,
+  sx
 }) {
   return (
     <Box sx={{ my: 2 }}>
@@ -285,7 +276,8 @@ function Field({
             bg: 'dark',
             width: `${width ? width : '100%'}`,
             my: helperText ? 1 : 0,
-            mt: 1
+            mt: 1,
+            ...sx
           }}
           value={value}
           onChange={onChange}
