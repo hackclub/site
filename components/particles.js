@@ -30,9 +30,9 @@ const Particle = React.memo(function Particle() {
           },
           modes: {
             bubble: {
-              distance: 400,
+              distance: 200,
               duration: 2,
-              opacity: 0.8,
+              opacity: 0.5,
               size: 40
             },
             push: {
@@ -47,13 +47,13 @@ const Particle = React.memo(function Particle() {
         particles: {
           color: {
             value: '#CDAEFB',
-            opacity: 0.4
+            opacity: 0.2
           },
           links: {
             color: '#82A9F9',
             distance: 200,
             enable: true,
-            opacity: 0.3,
+            opacity: 0.2,
             width: 1
           },
           collisions: {
@@ -64,7 +64,7 @@ const Particle = React.memo(function Particle() {
             enable: true,
             outMode: 'bounce',
             random: false,
-            speed: 2,
+            speed: 1,
             straight: false
           },
           number: {
@@ -72,17 +72,17 @@ const Particle = React.memo(function Particle() {
               enable: true,
               area: 500
             },
-            value: 80
+            value: 50
           },
           opacity: {
-            value: 0.5
+            value: 0.25
           },
           shape: {
             type: 'circle'
           },
           size: {
             random: true,
-            value: 2
+            value: 1.5
           }
         },
         detectRetina: true
