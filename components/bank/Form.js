@@ -31,9 +31,10 @@ export default function BankApplyForm() {
         >
           Apply for Hack Club Bank
         </Text>
-        <Text sx={{ fontSize: 18, mb: 2}}>
+        <Text sx={{ fontSize: 18, mb: 2 }}>
           Hack Club Bank is open to all US-based Hack Clubs, hackathons, and
-          student-led nonprofits. There are three steps to getting on Hack Club Bank:
+          student-led nonprofits. There are three steps to getting on Hack Club
+          Bank:
           <ol>
             <li>Fill out this form</li>
             <li>
@@ -64,7 +65,6 @@ export default function BankApplyForm() {
           placeholder="Windy City Hacks"
           helperText="What's the name of your event or project?"
           value={query.eventName}
-          
           required
         />
         <Field
@@ -74,7 +74,6 @@ export default function BankApplyForm() {
           type="url"
           helperText="If you don't have one yet, you can leave this blank."
           value={query.eventWebsite}
-          
         />
         <Field
           label="Project Location"
@@ -111,9 +110,16 @@ export default function BankApplyForm() {
           </HelperText>
         </Label>
 
-        <Label htmlFor="eventDescription" sx={{ color: 'smoke', fontSize: 18, my: 2 }}>
+        <Label
+          htmlFor="eventDescription"
+          sx={{ color: 'smoke', fontSize: 18, my: 2 }}
+        >
           Tell us about your project!
-          <Textarea name="eventDescription" sx={{ bg: 'dark', my: 1 }} required />
+          <Textarea
+            name="eventDescription"
+            sx={{ bg: 'dark', my: 1 }}
+            required
+          />
           <HelperText>
             1-2 sentences summarizing what you'd like to use Hack Club Bank for.
             This is just to help us know what to expect during the call!
@@ -163,11 +169,14 @@ export default function BankApplyForm() {
           name="userBirthday"
           type="date"
           width="fit-content"
-          sx={{height: '44px'}}
+          sx={{ height: '44px' }}
           required
         />
 
-        <Label htmlFor="returningUser" sx={{ color: 'smoke', fontSize: 18, my: 2 }}>
+        <Label
+          htmlFor="returningUser"
+          sx={{ color: 'smoke', fontSize: 18, my: 2 }}
+        >
           Have you used Hack Club Bank before?
           <Select
             name="returningUser"
@@ -180,8 +189,11 @@ export default function BankApplyForm() {
             </option>
           </Select>
         </Label>
-        <Box sx={{ mb: 2}}>
-          <Text variant="subheadline" sx={{ mt: 3, mb: 1, display: 'block', fontSize: 3 }}>
+        <Box sx={{ mb: 2 }}>
+          <Text
+            variant="subheadline"
+            sx={{ mt: 3, mb: 1, display: 'block', fontSize: 3 }}
+          >
             Mailing Address
           </Text>
           <HelperText>
