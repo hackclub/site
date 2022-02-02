@@ -40,10 +40,7 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 export default function Signup() {
   const [values, setValues] = useState({})
   return (
-    <Base
-      method="get"
-      action="/bank/apply"
-    >
+    <Base method="get" action="/bank/apply">
       <Field
         label="Project name"
         name="eventName"
