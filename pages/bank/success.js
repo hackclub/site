@@ -1,13 +1,41 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useEffect, useRef, useState } from 'react'
 import { Container, Text, Flex, Link, Image } from 'theme-ui'
 import ForceTheme from '../../components/force-theme'
 
 export default function ApplicationSuccess() {
+  const router = useRouter()
+
+  const [counter, setCounter] = useState(15)
+
+  const interval = useRef()
+
+  useEffect(() => {
+    interval.current = setInterval(() => {
+      setCounter(c => {
+        if (c <= 1) {
+          clearInterval(interval.current)
+          router.push('/bank')
+          return 0
+        } else {
+          return c - 1
+        }
+      })
+    }, 1000)
+
+    return () => {
+      clearInterval(interval.current)
+    }
+  }, [router])
+
+  const cancelRedirect = () => {
+    clearInterval(interval.current)
+    setCounter(null)
+  }
+
   return (
     <Container variant="copy">
-      <Head>
-        <meta httpEquiv="refresh" content="15;url=https://hackclub.com/bank" />
-      </Head>
       <ForceTheme theme="dark" />
       <Flex
         sx={{
@@ -35,6 +63,14 @@ export default function ApplicationSuccess() {
           or on the <Link href="/slack">Hack Club Slack</Link> in the{' '}
           <strong>#bank</strong> channel.
         </Text>
+        {counter !== null && (
+          <Flex sx={{ justifyContent: 'center' }}>
+            <Text sx={{ mr: 3 }}>Redirecting in {counter} seconds.</Text>
+            <Link sx={{ cursor: 'pointer' }} onClick={() => cancelRedirect()}>
+              Cancel
+            </Link>
+          </Flex>
+        )}
       </Flex>
     </Container>
   )
