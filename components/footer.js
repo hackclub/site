@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Box, Container, Image, Grid, Heading, Link, Text } from 'theme-ui'
+import NextLink from 'next/link'
 import theme from '@hackclub/theme'
 import Icon from './icon'
 
@@ -84,13 +85,27 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Heading as="h2" variant="subheadline" mb={3}>
             Hack Club
           </Heading>
-          <Link href="/slack">Slack</Link>
-          <Link href="/donate">Donate</Link>
-          <Link href="/team">Team</Link>
-          <Link href="/jobs">Jobs</Link>
-          <Link href="/philosophy">Philosophy</Link>
-          <Link href="/brand">Branding</Link>
-          <Link href="/press">Press Inquiries</Link>
+          <NextLink href="/slack" passHref>
+            <Link>Slack</Link>
+          </NextLink>
+          <NextLink href="/donate" passHref>
+            <Link>Donate</Link>
+          </NextLink>
+          <NextLink href="/team" passHref>
+            <Link>Team</Link>
+          </NextLink>
+          <NextLink href="/jobs" passHref>
+            <Link>Jobs</Link>
+          </NextLink>
+          <NextLink href="/philosophy" passHref>
+            <Link>Philosophy</Link>
+          </NextLink>
+          <NextLink href="/brand" passHref>
+            <Link>Branding</Link>
+          </NextLink>
+          <NextLink href="/press" passHref>
+            <Link>Press Inquiries</Link>
+          </NextLink>
         </Box>
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
@@ -100,7 +115,9 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Link href="https://events.hackclub.com/">Events</Link>
           <Link href="https://workshops.hackclub.com/">Workshops</Link>
           <Link href="https://hackathons.hackclub.com/">Hackathons</Link>
-          <Link href="/bank">Bank</Link>
+          <NextLink href="/bank" passHref>
+            <Link>Bank</Link>
+          </NextLink>
           <Link href="https://hackclub.com/map/">Clubs Map</Link>
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
         </Box>
