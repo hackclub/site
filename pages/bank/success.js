@@ -6,7 +6,7 @@ export default function ApplicationSuccess() {
   return (
     <Container variant="copy">
       <Head>
-        <meta httpEquiv="refresh" content="7;url=https://hackclub.com/bank" />
+        <meta httpEquiv="refresh" content="15;url=https://hackclub.com/bank" />
       </Head>
       <ForceTheme theme="dark" />
       <Flex
