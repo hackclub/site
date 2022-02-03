@@ -57,10 +57,20 @@ export default function Bank({ isPartner }) {
   )
 }
 
-export function getServerSideProps(context) {
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { 'type': 'partner' } },
+      { params: { 'type': 'index' } }
+    ],
+    fallback: false
+  };
+}
+
+export async function getStaticProps(context) {
   return {
     props: {
-      isPartner: context.query.ref === 'gb_help_desk'
+      isPartner: context.params.type === 'partner'
     }
   }
 }
