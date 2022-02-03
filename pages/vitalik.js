@@ -125,7 +125,7 @@ export default function Vitalik() {
       <Meta
         as={Head}
         title="Vitalik Buterin | AMA"
-        description="We’re excited to welcome Vitalik Buterin ( Co-creator of Ethereum ) to speak to teenagers at Hack Club!"
+        description="We’re excited to welcome Vitalik Buterin (Co-creator of Ethereum) to speak to teenagers at Hack Club!"
         image="https://cloud-je16il79h-hack-club-bot.vercel.app/0slack.png"
       />
       <Head>
