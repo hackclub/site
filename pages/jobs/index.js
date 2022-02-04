@@ -166,19 +166,7 @@ const Page = () => (
             color={theme.util.cx('red')}
             color1={theme.util.cx('orange')}
           />
-          <JobListing
-            positionName="Communications Manager"
-            positionDesc={
-              <>
-                Your main goal will be to make sure every teenager who{' '}
-                <em>would</em> want to know about Hack Club knows about Hack
-                Club, and create comms that meet teens where they're at.
-              </>
-            }
-            positionLink="/jobs/communications-manager/"
-            color={theme.util.cx('blue')}
-            color1={theme.util.cx('cyan')}
-          />
+          
         </Grid>
       </Container>
     </Box>
