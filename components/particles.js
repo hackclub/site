@@ -2,9 +2,18 @@ import Particles from 'react-tsparticles'
 import React from 'react'
 
 const Particle = React.memo(function Particle() {
+  const particlesInit = main => {
+    console.log(main)
+  }
+
+  const particlesLoaded = container => {
+    console.log(container)
+  }
   return (
     <Particles
       id="tsparticles"
+      init={particlesInit}
+      loaded={particlesLoaded}
       options={{
         fpsLimit: 60,
         interactivity: {
