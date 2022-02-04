@@ -244,12 +244,12 @@ export default function Vitalik() {
                   fontWeight: 'bold'
                 })}
               >
-                The AMA is happening right now...
+                The AMA has ended. Thank you to Vitalik and everyone for joining us!
               </Text>
               <Box>
                 <Button
                   as="a"
-                  href="https://www.youtube.com/watch?v=E9NNUI-arfY"
+                  href="https://hack.af/vitalik-livestream"
                   sx={{
                     background: '#CDAEFB',
                     margin: ['10px', '15px'],
@@ -258,38 +258,8 @@ export default function Vitalik() {
                     display: 'inline-block'
                   }}
                 >
-                  Watch Livestream
+                  Watch Recording
                 </Button>
-                <Box
-                  sx={{
-                    display: 'inline-block',
-                    margin: ['10px', '15px']
-                  }}
-                >
-                  <Text
-                    sx={{
-                      color: '#82A9F9',
-                      display: 'block',
-                      marginLeft: '5px'
-                    }}
-                  >
-                    {' '}
-                    ( for Hack Clubbers )
-                  </Text>
-
-                  <Button
-                    as="a"
-                    href="https://hackclub.slack.com/archives/C0266FRGT/p1643935657353179?thread_ts=1643334109.368379&cid=C0266FRGT"
-                    sx={{
-                      background: '#82A9F9',
-                      marginLeft: '0',
-                      color: '#222222',
-                      display: 'block'
-                    }}
-                  >
-                    Join The Call
-                  </Button>
-                </Box>
               </Box>
             </Box>
           )}
@@ -317,7 +287,7 @@ export default function Vitalik() {
                   Hack Club
                 </Link>{' '}
                 is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of 15k+ teenagers
+                clubs. We’ve got a 24/7 Slack chatroom of 10k+ teenagers
                 learning to code & building amazing projects, & you’ll fit right
                 in.
               </Text>
