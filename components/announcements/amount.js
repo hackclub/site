@@ -1,11 +1,11 @@
 import Sparkles from '../sparkles'
 
-const Amount = () => (
+const Amount = ({amount}) => (
   <Sparkles sx={{
     WebkitTextStroke: 'currentColor',
     WebkitTextStrokeWidth: '2px',
     WebkitTextFillColor: 'transparent'
-  }}>$1,000,000</Sparkles>
+  }}>{amount}</Sparkles>
 )
 
 export default Amount

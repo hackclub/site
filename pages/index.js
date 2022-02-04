@@ -473,9 +473,9 @@ const Page = () => (
             name="Chat with 100s of club leaders"
             desc={
               <>
-                In our <Link href="/slack">Slack community</Link>, you’ll join a
-                private space for Hack&nbsp;Club leaders to ask questions &
-                chat, share projects, & attend weekly live events.
+                In our <Link href="/slack">Slack community</Link>, you’ll 
+                be invited to a space for Hack&nbsp;Club leaders to ask 
+                questions & chat, share projects, & attend weekly live events.
               </>
             }
           />

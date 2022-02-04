@@ -1,16 +1,15 @@
 import { Box } from 'theme-ui'
-import ForceTheme from '../components/force-theme'
+import ForceTheme from '../../components/force-theme'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import Nav from '../components/nav'
-import Footer from '../components/footer'
-import Landing from '../components/bank/Landing'
-import Features from '../components/bank/Features'
-import Testimonials from '../components/bank/Testimonials'
-import Everything from '../components/bank/Everything'
-import Start from '../components/bank/Start'
-import Nonprofits from '../components/bank/Nonprofits'
-import { useRouter } from 'next/router'
+import Nav from '../../components/nav'
+import Footer from '../../components/footer'
+import Landing from '../../components/bank/Landing'
+import Features from '../../components/bank/Features'
+import Testimonials from '../../components/bank/Testimonials'
+import Everything from '../../components/bank/Everything'
+import Start from '../../components/bank/Start'
+import Nonprofits from '../../components/bank/Nonprofits'
 
 const styles = `
   ::selection {
@@ -58,10 +57,20 @@ export default function Bank({ isPartner }) {
   )
 }
 
-export function getServerSideProps(context) {
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { 'type': 'partner' } },
+      { params: { 'type': 'index' } }
+    ],
+    fallback: false
+  };
+}
+
+export async function getStaticProps(context) {
   return {
     props: {
-      isPartner: context.query.ref === 'gb_help_desk'
+      isPartner: context.params.type === 'partner'
     }
   }
 }

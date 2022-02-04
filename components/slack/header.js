@@ -1,11 +1,11 @@
 import { Button, Box, Container, Heading, Flex, Grid, Text } from 'theme-ui'
 import SlideUp from '../slide-up'
-import Announcement from '../announcement'
 import Icon from '../icon'
-import Stat from '../stat'
-import JoinForm from './join-form'
+import { Card, Label, Input, Checkbox, Textarea } from 'theme-ui'
+// import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
+import Announcement from '../announcement'
 
 const Content = () => (
   <Grid
@@ -49,13 +49,11 @@ const Content = () => (
       </Button>
     </Box>
     <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
-      <JoinForm
-        sx={{
-          variant: 'cards.translucent',
-          position: 'relative',
-          zIndex: 3
-        }}
-      />
+      <Announcement 
+      copy="Interested in joining?"
+      caption="
+         We've temporarily closed signups after our AMA with Vitalik Buterin. Check back in a couple days!
+      " />
     </SlideUp>
   </Grid>
 )

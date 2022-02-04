@@ -1,7 +1,5 @@
 import {
   Avatar,
-  Badge,
-  BaseStyles,
   Box,
   Button,
   Container,
@@ -11,13 +9,14 @@ import {
   Text
 } from 'theme-ui'
 import Head from 'next/head'
-import NextLink from 'next/link'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
-import Icon from '../components/icon'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
-import PrestonWernerCopy from '../components/preston-werner/copy.mdx'
+import PrestonWernerCopy from '../components/announcements/preston-werner.mdx'
+import SlackCTA from '../components/announcements/cta'
+import AnnouncementHolder from '../components/announcements/holder'
+import { PillHolder, AuthorPill, DatePill } from '../components/announcements/pills'
 
 const Page = () => (
   <>
@@ -69,112 +68,23 @@ const Page = () => (
         </Text>
       </Container>
     </Box>
-    <Container
-      as={BaseStyles}
-      variant="copy"
-      sx={{
-        py: [4, 5],
-        fontSize: [2, 3],
-        h1: {
-          textAlign: ['left', 'center'],
-          color: 'cyan',
-          my: 4,
-          a: { color: 'inherit' }
-        }
-      }}
-    >
-      <Flex
-        sx={{
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          alignItems: 'center',
-          div: {
-            mt: 0,
-            mb: 2,
-            bg: 'white',
-            color: 'muted',
-            border: '1px solid',
-            borderColor: 'border',
-            bg: 'snow',
-            fontSize: 2,
-            fontWeight: 'body',
-            lineHeight: '36px'
-          }
-        }}
-      >
-        <Badge
-          variant="pill"
-          sx={{
-            mr: [1, 2],
-            pl: 0,
-            pr: 3,
-            display: 'inline-flex',
-            alignItems: 'center'
-          }}
-        >
-          <Avatar
-            src="https://cloud-macp9mbpq.vercel.app/0image.png"
-            alt="Christina"
-            size={36}
-            ml={2}
-            mr={2}
-          />
-          Christina Asquith, COO
-        </Badge>
-        <Badge
-          variant="pill"
-          sx={{
-            mr: [1, 2],
-            pl: 0,
-            pr: 3,
-            display: 'inline-flex',
-            alignItems: 'center'
-          }}
-        >
-          <Avatar
-            src="https://hackclub.com/team/zach.jpg"
-            alt="Zach"
-            size={36}
-            ml={2}
-            mr={2}
-          />
-          Zach Latta, founder
-        </Badge>
-        <Badge variant="pill" px={3}>
-          Jan 27, 2021
-        </Badge>
-      </Flex>
+    <AnnouncementHolder>
+      <PillHolder>
+        <AuthorPill
+          firstName="Christina"
+          tag="Christina Asquith, COO"
+          image="https://cloud-macp9mbpq.vercel.app/0image.png"
+        />
+        <AuthorPill
+          firstName="Zach"
+          tag="Zach Latta, founder"
+          image="https://hackclub.com/team/zach.jpg"
+        />
+        <DatePill tag="Jan 27, 2021" />
+      </PillHolder>
       <PrestonWernerCopy />
-    </Container>
-    <Box
-      as="section"
-      sx={{
-        bg: 'orange',
-        backgroundImage: t => t.util.gx('yellow', 'orange'),
-        color: 'white',
-        py: [4, 5]
-      }}
-    >
-      <Grid gap={[3, 4]} columns={[null, 'auto 1fr']} variant="layout.copy">
-        <Icon glyph="welcome" size={72} />
-        <Box>
-          <Heading as="h2" variant="headline" mt={0}>
-            Teenager? New here? Welcome!
-          </Heading>
-          <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
-            Hack Club is a global community of high school hackers & student-led
-            Hack Clubs. Join the community-led 24/7 Hack Club Slack of 11k+
-            teenagers learning to code & building amazing projects. You’ll fit
-            right in.
-          </Text>
-          <NextLink href="/" passHref>
-            <Button bg="cyan" as="a">
-              Learn more
-            </Button>
-          </NextLink>
-        </Box>
-      </Grid>
-    </Box>
+    </AnnouncementHolder>
+    <SlackCTA />
     <Footer />
   </>
 )
