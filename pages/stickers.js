@@ -45,7 +45,7 @@ const StickersPage = ({ stickers = [] }) => [
         width={2732}
         height={1821}
         alt="Students exchanging stickers"
-        src="/stickers-hero.jpg"
+        src="/stickers/hero.jpg"
         gradient
       />
       <Card

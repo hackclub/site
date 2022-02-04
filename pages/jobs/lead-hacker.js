@@ -11,7 +11,7 @@ const Page = () => (
       as={Head}
       title="Lead Hacker"
       description="Hack Club is a hiring a Lead Hacker for Hack Club Bank as the 9th full-time member of our team in Burlington, Vermont."
-      image="https://workshop-cards.hackclub.com/Lead Hacker @ Hack Club.png?fontSize=175px&brand=HQ"
+      image="https://workshop-cards.hackclub.com/Lead%20Hacker.png?theme=light&md=1&fontSize=250px&caption=Open%2520Role%2520%2540%2520Hack%2520Club%2520Bank&brand=hq&md=true"
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -144,7 +144,7 @@ const Page = () => (
 
         <Grid mb={5} gap={3} columns={[null, 2, 3]}>
           <Photo
-            src="/charlotte-vt.jpg"
+            src="/jobs/charlotte-vt.jpg"
             alt={<>
               <Link
                 href="https://thecharlottebridge.org/"
@@ -176,7 +176,7 @@ const Page = () => (
             showAlt
           />
           <Photo
-            src="/hack-penn.jpg"
+            src="/jobs/hack-penn.jpg"
             alt={
               <>
                 <Link
@@ -224,7 +224,7 @@ const Page = () => (
       >
         <Box sx={{ flex: 1, maxWidth: [null, null, 400] }}>
           <Photo
-            src="/hq.jpg"
+            src="/jobs/hq.jpg"
             alt="Our headquarters in beautiful Shelburne, Vermont"
             width={500}
             height={326.5}
