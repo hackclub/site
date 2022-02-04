@@ -279,7 +279,7 @@ export default function Vitalik() {
 
                   <Button
                     as="a"
-                    href="https://hackclub.slack.com/archives/C0266FRGT/p1643334109368379"
+                    href="https://hackclub.slack.com/archives/C0266FRGT/p1643935657353179?thread_ts=1643334109.368379&cid=C0266FRGT"
                     sx={{
                       background: '#82A9F9',
                       marginLeft: '0',
