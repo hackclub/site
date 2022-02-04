@@ -287,7 +287,7 @@ export default function Vitalik() {
                   Hack Club
                 </Link>{' '}
                 is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of 10k+ teenagers
+                clubs. We’ve got a 24/7 Slack chatroom of 15k+ teenagers
                 learning to code & building amazing projects, & you’ll fit right
                 in.
               </Text>
