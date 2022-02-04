@@ -249,7 +249,7 @@ export default function Vitalik() {
               <Box>
                 <Button
                   as="a"
-                  href="https://hack.af/vitalik-live"
+                  href="https://www.youtube.com/watch?v=E9NNUI-arfY"
                   sx={{
                     background: '#CDAEFB',
                     margin: ['10px', '15px'],
