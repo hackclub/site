@@ -244,7 +244,7 @@ export default function Vitalik() {
                   fontWeight: 'bold'
                 })}
               >
-                The AMA is happening right now...
+                The AMA has ended. Thank you to Vitalik and everyone for joining us!
               </Text>
               <Box>
                 <Button
@@ -258,38 +258,8 @@ export default function Vitalik() {
                     display: 'inline-block'
                   }}
                 >
-                  Watch Livestream
+                  Watch Recording
                 </Button>
-                <Box
-                  sx={{
-                    display: 'inline-block',
-                    margin: ['10px', '15px']
-                  }}
-                >
-                  <Text
-                    sx={{
-                      color: '#82A9F9',
-                      display: 'block',
-                      marginLeft: '5px'
-                    }}
-                  >
-                    {' '}
-                    ( for Hack Clubbers )
-                  </Text>
-
-                  <Button
-                    as="a"
-                    href="https://hackclub.slack.com/archives/C0266FRGT/p1643935657353179?thread_ts=1643334109.368379&cid=C0266FRGT"
-                    sx={{
-                      background: '#82A9F9',
-                      marginLeft: '0',
-                      color: '#222222',
-                      display: 'block'
-                    }}
-                  >
-                    Join The Call
-                  </Button>
-                </Box>
               </Box>
             </Box>
           )}
