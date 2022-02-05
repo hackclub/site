@@ -152,6 +152,7 @@ export default function Vitalik() {
               top: '0',
               left: ['10vw', '5vw']
             }}
+            alt="Purple Ethereum logo"
           />
         </Link>
         <Particle />
@@ -202,12 +203,14 @@ export default function Vitalik() {
             width={700}
             height={500}
             sx={{ display: ['none', 'block'], pb: '50px' }}
+            alt="Vitalik Buterin"
           />
           <Image
             src={`/ama/vitalikNameMobile.svg`}
             width={250}
             height={200}
             sx={{ display: ['block', 'none'], pt: '20px', pb: '10px' }}
+            alt="Vitalik Buterin"
           />
 
           {timer.length ? (
@@ -244,7 +247,8 @@ export default function Vitalik() {
                   fontWeight: 'bold'
                 })}
               >
-                The AMA has ended. Thank you to Vitalik and everyone for joining us!
+                The AMA has ended. Thank you to Vitalik and everyone for joining
+                us!
               </Text>
               <Box>
                 <Button
@@ -316,7 +320,7 @@ export default function Vitalik() {
                   Hack Club
                 </Link>{' '}
                 is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of 10k+ teenagers
+                clubs. We’ve got a 24/7 Slack chatroom of 15k+ teenagers
                 learning to code & building amazing projects, & you’ll fit right
                 in.
               </Text>
@@ -338,6 +342,7 @@ export default function Vitalik() {
                 src={`/ama/vitalikImage.svg`}
                 layout="responsive"
                 sx={{ display: ['none', 'block'] }}
+                alt="Image of Vitalik Buterin"
               />
               <Image
                 src={`/ama/vitalikImageMobile.svg`}
@@ -345,6 +350,7 @@ export default function Vitalik() {
                 width={400}
                 height={400}
                 sx={{ display: ['block', 'none'] }}
+                alt="Image of Vitalik Buterin"
               />
             </>
           ) : (
@@ -353,6 +359,7 @@ export default function Vitalik() {
                 src={`/ama/vitalikImage.svg`}
                 layout="responsive"
                 sx={{ display: ['none', 'block'] }}
+                alt="Image of Vitalik Buterin"
               />
             </>
           )}
