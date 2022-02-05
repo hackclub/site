@@ -13,12 +13,42 @@ import {
 } from 'theme-ui'
 import { useRouter } from 'next/router'
 import countries from '../../lib/countries'
+import { useEffect, useState } from 'react'
 
 export default function BankApplyForm() {
   const { query } = useRouter()
   const handleSubmit = e => {
     e.preventDefault()
   }
+
+  const [values, setValues] = useState({
+    eventName: '',
+    firstName: '',
+    lastName: '',
+    userEmail: '',
+    eventWebsite: '',
+    eventLocation: '',
+    userPhone: '',
+    returningUser: ''
+  })
+
+  useEffect(() => {
+    setValues({
+      eventName: query.eventName || '',
+      firstName: query.firstName || '',
+      lastName: query.lastName || '',
+      userEmail: query.userEmail || '',
+      eventWebsite: query.eventWebsite || '',
+      eventLocation: query.eventLocation || '',
+      userPhone: query.userPhone || '',
+      returningUser: query.returningUser || ''
+    })
+  }, [query])
+
+  const handleChange = e => {
+    setValues({ ...values, [e.target.name]: e.target.value })
+  }
+
   return (
     <Box>
       <Flex sx={{ flexDirection: 'column', pl: 3 }}>
@@ -63,7 +93,8 @@ export default function BankApplyForm() {
           name="eventName"
           placeholder="Windy City Hacks"
           helperText="What's the name of your event or project?"
-          value={query.eventName}
+          value={values.eventName}
+          onChange={handleChange}
           required
         />
         <Field
@@ -72,7 +103,8 @@ export default function BankApplyForm() {
           placeholder="https://hackclub.com"
           type="url"
           helperText="If you don't have one yet, you can leave this blank."
-          value={query.eventWebsite}
+          value={values.eventWebsite}
+          onChange={handleChange}
         />
         <Field
           label="Project Location"
@@ -80,7 +112,8 @@ export default function BankApplyForm() {
           placeholder="San Francisco, CA"
           type="text"
           helperText="If applicable, please format as: City, State."
-          value={query.eventLocation}
+          value={values.eventLocation}
+          onChange={handleChange}
           required
         />
 
@@ -135,14 +168,16 @@ export default function BankApplyForm() {
             label="First name"
             name="firstName"
             placeholder="Fiona"
-            value={query.firstName}
+            value={values.firstName}
+            onChange={handleChange}
             required
           />
           <Field
             label="Last name"
             name="lastName"
             placeholder="Hackworth"
-            value={query.lastName}
+            value={values.lastName}
+            onChange={handleChange}
             required
           />
         </Box>
@@ -151,7 +186,8 @@ export default function BankApplyForm() {
           name="userEmail"
           placeholder="fiona@hackclub.com"
           type="email"
-          value={query.userEmail}
+          value={values.userEmail}
+          onChange={handleChange}
           required
         />
         <Field
@@ -160,7 +196,8 @@ export default function BankApplyForm() {
           placeholder="1-855-625-HACK"
           type="tel"
           helperText="We'll only use this if we need to get in touch with you urgently."
-          value={query.userPhone}
+          value={values.userPhone}
+          onChange={handleChange}
           required
         />
         <Field
@@ -180,7 +217,8 @@ export default function BankApplyForm() {
           <Select
             name="returningUser"
             sx={{ bg: 'dark', mt: 1 }}
-            value={query.returningUser}
+            value={values.returningUser}
+            onChange={handleChange}
           >
             <option value="No, first time!">No, first time!</option>
             <option value="Yes, I have used Hack Club Bank before">
