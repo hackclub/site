@@ -111,7 +111,6 @@ export default function BankApplyForm() {
           helperText="If applicable, please format as: City, State."
           value={values.eventLocation}
           onChange={handleChange}
-          required
         />
 
         <Label

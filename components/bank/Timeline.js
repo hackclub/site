@@ -137,7 +137,7 @@ export default function RealTimeline() {
         duration="Step 3"
       />
       <Step
-        icon="card"
+        icon="friend"
         name="Invite your team &amp; start fundraising"
         duration="Step 4"
         mb={0}
