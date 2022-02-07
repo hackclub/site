@@ -34,7 +34,7 @@
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
     "react-tsparticles": "^1.40.1",
-    "react-use-websocket": "2.9.1",
+    "react-use-websocket": "3.0.0",
     "resnow": "^1.0.0",
     "theme-ui": "^0.13",
     "tinytime": "^0.2.6",
