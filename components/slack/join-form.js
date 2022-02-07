@@ -37,9 +37,9 @@ const JoinForm = ({ sx = {} }) => {
         <Submit
           status={status}
           labels={{
-            default: 'Get Invite',
+            default: process.env.NEXT_PUBLIC_OPEN == "true" ? 'Get Invite' : 'Join Waitlist',
             error: 'Something went wrong',
-            success: 'Email coming soon!'
+            success: process.env.NEXT_PUBLIC_OPEN == "true" ? 'Email coming soon!' : 'We\'ll be in touch soon!',
           }}
         />
       </form>
