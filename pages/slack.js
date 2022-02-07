@@ -367,7 +367,7 @@ const SlackPage = ({ millionCount }) => (
             }}
           >
             <Icon glyph="external" size={24} />
-            <h3>Minecraft Monday</h3>
+            <h3>Minecraft</h3>
             <p>Play on our server, build OSS plugins, compete</p>
           </Card>
         </NextLink>
