@@ -30,8 +30,6 @@ export default async function handler(req, res) {
 
   console.log(data)
 
-  return res.status(500).json({ error: 'Turning off signup while the vitalik AMA wave passes' })
-
   let secrets = (process.env.NAUGHTY || '').split(',')
 
   for (const secret of secrets) {
