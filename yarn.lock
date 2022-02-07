@@ -2910,13 +2910,13 @@ react-scrolllock@^5.0.1:
   dependencies:
     exenv "^1.2.2"
 
-react-tsparticles@^1.39.2:
-  version "1.39.2"
-  resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-1.39.2.tgz#8706f264b9775a321f0b0e1d3c436e174319a6ec"
-  integrity sha512-KDMLhKHuLQS3M6tKiS9fAt9dWWEuckv/Bhh3kqGAXwS9JnA7UGklav4WrtKlZE8fKTQ+c1yIRPfX2GD+AaNZ3g==
+react-tsparticles@^1.40.1:
+  version "1.40.1"
+  resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-1.40.1.tgz#619ec7cde535cc63200670b334d43c526d955fd4"
+  integrity sha512-Q3hDMSsjBEG51UGgnfCvuFrNi4PldPvN+R8acngz3r3Sdw15PgjowGQrrzb9goxTBi2ObvBQ0S5l76ZBZYtp0w==
   dependencies:
     fast-deep-equal "^3.1.3"
-    tsparticles "^1.39.2"
+    tsparticles "^1.40.1"
 
 react-use-websocket@2.9.1:
   version "2.9.1"
@@ -3367,10 +3367,10 @@ tslib@^1.8.1:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tsparticles@^1.39.2:
-  version "1.39.2"
-  resolved "https://registry.yarnpkg.com/tsparticles/-/tsparticles-1.39.2.tgz#5529b52967ba67f4cc48d66fabaf1001de29fffd"
-  integrity sha512-ClhuRuruVoR0ijj4fA8tmV+dRgGymMNqcBlvYu2gKUUIXRAkQRJrRfzqHqHY9eHqC/7gXEr6yUTNHs2vvvvUqw==
+tsparticles@^1.40.1:
+  version "1.40.1"
+  resolved "https://registry.yarnpkg.com/tsparticles/-/tsparticles-1.40.1.tgz#265c6f67fae9034eaec4bec4afb3fc4b49fe149f"
+  integrity sha512-YuFbADZ2f769LZU/RHfpr3vgT38zYCA9pI48bv+K3K1Y3b5PvWNc+Z6kRnCK5bR20lE2ATSmORsSgE8jhHOB0w==
 
 tsutils@^3.21.0:
   version "3.21.0"
