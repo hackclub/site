@@ -17,9 +17,6 @@ import { useEffect, useState } from 'react'
 
 export default function BankApplyForm() {
   const { query } = useRouter()
-  const handleSubmit = e => {
-    e.preventDefault()
-  }
 
   const [values, setValues] = useState({
     eventName: '',
@@ -291,7 +288,6 @@ export default function BankApplyForm() {
         <Button
           sx={{ bg: 'red', mt: [2, 3], py: 2, fontSize: 24 }}
           type="submit"
-          onSubmit={handleSubmit}
         >
           Apply
         </Button>
