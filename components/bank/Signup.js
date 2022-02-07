@@ -1,7 +1,8 @@
 import { Box, Input, Label, Button } from 'theme-ui'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
-function Base({ children, action, target, method }) {
+function Base({ children, action, target, method, onSubmit }) {
   return (
     <Box
       as="form"
@@ -9,6 +10,7 @@ function Base({ children, action, target, method }) {
       action={action}
       target={target}
       method={method}
+      onSubmit={onSubmit}
     >
       {children}
     </Box>
@@ -38,9 +40,30 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 }
 
 export default function Signup() {
-  const [values, setValues] = useState({})
+  const router = useRouter()
+
+  const [values, setValues] = useState({
+    eventName: '',
+    firstName: '',
+    lastName: '',
+    userEmail: ''
+  })
+
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    const params = new URLSearchParams({
+      eventName: e.target.eventName.value,
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
+      userEmail: e.target.userEmail.value
+    })
+
+    router.push(`/bank/apply/?${params}`)
+  }
+
   return (
-    <Base method="get" action="/bank/apply">
+    <Base method="get" action="/bank/apply" onSubmit={handleSubmit}>
       <Field
         label="Project name"
         name="eventName"
