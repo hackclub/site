@@ -29,7 +29,7 @@ const Page = () => (
           Events Designer @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New job open as of October 21st, 2021.
+          Closed as of February 8th, 2022.
         </Text>
       </Container>
     </Box>
