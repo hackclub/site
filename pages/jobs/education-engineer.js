@@ -28,7 +28,7 @@ const Page = () => (
         Education Engineer @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline">
-          New job open as of November 20th, 2021.
+          Closed as of February 8th, 2022.
         </Text>
       </Container>
     </Box>
