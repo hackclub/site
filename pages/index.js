@@ -166,7 +166,7 @@ const Page = () => (
 
       <Announcement
           copy="Introducing the Game Lab"
-          caption="Learn to code by making games in a JavaScript web-based game editor."
+          caption="Learn to code by making games in a JavaScript-based editor."
           href="https://gamelab.hackclub.com/"
           iconLeft="post-fill"
           color="primary"
