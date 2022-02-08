@@ -24,8 +24,7 @@ import Footer from '../components/footer'
 import FooterImgFile from '../public/home/footer.png'
 import GoldenTrainImgFile from '../public/home/golden-train.png'
 import Slack from '../components/slack'
-
-// import Announcement from '../components/announcement'
+import Announcement from '../components/announcement'
 // import { timeSince } from '../lib/dates'
 
 let Highlight = styled(Text)`
@@ -165,13 +164,13 @@ const Page = () => (
         priority
       />
 
-      {/* <Announcement
-          copy="Applications are now open"
-          caption="Apply now to bring a Hack Club to your community this fall!"
-          href="https://apply.hackclub.com"
-          iconLeft="clubs"
+      <Announcement
+          copy="Introducing the Game Lab"
+          caption="Learn to code by making games in a JavaScript web-based game editor."
+          href="https://gamelab.hackclub.com/"
+          iconLeft="post-fill"
           color="primary"
-        /> */}
+        />
 
       <SlideDown duration={768}>
         <Heading
