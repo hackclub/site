@@ -151,22 +151,6 @@ const Page = () => (
             color={theme.util.cx('red')}
             color1={theme.util.cx('purple')}
           />
-          <JobListing
-            positionName="Executive Assistant"
-            positionDesc="Someone to play a role in supporting the leadership in administrative management of day-to-day operations."
-            positionLink="/jobs/executive-assistant/"
-            color={theme.util.cx('blue')}
-            color1={theme.util.cx('green')}
-          />
-
-          <JobListing
-            positionName="Education Engineer"
-            positionDesc="We are looking for an engineer & educator to create and lead on technical projects for Hack Clubbers, with a strong focus on young women and non-binary individuals at Hack&nbsp;Club."
-            positionLink="/jobs/education-engineer/"
-            color={theme.util.cx('red')}
-            color1={theme.util.cx('orange')}
-          />
-          
         </Grid>
       </Container>
     </Box>
