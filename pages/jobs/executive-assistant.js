@@ -11,7 +11,7 @@ const Page = () => (
       as={Head}
       title="Executive Assistant"
       description="Hack Club is a hiring an Executive Assistant to join our team in Shelburne, Vermont."
-      image="https://workshop-cards.hackclub.com/Executive Assistant @ Hack Club.png?fontSize=180px&brand=HQ"
+      image="https://workshop-cards.hackclub.com/Executive%20Assistant%20%40%20Hack%20Club.png?fontSize=180px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
