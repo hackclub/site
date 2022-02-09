@@ -150,6 +150,10 @@ const nextConfig = {
         destination: 'https://workshops.hackclub.com/banner/'
       },
       {
+        source: '/start/',
+        destination: 'https://apply.hackclub.com/'
+      },
+      {
         source: '/conduct/',
         destination: 'https://workshops.hackclub.com/conduct/'
       },
