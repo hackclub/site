@@ -1,5 +1,5 @@
 <p align="center"><img width="192" alt="Hack Club logo" src="https://assets.hackclub.com/flag-standalone.svg"></p>
-<h1 align="center"><a href="https://hackclub.com/">Hack Club v3 Site</a></h1>
+<h1 align="center"><a href="https://hackclub.com/">Hack Club's Site (v3)</a></h1>
 <p align="center"><i>The source code for hackclub.com</i></p>
 
 Hack Club's new website. This codebase is what runs on [hackclub.com](https://hackclub.com). For new developers getting started, run the following in your terminal:
