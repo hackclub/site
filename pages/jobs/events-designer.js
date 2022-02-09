@@ -29,7 +29,7 @@ const Page = () => (
           Events Designer @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          Closed as of February 8th, 2022.
+          New job open as of October 21st, 2021.
         </Text>
       </Container>
     </Box>
@@ -41,6 +41,9 @@ const Page = () => (
         fontSize: [2, 3]
       }}
     >
+      <Text sx={{ fontStyle: 'italic' }}>
+        This role has been filled as of February 8th, 2022.
+      </Text>
       <Heading
         variant="headline"
         sx={{ fontWeight: 700, fontSize: [4, 5], mb: 4 }}
@@ -342,13 +345,13 @@ const Page = () => (
         }}
       >
         <Box sx={{ flex: 1, maxWidth: [null, null, 400] }}>
-          <Photo
+          {/* <Photo
             src="/hq.jpg"
             alt="Our headquarters in beautiful Shelburne, Vermont"
             width={500}
             height={326.5}
             showAlt
-          />
+          /> */}
         </Box>
 
         <Box sx={{ flex: 1, p: { mb: 3 } }}>
