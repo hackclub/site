@@ -11,7 +11,7 @@ const Page = () => (
       as={Head}
       title="Philanthropy Position"
       description="Hack Club is a hiring for a deputy to the COO to focus on philanthropy."
-      image="https://workshop-cards.hackclub.com/Philanthropy Position @ Hack Club.png?fontSize=160px&brand=HQ"
+      image="https://workshop-cards.hackclub.com/Philanthropy%20Position%20%40%20Hack%20Club.png?fontSize=160px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
