@@ -345,13 +345,13 @@ const Page = () => (
         }}
       >
         <Box sx={{ flex: 1, maxWidth: [null, null, 400] }}>
-          {/* <Photo
-            src="/hq.jpg"
+          <Photo
+            src="/jobs/hq.jpg"
             alt="Our headquarters in beautiful Shelburne, Vermont"
             width={500}
             height={326.5}
             showAlt
-          /> */}
+          />
         </Box>
 
         <Box sx={{ flex: 1, p: { mb: 3 } }}>
