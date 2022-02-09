@@ -19,7 +19,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: '/start/', destination: '/', permanent: false },
+      { source: '/start/', destination: 'https://apply.hackclub.com/', permanent: false },
       { source: '/clubs/', destination: '/', permanent: false },
       { source: '/repl/', destination: '/', permanent: true },
       { source: '/c9/', destination: '/deprecated/cloud9/', permanent: true },
@@ -148,10 +148,6 @@ const nextConfig = {
       {
         source: '/banner/',
         destination: 'https://workshops.hackclub.com/banner/'
-      },
-      {
-        source: '/start/',
-        destination: 'https://apply.hackclub.com/'
       },
       {
         source: '/conduct/',
