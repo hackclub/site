@@ -1,5 +1,5 @@
 import { Box, Container, Heading, Text, Link, Grid } from 'theme-ui'
-import Run from './Run'
+import Run from './run'
 import { Fade } from 'react-reveal'
 import Icon from '../icon'
 

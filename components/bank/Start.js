@@ -10,8 +10,8 @@ import {
   Button
 } from 'theme-ui'
 import { Fade } from 'react-reveal'
-import Timeline from './Timeline'
-import Stats from './Stats'
+import Timeline from './timeline'
+import Stats from './stats'
 import Signup from './Signup'
 
 export default function Start() {

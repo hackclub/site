@@ -1,6 +1,6 @@
 import { Box, Button, Heading, Link, Text, Container, Badge } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
-import ScrollHint from './ScrollHint'
+import ScrollHint from './scroll-hint'
 
 export default function Landing({ showButton }) {
   return (
