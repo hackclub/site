@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
 import { Text, Box } from 'theme-ui'
-import Stat from '../stat'
-import api from '../../lib/api'
-import { timeSince } from '../../lib/helpers'
 import { keyframes } from '@emotion/react'
+import { timeSince } from '../../lib/helpers'
+import useSWR from 'swr'
+import Stat from '../stat'
 
 const renderMoney = amount =>
   Math.floor(amount / 100)
@@ -42,21 +41,15 @@ function Dot() {
 }
 
 const Stats = props => {
-  const [volume, setVolume] = useState(100 * 1000 * 1000) // 1MM default
-  const [raised, setRaised] = useState(100 * 1000 * 500) // half million default
-  const [lastUpdated, setLastUpdated] = useState(Date.now()) // now default
 
-  useEffect(() => {
-    loadStats()
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const { data } = useSWR('https://bank.hackclub.com/stats', fetcher, {
+    fallbackData: {
+      volume: 100 * 1000 * 1000,
+      raised: 100 * 1000 * 500,
+      lastUpdated: Date.now()
+    }
   })
-
-  const loadStats = () => {
-    api.get('https://bank.hackclub.com/stats').then(stats => {
-      setVolume(renderMoney(stats.transactions_volume))
-      setRaised(renderMoney(stats.raised))
-      setLastUpdated(stats.last_transaction_date * 1000)
-    })
-  }
 
   return (
     <Box>
@@ -68,15 +61,14 @@ const Stats = props => {
         mb={[2, 3]}
       >
         <Dot />
-        As of {timeSince(lastUpdated, false, true)}...
+        As of {timeSince(data.last_transaction_date * 1000, false, true)}...
       </Text>
-
-      <Box as="div">
-        <Stat {...props} value={raised} label="raised on Hack Club Bank" />
+      <Box>
+        <Stat {...props} value={renderMoney(data.raised)} label="raised on Hack Club Bank" />
         <Stat
           {...props}
           fontSize={[3, 4, 5]}
-          value={volume}
+          value={renderMoney(data.transactions_volume)}
           label="total amount transacted"
         />
       </Box>
