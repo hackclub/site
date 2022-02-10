@@ -1,4 +1,4 @@
-import BankApplyForm from '../../components/bank/Form'
+import BankApplyForm from '../../components/bank/form'
 import { Box, Container, Card } from 'theme-ui'
 import ForceTheme from '../../components/force-theme'
 

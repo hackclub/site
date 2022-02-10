@@ -12,7 +12,7 @@ import {
 import { Fade } from 'react-reveal'
 import Timeline from './timeline'
 import Stats from './stats'
-import Signup from './Signup'
+import Signup from './signup'
 
 export default function Start() {
   return (
