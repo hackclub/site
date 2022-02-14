@@ -7,6 +7,9 @@ const joinTable = new AirtablePlus({
 })
 
 export default async function handler(req, res) {
+  
+  let open = process.env.NEXT_PUBLIC_OPEN == "true" ? true : false
+  
   if (req.method === 'OPTIONS') {
     return res
       .status(204)
@@ -46,7 +49,7 @@ export default async function handler(req, res) {
     'Email Address': data.email,
     Student: data.teen,
     Reason: data.reason,
-    Invited: true,
+    Invited: open,
     Club: data.club ? data.club : '',
     IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
   })
@@ -55,19 +58,24 @@ export default async function handler(req, res) {
   // I only got a successful response by putting all the args in URL params
   // Giving JSON body DID NOT WORK when testing locally
   // —@MaxWofford
+  
+  if(open){
+    const params = [
+      `email=${data.email}`,
+      `token=${process.env.SLACK_LEGACY_TOKEN}`,
+      `real_name=${data.name}`,
+      'restricted=true',
+      `channels=C74HZS5A5`,
+      'resend=true'
+    ].join('&')
+    const url = `https://slack.com/api/users.admin.invite?${params}`
+    await fetch(url, { method: 'POST' })
+      .then(r => r.json())
+      .then(r => console.log('Slack response', r))
 
-  const params = [
-    `email=${data.email}`,
-    `token=${process.env.SLACK_LEGACY_TOKEN}`,
-    `real_name=${data.name}`,
-    'restricted=true',
-    `channels=C74HZS5A5`,
-    'resend=true'
-  ].join('&')
-  const url = `https://slack.com/api/users.admin.invite?${params}`
-  await fetch(url, { method: 'POST' })
-    .then(r => r.json())
-    .then(r => console.log('Slack response', r))
-
-  res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
+    res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
+  }
+  else{
+    res.json({ status: 'success', message: 'Your request will be reviewed soon.' })
+  }
 }
