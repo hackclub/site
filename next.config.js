@@ -112,6 +112,11 @@ const nextConfig = {
         source: '/jobs/bank-ops-assistant/',
         destination: '/jobs/bank-ops-associate/',
         permanent: false
+      },
+      {
+        source: '/jobs/vp-DonorEngagement/',
+        destination: '/jobs/vp-donor-engagement/',
+        permanent: false
       }
     ]
   },
