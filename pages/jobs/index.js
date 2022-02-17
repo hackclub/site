@@ -94,7 +94,7 @@ const Page = () => (
         sx={{
           py: [5, 6],
           background:
-            'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%), url(/jobs/zephyrGroupPic.JPG)',
+            'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%), url(/jobs/zephyr-group-pic.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           textAlign: 'center'
@@ -154,7 +154,7 @@ const Page = () => (
           <JobListing
             positionName="Vice President, Donor Engagement"
             positionDesc="As VP of Donor Engagement, you’ll shape and advance our philanthropy strategy, and lead on executing it alongside Hack Club’s COO, its board, and a talented team of designers, video, and social media contractors. "
-            positionLink="/jobs/vp-DonorEngagement/"
+            positionLink="/jobs/vp-donor-engagement/"
             color={theme.util.cx('blue')}
             color1={theme.util.cx('purple')}
           />
