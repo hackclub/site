@@ -154,7 +154,7 @@ const Page = () => (
           <JobListing
             positionName="Vice President, Donor Engagement"
             positionDesc="As VP of Donor Engagement, you’ll shape and advance our philanthropy strategy, and lead on executing it alongside Hack Club’s COO, its board, and a talented team of designers, video, and social media contractors. "
-            positionLink="/jobs/vp-DonorEngagement/"
+            positionLink="/jobs/vp-donor-engagement/"
             color={theme.util.cx('blue')}
             color1={theme.util.cx('purple')}
           />
