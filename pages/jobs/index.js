@@ -94,7 +94,7 @@ const Page = () => (
         sx={{
           py: [5, 6],
           background:
-            'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%), url(https://pbs.twimg.com/media/E25MY-EXIAcfwfM?format=jpg&name=4096x4096)',
+            'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%), url(/jobs/zephyrGroupPic.JPG)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           textAlign: 'center'
