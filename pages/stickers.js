@@ -24,11 +24,7 @@ import { startCase } from 'lodash'
 const color = '#EC37AD'
 
 const StickersPage = ({ stickers = [] }) => [
-  <Box
-  as="main"
-  key="main"
-  sx={{ textAlign: 'center'}}
->
+  <Box as="main" key="main" sx={{ textAlign: 'center' }}>
     <ForceTheme theme="dark" />
     <Nav dark />
     <Meta
@@ -45,7 +41,7 @@ const StickersPage = ({ stickers = [] }) => [
         width={2732}
         height={1821}
         alt="Students exchanging stickers"
-        src="/stickers/hero.jpg"
+        src="/sticker-exchange.jpg"
         gradient
       />
       <Card
@@ -169,7 +165,7 @@ const StickersPage = ({ stickers = [] }) => [
         ))}
       </Grid>
     </Card>
-{/*
+    {/*
     <Card
       as="section"
       sx={{
