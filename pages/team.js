@@ -175,14 +175,14 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
                 img="https://github.com/bellesea.png"
                 pronouns="she/her"
               />
-              {/*<Bio
+              <Bio
                 name="Kunal Botla"
                 teamRole="Bank Operations"
-                text={`yeah`}
-                img="/stickers/logo.png"
+                text={`Kunal love to make to make. Starting Project Boom to help provide computers, helping build and run Hack Club Bank, and organizing MAHacks for a post-pandemic world. He takes photos to tell stories of an everchanging world.`}
+                img="https://pbs.twimg.com/profile_images/1479510388790206478/Yvf50MUV.jpg"
                 pronouns="he/him"
               />
-              <Bio
+              {/*<Bio
                 name="Gary Tou"
                 teamRole="Bank Operations"
                 text={`yeah`}
