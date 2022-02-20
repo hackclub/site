@@ -178,8 +178,8 @@ When not seen busy juggling between different tasks he takes up, he can be seen 
               <Bio
                 name="Kunal Botla"
                 teamRole="Bank Operations"
-                text={`Kunal love to make to make. Starting Project Boom to help provide computers, helping build and run Hack Club Bank, and organizing MAHacks for a post-pandemic world. He takes photos to tell stories of an everchanging world.`}
-                img="https://pbs.twimg.com/profile_images/1479510388790206478/Yvf50MUV.jpg"
+                text={`Kunal loves to make for making! He started Project Boom to help provide computers, helps build and run Hack Club Bank, and is organizing MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
+                img="https://kunalbotla.com/images/kunal.jpeg"
                 pronouns="he/him"
               />
               {/*<Bio
