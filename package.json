@@ -36,7 +36,7 @@
     "react-tsparticles": "^1.41.4",
     "react-use-websocket": "3.0.0",
     "resnow": "^1.0.0",
-    "swr": "^1.2.1",
+    "swr": "^1.2.2",
     "theme-ui": "^0.13",
     "tinytime": "^0.2.6",
     "turndown": "^7.1.1"
