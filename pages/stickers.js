@@ -41,7 +41,7 @@ const StickersPage = ({ stickers = [] }) => [
         width={2732}
         height={1821}
         alt="Students exchanging stickers"
-        src="/sticker-exchange.jpg"
+        src="/stickers/hero.jpg"
         gradient
       />
       <Card
@@ -190,6 +190,6 @@ export default StickersPage
 
 export const getStaticProps = () => {
   const stickersDir = path.join(process.cwd(), 'public', 'stickers')
-  const stickers = fs.readdirSync(stickersDir)
+  const stickers = fs.readdirSync(stickersDir).filter(sticker => sticker != "hero.jpg")
   return { props: { stickers } }
 }
