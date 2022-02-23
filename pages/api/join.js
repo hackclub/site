@@ -58,14 +58,15 @@ export default async function handler(req, res) {
   // I only got a successful response by putting all the args in URL params
   // Giving JSON body DID NOT WORK when testing locally
   // —@MaxWofford
-  
+
+  const LOBBY_ID = "C74HZS5A5";
   if(open){
     const params = [
       `email=${data.email}`,
       `token=${process.env.SLACK_LEGACY_TOKEN}`,
       `real_name=${data.name}`,
       'restricted=true',
-      `channels=C74HZS5A5`,
+      `channels=${data.firstChannel ?? LOBBY_ID}`,
       'resend=true'
     ].join('&')
     const url = `https://slack.com/api/users.admin.invite?${params}`
