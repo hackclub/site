@@ -7,13 +7,12 @@ const joinTable = new AirtablePlus({
 })
 
 export default async function handler(req, res) {
-  
   let open = process.env.NEXT_PUBLIC_OPEN == "true" ? true : false
   
   if (req.method === 'OPTIONS') {
     return res
-      .status(204)
-      .json({ status: 'YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.' })
+      .status(200)
+      .send('YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.');
   }
   if (req.method === 'GET') {
     return res
