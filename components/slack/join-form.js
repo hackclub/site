@@ -27,7 +27,7 @@ const JoinForm = ({ sx = {} }) => {
           Are you a teenager?
         </Label>
         <Label>
-          Why do you want to join Hack Club?
+          Why do you want to join the Hack Club Slack?
           <Textarea
             {...useField('reason')}
             placeholder="Write a few sentences."
