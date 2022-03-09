@@ -259,6 +259,7 @@ const Page = ({ css }) => (
         as="a"
         href="https://icons.hackclub.com"
         sx={{ mt: 3, mb: [4, 5] }}
+        variant="outline"
       >
         Explore Hack Club Icons →
       </Button>
@@ -266,19 +267,29 @@ const Page = ({ css }) => (
       <Text variant="subtitle" sx={{ a: { variant: 'styles.a' }, mb: 3 }}>
         <p>Want to make a Hack Club themed site? Use our pre-made CSS and UI components to hackify your site.</p>
       </Text>
-      <Button as="a" href="https://theme.hackclub.com/" sx={{ mr: 3, mb: 3 }}>
+      <Button
+        as="a"
+        href="https://theme.hackclub.com/"
+        sx={{ mr: 3, mb: 3 }}
+        variant="outline"
+      >
         Explore Hack Club Theme →
       </Button>
       <Button
         as="a"
         href="https://github.com/hackclub/theme-starter"
-        variant="outline"
         mb={3}
         mr={3}
+        variant="outline"
       >
         Theme Starter on GitHub →
       </Button>
-      <Button as="a" href="https://github.com/hackclub/css" sx={{ mb: 3 }}>
+      <Button
+        as="a"
+        href="https://github.com/hackclub/css"
+        sx={{ mb: 3 }}
+        variant="outline"
+      >
         CSS Theme on GitHub →
       </Button>
     </Container>
