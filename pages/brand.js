@@ -274,8 +274,12 @@ const Page = ({ css }) => (
         href="https://github.com/hackclub/theme-starter"
         variant="outline"
         mb={3}
+        mr={3}
       >
         Theme Starter on GitHub →
+      </Button>
+      <Button as="a" href="https://github.com/hackclub/css" sx={{ mb: 3 }}>
+        Theme CSS on GitHub →
       </Button>
     </Container>
     <Footer />
