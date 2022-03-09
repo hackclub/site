@@ -279,7 +279,7 @@ const Page = ({ css }) => (
         Theme Starter on GitHub →
       </Button>
       <Button as="a" href="https://github.com/hackclub/css" sx={{ mb: 3 }}>
-        Theme CSS on GitHub →
+        CSS Theme on GitHub →
       </Button>
     </Container>
     <Footer />
