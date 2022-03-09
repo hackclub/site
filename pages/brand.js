@@ -236,9 +236,13 @@ const Page = ({ css }) => (
         </Text>
       </Box>
       <Heading variant="headline">Icons</Heading>
-      <Text variant="subtitle" sx={{ a: { variant: 'styles.a' }, mb: 3 }}>
+      <Text
+        as="p"
+        variant="subtitle"
+        sx={{ mb: 3 }}
+      >
         We have a custom iconset, published as{' '}
-        <a href="https://github.com/hackclub/icons">@hackclub/icons</a>.
+        <A href="https://github.com/hackclub/icons">@hackclub/icons</A>.
       </Text>
       <Flex sx={{ flexWrap: 'wrap', svg: { fill: 'muted', mr: 3, mb: 3 } }}>
         {[
@@ -258,20 +262,42 @@ const Page = ({ css }) => (
         as="a"
         href="https://icons.hackclub.com"
         sx={{ mt: 3, mb: [4, 5] }}
+        variant="outline"
       >
         Explore Hack Club Icons →
       </Button>
       <Heading variant="headline">UI components</Heading>
-      <Button as="a" href="https://theme.hackclub.com/" sx={{ mr: 3, mb: 3 }}>
+      <Text
+        as="p"
+        variant="subtitle"
+        sx={{ mb: 3 }}
+      >
+        Want to make a Hack Club themed site? Use our pre-made CSS and UI components to hackify your site.
+      </Text>
+      <Button
+        as="a"
+        href="https://theme.hackclub.com/"
+        sx={{ mr: 3, mb: 3 }}
+        variant="outline"
+      >
         Explore Hack Club Theme →
       </Button>
       <Button
         as="a"
         href="https://github.com/hackclub/theme-starter"
-        variant="outline"
         mb={3}
+        mr={3}
+        variant="outline"
       >
         Theme Starter on GitHub →
+      </Button>
+      <Button
+        as="a"
+        href="https://github.com/hackclub/css"
+        sx={{ mb: 3 }}
+        variant="outline"
+      >
+        CSS Theme on GitHub →
       </Button>
     </Container>
     <Footer />
