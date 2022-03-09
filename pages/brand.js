@@ -270,7 +270,7 @@ const Page = ({ css }) => (
       <Text
         as="p"
         variant="subtitle"
-        sx={{ a: { variant: 'styles.a' }, mb: 3 }}
+        sx={{ mb: 3 }}
       >
         Want to make a Hack Club themed site? Use our pre-made CSS and UI components to hackify your site.
       </Text>
