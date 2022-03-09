@@ -239,7 +239,7 @@ const Page = ({ css }) => (
       <Text
         as="p"
         variant="subtitle"
-        sx={{mb: 3}}
+        sx={{ mb: 3 }}
       >
         We have a custom iconset, published as{' '}
         <A href="https://github.com/hackclub/icons">@hackclub/icons</A>.
