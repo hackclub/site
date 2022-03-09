@@ -236,10 +236,13 @@ const Page = ({ css }) => (
         </Text>
       </Box>
       <Heading variant="headline">Icons</Heading>
-      <Text variant="subtitle" sx={{ a: { variant: 'styles.a' }, mb: 3 }}>
-        <p>We have a custom iconset, published as{' '}
-          <a href="https://github.com/hackclub/icons">@hackclub/icons</a>.
-        </p>
+      <Text
+        as="p"
+        variant="subtitle"
+        sx={{mb: 3}}
+      >
+        We have a custom iconset, published as{' '}
+        <A href="https://github.com/hackclub/icons">@hackclub/icons</A>.
       </Text>
       <Flex sx={{ flexWrap: 'wrap', svg: { fill: 'muted', mr: 3, mb: 3 } }}>
         {[
@@ -264,8 +267,12 @@ const Page = ({ css }) => (
         Explore Hack Club Icons →
       </Button>
       <Heading variant="headline">UI components</Heading>
-      <Text variant="subtitle" sx={{ a: { variant: 'styles.a' }, mb: 3 }}>
-        <p>Want to make a Hack Club themed site? Use our pre-made CSS and UI components to hackify your site.</p>
+      <Text
+        as="p"
+        variant="subtitle"
+        sx={{ a: { variant: 'styles.a' }, mb: 3 }}
+      >
+        Want to make a Hack Club themed site? Use our pre-made CSS and UI components to hackify your site.
       </Text>
       <Button
         as="a"
