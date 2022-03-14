@@ -60,18 +60,6 @@ const Page = () => (
           <span style={{ whiteSpace: 'nowrap' }}>Preston-Werner</span> are
           donating <Amount amount="$500,000" /> to&nbsp;Hack&nbsp;Club
         </Heading>
-        {/* <Text variant="headline" sx={{ display: 'inline-flex' }}>
-            —
-            <Avatar
-              src="https://avatars.githubusercontent.com/u/1?s=460&v=4"
-              alt="Tom"
-              size={36}
-              mr={2}
-              ml={2}
-              style={{ maxHeight: 36 }}
-            />
-            Tom Preston-Werner
-          </Text> */}
       </Container>
     </Box>
     <AnnouncementHolder>
@@ -88,7 +76,6 @@ const Page = () => (
         />
         <DatePill tag="Mar 16, 2022" />
       </PillHolder>
-      {/* <Text variant="title" sx={{fontSize: [3, 4, 45], color: 'cyan', py: ['10px', '20px']}} >Tom and Theresa Preston-Werner are donating <Amount amount="$500,000" /> to&nbsp;<a href="https://hackclub.com" target="_blank" color="cyan">Hack&nbsp;Club</a>.</Text> */}
       <PrestonWernerCopy />
     </AnnouncementHolder>
     <SlackCTA />
