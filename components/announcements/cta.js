@@ -21,7 +21,7 @@ export default function SlackCTA() {
           </Heading>
           <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
             Hack Club is a global community of high school makers & student-led
-            coding clubs. We’ve got a 24/7 Slack chatroom of 15k+ teenagers
+            coding clubs. We’ve got a 24/7 Slack chatroom of 16k+ teenagers
             learning to code & building amazing projects, & you’ll fit right in.
           </Text>
           <br />
