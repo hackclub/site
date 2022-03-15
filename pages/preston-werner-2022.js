@@ -74,7 +74,7 @@ const Page = () => (
           tag="Zach Latta, founder"
           image="https://hackclub.com/team/zach.jpg"
         />
-        <DatePill tag="Mar 16, 2022" />
+        <DatePill tag="Mar 15, 2022" />
       </PillHolder>
       <PrestonWernerCopy />
     </AnnouncementHolder>
