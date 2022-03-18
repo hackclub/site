@@ -160,7 +160,7 @@ const Page = ({ repos }) => (
         GitHub Repositories
       </Heading>
 
-      <Link href="https://contribute.hackclub.dev/" sx={{ fontSize: 2, color: 'placeholder', mt: 2, mb: 2}}>
+      <Link href="https://contribute.hackclub.dev/" sx={{ fontSize: 2, color: 'placeholder', display: 'block', mb: 3}}>
         Want to contribute?
       </Link>
 
