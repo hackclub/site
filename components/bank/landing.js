@@ -78,7 +78,7 @@ export default function Landing({ showButton }) {
                     >
                       Hack&nbsp;Arizona
                     </Link>{' '}
-                    is one of {Math.round((data.events_count - 50) / 100) * 100}
+                    is one of {Math.floor((data.events_count - 50) / 100) * 100}
                     + teams who use <strong>Hack&nbsp;Club&nbsp;Bank</strong> to
                     run world-class hackathons.
                   </Text>
