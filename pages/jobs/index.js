@@ -115,7 +115,7 @@ const Page = () => (
         >
           <Image
             src={zephyrPic}
-            alt="Hack Clubbers Hack Clubbing"
+            alt="Hack Clubbers hacking during the Hacker Zephyr trip"
             layout="fill"
             objectFit="cover"
           />
