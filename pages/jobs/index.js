@@ -8,6 +8,8 @@ import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import theme from '../../lib/theme'
 import Link from 'next/link'
+import Image from 'next/image'
+import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
 
 const Sheet = styled(Card)`
   position: relative;
@@ -94,12 +96,30 @@ const Page = () => (
         sx={{
           py: [5, 6],
           background:
-            'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%), url(/jobs/zephyr-group-pic.jpg)',
+            'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          textAlign: 'center'
+          textAlign: 'center',
+          position: 'relative'
         }}
       >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            zIndex: -1
+          }}
+        >
+          <Image
+            src={zephyrPic}
+            alt="Hack Clubbers hacking during the Hacker Zephyr trip"
+            layout="fill"
+            objectFit="cover"
+          />
+        </Box>
         <Container>
           <Heading
             as="h1"
