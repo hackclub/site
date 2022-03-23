@@ -64,13 +64,6 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Zach Fogg"
-                teamRole="Community Game Designer"
-                text="Before he helped start Bitcamp, one of the largest & longest-running annual collegic hackathons, Zach Fogg was homeschooled in Maryland. He's been a mentor at tons of student hackathons and worked as software engineer for the past 8 years in SF."
-                pronouns="he/him"
-                img="/team/zfogg.jpg"
-              />
-              <Bio
                 name="Leo McElroy"
                 teamRole="Clubs Lead"
                 text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
@@ -251,6 +244,13 @@ and participating in academic competitions with his friends.`}
               Acknowledgements
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
+              <Bio
+                name="Zach Fogg"
+                teamRole="Community Game Designer"
+                text="Before he helped start Bitcamp, one of the largest & longest-running annual collegic hackathons, Zach Fogg was homeschooled in Maryland. He's been a mentor at tons of student hackathons and worked as software engineer in SF & in summer 2021 maintained the zephyrnet as it traveled across the US."
+                pronouns="he/him"
+                img="/team/zfogg.jpg"
+              />
               <Bio
                 img="/team/matthew.jpg"
                 name="Matthew Stanciu"
