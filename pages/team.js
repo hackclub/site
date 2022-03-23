@@ -247,7 +247,7 @@ and participating in academic competitions with his friends.`}
               <Bio
                 name="Zach Fogg"
                 teamRole="Community Game Designer"
-                text="At college, Zach Fogg started Bitcamp, one of the largest & longest-running annual college hackathons. He then went on to work as a software engineer in SF and mentor many more student hackathons. Zach joined the team at HQ in early 2021, he went on to bring his energy to the community and hack on countless creative projects (such as the Zephyrnet, which he then maintained as it traveled across the US).
+                text="At college, Zach Fogg started Bitcamp, one of the largest & longest-running annual college hackathons. He then went on to work as a software engineer in SF and mentor many more student hackathons. Zach joined the team at HQ in early 2021, he went on to bring his energy to the community and hack on countless creative projects (such as the Zephyrnet, which he then maintained as it traveled across the US)."
                 pronouns="he/him"
                 img="/team/zfogg.jpg"
               />
