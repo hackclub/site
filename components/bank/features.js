@@ -51,8 +51,8 @@ export default function Features({ partner = false }) {
             </ModuleDetails>
           </Box>
           <Laptop
-            href="https://bank.hackclub.com/hackpenn"
-            title="See Hack Pennsylvania’s finances in public"
+            href="https://bank.hackclub.com/the-innovation-circuit"
+            title="See The Innovation Circuit’s finances in public"
             sx={{
               gridColumn: [null, null, 'span 2'],
               gridRow: [null, null, 'span 2']
@@ -118,7 +118,7 @@ export default function Features({ partner = false }) {
             <Module
               icon="google"
               name="Google Workspace"
-              body="Get instant, free accounts for your team (like joy@hackpenn.com)."
+              body="Get instant, free accounts for your team (like sam@innovationcircuit.co)."
             />
           )}
           <Module
