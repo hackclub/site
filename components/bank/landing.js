@@ -1,15 +1,9 @@
 import { Box, Button, Heading, Link, Text, Container, Badge } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from './scroll-hint'
-import useSWR from 'swr'
-import fetcher from '../../lib/fetcher'
+import { useEffect } from 'react'
 
-export default function Landing({ showButton }) {
-  const { data } = useSWR('https://bank.hackclub.com/stats', fetcher, {
-    fallbackData: {
-      events_count: 400
-    }
-  })
+export default function Landing({ showButton, data }) {
   return (
     <>
       <Slide>
@@ -78,9 +72,10 @@ export default function Landing({ showButton }) {
                     >
                       Hack&nbsp;Arizona
                     </Link>{' '}
-                    is one of {Math.round((data.events_count - 50) / 100) * 100}
-                    + teams who use <strong>Hack&nbsp;Club&nbsp;Bank</strong> to
-                    run world-class hackathons.
+                    {/* is one of {Math.round((data.events_count - 50) / 100) * 100} */}
+                    {data.events_count}+ teams who use{' '}
+                    <strong>Hack&nbsp;Club&nbsp;Bank</strong> to run world-class
+                    hackathons.
                   </Text>
                 </Container>
               </Container>
@@ -177,4 +172,15 @@ function Vignette() {
       }}
     ></Box>
   )
+}
+
+export async function getStaticProps() {
+  const res = await fetch(`https://bank.hackclub.com/stats`)
+  const data = await res.json()
+
+  return {
+    props: {
+      data
+    }
+  }
 }
