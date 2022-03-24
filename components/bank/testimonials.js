@@ -38,7 +38,7 @@ const events = [
     name: 'MAHacks',
     location: 'Boston, MA',
     organizer: 'Kat Huang',
-    budget: 1.5,
+    budget: 10,
     attendees: 70,
     testimonial:
       'Hack Club Bank removed the barriers to starting fundraising for MAHacks. In mere days, vs months of nonprofit paperwork, Bank enabled my team to invoice sponsors professionally and manage our finances on a clear, up-to-date dashboard. I highly recommend using Bank & joining the Hack Club community.'
