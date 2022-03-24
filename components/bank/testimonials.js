@@ -34,6 +34,7 @@ const events = [
       'For our hackathon, Hack Club Bank has given us the tools to make sure our organization is professional with sponsors. Bank and their team have created an easily manageable resource to make sure any event is run successfully. We would highly recommend any organization be a part of the Hack Club ecosystem.'
   },
   {
+    transparency: 'mahacks',
     name: 'MAHacks',
     location: 'Boston, MA',
     organizer: 'Kat Huang',
