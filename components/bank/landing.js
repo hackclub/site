@@ -1,7 +1,6 @@
 import { Box, Button, Heading, Link, Text, Container, Badge } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from './scroll-hint'
-import { useEffect } from 'react'
 
 export default function Landing({ showButton, data }) {
   return (
@@ -72,10 +71,9 @@ export default function Landing({ showButton, data }) {
                     >
                       Hack&nbsp;Arizona
                     </Link>{' '}
-                    {/* is one of {Math.round((data.events_count - 50) / 100) * 100} */}
-                    {data.events_count}+ teams who use{' '}
-                    <strong>Hack&nbsp;Club&nbsp;Bank</strong> to run world-class
-                    hackathons.
+                    is one of {Math.round((data.events_count - 50) / 100) * 100}
+                    + teams who use <strong>Hack&nbsp;Club&nbsp;Bank</strong> to
+                    run world-class hackathons.
                   </Text>
                 </Container>
               </Container>
