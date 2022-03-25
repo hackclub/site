@@ -117,6 +117,7 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
           <Link href="https://events.hackclub.com/">Events</Link>
           <Link href="https://workshops.hackclub.com/">Workshops</Link>
+          <Link href="https://contribute.hackclub.com/">Contribute</Link>
           <Link href="https://hackathons.hackclub.com/">Hackathons</Link>
           <NextLink href="/bank" passHref>
             <Link>Bank</Link>
