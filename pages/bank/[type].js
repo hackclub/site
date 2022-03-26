@@ -22,7 +22,7 @@ const styles = `
   }
 `
 
-export default function Bank({ isPartner }) {
+export default function Bank({ isPartner, stats }) {
   return (
     <>
       <Box as="main" key="main">
@@ -36,7 +36,11 @@ export default function Bank({ isPartner }) {
         />
         <style>{styles}</style>
         <Box>
-          {isPartner ? <Landing /> : <Landing showButton />}
+          {isPartner ? (
+            <Landing eventsCount={stats.events_count} />
+          ) : (
+            <Landing eventsCount={stats.events_count} showButton />
+          )}
           {isPartner ? (
             <Features partner={true} />
           ) : (
@@ -59,18 +63,19 @@ export default function Bank({ isPartner }) {
 
 export async function getStaticPaths() {
   return {
-    paths: [
-      { params: { 'type': 'partner' } },
-      { params: { 'type': 'index' } }
-    ],
+    paths: [{ params: { type: 'partner' } }, { params: { type: 'index' } }],
     fallback: false
-  };
+  }
 }
 
 export async function getStaticProps(context) {
+  const res = await fetch(`https://bank.hackclub.com/stats`)
+  const stats = await res.json()
+
   return {
     props: {
-      isPartner: context.params.type === 'partner'
+      isPartner: context.params.type === 'partner',
+      stats
     }
   }
 }
