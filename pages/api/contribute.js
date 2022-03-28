@@ -11,7 +11,7 @@ export default async function handler(_, res) {
   const { organization } = await graphql(`
     query orgQuery($login: String!) {
       organization(login: $login) {
-        repositories(first: 20, privacy: PUBLIC, orderBy: {
+        repositories(first: 50, privacy: PUBLIC, orderBy: {
           field: PUSHED_AT, direction: DESC
         }){
           nodes {
