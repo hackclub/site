@@ -17,7 +17,7 @@
     "@hackclub/meta": "1.1.32",
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
-    "@next/mdx": "^12.1.0",
+    "@next/mdx": "^12.1.1",
     "@octokit/auth-app": "^3.6.1",
     "@octokit/core": "^3.6.0",
     "@octokit/rest": "^18.12.0",
@@ -26,7 +26,7 @@
     "animejs": "^3.2.1",
     "globby": "^11.0.4",
     "lodash": "^4.17.21",
-    "next": "^12.1.0",
+    "next": "^12.1.1",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
     "react": "^17.0.2",
@@ -38,12 +38,12 @@
     "react-use-websocket": "3.0.0",
     "resnow": "^1.0.0",
     "swr": "^1.2.2",
-    "theme-ui": "^0.13",
+    "theme-ui": "^0.14",
     "tinytime": "^0.2.6",
     "turndown": "^7.1.1"
   },
   "devDependencies": {
-    "eslint": "8.11.0",
-    "eslint-config-next": "12.1.0"
+    "eslint-config-next": "12.1.1",
+    "eslint": "8.12.0"
   }
 }
