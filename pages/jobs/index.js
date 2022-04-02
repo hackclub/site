@@ -173,7 +173,7 @@ const Page = () => (
           />
           
           <JobListing
-            positionName="Philanthropy communications lead"
+            positionName="Philanthropy Communications Lead"
             positionDesc="As our new philanthropy hire (a new position), you'll shape and advance our philanthropy strategy, and lead on executing it alongside Hack Club's COO, its board, and a team of designers, video, and social media contractors."
             positionLink="/jobs/philanthropy-communications-lead/"
             color={theme.util.cx('purple')}
