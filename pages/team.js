@@ -139,7 +139,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               Student Team
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
-              {/*<<Bio
+              <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
                 text={`yeah`}
@@ -159,7 +159,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 text={`yeah`}
                 img="/stickers/logo.png"
                 pronouns="he/him"
-              /> */}
+              />
               <Bio
                 name="Abby Fischler"
                 teamRole="Coordinator to the COO"
