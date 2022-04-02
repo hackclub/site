@@ -32,7 +32,7 @@ export default function Bank({ isPartner, stats }) {
           as={Head}
           title="Bank"
           description="Hack Club Bank provides a 501(c)(3) status-backed fund optimized for high school hackathons including invoicing, debit cards, check sending, pre-written legal forms, automated tax filing, and transparent finances. Get fiscal sponsorship designed to help you run a great organization."
-          image="https://cloud-og86rfngo-hack-club-bot.vercel.app/0og_image-2.png"
+          image="/bank/og-image.png"
         />
         <style>{styles}</style>
         <Box>
