@@ -128,6 +128,7 @@ function Organization({
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Image
                   src={logo}
+                  alt={`${name} logo`}
                   sx={{
                     height: '4rem',
                     width: '4rem',
