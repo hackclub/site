@@ -162,6 +162,24 @@ const Page = ({ css }) => (
       >
         Download all →
       </Button>
+
+      <Heading id="bank" variant="headline">
+        Hack Club Bank Logos
+      </Heading>
+      <Grid columns={[null, 2, 3]} gap={3}>
+        <Logo name="hack-club-bank-light" />
+        <Logo name="hack-club-bank-dark" />
+      </Grid>
+      <Button
+        as="a"
+        href="https://bank.hackclub.com/branding"
+        variant="outline"
+        mt={3}
+        mb={[4, 5]}
+      >
+        See all Bank logos →
+      </Button>
+
       <Heading id="banners" variant="headline">
         HTML banners
       </Heading>
@@ -228,7 +246,7 @@ const Page = ({ css }) => (
         is our brand font.
       </Text>
       <Box as="details" mb={[4, 5]}>
-        <Text as="summary" sx={{ fontSize: 2 }}>
+        <Text as="summary" sx={{ fontSize: 2, cursor: 'default' }}>
           Webfont CSS (for HQ sites only)
         </Text>
         <Text as="pre" variant="styles.pre">
