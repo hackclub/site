@@ -27,7 +27,7 @@ export const Logo = ({ name }) => (
       sx={{ width: '100%', height: 96, mb: 1 }}
       alt={startCase(name)}
     />
-    <Text variant="subheadline" sx={{ fontSize: [2, 3], mt: 2, mb: 2 }}>
+    <Text as="div" variant="subheadline" sx={{ fontSize: [2, 3], mt: 2, mb: 2 }}>
       {startCase(name)
         .replace('Flag Orpheus', 'Orpheus Flag –')
         .replace('Bw', ' (B/W)')}
