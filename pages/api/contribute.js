@@ -7,7 +7,7 @@ const auth = createAppAuth({
   installationId: process.env.GITHUB_INSTALLATION_ID,
 })
 
-export default async function handler(_, res) {
+export default async function handler(req, res) {
   const { organization } = await graphql(req.query.admin ? `
     query orgQuery($login: String!) {
       organization(login: $login) {
