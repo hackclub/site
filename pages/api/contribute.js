@@ -8,7 +8,7 @@ const auth = createAppAuth({
 })
 
 export default async function handler(req, res) {
-  const { organization } = await graphql(req.query.admin ? `
+  const { organization } = await graphql(!req.query.admin ? `
     query orgQuery($login: String!) {
       organization(login: $login) {
         repositories(first: 50, privacy: PUBLIC, orderBy: {
