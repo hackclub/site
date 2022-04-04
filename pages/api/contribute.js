@@ -49,7 +49,12 @@ export default async function handler(req, res) {
             pullRequests(first: 50, states: OPEN) {
               nodes {
                 title,
-                number
+                url,
+                number,
+                repository {
+                  id,
+                  name
+                }
               }
             }
           }
