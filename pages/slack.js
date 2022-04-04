@@ -1,14 +1,4 @@
-import {
-  Badge,
-  Box,
-  Card,
-  Container,
-  Heading,
-  Grid,
-  Image,
-  Link,
-  Text
-} from 'theme-ui'
+import { Badge, Box, Card, Container, Heading, Grid, Text } from 'theme-ui'
 import { keyframes } from '@emotion/react'
 import Head from 'next/head'
 import NextLink from 'next/link'
@@ -18,7 +8,6 @@ import ForceTheme from '../components/force-theme'
 import Icon from '../components/icon'
 import Stat from '../components/stat'
 import Footer from '../components/footer'
-import SlideUp from '../components/slide-up'
 import Header from '../components/slack/header'
 import SlackEvents from '../components/slack/slack-events'
 import { getCount } from '../pages/api/channels/count-to-a-million'

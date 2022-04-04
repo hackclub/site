@@ -49,7 +49,7 @@ const Content = () => (
     <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
       <JoinForm
         sx={{
-          variant: 'cards.translucent',
+          bg: 'smoke',
           position: 'relative',
           zIndex: 3
         }}
