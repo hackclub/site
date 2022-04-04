@@ -17,7 +17,6 @@ export default async function handler(req, res) {
           nodes {
             name
             description
-            isArchived
             languages(first: 1) {
               nodes {
                 name
@@ -40,6 +39,7 @@ export default async function handler(req, res) {
           nodes {
             name
             description
+            isArchived
             languages(first: 1) {
               nodes {
                 name
