@@ -171,12 +171,13 @@ const Page = () => (
             color={theme.util.cx('red')}
             color1={theme.util.cx('purple')}
           />
+          
           <JobListing
-            positionName="Vice President, Donor Engagement"
-            positionDesc="As VP of Donor Engagement, you’ll shape and advance our philanthropy strategy, and lead on executing it alongside Hack Club’s COO, its board, and a talented team of designers, video, and social media contractors. "
-            positionLink="/jobs/vp-donor-engagement/"
+            positionName="Philanthropy Communications Lead"
+            positionDesc="As our new philanthropy hire (a new position), you'll shape and advance our philanthropy strategy, and lead on executing it alongside Hack Club's COO, its board, and a team of designers, video, and social media contractors."
+            positionLink="/jobs/philanthropy-communications-lead/"
             color={theme.util.cx('blue')}
-            color1={theme.util.cx('purple')}
+            color1={theme.util.cx('green')}
           />
         </Grid>
       </Container>
