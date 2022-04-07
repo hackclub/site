@@ -20,7 +20,7 @@ async function postData(url = '', data = {}, headers = {}) {
     referrerPolicy: 'no-referrer',
     body: JSON.stringify(data)
   })
-  return response.json()
+  return response.text()
 }
 
 export default async function handler(req, res) {
@@ -69,7 +69,7 @@ export default async function handler(req, res) {
   })
 
   if (open) {
-    await postData(
+    let result = await postData(
       'https://toriel.hackclub.com/slack_invite',
       {
         email: data.email,
@@ -81,6 +81,7 @@ export default async function handler(req, res) {
       },
       { authorization: `Bearer ${process.env.TORIEL_KEY}` }
     )
+    console.log(result)
     res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
   } else {
     res.json({
