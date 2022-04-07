@@ -49,7 +49,7 @@ const JoinForm = ({ sx = {} }) => {
               <option>Asia</option>
               <option>Europe</option>
               <option>North America</option>
-              <option>Oceania / Australia</option>
+              <option value="Australia">Oceania / Australia</option>
               <option>South America</option>
             </Select>
           </Label>
