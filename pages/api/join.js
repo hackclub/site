@@ -7,6 +7,7 @@ const joinTable = new AirtablePlus({
 })
 
 async function postData(url = '', data = {}, headers = {}) {
+  console.log(data)
   const response = await fetch(url, {
     method: 'POST',
     mode: 'cors',
@@ -44,8 +45,6 @@ export default async function handler(req, res) {
   }
 
   const data = req.body || {}
-
-  console.log(data)
 
   let secrets = (process.env.NAUGHTY || '').split(',')
 
