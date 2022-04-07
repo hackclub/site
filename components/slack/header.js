@@ -1,6 +1,5 @@
-import { Button, Box, Container, Heading, Flex, Grid, Text } from 'theme-ui'
+import { Box, Heading, Grid } from 'theme-ui'
 import SlideUp from '../slide-up'
-import Icon from '../icon'
 import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
