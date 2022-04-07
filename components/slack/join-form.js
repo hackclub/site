@@ -18,7 +18,7 @@ const JoinForm = ({ sx = {} }) => {
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
-        <Grid columns={2} gap={1} sx={{columnGap: 3}}>
+        <Grid columns={2} gap={1} sx={{ columnGap: 3 }}>
           <Label>
             Full name
             <Input
@@ -59,13 +59,15 @@ const JoinForm = ({ sx = {} }) => {
               {...useField('educationLevel')}
               required
               sx={{
-                color: useField('eductionLevel').value == '' ? 'muted' : ''
+                color: useField('educationLevel').value == '' ? 'muted' : ''
               }}
             >
               <option value="" selected disabled hidden>
                 Select a level...
               </option>
-              <option value="middle">Middle School (approx. 11 to 14)</option>
+              <option value="middle">
+                Middle School (approx. 11 to 14)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+              </option>
               <option value="high">High School (approx. 14 to 18)</option>
               <option value="tertiary">Tertiary Education (18+)</option>
             </Select>
@@ -81,7 +83,7 @@ const JoinForm = ({ sx = {} }) => {
         </Label>
         <Submit
           status={status}
-          mt={"0px!important"}
+          mt={'0px!important'}
           labels={{
             default:
               process.env.NEXT_PUBLIC_OPEN == 'true'
