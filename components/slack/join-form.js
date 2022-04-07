@@ -18,7 +18,7 @@ const JoinForm = ({ sx = {} }) => {
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
-        <Grid columns={2} gap={1} sx={{ columnGap: 3 }}>
+        <Grid columns={[1,2]} gap={1} sx={{ columnGap: 3 }}>
           <Label>
             Full name
             <Input
