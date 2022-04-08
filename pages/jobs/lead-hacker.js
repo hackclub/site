@@ -4,7 +4,7 @@ import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../../components/force-theme'
 import Photo from '../../components/photo'
-import { formatted } from '../lib/members'
+import { formatted } from '../../lib/members'
 
 const Page = () => (
   <>
