@@ -12,6 +12,7 @@ import {
 } from 'theme-ui'
 import styled from '@emotion/styled'
 import Head from 'next/head'
+import NextLink from 'next/link'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import Icon from '../components/icon'
@@ -236,16 +237,16 @@ const Page = () => (
         >
           Apply now
         </Button>
-        <Button
-          as="a"
-          variant="ctaLg"
-          href="https://apply.hackclub.com"
-          target="_blank"
-          rel="noopener"
-          sx={{ backgroundImage: t => t.util.gx('cyan', 'purple'), ml: 2 }}
-        >
-          Join the Slack
-        </Button>
+        <NextLink href="/slack" passHref>
+          <Button
+            as="a"
+            variant="ctaLg"
+            href="/slack"
+            sx={{ backgroundImage: t => t.util.gx('green', 'blue'), ml: [0, 3], mt: [3, 0] }}
+          >
+            Join the Slack
+          </Button>
+        </NextLink>
       </FadeIn>
       <Box
         sx={{
