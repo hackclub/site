@@ -56,7 +56,7 @@ export default async function handler(req, res) {
     }
   }
   
-  promises = []
+  let promises = []
   
   promises.push(joinTable.create({
     'Full Name': data.name,
