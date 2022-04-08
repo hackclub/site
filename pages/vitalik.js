@@ -4,6 +4,7 @@ import Meta from '@hackclub/meta'
 import React, { useEffect, useState } from 'react'
 import tt from 'tinytime'
 import Particle from '../components/particles'
+import { thousands } from '../lib/members'
 
 export default function Vitalik() {
   const calculateTimeLeft = () => {
@@ -291,7 +292,7 @@ export default function Vitalik() {
                   Hack Club
                 </Link>{' '}
                 is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of 15k+ teenagers
+                clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+ teenagers
                 learning to code & building amazing projects, & you’ll fit right
                 in.
               </Text>
@@ -320,7 +321,7 @@ export default function Vitalik() {
                   Hack Club
                 </Link>{' '}
                 is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of 15k+ teenagers
+                clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+ teenagers
                 learning to code & building amazing projects, & you’ll fit right
                 in.
               </Text>

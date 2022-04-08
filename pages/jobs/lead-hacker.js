@@ -4,6 +4,7 @@ import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../../components/force-theme'
 import Photo from '../../components/photo'
+import { formatted } from '../lib/members'
 
 const Page = () => (
   <>
@@ -53,7 +54,7 @@ const Page = () => (
         <Link href="/bank" target="_blank">
           Hack Club Bank
         </Link>{' '}
-        for our community of 16,000+ teenage programmers. Within 24 hours of
+        for our community of {formatted}+ teenage programmers. Within 24 hours of
         joining Bank, organizations get 501(c)(3) nonprofit status, access to a
         beautiful dashboard for managing their finances, and all financial and
         legal matters - from tax filings to payroll - handled. 50% of high
