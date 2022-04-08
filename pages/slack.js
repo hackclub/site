@@ -11,6 +11,7 @@ import Footer from '../components/footer'
 import Header from '../components/slack/header'
 import SlackEvents from '../components/slack/slack-events'
 import { getCount } from '../pages/api/channels/count-to-a-million'
+import { formatted, thousands } from '../lib/members'
 
 const zoomSlide = keyframes({
   from: { backgroundPosition: '-32px bottom' },
@@ -27,7 +28,7 @@ const SlackPage = ({ millionCount }) => (
     <Meta
       as={Head}
       name="Join our Slack"
-      description="The Hack Club Slack is a community of 15k+ high school hackers around the world. Chat, meet new friends, code together, share your work."
+      description={`The Hack Club Slack is a community of ${thousands}k+ high school hackers around the world. Chat, meet new friends, code together, share your work.`}
       image="https://cloud-ls9rh3hok.vercel.app/2020-07-25_d2dd4egb1th5k71w4uj0abbfkvvtnc01.jpeg"
     />
     <ForceTheme theme="light" />
@@ -40,7 +41,7 @@ const SlackPage = ({ millionCount }) => (
         sx={{ maxWidth: 'copyPlus', alignItems: 'end' }}
       >
         <Stat
-          value="15k+"
+          value={`${thousands}k+`}
           label="total members"
           color="red"
           lg
@@ -56,7 +57,7 @@ const SlackPage = ({ millionCount }) => (
       >
         Have a coding question? Looking for project feedback? You’ll find some
         fabulous people to talk to in our global Slack (Discord-style online
-        groupchat) with 15,000+ members, active at all hours.
+        groupchat) with {formatted}+ members, active at all hours.
       </Text>
       <Heading
         as="h2"
