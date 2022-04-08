@@ -4,6 +4,7 @@ import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../../components/force-theme'
 import Photo from '../../components/photo'
+import { formatted } from '../lib/members'
 
 const Page = () => (
   <>
@@ -239,7 +240,7 @@ const Page = () => (
         variant="headline"
         sx={{ fontWeight: 700, fontSize: [4, 5], mb: 4 }}
       >
-        Hack Club is where 16,000+ teenage programmers talk, build, and have fun
+        Hack Club is where {formatted}+ teenage programmers talk, build, and have fun
         together.
       </Heading>
 
