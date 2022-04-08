@@ -48,10 +48,10 @@ const SlackEvents = ({ sx, ...props }) => {
   const [events, setEvents] = useState([])
   function createMockEvents(){
     setEvents(e => [generateEvent(), ...e])
-    setTimeout(() => createMockEvents(), 5000)
+    setTimeout(() => createMockEvents(), 10000)
   }
   useEffect(() => {
-    setEvents([generateEvent(), generateEvent(), generateEvent(), generateEvent()])
+    setEvents([generateEvent(), generateEvent(), generateEvent(), generateEvent(), generateEvent(), generateEvent(), generateEvent()])
     setTimeout(() => createMockEvents(), 5000)
   }, [])
 
