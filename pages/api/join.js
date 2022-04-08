@@ -57,18 +57,8 @@ export default async function handler(req, res) {
     }
   }
 
-  await joinTable.create({
-    'Full Name': data.name,
-    'Email Address': data.email,
-    Student: data.educationLevel != 'tertiary' ? true : false,
-    Reason: data.reason,
-    Invited: open,
-    Club: data.club ? data.club : '',
-    IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
-  })
-
   if (open) {
-    let result = await postData(
+    postData(
       'https://toriel.hackclub.com/slack-invite',
       {
         email: data.email,
@@ -81,7 +71,6 @@ export default async function handler(req, res) {
       },
       { authorization: `Bearer ${process.env.TORIEL_KEY}` }
     )
-    console.log(result)
     res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
   } else {
     res.json({
