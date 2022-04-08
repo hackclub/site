@@ -164,13 +164,13 @@ const Page = () => (
         priority
       />
 
-      <Announcement
+      {/*<Announcement
           copy="Introducing Game Lab"
           caption="Learn to code by making games in a JavaScript-based editor."
           href="https://gamelab.hackclub.com/"
           iconLeft="post-fill"
           color="primary"
-        />
+      />*/}
 
       <SlideDown duration={768}>
         <Heading
@@ -235,6 +235,16 @@ const Page = () => (
           rel="noopener"
         >
           Apply now
+        </Button>
+        <Button
+          as="a"
+          variant="ctaLg"
+          href="https://apply.hackclub.com"
+          target="_blank"
+          rel="noopener"
+          sx={{ backgroundImage: t => t.util.gx('cyan', 'purple'), ml: 2 }}
+        >
+          Join the Slack
         </Button>
       </FadeIn>
       <Box
@@ -472,8 +482,8 @@ const Page = () => (
             name="Chat with 100s of club leaders"
             desc={
               <>
-                In our <Link href="/slack">Slack community</Link>, you’ll 
-                be invited to a space for Hack&nbsp;Club leaders to ask 
+                In our <Link href="/slack">Slack community</Link>, you’ll
+                be invited to a space for Hack&nbsp;Club leaders to ask
                 questions & chat, share projects, & attend weekly live events.
               </>
             }
