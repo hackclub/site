@@ -7,7 +7,6 @@ const joinTable = new AirtablePlus({
 })
 
 async function postData(url = '', data = {}, headers = {}) {
-  console.log(data)
   const response = await fetch(url, {
     method: 'POST',
     mode: 'cors',
