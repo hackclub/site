@@ -7,7 +7,6 @@ const joinTable = new AirtablePlus({
 })
 
 async function postData(url = '', data = {}, headers = {}) {
-  console.log(data)
   const response = await fetch(url, {
     method: 'POST',
     mode: 'cors',
@@ -56,19 +55,21 @@ export default async function handler(req, res) {
       })
     }
   }
-
-  await joinTable.create({
+  
+  let promises = []
+  
+  promises.push(joinTable.create({
     'Full Name': data.name,
-    'Email Address': data.email,
-    Student: data.educationLevel != 'tertiary' ? true : false,
-    Reason: data.reason,
-    Invited: open,
-    Club: data.club ? data.club : '',
-    IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
-  })
-
+     'Email Address': data.email,
+     Student: data.educationLevel != 'tertiary' ? true : false,
+     Reason: data.reason,
+     Invited: open,
+     Club: data.club ? data.club : '',
+     IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
+  }))
+  
   if (open) {
-    let result = await postData(
+    promises.push(postData(
       'https://toriel.hackclub.com/slack-invite',
       {
         email: data.email,
@@ -80,10 +81,11 @@ export default async function handler(req, res) {
         userAgent: req.headers['user-agent'],
       },
       { authorization: `Bearer ${process.env.TORIEL_KEY}` }
-    )
-    console.log(result)
+    ))
+    await Promise.all(promises)
     res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
   } else {
+    await Promise.all(promises)
     res.json({
       status: 'success',
       message: 'Your request will be reviewed soon.'
