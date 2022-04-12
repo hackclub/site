@@ -11,7 +11,7 @@ const Page = () => (
       as={Head}
       title="Club Operations Lead"
       description="Hack Club is a hiring a Club Operations Lead to join our team in Shelburne, Vermont."
-      image="https://workshop-cards.hackclub.com/Philanthropy%20Communications%20Lead%20%40%20Hack%20Club.png?fontSize=200px&brand=HQ"
+      image="https://workshop-cards.hackclub.com/Clubs%20Operations%20Lead%20%40%20Hack%20Club.png?fontSize=200px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
