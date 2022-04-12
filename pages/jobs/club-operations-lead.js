@@ -9,8 +9,8 @@ const Page = () => (
   <>
     <Meta
       as={Head}
-      title="Philanthropy Communications Lead"
-      description="Hack Club is a hiring a Philanthropy Communications Lead to join our team in Shelburne, Vermont."
+      title="Club Operations Lead"
+      description="Hack Club is a hiring a Club Operations Lead to join our team in Shelburne, Vermont."
       image="https://workshop-cards.hackclub.com/Philanthropy%20Communications%20Lead%20%40%20Hack%20Club.png?fontSize=200px&brand=HQ"
     />
     <ForceTheme theme="light" />
