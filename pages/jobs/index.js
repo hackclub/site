@@ -181,7 +181,7 @@ const Page = () => (
           />
           <JobListing
             positionName="Club Operations Lead"
-            positionDesc="Find purpose and passion by supporting technical teens with your customer service and management skills. As the liaison between teens leading their own after-school Hack Clubs and Hack Club’s amazing resources, you’ll play a vital role in Hack Club’s nonprofit mission to support high school coders in starting coding clubs, hackathons, and building awesome projects."
+            positionDesc="In this role, you will serve as a liaison between teens leading their own after-school Hack Clubs and Hack Club’s amazing resources, you’ll play a vital role in Hack Club’s nonprofit mission to support high school coders in starting coding clubs, hackathons, and building awesome projects."
             positionLink="/jobs/club-operations-lead/"
             color={theme.util.cx('yellow')}
             color1={theme.util.cx('red')}
