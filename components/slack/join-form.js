@@ -8,13 +8,10 @@ const JoinForm = ({ sx = {} }) => {
   const { status, formProps, useField } = useForm('/api/join/', null, {
     clearOnSubmit: 5000,
     method: 'POST',
-    initData: router.query.c
-      ? { club: router.query.c }
-      : router.query['C']
-      ? { club: router.query['C'] }
+    initData: router.query.continent
+      ? { continent: router.query.continent }
       : {}
   })
-
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
