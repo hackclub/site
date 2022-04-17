@@ -6,6 +6,6 @@ export function middleware(req) {
   if(!url.searchParams.get("continent")){
     let continent = country.findByIso2(req.geo.country || "US").continent
     url.searchParams.set("continent", continent)
-    return NextResponse.redirect(url)
+    return NextResponse.rewrite(url)
   }
 }
