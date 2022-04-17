@@ -7,6 +7,8 @@ export function middleware(req) {
   let url = req.nextUrl
   let originalURL = req.nextUrl
   url.searchParams.set("continent", continent)
+  console.log(url)
+  console.log(originalURL)
   if(url != originalURL){
     return NextResponse.redirect(url)
   }
