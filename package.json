@@ -24,6 +24,7 @@
     "airtable-plus": "^1.0.4",
     "animated-value": "^0.2.4",
     "animejs": "^3.2.1",
+    "country-list-js": "^3.1.7",
     "globby": "^11.0.4",
     "lodash": "^4.17.21",
     "next": "^12.1.4",
@@ -43,7 +44,7 @@
     "turndown": "^7.1.1"
   },
   "devDependencies": {
-    "eslint-config-next": "12.1.4",
-    "eslint": "8.13.0"
+    "eslint": "8.13.0",
+    "eslint-config-next": "12.1.4"
   }
 }
