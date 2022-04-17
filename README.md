@@ -6,7 +6,7 @@ Hack Club's new website. This codebase is what runs on [hackclub.com](https://ha
 
 Download the code to your computer:
 
-    $ git clone https://github.com/hackclub/site
+    $ git clone https://github.com/hackclub/site && cd site
 
 Install dependencies:
 
