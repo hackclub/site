@@ -232,6 +232,13 @@ and participating in academic competitions with his friends.`}
                 pronouns="he/him"
               />
               <Bio
+                name="Woody Keppel"
+                teamRole="Events"
+                text="Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!"
+                img="/team/woody.png"
+                pronouns="hi/him"
+              />
+              <Bio
                 img="/team/tina.jpg"
                 name="Tina Soriano"
                 teamRole="Assistant"
