@@ -6,7 +6,7 @@ Hack Club's new website. This codebase is what runs on [hackclub.com](https://ha
 
 Download the code to your computer:
 
-    $ git clone https://github.com/hackclub/site
+    $ git clone https://github.com/hackclub/site && cd site
 
 Install dependencies:
 
@@ -16,7 +16,7 @@ Start running the website on your computer:
 
     $ yarn run dev
 
-And then open up your web browser and go to http://localhost:3000.
+And then open up your web browser and go to [localhost:3000](http://localhost:3000).
 
 Please note: There are a number of redirects and rewrites essential to the website's functionality, which you can see in `next.config.js`.
 
@@ -26,7 +26,7 @@ Code under MIT License, assets may not be re-used or re-distributed.
 
 ---
 
-By [@lachlanjc](https://lachlanjc.com) for Hack Club, 2022. MIT License.
+Hack Club, 2022. MIT License.
 
 [next.js]: https://nextjs.org
 [mdx]: https://mdxjs.com

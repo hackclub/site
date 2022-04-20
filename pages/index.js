@@ -12,6 +12,7 @@ import {
 } from 'theme-ui'
 import styled from '@emotion/styled'
 import Head from 'next/head'
+import NextLink from 'next/link'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import Icon from '../components/icon'
@@ -164,13 +165,13 @@ const Page = () => (
         priority
       />
 
-      <Announcement
+      {/*<Announcement
           copy="Introducing Game Lab"
           caption="Learn to code by making games in a JavaScript-based editor."
           href="https://gamelab.hackclub.com/"
           iconLeft="post-fill"
           color="primary"
-        />
+      />*/}
 
       <SlideDown duration={768}>
         <Heading
@@ -236,6 +237,16 @@ const Page = () => (
         >
           Apply now
         </Button>
+        <NextLink href="/slack" passHref>
+          <Button
+            as="a"
+            variant="ctaLg"
+            href="/slack"
+            sx={{ backgroundImage: t => t.util.gx('green', 'blue'), ml: [0, 3], mt: [3, 0] }}
+          >
+            Join the Slack
+          </Button>
+        </NextLink>
       </FadeIn>
       <Box
         sx={{
@@ -472,8 +483,8 @@ const Page = () => (
             name="Chat with 100s of club leaders"
             desc={
               <>
-                In our <Link href="/slack">Slack community</Link>, you’ll 
-                be invited to a space for Hack&nbsp;Club leaders to ask 
+                In our <Link href="/slack">Slack community</Link>, you’ll
+                be invited to a space for Hack&nbsp;Club leaders to ask
                 questions & chat, share projects, & attend weekly live events.
               </>
             }

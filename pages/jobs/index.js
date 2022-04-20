@@ -8,6 +8,8 @@ import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import theme from '../../lib/theme'
 import Link from 'next/link'
+import Image from 'next/image'
+import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
 
 const Sheet = styled(Card)`
   position: relative;
@@ -94,12 +96,30 @@ const Page = () => (
         sx={{
           py: [5, 6],
           background:
-            'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%), url(/jobs/zephyr-group-pic.jpg)',
+            'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          textAlign: 'center'
+          textAlign: 'center',
+          position: 'relative'
         }}
       >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            zIndex: -1
+          }}
+        >
+          <Image
+            src={zephyrPic}
+            alt="Hack Clubbers hacking during the Hacker Zephyr trip"
+            layout="fill"
+            objectFit="cover"
+          />
+        </Box>
         <Container>
           <Heading
             as="h1"
@@ -151,12 +171,20 @@ const Page = () => (
             color={theme.util.cx('red')}
             color1={theme.util.cx('purple')}
           />
+          
           <JobListing
-            positionName="Vice President, Donor Engagement"
-            positionDesc="As VP of Donor Engagement, you’ll shape and advance our philanthropy strategy, and lead on executing it alongside Hack Club’s COO, its board, and a talented team of designers, video, and social media contractors. "
-            positionLink="/jobs/vp-donor-engagement/"
+            positionName="Philanthropy Communications Lead"
+            positionDesc="As our new philanthropy hire (a new position), you'll shape and advance our philanthropy strategy, and lead on executing it alongside Hack Club's COO, its board, and a team of designers, video, and social media contractors."
+            positionLink="/jobs/philanthropy-communications-lead/"
             color={theme.util.cx('blue')}
-            color1={theme.util.cx('purple')}
+            color1={theme.util.cx('green')}
+          />
+          <JobListing
+            positionName="Club Operations Lead"
+            positionDesc="In this role, you will serve as a liaison between teens leading their own after-school Hack Clubs and Hack Club’s amazing resources, you’ll play a vital role in Hack Club’s nonprofit mission to support high school coders in starting coding clubs, hackathons, and building awesome projects."
+            positionLink="/jobs/club-operations-lead/"
+            color={theme.util.cx('yellow')}
+            color1={theme.util.cx('red')}
           />
         </Grid>
       </Container>

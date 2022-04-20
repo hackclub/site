@@ -34,10 +34,11 @@ const events = [
       'For our hackathon, Hack Club Bank has given us the tools to make sure our organization is professional with sponsors. Bank and their team have created an easily manageable resource to make sure any event is run successfully. We would highly recommend any organization be a part of the Hack Club ecosystem.'
   },
   {
+    transparency: 'mahacks',
     name: 'MAHacks',
     location: 'Boston, MA',
     organizer: 'Kat Huang',
-    budget: 1.5,
+    budget: 10,
     attendees: 70,
     testimonial:
       'Hack Club Bank removed the barriers to starting fundraising for MAHacks. In mere days, vs months of nonprofit paperwork, Bank enabled my team to invoice sponsors professionally and manage our finances on a clear, up-to-date dashboard. I highly recommend using Bank & joining the Hack Club community.'

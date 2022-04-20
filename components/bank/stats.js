@@ -3,6 +3,7 @@ import { keyframes } from '@emotion/react'
 import { timeSince } from '../../lib/helpers'
 import useSWR from 'swr'
 import Stat from '../stat'
+import fetcher from '../../lib/fetcher'
 
 const renderMoney = amount =>
   Math.floor(amount / 100)
@@ -41,13 +42,11 @@ function Dot() {
 }
 
 const Stats = props => {
-
-  const fetcher = (...args) => fetch(...args).then(res => res.json())
   const { data } = useSWR('https://bank.hackclub.com/stats', fetcher, {
     fallbackData: {
-      volume: 100 * 1000 * 1000,
-      raised: 100 * 1000 * 500,
-      lastUpdated: Date.now()
+      transactions_volume: 500 * 1000 * 1000,
+      raised: 200 * 1000 * 500,
+      last_transaction_date: Date.now()
     }
   })
 
@@ -61,14 +60,18 @@ const Stats = props => {
         mb={[2, 3]}
       >
         <Dot />
-        As of {timeSince(data.last_transaction_date * 1000, false, true)}...
+        As of {timeSince(data?.last_transaction_date * 1000, false, true)}...
       </Text>
       <Box>
-        <Stat {...props} value={renderMoney(data.raised)} label="raised on Hack Club Bank" />
+        <Stat
+          {...props}
+          value={renderMoney(data?.raised)}
+          label="raised on Hack Club Bank"
+        />
         <Stat
           {...props}
           fontSize={[3, 4, 5]}
-          value={renderMoney(data.transactions_volume)}
+          value={renderMoney(data?.transactions_volume)}
           label="total amount transacted"
         />
       </Box>

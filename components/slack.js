@@ -2,6 +2,7 @@ import { Button, Box, Container, Heading, Flex, Grid, Text } from 'theme-ui'
 import styled from '@emotion/styled'
 import usePrefersMotion from '../lib/use-prefers-motion'
 import useHasMounted from '../lib/use-has-mounted'
+import { formatted } from '../lib/members'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -39,7 +40,7 @@ const Content = () => (
       kids who are interested in sports, theater, or chess, but the stereotype
       of a programmer is a person who sits alone in a dark room.{' '}
       <strong>It doesn't have to be this way</strong>—in the Hack Club Slack
-      (Discord-style online groupchat), you'll find a group of 14,000+{' '}
+      (Discord-style online groupchat), you'll find a group of {formatted}+{' '}
       <Highlight>fabulous people</Highlight> to talk to, active at all hours.
       For leaders, you'll be able to connect with other leaders and support one
       another.
