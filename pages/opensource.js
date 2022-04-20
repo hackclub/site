@@ -1,4 +1,4 @@
-import { Box, Card, Container, Flex, Grid, Heading, Text } from 'theme-ui'
+import { Box, Card, Container, Flex, Grid, Heading, Text, Link } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Icon from '@hackclub/icons'
 import Head from 'next/head'
@@ -159,6 +159,10 @@ const Page = ({ repos }) => (
       >
         GitHub Repositories
       </Heading>
+
+      <Link href="https://contribute.hackclub.com/" sx={{ fontSize: 2, display: 'block', mb: 3}}>
+        Want to contribute?
+      </Link>
 
       {repos
         .sort(function (a, b) {

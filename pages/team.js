@@ -64,13 +64,6 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Zach Fogg"
-                teamRole="Community Game Designer"
-                text="Before he helped start Bitcamp, one of the largest & longest-running annual collegic hackathons, Zach Fogg was homeschooled in Maryland. He's been a mentor at tons of student hackathons and worked as software engineer for the past 8 years in SF."
-                pronouns="he/him"
-                img="/team/zfogg.jpg"
-              />
-              <Bio
                 name="Leo McElroy"
                 teamRole="Clubs Lead"
                 text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
@@ -162,7 +155,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               />
               <Bio
                 name="Abby Fischler"
-                teamRole="Coordinator to the COO"
+                teamRole="Intern to the COO"
                 text="Abby is a high school sophomore from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
                 img="https://github.com/abbyfischler.png"
                 pronouns="she/her"
@@ -251,6 +244,13 @@ and participating in academic competitions with his friends.`}
               Acknowledgements
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
+              <Bio
+                name="Zach Fogg"
+                teamRole="Community Game Designer"
+                text="At college, Zach Fogg started Bitcamp, one of the largest & longest-running annual college hackathons. He then went on to work as a software engineer in SF and mentor many more student hackathons. Zach joined the team at HQ in early 2021, he went on to bring his energy to the community and hack on countless creative projects (such as the Zephyrnet, which he then maintained as it traveled across the US)."
+                pronouns="he/him"
+                img="/team/zfogg.jpg"
+              />
               <Bio
                 img="/team/matthew.jpg"
                 name="Matthew Stanciu"

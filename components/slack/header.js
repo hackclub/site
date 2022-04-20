@@ -1,57 +1,43 @@
-import { Button, Box, Container, Heading, Flex, Grid, Text } from 'theme-ui'
+import { Box, Heading, Grid } from 'theme-ui'
 import SlideUp from '../slide-up'
-import Icon from '../icon'
 import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
 
 const Content = () => (
   <Grid
-    columns={[null, '2fr 3fr']}
-    gap={4}
-    pt={[5, 6]}
-    pb={[4, 5]}
-    variant="layout.container"
+    gap={3}
+    pt={[5, '100px']}
+    pb={[3, 4]}
   >
     <Box
       sx={{
         position: 'relative',
         zIndex: 1,
         textShadow: 'text',
-        textAlign: ['center', 'left']
+        textAlign: ['center', 'center']
       }}
     >
-      <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.875 }}>
-        Hack Club
-      </Text>
       <Heading
         as="h1"
         variant="title"
         sx={{
           color: 'white',
-          fontSize: [7, 8, 9],
+          fontSize: [5, 6, 7],
           lineHeight: 'limit',
-          mb: [3, 4]
+          mb: [2, 3]
         }}
       >
-        Slack
+        Hack Club Slack
       </Heading>
-      <Button
-        as="a"
-        href="https://hackclub.slack.com"
-        variant="outline"
-        color="smoke"
-      >
-        <Icon glyph="door-enter" size={24} />
-        Sign back in
-      </Button>
     </Box>
     <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
       <JoinForm
         sx={{
           variant: 'cards.translucent',
           position: 'relative',
-          zIndex: 3
+          zIndex: 3,
+          maxWidth: 'null'
         }}
       />
     </SlideUp>

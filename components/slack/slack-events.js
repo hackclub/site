@@ -41,12 +41,18 @@ const generateEvent = () => ({
   timestamp: new Date().toISOString()
 })
 
+
+
 const SlackEvents = ({ sx, ...props }) => {
   const didUnmount = useRef(false)
   const [events, setEvents] = useState([])
+  function createMockEvents(){
+    setEvents(e => [generateEvent(), ...e])
+    setTimeout(() => createMockEvents(), 10000)
+  }
   useEffect(() => {
-    setEvents([generateEvent(), generateEvent()])
-    setTimeout(() => setEvents(e => [generateEvent(), ...e]), 5000)
+    setEvents([generateEvent(), generateEvent(), generateEvent(), generateEvent(), generateEvent(), generateEvent(), generateEvent()])
+    setTimeout(() => createMockEvents(), 5000)
   }, [])
 
   const STATIC_OPTIONS = useMemo(

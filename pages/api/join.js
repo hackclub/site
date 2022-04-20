@@ -6,13 +6,29 @@ const joinTable = new AirtablePlus({
   tableName: 'Join Requests'
 })
 
+async function postData(url = '', data = {}, headers = {}) {
+  console.log(data)
+  const response = await fetch(url, {
+    method: 'POST',
+    mode: 'cors',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+      ...headers
+    },
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+    body: JSON.stringify(data)
+  })
+  return response.text()
+}
+
 export default async function handler(req, res) {
-  let open = process.env.NEXT_PUBLIC_OPEN == "true" ? true : false
-  
+  let open = process.env.NEXT_PUBLIC_OPEN == 'true' ? true : false
+
   if (req.method === 'OPTIONS') {
-    return res
-      .status(200)
-      .send('YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.');
+    return res.status(200).send('YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.')
   }
   if (req.method === 'GET') {
     return res
@@ -30,8 +46,6 @@ export default async function handler(req, res) {
 
   const data = req.body || {}
 
-  console.log(data)
-
   let secrets = (process.env.NAUGHTY || '').split(',')
 
   for (const secret of secrets) {
@@ -46,36 +60,33 @@ export default async function handler(req, res) {
   await joinTable.create({
     'Full Name': data.name,
     'Email Address': data.email,
-    Student: data.teen,
+    Student: data.educationLevel != 'tertiary' ? true : false,
     Reason: data.reason,
     Invited: open,
     Club: data.club ? data.club : '',
     IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
   })
 
-  // This is a private api method found in https://github.com/ErikKalkoken/slackApiDoc/blob/master/users.admin.invite.md
-  // I only got a successful response by putting all the args in URL params
-  // Giving JSON body DID NOT WORK when testing locally
-  // —@MaxWofford
-
-  const LOBBY_ID = "C74HZS5A5";
-  if(open){
-    const params = [
-      `email=${data.email}`,
-      `token=${process.env.SLACK_LEGACY_TOKEN}`,
-      `real_name=${data.name}`,
-      'restricted=true',
-      `channels=${data.firstChannel ?? LOBBY_ID}`,
-      'resend=true'
-    ].join('&')
-    const url = `https://slack.com/api/users.admin.invite?${params}`
-    await fetch(url, { method: 'POST' })
-      .then(r => r.json())
-      .then(r => console.log('Slack response', r))
-
+  if (open) {
+    let result = await postData(
+      'https://toriel.hackclub.com/slack-invite',
+      {
+        email: data.email,
+        ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress,
+        continent: data.continent,
+        teen: data.educationLevel != 'tertiary' ? true : false,
+        educationLevel: data.educationLevel,
+        reason: data.reason,
+        userAgent: req.headers['user-agent'],
+      },
+      { authorization: `Bearer ${process.env.TORIEL_KEY}` }
+    )
+    console.log(result)
     res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
-  }
-  else{
-    res.json({ status: 'success', message: 'Your request will be reviewed soon.' })
+  } else {
+    res.json({
+      status: 'success',
+      message: 'Your request will be reviewed soon.'
+    })
   }
 }
