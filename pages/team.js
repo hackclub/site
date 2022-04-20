@@ -71,6 +71,13 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
+                name="Jessica Card"
+                teamRole="Education Engineer"
+                text="Jessica is a self taught programmer originally from Alaska. She worked for over a decade as a software engineer at startups like GitHub and Bugsnag in San Francisco. She then left the web development world to learn how to make video games. Now, at Hack Club, she’s excited to be a part of a community she wishes she had when she was in high school."
+                img="/team/jessica.jpg"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Melanie Smith"
                 teamRole="Bank Operations Lead"
                 text="Melanie grew up in northern New England where she obtained a degree in Marine Biology. She then spent several years running a pet store with 20+ employees and recently decided to change career paths. This led her to Hack Club where she is excited about helping students pursue their dreams."
