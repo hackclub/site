@@ -149,17 +149,17 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               <Bio
                 name="Caleb Denio"
                 teamRole="Community Team"
-                text={`yeah`}
-                img="/stickers/logo.png"
+                text="Caleb is a New Hampshire-born high-schooler with a passion for coding, music, and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. As part of Community Team, he hopes to further Hack Club's goal of creating the most wholesome spot on the Internet."
+                img="/team/caleb.jpg"
                 pronouns="he/him"
               />
-              <Bio
+              {/* <Bio
                 name="Rishi Kothari"
                 teamRole="Community Team"
                 text={`yeah`}
                 img="/stickers/logo.png"
                 pronouns="he/him"
-              />
+              /> */}
               <Bio
                 name="Abby Fischler"
                 teamRole="Intern to the COO"
