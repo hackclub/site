@@ -187,14 +187,14 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 text={`yeah`}
                 img="/stickers/logo.png"
                 pronouns="he/him"
-              />
+              />*/}
               <Bio
                 name="Ella Xu"
                 teamRole="Bank Operations"
-                text={`yeah`}
-                img="/stickers/logo.png"
+                text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
+                img="/team/ella.jpeg"
                 pronouns="she/her"
-              /> */}
+              /> 
               <Bio
                 name="Deven Jadhav"
                 teamRole="Bank Operations (APAC)"
