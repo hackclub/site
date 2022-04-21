@@ -142,8 +142,8 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
-                text={`yeah`}
-                img="/stickers/logo.png"
+                text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists. Her website is at clairebookworm.com."
+                img="/team/claire.jpg"
                 pronouns="she/her"
               />
               <Bio
