@@ -139,11 +139,18 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               Student Team
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
+            <Bio
+                name="Cedric Hutchings"
+                teamRole="Clubs Constructionist"
+                text="Already more at home on the internet than anywhere in meat space, you can imagine a young ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
+                img="/team/ced.png"
+                pronouns="he/him"
+              />
               <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
                 text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists. Her website is at clairebookworm.com."
-                img="/team/claire.jpg"
+                img="/team/claire.png"
                 pronouns="she/her"
               />
               <Bio
@@ -160,13 +167,6 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 img="/stickers/logo.png"
                 pronouns="he/him"
               /> */}
-              <Bio
-                name="Cedric Hutchings"
-                teamRole="Clubs Constructionist"
-                text="Already more at home on the internet than anywhere in meat space, you can imagine a young ced's horror when his parents wrenched him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
-                img="/team/ced.png"
-                pronouns="he/him"
-              />
               <Bio
                 name="Abby Fischler"
                 teamRole="Intern to the COO"
@@ -232,13 +232,6 @@ and participating in academic competitions with his friends.`}
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
-                name="Woody Keppel"
-                teamRole="Events"
-                text="Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!"
-                img="/team/woody.png"
-                pronouns="hi/him"
-              />
-              <Bio
                 name="Kara Massie"
                 teamRole="Events"
                 text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
@@ -251,6 +244,13 @@ and participating in academic competitions with his friends.`}
                 text="After finding her love of accounting at an early age, Chris spent most of her accounting career in construction, but recently branched out to nonprofits. Chris is married (Bryan) with a young daughter (Brylee), and lives in Des Moines, Iowa."
                 pronouns="she/her"
                 img="/team/cnewton.jpg"
+              />
+              <Bio
+                name="Woody Keppel"
+                teamRole="Events"
+                text={`Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!”`}
+                img="/team/woody.png"
+                pronouns="he/him"
               />
             </Grid>
             <br />
