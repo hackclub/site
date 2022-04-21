@@ -225,13 +225,6 @@ and participating in academic competitions with his friends.`}
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
-                img="/team/scott.jpg"
-                name="Scott Motte"
-                teamRole="Hack Club Bank"
-                text="After teaching himself to code in college, Scott went on to lead an exciting software life with multiple startups. Now a father, he joined Hack Club to help build the program he wants available to his children—when they reach high school age."
-                pronouns="he/him"
-              />
-              <Bio
                 name="Woody Keppel"
                 teamRole="Events"
                 text="Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!"
@@ -243,13 +236,6 @@ and participating in academic competitions with his friends.`}
                 teamRole="Events"
                 text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
                 img="/team/kara.png"
-                pronouns="she/her"
-              />
-              <Bio
-                img="/team/tina.jpg"
-                name="Tina Soriano"
-                teamRole="Assistant"
-                text="Philippine bred and settled with family in the U.S., Tina shifted her career from marketing and film production to teaching kids in the Clark County School District. Now she is happy to help high school students hack their way to a fabulous future."
                 pronouns="she/her"
               />
               <Bio
@@ -292,6 +278,20 @@ and participating in academic competitions with his friends.`}
                 teamRole="Hacker Resources"
                 text="Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He worked on Hack Club’s learning resources & clubs program for two years."
                 pronouns="he/him"
+              />
+              <Bio
+                img="/team/scott.jpg"
+                name="Scott Motte"
+                teamRole="Hack Club Bank"
+                text="After teaching himself to code in college, Scott went on to lead an exciting software life with multiple startups. Now a father, he joined Hack Club to help build the program he wants available to his children—when they reach high school age."
+                pronouns="he/him"
+              />
+              <Bio
+                img="/team/tina.jpg"
+                name="Tina Soriano"
+                teamRole="Assistant"
+                text="Philippine bred and settled with family in the U.S., Tina shifted her career from marketing and film production to teaching kids in the Clark County School District. Now she is happy to help high school students hack their way to a fabulous future."
+                pronouns="she/her"
               />
               <Bio
                 img="/team/dina.jpg"
