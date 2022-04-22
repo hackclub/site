@@ -28,7 +28,7 @@ const Page = () => (
         Club Operations Lead @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New job open as of April 12st, 2022.
+          New job open as of April 12th, 2022.
         </Text>
       </Container>
     </Box>
