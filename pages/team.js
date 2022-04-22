@@ -182,6 +182,13 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 pronouns="she/her"
               />
               <Bio
+                name="Gary Tou"
+                teamRole="Bank Engineering"
+                text="Gary is a software engineer from Seattle and loves photography! After using Hack Club Bank to launch a nonprofit organization, Gary joined Hack Club to make the product that enabled him to do great things even greater for others."
+                img="https://assets.garytou.com/profile/GaryTou.jpg"
+                pronouns="he/him"
+              />
+              <Bio
                 name="Kunal Botla"
                 teamRole="Bank Operations"
                 text={`Kunal loves to make for making! He started Project Boom to help provide computers, helps build and run Hack Club Bank, and is organizing MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
