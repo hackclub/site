@@ -180,9 +180,9 @@ const Page = () => (
             color1={theme.util.cx('green')}
           />
           <JobListing
-            positionName="Club Operations Lead"
+            positionName="Customer Success Lead"
             positionDesc="In this role, you will serve as a liaison between teens leading their own after-school Hack Clubs and Hack Club’s amazing resources, you’ll play a vital role in Hack Club’s nonprofit mission to support high school coders in starting coding clubs, hackathons, and building awesome projects."
-            positionLink="/jobs/club-operations-lead/"
+            positionLink="/jobs/customer-success-lead/"
             color={theme.util.cx('yellow')}
             color1={theme.util.cx('red')}
           />
