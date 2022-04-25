@@ -19,6 +19,8 @@ const zoomSlide = keyframes({
   to: { backgroundPosition: '32px bottom' }
 })
 
+const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
 const SlackPage = () => {
   const { data: millionCount } = useSWR(
     'https://jia.haas.hackclub.com/api/currentNumber',
@@ -196,7 +198,7 @@ const SlackPage = () => {
                 as="span"
                 sx={{ ml: [2, 0], mt: [0, 2], px: [2, 0], py: [0, 2] }}
               >
-                {millionCount?.number}
+                {millionCount ? withCommas(millionCount.number) : '???'}
               </Badge>
               !
             </Text>
