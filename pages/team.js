@@ -217,6 +217,12 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 pronouns="he/him"
               />
               <Bio
+                name="Kognise"
+                teamRole="Special Projects and Hiring"
+                text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they support hiring and contribute to various projects."
+                img="https://media.kognise.dev/other-avatars/bean-man.jpg"
+              />
+              <Bio
                 name="Sam Poder"
                 teamRole="Engineering & Operations"
                 text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. 
