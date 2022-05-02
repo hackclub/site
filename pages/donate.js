@@ -12,6 +12,7 @@ import {
   Avatar,
   Grid
 } from 'theme-ui'
+import Image from 'next/image'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
@@ -19,6 +20,23 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Sponsors from '../components/donate/sponsors'
 import donors from '../components/donate/donors.json'
+import Marquee from "react-marquee-slider";
+import times from "lodash/times";
+import ExecuteBig from '../public/donate/codedaydc_hack.jpg'
+import HackCamp from '../public/donate/sf.jpg'
+import HackerGames from '../public/donate/0img_20210830_161125.jpg'
+import LaptopDonations from '../public/donate/0screenshot_2021-10-03_at_4.20.30_pm.png'
+import Kerala from '../public/donate/0img-20210918-wa0091.jpg'
+import HackPenn from '../public/donate/0color_pop.jpg'
+import ElonAMA from '../public/donate/elon.jpg'
+import SpaceX from '../public/donate/0spacex_and_hack_club.jpg'
+import Flagship from '../public/donate/flagship.png'
+import MAHacks from '../public/donate/0screenshot_2021-10-03_at_4.07.51_pm.png'
+import HackCamp2020 from '../public/donate/0img_6447.jpg'
+import InnovationCircuit from '../public/donate/0screenshot_2021-10-03_at_3.45.54_pm.png'
+import WindyCity from '../public/donate/6screenshot_2021-10-03_at_3.29.29_pm.png'
+import ZephyrFun from '../public/donate/0screenshot_2021-10-03_at_3.59.34_pm.png'
+import GoldenTrain from '../public/home/golden-train.png'
 
 const Header = styled(Box)`
   background: url('/pattern.svg');
@@ -55,7 +73,7 @@ const Row = styled(Box)`
     display: grid;
     grid-gap: 18px;
     grid-template-columns: ${({ reverse }) =>
-      reverse ? '3fr 2fr' : '2fr 3fr'};
+    reverse ? '3fr 2fr' : '2fr 3fr'};
   }
 `
 
@@ -150,6 +168,25 @@ const DonorCard = ({ name, link = false }) => (
   </DonorCardBase>
 )
 
+const PhotoRow = ({ photos }) => (
+  <Box sx={{ height: '200px', overflow: 'hidden' }}>
+    <Marquee velocity={12}>
+      {photos.map(photo => (
+        <Box sx={{width: '20vw', height: '300px'}}>
+          <Image
+            placeholder="blur"
+            src={photo}
+            objectFit="cover"
+            objectPosition="center"
+            className="next-image"
+            layout='fill'
+          />
+        </Box>
+      ))}
+    </Marquee>
+  </Box>
+)
+
 const DonorListing = ({ name, url }) => {
   if (url) {
     return (
@@ -173,6 +210,9 @@ export default function Donate() {
       />
       <Nav color="muted" />
       <ForceTheme theme="light" />
+      <PhotoRow photos={[ExecuteBig, HackCamp, HackerGames, LaptopDonations, Kerala]} />
+      <PhotoRow photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]} />
+      <PhotoRow photos={[HackCamp2020, InnovationCircuit, WindyCity, MAHacks, ZephyrFun]} />
       <Header pt={[5, 5, 6]}>
         <Grid
           color="black"
