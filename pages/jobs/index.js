@@ -171,14 +171,6 @@ const Page = () => (
             color={theme.util.cx('red')}
             color1={theme.util.cx('purple')}
           />
-          
-          <JobListing
-            positionName="Philanthropy Communications Lead"
-            positionDesc="As our new philanthropy hire (a new position), you'll shape and advance our philanthropy strategy, and lead on executing it alongside Hack Club's COO, its board, and a team of designers, video, and social media contractors."
-            positionLink="/jobs/philanthropy-communications-lead/"
-            color={theme.util.cx('blue')}
-            color1={theme.util.cx('green')}
-          />
           <JobListing
             positionName="Customer Success Lead"
             positionDesc="In this role, you will serve as a liaison between teens leading their own after-school Hack Clubs and Hack Club’s amazing resources, you’ll play a vital role in Hack Club’s nonprofit mission to support high school coders in starting coding clubs, hackathons, and building awesome projects."
