@@ -28,7 +28,7 @@ const Page = () => (
         Philanthropy Communications Lead @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          This listing has been filled as of May 3rd 2022.
+          This position has been filled as of May 3rd, 2022.
         </Text>
       </Container>
     </Box>
