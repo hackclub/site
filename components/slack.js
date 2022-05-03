@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import usePrefersMotion from '../lib/use-prefers-motion'
 import useHasMounted from '../lib/use-has-mounted'
 import { formatted } from '../lib/members'
+import Link from 'next/link'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -45,16 +46,17 @@ const Content = () => (
       For leaders, you'll be able to connect with other leaders and support one
       another.
     </Text>
-    <Button
-      as="a"
-      href="https://hackclub.com/slack/"
-      variant="ctaLg"
-      sx={{
-        background: 'linear-gradient(-132deg, #338eda 14%, #33d6a6 82%)'
-      }}
-    >
-      Join our Slack →
-    </Button>
+    <Link href="/slack" passHref>
+      <Button
+        as="a"
+        variant="ctaLg"
+        sx={{
+          background: 'linear-gradient(-132deg, #338eda 14%, #33d6a6 82%)'
+        }}
+      >
+        Join our Slack →
+      </Button>
+    </Link>
   </Container>
 )
 
