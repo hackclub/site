@@ -61,19 +61,19 @@ export default function Landing({ showButton, eventsCount }) {
                       }
                     }}
                   >
-                    The team behind{' '}
+                    The team behind the{' '}
                     <Link
-                      href="https://web.archive.org/web/20210204063213/https://hackaz.io/"
+                      href="https://innovationcircuit.com"
                       target="_blank"
                       color="inherit"
                       bold
                       hoverline
                     >
-                      Hack&nbsp;Arizona
+                      Innovation Circuit
                     </Link>{' '}
                     is one of {Math.round((eventsCount - 50) / 100) * 100}+
                     teams who use <strong>Hack&nbsp;Club&nbsp;Bank</strong> to
-                    run world-class hackathons.
+                    run world-class events.
                   </Text>
                 </Container>
               </Container>
@@ -110,7 +110,7 @@ export default function Landing({ showButton, eventsCount }) {
               fontWeight: 'normal'
             }}
           >
-            Tuscon, AZ
+            Singapore 🇸🇬
           </Badge>
         </Box>
       </Slide>
@@ -141,7 +141,8 @@ function Slide({ children }) {
         flexDirection: 'column',
         justifyContent: 'end',
         width: '100vw',
-        background: 'url("/bank/bg.jpg")',
+        background: 'url("/bank/bgg.jpg")',
+        backgroundSize: 'cover',
         backgroundColor: '#000000',
         boxShadow: 'inset 0 0 4rem 1rem rgba(0, 0, 0, 0.5)',
         backgroundPosition: 'center',
