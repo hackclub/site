@@ -156,7 +156,7 @@ const DonorCard = ({ name, link = false }) => (
 
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '200px', overflow: 'hidden', width: '100vw' }}>
-    <Box sx={{display: ['block', 'block', 'block', 'block', 'none']}}>
+    <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
       <Marquee velocity={12}>
         {photos.map((photo, index) => (
           <Image
@@ -166,12 +166,13 @@ const PhotoRow = ({ photos }) => (
             className="next-image"
             height="200px"
             width="300px"
-            key={"image-"+index}
+            alt="Hack Club students"
+            key={'image-' + index}
           />
         ))}
       </Marquee>
     </Box>
-    <Box sx={{display: ['none', 'none', 'none', 'none', 'block']}}>
+    <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
       <Marquee velocity={12}>
         {photos.map((photo, index) => (
           <Image
@@ -181,7 +182,8 @@ const PhotoRow = ({ photos }) => (
             className="next-image"
             height="200px"
             width="600px"
-            key={"image-"+index}
+            key={'image-' + index}
+            alt="Hack Club students"
           />
         ))}
       </Marquee>
@@ -262,10 +264,14 @@ export default function Donate() {
                   to Hack Club
                 </Text>
               </Button>
-              <Text sx={{ mt: 1, display: 'block', opacity: 0.8 }} fontSize={2} color="white">
+              <Text
+                sx={{ mt: 1, display: 'block', opacity: 0.8 }}
+                fontSize={2}
+                color="white"
+              >
                 Your contribution is tax-deductible.
                 <br />
-                Hack Club is a 501(c)(3) non-profit with the EIN 81-2908499.
+                Hack Club is a 501(c)(3) nonprofit with the EIN 81-2908499.
               </Text>
             </Container>
           </Box>
