@@ -183,7 +183,6 @@ const SlackPage = () => {
           </Card>
           <Card
             bg="red"
-            as="a"
             sx={{
               gridColumn: ['span 2 !important', 'span 2 !important'],
               gridRow: ['span 1 !important', 'span 3 !important'],

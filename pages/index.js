@@ -430,16 +430,17 @@ const Page = () => (
           <Highlight>every&nbsp;Hack&nbsp;Club is student-led</Highlight> &
           members make self-directed projects.
         </Text>
-        <Button
-          as="a"
-          href="https://hackclub.com/philosophy/"
-          variant="ctaLg"
-          sx={{
-            background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)'
-          }}
-        >
-          Our philosophy →
-        </Button>
+        <NextLink href="/philosophy" passHref>
+          <Button
+            as="a"
+            variant="ctaLg"
+            sx={{
+              background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)'
+            }}
+          >
+            Our philosophy →
+          </Button>
+        </NextLink>
       </Container>
     </Box>
     <Box as="section" sx={{ py: [4, 5, 6], color: 'black' }}>
