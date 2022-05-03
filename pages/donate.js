@@ -9,9 +9,9 @@ import {
   Card,
   Link as A,
   Text,
-  Avatar,
-  Grid
+  Avatar
 } from 'theme-ui'
+import Image from 'next/image'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
@@ -19,17 +19,25 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Sponsors from '../components/donate/sponsors'
 import donors from '../components/donate/donors.json'
+import Marquee from 'react-marquee-slider'
+import ExecuteBig from '../public/donate/codedaydc_hack.jpg'
+import HackCamp from '../public/donate/sf.jpg'
+import HackerGames from '../public/donate/0img_20210830_161125.jpg'
+import LaptopDonations from '../public/donate/0screenshot_2021-10-03_at_4.20.30_pm.png'
+import Kerala from '../public/donate/0img-20210918-wa0091.jpg'
+import HackPenn from '../public/donate/0color_pop.jpg'
+import ElonAMA from '../public/donate/elon.jpg'
+import SpaceX from '../public/donate/0spacex_and_hack_club.jpg'
+import Flagship from '../public/donate/flagship.png'
+import MAHacks from '../public/donate/0screenshot_2021-10-03_at_4.07.51_pm.png'
+import HackCamp2020 from '../public/donate/0img_6447.jpg'
+import InnovationCircuit from '../public/donate/0screenshot_2021-10-03_at_3.45.54_pm.png'
+import WindyCity from '../public/donate/6screenshot_2021-10-03_at_3.29.29_pm.png'
+import ZephyrFun from '../public/donate/0screenshot_2021-10-03_at_3.59.34_pm.png'
+import GoldenTrain from '../public/home/golden-train.png'
 
 const Header = styled(Box)`
   background: url('/pattern.svg');
-  > div {
-    display: grid;
-    grid-gap: 24px;
-    align-items: center;
-    @media screen and (min-width: 48em) {
-      grid-template-columns: 3fr 2fr;
-    }
-  }
 `
 
 const Sheet = styled(Card)`
@@ -57,10 +65,6 @@ const Row = styled(Box)`
     grid-template-columns: ${({ reverse }) =>
       reverse ? '3fr 2fr' : '2fr 3fr'};
   }
-`
-
-const DonateSheet = styled(Sheet)`
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0625), 0 16px 32px rgba(0, 0, 0, 0.125) !important;
 `
 
 const Quote = styled(Sheet)`
@@ -150,6 +154,41 @@ const DonorCard = ({ name, link = false }) => (
   </DonorCardBase>
 )
 
+const PhotoRow = ({ photos }) => (
+  <Box sx={{ height: '200px', overflow: 'hidden', width: '100vw' }}>
+    <Box sx={{display: ['block', 'block', 'block', 'block', 'none']}}>
+      <Marquee velocity={12}>
+        {photos.map((photo, index) => (
+          <Image
+            placeholder="blur"
+            src={photo}
+            objectFit="cover"
+            className="next-image"
+            height="200px"
+            width="300px"
+            key={"image-"+index}
+          />
+        ))}
+      </Marquee>
+    </Box>
+    <Box sx={{display: ['none', 'none', 'none', 'none', 'block']}}>
+      <Marquee velocity={12}>
+        {photos.map((photo, index) => (
+          <Image
+            placeholder="blur"
+            src={photo}
+            objectFit="cover"
+            className="next-image"
+            height="200px"
+            width="600px"
+            key={"image-"+index}
+          />
+        ))}
+      </Marquee>
+    </Box>
+  </Box>
+)
+
 const DonorListing = ({ name, url }) => {
   if (url) {
     return (
@@ -173,72 +212,95 @@ export default function Donate() {
       />
       <Nav color="muted" />
       <ForceTheme theme="light" />
-      <Header pt={[5, 5, 6]}>
-        <Grid
-          color="black"
-          sx={{ maxWidth: '64rem', mx: 'auto' }}
-          align="left"
-          py={3}
-          px={3}
-          columns={[1, '3fr 2fr']}
+      <Header sx={{ position: 'relative' }}>
+        <Box
+          sx={{
+            background: 'rgba(0,0,0, 0.8)',
+            zIndex: 1,
+            position: 'relative',
+            color: 'white!important',
+            height: '600px'
+          }}
+          pt={[5, 5, '110px']}
         >
-          <Container sx={{ maxWidth: '48rem' }}>
-            <Heading
-              sx={{ fontSize: [3, 4], textTransform: 'uppercase' }}
-              color="primary"
-              caps
-            >
-              Donate to Hack Club
-            </Heading>
-            <Heading
-              sx={{ fontSize: ['48px', '54px'], maxWidth: '32rem', my: 2 }}
-            >
-              We rely on people like you to bring coding to the world.
-            </Heading>
-            <Box sx={{ fontSize: ['24px', '24px'] }}>
-              Contribute today to empower the next generation. Help start a Hack
-              Club at every high school.
-            </Box>
-            <Text sx={{ mt: 1, display: 'block' }} fontSize={2} color="muted">
-              Your contribution is tax-deductible.
-              <br />
-              Hack Club is a 501(c)(3) non-profit with the EIN 81-2908499.
-            </Text>
-          </Container>
-          <DonateSheet
-            bg="primary"
-            color="white"
-            align="center"
-            style={{
-              backgroundImage: `radial-gradient( ellipse farthest-corner at top left, #e4732d 0%, #e42d42 100%)`,
-              position: 'relative',
-              width: '100%',
-              color: 'white',
-              textAlign: 'center'
+          <Box
+            sx={{
+              maxWidth: '64rem',
+              mx: 'auto',
+              zIndex: 1,
+              position: 'relative'
             }}
+            align="center"
+            py={2}
+            px={[1, 3]}
           >
-            <Heading
-              mb={1}
-              fontSize={5}
-              sx={{ color: 'white', fontSize: '36px' }}
-            >
-              Become a patron
-            </Heading>
-            <Text color="snow" fontSize={1} sx={{ mb: 2, display: 'block' }}>
-              Just $3 supports a student for a month
-            </Text>
-            <Button
-              as="a"
-              href="https://bank.hackclub.com/donations/start/hq"
-              width={1}
-              chevronRight
-              inverted
-              sx={{ width: '100%', bg: 'white', color: 'red', py: 3 }}
-            >
-              Donate now »
-            </Button>
-          </DonateSheet>
-        </Grid>
+            <Container sx={{ maxWidth: '48rem' }}>
+              <Heading
+                sx={{ fontSize: ['42px', '72px'], my: 2, color: 'white' }}
+              >
+                We rely on people like you to bring coding to the world.
+              </Heading>
+              <Box
+                sx={{
+                  fontSize: ['22px', '28px'],
+                  maxWidth: '40rem',
+                  color: 'white'
+                }}
+              >
+                Contribute today to empower the next generation. Help start a
+                Hack Club at every high school.
+              </Box>
+              <Button
+                variant="ctaLg"
+                my={3}
+                sx={{ width: ['100%', 'auto'] }}
+                as="a"
+                href="https://bank.hackclub.com/donations/start/hq"
+              >
+                Donate
+                <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
+                  to Hack Club
+                </Text>
+              </Button>
+              <Text sx={{ mt: 1, display: 'block', opacity: 0.8 }} fontSize={2} color="white">
+                Your contribution is tax-deductible.
+                <br />
+                Hack Club is a 501(c)(3) non-profit with the EIN 81-2908499.
+              </Text>
+            </Container>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            zIndex: 0,
+            width: '100%',
+            display: 'block'
+          }}
+        >
+          <PhotoRow
+            photos={[
+              ExecuteBig,
+              HackCamp,
+              HackerGames,
+              LaptopDonations,
+              Kerala
+            ]}
+          />
+          <PhotoRow
+            photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]}
+          />
+          <PhotoRow
+            photos={[
+              HackCamp2020,
+              InnovationCircuit,
+              WindyCity,
+              MAHacks,
+              ZephyrFun
+            ]}
+          />
+        </Box>
       </Header>
       <Container variant="copy" mt={5}>
         <FirstQuote>
