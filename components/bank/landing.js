@@ -141,7 +141,7 @@ function Slide({ children }) {
         flexDirection: 'column',
         justifyContent: 'end',
         width: '100vw',
-        background: 'url("/bank/bgg.jpg")',
+        background: 'url("/bank/bg.webp")',
         backgroundSize: 'cover',
         backgroundColor: '#000000',
         boxShadow: 'inset 0 0 4rem 1rem rgba(0, 0, 0, 0.5)',
@@ -162,7 +162,7 @@ function Vignette() {
     <Box
       style={{
         backgroundImage:
-          'linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.25) 25%,rgba(0, 0, 0, 0.625) 50%, rgba(0, 0, 0, 0.75) 100%)',
+          'linear-gradient(to bottom,rgba(0, 0, 0, .35),rgba(0, 0, 0, 0.25) 25%,rgba(0, 0, 0, 0.625) 50%, rgba(0, 0, 0, 0.75) 100%)',
         height: '100vh',
         left: '0',
         right: '0',
