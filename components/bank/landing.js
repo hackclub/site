@@ -1,6 +1,8 @@
 import { Box, Button, Heading, Link, Text, Container, Badge } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from './scroll-hint'
+import Image from 'next/image'
+import hero from '../../public/bank/bg.webp'
 
 export default function Landing({ showButton, eventsCount }) {
   return (
@@ -61,19 +63,19 @@ export default function Landing({ showButton, eventsCount }) {
                       }
                     }}
                   >
-                    The team behind{' '}
+                    The team behind the{' '}
                     <Link
-                      href="https://web.archive.org/web/20210204063213/https://hackaz.io/"
+                      href="https://innovationcircuit.com"
                       target="_blank"
                       color="inherit"
                       bold
                       hoverline
                     >
-                      Hack&nbsp;Arizona
+                      Innovation Circuit
                     </Link>{' '}
                     is one of {Math.round((eventsCount - 50) / 100) * 100}+
                     teams who use <strong>Hack&nbsp;Club&nbsp;Bank</strong> to
-                    run world-class hackathons.
+                    run world-class events.
                   </Text>
                 </Container>
               </Container>
@@ -110,7 +112,7 @@ export default function Landing({ showButton, eventsCount }) {
               fontWeight: 'normal'
             }}
           >
-            Tuscon, AZ
+            Singapore
           </Badge>
         </Box>
       </Slide>
@@ -141,7 +143,7 @@ function Slide({ children }) {
         flexDirection: 'column',
         justifyContent: 'end',
         width: '100vw',
-        background: 'url("/bank/bg.jpg")',
+        backgroundSize: 'cover',
         backgroundColor: '#000000',
         boxShadow: 'inset 0 0 4rem 1rem rgba(0, 0, 0, 0.5)',
         backgroundPosition: 'center',
@@ -151,6 +153,14 @@ function Slide({ children }) {
         position: 'relative'
       }}
     >
+      <Image
+        src={hero}
+        layout="fill"
+        objectFit="cover"
+        alt="Dark room with a stage and students sitting below"
+        placeholder="blur"
+        priority
+      />
       {children}
     </Box>
   )
@@ -161,7 +171,7 @@ function Vignette() {
     <Box
       style={{
         backgroundImage:
-          'linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.25) 25%,rgba(0, 0, 0, 0.625) 50%, rgba(0, 0, 0, 0.75) 100%)',
+          'linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.25) 25%,rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.7) 100%)',
         height: '100vh',
         left: '0',
         right: '0',
