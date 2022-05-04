@@ -112,7 +112,7 @@ export default function Landing({ showButton, eventsCount }) {
               fontWeight: 'normal'
             }}
           >
-            Singapore 🇸🇬
+            Singapore
           </Badge>
         </Box>
       </Slide>
