@@ -118,7 +118,7 @@ export default function Features({ partner = false }) {
             <Module
               icon="google"
               name="Google Workspace"
-              body="Get instant, free accounts for your team (like sam@innovationcircuit.co)."
+              body="Get instant, free accounts for your team (like sam@innovationcircuit.com)."
             />
           )}
           <Module
