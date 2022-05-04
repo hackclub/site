@@ -1,6 +1,7 @@
 import { Box, Button, Heading, Link, Text, Container, Badge } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from './scroll-hint'
+import Image from 'next/image'
 
 export default function Landing({ showButton, eventsCount }) {
   return (
@@ -141,7 +142,6 @@ function Slide({ children }) {
         flexDirection: 'column',
         justifyContent: 'end',
         width: '100vw',
-        background: 'url("/bank/bg.webp")',
         backgroundSize: 'cover',
         backgroundColor: '#000000',
         boxShadow: 'inset 0 0 4rem 1rem rgba(0, 0, 0, 0.5)',
@@ -152,6 +152,13 @@ function Slide({ children }) {
         position: 'relative'
       }}
     >
+      <Image
+        src="/bank/bg.webp"
+        layout="fill"
+        objectFit="cover"
+        alt="Dark room with a stage and students sitting below"
+        priority
+      />
       {children}
     </Box>
   )
