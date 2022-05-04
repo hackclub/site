@@ -157,6 +157,7 @@ function Slide({ children }) {
         layout="fill"
         objectFit="cover"
         alt="Dark room with a stage and students sitting below"
+        placeholder="blur"
         priority
       />
       {children}
