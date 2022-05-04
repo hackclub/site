@@ -162,7 +162,7 @@ function Vignette() {
     <Box
       style={{
         backgroundImage:
-          'linear-gradient(to bottom,rgba(0, 0, 0, .35),rgba(0, 0, 0, 0.25) 25%,rgba(0, 0, 0, 0.625) 50%, rgba(0, 0, 0, 0.75) 100%)',
+          'linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.25) 25%,rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.7) 100%)',
         height: '100vh',
         left: '0',
         right: '0',
