@@ -142,14 +142,14 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
             <Bio
                 name="Cedric Hutchings"
                 teamRole="Clubs Constructionist"
-                text="Already more at home on the internet than anywhere in meat space, you can imagine a young ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
+                text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
                 img="/team/ced.png"
                 pronouns="he/him"
               />
               <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
-                text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists. Her website is at clairebookworm.com."
+                text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
                 img="/team/claire.png"
                 pronouns="she/her"
               />
@@ -310,7 +310,7 @@ and participating in academic competitions with his friends.`}
                 img="/team/tina.jpg"
                 name="Tina Soriano"
                 teamRole="Assistant"
-                text="Philippine bred and settled with family in the U.S., Tina shifted her career from marketing and film production to teaching kids in the Clark County School District. Now she is happy to help high school students hack their way to a fabulous future."
+                text="Philippine bred and settled with family in the U.S., Tina shifted her career from marketing and film production to teaching kids in the Clark County School District. At Hack Club, she helped thousands of high school students hack their way to a fabulous future."
                 pronouns="she/her"
               />
               <Bio
