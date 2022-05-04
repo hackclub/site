@@ -31,7 +31,7 @@ export default function Bank({ isPartner, stats }) {
         <Meta
           as={Head}
           title="Bank"
-          description="Hack Club Bank provides a 501(c)(3) status-backed fund optimized for high school hackathons including invoicing, debit cards, check sending, pre-written legal forms, automated tax filing, and transparent finances. Get fiscal sponsorship designed to help you run a great organization."
+          description="Hack Club Bank provides a 501(c)(3) status-backed fund optimized for high school hackathons, nonprofits, and clubs. Get fiscal sponsorship designed to help you run a great organization."
           image="/bank/og-image.png"
         />
         <style>{styles}</style>
