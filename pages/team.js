@@ -139,7 +139,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               Student Team
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
-            <Bio
+              <Bio
                 name="Cedric Hutchings"
                 teamRole="Clubs Constructionist"
                 text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
@@ -195,20 +195,13 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 img="https://kunalbotla.com/images/kunal.jpeg"
                 pronouns="he/him"
               />
-              {/*<Bio
-                name="Gary Tou"
-                teamRole="Bank Operations"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="he/him"
-              />*/}
               <Bio
                 name="Ella Xu"
                 teamRole="Bank Operations"
                 text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
-                img="/team/ella.jpeg"
+                img="https://scrapbook.hackclub.com/ella.png"
                 pronouns="she/her"
-              /> 
+              />
               <Bio
                 name="Deven Jadhav"
                 teamRole="Bank Operations (APAC)"
