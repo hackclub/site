@@ -217,6 +217,13 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 pronouns="he/him"
               />
               <Bio
+                name="Celeste"
+                teamRole="Community Engineer"
+                text=" After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in –among other things– programming, generative art, music and effective altruism."
+                img="/team/celeste.jpg"
+                pronouns="they/them"
+              />
+              <Bio
                 name="Kognise"
                 teamRole="Special Projects and Hiring"
                 text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they support hiring and contribute to various projects."
