@@ -60,7 +60,8 @@ export default function BankApplyForm() {
         </Text>
         <Text sx={{ fontSize: 18, mb: 2 }}>
           Hack Club Bank is open to all Hack Clubs, hackathons, and student-led
-          nonprofits. There are three steps to getting on Hack Club Bank:
+          nonprofits in North America. There are three steps to getting on Hack
+          Club Bank:
           <ol>
             <li>Fill out this form</li>
             <li>
@@ -126,15 +127,17 @@ export default function BankApplyForm() {
             <option value="" selected disabled>
               Choose a country
             </option>
-            {countries.countries.map(country => (
-              <option value={country} key={country}>
-                {country}
-              </option>
-            ))}
+            <option value="United States">United States (US)</option>
+            <option value="Canada">Canada (CA)</option>
           </Select>
           <HelperText>
-            We're testing out limited support for international organizations,
-            and want to know in advance if you're operating outside the US.
+            We're currently only able to support projects operating out of the
+            United States or Canada. If you're outside of those countries, and
+            might be eligible to run on Bank, please shoot us an email on{' '}
+            <Link as="a" href="mailto:bank@hackclub.com">
+              bank@hackclub.com
+            </Link>
+            !{' '}
           </HelperText>
         </Label>
 
