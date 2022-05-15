@@ -139,7 +139,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               Student Team
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
+            <Bio
                 name="Cedric Hutchings"
                 teamRole="Clubs Constructionist"
                 text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
@@ -199,15 +199,22 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 name="Ella Xu"
                 teamRole="Bank Operations"
                 text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
-                img="https://scrapbook.hackclub.com/ella.png"
+                img="/team/ella.jpeg"
                 pronouns="she/her"
-              />
+              /> 
               <Bio
                 name="Deven Jadhav"
                 teamRole="Bank Operations (APAC)"
                 text="Deven is a Hack Clubber from India who enjoys building meaningful things at the intersections of art and technology. He also loves music and plays the guitar & drums! Along with this, he also likes talking to strangers over the internet and having interesting & deep conversations. He is also a sucker for nature photography and enjoys hikes and treks into the wild!"
                 img="https://github.com/devenjadhav.png"
                 pronouns="he/him"
+              />
+              <Bio
+                name="Celeste"
+                teamRole="Community Engineer"
+                text=" After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in –among other things– programming, generative art, music and effective altruism."
+                img="/team/celeste.jpg"
+                pronouns="they/them"
               />
               <Bio
                 name="Kognise"
@@ -253,9 +260,9 @@ and participating in academic competitions with his friends.`}
               />
               <Bio
                 name="Woody Keppel"
-                teamRole="Events"
+                teamRole="Club Alchemist"
                 text={`Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!”`}
-                img="/team/woody.png"
+                img="/team/woody.jpg"
                 pronouns="he/him"
               />
             </Grid>
