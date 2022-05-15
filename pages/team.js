@@ -212,7 +212,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               <Bio
                 name="Celeste"
                 teamRole="Community Engineer"
-                text=" After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in –among other things– programming, generative art, music and effective altruism."
+                text="After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in— among other things— programming, generative art, music and effective altruism."
                 img="/team/celeste.jpg"
                 pronouns="they/them"
               />
