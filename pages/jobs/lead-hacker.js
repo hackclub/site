@@ -73,8 +73,8 @@ const Page = () => (
       <Text as="p" mb={4}>
         Now, Hack Club Bank is expanding beyond just Hack Clubbers.{' '}
         <strong>
-          Over 400 organizations running on Bank have transacted upwards of
-          $4,000,000;
+          Over 500 organizations running on Bank have transacted upwards of
+          $5,000,000;
         </strong>{' '}
         from teenage-run hackathons to{' '}
         <Link
