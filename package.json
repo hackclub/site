@@ -46,7 +46,7 @@
     "turndown": "^7.1.1"
   },
   "devDependencies": {
-    "eslint": "8.15.0",
+    "eslint": "8.16.0",
     "eslint-config-next": "12.1.6"
   }
 }
