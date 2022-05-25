@@ -1,6 +1,6 @@
-import { Box, Flex, Grid, Text, Avatar, Card } from 'theme-ui'
+import { Box, Flex, Grid, Link, Text, Avatar, Card } from 'theme-ui'
 
-export default function Bio({ img, name, teamRole, pronouns, text, ...props }) {
+export default function Bio({ img, name, teamRole, handle, link, pronouns, text, ...props }) {
   return (
     <Card bg="snow">
       <Grid columns={6}>
@@ -31,6 +31,11 @@ export default function Bio({ img, name, teamRole, pronouns, text, ...props }) {
               <Text color="#24B5A5" variant="subheadline" fontSize={2} mr={2}>
                 {teamRole}
               </Text>
+              {handle && (
+                <Link href={link} target="_blank" rel="noopener noreferrer" fontSize={1} color="white" align="center" sx={{ px: '3px', bg: '#24B5A5', borderRadius: '5px', height: 'fit-content', mr: 2, textDecoration: 'none' }}>
+                  {handle}
+                </Link>
+              )}
               {pronouns && (
                 <Text fontSize={1} color="muted" align="center">
                   ({pronouns})
