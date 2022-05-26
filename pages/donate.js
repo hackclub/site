@@ -312,7 +312,6 @@ export default function Donate() {
       </Header>
       <Container pb={5} id="gamelab-donation"></Container>
       <Container variant="copy">
-
           <Photo
             src="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
             alt="Gamelab hardware"

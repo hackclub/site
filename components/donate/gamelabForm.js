@@ -12,14 +12,49 @@ const GamelabForm = () => {
   }
   return (
     <Base>
-      <ButtonAmount amount={1} setCount={setCount} />
-      <ButtonAmount amount={3} setCount={setCount} />
-      <ButtonAmount amount={5} setCount={setCount} />
+    <Text style={{userSelect: 'none'}} pb={3}>I'm donating <span>
+    <ButtonIncrease count={count} setCount={setCount} />
+      {count}
+    <ButtonDecrease count={count} setCount={setCount} />
+      </span> Gamelab kits to teenagers</Text>
       <Button as="a" href={url()}>Donate ${count * pricePerGamelab}</Button>
     </Base>
   )
 }
 export default GamelabForm
+
+function ButtonDecrease({count, setCount}) {
+  function handleClick() {
+    setCount(Math.max(count-1, 1))
+  }
+  return (
+    <span
+      style={{
+        cursor: count <= 1 ? 'not-allowed' : 'pointer',
+        position: 'relative',
+        bottom: '-1em',
+        left: '-0.5em',
+      }}
+      onClick={handleClick}
+    >▼</span>
+  )
+}
+function ButtonIncrease({count, setCount}) {
+  function handleClick() {
+    setCount(count+1)
+  }
+  return (
+    <span
+      style={{
+        cursor: 'pointer',
+        position: 'relative',
+        bottom: '1em',
+        left: '0.5em',
+      }}
+      onClick={handleClick}
+    >▲</span>
+  )
+}
 
 function ButtonAmount({amount, setCount}) {
   return (
