@@ -159,7 +159,7 @@ const DonorCard = ({ name, link = false }) => (
 )
 
 const PhotoRow = ({ photos }) => (
-  <Box sx={{ height: '200px', overflow: 'hidden', width: '100vw' }}>
+  <Box sx={{ height: '200px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
       <Marquee velocity={12}>
         {photos.map((photo, index) => (
