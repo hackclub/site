@@ -17,6 +17,7 @@ import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
+import GamelabForm from '../components/donate/gamelabForm'
 import Sponsors from '../components/donate/sponsors'
 import donors from '../components/donate/donors.json'
 import Marquee from 'react-marquee-slider'
@@ -308,6 +309,11 @@ export default function Donate() {
           />
         </Box>
       </Header>
+      <Container variant="copy" mt={5}>
+        <FirstQuote>
+          <GamelabForm />
+        </FirstQuote>
+      </Container>
       <Container variant="copy" mt={5}>
         <FirstQuote>
           <Heading my={3} sx={{ fontWeight: 'normal', fontSize: '27px' }}>
