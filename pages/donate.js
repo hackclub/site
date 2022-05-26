@@ -11,6 +11,7 @@ import {
   Text,
   Avatar
 } from 'theme-ui'
+import Photo from '../components/photo'
 import Image from 'next/image'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
@@ -215,7 +216,7 @@ export default function Donate() {
       />
       <Nav color="muted" />
       <ForceTheme theme="light" />
-      <Header sx={{ position: 'relative' }}>
+      <Header sx={{ position: 'relative' }} mb={5}>
         <Box
           sx={{
             background: 'rgba(0,0,0, 0.8)',
@@ -309,8 +310,17 @@ export default function Donate() {
           />
         </Box>
       </Header>
-      <Container variant="copy" mt={5}>
+      <Container variant="copy">
+
+          <Photo
+            src="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
+            alt="Gamelab hardware"
+            width={3000}
+            height={2550}
+            showAlt
+          />
         <FirstQuote>
+          <h1>Gamelab donations section</h1>
           <GamelabForm />
         </FirstQuote>
       </Container>

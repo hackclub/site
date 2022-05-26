@@ -10,7 +10,8 @@ const nextConfig = {
       'dl.airtable.com',
       'emoji.slack-edge.com',
       'cdn.glitch.com',
-      'cloud-k18c7grqc-hack-club-bot.vercel.app'
+      'cloud-k18c7grqc-hack-club-bot.vercel.app',
+      'cloud-kcloydjv0-hack-club-bot.vercel.app',
     ]
   },
   webpack: (config, { isServer }) => {
