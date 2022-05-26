@@ -20,6 +20,7 @@ import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import GamelabForm from '../components/donate/gamelabForm'
+import GamelabMeta from '../components/donate/gamelabMeta'
 import Sponsors from '../components/donate/sponsors'
 import donors from '../components/donate/donors.json'
 import Marquee from 'react-marquee-slider'
@@ -206,7 +207,7 @@ const DonorListing = ({ name, url }) => {
   }
 }
 
-export default function Donate() {
+export default function Donate({gamelab}) {
   return (
     <Box>
       <Meta
@@ -312,6 +313,7 @@ export default function Donate() {
         </Box>
       </Header>
       <Container pb={5} id="gamelab-donation"></Container>
+      {gamelab && <GamelabMeta />}
       <Container variant="copy">
         <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
             <Heading my={3} variant="ultratitle" sx={{  }}>
@@ -452,4 +454,12 @@ export default function Donate() {
       <Footer />
     </Box>
   )
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      gamelab: Object.keys(context.query).includes('gl'),
+    }
+  }
 }
