@@ -13,11 +13,12 @@ const GamelabForm = () => {
   return (
     <Base>
     <Text style={{userSelect: 'none'}} pb={3}>I'm donating <span>
-    <ButtonIncrease count={count} setCount={setCount} />
-      {count}
-    <ButtonDecrease count={count} setCount={setCount} />
+      <ButtonIncrease count={count} setCount={setCount} />
+        {count}
+      <ButtonDecrease count={count} setCount={setCount} />
       </span> Gamelab kits to teenagers</Text>
       <Button as="a" href={url()}>Donate ${count * pricePerGamelab}</Button>
+      <Text>Your donation will send a teenager a Hack Club Game Console Kit: containing a custom Hack Club PCB, buttons, a screen, a microprocessor, and more (all open source, of course), so that they can build and then play their own games.</Text>
     </Base>
   )
 }
