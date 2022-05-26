@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Box, Container, Label, Input, Button, Text } from "theme-ui"
+import { Box, Container, Label, Input, Button, Text, Flex } from "theme-ui"
 
 const pricePerGamelab = 100
 
@@ -11,15 +11,29 @@ const GamelabForm = () => {
     return u
   }
   return (
-    <Base>
-    <Text style={{userSelect: 'none'}} pb={3}>I'm donating <span>
-      <ButtonIncrease count={count} setCount={setCount} />
-        {count}
-      <ButtonDecrease count={count} setCount={setCount} />
-      </span> Gamelab kits to teenagers</Text>
-      <Button as="a" href={url()}>Donate ${count * pricePerGamelab}</Button>
-      <Text>Your donation will send a teenager a Hack Club Game Console Kit: containing a custom Hack Club PCB, buttons, a screen, a microprocessor, and more (all open source, of course), so that they can build and then play their own games.</Text>
-    </Base>
+    <>
+      <Text sx={{fontSize: [1,2,3]}} style={{userSelect: 'none'}}>I'm donating{' '}
+      <Text sx={{
+        position: 'relative',
+          p: [1],
+          mx: 1,
+          borderRadius: "default",
+          color: 'white', bg: 'rgba(0,0,0,0.5)',
+        }}>
+        <ButtonIncrease count={count} setCount={setCount} />
+        <ButtonDecrease count={count} setCount={setCount} />
+        <Text>{count}</Text>
+        {' '}
+      </Text>
+      Gamelab kits to teenagers</Text>
+      <Button
+        variant="outlineLg"
+        as="a"
+        sx={{ color: 'white', bg: 'rgba(0,0,0,0.5)' }}
+        href={url()}>
+        Donate ${count * pricePerGamelab}
+      </Button>
+    </>
   )
 }
 export default GamelabForm
@@ -32,9 +46,9 @@ function ButtonDecrease({count, setCount}) {
     <span
       style={{
         cursor: count <= 1 ? 'not-allowed' : 'pointer',
-        position: 'relative',
-        bottom: '-1em',
-        left: '-0.5em',
+        position: 'absolute',
+        top: '1em',
+        // left: '0.5em',
       }}
       onClick={handleClick}
     >▼</span>
@@ -48,38 +62,11 @@ function ButtonIncrease({count, setCount}) {
     <span
       style={{
         cursor: 'pointer',
-        position: 'relative',
+        position: 'absolute',
         bottom: '1em',
-        left: '0.5em',
+        // left: '0.5em',
       }}
       onClick={handleClick}
     >▲</span>
-  )
-}
-
-function ButtonAmount({amount, setCount}) {
-  return (
-    <Button
-      variant="outline"
-      my={3}
-      onClick={e => {
-        e.preventDefault()
-        setCount(amount)
-      }}
-    >
-      {amount} kit
-    </Button>
-  )
-}
-
-function Base({ children }) {
-  return (
-    <Container
-      as="form"
-      sx={{ display: 'grid', gridTemplateColumns: '1fr' }}
-      variant="copy"
-    >
-      {children}
-    </Container>
   )
 }

@@ -7,6 +7,7 @@ import {
   Flex,
   Heading,
   Card,
+  Grid,
   Link as A,
   Text,
   Avatar
@@ -312,6 +313,14 @@ export default function Donate() {
       </Header>
       <Container pb={5} id="gamelab-donation"></Container>
       <Container variant="copy">
+        <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
+            <Heading my={3} variant="ultratitle" sx={{  }}>
+              Hack Club Game Consoles
+            </Heading>
+            <Box sx={{display: 'flex', flexDirection:'column', justifyContent:'space-around'}}>
+              <Heading variant="subtitle" pb={[3, 0]}>Inspiring teens to both make and code.</Heading>
+              <Text>Your donation will send a teenager a Hack Club Game Console Kit: containing a custom Hack Club PCB, buttons, a screen, a microprocessor, and more (all open source, of course), so that they can build and then play their own games.</Text>
+            </Box>
           <Photo
             src="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
             alt="Gamelab hardware"
@@ -319,10 +328,10 @@ export default function Donate() {
             height={2550}
             showAlt
           />
-        <FirstQuote>
-          <h1>Gamelab donations section</h1>
+        </Grid>
+        <Sheet sx={{color: 'white', bg: 'primary', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
           <GamelabForm />
-        </FirstQuote>
+        </Sheet>
       </Container>
       <Container variant="copy" mt={5}>
         <FirstQuote>
