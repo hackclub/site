@@ -323,7 +323,7 @@ export default function Donate() {
             </Box>
           <Photo
             src="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
-            alt="Gamelab hardware"
+            alt="Gamelab PCB"
             width={3000}
             height={2550}
             showAlt
