@@ -1,7 +1,7 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 
-export default () => {
+const GamelabMeta = () => {
   return <Meta
     as={Head}
     title="Donate a Game Console kit"
@@ -9,3 +9,4 @@ export default () => {
     image="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
   />
 }
+export default GamelabMeta
