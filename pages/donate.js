@@ -478,7 +478,9 @@ export default function Donate({gamelab}) {
 export async function getServerSideProps(context) {
   return {
     props: {
-      gamelab: Object.keys(context.query).includes('gl'),
+      // gamelab: Object.keys(context.query).includes('gl'),
+      // on request, i've just set this to true
+      gamelab: true
     }
   }
 }
