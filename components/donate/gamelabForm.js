@@ -25,7 +25,7 @@ const GamelabForm = () => {
         <Text>{count}</Text>
         {' '}
       </Text>
-      Game Lab kits to teens</Text>
+      Game Lab kit{count === 1 ? '' : 's'} to teens</Text>
       <Button
         variant="outlineLg"
         as="a"
