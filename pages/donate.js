@@ -324,6 +324,15 @@ export default function Donate({gamelab}) {
               <Text>Your donation will send a teenager a Hack Club Game Console Kit: containing a custom Hack Club PCB, buttons, a screen, a microprocessor, and more (all open source, of course), so that they can build and then play their own games.</Text>
             </Box>
         </Grid>
+        <Grid columns={[null, '2fr 3fr']} gap={[2, 3, 4]} pt={[0, 3]} mb={[2, 4]}>
+          <Box as="video"
+          style={{
+            width: '100%',
+            borderRadius: '1em'
+          }} autoPlay muted loop>
+            <source src="https://cloud-5r3ak1pm6-hack-club-bot.vercel.app/0image_from_ios__online-video-cutter.com__1_.mp4"
+              type="video/mp4" />
+          </Box>
           <Photo
             src="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
             alt="Gamelab PCB"
@@ -334,6 +343,7 @@ export default function Donate({gamelab}) {
               mb: [3]
             }}
           />
+        </Grid>
         <Sheet sx={{color: 'white',
                     bg: 'primary',
                     display: 'flex',
