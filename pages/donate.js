@@ -312,26 +312,35 @@ export default function Donate({gamelab}) {
           />
         </Box>
       </Header>
-      <Container pb={5} id="gamelab-donation"></Container>
+      <Container mb={5} id="gamelab-donation"></Container>
       {gamelab && <GamelabMeta />}
       <Container variant="copy">
-        <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
-            <Heading my={3} variant="ultratitle" sx={{  }}>
+        <Grid columns={[null, null, 2, '3fr 2fr']} gap={[0, 2, 4]} pt={[0, 3]} mb={[2, 4]}>
+            <Heading mt={3} variant="ultratitle" sx={{  }}>
               Hack Club Game Consoles
             </Heading>
             <Box sx={{display: 'flex', flexDirection:'column', justifyContent:'space-around'}}>
-              <Heading variant="subtitle" pb={[3, 0]}>Inspiring teens to both make and code.</Heading>
+              <Heading variant="subtitle" pb={[3, 2, 0]}>Inspiring teens to both make and code.</Heading>
               <Text>Your donation will send a teenager a Hack Club Game Console Kit: containing a custom Hack Club PCB, buttons, a screen, a microprocessor, and more (all open source, of course), so that they can build and then play their own games.</Text>
             </Box>
+        </Grid>
           <Photo
             src="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
             alt="Gamelab PCB"
             width={3000}
             height={2550}
             showAlt
+            sx={{
+              mb: [3]
+            }}
           />
-        </Grid>
-        <Sheet sx={{color: 'white', bg: 'primary', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+        <Sheet sx={{color: 'white',
+                    bg: 'primary',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    }}>
           <GamelabForm />
         </Sheet>
       </Container>
