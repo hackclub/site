@@ -6,7 +6,7 @@ const pricePerGamelab = 100
 const GamelabForm = () => {
   const [count, setCount] = useState(1)
   function url() {
-    const u = new URL('https://bank.hackclub.com/donations/start/hq')
+    const u = new URL('https://bank.hackclub.com/donations/start/game-lab-fund/')
     u.searchParams.set('amount', pricePerGamelab * count * 100 /* convert to cents */)
     return u
   }
