@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import {
   Box,
@@ -208,6 +208,9 @@ const DonorListing = ({ name, url }) => {
 }
 
 export default function Donate({gamelab}) {
+  useEffect(() => {
+    window.document.getElementById('gamelab-donation').scrollIntoView()
+  }, [])
   return (
     <Box>
       <Meta
@@ -218,7 +221,7 @@ export default function Donate({gamelab}) {
       />
       <Nav color="muted" />
       <ForceTheme theme="light" />
-      <Header sx={{ position: 'relative' }} mb={5}>
+      <Header sx={{ position: 'relative' }}>
         <Box
           sx={{
             background: 'rgba(0,0,0, 0.8)',
