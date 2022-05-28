@@ -70,10 +70,24 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
+                name="Kara Massie"
+                teamRole="Executive Assistant"
+                text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
+                img="/team/kara.png"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Leo McElroy"
                 teamRole="Clubs Lead"
                 text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
                 img="/team/leo.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Cedric Hutchings"
+                teamRole="Clubs Constructionist"
+                text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
+                img="/team/ced.png"
                 pronouns="he/him"
               />
               <Bio
@@ -84,6 +98,13 @@ export default function Team() {
                 text="Jessica is a self taught programmer originally from Alaska. She worked for over a decade as a software engineer at startups like GitHub and Bugsnag in San Francisco. She then left the web development world to learn how to make video games. Now, at Hack Club, she’s excited to be a part of a community she wishes she had when she was in high school."
                 img="/team/jessica.jpg"
                 pronouns="she/her"
+              />
+              <Bio
+                name="Celeste Drummond"
+                teamRole="Community Engineer"
+                text="After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in— among other things— programming, generative art, music and effective altruism."
+                img="/team/celeste.jpg"
+                pronouns="they/them"
               />
               <Bio
                 name="Melanie Smith"
@@ -161,13 +182,6 @@ export default function Team() {
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
-                name="Cedric Hutchings"
-                teamRole="Clubs Constructionist"
-                text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
-                img="/team/ced.png"
-                pronouns="he/him"
-              />
-              <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
                 handle="@clairebookworm"
@@ -243,13 +257,6 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Celeste"
-                teamRole="Community Engineer"
-                text="After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in— among other things— programming, generative art, music and effective altruism."
-                img="/team/celeste.jpg"
-                pronouns="they/them"
-              />
-              <Bio
                 name="Kognise"
                 teamRole="Special Projects and Hiring"
                 handle="@kognise"
@@ -283,15 +290,6 @@ export default function Team() {
               Behind the Scenes
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
-                name="Kara Massie"
-                teamRole="Events"
-                handle="@kara"
-                link="https://github.com/karamassie"
-                text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
-                img="/team/kara.png"
-                pronouns="she/her"
-              />
               <Bio
                 name="Chris Newton"
                 teamRole="Accountant"
