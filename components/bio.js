@@ -40,7 +40,7 @@ export default function Bio({
               <Text
                 color="#24B5A5"
                 variant="subheadline"
-                fontSize={2}
+                sx={{fontSize: 2}}
                 mr={2}
                 mb={0}
               >
@@ -51,7 +51,6 @@ export default function Bio({
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  fontSize={1}
                   color="white"
                   align="center"
                   sx={{
@@ -62,9 +61,13 @@ export default function Bio({
                     height: 'fit-content',
                     mr: 2,
                     mt: '0.1em',
-                    textDecoration: 'none'
+                    textDecoration: 'none',
+                    fontSize: 1
                   }}
                 >
+                  <Text
+                    sx={{display: "inline-block", transform: "translateY(-1.5px) scale(0.9)", marginRight: "0.8px"}}>
+                  @</Text>
                   {handle}
                 </Link>
               )}
