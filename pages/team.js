@@ -101,7 +101,11 @@ export default function Team() {
               />
             </Grid>
             <br />
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
+            <Text
+              variant="title"
+              color="orange"
+              sx={{ lineHeight: '1.75em', fontSize: ['42px', 6] }}
+            >
               Asia-Pacific HQ
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
@@ -126,8 +130,7 @@ export default function Team() {
                 teamRole="Operations"
                 handle="@annlee"
                 link="https://annleefores.bio.link/"
-                text="As the COO of Hack Club APAC, he oversees operations and handles event organisation & logistics at Hack Club APAC.
-When not seen busy juggling between different tasks he takes up, he enjoys tinkering & building fun projects."
+                text="As the COO of Hack Club APAC, he oversees operations and handles event organisation & logistics at Hack Club APAC. When not seen busy juggling between different tasks he takes up, he enjoys tinkering & building fun projects."
                 img="/team/annlee.jpg"
                 pronouns="he/him"
               />
@@ -149,7 +152,11 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               />
             </Grid>
             <br />
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
+            <Text
+              variant="title"
+              color="orange"
+              sx={{ lineHeight: '1.75em', fontSize: ['42px', 6] }}
+            >
               Student Team
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
@@ -163,6 +170,8 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
+                handle="@clairebookworm"
+                link="https://www.clairebookworm.com/"
                 text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
                 img="/team/claire.png"
                 pronouns="she/her"
@@ -186,6 +195,8 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               <Bio
                 name="Abby Fischler"
                 teamRole="Intern to the COO"
+                handle="@abbyfischler"
+                link="https://github.com/abbyfischler"
                 text="Abby is a high school sophomore from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
                 img="https://github.com/abbyfischler.png"
                 pronouns="she/her"
@@ -218,6 +229,8 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               <Bio
                 name="Ella Xu"
                 teamRole="Bank Operations"
+                handle="@exu"
+                link="https://github.com/exu3"
                 text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
                 img="https://scrapbook.hackclub.com/ella.png"
                 pronouns="she/her"
@@ -249,9 +262,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 teamRole="Engineering & Operations"
                 handle="@sampoder"
                 link="https://github.com/sampoder"
-                text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. 
-Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys travelling with his family 
-and participating in academic competitions with his friends.`}
+                text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys travelling with his family and participating in academic competitions with his friends.`}
                 img="https://change-my-pfp.vercel.app/api/current/"
                 pronouns="he/him"
               />
@@ -264,7 +275,11 @@ and participating in academic competitions with his friends.`}
               />
             </Grid>
             <br />
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
+            <Text
+              variant="title"
+              color="orange"
+              sx={{ lineHeight: '1.75em', fontSize: ['42px', 6] }}
+            >
               Behind the Scenes
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
@@ -293,31 +308,39 @@ and participating in academic competitions with his friends.`}
               />
             </Grid>
             <br />
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
+            <Text
+              variant="title"
+              color="orange"
+              sx={{ lineHeight: '1.75em', fontSize: ['42px', 6] }}
+            >
               Bots
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
-            <Bio
+              <Bio
                 name="Scrappy"
                 teamRole="Book Keeper"
-                text={`The bot that eats trash (and manages #scrapbook)`}
+                text="The bot that eats trash (and manages #scrapbook)."
                 img="/team/scrappy.png"
               />
               <Bio
                 name="Orpheus"
                 teamRole="Assistant"
-                text={`The bot that helps the team manage everything`}
+                text="The bot that helps the team manage everything."
                 img="/team/orpheus.png"
               />
               <Bio
                 name="Toriel"
                 teamRole="Bouncer"
-                text={`Just a lil' greeter bot to direct new members in the Hack Club slack channel and collect some analytics data for that process (and Clippy's killer)`}
+                text="Just a lil' greeter bot to direct new members in the Hack Club slack channel and collect some analytics data for that process (and Clippy's killer)."
                 img="/team/toriel.png"
               />
             </Grid>
             <br />
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
+            <Text
+              variant="title"
+              color="orange"
+              sx={{ lineHeight: '1.75em', fontSize: ['42px', 6] }}
+            >
               Acknowledgements
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
@@ -415,7 +438,7 @@ and participating in academic competitions with his friends.`}
               <Bio
                 name="Clippy"
                 teamRole="Community"
-                text={`A friendly bot that assists new members with joining Hack Club`}
+                text="A friendly bot that assists new members with joining Hack Club."
                 img="/team/clippy.jpg"
               />
             </Grid>
