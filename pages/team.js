@@ -46,7 +46,7 @@ export default function Team() {
                 img="/team/zach.jpg"
                 name="Zach Latta"
                 teamRole="Founder"
-                handle="@zachlatta"
+                handle="zachlatta"
                 link="https://github.com/zachlatta"
                 text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
                 pronouns="he/him"
@@ -55,7 +55,7 @@ export default function Team() {
                 img="/team/christina.jpg"
                 name="Christina Asquith"
                 teamRole="COO"
-                handle="@christina"
+                handle="christina"
                 link="https://christina.cool/"
                 text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She also led the partnership with Kenyan women journalists to build the first all-female news desk for Africa’s largest newspaper. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
                 pronouns="she/her"
@@ -64,7 +64,7 @@ export default function Team() {
                 img="/team/max.jpg"
                 name="Max Wofford"
                 teamRole="Operations"
-                handle="@msw"
+                handle="msw"
                 link="https://maxwofford.com/"
                 text="After teaching himself to code in junior year of high school, Max joined a group of nomadic hackers in Costa Rica to experience coding in a real-world setting. He has been with Hack Club since day one and is now working full-time in Vermont to grow the movement."
                 pronouns="he/him"
@@ -93,7 +93,7 @@ export default function Team() {
               <Bio
                 name="Jessica Card"
                 teamRole="Education Engineer"
-                handle="@jessicard"
+                handle="jessicard"
                 link="https://github.com/jessicard"
                 text="Jessica is a self taught programmer originally from Alaska. She worked for over a decade as a software engineer at startups like GitHub and Bugsnag in San Francisco. She then left the web development world to learn how to make video games. Now, at Hack Club, she’s excited to be a part of a community she wishes she had when she was in high school."
                 img="/team/jessica.jpg"
@@ -140,7 +140,7 @@ export default function Team() {
               <Bio
                 name="Harsh Bajpai"
                 teamRole="Clubs Lead"
-                handle="@hsh"
+                handle="hsh"
                 link="https://github.com/bajpai244"
                 text="Harsh is a gentle force in both his local and the Slack community. He is a vegetarian musician who enjoys traveling around India. When he is not reading ancient mythology, he is programming with purpose and passion."
                 img="/team/harsh.png"
@@ -149,7 +149,7 @@ export default function Team() {
               <Bio
                 name="Annlee Fores"
                 teamRole="Operations"
-                handle="@annlee"
+                handle="annlee"
                 link="https://annleefores.bio.link/"
                 text="As the COO of Hack Club APAC, he oversees operations and handles event organisation & logistics at Hack Club APAC. When not seen busy juggling between different tasks he takes up, he enjoys tinkering & building fun projects."
                 img="/team/annlee.jpg"
@@ -184,7 +184,7 @@ export default function Team() {
               <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
-                handle="@clairebookworm"
+                handle="clairebookworm"
                 link="https://www.clairebookworm.com/"
                 text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
                 img="/team/claire.png"
@@ -193,7 +193,7 @@ export default function Team() {
               <Bio
                 name="Caleb Denio"
                 teamRole="Community Team"
-                handle="@caleb"
+                handle="caleb"
                 link="https://calebden.io/"
                 text="Caleb is a New Hampshire-born high-schooler with a passion for coding, music, and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. As part of Community Team, he hopes to further Hack Club's goal of creating the most wholesome spot on the Internet."
                 img="/team/caleb.jpg"
@@ -209,7 +209,7 @@ export default function Team() {
               <Bio
                 name="Abby Fischler"
                 teamRole="Intern to the COO"
-                handle="@abbyfischler"
+                handle="abbyfischler"
                 link="https://github.com/abbyfischler"
                 text="Abby is a high school sophomore from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
                 img="https://github.com/abbyfischler.png"
@@ -218,7 +218,7 @@ export default function Team() {
               <Bio
                 name="Belle See"
                 teamRole="Coordinator to the COO"
-                handle="@bellesea"
+                handle="bellesea"
                 link="https://github.com/bellesea"
                 text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
                 img="https://github.com/bellesea.png"
@@ -234,7 +234,7 @@ export default function Team() {
               <Bio
                 name="Kunal Botla"
                 teamRole="Bank Operations"
-                handle="@kunalbotla"
+                handle="kunalbotla"
                 link="https://kunalbotla.com/"
                 text={`Kunal loves to make for making! He started Project Boom to help provide computers, helps build and run Hack Club Bank, and is organizing MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
                 img="https://kunalbotla.com/images/kunal.jpeg"
@@ -243,7 +243,7 @@ export default function Team() {
               <Bio
                 name="Ella Xu"
                 teamRole="Bank Operations"
-                handle="@exu"
+                handle="exu"
                 link="https://github.com/exu3"
                 text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
                 img="https://scrapbook.hackclub.com/ella.png"
@@ -259,7 +259,7 @@ export default function Team() {
               <Bio
                 name="Kognise"
                 teamRole="Special Projects and Hiring"
-                handle="@kognise"
+                handle="kognise"
                 link="https://kognise.dev/"
                 text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they support hiring and contribute to various projects."
                 img="https://media.kognise.dev/other-avatars/bean-man.jpg"
@@ -267,7 +267,7 @@ export default function Team() {
               <Bio
                 name="Sam Poder"
                 teamRole="Engineering & Operations"
-                handle="@sampoder"
+                handle="sampoder"
                 link="https://github.com/sampoder"
                 text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys travelling with his family and participating in academic competitions with his friends.`}
                 img="https://change-my-pfp.vercel.app/api/current/"
