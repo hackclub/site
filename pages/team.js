@@ -316,7 +316,7 @@ export default function Team() {
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
                 name="Scrappy"
-                teamRole="Book Keeper"
+                teamRole="Bookkeeper"
                 text="The bot that eats trash (and manages #scrapbook)."
                 img="/team/scrappy.png"
               />
