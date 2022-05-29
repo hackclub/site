@@ -329,7 +329,7 @@ export default function Team() {
               <Bio
                 name="Toriel"
                 teamRole="Bouncer"
-                text="Just a lil' greeter bot to direct new members in the Hack Club slack channel and collect some analytics data for that process (and Clippy's killer)."
+                text="What a nice lady. She seems kinda lonely. New Hack Club Slack members are onboarded and welcomed through a series of conversations with Toriel."
                 img="/team/toriel.png"
               />
             </Grid>
