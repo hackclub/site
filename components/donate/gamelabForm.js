@@ -17,12 +17,13 @@ const GamelabForm = () => {
   }
   return (
     <>
-      <Text sx={{ fontSize: [1, 2, 3] }} style={{ userSelect: 'none' }}>
+    <Text sx={{ fontSize: ['27px !important', 3], position: 'relative', justifySelf: 'center', alignSelf: 'center', paddingBottom: ['1em', '1em', 0]}} style={{ userSelect: 'none' }}>
         I'm donating{' '}
         <Text
           sx={{
             position: 'relative',
-            p: [1],
+            px: [2],
+            py: [1],
             mx: 1,
             borderRadius: 'default',
             color: 'white',
@@ -30,15 +31,15 @@ const GamelabForm = () => {
           }}
         >
           <ButtonIncrease count={count} setCount={setCount} />
-          <ButtonDecrease count={count} setCount={setCount} />
-          <Text>{count}</Text>{' '}
+          <ButtonDecrease count={count} setCount={setCount} sx={{position: 'relative'}} />
+          <Text>{count}</Text>
         </Text>
         Game Lab kit{count === 1 ? '' : 's'} to teens
       </Text>
       <Button
         variant="outlineLg"
         as="a"
-        sx={{ color: 'white', bg: 'rgba(0,0,0,0.5)' }}
+        sx={{ color: 'white', bg: 'rgba(0,0,0,0.5)', fontSize: [2, 3]}}
         href={url()}
       >
         Donate ${count * pricePerGamelab}
@@ -57,8 +58,9 @@ function ButtonDecrease({ count, setCount }) {
       style={{
         cursor: count <= 1 ? 'not-allowed' : 'pointer',
         position: 'absolute',
-        top: '1em'
-        // left: '0.5em',
+        top: '1.2em',
+        left: '50%',
+        transform: 'translateX(-50%)',
       }}
       onClick={handleClick}
     >
@@ -75,8 +77,9 @@ function ButtonIncrease({ count, setCount }) {
       style={{
         cursor: 'pointer',
         position: 'absolute',
-        bottom: '1em'
-        // left: '0.5em',
+        bottom: '1.2em',
+        left: '50%',
+        transform: 'translateX(-50%)',
       }}
       onClick={handleClick}
     >
