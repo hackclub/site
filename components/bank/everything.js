@@ -119,8 +119,8 @@ export default function Everything({ fee, partner = false }) {
                   hoverline
                 >
                   fiscal sponsor
-                </Link>{' '}
-                for your&nbsp;project. Industry standard varies between 7-14%
+                </Link>.
+                Fiscal sponsorship fees typically vary between 7-14%
                 of&nbsp;revenue. Hack Club is a 501(c)(3) nonprofit.
               </Text>
             </Container>

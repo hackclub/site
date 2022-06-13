@@ -65,7 +65,7 @@ export default function Signup() {
   return (
     <Base method="get" action="/bank/apply" onSubmit={handleSubmit}>
       <Field
-        label="Project name"
+        label="Organization name"
         name="eventName"
         placeholder="Windy City Hacks"
         value={values.eventName}
