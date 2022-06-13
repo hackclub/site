@@ -50,7 +50,7 @@ export default function Landing({ showButton, eventsCount }) {
                     }
                   }}
                 >
-                  <Underline>Make your ideas real</Underline> with
+                  <Underline>Become a 501(c)(3) nonprofit</Underline> with
                   Hack&nbsp;Club&nbsp;Bank.
                 </Heading>
                 <Container variant="copy">
