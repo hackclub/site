@@ -59,8 +59,8 @@ export default function BankApplyForm() {
           Apply for Hack Club Bank
         </Text>
         <Text sx={{ fontSize: 18, mb: 2 }}>
-          Hack Club Bank is open to all Hack Clubs, hackathons, and student-led
-          nonprofits. There are three steps to getting on Hack Club Bank:
+          Hack Club Bank is open to all Hack Clubs, hackathons, and charitable
+          organizations. There are three steps to getting on Hack Club Bank:
           <ol>
             <li>Fill out this form</li>
             <li>
@@ -82,20 +82,20 @@ export default function BankApplyForm() {
       </Flex>
       <Base method="POST" action="/api/bank-apply">
         <Text variant="headline" sx={{ color: 'primary' }}>
-          Your Project
+          Your Organization
         </Text>
         <Divider sx={{ borderColor: 'slate', mt: -2 }} />
         <Field
-          label="Project name"
+          label="Organization name"
           name="eventName"
           placeholder="Windy City Hacks"
-          helperText="What's the name of your event or project?"
+          helperText="What's the name of your organization?"
           value={values.eventName}
           onChange={handleChange}
           required
         />
         <Field
-          label="Project website"
+          label="Organization website"
           name="eventWebsite"
           placeholder="https://hackclub.com"
           type="url"
@@ -104,7 +104,7 @@ export default function BankApplyForm() {
           onChange={handleChange}
         />
         <Field
-          label="Project Location"
+          label="Organization location"
           name="eventLocation"
           placeholder="San Francisco, CA"
           type="text"
@@ -142,7 +142,7 @@ export default function BankApplyForm() {
           htmlFor="eventDescription"
           sx={{ color: 'smoke', fontSize: 18, my: 2 }}
         >
-          Tell us about your project!
+          Tell us about your organization!
           <Textarea
             name="eventDescription"
             sx={{ bg: 'dark', my: 1 }}
