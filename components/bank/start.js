@@ -40,8 +40,7 @@ export default function Start() {
           </Heading>
           <Container variant="narrow" sx={{ color: 'muted' }}>
             <Text variant="lead">
-              Open to all registered Hack Clubs, hackathons, and your next
-              amazing project.
+              Open to all registered Hack Clubs, hackathons, and charitable organizations.
             </Text>
           </Container>
         </Container>
@@ -58,7 +57,7 @@ export default function Start() {
               }}
             >
               <Text variant="heading" sx={{ fontSize: 24, lineHeight: 2 }}>
-                Your project
+                Your organization
               </Text>
               <Signup />
             </Card>
