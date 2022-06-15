@@ -30,7 +30,7 @@ const Page = () => (
           Lead Hacker @&nbsp;Hack&nbsp;Club Bank
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New role open as of January 19th, 2022.
+          This position has been filled as of June 14th, 2022.
         </Text>
       </Container>
     </Box>
@@ -46,7 +46,7 @@ const Page = () => (
         variant="headline"
         sx={{ fontWeight: 700, fontSize: [4, 5], mb: 4 }}
       >
-        Hack Club is hiring a Lead Hacker for Hack Club Bank.
+        Hack Club is (no longer) hiring a Lead Hacker for Hack Club Bank.
       </Heading>
 
       <Text as="p" mb={4}>
@@ -54,9 +54,9 @@ const Page = () => (
         <Link href="/bank" target="_blank">
           Hack Club Bank
         </Link>{' '}
-        for our community of {formatted}+ teenage programmers. Within 24 hours of
-        joining Bank, organizations get 501(c)(3) nonprofit status, access to a
-        beautiful dashboard for managing their finances, and all financial and
+        for our community of {formatted}+ teenage programmers. Within 24 hours
+        of joining Bank, organizations get 501(c)(3) nonprofit status, access to
+        a beautiful dashboard for managing their finances, and all financial and
         legal matters - from tax filings to payroll - handled. 50% of high
         school hackathons worldwide run on Hack Club Bank, and Elon Musk has
         tweeted that we're a{' '}

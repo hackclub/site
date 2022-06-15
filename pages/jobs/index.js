@@ -156,7 +156,19 @@ const Page = () => (
         </Container>
       </Box>
       <Container sx={{ py: [3, 4], px: [2, 2, 0] }}>
-        <Grid
+        <Text
+          as="p"
+          sx={{ fontSize: 4, textAlign: 'center', my: 6, color: 'slate' }}
+        >
+          We don't have any available jobs right now!
+          <br />
+          <Text sx={{ color: 'muted' }}>
+            Check back later, or reach out if you think we should hire you.
+          </Text>
+        </Text>
+
+        {/* @kognise note: Keeping this in as an example to future implementors for when we do have new jobs: */}
+        {/* <Grid
           sx={{
             maxWidth: '64rem',
             mx: 'auto'
@@ -171,14 +183,7 @@ const Page = () => (
             color={theme.util.cx('red')}
             color1={theme.util.cx('purple')}
           />
-          <JobListing
-            positionName="Customer Success Lead"
-            positionDesc="In this role, you will serve as a liaison between teens leading their own after-school Hack Clubs and Hack Club’s amazing resources, you’ll play a vital role in Hack Club’s nonprofit mission to support high school coders in starting coding clubs, hackathons, and building awesome projects."
-            positionLink="/jobs/customer-success-lead/"
-            color={theme.util.cx('yellow')}
-            color1={theme.util.cx('red')}
-          />
-        </Grid>
+        </Grid> */}
       </Container>
     </Box>
 
