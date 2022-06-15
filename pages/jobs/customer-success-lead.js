@@ -25,10 +25,10 @@ const Page = () => (
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading as="h1" variant="title" mb={30}>
-        Customer Success Lead @&nbsp;Hack&nbsp;Club
+          Customer Success Lead @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New job open as of April 24th, 2022.
+          This position has been filled as of June 14th, 2022.
         </Text>
       </Container>
     </Box>
