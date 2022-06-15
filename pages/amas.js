@@ -141,7 +141,7 @@ const Page = ({ upcoming, past }) => (
       </Link>
     </Box>
     <Box as="section" sx={{ py: 5, bg: 'darker', textAlign: 'center' }}>
-      <Heading as="h2" variant="title" px={3}>
+      <Heading as="h2" variant="title" px={3} id="past-amas">
         Past AMAs
       </Heading>
       <Grid
