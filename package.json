@@ -36,7 +36,7 @@
     "react-masonry-css": "^1.0.16",
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
-    "react-tsparticles": "^2.0.6",
+    "react-tsparticles": "^2.1.0",
     "react-use-websocket": "3.0.0",
     "resnow": "^1.0.0",
     "styled-components": "^5.3.5",
