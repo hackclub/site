@@ -165,13 +165,13 @@ const Page = () => (
         priority
       />
 
-      {/*<Announcement
-          copy="Introducing Game Lab"
-          caption="Learn to code by making games in a JavaScript-based editor."
-          href="https://gamelab.hackclub.com/"
-          iconLeft="post-fill"
+      <Announcement
+          copy="Let's Assemble in San Francisco"
+          caption="Join us for the first IRL hackathon in SF since 2020."
+          href="https://assemble.hackclub.com/"
+          iconLeft="explore"
           color="primary"
-      />*/}
+      />
 
       <SlideDown duration={768}>
         <Heading
