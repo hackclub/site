@@ -129,7 +129,7 @@ export default function Team() {
               <Bio
                 name="Bence"
                 teamRole="Bookkeeper"
-                text="Bence is responsible for  keeping accurate financial books for hq and every org on hack club bank (40,000+ transactions in the last year!)."
+                text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
                 img="/team/bence.png"
                 pronouns="he/him"
               />
