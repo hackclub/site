@@ -65,7 +65,7 @@ export default function Team() {
               />
               <Bio
                 name="Kara Massie"
-                teamRole="Executive Assistant"
+                teamRole="Clubs & Community Production Lead"
                 text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
                 img="/team/kara.png"
                 pronouns="she/her"
