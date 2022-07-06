@@ -245,13 +245,13 @@ export default function Donate({gamelab}) {
           >
             <Container sx={{ maxWidth: '48rem' }}>
               <Heading
-                sx={{ fontSize: ['42px', '72px'], my: 2, color: 'white' }}
+                sx={{ fontSize: ['42px', '54px', '72px'], my: 2, color: 'white' }}
               >
                 We rely on people like you to bring coding to the world.
               </Heading>
               <Box
                 sx={{
-                  fontSize: ['22px', '28px'],
+                  fontSize: ['22px',  '23px', '28px'],
                   maxWidth: '40rem',
                   color: 'white'
                 }}
@@ -351,8 +351,10 @@ export default function Donate({gamelab}) {
                     bg: 'primary',
                     display: 'flex',
                     flexDirection: 'row',
+                    flexWrap: ['wrap', 'nowrap'],
                     justifyContent: 'space-between',
                     alignItems: 'center',
+                    padding: 4,
                     }}>
           <GamelabForm />
         </Sheet>
