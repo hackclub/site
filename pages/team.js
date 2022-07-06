@@ -136,7 +136,7 @@ export default function Team() {
                <Bio
                 name="Chris Walker"
                 teamRole="Engineer"
-                text="Chris Walker is joining us part-time from San Francisco to ship sinerider and bring mayhem and magic to #gamedev and beyond."
+                text="Chris Walker is joining us part-time from San Francisco to ship Sinerider (https://github.com/hackclub/sinerider) and bring mayhem and magic to #gamedev and beyond."
                 img="/team/chris.png"
                 pronouns="he/him"
               />
