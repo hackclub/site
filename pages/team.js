@@ -59,7 +59,7 @@ export default function Team() {
               <Bio
                 img="/team/max.jpg"
                 name="Max Wofford"
-                teamRole="Operations"
+                teamRole="Tech & Creative Lead"
                 text="After teaching himself to code in junior year of high school, Max joined a group of nomadic hackers in Costa Rica to experience coding in a real-world setting. He has been with Hack Club since day one and is now working full-time in Vermont to grow the movement."
                 pronouns="he/him"
               />
