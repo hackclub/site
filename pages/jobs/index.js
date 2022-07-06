@@ -156,6 +156,7 @@ const Page = () => (
         </Container>
       </Box>
       <Container sx={{ py: [3, 4], px: [2, 2, 0] }}>
+        {/*
         <Text
           as="p"
           sx={{ fontSize: 4, textAlign: 'center', my: 6, color: 'slate' }}
@@ -168,7 +169,8 @@ const Page = () => (
         </Text>
 
         {/* @kognise note: Keeping this in as an example to future implementors for when we do have new jobs: */}
-        {/* <Grid
+        
+        <Grid
           sx={{
             maxWidth: '64rem',
             mx: 'auto'
@@ -177,13 +179,13 @@ const Page = () => (
           columns={['1fr', '1fr 1fr']}
         >
           <JobListing
-            positionName="Lead Hacker"
-            positionDesc="Hack Club Bank is our in-house financial software used by 1,500 Hack Clubbers to financially power their Hack Clubs, hackathons, and student-organized nonprofits."
-            positionLink="/jobs/lead-hacker/"
-            color={theme.util.cx('red')}
-            color1={theme.util.cx('purple')}
+            positionName="Executive Producer"
+            positionDesc="Hack Club is actively looking now to hire its first executive producer/ senior editor to tell its story across various platforms, including social media, newsletters, op-docs, blog/oped posts and direct emails, and curated partnerships with major tech companies."
+            positionLink="/jobs/executive-producer/"
+            color={theme.util.cx('green')}
+            color1={theme.util.cx('blue')}
           />
-        </Grid> */}
+        </Grid> 
       </Container>
     </Box>
 

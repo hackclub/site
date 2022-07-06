@@ -190,7 +190,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               />
               <Bio
                 name="Belle See"
-                teamRole="Coordinator to the COO"
+                teamRole="Engineer for Comms"
                 text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
                 img="https://github.com/bellesea.png"
                 pronouns="she/her"
