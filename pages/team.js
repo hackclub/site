@@ -112,6 +112,34 @@ export default function Team() {
                 img="/team/liv.png"
                 pronouns="she/her"
               />
+              <Bio
+                name="Rick Blount"
+                teamRole="VP of Philanthropy"
+                text="Rick Blount was previously helped raise $19.5 million for a brand-new YMCA in Burlington, Vermont. Before that, he worked at the University of Vermont’s medical school in communications and alumni/fundraising; and has been a journalist–helping start Consumer Reports’ health publication. When he was 25, he taught English for a year near Wuhan, China."
+                img="/team/rick.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Thea Baren"
+                teamRole="Executive Assistant to the COO"
+                text="Thea will now serve as Christina’s executive assistant."
+                img="/team/thea.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Bence"
+                teamRole="Bookkeeper"
+                text="Bence is responsible for  keeping accurate financial books for hq and every org on hack club bank (40,000+ transactions in the last year!)."
+                img="/team/bence.png"
+                pronouns="he/him"
+              />
+               <Bio
+                name="Chris Walker"
+                teamRole="Engineer"
+                text="Chris Walker is joining us part-time from San Francisco to ship sinerider and bring mayhem and magic to #gamedev and beyond."
+                img="/team/chris.png"
+                pronouns="he/him"
+              />
             </Grid>
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
@@ -243,6 +271,13 @@ and participating in academic competitions with his friends.`}
                 teamRole="Mail Team Coordinator"
                 text="Hugo is an avid fan of corgis, hardware, and shipping. He works with club leaders to get stickers to clubs and events and community members to assist with logistical challenges. He ships for Hack Club Mail Team and runs Hack Shop, helping to plan, design, produce, and distribute various types of swag for different events."
                 img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Ishan Goel"
+                teamRole="Summer Intern"
+                text="Ishan is a 16 year old summer intern from Seattle! This summer he is working on shipping projects with partners to get the word out about hack club, and bring more people into the community."
+                img="https://github.com/quackduck.png"
                 pronouns="he/him"
               />
             </Grid>
