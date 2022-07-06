@@ -212,7 +212,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               <Bio
                 name="Abby Fischler"
                 teamRole="Intern to the COO"
-                text="Abby is a high school sophomore from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
+                text="Abby is a high school junior from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
                 img="https://github.com/abbyfischler.png"
                 pronouns="she/her"
               />
