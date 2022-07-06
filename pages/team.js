@@ -127,7 +127,7 @@ export default function Team() {
                 pronouns="she/her"
               />
               <Bio
-                name="Bence"
+                name=" Bence Beres"
                 teamRole="Bookkeeper"
                 text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
                 img="/team/bence.png"
