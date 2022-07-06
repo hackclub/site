@@ -276,7 +276,7 @@ and participating in academic competitions with his friends.`}
               <Bio
                 name="Ishan Goel"
                 teamRole="Summer Intern"
-                text="Ishan is a 16 year old summer intern from Seattle! This summer he is working on shipping projects with partners to get the word out about hack club, and bring more people into the community."
+                text="Ishan is a 16-year-old summer intern from Seattle! This summer he is working on shipping projects with partners to get the word out about Hack Club, and bring more people into the community."
                 img="https://github.com/quackduck.png"
                 pronouns="he/him"
               />
