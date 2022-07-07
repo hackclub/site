@@ -53,7 +53,7 @@ export default function Team() {
                 img="/team/christina.jpg"
                 name="Christina Asquith"
                 teamRole="COO"
-                text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She also led the partnership with Kenyan women journalists to build the first all-female news desk for Africa’s largest newspaper. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
+                text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”                "
                 pronouns="she/her"
               />
               <Bio
@@ -66,7 +66,7 @@ export default function Team() {
               <Bio
                 name="Kara Massie"
                 teamRole="Clubs & Community Production Lead"
-                text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000."
+                text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
                 img="/team/kara.png"
                 pronouns="she/her"
               />
@@ -127,17 +127,10 @@ export default function Team() {
                 pronouns="she/her"
               />
               <Bio
-                name=" Bence Beres"
+                name="Bence Beres"
                 teamRole="Bookkeeper"
                 text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
                 img="/team/bence.png"
-                pronouns="he/him"
-              />
-               <Bio
-                name="Chris Walker"
-                teamRole="Engineer"
-                text="Chris Walker is joining us part-time from San Francisco to ship Sinerider (https://github.com/hackclub/sinerider) and bring mayhem and magic to #gamedev and beyond."
-                img="/team/chris.png"
                 pronouns="he/him"
               />
             </Grid>
