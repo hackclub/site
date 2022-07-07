@@ -9,9 +9,9 @@ const Page = () => (
   <>
     <Meta
       as={Head}
-      title="Executive Producer, Hack Club Communications"
-      description="HHack Club is actively looking now to hire its first executive producer/ senior editor to tell its story across various platforms, including social media, newsletters, op-docs, blog/oped posts and direct emails, and curated partnerships with major tech companies."
-      image="https://workshop-cards.hackclub.com/Executive%20Producer%40%20Hack%20Club.png?fontSize=175px&brand=HQ"
+      title="VP of Marketing / Executive Producer"
+      description="Hack Club is actively looking to hire its first VP of Marketing / Executive Producer to tell its story across various platforms, including social media, newsletters, op-docs, blog/Op-Ed posts, direct emails, and curated partnerships with major tech companies."
+      image="https://workshop-cards.hackclub.com/VP%20of%20Marketing%20%40%20Hack%20Club.png?fontSize=175px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -25,7 +25,7 @@ const Page = () => (
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading as="h1" variant="title" mb={30}>
-        Executive Producer
+          VP of Marketing / Executive Producer
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
           New job open as of July 6th, 2022.
