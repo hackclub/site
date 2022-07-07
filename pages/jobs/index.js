@@ -180,7 +180,7 @@ const Page = () => (
         >
           <JobListing
             positionName="VP of Marketing / Executive Producer"
-            positionDesc="Hack Club is actively looking now to hire its first executive producer/ senior editor to tell its story across various platforms, including social media, newsletters, op-docs, blog/oped posts and direct emails, and curated partnerships with major tech companies."
+            positionDesc="Hack Club is actively looking now to hire its first VP of Marketing/ Executive Producer to tell its story across various platforms, including social media, newsletters, op-docs, blog/oped posts and direct emails, and curated partnerships with major tech companies."
             positionLink="/jobs/executive-producer/"
             color={theme.util.cx('green')}
             color1={theme.util.cx('blue')}
