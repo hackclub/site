@@ -1,15 +1,18 @@
-import { Box } from 'theme-ui'
 import Meta from '@hackclub/meta'
+import dayjs from 'dayjs'
+import JSConfetti from 'js-confetti'
 import Head from 'next/head'
+import { useEffect } from 'react'
+import { Box } from 'theme-ui'
+import Everything from '../../components/bank/everything'
+import Features from '../../components/bank/features'
+import Landing from '../../components/bank/landing'
+import Nonprofits from '../../components/bank/nonprofits'
+import Start from '../../components/bank/start'
+import Testimonials from '../../components/bank/testimonials'
+import Footer from '../../components/footer'
 import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
-import Footer from '../../components/footer'
-import Landing from '../../components/bank/landing'
-import Features from '../../components/bank/features'
-import Testimonials from '../../components/bank/testimonials'
-import Everything from '../../components/bank/everything'
-import Start from '../../components/bank/start'
-import Nonprofits from '../../components/bank/nonprofits'
 
 const styles = `
   ::selection {
@@ -23,6 +26,29 @@ const styles = `
 `
 
 export default function Bank({ isPartner, stats }) {
+  useEffect(() => {
+    ;(async () => {
+      const allTime = await fetch('https://bank.hackclub.com/stats').then(res =>
+        res.json()
+      )
+      const lastWeek = await fetch(
+        `https://bank.hackclub.com/stats_custom_duration?end_date=${dayjs()
+          .subtract(7, 'days')
+          .format('YYYY-MM-DD')}`
+      ).then(res => res.json())
+
+      const raisedInAWeek = allTime.raised - lastWeek.raised
+
+      if (raisedInAWeek > 10000000) {
+        const jsConfetti = new JSConfetti()
+        jsConfetti.addConfetti({
+          emojis: ['💰', '💸', '💵', '🏦', '🐱', '🐈', '🦄'],
+          confettiNumber: 200
+        })
+      }
+    })()
+  }, [])
+
   return (
     <>
       <Box as="main" key="main">
