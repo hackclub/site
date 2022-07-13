@@ -39,7 +39,7 @@ export default function Bank({ isPartner, stats }) {
 
       const raisedInAWeek = allTime.raised - lastWeek.raised
 
-      if (raisedInAWeek > 10000000) {
+      if (raisedInAWeek > 5000000) {
         const jsConfetti = new JSConfetti()
         jsConfetti.addConfetti({
           emojis: ['💰', '💸', '💵', '🏦', '🐱', '🐈', '🦄'],
