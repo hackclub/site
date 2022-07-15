@@ -127,13 +127,6 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Thea Baren"
-                teamRole="Executive Assistant to the COO"
-                text="Thea will now serve as Christina’s executive assistant."
-                img="/team/thea.png"
-                pronouns="she/her"
-              />
-              <Bio
                 name="Bence Beres"
                 teamRole="Bookkeeper"
                 text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
@@ -185,7 +178,6 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
               />
             </Grid>
 
-           
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
               Student Team
@@ -262,28 +254,28 @@ and participating in academic competitions with his friends.`}
                 img="https://github.com/quackduck.png"
                 pronouns="he/him"
               />
-               <Bio
+              <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
                 text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
                 img="/team/claire.png"
                 pronouns="she/her"
               />
-              
-               <Bio
+
+              <Bio
                 name="Rishi Kothari"
                 teamRole="Community Team"
                 text="Rishi is a high school juinor that's super interested in open-source development, startups, React, and everything in between! He is primarily a JS/TS dev, but has worked with Rust 🔥, C++ 💖, Haskell ⚡️, and Swift 🏎 in the past. He is the president of TFSS Hack Club, the CTO at PetCode, and a workshop coordinator at TurnerHacks, among other things."
                 img="https://github.com/rishiosaur.png"
                 pronouns="he/him"
-              /> 
+              />
             </Grid>
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
               Part Time
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
-            <Bio
+              <Bio
                 img="/team/chris.jpg"
                 name="Chris Walker"
                 teamRole="Hacker Resources"
@@ -292,7 +284,7 @@ and participating in academic competitions with his friends.`}
               />
             </Grid>
             <br />
-            
+
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
               Behind the Scenes
             </Text>
