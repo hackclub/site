@@ -93,8 +93,8 @@ export default function Team() {
               />
               <Bio
                 name="Caleb Denio"
-                teamRole="Bank Engineering"
-                text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community."
+                teamRole="Bank Engineer"
+                text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. At Hack Club Bank, he writes code that makes money go 'cha-ching!'"
                 img="/team/caleb.jpg"
                 pronouns="he/him"
               />
