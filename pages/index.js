@@ -167,7 +167,7 @@ const Page = () => (
 
       <Announcement
           copy="Let's Assemble in San Francisco"
-          caption="Join us for the first IRL hackathon in SF since 2020."
+          caption="Join us for the first IRL hackathon since 2020 in SF."
           href="https://assemble.hackclub.com/"
           iconLeft="explore"
           color="primary"
