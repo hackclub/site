@@ -205,6 +205,15 @@ export default function BankApplyForm() {
           required
         />
 
+        <Field
+          label="How did you hear about Hack Club Bank?"
+          name="referredBy"
+          placeholder="Word of mouth, hackathon, etc."
+          value={values.referredBy}
+          onChange={handleChange}
+          required
+        />
+
         <Label
           htmlFor="returningUser"
           sx={{ color: 'smoke', fontSize: 18, my: 2 }}
@@ -220,22 +229,6 @@ export default function BankApplyForm() {
             <option value="Yes, I have used Hack Club Bank before">
               Yes, I have used Hack Club Bank before
             </option>
-          </Select>
-        </Label>
-
-        <Label
-          htmlFor="slackMember"
-          sx={{ color: 'smoke', fontSize: 18, my: 2 }}
-        >
-          Are you a member of the Hack Club Slack?
-          <Select
-            name="slackMember"
-            sx={{ bg: 'dark', mt: 1 }}
-            value={values.slackMember}
-            onChange={handleChange}
-          >
-            <option value="No">No, I'm not in the Slack.</option>
-            <option value="Yes">Yes, I am a part of the Slack!</option>
           </Select>
         </Label>
 
