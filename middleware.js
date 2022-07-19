@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import country from 'country-list-js';
 const partners = ['gb_help_desk']
 
 export function middleware(request) {
