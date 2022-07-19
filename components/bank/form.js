@@ -222,6 +222,23 @@ export default function BankApplyForm() {
             </option>
           </Select>
         </Label>
+
+        <Label
+          htmlFor="slackMember"
+          sx={{ color: 'smoke', fontSize: 18, my: 2 }}
+        >
+          Are you a member of the Hack Club Slack?
+          <Select
+            name="slackMember"
+            sx={{ bg: 'dark', mt: 1 }}
+            value={values.slackMember}
+            onChange={handleChange}
+          >
+            <option value="No">No, I'm not in the Slack.</option>
+            <option value="Yes">Yes, I am a part of the Slack!</option>
+          </Select>
+        </Label>
+
         <Box sx={{ mb: 2 }}>
           <Text
             variant="subheadline"
