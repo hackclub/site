@@ -1,7 +1,7 @@
-import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
 const partners = ['gb_help_desk']
 
-export function middleware(request: NextRequest) {
+export function middleware(request) {
   if (request.nextUrl.pathname.startsWith('/bank')) {
     const url = req.nextUrl.clone()
     if (url.pathname === '/bank/') {
