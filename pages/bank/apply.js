@@ -12,7 +12,6 @@ export default function Apply() {
         backgroundAttachment: 'fixed'
       }}
     >
-      {/* TODO: fix this image here; it's broken */}
       <ForceTheme theme="dark" />
       <Container variant="copy">
         <Card variant="primary">
