@@ -205,6 +205,15 @@ export default function BankApplyForm() {
           required
         />
 
+        <Field
+          label="How did you hear about Hack Club Bank?"
+          name="referredBy"
+          placeholder="Word of mouth, hackathon, etc."
+          value={values.referredBy}
+          onChange={handleChange}
+          required
+        />
+
         <Label
           htmlFor="returningUser"
           sx={{ color: 'smoke', fontSize: 18, my: 2 }}
@@ -222,6 +231,7 @@ export default function BankApplyForm() {
             </option>
           </Select>
         </Label>
+
         <Box sx={{ mb: 2 }}>
           <Text
             variant="subheadline"
