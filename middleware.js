@@ -4,14 +4,13 @@ const partners = ['gb_help_desk']
 
 export function middleware(request) {
   if (request.nextUrl.pathname.startsWith('/bank')) {
-    const url = req.nextUrl.clone()
+    const url = request.nextUrl.clone()
     if (url.pathname === '/bank/') {
       if (partners.includes(url.searchParams.get('ref'))) {
         url.pathname = '/bank/partner'
       } else {
         url.pathname = '/bank/index'
       }
-
       return NextResponse.rewrite(url)
     }
   }
