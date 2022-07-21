@@ -207,7 +207,7 @@ const DonorListing = ({ name, url }) => {
   }
 }
 
-export default function Donate({gamelab}) {
+export default function Donate({ gamelab }) {
   useEffect(() => {
     window.document.getElementById('gamelab-donation').scrollIntoView()
   }, [])
@@ -245,13 +245,17 @@ export default function Donate({gamelab}) {
           >
             <Container sx={{ maxWidth: '48rem' }}>
               <Heading
-                sx={{ fontSize: ['42px', '54px', '72px'], my: 2, color: 'white' }}
+                sx={{
+                  fontSize: ['42px', '54px', '72px'],
+                  my: 2,
+                  color: 'white'
+                }}
               >
                 We rely on people like you to bring coding to the world.
               </Heading>
               <Box
                 sx={{
-                  fontSize: ['22px',  '23px', '28px'],
+                  fontSize: ['22px', '23px', '28px'],
                   maxWidth: '40rem',
                   color: 'white'
                 }}
@@ -318,23 +322,53 @@ export default function Donate({gamelab}) {
       <Container mb={5} id="gamelab-donation"></Container>
       {gamelab && <GamelabMeta />}
       <Container variant="copy">
-        <Grid columns={[null, null, 2, '3fr 2fr']} gap={[0, 2, 4]} pt={[0, 3]} mb={[2, 4]}>
-            <Heading mt={3} variant="ultratitle" sx={{  }}>
-              Hack Club Game Consoles
+        <Grid
+          columns={[null, null, 2, '3fr 2fr']}
+          gap={[0, 2, 4]}
+          pt={[0, 3]}
+          mb={[2, 4]}
+        >
+          <Heading mt={3} variant="ultratitle" sx={{}}>
+            Hack Club Game Consoles
+          </Heading>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-around'
+            }}
+          >
+            <Heading variant="subtitle" pb={[3, 2, 0]}>
+              Inspiring teens to both make and code.
             </Heading>
-            <Box sx={{display: 'flex', flexDirection:'column', justifyContent:'space-around'}}>
-              <Heading variant="subtitle" pb={[3, 2, 0]}>Inspiring teens to both make and code.</Heading>
-              <Text>Your donation will send a teenager a Hack Club Game Console Kit: containing a custom Hack Club PCB, buttons, a screen, a microprocessor, and more (all open source, of course), so that they can build and then play their own games.</Text>
-            </Box>
+            <Text>
+              Your donation will send a teenager a Hack Club Game Console Kit:
+              containing a custom Hack Club PCB, buttons, a screen, a
+              microprocessor, and more (all open source, of course), so that
+              they can build and then play their own games.
+            </Text>
+          </Box>
         </Grid>
-        <Grid columns={[null, '2fr 3fr']} gap={[2, 3, 4]} pt={[0, 3]} mb={[2, 4]}>
-          <Box as="video"
-          style={{
-            width: '100%',
-            borderRadius: '1em'
-          }} autoPlay muted loop>
-            <source src="https://cloud-5r3ak1pm6-hack-club-bot.vercel.app/0image_from_ios__online-video-cutter.com__1_.mp4"
-              type="video/mp4" />
+        <Grid
+          columns={[null, '2fr 3fr']}
+          gap={[2, 3, 4]}
+          pt={[0, 3]}
+          mb={[2, 4]}
+        >
+          <Box
+            as="video"
+            style={{
+              width: '100%',
+              borderRadius: '1em'
+            }}
+            autoPlay
+            muted
+            loop
+          >
+            <source
+              src="https://cloud-5r3ak1pm6-hack-club-bot.vercel.app/0image_from_ios__online-video-cutter.com__1_.mp4"
+              type="video/mp4"
+            />
           </Box>
           <Photo
             src="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
@@ -347,15 +381,18 @@ export default function Donate({gamelab}) {
             }}
           />
         </Grid>
-        <Sheet sx={{color: 'white',
-                    bg: 'primary',
-                    display: 'flex',
-                    flexDirection: 'row',
-                    flexWrap: ['wrap', 'nowrap'],
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: 4,
-                    }}>
+        <Sheet
+          sx={{
+            color: 'white',
+            bg: 'primary',
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: ['wrap', 'nowrap'],
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: 4
+          }}
+        >
           <GamelabForm />
         </Sheet>
       </Container>
@@ -404,18 +441,8 @@ export default function Donate({gamelab}) {
             <A sx={{ color: 'blue' }} href="mailto:bank@hackclub.com">
               bank@hackclub.com
             </A>{' '}
-            if you’re interested in making a contribution with an unsupported
-            token or have questions.
-          </Box>
-          <Box mb={4}>
-            <Button
-              href="https://commerce.coinbase.com/checkout/ae7ad42d-0dcd-4e9d-8dc7-ba78648a58cd"
-              target="_blank"
-              bg="blue"
-              as="a"
-            >
-              Donate with cryptocurrency »
-            </Button>
+            if you’re interested in making a contribution with cryptocurrency or
+            have questions.
           </Box>
         </Container>
         <SecondQuote>
