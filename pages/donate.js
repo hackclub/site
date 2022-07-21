@@ -441,19 +441,9 @@ export default function Donate({ gamelab }) {
             <A sx={{ color: 'blue' }} href="mailto:bank@hackclub.com">
               bank@hackclub.com
             </A>{' '}
-            if you’re interested in making a contribution with an unsupported
-            token or have questions.
+            if you’re interested in making a contribution with cryptocurrency or
+            have questions.
           </Box>
-          {/* <Box mb={4}>
-            <Button
-              href="https://commerce.coinbase.com/checkout/ae7ad42d-0dcd-4e9d-8dc7-ba78648a58cd"
-              target="_blank"
-              bg="blue"
-              as="a"
-            >
-              Donate with cryptocurrency »
-            </Button>
-          </Box> */}
         </Container>
         <SecondQuote>
           <Heading
