@@ -144,6 +144,9 @@ const Navigation = props => (
     <NextLink href="/bank" passHref>
       <Link>Bank</Link>
     </NextLink>
+    <NextLink href="/hackathons" passHref>
+      <Link>Hackathons</Link>
+    </NextLink>
     <NextLink href="/donate" passHref>
       <Link>Donate</Link>
     </NextLink>
