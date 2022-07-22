@@ -26,6 +26,7 @@ import FooterImgFile from '../public/home/footer.png'
 import GoldenTrainImgFile from '../public/home/golden-train.png'
 import Slack from '../components/slack'
 import Announcement from '../components/announcement'
+import Stage from '../components/stage'
 // import { timeSince } from '../lib/dates'
 
 let Highlight = styled(Text)`
@@ -92,43 +93,6 @@ const Feature = ({ icon, color, name, desc, children, sx, ...props }) => (
   </Box>
 )
 
-const Stage = ({ icon, color, name, desc, children, ...props }) => (
-  <Box {...props}>
-    {children || (
-      <Box
-        as="span"
-        sx={{
-          width: 'fit-content',
-          bg: color,
-          borderRadius: 18,
-          lineHeight: 0,
-          p: 2,
-          mb: 1,
-          display: 'inline-block',
-          transform: ['scale(0.75)', 'none'],
-          transformOrigin: 'bottom left',
-          boxShadow:
-            'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
-        }}
-      >
-        <Icon glyph={icon} size={48} />
-      </Box>
-    )}
-    <Box>
-      <Heading as="h3" variant="headline" mb={2}>
-        {name}
-      </Heading>
-      <Text
-        as="p"
-        variant="subtitle"
-        sx={{ mt: 0, pb: 2, a: { variant: 'styles.a', color: 'blue' } }}
-      >
-        {desc}
-      </Text>
-    </Box>
-  </Box>
-)
-
 const Page = () => (
   <>
     <Meta
@@ -166,11 +130,11 @@ const Page = () => (
       />
 
       <Announcement
-          copy="Let's Assemble in San Francisco"
-          caption="Join us for the first IRL hackathon since 2020 in SF."
-          href="https://assemble.hackclub.com/"
-          iconLeft="explore"
-          color="primary"
+        copy="Let's Assemble in San Francisco"
+        caption="Join us for the first IRL hackathon since 2020 in SF."
+        href="https://assemble.hackclub.com/"
+        iconLeft="explore"
+        color="primary"
       />
 
       <SlideDown duration={768}>
@@ -242,7 +206,11 @@ const Page = () => (
             as="a"
             variant="ctaLg"
             href="/slack"
-            sx={{ backgroundImage: t => t.util.gx('green', 'blue'), ml: [0, 3], mt: [3, 0] }}
+            sx={{
+              backgroundImage: t => t.util.gx('green', 'blue'),
+              ml: [0, 3],
+              mt: [3, 0]
+            }}
           >
             Join the Slack
           </Button>
@@ -484,9 +452,9 @@ const Page = () => (
             name="Chat with 100s of club leaders"
             desc={
               <>
-                In our <Link href="/slack">Slack community</Link>, you’ll
-                be invited to a space for Hack&nbsp;Club leaders to ask
-                questions & chat, share projects, & attend weekly live events.
+                In our <Link href="/slack">Slack community</Link>, you’ll be
+                invited to a space for Hack&nbsp;Club leaders to ask questions &
+                chat, share projects, & attend weekly live events.
               </>
             }
           />
