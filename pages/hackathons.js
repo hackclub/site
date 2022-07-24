@@ -71,6 +71,10 @@ export default function Bank() {
           <Container as="section">
             <Rundown />
           </Container>
+
+          {/* I feel like there should be some sort of marquee animation here. hmmm yeah idk maybe
+           it would be cool to use slack messages? questions from hackathon-organizers? faqs about 
+           running hackathons? */}
         </Box>
       </Box>
       <Footer key="footer" />
