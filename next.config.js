@@ -10,6 +10,7 @@ const nextConfig = {
       'dl.airtable.com',
       'emoji.slack-edge.com',
       'cdn.glitch.com',
+      'scrapbook.hackclub.com',
       'cloud-k18c7grqc-hack-club-bot.vercel.app',
       'cloud-kcloydjv0-hack-club-bot.vercel.app',
       'cloud-dtijd5g0u-hack-club-bot.vercel.app'
