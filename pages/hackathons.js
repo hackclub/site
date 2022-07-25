@@ -81,6 +81,7 @@ export default function Bank() {
               >
                 best friend
               </Text>
+              .
             </Heading>
             <MovingCards />
             <Grid
