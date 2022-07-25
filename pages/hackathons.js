@@ -8,6 +8,7 @@ import Footer from '../components/footer'
 import Landing from '../components/hackathons/landing'
 import Rundown from '../components/hackathons/rundown'
 import Content from '../components/hackathons/content.mdx'
+import MovingCards from '../components/hackathons/moving-cards'
 import Cta from '../components/hackathons/cta'
 
 export default function Bank() {
@@ -66,7 +67,7 @@ export default function Bank() {
               From the Slack...
             </Text>
             <Heading as="h2" variant="title">
-              Mhmm yeah gadzooks{' '}
+              A hackathon organizer's{' '}
               <Text
                 as="span"
                 sx={{
@@ -74,14 +75,14 @@ export default function Bank() {
                   px: 2,
                   mx: [-2, 0],
                   whiteSpace: 'nowrap',
-                  color: '#5d114c',
-                  bg: 'rgb(255, 212, 64)'
+                  color: 'white',
+                  bg: '#6f31b7'
                 }}
               >
-                magic
+                best friend
               </Text>
-              .
             </Heading>
+            <MovingCards />
             <Grid
               columns={[null, null, 2]}
               gap={[3, 4]}
