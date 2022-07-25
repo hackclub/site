@@ -23,7 +23,7 @@ export default function Landing() {
                 flexDirection: 'column',
                 textAlign: 'center',
                 color: 'white',
-                maxWidth: [null, null, 'copyPlus', 'copyUltra'],
+                maxWidth: [null, null, 'copyUltra'],
                 p: { fontSize: [2, 3, 4], maxWidth: 'copy', mx: 'auto' }
               }}
               variant="ultratitle"
@@ -33,14 +33,35 @@ export default function Landing() {
               </Text>
               <Heading as="h1" variant="ultratitle" sx={{ mb: [3, 4] }}>
                 A renaissance of IRL{' '}
-                <Highlight>high school hackathons.</Highlight>
+                
+                {/* highlight or outline? */}
+
+                {/* <Highlight>high school hackathons.</Highlight> */}
+                <Text
+                  as="span"
+                  sx={{
+                    WebkitTextStroke: 'currentColor',
+                    WebkitTextStrokeWidth: ['2px', '3px'],
+                    WebkitTextFillColor: '#33D6A6'
+                  }}
+                >
+                  high&nbsp;school hackathons.
+                </Text>
               </Heading>
-              <Text as="p" variant="subtitle">
+              {/* <Text as="p" variant="subtitle">
                 lakjsdf;lajsdf;lkjasd;lfja;sldkjfalskdjf;l
-              </Text>
+              </Text> */}
             </Container>
+            {/* <Button
+              variant="outlineLg"
+              as="a"
+              href="#apply"
+              sx={{ mx: 'auto' }}
+            >
+              Join the community
+            </Button> */}
             <br />
-            <ScrollHint />
+            <ScrollHint scrollAmount="100" />
           </Box>
 
           <Box
@@ -97,7 +118,7 @@ function Vignette() {
     <Box
       style={{
         backgroundImage:
-          'linear-gradient(to bottom,rgba(0, 0, 0, .6),rgba(0, 0, 0, 0.6) 25%,rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.8) 100%)',
+          'linear-gradient(to bottom,rgba(51, 142, 218, .9),rgba(51, 142, 218, 0.7) 35%, rgba(91, 192, 222, 0.2) 100%)',
         height: '80vh',
         left: '0',
         right: '0',
@@ -113,7 +134,7 @@ function Highlight(props) {
     <Badge
       as="mark"
       sx={{
-        bg: '#FF62DC',
+        bg: '#5BC0DE',
         color: 'inherit',
         fontSize: 'inherit',
         display: 'inline-block',
