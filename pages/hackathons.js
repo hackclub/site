@@ -64,7 +64,7 @@ export default function Bank() {
            running hackathons? */}
           <Container as="section" sx={{ mt: 5 }}>
             <Text as="p" variant="eyebrow">
-              From the Slack...
+              From the Slack community...
             </Text>
             <Heading as="h2" variant="title">
               A hackathon organizer's{' '}
@@ -83,22 +83,22 @@ export default function Bank() {
               </Text>
               .
             </Heading>
-            <MovingCards />
-            <Grid
-              columns={[null, null, 2]}
-              gap={[3, 4]}
-              variant="layout.container"
-              sx={{
-                mt: [1, 2, 3],
-                textAlign: 'left',
-                div: { p: [3, 4] },
-                h2: { variant: 'text.headline', color: 'blue', mt: 0, mb: 2 },
-                p: { fontSize: 2, my: 0 }
-              }}
-            >
-              <Content />
-            </Grid>
           </Container>
+          <MovingCards />
+          <Grid
+            columns={[null, null, 2]}
+            gap={[3, 4]}
+            variant="layout.container"
+            sx={{
+              mt: [1, 2, 3],
+              textAlign: 'left',
+              div: { p: [3, 4] },
+              h2: { variant: 'text.headline', color: 'blue', mt: 0, mb: 2 },
+              p: { fontSize: 2, my: 0 }
+            }}
+          >
+            <Content />
+          </Grid>
 
           <Cta />
         </Box>
