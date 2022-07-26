@@ -22,8 +22,8 @@ export default function Rundown() {
               whiteSpace: ['wrap', 'nowrap']
             }}
           >
-            amazing{' '}
-          </Text>
+            amazing
+          </Text>{' '}
           hackathon.
         </Heading>
       </Box>
@@ -54,7 +54,12 @@ export default function Rundown() {
             svg: { color: '#fb558e' }
           }}
         >
-          <Stage icon="sam" color="white" name="Slack community?" desc="yeah" />
+          <Stage
+            icon="slack"
+            color="white"
+            name="Slack community"
+            desc={`Connect with a community of hackathon organizers and get support from peers.`}
+          />
         </Card>
         <Card
           sx={{
@@ -67,8 +72,8 @@ export default function Rundown() {
           <Stage
             icon="bank-account"
             color="white"
-            name="$0k in grants"
-            desc="Waived fees & grants for IRL hacakthons"
+            name="$10k in grants"
+            desc="We've partnered with ___ to provide $500 grants for IRL high school hackathons this semester."
           />
         </Card>
         <Card
@@ -83,7 +88,7 @@ export default function Rundown() {
             icon="event-check"
             color="white"
             name="Attendees"
-            desc="Somethingabout spreading the word about your IRL hackathon."
+            desc="You'll have the opportunity to be listed on the front page of hackathons.hackclub.com, something about email list, and maybe the site haivng good seo?."
           />
         </Card>
       </Grid>
