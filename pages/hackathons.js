@@ -10,6 +10,7 @@ import Rundown from '../components/hackathons/rundown'
 import Content from '../components/hackathons/content.mdx'
 import MovingCards from '../components/hackathons/moving-cards'
 import Cta from '../components/hackathons/cta'
+import Philosophy from '../components/hackathons/philosophy'
 
 export default function Bank() {
   return (
@@ -53,6 +54,8 @@ export default function Bank() {
               share joy in computers build things, and form communities.
             </Text>
           </Container>
+
+          <Philosophy />
 
           {/* what hack club (community) is providing to hackathon organizers */}
           <Container as="section">

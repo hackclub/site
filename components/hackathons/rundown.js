@@ -87,8 +87,8 @@ export default function Rundown() {
           <Stage
             icon="event-check"
             color="white"
-            name="Attendees"
-            desc="You'll have the opportunity to be listed on the front page of hackathons.hackclub.com, something about email list, and maybe the site haivng good seo?."
+            name="Marketing"
+            desc="Listed on the front page of hackathons.hackclub.com & email blasted to subscriber list of xx."
           />
         </Card>
       </Grid>

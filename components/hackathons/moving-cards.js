@@ -50,6 +50,16 @@ export default function MovingCards() {
           </Box>
         )}
       </Ticker>
+
+      <Ticker direction="toRight">
+        {() => (
+          <Box as="div" sx={{ display: 'flex' }}>
+            {messageData.map(({ id, message, username }) => (
+              <MessageCard key={id} message={message} username={username} />
+            ))}
+          </Box>
+        )}
+      </Ticker>
     </>
   )
 }
