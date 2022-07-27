@@ -11,8 +11,9 @@ import Content from '../components/hackathons/content.mdx'
 import MovingCards from '../components/hackathons/moving-cards'
 import Cta from '../components/hackathons/cta'
 import Philosophy from '../components/hackathons/philosophy'
+import Landing2 from '../components/hackathons/landing2'
 
-export default function Hackathons() {
+export default function HackathonsLanding() {
   return (
     <>
       <Box as="main" key="main">
@@ -25,7 +26,7 @@ export default function Hackathons() {
           image="/hackathons/og-image.png"
         />
         <Box as="main">
-          <Landing />
+          <Landing2 />
 
           {/* Overview/rundown/what is a hackathon/why you should be so jazzed about irl hackathons */}
           <Container as="section" sx={{ mt: 5 }}>
