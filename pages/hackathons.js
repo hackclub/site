@@ -11,6 +11,10 @@ import Content from '../components/hackathons/content.mdx'
 import MovingCards from '../components/hackathons/moving-cards'
 import Cta from '../components/hackathons/cta'
 import Philosophy from '../components/hackathons/philosophy'
+import Slack from '../components/hackathons/features/slack'
+import Money from '../components/hackathons/features/money'
+import Landing2 from '../components/hackathons/landing2'
+import Marketing from '../components/hackathons/features/marketing'
 
 export default function Hackathons() {
   return (
@@ -25,47 +29,25 @@ export default function Hackathons() {
           image="/hackathons/og-image.png"
         />
         <Box as="main">
-          <Landing />
+          <Landing2 />
 
           {/* Overview/rundown/what is a hackathon/why you should be so jazzed about irl hackathons */}
-          <Container as="section" sx={{ mt: 5 }}>
-            <Text as="p" variant="eyebrow">
-              Hackathons
-            </Text>
-            <Heading as="h2" variant="title">
-              Mhmm yeah gadzooks{' '}
-              <Text
-                as="span"
-                sx={{
-                  borderRadius: 'default',
-                  px: 2,
-                  mx: [-2, 0],
-                  whiteSpace: 'nowrap',
-                  color: '#5d114c',
-                  bg: 'rgb(255, 212, 64)'
-                }}
-              >
-                magic
-              </Text>
-              .
-            </Heading>
-            <Text as="p" variant="lead" sx={{ width: 'copyPlus' }}>
-              A social coding event where high school students come together and
-              share joy in computers build things, and form communities.
-            </Text>
-          </Container>
 
           <Philosophy />
 
-          {/* what hack club (community) is providing to hackathon organizers */}
+          <Slack />
+
+          <Money />
+
+          <Marketing />
+
           <Container as="section">
             <Rundown />
           </Container>
 
-          {/* I feel like there should be some sort of marquee animation here. hmmm yeah idk maybe
-           it would be cool to use slack messages? questions from hackathon-organizers? faqs about 
-           running hackathons? */}
-          <Container as="section" sx={{ mt: 5 }}>
+          {/* old heading for the slack sectoin */}
+
+          {/* <Container as="section" sx={{ mt: 5 }}>
             <Text as="p" variant="eyebrow">
               The Slack community
             </Text>
@@ -79,16 +61,19 @@ export default function Hackathons() {
                   mx: [-2, 0],
                   whiteSpace: 'nowrap',
                   color: 'white',
-                  bg: '#6f31b7'
+                  bg: 'rgb(255, 212, 64)'
                 }}
               >
                 best friend
               </Text>
               .
             </Heading>
-          </Container>
-          <MovingCards />
-          <Grid
+          </Container> */}
+
+          {/* <MovingCards /> */}
+
+          {/* mdx section that might be useful */}
+          {/* <Grid
             columns={[null, null, 2]}
             gap={[3, 4]}
             variant="layout.container"
@@ -101,9 +86,10 @@ export default function Hackathons() {
             }}
           >
             <Content />
-          </Grid>
+          </Grid> */}
 
-          <Cta />
+          {/* boring card cta that shows up at the bottom of mdx pages usually */}
+          {/* <Cta /> */}
         </Box>
       </Box>
       <Footer key="footer" />

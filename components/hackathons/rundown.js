@@ -6,7 +6,7 @@ export default function Rundown() {
     <>
       <Box as="header" sx={{ textAlign: [null, 'center'], pt: [4, 5] }}>
         <Text as="p" variant="eyebrow">
-          The rundown
+          Let's recap
         </Text>
         <Heading as="h2" variant="title">
           Resources so you can organize an{' '}
@@ -73,7 +73,7 @@ export default function Rundown() {
             icon="bank-account"
             color="white"
             name="$10k in grants"
-            desc="We've partnered with ___ to provide $500 grants for IRL high school hackathons this semester."
+            desc="We've partnered with Gadzooks to provide $500 grants for IRL high school hackathons this semester."
           />
         </Card>
         <Card
@@ -88,7 +88,7 @@ export default function Rundown() {
             icon="event-check"
             color="white"
             name="Marketing"
-            desc="Listed on the front page of hackathons.hackclub.com & email blasted to subscriber list of xx."
+            desc="List your event the front page of Google and emailed to high school hackers in your area."
           />
         </Card>
       </Grid>

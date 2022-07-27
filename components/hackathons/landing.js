@@ -29,13 +29,10 @@ export default function Landing() {
               variant="ultratitle"
             >
               <Text variant="eyebrow" sx={{ color: 'white', opacity: 0.875 }}>
-                This semester, we're helping to kickstart
+                Welcome to the high school hackathon
               </Text>
               <Heading as="h1" variant="ultratitle" sx={{ mb: [3, 4] }}>
-                A renaissance of IRL{' '}
-                
-                {/* highlight or outline? */}
-
+                A renaissance of IRL {/* highlight or outline? */}
                 {/* <Highlight>high school hackathons.</Highlight> */}
                 <Text
                   as="span"

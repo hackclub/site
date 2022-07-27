@@ -18,21 +18,20 @@ export default function Philosophy() {
         }}
       >
         <Heading as="h2" sx={{ fontSize: [36, 48] }} color="rgb(115, 45, 228);">
-          Wack hack wack!
+          Welcome to the high school hackathon.
         </Heading>
         <Box sx={{ fontSize: [3, 3] }}>
-          <strong>The goal of Hack Club is to help you become a hacker.</strong>{' '}
-          We want a space at every school where people are making interesting
-          things with code, every week. Schools don’t provide that, so we’re
-          creating it in every school to make building things accessible to
-          everyone.
+          Hackathons are a place to build things for fun and meet others doing
+          the same. If you're currently a high schoooler, chances are you've
+          never been to an IRL hackathon. They vanished when the pandemic hit,
+          and now they're missing from our new normal.
         </Box>
       </Container>
 
       <Container
         sx={{
           px: 3,
-          py: [4, 5],
+          pb: [4, 5],
           color: 'black',
           display: 'grid',
           textAlign: 'left',
@@ -44,14 +43,13 @@ export default function Philosophy() {
         }}
       >
         <Heading as="h2" sx={{ fontSize: [36, 48] }} color="rgb(22, 209, 219);">
-          Wack hack wack!
+          Hackathons are just the beginning.
         </Heading>
         <Box sx={{ fontSize: [3, 3] }}>
-          <strong>The goal of Hack Club is to help you become a hacker.</strong>{' '}
-          We want a space at every school where people are making interesting
-          things with code, every week. Schools don’t provide that, so we’re
-          creating it in every school to make building things accessible to
-          everyone.
+          <strong>We're at our best when we're making.</strong> Hackathons
+          create a space for people to learn, build, and share their creations.
+          The hacking doesn't stop there. After the hackathon, attendees will
+          feel inspired to keep building and sharing their creations.
         </Box>
       </Container>
     </>
