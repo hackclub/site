@@ -40,17 +40,17 @@ export default function Landing2({ showButton, eventsCount }) {
                 variant="translucent"
                 sx={{
                   variant: 'layout.container',
-                  maxWidth: [null, 700, 1200],
+                  maxWidth: [null, 700, 1000],
                   borderRadius: 'extra',
                   p: [3, 4],
                   position: 'relative',
                   color: 'black'
                 }}
               >
-                {/* <Button
+                <Button
                   as="a"
                   variant="cta"
-                  href="https://hack.af/som-stickers"
+                  href="https://hackathons.hackclub.com"
                   sx={{
                     backgroundImage: t => t.util.gx('yellow', 'pink'),
                     position: 'absolute',
@@ -62,11 +62,10 @@ export default function Landing2({ showButton, eventsCount }) {
                     ]
                   }}
                 >
-                  Get stickers
-                </Button> */}
+                  Looking for hackathons?
+                </Button>
                 <Text as="p" variant="headline" sx={{ mt: 0, color: 'muted' }}>
-                  The last IRL hackathon was 2 years ago. This semester, we're
-                  helping to kickstart
+                  Leading text
                 </Text>
                 <Heading
                   as="h2"
@@ -76,7 +75,7 @@ export default function Landing2({ showButton, eventsCount }) {
                     span: { color: 'white', display: 'block' }
                   }}
                 >
-                  A renaissance of IRL{' '}
+                  Welcome to the{' '}
                   <Text
                     as="span"
                     variant="ultratitle"
@@ -86,13 +85,22 @@ export default function Landing2({ showButton, eventsCount }) {
                       WebkitTextFillColor: '#33D6A6'
                     }}
                   >
-                    high&nbsp;school&nbsp;hackathons.
+                    high&nbsp;school&nbsp;hackathon.
                   </Text>
                 </Heading>
                 <Text as="p" variant="subtitle" mt={3}>
-                  Hack Club is providing the support and resources to help you
-                  run an amazing event. We're distributing $10k in grants &
-                  providing a space for hackathon organizers to Slack c.
+                  <strong>
+                    It's not an extracurricular or a club. It's not a class or a
+                    lecture.
+                  </strong>{' '}
+                  Hackathons are a place to build things for fun and meet others
+                  doing the same.
+                </Text>
+                <Text as="p" variant="subtitle" mt={3}>
+                  To help kickstart a new renaissance for IRL high school
+                  hacakthons this semester, we’re distributing $10,000 in grants
+                  (thanks Gadzooks!) & providing the tools and resources for you
+                  to run the best events.
                 </Text>
               </Card>
               {/* <Container
