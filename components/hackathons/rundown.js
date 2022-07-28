@@ -49,6 +49,8 @@ export default function Rundown() {
       >
         <Card
           variant="interactive"
+          as="a"
+          href="/slack"
           sx={{
             background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
             color: 'white',
@@ -64,6 +66,8 @@ export default function Rundown() {
         </Card>
         <Card
           variant="interactive"
+          as="a"
+          href="/bank"
           sx={{
             background:
               'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
@@ -80,6 +84,8 @@ export default function Rundown() {
         </Card>
         <Card
           variant="interactive"
+          as="a"
+          href="https://hackathons.hackclub.com/"
           sx={{
             background:
               'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
