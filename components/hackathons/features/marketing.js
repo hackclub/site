@@ -60,8 +60,7 @@ const Cover = () => (
 )
 
 const Static = ({
-  img = 'https://cloud-nykwtt0z7.vercel.app/2020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png'
-  // img="https://cloud-re5hkabx0.vercel.app/2020-07-25_hn13qhejqrzu4n1jy9yacxxgrgp3wf5u.png"
+  img = 'https://cloud-ateizv565-hack-club-bot.vercel.app/0screen_shot_2022-07-27_at_2.57.41_pm.png'
 }) => (
   <Box
     as="section"
@@ -111,6 +110,14 @@ const Marketing = () => {
           <source
             src="https://cloud-55tm7eveg-hack-club-bot.vercel.app/0screen_recording_2022-07-27_at_2.48.43_pm.mp4"
             type="video/mp4; codecs=hevc"
+          />
+          <source
+            src="https://cloud-r9u5vfqcv-hack-club-bot.vercel.app/0screen_recording_2022-07-27_at_2.48.43_pm.webm"
+            type="video/webm; codecs=vp9,opus"
+          />
+          <source
+            src="https://cloud-r9u5vfqcv-hack-club-bot.vercel.app/1screen_recording_2022-07-27_at_2.48.43_pm.mp4"
+            type="video/quicktime"
           />
         </Box>
         <Cover />
