@@ -4,6 +4,7 @@ import usePrefersMotion from '../../../lib/use-prefers-motion'
 import useHasMounted from '../../../lib/use-has-mounted'
 import { formatted } from '../../../lib/members'
 import Link from 'next/link'
+import theme from '@hackclub/theme'
 
 const Content = () => (
   <Container
@@ -19,16 +20,27 @@ const Content = () => (
     }}
   >
     <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
-      Spread the word
+      hackathons.hackclub.com
     </Text>
     <Heading as="h2" variant="title">
-      Reach a network of high school hackers
+      Spread the word about your hackathon.
     </Heading>
     <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
-      List your hackathon on hackathons.hackclub.com (the first Google search
-      result for "high school hackathons") and emailed to other high school
-      hackers in your area.
+      Reach hackers worldwide by listing your event on the first Google search
+      result for "high school hackathons." Your event will also be emailed to a
+      network of high school hackers in your area.
     </Text>
+    <Link href="https://hackathons.hackclub.com" passHref>
+      <Button
+        as="a"
+        variant="ctaLg"
+        sx={{
+          backgroundImage: theme => theme.util.gx('yellow', 'red')
+        }}
+      >
+        Add your hackathon →
+      </Button>
+    </Link>
   </Container>
 )
 
@@ -40,8 +52,8 @@ const Cover = () => (
       top: 0,
       left: 0,
       right: 0,
-      backgroundImage: t => t.util.gx('cyan', 'green'),
-      opacity: 0.825,
+      backgroundImage: t => t.util.gx('slate', 'black'),
+      opacity: 0.7,
       zIndex: 1
     }}
   />
@@ -53,10 +65,11 @@ const Static = ({
 }) => (
   <Box
     as="section"
+    id="slack"
     sx={{
       position: 'relative',
       overflow: 'hidden',
-      backgroundImage: t => t.util.gx('cyan', 'green'),
+      backgroundImage: `url(${img})`,
       backgroundSize: 'cover'
     }}
   >
@@ -66,7 +79,47 @@ const Static = ({
 )
 
 const Marketing = () => {
-  return <Static />
+  const hasMounted = useHasMounted()
+  const prefersMotion = usePrefersMotion()
+  if (hasMounted && prefersMotion) {
+    return (
+      <Box
+        as="section"
+        id="slack"
+        sx={{ overflow: 'hidden', position: 'relative' }}
+      >
+        <Box
+          as="video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://cloud-ateizv565-hack-club-bot.vercel.app/0screen_shot_2022-07-27_at_2.57.41_pm.png"
+          duration={2000}
+          sx={{
+            position: 'absolute',
+            bottom: 0,
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '100%',
+            zIndex: -1,
+            width: '100vw',
+            objectFit: 'cover'
+          }}
+        >
+          <source
+            src="https://cloud-55tm7eveg-hack-club-bot.vercel.app/0screen_recording_2022-07-27_at_2.48.43_pm.mp4"
+            type="video/mp4; codecs=hevc"
+          />
+        </Box>
+        <Cover />
+        <Content />
+      </Box>
+    )
+  } else {
+    return <Static />
+  }
 }
 
 export default Marketing

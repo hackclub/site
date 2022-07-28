@@ -41,7 +41,7 @@ const Content = () => (
     <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
       On the Slack, you'll find a community of hackathon organizers new and
       experienced alike. Ask questions, get help, and share your own
-      experiences. We'll be there to help you out.
+      experiences. We'll always be there to support you.
     </Text>
     <Link href="/slack" passHref>
       <Button

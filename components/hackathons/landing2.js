@@ -93,14 +93,14 @@ export default function Landing2({ showButton, eventsCount }) {
                     It's not an extracurricular or a club. It's not a class or a
                     lecture.
                   </strong>{' '}
-                  Hackathons are a place to build things for fun and meet others
-                  doing the same.
+                  Hackathons are a playground to build things for fun and meet
+                  others doing the same.
                 </Text>
                 <Text as="p" variant="subtitle" mt={3}>
-                  To help kickstart a new renaissance for IRL high school
-                  hacakthons this semester, we’re distributing $10,000 in grants
-                  (thanks Gadzooks!) & providing the tools and resources for you
-                  to run the best events.
+                  To inpsire a renaissance for IRL high school hacakthons this
+                  semester, we’re distributing $10,000 in grants (thanks
+                  Gadzooks!) & providing the tools and resources for you to run
+                  the best events.
                 </Text>
               </Card>
               {/* <Container

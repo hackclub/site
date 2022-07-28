@@ -100,12 +100,24 @@ const Content = () => (
         />
         <ListItem
           icon="bolt"
-          leadText="No more Bank fees."
+          leadText="All fees waived."
           body={`
-          For hackathons running this semester, we're waiving the 7% Hack Club Bank fee. Focus on 
-          raising money, not calculating the money you'll lose from fees.`}
+          This semester, run your hackathon on Hack Club Bank for free. All the money you raise goes 
+          directly towards your hackathon.`}
+        />
+        <ListItem
+          icon="rep"
+          leadText="A suite of free tools."
+          body={`
+          Once you join Bank, you'll have access to a suite of tools to help you run a great hackathon including
+          Google Workspace, a domain, stickers, and more—all for free!`}
         />
       </List>
+      <Link href="/bank/apply" passHref>
+        <Button as="a" variant="outlineLg" sx={{ width: 500 }}>
+          Apply for Hack Club Bank →
+        </Button>
+      </Link>
     </Container>
   </>
 )
