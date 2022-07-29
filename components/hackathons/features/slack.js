@@ -42,7 +42,7 @@ const Content = () => (
     the user is a hackathon organizer & points them to the #hackathon-organisers channel */}
     <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
       On the Slack, you'll find a community of{' '}
-      <Box as="span" sx={{ bg: 'muted' }}>
+      <Box as="span" sx={{ bg: 'muted', px: 1, borderRadius: 5 }}>
         #hackathon-organizers
       </Box>{' '}
       new and experienced alike. Ask questions, get help, and share your own
