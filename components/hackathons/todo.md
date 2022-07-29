@@ -11,3 +11,4 @@
   - [ ] 1 for hackers who are looking for hackathons
 - [ ] reorder sections to make sense
   - [ ] opening car hood
+- [ ] Better title/lead text for bank section
