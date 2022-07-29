@@ -79,7 +79,7 @@ export default function Rundown() {
             icon="bank-account"
             color="white"
             name="$10k in grants"
-            desc="We've partnered with Gadzooks to provide $500 grants for IRL high school hackathons this semester."
+            desc="We've partnered with FIRST to provide $500 grants for IRL high school hackathons this semester."
           />
         </Card>
         <Card
