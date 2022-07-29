@@ -38,9 +38,14 @@ const Content = () => (
       </Text>
       .
     </Heading>
+    {/* random note unrealted to this: there should be a thing in the Slack onboarding flow that asks if
+    the user is a hackathon organizer & points them to the #hackathon-organisers channel */}
     <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
-      On the Slack, you'll find a community of hackathon organizers new and
-      experienced alike. Ask questions, get help, and share your own
+      On the Slack, you'll find a community of{' '}
+      <Box as="span" sx={{ bg: 'muted' }}>
+        #hackathon-organizers
+      </Box>{' '}
+      new and experienced alike. Ask questions, get help, and share your own
       experiences. We'll always be there to support you.
     </Text>
     <Link href="/slack" passHref>
@@ -122,15 +127,15 @@ const Slack = () => {
           }}
         >
           <source
-            src="https://cloud-e76v36px6-hack-club-bot.vercel.app/0screen_recording_2022-07-29_at_9.34.16_am.mp4"
+            src="https://cloud-absimk9o2-hack-club-bot.vercel.app/0hellyeah-smooth-scroll.mp4"
             type="video/mp4; codecs=hevc"
           />
           <source
-            src="https://cloud-67136uw75-hack-club-bot.vercel.app/0screen_recording_2022-07-29_at_9.34.16_am.webm"
+            src="https://cloud-7fyyvr9jk-hack-club-bot.vercel.app/0screen_recording_2022-07-29_at_12.26.48_pm.webm"
             type="video/webm; codecs=vp9,opus"
           />
           <source
-            src="https://cloud-e76v36px6-hack-club-bot.vercel.app/0screen_recording_2022-07-29_at_9.34.16_am.mp4"
+            src="https://cloud-absimk9o2-hack-club-bot.vercel.app/0hellyeah-smooth-scroll.mp4"
             type="video/quicktime"
           />
         </Box>
