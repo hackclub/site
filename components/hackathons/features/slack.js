@@ -51,7 +51,7 @@ const Content = () => (
           background: 'linear-gradient(-132deg, #338eda 14%, #33d6a6 82%)'
         }}
       >
-        Join the community →
+        Join us on Slack →
       </Button>
     </Link>
   </Container>
@@ -122,15 +122,15 @@ const Slack = () => {
           }}
         >
           <source
-            src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.hecv.mp4?v=1590780967658"
+            src="https://cloud-e76v36px6-hack-club-bot.vercel.app/0screen_recording_2022-07-29_at_9.34.16_am.mp4"
             type="video/mp4; codecs=hevc"
           />
           <source
-            src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.webm?v=1590781698834"
+            src="https://cloud-67136uw75-hack-club-bot.vercel.app/0screen_recording_2022-07-29_at_9.34.16_am.webm"
             type="video/webm; codecs=vp9,opus"
           />
           <source
-            src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.mov?v=1590781491717"
+            src="https://cloud-e76v36px6-hack-club-bot.vercel.app/0screen_recording_2022-07-29_at_9.34.16_am.mp4"
             type="video/quicktime"
           />
         </Box>

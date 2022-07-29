@@ -13,7 +13,7 @@ import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
 import hero from '../../public/hackathons/mahacks.jpeg'
 
-export default function Landing2({ showButton, eventsCount }) {
+export default function Landing2({ showButton }) {
   return (
     <>
       <Slide>
@@ -31,8 +31,8 @@ export default function Landing2({ showButton, eventsCount }) {
         >
           <Box
             sx={{
-              zIndex: '100',
-              paddingTop: '96px'
+              zIndex: 999,
+              paddingTop: 96
             }}
           >
             <Fade duration={625} bottom>
@@ -64,9 +64,9 @@ export default function Landing2({ showButton, eventsCount }) {
                 >
                   Looking for hackathons?
                 </Button>
-                <Text as="p" variant="headline" sx={{ mt: 0, color: 'muted' }}>
+                {/* <Text as="p" variant="headline" sx={{ mt: 0, color: 'muted' }}>
                   Leading text
-                </Text>
+                </Text> */}
                 <Heading
                   as="h2"
                   variant="title"
@@ -97,85 +97,14 @@ export default function Landing2({ showButton, eventsCount }) {
                   others doing the same.
                 </Text>
                 <Text as="p" variant="subtitle" mt={3}>
-                  To inpsire a renaissance for IRL high school hacakthons this
-                  semester, we’re distributing $10,000 in grants (thanks
+                  This semester, we’re distributing $10k in grants (thanks
                   Gadzooks!) & providing the tools and resources for you to run
                   the best events.
                 </Text>
               </Card>
-              {/* <Container
-                variant="container"
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  textAlign: 'center'
-                }}
-              >
-                <Heading
-                  variant="ultratitle"
-                  sx={{
-                    marginBottom: 4,
-                    textShadow: '0 0 16px rgba(0, 0, 0, 1)',
-                    letterSpacing: '-0.02em',
-                    '@media screen and (max-height: 600px)': {
-                      lineHeight: 0.875
-                    },
-                    '@media screen and (min-height: 610px)': {
-                      lineHeight: 1.125
-                    }
-                  }}
-                >
-                  <Underline>Become a 501(c)(3) nonprofit</Underline> with
-                  Hack&nbsp;Club&nbsp;Bank.
-                </Heading>
-                <Container variant="copy">
-                  <Text
-                    variant="lead"
-                    sx={{
-                      textShadow: '0 3px 6px rgba(0, 0, 0, 0.5)',
-                      '@media screen and (max-height: 600px)': {
-                        lineHeight: 1
-                      }
-                    }}
-                  >
-                    The team behind the{' '}
-                    <Link
-                      href="https://innovationcircuit.com"
-                      target="_blank"
-                      color="inherit"
-                      bold
-                      hoverline
-                    >
-                      Innovation Circuit
-                    </Link>{' '}
-                    is one of {Math.round((eventsCount - 50) / 100) * 100}+
-                    teams who use <strong>Hack&nbsp;Club&nbsp;Bank</strong> to
-                    run world-class events.
-                  </Text>
-                </Container>
-              </Container> */}
             </Fade>
           </Box>
           <br />
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginBottom: 3
-            }}
-          >
-            {showButton && (
-              <Button
-                variant="outlineLg"
-                as="a"
-                href="#apply"
-                style={{ zIndex: '100' }}
-              >
-                Apply Now
-              </Button>
-            )}
-          </Box>
           <ScrollHint />
         </Box>
       </Slide>

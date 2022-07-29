@@ -88,7 +88,7 @@ const Content = () => (
             textShadow: theme => `0 0 12px ${theme.colors.red}`
           }}
         >
-          Grants, no-fees, and more!
+          Grants, waived fees, and more!
         </Text>
       </Container>
       <List>
@@ -109,8 +109,8 @@ const Content = () => (
           icon="rep"
           leadText="A suite of free tools."
           body={`
-          Once you join Bank, you'll have access to a suite of tools to help you run a great hackathon including
-          Google Workspace, a domain, stickers, and more—all for free!`}
+          When you join Hack Club Bank, you'll have access to a suite of free tools including
+          debit cards, a domain name, Google Workspace, stickers, and more.`}
         />
       </List>
       <Link href="/bank/apply" passHref>
