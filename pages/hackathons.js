@@ -5,11 +5,11 @@ import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 
-import Landing from '../components/hackathons/landing'
+// import Landing from '../components/hackathons/landing'
 import Rundown from '../components/hackathons/rundown'
-import Content from '../components/hackathons/content.mdx'
+// import Content from '../components/hackathons/content.mdx'
 import MovingCards from '../components/hackathons/moving-cards'
-import Cta from '../components/hackathons/cta'
+// import Cta from '../components/hackathons/cta'
 import Philosophy from '../components/hackathons/philosophy'
 import Slack from '../components/hackathons/features/slack'
 import Money from '../components/hackathons/features/money'
@@ -34,13 +34,9 @@ export default function Hackathons() {
           {/* Overview/rundown/what is a hackathon/why you should be so jazzed about irl hackathons */}
 
           <Philosophy />
-
-          <Slack />
-
           <Money />
-
+          <Slack />
           <Marketing />
-
           <Container as="section">
             <Rundown />
           </Container>

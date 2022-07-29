@@ -59,7 +59,8 @@ export default function Landing2({ showButton }) {
                     transform: [
                       'translateY(-50%) rotate(8deg)',
                       'translateX(15%) rotate(12deg)'
-                    ]
+                    ],
+                    fontSize: [2, 3]
                   }}
                 >
                   Looking for hackathons?
@@ -82,24 +83,27 @@ export default function Landing2({ showButton }) {
                     sx={{
                       WebkitTextStroke: 'currentColor',
                       WebkitTextStrokeWidth: ['2px', '3px'],
-                      WebkitTextFillColor: '#33D6A6'
+                      WebkitTextFillColor: '#33D6A6',
+                      whiteSpace: [null, null, 'nowrap']
                     }}
                   >
-                    high&nbsp;school&nbsp;hackathon.
+                    high school hackathon.
                   </Text>
                 </Heading>
-                <Text as="p" variant="subtitle" mt={3}>
+                <Text
+                  as="p"
+                  variant="subtitle"
+                  sx={{
+                    mt: [3, 4],
+                    fontSize: [2, 3]
+                  }}
+                >
                   <strong>
                     It's not an extracurricular or a club. It's not a class or a
                     lecture.
                   </strong>{' '}
                   Hackathons are a playground to build things for fun and meet
                   others doing the same.
-                </Text>
-                <Text as="p" variant="subtitle" mt={3}>
-                  This semester, we’re distributing $10k in grants (thanks
-                  Gadzooks!) & providing the tools and resources for you to run
-                  the best events.
                 </Text>
               </Card>
             </Fade>

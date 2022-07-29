@@ -26,7 +26,7 @@ const Content2 = () => (
       A full-stack financial toolkit
     </Text>
     <Heading as="h2" variant="title">
-      Hack Club Bank and Gadzooks!
+      Hack Club Bank and FIRST
       <Text
         as="span"
         sx={{
@@ -44,7 +44,7 @@ const Content2 = () => (
     </Heading>
     <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
       waiving fees for hackathons on hack club bank. and $10k in grants thanks
-      to our generous friends at Gadzooks!
+      to our generous friends at FIRST!
     </Text>
     <Link href="/slack" passHref>
       <Button
@@ -76,7 +76,7 @@ const Content = () => (
       }}
     >
       <Container maxWidth={28} sx={{ mx: 0, py: 4 }}>
-        <Text variant="eyebrow">Hack Club Bank & Gadzooks</Text>
+        <Text variant="eyebrow">Hack Club Bank & FIRST</Text>
         <br />
         <Text
           as="span"
@@ -94,8 +94,8 @@ const Content = () => (
       <List>
         <ListItem
           icon="payment"
-          leadText="$10k in grants."
-          body={`Thanks to our friends at Gadzooks!, in-person hackathons running on Hack Club Bank
+          leadText="A $500 grant."
+          body={`In partnership with FIRST, in-person hackathons running on Hack Club Bank
                  are eligible for a $500 grant (with proof of venue).`}
         />
         <ListItem

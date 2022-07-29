@@ -1,4 +1,5 @@
-import { Heading, Container, Box } from 'theme-ui'
+import { Heading, Container, Box, Button } from 'theme-ui'
+import Link from 'next/link'
 
 export default function Philosophy() {
   return (
@@ -56,6 +57,40 @@ export default function Philosophy() {
           volunteers. We make things. We want others to make things too.
         </Box>
       </Container>
+
+      <Box
+        sx={{
+          backgroundImage: t => t.util.gx('orange', 'red'),
+          margin: 'auto',
+          width: '600px',
+          maxWidth: '90%',
+          mb: 4,
+          borderRadius: 8,
+          color: 'white',
+          textAlign: 'center',
+          p: 4
+        }}
+      >
+        <Heading as="h1" sx={{ fontSize: 5, mb: 2 }}>
+          Join the movement!
+        </Heading>
+        <Link href="/slack" passHref>
+          <Button
+            sx={{ bg: 'white', color: 'red' }}
+            mr={[0, 3]}
+            mb={[3, 0]}
+            as="a"
+          >
+            Meet hackathon-goers
+          </Button>
+        </Link>
+
+        <Link href="https://hackathons.hackclub.com" passHref>
+          <Button sx={{ bg: 'white', color: 'red' }} as="a">
+            Discover hackathons
+          </Button>
+        </Link>
+      </Box>
     </Box>
   )
 }
