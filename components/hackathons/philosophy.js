@@ -2,7 +2,7 @@ import { Heading, Container, Box } from 'theme-ui'
 
 export default function Philosophy() {
   return (
-    <>
+    <Box sx={{ py: 4 }}>
       <Container
         sx={{
           px: 3,
@@ -23,11 +23,11 @@ export default function Philosophy() {
           build to learn.
         </Heading>
         <Box sx={{ fontSize: [3, 3] }}>
-          The best way to learn is by building. A hackathon is a space that
-          helps give makers everything they need to start building–mentors,
-          collaborators, inspiration, and a goal to work towards. Hackers will
-          leave a hackathon with a project of their own, ready and excited to
-          keep hacking once they get home.
+          <strong>The best way to learn is by building.</strong> A hackathon is
+          a space that helps give makers everything they need to start
+          building–mentors, collaborators, inspiration, and a goal to work
+          towards. Hackers will leave a hackathon with a project of their own,
+          ready and excited to keep hacking once they get home.
         </Box>
       </Container>
 
@@ -56,6 +56,6 @@ export default function Philosophy() {
           volunteers. We make things. We want others to make things too.
         </Box>
       </Container>
-    </>
+    </Box>
   )
 }
