@@ -102,7 +102,7 @@ export default function Rundown() {
             icon="event-check"
             color="white"
             name="Marketing"
-            desc="List your event the front page of Google and emailed to high school hackers in your area."
+            desc="List your event on the front page of Google and emailed to high school hackers in your area."
           />
         </Card>
       </Grid>
