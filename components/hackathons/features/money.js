@@ -19,7 +19,10 @@ const Content = () => (
       }}
     >
       <Container maxWidth={28} sx={{ mx: 0, py: 4 }}>
-        <Text variant="eyebrow">Hack Club Bank & FIRST</Text>
+        {/* https://www.firstinspires.org/sites/default/files/uploads/resource_library/brand/first-brand-guidelines-2020.pdf */}
+        <Text variant="eyebrow">
+          Hack Club Bank & <em>FIRST®</em>
+        </Text>
         <br />
         <Text
           as="span"
@@ -37,9 +40,17 @@ const Content = () => (
       <List>
         <ListItem
           icon="payment"
-          leadText="A $500 grant."
-          body={`In partnership with FIRST, in-person hackathons running on Hack Club Bank
-                 are eligible for a $500 grant (with proof of venue).`}
+          leadText="$500 grants."
+          body={
+            <>
+              In partnership with{' '}
+              <Link href="https://www.firstinspires.org/">
+                <em>FIRST®</em>
+              </Link>
+              , in-person hackathons running on Hack Club Bank are eligible for
+              a $500 grant (with proof of venue).
+            </>
+          }
         />
         <ListItem
           icon="bolt"
