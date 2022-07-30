@@ -9,7 +9,7 @@
 - [ ] have 2 flows
   - [ ] 1 for hackathon organizers
   - [ ] 1 for hackers who are looking for hackathons
-- [ ] reorder sections to make sense
+- [x] reorder sections to make sense
   - [ ] opening car hood
 - [ ] Better title/lead text for bank section
   - [ ] make it _SING_
