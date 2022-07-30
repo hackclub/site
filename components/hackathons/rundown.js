@@ -78,8 +78,13 @@ export default function Rundown() {
           <Stage
             icon="bank-account"
             color="white"
-            name="$10k in grants"
-            desc="We've partnered with FIRST to provide $500 grants for IRL high school hackathons this semester."
+            name="$500 grants"
+            desc={
+              <>
+                We've partnered with <em>FIRST®</em> to provide $500 grants for
+                IRL high school hackathons this semester.
+              </>
+            }
           />
         </Card>
         <Card
