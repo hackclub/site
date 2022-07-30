@@ -23,7 +23,7 @@ export default function Landing() {
             position: 'absolute',
             flexDirection: 'column',
             justifyContent: 'center',
-            bottom: 5,
+            bottom: 150,
             mx: 'auto',
             width: '100%'
           }}
@@ -107,6 +107,7 @@ export default function Landing() {
               </Card>
             </Fade>
           </Box>
+          <br />
           <br />
           <ScrollHint />
         </Box>
