@@ -1,8 +1,6 @@
-import { Button, Box, Container, Heading, Flex, Grid, Text } from 'theme-ui'
-import styled from '@emotion/styled'
+import { Button, Box, Container, Heading, Text } from 'theme-ui'
 import usePrefersMotion from '../../../lib/use-prefers-motion'
 import useHasMounted from '../../../lib/use-has-mounted'
-import { formatted } from '../../../lib/members'
 import Link from 'next/link'
 
 const Content = () => (
@@ -78,8 +76,8 @@ const Cover = () => (
 )
 
 const Static = ({
-  img = 'https://cloud-nykwtt0z7.vercel.app/2020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png'
-  // img="https://cloud-re5hkabx0.vercel.app/2020-07-25_hn13qhejqrzu4n1jy9yacxxgrgp3wf5u.png"
+  // screenshot of messages from #hackathon-organizers
+  img = 'https://cloud-re5hkabx0.vercel.app/2020-07-25_hn13qhejqrzu4n1jy9yacxxgrgp3wf5u.png'
 }) => (
   <Box
     as="section"
@@ -112,7 +110,8 @@ const Slack = () => {
           muted
           loop
           playsInline
-          poster="https://cloud-nykwtt0z7.vercel.app/2020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png"
+          // screenshot of messages from #hackathon-organizers
+          poster="https://cloud-iwkoq2544-hack-club-bot.vercel.app/0screen_shot_2022-07-30_at_9.03.43_am.png"
           duration={2000}
           sx={{
             position: 'absolute',
@@ -126,6 +125,7 @@ const Slack = () => {
             objectFit: 'cover'
           }}
         >
+          {/* TODO: Fix the mp4 and mov screen recordings. I think Chrome uses the webm one.*/}
           <source
             src="https://cloud-absimk9o2-hack-club-bot.vercel.app/0hellyeah-smooth-scroll.mp4"
             type="video/mp4; codecs=hevc"

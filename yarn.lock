@@ -3364,11 +3364,6 @@ react-scrolllock@^5.0.1:
   dependencies:
     exenv "^1.2.2"
 
-react-ticker@^1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/react-ticker/-/react-ticker-1.3.2.tgz#5b8e486a7a7c5c4dd4076bdbabb3efaa31932ef7"
-  integrity sha512-9sLgc9gFx/EMNxn2QcwUJAOf3jdEROKRyXZGbWrEbfJG/MTkHwR+WRrVtypv3iFXPpcrKmPD91+vatHq0BgR0Q==
-
 react-tsparticles@^2.1.3:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-2.1.3.tgz#45e570d869c3b26760525d8dcc52ea5cc8095f0c"

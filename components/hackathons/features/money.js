@@ -1,64 +1,7 @@
-import { Button, Box, Container, Heading, Flex, Grid, Text } from 'theme-ui'
-import styled from '@emotion/styled'
-import usePrefersMotion from '../../../lib/use-prefers-motion'
-import useHasMounted from '../../../lib/use-has-mounted'
-import { formatted } from '../../../lib/members'
+import { Button, Box, Container, Heading, Text } from 'theme-ui'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Fade } from 'react-reveal'
 import Icon from '../../icon'
-import Bank from './bank'
-
-const Content2 = () => (
-  <Container
-    sx={{
-      textAlign: 'center',
-      zIndex: 999,
-      py: 6,
-      color: 'white',
-      'h2,p': { textShadow: 'text' },
-      textAlign: [null, 'center'],
-      position: 'relative',
-      overflow: 'hidden'
-    }}
-  >
-    <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
-      A full-stack financial toolkit
-    </Text>
-    <Heading as="h2" variant="title">
-      Hack Club Bank and FIRST
-      <Text
-        as="span"
-        sx={{
-          borderRadius: 'default',
-          px: 2,
-          mx: [-2, 0],
-          whiteSpace: 'nowrap',
-          color: 'currentColor',
-          bg: 'green'
-        }}
-      >
-        best friend
-      </Text>
-      .
-    </Heading>
-    <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
-      waiving fees for hackathons on hack club bank. and $10k in grants thanks
-      to our generous friends at FIRST!
-    </Text>
-    <Link href="/slack" passHref>
-      <Button
-        as="a"
-        variant="ctaLg"
-        sx={{
-          background: 'linear-gradient(-132deg, #338eda 14%, #33d6a6 82%)'
-        }}
-      >
-        Apply for Hack Club Bank →
-      </Button>
-    </Link>
-  </Container>
-)
 
 const Content = () => (
   <>
@@ -186,7 +129,6 @@ const Static = () => (
   >
     <Cover />
     <Content />
-    {/* <Bank /> */}
   </Box>
 )
 
