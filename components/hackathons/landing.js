@@ -23,7 +23,7 @@ export default function Landing() {
             position: 'absolute',
             flexDirection: 'column',
             justifyContent: 'center',
-            bottom: 150,
+            bottom: 140,
             mx: 'auto',
             width: '100%'
           }}
@@ -101,8 +101,8 @@ export default function Landing() {
                     It's not an extracurricular or a club. It's not a class or a
                     lecture.
                   </strong>{' '}
-                  Hackathons are a playground to build things for fun and meet
-                  others doing the same.
+                  Hackathons are a place to build things for fun and meet others
+                  doing the same.
                 </Text>
               </Card>
             </Fade>
