@@ -1,10 +1,7 @@
-import { Button, Box, Container, Heading, Flex, Grid, Text } from 'theme-ui'
-import styled from '@emotion/styled'
+import { Button, Box, Container, Heading, Text } from 'theme-ui'
 import usePrefersMotion from '../../../lib/use-prefers-motion'
 import useHasMounted from '../../../lib/use-has-mounted'
-import { formatted } from '../../../lib/members'
 import Link from 'next/link'
-import theme from '@hackclub/theme'
 
 const Content = () => (
   <Container

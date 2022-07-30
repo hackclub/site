@@ -13,12 +13,11 @@ import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
 import hero from '../../public/hackathons/mahacks.jpeg'
 
-export default function Landing2({ showButton }) {
+export default function Landing() {
   return (
     <>
       <Slide>
-        <Vignette />
-
+        <BlueGradientFilter />
         <Box
           sx={{
             position: 'absolute',
@@ -116,21 +115,6 @@ export default function Landing2({ showButton }) {
   )
 }
 
-function Underline({ children }) {
-  return (
-    <span
-      style={{
-        backgroundImage: 'url(/underline.svg)',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '100% 1rem',
-        backgroundPosition: 'bottom center'
-      }}
-    >
-      {children}
-    </span>
-  )
-}
-
 function Slide({ children }) {
   return (
     <Box
@@ -162,25 +146,7 @@ function Slide({ children }) {
   )
 }
 
-// function Vignette() {
-//   return (
-//     <Box
-//       style={{
-//         backgroundImage:
-//           'linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.25) 25%,rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.7) 100%)',
-//         height: '100vh',
-//         left: '0',
-//         right: '0',
-//         position: 'absolute',
-//         zIndex: '0'
-//       }}
-//     ></Box>
-//   )
-// }
-
-// blue vignette filter
-
-function Vignette() {
+function BlueGradientFilter() {
   return (
     <Box
       style={{

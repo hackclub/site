@@ -12,3 +12,4 @@
 - [ ] reorder sections to make sense
   - [ ] opening car hood
 - [ ] Better title/lead text for bank section
+  - [ ] make it _SING_
