@@ -1,13 +1,28 @@
-import { Heading, Container, Box, Button } from 'theme-ui'
+import { Heading, Container, Box, Button, Text } from 'theme-ui'
 import Link from 'next/link'
 
 export default function Philosophy() {
   return (
     <Box sx={{ py: 4 }}>
+      {/* https://cloud-3aeson6ue-hack-club-bot.vercel.app/0lahacks3.jpeg */}
+      {/* <Heading
+        sx={{
+          fontSize: [36, 48],
+          mb: 4,
+          color: 'green',
+          px: 3,
+          py: [4, 5],
+          pb: 1
+        }}
+        variant="layout.container"
+      >
+        A hackathon is a social coding marathon where teenagers come together
+        and build and share projects.
+      </Heading>
       <Container
         sx={{
           px: 3,
-          py: [4, 5],
+          pb: [4, 5],
           color: 'black',
           display: 'grid',
           textAlign: 'left',
@@ -18,7 +33,7 @@ export default function Philosophy() {
           gridTemplateColumns: ['1fr', null, '2fr 4fr']
         }}
       >
-        <Heading as="h2" sx={{ fontSize: [36, 48] }} color="rgb(115, 45, 228);">
+        <Heading as="h2" sx={{ fontSize: [36, 48], color: 'purple' }}>
           Learn to build,
           <br />
           build to learn.
@@ -56,29 +71,32 @@ export default function Philosophy() {
           organizers, coders, hackers, painters, engineers, musicians, writers,
           volunteers. We make things. We want others to make things too.
         </Box>
-      </Container>
+      </Container> */}
 
       <Box
         sx={{
           backgroundImage: t => t.util.gx('orange', 'red'),
           margin: 'auto',
-          width: '600px',
           maxWidth: '90%',
           mb: 4,
           borderRadius: 8,
           color: 'white',
           textAlign: 'center',
-          p: 4
+          py: 5
         }}
       >
-        <Heading as="h1" sx={{ fontSize: 5, mb: 2 }}>
-          Join the movement!
+        <Heading as="h1" sx={{ fontSize: 6, mb: 2 }}>
+          Keep exploring...
         </Heading>
         <Link href="/slack" passHref>
           <Button
-            sx={{ bg: 'white', color: 'red' }}
-            mr={[0, 3]}
-            mb={[3, 0]}
+            sx={{
+              bg: 'white',
+              color: 'red',
+              mr: [0, 3],
+              mb: [3, 0],
+              fontSize: [2, 3]
+            }}
             as="a"
           >
             Meet other hackers
@@ -86,7 +104,7 @@ export default function Philosophy() {
         </Link>
 
         <Link href="https://hackathons.hackclub.com" passHref>
-          <Button sx={{ bg: 'white', color: 'red' }} as="a">
+          <Button sx={{ bg: 'white', color: 'red', fontSize: [2, 3] }} as="a">
             Discover hackathons
           </Button>
         </Link>

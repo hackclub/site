@@ -12,8 +12,10 @@ import Money from '../components/hackathons/features/money'
 import Landing from '../components/hackathons/landing'
 import Marketing from '../components/hackathons/features/marketing'
 import Organize from '../components/hackathons/organize'
+import Overview from '../components/hackathons/overview'
+import ScrollingHackathons from '../components/hackathons/scrolling-hackathons'
 
-export default function Hackathons() {
+export default function Hackathons({ data }) {
   return (
     <>
       <Box as="main" key="main">
@@ -27,6 +29,8 @@ export default function Hackathons() {
         />
         <Box as="main">
           <Landing />
+          <Overview />
+          <ScrollingHackathons eventData={data} />
           <Philosophy />
           <Organize />
           <Money />
@@ -40,4 +44,15 @@ export default function Hackathons() {
       <Footer key="footer" />
     </>
   )
+}
+
+// https://hackathons.hackclub.com/api/events/upcoming
+export async function getStaticProps() {
+  const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming')
+  const data = await res.json()
+  return {
+    props: {
+      data
+    }
+  }
 }
