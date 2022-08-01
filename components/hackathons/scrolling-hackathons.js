@@ -75,7 +75,8 @@ function EventCard({
           display: invisible ? 'none' : 'flex',
           px: 4,
           mx: 4,
-          borderRadius: 'extra'
+          borderRadius: 'extra',
+          width: '500px'
         }}
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.375) 75%), url('${banner}')`,
