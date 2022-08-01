@@ -1,5 +1,5 @@
-import { Button, Box, Container, Heading, Text } from 'theme-ui'
-import Link from 'next/link'
+import { Button, Box, Container, Heading, Text, Link } from 'theme-ui'
+import NextLink from 'next/link'
 import { Fade } from 'react-reveal'
 import Icon from '../../icon'
 
@@ -44,9 +44,9 @@ const Content = () => (
           body={
             <>
               In partnership with{' '}
-              <Link href="https://www.firstinspires.org/">
-                <em>FIRST®</em>
-              </Link>
+              <NextLink href="https://www.firstinspires.org/" passHref>
+                <Link sx={{ fontStyle: 'italic' }}>FIRST®</Link>
+              </NextLink>
               , in-person hackathons running on Hack Club Bank are eligible for
               a $500 grant (with proof of venue).
             </>
@@ -67,11 +67,11 @@ const Content = () => (
           debit cards, a domain name, Google Workspace, stickers, and more.`}
         />
       </List>
-      <Link href="/bank/apply" passHref>
+      <NextLink href="/bank/apply" passHref>
         <Button as="a" variant="outlineLg" sx={{ width: 500 }}>
           Apply for Hack Club Bank →
         </Button>
-      </Link>
+      </NextLink>
     </Container>
   </>
 )

@@ -12,6 +12,7 @@ import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
 import hero from '../../public/hackathons/mahacks.jpeg'
+import Icon from '../icon'
 
 export default function Landing() {
   return (
@@ -48,6 +49,7 @@ export default function Landing() {
               >
                 <Button
                   as="a"
+                  target="_blank"
                   variant="cta"
                   href="https://hackathons.hackclub.com"
                   sx={{
@@ -62,7 +64,8 @@ export default function Landing() {
                     fontSize: [2, 3]
                   }}
                 >
-                  Looking for hackathons?
+                  Looking for hackathons?{' '}
+                  <Icon glyph="external" size={30} sx={{ pl: 1, pb: 1 }} />
                 </Button>
                 {/* <Text as="p" variant="headline" sx={{ mt: 0, color: 'muted' }}>
                   Leading text
