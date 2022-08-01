@@ -81,7 +81,7 @@ export default function Philosophy() {
             mb={[3, 0]}
             as="a"
           >
-            Meet hackathon-goers
+            Meet other hackers
           </Button>
         </Link>
 
