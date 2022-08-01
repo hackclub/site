@@ -37,18 +37,12 @@ const Content = () => (
       </Text>
       .
     </Heading>
-    {/* random note unrealted to this: there should be a thing in the Slack onboarding flow that asks if
-    the user is a hackathon organizer & points them to the #hackathon-organisers channel */}
     <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
-      The
-      <Box as="span" sx={{ bg: 'muted', px: 1, borderRadius: 5 }}>
-        #hackathon-organizers
-      </Box>{' '}
-      channel is where {thousands}+ teenagers around the world share about their
-      own hackathon-organizing experiences and ask for advice. An active
-      channel, you'll have the chance to connect with someone within hours. Ask
-      questions, get help, and share your own experiences. We'll always be there
-      to support you.
+      The {/* <Box as="span" sx={{ bg: 'muted', px: 1, borderRadius: 5 }}> */}
+      #hackathon-organizers
+      {/* </Box> */} channel is where teenagers around the world ask questions
+      and share their own hackathon organizing experiences. You'll connect with
+      other teens, like yourself, who have organized amazing events.
     </Text>
     <Link href="/slack" passHref>
       <Button
