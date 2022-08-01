@@ -12,6 +12,8 @@ const nextConfig = {
       'cdn.glitch.com',
       'cloud-k18c7grqc-hack-club-bot.vercel.app',
       'cloud-kcloydjv0-hack-club-bot.vercel.app',
+      'cloud-dtijd5g0u-hack-club-bot.vercel.app',
+      ''
     ]
   },
   webpack: (config, { isServer }) => {
@@ -50,7 +52,11 @@ const nextConfig = {
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
       { source: '/branding/', destination: '/brand/', permanent: true },
       { source: '/ama/', destination: '/amas/', permanent: false },
-      { source: '/open-source/', destination: '/opensource/', permanent: false },
+      {
+        source: '/open-source/',
+        destination: '/opensource/',
+        permanent: false
+      },
       { source: '/coc/', destination: '/conduct/', permanent: true },
       {
         source: '/code_of_conduct/',

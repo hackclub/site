@@ -21,8 +21,8 @@ export const EmojiImg = ({ name, ...props }) => (
     alt={name + ' emoji'}
     loading="lazy"
     className="post-emoji"
-    width={128}
-    height={128}
+    width={20}
+    height={20}
     {...props}
   />
 )
