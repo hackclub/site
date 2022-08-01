@@ -2,6 +2,7 @@ import { Button, Box, Container, Heading, Text } from 'theme-ui'
 import usePrefersMotion from '../../../lib/use-prefers-motion'
 import useHasMounted from '../../../lib/use-has-mounted'
 import Link from 'next/link'
+import { thousands } from '../../../lib/members'
 
 const Content = () => (
   <Container
@@ -39,12 +40,15 @@ const Content = () => (
     {/* random note unrealted to this: there should be a thing in the Slack onboarding flow that asks if
     the user is a hackathon organizer & points them to the #hackathon-organisers channel */}
     <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
-      On the Slack, you'll find a community of{' '}
+      The
       <Box as="span" sx={{ bg: 'muted', px: 1, borderRadius: 5 }}>
         #hackathon-organizers
       </Box>{' '}
-      new and experienced alike. Ask questions, get help, and share your own
-      experiences. We'll always be there to support you.
+      channel is where {thousands}+ teenagers around the world share about their
+      own hackathon-organizing experiences and ask for advice. An active
+      channel, you'll have the chance to connect with someone within hours. Ask
+      questions, get help, and share your own experiences. We'll always be there
+      to support you.
     </Text>
     <Link href="/slack" passHref>
       <Button
