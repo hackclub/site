@@ -16,7 +16,7 @@ export default function Overview() {
           >
             A hackathon is a social coding marathon where teenagers{' '}
             <Highlight>come together</Highlight> to{' '}
-            <Highlight>build projects</Highlight> a short amount of time and{' '}
+            <Highlight>build projects</Highlight> in a short amount of time and{' '}
             <Highlight>share them with the world</Highlight>.
           </Heading>
           <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
