@@ -21,7 +21,7 @@ const Content = () => (
       <Container maxWidth={28} sx={{ mx: 0, py: 4 }}>
         {/* https://www.firstinspires.org/sites/default/files/uploads/resource_library/brand/first-brand-guidelines-2020.pdf */}
         <Text variant="eyebrow">
-          Hack Club Bank & <em>FIRST®</em>
+          Hack Club Bank & <em>FIRST</em>
         </Text>
         <br />
         <Text
@@ -45,7 +45,7 @@ const Content = () => (
             <>
               In partnership with{' '}
               <NextLink href="https://www.firstinspires.org/" passHref>
-                <Link sx={{ fontStyle: 'italic' }}>FIRST®</Link>
+                <Link sx={{ fontStyle: 'italic' }}>FIRST</Link>
               </NextLink>
               , in-person hackathons running on Hack Club Bank are eligible for
               a $500 grant (with proof of venue).

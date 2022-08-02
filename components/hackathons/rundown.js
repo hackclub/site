@@ -81,7 +81,7 @@ export default function Rundown() {
             name="$500 grants"
             desc={
               <>
-                We've partnered with <em>FIRST®</em> to provide $500 grants for
+                We've partnered with <em>FIRST</em> to provide $500 grants for
                 IRL high school hackathons this semester.
               </>
             }
