@@ -60,8 +60,8 @@ export default function BankApplyForm() {
         </Text>
         <Text sx={{ fontSize: 18, mb: 2 }}>
           Hack Club Bank is open to all Hack Clubs, hackathons, and student-led
-          nonprofits in North America. There are three steps to getting on Hack
-          Club Bank:
+          nonprofits in the US and Canada. There are three steps to getting on
+          Hack Club Bank:
           <ol>
             <li>Fill out this form</li>
             <li>
