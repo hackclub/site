@@ -16,11 +16,21 @@ import { humanizedDateRange, formatAddress } from '../../lib/helpers'
 export default function ScrollingHackathons({ eventData }) {
   return (
     <>
-      <Ticker>
+      <Heading
+        variant="layout.container"
+        sx={{
+          fontSize: [36, 48],
+          mb: 4,
+          color: 'black'
+        }}
+      >
+        Upcoming high school hackathons...
+      </Heading>
+      <Ticker mode="string">
         {() => (
-          <Box as="div" sx={{ display: 'flex' }}>
+          <Box as="div" sx={{ display: 'flex', py: 3 }}>
             {eventData.map(({ ...props }) => (
-              <EventCard key={eventData.key} {...props} />
+              <EventCard key={eventData.id} {...props} />
             ))}
           </Box>
         )}
@@ -30,17 +40,6 @@ export default function ScrollingHackathons({ eventData }) {
 }
 
 function EventCard({
-  //   name,
-  //   website,
-  //   start,
-  //   end,
-  //   logo,
-  //   banner,
-  //   city,
-  //   state,
-  //   virtual,
-  //   hybrid
-
   id,
   name,
   website,
@@ -55,11 +54,7 @@ function EventCard({
   logo,
   virtual,
   hybrid,
-  hq = false,
-  footer,
-  lead,
-  // distanceTo,
-  invisible = false
+  footer
 }) {
   return (
     <Tilt>
@@ -70,17 +65,20 @@ function EventCard({
         rel="noopener noreferrer"
         itemScope
         itemType="http://schema.org/Event"
-        variant="event"
         sx={{
-          display: invisible ? 'none' : 'flex',
+          display: 'flex',
+          flexDirection: 'column',
           px: 4,
           mx: 4,
           borderRadius: 'extra',
-          width: '500px'
+          width: '400px',
+          height: '200px',
+          textDecoration: 'none',
+          color: 'white'
         }}
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.375) 75%), url('${banner}')`,
-          textAlign: hq ? 'left' : 'center'
+          textAlign: 'center'
         }}
       >
         {mlhAssociated && (
@@ -131,29 +129,19 @@ function EventCard({
             }}
           />
         )}
-        {lead && (
-          <Box
-            sx={{
-              mb: hq ? 0 : 'auto',
-              mt: hq ? 2 : 0,
-              width: '100%',
-              opacity: 1,
-              fontWeight: 800,
-              fontSize: 2
-            }}
-          >
-            <Text>{lead}</Text>
-          </Box>
-        )}
+
         <Heading
-          as={'h3'}
+          variant="headline"
+          as="h3"
           itemProp="name"
           sx={{
-            fontSize: hq ? [4, 6] : [3, 4],
-            mt: hq ? 0 : 2,
-            mb: hq ? 0 : 3,
+            fontSize: [3, 4],
+            mt: 2,
+            mb: 3,
             overflowWrap: 'anywhere',
-            width: '100%'
+            width: '100%',
+            color: 'white',
+            textDecoration: 'none'
           }}
         >
           {name}
@@ -161,8 +149,8 @@ function EventCard({
         <Box
           as="footer"
           sx={{
-            mt: hq ? 0 : 'auto',
-            mb: hq ? 2 : 0,
+            mt: 'auto',
+            mb: 0,
             width: '100%',
             opacity: 0.875
           }}
@@ -173,9 +161,6 @@ function EventCard({
             <>
               {' '}
               <Text as="span">{humanizedDateRange(start, end)}</Text>
-              {/* distanceTo ? (
-        <Text as="span">{`${humanizeDistance(distanceTo)} miles`}</Text>
-      ) : ( */}
               <Text
                 as="span"
                 itemProp="location"
