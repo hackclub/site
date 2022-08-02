@@ -49,7 +49,7 @@ export default function Overview() {
               </Text>
             </Flex>
             <Photo
-              src="https://cloud-3aeson6ue-hack-club-bot.vercel.app/0lahacks3.jpeg"
+              src="https://cloud-3aeson6ue-hack-club-bot.vercel.app/1lahacks.jpeg"
               alt="Los Altos Hacks III"
               width={3000}
               height={2550}

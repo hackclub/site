@@ -81,8 +81,8 @@ export default function Rundown() {
             name="$500 grants"
             desc={
               <>
-                We've partnered with <em>FIRST</em> to provide $500 grants for
-                IRL high school hackathons this semester.
+                Get a $500 grant for your hackathon and access to a suite of
+                financial tools when you join Hack Club Bank.
               </>
             }
           />

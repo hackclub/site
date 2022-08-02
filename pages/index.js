@@ -27,7 +27,6 @@ import GoldenTrainImgFile from '../public/home/golden-train.png'
 import Slack from '../components/slack'
 import Announcement from '../components/announcement'
 import Stage from '../components/stage'
-// import { timeSince } from '../lib/dates'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -130,10 +129,10 @@ const Page = () => (
       />
 
       <Announcement
-        copy="Let's Assemble in San Francisco"
-        caption="Join us for the first IRL hackathon since 2020 in SF."
-        href="https://assemble.hackclub.com/"
-        iconLeft="explore"
+        copy="Help kick off a hackathon renaissance"
+        caption="organize a hackathon attend a hackathon ohyeahwoofyeah"
+        href="/hackathons"
+        iconLeft="event-code"
         color="primary"
       />
 
