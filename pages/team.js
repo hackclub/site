@@ -53,15 +53,22 @@ export default function Team() {
                 img="/team/christina.jpg"
                 name="Christina Asquith"
                 teamRole="COO"
-                text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She also led the partnership with Kenyan women journalists to build the first all-female news desk for Africa’s largest newspaper. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
+                text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”                "
                 pronouns="she/her"
               />
               <Bio
                 img="/team/max.jpg"
                 name="Max Wofford"
-                teamRole="Operations"
+                teamRole="Tech & Creative Lead"
                 text="After teaching himself to code in junior year of high school, Max joined a group of nomadic hackers in Costa Rica to experience coding in a real-world setting. He has been with Hack Club since day one and is now working full-time in Vermont to grow the movement."
                 pronouns="he/him"
+              />
+              <Bio
+                name="Kara Massie"
+                teamRole="Clubs & Community Production Lead"
+                text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
+                img="/team/kara.png"
+                pronouns="she/her"
               />
               <Bio
                 name="Leo McElroy"
@@ -71,11 +78,32 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
+                name="Cedric Hutchings"
+                teamRole="Clubs Constructionist"
+                text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
+                img="/team/ced.png"
+                pronouns="he/him"
+              />
+              <Bio
                 name="Jessica Card"
                 teamRole="Education Engineer"
                 text="Jessica is a self taught programmer originally from Alaska. She worked for over a decade as a software engineer at startups like GitHub and Bugsnag in San Francisco. She then left the web development world to learn how to make video games. Now, at Hack Club, she’s excited to be a part of a community she wishes she had when she was in high school."
                 img="/team/jessica.jpg"
                 pronouns="she/her"
+              />
+              <Bio
+                name="Caleb Denio"
+                teamRole="Bank Engineer"
+                text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. At Hack Club Bank, he writes code that makes money go 'cha-ching!'"
+                img="/team/caleb.jpg"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Celeste Drummond"
+                teamRole="Community Engineer"
+                text="After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in— among other things— programming, generative art, music and effective altruism."
+                img="/team/celeste.jpg"
+                pronouns="they/them"
               />
               <Bio
                 name="Melanie Smith"
@@ -91,7 +119,22 @@ export default function Team() {
                 img="/team/liv.png"
                 pronouns="she/her"
               />
+              <Bio
+                name="Rick Blount"
+                teamRole="VP of Philanthropy"
+                text="Rick Blount was previously helped raise $19.5 million for a brand-new YMCA in Burlington, Vermont. Before that, he worked at the University of Vermont’s medical school in communications and alumni/fundraising; and has been a journalist–helping start Consumer Reports’ health publication. When he was 25, he taught English for a year near Wuhan, China."
+                img="/team/rick.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Bence Beres"
+                teamRole="Bookkeeper"
+                text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
+                img="/team/bence.png"
+                pronouns="he/him"
+              />
             </Grid>
+
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
               Asia-Pacific HQ
@@ -134,49 +177,22 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 pronouns="she/her"
               />
             </Grid>
+
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
               Student Team
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
-                name="Cedric Hutchings"
-                teamRole="Clubs Constructionist"
-                text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
-                img="/team/ced.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Claire Wang"
-                teamRole="Community Team"
-                text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
-                img="/team/claire.png"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Caleb Denio"
-                teamRole="Community Team"
-                text="Caleb is a New Hampshire-born high-schooler with a passion for coding, music, and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. As part of Community Team, he hopes to further Hack Club's goal of creating the most wholesome spot on the Internet."
-                img="/team/caleb.jpg"
-                pronouns="he/him"
-              />
-              {/* <Bio
-                name="Rishi Kothari"
-                teamRole="Community Team"
-                text={`yeah`}
-                img="/stickers/logo.png"
-                pronouns="he/him"
-              /> */}
-              <Bio
                 name="Abby Fischler"
-                teamRole="Intern to the COO"
-                text="Abby is a high school sophomore from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
+                teamRole="Technical Intern to the COO"
+                text="Abby is a high school junior from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
                 img="https://github.com/abbyfischler.png"
                 pronouns="she/her"
               />
               <Bio
                 name="Belle See"
-                teamRole="Coordinator to the COO"
+                teamRole="Engineer for Comms"
                 text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
                 img="https://github.com/bellesea.png"
                 pronouns="she/her"
@@ -231,19 +247,48 @@ and participating in academic competitions with his friends.`}
                 img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
                 pronouns="he/him"
               />
+              <Bio
+                name="Ishan Goel"
+                teamRole="Summer Communications Intern"
+                text="Ishan is a 16-year-old summer intern from Seattle! This summer he is working on shipping projects with partners to get the word out about Hack Club, and bring more people into the community."
+                img="https://github.com/quackduck.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Claire Wang"
+                teamRole="Community Team"
+                text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
+                img="/team/claire.png"
+                pronouns="she/her"
+              />
+
+              <Bio
+                name="Rishi Kothari"
+                teamRole="Community Team"
+                text="Rishi is a high school juinor that's super interested in open-source development, startups, React, and everything in between! He is primarily a JS/TS dev, but has worked with Rust 🔥, C++ 💖, Haskell ⚡️, and Swift 🏎 in the past. He is the president of TFSS Hack Club, the CTO at PetCode, and a workshop coordinator at TurnerHacks, among other things."
+                img="https://github.com/rishiosaur.png"
+                pronouns="he/him"
+              />
             </Grid>
             <br />
+            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
+              Part Time
+            </Text>
+            <Grid columns={[1, null, 2]} gap={4}>
+              <Bio
+                img="/team/chris.jpg"
+                name="Chris Walker"
+                teamRole="Hacker Resources"
+                text="Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He worked on Hack Club’s learning resources & clubs program for two years."
+                pronouns="he/him"
+              />
+            </Grid>
+            <br />
+
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
               Behind the Scenes
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
-                name="Kara Massie"
-                teamRole="Events"
-                text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
-                img="/team/kara.png"
-                pronouns="she/her"
-              />
               <Bio
                 name="Chris Newton"
                 teamRole="Accountant"
@@ -253,9 +298,9 @@ and participating in academic competitions with his friends.`}
               />
               <Bio
                 name="Woody Keppel"
-                teamRole="Events"
+                teamRole="Club Alchemist"
                 text={`Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!”`}
-                img="/team/woody.png"
+                img="/team/woody.jpg"
                 pronouns="he/him"
               />
             </Grid>
@@ -284,13 +329,6 @@ and participating in academic competitions with his friends.`}
                 teamRole="Storytelling"
                 text="Lachlan joined as a club leader from State College, PA to make hackclub.com. 3 years later, as Head of Storytelling, they work on Hack Club’s website, design, frontend, open source, & communications. They’re currently on COVID leave from NYU ’23, majoring in Interactive Media Arts."
                 pronouns="they/them"
-              />
-              <Bio
-                img="/team/chris.jpg"
-                name="Chris Walker"
-                teamRole="Hacker Resources"
-                text="Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He worked on Hack Club’s learning resources & clubs program for two years."
-                pronouns="he/him"
               />
               <Bio
                 img="/team/scott.jpg"

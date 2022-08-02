@@ -156,6 +156,20 @@ const Page = () => (
         </Container>
       </Box>
       <Container sx={{ py: [3, 4], px: [2, 2, 0] }}>
+        {/*
+        <Text
+          as="p"
+          sx={{ fontSize: 4, textAlign: 'center', my: 6, color: 'slate' }}
+        >
+          We don't have any available jobs right now!
+          <br />
+          <Text sx={{ color: 'muted' }}>
+            Check back later, or reach out if you think we should hire you.
+          </Text>
+        </Text>
+
+        {/* @kognise note: Keeping this in as an example to future implementors for when we do have new jobs: */}
+        
         <Grid
           sx={{
             maxWidth: '64rem',
@@ -165,20 +179,13 @@ const Page = () => (
           columns={['1fr', '1fr 1fr']}
         >
           <JobListing
-            positionName="Lead Hacker"
-            positionDesc="Hack Club Bank is our in-house financial software used by 1,500 Hack Clubbers to financially power their Hack Clubs, hackathons, and student-organized nonprofits."
-            positionLink="/jobs/lead-hacker/"
-            color={theme.util.cx('red')}
-            color1={theme.util.cx('purple')}
+            positionName="VP of Marketing / Executive Producer"
+            positionDesc="Hack Club is actively looking now to hire its first VP of Marketing/ Executive Producer to tell its story across various platforms, including social media, newsletters, op-docs, blog/oped posts and direct emails, and curated partnerships with major tech companies."
+            positionLink="/jobs/executive-producer/"
+            color={theme.util.cx('green')}
+            color1={theme.util.cx('blue')}
           />
-          <JobListing
-            positionName="Customer Success Lead"
-            positionDesc="In this role, you will serve as a liaison between teens leading their own after-school Hack Clubs and Hack Club’s amazing resources, you’ll play a vital role in Hack Club’s nonprofit mission to support high school coders in starting coding clubs, hackathons, and building awesome projects."
-            positionLink="/jobs/customer-success-lead/"
-            color={theme.util.cx('yellow')}
-            color1={theme.util.cx('red')}
-          />
-        </Grid>
+        </Grid> 
       </Container>
     </Box>
 

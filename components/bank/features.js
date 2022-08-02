@@ -11,7 +11,7 @@ export default function Features({ partner = false }) {
         <br />
         <br />
         <Text sx={{ color: 'muted', maxWidth: '48', fontSize: 28 }}>
-          Invoice sponsors, issue debit cards to your team, and view history.
+          Invoice sponsors, issue debit cards to your team, and view transaction history.
           <br />
           Ongoing support so you can focus on organizing, not the paperwork.
         </Text>
@@ -172,20 +172,20 @@ export default function Features({ partner = false }) {
             />
           )}
           <Module
-            icon="sticker"
-            name="Sticker Mule"
+            icon="private-outline"
+            name="1Password"
             body={
               <>
-                Get up to $400 in{' '}
+                $100 in free{' '}
                 <Link
-                  href="https://www.stickermule.com"
+                  href="https://1password.com/"
                   color="smoke"
                   hoverline
                   target="_blank"
                 >
-                  Sticker Mule
+                  1Password
                 </Link>{' '}
-                credit for custom swag.
+                credit to keep your team's passwords secure.
               </>
             }
           />

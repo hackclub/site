@@ -7,7 +7,7 @@ export default function Apply() {
     <Box
       sx={{
         backgroundImage:
-          'linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.25) 25%,rgba(0, 0, 0, 0.625) 50%, rgba(0, 0, 0, 0.75) 100%), url("/bank/bg.jpg")',
+          'linear-gradient(to bottom,rgba(0, 0, 0, .3),rgba(0, 0, 0, 0.45) 25%,rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.7) 100%), url("https://cloud-knk7z9mq5-hack-club-bot.vercel.app/0geo-pattern__2_.svg")',
         py: 4,
         backgroundAttachment: 'fixed'
       }}

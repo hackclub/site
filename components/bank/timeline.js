@@ -122,7 +122,7 @@ export default function RealTimeline() {
     <Timeline px={3}>
       <Step
         icon="send"
-        name="Submit an application telling us about your project"
+        name="Submit an application for your organization"
         duration="Step 1"
         href="/bank/apply"
       />
