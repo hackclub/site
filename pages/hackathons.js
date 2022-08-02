@@ -32,7 +32,7 @@ export default function Hackathons({ data }) {
           <Overview />
           <ScrollingHackathons eventData={data} />
           <Philosophy />
-          <Organize />
+          {/* <Organize /> */}
           <Money />
           <Slack />
           <Marketing />

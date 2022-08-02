@@ -1,4 +1,4 @@
-import { Heading, Container, Box, Button, Text } from 'theme-ui'
+import { Heading, Container, Box, Button, Text, Grid } from 'theme-ui'
 import Link from 'next/link'
 
 export default function Philosophy() {
@@ -105,10 +105,44 @@ export default function Philosophy() {
 
         <Link href="https://hackathons.hackclub.com" passHref>
           <Button sx={{ bg: 'white', color: 'red', fontSize: [2, 3] }} as="a">
-            Discover hackathons
+            Discover more hackathons
           </Button>
         </Link>
       </Box>
+
+      <Container>
+        <Grid
+          columns={[null, '1fr 2fr']}
+          mt={[3, 5]}
+          sx={{ maxWidth: 'copyUltra', mx: 'auto' }}
+        >
+          <Heading as="h3" variant="headline" sx={{ fontSize: [4, 5], mb: 0 }}>
+            Beyond the hackathon.
+          </Heading>
+          <Text
+            as="p"
+            variant="lead"
+            sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
+          >
+            Teenageers organize hackathons like{' '}
+            <a
+              href="https://assemble.hackclub.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Assemble
+            </a>{' '}
+            &{' '}
+            <a href="https://windyhacks.com" target="_blank" rel="noreferrer">
+              Windy&nbsp;City&nbsp;Hacks
+            </a>
+            . The&nbsp;hack’s the limit.
+            <Box as="div" sx={{ mt: 3 }}></Box>
+            This semester, Hack Club is providing grants, support, and more, to
+            help you run the next amazing hackathon.
+          </Text>
+        </Grid>
+      </Container>
     </Box>
   )
 }
