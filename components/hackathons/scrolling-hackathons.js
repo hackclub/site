@@ -7,25 +7,38 @@ import {
   Text,
   Heading,
   Badge,
-  Image
+  Container,
+  Image,
+  Link
 } from 'theme-ui'
 // import Image from 'next/image'
+import { keyframes } from '@emotion/react'
 import Tilt from '../tilt'
-import { humanizedDateRange, formatAddress } from '../../lib/helpers'
+import NextLink from 'next/link'
+import { humanizedDateRange, formatAddress, timeSince } from '../../lib/helpers'
 
 export default function ScrollingHackathons({ eventData }) {
   return (
     <>
-      <Heading
-        variant="layout.container"
-        sx={{
-          fontSize: [36, 48],
-          mb: 4,
-          color: 'black'
-        }}
-      >
-        Upcoming high school hackathons...
-      </Heading>
+      <Container>
+        <Heading
+          sx={{
+            fontSize: [36, 48],
+
+            color: 'black'
+          }}
+        >
+          Upcoming high school hackathons...
+        </Heading>
+        <Dot />
+        <Text variant="lead" sx={{ mb: 4, color: 'muted', mr: 2 }}>
+          from{' '}
+          <NextLink href="https://hackathons.hackclub.com" passHref>
+            <Link>hackathons.hackclub.com</Link>
+          </NextLink>
+          , last updated just now.
+        </Text>
+      </Container>
       <Ticker mode="string">
         {() => (
           <Box as="div" sx={{ display: 'flex', py: 3 }}>
@@ -36,6 +49,34 @@ export default function ScrollingHackathons({ eventData }) {
         )}
       </Ticker>
     </>
+  )
+}
+
+const flashing = keyframes({
+  from: { opacity: 0 },
+  '50%': { opacity: 1 },
+  to: { opacity: 0 }
+})
+
+function Dot() {
+  return (
+    <Text
+      sx={{
+        bg: 'green',
+        color: 'white',
+        borderRadius: 'circle',
+        display: 'inline-block',
+        lineHeight: 0,
+        width: '.5em',
+        height: '.5em',
+        marginRight: '.4em',
+        marginBottom: '.12em',
+        animationName: `${flashing}`,
+        animationDuration: '3s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite'
+      }}
+    />
   )
 }
 

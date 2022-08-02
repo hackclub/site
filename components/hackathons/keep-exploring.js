@@ -21,13 +21,13 @@ export default function KeepExploring() {
           as="h1"
           sx={{
             fontSize: 6,
-            mb: 2,
+            mb: 3,
             display: 'flex',
             justifyContent: 'center',
             alignContent: 'center'
           }}
         >
-          Keep exploring <Icon glyph="explore" size={72} />
+          Keep exploring <Icon glyph="explore" size={70} />
         </Heading>
         <Link href="/slack" passHref>
           <Button

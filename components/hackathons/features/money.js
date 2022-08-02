@@ -43,12 +43,15 @@ const Content = () => (
           leadText="$500 grants."
           body={
             <>
-              In partnership with{' '}
-              <NextLink href="https://www.firstinspires.org/" passHref>
-                <Link sx={{ fontStyle: 'italic' }}>FIRST</Link>
-              </NextLink>
-              , in-person hackathons running on Hack Club Bank are eligible for
-              a $500 grant (with proof of venue).
+              Get a $500 grant once you have a venue for your hackathon,
+              provided by Hack Club Bank in partnership with{' '}
+              <Link
+                href="https://www.firstinspires.org/"
+                sx={{ fontStyle: 'italic' }}
+              >
+                FIRST
+              </Link>
+              .
             </>
           }
         />
