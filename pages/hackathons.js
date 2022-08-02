@@ -6,14 +6,13 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 
 import Rundown from '../components/hackathons/rundown'
-import Philosophy from '../components/hackathons/philosophy'
 import Slack from '../components/hackathons/features/slack'
 import Money from '../components/hackathons/features/money'
 import Landing from '../components/hackathons/landing'
 import Marketing from '../components/hackathons/features/marketing'
-import Organize from '../components/hackathons/organize'
 import Overview from '../components/hackathons/overview'
 import ScrollingHackathons from '../components/hackathons/scrolling-hackathons'
+import KeepExploring from '../components/hackathons/keep-exploring'
 
 export default function Hackathons({ data }) {
   return (
@@ -31,8 +30,7 @@ export default function Hackathons({ data }) {
           <Landing />
           <Overview />
           <ScrollingHackathons eventData={data} />
-          <Philosophy />
-          {/* <Organize /> */}
+          <KeepExploring />
           <Money />
           <Slack />
           <Marketing />
