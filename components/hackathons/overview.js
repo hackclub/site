@@ -19,7 +19,7 @@ export default function Overview() {
             <Highlight>build projects</Highlight> in a short amount of time and{' '}
             <Highlight>share them with the world</Highlight>.
           </Heading>
-          <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
+          {/* <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
             <Flex
               sx={{
                 p: { my: 3 },
@@ -32,7 +32,7 @@ export default function Overview() {
                   Learn by building.
                 </Text>
                 Hackathons provide a space to build a project with code– to hone
-                skills and pick up new concepts while getting hands-on.  Schools
+                skills and pick up new concepts while getting hands-on. Schools
                 don't provide that, so high schoolers can organize their own
                 hackathons and create it for themselves.
               </Text>
@@ -65,7 +65,7 @@ export default function Overview() {
                 </Text>
                 Coding doesn't have to be an isolating experience. At a
                 hackathon, participants build while surrounded by other
-                like-minded makers.  Many friend groups spring up around shared
+                like-minded makers. Many friend groups spring up around shared
                 setting– growing up in the same town or age group. At a
                 hackathon, you'll connect on a shared interest– a shared love of
                 craft.
@@ -81,6 +81,7 @@ export default function Overview() {
                 to make things too.
               </Text>
             </Flex>
+
             <Photo
               src="https://cloud-k3mgtdz5i-hack-club-bot.vercel.app/0image.png"
               alt="Attendees from Hack Pennsylvania, 2019."
@@ -88,7 +89,84 @@ export default function Overview() {
               height={2550}
               showAlt
             />
-          </Grid>
+          </Grid> */}
+
+          <Row>
+            <Heading
+              as="h2"
+              sx={{ fontSize: [36, 48] }}
+              color="rgb(115, 45, 228);"
+            >
+              Learn by building.
+            </Heading>
+            <Box sx={{ fontSize: 3 }}>
+              Hackathons provide a space to build a project with code–to hone
+              skills and pick up new concepts while getting hands-on. Schools
+              don't provide that, so high schoolers can organize their own
+              hackathons and create it for themselves.
+            </Box>
+          </Row>
+          <Row>
+            <Heading as="h2" sx={{ fontSize: [36, 48] }} color="green">
+              The whole <br />
+              kitchen sink.
+            </Heading>
+            <Box sx={{ fontSize: 3 }}>
+              A hackathon is a space that helps give makers everything they need
+              to start building–mentors, collaborators, inspiration, and a goal
+              to work towards. Hackers will leave a hackathon with a project of
+              their own, ready and excited to keep hacking once they get home.
+            </Box>
+          </Row>
+          <Row>
+            <Heading as="h2" sx={{ fontSize: [36, 48] }} color="cyan">
+              Build for yourself, together.
+            </Heading>
+            <Box sx={{ fontSize: 3 }}>
+              The first step to building something great is "building
+              something". 24 hours is not much time to change the world, but is
+              a great length for learning a new skill or tool. Great hackathon
+              projects have personal meaning– when you build for yourself, you
+              have more reason to build.
+            </Box>
+          </Row>
+          <Row>
+            <Heading as="h2" sx={{ fontSize: [36, 48] }} color="accent">
+              More friends, more fun.
+            </Heading>
+            <Box sx={{ fontSize: 3 }}>
+              Coding doesn't have to be an isolating experience. At a hackathon,
+              participants build while surrounded by other like-minded makers.
+              Many friend groups spring up around shared setting– growing up in
+              the same town or age group. At a hackathon, you'll connect on a
+              shared interest– a shared love of craft.
+            </Box>
+          </Row>
+
+          <Container>
+            <Heading
+              as="h3"
+              variant="headline"
+              sx={{ fontSize: [4, 5], mb: 0, textAlign: 'center' }}
+            >
+              We're at our best when we're making.
+            </Heading>
+            <Text
+              as="p"
+              variant="lead"
+              sx={{
+                mt: 0,
+                maxWidth: 'copyPlus',
+                textAlign: 'center',
+                mx: 'auto'
+              }}
+            >
+              Hack Club is a world wide community of thousands of high school
+              makers. We're organizers, coders, hackers, painters, engineers,
+              musicians, writers, volunteers. We make things. We want others to
+              make things too.
+            </Text>
+          </Container>
         </Container>
       </Box>
     </>
@@ -103,5 +181,26 @@ function Highlight({ children }) {
     >
       {children}
     </Text>
+  )
+}
+
+function Row({ children }) {
+  return (
+    <Container
+      sx={{
+        px: 3,
+        py: [3, 4],
+        color: 'black',
+        display: 'grid',
+        textAlign: 'left',
+        h2: {
+          lineHeight: 1,
+          marginBottom: '18px'
+        },
+        gridTemplateColumns: ['1fr', null, '2fr 4fr']
+      }}
+    >
+      {children}
+    </Container>
   )
 }
