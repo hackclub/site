@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
+    "@emotion/styled": "^11.10.0",
     "@hackclub/icons": "^0.0.9",
     "@hackclub/meta": "1.1.32",
     "@hackclub/theme": "^0.3.3",
@@ -46,7 +46,7 @@
     "turndown": "^7.1.1"
   },
   "devDependencies": {
-    "eslint": "8.20.0",
+    "eslint": "8.21.0",
     "eslint-config-next": "12.2.2"
   }
 }
