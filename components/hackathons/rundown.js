@@ -29,7 +29,7 @@ export default function Rundown() {
       </Box>
       <Grid
         pt={[3, 4]}
-        pb={[4, 5]}
+        pb={[5, 6]}
         gap={[4, 3, 4]}
         columns={[1, null, 3]}
         sx={{
@@ -61,7 +61,7 @@ export default function Rundown() {
             icon="slack"
             color="white"
             name="Slack community"
-            desc={`Connect with a community of hackathon organizers and get support from peers.`}
+            desc={`Connect with a community of high school hackathon organizers and get support from peers.`}
           />
         </Card>
         <Card
@@ -81,8 +81,9 @@ export default function Rundown() {
             name="$500 grants"
             desc={
               <>
-                Get a $500 grant for your hackathon and access to a suite of
-                financial tools when you join Hack Club Bank.
+                Get a $500 grant for your hackathon (thanks to <i>FIRST</i>),
+                and access to a suite of financial tools when you join Hack Club
+                Bank.
               </>
             }
           />

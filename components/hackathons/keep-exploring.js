@@ -58,7 +58,7 @@ export default function KeepExploring() {
           sx={{ maxWidth: 'copyUltra', mx: 'auto' }}
         >
           <Heading as="h3" variant="headline" sx={{ fontSize: [4, 5], mb: 0 }}>
-            Beyond the hackathon.
+            Behind the scenes...
           </Heading>
           <Text
             as="p"

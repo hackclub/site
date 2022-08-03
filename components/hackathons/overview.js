@@ -49,8 +49,8 @@ export default function Overview() {
               </Text>
             </Flex>
             <Photo
-              src="https://cloud-3aeson6ue-hack-club-bot.vercel.app/1lahacks.jpeg"
-              alt="Los Altos Hacks III"
+              src="https://cloud-k3mgtdz5i-hack-club-bot.vercel.app/0image.png"
+              alt="Attendees from Hack Pennsylvania, 2019."
               width={3000}
               height={2550}
               showAlt
