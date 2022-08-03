@@ -36,7 +36,7 @@
     "react-masonry-css": "^1.0.16",
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
-    "react-tsparticles": "^2.1.3",
+    "react-tsparticles": "^2.1.4",
     "react-use-websocket": "3.0.0",
     "resnow": "^1.0.0",
     "styled-components": "^5.3.5",
@@ -46,7 +46,7 @@
     "turndown": "^7.1.1"
   },
   "devDependencies": {
-    "eslint-config-next": "12.2.3"
+    "eslint-config-next": "12.2.3",
     "eslint": "8.21.0"
   }
 }
