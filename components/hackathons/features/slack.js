@@ -138,17 +138,16 @@ const Slack = () => {
             objectFit: 'cover'
           }}
         >
-          {/* TODO: Fix the mp4 and mov screen recordings. I think Chrome uses the webm one.*/}
           <source
-            src="https://cloud-absimk9o2-hack-club-bot.vercel.app/0hellyeah-smooth-scroll.mp4"
+            src="https://cloud-hsc3k1am6-hack-club-bot.vercel.app/0screen_recording_2022-08-03_at_9.50.26_am.mp4"
             type="video/mp4; codecs=hevc"
           />
           <source
-            src="https://cloud-a3mid6xbx-hack-club-bot.vercel.app/0screen_recording_2022-08-02_at_10.48.59_pm.webm"
+            src="https://cloud-azjxx4vqu-hack-club-bot.vercel.app/0have-finally-figured-it-out-hell-yeah.webm"
             type="video/webm; codecs=vp9,opus"
           />
           <source
-            src="https://cloud-absimk9o2-hack-club-bot.vercel.app/0hellyeah-smooth-scroll.mp4"
+            src="https://cloud-hsc3k1am6-hack-club-bot.vercel.app/0screen_recording_2022-08-03_at_9.50.26_am.mp4"
             type="video/quicktime"
           />
         </Box>
