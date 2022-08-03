@@ -17,7 +17,7 @@
     "@hackclub/meta": "1.1.32",
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
-    "@next/mdx": "^12.2.2",
+    "@next/mdx": "^12.2.3",
     "@octokit/auth-app": "^4.0.4",
     "@octokit/core": "^4.0.4",
     "@octokit/rest": "^19.0.3",
@@ -27,7 +27,7 @@
     "country-list-js": "^3.1.7",
     "globby": "^11.0.4",
     "lodash": "^4.17.21",
-    "next": "^12.2.2",
+    "next": "^12.2.3",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
     "react": "^17.0.2",
@@ -46,7 +46,7 @@
     "turndown": "^7.1.1"
   },
   "devDependencies": {
-    "eslint": "8.20.0",
     "eslint-config-next": "12.2.3"
+    "eslint": "8.21.0",
   }
 }
