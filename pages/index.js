@@ -129,7 +129,7 @@ const Page = () => (
       />
 
       <Announcement
-        copy="Help kickstart an IRL hackathon renaissance"
+        copy="Help kickstart a high school hackathon renaissance"
         caption="Run an in-person hackathon this semester, with support from Hack Club and FIRST."
         href="/hackathons"
         iconLeft="event-code"
