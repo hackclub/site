@@ -33,7 +33,7 @@ export default function ScrollingHackathons({ eventData }) {
         <Text variant="lead" sx={{ mb: 4, color: 'muted', mr: 2 }}>
           from{' '}
           <NextLink href="https://hackathons.hackclub.com" passHref>
-            <Link>hackathons.hackclub.com</Link>
+            <Link sx={{color: 'inherit'}}>hackathons.hackclub.com</Link>
           </NextLink>
           , last updated just now.
         </Text>
