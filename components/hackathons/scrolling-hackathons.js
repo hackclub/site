@@ -20,17 +20,16 @@ import { humanizedDateRange, formatAddress, timeSince } from '../../lib/helpers'
 export default function ScrollingHackathons({ eventData }) {
   return (
     <>
-      <Container>
+      <Container sx={{ mb: 5 }}>
         <Heading
           sx={{
             fontSize: [36, 48],
-
             color: 'black'
           }}
         >
           Upcoming high school hackathons...
         </Heading>
-        <Dot />
+        {/* <Dot /> */}
         <Text variant="lead" sx={{ mb: 4, color: 'muted', mr: 2 }}>
           from{' '}
           <NextLink href="https://hackathons.hackclub.com" passHref>
