@@ -81,7 +81,7 @@ const Content = () => (
           debit cards, a domain name, Google Workspace, stickers, and more.`}
         />
       </List>
-      <NextLink href="/bank/apply" passHref>
+      <NextLink href="/bank" passHref>
         <Button as="a" variant="outlineLg" sx={{ width: 500 }}>
           Apply for Hack Club Bank →
         </Button>
