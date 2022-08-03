@@ -65,7 +65,7 @@ export default function Landing() {
                   }}
                 >
                   Looking for hackathons?{' '}
-                  <Icon glyph="external" size={30} sx={{ pl: 1, pb: 1 }} />
+                  <Icon glyph="external" size={30} sx={{ pl: 1 }} />
                 </Button>
                 {/* <Text as="p" variant="headline" sx={{ mt: 0, color: 'muted' }}>
                   Leading text

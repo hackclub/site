@@ -1,7 +1,7 @@
-import { Button, Box, Container, Heading, Text } from 'theme-ui'
+import { Button, Box, Container, Heading, Text, Link } from 'theme-ui'
 import usePrefersMotion from '../../../lib/use-prefers-motion'
 import useHasMounted from '../../../lib/use-has-mounted'
-import Link from 'next/link'
+import NextLink from 'next/link'
 import { thousands } from '../../../lib/members'
 
 const Content = () => (
@@ -38,13 +38,28 @@ const Content = () => (
       .
     </Heading>
     <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
-      The {/* <Box as="span" sx={{ bg: 'muted', px: 1, borderRadius: 5 }}> */}
-      #hackathon-organizers
-      {/* </Box> */} channel is where teenagers around the world ask questions
-      and share their own hackathon organizing experiences. You'll connect with
-      other teens, like yourself, who have organized amazing events.
+      The{' '}
+      <Box
+        as="span"
+        sx={{
+          bg: 'rgb(245, 233, 181, .3)',
+          px: 1,
+          borderRadius: 5
+        }}
+      >
+        <Link
+          href="https://hackclub.slack.com/archives/C03QSGGCJN7"
+          sx={{ textDecoration: 'none', color: 'currentColor' }}
+          target="_blank"
+        >
+          #hackathon-organizers
+        </Link>
+      </Box>{' '}
+      channel is where teenagers around the world ask questions and share their
+      own hackathon organizing experiences—from finding a venue to securing
+      sponsorships to ordering food.
     </Text>
-    <Link href="/slack" passHref>
+    <NextLink href="/slack" passHref>
       <Button
         as="a"
         variant="ctaLg"
@@ -54,7 +69,7 @@ const Content = () => (
       >
         Join us on Slack →
       </Button>
-    </Link>
+    </NextLink>
   </Container>
 )
 

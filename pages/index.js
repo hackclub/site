@@ -129,8 +129,8 @@ const Page = () => (
       />
 
       <Announcement
-        copy="Help kick off a hackathon renaissance"
-        caption="organize a hackathon attend a hackathon ohyeahwoofyeah"
+        copy="Help kickstart an IRL hackathon renaissance"
+        caption="With the help"
         href="/hackathons"
         iconLeft="event-code"
         color="primary"
