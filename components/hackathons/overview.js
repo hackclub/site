@@ -71,13 +71,6 @@ export default function Overview() {
                 craft.
               </Text>
 
-              {/* <Text as="p" variant="subtitle">
-                <Text as="strong" sx={{ color: 'blue' }}>
-                  Feel the gradient
-                </Text>
-                Hackathons are all about building something, so they give a tangible result.
-              </Text> */}
-
               <Text as="p" variant="subtitle" sx={{ mt: 0 }}>
                 <Text as="strong" sx={{ color: 'green' }}>
                   We're at our best when we're making.
