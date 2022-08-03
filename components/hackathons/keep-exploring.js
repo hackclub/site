@@ -23,6 +23,8 @@ export default function KeepExploring() {
             fontSize: 6,
             mb: 3,
             display: 'flex',
+            flexDirection: [ 'column-reverse', null, 'row'],
+            alignItems: 'center',
             justifyContent: 'center',
             alignContent: 'center'
           }}
@@ -32,10 +34,10 @@ export default function KeepExploring() {
         <Link href="/slack" passHref>
           <Button
             sx={{
+              m: [2, 3],
+              my: [1,2],
               bg: 'white',
               color: 'red',
-              mr: [0, 3],
-              mb: [3, 0],
               fontSize: [2, 3]
             }}
             as="a"
@@ -45,7 +47,13 @@ export default function KeepExploring() {
         </Link>
 
         <Link href="https://hackathons.hackclub.com" passHref>
-          <Button sx={{ bg: 'white', color: 'red', fontSize: [2, 3] }} as="a">
+          <Button sx={{
+              m: [2, 3],
+              my: [1,2],
+              bg: 'white',
+              color: 'red',
+              fontSize: [2, 3]
+            }} as="a">
             Discover more hackathons
           </Button>
         </Link>
