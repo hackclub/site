@@ -1,4 +1,13 @@
-import { Button, Box, Container, Heading, Text, Link } from 'theme-ui'
+import {
+  Button,
+  Box,
+  Container,
+  Heading,
+  Text,
+  Link,
+  Badge,
+  Flex
+} from 'theme-ui'
 import NextLink from 'next/link'
 import { Fade } from 'react-reveal'
 import Icon from '../../icon'
@@ -39,6 +48,7 @@ const Content = () => (
       </Container>
       <List>
         <ListItem
+          knew
           icon="payment"
           leadText="$500 grants."
           body={
@@ -56,6 +66,7 @@ const Content = () => (
           }
         />
         <ListItem
+          knew
           icon="bolt"
           leadText="All fees waived."
           body={`
@@ -85,7 +96,7 @@ const List = ({ children }) => (
   </Box>
 )
 
-const ListItem = ({ icon, leadText, body }) => (
+const ListItem = ({ icon, leadText, body, knew }) => (
   <Fade bottom>
     <li
       style={{
@@ -105,9 +116,26 @@ const ListItem = ({ icon, leadText, body }) => (
         }}
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Text sx={{ fontWeight: 'bold', fontSize: [24, 32], lineHeight: 1 }}>
-          {leadText}
-        </Text>
+        <Flex sx={{ alignItems: 'center' }}>
+          <Text sx={{ fontWeight: 'bold', fontSize: [24, 32], lineHeight: 1 }}>
+            {leadText}
+          </Text>
+          {knew && (
+            <Badge
+              variant="pill"
+              sx={{
+                zIndex: '1',
+                bg: 'muted',
+                color: 'steel',
+                fontWeight: 'normal',
+                ml: 2
+              }}
+            >
+              New!
+            </Badge>
+          )}
+        </Flex>
+
         <Text variant="lead">{body}</Text>
       </Box>
     </li>
