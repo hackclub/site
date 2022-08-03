@@ -29,7 +29,17 @@ export default function Overview() {
             >
               <Text as="p" variant="subtitle">
                 <Text as="strong" sx={{ color: 'blue' }}>
-                  The best way to learn is by building.
+                  Learn by building.
+                </Text>
+                Hackathons provide a space to build a project with code– to hone
+                skills and pick up new concepts while getting hands-on.  Schools
+                don't provide that, so high schoolers can organize their own
+                hackathons and create it for themselves.
+              </Text>
+
+              <Text as="p" variant="subtitle">
+                <Text as="strong" sx={{ color: 'blue' }}>
+                  The whole kitchen sink.
                 </Text>
                 A hackathon is a space that helps give makers everything they
                 need to start building–mentors, collaborators, inspiration, and
@@ -37,6 +47,36 @@ export default function Overview() {
                 project of their own, ready and excited to keep hacking once
                 they get home.
               </Text>
+
+              <Text as="p" variant="subtitle">
+                <Text as="strong" sx={{ color: 'blue' }}>
+                  Build for yourself, together
+                </Text>
+                The first step to building something great is "building
+                something". 24 hours is not much time to change the world, but
+                is a great length for learning a new skill or tool. Great
+                hackathon projects have personal meaning– when you build for
+                yourself, you have more reason to build.
+              </Text>
+
+              <Text as="p" variant="subtitle">
+                <Text as="strong" sx={{ color: 'blue' }}>
+                  More friends, more fun.
+                </Text>
+                Coding doesn't have to be an isolating experience. At a
+                hackathon, participants build while surrounded by other
+                like-minded makers.  Many friend groups spring up around shared
+                setting– growing up in the same town or age group. At a
+                hackathon, you'll connect on a shared interest– a shared love of
+                craft.
+              </Text>
+
+              {/* <Text as="p" variant="subtitle">
+                <Text as="strong" sx={{ color: 'blue' }}>
+                  Feel the gradient
+                </Text>
+                Hackathons are all about building something, so they give a tangible result.
+              </Text> */}
 
               <Text as="p" variant="subtitle" sx={{ mt: 0 }}>
                 <Text as="strong" sx={{ color: 'green' }}>
