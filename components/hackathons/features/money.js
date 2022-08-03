@@ -28,8 +28,8 @@ const Content = () => (
           as="span"
           variant="title"
           sx={{
-            WebkitTextStroke: 'currentColor',
-            WebkitTextStrokeWidth: '2px',
+            // WebkitTextStroke: 'currentColor',
+            // WebkitTextStrokeWidth: '2px',
             WebkitTextFillColor: theme => theme.colors.white,
             textShadow: theme => `0 0 12px ${theme.colors.red}`
           }}

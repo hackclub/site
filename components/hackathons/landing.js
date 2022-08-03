@@ -2,10 +2,7 @@ import {
   Box,
   Button,
   Heading,
-  Link,
   Text,
-  Container,
-  Badge,
   Card
 } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
@@ -39,8 +36,7 @@ export default function Landing() {
               <Card
                 variant="translucent"
                 sx={{
-                  variant: 'layout.container',
-                  maxWidth: [null, 700, 1000],
+                  variant: 'layout.copy',
                   borderRadius: 'extra',
                   p: [3, 4],
                   position: 'relative',
@@ -54,22 +50,24 @@ export default function Landing() {
                   href="https://hackathons.hackclub.com"
                   sx={{
                     backgroundImage: t => t.util.gx('yellow', 'pink'),
+                    display: ['none', null, 'initial'],
                     position: 'absolute',
-                    right: [0, -3],
+                    right: -3,
                     top: -3,
                     transform: [
-                      'translateY(-50%) rotate(8deg)',
+                      'translateY(-50%) rotate(-8deg)',
                       'translateX(15%) rotate(12deg)'
                     ],
+                    textTransform: 'none',
                     fontSize: [2, 3]
                   }}
                 >
-                  Looking for hackathons?{' '}
-                  <Icon glyph="external" size={30} sx={{ pl: 1 }} />
+                  find one!{' '}
+                  {/* <Icon glyph="external" size={20} sx={{ pl: 1, mr: '-4px' }} /> */}
                 </Button>
-                {/* <Text as="p" variant="headline" sx={{ mt: 0, color: 'muted' }}>
-                  Leading text
-                </Text> */}
+                <Text as="p" variant="headline" sx={{ my: 0, fontSize: [3, '42px'] }}>
+                  Welcome to the
+                </Text>
                 <Heading
                   as="h2"
                   variant="title"
@@ -78,34 +76,30 @@ export default function Landing() {
                     span: { color: 'white', display: 'block' }
                   }}
                 >
-                  Welcome to the{' '}
+                  {/* HIGH SCHOOL */}
                   <Text
                     as="span"
                     variant="ultratitle"
-                    sx={{
-                      WebkitTextStroke: 'currentColor',
-                      WebkitTextStrokeWidth: ['2px', '3px'],
-                      WebkitTextFillColor: '#33D6A6',
-                      whiteSpace: [null, null, 'nowrap']
-                    }}
+
+                    sx={t => t.util.gxText('#ff8c37', '#fd4fa9')}
                   >
-                    high school hackathon.
+                    Hackathon.
                   </Text>
                 </Heading>
                 <Text
                   as="p"
                   variant="subtitle"
                   sx={{
-                    mt: [3, 4],
+                    // mt: [2, 3],
                     fontSize: [2, 3]
                   }}
                 >
+                  It's not an extracurricular or a club. It's not a class or a
+                  lecture.{' '}
                   <strong>
-                    It's not an extracurricular or a club. It's not a class or a
-                    lecture.
-                  </strong>{' '}
                   Hackathons are a place to build things for fun and meet others
                   doing the same.
+                  </strong>
                 </Text>
               </Card>
             </Fade>
