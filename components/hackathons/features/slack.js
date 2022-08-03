@@ -144,7 +144,7 @@ const Slack = () => {
             type="video/mp4; codecs=hevc"
           />
           <source
-            src="https://cloud-7fyyvr9jk-hack-club-bot.vercel.app/0screen_recording_2022-07-29_at_12.26.48_pm.webm"
+            src="https://cloud-a3mid6xbx-hack-club-bot.vercel.app/0screen_recording_2022-08-02_at_10.48.59_pm.webm"
             type="video/webm; codecs=vp9,opus"
           />
           <source
