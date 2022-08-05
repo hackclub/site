@@ -5,7 +5,7 @@ import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 
-import Rundown from '../components/hackathons/rundown'
+import Recap from '../components/hackathons/recap'
 import Slack from '../components/hackathons/features/slack'
 import Money from '../components/hackathons/features/money'
 import Landing from '../components/hackathons/landing'
@@ -35,7 +35,7 @@ export default function Hackathons({ data }) {
           <Slack />
           <Marketing />
           <Container>
-            <Rundown />
+            <Recap />
           </Container>
         </Box>
       </Box>

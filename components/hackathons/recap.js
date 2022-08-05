@@ -1,12 +1,12 @@
 import { Card, Box, Heading, Grid, Text, Container } from 'theme-ui'
 import Stage from '../stage'
 
-export default function Rundown() {
+export default function Recap() {
   return (
     <>
       <Box as="header" sx={{ textAlign: [null, 'center'], pt: [4, 5] }}>
         <Text as="p" variant="eyebrow">
-          Let's recap
+          Get started today
         </Text>
         <Heading as="h2" variant="title">
           Resources so you can organize an{' '}
@@ -61,7 +61,7 @@ export default function Rundown() {
             icon="slack"
             color="white"
             name="Slack community"
-            desc={`Connect with a community of high school hackathon organizers and get support from peers.`}
+            desc={`Join the Slack and get support in anything hackathon-organizing from sponsorships to logistics to ordering food.`}
           />
         </Card>
         <Card
