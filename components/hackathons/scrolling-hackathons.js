@@ -121,23 +121,6 @@ function EventCard({
           textAlign: 'center'
         }}
       >
-        {mlhAssociated && (
-          <Image
-            src="/mlh-logo-grayscale.svg"
-            alt="MLH is associated"
-            width={64}
-            sx={{
-              position: 'absolute',
-              top: 16,
-              left: 0,
-              bg: 'snow',
-              p: 2,
-              borderTopRightRadius: 'default',
-              borderBottomRightRadius: 'default'
-            }}
-          />
-        )}
-
         <Badge
           as="span"
           itemType="VirtualLocation"
