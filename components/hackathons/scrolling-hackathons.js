@@ -29,11 +29,11 @@ export default function ScrollingHackathons({ eventData }) {
         >
           Upcoming high school hackathons...
         </Heading>
-        {/* <Dot /> */}
+        <Dot />
         <Text variant="lead" sx={{ mb: 4, color: 'muted', mr: 2 }}>
           from{' '}
           <NextLink href="https://hackathons.hackclub.com" passHref>
-            <Link>hackathons.hackclub.com</Link>
+            <Link sx={{ color: 'currentcolor' }}>hackathons.hackclub.com</Link>
           </NextLink>
           , last updated just now.
         </Text>
