@@ -112,22 +112,10 @@ export default function Overview() {
               kitchen sink.
             </Heading>
             <Box sx={{ fontSize: 3 }}>
-              A hackathon is a space that helps give makers everything they need
-              to start building–mentors, collaborators, inspiration, and a goal
-              to work towards. Hackers will leave a hackathon with a project of
-              their own, ready and excited to keep hacking once they get home.
-            </Box>
-          </Row>
-          <Row>
-            <Heading as="h2" sx={{ fontSize: [36, 48] }} color="cyan">
-              Build for yourself, together.
-            </Heading>
-            <Box sx={{ fontSize: 3 }}>
-              The first step to building something great is "building
-              something". 24 hours is not much time to change the world, but is
-              a great length for learning a new skill or tool. Great hackathon
-              projects have personal meaning– when you build for yourself, you
-              have more reason to build.
+              Hackathons give makers everything they need to start
+              building–mentors, collaborators, inspiration, and a goal to work
+              towards. Hackers will leave a hackathon with a project of their
+              own, ready and excited to keep hacking once they get home.
             </Box>
           </Row>
           <Row>
