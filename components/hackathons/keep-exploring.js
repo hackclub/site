@@ -65,7 +65,7 @@ export default function KeepExploring() {
             variant="lead"
             sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
           >
-            Teenageers organize hackathons like{' '}
+            Teenagers organize hackathons like{' '}
             <a
               href="https://assemble.hackclub.com"
               target="_blank"
