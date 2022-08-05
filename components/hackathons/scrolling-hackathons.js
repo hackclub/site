@@ -1,9 +1,7 @@
 import Ticker from 'react-ticker'
 import {
-  Avatar,
   Box,
   Card,
-  Message,
   Text,
   Heading,
   Badge,
@@ -11,11 +9,10 @@ import {
   Image,
   Link
 } from 'theme-ui'
-// import Image from 'next/image'
 import { keyframes } from '@emotion/react'
 import Tilt from '../tilt'
 import NextLink from 'next/link'
-import { humanizedDateRange, formatAddress, timeSince } from '../../lib/helpers'
+import { humanizedDateRange, formatAddress } from '../../lib/helpers'
 
 export default function ScrollingHackathons({ eventData }) {
   return (
@@ -80,7 +77,6 @@ function Dot() {
 }
 
 function EventCard({
-  id,
   name,
   website,
   start,
@@ -89,7 +85,6 @@ function EventCard({
   state,
   country,
   countryCode,
-  mlhAssociated,
   banner,
   logo,
   virtual,
