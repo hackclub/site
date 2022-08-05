@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Heading,
-  Link,
-  Text,
-  Container,
-  Badge,
-  Card
-} from 'theme-ui'
+import { Box, Button, Heading, Text, Card } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'

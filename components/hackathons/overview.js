@@ -1,6 +1,5 @@
 import { Box, Heading, Container, Text, Grid, Flex } from 'theme-ui'
 import Photo from '../photo'
-import Link from 'next/link'
 
 export default function Overview() {
   return (
@@ -42,7 +41,7 @@ export default function Overview() {
                 <Text as="strong" sx={{ color: 'green' }}>
                   We're at our best when we're making.
                 </Text>{' '}
-                Hack Club is a world wide community of thousands of high school
+                Hack Club is a global community of thousands of high school
                 makers. We're organizers, coders, hackers, painters, engineers,
                 musicians, writers, volunteers. We make things. We want others
                 to make things too.

@@ -90,7 +90,7 @@ const Cover = () => (
 
 const Static = ({
   // screenshot of messages from #hackathon-organizers
-  img = 'https://cloud-re5hkabx0.vercel.app/2020-07-25_hn13qhejqrzu4n1jy9yacxxgrgp3wf5u.png'
+  img = 'https://cloud-8611bon87-hack-club-bot.vercel.app/0screen_shot_2022-08-05_at_2.27.38_pm.png'
 }) => (
   <Box
     as="section"
