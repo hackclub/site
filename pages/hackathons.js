@@ -44,7 +44,6 @@ export default function Hackathons({ data }) {
   )
 }
 
-// https://hackathons.hackclub.com/api/events/upcoming
 export async function getStaticProps() {
   const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming')
   const data = await res.json()
