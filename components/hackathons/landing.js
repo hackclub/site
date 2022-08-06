@@ -52,7 +52,8 @@ export default function Landing() {
                       'translateY(-50%) rotate(8deg)',
                       'translateX(15%) rotate(12deg)'
                     ],
-                    fontSize: [2, 3]
+                    fontSize: [2, 3],
+                    display: ['none', null, null]
                   }}
                 >
                   Looking for hackathons?{' '}

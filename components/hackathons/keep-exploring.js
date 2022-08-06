@@ -27,7 +27,12 @@ export default function KeepExploring() {
             alignContent: 'center'
           }}
         >
-          Keep exploring <Icon glyph="explore" size={70} />
+          Keep exploring{' '}
+          <Icon
+            glyph="explore"
+            size={70}
+            sx={{ display: ['none', null, null] }}
+          />
         </Heading>
         <Link href="/slack" passHref>
           <Button
