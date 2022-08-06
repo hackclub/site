@@ -83,8 +83,12 @@ const Content = () => (
         />
       </List>
       <NextLink href="/bank" passHref>
-        <Button as="a" variant="outlineLg" sx={{ width: 500 }}>
-          Apply for Hack Club Bank →
+        <Button as="a" variant="outlineLg" sx={{ width: [null, null, 500] }}>
+          Apply&nbsp;
+          <Box as="span" sx={{ display: ['none', 'inline', ''] }}>
+            for Hack Club Bank
+          </Box>{' '}
+          →
         </Button>
       </NextLink>
     </Container>
@@ -117,12 +121,21 @@ const ListItem = ({ icon, leadText, body, knew }) => (
         }}
       />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-        <Flex sx={{ alignItems: 'center' }}>
-          <Text sx={{ fontWeight: 'bold', fontSize: [24, 32], lineHeight: 1 }}>
+        <Box
+          sx={{
+            display: [null, null, 'flex'],
+            alignItems: 'center'
+          }}
+        >
+          <Text
+            as="span"
+            sx={{ fontWeight: 'bold', fontSize: [24, 32], lineHeight: 1 }}
+          >
             {leadText}
           </Text>
           {knew && (
             <Badge
+              as="span"
               variant="pill"
               sx={{
                 zIndex: '1',
@@ -135,7 +148,7 @@ const ListItem = ({ icon, leadText, body, knew }) => (
               New!
             </Badge>
           )}
-        </Flex>
+        </Box>
 
         <Text variant="lead">{body}</Text>
       </Box>
