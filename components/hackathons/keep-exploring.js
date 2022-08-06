@@ -31,7 +31,7 @@ export default function KeepExploring() {
           <Icon
             glyph="explore"
             size={70}
-            sx={{ display: ['none', null, null] }}
+            sx={{ display: ['none', 'flex', 'flex'] }}
           />
         </Heading>
         <Link href="/slack" passHref>
