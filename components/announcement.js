@@ -22,7 +22,7 @@ const Announcement = ({
     sx={{
       variant: 'cards.translucent',
       mx: 'auto',
-      maxWidth: 'narrow',
+      maxWidth: 'copy',
       width: '100%',
       textAlign: 'left',
       textDecoration: 'none',
@@ -45,7 +45,7 @@ const Announcement = ({
     {iconLeft && (
       <Icon
         glyph={iconLeft}
-        sx={{ mr: [2, 3], ml:2, color, display: ['none', 'block'] }}
+        sx={{ mr: [2, 3], ml: 2, color, display: ['none', 'block'] }}
       />
     )}
     <Text
@@ -60,9 +60,7 @@ const Announcement = ({
         </Text>
       )}
     </Text>
-    {iconRight && (
-      <Icon glyph={iconRight} sx={{ ml: [2, 3], color }} />
-    )}
+    {iconRight && <Icon glyph={iconRight} sx={{ ml: [2, 3], color }} />}
   </Card>
 )
 
