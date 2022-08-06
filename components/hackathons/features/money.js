@@ -47,7 +47,11 @@ const Content = () => (
         <ListItem
           knew
           icon="payment"
-          leadText="$500 grants (in partnership with FIRST)."
+          leadText={
+            <>
+              $500 grants (in partnership with <i>FIRST®</i>).
+            </>
+          }
           body={
             <>
               Get a $500 grant once you have a venue for your hackathon,
