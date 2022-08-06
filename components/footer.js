@@ -88,6 +88,9 @@ const Footer = ({ dark = false, children, ...props }) => (
           <NextLink href="/slack" passHref>
             <Link>Slack</Link>
           </NextLink>
+          <NextLink href="/hackathons" passHref>
+            <Link>Hackathons</Link>
+          </NextLink>
           <NextLink href="/donate" passHref>
             <Link>Donate</Link>
           </NextLink>
@@ -118,7 +121,9 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Link href="https://events.hackclub.com/">Events</Link>
           <Link href="https://workshops.hackclub.com/">Workshops</Link>
           <Link href="https://contribute.hackclub.com/">Contribute</Link>
-          <Link href="https://hackathons.hackclub.com/">Hackathons</Link>
+          <Link href="https://hackathons.hackclub.com/">
+            Hackathons Directory
+          </Link>
           <NextLink href="/bank" passHref>
             <Link>Bank</Link>
           </NextLink>
