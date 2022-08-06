@@ -47,13 +47,13 @@ const Content = () => (
           borderRadius: 5
         }}
       >
-        <Link
+        {/* <Link
           href="https://hackclub.slack.com/archives/C03QSGGCJN7"
           sx={{ textDecoration: 'none', color: 'currentColor' }}
           target="_blank"
-        >
-          #hackathon-organizers
-        </Link>
+        > */}
+        #hackathon-organizers
+        {/* </Link> */}
       </Box>{' '}
       channel is where teenagers around the world ask questions and share their
       own hackathon organizing experiences—from finding a venue to securing
