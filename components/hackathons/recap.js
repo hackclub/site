@@ -61,7 +61,7 @@ export default function Recap() {
             icon="slack"
             color="white"
             name="Slack community"
-            desc={`Join the Slack and get support in anything hackathon-organizing from sponsorships to logistics to ordering food.`}
+            desc="Join the Slack and get support in anything hackathon organizing from sponsorships to logistics to ordering food."
           />
         </Card>
         <Card
