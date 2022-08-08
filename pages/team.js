@@ -52,7 +52,7 @@ export default function Team() {
               <Bio
                 img="/team/christina.jpg"
                 name="Christina Asquith"
-                teamRole="COO"
+                teamRole="Co-founder and COO"
                 text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”                "
                 pronouns="she/her"
               />
@@ -185,7 +185,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
                 name="Abby Fischler"
-                teamRole="Technical Intern to the COO"
+                teamRole="Technical Intern to Christina (Co-founder and COO)"
                 text="Abby is a high school junior from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
                 img="https://github.com/abbyfischler.png"
                 pronouns="she/her"
