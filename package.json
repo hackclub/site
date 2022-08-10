@@ -27,7 +27,7 @@
     "country-list-js": "^3.1.7",
     "globby": "^11.0.4",
     "lodash": "^4.17.21",
-    "next": "^12.2.3",
+    "next": "^12.2.4",
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
     "react": "^17.0.2",
