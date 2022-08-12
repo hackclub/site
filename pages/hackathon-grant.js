@@ -141,7 +141,7 @@ const HackathonGrant = () => {
           <Grid columns={2} mb={5}>
             <Requirement title="Proof of venue">
               Provide a scan of a contract, or an{' '}
-              <Link href="https://www.investopedia.com/terms/m/mou.asp">
+              <Link href="https://www.investopedia.com/terms/m/mou.asp" target="_blank">
                 MOU (memorandum of understanding)
               </Link>
               .
