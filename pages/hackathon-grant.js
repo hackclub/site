@@ -173,7 +173,7 @@ const HackathonGrant = () => {
             <Requirement title="Handmade website">
               Your event's website should be coded by you— not a site builder
               like Wix or Google Sites. Need help? Check out our{' '}
-              <Link href="https://workshops.hackclub.com/personal_website/">
+              <Link href="https://workshops.hackclub.com/personal_website/" target="_blank">
                 Personal Website workshop
               </Link>
               !
