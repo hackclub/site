@@ -55,7 +55,7 @@ const Content = () => (
           body={
             <>
               Get a $500 grant once you have a venue for your hackathon,
-              provided by Hack Club Bank in partnership with{' '}
+              provided by Hack Club in partnership with{' '}
               <Link
                 href="https://www.firstinspires.org/"
                 sx={{ fontStyle: 'italic' }}
