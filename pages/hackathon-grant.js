@@ -139,15 +139,20 @@ const HackathonGrant = () => {
           </Text>
 
           <Grid columns={2} mb={5}>
-            <Requirement title="Proof of venue">
-              Provide a scan of a contract, or an{' '}
-              <Link href="https://www.investopedia.com/terms/m/mou.asp" target="_blank">
-                MOU (memorandum of understanding)
-              </Link>
-              .
-            </Requirement>
             <Requirement title="Event must be fully in-person">
-              Virtual and hybrid events aren't eligible.
+              Hacking is a social activity, and we're supporting hackathons that
+              bring hackers together IRL.
+            </Requirement>
+            <Requirement title="Proof of venue">
+              Provide a scan of a contract or an{' '}
+              <Link
+                href="https://www.investopedia.com/terms/m/mou.asp"
+                target="_blank"
+              >
+                MOU
+              </Link>{' '}
+              with your venue. The contract should have the date of your
+              hackathon on it.
             </Requirement>
             <Requirement
               title={
@@ -160,8 +165,8 @@ const HackathonGrant = () => {
                 </>
               }
             >
-              You'll receive your grant through Hack Club Bank, and spend it
-              transparently through{' '}
+              You'll receive your grant through Hack Club Bank, our financial
+              platform for hackathons, and spend it in the open with{' '}
               <Link
                 href="https://changelog.bank.hackclub.com/transparent-finances-(optional-feature)-151427"
                 target="_blank"
@@ -169,14 +174,35 @@ const HackathonGrant = () => {
                 Transparency Mode
               </Link>
               .
-            </Requirement>
-            <Requirement title="Handmade website">
-              Your event's website should be coded by you— not a site builder
-              like Wix or Google Sites. Need help? Check out our{' '}
-              <Link href="https://workshops.hackclub.com/personal_website/" target="_blank">
-                Personal Website workshop
+              <br />
+              <br />
+              See Transparency Mode in action at{' '}
+              <Link href="https://bank.hackclub.com/hq" target="_blank">
+                Hack Club HQ
               </Link>
               !
+            </Requirement>
+            <Requirement title="Handmade website">
+              Your website is an attendee's first impression of your event, and
+              it's your signature on the web.{' '}
+              <strong>
+                Instead of using a site builder like Wix or Google Sites, code
+                your own!
+              </strong>
+              <br />
+              <br />
+              Check out our{' '}
+              <Link
+                href="https://workshops.hackclub.com/personal_website/"
+                target="_blank"
+              >
+                Personal Website workshop
+              </Link>{' '}
+              or ask in{' '}
+              <Link href="/slack" target="_blank">
+                the Slack
+              </Link>{' '}
+              if you need help.
             </Requirement>
           </Grid>
 
