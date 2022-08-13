@@ -32,7 +32,8 @@ export default function Everything({ fee, partner = false }) {
               'Transaction data export': 'download',
               'Record shared notes on transactions': 'docs',
               '24-hour response support': 'clock',
-              'Reimbursement process': 'enter'
+              'Reimbursement process': 'enter',
+              'Instant deposits': 'bolt'
             }).map(([item, icon = 'enter']) => (
               <ListItem key={item} icon={icon}>
                 {item}
@@ -44,7 +45,7 @@ export default function Everything({ fee, partner = false }) {
               'Generate attendee legal waivers': '',
               'Virtual debit cards (with Apple & Google Pay)': '',
               'Debit card transaction paper trail': '',
-              'Transparency Mode (optional)': '',
+              'Transparency Mode (optional)': ''
             }).map(([item, date]) => (
               <ListItem
                 key={item}
@@ -63,23 +64,25 @@ export default function Everything({ fee, partner = false }) {
                 {item}
               </ListItem>
             ))}
-            {!partner ? Object.entries({
-              'Instant Google Workspace & email addresses': '',
-              'Online, embeddable donation form': ''
-            }).map(([item, date]) => (
-              <ListItem
-                key={item}
-                icon={
-                  item.startsWith('Instant')
-                    ? 'bolt'
-                    : item.includes('form')
-                    ? 'link'
-                    : 'enter'
-                }
-              >
-                {item}
-              </ListItem>
-            )) : ""}
+            {!partner
+              ? Object.entries({
+                  'Instant Google Workspace & email addresses': '',
+                  'Online, embeddable donation form': ''
+                }).map(([item, date]) => (
+                  <ListItem
+                    key={item}
+                    icon={
+                      item.startsWith('Instant')
+                        ? 'bolt'
+                        : item.includes('form')
+                        ? 'link'
+                        : 'enter'
+                    }
+                  >
+                    {item}
+                  </ListItem>
+                ))
+              : ''}
           </List>
         </Container>
         <Run />
@@ -119,8 +122,8 @@ export default function Everything({ fee, partner = false }) {
                   hoverline
                 >
                   fiscal sponsor
-                </Link>.
-                Fiscal sponsorship fees typically vary between 7-14%
+                </Link>
+                . Fiscal sponsorship fees typically vary between 7-14%
                 of&nbsp;revenue. Hack Club is a 501(c)(3) nonprofit.
               </Text>
             </Container>
