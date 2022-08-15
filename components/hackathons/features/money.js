@@ -54,7 +54,7 @@ const Content = () => (
           }
           body={
             <>
-              Get a $500 grant once you have a venue for your hackathon,
+              Get a $500 grant* once you have a venue for your hackathon,
               provided by Hack Club in partnership with{' '}
               <Link
                 href="https://www.firstinspires.org/"
@@ -91,6 +91,9 @@ const Content = () => (
           →
         </Button>
       </NextLink>
+      <Text variant="small" sx={{ display: ['none', 'inline', ''] }}>
+        *Open to hackathons in the US and Canada only.
+      </Text>
     </Container>
   </>
 )
