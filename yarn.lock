@@ -632,10 +632,10 @@
   dependencies:
     glob "7.1.7"
 
-"@next/mdx@^12.2.4":
-  version "12.2.4"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-12.2.4.tgz#a94d2e6eef91a4da1298e3a802563aad66cd7826"
-  integrity sha512-3Bj8gS6T0ZeAzoZQ66oNIXpgWeaYyiHB/mb8pJwDkgZiCUpaacxkfZ5HFqMdndAMJSCkKWcjhWaoGo7pUP88pg==
+"@next/mdx@^12.2.5":
+  version "12.2.5"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-12.2.5.tgz#f88743cad222c53bf1648ce15d22e9a49a4c5bc4"
+  integrity sha512-b4gDNNvlt1Icf9D+nMzc66Tn1ei4lYRUFjwjWdCgdQFCo2ahKl+/f4R/g958KGzZMFmmXBJ7JIfzeAqgPv7TsA==
 
 "@next/swc-android-arm-eabi@12.2.4":
   version "12.2.4"
@@ -2745,10 +2745,10 @@ json-schema-traverse@^0.4.1:
   resolved "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz"
   integrity sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==
 
-json-schema@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.npmjs.org/json-schema/-/json-schema-0.2.3.tgz"
-  integrity sha1-tIDIkuWaLwWVTOcnvT8qTogvnhM=
+json-schema@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
+  integrity sha512-a3xHnILGMtk+hDOqNwHzF6e2fNbiMrXZvxKQiEv2MlgQP+pjIOzqAmKYD2mDpXYE/44M7g+n9p2bKkYWDUcXCQ==
 
 json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
