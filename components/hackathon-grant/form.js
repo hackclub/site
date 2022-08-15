@@ -60,7 +60,16 @@ const Form = () => {
           have opened.
         </Text>
       ) : (
-        <Button variant="outline">Get notified</Button>
+        <>
+          <Button variant="outline">Get notified</Button>
+          <Text
+            variant="caption"
+            sx={{ color: 'muted', fontSize: 16, display: 'block', mt: 3 }}
+          >
+            We'll send you an email when grant applications are open— no spam or
+            unexpected marketing emails.
+          </Text>
+        </>
       )}
     </Box>
   )
