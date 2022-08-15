@@ -172,10 +172,10 @@ const HackathonGrant = () => {
               checkmark="profile-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:profile.svg"
             >
-              The hackathon should be organised by highschool students but 
+              Your hackathon should be organised by highschool students, but 
               there can be a maximum of 1 college student on your organising
-              team. All attendees should be under 18 <u>AND</u> not a full-time
-              college student.
+              team. All attendees should be under 18 <u>AND</u> not full-time
+              college students.
             </Requirement>
             <Requirement
               title="Fully in-person"
