@@ -84,7 +84,7 @@ const HackathonGrant = () => {
                     borderRadius: 8
                   }}
                 ></Box>
-                <Box mr={3} opacity={0.75} sx={{ fontWeight: 'normal' }}>
+                <Box mr={3} sx={{ fontWeight: 'normal' }}>
                   +
                 </Box>
                 <NextLink
