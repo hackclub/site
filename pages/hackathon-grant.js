@@ -51,7 +51,7 @@ const HackathonGrant = () => {
             pb: [3, 4, 5, null, 6],
             textAlign: 'center',
             backgroundImage:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://cloud-3aeson6ue-hack-club-bot.vercel.app/0lahacks3.jpeg')",
+              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://cloud-gxxp8xcyl-hack-club-bot.vercel.app/0fzfm1e-ueaef1qw.jpeg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center center'
           }}
