@@ -164,8 +164,8 @@ const HackathonGrant = () => {
               checkmark="clock-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
             >
-              We want to bring back highschool led events across the country so we are only offering the grant program for highschool hackathons that
-              take place by December 31st 2022.
+              We want to bring back highschooler-led events across the country, so we're only offering this grant for highschool hackathons that
+              take place by December 31st, 2022.
             </Requirement>
             <Requirement
               title="For and by highschool students"
