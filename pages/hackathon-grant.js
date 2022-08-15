@@ -237,7 +237,7 @@ const HackathonGrant = () => {
                 <Link href="https://bank.hackclub.com/hq" target="_blank">
                   Hack Club HQ
                 </Link>
-                ! If you are unable to
+                ! If you're unable to
                 use Hack Club Bank, we're unfortunately unable to support you
                 with this grant program.
               </Text>
