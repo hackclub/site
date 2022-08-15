@@ -9,8 +9,8 @@ const JoinForm = ({ sx = {} }) => {
     clearOnSubmit: 5000,
     method: 'POST',
     initData: router.query.continent
-      ? { continent: router.query.continent }
-      : {}
+      ? { continent: router.query.continent, reason: 'Application for the high-school hackathon grant' }
+      : { reason: 'Application for the high-school hackathon grant' }
   })
   return (
     <Card
@@ -75,13 +75,11 @@ const JoinForm = ({ sx = {} }) => {
         <Label>
           Why do you want to join the Hack Club Slack?
           <Textarea
+            // defaultValue="Application for the high-school hackathon grant"
             {...useField('reason')}
-            defaultValue="Application for the high-school hackathon grant"
             // placeholder="Write a few sentences."
             required
-          >
-            Hackathon Grant
-          </Textarea>
+            />
         </Label>
         <Submit
           status={status}

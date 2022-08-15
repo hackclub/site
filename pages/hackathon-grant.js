@@ -17,7 +17,7 @@ const Requirement = ({ title, children, checkmark, background }) => {
   return (
     <Zoom>
       <Card
-        variant="primary"
+        variant="interactive"
         sx={{
           backgroundColor: 'elevated',
           backgroundImage: `url('${background}')`,
@@ -145,7 +145,7 @@ const HackathonGrant = () => {
                 <i>FIRST®</i>
               </Link>
             </NextLink>{' '}
-            to provide $500 grants to in-person high-school hackathons happening
+            to provide $500 grants (and waiving Hack Club Bank fees) to in-person high-school hackathons happening
             this semester.
           </Box>
           <Text
@@ -158,22 +158,22 @@ const HackathonGrant = () => {
             Check if your hackathon <Sparkles>qualifies:</Sparkles>
           </Text>
 
-          <Grid columns={[1, 2, 2]} mb={6}>
+          <Grid columns={[1, 2, 2]} mb={6} gap={4}>
             <Requirement
               title="Happening this semester"
               checkmark="clock-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
             >
-              We are only offering the grant program for all hackathons that
+              We want to bring back highschool led events across the country so we are only offering the grant program for highschool hackathons that
               take place by December 31st 2022.
             </Requirement>
             <Requirement
-              title="By and for highschool students"
+              title="For and by highschool students"
               checkmark="profile-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:profile.svg"
             >
-              We want to bring back highschool led events across the country.
-              There can be a maximum of 1 college student on your organising
+              The hackathon should be organised by highschool students but 
+              there can be a maximum of 1 college student on your organising
               team. All attendees should be under 18 <u>AND</u> not a full-time
               college student.
             </Requirement>
@@ -183,16 +183,16 @@ const HackathonGrant = () => {
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:flag.svg"
             >
               Hacking is a social activity, and we're supporting hackathons that
-              bring hackers together IRL. We believe that fully IRL events allow
+              bring hackers together IRL. We believe that fully IRL (not hybrid) events allow
               organisers to maximise the unique hackathon experience for
               attendees.
             </Requirement>
             <Requirement
-              title="Venue Secured"
+              title="Venue secured"
               checkmark="pin-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:pin.svg"
             >
-              Provide a scan of an email, contract, or an{' '}
+              Have you secured your venue? You will need to provide a scan of an email, contract, or an{' '}
               <Link
                 href="https://www.investopedia.com/terms/m/mou.asp"
                 target="_blank"
@@ -200,13 +200,13 @@ const HackathonGrant = () => {
                 MOU
               </Link>{' '}
               with your venue. The contract should have the date of your
-              hackathon and address, contact details, and specific commitment
-              (what they are offering your hackathon) of your venue.
+              hackathon and address, contact details, and the specific commitment
+              of your venue.
             </Requirement>
             <Requirement
               title={
                 <>
-                  Run on{' '}
+                  Runs on{' '}
                   <NextLink href="/bank" passHref>
                     <Link target="_blank">Hack Club Bank</Link>
                   </NextLink>{' '}
@@ -215,7 +215,7 @@ const HackathonGrant = () => {
               }
               checkmark="bank-circle"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:bank-account.svg"
-            >
+            > 
               You'll receive your grant through Hack Club Bank, our financial
               platform for hackathons, and spend it in the open with{' '}
               <Link
@@ -224,8 +224,7 @@ const HackathonGrant = () => {
               >
                 Transparency Mode
               </Link>
-              .We'll also be waiving the standard 7% Hack Club Bank transaction
-              fess.
+              . 
               <br />
               <br />
               <Text
@@ -238,7 +237,7 @@ const HackathonGrant = () => {
                 <Link href="https://bank.hackclub.com/hq" target="_blank">
                   Hack Club HQ
                 </Link>
-                ! If due to area restrictions (like in India) you are unable to
+                ! If you are unable to
                 use Hack Club Bank, we're unfortunately unable to support you
                 with this grant program.
               </Text>
@@ -250,13 +249,16 @@ const HackathonGrant = () => {
             >
               Your website is an attendee's first impression of your event, and
               it's your signature on the web.{' '}
-              <strong>
-                Instead of using a site builder like Wix or Google Sites, code
-                your own!
-              </strong>
+                Instead of using a site builder like Wix or Google Sites, <strong>code
+                your own</strong>!
               <br />
               <br />
-              Check out our{' '}
+              <Text
+                sx={{
+                  fontSize: 1
+                }}
+              >
+ Check out our{' '}
               <Link
                 href="https://notebook.lachlanjc.com/2019-09-06_making_a_hackathon_site"
                 target="_blank"
@@ -268,6 +270,7 @@ const HackathonGrant = () => {
                 the Slack
               </Link>{' '}
               if you need help.
+              </Text>
             </Requirement>
           </Grid>
 
