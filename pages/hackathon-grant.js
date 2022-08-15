@@ -123,7 +123,7 @@ const HackathonGrant = () => {
               passHref
             >
               <Link>
-                <i>FIRST</i>
+                <i>FIRST®</i>
               </Link>
             </NextLink>{' '}
             to provide $500 grants to in-person high-school hackathons happening
