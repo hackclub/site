@@ -50,6 +50,7 @@ const Requirement = ({ title, children, checkmark, background }) => {
 
 const HackathonGrant = () => {
   let open = true // change this when we open the form :)
+  let channel = 'https://hackclub.slack.com/archives/C03TS9KSBGC' //change link to the right channel (right now it goes to #hackathon-grants-dev)
 
   return (
     <>
@@ -155,7 +156,7 @@ const HackathonGrant = () => {
             mb={3}
             sx={{ fontSize: [25, 30, 40], textAlign: 'center' }}
           >
-            Check if your hackathon <MSparkles>qualifies:</MSparkles>
+            Check if your hackathon qualifies:
           </Text>
 
           <Grid columns={[1, null, null, 2]} mb={6} gap={4}>
@@ -184,9 +185,9 @@ const HackathonGrant = () => {
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:flag.svg"
             >
               Hacking is a social activity, and we're supporting hackathons that
-              bring hackers together IRL. We believe that fully IRL (not hybrid) events allow
-              organisers to maximize the unique hackathon experience for
-              attendees.
+              bring hackers together IRL. We believe that fully IRL (not hybrid)
+              events allow organisers to maximize the unique hackathon
+              experience for attendees.
             </Requirement>
             <Requirement
               title="Venue secured"
@@ -275,7 +276,7 @@ const HackathonGrant = () => {
           </Grid>
 
           {open ? (
-            <Apply />
+            <Apply channel={channel} />
           ) : (
             <>
               <Heading
@@ -290,57 +291,44 @@ const HackathonGrant = () => {
           )}
         </Container>
       </Box>
-      {/* <Card
-        sx={{
-          width: 'fit-content',
-          textAlign: 'center',
-          color: 'muted',
-          mb: 3,
-          borderRadius: '999px'
-        }}
-      >
-        <Grid>
-
-        </Grid>
-        Reach out to <Link>bank@hackclub.com</Link> if you have any questions.
-      </Card> */}
-<Zoom>
-      <Card
-        as="a"
-        variant="interactive"
-        href="mailto:bank@hackclub.com"
-        sx={{
-          mx: 'auto',
-          maxWidth: 'copy',
-          width: '100%',
-          textAlign: 'left',
-          textDecoration: 'none',
-          lineHeight: 'caption',
-          display: 'flex',
-          alignItems: 'center',
-          p: [2, 2],
-          px: 3,
-          mb: [3, 4],          svg: { flexShrink: 'none' }
-        }}
-      >
-        <Icon
-          glyph="emoji"
-          color="#ec3750"
-          sx={{ mr: [2, 3], ml: 2, display: ['none', 'block'] }}
-        />
-        <Text
-          as="p"
+      <Zoom>
+        <Card
+          as="a"
+          variant="interactive"
+          href="mailto:bank@hackclub.com"
           sx={{
-            flex: '1 1 auto',
-            strong: { display: ['inline', 'block'], pl: 3 }
+            mx: 'auto',
+            maxWidth: 'copy',
+            width: '100%',
+            textAlign: 'left',
+            textDecoration: 'none',
+            lineHeight: 'caption',
+            display: 'flex',
+            alignItems: 'center',
+            p: [2, 2],
+            px: 3,
+            mb: [3, 4],
+            svg: { flexShrink: 'none' }
           }}
         >
-          <strong>Questions?</strong>
-          <Text as="span" variant="caption" color="secondary" sx={{ pl: 3 }}>
-            Reach out to <Link>bank@hackclub.com</Link>
+          <Icon
+            glyph="emoji"
+            color="#ec3750"
+            sx={{ mr: [2, 3], ml: 2, display: ['none', 'block'] }}
+          />
+          <Text
+            as="p"
+            sx={{
+              flex: '1 1 auto',
+              strong: { display: ['inline', 'block'], pl: 3 }
+            }}
+          >
+            <strong>Questions?</strong>
+            <Text as="span" variant="caption" color="secondary" sx={{ pl: 3 }}>
+              Reach out to <Link>bank@hackclub.com</Link>
+            </Text>
           </Text>
-        </Text>
-      </Card>
+        </Card>
       </Zoom>
       <Footer dark key="footer" />
     </>

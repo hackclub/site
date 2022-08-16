@@ -125,11 +125,11 @@ function Step({ icon, name, duration, href }) {
   )
 }
 
-const Apply = () => {
+const Apply = ({ channel }) => {
   return (
     <>
       <Heading sx={{ textAlign: 'center', mb: 3, fontSize: [5, null, 6, 7] }}>
-        The bucks start here.
+        The <MSparkles>bucks</MSparkles> start here.
       </Heading>
       <Heading
         sx={{
@@ -140,7 +140,7 @@ const Apply = () => {
         }}
         id="apply"
       >
-        Get your hackathon <MSparkles>funded</MSparkles>.
+        Get your hackathon funded.
       </Heading>
       <Timeline px={3}>
         <Step
@@ -194,7 +194,7 @@ const Apply = () => {
             as="a"
             variant="primary"
             sx={{
-              fontSize: [2, 3, 4],
+              fontSize: [2, null, 3],
               display: 'block',
               mx: 'auto',
               width: 'fit-content'
@@ -213,10 +213,7 @@ const Apply = () => {
           }}
         >
           Already have an account? Join the{' '}
-          <Link
-            href="https://hackclub.slack.com/archives/C03TS9KSBGC"
-            target="_blank"
-          >
+          <Link href={channel} target="_blank">
             #hackathon-grant
           </Link>{' '}
           channel!
