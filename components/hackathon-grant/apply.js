@@ -157,7 +157,7 @@ const Apply = ({ channel }) => {
                   fontStyle: 'italic'
                 }}
               >
-                slack
+                Slack
               </Link>
               , send your website to{' '}
               <Link
