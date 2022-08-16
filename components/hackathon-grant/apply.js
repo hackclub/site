@@ -122,7 +122,10 @@ function Step({ icon, name, duration, href }) {
 const Apply = () => {
   return (
     <>
-      <Heading sx={{ textAlign: 'center', mb: 5, fontSize: 5 }} id="apply">
+      <Heading sx={{ textAlign: 'center', mb: 3, fontSize: [5, null, 6, 7] }}>
+        The bucks start here.
+      </Heading>
+      <Heading sx={{ textAlign: 'center', mb: 5, fontSize: 4, color: 'muted' }} id="apply">
         Get your hackathon <Sparkles>funded</Sparkles>.
       </Heading>
       <Timeline px={3}>
