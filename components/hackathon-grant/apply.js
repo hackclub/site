@@ -91,8 +91,8 @@ function Step({ icon, name, duration, href }) {
             display: 'flex',
             justifyContent: ['left', 'left', null, 'center'],
             flexDirection: 'column',
-            textAlign: ['left', 'left', null, 'center'],
-            pr: 0
+            textAlign: ['left', null, 'center'],
+            pr: [0, 16, 16]
           }}
         >
           <Badge
@@ -105,7 +105,7 @@ function Step({ icon, name, duration, href }) {
               width: [52, null, 64],
               fontSize: [14, null, 18],
               px: 2,
-              mx: [null, null, null, 'auto']
+              mx: [null, null, 'auto']
             }}
           >
             {duration}
