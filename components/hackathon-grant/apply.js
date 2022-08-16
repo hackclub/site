@@ -28,7 +28,7 @@ function TimelineStep({ children }) {
         '&:before': {
           content: '""',
           background: '#3c4858',
-          height: ['420px', null, '4px'],
+          height: ['440px', null, '4px'],
           width: ['4px', null, '60%'],
           marginLeft: [26, null, 0],
           marginTop: [null, null, '34px'],
@@ -42,8 +42,8 @@ function TimelineStep({ children }) {
         },
         '&:last-of-type:before': {
           bottom: [0, null, 'auto'],
-          left: [null, null, 0],
-          width: [null, null, 0]
+          left: [0, null, 0],
+          width: [0, null, 0]
         }
       }}
     >
