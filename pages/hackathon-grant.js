@@ -307,7 +307,8 @@ const HackathonGrant = () => {
 <Zoom>
       <Card
         as="a"
-        variant="primary"
+        variant="interactive"
+        href="mailto:bank@hackclub.com"
         sx={{
           mx: 'auto',
           maxWidth: 'copy',
