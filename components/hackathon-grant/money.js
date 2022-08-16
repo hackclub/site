@@ -74,7 +74,7 @@ const Sparkle = ({ size, color, style }) => {
   return (
     <SparkleWrapper style={style}>
       <SparkleSvg width={size} height={size} viewBox="0 0 64 64" fill="none">
-        <path fill-rule="evenodd" clip-rule="evenodd" d={path} fill={color} />
+        <path fillRule="evenodd" clipRule="evenodd" d={path} fill={color} />
       </SparkleSvg>
     </SparkleWrapper>
   )
