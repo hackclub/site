@@ -184,7 +184,7 @@ const HackathonGrant = () => {
             >
               Hacking is a social activity, and we're supporting hackathons that
               bring hackers together IRL. We believe that fully IRL (not hybrid) events allow
-              organisers to maximise the unique hackathon experience for
+              organisers to maximize the unique hackathon experience for
               attendees.
             </Requirement>
             <Requirement
