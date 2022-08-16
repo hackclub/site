@@ -176,8 +176,8 @@ const HackathonGrant = () => {
             >
               Your hackathon should be organised by highschool students, but
               there can be a maximum of 1 college student on your organising
-              team. All attendees should be under 18 <u>AND</u> not full-time
-              college students.
+              team. All attendees should be 18 and under <u>PLUS</u> are not
+              full-time college students.
             </Requirement>
             <Requirement
               title="Fully in-person"
