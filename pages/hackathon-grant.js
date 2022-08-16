@@ -184,9 +184,9 @@ const HackathonGrant = () => {
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:flag.svg"
             >
               Hacking is a social activity, and we're supporting hackathons that
-              bring hackers together IRL. We believe that fully IRL (not hybrid)
-              events allow organisers to maximise the unique hackathon
-              experience for attendees.
+              bring hackers together IRL. We believe that fully IRL (not hybrid) events allow
+              organisers to maximize the unique hackathon experience for
+              attendees.
             </Requirement>
             <Requirement
               title="Venue secured"
