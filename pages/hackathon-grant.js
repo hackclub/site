@@ -158,9 +158,9 @@ const HackathonGrant = () => {
             Check if your hackathon <Sparkles>qualifies:</Sparkles>
           </Text>
 
-          <Grid columns={[1, 2, 2]} mb={6} gap={4}>
+          <Grid columns={[1, null, null, 2]} mb={6} gap={4}>
             <Requirement
-              title="Happening this semester"
+              title="Running this semester"
               checkmark="clock-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
             >
@@ -168,7 +168,7 @@ const HackathonGrant = () => {
               take place by December 31st, 2022.
             </Requirement>
             <Requirement
-              title="For and by highschool students"
+              title="By highschoolers, for highschoolers"
               checkmark="profile-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:profile.svg"
             >
@@ -206,9 +206,9 @@ const HackathonGrant = () => {
             <Requirement
               title={
                 <>
-                  Runs on{' '}
+                  Use{' '}
                   <NextLink href="/bank" passHref>
-                    <Link target="_blank">Hack Club Bank</Link>
+                    <Link target="_blank">Hack&nbsp;Club&nbsp;Bank</Link>
                   </NextLink>{' '}
                   with Transparency Mode enabled
                 </>
@@ -267,7 +267,7 @@ const HackathonGrant = () => {
               </Link>{' '}
               or ask in{' '}
               <Link href="/slack" target="_blank">
-                the Slack
+                Slack
               </Link>{' '}
               if you need help.
               </Text>
