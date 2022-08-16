@@ -5,7 +5,7 @@ import Head from 'next/head'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import Sparkles from '../components/sparkles'
+import MSparkles from '../components/hackathon-grant/money'
 import NextLink from 'next/link'
 import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
@@ -124,10 +124,10 @@ const HackathonGrant = () => {
                   ></Box>
                 </NextLink>
               </Flex>
-              A <Sparkles>$500</Sparkles> grant for your in-person hackathon.
+              A <MSparkles>$500</MSparkles> grant for your in-person hackathon.
             </Heading>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
-              {open ? "Apply Now" : "Coming Soon"}
+              {open ? 'Apply Now' : 'Coming Soon'}
             </Button>
           </Box>
         </Box>
@@ -145,8 +145,8 @@ const HackathonGrant = () => {
                 <i>FIRST®</i>
               </Link>
             </NextLink>{' '}
-            to provide $500 grants (and waiving Hack Club Bank fees) to in-person high-school hackathons happening
-            this semester.
+            to provide $500 grants (and waiving Hack Club Bank fees) to
+            in-person high-school hackathons happening this semester.
           </Box>
           <Text
             as="h1"
@@ -155,7 +155,7 @@ const HackathonGrant = () => {
             mb={3}
             sx={{ fontSize: [25, 30, 40], textAlign: 'center' }}
           >
-            Check if your hackathon <Sparkles>qualifies:</Sparkles>
+            Check if your hackathon <MSparkles>qualifies:</MSparkles>
           </Text>
 
           <Grid columns={[1, null, null, 2]} mb={6} gap={4}>
@@ -164,7 +164,8 @@ const HackathonGrant = () => {
               checkmark="clock-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
             >
-              We want to bring back highschooler-led events across the country, so we're only offering this grant for highschool hackathons that
+              We want to bring back highschooler-led events across the country,
+              so we're only offering this grant for highschool hackathons that
               take place by December 31st, 2022.
             </Requirement>
             <Requirement
@@ -172,7 +173,7 @@ const HackathonGrant = () => {
               checkmark="profile-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:profile.svg"
             >
-              Your hackathon should be organised by highschool students, but 
+              Your hackathon should be organised by highschool students, but
               there can be a maximum of 1 college student on your organising
               team. All attendees should be under 18 <u>AND</u> not full-time
               college students.
@@ -183,16 +184,17 @@ const HackathonGrant = () => {
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:flag.svg"
             >
               Hacking is a social activity, and we're supporting hackathons that
-              bring hackers together IRL. We believe that fully IRL (not hybrid) events allow
-              organisers to maximise the unique hackathon experience for
-              attendees.
+              bring hackers together IRL. We believe that fully IRL (not hybrid)
+              events allow organisers to maximise the unique hackathon
+              experience for attendees.
             </Requirement>
             <Requirement
               title="Venue secured"
               checkmark="pin-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:pin.svg"
             >
-              Have you secured your venue? You will need to provide a scan of an email, contract, or an{' '}
+              Have you secured your venue? You will need to provide a scan of an
+              email, contract, or an{' '}
               <Link
                 href="https://www.investopedia.com/terms/m/mou.asp"
                 target="_blank"
@@ -200,8 +202,8 @@ const HackathonGrant = () => {
                 MOU
               </Link>{' '}
               with your venue. The contract should have the date of your
-              hackathon and address, contact details, and the specific commitment
-              of your venue.
+              hackathon and address, contact details, and the specific
+              commitment of your venue.
             </Requirement>
             <Requirement
               title={
@@ -215,7 +217,7 @@ const HackathonGrant = () => {
               }
               checkmark="bank-circle"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:bank-account.svg"
-            > 
+            >
               You'll receive your grant through Hack Club Bank, our financial
               platform for hackathons, and spend it in the open with{' '}
               <Link
@@ -224,7 +226,7 @@ const HackathonGrant = () => {
               >
                 Transparency Mode
               </Link>
-              . 
+              .
               <br />
               <br />
               <Text
@@ -237,9 +239,8 @@ const HackathonGrant = () => {
                 <Link href="https://bank.hackclub.com/hq" target="_blank">
                   Hack Club HQ
                 </Link>
-                ! If you're unable to
-                use Hack Club Bank, we're unfortunately unable to support you
-                with this grant program.
+                ! If you're unable to use Hack Club Bank, we're unfortunately
+                unable to support you with this grant program.
               </Text>
             </Requirement>
             <Requirement
@@ -248,9 +249,8 @@ const HackathonGrant = () => {
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:web.svg"
             >
               Your website is an attendee's first impression of your event, and
-              it's your signature on the web.{' '}
-                Instead of using a site builder like Wix or Google Sites, <strong>code
-                your own</strong>!
+              it's your signature on the web. Instead of using a site builder
+              like Wix or Google Sites, <strong>code your own</strong>!
               <br />
               <br />
               <Text
@@ -258,18 +258,18 @@ const HackathonGrant = () => {
                   fontSize: 1
                 }}
               >
- Check out our{' '}
-              <Link
-                href="https://notebook.lachlanjc.com/2019-09-06_making_a_hackathon_site"
-                target="_blank"
-              >
-                a guide on building hackathon websites
-              </Link>{' '}
-              or ask in{' '}
-              <Link href="/slack" target="_blank">
-                Slack
-              </Link>{' '}
-              if you need help.
+                Check out our{' '}
+                <Link
+                  href="https://notebook.lachlanjc.com/2019-09-06_making_a_hackathon_site"
+                  target="_blank"
+                >
+                  a guide on building hackathon websites
+                </Link>{' '}
+                or ask in{' '}
+                <Link href="/slack" target="_blank">
+                  Slack
+                </Link>{' '}
+                if you need help.
               </Text>
             </Requirement>
           </Grid>
@@ -290,7 +290,57 @@ const HackathonGrant = () => {
           )}
         </Container>
       </Box>
-      <Box sx={{width: '100vw', textAlign: 'center', color: 'muted', mb: 3}}>Reach out to  <Link>bank@hackclub.com</Link> if you have any questions.</Box>
+      {/* <Card
+        sx={{
+          width: 'fit-content',
+          textAlign: 'center',
+          color: 'muted',
+          mb: 3,
+          borderRadius: '999px'
+        }}
+      >
+        <Grid>
+
+        </Grid>
+        Reach out to <Link>bank@hackclub.com</Link> if you have any questions.
+      </Card> */}
+<Zoom>
+      <Card
+        as="a"
+        variant="primary"
+        sx={{
+          mx: 'auto',
+          maxWidth: 'copy',
+          width: '100%',
+          textAlign: 'left',
+          textDecoration: 'none',
+          lineHeight: 'caption',
+          display: 'flex',
+          alignItems: 'center',
+          p: [2, 2],
+          px: 3,
+          mb: [3, 4],          svg: { flexShrink: 'none' }
+        }}
+      >
+        <Icon
+          glyph="emoji"
+          color="#ec3750"
+          sx={{ mr: [2, 3], ml: 2, display: ['none', 'block'] }}
+        />
+        <Text
+          as="p"
+          sx={{
+            flex: '1 1 auto',
+            strong: { display: ['inline', 'block'], pl: 3 }
+          }}
+        >
+          <strong>Questions?</strong>
+          <Text as="span" variant="caption" color="secondary" sx={{ pl: 3 }}>
+            Reach out to <Link>bank@hackclub.com</Link>
+          </Text>
+        </Text>
+      </Card>
+      </Zoom>
       <Footer dark key="footer" />
     </>
   )

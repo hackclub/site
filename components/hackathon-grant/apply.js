@@ -1,9 +1,8 @@
 import { Box, Badge, Container, Flex, Grid, Heading } from 'theme-ui'
 import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import JoinSlack from './join-slack'
 import { Slide } from 'react-reveal'
-import Sparkles from '../sparkles'
+import MSparkles from './money'
 
 function Timeline({ children }) {
   return (
@@ -24,13 +23,15 @@ function TimelineStep({ children }) {
         paddingY: [4, null, 0],
         flexDirection: ['row', null, 'column'],
         alignItems: 'center',
+        justifyContent: ['center', 'center', 'unset', 'unset'],
         // width: 'fit-content',
         '&:before': {
           content: '""',
           background: '#3c4858',
-          height: ['440px', null, '4px'],
-          width: ['4px', null, '60%'],
-          marginLeft: [26, null, 0],
+          height: [0, null, '4px'],
+          width: [0, null, '60%'],
+          maxWidth: '840px',
+          marginLeft: [null, null, 0],
           marginTop: [null, null, '34px'],
           position: 'absolute',
           zIndex: -1
@@ -88,9 +89,10 @@ function Step({ icon, name, duration, href }) {
           sx={{
             marginTop: 3,
             display: 'flex',
-            justifyContent: ['left', null, 'center'],
+            justifyContent: ['left', 'left', null, 'center'],
             flexDirection: 'column',
-            textAlign: ['left', null, 'center']
+            textAlign: ['left', 'left', null, 'center'],
+            pr: 0
           }}
         >
           <Badge
@@ -100,16 +102,20 @@ function Step({ icon, name, duration, href }) {
               color: 'darker',
               fontWeight: 'normal',
               textTransform: 'uppercase',
-              width: 64,
-              fontSize: 18,
+              width: [52, null, 64],
+              fontSize: [14, null, 18],
               px: 2,
-              mx: [null, null, 'auto']
+              mx: [null, null, null, 'auto']
             }}
           >
             {duration}
           </Badge>
           <Text
-            sx={{ color: 'white', fontSize: 24, maxWidth: [300, null, 550] }}
+            sx={{
+              color: 'white',
+              fontSize: [18, 22, 24],
+              maxWidth: [300, null, 550]
+            }}
           >
             {name}
           </Text>
@@ -125,8 +131,16 @@ const Apply = () => {
       <Heading sx={{ textAlign: 'center', mb: 3, fontSize: [5, null, 6, 7] }}>
         The bucks start here.
       </Heading>
-      <Heading sx={{ textAlign: 'center', mb: 5, fontSize: 4, color: 'muted' }} id="apply">
-        Get your hackathon <Sparkles>funded</Sparkles>.
+      <Heading
+        sx={{
+          textAlign: 'center',
+          mb: [3, null, 5],
+          fontSize: [3, null, 4],
+          color: 'muted'
+        }}
+        id="apply"
+      >
+        Get your hackathon <MSparkles>funded</MSparkles>.
       </Heading>
       <Timeline px={3}>
         <Step
@@ -145,7 +159,13 @@ const Apply = () => {
               >
                 slack
               </Link>
-              , send your website to #hackathon-grant{' '}
+              , send your website to{' '}
+              <Link
+                href="https://hackclub.slack.com/archives/C03TS9KSBGC"
+                target="_blank"
+              >
+                #hackathon-grant
+              </Link>{' '}
             </>
           }
           duration="Step 1"
@@ -162,8 +182,45 @@ const Apply = () => {
           duration="Step 3"
         />
       </Timeline>
+      <br />
+      <br />
       <Slide left>
-        <JoinSlack />
+        <Link
+          href="/slack/?reason=Application%20for%20the%20high-school%20hackathon%20grant"
+          target="_blank"
+          sx={{ textDecoration: 'none' }}
+        >
+          <Button
+            as="a"
+            variant="primary"
+            sx={{
+              fontSize: [2, 3, 4],
+              display: 'block',
+              mx: 'auto',
+              width: 'fit-content'
+            }}
+          >
+            Join Slack
+          </Button>
+        </Link>
+        <Box
+          sx={{
+            textAlign: 'center',
+            color: 'muted',
+            my: 3,
+            width: '60%',
+            mx: 'auto'
+          }}
+        >
+          Already have an account? Join the{' '}
+          <Link
+            href="https://hackclub.slack.com/archives/C03TS9KSBGC"
+            target="_blank"
+          >
+            #hackathon-grant
+          </Link>{' '}
+          channel!
+        </Box>
       </Slide>
     </>
   )
