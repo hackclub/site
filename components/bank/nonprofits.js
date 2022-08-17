@@ -34,6 +34,7 @@ const orgs = [
     budget: '5.6',
     budgetLabel: 'raised',
     website: 'projectboom.org',
+    url: 'https://web.archive.org/web/20211017121703/https://legacy.projectboom.org/',
     description:
       'Project Boom is a student-led organization with a simple mission: getting computers to those who need them. Instead of becoming e-waste, old machines are given new life to deserving students worldwide. Joining Hack Club Bank provided Project Boom with a platform to easily accept and manage donations, helping them to repair and ship more computers than ever before.'
   },
@@ -89,6 +90,7 @@ export default function Nonprofits() {
               budgetLabel={org.budgetLabel}
               website={org.website}
               description={org.description}
+              url={org.url}
               key={id}
             />
           )
@@ -104,6 +106,7 @@ function Organization({
   budget,
   budgetLabel,
   website,
+  url,
   description
 }) {
   return (
@@ -150,7 +153,7 @@ function Organization({
                   </Text>
                   <br />
                   <Link
-                    href={`https://${website}`}
+                    href={url || `https://${website}`}
                     sx={{
                       textDecoration: 'none',
                       color: 'muted',
