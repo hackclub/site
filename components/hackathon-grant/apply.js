@@ -173,7 +173,7 @@ const Apply = ({ channel }) => {
         />
         <Step
           icon="post"
-          name="Fill in your application, we'll respond in 24 hours"
+          name="Fill in your application, we'll respond in 24 hours (on weekdays)"
           duration="Step 2"
         />
         <Step
