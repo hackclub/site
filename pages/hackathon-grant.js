@@ -58,14 +58,8 @@ const HackathonGrant = () => {
         as={Head}
         title="Hackathon Grant"
         description="Hack Club is partnering with FIRST to provide $500 grants to in-person high-school hackathons happening this semester."
-        image="https://cloud-123vvl4d8-hack-club-bot.vercel.app/0frame_1__1_.png"
+        image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
-      <Head>
-      <meta
-        name="twitter:image"
-        content="https://cloud-123vvl4d8-hack-club-bot.vercel.app/0frame_1__1_.png"
-      />
-      </Head>
       <Box as="main" key="main">
         <Nav dark />
         <ForceTheme theme="dark" />
