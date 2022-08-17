@@ -22,7 +22,7 @@ const Announcement = ({
     sx={{
       variant: 'cards.translucent',
       mx: 'auto',
-      maxWidth: 'copy',
+      maxWidth: 'narrow',
       width: '100%',
       textAlign: 'left',
       textDecoration: 'none',
