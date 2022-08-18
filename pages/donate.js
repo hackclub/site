@@ -19,8 +19,8 @@ import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import GamelabForm from '../components/donate/gamelabForm'
-import GamelabMeta from '../components/donate/gamelabMeta'
+import SprigForm from '../components/donate/sprigForm'
+import SprigMeta from '../components/donate/sprigMeta'
 import Sponsors from '../components/donate/sponsors'
 import donors from '../components/donate/donors.json'
 import Marquee from 'react-marquee-slider'
@@ -207,9 +207,11 @@ const DonorListing = ({ name, url }) => {
   }
 }
 
-export default function Donate({ gamelab }) {
+export default function Donate({ sprig }) {
   useEffect(() => {
-    window.document.getElementById('gamelab-donation').scrollIntoView()
+    if(sprig){
+      window.document.getElementById('sprig-donation').scrollIntoView()
+    }
   }, [])
   return (
     <Box>
@@ -319,8 +321,8 @@ export default function Donate({ gamelab }) {
           />
         </Box>
       </Header>
-      <Container mb={5} id="gamelab-donation"></Container>
-      {gamelab && <GamelabMeta />}
+      <Container mb={5} id="sprig-donation"></Container>
+      {sprig && <SprigMeta />}
       <Container variant="copy">
         <Grid
           columns={[null, null, 2, '3fr 2fr']}
@@ -393,7 +395,7 @@ export default function Donate({ gamelab }) {
             padding: 4
           }}
         >
-          <GamelabForm />
+          <SprigForm />
         </Sheet>
       </Container>
       <Container variant="copy" mt={5}>
@@ -510,7 +512,7 @@ export default function Donate({ gamelab }) {
 export async function getServerSideProps(context) {
   return {
     props: {
-      gamelab: Object.keys(context.query).includes('gl')
+      sprig: Object.keys(context.query).includes('gl')
     }
   }
 }
