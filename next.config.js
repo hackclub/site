@@ -178,6 +178,10 @@ const nextConfig = {
         destination: 'https://workshops.hackclub.com/vip-newsletters/'
       },
       {
+        source: '/newsletters/',
+        destination: 'https://workshops.hackclub.com/newsletters/'
+      },
+      {
         source: '/vip-newsletters/(.*)',
         destination: 'https://workshops.hackclub.com/vip-newsletters/$1'
       },
