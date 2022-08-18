@@ -2,16 +2,17 @@ import { useState } from 'react'
 import { Box, Badge, Container, Flex, Grid, Heading } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import ForceTheme from '../components/force-theme'
-import Nav from '../components/nav'
-import Footer from '../components/footer'
-import MSparkles from '../components/hackathon-grant/money'
+import ForceTheme from '../../components/force-theme'
+import Nav from '../../components/nav'
+import Footer from '../../components/footer'
+import MSparkles from '../../components/hackathon-grant/money'
 import NextLink from 'next/link'
 import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import Form from '../components/hackathon-grant/form'
-import Apply from '../components/hackathon-grant/apply'
+import Form from '../../components/hackathon-grant/form'
+import Apply from '../../components/hackathon-grant/apply'
 import Zoom from 'react-reveal/Zoom'
+/** @jsxImportSource theme-ui */
 
 const Requirement = ({ title, children, checkmark, background }) => {
   return (
@@ -35,12 +36,12 @@ const Requirement = ({ title, children, checkmark, background }) => {
           <Box mr={3} sx={{ lineHeight: 0, flexShrink: 0 }}>
             <Icon glyph={checkmark} color="#ec3750" size={36} />
           </Box>
-          <Text variant="heading" sx={{ fontSize: 24, lineHeight: 1.5 }}>
+          <Text variant="heading" sx={{ fontSize: [2, 3, 3], lineHeight: 1.5 }}>
             {title}
           </Text>
         </Flex>
 
-        <Text pl={48} mt={2} sx={{ fontSize: 2 }}>
+        <Text pl={48} mt={2} sx={{ fontSize: [1, 2, 2] }}>
           {children}
         </Text>
       </Card>
@@ -57,7 +58,7 @@ const HackathonGrant = () => {
       <Meta
         as={Head}
         title="Hackathon Grant"
-        description="Hack Club is partnering with FIRST to provide $500 grants to in-person high-school hackathons happening this semester."
+        description="Hack Club is partnering with FIRST to provide $500 grants to in-person high school hackathons happening this semester."
         image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
       <Box as="main" key="main">
@@ -79,12 +80,20 @@ const HackathonGrant = () => {
             alignItems: 'center'
           }}
         >
-          <Box sx={{ width: '100%', maxWidth: '42rem', mx: 'auto' }}>
+          <Box
+            sx={{
+              width: '100%',
+              maxWidth: 'calc(56rem + 32px)',
+              mx: 'auto',
+              px: '16px'
+            }}
+          >
             <Heading
               sx={{
                 textAlign: 'center',
                 mt: [2, 4],
-                textShadow: '0 0 16px rgba(0, 0, 0, 1)'
+                textShadow: '0 0 16px rgba(0, 0, 0, 1)',
+                fontSize: [5, null, 6, 7]
               }}
               as="h1"
               variant="title"
@@ -131,60 +140,81 @@ const HackathonGrant = () => {
                   ></Box>
                 </NextLink>
               </Flex>
-              {/* A <MSparkles>$500</MSparkles> grant for your in-person hackathon. */}
-              A $500 grant for your in-person hackathon.
+              A <MSparkles>$500</MSparkles> grant for your{' '}
+              <a sx={{ whiteSpace: 'nowrap' }}>in-person</a> hackathon.
             </Heading>
+            <Box
+              sx={{
+                fontSize: [2, 3, 3],
+                textAlign: 'center',
+                mb: 4
+              }}
+            >
+              Hack Club is partnering with{' '}
+              <NextLink href="https://www.firstinspires.org" passHref>
+                <Link target="_blank">
+                  <i>FIRST®</i>
+                </Link>
+              </NextLink>{' '}
+              to provide $500 grants (and waiving{' '}
+              <Link href="/bank" target="_blank">
+                Hack Club Bank
+              </Link>{' '}
+              fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
+              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons
+              happening this semester.
+            </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
               {open ? 'Apply Now' : 'Coming Soon'}
             </Button>
           </Box>
         </Box>
         <Container sx={{ py: 5 }}>
-          <Box
-            sx={{
-              fontSize: ['20px', '24px', '27px'],
-              textAlign: 'center',
-              mb: 4
-            }}
-          >
-            Hack Club is partnering with{' '}
-            <NextLink href="https://www.firstinspires.org" passHref>
-              <Link target="_blank">
-                <i>FIRST®</i>
-              </Link>
-            </NextLink>{' '}
-            to provide $500 grants (and waiving Hack Club Bank fees) to
-            in-person high-school hackathons happening this semester.
-          </Box>
           <Text
             as="h1"
             variant="heading"
             mt={5}
             mb={3}
-            sx={{ fontSize: [25, 30, 40], textAlign: 'center' }}
+            sx={{ fontSize: [28, 30, 40], textAlign: 'center' }}
           >
             Check if your hackathon qualifies:
           </Text>
 
-          <Grid columns={[1, null, null, 2]} mb={6} gap={4}>
+          <Grid columns={[1, 2, 2]} gap={4}>
             <Requirement
               title="Running this semester"
               checkmark="clock-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
             >
-              We want to bring back highschooler-led events across the country,
-              so we're only offering this grant for highschool hackathons that
-              take place by December 31st, 2022.
+              We want to bring back high schooler-led events acround the world,
+              so we're only offering this grant for high school hackathons that
+              take place from
+                August 19th to December 31st 2022
+              .
             </Requirement>
             <Requirement
-              title="By highschoolers, for highschoolers"
+              title={
+                <>
+                  By <a sx={{ whiteSpace: 'nowrap' }}>high schoolers</a>, for{' '}
+                  <a sx={{ whiteSpace: 'nowrap' }}>high schoolers</a>
+                </>
+              }
               checkmark="profile-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:profile.svg"
             >
-              Your hackathon should be organised by highschool students, but
-              there can be a maximum of 1 college student on your organising
-              team. All attendees should be 18 and under <u>PLUS</u> are not
-              full-time college students.
+              To create a uniquely tailored high school hackathon, your
+              hackathon should be organized by high school students*. All
+              attendees should be 18 & under <u>AND</u> not full-time college
+              students.
+              <br />
+              <br />
+              <Text
+                sx={{
+                  fontSize: 1
+                }}
+              >
+                Maximum of 1 college student is allowed on your organizing team.
+              </Text>
             </Requirement>
             <Requirement
               title="Fully in-person"
@@ -201,33 +231,63 @@ const HackathonGrant = () => {
               checkmark="pin-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:pin.svg"
             >
-              Have you secured your venue? You will need to provide a scan of an
-              email, contract, or an{' '}
+              You will need to provide a scan of an email, contract, or an{' '}
               <Link
                 href="https://www.investopedia.com/terms/m/mou.asp"
                 target="_blank"
               >
                 MOU
               </Link>{' '}
-              with your venue. The contract should have the date of your
-              hackathon and address, contact details, and the specific
-              commitment of your venue.
+              with your venue. Your scan should have the date of your hackathon
+              and address, contact details, and the specific commitment of your
+              venue.
             </Requirement>
             <Requirement
-              title={
-                <>
-                  Use{' '}
-                  <NextLink href="/bank" passHref>
-                    <Link target="_blank">Hack&nbsp;Club&nbsp;Bank</Link>
-                  </NextLink>{' '}
-                  with Transparency Mode enabled
-                </>
-              }
+              title="Handmade website"
+              checkmark="web"
+              background="https://icons.hackclub.com/api/icons/0x212025/glyph:web.svg"
+            >
+              Embody the hacker spirit your hackathon seeks to promote by making
+              your own website. Your website is an attendee's first impression
+              of your event, and it's your signature on the web. Instead of
+              using a site builder like Wix or Google Sites,{' '}
+              <strong>code your own</strong>!
+              <br />
+              <br />
+              <Text
+                sx={{
+                  fontSize: ['14px', 1, 1]
+                }}
+              >
+                Check out{' '}
+                <Link
+                  href="https://notebook.lachlanjc.com/2019-09-06_making_a_hackathon_site"
+                  target="_blank"
+                >
+                  a guide on building hackathon websites
+                </Link>{' '}
+                or ask in{' '}
+                <Link href="/slack" target="_blank">
+                  Slack
+                </Link>{' '}
+                if you need help. Don't have a domain?{' '}
+                <Link href="/bank" target="_blank">
+                  Hack Club Bank
+                </Link>{' '}
+                provides a free domain.
+              </Text>
+            </Requirement>
+            <Requirement
+              title="Open Sourced finances"
               checkmark="bank-circle"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:bank-account.svg"
             >
-              You'll receive your grant through Hack Club Bank, our financial
-              platform for hackathons, and spend it in the open with{' '}
+              You'll receive your grant through{' '}
+              <NextLink href="/bank" passHref>
+                <Link target="_blank">Hack&nbsp;Club&nbsp;Bank</Link>
+              </NextLink>
+              , our financial platform for hackathons, and spend it in the open
+              with{' '}
               <Link
                 href="https://changelog.bank.hackclub.com/transparent-finances-(optional-feature)-151427"
                 target="_blank"
@@ -239,7 +299,7 @@ const HackathonGrant = () => {
               <br />
               <Text
                 sx={{
-                  fontSize: 1
+                  fontSize: ['14px', 1, 1]
                 }}
               >
                 {' '}
@@ -247,37 +307,24 @@ const HackathonGrant = () => {
                 <Link href="https://bank.hackclub.com/hq" target="_blank">
                   Hack Club HQ
                 </Link>
-                ! If you're unable to use Hack Club Bank, we're unfortunately
-                unable to support you with this grant program.
-              </Text>
-            </Requirement>
-            <Requirement
-              title="Handmade website"
-              checkmark="web"
-              background="https://icons.hackclub.com/api/icons/0x212025/glyph:web.svg"
-            >
-              Your website is an attendee's first impression of your event, and
-              it's your signature on the web. Instead of using a site builder
-              like Wix or Google Sites, <strong>code your own</strong>!
-              <br />
-              <br />
-              <Text
-                sx={{
-                  fontSize: 1
-                }}
-              >
-                Check out our{' '}
-                <Link
-                  href="https://notebook.lachlanjc.com/2019-09-06_making_a_hackathon_site"
-                  target="_blank"
-                >
-                  a guide on building hackathon websites
+                ! Sign up for a {' '}
+                <Link href="/bank" target="_blank" sx={{
+                  color: 'white',
+                  textDecoration: 'none',
+                  fontStyle: 'italic'
+                }}>
+                  Hack Club Bank
                 </Link>{' '}
-                or ask in{' '}
-                <Link href="/slack" target="_blank">
-                  Slack
+                project before applying. If you're unable to use{' '}
+                <Link href="/bank" target="_blank" sx={{
+                  color: 'white',
+                  textDecoration: 'none',
+                  fontStyle: 'italic'
+                }}>
+                  Hack Club Bank
                 </Link>{' '}
-                if you need help.
+                , we're unfortunately unable to support you through this grant
+                program.
               </Text>
             </Requirement>
           </Grid>
@@ -305,23 +352,23 @@ const HackathonGrant = () => {
           href="mailto:bank@hackclub.com"
           sx={{
             mx: 'auto',
-            maxWidth: 'copy',
+            maxWidth: ['container', null, 'calc(56rem - 32px)'],
             width: '100%',
             textAlign: 'left',
             textDecoration: 'none',
             lineHeight: 'caption',
             display: 'flex',
             alignItems: 'center',
-            p: [2, 2],
-            px: 3,
+            fontSize: [1, 2, 2],
             mb: [3, 4],
+            p: '16px !important',
             svg: { flexShrink: 'none' }
           }}
         >
           <Icon
             glyph="emoji"
             color="#ec3750"
-            sx={{ mr: [2, 3], ml: 2, display: ['none', 'block'] }}
+            sx={{ mr: [2, 3], ml: 2, display: ['none', 'block'], width: 56, height: 'auto' }}
           />
           <Text
             as="p"

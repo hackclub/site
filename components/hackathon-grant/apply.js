@@ -113,7 +113,7 @@ function Step({ icon, name, duration, href }) {
           <Text
             sx={{
               color: 'white',
-              fontSize: [18, 22, 24],
+              fontSize: [2, 3, 3],
               maxWidth: [300, null, 550]
             }}
           >
@@ -128,17 +128,17 @@ function Step({ icon, name, duration, href }) {
 const Apply = ({ channel }) => {
   return (
     <>
-      <Heading sx={{ textAlign: 'center', mb: 3, fontSize: [5, null, 6, 7] }}>
+    <Box id="apply" sx={{pt: 6}}>
+    <Heading sx={{ textAlign: 'center', mb: 3, fontSize: [5, null, 6, 7] }}>
         The <MSparkles>bucks</MSparkles> start here.
       </Heading>
       <Heading
         sx={{
           textAlign: 'center',
           mb: [3, null, 5],
-          fontSize: [3, null, 4],
+          fontSize: [28, 30, 40],
           color: 'muted'
         }}
-        id="apply"
       >
         Get your hackathon funded.
       </Heading>
@@ -186,7 +186,7 @@ const Apply = ({ channel }) => {
       <br />
       <Slide left>
         <Link
-          href="/slack/?reason=Application%20for%20the%20high-school%20hackathon%20grant"
+          href="/slack/?reason=Application%20for%20the%20high%20school%20hackathon%20grant"
           target="_blank"
           sx={{ textDecoration: 'none' }}
         >
@@ -205,6 +205,7 @@ const Apply = ({ channel }) => {
         </Link>
         <Box
           sx={{
+            fontSize: ['14px', 1, 1],
             textAlign: 'center',
             color: 'muted',
             my: 3,
@@ -219,6 +220,7 @@ const Apply = ({ channel }) => {
           channel!
         </Box>
       </Slide>
+    </Box>
     </>
   )
 }
