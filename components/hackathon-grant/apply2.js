@@ -8,6 +8,45 @@ import MSparkles from './money'
 import Image from 'next/image'
 /** @jsxImportSource theme-ui */
 
+function TimelineStep({ children }) {
+    return (
+      <Flex
+        sx={{
+          marginX: [2, null, null],
+          // paddingX: [null, null, 3, 4],
+          paddingY: [4, null, 0],
+          flexDirection: ['row', null, 'column'],
+          alignItems: 'center',
+          justifyContent: ['center', 'center', 'unset', 'unset'],
+          // width: 'fit-content',
+          '&:before': {
+            content: '""',
+            background: '#3c4858',
+            height: [0, null, '4px'],
+            width: [0, null, '60%'],
+            maxWidth: '840px',
+            marginLeft: [null, null, 0],
+            marginTop: [null, null, '34px'],
+            position: 'absolute',
+            zIndex: -1
+          },
+          '&:first-of-type:before': {
+            top: [0, null, 'auto'],
+            width: [0, null, 0],
+            left: [0, null, 0]
+          },
+          '&:last-of-type:before': {
+            bottom: [0, null, 'auto'],
+            left: [0, null, 0],
+            width: [0, null, 0]
+          }
+        }}
+      >
+        {children}
+      </Flex>
+    )
+  }
+
 const Photo = ({
   icon,
   color,
@@ -27,6 +66,7 @@ const Photo = ({
     <Card
       {...props}
       as="figure"
+      variant="interactive"
       sx={{
         p: [0, 0, 0],
         boxShadow: 'elevated',
@@ -51,9 +91,10 @@ const Photo = ({
             sx={{
               width: 'fit-content',
               bg: color,
-              borderRadius: 10,
+              borderRadius: 20,
               lineHeight: 0,
-              p: 1,
+              p: '14px',
+              px: 0,
               mb: 1,
               display: 'inline-block',
               transform: ['scale(0.75)', 'none'],
@@ -62,26 +103,28 @@ const Photo = ({
                 'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)',
               position: 'absolute',
               bottom: '20px',
-              left: '20px'
+              left: '20px',
+              fontSize: '20px'
             }}
           >
-            <Icon glyph={icon} size={36} />
+              <Badge variant="pill">{duration}</Badge>
+            {/* <Icon glyph={icon} size={36} /> */}
           </Box>
         </Box>
         <Box sx={{ mt: '20px' }}>
-          <Text
+          {/* <Text
             sx={{
               color: 'muted',
               fontWeight: 'normal',
               textTransform: 'uppercase',
-              fontSize: [14, null, 18],
+              fontSize: [18, null, 22],
               p: 3,
               mx: [null, null, 'auto'],
               boxShadow: 'none !important'
             }}
           >
             {duration}
-          </Text>
+          </Text> */}
           <Heading variant="subtitle" mb={2} p={3} pt={0}>
             {name}
           </Heading>
@@ -139,7 +182,7 @@ const Apply = ({ channel }) => {
           <Heading
           sx={{
             textAlign: 'center',
-            mb: [3, null, 5],
+            mb: [2, null, 4],
             fontSize: [28, 30, 40],
             color: 'muted'
           }}
@@ -208,8 +251,7 @@ const Apply = ({ channel }) => {
           duration="Step 2"
           name={
             <>
-              Fill in your application, we'll respond in 24 hours{' '}
-              <a sx={{ fontSize: 'smaller' }}>(on weekdays)</a>
+              Fill in your application, we'll respond in 24 hours
             </>
           }
         />

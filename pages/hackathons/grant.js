@@ -378,7 +378,7 @@ const HackathonGrant = () => {
 
           {open ? (
             <>
-            {/* <Apply channel={channel} /> */}
+            <Apply channel={channel} />
             <Apply2 channel={channel} />
             </>
           ) : (
