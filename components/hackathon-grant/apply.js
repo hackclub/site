@@ -5,74 +5,6 @@ import { Slide } from 'react-reveal'
 import MSparkles from './money'
 import Image from 'next/image'
 
-const Photo = ({
-  icon,
-  color,
-  name,
-  desc,
-  children,
-  src,
-  width,
-  height,
-  alt,
-  showAlt,
-  dark,
-  ...props
-}) => {
-  return (
-    <Card
-      {...props}
-      as="figure"
-      sx={{
-        p: [0, 0, 0],
-        boxShadow: 'elevated',
-        borderRadius: 'extra',
-        position: 'relative',
-        maxWidth: '100%',
-        lineHeight: 0,
-        height: 'fit-content',
-        ...props.sx,
-        img: { objectFit: 'cover', objectPosition: 'center' }
-      }}
-    >
-      <Box sx={{ position: 'relative' }}>
-        <Image
-          src={src}
-          alt={alt}
-          width="100%"
-          height="60%"
-          layout="responsive"
-        />
-        {/* <Box
-          as="span"
-          sx={{
-            width: 'fit-content',
-            bg: color,
-            borderRadius: 18,
-            lineHeight: 0,
-            p: 2,
-            mb: 1,
-            display: 'inline-block',
-            transform: ['scale(0.75)', 'none'],
-            transformOrigin: 'bottom left',
-            boxShadow:
-              'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)',
-            position: 'absolute',
-            bottom: '20px',
-            left: '20px'
-          }}
-        >
-          <Icon glyph={icon} size={48} />
-        </Box> */}
-      </Box>
-      <Heading variant="subtitle" mb={2}>
-        {name}
-      </Heading>
-    </Card>
-  )
-}
-
-
 function Timeline({ children }) {
   return (
     <Flex
@@ -189,36 +121,6 @@ function Step({ icon, name, duration, href }) {
             {name}
           </Text>
         </Container>
-        <Photo
-          src="/hackathon-grant/step1.png"
-          alt="Summer Creek Hack Club meeting, February 2020"
-          width={3000}
-          height={2550}
-          showAlt
-          color="red"
-          icon="slack"
-          name={
-            <>
-              On{' '}
-              <Link
-                href="https://hackclub.com/slack"
-                target="_blank"
-                sx={{
-                  color: 'white'
-                }}
-              >
-                Slack
-              </Link>
-              , send your website to{' '}
-              <Link
-                href="https://hackclub.slack.com/archives/C03TS9KSBGC"
-                target="_blank"
-              >
-                #hackathon-grant
-              </Link>
-            </>
-          }
-        />
       </Slide>
     </TimelineStep>
   )

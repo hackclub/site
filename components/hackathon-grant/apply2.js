@@ -2,6 +2,7 @@ import { Box, Badge, Container, Flex, Grid, Heading } from 'theme-ui'
 import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import { Slide } from 'react-reveal'
+import Zoom from 'react-reveal/Zoom'
 import MSparkles from './money'
 // import Stage from '../stage'
 import Image from 'next/image'
@@ -37,9 +38,7 @@ const Photo = ({
         ...props.sx,
         img: { objectFit: 'cover', objectPosition: 'center' }
       }}
-    >
-      <Slide>
-        <Box sx={{ position: 'relative' }}>
+    >        <Box sx={{ position: 'relative' }}>
           <Image
             src={src}
             alt={alt}
@@ -87,7 +86,6 @@ const Photo = ({
             {name}
           </Heading>
         </Box>
-      </Slide>
     </Card>
   )
 }
@@ -132,10 +130,13 @@ const Apply = ({ channel }) => {
   return (
     <>
       <Box id="apply" sx={{ pt: 6 }}>
-        <Heading sx={{ textAlign: 'center', mb: 3, fontSize: [5, null, 6, 7] }}>
+          <Zoom>
+          <Heading sx={{ textAlign: 'center', mb: 3, fontSize: [5, null, 6, 7] }}>
           The <MSparkles>bucks</MSparkles> start here.
         </Heading>
-        <Heading
+          </Zoom>
+          <Zoom>
+          <Heading
           sx={{
             textAlign: 'center',
             mb: [3, null, 5],
@@ -145,6 +146,7 @@ const Apply = ({ channel }) => {
         >
           Get your hackathon funded.
         </Heading>
+          </Zoom>
       </Box>
       <Grid
         pt={[3, 4]}
@@ -156,8 +158,6 @@ const Apply = ({ channel }) => {
           '> a, > div': {
             borderRadius: 'extra',
             boxShadow: 'elevated',
-            px: [3, null, 4],
-            py: [4, null, 5]
           },
           span: {
             boxShadow:
@@ -166,6 +166,7 @@ const Apply = ({ channel }) => {
           svg: { fill: 'currentColor' }
         }}
       >
+          <Slide left delay={20}>
         <Photo
           src="/hackathon-grant/step1.png"
           alt="Summer Creek Hack Club meeting, February 2020"
@@ -194,6 +195,8 @@ const Apply = ({ channel }) => {
             </>
           }
         />
+        </Slide>
+        <Slide left delay={10}>
         <Photo
           src="/hackathon-grant/step2.png"
           alt="Summer Creek Hack Club meeting, February 2020"
@@ -210,6 +213,8 @@ const Apply = ({ channel }) => {
             </>
           }
         />
+        </Slide>
+        <Slide left>
         <Photo
           src="/hackathon-grant/step3.png"
           alt="Summer Creek Hack Club meeting, February 2020"
@@ -221,6 +226,7 @@ const Apply = ({ channel }) => {
           icon="payment-transfer"
           name="Ka-ching! If approved, start spending your $500"
         />
+        </Slide>
       </Grid>
 
       <Slide left>
