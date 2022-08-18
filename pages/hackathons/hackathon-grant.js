@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Box, Badge, Container, Flex, Grid, Heading } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
@@ -11,10 +11,35 @@ import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import Form from '../../components/hackathon-grant/form'
 import Apply from '../../components/hackathon-grant/apply'
+import Apply2 from '../../components/hackathon-grant/apply2'
+
 import Zoom from 'react-reveal/Zoom'
 /** @jsxImportSource theme-ui */
+if (typeof window !== 'undefined') {
+  window.$ = window.jQuery = require('jquery')
 
-const Requirement = ({ title, children, checkmark, background }) => {
+  $(document).ready(function () {
+    // Add smooth scrolling to all links (source: w3schools)
+    $('a').on('click', function (event) {
+      if (this.hash !== '') {
+        event.preventDefault()
+        var hash = this.hash
+
+        $('html, body').animate(
+          {
+            scrollTop: $(hash).offset().top
+          },
+          800,
+          function () {
+            window.location.hash = hash
+          }
+        )
+      }
+    })
+  })
+}
+
+const Requirement = ({ title, children, checkmark, background, size }) => {
   return (
     <Zoom>
       <Card
@@ -34,7 +59,7 @@ const Requirement = ({ title, children, checkmark, background }) => {
       >
         <Flex sx={{ alignItems: 'center' }}>
           <Box mr={3} sx={{ lineHeight: 0, flexShrink: 0 }}>
-            <Icon glyph={checkmark} color="#ec3750" size={36} />
+            <Icon glyph={checkmark} color="#ec3750" size={size} />
           </Box>
           <Text variant="heading" sx={{ fontSize: [2, 3, 3], lineHeight: 1.5 }}>
             {title}
@@ -85,7 +110,8 @@ const HackathonGrant = () => {
               width: '100%',
               maxWidth: 'calc(56rem + 32px)',
               mx: 'auto',
-              px: '16px'
+              px: '16px',
+              backdropFilter: 'blur(1.5px)'
             }}
           >
             <Heading
@@ -147,7 +173,7 @@ const HackathonGrant = () => {
               sx={{
                 fontSize: [2, 3, 3],
                 textAlign: 'center',
-                mb: 4
+                my: 4
               }}
             >
               Hack Club is partnering with{' '}
@@ -173,24 +199,33 @@ const HackathonGrant = () => {
           <Text
             as="h1"
             variant="heading"
-            mt={5}
+            mt={4}
             mb={3}
             sx={{ fontSize: [28, 30, 40], textAlign: 'center' }}
           >
             Check if your hackathon qualifies:
           </Text>
 
-          <Grid columns={[1, 2, 2]} gap={4}>
+          <Grid columns={[1, 1, 2, 2]} gap={4}>
             <Requirement
               title="Running this semester"
               checkmark="clock-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
+              size="36"
             >
               We want to bring back high schooler-led events acround the world,
               so we're only offering this grant for high school hackathons that
-              take place from
-                August 19th to December 31st 2022
-              .
+              take place this semester (from August 19th to December 31st 2022).
+              <br />
+              <br />
+              <Text
+                sx={{
+                  fontSize: ['14px', 1, 1],
+                  color: 'muted'
+                }}
+              >
+                This is not an annual program and only available this semester.
+              </Text>
             </Requirement>
             <Requirement
               title={
@@ -201,6 +236,7 @@ const HackathonGrant = () => {
               }
               checkmark="profile-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:profile.svg"
+              size="36"
             >
               To create a uniquely tailored high school hackathon, your
               hackathon should be organized by high school students*. All
@@ -210,7 +246,8 @@ const HackathonGrant = () => {
               <br />
               <Text
                 sx={{
-                  fontSize: 1
+                  fontSize: ['14px', 1, 1],
+                  color: 'muted'
                 }}
               >
                 Maximum of 1 college student is allowed on your organizing team.
@@ -220,6 +257,7 @@ const HackathonGrant = () => {
               title="Fully in-person"
               checkmark="flag-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:flag.svg"
+              size="36"
             >
               Hacking is a social activity, and we're supporting hackathons that
               bring hackers together IRL. We believe that fully IRL (not hybrid)
@@ -246,20 +284,26 @@ const HackathonGrant = () => {
               title="Handmade website"
               checkmark="web"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:web.svg"
+              size="36"
             >
-              Embody the hacker spirit your hackathon seeks to promote by making
-              your own website. Your website is an attendee's first impression
-              of your event, and it's your signature on the web. Instead of
-              using a site builder like Wix or Google Sites,{' '}
-              <strong>code your own</strong>!
+              We believe the best hackathons embody the hacker spirit by
+              building their own website. Complex or simple, beautiful or janky–
+              build your own instead of using nontechnical tools like Wix or
+              Devpost.
               <br />
               <br />
               <Text
                 sx={{
-                  fontSize: ['14px', 1, 1]
+                  fontSize: ['14px', 1, 1],
+                  color: 'muted'
                 }}
               >
-                Check out{' '}
+                You will need to share a link to your website. Don't have a
+                domain?{' '}
+                <Link href="/bank" target="_blank">
+                  Hack Club Bank
+                </Link>{' '}
+                provides a free domain. Check out{' '}
                 <Link
                   href="https://notebook.lachlanjc.com/2019-09-06_making_a_hackathon_site"
                   target="_blank"
@@ -267,20 +311,23 @@ const HackathonGrant = () => {
                   a guide on building hackathon websites
                 </Link>{' '}
                 or ask in{' '}
-                <Link href="/slack" target="_blank">
+                <Link
+                  href="/slack"
+                  target="_blank"
+                  sx={{
+                    color: 'muted'
+                  }}
+                >
                   Slack
                 </Link>{' '}
-                if you need help. Don't have a domain?{' '}
-                <Link href="/bank" target="_blank">
-                  Hack Club Bank
-                </Link>{' '}
-                provides a free domain.
+                if you need help.
               </Text>
             </Requirement>
             <Requirement
               title="Open Sourced finances"
               checkmark="bank-circle"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:bank-account.svg"
+              size="28"
             >
               You'll receive your grant through{' '}
               <NextLink href="/bank" passHref>
@@ -294,33 +341,33 @@ const HackathonGrant = () => {
               >
                 Transparency Mode
               </Link>
-              .
+              . Sign up for a{' '}
+                <Link
+                  href="/bank"
+                  target="_blank"
+                  sx={{
+                    color: 'muted'
+                  }}
+                >
+                  Hack Club Bank
+                </Link>{' '}
+                project before applying.
               <br />
               <br />
               <Text
                 sx={{
-                  fontSize: ['14px', 1, 1]
+                  fontSize: ['14px', 1, 1],
+                  color: 'muted'
                 }}
               >
-                {' '}
-                See Transparency Mode in action at{' '}
-                <Link href="https://bank.hackclub.com/hq" target="_blank">
-                  Hack Club HQ
-                </Link>
-                ! Sign up for a {' '}
-                <Link href="/bank" target="_blank" sx={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  fontStyle: 'italic'
-                }}>
-                  Hack Club Bank
-                </Link>{' '}
-                project before applying. If you're unable to use{' '}
-                <Link href="/bank" target="_blank" sx={{
-                  color: 'white',
-                  textDecoration: 'none',
-                  fontStyle: 'italic'
-                }}>
+                 If you're unable to use{' '}
+                <Link
+                  href="/bank"
+                  target="_blank"
+                  sx={{
+                    color: 'muted'
+                  }}
+                >
                   Hack Club Bank
                 </Link>{' '}
                 , we're unfortunately unable to support you through this grant
@@ -330,7 +377,10 @@ const HackathonGrant = () => {
           </Grid>
 
           {open ? (
-            <Apply channel={channel} />
+            <>
+            {/* <Apply channel={channel} /> */}
+            <Apply2 channel={channel} />
+            </>
           ) : (
             <>
               <Heading
@@ -352,8 +402,8 @@ const HackathonGrant = () => {
           href="mailto:bank@hackclub.com"
           sx={{
             mx: 'auto',
-            maxWidth: ['container', null, 'calc(56rem - 32px)'],
-            width: '100%',
+            maxWidth: '52rem',
+            width: '90%',
             textAlign: 'left',
             textDecoration: 'none',
             lineHeight: 'caption',
@@ -368,7 +418,13 @@ const HackathonGrant = () => {
           <Icon
             glyph="emoji"
             color="#ec3750"
-            sx={{ mr: [2, 3], ml: 2, display: ['none', 'block'], width: 56, height: 'auto' }}
+            sx={{
+              mr: [2, 3],
+              ml: 2,
+              display: ['none', 'block'],
+              width: 56,
+              height: 'auto'
+            }}
           />
           <Text
             as="p"
