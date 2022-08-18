@@ -325,13 +325,13 @@ export default function Donate({ sprig }) {
       {sprig && <SprigMeta />}
       <Container variant="copy">
         <Grid
-          columns={[null, null, 2, '3fr 2fr']}
+          columns={1}
           gap={[0, 2, 4]}
           pt={[0, 3]}
           mb={[2, 4]}
         >
           <Heading mt={3} variant="ultratitle" sx={{}}>
-            Hack Club Sprig Consoles
+            Sprig Consoles
           </Heading>
           <Box
             sx={{
@@ -361,7 +361,9 @@ export default function Donate({ sprig }) {
             as="video"
             style={{
               width: '100%',
-              borderRadius: '1em'
+              borderRadius: '1em',
+              height: '100%',
+              objectFit: 'cover'
             }}
             autoPlay
             muted
