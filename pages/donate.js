@@ -331,7 +331,7 @@ export default function Donate({ sprig }) {
               fontSize: 4,
               textTransform: 'uppercase',
               fontWeight: [400, 800],
-              mb: [0, -2]
+              mb: [0, -1]
             }}
           >
             Now introducing...
@@ -365,7 +365,7 @@ export default function Donate({ sprig }) {
                 textAlign: 'center',
                 color: 'blue',
                 textTransform: 'uppercase',
-                mt: [2, -2],
+                mt: [2, -1],
                 fontWeight: 800
               }}
             >
