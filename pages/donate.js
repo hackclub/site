@@ -329,7 +329,7 @@ export default function Donate({ gamelab }) {
           mb={[2, 4]}
         >
           <Heading mt={3} variant="ultratitle" sx={{}}>
-            Hack Club Game Consoles
+            Hack Club Sprig Consoles
           </Heading>
           <Box
             sx={{
@@ -342,7 +342,7 @@ export default function Donate({ gamelab }) {
               Inspiring teens to both make and code.
             </Heading>
             <Text>
-              Your donation will send a teenager a Hack Club Game Console Kit:
+              Your donation will send a teenager a Hack Club Sprig Console Kit:
               containing a custom Hack Club PCB, buttons, a screen, a
               microprocessor, and more (all open source, of course), so that
               they can build and then play their own games.
@@ -372,7 +372,7 @@ export default function Donate({ gamelab }) {
           </Box>
           <Photo
             src="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
-            alt="Gamelab PCB"
+            alt="Sprig PCB"
             width={3000}
             height={2550}
             showAlt
