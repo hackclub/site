@@ -50,7 +50,7 @@ const Requirement = ({ title, children, checkmark, background }) => {
 
 const HackathonGrant = () => {
   let open = true // change this when we open the form :)
-  let channel = 'https://hackclub.slack.com/archives/C03TS9KSBGC' //change link to the right channel (right now it goes to #hackathon-grants-dev)
+  let channel = 'https://hackclub.slack.com/archives/C03TS0VKFPZ' //change link to the right channel (right now it goes to #hackathon-grants-dev)
 
   return (
     <>
