@@ -17,7 +17,16 @@ const SprigForm = () => {
   }
   return (
     <>
-    <Text sx={{ fontSize: ['27px !important', 3], position: 'relative', justifySelf: 'center', alignSelf: 'center', paddingBottom: ['1em', '1em', 0]}} style={{ userSelect: 'none' }}>
+      <Text
+        sx={{
+          fontSize: ['27px !important', 3],
+          position: 'relative',
+          justifySelf: 'center',
+          alignSelf: 'center',
+          paddingBottom: ['1em', '1em', 0]
+        }}
+        style={{ userSelect: 'none' }}
+      >
         I'm donating{' '}
         <Text
           sx={{
@@ -31,7 +40,11 @@ const SprigForm = () => {
           }}
         >
           <ButtonIncrease count={count} setCount={setCount} />
-          <ButtonDecrease count={count} setCount={setCount} sx={{position: 'relative'}} />
+          <ButtonDecrease
+            count={count}
+            setCount={setCount}
+            sx={{ position: 'relative' }}
+          />
           <Text>{count}</Text>
         </Text>
         Sprig kit{count === 1 ? '' : 's'} to teens
@@ -39,7 +52,7 @@ const SprigForm = () => {
       <Button
         variant="outlineLg"
         as="a"
-        sx={{ color: 'white', bg: 'rgba(0,0,0,0.5)', fontSize: [2, 3]}}
+        sx={{ color: 'white', bg: 'rgba(0,0,0,0.5)', fontSize: [2, 3] }}
         href={url()}
       >
         Donate ${count * pricePerSprig}
@@ -60,7 +73,7 @@ function ButtonDecrease({ count, setCount }) {
         position: 'absolute',
         top: '1.2em',
         left: '50%',
-        transform: 'translateX(-50%)',
+        transform: 'translateX(-50%)'
       }}
       onClick={handleClick}
     >
@@ -79,7 +92,7 @@ function ButtonIncrease({ count, setCount }) {
         position: 'absolute',
         bottom: '1.2em',
         left: '50%',
-        transform: 'translateX(-50%)',
+        transform: 'translateX(-50%)'
       }}
       onClick={handleClick}
     >
