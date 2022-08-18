@@ -211,7 +211,7 @@ const Apply = ({ channel }) => {
       >
           <Slide left delay={20}>
         <Photo
-          src="/hackathon-grant/step1.png"
+          src="/hackathon-grant/step1.gif"
           alt="Summer Creek Hack Club meeting, February 2020"
           width={3000}
           height={2550}
