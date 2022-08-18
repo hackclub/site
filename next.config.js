@@ -178,12 +178,24 @@ const nextConfig = {
         destination: 'https://workshops.hackclub.com/vip-newsletters/'
       },
       {
+        source: '/vip-newsletters/(.*)',
+        destination: 'https://workshops.hackclub.com/vip-newsletters/$1'
+      },
+      {
+        source: '/newsletter/',
+        destination: 'https://workshops.hackclub.com/newsletters/'
+      },
+      {
+        source: '/newsletter/(.*)',
+        destination: 'https://workshops.hackclub.com/newsletters/$1'
+      },
+      {
         source: '/newsletters/',
         destination: 'https://workshops.hackclub.com/newsletters/'
       },
       {
-        source: '/vip-newsletters/(.*)',
-        destination: 'https://workshops.hackclub.com/vip-newsletters/$1'
+        source: '/newsletters/(.*)',
+        destination: 'https://workshops.hackclub.com/newsletters/$1'
       },
       {
         source: '/transparency/may-2020/',
