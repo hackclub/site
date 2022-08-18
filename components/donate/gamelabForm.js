@@ -34,7 +34,7 @@ const GamelabForm = () => {
           <ButtonDecrease count={count} setCount={setCount} sx={{position: 'relative'}} />
           <Text>{count}</Text>
         </Text>
-        Game Lab kit{count === 1 ? '' : 's'} to teens
+        Sprig kit{count === 1 ? '' : 's'} to teens
       </Text>
       <Button
         variant="outlineLg"
