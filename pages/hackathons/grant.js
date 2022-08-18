@@ -346,7 +346,7 @@ const HackathonGrant = () => {
                   href="/bank"
                   target="_blank"
                   sx={{
-                    color: 'muted'
+                    color: 'white'
                   }}
                 >
                   Hack Club Bank
