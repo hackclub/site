@@ -91,8 +91,8 @@ const Content = () => (
           →
         </Button>
       </NextLink>
-      <Text variant="small" sx={{ display: ['none', 'inline', ''] }}>
-        *Open to hackathons in the US and Canada only.
+      <Text variant="small" sx={{ display: ['none', 'inline', ''], marginTop: 2, width: [null, null, 500], textAlign: 'center', opacity: 0.8 }}>
+        * Open to hackathons in the US and Canada only.
       </Text>
     </Container>
   </>
