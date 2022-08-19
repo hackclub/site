@@ -224,7 +224,7 @@ const HackathonGrant = () => {
                   color: 'muted'
                 }}
               >
-                This is not an annual program and only available this semester.
+                This is not an annual program and is only available this semester.
               </Text>
             </Requirement>
             <Requirement
