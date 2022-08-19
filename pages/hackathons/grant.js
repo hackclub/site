@@ -203,7 +203,7 @@ const HackathonGrant = () => {
             mb={3}
             sx={{ fontSize: [28, 30, 40], textAlign: 'center' }}
           >
-            Check if your hackathon qualifies:
+            Check if your hackathon qualifies
           </Text>
 
           <Grid columns={[1, 1, 2, 2]} gap={4}>
