@@ -26,6 +26,7 @@
     "animejs": "^3.2.1",
     "country-list-js": "^3.1.7",
     "globby": "^11.0.4",
+    "jquery": "^3.6.0",
     "lodash": "^4.17.21",
     "next": "^12.2.5",
     "next-compose-plugins": "^2.2.1",
@@ -48,7 +49,7 @@
     "vanilla-tilt": "^1.7.2"
   },
   "devDependencies": {
-    "eslint-config-next": "12.2.5",
-    "eslint": "8.22.0"
+    "eslint": "8.21.0",
+    "eslint-config-next": "12.2.4"
   }
 }

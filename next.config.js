@@ -16,6 +16,7 @@ const nextConfig = {
       'cloud-dtijd5g0u-hack-club-bot.vercel.app',
       'cloud-3aeson6ue-hack-club-bot.vercel.app',
       'cloud-k3mgtdz5i-hack-club-bot.vercel.app',
+      'assets.hackclub.com',
       ''
     ]
   },
@@ -25,6 +26,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      { source: '/grant/', destination: '/hackathon-grant', permanent: false },
       { source: '/start/', destination: '/', permanent: false },
       { source: '/clubs/', destination: '/', permanent: false },
       { source: '/repl/', destination: '/', permanent: true },

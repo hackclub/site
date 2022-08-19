@@ -40,7 +40,8 @@ export default function Start() {
           </Heading>
           <Container variant="narrow" sx={{ color: 'muted' }}>
             <Text variant="lead">
-              Open to all registered Hack Clubs, hackathons, and charitable organizations in the US and Canada.
+              Open to all registered Hack Clubs, hackathons, and charitable
+              organizations in the US and Canada.
             </Text>
           </Container>
         </Container>

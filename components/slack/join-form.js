@@ -9,9 +9,10 @@ const JoinForm = ({ sx = {} }) => {
     clearOnSubmit: 5000,
     method: 'POST',
     initData: router.query.continent
-      ? { continent: router.query.continent }
-      : {}
+      ? { continent: router.query.continent, reason: router.query.reason }
+      : { reason: router.query.reason }
   })
+
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
