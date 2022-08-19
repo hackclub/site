@@ -91,8 +91,8 @@ const Footer = ({ dark = false, children, ...props }) => (
           <NextLink href="/hackathons" passHref>
             <Link>Hackathons</Link>
           </NextLink>
-          <NextLink href="/donate" passHref>
-            <Link>Donate</Link>
+          <NextLink href="/philosophy" passHref>
+            <Link>Philosophy</Link>
           </NextLink>
           <NextLink href="/team" passHref>
             <Link>Team</Link>
@@ -100,35 +100,35 @@ const Footer = ({ dark = false, children, ...props }) => (
           <NextLink href="/jobs" passHref>
             <Link>Jobs</Link>
           </NextLink>
-          <NextLink href="/philosophy" passHref>
-            <Link>Philosophy</Link>
-          </NextLink>
-          <NextLink href="/opensource" passHref>
-            <Link>Open Source</Link>
-          </NextLink>
           <NextLink href="/brand" passHref>
             <Link>Branding</Link>
           </NextLink>
           <NextLink href="/press" passHref>
             <Link>Press Inquiries</Link>
           </NextLink>
+          <NextLink href="/opensource" passHref>
+            <Link>Open Source</Link>
+          </NextLink>
+          <NextLink href="/donate" passHref>
+            <Link>Donate</Link>
+          </NextLink>
         </Box>
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
             Resources
           </Heading>
-          <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
-          <Link href="https://events.hackclub.com/">Events</Link>
           <Link href="https://workshops.hackclub.com/">Workshops</Link>
-          <Link href="https://contribute.hackclub.com/">Contribute</Link>
-          <Link href="https://hackathons.hackclub.com/">
-            Hackathons Directory
-          </Link>
           <NextLink href="/bank" passHref>
             <Link>Bank</Link>
           </NextLink>
-          <Link href="https://hackclub.com/map/">Clubs Map</Link>
+          <Link href="https://hackathons.hackclub.com/">
+            Upcoming Hackathons
+          </Link>
+          <Link href="https://events.hackclub.com/">Community Events</Link>
+          <Link href="https://contribute.hackclub.com/">Contribute</Link>
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
+          <Link href="https://hackclub.com/map">Clubs Map</Link>
+          <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
         </Box>
         <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
           <Logo aria-label="Hack Club logo" width={128} height={45} />
