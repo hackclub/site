@@ -4,7 +4,7 @@ import Head from 'next/head'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-
+import Announcement from '../components/announcement'
 import Recap from '../components/hackathons/recap'
 import Slack from '../components/hackathons/features/slack'
 import Money from '../components/hackathons/features/money'

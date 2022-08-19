@@ -4,7 +4,7 @@ import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
 import hero from '../../public/hackathons/assemble.JPG'
 import Icon from '../icon'
-
+import Announcement from '../announcement'
 export default function Landing() {
   return (
     <>
@@ -20,6 +20,22 @@ export default function Landing() {
             width: '100%'
           }}
         >
+          <Announcement
+            copy="Run an in-person hackathon this semester"
+            caption="$500 grants and more, with support from Hack Club and FIRST."
+            href="/hackathons/grant"
+            iconLeft="event-code"
+            color="primary"
+            sx={{
+              position: 'absolute',
+              top: ['-10px', '-120px'],
+              left: '0',
+              right: '0',
+              mx: 'auto',
+              width: 'fit-content',
+              height: 'fit-content'
+            }}
+          />
           <Box
             sx={{
               zIndex: 999,

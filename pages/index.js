@@ -131,7 +131,7 @@ const Page = () => (
       <Announcement
         copy="Run an in-person hackathon this semester"
         caption="$500 grants and more, with support from Hack Club and FIRST."
-        href="/hackathons"
+        href="/hackathons/grant"
         iconLeft="event-code"
         color="primary"
       />
