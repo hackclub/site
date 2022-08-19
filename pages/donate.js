@@ -19,8 +19,8 @@ import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import GamelabForm from '../components/donate/gamelabForm'
-import GamelabMeta from '../components/donate/gamelabMeta'
+import SprigForm from '../components/donate/sprigForm'
+import SprigMeta from '../components/donate/sprigMeta'
 import Sponsors from '../components/donate/sponsors'
 import donors from '../components/donate/donors.json'
 import Marquee from 'react-marquee-slider'
@@ -207,9 +207,11 @@ const DonorListing = ({ name, url }) => {
   }
 }
 
-export default function Donate({ gamelab }) {
+export default function Donate({ sprig }) {
   useEffect(() => {
-    window.document.getElementById('gamelab-donation').scrollIntoView()
+    if(sprig){
+      window.document.getElementById('sprig-donation').scrollIntoView()
+    }
   }, [])
   return (
     <Box>
@@ -319,8 +321,8 @@ export default function Donate({ gamelab }) {
           />
         </Box>
       </Header>
-      <Container mb={5} id="gamelab-donation"></Container>
-      {gamelab && <GamelabMeta />}
+      <Container mb={5} id="sprig-donation"></Container>
+      {sprig && <SprigMeta />}
       <Container variant="copy">
         <Grid
           columns={[null, null, 2, '3fr 2fr']}
@@ -329,7 +331,7 @@ export default function Donate({ gamelab }) {
           mb={[2, 4]}
         >
           <Heading mt={3} variant="ultratitle" sx={{}}>
-            Hack Club Game Consoles
+            Hack Club Sprig Consoles
           </Heading>
           <Box
             sx={{
@@ -342,7 +344,7 @@ export default function Donate({ gamelab }) {
               Inspiring teens to both make and code.
             </Heading>
             <Text>
-              Your donation will send a teenager a Hack Club Game Console Kit:
+              Your donation will send a teenager a Hack Club Sprig Console Kit:
               containing a custom Hack Club PCB, buttons, a screen, a
               microprocessor, and more (all open source, of course), so that
               they can build and then play their own games.
@@ -372,7 +374,7 @@ export default function Donate({ gamelab }) {
           </Box>
           <Photo
             src="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
-            alt="Gamelab PCB"
+            alt="Sprig PCB"
             width={3000}
             height={2550}
             showAlt
@@ -393,7 +395,7 @@ export default function Donate({ gamelab }) {
             padding: 4
           }}
         >
-          <GamelabForm />
+          <SprigForm />
         </Sheet>
       </Container>
       <Container variant="copy" mt={5}>
@@ -510,9 +512,7 @@ export default function Donate({ gamelab }) {
 export async function getServerSideProps(context) {
   return {
     props: {
-      // gamelab: Object.keys(context.query).includes('gl'),
-      // on request, i've just set this to true
-      gamelab: true
+      sprig: Object.keys(context.query).includes('gl')
     }
   }
 }

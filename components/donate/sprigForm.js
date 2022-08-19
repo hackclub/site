@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Button, Text } from 'theme-ui'
 
-const pricePerGamelab = 100
+const pricePerSprig = 100
 
-const GamelabForm = () => {
+const SprigForm = () => {
   const [count, setCount] = useState(1)
   function url() {
     const u = new URL(
@@ -11,7 +11,7 @@ const GamelabForm = () => {
     )
     u.searchParams.set(
       'amount',
-      pricePerGamelab * count * 100 /* convert to cents */
+      pricePerSprig * count * 100 /* convert to cents */
     )
     return u
   }
@@ -34,7 +34,7 @@ const GamelabForm = () => {
           <ButtonDecrease count={count} setCount={setCount} sx={{position: 'relative'}} />
           <Text>{count}</Text>
         </Text>
-        Game Lab kit{count === 1 ? '' : 's'} to teens
+        Sprig kit{count === 1 ? '' : 's'} to teens
       </Text>
       <Button
         variant="outlineLg"
@@ -42,12 +42,12 @@ const GamelabForm = () => {
         sx={{ color: 'white', bg: 'rgba(0,0,0,0.5)', fontSize: [2, 3]}}
         href={url()}
       >
-        Donate ${count * pricePerGamelab}
+        Donate ${count * pricePerSprig}
       </Button>
     </>
   )
 }
-export default GamelabForm
+export default SprigForm
 
 function ButtonDecrease({ count, setCount }) {
   function handleClick() {

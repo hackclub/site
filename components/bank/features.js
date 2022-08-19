@@ -11,7 +11,8 @@ export default function Features({ partner = false }) {
         <br />
         <br />
         <Text sx={{ color: 'muted', maxWidth: '48', fontSize: 28 }}>
-          Invoice sponsors, issue debit cards to your team, and view transaction history.
+          Invoice sponsors, issue debit cards to your team, and view transaction
+          history.
           <br />
           Ongoing support so you can focus on organizing, not the paperwork.
         </Text>
@@ -80,6 +81,11 @@ export default function Features({ partner = false }) {
             icon="analytics"
             name="Balance &amp; history"
             body="Check real-time account balance + transaction history online anytime."
+          />
+          <Module
+            icon="bolt"
+            name="Instant deposits"
+            body="Receive donations and invoice payments instantly once they're paid."
           />
           <Module
             icon="payment"
@@ -171,24 +177,7 @@ export default function Features({ partner = false }) {
               body="We'll pay for your organization's domain name for 1 year."
             />
           )}
-          <Module
-            icon="private-outline"
-            name="1Password"
-            body={
-              <>
-                $100 in free{' '}
-                <Link
-                  href="https://1password.com/"
-                  color="smoke"
-                  hoverline
-                  target="_blank"
-                >
-                  1Password
-                </Link>{' '}
-                credit to keep your team's passwords secure.
-              </>
-            }
-          />
+
           <Module
             icon="support"
             name="Support anytime"
