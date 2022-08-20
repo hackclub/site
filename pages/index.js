@@ -121,10 +121,10 @@ const Page = () => (
       }}
     >
       <BGImg
-        src={GoldenTrainImgFile}
-        width={2224}
-        height={1249}
-        alt="Hack Clubbers gather at the SpaceX HQ"
+        src={`https://cloud-2jmtbnrpz-hack-club-bot.vercel.app/0hack_club_assemble_02685.jpeg`}
+        width={1600}
+        height={1068}
+        alt="Hack Clubbers assemble at Figma HQ"
         priority
       />
 
