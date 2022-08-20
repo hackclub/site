@@ -124,7 +124,7 @@ const Page = () => (
         src={GoldenTrainImgFile}
         width={2224}
         height={1249}
-        alt="Hack Clubbers gather at the SpaceX HQ"
+        alt="Hackers onboard The Hacker Zephyr"
         priority
       />
 
