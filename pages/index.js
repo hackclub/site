@@ -225,7 +225,7 @@ const Page = () => (
       >
         <Badge
           as="a"
-          href="https://zephyr.hackclub.com"
+          href="https://assemble.hackclub.com"
           variant="pill"
           sx={{
             zIndex: '1',
@@ -238,7 +238,7 @@ const Page = () => (
             transition: '0.3s ease'
           }}
         >
-          Hackers onboard The Hacker Zephyr
+          Hackers at Assemble in SF
         </Badge>
       </Box>
     </Box>
