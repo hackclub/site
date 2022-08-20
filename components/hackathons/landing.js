@@ -28,7 +28,6 @@ export default function Landing() {
             color="primary"
             sx={{
               position: 'absolute',
-              top: ['-10px', '-120px'],
               left: '0',
               right: '0',
               mx: 'auto',
