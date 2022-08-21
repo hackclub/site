@@ -26,7 +26,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: '/grant/', destination: '/hackathon-grant', permanent: false },
+      { source: '/grant/', destination: '/hackathons/grant', permanent: false },
       { source: '/start/', destination: '/', permanent: false },
       { source: '/clubs/', destination: '/', permanent: false },
       { source: '/repl/', destination: '/', permanent: true },
