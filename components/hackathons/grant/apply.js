@@ -1,51 +1,10 @@
-import { Box, Badge, Container, Flex, Grid, Heading } from 'theme-ui'
-import { Link, Text, Button, Card } from 'theme-ui'
-import Icon from '@hackclub/icons'
+import { Box, Badge, Grid, Heading } from 'theme-ui'
+import { Link, Button, Card } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Zoom from 'react-reveal/Zoom'
 import MSparkles from './money'
-// import Stage from '../stage'
 import Image from 'next/image'
 /** @jsxImportSource theme-ui */
-
-function TimelineStep({ children }) {
-  return (
-    <Flex
-      sx={{
-        marginX: [2, null, null],
-        // paddingX: [null, null, 3, 4],
-        paddingY: [4, null, 0],
-        flexDirection: ['row', null, 'column'],
-        alignItems: 'center',
-        justifyContent: ['center', 'center', 'unset', 'unset'],
-        // width: 'fit-content',
-        '&:before': {
-          content: '""',
-          background: '#3c4858',
-          height: [0, null, '4px'],
-          width: [0, null, '60%'],
-          maxWidth: '840px',
-          marginLeft: [null, null, 0],
-          marginTop: [null, null, '34px'],
-          position: 'absolute',
-          zIndex: -1
-        },
-        '&:first-of-type:before': {
-          top: [0, null, 'auto'],
-          width: [0, null, 0],
-          left: [0, null, 0]
-        },
-        '&:last-of-type:before': {
-          bottom: [0, null, 'auto'],
-          left: [0, null, 0],
-          width: [0, null, 0]
-        }
-      }}
-    >
-      {children}
-    </Flex>
-  )
-}
 
 const Photo = ({
   icon,
@@ -110,23 +69,9 @@ const Photo = ({
           }}
         >
           <Badge variant="pill">{duration}</Badge>
-          {/* <Icon glyph={icon} size={36} /> */}
         </Box>
       </Box>
       <Box sx={{ mt: '20px' }}>
-        {/* <Text
-            sx={{
-              color: 'muted',
-              fontWeight: 'normal',
-              textTransform: 'uppercase',
-              fontSize: [18, null, 22],
-              p: 3,
-              mx: [null, null, 'auto'],
-              boxShadow: 'none !important'
-            }}
-          >
-            {duration}
-          </Text> */}
         <Heading variant="subtitle" mb={2} p={3} pt={0}>
           {name}
         </Heading>
@@ -134,42 +79,6 @@ const Photo = ({
     </Card>
   )
 }
-
-const Stage = ({ icon, color, name, desc, ...props }) => (
-  <Box>
-    <Box
-      as="span"
-      sx={{
-        width: 'fit-content',
-        bg: color,
-        borderRadius: 18,
-        lineHeight: 0,
-        p: 2,
-        mb: 1,
-        display: 'inline-block',
-        transform: ['scale(0.75)', 'none'],
-        transformOrigin: 'bottom left',
-        boxShadow:
-          'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
-      }}
-    >
-      <Icon glyph={icon} size={48} />
-    </Box>
-    <Box>
-      <Image src="/hackathons/grant/first.png" width="200" height="200" />
-      <Heading as="h3" variant="headline" mb={2}>
-        {name}
-      </Heading>
-      <Text
-        as="p"
-        variant="subtitle"
-        sx={{ mt: 0, pb: 2, a: { variant: 'styles.a', color: 'blue' } }}
-      >
-        {desc}
-      </Text>
-    </Box>
-  </Box>
-)
 
 const Apply = ({ channel }) => {
   return (
@@ -216,7 +125,7 @@ const Apply = ({ channel }) => {
         <Slide left delay={20}>
           <Photo
             src="/hackathons/grant/step1.gif"
-            alt="Summer Creek Hack Club meeting, February 2020"
+            alt="Image of a user sending a Slack message and filling out a form"
             width={3000}
             height={2550}
             showAlt
@@ -246,7 +155,7 @@ const Apply = ({ channel }) => {
         <Slide left delay={10}>
           <Photo
             src="/hackathons/grant/step2.png"
-            alt="Summer Creek Hack Club meeting, February 2020"
+            alt="Screenshot of a form in a Slack modal"
             width={3000}
             height={2550}
             showAlt
@@ -259,7 +168,7 @@ const Apply = ({ channel }) => {
         <Slide left>
           <Photo
             src="/hackathons/grant/step3.png"
-            alt="Summer Creek Hack Club meeting, February 2020"
+            alt="Screenshot of a grant in the form of a transaction on a Hack Club Bank ledger"
             width={3000}
             height={2550}
             showAlt
