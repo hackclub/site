@@ -155,7 +155,7 @@ const HackathonGrant = () => {
                     sx={{
                       width: 72,
                       height: 72,
-                      backgroundImage: "url('/hackathon-grant/first.png')",
+                      backgroundImage: "url('/hackathons/grant/first.png')",
                       backgroundColor: '#231F20',
                       backgroundSize: '60px, cover',
                       backgroundPosition: 'center center',
@@ -224,7 +224,8 @@ const HackathonGrant = () => {
                   color: 'muted'
                 }}
               >
-                This is not an annual program and is only available this semester.
+                This is not an annual program and is only available this
+                semester.
               </Text>
             </Requirement>
             <Requirement
@@ -342,16 +343,16 @@ const HackathonGrant = () => {
                 Transparency Mode
               </Link>
               . Sign up for a{' '}
-                <Link
-                  href="/bank"
-                  target="_blank"
-                  sx={{
-                    color: 'white'
-                  }}
-                >
-                  Hack Club Bank
-                </Link>{' '}
-                project before applying.
+              <Link
+                href="/bank"
+                target="_blank"
+                sx={{
+                  color: 'white'
+                }}
+              >
+                Hack Club Bank
+              </Link>{' '}
+              project before applying.
               <br />
               <br />
               <Text
@@ -360,7 +361,7 @@ const HackathonGrant = () => {
                   color: 'muted'
                 }}
               >
-                 If you're unable to use{' '}
+                If you're unable to use{' '}
                 <Link
                   href="/bank"
                   target="_blank"
@@ -378,8 +379,8 @@ const HackathonGrant = () => {
 
           {open ? (
             <>
-            {/* <Apply channel={channel} /> */}
-            <Apply2 channel={channel} />
+              {/* <Apply channel={channel} /> */}
+              <Apply2 channel={channel} />
             </>
           ) : (
             <>
