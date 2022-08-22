@@ -23,7 +23,7 @@ import FadeIn from '../components/fade-in'
 import Photo from '../components/photo'
 import Footer from '../components/footer'
 import FooterImgFile from '../public/home/footer.png'
-import GoldenTrainImgFile from '../public/home/golden-train.png'
+import AssembleImgFile from '../public/home/assemble.jpg'
 import Slack from '../components/slack'
 import Announcement from '../components/announcement'
 import Stage from '../components/stage'
@@ -121,13 +121,10 @@ const Page = () => (
       }}
     >
       <BGImg
-        src={`https://cloud-2jmtbnrpz-hack-club-bot.vercel.app/0hack_club_assemble_02685.jpeg`}
-        width={1600}
-        height={1068}
-        alt="Hack Clubbers assemble at Figma HQ"
+        src={AssembleImgFile}
+        alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
         priority
       />
-
       <Announcement
         copy="Run an in-person hackathon this semester"
         caption="$500 grants and more, with support from Hack Club and FIRST."
@@ -237,6 +234,7 @@ const Page = () => (
             ':hover': { opacity: 1 },
             transition: '0.3s ease'
           }}
+          title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
         >
           Hackers at Assemble in SF
         </Badge>
