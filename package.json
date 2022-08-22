@@ -18,7 +18,7 @@
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^12.2.5",
-    "@octokit/auth-app": "^4.0.4",
+    "@octokit/auth-app": "^4.0.5",
     "@octokit/core": "^4.0.5",
     "@octokit/rest": "^19.0.4",
     "airtable-plus": "^1.0.4",
