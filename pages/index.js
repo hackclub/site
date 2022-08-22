@@ -121,10 +121,10 @@ const Page = () => (
       }}
     >
       <BGImg
-        src={GoldenTrainImgFile}
-        width={2224}
-        height={1249}
-        alt="Hackers onboard The Hacker Zephyr"
+        src={`https://cloud-2jmtbnrpz-hack-club-bot.vercel.app/0hack_club_assemble_02685.jpeg`}
+        width={1600}
+        height={1068}
+        alt="Hack Clubbers assemble at Figma HQ"
         priority
       />
 
@@ -225,7 +225,7 @@ const Page = () => (
       >
         <Badge
           as="a"
-          href="https://zephyr.hackclub.com"
+          href="https://assemble.hackclub.com"
           variant="pill"
           sx={{
             zIndex: '1',
@@ -238,7 +238,7 @@ const Page = () => (
             transition: '0.3s ease'
           }}
         >
-          Hackers onboard The Hacker Zephyr
+          Hackers at Assemble in SF
         </Badge>
       </Box>
     </Box>
