@@ -847,12 +847,12 @@
   resolved "https://registry.yarnpkg.com/@octokit/openapi-types/-/openapi-types-13.4.0.tgz#06fe8fda93bf21bdd397fe7ef8805249efda6c06"
   integrity sha512-2mVzW0X1+HDO3jF80/+QFZNzJiTefELKbhMu6yaBYbp/1gSMkVDm4rT472gJljTokWUlXaaE63m7WrWENhMDLw==
 
-"@octokit/plugin-paginate-rest@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-3.0.0.tgz"
-  integrity sha512-fvw0Q5IXnn60D32sKeLIxgXCEZ7BTSAjJd8cFAE6QU5qUp0xo7LjFUjjX1J5D7HgN355CN4EXE4+Q1/96JaNUA==
+"@octokit/plugin-paginate-rest@^4.0.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-4.1.0.tgz#670ac9ac369448c69a2371bfcd7e2b37d95534f2"
+  integrity sha512-2O5K5fpajYG5g62wjzHR7/cWYaCA88CextAW3vFP+yoIHD0KEdlVMHfM5/i5LyV+JMmqiYW7w5qfg46FR+McNw==
   dependencies:
-    "@octokit/types" "^6.39.0"
+    "@octokit/types" "^7.1.1"
 
 "@octokit/plugin-request-log@^1.0.4":
   version "1.0.4"
@@ -909,24 +909,24 @@
     node-fetch "^2.6.7"
     universal-user-agent "^6.0.0"
 
-"@octokit/rest@^19.0.3":
-  version "19.0.3"
-  resolved "https://registry.npmjs.org/@octokit/rest/-/rest-19.0.3.tgz"
-  integrity sha512-5arkTsnnRT7/sbI4fqgSJ35KiFaN7zQm0uQiQtivNQLI8RQx8EHwJCajcTUwmaCMNDg7tdCvqAnc7uvHHPxrtQ==
+"@octokit/rest@^19.0.4":
+  version "19.0.4"
+  resolved "https://registry.yarnpkg.com/@octokit/rest/-/rest-19.0.4.tgz#fd8bed1cefffa486e9ae46a9dc608ce81bcfcbdd"
+  integrity sha512-LwG668+6lE8zlSYOfwPj4FxWdv/qFXYBpv79TWIQEpBLKA9D/IMcWsF/U9RGpA3YqMVDiTxpgVpEW3zTFfPFTA==
   dependencies:
     "@octokit/core" "^4.0.0"
-    "@octokit/plugin-paginate-rest" "^3.0.0"
+    "@octokit/plugin-paginate-rest" "^4.0.0"
     "@octokit/plugin-request-log" "^1.0.4"
     "@octokit/plugin-rest-endpoint-methods" "^6.0.0"
 
-"@octokit/types@6.40.0", "@octokit/types@^6.0.3", "@octokit/types@^6.10.0", "@octokit/types@^6.12.2", "@octokit/types@^6.16.1", "@octokit/types@^6.39.0":
+"@octokit/types@6.40.0", "@octokit/types@^6.0.3", "@octokit/types@^6.10.0", "@octokit/types@^6.12.2", "@octokit/types@^6.16.1":
   version "6.40.0"
   resolved "https://registry.npmjs.org/@octokit/types/-/types-6.40.0.tgz"
   integrity sha512-MFZOU5r8SwgJWDMhrLUSvyJPtVsqA6VnbVI3TNbsmw+Jnvrktzvq2fYES/6RiJA/5Ykdwq4mJmtlYUfW7CGjmw==
   dependencies:
     "@octokit/openapi-types" "^12.10.0"
 
-"@octokit/types@^7.0.0":
+"@octokit/types@^7.0.0", "@octokit/types@^7.1.1":
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/@octokit/types/-/types-7.1.1.tgz#a30fd6ca3279d59d532fa75583d65d93b7588e6d"
   integrity sha512-Dx6cNTORyVaKY0Yeb9MbHksk79L8GXsihbG6PtWqTpkyA2TY1qBWE26EQXVG3dHwY9Femdd/WEeRUEiD0+H3TQ==
