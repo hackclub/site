@@ -161,7 +161,7 @@ const Page = ({ repos }) => (
         />
          <BankProject
           name="Community Newsletter"
-          url="https://hackclub.com/newsletter"
+          url={`https://github.com/hackclub/newsletters`}
         />
         <BankProject name="Meetings" url={`https://meetings.hackclub.com`} />
       </Grid>
