@@ -186,19 +186,11 @@ const nextConfig = {
       },
       {
         source: '/newsletter/',
-        destination: 'https://workshops.hackclub.com/newsletters/'
+        destination: 'https://workshops.hackclub.com/newsletter/'
       },
       {
         source: '/newsletter/(.*)',
-        destination: 'https://workshops.hackclub.com/newsletters/$1'
-      },
-      {
-        source: '/newsletters/',
-        destination: 'https://workshops.hackclub.com/newsletters/'
-      },
-      {
-        source: '/newsletters/(.*)',
-        destination: 'https://workshops.hackclub.com/newsletters/$1'
+        destination: 'https://workshops.hackclub.com/newsletter/$1'
       },
       {
         source: '/transparency/may-2020/',
