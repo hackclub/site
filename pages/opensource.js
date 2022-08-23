@@ -156,7 +156,7 @@ const Page = ({ repos }) => (
           url={`https://github.com/hackclub/hackclub/tree/main/workshops`}
         />
         <BankProject
-          name="VIP Newsletters"
+          name="VIP Newsletter"
           url={`https://github.com/hackclub/vip-newsletters`}
         />
          <BankProject
