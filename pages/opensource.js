@@ -160,7 +160,7 @@ const Page = ({ repos }) => (
           url={`https://github.com/hackclub/vip-newsletters`}
         />
          <BankProject
-          name="Community Newsletters"
+          name="Community Newsletter"
           url="https://hackclub.com/newsletter"
         />
         <BankProject name="Meetings" url={`https://meetings.hackclub.com`} />
