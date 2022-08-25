@@ -182,6 +182,6 @@ export const getStaticProps = () => {
   const stickersDir = path.join(process.cwd(), 'public', 'stickers')
   const stickers = fs
     .readdirSync(stickersDir)
-    .filter(sticker => sticker != 'hero.jpg')
+    .filter(sticker => sticker !== 'hero.jpg')
   return { props: { stickers } }
 }
