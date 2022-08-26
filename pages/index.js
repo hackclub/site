@@ -127,10 +127,10 @@ const Page = () => (
       />
       <Announcement
         copy="The game console where every player is a creator."
-        caption="Introducing Sprig: fantasy game console turned real by Hack Club."
+        caption="Introducing Sprig: the fantasy game console by Hack Club."
         href="https://sprig.hackclub.com"
         iconLeft="bolt"
-        color="green"
+        color="primary"
       />
 
       <SlideDown duration={768}>
