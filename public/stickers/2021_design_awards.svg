@@ -1,0 +1,14 @@
+<svg width="439" height="439" viewBox="0 0 439 439" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="439" height="439" rx="20" fill="#EC3750"/>
+<rect x="75" y="75" width="17" height="17" fill="white" stroke="black" stroke-width="2"/>
+<rect x="347" y="75" width="17" height="17" fill="white" stroke="black" stroke-width="2"/>
+<rect x="347" y="346" width="17" height="17" fill="white" stroke="black" stroke-width="2"/>
+<rect x="75" y="346" width="17" height="17" fill="white" stroke="black" stroke-width="2"/>
+<path d="M83 92.5V345.5" stroke="black" stroke-width="2"/>
+<path d="M93 83L346 83" stroke="black" stroke-width="2"/>
+<path d="M93 355H346" stroke="black" stroke-width="2"/>
+<path d="M356 93V346" stroke="black" stroke-width="2"/>
+<path d="M276.424 226.287V314H236.402V232.298C236.402 226.079 235.814 220.752 234.109 216.951C233.248 215.033 232.083 213.46 230.527 212.369C228.963 211.273 227.073 210.714 224.851 210.714C219.842 210.714 214.571 214.194 210.604 220.105C206.615 226.051 203.84 234.584 203.84 245.049V314H164V130.949L203.84 124.184V192.04V194.287L205.51 192.783C214.373 184.795 226.661 181.199 239.404 181.199C252.9 181.199 262.076 185.615 267.918 193.327C273.799 201.091 276.424 212.356 276.424 226.287Z" fill="white" stroke="black" stroke-width="2"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M292.942 386.131L277 334.538L325.907 360.431L304.062 367.181L302.861 367.99L292.942 386.131Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M282.618 341.297L293.755 377.34L300.467 365.152L301.707 364.278L317.067 359.532L282.618 341.297Z" fill="black"/>
+</svg>
