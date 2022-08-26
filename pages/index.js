@@ -532,8 +532,8 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                Free subscriptions to Figma Pro, Postman, and more for running a
-                great club.
+                We're always building new tools for leaders, such as <a href="https://sprig.hackclub.com">Sprig</a>! 
+                We've also got free subscriptions to Figma Pro, Postman, and more for running a great club.
               </>
             }
           />
