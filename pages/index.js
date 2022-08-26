@@ -128,7 +128,7 @@ const Page = () => (
       <Announcement
         copy="The game console where every player is a creator."
         caption="Introducing Sprig: fantasy game console turned real by Hack Club."
-        href="/hackathons/grant"
+        href="https://sprig.hackclub.com"
         iconLeft="bolt"
         color="green"
       />
