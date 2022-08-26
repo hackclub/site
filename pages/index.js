@@ -126,11 +126,11 @@ const Page = () => (
         priority
       />
       <Announcement
-        copy="Run an in-person hackathon this semester"
-        caption="$500 grants and more, with support from Hack Club and FIRST."
+        copy="The game console where every player is a creator."
+        caption="Introducing Sprig: fantasy game console turned real by Hack Club."
         href="/hackathons/grant"
-        iconLeft="event-code"
-        color="primary"
+        iconLeft="bolt"
+        color="green"
       />
 
       <SlideDown duration={768}>
