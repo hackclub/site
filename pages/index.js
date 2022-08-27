@@ -126,10 +126,10 @@ const Page = () => (
         priority
       />
       <Announcement
-        copy="Run an in-person hackathon this semester"
-        caption="$500 grants and more, with support from Hack Club and FIRST."
-        href="/hackathons/grant"
-        iconLeft="event-code"
+        copy="The game console where every player is a creator."
+        caption="Introducing Sprig: the fantasy game console by Hack Club."
+        href="https://sprig.hackclub.com"
+        iconLeft="bolt"
         color="primary"
       />
 
@@ -532,8 +532,8 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                Free subscriptions to Figma Pro, Postman, and more for running a
-                great club.
+                We're always building new tools for leaders, such as <a href="https://sprig.hackclub.com">Sprig</a>! 
+                We've also got free subscriptions to Figma Pro, Postman, and more for running a great club.
               </>
             }
           />
