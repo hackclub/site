@@ -103,6 +103,7 @@ export default function Landing({ showButton, eventsCount }) {
                   variant="outlineLg"
                   as="a"
                   href="https://bank.hackclub.com"
+                  target="_blank"
                   style={{ zIndex: '100' }}
                   ml={3}
                 >
