@@ -343,7 +343,7 @@ const Page = () => (
             sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
           >
             Hack Clubs attend and run{' '}
-            <a href="https://hackathons.hackclub.com/">hackathons</a> like{' '}
+            <NextLink href="/hackathons" passHref><a>hackathons</a></NextLink> like{' '}
             <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a> &{' '}
             <a href="https://www.sfchronicle.com/bayarea/article/Hack-the-Fog-makes-history-as-San-12729895.php">
               Hack the Fog
