@@ -85,10 +85,10 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Jessica Card"
-                teamRole="Education Engineer"
-                text="Jessica is a self taught programmer originally from Alaska. She worked for over a decade as a software engineer at startups like GitHub and Bugsnag in San Francisco. She then left the web development world to learn how to make video games. Now, at Hack Club, she’s excited to be a part of a community she wishes she had when she was in high school."
-                img="/team/jessica.jpg"
+                name="Belle See"
+                teamRole="Engineer for Comms"
+                text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
+                img="https://github.com/bellesea.png"
                 pronouns="she/her"
               />
               <Bio
@@ -99,11 +99,24 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
+                name="Ella Xu"
+                teamRole="Bank Engineer"
+                text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
+                img="https://scrapbook.hackclub.com/ella.png"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Celeste Drummond"
                 teamRole="Community Engineer"
                 text="After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in— among other things— programming, generative art, music and effective altruism."
                 img="/team/celeste.jpg"
                 pronouns="they/them"
+              />
+              <Bio
+                name="Kognise"
+                teamRole="Special Projects and Hiring"
+                text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they support hiring and contribute to various projects."
+                img="https://media.kognise.dev/other-avatars/bean-man.jpg"
               />
               <Bio
                 name="Melanie Smith"
@@ -191,13 +204,6 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 pronouns="she/her"
               />
               <Bio
-                name="Belle See"
-                teamRole="Engineer for Comms"
-                text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
-                img="https://github.com/bellesea.png"
-                pronouns="she/her"
-              />
-              <Bio
                 name="Gary Tou"
                 teamRole="Bank Engineering"
                 text="Gary is a software engineer from Seattle and loves photography! After using Hack Club Bank to launch a nonprofit organization, Gary joined Hack Club to make the product that enabled him to do great things even greater for others."
@@ -212,24 +218,11 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 pronouns="he/him"
               />
               <Bio
-                name="Ella Xu"
-                teamRole="Bank Operations"
-                text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
-                img="https://scrapbook.hackclub.com/ella.png"
-                pronouns="she/her"
-              />
-              <Bio
                 name="Deven Jadhav"
                 teamRole="Bank Operations (APAC)"
                 text="Deven is a Hack Clubber from India who enjoys building meaningful things at the intersections of art and technology. He also loves music and plays the guitar & drums! Along with this, he also likes talking to strangers over the internet and having interesting & deep conversations. He is also a sucker for nature photography and enjoys hikes and treks into the wild!"
                 img="https://github.com/devenjadhav.png"
                 pronouns="he/him"
-              />
-              <Bio
-                name="Kognise"
-                teamRole="Special Projects and Hiring"
-                text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they support hiring and contribute to various projects."
-                img="https://media.kognise.dev/other-avatars/bean-man.jpg"
               />
               <Bio
                 name="Sam Poder"
@@ -245,13 +238,6 @@ and participating in academic competitions with his friends.`}
                 teamRole="Mail Team Coordinator"
                 text="Hugo is an avid fan of corgis, hardware, and shipping. He works with club leaders to get stickers to clubs and events and community members to assist with logistical challenges. He ships for Hack Club Mail Team and runs Hack Shop, helping to plan, design, produce, and distribute various types of swag for different events."
                 img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Ishan Goel"
-                teamRole="Summer Communications Intern"
-                text="Ishan is a 16-year-old summer intern from Seattle! This summer he is working on shipping projects with partners to get the word out about Hack Club, and bring more people into the community."
-                img="https://github.com/quackduck.png"
                 pronouns="he/him"
               />
               <Bio
@@ -309,6 +295,13 @@ and participating in academic competitions with his friends.`}
               Acknowledgements
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
+              <Bio
+                name="Ishan Goel"
+                teamRole="2022 Summer Communications Intern"
+                text="Ishan is a 16-year-old summer intern from Seattle! This summer he is working on shipping projects with partners to get the word out about Hack Club, and bring more people into the community."
+                img="https://github.com/quackduck.png"
+                pronouns="he/him"
+              />
               <Bio
                 name="Zach Fogg"
                 teamRole="Community Game Designer"
