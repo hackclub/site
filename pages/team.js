@@ -135,7 +135,7 @@ export default function Team() {
               <Bio
                 name="Rick Blount"
                 teamRole="VP of Philanthropy"
-                text="Rick Blount was previously helped raise $19.5 million for a brand-new YMCA in Burlington, Vermont. Before that, he worked at the University of Vermont’s medical school in communications and alumni/fundraising; and has been a journalist–helping start Consumer Reports’ health publication. When he was 25, he taught English for a year near Wuhan, China."
+                text="Rick Blount previously helped raise $19.5 million for a brand-new YMCA in Burlington, Vermont. Before that, he worked at the University of Vermont’s medical school in communications and alumni/fundraising; and has been a journalist–helping start Consumer Reports’ health publication. When he was 25, he taught English for a year near Wuhan, China."
                 img="/team/rick.png"
                 pronouns="he/him"
               />
