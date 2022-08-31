@@ -198,7 +198,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
                 name="Abby Fischler"
-                teamRole="Technical Intern to Christina (Co-founder and COO)"
+                teamRole="Technical Intern to COO"
                 text="Abby is a high school junior from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
                 img="https://github.com/abbyfischler.png"
                 pronouns="she/her"
