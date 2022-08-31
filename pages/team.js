@@ -85,13 +85,6 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Belle See"
-                teamRole="Engineer for Comms"
-                text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
-                img="https://github.com/bellesea.png"
-                pronouns="she/her"
-              />
-              <Bio
                 name="Caleb Denio"
                 teamRole="Bank Engineer"
                 text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. At Hack Club Bank, he writes code that makes money go 'cha-ching!'"
@@ -130,6 +123,13 @@ export default function Team() {
                 teamRole="Bank Operations"
                 text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
                 img="/team/liv.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Belle See"
+                teamRole="Engineer for Comms"
+                text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
+                img="https://github.com/bellesea.png"
                 pronouns="she/her"
               />
               <Bio
