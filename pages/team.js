@@ -85,6 +85,19 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
+                name="Celeste Drummond"
+                teamRole="Community Engineer"
+                text="After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in— among other things— programming, generative art, music and effective altruism."
+                img="/team/celeste.jpg"
+                pronouns="they/them"
+              />
+              <Bio
+                name="Kognise"
+                teamRole="Special Projects and Hiring"
+                text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they support hiring and contribute to various projects."
+                img="https://media.kognise.dev/other-avatars/bean-man.jpg"
+              />
+              <Bio
                 name="Caleb Denio"
                 teamRole="Bank Engineer"
                 text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. At Hack Club Bank, he writes code that makes money go 'cha-ching!'"
@@ -97,19 +110,6 @@ export default function Team() {
                 text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
                 img="https://scrapbook.hackclub.com/ella.png"
                 pronouns="she/her"
-              />
-              <Bio
-                name="Celeste Drummond"
-                teamRole="Community Engineer"
-                text="After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in— among other things— programming, generative art, music and effective altruism."
-                img="/team/celeste.jpg"
-                pronouns="they/them"
-              />
-              <Bio
-                name="Kognise"
-                teamRole="Special Projects and Hiring"
-                text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they support hiring and contribute to various projects."
-                img="https://media.kognise.dev/other-avatars/bean-man.jpg"
               />
               <Bio
                 name="Melanie Smith"
