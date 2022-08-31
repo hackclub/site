@@ -298,9 +298,16 @@ and participating in academic competitions with his friends.`}
               <Bio
                 name="Ishan Goel"
                 teamRole="2022 Summer Communications Intern"
-                text="Ishan is a 16-year-old summer intern from Seattle! This summer he is working on shipping projects with partners to get the word out about Hack Club, and bring more people into the community."
+                text="Ishan was a summer intern from Seattle! During the summer of 2022, he worked on shipping projects with partners to get the word out about Hack Club, and bring more people into the community."
                 img="https://github.com/quackduck.png"
                 pronouns="he/him"
+              />
+              <Bio
+                name="Jessica Card"
+                teamRole="Education Engineer"
+                text="Jessica is a self taught programmer originally from Alaska. She worked for over a decade as a software engineer at startups like GitHub and Bugsnag in San Francisco. She then left the web development world to learn how to make video games."
+                img="/team/jessica.jpg"
+                pronouns="she/her"
               />
               <Bio
                 name="Zach Fogg"
