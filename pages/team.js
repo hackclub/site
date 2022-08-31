@@ -305,7 +305,7 @@ and participating in academic competitions with his friends.`}
               <Bio
                 name="Jessica Card"
                 teamRole="Education Engineer"
-                text="Jessica is a self taught programmer originally from Alaska. She worked for over a decade as a software engineer at startups like GitHub and Bugsnag in San Francisco. She then left the web development world to learn how to make video games."
+                text="Jessica is a self taught programmer originally from Alaska. She worked for over a decade as a software engineer at startups like GitHub and Bugsnag in San Francisco. She then left the web development world to learn how to make video games. At Hack Club, Jessica brought her creative energy to an array of projects! Most notably, when she learnt Assembly along with Hack Clubbers to produce Some Assembly Required."
                 img="/team/jessica.jpg"
                 pronouns="she/her"
               />
