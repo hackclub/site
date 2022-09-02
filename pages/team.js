@@ -182,15 +182,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 img="/team/anna.png"
                 pronouns="she/her"
               />
-              <Bio
-                name="Shubhangi Gupta"
-                teamRole="Community"
-                text="Shubhangi is the founder of Raahee, a mental health startup aiming to provide affordable therapy. She is a Gold Microsoft Learn Student Ambassador and the runner-up of Microsoft Imagine Cup, Healthcare Category. She loves to interact with people & dogs and talk about everything Harry Potter."
-                img="/team/shubhangi.jpeg"
-                pronouns="she/her"
-              />
             </Grid>
-
             <br />
             <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
               Student Team
