@@ -2,7 +2,7 @@ import { Box, Button, Heading, Text, Card } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
-import hero from '../../public/hackathons/assemble.JPG'
+import hero from '../../public/hackathons/assemble.jpg'
 import Icon from '../icon'
 
 export default function Landing() {
@@ -74,7 +74,7 @@ export default function Landing() {
                     variant="ultratitle"
                     sx={{
                       WebkitTextStroke: 'currentColor',
-                      WebkitTextStrokeWidth: ['2px', '3px'],
+                      WebkitTextStrokeWidth: '2px',
                       WebkitTextFillColor: '#33D6A6',
                       whiteSpace: [null, null, 'nowrap']
                     }}
@@ -86,7 +86,7 @@ export default function Landing() {
                   as="p"
                   variant="subtitle"
                   sx={{
-                    mt: [3, 4],
+                    mt: [3, 3],
                     fontSize: [2, 3]
                   }}
                 >
