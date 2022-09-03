@@ -2,7 +2,7 @@ import { Box, Button, Heading, Text, Card } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
-import hero from '../../public/hackathons/assemble.jpg'
+import hero from '../../public/hackathons/assemble-talent-show.jpg'
 import Icon from '../icon'
 
 export default function Landing() {
