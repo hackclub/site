@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react'
-import { Box, Badge, Container, Flex, Grid, Heading } from 'theme-ui'
+import { Box, Container, Flex, Grid, Heading } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
-import MSparkles from '../../components/hackathon-grant/money'
+import MSparkles from '../../components/hackathons/grant/money'
 import NextLink from 'next/link'
 import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import Form from '../../components/hackathon-grant/form'
-import Apply from '../../components/hackathon-grant/apply'
-import Apply2 from '../../components/hackathon-grant/apply2'
+import Form from '../../components/hackathons/grant/form'
+import Apply from '../../components/hackathons/grant/apply'
 
 import Zoom from 'react-reveal/Zoom'
 /** @jsxImportSource theme-ui */
@@ -75,8 +73,8 @@ const Requirement = ({ title, children, checkmark, background, size }) => {
 }
 
 const HackathonGrant = () => {
-  let open = true // change this when we open the form :)
-  let channel = 'https://hackclub.slack.com/archives/C03TS0VKFPZ' //change link to the right channel (right now it goes to #hackathon-grants-dev)
+  let open = true // applications are open
+  let channel = 'https://hackclub.slack.com/archives/C03TS0VKFPZ' // #hackathon-grants
 
   return (
     <>
@@ -155,7 +153,7 @@ const HackathonGrant = () => {
                     sx={{
                       width: 72,
                       height: 72,
-                      backgroundImage: "url('/hackathon-grant/first.png')",
+                      backgroundImage: "url('/hackathons/grant/first.png')",
                       backgroundColor: '#231F20',
                       backgroundSize: '60px, cover',
                       backgroundPosition: 'center center',
@@ -213,9 +211,10 @@ const HackathonGrant = () => {
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
               size="36"
             >
-              We want to bring back high schooler-led events acround the world,
+              We want to bring back high schooler-led events around the world,
               so we're only offering this grant for high school hackathons that
-              take place this semester (from August 19th to December 31st 2022).
+              take place this semester (from August 19th to December 31st,
+              2022).
               <br />
               <br />
               <Text
@@ -325,7 +324,7 @@ const HackathonGrant = () => {
               </Text>
             </Requirement>
             <Requirement
-              title="Open Sourced finances"
+              title="Open sourced finances"
               checkmark="bank-circle"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:bank-account.svg"
               size="28"
@@ -342,7 +341,7 @@ const HackathonGrant = () => {
               >
                 Transparency Mode
               </Link>
-              . Sign up for a{' '}
+              . Sign up for{' '}
               <Link
                 href="/bank"
                 target="_blank"
@@ -352,7 +351,7 @@ const HackathonGrant = () => {
               >
                 Hack Club Bank
               </Link>{' '}
-              project before applying.
+              before applying.
               <br />
               <br />
               <Text
@@ -399,8 +398,7 @@ const HackathonGrant = () => {
 
           {open ? (
             <>
-              {/* <Apply channel={channel} /> */}
-              <Apply2 channel={channel} />
+              <Apply channel={channel} />
             </>
           ) : (
             <>

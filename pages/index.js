@@ -23,7 +23,7 @@ import FadeIn from '../components/fade-in'
 import Photo from '../components/photo'
 import Footer from '../components/footer'
 import FooterImgFile from '../public/home/footer.png'
-import GoldenTrainImgFile from '../public/home/golden-train.png'
+import AssembleImgFile from '../public/home/assemble.jpg'
 import Slack from '../components/slack'
 import Announcement from '../components/announcement'
 import Stage from '../components/stage'
@@ -121,18 +121,15 @@ const Page = () => (
       }}
     >
       <BGImg
-        src={GoldenTrainImgFile}
-        width={2224}
-        height={1249}
-        alt="Hack Clubbers gather at the SpaceX HQ"
+        src={AssembleImgFile}
+        alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
         priority
       />
-
       <Announcement
-        copy="Run an in-person hackathon this semester"
-        caption="$500 grants and more, with support from Hack Club and FIRST."
-        href="/hackathons/grant"
-        iconLeft="event-code"
+        copy="The game console where every player is a creator."
+        caption="Introducing Sprig: the fantasy game console by Hack Club."
+        href="https://sprig.hackclub.com"
+        iconLeft="bolt"
         color="primary"
       />
 
@@ -225,7 +222,7 @@ const Page = () => (
       >
         <Badge
           as="a"
-          href="https://zephyr.hackclub.com"
+          href="https://assemble.hackclub.com"
           variant="pill"
           sx={{
             zIndex: '1',
@@ -237,8 +234,9 @@ const Page = () => (
             ':hover': { opacity: 1 },
             transition: '0.3s ease'
           }}
+          title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
         >
-          Hackers onboard The Hacker Zephyr
+          Hackers at Assemble in SF
         </Badge>
       </Box>
     </Box>
@@ -345,7 +343,7 @@ const Page = () => (
             sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
           >
             Hack Clubs attend and run{' '}
-            <a href="https://hackathons.hackclub.com/">hackathons</a> like{' '}
+            <NextLink href="/hackathons" passHref><a>hackathons</a></NextLink> like{' '}
             <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a> &{' '}
             <a href="https://www.sfchronicle.com/bayarea/article/Hack-the-Fog-makes-history-as-San-12729895.php">
               Hack the Fog
@@ -534,8 +532,8 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                Free subscriptions to Figma Pro, Postman, and more for running a
-                great club.
+                We're always building new tools for leaders, such as <a href="https://sprig.hackclub.com">Sprig</a>! 
+                We've also got free subscriptions to Figma Pro, Postman, and more for running a great club.
               </>
             }
           />
