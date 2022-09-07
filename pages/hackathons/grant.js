@@ -391,7 +391,7 @@ const HackathonGrant = () => {
               href="https://www.firstinspires.org/sites/default/files/uploads/resource_library/brand/first-brand-guidelines-2020.pdf"
               target="_blank"
             >
-              <i>FIRST</i>
+              <i>FIRST®</i>
             </Link>{' '}
             do not ask that you add our assets on your website but you can if
             you wish to do so.
