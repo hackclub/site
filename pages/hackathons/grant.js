@@ -224,7 +224,8 @@ const HackathonGrant = () => {
                   color: 'muted'
                 }}
               >
-                This is not an annual program and is only available this semester.
+                This is not an annual program and is only available this
+                semester.
               </Text>
             </Requirement>
             <Requirement
@@ -342,16 +343,16 @@ const HackathonGrant = () => {
                 Transparency Mode
               </Link>
               . Sign up for a{' '}
-                <Link
-                  href="/bank"
-                  target="_blank"
-                  sx={{
-                    color: 'white'
-                  }}
-                >
-                  Hack Club Bank
-                </Link>{' '}
-                project before applying.
+              <Link
+                href="/bank"
+                target="_blank"
+                sx={{
+                  color: 'white'
+                }}
+              >
+                Hack Club Bank
+              </Link>{' '}
+              project before applying.
               <br />
               <br />
               <Text
@@ -360,7 +361,7 @@ const HackathonGrant = () => {
                   color: 'muted'
                 }}
               >
-                 If you're unable to use{' '}
+                If you're unable to use{' '}
                 <Link
                   href="/bank"
                   target="_blank"
@@ -375,11 +376,31 @@ const HackathonGrant = () => {
               </Text>
             </Requirement>
           </Grid>
+          <Text
+          as="p"
+           sx={{
+            textAlign: 'center',
+            mt: 3,
+            color: 'muted'
+          }}>
+            <Link href="/brand" target="_blank">
+              Hack Club
+            </Link>{' '}
+            and{' '}
+            <Link
+              href="https://www.firstinspires.org/sites/default/files/uploads/resource_library/brand/first-brand-guidelines-2020.pdf"
+              target="_blank"
+            >
+              <i>FIRST</i>
+            </Link>{' '}
+            do not ask that you add our assets on your website but you can if
+            you wish to do so.
+          </Text>
 
           {open ? (
             <>
-            {/* <Apply channel={channel} /> */}
-            <Apply2 channel={channel} />
+              {/* <Apply channel={channel} /> */}
+              <Apply2 channel={channel} />
             </>
           ) : (
             <>
