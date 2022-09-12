@@ -3483,13 +3483,13 @@ react-ticker@^1.3.2:
   resolved "https://registry.npmjs.org/react-ticker/-/react-ticker-1.3.2.tgz"
   integrity sha512-9sLgc9gFx/EMNxn2QcwUJAOf3jdEROKRyXZGbWrEbfJG/MTkHwR+WRrVtypv3iFXPpcrKmPD91+vatHq0BgR0Q==
 
-react-tsparticles@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-2.2.4.tgz#37400f4dcf6d28f91ec8ff75e314c03a664d92a5"
-  integrity sha512-ndhMVUcXNYBT7tufHoOF3B8o7KoG23bPIZdBvb8202z2b/rb3Ufu3gIkDqnuzxwljBu4SaCu962UId9xCaGA7g==
+react-tsparticles@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-2.3.0.tgz#d63eff344a4c5368f122a66e82258f9f2955eacd"
+  integrity sha512-5eNJH6VMj5Uiax/COIqqDWhpFTNd5pvL1ZVSNEM/I+VRsI013vNh33V1A2qxwFyM8GoLPlMN8Ej6ffx0DLQKNA==
   dependencies:
     fast-deep-equal "^3.1.3"
-    tsparticles-engine "^2.2.4"
+    tsparticles-engine "^2.3.0"
 
 react-use-websocket@3.0.0:
   version "3.0.0"
@@ -3999,10 +3999,10 @@ tslib@^2.4.0:
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
-tsparticles-engine@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/tsparticles-engine/-/tsparticles-engine-2.2.4.tgz#b45f56ad3f3f7c5cc0ace466815305e19cb554fc"
-  integrity sha512-glpUmRJKdbtItcHqJhE05V224DsGSV283oXR9dR6aiqA92BX/2dxU/03YrvcbPTppuMo7rFsBMf4NrPV3tXEfw==
+tsparticles-engine@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/tsparticles-engine/-/tsparticles-engine-2.3.0.tgz#c9e3eb75eafd3fe281808bfb4f2737187060c468"
+  integrity sha512-oNK493SsLDSgiLmyccVU7SFRpH7PQXafXKgrnOUvCKplw9pemSqMHNKWcQwT8XuGmN2CoFnQrSBbwmsyvxzUrA==
 
 tsutils@^3.21.0:
   version "3.21.0"
