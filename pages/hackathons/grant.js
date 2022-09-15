@@ -81,7 +81,7 @@ const HackathonGrant = () => {
       <Meta
         as={Head}
         title="Hackathon Grant"
-        description="Hack Club is partnering with FIRST to provide $500 grants to in-person high school hackathons happening this semester."
+        description="Hack Club is partnering with FIRST to provide $500 grants to in-person high school hackathons happening between August and December 31, 2022."
         image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
       <Box as="main" key="main">
@@ -185,8 +185,8 @@ const HackathonGrant = () => {
                 Hack Club Bank
               </Link>{' '}
               fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons
-              happening this semester.
+              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons this
+              semester (August - December 31, 2022).
             </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
               {open ? 'Apply Now' : 'Coming Soon'}
