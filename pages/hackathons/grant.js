@@ -382,6 +382,7 @@ const HackathonGrant = () => {
             mt: 3,
             color: 'muted'
           }}>
+            If you'd like to list us on your site (optional), you can use the logos found on the respective brand guides for{' '}
             <Link href="/brand" target="_blank">
               Hack Club
             </Link>{' '}
@@ -391,9 +392,7 @@ const HackathonGrant = () => {
               target="_blank"
             >
               <i>FIRST®</i>
-            </Link>{' '}
-            do not ask that you add our assets on your website but you can if
-            you wish to do so.
+            </Link>
           </Text>
 
           {open ? (
