@@ -125,7 +125,7 @@ const Footer = ({ dark = false, children, ...props }) => (
             Upcoming Hackathons
           </Link>
           <Link href="https://events.hackclub.com/">Community Events</Link>
-          <Link href="https://contribute.hackclub.com/">Contribute</Link>
+          {/* <Link href="https://contribute.hackclub.com/">Contribute</Link> */}
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
           <Link href="https://hackclub.com/map">Clubs Map</Link>
           <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
