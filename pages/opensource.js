@@ -116,6 +116,10 @@ const Page = ({ repos }) => (
           name="Wild Wild West"
           url="https://bank.hackclub.com/wild-wild-west"
         />
+         <BankProject
+          name="Assemble"
+          url="https://bank.hackclub.com/assemble"
+        />
       </Grid>
       <Heading
         variant="headline"
@@ -127,7 +131,7 @@ const Page = ({ repos }) => (
         Includes planning documents, partnership emails, meeting notes etc.
       </Text>
       <Grid columns={2} gap={3} mt={2} mb={[4]}>
-      <BankProject
+         <BankProject
           name="Assemble"
           url={`https://github.com/hackclub/assemble`}
         />
@@ -152,8 +156,12 @@ const Page = ({ repos }) => (
           url={`https://github.com/hackclub/hackclub/tree/main/workshops`}
         />
         <BankProject
-          name="VIP Newsletters"
+          name="VIP Newsletter"
           url={`https://github.com/hackclub/vip-newsletters`}
+        />
+         <BankProject
+          name="Community Newsletter"
+          url={`https://github.com/hackclub/newsletters`}
         />
         <BankProject name="Meetings" url={`https://meetings.hackclub.com`} />
       </Grid>

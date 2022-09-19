@@ -16,6 +16,7 @@ const nextConfig = {
       'cloud-dtijd5g0u-hack-club-bot.vercel.app',
       'cloud-3aeson6ue-hack-club-bot.vercel.app',
       'cloud-k3mgtdz5i-hack-club-bot.vercel.app',
+      'cloud-2jmtbnrpz-hack-club-bot.vercel.app',
       'assets.hackclub.com',
       ''
     ]
@@ -26,7 +27,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: '/grant/', destination: '/hackathon-grant', permanent: false },
+      { source: '/grant/', destination: '/hackathons/grant', permanent: false },
       { source: '/start/', destination: '/', permanent: false },
       { source: '/clubs/', destination: '/', permanent: false },
       { source: '/repl/', destination: '/', permanent: true },
@@ -185,19 +186,11 @@ const nextConfig = {
       },
       {
         source: '/newsletter/',
-        destination: 'https://workshops.hackclub.com/newsletters/'
+        destination: 'https://workshops.hackclub.com/newsletter/'
       },
       {
         source: '/newsletter/(.*)',
-        destination: 'https://workshops.hackclub.com/newsletters/$1'
-      },
-      {
-        source: '/newsletters/',
-        destination: 'https://workshops.hackclub.com/newsletters/'
-      },
-      {
-        source: '/newsletters/(.*)',
-        destination: 'https://workshops.hackclub.com/newsletters/$1'
+        destination: 'https://workshops.hackclub.com/newsletter/$1'
       },
       {
         source: '/transparency/may-2020/',

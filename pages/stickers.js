@@ -1,14 +1,4 @@
-import {
-  Card,
-  Box,
-  Button,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Image,
-  Text
-} from 'theme-ui'
+import { Card, Box, Flex, Grid, Heading, Image, Text } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../components/nav'
@@ -190,6 +180,8 @@ export default StickersPage
 
 export const getStaticProps = () => {
   const stickersDir = path.join(process.cwd(), 'public', 'stickers')
-  const stickers = fs.readdirSync(stickersDir).filter(sticker => sticker != "hero.jpg")
+  const stickers = fs
+    .readdirSync(stickersDir)
+    .filter(sticker => sticker !== 'hero.jpg')
   return { props: { stickers } }
 }

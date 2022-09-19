@@ -209,7 +209,7 @@ const DonorListing = ({ name, url }) => {
 
 export default function Donate({ sprig }) {
   useEffect(() => {
-    if(sprig){
+    if (sprig) {
       window.document.getElementById('sprig-donation').scrollIntoView()
     }
   }, [])
@@ -324,14 +324,32 @@ export default function Donate({ sprig }) {
       <Container mb={5} id="sprig-donation"></Container>
       {sprig && <SprigMeta />}
       <Container variant="copy">
-        <Grid
-          columns={[null, null, 2, '3fr 2fr']}
-          gap={[0, 2, 4]}
-          pt={[0, 3]}
-          mb={[2, 4]}
-        >
-          <Heading mt={3} variant="ultratitle" sx={{}}>
-            Hack Club Sprig Consoles
+        <Box pt={[0, 3]} mb={[2, 4]}>
+          <Heading
+            sx={{
+              textAlign: 'center',
+              fontSize: 4,
+              textTransform: 'uppercase',
+              fontWeight: [400, 800],
+              mb: [0,0]
+            }}
+          >
+            Now introducing...
+          </Heading>
+          <Heading
+            mt={2}
+            sx={{
+              textAlign: 'center',
+              textTransform: 'uppercase',
+              fontSize: [5, 7],
+              lineHeight: [0.8, 1],
+              mb: 0,
+              marginBlockEnd: 0,
+              marginBlockStart: 0,
+              my: [2, 0]
+            }}
+          >
+            Sprig Consoles
           </Heading>
           <Box
             sx={{
@@ -340,28 +358,40 @@ export default function Donate({ sprig }) {
               justifyContent: 'space-around'
             }}
           >
-            <Heading variant="subtitle" pb={[3, 2, 0]}>
-              Inspiring teens to both make and code.
+            <Heading
+              variant="subtitle"
+              pb={[3, 2, 2]}
+              sx={{
+                textAlign: 'center',
+                color: 'blue',
+                textTransform: 'uppercase',
+                mt: [2, 0],
+                fontWeight: 800
+              }}
+            >
+              Inspiring teenagers to both make and code.
             </Heading>
-            <Text>
-              Your donation will send a teenager a Hack Club Sprig Console Kit:
-              containing a custom Hack Club PCB, buttons, a screen, a
+            <Text sx={{ textAlign: 'center', fontSize: 2 }}>
+              A donation to the Sprig fund will send a teenager a Hack Club
+              Sprig Console Kit: containing a custom PCB, buttons, a screen, a
               microprocessor, and more (all open source, of course), so that
               they can build and then play their own games.
             </Text>
           </Box>
-        </Grid>
+        </Box>
         <Grid
           columns={[null, '2fr 3fr']}
           gap={[2, 3, 4]}
-          pt={[0, 3]}
+          pt={[0, 0]}
           mb={[2, 4]}
         >
           <Box
             as="video"
             style={{
               width: '100%',
-              borderRadius: '1em'
+              borderRadius: '1em',
+              height: '100%',
+              objectFit: 'cover'
             }}
             autoPlay
             muted
@@ -378,9 +408,7 @@ export default function Donate({ sprig }) {
             width={3000}
             height={2550}
             showAlt
-            sx={{
-              mb: [3]
-            }}
+            sx={{height: '100%'}}
           />
         </Grid>
         <Sheet

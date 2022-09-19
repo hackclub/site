@@ -90,14 +90,26 @@ export default function Landing({ showButton, eventsCount }) {
             }}
           >
             {showButton && (
-              <Button
-                variant="outlineLg"
-                as="a"
-                href="#apply"
-                style={{ zIndex: '100' }}
-              >
-                Apply Now
-              </Button>
+              <>
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  href="#apply"
+                  style={{ zIndex: '100' }}
+                >
+                  Apply Now
+                </Button>
+                <Button
+                  variant="outlineLg"
+                  as="a"
+                  href="https://bank.hackclub.com"
+                  target="_blank"
+                  style={{ zIndex: '100' }}
+                  ml={3}
+                >
+                  Sign in
+                </Button>
+              </>
             )}
           </Box>
           <ScrollHint />

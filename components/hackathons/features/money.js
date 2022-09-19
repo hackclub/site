@@ -1,13 +1,4 @@
-import {
-  Button,
-  Box,
-  Container,
-  Heading,
-  Text,
-  Link,
-  Badge,
-  Flex
-} from 'theme-ui'
+import { Button, Box, Container, Text, Link, Badge } from 'theme-ui'
 import NextLink from 'next/link'
 import { Fade } from 'react-reveal'
 import Icon from '../../icon'
@@ -58,11 +49,14 @@ const Content = () => (
               provided by Hack Club with the help of{' '}
               <Link
                 href="https://www.firstinspires.org/"
-                sx={{ fontStyle: 'italic' }}
+                sx={{ fontStyle: 'italic', color: 'white' }}
               >
                 FIRST
               </Link>
               .
+              <NextLink href="/hackathons/grant">
+                <Link sx={{ ml: 2, cursor: 'pointer' }}>Learn more &rarr;</Link>
+              </NextLink>
             </>
           }
         />
