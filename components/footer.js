@@ -91,6 +91,9 @@ const Footer = ({ dark = false, children, ...props }) => (
           <NextLink href="/hackathons" passHref>
             <Link>Hackathons</Link>
           </NextLink>
+          <NextLink href="/opensource" passHref>
+            <Link>Open Source</Link>
+          </NextLink>
           <NextLink href="/philosophy" passHref>
             <Link>Philosophy</Link>
           </NextLink>
@@ -106,9 +109,6 @@ const Footer = ({ dark = false, children, ...props }) => (
           <NextLink href="/press" passHref>
             <Link>Press Inquiries</Link>
           </NextLink>
-          <NextLink href="/opensource" passHref>
-            <Link>Open Source</Link>
-          </NextLink>
           <NextLink href="/donate" passHref>
             <Link>Donate</Link>
           </NextLink>
@@ -119,14 +119,13 @@ const Footer = ({ dark = false, children, ...props }) => (
           </Heading>
           <Link href="https://workshops.hackclub.com/">Workshops</Link>
           <NextLink href="/bank" passHref>
-            <Link>Bank</Link>
+            <Link>Fiscal Sponsorship</Link>
           </NextLink>
           <Link href="https://sprig.hackclub.com/">Sprig</Link>
           <Link href="https://hackathons.hackclub.com/">
             Upcoming Hackathons
           </Link>
           <Link href="https://events.hackclub.com/">Community Events</Link>
-          <Link href="https://contribute.hackclub.com/">Contribute</Link>
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
           <Link href="https://hackclub.com/map">Clubs Map</Link>
           <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
