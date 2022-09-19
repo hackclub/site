@@ -45,7 +45,7 @@ const Page = ({ repos }) => (
     <Meta
       as={Head}
       title="Open Source"
-      description={`Explore our finances, code, planning documents and more.`}
+      description="Explore our finances, code, planning documents and more."
       image="https://workshop-cards.hackclub.com/Open%20Source.png?theme=dark&fontSize=350px&brand=HQ"
     />
     <ForceTheme theme="light" />
@@ -65,7 +65,7 @@ const Page = ({ repos }) => (
           Open Source at Hack Club
         </Heading>
         <Heading as="h2" variant="subtitle" sx={{ mt: 3, color: 'text' }}>
-        Explore our finances, code, planning documents and more.
+          Explore our finances, code, planning documents and more.
         </Heading>
       </Container>
     </Box>
