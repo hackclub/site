@@ -827,60 +827,6 @@ const Philanthropy = ({ posts = [] }) => {
         <Fade bottom>
           <Text as="p">Your gift will:</Text>
         </Fade>
-        {/* <ul>
-          <Fade bottom delay={30}>
-            <li>
-              Create <Highlight>hundreds more Hack Clubs</Highlight> in high schools and communities
-              across the country and world
-            </li>
-          </Fade>
-          <Fade bottom delay={60}>
-            <li>
-              <Highlight>Inspire a problem-solving mindset</Highlight> and a hacker identity, where
-              teenagers are empowered to build what they want to see in the
-              world
-            </li>
-          </Fade>
-          <Fade bottom delay={90}>
-            <li>
-              Make Hack Club the <Highlight>best place to be a teenager on the internet</Highlight>,
-              incentivizing a shift among teenagers from consumers to creators
-              of technology
-            </li>
-          </Fade>
-          <Fade bottom delay={120}>
-            <li>
-              <Highlight>Launch special projects</Highlight>, in which Hack Clubbers collaborate with
-              SpaceX, Vercel, Cloudflare, Replit, Dogecoin and others
-            </li>
-          </Fade>
-          <Fade bottom delay={150}>
-            <li>
-              Popularize transparent accounting, open source building, and
-              high-integrity leadership
-            </li>
-          </Fade>
-          <Fade bottom delay={180}>
-            <li><Highlight>Grow the team</Highlight>, mostly engineers</li>
-          </Fade>
-          <Fade bottom delay={210}>
-            <li>
-              Host dozens of <Highlight>in-person events</Highlight>, including our summer adventure
-            </li>
-          </Fade>
-          <Fade bottom delay={240}>
-            <li>
-              Extend <Highlight>mini-grants of hardware and internet access</Highlight> to hundreds of
-              teenagers
-            </li>
-          </Fade>
-          <Fade bottom delay={270}>
-            <li>
-              Bring <Highlight>computer science and engineering skills</Highlight> to thousands more
-              teenagers
-            </li>
-          </Fade>
-        </ul> */}
         <ul>
           <Fade bottom delay={30}>
             <li>

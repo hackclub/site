@@ -99,34 +99,6 @@ const Post = ({
     >
       {formatText(text)}
     </Text>
-    {/* {attachments.length > 0 && (
-      <>
-        <Grid
-          gap={2}
-          columns={2}
-          sx={{
-            alignItems: 'center',
-            textAlign: 'center',
-            mt: 2,
-            div: {
-              maxWidth: '100%',
-              maxHeight: 256,
-              bg: 'sunken',
-              gridColumn: attachments.length === 1 ? 'span 2' : null
-            },
-            img: { objectFit: 'cover', width: '100%' }
-          }}
-        >
-            {filter(attachments, a => ['jpg', 'jpeg', 'png'].includes(a.split('.')[a.split('.').length - 1])).map(img => (
-              <img
-                key={img}
-                alt={img}
-                src={img}
-              />
-            ))}
-        </Grid>
-      </>
-    )} */}
   </Card>
 )
 
