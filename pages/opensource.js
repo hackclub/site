@@ -68,7 +68,7 @@ const Page = ({ repos }) => (
           Explore our finances, code, planning documents and more.
         </Heading>
         <Button variant="outline" as="a" mt={3} href="https://contribute.hackclub.com">
-          Contribute
+         Our Guide to Contributing
         </Button>
       </Container>
     </Box>
