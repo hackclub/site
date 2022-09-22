@@ -507,10 +507,12 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
               </Box>
             </Grid>
+            <Fade delay={210} bottom>
             <Text as="h2">
               “Hack Club helped me fall in love with creating and made me feel
               like I belong.”
             </Text>
+            </Fade>
             <Text sx={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}>
               <Image
                 src="/philanthropy/belle.png"
