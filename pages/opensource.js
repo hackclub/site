@@ -67,7 +67,7 @@ const Page = ({ repos }) => (
         <Heading as="h2" variant="subtitle" sx={{ mt: 3, color: 'text' }}>
           Explore our finances, code, planning documents and more.
         </Heading>
-        <Button variant="outline" as="a" mt={3} href="https://contribute.hackclub.com">
+        <Button variant="outline" as="a" target="_blank" mt={3} href="https://contribute.hackclub.com">
          Our Guide to Contributing
         </Button>
       </Container>
