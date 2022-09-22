@@ -113,7 +113,8 @@ function EventCard({
         }}
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.375) 75%), url('${banner}')`,
-          textAlign: 'center'
+          textAlign: 'center',
+          backgroundSize: 'cover'
         }}
       >
         <Badge
