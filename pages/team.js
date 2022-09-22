@@ -133,13 +133,6 @@ export default function Team() {
                 pronouns="she/her"
               />
               <Bio
-                name="Rick Blount"
-                teamRole="VP of Philanthropy"
-                text="Rick Blount previously helped raise $19.5 million for a brand-new YMCA in Burlington, Vermont. Before that, he worked at the University of Vermont’s medical school in communications and alumni/fundraising; and has been a journalist–helping start Consumer Reports’ health publication. When he was 25, he taught English for a year near Wuhan, China."
-                img="/team/rick.png"
-                pronouns="he/him"
-              />
-              <Bio
                 name="Bence Beres"
                 teamRole="Bookkeeper"
                 text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
@@ -228,7 +221,7 @@ and participating in academic competitions with his friends.`}
               <Bio
                 name="Hugo Hu"
                 teamRole="Mail Team Coordinator"
-                text="Hugo is an avid fan of corgis, hardware, and shipping. He works with club leaders to get stickers to clubs and events and community members to assist with logistical challenges. He ships for Hack Club Mail Team and runs Hack Shop, helping to plan, design, produce, and distribute various types of swag for different events."
+                text="Hugo manages Hack Club’s mail. His responsibilities include designing magical mail experiences, negotiating with carriers, and writing mail-related software. He's also involved in many of Hack Club's special projects, such as Sprig & Assemble. Hugo also enjoys designing hardware, competing in math competitions, and admiring corgis."
                 img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
                 pronouns="he/him"
               />
@@ -259,20 +252,6 @@ and participating in academic competitions with his friends.`}
                 teamRole="Hacker Resources"
                 text="Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He worked on Hack Club’s learning resources & clubs program for two years."
                 pronouns="he/him"
-              />
-            </Grid>
-            <br />
-
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
-              Behind the Scenes
-            </Text>
-            <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
-                name="Chris Newton"
-                teamRole="Accountant"
-                text="After finding her love of accounting at an early age, Chris spent most of her accounting career in construction, but recently branched out to nonprofits. Chris is married (Bryan) with a young daughter (Brylee), and lives in Des Moines, Iowa."
-                pronouns="she/her"
-                img="/team/cnewton.jpg"
               />
               <Bio
                 name="Woody Keppel"
