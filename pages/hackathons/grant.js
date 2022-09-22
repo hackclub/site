@@ -375,6 +375,26 @@ const HackathonGrant = () => {
               </Text>
             </Requirement>
           </Grid>
+          <Text
+          as="p"
+           sx={{
+            textAlign: 'center',
+            mt: 3,
+            color: 'muted'
+          }}>
+            <Link href="/brand" target="_blank">
+              Hack Club
+            </Link>{' '}
+            and{' '}
+            <Link
+              href="https://www.firstinspires.org/sites/default/files/uploads/resource_library/brand/first-brand-guidelines-2020.pdf"
+              target="_blank"
+            >
+              <i>FIRST®</i>
+            </Link>{' '}
+            do not ask that you add our assets on your website but you can if
+            you wish to do so.
+          </Text>
 
           {open ? (
             <>
