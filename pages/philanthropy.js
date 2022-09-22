@@ -138,7 +138,7 @@ const Line = () => {
         sx={{
           borderBottom: '1px solid #e0e6ed',
           width: '100%',
-          my: 4
+          my: 5
         }}
       ></Box>
     </Fade>
@@ -233,7 +233,7 @@ const delimiterIconStyles = {
   backgroundPosition: 'center',
   borderRadius: 'none',
   backgroundImage:
-    'url(https://cloud-1rqn9rwxm-hack-club-bot.vercel.app/0frame_43.svg)',
+    'url(https://cloud-1rqn9rwxm-hack-club-bot.vercel.app/0frame_43.svg)'
 }
 const Map = () => {
   return (
@@ -370,45 +370,6 @@ const Philanthropy = ({ posts = [] }) => {
               </Highlight>
             </Text>
           </Fade>
-          <Fade bottom>
-            <Text as="h2" mt={4}>
-              Make a gift:
-            </Text>
-          </Fade>
-          <Fade bottom>
-            <Grid
-              gap={[4, 2, 2]}
-              columns={[1, '2fr 1fr', '2fr 1fr']}
-              mt={2}
-              sx={{ color: 'muted' }}
-            >
-              <Box>
-                <Text as="h4">The Hack Foundation</Text>
-                <Text as="p" sx={{ width: '70%' }}>
-                  Address: The Hack Foundation at 8605 Santa Monica Blvd #86294,
-                  West Hollywood, CA, 90069
-                </Text>
-                <Text as="p">EIN: 81-2908499</Text>
-              </Box>
-              <Box>
-                <Text as="h4">Contact</Text>
-                <Text as="p">Christina Asquith</Text>
-                <Text as="p">Co-founder, COO, and Board Member</Text>
-                <Text as="a">christina@hackclub.com</Text>
-              </Box>
-            </Grid>
-          </Fade>
-          <Fade bottom delay={300}>
-            <Text
-              as="a"
-              mt={2}
-              href="https://bank.hackclub.com/donations/start/hq"
-              target="_blank"
-              sx={{ color: '#ec3750', textDecoration: 'none' }}
-            >
-              Donate &#9654;
-            </Text>
-          </Fade>
           <Grid gap={2} columns={[1, 2, 3, 5]} mt={4}>
             <Fade bottom delay={30}>
               <HackClubber
@@ -446,13 +407,52 @@ const Philanthropy = ({ posts = [] }) => {
               />
             </Fade>
           </Grid>
+          <Fade bottom>
+            <Text as="h2" mt={5}>
+              Make a gift:
+            </Text>
+          </Fade>
+          <Fade bottom>
+            <Grid
+              gap={[4, 2, 2]}
+              columns={[1, '2fr 1fr', '2fr 1fr']}
+              mt={2}
+              sx={{ color: 'muted' }}
+            >
+              <Box>
+                <Text as="h4">The Hack Foundation</Text>
+                <Text as="p" sx={{ width: '70%' }}>
+                  Address: The Hack Foundation at 8605 Santa Monica Blvd #86294,
+                  West Hollywood, CA, 90069
+                </Text>
+                <Text as="p">EIN: 81-2908499</Text>
+              </Box>
+              <Box>
+                <Text as="h4">Contact</Text>
+                <Text as="p">Christina Asquith</Text>
+                <Text as="p">Co-founder, COO, and Board Member</Text>
+                <Text as="a">christina@hackclub.com</Text>
+              </Box>
+            </Grid>
+          </Fade>
+          <Fade bottom delay={300}>
+            <Text
+              as="a"
+              mt={2}
+              href="https://bank.hackclub.com/donations/start/hq"
+              target="_blank"
+              sx={{ color: '#ec3750', textDecoration: 'none' }}
+            >
+              Donate &#9654;
+            </Text>
+          </Fade>
         </Container>
         <Box
           sx={{
             width: '100vw',
             backgroundColor: 'snow',
             py: 4,
-            mt: 4,
+            my: 5,
             display: 'flex',
             justifyContent: 'center'
           }}
@@ -471,11 +471,6 @@ const Philanthropy = ({ posts = [] }) => {
                   margin: 'auto'
                 }}
               >
-                <Fade bottom delay={60}>
-                  {/* <Heading as="h2" sx={{ mb: 2, textAlign: 'center' }}>
-                    2021 Snapshot:
-                  </Heading> */}
-                </Fade>
                 <Fade bottom delay={90}>
                   <Stat
                     num="11 million"
@@ -748,7 +743,7 @@ const Philanthropy = ({ posts = [] }) => {
             </Grid>
           </Box>
           <Fade bottom>
-            <Text as="h2" mt={5} mb={2}>
+            <Text as="h2" mt={4} mb={2}>
               A few others who support Hack Club
             </Text>
           </Fade>
