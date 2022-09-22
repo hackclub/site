@@ -409,6 +409,43 @@ const Philanthropy = ({ posts = [] }) => {
               Donate &#9654;
             </Text>
           </Fade>
+          <Grid gap={2} columns={[1, 2, 3, 5]} mt={4}>
+            <Fade bottom delay={30}>
+              <HackClubber
+                photo="arianna.png"
+                quote="Always inspiring interesting new projects"
+                info="Arianna, 16, Kentucky"
+              />
+            </Fade>
+            <Fade bottom delay={60}>
+              <HackClubber
+                photo="jason.png"
+                quote="I’ve met some of the best people"
+                info="Jason, 16, Texas"
+              />
+            </Fade>
+            <Fade bottom delay={90}>
+              <HackClubber
+                photo="sam.png"
+                quote="In Hack Club I’ve found a home"
+                info="Sam, 17, Singapore"
+              />
+            </Fade>
+            <Fade bottom delay={120}>
+              <HackClubber
+                photo="abby.png"
+                quote="Helped build me a strong coding foundation"
+                info="Abby, 15, Los Angeles"
+              />
+            </Fade>
+            <Fade bottom delay={150}>
+              <HackClubber
+                photo="adriano.png"
+                quote="Totally different from the coding classes at school"
+                info="Adriano, 19, Brazil"
+              />
+            </Fade>
+          </Grid>
         </Container>
         <Box
           sx={{
@@ -711,11 +748,11 @@ const Philanthropy = ({ posts = [] }) => {
             </Grid>
           </Box>
           <Fade bottom>
-            <Text as="h2" mt={4} mb={2}>
+            <Text as="h2" mt={5} mb={2}>
               A few others who support Hack Club
             </Text>
           </Fade>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }} mb={4}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }} mb={5}>
             <Fade bottom delay={30}>
               <Pill
                 logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/0figma.png"
@@ -780,7 +817,7 @@ const Philanthropy = ({ posts = [] }) => {
               Obrey and Megan
             </Text>
           </Fade>
-          <Grid gap={3} columns={[1, 1, 1, 2]} mt={2}>
+          <Grid gap={3} columns={[1, 1, 1, 2]} mt={2} mb={4}>
             <Fade bottom delay={100}>
               <Q>
                 <Heading mb={3} sx={{ fontWeight: 'normal', fontSize: '18px' }}>
@@ -790,7 +827,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Heading>
                 <Heading
                   fontSize={[4, 5]}
-                  sx={{ fontWeight: 'bold', fontSize: ['18px', '24px'] }}
+                  sx={{ fontWeight: '700', fontSize: ['18px', '22px'] }}
                   as="h1"
                 >
                   Thanks to our donor-funded laptop program, Hack Club sent him
@@ -823,7 +860,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Heading>
                 <Heading
                   fontSize={[4, 5]}
-                  sx={{ fontWeight: 'bold', fontSize: ['18px', '24px'] }}
+                  sx={{ fontWeight: '700', fontSize: ['18px', '22px'] }}
                   as="h1"
                 >
                   At 16, she started her own club Hack Club, and 20 other
@@ -847,43 +884,6 @@ const Philanthropy = ({ posts = [] }) => {
                   </Box>
                 </Flex>
               </Q>
-            </Fade>
-          </Grid>
-          <Grid gap={2} columns={[1, 2, 3, 5]} mt={4}>
-            <Fade bottom delay={30}>
-              <HackClubber
-                photo="arianna.png"
-                quote="Always inspiring interesting new projects"
-                info="Arianna, 16, Kentucky"
-              />
-            </Fade>
-            <Fade bottom delay={60}>
-              <HackClubber
-                photo="jason.png"
-                quote="I’ve met some of the best people"
-                info="Jason, 16, Texas"
-              />
-            </Fade>
-            <Fade bottom delay={90}>
-              <HackClubber
-                photo="sam.png"
-                quote="In Hack Club I’ve found a home"
-                info="Sam, 16, Singapore"
-              />
-            </Fade>
-            <Fade bottom delay={120}>
-              <HackClubber
-                photo="abby.png"
-                quote="Helped build me a strong coding foundation"
-                info="Abby, 15, Los Angeles"
-              />
-            </Fade>
-            <Fade bottom delay={150}>
-              <HackClubber
-                photo="adriano.png"
-                quote="Totally different from the coding classes at school"
-                info="Adriano, 19, Brazil"
-              />
             </Fade>
           </Grid>
           <Line />
