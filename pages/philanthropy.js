@@ -138,7 +138,7 @@ const Line = () => {
         sx={{
           borderBottom: '1px solid #e0e6ed',
           width: '100%',
-          my: 5
+          my: [4, 5]
         }}
       ></Box>
     </Fade>
@@ -327,7 +327,6 @@ const Philanthropy = ({ posts = [] }) => {
             </Box>
           </Fade>
           <Line />
-          <br />
           <Fade bottom>
             <Text as="h2" mb={2}>
               In the next ten years, Hack Club will discover, foster and inspire
