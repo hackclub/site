@@ -12,6 +12,7 @@ import {
   Text
 } from 'theme-ui'
 import styled from '@emotion/styled'
+import { keyframes } from '@emotion/react'
 import Image from 'next/image'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
@@ -19,13 +20,9 @@ import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import ReactBeforeSliderComponent from 'react-before-after-slider-component'
-import { orderBy, filter, take, map, uniq, reverse } from 'lodash'
 import 'react-before-after-slider-component/dist/build.css'
 import Fade from 'react-reveal/Fade'
 import Slide from 'react-reveal/Slide'
-import Posts from '../components/posts/philanthropy'
-
-// const { ImageCompare } = require('image-compare-viewer')
 
 /** @jsxImportSource theme-ui */
 
@@ -53,77 +50,86 @@ const Sheet = styled(Card)`
   border-radius: 8px;
   width: 100%;
   color: white;
+  height: 100%;
 `
 
 const Q = styled(Sheet)`
   position: relative;
-  &:before {
-    content: '“';
-    line-height: 1;
-    font-size: 48px;
-    padding-left: 6px;
+  &:after {
+    content: '';
+    background-color: #ec3750;
+    height: 100%;
+    width: 10px;
     position: absolute;
+    bottom: 0;
     left: 0;
-    top: 0;
-    color: #fff;
-    opacity: 0.5;
-    padding: 18px;
   }
+  color: #3c4858;
 `
 
-const FirstQuote = styled(Q)`
-  background-image: radial-gradient(
-    at left top,
-    rgb(45, 228, 207),
-    rgb(41, 206, 104),
-    rgb(53, 181, 36)
-  ); ;
-`
+const Stat = ({ num, words, background }) => {
+  return (
+    <Card
+      sx={{
+        padding: '20px !important',
+        my: 2,
+        textAlign: 'center',
+        backgroundColor: 'elevated',
+        backgroundImage: `url('${background}')`,
+        backgroundSize: '25px 25px',
+        backgroundRepeat: 'repeat',
+        backgroundPosition: '10% -20%',
+        display: 'flex',
+        gap: 2,
+        textAlign: 'left'
+      }}
+    >
+      <Text as="h2" sx={{ color: '#ec3750' }}>
+        {num}
+      </Text>
+      <Text as="h2">{words}</Text>
+    </Card>
+  )
+}
 
 const Graph = () => {
   return (
     <>
-      <ResponsiveContainer
-        width="90%"
-        height="80%"
-        minHeight="300px"
-        sx={{ mx: ['auto', '15%', '15%'], my: '10%', overflow: 'visible' }}
-      >
-        <BarChart
-          data={data}
-          animationBegin={1000}
-          sx={{
-            svg: {
-              overflow: 'visible'
-            }
-          }}
+      <Box sx={{ my: 'auto' }}>
+        <Heading as="h2" sx={{ textAlign: 'center' }}>
+          Teenagers in slack per year
+        </Heading>
+        <ResponsiveContainer
+          width="90%"
+          height="100%"
+          minHeight="350px"
+          sx={{ mx: 'auto', my: '5%', overflow: 'visible' }}
         >
-          <Tooltip
-            cursor={false}
-            contentStyle={{ border: 'none', borderRadius: 5, opacity: 0.9 }}
-          />
-          <Bar type="monotone" dataKey="Teenagers" fill="#1f2d3d" />
-          <YAxis
-          // label={{
-          //   value: 'Teenagers in our slack',
-          //   position: 'top'
-          // }}
-          />
-          <XAxis dataKey="year">
-            <Label
-              value="Teenagers in slack per year"
-              offset={0}
-              position="bottom"
+          <BarChart
+            data={data}
+            animationBegin={1000}
+            sx={{
+              svg: {
+                overflow: 'visible'
+              }
+            }}
+          >
+            <Tooltip
+              cursor={false}
+              contentStyle={{ border: 'none', borderRadius: 5, opacity: 0.9 }}
             />
-          </XAxis>
-        </BarChart>
-      </ResponsiveContainer>
+            <Bar type="monotone" dataKey="Teenagers" fill="#1f2d3d" />
+            <YAxis />
+            <XAxis dataKey="year"></XAxis>
+          </BarChart>
+        </ResponsiveContainer>
+      </Box>
     </>
   )
 }
 
 const Highlight = ({ children }) => {
-  return <Text sx={{ color: '#ec3750' }}>{children}</Text>
+  return <Text sx={{ fontWeight: 'bold' }}>{children}</Text>
 }
 const Line = () => {
   return (
@@ -191,7 +197,7 @@ const HackClubber = ({ photo, quote, info }) => {
         borderRadius: '10px',
         width: '100%',
         height: '300px',
-        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url(/philanthropy/${photo})`,
+        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url(/philanthropy/${photo})`,
         backgroundSize: 'cover',
         backgroundPosition: 'top center',
         position: 'relative'
@@ -212,13 +218,9 @@ const HackClubber = ({ photo, quote, info }) => {
     </Box>
   )
 }
-// if (typeof window !== "undefined") {
-//     const element = document.getElementById("map")
-//     const viewer = new ImageCompare(element).mount()
-// }
 
 const FIRST_IMAGE = {
-  imageUrl: '/philanthropy/after.png'
+  imageUrl: '/philanthropy/after1.png'
 }
 const SECOND_IMAGE = {
   imageUrl: '/philanthropy/before.png'
@@ -231,7 +233,7 @@ const delimiterIconStyles = {
   backgroundPosition: 'center',
   borderRadius: 'none',
   backgroundImage:
-    'url(https://cloud-1rqn9rwxm-hack-club-bot.vercel.app/0frame_43.svg)'
+    'url(https://cloud-1rqn9rwxm-hack-club-bot.vercel.app/0frame_43.svg)',
 }
 const Map = () => {
   return (
@@ -241,15 +243,18 @@ const Map = () => {
           position: 'relative',
           width: '100%',
           mx: 'auto',
-          height: 'auto',
-          mt: 4
+          height: 'auto'
         }}
       >
         <ReactBeforeSliderComponent
           firstImage={FIRST_IMAGE}
           secondImage={SECOND_IMAGE}
           delimiterIconStyles={delimiterIconStyles}
+          currentPercentPosition={30}
         />
+        <Text variant="caption">
+          What Hack Club could look like with your support
+        </Text>
       </Box>
     </Fade>
   )
@@ -270,16 +275,16 @@ const Philanthropy = ({ posts = [] }) => {
         <Box
           sx={{
             width: '100vw',
-            height: '70vh',
+            height: '50vh',
             // maxHeight: '1400px',
             display: 'flex',
             justifyContent: 'center',
             textAlign: 'center',
             alignItems: 'center',
             backgroundImage:
-              'linear-gradient(to bottom,rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://cloud-5i6wo8xw4-hack-club-bot.vercel.app/0compressed-reg-bg.jpg)',
+              'linear-gradient(to bottom,rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://cloud-51qsxafpt-hack-club-bot.vercel.app/0hackpenn_1__1___1_-min.jpg)',
             backgroundSize: 'cover',
-            backgroundPosition: 'left center'
+            backgroundPosition: 'top center'
           }}
         >
           <Box>
@@ -288,22 +293,20 @@ const Philanthropy = ({ posts = [] }) => {
               sx={{
                 fontSize: [6, 6, 7, 7],
                 color: 'white',
-                lineHeight: '1.2em',
-                mb: '100px'
+                lineHeight: '1.2em'
               }}
             >
               Investing in the future
             </Text>
-            {/* <Text as="h2">Hack Club...</Text> */}
           </Box>
         </Box>
         <Container
           sx={{
-            // width: ['90vw', '80vw', '80vw'],
             width: 'container',
             margin: 'auto',
             'p, li': {
-              fontSize: '1.2em'
+              fontSize: '1.2em',
+              color: 'slate'
             }
           }}
         >
@@ -326,11 +329,10 @@ const Philanthropy = ({ posts = [] }) => {
           <Line />
           <br />
           <Fade bottom>
-            <Text as="p">
-              Hack Club is a 21st century cultural institution, run by teenagers
-              for teenagers, that prizes technical skills, an entrepreneurial
-              mindset, and a rigorous dedication to building real things in the
-              real world that solve real problems.
+            <Text as="h2" mb={2}>
+              In the next ten years, Hack Club will discover, foster and inspire
+              thousands more teenagers to use technical skills to solve
+              problems.
             </Text>
           </Fade>
           <br />
@@ -353,6 +355,58 @@ const Philanthropy = ({ posts = [] }) => {
               free computer science education, a hacker mindset, and an equal
               shot at success to every teenager, regardless of where they’re
               from, how they identify, or what their parents do.
+            </Text>
+          </Fade>
+          <Fade bottom>
+            <br />
+            <Text as="p">
+              Over time, Hack Clubbers will reshape societies as entrepreneurs,
+              environmentalists, political leaders, activists and policy makers.
+              We help shape the values of these future leaders, modeling and
+              incentivizing them to be curious, humble, kind, optimistic problem
+              solvers.{' '}
+              <Highlight>
+                We need your support to make this vision a reality.
+              </Highlight>
+            </Text>
+          </Fade>
+          <Fade bottom>
+            <Text as="h2" mt={4}>
+              Make a gift:
+            </Text>
+          </Fade>
+          <Fade bottom>
+            <Grid
+              gap={[4, 2, 2]}
+              columns={[1, '2fr 1fr', '2fr 1fr']}
+              mt={2}
+              sx={{ color: 'muted' }}
+            >
+              <Box>
+                <Text as="h4">The Hack Foundation</Text>
+                <Text as="p" sx={{ width: '70%' }}>
+                  Address: The Hack Foundation at 8605 Santa Monica Blvd #86294,
+                  West Hollywood, CA, 90069
+                </Text>
+                <Text as="p">EIN: 81-2908499</Text>
+              </Box>
+              <Box>
+                <Text as="h4">Contact</Text>
+                <Text as="p">Christina Asquith</Text>
+                <Text as="p">Co-founder, COO, and Board Member</Text>
+                <Text as="a">christina@hackclub.com</Text>
+              </Box>
+            </Grid>
+          </Fade>
+          <Fade bottom delay={300}>
+            <Text
+              as="a"
+              mt={2}
+              href="https://bank.hackclub.com/donations/start/hq"
+              target="_blank"
+              sx={{ color: '#ec3750', textDecoration: 'none' }}
+            >
+              Donate &#9654;
             </Text>
           </Fade>
         </Container>
@@ -381,16 +435,44 @@ const Philanthropy = ({ posts = [] }) => {
                 }}
               >
                 <Fade bottom delay={60}>
-                  <Heading
-                    as="h3"
-                    sx={{ mb: 2, textAlign: 'center', color: '#ec3750' }}
-                  >
-                    Live from our online community . . .
-                  </Heading>
+                  {/* <Heading as="h2" sx={{ mb: 2, textAlign: 'center' }}>
+                    2021 Snapshot:
+                  </Heading> */}
                 </Fade>
-
                 <Fade bottom delay={90}>
-                  <Posts data={posts} />
+                  <Stat
+                    num="11 million"
+                    words="messages sent"
+                    background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:slack.svg"
+                  />
+                </Fade>
+                <Fade bottom delay={120}>
+                  <Stat
+                    num="400"
+                    words="active Hack Clubs around the world"
+                    background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:event-code.svg"
+                  />
+                </Fade>
+                <Fade bottom delay={150}>
+                  <Stat
+                    num="500"
+                    words="nonprofits supported"
+                    background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:member-add.svg"
+                  ></Stat>
+                </Fade>
+                <Fade bottom delay={180}>
+                  <Stat
+                    num="100+"
+                    words="global events"
+                    background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:profile.svg"
+                  />
+                </Fade>
+                <Fade bottom delay={180}>
+                  <Stat
+                    num="4"
+                    words="life changing summers"
+                    background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:photo.svg"
+                  />
                 </Fade>
               </Box>
             </Grid>
@@ -414,16 +496,17 @@ const Philanthropy = ({ posts = [] }) => {
             width: 'container',
             margin: 'auto',
             'p, li': {
-              fontSize: '1.2em'
+              fontSize: '1.2em',
+              color: 'slate'
             }
           }}
         >
           <Fade bottom>
-            <Text as="h1" my={4} sx={{ color: '#ec3750' }}>
+            <Text as="h1" my={4}>
               As the largest network of technical teenagers, we are featured in
               the news:
             </Text>
-            <Grid gap={4} columns={['1fr 1fr', '1fr 1fr 1fr 1fr']}>
+            <Grid gap={[0, 0, 4]} columns={['1fr 1fr', '1fr 0.5fr 1fr 1fr']}>
               <Link
                 href="https://www.businessinsider.com/zach-lattas-hacker-club-got-him-on-forbes-30-under-30-2016-1"
                 target="_blank"
@@ -431,8 +514,8 @@ const Philanthropy = ({ posts = [] }) => {
               >
                 <Image
                   src="/philanthropy/insider-logo.svg"
-                  width={500}
-                  height={200}
+                  width={530}
+                  height={150}
                 />
               </Link>
               <Link
@@ -442,8 +525,8 @@ const Philanthropy = ({ posts = [] }) => {
               >
                 <Image
                   src="/philanthropy/wsj-logo.svg"
-                  width={500}
-                  height={200}
+                  width={270}
+                  height={100}
                 />
               </Link>
               <Link
@@ -454,7 +537,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Image
                   src="/philanthropy/forbes-logo.svg"
                   width={500}
-                  height={200}
+                  height={100}
                 />
               </Link>
               <Link
@@ -462,47 +545,9 @@ const Philanthropy = ({ posts = [] }) => {
                 target="_blank"
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
-                <Image
-                  src="/philanthropy/cop-logo.png"
-                  width={1000}
-                  height={200}
-                />
+                <Image src="/philanthropy/cop.png" width={750} height={250} />
               </Link>
             </Grid>
-          </Fade>
-          <Fade bottom>
-            <Text as="h2" mt={4}>
-              Support us:
-            </Text>
-          </Fade>
-          <Fade bottom>
-            <Grid gap={[4, 2, 2]} columns={[1, '2fr 1fr', '2fr 1fr']} mt={2}>
-              <Box>
-                <Text as="h4">The Hack Foundation</Text>
-                <Text as="p" sx={{ width: '70%' }}>
-                  Address: The Hack Foundation at 8605 Santa Monica Blvd #86294,
-                  West Hollywood, CA, 90069
-                </Text>
-                <Text as="p">EIN: 81-2908499</Text>
-              </Box>
-              <Box>
-                <Text as="h4">Contact</Text>
-                <Text as="p">Christina Asquith</Text>
-                <Text as="p">Co-founder, COO, and Board Member</Text>
-                <Text as="a">christina@hackclub.com</Text>
-              </Box>
-            </Grid>
-          </Fade>
-          <Fade bottom delay={300}>
-            <Text
-              as="a"
-              mt={2}
-              href="https://bank.hackclub.com/donations/start/hq"
-              target="_blank"
-              sx={{ color: '#ec3750', textDecoration: 'none' }}
-            >
-              Donate &#9654;
-            </Text>
           </Fade>
           <Line />
           <Fade bottom>
@@ -579,7 +624,6 @@ const Philanthropy = ({ posts = [] }) => {
                   — Tom Preston-Werner, Co-founder, Preston-Werner Ventures /
                   Co-founder and former CEO, GitHub
                 </Text>
-                {/* <img src="https://cloud-jrapw952o-hack-club-bot.vercel.app/0dsc_1619.jpg" sx={{width: '60%', borderRadius: '5px'}} /> */}
               </Box>
             </Fade>
           </Grid>
@@ -731,72 +775,78 @@ const Philanthropy = ({ posts = [] }) => {
             </Fade>
           </Box>
           <Fade bottom>
-            <Text as="h2" my={2}>
-              Only through their support are we able to help students like Obrey
-              and Megan:
+            <Text as="h2" my={3}>
+              Only through their support are we able to empower students like
+              Obrey and Megan
             </Text>
           </Fade>
-          <Grid gap={2} columns={[1, 1, 1, 2]} mt={2}>
+          <Grid gap={3} columns={[1, 1, 1, 2]} mt={2}>
             <Fade bottom delay={100}>
-              <Box
-                sx={{ backgroundColor: 'snow', borderRadius: '5px', p: '20px' }}
-              >
-                <img
-                  src="/philanthropy/obrey.png"
-                  sx={{
-                    borderRadius: '5px',
-                    width: '40%',
-                    float: 'left',
-                    mr: 2,
-                    mb: 2
-                  }}
-                />
-                <Text as="p">
-                  Obrey Muchena, 19, started a Hack Club in Zambia in his senior
-                  year of high school at Kabulonga Boys' Secondary School, and
-                  now more than a dozen students are coding.
-                </Text>
-                <br />
-                <Text as="p">
+              <Q>
+                <Heading mb={3} sx={{ fontWeight: 'normal', fontSize: '18px' }}>
+                  Obrey Muchena started a Hack Club in his senior year of high
+                  school at Kabulonga Boys' Secondary School, and now more than
+                  a dozen students are coding.
+                </Heading>
+                <Heading
+                  fontSize={[4, 5]}
+                  sx={{ fontWeight: 'bold', fontSize: ['18px', '24px'] }}
+                  as="h1"
+                >
                   Thanks to our donor-funded laptop program, Hack Club sent him
-                  a MacBook Air 2020. In his Hack Club, Obrey and his best
-                  friend Edward built robots that won Canada’s Humanitarian
-                  Activist Award.
-                </Text>
-              </Box>
+                  a MacBook Air. In his Hack Club, Obrey and his best friend
+                  Edward built robots that won Canada’s Humanitarian Activist
+                  Award
+                </Heading>
+                <Flex align="center" mt={[3, 4]}>
+                  <Avatar
+                    src="/philanthropy/obrey.png"
+                    sx={{ height: '48px', width: '48px' }}
+                    mr={3}
+                    st
+                  />
+                  <Box align="left" fontSize={3}>
+                    <Heading>Obrey Muchena</Heading>
+                    <Text fontSize={2} color="green.1">
+                      Senior @ Kabulonga Boys' Secondary School, Zambia
+                    </Text>
+                  </Box>
+                </Flex>
+              </Q>
             </Fade>
             <Fade bottom delay={200}>
-              <Box
-                sx={{
-                  backgroundColor: 'snow',
-                  borderRadius: '5px',
-                  p: '20px',
-                  height: '100%'
-                }}
-              >
-                <img
-                  src="/philanthropy/megan.png"
-                  sx={{
-                    borderRadius: '5px',
-                    width: '40%',
-                    float: 'left',
-                    mr: 2,
-                    mb: 2
-                  }}
-                />
-                <Text as="p">
+              <Q>
+                <Heading mb={3} sx={{ fontWeight: 'normal', fontSize: '18px' }}>
                   Raised in Ohio, ​Megan’s public high school didn’t offer any
                   quality computer science classes so she learned to code at
                   Hack Club.
-                </Text>
-                <br />
-                <Text as="p">
-                  At 16, she started her own club Hack Club where 20 other
-                  students joined and even raised $12k to run a hackathon and
-                  camp for hundreds more. Megan is now a sophomore at Harvard
-                  University.{' '}
-                </Text>
-              </Box>
+                </Heading>
+                <Heading
+                  fontSize={[4, 5]}
+                  sx={{ fontWeight: 'bold', fontSize: ['18px', '24px'] }}
+                  as="h1"
+                >
+                  At 16, she started her own club Hack Club, and 20 other
+                  students joined. She raised funds on Hack Club Bank to run a
+                  local hackathon for 100 more teenagers. Megan's club also
+                  raised $12k for a web development summer camp for 100 middle
+                  schoolers.
+                </Heading>
+                <Flex align="center" mt={[3, 4]}>
+                  <Avatar
+                    src="/philanthropy/megan.png"
+                    sx={{ height: '48px', width: '48px' }}
+                    mr={3}
+                    st
+                  />
+                  <Box align="left" fontSize={3}>
+                    <Heading>Megan Cui</Heading>
+                    <Text fontSize={2} color="green.1">
+                      Sophomore @ Harvard University, US
+                    </Text>
+                  </Box>
+                </Flex>
+              </Q>
             </Fade>
           </Grid>
           <Grid gap={2} columns={[1, 2, 3, 5]} mt={4}>
@@ -838,66 +888,39 @@ const Philanthropy = ({ posts = [] }) => {
           </Grid>
           <Line />
           <Fade bottom>
-            <Text
-              as="h1"
-              sx={{
-                textAlign: 'center',
-                maxWidth: '950px',
-                mx: 'auto'
-              }}
-              mb={4}
-            >
-              In the next ten years, Hack Club will discover, foster and inspire
-              thousands more teenagers to use technical skills to solve
-              problems.
-            </Text>
-          </Fade>
-          {/* <Fade bottom>
-            <Text as="p">
-              Through growing technically with Hack Club, they will be equiped
-              with the skills necessary to build solutions for problems that
-              we are understand. Problems that they will be uniquely
-              posiitoned to solve.{' '}
-            </Text>
-          </Fade> */}
-          <Fade bottom>
-            <Text as="p">
-              We envision thousands of diverse Hack Club leaders in towns and
-              cities across America and the world, connected online, and
-              self-organizing events and hackathons–driven by a can-do culture
-              that believes problems can be solved.{' '}
-            </Text>
-          </Fade>
-          <Fade bottom>
-            <br />
-            <Text as="p">
-              Over time, Hack Clubbers will reshape societies as entrepreneurs,
-              environmentalists, political leaders, activists and policy makers.
-              We help shape the values of these future leaders, modeling and
-              incentivizing them to be curious, humble, kind, optimistic problem
-              solvers.
-            </Text>
-          </Fade>
-          <Map />
-          <Line />
-          <Fade bottom>
             <Text as="h1" sx={{ textAlign: 'center' }} mb={4}>
               Hack Club invites the 21st century’s leading thinkers, builders
               and disrupters to join our small, core network of donors with a
               gift.
             </Text>
-            <Text as="p">
-              Founded in 2014, Hack Club grew 700 percent during the COVID-19
-              pandemic, and Hack Club’s team of engineers can’t keep up with
-              demand. With your gift, Hack Club could increase engineering
-              support to serve thousands more teenagers, with a strong focus on
-              serving those who face additional barriers to contributing their
-              talents to the world.
-            </Text>
           </Fade>
-          <br />
+          <Grid columns={['1fr', '1fr', '0.8fr 1.2fr']}>
+            <Fade bottom>
+              <Box>
+                <Text as="p">
+                  We envision thousands of diverse Hack Club leaders in towns
+                  and cities across America and the world, connected online, and
+                  self-organizing events and hackathons–driven by a can-do
+                  culture and a rigorous dedication to building real things in
+                  the real world.
+                </Text>
+                <br />
+                <Text as="p">
+                  Founded in 2014, Hack Club grew 700 percent during the
+                  COVID-19 pandemic, and Hack Club’s team of engineers can’t
+                  keep up with demand. With your gift, Hack Club could increase
+                  support to serve thousands more teenagers, with a strong focus
+                  on serving those who face additional barriers to contributing
+                  their talents to the world.
+                </Text>
+              </Box>
+            </Fade>
+            <Map />
+          </Grid>
           <Fade bottom>
-            <Text as="p">Your gift will:</Text>
+            <Text as="p" mt={4}>
+              Your gift will:
+            </Text>
           </Fade>
           <ul>
             <Fade bottom delay={30}>
@@ -954,7 +977,7 @@ const Philanthropy = ({ posts = [] }) => {
             </Fade>
           </ul>
           <Fade bottom delay={350}>
-            <Text as="h2" sx={{ mb: 0, pb: 0 }}>
+            <Text as="h2" sx={{ mb: 0, pb: 0, mt: 2 }}>
               Thank you for your consideration!
             </Text>
           </Fade>
@@ -985,7 +1008,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Fade>
           </Flex>
-          <Fade bottom>
+          <Fade bottom delay={200}>
             <Grid
               gap={4}
               columns={[1, '2fr 1fr', '2fr 1fr']}
@@ -1023,21 +1046,6 @@ const Philanthropy = ({ posts = [] }) => {
       </Box>
     </>
   )
-}
-
-export const getStaticProps = async () => {
-  const posts = await fetch('https://scrapbook.hackclub.com/api/r/ship')
-    .then(r => r.json())
-    .then(posts =>
-      filter(posts, p =>
-        ['jpg', 'jpeg', 'png'].includes(
-          p.attachments[0]?.split('.')[p.attachments[0]?.split('.').length - 1]
-        )
-      )
-    )
-    .then(posts => orderBy(posts, 'postedAt', 'desc'))
-    .then(posts => take(posts, 2))
-  return { props: { posts }, revalidate: 2 }
 }
 
 export default Philanthropy
