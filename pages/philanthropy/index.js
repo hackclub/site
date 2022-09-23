@@ -944,7 +944,7 @@ const Philanthropy = ({ posts = [] }) => {
               as="a"
               variant="outline"
               href="https://cloud-d2t8vvprl-hack-club-bot.vercel.app/0form990package.pdf"
-              download="HackClub_990"
+              target="_blank"
               mb={4}
               sx={{fontSize: '1em !important', width: 'fit-content', float: 'right', mt: 2}}
             >
