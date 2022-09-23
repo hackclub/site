@@ -1194,7 +1194,7 @@ const Philanthropy = ({ posts = [] }) => {
             </Fade>
           </Grid>
           <Fade bottom>
-            <Grid gap={[4, 2, 2]} columns={[1, '1fr 1fr', '1fr 1fr']} mt={2} sx={{color: 'muted'}}>
+            {/* <Grid gap={[4, 2, 2]} columns={[1, '1fr 1fr', '1fr 1fr']} mt={2} sx={{color: 'muted'}}> */}
             <Box sx={{ color: 'muted' }}>
               <Text as="p" sx={{ fontWeight: '700' }}>
                 Reach out to discuss a gift
@@ -1219,21 +1219,7 @@ const Philanthropy = ({ posts = [] }) => {
                 Hack Club is a 501(c)(3) nonprofit with the EIN 81-2908499.
               </Text>
             </Box>
-            {/* <Box>
-              <Text as="h3">View Hack Club's 2020 IRS Form 990</Text>
-              <Text as="p">2021 Form will soon be ready and shared.</Text>
-            <Button
-              as="a"
-              variant="outline"
-              href="https://cloud-d2t8vvprl-hack-club-bot.vercel.app/0form990package.pdf"
-              download="HackClub_990"
-              mb={4}
-              sx={{fontSize: '1em !important', width: 'fit-content', float: 'left', mt: 2}}
-            >
-              Form 990
-            </Button>
-            </Box> */}
-            </Grid>
+            {/* </Grid> */}
           </Fade>
           <Line />
           <Fade bottom>
