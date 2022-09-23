@@ -23,6 +23,22 @@ import ReactBeforeSliderComponent from 'react-before-after-slider-component'
 import 'react-before-after-slider-component/dist/build.css'
 import Fade from 'react-reveal/Fade'
 import Slide from 'react-reveal/Slide'
+import Marquee from 'react-marquee-slider'
+import ExecuteBig from '../../public/donate/codedaydc_hack.jpg'
+import HackCamp from '../../public/donate/sf.jpg'
+import HackerGames from '../../public/donate/0img_20210830_161125.jpg'
+import LaptopDonations from '../../public/donate/0screenshot_2021-10-03_at_4.20.30_pm.png'
+import Kerala from '../../public/donate/0img-20210918-wa0091.jpg'
+import HackPenn from '../../public/donate/0color_pop.jpg'
+import ElonAMA from '../../public/donate/elon.jpg'
+import SpaceX from '../../public/donate/0spacex_and_hack_club.jpg'
+import Flagship from '../../public/donate/flagship.png'
+import MAHacks from '../../public/donate/0screenshot_2021-10-03_at_4.07.51_pm.png'
+import HackCamp2020 from '../../public/donate/0img_6447.jpg'
+import InnovationCircuit from '../../public/donate/0screenshot_2021-10-03_at_3.45.54_pm.png'
+import WindyCity from '../../public/donate/6screenshot_2021-10-03_at_3.29.29_pm.png'
+import ZephyrFun from '../../public/donate/0screenshot_2021-10-03_at_3.59.34_pm.png'
+import GoldenTrain from '../../public/home/golden-train.png'
 
 /** @jsxImportSource theme-ui */
 
@@ -35,6 +51,47 @@ import {
   Tooltip,
   ResponsiveContainer
 } from 'recharts'
+
+const Header = styled(Box)`
+  background: url('/pattern.svg');
+`
+
+const PhotoRow = ({ photos }) => (
+  <Box sx={{ height: '160px', overflow: 'hidden' }}>
+    <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
+      <Marquee velocity={12}>
+        {photos.map((photo, index) => (
+          <Image
+            placeholder="blur"
+            src={photo}
+            objectFit="cover"
+            className="next-image"
+            height="200px"
+            width="300px"
+            alt="Hack Club students"
+            key={'image-' + index}
+          />
+        ))}
+      </Marquee>
+    </Box>
+    <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
+      <Marquee velocity={12}>
+        {photos.map((photo, index) => (
+          <Image
+            placeholder="blur"
+            src={photo}
+            objectFit="cover"
+            className="next-image"
+            height="200px"
+            width="600px"
+            key={'image-' + index}
+            alt="Hack Club students"
+          />
+        ))}
+      </Marquee>
+    </Box>
+  </Box>
+)
 
 const data = [
   { name: '3452 Members', Teenagers: 3452, year: '2018' },
@@ -81,7 +138,8 @@ const Stat = ({ num, words, background }) => {
         backgroundPosition: '10% -20%',
         display: 'flex',
         gap: 2,
-        textAlign: 'left'
+        textAlign: 'left',
+        fontSize: ['14px', '16px', '18px']
       }}
     >
       <Text as="h2" sx={{ color: '#ec3750' }}>
@@ -272,7 +330,7 @@ const Philanthropy = ({ posts = [] }) => {
       <ForceTheme theme="light" />
       <Nav color="white" />
       <Box sx={{ overflowX: 'hidden' }}>
-        <Box
+        {/* <Box
           sx={{
             width: '100vw',
             height: '50vh',
@@ -323,7 +381,104 @@ const Philanthropy = ({ posts = [] }) => {
               </Text>
             </Fade>
           </Box>
+        </Box> */}
+        <Header sx={{ position: 'relative' }}>
+        <Box
+          sx={{
+            background: 'rgba(0,0,0, 0.8)',
+            zIndex: 1,
+            position: 'relative',
+            color: 'white!important',
+            height: '480px'
+          }}
+          pt={[5, 5, '110px']}
+        >
+          <Box
+            sx={{
+              maxWidth: '64rem',
+              mx: 'auto',
+              zIndex: 1,
+              position: 'relative'
+            }}
+            align="center"
+            py={2}
+            px={[1, 3]}
+          >
+            <Container sx={{ maxWidth: '48rem' }}>
+              <Heading
+                sx={{
+                  fontSize: ['42px', '54px', '72px'],
+                  my: 2,
+                  color: 'white'
+                }}
+              >
+                Invest in the future.
+              </Heading>
+              <Box
+                sx={{
+                  fontSize: ['22px', '23px', '28px'],
+                  maxWidth: '40rem',
+                  color: 'white'
+                }}
+              >
+                Contribute today to empower the next generation.
+              </Box>
+              <Button
+                variant="ctaLg"
+                my={3}
+                sx={{ width: ['100%', 'auto'] }}
+                as="a"
+                href="https://bank.hackclub.com/donations/start/hq"
+              >
+                Donate
+                <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
+                  to Hack Club
+                </Text>
+              </Button>
+              <Text
+                sx={{ mt: 1, display: 'block', opacity: 0.8 }}
+                fontSize={2}
+                color="white"
+              >
+                Your contribution is tax-deductible.
+                <br />
+                Hack Club is a 501(c)(3) nonprofit with the EIN 81-2908499.
+              </Text>
+            </Container>
+          </Box>
         </Box>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            zIndex: 0,
+            width: '100%',
+            display: 'block'
+          }}
+        >
+          <PhotoRow
+            photos={[
+              ExecuteBig,
+              HackCamp,
+              HackerGames,
+              LaptopDonations,
+              Kerala
+            ]}
+          />
+          <PhotoRow
+            photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]}
+          />
+          <PhotoRow
+            photos={[
+              HackCamp2020,
+              InnovationCircuit,
+              WindyCity,
+              MAHacks,
+              ZephyrFun
+            ]}
+          />
+        </Box>
+      </Header>
         <Container
           sx={{
             width: 'container',
@@ -495,7 +650,7 @@ const Philanthropy = ({ posts = [] }) => {
                 Hack Club is already making a difference!
               </Text>
             </Fade>
-            <Grid my="4" gap={2} columns={[1, 1, 2]}>
+            <Grid my="4" gap={2} columns={[1, 1, 1, 2]}>
               <Fade bottom delay={30}>
                 <Graph />
               </Fade>
@@ -515,7 +670,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Fade bottom delay={120}>
                   <Stat
                     num="400"
-                    words="active Hack Clubs around the world"
+                    words="Hack Clubs around the world"
                     background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:event-code.svg"
                   />
                 </Fade>
@@ -524,7 +679,7 @@ const Philanthropy = ({ posts = [] }) => {
                     num="500"
                     words="nonprofits supported"
                     background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:member-add.svg"
-                  ></Stat>
+                  />
                 </Fade>
                 <Fade bottom delay={180}>
                   <Stat
