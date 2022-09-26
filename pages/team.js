@@ -182,13 +182,6 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
-                name="Abby Fischler"
-                teamRole="Technical Intern to COO"
-                text="Abby is a high school junior from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
-                img="https://github.com/abbyfischler.png"
-                pronouns="she/her"
-              />
-              <Bio
                 name="Gary Tou"
                 teamRole="Bank Engineering"
                 text="Gary is a software engineer from Seattle and loves photography! After using Hack Club Bank to launch a nonprofit organization, Gary joined Hack Club to make the product that enabled him to do great things even greater for others."
@@ -201,6 +194,13 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 text={`Kunal loves to make for making! He started Project Boom to help provide computers, helps build and run Hack Club Bank, and is organizing MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
                 img="https://kunalbotla.com/images/kunal.jpeg"
                 pronouns="he/him"
+              />
+              <Bio
+                name="Arianna Martinelli"
+                teamRole="Bank Operations"
+                text={`Arianna is a Hack Clubber from Kentucky excited about how technology and humans can work together to solve problems. She joined Hack Club in 2020 to start a club at her all-girls high school and to learn from a community of fellow coders, and she joined Hack Club Bank in 2021 to fiscally sponsor her non-profit Tandem. She loves swimming, trees, videography, film photography, reading Joan Didion, Formula 1, making memes, and crafting cards with puns.`}
+                img="https://cloud-e2my1h4pr-hack-club-bot.vercel.app/0arianna_profile_photo.png"
+                pronouns="she/here"
               />
               <Bio
                 name="Deven Jadhav"
@@ -220,11 +220,19 @@ and participating in academic competitions with his friends.`}
               />
               <Bio
                 name="Hugo Hu"
-                teamRole="Mail Team Coordinator"
+                teamRole="Mail Coordinator & Engineering"
                 text="Hugo manages Hack Club’s mail. His responsibilities include designing magical mail experiences, negotiating with carriers, and writing mail-related software. He's also involved in many of Hack Club's special projects, such as Sprig & Assemble. Hugo also enjoys designing hardware, competing in math competitions, and admiring corgis."
                 img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
                 pronouns="he/him"
               />
+              <Bio
+                name="Abby Fischler"
+                teamRole="Technical Intern to COO"
+                text="Abby is a high school junior from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
+                img="https://github.com/abbyfischler.png"
+                pronouns="she/her"
+              />
+              
               <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
