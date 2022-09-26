@@ -32,7 +32,7 @@
     "next-compose-plugins": "^2.2.1",
     "next-transpile-modules": "^9.0.0",
     "react": "^17.0.2",
-    "react-before-after-slider-component": "^1.1.4",
+    "react-before-after-slider-component": "^1.1.5",
     "react-dom": "^17.0.2",
     "react-marquee-slider": "^1.1.5",
     "react-masonry-css": "^1.0.16",
