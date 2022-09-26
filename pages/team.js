@@ -200,7 +200,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 teamRole="Bank Operations"
                 text={`Arianna is a Hack Clubber from Kentucky excited about how technology and humans can work together to solve problems. She joined Hack Club in 2020 to start a club at her all-girls high school and to learn from a community of fellow coders, and she joined Hack Club Bank in 2021 to fiscally sponsor her non-profit Tandem. She loves swimming, trees, videography, film photography, reading Joan Didion, Formula 1, making memes, and crafting cards with puns.`}
                 img="https://cloud-oubklmp6c-hack-club-bot.vercel.app/0arianna_profile_photo.png"
-                pronouns="she/here"
+                pronouns="she/her"
               />
               <Bio
                 name="Deven Jadhav"
