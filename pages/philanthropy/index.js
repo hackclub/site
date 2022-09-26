@@ -1193,34 +1193,6 @@ const Philanthropy = ({ posts = [] }) => {
               </Q>
             </Fade>
           </Grid>
-          <Fade bottom>
-            {/* <Grid gap={[4, 2, 2]} columns={[1, '1fr 1fr', '1fr 1fr']} mt={2} sx={{color: 'muted'}}> */}
-            <Box sx={{ color: 'muted' }}>
-              <Text as="p" sx={{ fontWeight: '700' }}>
-                Reach out to discuss a gift
-              </Text>
-              <Text as="p">
-                Christina Asquith,{' '}
-                <Text
-                  as="a"
-                  href="mailto:christina@hackclub.com"
-                  sx={{
-                    ':link': {
-                      color: 'inherit',
-                      textDecoration: 'none',
-                      fontSize: '1em !important'
-                    }
-                  }}
-                >
-                  christina@hackclub.com
-                </Text>
-              </Text>
-              <Text as="p" sx={{ fontSize: '90% !important' }}>
-                Hack Club is a 501(c)(3) nonprofit with the EIN 81-2908499.
-              </Text>
-            </Box>
-            {/* </Grid> */}
-          </Fade>
           <Line />
           <Fade bottom>
             <Text as="h1" sx={{ textAlign: 'center' }} mb={[4, 5]}>
