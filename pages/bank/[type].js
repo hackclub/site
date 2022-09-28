@@ -30,10 +30,11 @@ export default function Bank({ isPartner, stats }) {
         <ForceTheme theme="dark" />
         <Meta
           as={Head}
-          title="Bank"
-          description="Hack Club Bank provides a 501(c)(3) status-backed fund optimized for high school hackathons, nonprofits, and clubs. Get fiscal sponsorship designed to help you run a great organization."
+          description="Hack Club Bank provides a 501(c)(3) status-backed fund optimized for events, nonprofits, and more. Get fiscal sponsorship designed to help you run a great organization."
           image="/bank/og-image.png"
-        />
+        >
+          <title>Hack Club Bank — Fiscal Sponsorship</title>
+        </Meta>
         <style>{styles}</style>
         <Box>
           {isPartner ? (
