@@ -190,6 +190,7 @@ function Event({
                   src={`/hackers/${organizer.split(' ')[0].toLowerCase()}.jpg`}
                   size={48}
                   mr={2}
+                  alt="Photo of ${organizer}"
                 />
                 <Text
                   color="white"
