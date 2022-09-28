@@ -228,7 +228,7 @@ and participating in academic competitions with his friends.`}
               <Bio
                 name="Abby Fischler"
                 teamRole="Technical Intern to COO"
-                text="Abby is a high school junior from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
+                text={`Abby is a high school junior from Los Angeles that loves technology! Since joining the Hack Club community in May 2020, she’s enjoyed learning with friends in the Slack and on board the Hacker Zephyr. She joined Hack Club to support Christina’s work in encouraging more girls to get involved. Abby has hosted events for the community and loves sharing her coding journey on the #ship channel.`}
                 img="https://github.com/abbyfischler.png"
                 pronouns="she/her"
               />
