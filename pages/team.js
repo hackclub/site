@@ -213,7 +213,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 name="Sam Poder"
                 teamRole="Engineering & Operations"
                 text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. 
-Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys travelling with his family 
+Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys traveling with his family 
 and participating in academic competitions with his friends.`}
                 img="https://change-my-pfp.vercel.app/api/current/"
                 pronouns="he/him"
@@ -244,7 +244,7 @@ and participating in academic competitions with his friends.`}
               <Bio
                 name="Rishi Kothari"
                 teamRole="Community Team"
-                text="Rishi is a high school juinor that's super interested in open-source development, startups, React, and everything in between! He is primarily a JS/TS dev, but has worked with Rust 🔥, C++ 💖, Haskell ⚡️, and Swift 🏎 in the past. He is the president of TFSS Hack Club, the CTO at PetCode, and a workshop coordinator at TurnerHacks, among other things."
+                text="Rishi is a high school senior that's super interested in open-source development, startups, React, and everything in between! He is primarily a JS/TS dev, but has worked with Rust 🔥, C++ 💖, Haskell ⚡️, and Swift 🏎 in the past. He is the president of TFSS' Hack Club and a workshop coordinator at TurnerHacks, among other things."
                 img="https://github.com/rishiosaur.png"
                 pronouns="he/him"
               />
