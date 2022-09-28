@@ -383,102 +383,102 @@ const Philanthropy = ({ posts = [] }) => {
           </Box>
         </Box> */}
         <Header sx={{ position: 'relative' }}>
-        <Box
-          sx={{
-            background: 'rgba(0,0,0, 0.8)',
-            zIndex: 1,
-            position: 'relative',
-            color: 'white!important',
-            height: '480px'
-          }}
-          pt={[5, 5, '110px']}
-        >
           <Box
             sx={{
-              maxWidth: '64rem',
-              mx: 'auto',
+              background: 'rgba(0,0,0, 0.8)',
               zIndex: 1,
-              position: 'relative'
+              position: 'relative',
+              color: 'white!important',
+              height: '480px'
             }}
-            align="center"
-            py={2}
-            px={[1, 3]}
+            pt={[5, 5, '110px']}
           >
-            <Container sx={{ maxWidth: '48rem' }}>
-              <Heading
-                sx={{
-                  fontSize: ['42px', '54px', '72px'],
-                  my: 2,
-                  color: 'white'
-                }}
-              >
-                Invest in the future.
-              </Heading>
-              <Box
-                sx={{
-                  fontSize: ['22px', '23px', '28px'],
-                  maxWidth: '40rem',
-                  color: 'white'
-                }}
-              >
-                Contribute today to empower the next generation.
-              </Box>
-              <Button
-                variant="ctaLg"
-                my={3}
-                sx={{ width: ['100%', 'auto'] }}
-                as="a"
-                href="https://bank.hackclub.com/donations/start/hq"
-              >
-                Donate
-                <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
-                  to Hack Club
+            <Box
+              sx={{
+                maxWidth: '64rem',
+                mx: 'auto',
+                zIndex: 1,
+                position: 'relative'
+              }}
+              align="center"
+              py={2}
+              px={[1, 3]}
+            >
+              <Container sx={{ maxWidth: '48rem' }}>
+                <Heading
+                  sx={{
+                    fontSize: ['42px', '54px', '72px'],
+                    my: 2,
+                    color: 'white'
+                  }}
+                >
+                  Invest in the future.
+                </Heading>
+                <Box
+                  sx={{
+                    fontSize: ['22px', '23px', '28px'],
+                    maxWidth: '40rem',
+                    color: 'white'
+                  }}
+                >
+                  Contribute today to empower the next generation.
+                </Box>
+                <Button
+                  variant="ctaLg"
+                  my={3}
+                  sx={{ width: ['100%', 'auto'] }}
+                  as="a"
+                  href="https://bank.hackclub.com/donations/start/hq"
+                >
+                  Donate
+                  <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
+                    to Hack Club
+                  </Text>
+                </Button>
+                <Text
+                  sx={{ mt: 1, display: 'block', opacity: 0.8 }}
+                  fontSize={2}
+                  color="white"
+                >
+                  Your contribution is tax-deductible.
+                  <br />
+                  Hack Club is a 501(c)(3) nonprofit with the EIN 81-2908499.
                 </Text>
-              </Button>
-              <Text
-                sx={{ mt: 1, display: 'block', opacity: 0.8 }}
-                fontSize={2}
-                color="white"
-              >
-                Your contribution is tax-deductible.
-                <br />
-                Hack Club is a 501(c)(3) nonprofit with the EIN 81-2908499.
-              </Text>
-            </Container>
+              </Container>
+            </Box>
           </Box>
-        </Box>
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            zIndex: 0,
-            width: '100%',
-            display: 'block'
-          }}
-        >
-          <PhotoRow
-            photos={[
-              ExecuteBig,
-              HackCamp,
-              HackerGames,
-              LaptopDonations,
-              Kerala
-            ]}
-          />
-          <PhotoRow
-            photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]}
-          />
-          <PhotoRow
-            photos={[
-              HackCamp2020,
-              InnovationCircuit,
-              WindyCity,
-              MAHacks,
-              ZephyrFun
-            ]}
-          />
-        </Box>
-      </Header>
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 0,
+              zIndex: 0,
+              width: '100%',
+              display: 'block'
+            }}
+          >
+            <PhotoRow
+              photos={[
+                ExecuteBig,
+                HackCamp,
+                HackerGames,
+                LaptopDonations,
+                Kerala
+              ]}
+            />
+            <PhotoRow
+              photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]}
+            />
+            <PhotoRow
+              photos={[
+                HackCamp2020,
+                InnovationCircuit,
+                WindyCity,
+                MAHacks,
+                ZephyrFun
+              ]}
+            />
+          </Box>
+        </Header>
         <Container
           sx={{
             width: 'container',
@@ -499,9 +499,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Quote>“</Quote>With major support, I am confident Hack Club
                 will change the world.<Quote>”</Quote>
               </Text>
-              <Text as="p">
-                —Tom Preston-Werner, GitHub Co-founder
-              </Text>
+              <Text as="p">—Tom Preston-Werner, GitHub Co-founder</Text>
             </Box>
           </Fade>
           <Line />
@@ -590,17 +588,9 @@ const Philanthropy = ({ posts = [] }) => {
             </Text>
           </Fade>
           <Fade bottom>
-            <Grid gap={[4, 2, 2]} columns={[1, '2fr 1fr', '2fr 1fr']} mt={2}>
+            <Grid gap={[4, 2, 2]} columns={[1, '1r 1fr', '1fr 1fr']} mt={2}>
               <Box>
-                <Text as="h4">The Hack Foundation</Text>
-                <Text as="p" sx={{ width: '70%' }}>
-                  Address: The Hack Foundation at 8605 Santa Monica Blvd #86294,
-                  West Hollywood, CA, 90069
-                </Text>
-                <Text as="p">EIN: 81-2908499</Text>
-              </Box>
-              <Box>
-                <Text as="h4">Reach out to</Text>
+                <Text as="h3">Reach out to</Text>
                 <Text as="p">Christina Asquith</Text>
                 <Text as="p">Co-founder, COO, and Board Member</Text>
                 <Text
@@ -616,9 +606,59 @@ const Philanthropy = ({ posts = [] }) => {
                   christina@hackclub.com
                 </Text>
               </Box>
+              <Box>
+                <Text as="h3">Send physical checks</Text>
+                <Text as="p">The Hack Foundation</Text>
+                <Text as="p">
+                  8605 Santa Monica Blvd #86294, West Hollywood, CA, 90069
+                </Text>
+                <Text as="p">EIN: 81-2908499</Text>
+                <Box mt={[2, 3]}>
+                  <Text
+                    as="a"
+                    href="https://bank.hackclub.com/donations/start/hq"
+                    target="_blank"
+                    sx={{
+                      color: '#ec3750',
+                      textDecoration: 'none',
+                      fontWeight: '700',
+                      fontSize: '1.2em'
+                    }}
+                  >
+                    Donate online to Hack Club &#9654;
+                  </Text>
+                </Box>
+                <Text>
+                  We also accept crypto, stocks, and other forms of support.
+                </Text>
+              </Box>
             </Grid>
           </Fade>
-          <Fade bottom delay={300}>
+          <Line />
+          <Fade bottom delay={100}>
+            <Flex sx={{ justifyContent: 'space-between' }} mt={[3, 4]}>
+              <Box>
+                <Text as="h2">View Hack Club's 2020 IRS Form 990</Text>
+                <Text as="p">2021 Form will soon be ready and shared.</Text>
+              </Box>
+              <Button
+                as="a"
+                variant="outline"
+                href="https://cloud-d2t8vvprl-hack-club-bot.vercel.app/0form990package.pdf"
+                target="_blank"
+                mb={4}
+                sx={{
+                  fontSize: '1em !important',
+                  width: 'fit-content',
+                  float: 'right',
+                  mt: 2
+                }}
+              >
+                Form 990
+              </Button>
+            </Flex>
+          </Fade>
+          {/* <Fade bottom delay={300}>
             <Text
               as="a"
               mt={2}
@@ -632,7 +672,7 @@ const Philanthropy = ({ posts = [] }) => {
             >
               Donate &#9654;
             </Text>
-          </Fade>
+          </Fade> */}
         </Container>
         <Box
           sx={{
@@ -1034,28 +1074,6 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Grid>
           </Box>
-          <Fade bottom delay={300}>
-          <Text
-              as="a"
-              mt={2}
-              href="/philanthropy/supporters"
-              target="_blank"
-              sx={{
-                color: 'slate',
-                textDecoration: 'none',
-                fontSize: '1.1em !important',
-                padding: '8px 12px',
-                backgroundColor: '#f9fafc',
-                borderRadius: '50px',
-                transition: '0.5s ease',
-                ':hover': {
-                  backgroundColor: '#e0e6ed',
-                }
-              }}
-            >
-              and many more...
-            </Text>
-          </Fade>
           <Fade bottom>
             <Text as="h2" mt={4} mb={2}>
               A few others who support Hack Club
@@ -1119,11 +1137,34 @@ const Philanthropy = ({ posts = [] }) => {
             <Fade bottom delay={270}>
               <Pill name="Blake Lieberman, Co-founder, Rief Ventures" />
             </Fade>
+            <Fade bottom delay={300}>
+              <Text
+                as="a"
+                href="/philanthropy/supporters"
+                target="_blank"
+                sx={{
+                  color: 'slate',
+                  textDecoration: 'none',
+                  fontSize: '1em !important',
+                  backgroundColor: 'snow',
+                  padding: '5px 10px',
+                  borderRadius: '50px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  transition: '0.5s ease',
+                  ':hover': {
+                    backgroundColor: '#e0e6ed'
+                  }
+                }}
+              >
+                and many more...
+              </Text>
+            </Fade>
           </Box>
           <Fade bottom>
             <Text as="h2" my={3}>
               Only through their support are we able to empower students like
-              Obrey and Megan
+              Obrey and Maggie
             </Text>
           </Fade>
           <Grid gap={3} columns={[1, 1, 1, 2]} mt={2} mb={4}>
@@ -1141,7 +1182,7 @@ const Philanthropy = ({ posts = [] }) => {
                   Thanks to our donor-funded laptop program, Hack Club sent him
                   a MacBook Air. In his Hack Club, Obrey and his best friend
                   Edward built robots that won Canada’s Humanitarian Activist
-                  Award
+                  Award.
                 </Heading>
                 <Flex align="center" mt={[3, 4]}>
                   <Avatar
@@ -1153,7 +1194,7 @@ const Philanthropy = ({ posts = [] }) => {
                   <Box align="left" fontSize={3}>
                     <Heading>Obrey Muchena</Heading>
                     <Text fontSize={2} color="green.1">
-                      Senior @ Kabulonga Boys' Secondary School, Zambia
+                      19, Zambia
                     </Text>
                   </Box>
                 </Flex>
@@ -1162,31 +1203,26 @@ const Philanthropy = ({ posts = [] }) => {
             <Fade bottom delay={200}>
               <Q>
                 <Heading mb={3} sx={{ fontWeight: 'normal', fontSize: '18px' }}>
-                  Raised in Ohio, ​Megan’s public high school didn’t offer any
-                  quality computer science classes so she learned to code at
-                  Hack Club.
+                  In 2021, Maggie joined the Hack Club community; she has since shipped 10+
+                  coding projects from widgets to raycast extensions.
                 </Heading>
                 <Heading
                   fontSize={[4, 5]}
                   sx={{ fontWeight: '700', fontSize: ['18px', '20px', '22px'] }}
                 >
-                  At 16, she started her own club Hack Club, and 20 other
-                  students joined. She raised funds on Hack Club Bank to run a
-                  local hackathon for 100 more teenagers. Megan's club also
-                  raised $12k for a web development summer camp for 100 middle
-                  schoolers.
+                  The Hack Club community "inspired me to step outside my comfort zone and take on challenges I never previously would have — starting a CS Club at my school, (co-)hosting AMAs, and even organizing Leland Hacks, the first in-person hackathon in my city after the pandemic.”
                 </Heading>
                 <Flex align="center" mt={[3, 4]}>
                   <Avatar
-                    src="/philanthropy/megan.png"
+                    src="/philanthropy/maggie.png"
                     sx={{ height: '48px', width: '48px' }}
                     mr={3}
                     st
                   />
                   <Box align="left" fontSize={3}>
-                    <Heading>Megan Cui</Heading>
+                    <Heading>Maggie Liu</Heading>
                     <Text fontSize={2} color="green.1">
-                      Sophomore @ Harvard University, US
+                      17, California
                     </Text>
                   </Box>
                 </Flex>
@@ -1361,15 +1397,18 @@ const Philanthropy = ({ posts = [] }) => {
               href="/philanthropy/hackclub.pdf"
               download="HackClub"
               mb={4}
-              sx={{fontSize: '1em !important'}}
+              sx={{ fontSize: '1em !important' }}
             >
               Download as PDF
             </Button>
           </Fade>
           <Fade bottom>
-          <Text as="p" sx={{ fontSize: '90% !important', color: 'muted', pb: 2 }}>
-          Site by Belle, 17, Hack Clubber
-              </Text>
+            <Text
+              as="p"
+              sx={{ fontSize: '90% !important', color: 'muted', pb: 2 }}
+            >
+              Site by Belle, 17, Hack Clubber
+            </Text>
           </Fade>
         </Container>
         <Footer />
