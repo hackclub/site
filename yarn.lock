@@ -553,10 +553,10 @@
   resolved "https://registry.npmjs.org/@hackclub/theme/-/theme-0.3.3.tgz"
   integrity sha512-+K7jVUArvpziophJCCGB6vlQ7uvsm6VQnUnhHSMnF22s681Wgv6M0w12lUJBOevTu3KtgJVCmYlY888uvdaLvQ==
 
-"@humanwhocodes/config-array@^0.10.4":
-  version "0.10.4"
-  resolved "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.10.4.tgz"
-  integrity sha512-mXAIHxZT3Vcpg83opl1wGlVZ9xydbfZO3r5YfRSH6Gpp2J/PfdBP0wbDa2sO6/qRbcalpoevVyW6A/fI6LfeMw==
+"@humanwhocodes/config-array@^0.10.5":
+  version "0.10.5"
+  resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.10.5.tgz#bb679745224745fff1e9a41961c1d45a49f81c04"
+  integrity sha512-XVVDtp+dVvRxMoxSiSfasYaG02VEe1qH5cKgMQJWhol6HwzbcqoCMJi8dAGoYAO57jhUyhI6cWuRiTcRaDaYug==
   dependencies:
     "@humanwhocodes/object-schema" "^1.2.1"
     debug "^4.1.1"
@@ -2168,13 +2168,13 @@ eslint-visitor-keys@^3.0.0, eslint-visitor-keys@^3.3.0:
   resolved "https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-3.3.0.tgz"
   integrity sha512-mQ+suqKJVyeuwGYHAdjMFqjCyfl8+Ldnxuyp3ldiMBFKkvytrXUZWaiPCEav8qDHKty44bD+qV1IP4T+w+xXRA==
 
-eslint@8.23.1:
-  version "8.23.1"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.23.1.tgz#cfd7b3f7fdd07db8d16b4ac0516a29c8d8dca5dc"
-  integrity sha512-w7C1IXCc6fNqjpuYd0yPlcTKKmHlHHktRkzmBPZ+7cvNBQuiNjx0xaMTjAJGCafJhQkrFJooREv0CtrVzmHwqg==
+eslint@8.24.0:
+  version "8.24.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-8.24.0.tgz#489516c927a5da11b3979dbfb2679394523383c8"
+  integrity sha512-dWFaPhGhTAiPcCgm3f6LI2MBWbogMnTJzFBbhXVRQDJPkr9pGZvVjlVfXd+vyDcWPA2Ic9L2AXPIQM0+vk/cSQ==
   dependencies:
     "@eslint/eslintrc" "^1.3.2"
-    "@humanwhocodes/config-array" "^0.10.4"
+    "@humanwhocodes/config-array" "^0.10.5"
     "@humanwhocodes/gitignore-to-minimatch" "^1.0.2"
     "@humanwhocodes/module-importer" "^1.0.1"
     ajv "^6.10.0"
@@ -3680,10 +3680,10 @@ raw-body@2.3.2:
     iconv-lite "0.4.19"
     unpipe "1.0.0"
 
-react-before-after-slider-component@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/react-before-after-slider-component/-/react-before-after-slider-component-1.1.4.tgz#3dd3e0c89e855b98588a86d66dc1bf88aadde804"
-  integrity sha512-DpRMG4rNtSaud/0YcQGrbzGUL+NUEl/O2J9izEVix8a2XZtPe8cMCV37lIP9T+b2jFIsmtOH9dRvi5h2CIZ97g==
+react-before-after-slider-component@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/react-before-after-slider-component/-/react-before-after-slider-component-1.1.5.tgz#affef71923b43b6147072b5ff3cc0f5fbcd30362"
+  integrity sha512-I687klUpBNkn8RPqqyrErtlMf+epAQqzEQD+YZMpGTNKwEXb+CcIadFHGvZpoo5soEUDyXFH6ubdDSMlYtYCbA==
 
 react-dom@^17.0.2:
   version "17.0.2"
@@ -3758,13 +3758,13 @@ react-transition-group@2.9.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-tsparticles@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-2.3.1.tgz#840c385cdfb0e2dbcdc7c261d6b3ff1b76ee89be"
-  integrity sha512-VYfIaWOKivE52X6Wm2hAcZ6Uf7lIWNfnIomXouV2OSR7w4eqFWeIzFL+RwjFyRHaPO02HL7Strp1N/mm3iWvZg==
+react-tsparticles@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-2.3.2.tgz#edcd162671e89107c71b077c9dfa54754f6bba91"
+  integrity sha512-YBVB+TMHCDR2OWV/ik6BwuhRmnL1Qi5q+4IdRZSZTDyd7bzHQrSG7NubIWv8TIe++oH92dqk84+qlVSQyn0jxA==
   dependencies:
     fast-deep-equal "^3.1.3"
-    tsparticles-engine "^2.3.1"
+    tsparticles-engine "^2.3.2"
 
 react-use-websocket@3.0.0:
   version "3.0.0"
@@ -4334,10 +4334,10 @@ tslib@^2.4.0:
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
-tsparticles-engine@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/tsparticles-engine/-/tsparticles-engine-2.3.1.tgz#9ceac2971e87580153208d5436d48c17357a3e56"
-  integrity sha512-aVfkRcHMFCdiDE4KZ1MnUKnvsCNUx+xt+Zo8yGQQ53UdXC6VxV55NW3vTZ3QoaZSrogQp8VRhLVIQpAbuOmORw==
+tsparticles-engine@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/tsparticles-engine/-/tsparticles-engine-2.3.2.tgz#ccf7ac78cd16415a973653af680b93edd00ad626"
+  integrity sha512-NI0erka/fn65dt/PcLTqvjUJwRwvWiedoKFYfzvZXmWL8sgMnmdHT9cypW7p+U8hwFHa/lUkxO4U4jcYgnxH6Q==
 
 tsutils@^3.21.0:
   version "3.21.0"
