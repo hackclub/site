@@ -3758,13 +3758,13 @@ react-transition-group@2.9.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-tsparticles@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-2.3.2.tgz#edcd162671e89107c71b077c9dfa54754f6bba91"
-  integrity sha512-YBVB+TMHCDR2OWV/ik6BwuhRmnL1Qi5q+4IdRZSZTDyd7bzHQrSG7NubIWv8TIe++oH92dqk84+qlVSQyn0jxA==
+react-tsparticles@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-2.3.3.tgz#42eb53ca39af8904a0bbabb0a0989c70dc395354"
+  integrity sha512-bUq+uuOAFIAtXDQc3IxDaRBk6CzGwWNtlDxWLNFhLKCDEl6G1zAbd/T0HuE7iv1wCymGChaNecssVe4b9doNlg==
   dependencies:
     fast-deep-equal "^3.1.3"
-    tsparticles-engine "^2.3.2"
+    tsparticles-engine "^2.3.3"
 
 react-use-websocket@3.0.0:
   version "3.0.0"
@@ -4334,10 +4334,10 @@ tslib@^2.4.0:
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
-tsparticles-engine@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/tsparticles-engine/-/tsparticles-engine-2.3.2.tgz#ccf7ac78cd16415a973653af680b93edd00ad626"
-  integrity sha512-NI0erka/fn65dt/PcLTqvjUJwRwvWiedoKFYfzvZXmWL8sgMnmdHT9cypW7p+U8hwFHa/lUkxO4U4jcYgnxH6Q==
+tsparticles-engine@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/tsparticles-engine/-/tsparticles-engine-2.3.3.tgz#cabdc72ac5458b5926e96dae4f6d1c1d4e6d9a89"
+  integrity sha512-OryoHLPwMRRj+P8eC17fCi1a+KAMZM8iayystk+Xbe/QGzJ45rptvcbzKwRGkxyuLorVqfbhqLhS5Aeglx/vzQ==
 
 tsutils@^3.21.0:
   version "3.21.0"
