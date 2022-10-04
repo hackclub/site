@@ -67,7 +67,7 @@ export default function Recap() {
         <Card
           variant="interactive"
           as="a"
-          href="/bank"
+          href="/hackathons/grant"
           sx={{
             background:
               'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
