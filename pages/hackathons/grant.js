@@ -388,7 +388,7 @@ const HackathonGrant = () => {
             </Link>{' '}
             and{' '}
             <Link
-              href="https://www.firstinspires.org/sites/default/files/uploads/resource_library/brand/first-brand-guidelines-2020.pdf"
+              href="https://www.firstinspires.org/brand"
               target="_blank"
             >
               <i>FIRST®</i>
