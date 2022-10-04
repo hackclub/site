@@ -40,7 +40,8 @@ const JobListing = ({
         <Heading
           variant="headline"
           sx={{
-            color: 'black'
+            color: 'black',
+            m: 0
           }}
         >
           {positionName}
@@ -51,7 +52,7 @@ const JobListing = ({
       <Text
         variant="caption"
         sx={{
-          my: 2,
+          mt: 1,
           display: 'block',
           textAlign: 'left'
         }}
