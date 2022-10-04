@@ -157,6 +157,10 @@ const nextConfig = {
         destination: '/content/covid19/'
       },
       {
+        source: '/it-admins/',
+        destination: '/content/it-admins/'
+      },
+      {
         source: '/sunsetting-som/',
         destination: '/content/sunsetting-som/'
       },
