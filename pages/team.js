@@ -133,13 +133,6 @@ export default function Team() {
                 pronouns="she/her"
               />
               <Bio
-                name="Rick Blount"
-                teamRole="VP of Philanthropy"
-                text="Rick Blount previously helped raise $19.5 million for a brand-new YMCA in Burlington, Vermont. Before that, he worked at the University of Vermont’s medical school in communications and alumni/fundraising; and has been a journalist–helping start Consumer Reports’ health publication. When he was 25, he taught English for a year near Wuhan, China."
-                img="/team/rick.png"
-                pronouns="he/him"
-              />
-              <Bio
                 name="Bence Beres"
                 teamRole="Bookkeeper"
                 text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
@@ -189,13 +182,6 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
               <Bio
-                name="Abby Fischler"
-                teamRole="Technical Intern to COO"
-                text="Abby is a high school junior from Los Angeles passionate about STEM! Abby is a former Kode With Klossy scholar and a 2021 Los Angeles Affiliate Honorable Mention for the NCWIT Award for Aspirations in Computing (AiC). In addition, she is an ambassador for Bit by Bit and Generation She. In the future, Abby’s intention is to attend a top university where she can study computer science and pursue her passion in coding."
-                img="https://github.com/abbyfischler.png"
-                pronouns="she/her"
-              />
-              <Bio
                 name="Gary Tou"
                 teamRole="Bank Engineering"
                 text="Gary is a software engineer from Seattle and loves photography! After using Hack Club Bank to launch a nonprofit organization, Gary joined Hack Club to make the product that enabled him to do great things even greater for others."
@@ -210,6 +196,13 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 pronouns="he/him"
               />
               <Bio
+                name="Arianna Martinelli"
+                teamRole="Bank Operations"
+                text={`Arianna is a Hack Clubber from Kentucky excited about how technology and humans can work together to solve problems. She joined Hack Club in 2020 to start a club at her all-girls high school and to learn from a community of fellow coders, and she joined Hack Club Bank in 2021 to fiscally sponsor her non-profit Tandem. She loves swimming, trees, videography, film photography, reading Joan Didion, Formula 1, making memes, and crafting cards with puns.`}
+                img="https://cloud-oubklmp6c-hack-club-bot.vercel.app/0arianna_profile_photo.png"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Deven Jadhav"
                 teamRole="Bank Operations (APAC)"
                 text="Deven is a Hack Clubber from India who enjoys building meaningful things at the intersections of art and technology. He also loves music and plays the guitar & drums! Along with this, he also likes talking to strangers over the internet and having interesting & deep conversations. He is also a sucker for nature photography and enjoys hikes and treks into the wild!"
@@ -220,18 +213,26 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 name="Sam Poder"
                 teamRole="Engineering & Operations"
                 text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. 
-Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys travelling with his family 
+Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys traveling with his family 
 and participating in academic competitions with his friends.`}
                 img="https://change-my-pfp.vercel.app/api/current/"
                 pronouns="he/him"
               />
               <Bio
                 name="Hugo Hu"
-                teamRole="Mail Team Coordinator"
-                text="Hugo is an avid fan of corgis, hardware, and shipping. He works with club leaders to get stickers to clubs and events and community members to assist with logistical challenges. He ships for Hack Club Mail Team and runs Hack Shop, helping to plan, design, produce, and distribute various types of swag for different events."
+                teamRole="Mail Coordinator & Engineering"
+                text="Hugo manages Hack Club’s mail. His responsibilities include designing magical mail experiences, negotiating with carriers, and writing mail-related software. He's also involved in many of Hack Club's special projects, such as Sprig & Assemble. Hugo also enjoys designing hardware, competing in math competitions, and admiring corgis."
                 img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
                 pronouns="he/him"
               />
+              <Bio
+                name="Abby Fischler"
+                teamRole="Technical Intern to COO"
+                text={`Abby is a high school junior from Los Angeles that loves technology! Since joining the Hack Club community in May 2020, she’s enjoyed learning with friends in the Slack and on board the Hacker Zephyr. She joined Hack Club to support Christina’s work in encouraging more girls to get involved. Abby has hosted events for the community and loves sharing her coding journey on the #ship channel.`}
+                img="https://github.com/abbyfischler.png"
+                pronouns="she/her"
+              />
+              
               <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
@@ -243,7 +244,7 @@ and participating in academic competitions with his friends.`}
               <Bio
                 name="Rishi Kothari"
                 teamRole="Community Team"
-                text="Rishi is a high school juinor that's super interested in open-source development, startups, React, and everything in between! He is primarily a JS/TS dev, but has worked with Rust 🔥, C++ 💖, Haskell ⚡️, and Swift 🏎 in the past. He is the president of TFSS Hack Club, the CTO at PetCode, and a workshop coordinator at TurnerHacks, among other things."
+                text="Rishi is a high school senior that's super interested in open-source development, startups, React, and everything in between! He is primarily a JS/TS dev, but has worked with Rust 🔥, C++ 💖, Haskell ⚡️, and Swift 🏎 in the past. He is the president of TFSS' Hack Club and a workshop coordinator at TurnerHacks, among other things."
                 img="https://github.com/rishiosaur.png"
                 pronouns="he/him"
               />
@@ -259,20 +260,6 @@ and participating in academic competitions with his friends.`}
                 teamRole="Hacker Resources"
                 text="Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He worked on Hack Club’s learning resources & clubs program for two years."
                 pronouns="he/him"
-              />
-            </Grid>
-            <br />
-
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
-              Behind the Scenes
-            </Text>
-            <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
-                name="Chris Newton"
-                teamRole="Accountant"
-                text="After finding her love of accounting at an early age, Chris spent most of her accounting career in construction, but recently branched out to nonprofits. Chris is married (Bryan) with a young daughter (Brylee), and lives in Des Moines, Iowa."
-                pronouns="she/her"
-                img="/team/cnewton.jpg"
               />
               <Bio
                 name="Woody Keppel"

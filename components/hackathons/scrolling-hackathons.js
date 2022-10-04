@@ -12,7 +12,7 @@ import {
 import { keyframes } from '@emotion/react'
 import Tilt from '../tilt'
 import NextLink from 'next/link'
-import { humanizedDateRange, formatAddress } from '../../lib/helpers'
+import { formatAddress } from '../../lib/helpers'
 
 export default function ScrollingHackathons({ eventData }) {
   return (
@@ -113,7 +113,8 @@ function EventCard({
         }}
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.375) 75%), url('${banner}')`,
-          textAlign: 'center'
+          textAlign: 'center',
+          backgroundSize: 'cover'
         }}
       >
         <Badge
@@ -177,8 +178,6 @@ function EventCard({
             footer
           ) : (
             <>
-              {' '}
-              <Text as="span">{humanizedDateRange(start, end)}</Text>
               <Text
                 as="span"
                 itemProp="location"
@@ -187,7 +186,6 @@ function EventCard({
               >
                 {!virtual && (
                   <span itemProp="address">
-                    {': '}
                     {formatAddress(city, state, country, countryCode)}
                   </span>
                 )}

@@ -49,6 +49,7 @@ export default function Landing({ showButton, eventsCount }) {
                       lineHeight: 1.125
                     }
                   }}
+                  as="h1"
                 >
                   <Underline>Become a 501(c)(3) nonprofit</Underline> with
                   Hack&nbsp;Club&nbsp;Bank.
