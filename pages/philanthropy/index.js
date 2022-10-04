@@ -975,22 +975,6 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Fade>
           </Grid>
-            <Flex sx={{justifyContent: 'space-between'}} mt={3}>
-              <Box>
-              <Text as="h2">View Hack Club's 2020 IRS Form 990</Text>
-              <Text as="p">2021 Form will soon be ready and shared.</Text>
-              </Box>
-            <Button
-              as="a"
-              variant="outline"
-              href="https://cloud-d2t8vvprl-hack-club-bot.vercel.app/0form990package.pdf"
-              target="_blank"
-              mb={4}
-              sx={{fontSize: '1em !important', width: 'fit-content', float: 'right', mt: 2}}
-            >
-              Form 990
-            </Button>
-            </Flex>
           <Line />
           <Box>
             <Fade bottom>
