@@ -12,6 +12,7 @@ import {
   Flex
 } from 'theme-ui'
 import { useRouter } from 'next/router'
+import Icon from '../icon'
 import countries from '../../lib/countries'
 import { useEffect, useState } from 'react'
 
@@ -26,7 +27,8 @@ export default function BankApplyForm() {
     eventWebsite: '',
     eventLocation: '',
     userPhone: '',
-    returningUser: ''
+    returningUser: '',
+    transparent: true,
   })
 
   useEffect(() => {
@@ -38,12 +40,18 @@ export default function BankApplyForm() {
       eventWebsite: query.eventWebsite || '',
       eventLocation: query.eventLocation || '',
       userPhone: query.userPhone || '',
-      returningUser: query.returningUser || ''
+      returningUser: query.returningUser || '',
+      transparent: query.transparent || true,
     })
   }, [query])
 
   const handleChange = e => {
-    setValues({ ...values, [e.target.name]: e.target.value })
+    let isRadio = e.target.type === 'radio'
+    let newValue = e.target.value
+    if (isRadio) {
+      newValue = e.target.value.toString() === 'true'
+    }
+    setValues({ ...values, [e.target.name]: newValue })
   }
 
   return (
@@ -95,6 +103,39 @@ export default function BankApplyForm() {
           onChange={handleChange}
           required
         />
+        <hr />
+        <label
+          htmlFor="transparent"
+          sx={{ color: 'smoke', fontSize: 18, pb: 2, my: 2 }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <input type="radio" id="transparent" name="transparent" checked={values.transparent == true} value={true}
+              onChange={handleChange}
+            />
+            <Icon
+              glyph='docs'
+              sx={{ mr: [2, 3], ml: 2, color: 'slate', display: ['none', 'inline'], width: 24, height: 24 }}
+            />
+            Transparent{' '}
+            <HelperText>
+              Anyone on the internet can see your balance and donations. You can choose who has access to personal details.
+            </HelperText>
+          </div>
+        </label>
+        <label htmlFor="no-transparent">
+          <input type="radio" id="no-transparent" name="transparent" checked={values.transparent != true} value={false}
+            onChange={handleChange}
+          />
+          <Icon
+            glyph='private-outline'
+            sx={{ mr: [2, 3], ml: 2, color: 'slate', display: ['none', 'inline'] }}
+          />
+          Private{' '}
+          <HelperText>
+            You can choose who can see your budget and transaction details.
+          </HelperText>
+        </label>
+        <hr />
         <Field
           label="Organization website"
           name="eventWebsite"
@@ -320,6 +361,32 @@ function Field({
   required,
   sx
 }) {
+  let isRadio = type === 'radio'
+  let isCheckbox = type === 'checkbox'
+  if (isCheckbox) {
+    return (
+      <>
+        <Label
+          htmlFor={name}
+          sx={{
+            color: 'smoke',
+            fontSize: 18,
+            my: 2,
+            ...sx
+          }}
+        >
+          {label}
+        </Label>
+        <Input
+          name={name}
+          type={type}
+          value={value}
+          onChange={onChange}
+          required={required}
+          sx={{ mr: 2 }}
+        /></>
+    )
+  }
   return (
     <Box sx={{ my: 2 }}>
       <Label htmlFor={name} sx={{ color: 'smoke', fontSize: 18 }}>
