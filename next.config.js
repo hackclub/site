@@ -53,6 +53,21 @@ const nextConfig = {
         destination: '/jobs/lead-hacker/',
         permanent: true
       },
+      {
+        source: '/bank/frc/',
+        destination: '/bank/first/',
+        permanent: false
+      },
+      {
+        source: '/bank/ftc/',
+        destination: '/bank/first/',
+        permanent: false
+      },
+      {
+        source: '/bank/fll/',
+        destination: '/bank/first/',
+        permanent: false
+      },
       { source: '/workshops/slack/', destination: '/slack/', permanent: true },
       { source: '/community/', destination: '/slack/', permanent: true },
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
