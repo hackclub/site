@@ -196,12 +196,15 @@ const HackathonGrant = () => {
               as="a"
               href="https://hackathons.hackclub.com"
               sx={{
+                ml: [0, 3],
                 mt: 2,
-                ml: 3,
                 backgroundImage: t => t.util.gx('green', 'blue')
               }}
             >
-              Find hackathons near you
+              <Text>
+                Find hackathons{' '}
+                <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
+              </Text>
             </Button>
           </Box>
         </Box>
