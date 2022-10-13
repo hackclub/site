@@ -191,6 +191,21 @@ const HackathonGrant = () => {
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
               {open ? 'Apply Now' : 'Coming Soon'}
             </Button>
+            <Button
+              variant="ctaLg"
+              as="a"
+              href="https://hackathons.hackclub.com"
+              sx={{
+                ml: [0, 3],
+                mt: 2,
+                backgroundImage: t => t.util.gx('green', 'blue')
+              }}
+            >
+              <Text>
+                Find hackathons{' '}
+                <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
+              </Text>
+            </Button>
           </Box>
         </Box>
         <Container sx={{ py: 5 }}>
@@ -376,23 +391,23 @@ const HackathonGrant = () => {
             </Requirement>
           </Grid>
           <Text
-          as="p"
-           sx={{
-            textAlign: 'center',
-            mt: 3,
-            color: 'muted'
-          }}>
-            If you'd like to list us on your site (optional), you can use the logos found on the respective brand guides for{' '}
+            as="p"
+            sx={{
+              textAlign: 'center',
+              mt: 3,
+              color: 'muted'
+            }}
+          >
+            If you'd like to list us on your site (optional), you can use the
+            logos found on the respective brand guides for{' '}
             <Link href="/brand" target="_blank">
               Hack Club
             </Link>{' '}
             and{' '}
-            <Link
-              href="https://www.firstinspires.org/brand"
-              target="_blank"
-            >
+            <Link href="https://www.firstinspires.org/brand" target="_blank">
               <i>FIRST®</i>
-            </Link>.
+            </Link>
+            .
           </Text>
 
           {open ? (
