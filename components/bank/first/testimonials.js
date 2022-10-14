@@ -38,27 +38,34 @@ export default function Testimonials() {
         }}
       >
         <Organization
-          logo="https://github.com/hackclub.png"
+          logo="https://cloud-ga0lm1r8d-hack-club-bot.vercel.app/0image.png"
           name="Poseidon Robotics"
-          teamNum="FTC #16898"
+          teamNum="FTC Team #16898"
           teamLocation="San Jose, CA"
           budget="$1,000,000"
           budgetLabel="in grants"
-          website="hackclub.com"
-          url="https://hackclub.com"
+          website="evposeidon.wixsite.com"
+          url="https://evposeidon.wixsite.com/robo/home"
           imgSrc="https://cloud-qtng6088u-hack-club-bot.vercel.app/0image.png"
           quote="Hack Club is a global nonprofit network of high school coding clubs. We provide the resources, community, and support students need to start coding clubs."
           hackerName="Wahoo Fish"
+          hackerAvatarUrl="https://github.com/hackclub.png"
           hackerRole="Team Captain"
+          transparency="poseidon-robotics"
         />
         <Organization
-          logo="https://github.com/hackclub.png"
-          name="Poseidon Robotics"
-          teamNum="FTC #16898"
+          logo="https://cloud-ab81zjlm9-hack-club-bot.vercel.app/0image.png"
+          name="Killabytez"
+          teamNum="FTC Team #14663"
+          teamLocation="Fremont, CA"
           budget="$1,000,000"
           budgetLabel="in grants"
-          website="hackclub.com"
-          url="https://hackclub.com"
+          website="killabytez.club"
+          url="http://www.killabytez.club/"
+          hackerAvatarUrl="https://github.com/hackclub.png"
+          hackerName="Wahoo Fish"
+          hackerRole="Safety Lead"
+          imgSrc="https://cloud-ag6fuxl0g-hack-club-bot.vercel.app/0f4b04492-9b96-46fc-a646-e1d044c01085.jpg"
           quote="Hack Club is a global nonprofit network of high school coding clubs. We provide the resources, community, and support students need to start coding clubs."
         />
       </Grid>
@@ -76,6 +83,7 @@ function Organization({
   imgSrc,
   quote,
   hackerName,
+  hackerAvatarUrl,
   hackerRole,
   transparency = false
 }) {
@@ -90,6 +98,15 @@ function Organization({
         }}
       >
         <Container sx={{ padding: 0, margin: 0 }}>
+          <Image
+            src={imgSrc}
+            alt="Robots team"
+            width={1000}
+            height={667}
+            sx={{
+              borderRadius: 'default'
+            }}
+          />
           <Box p={[3, null, 4]}>
             <Box
               sx={{
@@ -138,20 +155,6 @@ function Organization({
             </Box>
 
             <br />
-
-            <Image
-              src={imgSrc}
-              alt="Robots team standing"
-              width={1000}
-              height={667}
-              sx={{
-                objectFit: 'cover',
-
-                width: '100%',
-                borderRadius: 'default'
-              }}
-            />
-
             <Text
               sx={{
                 fontSize: 2,
@@ -180,7 +183,12 @@ function Organization({
                   mt: ['16px', '0px']
                 }}
               >
-                <Avatar src={logo} size={48} mr={2} alt="Photo of ${logo}" />
+                <Avatar
+                  src={hackerAvatarUrl}
+                  size={48}
+                  mr={2}
+                  alt="Photo of ${hackerName}"
+                />
                 <Text
                   color="white"
                   sx={{

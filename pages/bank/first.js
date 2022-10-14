@@ -23,6 +23,7 @@ import Features from '../../components/bank/first/features'
 import Zoom from 'react-reveal/Zoom'
 import Form from '../../components/bank/first/form'
 import Testimonials from '../../components/bank/first/testimonials'
+import Steps from '../../components/bank/first/steps'
 
 export default function First() {
   return (
@@ -70,7 +71,7 @@ export default function First() {
               <Flex
                 sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
               >
-                <NextLink href="https://hackclub.com" passHref>
+                <NextLink href="https://hackclub.com/bank" passHref>
                   <Box
                     as="a"
                     width={64}
@@ -79,7 +80,7 @@ export default function First() {
                       width: 72,
                       height: 72,
                       backgroundImage:
-                        "url('https://assets.hackclub.com/icon-square.svg')",
+                        "url('https://bank.hackclub.com/brand/hcb-icon-icon-original.png')",
                       backgroundSize: 'contain',
                       backgroundPosition: 'center center',
                       backgroundRepeat: 'no-repeat',
@@ -89,9 +90,7 @@ export default function First() {
                     target="_blank"
                   ></Box>
                 </NextLink>
-                <Box mr={3} sx={{ fontWeight: 'normal' }}>
-                  +
-                </Box>
+
                 <NextLink href="https://www.firstinspires.org" passHref>
                   <Box
                     as="a"
@@ -137,6 +136,7 @@ export default function First() {
 
         <Testimonials />
 
+        <Steps />
         <Form />
       </Box>
       <Footer dark key="footer" />

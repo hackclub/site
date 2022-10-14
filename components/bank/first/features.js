@@ -11,11 +11,11 @@ export default function Features() {
         <br />
         <br />
         <Text sx={{ color: 'muted', maxWidth: '48', fontSize: 28 }}>
-          Receive grants, issue debit cards to your team, and view transaction
+          Raise funds, issue debit cards to your team, and view transaction
           history.
           <br />
-          Ongoing support so you can focus on building your robot, not backend
-          operations.
+          Ongoing support so you can focus on building your robot, not the
+          backend operations.
         </Text>
         <br />
         <br />
@@ -25,23 +25,16 @@ export default function Features() {
           <Box>
             <Module
               icon="bank-account"
-              name="Bank account"
-              body={
-                <>
-                  Backed by{' '}
-                  <Link
-                    href="https://www.svb.com"
-                    color="smoke"
-                    hoverline
-                    target="_blank"
-                  >
-                    Silicon Valley Bank
-                  </Link>{' '}
-                  with a custom, beautiful dashboard.
-                </>
-              }
+              name="Nonprofit status"
+              body="Become part of Hack Club's legal entity, getting the benefits of our tax status."
             />
-            <ModuleDetails>
+            <br />
+            <Module
+              icon="analytics"
+              name="Balance &amp; history"
+              body="Check real-time account balance + full transaction history anytime."
+            />
+            {/* <ModuleDetails>
               <Document
                 name="501(c)(3) nonprofit status"
                 cost="Become part of Hack Club's legal entity, getting the benefits of our tax status."
@@ -50,7 +43,7 @@ export default function Features() {
                 name="Tax filings (990, end-of-year)"
                 cost="We handle all filings with the IRS, so you can focus on your event, not hiring CPAs."
               />
-            </ModuleDetails>
+            </ModuleDetails> */}
           </Box>
           <Laptop
             href="https://bank.hackclub.com/poseidon-robotics"
@@ -78,10 +71,15 @@ export default function Features() {
               </>
             }
           />
-          <Module
+          {/* <Module
             icon="analytics"
             name="Balance &amp; history"
             body="Check real-time account balance + full transaction history anytime."
+          /> */}
+          <Module
+            icon="friend"
+            name="Donation page"
+            body="Receive donations through a custom, online embeddable form."
           />
           <Module
             icon="bolt"
