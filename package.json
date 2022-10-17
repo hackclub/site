@@ -20,7 +20,7 @@
     "@next/mdx": "^12.3.1",
     "@octokit/auth-app": "^4.0.6",
     "@octokit/core": "^4.0.5",
-    "@octokit/rest": "^19.0.4",
+    "@octokit/rest": "^19.0.5",
     "airtable-plus": "^1.0.4",
     "animated-value": "^0.2.4",
     "animejs": "^3.2.1",
