@@ -28,7 +28,7 @@ const Page = () => (
           Executive Producer
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
-          New job open as of July 6th, 2022.
+          New job open as of October 2022.
         </Text>
       </Container>
     </Box>
