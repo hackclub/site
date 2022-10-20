@@ -11,7 +11,7 @@ const Page = () => (
       as={Head}
       title="Executive Producer"
       description="Hack Club is actively looking to hire its first VP of Marketing / Executive Producer to tell its story across various platforms, including social media, newsletters, op-docs, blog/Op-Ed posts, direct emails, and curated partnerships with major tech companies."
-      image="https://workshop-cards.hackclub.com/VP%20of%20Marketing%20%40%20Hack%20Club.png?fontSize=175px&brand=HQ"
+      image="https://workshop-cards.hackclub.com/Executive%20Producer%20%40%20Hack%20Club.png?theme=light&md=1&fontSize=175px&caption="
     />
     <ForceTheme theme="light" />
     <Nav />
