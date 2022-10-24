@@ -1,82 +1,69 @@
-import React from 'react'
-import styled from '@emotion/styled'
 import { Box, Container, Heading, Card, Text, Grid } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import ForceTheme from '/components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
-import theme from '../../lib/theme'
 import Link from 'next/link'
+import Icon from '../../components/icon'
 import Image from 'next/image'
 import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
 
-const Sheet = styled(Card)`
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  width: 100%;
-  color: white;
-`
-Sheet.defaultProps = {
-  sx: {
-    bg: 'rgba(255, 255, 255, 0.875)',
-    p: [3, 4],
-    color: 'black',
-    width: 1
-  }
-}
-
-//making a function / component BOXWIDTH BUTTON
 const JobListing = ({
-  positionName = 'unnamed',
-  positionDesc = 'this is lorem ipsum',
-  positionLink = 'testlink(hackclub.com)',
-  color,
-  color1
+  positionName,
+  positionDesc,
+  positionLink,
+  positionLocation,
+  positionType
 }) => (
   <Link href={positionLink} passHref>
-    <Sheet
-      bg="primary"
-      color="white"
-      align="center"
+    <Card
+      variant="sunken"
       as="a"
+      target="_blank"
       sx={{
-        boxShadow:
-          '0 4px 8px rgba(0, 0, 0, 0.0625), 0 16px 32px rgba(0, 0, 0, 0.125) !important;',
-        backgroundImage: `radial-gradient( ellipse farthest-corner at bottom right, ${color}, ${color1})`,
-        position: 'relative',
         width: '100%',
-        color: 'white',
-        textDecoration: 'none'
+        textDecoration: 'none',
+        'span > svg': {
+          opacity: '0',
+          transition: '0.3s ease-in-out'
+        },
+        '&:hover span > svg': {
+          opacity: '1'
+        }
       }}
-      variant="interactive"
     >
-      <Heading
-        mb={1}
-        sx={{
-          fontSize: '42px',
-          color: 'white'
-        }}
+      <Box
+        as="span"
+        sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}
       >
-        {positionName}
-      </Heading>
+        <Heading
+          variant="headline"
+          sx={{
+            color: 'black',
+            m: 0
+          }}
+        >
+          {positionName}
+        </Heading>
+        <Icon glyph="external" size={24} color="black" />
+      </Box>
+
       <Text
-        color="snow"
+        variant="caption"
         sx={{
-          fontSize: ['22px'],
-          my: 2,
+          mt: 1,
           display: 'block',
           textAlign: 'left'
         }}
       >
-        {positionDesc}
+        {positionDesc} • {positionLocation} • {positionType}
       </Text>
-    </Sheet>
+    </Card>
   </Link>
 )
 
-const Page = () => (
+const Page = ({ jobs }) => (
   <>
     <Meta
       as={Head}
@@ -156,20 +143,6 @@ const Page = () => (
         </Container>
       </Box>
       <Container sx={{ py: [3, 4], px: [2, 2, 0] }}>
-        {/*
-        <Text
-          as="p"
-          sx={{ fontSize: 4, textAlign: 'center', my: 6, color: 'slate' }}
-        >
-          We don't have any available jobs right now!
-          <br />
-          <Text sx={{ color: 'muted' }}>
-            Check back later, or reach out if you think we should hire you.
-          </Text>
-        </Text>
-
-        {/* @kognise note: Keeping this in as an example to future implementors for when we do have new jobs: */}
-        
         <Grid
           sx={{
             maxWidth: '64rem',
@@ -178,14 +151,31 @@ const Page = () => (
           align="left"
           columns={['1fr', '1fr 1fr']}
         >
-          <JobListing
-            positionName="VP of Marketing / Executive Producer"
-            positionDesc="Hack Club is actively looking now to hire its first VP of Marketing/ Executive Producer to tell its story across various platforms, including social media, newsletters, op-docs, blog/oped posts and direct emails, and curated partnerships with major tech companies."
-            positionLink="/jobs/executive-producer/"
-            color={theme.util.cx('green')}
-            color1={theme.util.cx('blue')}
-          />
-        </Grid> 
+          {jobs.items.length > 0 ? (
+            jobs.items.map(job => (
+              <JobListing
+                key={job.id}
+                positionName={job.title}
+                positionDesc={job.job_category_name}
+                positionLink={job.job_post_url}
+                positionLocation={job.display_location}
+                positionType={job.kind_pretty}
+              />
+            ))
+          ) : (
+            <Text
+              variant="headline"
+              sx={{
+                color: 'muted',
+                textAlign: 'center',
+                mx: 'auto',
+                gridColumn: '1 / -1'
+              }}
+            >
+              No open roles at this time. Check back later!
+            </Text>
+          )}
+        </Grid>
       </Container>
     </Box>
 
@@ -194,3 +184,16 @@ const Page = () => (
 )
 
 export default Page
+
+export async function getStaticProps() {
+  const data = await fetch(
+    'https://api.polymer.co/v1/hire/organizations/hackclub/jobs'
+  )
+  const jobs = await data.json()
+  return {
+    props: {
+      jobs
+    },
+    revalidate: 60
+  }
+}

@@ -17,6 +17,7 @@ export default function Bio({ img, name, teamRole, pronouns, text, ...props }) {
             alt={name}
             sx={{
               overflow: 'hidden',
+              objectFit: 'cover',
               transition: 'transform 0.125s ease-in-out',
               '&:hover': { transform: 'rotate(-8deg) scale(1.25)' }
             }}
