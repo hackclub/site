@@ -126,9 +126,9 @@ const Page = () => (
         priority
       />
       <Announcement
-        copy="The game console where every player is a creator."
-        caption="Introducing Sprig: the fantasy game console by Hack Club."
-        href="https://sprig.hackclub.com"
+        copy="Sal Khan AMA this Friday at 7pm ET"
+        caption="RSVP in #announcements on slack to ask him your questions"
+        href="https://events.hackclub.com/ama-with-sal-khan/"
         iconLeft="bolt"
         color="primary"
       />
