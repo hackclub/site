@@ -127,7 +127,7 @@ const Page = () => (
       />
       <Announcement
         copy="Sal Khan AMA this Friday at 7pm ET"
-        caption="RSVP in #announcements on slack to ask him your questions"
+        caption="RSVP in #announcements on Slack to ask him your questions"
         href="https://events.hackclub.com/ama-with-sal-khan/"
         iconLeft="bolt"
         color="primary"
