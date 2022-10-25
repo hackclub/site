@@ -24,7 +24,7 @@ export default function Testimonials() {
         }}
       >
         <Heading variant="title">
-          FIRST® teams all over the country run on Bank.
+          <i>FIRST</i> teams all over the country run on Bank.
         </Heading>
         <Text variant="lead" color="muted">
           Everywhere from San Jose to Boston to New York,
@@ -47,8 +47,8 @@ export default function Testimonials() {
           website="evposeidon.wixsite.com"
           url="https://evposeidon.wixsite.com/robo/home"
           imgSrc="https://cloud-qtng6088u-hack-club-bot.vercel.app/0image.png"
-          quote="Hack Club is a global nonprofit network of high school coding clubs. We provide the resources, community, and support students need to start coding clubs."
-          hackerName="Wahoo Fish"
+          quote="Overall, Hack Club Bank has opened more opportunities for Poseidon, allowing us to undertake larger projects, both on the playing field and in our community."
+          hackerName="Ian"
           hackerAvatarUrl="https://github.com/hackclub.png"
           hackerRole="Team Captain"
           transparency="poseidon-robotics"
@@ -63,10 +63,10 @@ export default function Testimonials() {
           website="killabytez.club"
           url="http://www.killabytez.club/"
           hackerAvatarUrl="https://github.com/hackclub.png"
-          hackerName="Wahoo Fish"
-          hackerRole="Safety Lead"
+          hackerName="Brian Cisto"
+          hackerRole="Team Captain & Software Lead"
           imgSrc="https://cloud-ag6fuxl0g-hack-club-bot.vercel.app/0f4b04492-9b96-46fc-a646-e1d044c01085.jpg"
-          quote="Hack Club is a global nonprofit network of high school coding clubs. We provide the resources, community, and support students need to start coding clubs."
+          quote="Hack Club Bank has been essential to keeping track of our finances as well as giving us the opportunity to establish ourselves as a nonprofit."
         />
       </Grid>
     </>

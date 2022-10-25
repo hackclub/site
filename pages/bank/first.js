@@ -6,7 +6,8 @@ import {
   Text,
   Flex,
   Link,
-  Button
+  Button,
+  Grid
 } from 'theme-ui'
 
 import Meta from '@hackclub/meta'
@@ -24,6 +25,7 @@ import Zoom from 'react-reveal/Zoom'
 import Form from '../../components/bank/first/form'
 import Testimonials from '../../components/bank/first/testimonials'
 import Steps from '../../components/bank/first/steps'
+import theme from '@hackclub/theme'
 
 export default function First() {
   return (
@@ -52,7 +54,6 @@ export default function First() {
           <Box
             sx={{
               width: '100%',
-              maxWidth: 'calc(56rem + 32px)',
               mx: 'auto',
               px: '16px',
               backdropFilter: 'blur(1.5px)'
@@ -62,13 +63,12 @@ export default function First() {
               sx={{
                 textAlign: 'center',
                 mt: [2, 4],
-                textShadow: '0 0 16px rgba(0, 0, 0, 1)',
-                fontSize: [5, null, 6]
+                textShadow: '0 0 16px rgba(0, 0, 0, 1)'
               }}
               as="h1"
-              variant="title"
+              variant="ultratitle"
             >
-              <Flex
+              {/* <Flex
                 sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
               >
                 <NextLink href="https://hackclub.com/bank" passHref>
@@ -107,37 +107,77 @@ export default function First() {
                     target="_blank"
                   ></Box>
                 </NextLink>
-              </Flex>
-              The ultimate financial tool for robotics teams.
+              </Flex> */}
+              The ultimate financial tool for{' '}
+              <Text
+                as="span"
+                sx={{
+                  WebkitTextStroke: theme => theme.colors.blue,
+                  WebkitTextStrokeWidth: '1px',
+                  WebkitTextFillColor: theme => theme.colors.white,
+                  textShadow: theme => `0 0 12px ${theme.colors.blue}`
+                }}
+              >
+                robotics teams
+              </Text>
+              .
             </Heading>
-            <Box
+            <Container
               sx={{
                 fontSize: [2, 3, 3],
                 textAlign: 'center',
                 my: 4
               }}
+              variant="copy"
             >
-              <NextLink href="https://www.firstinspires.org" passHref>
-                <Link sx={{ color: 'blue' }} target="_blank">
-                  Posiedon Robotics
-                </Link>
-              </NextLink>{' '}
-              (FTC #16898) uses Hack Club Bank to manage their finances.
-            </Box>
-            {/* <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
-              {open ? 'Apply Now' : 'Coming Soon'}
-            </Button> */}
+              Built by FIRST Alumni, for FIRST teams, Hack Club Bank is a
+              full-stack financial toolkit used by thousands of teenagers
+              worldwide.
+            </Container>
+            <Button variant="ctaLg" as="a" href="#apply">
+              View demo
+            </Button>
           </Box>
         </Box>
 
         {/* Stuff */}
 
         <Features />
-
         <Testimonials />
 
-        <Steps />
-        <Form />
+        <Grid>
+          <Steps />
+
+          <Card
+            variant="primary"
+            sx={{
+              backgroundColor: 'darkless',
+              color: 'snow',
+              width: ['100%', null, 356],
+              float: [null, null, 'right']
+            }}
+          >
+            <Text variant="heading" sx={{ fontSize: 24, lineHeight: 2 }}>
+              Your team
+            </Text>
+            <Form />
+          </Card>
+        </Grid>
+        <Container
+          variant="copy"
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            textAlign: 'center',
+            paddingBottom: 6
+          }}
+        >
+          <Text sx={{ fontSize: 18, color: 'muted', mx: [3, null, 6] }}>
+            Hack Club does not directly provide banking services. Banking
+            services provided by Silicon Valley Bank, an FDIC-certified
+            institution.
+          </Text>
+        </Container>
       </Box>
       <Footer dark key="footer" />
     </>
