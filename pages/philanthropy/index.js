@@ -1032,7 +1032,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade bottom delay={350}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Dalio Philanthropies
+                    Endless Network
                   </Text>
                 </Fade>
               </Box>
