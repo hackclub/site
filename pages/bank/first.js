@@ -143,6 +143,9 @@ export default function First() {
         {/* Stuff */}
 
         <Features />
+
+        {/* it'd be cool to have a thing here with a laptop and an interactive hcb interface? */}
+
         <Testimonials />
 
         <Grid>

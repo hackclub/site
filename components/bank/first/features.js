@@ -1,40 +1,51 @@
-import { Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
+import { Box, Heading, Link, Text, Container, Grid, Card } from 'theme-ui'
 import Icon from '../../icon'
+import Masonry from 'react-masonry-css'
 
 export default function Features() {
   return (
-    <Box sx={{ py: 6 }}>
+    <Box sx={{ py: 5 }}>
       <Container>
         <Text variant="heading" sx={{ fontSize: 50 }}>
-          A full-stack financial toolkit for robotics teams.
+          Everything you'll need.
         </Text>
         <br />
         <br />
         <Text sx={{ color: 'muted', maxWidth: '48', fontSize: 28 }}>
-          Raise funds, issue debit cards to your team, and view transaction
-          history.
+          Receive grants, track your team's finances in real time, nonprofit
+          status, more.
           <br />
-          Ongoing support so you can focus on building your robot, not the
-          backend operations.
+          Features engineered by FIRST alumuni to help you run a successful
+          team.
         </Text>
         <br />
         <br />
       </Container>
+
       <Container>
-        <Grid gap={4} columns={[1, null, 3]}>
-          <Box>
-            <Module
-              icon="bank-account"
-              name="Nonprofit status"
-              body="Become part of Hack Club's legal entity, getting the benefits of our tax status."
-            />
-            <br />
-            <Module
-              icon="analytics"
-              name="Balance &amp; history"
-              body="Check real-time account balance + full transaction history anytime."
-            />
-            {/* <ModuleDetails>
+        <Masonry
+          breakpointCols={{
+            10000: 4,
+            1024: 3,
+            640: 2,
+            480: 1,
+            default: 1
+          }}
+          className="masonry-posts"
+          columnClassName="masonry-posts-column"
+        >
+          <Module
+            icon="bank-account"
+            name="Nonprofit status"
+            body="Become part of Hack Club's legal entity, getting the benefits of our tax status."
+          />
+          <br />
+          <Module
+            icon="analytics"
+            name="Balance &amp; history"
+            body="Check real-time account balance + full transaction history anytime."
+          />
+          {/* <ModuleDetails>
               <Document
                 name="501(c)(3) nonprofit status"
                 cost="Become part of Hack Club's legal entity, getting the benefits of our tax status."
@@ -44,15 +55,7 @@ export default function Features() {
                 cost="We handle all filings with the IRS, so you can focus on your event, not hiring CPAs."
               />
             </ModuleDetails> */}
-          </Box>
-          <Laptop
-            href="https://bank.hackclub.com/poseidon-robotics"
-            title="See Poseidon Robotics' finances in public"
-            sx={{
-              gridColumn: [null, null, 'span 2'],
-              gridRow: [null, null, 'span 2']
-            }}
-          />
+
           <Module
             icon="card"
             name="Debit cards"
@@ -119,15 +122,71 @@ export default function Features() {
             name="Support anytime"
             body="We’ll never leave you hanging with 24hr response time on weekdays."
           />
-        </Grid>
+        </Masonry>
       </Container>
+
+      <style>{`
+      .masonry-posts {
+        display: flex;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .masonry-posts-column {
+        background-clip: padding-box;
+      }
+
+      .post {
+        margin-bottom: 16px;
+      }
+
+      @media (max-width: 32em) {
+        .post:nth-child(8) ~ .post {
+          display: none;
+        }
+      }
+
+      @media (min-width: 32em) {
+        .masonry-posts {
+          padding-right: 12px;
+        }
+
+        .masonry-posts-column {
+          padding-left: 12px;
+        }
+
+        .post {
+          border-radius: 12px;
+          margin-bottom: 12px;
+        }
+      }
+
+      @media (min-width: 64em) {
+        .masonry-posts {
+          padding-right: 24px;
+        }
+
+        .masonry-posts-column {
+          padding-left: 24px;
+        }
+
+        .post {
+          margin-bottom: 24px;
+        }
+      }
+
+    `}</style>
     </Box>
   )
 }
 
 function Module({ icon, name, body }) {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'start' }}>
+    <Card
+      variant="primary"
+      sx={{ display: 'flex', flexDirection: 'column', p: 0 }}
+      className="post"
+    >
       <Icon
         size={48}
         glyph={icon}
@@ -139,7 +198,7 @@ function Module({ icon, name, body }) {
           {body}
         </Text>
       </Box>
-    </Box>
+    </Card>
   )
 }
 
