@@ -48,9 +48,9 @@ export default function Testimonials() {
           url="https://evposeidon.wixsite.com/robo/home"
           imgSrc="https://cloud-qtng6088u-hack-club-bot.vercel.app/0image.png"
           quote="Overall, Hack Club Bank has opened more opportunities for Poseidon, allowing us to undertake larger projects, both on the playing field and in our community."
-          hackerName="Ian"
+          hackerName="Ian Marwong"
+          hackerRole="Team Lead"
           hackerAvatarUrl="https://github.com/hackclub.png"
-          hackerRole="Team Captain"
           transparency="poseidon-robotics"
         />
         <Organization

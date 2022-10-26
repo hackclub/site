@@ -130,12 +130,12 @@ export default function First() {
               }}
               variant="copy"
             >
-              Built by FIRST Alumni, for FIRST teams, Hack Club Bank is a
-              full-stack financial toolkit used by thousands of teenagers
-              worldwide.
+              Built by <i>FIRST</i> alumni, for <i>FIRST</i> teams, Hack Club
+              Bank is a full-stack financial toolkit used by thousands of
+              teenagers worldwide.
             </Container>
             <Button variant="ctaLg" as="a" href="#apply">
-              View demo
+              Start demo
             </Button>
           </Box>
         </Box>

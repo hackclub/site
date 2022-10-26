@@ -1,6 +1,7 @@
 import { Box, Heading, Link, Text, Container, Grid, Card } from 'theme-ui'
 import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
+import Image from 'next/image'
 
 export default function Features() {
   return (
@@ -25,8 +26,7 @@ export default function Features() {
       <Container>
         <Masonry
           breakpointCols={{
-            10000: 4,
-            1024: 3,
+            10000: 3,
             640: 2,
             480: 1,
             default: 1
@@ -84,11 +84,11 @@ export default function Features() {
             name="Donation page"
             body="Receive donations through a custom, online embeddable form."
           />
-          <Module
+          {/* <Module
             icon="bolt"
             name="Instant deposits"
             body="Receive donations and invoice payments instantly once they're paid."
-          />
+          /> */}
           <Module
             icon="payment"
             name="Built-in invoicing"
@@ -115,7 +115,7 @@ export default function Features() {
           <Module
             icon="explore"
             name="Transparency Mode"
-            body="Share your finances publicly with your team."
+            body="Keep everyone on your team and beyond up to date with real-time balance and transaction history."
           />
           <Module
             icon="support"
@@ -124,6 +124,8 @@ export default function Features() {
           />
         </Masonry>
       </Container>
+
+      <Image src="/bank/ipad-mobile.png" alt="yeah" width={1600} height={900} />
 
       <style>{`
       .masonry-posts {
@@ -187,11 +189,24 @@ function Module({ icon, name, body }) {
       sx={{ display: 'flex', flexDirection: 'column', p: 0 }}
       className="post"
     >
-      <Icon
-        size={48}
-        glyph={icon}
-        sx={{ flexShrink: 0, marginRight: 3, color: 'primary' }}
-      />
+      <Box
+        as="span"
+        sx={{
+          width: 'fit-content',
+          bg: 'primary',
+          borderRadius: 18,
+          lineHeight: 0,
+          p: 2,
+          mb: 1,
+          display: 'inline-block',
+          transform: ['scale(0.75)', 'none'],
+          transformOrigin: 'bottom left',
+          boxShadow:
+            'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
+        }}
+      >
+        <Icon glyph={icon} size={48} />
+      </Box>
       <Box>
         <Heading sx={{ color: 'snow', lineHeight: '1.5' }}>{name}</Heading>
         <Text sx={{ color: 'muted', lineHeight: '1.375', fontSize: 17 }}>
