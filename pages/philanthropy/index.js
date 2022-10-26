@@ -1119,7 +1119,7 @@ const Philanthropy = ({ posts = [] }) => {
               />
             </Fade>
             <Fade bottom delay={270}>
-              <Pill name="Blake Lieberman, Co-founder, Rief Ventures" />
+              <Pill name="Blake Lieberman, Partner, Rief Ventures" />
             </Fade>
             <Fade bottom delay={300}>
               <Text
