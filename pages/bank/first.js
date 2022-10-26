@@ -79,8 +79,7 @@ export default function First() {
                     sx={{
                       width: 72,
                       height: 72,
-                      backgroundImage:
-                        "url('https://bank.hackclub.com/brand/hcb-icon-icon-original.png')",
+                      backgroundImage: "url('/bank/bank-blue.png')",
                       backgroundSize: 'contain',
                       backgroundPosition: 'center center',
                       backgroundRepeat: 'no-repeat',
@@ -148,31 +147,54 @@ export default function First() {
 
         <Testimonials />
 
-        <Grid>
-          <Steps />
+        <Container
+          variant="container"
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            textAlign: 'center',
+            pt: 5
+          }}
+        >
+          <Heading variant="title">Get started in just a few days.</Heading>
+          <Text variant="lead" color="muted">
+            We’ll help you get set up and running in no time.
+          </Text>
+        </Container>
 
+        <Flex
+          sx={{
+            flexDirection: ['column', null, 'row'],
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <Steps />
           <Card
             variant="primary"
             sx={{
               backgroundColor: 'darkless',
               color: 'snow',
               width: ['100%', null, 356],
-              float: [null, null, 'right']
+              float: [null, null, 'right'],
+              height: 'fit-content'
             }}
           >
             <Text variant="heading" sx={{ fontSize: 24, lineHeight: 2 }}>
-              Your team
+              Open a demo account
             </Text>
             <Form />
           </Card>
-        </Grid>
+        </Flex>
         <Container
           variant="copy"
           sx={{
             display: 'flex',
             justifyContent: 'center',
             textAlign: 'center',
-            paddingBottom: 6
+            pt: 3,
+            pb: 6
           }}
         >
           <Text sx={{ fontSize: 18, color: 'muted', mx: [3, null, 6] }}>
