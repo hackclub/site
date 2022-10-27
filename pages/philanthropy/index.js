@@ -657,6 +657,9 @@ const Philanthropy = ({ posts = [] }) => {
                 Form 990
               </Button>
             </Flex>
+            <span>
+              Starting in 2021, Hack Club has engaged with an external auditing firm and has audited financials through the current fiscal year.
+            </span>
           </Fade>
           {/* <Fade bottom delay={300}>
             <Text
