@@ -188,16 +188,15 @@ export default function First() {
           </Card>
         </Flex>
         <Container
-          variant="copy"
+          variant="narrow"
           sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            textAlign: 'center',
             pt: 3,
-            pb: 6
+            pb: 6,
+            borderColor: 'muted',
+            textAlign: 'center'
           }}
         >
-          <Text sx={{ fontSize: 18, color: 'muted', mx: [3, null, 6] }}>
+          <Text variant="caption" sx={{ color: 'muted' }}>
             Hack Club does not directly provide banking services. Banking
             services provided by Silicon Valley Bank, an FDIC-certified
             institution.

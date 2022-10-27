@@ -2,6 +2,7 @@ import { Box, Heading, Link, Text, Container, Grid, Card } from 'theme-ui'
 import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
 import Image from 'next/image'
+import Tilt from '../../tilt'
 
 export default function Features() {
   return (
@@ -37,24 +38,23 @@ export default function Features() {
           <Module
             icon="bank-account"
             name="Nonprofit status"
-            body="Become part of Hack Club's legal entity, getting the benefits of our tax status."
+            body="Become part of Hack Club's legal entity, getting the benefits of our 501(c)(3) tax status."
           />
-          <br />
+
+          <ModuleDetails>
+            <Image
+              src="/bank/poseidon-dashboard.png"
+              alt="iPad"
+              width={500}
+              height={300}
+            />
+          </ModuleDetails>
+
           <Module
             icon="analytics"
             name="Balance &amp; history"
-            body="Check real-time account balance + full transaction history anytime."
+            body="Keep everyone on your team and beyond up to date with real-time balance and transaction history."
           />
-          {/* <ModuleDetails>
-              <Document
-                name="501(c)(3) nonprofit status"
-                cost="Become part of Hack Club's legal entity, getting the benefits of our tax status."
-              />
-              <Document
-                name="Tax filings (990, end-of-year)"
-                cost="We handle all filings with the IRS, so you can focus on your event, not hiring CPAs."
-              />
-            </ModuleDetails> */}
 
           <Module
             icon="card"
@@ -74,58 +74,37 @@ export default function Features() {
               </>
             }
           />
-          {/* <Module
-            icon="analytics"
-            name="Balance &amp; history"
-            body="Check real-time account balance + full transaction history anytime."
-          /> */}
-          <Module
-            icon="friend"
-            name="Donation page"
-            body="Receive donations through a custom, online embeddable form."
-          />
-          {/* <Module
-            icon="bolt"
-            name="Instant deposits"
-            body="Receive donations and invoice payments instantly once they're paid."
-          /> */}
+
           <Module
             icon="payment"
-            name="Built-in invoicing"
-            body={
-              <>
-                Accept sponsor payments with instant invoicing, powered by{' '}
-                <Link
-                  href="https://stripe.com/invoicing"
-                  color="smoke"
-                  hoverline
-                  target="_blank"
-                >
-                  Stripe
-                </Link>
-                .
-              </>
-            }
+            name="Grants &amp; donations"
+            body="Easily receive and deposit money from grants and donations into your account. You'll also get a customizable online donation form to share with friends and family."
           />
+
           <Module
             icon="payment-transfer"
-            name="Transfer money"
-            body="Flexible money transfer options including ACH, check, and PayPal."
+            name="Reimbursement flow"
+            body="Reimburse teammates for expenses with flexible money transfer options including ACH, PayPal, mailed checks, and more."
           />
-          <Module
-            icon="explore"
-            name="Transparency Mode"
-            body="Keep everyone on your team and beyond up to date with real-time balance and transaction history."
-          />
+          <Tilt>
+            <Card
+              as="div"
+              sx={{
+                backgroundImage:
+                  'url("https://cloud-ehtgzdn7u-hack-club-bot.vercel.app/0card.png")',
+                height: '230px',
+                backgroundSize: 'cover',
+                boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)'
+              }}
+            />
+          </Tilt>
           <Module
             icon="support"
             name="Support anytime"
-            body="We’ll never leave you hanging with 24hr response time on weekdays."
+            body="We’ll never leave you hanging with 24-hour response time on weekdays."
           />
         </Masonry>
       </Container>
-
-      <Image src="/bank/ipad-mobile.png" alt="yeah" width={1600} height={900} />
 
       <style>{`
       .masonry-posts {
@@ -194,9 +173,9 @@ function Module({ icon, name, body }) {
         sx={{
           width: 'fit-content',
           bg: 'primary',
-          borderRadius: 18,
+          borderRadius: 'default',
           lineHeight: 0,
-          p: 2,
+          p: 1,
           mb: 1,
           display: 'inline-block',
           transform: ['scale(0.75)', 'none'],
@@ -205,7 +184,7 @@ function Module({ icon, name, body }) {
             'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
         }}
       >
-        <Icon glyph={icon} size={48} />
+        <Icon glyph={icon} size={28} />
       </Box>
       <Box>
         <Heading sx={{ color: 'snow', lineHeight: '1.5' }}>{name}</Heading>
@@ -221,14 +200,12 @@ function ModuleDetails({ children }) {
   return (
     <Box
       sx={{
-        bg: '#252429',
+        bg: 'none',
         color: 'smoke',
-        mt: 4,
-        ml: 0,
-        py: 3,
-        px: 2,
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.0625)',
-        borderRadius: 'default'
+        boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)',
+        borderRadius: 'default',
+        p: 0,
+        mb: 3
       }}
     >
       {children}

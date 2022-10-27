@@ -1,4 +1,4 @@
-import { Box, Input, Label, Button } from 'theme-ui'
+import { Box, Input, Label, Button, Select } from 'theme-ui'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 
@@ -43,9 +43,10 @@ export default function Signup() {
   const router = useRouter()
 
   const [values, setValues] = useState({
-    eventName: '',
-    firstName: '',
-    lastName: '',
+    locationState: '',
+    locationCountry: '',
+    teamType: '',
+    teamNumber: '',
     userEmail: ''
   })
 
@@ -65,19 +66,38 @@ export default function Signup() {
         onChange={e => setValues({ ...values, eventName: e.target.value })}
       />
       <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+        {/* <Field
+          label="Team type"
+          name="teamType"
+          placeholder="FLL"
+          value={values.teamType}
+          onChange={e => setValues({ ...values, teamType: e.target.value })}
+        /> */}
+
+        <Box sx={{ my: 2 }}>
+          <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
+            Team type
+            <Select
+              name="eventCountry"
+              defaultValue="Select"
+              sx={{ bg: 'dark' }}
+            >
+              <option value="Select" selected disabled>
+                Select
+              </option>
+              <option value="FLL">FLL</option>
+              <option value="FTC">FTC</option>
+              <option value="FRC">FRC</option>
+            </Select>
+          </Label>
+        </Box>
+
         <Field
-          label="First name"
-          name="firstName"
-          placeholder="Fiona"
-          value={values.firstName}
-          onChange={e => setValues({ ...values, firstName: e.target.value })}
-        />
-        <Field
-          label="Last name"
-          name="lastName"
-          placeholder="Hackworth"
-          value={values.lastName}
-          onChange={e => setValues({ ...values, lastName: e.target.value })}
+          label="Team number"
+          name="teamNumber"
+          placeholder="12345"
+          value={values.teamNumber}
+          onChange={e => setValues({ ...values, teamNumber: e.target.value })}
         />
       </Box>
       <Field
