@@ -6,6 +6,16 @@ import tt from 'tinytime'
 import { thousands } from '../lib/members'
 
 export default function Sal() {
+  let minutes = 1
+  let milliseconds = minutes * 60000
+
+  if (typeof window !== 'undefined') {
+    setTimeout(function(){
+      window.location.reload();
+      console.log('hi')
+   }, milliseconds);
+  }
+  
   const calculateTimeLeft = () => {
     const difference = +new Date(`2022-10-28T23:00:00.000Z`) - +new Date()
 
