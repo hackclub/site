@@ -272,7 +272,7 @@ export default function Sal() {
               sx={{
                 color: '#ffffff',
                 width: ['70vw', '60vw', '60vw'],
-                py: ['20px', '100px', '150px'],
+                py: ['20px', '100px', '120px'],
                 zIndex: '2',
                 fontSize: ['12px', 1, 2],
                 '@media screen and (min-width: 768px) and (max-width: 1200px)':
