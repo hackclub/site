@@ -45,25 +45,42 @@ export default function Signup() {
   const [values, setValues] = useState({
     locationState: '',
     locationCountry: '',
+    teamName: '',
     teamType: '',
     teamNumber: '',
     userEmail: ''
   })
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
 
-    // submit does nothing for now
+    // returns a slug that we can use to redirect to the new bank org
+    const { res } = await fetch(
+      'https://bc78-65-183-145-85.ngrok.io/api/v1/events/create_demo',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.HCB_API_TOKEN}`
+        },
+        body: JSON.stringify({
+          name: e.target.teamName.value,
+          email: e.target.userEmail.value
+        })
+      }
+    )
+
+    // todo: set state to submitted and show sucesss message to check email for link to join org
   }
 
   return (
     <Base method="get" action="/bank/apply" onSubmit={handleSubmit}>
       <Field
         label="Team Name"
-        name="eventName"
+        name="teamName"
         placeholder="Poseidon Robotics"
-        value={values.eventName}
-        onChange={e => setValues({ ...values, eventName: e.target.value })}
+        value={values.teamName}
+        onChange={e => setValues({ ...values, teamName: e.target.value })}
       />
       <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
         {/* <Field

@@ -117,7 +117,7 @@ export default function RealTimeline() {
     <Timeline px={3}>
       <Step
         icon="send"
-        name="Open a demo account for your team"
+        name="Open a demo account and invite your team"
         duration="Day 1"
       />
       <Step
@@ -127,7 +127,7 @@ export default function RealTimeline() {
       />
       <Step
         icon="friend"
-        name="Invite your team &amp; start fundraising"
+        name="Start accepting grants &amp; order debit cards"
         duration="Day 3"
         mb={0}
       />
