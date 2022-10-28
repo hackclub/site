@@ -50,7 +50,7 @@ export default function Testimonials() {
           quote="Overall, Hack Club Bank has opened more opportunities for Poseidon, allowing us to undertake larger projects, both on the playing field and in our community."
           hackerName="Ian Marwong"
           hackerRole="Team Lead"
-          hackerAvatarUrl="https://github.com/hackclub.png"
+          hackerAvatarUrl="/hackers/ian-marwong.jpg"
           transparency="poseidon-robotics"
         />
         <Organization
@@ -62,7 +62,7 @@ export default function Testimonials() {
           budgetLabel="in grants"
           website="killabytez.club"
           url="http://www.killabytez.club/"
-          hackerAvatarUrl="https://github.com/hackclub.png"
+          hackerAvatarUrl="/hackers/brian-cisto.jpeg"
           hackerName="Brian Cisto"
           hackerRole="Team Captain & Software Lead"
           imgSrc="https://cloud-ag6fuxl0g-hack-club-bot.vercel.app/0f4b04492-9b96-46fc-a646-e1d044c01085.jpg"
