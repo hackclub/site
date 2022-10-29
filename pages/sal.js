@@ -259,7 +259,7 @@ export default function Sal() {
                   fontWeight: 'bold'
                 })}
               >
-                Watch the livestream here
+                The livestream has ended. Thank you to everyone for joining us!
               </Text>
               <Box>
                 <Button
@@ -273,7 +273,7 @@ export default function Sal() {
                     display: 'inline-block'
                   }}
                 >
-                  Youtube Livestream
+                  Watch recording
                 </Button>
               </Box>
             </Box>
