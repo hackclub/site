@@ -243,7 +243,7 @@ export default function Sal() {
           ) : (
             <Box
               sx={{
-                border: ['none', '#CDAEFB 1.6px solid'],
+                border: ['none', '#FFFFFF 1.6px solid'],
                 my: ['30px', 0],
                 px: ['0px', '40px', '40px'],
                 py: ['0px', '40px', '40px'],
