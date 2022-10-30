@@ -74,7 +74,7 @@ export default function Landing() {
                     variant="ultratitle"
                     sx={{
                       WebkitTextStroke: 'currentColor',
-                      WebkitTextStrokeWidth: ['2px', '3px'],
+                      WebkitTextStrokeWidth: '2px',
                       WebkitTextFillColor: '#33D6A6',
                       whiteSpace: [null, null, 'nowrap']
                     }}
@@ -86,7 +86,7 @@ export default function Landing() {
                   as="p"
                   variant="subtitle"
                   sx={{
-                    mt: [3, 4],
+                    mt: 3,
                     fontSize: [2, 3]
                   }}
                 >
