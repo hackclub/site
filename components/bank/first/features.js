@@ -1,4 +1,4 @@
-import { Box, Heading, Link, Text, Container, Grid, Card } from 'theme-ui'
+import { Box, Heading, Link, Text, Container, Grid, Card, Flex } from 'theme-ui'
 import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
 import Image from 'next/image'
@@ -103,7 +103,131 @@ export default function Features() {
             name="Support anytime"
             body="We’ll never leave you hanging with 24-hour response time on weekdays."
           />
+          <Tilt>
+            <Card
+              as="div"
+              sx={{
+                borderRadius: 0,
+                backgroundColor: '#193046',
+                boxShadow:
+                  '0 0 2px 0 rgb(0 0 0 / 6%), 0 6px 12px 0 rgb(0 0 0 / 25%)',
+                '&::before': {
+                  position: 'absolute',
+                  content: '""',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  margin: '0.5rem',
+                  border: '1px dotted #8492a6'
+                }
+              }}
+            >
+              <Flex sx={{ justifyContent: 'end' }}>Date</Flex>
+              <Flex sx={{ width: '100%' }}>
+                <Text
+                  sx={{
+                    textTransform: 'uppercase',
+                    fontSize: '10px',
+                    lineHeight: 1
+                  }}
+                >
+                  Pay to the <br />
+                  order of
+                </Text>
+                <Text
+                  as="span"
+                  sx={{ fontFamily: 'cursive', textAlign: 'left', ml: 2 }}
+                >
+                  Hack Club
+                </Text>
+
+                <Text
+                  sx={{
+                    textAlign: 'right',
+                    ml: 'auto'
+                  }}
+                >
+                  $
+                  <Text
+                    as="span"
+                    sx={{
+                      border: '1px solid rgba(255, 255, 255, 0.25)',
+                      fontFamily: 'cursive'
+                    }}
+                  >
+                    120
+                  </Text>
+                </Text>
+              </Flex>
+              <Flex sx={{ justifyContent: 'end' }}>
+                <Text
+                  sx={{
+                    textTransform: 'uppercase',
+                    fontSize: '10px',
+                    lineHeight: 1
+                  }}
+                >
+                  Dollars
+                </Text>
+              </Flex>
+              <Flex
+                sx={{
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  pb: 1
+                }}
+              >
+                <Text
+                  sx={{
+                    textTransform: 'uppercase',
+                    fontSize: '10px',
+                    lineHeight: 1
+                  }}
+                >
+                  Memo
+                  <Text
+                    as="span"
+                    sx={{
+                      fontFamily: 'cursive',
+                      fontSize: '12px',
+                      textTransform: 'none'
+                    }}
+                  >
+                    {' '}
+                    for Poseidon Robotics
+                  </Text>
+                </Text>
+                <Text sx={{ fontFamily: 'cursive' }}>Signature</Text>
+              </Flex>
+              <Flex>
+                <Text
+                  sx={{
+                    fontFamily: 'monospace',
+                    fontSize: '10px',
+                    lineHeight: 1,
+                    py: 0
+                  }}
+                >
+                  ⑆ 00000000000 ⑆ 123456789 ⑆
+                </Text>
+              </Flex>
+            </Card>
+          </Tilt>
         </Masonry>
+      </Container>
+      <Container
+        variant="narrow"
+        sx={{
+          pt: 3,
+          borderColor: 'muted',
+          textAlign: 'center'
+        }}
+      >
+        <Text variant="caption" sx={{ color: 'muted' }}>
+          Hack Club does not directly provide banking services. Banking services
+          provided by Silicon Valley Bank, an FDIC-certified institution.
+        </Text>
       </Container>
 
       <style>{`

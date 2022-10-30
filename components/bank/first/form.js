@@ -1,6 +1,15 @@
-import { Box, Input, Label, Button, Select } from 'theme-ui'
+import { Box, Input, Label, Button, Select, Text } from 'theme-ui'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import theme from '@hackclub/theme'
+import Icon from '../../icon'
+import AirtablePlus from 'airtable-plus'
+
+const applicationsTable = new AirtablePlus({
+  baseID: 'apppALh5FEOKkhjLR',
+  apiKey: process.env.AIRTABLE_API_KEY,
+  tableName: 'Events'
+})
 
 function Base({ children, action, target, method, onSubmit }) {
   return (
@@ -41,6 +50,7 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 
 export default function Signup() {
   const router = useRouter()
+  const [submitted, setSubmitted] = useState(false)
 
   const [values, setValues] = useState({
     locationState: '',
@@ -70,7 +80,7 @@ export default function Signup() {
       }
     )
 
-    // todo: set state to submitted and show sucesss message to check email for link to join org
+    setSubmitted(true)
   }
 
   return (
@@ -125,9 +135,34 @@ export default function Signup() {
         value={values.userEmail}
         onChange={e => setValues({ ...values, userEmail: e.target.value })}
       />
-      <Button sx={{ bg: 'blue', mt: [2, 3], py: 3 }} type="submit">
-        Create demo account
+      <Button
+        sx={{
+          backgroundImage: theme.util.gx('orange', 'red'),
+          mt: [2, 3],
+          py: 2
+        }}
+        type="submit"
+      >
+        Create new account
       </Button>
+      {submitted && (
+        <Box
+          sx={{
+            mt: 2,
+            px: 2,
+            py: 2,
+            borderRadius: 'default',
+            color: 'white',
+            bg: 'green',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'start'
+          }}
+        >
+          <Icon glyph="send" size={24} />
+          <Text>Success! Check your email for a sign in link.</Text>
+        </Box>
+      )}
     </Base>
   )
 }

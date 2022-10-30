@@ -16,7 +16,7 @@ import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import NextLink from 'next/link'
-import Icon from '@hackclub/icons'
+import Icon from '../../components/icon'
 import Features from '../../components/bank/first/features'
 // import Form from '../../components/hackathons/grant/form'
 // import Apply from '../../components/hackathons/grant/apply'
@@ -133,8 +133,8 @@ export default function First() {
               Bank is a full-stack financial toolkit used by thousands of
               teenagers worldwide.
             </Container>
-            <Button variant="ctaLg" as="a" href="#apply">
-              Start demo
+            <Button variant="ctaLg" as="a" href="#get-started">
+              Get Started
             </Button>
           </Box>
         </Box>
@@ -149,6 +149,7 @@ export default function First() {
 
         <Container
           variant="container"
+          id="get-started"
           sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -196,11 +197,18 @@ export default function First() {
             textAlign: 'center'
           }}
         >
-          <Text variant="caption" sx={{ color: 'muted' }}>
-            Hack Club does not directly provide banking services. Banking
-            services provided by Silicon Valley Bank, an FDIC-certified
-            institution.
-          </Text>
+          <Button
+            sx={{
+              backgroundImage: theme.util.gx('cyan', 'blue'),
+              fontSize: 2,
+              textTransform: 'none',
+              mt: 3
+            }}
+            as="a"
+          >
+            <Icon glyph="download" size={36} />
+            Download this page as a PDF
+          </Button>
         </Container>
       </Box>
       <Footer dark key="footer" />
