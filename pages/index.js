@@ -464,10 +464,10 @@ const Page = () => (
             name="Tools to hack on"
             desc={
               <>
-                We build tools, such as 
+                We build tools, such as{" "}
                 <a href="https://sprig.hackclub.com">Sprig</a>, that your members can 
-                use to make projects with in meetings! Built more of them with us in the 
-                <Link href="/slack">Slack</Link>.
+                use to make projects with in meetings! Built more of them with us in our 
+                {" "}<Link href="/slack">Slack community</Link>.
               </>
             }
           ></Feature>
