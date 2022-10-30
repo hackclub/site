@@ -126,10 +126,10 @@ const Page = () => (
         priority
       />
       <Announcement
-        copy="Sal Khan AMA this Friday at 7pm ET"
-        caption="RSVP in #announcements on Slack to ask him your questions"
-        href="https://events.hackclub.com/ama-with-sal-khan/"
-        iconLeft="event-code"
+        copy="Sprig: the game console where every player is a creator."
+        caption="Build an original game and we'll ship you a Sprig kit!"
+        href="https://sprig.hackclub.com"
+        iconLeft="bolt"
         color="primary"
       />
 
@@ -343,8 +343,11 @@ const Page = () => (
             sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
           >
             Hack Clubs attend and run{' '}
-            <NextLink href="/hackathons" passHref><a>hackathons</a></NextLink> like{' '}
-            <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a> &{' '}
+            <NextLink href="/hackathons" passHref>
+              <a>hackathons</a>
+            </NextLink>{' '}
+            like <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a>{' '}
+            &{' '}
             <a href="https://www.sfchronicle.com/bayarea/article/Hack-the-Fog-makes-history-as-San-12729895.php">
               Hack the Fog
             </a>
@@ -532,8 +535,10 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                We're always building new tools for leaders, such as <a href="https://sprig.hackclub.com">Sprig</a>! 
-                We've also got free subscriptions to Figma Pro, Postman, and more for running a great club.
+                We're always building new tools for leaders, such as{' '}
+                <a href="https://sprig.hackclub.com">Sprig</a>! We've also got
+                free subscriptions to Figma Pro, Postman, and more for running a
+                great club.
               </>
             }
           />
