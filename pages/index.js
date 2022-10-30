@@ -459,6 +459,19 @@ const Page = () => (
             }
           />
           <Feature
+            icon="bolt"
+            color="green"
+            name="Tools to hack on"
+            desc={
+              <>
+                We build tools, such as 
+                <a href="https://sprig.hackclub.com">Sprig</a>, that your members can 
+                use to make projects with in meetings! Built more of them with us in the 
+                <Link href="/slack">Slack</Link>.
+              </>
+            }
+          ></Feature>
+          <Feature
             icon="docs"
             color="red"
             name="Meeting content"
@@ -497,7 +510,7 @@ const Page = () => (
                 your club shipped directly to you & your club members.
               </>
             }
-            color="green"
+            color="purple"
             icon="sticker"
           ></Feature>
           <Feature
