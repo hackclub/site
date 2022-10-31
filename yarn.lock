@@ -4470,10 +4470,10 @@ uuid@^3.3.2:
   resolved "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-vanilla-tilt@^1.7.2:
-  version "1.7.2"
-  resolved "https://registry.npmjs.org/vanilla-tilt/-/vanilla-tilt-1.7.2.tgz"
-  integrity sha512-arf2wY2Y65rP6Zxve9PnUUnRl9nQ1KenPNae6QRaVq/PEvaIto2bC4jYirNJ19U7nLkzI1H9O+nYtcQlX7BTsA==
+vanilla-tilt@^1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/vanilla-tilt/-/vanilla-tilt-1.7.3.tgz#1c6a15c1c627e949571167e5421ee82cf465026a"
+  integrity sha512-tdNVZ1JyDNsByplVCS1H3/i/zcGOIrFW5BQp7u9SyXKjNypZw7s89x+GA8kOhUxWOggF4A1E9N55jEF0ttpLjw==
 
 verror@1.10.0:
   version "1.10.0"
