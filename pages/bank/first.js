@@ -18,8 +18,6 @@ import Footer from '../../components/footer'
 import NextLink from 'next/link'
 import Icon from '../../components/icon'
 import Features from '../../components/bank/first/features'
-// import Form from '../../components/hackathons/grant/form'
-// import Apply from '../../components/hackathons/grant/apply'
 
 import Zoom from 'react-reveal/Zoom'
 import Form from '../../components/bank/first/form'
@@ -100,11 +98,7 @@ export default function First() {
           </Box>
         </Box>
 
-        {/* Stuff */}
-
         <Features />
-
-        {/* it'd be cool to have a thing here with a laptop and an interactive hcb interface? */}
 
         <Testimonials />
 

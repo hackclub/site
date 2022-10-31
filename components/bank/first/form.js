@@ -3,13 +3,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import theme from '@hackclub/theme'
 import Icon from '../../icon'
-import AirtablePlus from 'airtable-plus'
-
-// const applicationsTable = new AirtablePlus({
-//   baseID: 'apppALh5FEOKkhjLR',
-//   apiKey: process.env.AIRTABLE_API_KEY,
-//   tableName: 'Events'
-// })
 
 function Base({ children, action, target, method, onSubmit }) {
   return (
@@ -64,21 +57,17 @@ export default function Signup() {
   const handleSubmit = async e => {
     e.preventDefault()
 
-    // returns a slug that we can use to redirect to the new bank org
-    await fetch(
-      'https://bc78-65-183-145-85.ngrok.io/api/v1/events/create_demo',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.HCB_API_TOKEN}`
-        },
-        body: JSON.stringify({
-          name: e.target.teamName.value,
-          email: e.target.userEmail.value
-        })
-      }
-    )
+    await fetch('https://bank.hackclub.com/api/v1/events/create_demo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.HCB_API_TOKEN}`
+      },
+      body: JSON.stringify({
+        name: e.target.teamName.value,
+        email: e.target.userEmail.value
+      })
+    })
       .then(res => res.json())
       .then(data => {
         console.log(data)
@@ -110,14 +99,6 @@ export default function Signup() {
         onChange={e => setValues({ ...values, teamName: e.target.value })}
       />
       <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
-        {/* <Field
-          label="Team type"
-          name="teamType"
-          placeholder="FLL"
-          value={values.teamType}
-          onChange={e => setValues({ ...values, teamType: e.target.value })}
-        /> */}
-
         <Box sx={{ my: 2 }}>
           <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
             Team type
