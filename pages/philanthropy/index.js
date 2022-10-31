@@ -657,6 +657,9 @@ const Philanthropy = ({ posts = [] }) => {
                 Form 990
               </Button>
             </Flex>
+            <span>
+              Starting in 2021, Hack Club has engaged with an external auditing firm and has audited financials through the current fiscal year.
+            </span>
           </Fade>
           {/* <Fade bottom delay={300}>
             <Text
@@ -1032,7 +1035,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade bottom delay={350}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Dalio Philanthropies
+                    Endless Network
                   </Text>
                 </Fade>
               </Box>
@@ -1119,7 +1122,7 @@ const Philanthropy = ({ posts = [] }) => {
               />
             </Fade>
             <Fade bottom delay={270}>
-              <Pill name="Blake Lieberman, Co-founder, Rief Ventures" />
+              <Pill name="Blake Lieberman, Partner, Rief Ventures" />
             </Fade>
             <Fade bottom delay={300}>
               <Text
