@@ -30,7 +30,7 @@ export default function Bank({ isPartner, stats }) {
         <ForceTheme theme="dark" />
         <Meta
           as={Head}
-          description="Hack Club Bank provides a 501(c)(3) status-backed fund optimized for events, nonprofits, and more. Get fiscal sponsorship designed to help you run a great organization."
+          description="Hack Club Bank is the largest fiscal sponsor of teen-led organizations in the US. Get a 501(c)(3) status-backed fund optimized for events, nonprofits, and more."
           image="/bank/og-image.png"
         >
           <title>Hack Club Bank — Fiscal Sponsorship</title>

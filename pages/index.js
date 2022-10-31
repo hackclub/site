@@ -126,8 +126,8 @@ const Page = () => (
         priority
       />
       <Announcement
-        copy="The game console where every player is a creator."
-        caption="Introducing Sprig: the fantasy game console by Hack Club."
+        copy="Sprig: the game console where every player is a creator."
+        caption="Build an original game and we'll ship you a Sprig kit!"
         href="https://sprig.hackclub.com"
         iconLeft="bolt"
         color="primary"
@@ -343,8 +343,11 @@ const Page = () => (
             sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
           >
             Hack Clubs attend and run{' '}
-            <NextLink href="/hackathons" passHref><a>hackathons</a></NextLink> like{' '}
-            <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a> &{' '}
+            <NextLink href="/hackathons" passHref>
+              <a>hackathons</a>
+            </NextLink>{' '}
+            like <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a>{' '}
+            &{' '}
             <a href="https://www.sfchronicle.com/bayarea/article/Hack-the-Fog-makes-history-as-San-12729895.php">
               Hack the Fog
             </a>
@@ -456,6 +459,19 @@ const Page = () => (
             }
           />
           <Feature
+            icon="bolt"
+            color="green"
+            name="Tools to hack on"
+            desc={
+              <>
+                We build tools, such as{" "}
+                <a href="https://sprig.hackclub.com">Sprig</a>, that your members can 
+                use to make projects with in meetings! Built more of them with us in our 
+                {" "}<Link href="/slack">Slack community</Link>.
+              </>
+            }
+          ></Feature>
+          <Feature
             icon="docs"
             color="red"
             name="Meeting content"
@@ -494,7 +510,7 @@ const Page = () => (
                 your club shipped directly to you & your club members.
               </>
             }
-            color="green"
+            color="purple"
             icon="sticker"
           ></Feature>
           <Feature
@@ -532,8 +548,10 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                We're always building new tools for leaders, such as <a href="https://sprig.hackclub.com">Sprig</a>! 
-                We've also got free subscriptions to Figma Pro, Postman, and more for running a great club.
+                We're always building new tools for leaders, such as{' '}
+                <a href="https://sprig.hackclub.com">Sprig</a>! We've also got
+                free subscriptions to Figma Pro, Postman, and more for running a
+                great club.
               </>
             }
           />

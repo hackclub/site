@@ -18,9 +18,9 @@
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^12.3.1",
-    "@octokit/auth-app": "^4.0.6",
+    "@octokit/auth-app": "^4.0.7",
     "@octokit/core": "^4.0.5",
-    "@octokit/rest": "^19.0.4",
+    "@octokit/rest": "^19.0.5",
     "airtable-plus": "^1.0.4",
     "animated-value": "^0.2.4",
     "animejs": "^3.2.1",
@@ -30,7 +30,7 @@
     "lodash": "^4.17.21",
     "next": "^12.3.1",
     "next-compose-plugins": "^2.2.1",
-    "next-transpile-modules": "^9.0.0",
+    "next-transpile-modules": "^9.1.0",
     "react": "^17.0.2",
     "react-before-after-slider-component": "^1.1.5",
     "react-dom": "^17.0.2",
@@ -51,7 +51,7 @@
     "vanilla-tilt": "^1.7.2"
   },
   "devDependencies": {
-    "eslint": "8.25.0",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-next": "12.3.1",
+    "eslint": "8.26.0"
   }
 }
