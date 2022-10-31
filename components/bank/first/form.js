@@ -5,11 +5,11 @@ import theme from '@hackclub/theme'
 import Icon from '../../icon'
 import AirtablePlus from 'airtable-plus'
 
-const applicationsTable = new AirtablePlus({
-  baseID: 'apppALh5FEOKkhjLR',
-  apiKey: process.env.AIRTABLE_API_KEY,
-  tableName: 'Events'
-})
+// const applicationsTable = new AirtablePlus({
+//   baseID: 'apppALh5FEOKkhjLR',
+//   apiKey: process.env.AIRTABLE_API_KEY,
+//   tableName: 'Events'
+// })
 
 function Base({ children, action, target, method, onSubmit }) {
   return (
@@ -65,7 +65,7 @@ export default function Signup() {
     e.preventDefault()
 
     // returns a slug that we can use to redirect to the new bank org
-    const { res } = await fetch(
+    await fetch(
       'https://bc78-65-183-145-85.ngrok.io/api/v1/events/create_demo',
       {
         method: 'POST',
@@ -79,6 +79,13 @@ export default function Signup() {
         })
       }
     )
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
 
     setSubmitted(true)
   }
@@ -160,7 +167,7 @@ export default function Signup() {
           }}
         >
           <Icon glyph="send" size={24} />
-          <Text>Success! Check your email for a sign in link.</Text>
+          <Text>Submitted! Check your email for a sign in link.</Text>
         </Box>
       )}
     </Base>
