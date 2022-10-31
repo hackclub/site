@@ -54,6 +54,11 @@ const nextConfig = {
         permanent: true
       },
       {
+        source: '/first/',
+        destination: '/bank/first/',
+        permanent: false
+      },
+      {
         source: '/bank/frc/',
         destination: '/bank/first/',
         permanent: false

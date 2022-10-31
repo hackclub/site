@@ -88,6 +88,16 @@ export default function Signup() {
       })
 
     setSubmitted(true)
+
+    // clear form
+    setValues({
+      locationState: '',
+      locationCountry: '',
+      teamName: '',
+      teamType: '',
+      teamNumber: '',
+      userEmail: ''
+    })
   }
 
   return (

@@ -123,7 +123,18 @@ export default function Features() {
                 }
               }}
             >
-              <Flex sx={{ justifyContent: 'end' }}>Date</Flex>
+              <Flex sx={{ justifyContent: 'end' }}>
+                <Text
+                  sx={{
+                    textTransform: 'uppercase',
+                    fontSize: '10px',
+                    lineHeight: 1
+                  }}
+                >
+                  Date
+                </Text>
+                <Text sx={{ fontFamily: 'cursive' }}>10-10-2020</Text>
+              </Flex>
               <Flex sx={{ width: '100%' }}>
                 <Text
                   sx={{
@@ -156,11 +167,12 @@ export default function Features() {
                       fontFamily: 'cursive'
                     }}
                   >
-                    120
+                    1000
                   </Text>
                 </Text>
               </Flex>
-              <Flex sx={{ justifyContent: 'end' }}>
+              <Flex sx={{ justifyContent: 'space-between', alignItems: 'end' }}>
+                <Text sx={{ fontFamily: 'cursive' }}>One thousand only</Text>
                 <Text
                   sx={{
                     textTransform: 'uppercase',
@@ -171,6 +183,7 @@ export default function Features() {
                   Dollars
                 </Text>
               </Flex>
+
               <Flex
                 sx={{
                   justifyContent: 'space-between',
@@ -195,10 +208,15 @@ export default function Features() {
                     }}
                   >
                     {' '}
-                    for Poseidon Robotics
+                    Grant for Poseidon Robotics
                   </Text>
                 </Text>
-                <Text sx={{ fontFamily: 'cursive' }}>Signature</Text>
+                <Image
+                  src="/signatures/prophet_orpheus-light.png"
+                  alt="Prophet Orpheus signature"
+                  width={80}
+                  height={30}
+                />
               </Flex>
               <Flex>
                 <Text
@@ -206,7 +224,8 @@ export default function Features() {
                     fontFamily: 'monospace',
                     fontSize: '10px',
                     lineHeight: 1,
-                    py: 0
+                    pt: 1,
+                    mb: -3
                   }}
                 >
                   ⑆ 00000000000 ⑆ 123456789 ⑆

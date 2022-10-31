@@ -69,7 +69,6 @@ export default function Testimonials() {
           quote="Hack Club Bank has been essential to keeping track of our finances as well as giving us the opportunity to establish ourselves as a nonprofit."
         />
       </Grid>
-      <OrganizationAlt />
     </>
   )
 }
@@ -226,77 +225,6 @@ function Organization({
             </Box>
           </Box>
         </Container>
-      </Box>
-    </Slide>
-  )
-}
-
-// testimonial with no images, just a quote
-// maybe a cool FIRST person or parent???
-function OrganizationAlt({ transparency = false }) {
-  return (
-    <Slide bottom>
-      <Box p={[3, null, 4]}>
-        <Text
-          sx={{
-            fontSize: 2,
-            color: 'snow',
-            textIndent: '-.375em',
-            lineHeight: 'caption',
-            fontSize: 18
-          }}
-        >
-          "Onboarding was super easy... they explained their organization, the
-          fee their assistance. It was music to my ears."
-        </Text>
-
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'space-between',
-            marginTop: ['0px', 3]
-          }}
-        >
-          <Box
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              mt: ['16px', '0px']
-            }}
-          >
-            <Text
-              color="white"
-              sx={{
-                fontSize: 19,
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
-              <Text sx={{ fontWeight: 'bold', lineHeight: 1.125 }}>Keenya</Text>
-              <Text>Parent</Text>
-            </Text>
-          </Box>
-          {transparency && (
-            <Link
-              href={`https://bank.hackclub.com/${transparency}`}
-              target="_blank"
-              rel="noreferrer"
-              sx={{ mt: ['16px', '0px'] }}
-            >
-              <Button
-                mt={[null, null, 4, 0]}
-                ml={[0, 'auto']}
-                sx={{ textTransform: 'none' }}
-                variant="primary"
-                title="🎶 take a look, it's in our books 🎵"
-              >
-                See Finances
-              </Button>
-            </Link>
-          )}
-        </Box>
       </Box>
     </Slide>
   )

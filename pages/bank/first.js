@@ -43,7 +43,7 @@ export default function First() {
             minHeight: ['70vh', 'none'],
             textAlign: 'center',
             backgroundImage:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://cloud-gxxp8xcyl-hack-club-bot.vercel.app/0fzfm1e-ueaef1qw.jpeg')",
+              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://cloud-7chjcfuyw-hack-club-bot.vercel.app/0image.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             display: 'flex',
@@ -62,51 +62,12 @@ export default function First() {
             <Heading
               sx={{
                 textAlign: 'center',
-                mt: [2, 4],
+                mt: [5, null, 6],
                 textShadow: '0 0 16px rgba(0, 0, 0, 1)'
               }}
               as="h1"
               variant="ultratitle"
             >
-              {/* <Flex
-                sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
-              >
-                <NextLink href="https://hackclub.com/bank" passHref>
-                  <Box
-                    as="a"
-                    width={64}
-                    height={64}
-                    sx={{
-                      width: 72,
-                      height: 72,
-                      backgroundImage: "url('/bank/bank-blue.png')",
-                      backgroundSize: 'contain',
-                      backgroundPosition: 'center center',
-                      backgroundRepeat: 'no-repeat',
-                      mr: 3,
-                      borderRadius: 8
-                    }}
-                    target="_blank"
-                  ></Box>
-                </NextLink>
-
-                <NextLink href="https://www.firstinspires.org" passHref>
-                  <Box
-                    as="a"
-                    sx={{
-                      width: 72,
-                      height: 72,
-                      backgroundImage: "url('/hackathons/grant/first.png')",
-                      backgroundColor: '#231F20',
-                      backgroundSize: '60px, cover',
-                      backgroundPosition: 'center center',
-                      backgroundRepeat: 'no-repeat',
-                      borderRadius: 8
-                    }}
-                    target="_blank"
-                  ></Box>
-                </NextLink>
-              </Flex> */}
               The ultimate financial tool for{' '}
               <Text
                 as="span"
@@ -205,6 +166,8 @@ export default function First() {
               mt: 3
             }}
             as="a"
+            href="/bank/first/Hack_Club_Bank_for_FIRST_Teams.pdf"
+            target="_blank"
           >
             <Icon glyph="download" size={36} />
             Download this page as a PDF
