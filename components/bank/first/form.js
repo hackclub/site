@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import theme from '@hackclub/theme'
 import Icon from '../../icon'
+import AirtablePlus from 'airtable-plus'
 
 function Base({ children, action, target, method, onSubmit }) {
   return (
@@ -42,7 +43,12 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 }
 
 export default function Signup() {
-  const router = useRouter()
+  const applicationsTable = new AirtablePlus({
+    baseID: 'apppALh5FEOKkhjLR',
+    apiKey: process.env.AIRTABLE_API_KEY,
+    tableName: 'Events'
+  })
+
   const [submitted, setSubmitted] = useState(false)
 
   const [values, setValues] = useState({
@@ -64,7 +70,7 @@ export default function Signup() {
         Authorization: `Bearer ${process.env.HCB_API_TOKEN}`
       },
       body: JSON.stringify({
-        name: e.target.teamName.value,
+        name: e.target.eventName.value,
         email: e.target.userEmail.value
       })
     })
@@ -76,13 +82,19 @@ export default function Signup() {
         console.log(err)
       })
 
+    await applicationsTable.create({
+      'Event Name': e.target.eventName.value,
+      'Email Address': e.target.userEmail.value,
+      'Demo account': true
+    })
+
     setSubmitted(true)
 
     // clear form
     setValues({
       locationState: '',
       locationCountry: '',
-      teamName: '',
+      eventName: '',
       teamType: '',
       teamNumber: '',
       userEmail: ''
@@ -90,18 +102,19 @@ export default function Signup() {
   }
 
   return (
-    <Base method="get" action="/bank/apply" onSubmit={handleSubmit}>
+    <Base onSubmit={handleSubmit}>
+      {/* TODO: get their team name from the FIRST API, using their team number */}
       <Field
         label="Team Name"
-        name="teamName"
+        name="eventName"
         placeholder="Poseidon Robotics"
-        value={values.teamName}
-        onChange={e => setValues({ ...values, teamName: e.target.value })}
+        value={values.eventName}
+        onChange={e => setValues({ ...values, eventName: e.target.value })}
       />
       <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
         <Box sx={{ my: 2 }}>
           <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
-            Team type
+            Level
             <Select
               name="eventCountry"
               defaultValue="Select"
