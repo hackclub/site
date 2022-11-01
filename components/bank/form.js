@@ -81,7 +81,7 @@ export default function BankApplyForm() {
           <Link href="/slack">Hack Club Slack</Link>!
         </Text>
       </Flex>
-      <Base method="POST" action="/api/bank-apply">
+      <Base method="POST" action="/api/bank/apply">
         <Text variant="headline" sx={{ color: 'primary' }}>
           Your Organization
         </Text>

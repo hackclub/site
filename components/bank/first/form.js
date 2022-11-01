@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import theme from '@hackclub/theme'
 import Icon from '../../icon'
-// import AirtablePlus from 'airtable-plus'
 
 function Base({ children, action, target, method, onSubmit }) {
   return (
@@ -43,12 +42,6 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 }
 
 export default function Signup() {
-  // const applicationsTable = new AirtablePlus({
-  //   baseID: 'apppALh5FEOKkhjLR',
-  //   apiKey: process.env.AIRTABLE_API_KEY,
-  //   tableName: 'Events'
-  // })
-
   const [submitted, setSubmitted] = useState(false)
 
   const [values, setValues] = useState({
@@ -62,31 +55,6 @@ export default function Signup() {
 
   const handleSubmit = async e => {
     e.preventDefault()
-
-    await fetch('https://bank.hackclub.com/api/v1/events/create_demo', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.HCB_API_TOKEN}`
-      },
-      body: JSON.stringify({
-        name: e.target.eventName.value,
-        email: e.target.userEmail.value
-      })
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-
-    // await applicationsTable.create({
-    //   'Event Name': e.target.eventName.value,
-    //   'Email Address': e.target.userEmail.value,
-    //   'Demo account': true
-    // })
 
     setSubmitted(true)
 
@@ -102,7 +70,7 @@ export default function Signup() {
   }
 
   return (
-    <Base onSubmit={handleSubmit}>
+    <Base method="POST" action="/api/bank/demo" onSubmit={handleSubmit}>
       {/* TODO: get their team name from the FIRST API, using their team number */}
       <Field
         label="Team Name"
