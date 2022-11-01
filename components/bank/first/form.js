@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import theme from '@hackclub/theme'
 import Icon from '../../icon'
-import AirtablePlus from 'airtable-plus'
+// import AirtablePlus from 'airtable-plus'
 
 function Base({ children, action, target, method, onSubmit }) {
   return (
@@ -43,11 +43,11 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 }
 
 export default function Signup() {
-  const applicationsTable = new AirtablePlus({
-    baseID: 'apppALh5FEOKkhjLR',
-    apiKey: process.env.AIRTABLE_API_KEY,
-    tableName: 'Events'
-  })
+  // const applicationsTable = new AirtablePlus({
+  //   baseID: 'apppALh5FEOKkhjLR',
+  //   apiKey: process.env.AIRTABLE_API_KEY,
+  //   tableName: 'Events'
+  // })
 
   const [submitted, setSubmitted] = useState(false)
 
@@ -82,11 +82,11 @@ export default function Signup() {
         console.log(err)
       })
 
-    await applicationsTable.create({
-      'Event Name': e.target.eventName.value,
-      'Email Address': e.target.userEmail.value,
-      'Demo account': true
-    })
+    // await applicationsTable.create({
+    //   'Event Name': e.target.eventName.value,
+    //   'Email Address': e.target.userEmail.value,
+    //   'Demo account': true
+    // })
 
     setSubmitted(true)
 
