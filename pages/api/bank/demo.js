@@ -21,6 +21,7 @@ export default async function handler(req, res) {
         Authorization: `Bearer ${process.env.HCB_API_TOKEN}`
       }
     })
+      .then(r => r.json())
       .then(r => {
         applicationsTable.create({
           'Email Address': data.userEmail,
@@ -28,6 +29,7 @@ export default async function handler(req, res) {
           Status: 'Demo Account',
           'HCB account URL': `https://bank.hackclub.com/${r.slug}`
         })
+
         res
           .writeHead(302, { Location: '/bank/first/?success=true#get-started' })
           .end()
