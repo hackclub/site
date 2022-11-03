@@ -3,6 +3,12 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import theme from '@hackclub/theme'
 import Icon from '../../icon'
+import { keyframes } from '@emotion/react'
+
+const hideAnimation = keyframes({
+  from: { display: 'flex' },
+  to: { display: 'none', opacity: 0, padding: 0, position: 'absolute' }
+})
 
 function Base({ children, action, target, method, onSubmit }) {
   return (
@@ -71,61 +77,65 @@ export default function Signup() {
   }
 
   return (
-    <Base method="POST" action="/api/bank/demo">
-      {/* TODO: get their team name from the FIRST API, using their team number */}
-      <Field
-        label="Team Name"
-        name="eventName"
-        placeholder="Poseidon Robotics"
-        value={values.eventName}
-        onChange={e => setValues({ ...values, eventName: e.target.value })}
-      />
-      <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
-        <Box sx={{ my: 2 }}>
-          <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
-            Level
-            <Select
-              name="teamType"
-              defaultValue="Select"
-              sx={{ bg: 'dark' }}
-              onChange={e => setValues({ ...values, teamType: e.target.value })}
-            >
-              <option value="Select" selected disabled>
-                Select
-              </option>
-              <option value="FLL">FLL</option>
-              <option value="FTC">FTC</option>
-              <option value="FRC">FRC</option>
-            </Select>
-          </Label>
-        </Box>
-
+    <>
+      <Base method="POST" action="/api/bank/demo">
+        {/* TODO: get their team name from the FIRST API, using their team number */}
         <Field
-          label="Team number"
-          name="teamNumber"
-          placeholder="12345"
-          value={values.teamNumber}
-          onChange={e => setValues({ ...values, teamNumber: e.target.value })}
+          label="Team Name"
+          name="eventName"
+          placeholder="Poseidon Robotics"
+          value={values.eventName}
+          onChange={e => setValues({ ...values, eventName: e.target.value })}
         />
-      </Box>
-      <Field
-        label="Email address"
-        name="userEmail"
-        placeholder="fiona@hackclub.com"
-        type="email"
-        value={values.userEmail}
-        onChange={e => setValues({ ...values, userEmail: e.target.value })}
-      />
-      <Button
-        sx={{
-          backgroundImage: theme.util.gx('orange', 'red'),
-          mt: [2, 3],
-          py: 2
-        }}
-        type="submit"
-      >
-        Create new account
-      </Button>
+        <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+          <Box sx={{ my: 2 }}>
+            <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
+              Level
+              <Select
+                name="teamType"
+                defaultValue="Select"
+                sx={{ bg: 'dark' }}
+                onChange={e =>
+                  setValues({ ...values, teamType: e.target.value })
+                }
+              >
+                <option value="Select" selected disabled>
+                  Select
+                </option>
+                <option value="FLL">FLL</option>
+                <option value="FTC">FTC</option>
+                <option value="FRC">FRC</option>
+              </Select>
+            </Label>
+          </Box>
+
+          <Field
+            label="Team number"
+            name="teamNumber"
+            placeholder="12345"
+            value={values.teamNumber}
+            onChange={e => setValues({ ...values, teamNumber: e.target.value })}
+          />
+        </Box>
+        <Field
+          label="Email address"
+          name="userEmail"
+          placeholder="fiona@hackclub.com"
+          type="email"
+          value={values.userEmail}
+          onChange={e => setValues({ ...values, userEmail: e.target.value })}
+        />
+        <Button
+          sx={{
+            backgroundImage: theme.util.gx('orange', 'red'),
+            mt: [2, 3],
+            py: 2
+          }}
+          type="submit"
+        >
+          Create new account
+        </Button>
+      </Base>
       {query.success && (
         <Box
           sx={{
@@ -137,13 +147,15 @@ export default function Signup() {
             bg: 'green',
             display: 'flex',
             flexDirection: 'row',
-            alignItems: 'start'
+            alignItems: 'start',
+            animation: `${hideAnimation} 0s ease-in 5s`,
+            animationFillMode: 'forwards'
           }}
         >
           <Icon glyph="send" size={24} />
           <Text>Submitted! Check your email for a sign in link.</Text>
         </Box>
       )}
-    </Base>
+    </>
   )
 }

@@ -92,7 +92,7 @@ export default function First() {
               Bank is a full-stack financial toolkit used by thousands of
               teenagers worldwide.
             </Container>
-            <Button variant="ctaLg" as="a" href="#get-started">
+            <Button variant="ctaLg" as="a" href="#demo">
               Get Started
             </Button>
           </Box>
@@ -104,7 +104,7 @@ export default function First() {
 
         <Container
           variant="container"
-          id="get-started"
+          id="demo"
           sx={{
             display: 'flex',
             flexDirection: 'column',
