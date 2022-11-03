@@ -42,6 +42,7 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 }
 
 export default function Signup() {
+  const { query } = useRouter()
   const [submitted, setSubmitted] = useState(false)
 
   const [values, setValues] = useState({
@@ -70,7 +71,7 @@ export default function Signup() {
   }
 
   return (
-    <Base method="POST" action="/api/bank/demo" onSubmit={handleSubmit}>
+    <Base method="POST" action="/api/bank/demo">
       {/* TODO: get their team name from the FIRST API, using their team number */}
       <Field
         label="Team Name"
@@ -84,9 +85,10 @@ export default function Signup() {
           <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
             Level
             <Select
-              name="eventCountry"
+              name="teamType"
               defaultValue="Select"
               sx={{ bg: 'dark' }}
+              onChange={e => setValues({ ...values, teamType: e.target.value })}
             >
               <option value="Select" selected disabled>
                 Select
@@ -124,7 +126,7 @@ export default function Signup() {
       >
         Create new account
       </Button>
-      {submitted && (
+      {query.success && (
         <Box
           sx={{
             mt: 2,

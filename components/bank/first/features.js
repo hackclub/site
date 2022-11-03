@@ -308,7 +308,7 @@ function Module({ icon, name, body }) {
   return (
     <Card
       variant="primary"
-      sx={{ display: 'flex', flexDirection: 'column', p: 0 }}
+      sx={{ display: 'flex', flexDirection: 'column', p: [4, null, 4] }}
       className="post"
     >
       <Box

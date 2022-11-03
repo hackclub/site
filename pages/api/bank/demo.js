@@ -13,12 +13,6 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const data = req.body
 
-    await applicationsTable.create({
-      'Email Address': data.userEmail,
-      'Event Name': data.eventName,
-      'Demo account': true
-    })
-
     await fetch('https://bank.hackclub.com/api/v1/events/create_demo', {
       body: JSON.stringify({ data }),
       method: 'POST',
@@ -28,8 +22,15 @@ export default async function handler(req, res) {
       }
     })
       .then(r => {
-        r.json()
-        console.log(r)
+        applicationsTable.create({
+          'Email Address': data.userEmail,
+          'Event Name': `${data.eventName} (${data.teamType} ${data.teamNumber})`,
+          Status: 'Demo Account',
+          'HCB account URL': `https://bank.hackclub.com/${r.slug}`
+        })
+        res
+          .writeHead(302, { Location: '/bank/first/?success=true#get-started' })
+          .end()
       })
       .catch(error => {
         console.log(error)
