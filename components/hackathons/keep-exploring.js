@@ -86,6 +86,14 @@ export default function KeepExploring() {
             <Box as="div" sx={{ mt: 3 }}></Box>
             This semester, Hack Club is providing grants, support, and more, to
             help you run the next amazing hackathon.
+            <Box as="div" sx={{ mt: 3 }}></Box>
+            <a
+              href="/how-to-organize-a-hackathon"
+              target="_blank"
+              rel="noreferrer"
+            >
+              An expandable guide into hackathon organizing →
+            </a>{' '}
           </Text>
         </Grid>
       </Container>

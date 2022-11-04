@@ -167,6 +167,10 @@ const Page = ({ repos }) => (
           url={`https://github.com/hackclub/newsletter`}
         />
         <BankProject name="Meetings" url={`https://meetings.hackclub.com`} />
+        <BankProject
+          name="Guide to hackathon organizing"
+          url={"/how-to-organize-a-hackathons"}
+        />
       </Grid>
       <Heading
         variant="headline"

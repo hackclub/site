@@ -1,4 +1,4 @@
-import { Card, Box, Heading, Grid, Text, Container } from 'theme-ui'
+import { Card, Box, Button, Heading, Grid, Text, Link } from 'theme-ui'
 import Stage from '../stage'
 
 export default function Recap() {
@@ -29,7 +29,7 @@ export default function Recap() {
       </Box>
       <Grid
         pt={[3, 4]}
-        pb={[5, 6]}
+        pb={[3, 4]}
         gap={[4, 3, 4]}
         columns={[1, null, 3]}
         sx={{
@@ -107,6 +107,16 @@ export default function Recap() {
           />
         </Card>
       </Grid>
+      <Box
+        pb={[3, 4]}
+        sx={{
+          textAlign: 'center'
+        }}
+      >
+        <Button as="a" variant="outline" href="/how-to-organize-a-hackathon">
+          READ: How to organize a hackathon
+        </Button>
+      </Box>
     </>
   )
 }
