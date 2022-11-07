@@ -51,7 +51,7 @@
     "vanilla-tilt": "^1.7.3"
   },
   "devDependencies": {
-    "eslint-config-next": "13.0.0",
+    "eslint-config-next": "13.0.1",
     "eslint": "8.26.0"
   }
 }
