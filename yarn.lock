@@ -594,10 +594,12 @@
   dependencies:
     glob "7.1.7"
 
-"@next/mdx@^13.0.0":
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-13.0.0.tgz#429e73c27093958b9d330fa7167205b8f71bf212"
-  integrity sha512-2p5g2KmWEgytkaECcV7yWuDaliDO70tM8Yphdrq0123T8n1kcPaPxyswYTmzxnsn7kDN3YYW6lLHJcWHxabUFQ==
+"@next/mdx@^13.0.2":
+  version "13.0.2"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-13.0.2.tgz#60febdab4ccd4ece87ba99694befe146f0e1307e"
+  integrity sha512-udtSlWoOLoHdJvtuGyj3ctXW4fogsQDWU2YXp4Sx4JdsS7VKvJkhTU0Df47nAJsQKCJhQ92h+j7rA+1Dulxxqg==
+  dependencies:
+    source-map "^0.7.0"
 
 "@next/swc-android-arm-eabi@12.3.1":
   version "12.3.1"
@@ -4028,6 +4030,11 @@ source-map@^0.5.0, source-map@^0.5.7:
   version "0.5.7"
   resolved "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
+
+source-map@^0.7.0:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.4.tgz#a9bbe705c9d8846f4e08ff6765acf0f1b0898656"
+  integrity sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==
 
 space-separated-tokens@^1.0.0:
   version "1.1.5"
