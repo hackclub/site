@@ -68,67 +68,65 @@ function Circle({ children }) {
 function Step({ icon, name, duration, href }) {
   return (
     <TimelineStep sx={{ pb: 1 }}>
-      <Slide left>
-        <Circle>
-          {href ? (
-            <Link href={href} sx={{ cursor: 'pointer' }}>
-              <Icon glyph={icon} size={48} color="white" />
-            </Link>
-          ) : (
-            <Icon glyph={icon} size={48} />
-          )}
-        </Circle>
-        <Container
+      {/* <Slide left> */}
+      <Circle>
+        {href ? (
+          <Link href={href} sx={{ cursor: 'pointer' }}>
+            <Icon glyph={icon} size={48} color="white" />
+          </Link>
+        ) : (
+          <Icon glyph={icon} size={48} />
+        )}
+      </Circle>
+      <Container
+        sx={{
+          mt: 0,
+          display: 'flex',
+          justifyContent: 'left',
+          flexDirection: 'column',
+          textAlign: 'left'
+        }}
+      >
+        <Badge
+          variant="pill"
           sx={{
-            mt: 0,
-            display: 'flex',
-            justifyContent: 'left',
-            flexDirection: 'column',
-            textAlign: 'left'
+            bg: 'muted',
+            color: 'darker',
+            fontWeight: 'normal',
+            textTransform: 'uppercase',
+            width: 64,
+            fontSize: 18,
+            px: 2
           }}
         >
-          <Badge
-            variant="pill"
-            sx={{
-              bg: 'muted',
-              color: 'darker',
-              fontWeight: 'normal',
-              textTransform: 'uppercase',
-              width: 64,
-              fontSize: 18,
-              px: 2
-            }}
-          >
-            {duration}
-          </Badge>
-          <Text
-            sx={{ color: 'white', fontSize: 24, maxWidth: [300, null, 550] }}
-          >
-            {name}
-          </Text>
-        </Container>
-      </Slide>
+          {duration}
+        </Badge>
+        <Text sx={{ color: 'white', fontSize: 24, maxWidth: [300, null, 550] }}>
+          {name}
+        </Text>
+      </Container>
+      {/* </Slide> */}
     </TimelineStep>
   )
 }
 
 export default function RealTimeline() {
   return (
-    <Timeline px={3}>
+    <Timeline sx={{ px: 3 }}>
       <Step
         icon="send"
-        name="Open a demo account &amp; explore"
-        duration="Day 1"
+        name="Open a demo account &amp; explore features"
+        duration="Step 1"
       />
       <Step
-        icon="post"
-        name="Sign the contract &amp; unlock full access"
-        duration="Day 2"
+        icon="rep"
+        name="Meet with the Bank team on a call"
+        duration="Step 2"
       />
       <Step
         icon="friend"
-        name="Start accepting grants &amp; order debit cards"
-        duration="Day 3"
+        name="Start acceping grants &amp; issue debit cards"
+        duration="Step 3"
         mb={0}
       />
     </Timeline>

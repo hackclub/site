@@ -32,7 +32,7 @@ export default function First() {
       <Meta as={Head}>
         <title>Hack Club Bank — Toolkit for FIRST Teams</title>
       </Meta>
-      <Box as="main" key="main">
+      <Box as="main" key="main" sx={{ mb: 6 }}>
         <Nav dark />
         <ForceTheme theme="dark" />
         <Box
@@ -89,16 +89,24 @@ export default function First() {
                 fontWeight: 'normal',
                 fontSize: 2,
                 mt: 3,
-                mx: 'auto'
+                mx: 'auto',
+                borderRadius: ['default', null, 'extra']
               }}
             >
-              <Box as="div" sx={{ display: 'flex' }}>
+              <Box
+                as="div"
+                sx={{
+                  display: ['grid', 'grid', 'flex'],
+                  flexDirection: [null, 'row', 'row'],
+                  gridTemplateColumns: ['1fr', '1fr 1fr']
+                }}
+              >
                 <Box
                   as="span"
                   sx={{ display: 'flex', flexDirection: 'row', mr: 4 }}
                 >
                   <Icon glyph="checkmark" size={28} color="#33d6A6" />
-                  <Text sx={{ ml: 1 }}>Get nonprofit status</Text>
+                  <Text sx={{ ml: 1 }}>Nonprofit status</Text>
                 </Box>
                 <Box
                   as="span"
@@ -107,9 +115,16 @@ export default function First() {
                   <Icon glyph="checkmark" size={28} color="#33d6A6" />
                   <Text sx={{ ml: 1 }}>Receive grants</Text>
                 </Box>
+                <Box
+                  as="span"
+                  sx={{ display: 'flex', flexDirection: 'row', mr: 4 }}
+                >
+                  <Icon glyph="checkmark" size={28} color="#33d6A6" />
+                  <Text sx={{ ml: 1 }}>Debit cards</Text>
+                </Box>
                 <Box as="span" sx={{ display: 'flex', flexDirection: 'row' }}>
                   <Icon glyph="checkmark" size={28} color="#33d6A6" />
-                  <Text sx={{ ml: 1 }}>Issue debit cards</Text>
+                  <Text sx={{ ml: 1 }}>Free to use</Text>
                 </Box>
               </Box>
             </Badge>
@@ -122,26 +137,27 @@ export default function First() {
               variant="copy"
             >
               Built by <i>FIRST</i> alumni for <i>FIRST</i> teams, Hack Club
-              Bank is a fiscal sponsor and super-powered financial toolkit used
-              by hundreds of hackathons, clubs, nonprofits, and <i>FIRST</i>{' '}
-              teams worldwide.
+              Bank is a comprehensive financial platform used by hundreds of
+              clubs, teams and hackathons.
             </Container>
 
             <Box
               sx={{
                 display: 'flex',
+                flexDirection: ['column', null, 'row'],
                 justifyContent: 'center',
                 alignItems: 'center'
               }}
             >
               <Button variant="ctaLg" as="a" href="#demo">
-                Sign up
+                Open an account
               </Button>
 
               <Button
                 sx={{
                   backgroundImage: theme.util.gx('cyan', 'blue'),
-                  ml: 2
+                  ml: 2,
+                  display: ['none', null, 'inline-block'] // hide on mobile because viewing pdfs on mobile is a pain anyways
                 }}
                 variant="ctaLg"
                 as="a"
@@ -199,30 +215,6 @@ export default function First() {
             <Form />
           </Card>
         </Flex>
-        {/* <Container
-          variant="narrow"
-          sx={{
-            pt: 3,
-            pb: 6,
-            borderColor: 'muted',
-            textAlign: 'center'
-          }}
-        >
-          <Button
-            sx={{
-              backgroundImage: theme.util.gx('cyan', 'blue'),
-              fontSize: 2,
-              textTransform: 'none',
-              mt: 3
-            }}
-            as="a"
-            href="/bank/first/Hack_Club_Bank_for_FIRST_Teams.pdf"
-            target="_blank"
-          >
-            <Icon glyph="download" size={36} />
-            Download this page as a PDF
-          </Button>
-        </Container> */}
       </Box>
       <Footer dark key="footer" />
     </>

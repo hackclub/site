@@ -41,7 +41,6 @@ function Field({ placeholder, label, name, type, value, onChange }) {
         }}
         onChange={onChange}
         value={value}
-        required
       />
     </Box>
   )
@@ -79,15 +78,15 @@ export default function Signup() {
   return (
     <>
       <Base method="POST" action="/api/bank/demo">
-        {/* TODO: get their team name from the FIRST API, using their team number */}
         <Field
           label="Team Name"
           name="eventName"
           placeholder="Poseidon Robotics"
           value={values.eventName}
           onChange={e => setValues({ ...values, eventName: e.target.value })}
+          required
         />
-        <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, w: '100%' }}>
           <Box sx={{ my: 2 }}>
             <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
               Level
@@ -110,7 +109,7 @@ export default function Signup() {
           </Box>
 
           <Field
-            label="Team number"
+            label="Team number (optional)"
             name="teamNumber"
             placeholder="12345"
             value={values.teamNumber}
@@ -124,6 +123,7 @@ export default function Signup() {
           type="email"
           value={values.userEmail}
           onChange={e => setValues({ ...values, userEmail: e.target.value })}
+          required
         />
         <Button
           sx={{
@@ -148,7 +148,7 @@ export default function Signup() {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'start',
-            animation: `${hideAnimation} 0s ease-in 5s`,
+            animation: `${hideAnimation} 0s ease-in 15s`,
             animationFillMode: 'forwards'
           }}
         >

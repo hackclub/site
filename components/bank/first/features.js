@@ -15,11 +15,11 @@ export default function Features() {
         <br />
         <br />
         <Text sx={{ color: 'muted', maxWidth: '48', fontSize: 28 }}>
-          Receive grants, track your team's finances in real time, nonprofit
-          status, more.
+          Organize your team's finances in real time, receive grants, gain
+          nonprofit status, & more.
           <br />
-          Features engineered by FIRST alumuni to help you run a successful
-          team.
+          Use features engineered by <i>FIRST</i> alumni to help you run a
+          successful team.
         </Text>
         <br />
         <br />

@@ -29,7 +29,9 @@ export default async function handler(req, res) {
         console.log(r)
         applicationsTable.create({
           'Email Address': data.userEmail,
-          'Event Name': `${data.eventName} (${data.teamType} ${data.teamNumber})`,
+          'Event Name': `${data.eventName} ${
+            data.teamType && `(${data.teamType} ${data.teamNumber})`
+          }`,
           Status: 'Demo Account',
           'HCB account URL': `https://bank.hackclub.com/${r.slug}`
         })
