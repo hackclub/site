@@ -3,6 +3,7 @@ import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
 import Image from 'next/image'
 import Tilt from '../../tilt'
+import Fade from 'react-reveal/Fade'
 
 export default function Features() {
   return (
@@ -86,18 +87,20 @@ export default function Features() {
             name="Reimbursement flow"
             body="Reimburse teammates for expenses with flexible money transfer options including ACH, PayPal, mailed checks, and more."
           />
-          <Tilt>
-            <Card
-              as="div"
-              sx={{
-                backgroundImage:
-                  'url("https://cloud-ehtgzdn7u-hack-club-bot.vercel.app/0card.png")',
-                height: '230px',
-                backgroundSize: 'cover',
-                boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)'
-              }}
-            />
-          </Tilt>
+          <Fade bottom>
+            <Tilt>
+              <Card
+                as="div"
+                sx={{
+                  backgroundImage:
+                    'url("https://cloud-ehtgzdn7u-hack-club-bot.vercel.app/0card.png")',
+                  height: '230px',
+                  backgroundSize: 'cover',
+                  boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)'
+                }}
+              />
+            </Tilt>
+          </Fade>
           <Module
             icon="support"
             name="Support anytime"
@@ -306,53 +309,57 @@ export default function Features() {
 
 function Module({ icon, name, body }) {
   return (
-    <Card
-      variant="primary"
-      sx={{ display: 'flex', flexDirection: 'column', p: [4, null, 4] }}
-      className="post"
-    >
-      <Box
-        as="span"
-        sx={{
-          width: 'fit-content',
-          bg: 'primary',
-          borderRadius: 'default',
-          lineHeight: 0,
-          p: 1,
-          mb: 1,
-          display: 'inline-block',
-          transform: ['scale(0.75)', 'none'],
-          transformOrigin: 'bottom left',
-          boxShadow:
-            'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
-        }}
+    <Fade bottom>
+      <Card
+        variant="primary"
+        sx={{ display: 'flex', flexDirection: 'column', p: [4, null, 4] }}
+        className="post"
       >
-        <Icon glyph={icon} size={28} />
-      </Box>
-      <Box>
-        <Heading sx={{ color: 'snow', lineHeight: '1.5' }}>{name}</Heading>
-        <Text sx={{ color: 'muted', lineHeight: '1.375', fontSize: 17 }}>
-          {body}
-        </Text>
-      </Box>
-    </Card>
+        <Box
+          as="span"
+          sx={{
+            width: 'fit-content',
+            bg: 'primary',
+            borderRadius: 'default',
+            lineHeight: 0,
+            p: 1,
+            mb: 1,
+            display: 'inline-block',
+            transform: ['scale(0.75)', 'none'],
+            transformOrigin: 'bottom left',
+            boxShadow:
+              'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
+          }}
+        >
+          <Icon glyph={icon} size={28} />
+        </Box>
+        <Box>
+          <Heading sx={{ color: 'snow', lineHeight: '1.5' }}>{name}</Heading>
+          <Text sx={{ color: 'muted', lineHeight: '1.375', fontSize: 17 }}>
+            {body}
+          </Text>
+        </Box>
+      </Card>
+    </Fade>
   )
 }
 
 function ModuleDetails({ children }) {
   return (
-    <Box
-      sx={{
-        bg: 'none',
-        color: 'smoke',
-        boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)',
-        borderRadius: 'default',
-        p: 0,
-        mb: 3
-      }}
-    >
-      {children}
-    </Box>
+    <Fade bottom>
+      <Box
+        sx={{
+          bg: 'none',
+          color: 'smoke',
+          boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)',
+          borderRadius: 'default',
+          p: 0,
+          mb: 3
+        }}
+      >
+        {children}
+      </Box>
+    </Fade>
   )
 }
 

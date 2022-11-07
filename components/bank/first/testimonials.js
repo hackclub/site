@@ -65,7 +65,7 @@ export default function Testimonials() {
           hackerAvatarUrl="/hackers/brian-cisto.jpeg"
           hackerName="Brian Cisto"
           hackerRole="Team Captain & Software Lead"
-          imgSrc="https://cloud-ag6fuxl0g-hack-club-bot.vercel.app/0f4b04492-9b96-46fc-a646-e1d044c01085.jpg"
+          imgSrc="https://cloud-oelh6sp7b-hack-club-bot.vercel.app/0screen_shot_2022-11-06_at_8.45.37_pm.png"
           quote="Hack Club Bank has been essential to keeping track of our finances as well as giving us the opportunity to establish ourselves as a nonprofit."
         />
       </Grid>

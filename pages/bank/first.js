@@ -7,7 +7,8 @@ import {
   Flex,
   Link,
   Button,
-  Grid
+  Grid,
+  Badge
 } from 'theme-ui'
 
 import Meta from '@hackclub/meta'
@@ -29,7 +30,7 @@ export default function First() {
   return (
     <>
       <Meta as={Head}>
-        <title>Hack Club Bank — Toolkit for Robotics Teams</title>
+        <title>Hack Club Bank — Toolkit for FIRST Teams</title>
       </Meta>
       <Box as="main" key="main">
         <Nav dark />
@@ -76,10 +77,42 @@ export default function First() {
                   textShadow: theme => `0 0 12px ${theme.colors.blue}`
                 }}
               >
-                robotics teams
+                FRC, FTC, and FLL teams
               </Text>
               .
             </Heading>
+            <Badge
+              variant="pill"
+              sx={{
+                bg: 'rgba(132,146,166, 0.5)',
+                color: 'white',
+                fontWeight: 'normal',
+                fontSize: 2,
+                mt: 3,
+                mx: 'auto'
+              }}
+            >
+              <Box as="div" sx={{ display: 'flex' }}>
+                <Box
+                  as="span"
+                  sx={{ display: 'flex', flexDirection: 'row', mr: 4 }}
+                >
+                  <Icon glyph="checkmark" size={28} color="#33d6A6" />
+                  <Text sx={{ ml: 1 }}>Get nonprofit status</Text>
+                </Box>
+                <Box
+                  as="span"
+                  sx={{ display: 'flex', flexDirection: 'row', mr: 4 }}
+                >
+                  <Icon glyph="checkmark" size={28} color="#33d6A6" />
+                  <Text sx={{ ml: 1 }}>Receive grants</Text>
+                </Box>
+                <Box as="span" sx={{ display: 'flex', flexDirection: 'row' }}>
+                  <Icon glyph="checkmark" size={28} color="#33d6A6" />
+                  <Text sx={{ ml: 1 }}>Issue debit cards</Text>
+                </Box>
+              </Box>
+            </Badge>
             <Container
               sx={{
                 fontSize: [2, 3, 3],
@@ -88,9 +121,10 @@ export default function First() {
               }}
               variant="copy"
             >
-              Built by <i>FIRST</i> alumni, for <i>FIRST</i> teams, Hack Club
-              Bank is a full-stack financial toolkit used by thousands of
-              teenagers worldwide.
+              Built by <i>FIRST</i> alumni for <i>FIRST</i> teams, Hack Club
+              Bank is a fiscal sponsor and super-powered financial toolkit used
+              by hundreds of hackathons, clubs, nonprofits, and <i>FIRST</i>{' '}
+              teams worldwide.
             </Container>
             <Button variant="ctaLg" as="a" href="#demo">
               Get Started
@@ -113,7 +147,7 @@ export default function First() {
             pt: 5
           }}
         >
-          <Heading variant="title">Get started in just a few days.</Heading>
+          <Heading variant="title">Get started in a day.</Heading>
           <Text variant="lead" color="muted">
             We’ll help you get set up and running in no time.
           </Text>
