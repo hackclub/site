@@ -486,10 +486,10 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-"@hackclub/icons@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.npmjs.org/@hackclub/icons/-/icons-0.0.9.tgz"
-  integrity sha512-6doI5dv8BaTjgfDhRMaudOuk0j0ir9DAP1vBn0lXrJ/QCkpoMrGOwILGOkV2Pa1EJ67dVSrbf+k/rvP7c36gAA==
+"@hackclub/icons@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@hackclub/icons/-/icons-0.0.12.tgz#a82dd20fdbc263c956aaee3ec8689078965d22fa"
+  integrity sha512-YXPpalHN0lEjgaUD++u43NucSfgXlaQRbNKH+CJusS9erCF1jyu0pUH0peXqmlWZybbIg1PnuYJyOvKDvACA2g==
 
 "@hackclub/meta@1.1.32":
   version "1.1.32"
