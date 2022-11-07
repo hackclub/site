@@ -126,9 +126,31 @@ export default function First() {
               by hundreds of hackathons, clubs, nonprofits, and <i>FIRST</i>{' '}
               teams worldwide.
             </Container>
-            <Button variant="ctaLg" as="a" href="#demo">
-              Get Started
-            </Button>
+
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <Button variant="ctaLg" as="a" href="#demo">
+                Sign up
+              </Button>
+
+              <Button
+                sx={{
+                  backgroundImage: theme.util.gx('cyan', 'blue'),
+                  ml: 2
+                }}
+                variant="ctaLg"
+                as="a"
+                href="/bank/first/Hack_Club_Bank_for_FIRST_Teams.pdf"
+                target="_blank"
+              >
+                Download this page
+              </Button>
+            </Box>
           </Box>
         </Box>
 
@@ -177,7 +199,7 @@ export default function First() {
             <Form />
           </Card>
         </Flex>
-        <Container
+        {/* <Container
           variant="narrow"
           sx={{
             pt: 3,
@@ -200,7 +222,7 @@ export default function First() {
             <Icon glyph="download" size={36} />
             Download this page as a PDF
           </Button>
-        </Container>
+        </Container> */}
       </Box>
       <Footer dark key="footer" />
     </>
