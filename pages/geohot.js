@@ -140,7 +140,7 @@ export default function Geohot() {
           bg: '#0f0f0f',
           position: 'relative',
           zIndex: '0',
-          overflow: 'hidden'
+          overflow: 'hidden',
         }}
       >
         <Link href="https://hackclub.com" target="_blank" color="inherit">
@@ -156,7 +156,6 @@ export default function Geohot() {
             alt="Hackclub flag green"
           />
         </Link>
-        <Particle />
         <Box>
           <Box sx={{ position: 'absolute', top: '10px', right: '5%' }}>
             <Text
@@ -200,14 +199,14 @@ export default function Geohot() {
           }}
         >
           <Image
-            src={`/ama/vitalikName2.svg`}
+            src={`/ama/geohotName.svg`}
             width={700}
             height={500}
             sx={{ display: ['none', 'block'], pb: '50px' }}
             alt="George Hotz"
           />
           <Image
-            src={`/ama/vitalikNameMobile.svg`}
+            src={`/ama/geohotNameMobile.svg`}
             width={250}
             height={200}
             sx={{ display: ['block', 'none'], pt: '20px', pb: '10px' }}
@@ -338,6 +337,7 @@ export default function Geohot() {
             zIndex: '-30',
           }}
         >
+
           {timer.length ? (
             <>
               <Image
@@ -366,6 +366,17 @@ export default function Geohot() {
             </>
           )}
         </Box>
+        <Image
+            src={`/ama/geohot_bg.svg`}
+            width={1500}
+            height={750}
+            sx={{
+              position: 'absolute',
+              bottom: '5vw',
+              left: ['10vw', '20vw'],
+              zIndex: '-2000'
+            }}
+          />
       </Box>
     </>
   )
