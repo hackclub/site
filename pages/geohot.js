@@ -6,7 +6,7 @@ import tt from 'tinytime'
 import Particle from '../components/particles'
 import { thousands } from '../lib/members'
 
-export default function geohot() {
+export default function Geohot() {
   const calculateTimeLeft = () => {
     const difference = +new Date(`2022-11-11T23:00:00.000Z`) - +new Date()
 
