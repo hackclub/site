@@ -127,7 +127,7 @@ export default function Geohot() {
         as={Head}
         title="George Hotz | AMA"
         description="We’re excited to welcome George Hotz (Founder of comma.ai) to speak to teenagers at Hack Club!"
-        image="https://cloud-je16il79h-hack-club-bot.vercel.app/0slack.png"
+        image="/ama/geohotEmbed.jpeg"
       />
       <Head>
         <meta name="theme-color" content="#00FF15" />
@@ -367,7 +367,7 @@ export default function Geohot() {
           )}
         </Box>
         <Image
-            src={`/ama/geohot_bg.svg`}
+            src={`/ama/geohotBg.svg`}
             width={1500}
             height={750}
             sx={{
