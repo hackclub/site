@@ -103,39 +103,30 @@ export default function BankApplyForm() {
           onChange={handleChange}
           required
         />
-        <hr />
-        <label
-          htmlFor="transparent"
-          sx={{ color: 'smoke', fontSize: 18, pb: 2, my: 2 }}
+        <Label
+          htmlFor="returningUser"
+          sx={{ color: 'smoke', fontSize: 18, my: 2 }}
         >
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <input type="radio" id="transparent" name="transparent" checked={values.transparent == true} value={true}
-              onChange={handleChange}
-            />
-            <Icon
-              glyph='docs'
-              sx={{ mr: [2, 3], ml: 2, color: 'slate', display: ['none', 'inline'], width: 24, height: 24 }}
-            />
-            Transparent{' '}
-            <HelperText>
-              Anyone on the internet can see your balance and donations. You can choose who has access to personal details.
-            </HelperText>
-          </div>
-        </label>
-        <label htmlFor="no-transparent">
-          <input type="radio" id="no-transparent" name="transparent" checked={values.transparent != true} value={false}
+          Would you like to make your account transparent?
+          <Select
+            name="returningUser"
+            sx={{ bg: 'dark', mt: 1 }}
+            value={values.returningUser}
             onChange={handleChange}
-          />
-          <Icon
-            glyph='private-outline'
-            sx={{ mr: [2, 3], ml: 2, color: 'slate', display: ['none', 'inline'] }}
-          />
-          Private{' '}
-          <HelperText>
-            You can choose who can see your budget and transaction details.
-          </HelperText>
-        </label>
-        <hr />
+          >
+            <option value="transparent">Yes, please!</option>
+            <option value="no-transparent">
+              No, thanks.
+            </option>
+          </Select>
+        </Label>
+        <HelperText>
+          For transparent accounts, anyone can see your balance and donations. 
+          You choose who has access to personal details.{" "}
+          <Link as="a" href="https://bank.hackclub.com/hq" target="_blank">
+            Hack Club's finances
+          </Link>{" "} 
+          are transparent, for example.</HelperText>
         <Field
           label="Organization website"
           name="eventWebsite"
