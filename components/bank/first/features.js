@@ -1,13 +1,41 @@
-import { Box, Heading, Link, Text, Container, Grid, Card, Flex } from 'theme-ui'
+import {
+  Box,
+  Heading,
+  Link,
+  Text,
+  Container,
+  Grid,
+  Card,
+  Flex,
+  Image
+} from 'theme-ui'
 import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
-import Image from 'next/image'
+import NextImage from 'next/image'
+
 import Tilt from '../../tilt'
 import Fade from 'react-reveal/Fade'
 
 export default function Features() {
   return (
     <Box sx={{ py: 5 }}>
+      <Box as="a" href="#testimonials">
+        <Image
+          src="/bank/meet-teams-using-bank.svg"
+          alt="yeah"
+          width={300}
+          height={200}
+          sx={{
+            position: 'absolute',
+            right: 2,
+            mt: -36,
+            display: ['none', 'none', 'none', 'block'],
+            '&:hover': {
+              transform: 'scale(1.05)'
+            }
+          }}
+        />
+      </Box>
       <Container>
         <Text variant="heading" sx={{ fontSize: 50 }}>
           Everything you'll need.
@@ -43,7 +71,7 @@ export default function Features() {
           />
 
           <ModuleDetails>
-            <Image
+            <NextImage
               src="/bank/poseidon-dashboard.png"
               alt="iPad"
               width={500}
@@ -93,7 +121,7 @@ export default function Features() {
             name="Support anytime"
             body="We’ll never leave you hanging with 24-hour response time on weekdays."
           />
-          <Tilt>
+          {/* <Tilt>
             <Card
               as="div"
               sx={{
@@ -222,7 +250,12 @@ export default function Features() {
                 </Text>
               </Flex>
             </Card>
-          </Tilt>
+          </Tilt> */}
+          <Module
+            icon="rep"
+            name="Fee-free"
+            body="All fees waived for the first year on up to $25,000 raised. Then, just 7% of revenue. "
+          />
         </Masonry>
       </Container>
       <Container

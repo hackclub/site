@@ -29,9 +29,15 @@ import theme from '@hackclub/theme'
 export default function First() {
   return (
     <>
+      <style>
+        {`*{
+          scroll-behavior: smooth;
+        }`}
+      </style>
       <Meta as={Head}>
         <title>Hack Club Bank — Toolkit for FIRST Teams</title>
       </Meta>
+
       <Box as="main" key="main" sx={{ mb: 6 }}>
         <Nav dark />
         <ForceTheme theme="dark" />
@@ -124,7 +130,7 @@ export default function First() {
                 </Box>
                 <Box as="span" sx={{ display: 'flex', flexDirection: 'row' }}>
                   <Icon glyph="checkmark" size={28} color="#33d6A6" />
-                  <Text sx={{ ml: 1 }}>Free to use</Text>
+                  <Text sx={{ ml: 1 }}>No start-up costs</Text>
                 </Box>
               </Box>
             </Badge>
@@ -172,7 +178,9 @@ export default function First() {
 
         <Features />
 
-        <Testimonials />
+        <Box id="testimonials">
+          <Testimonials />
+        </Box>
 
         <Container
           variant="container"
