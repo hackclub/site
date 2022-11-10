@@ -121,6 +121,7 @@ export default function BankApplyForm() {
           </Select>
         </Label>
         <HelperText>
+          This can be changed at anytime. 
           For transparent accounts, anyone can see your balance and donations. 
           You choose who has access to personal details.{" "}
           <Link as="a" href="https://bank.hackclub.com/hq" target="_blank">
