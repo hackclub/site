@@ -68,6 +68,8 @@ export default function Signup() {
       body: JSON.stringify(values)
     })
 
+    setSubmitted(true)
+
     // clear form
     setValues({
       locationState: '',
