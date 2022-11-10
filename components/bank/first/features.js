@@ -23,8 +23,8 @@ export default function Features() {
         <Image
           src="/bank/meet-teams-using-bank.svg"
           alt="yeah"
-          width={300}
-          height={200}
+          width={200}
+          height={100}
           sx={{
             position: 'absolute',
             right: 2,
