@@ -12,6 +12,7 @@ import {
   Flex
 } from 'theme-ui'
 import { useRouter } from 'next/router'
+import Icon from '../icon'
 import countries from '../../lib/countries'
 import { useEffect, useState } from 'react'
 
@@ -26,7 +27,8 @@ export default function BankApplyForm() {
     eventWebsite: '',
     eventLocation: '',
     userPhone: '',
-    returningUser: ''
+    returningUser: '',
+    transparent: true
   })
 
   useEffect(() => {
@@ -38,12 +40,18 @@ export default function BankApplyForm() {
       eventWebsite: query.eventWebsite || '',
       eventLocation: query.eventLocation || '',
       userPhone: query.userPhone || '',
-      returningUser: query.returningUser || ''
+      returningUser: query.returningUser || '',
+      transparent: query.transparent || true
     })
   }, [query])
 
   const handleChange = e => {
-    setValues({ ...values, [e.target.name]: e.target.value })
+    let isRadio = e.target.type === 'radio'
+    let newValue = e.target.value
+    if (isRadio) {
+      newValue = e.target.value.toString() === 'true'
+    }
+    setValues({ ...values, [e.target.name]: newValue })
   }
 
   return (
@@ -95,6 +103,30 @@ export default function BankApplyForm() {
           onChange={handleChange}
           required
         />
+        <Label
+          htmlFor="transparent"
+          sx={{ color: 'smoke', fontSize: 18, my: 2 }}
+        >
+          Would you like to make your account transparent?
+          <Select
+            name="transparent"
+            sx={{ bg: 'dark', mt: 1 }}
+            value={values.transparent}
+            onChange={handleChange}
+          >
+            <option value="Yes, please!">Yes, please!</option>
+            <option value="No, thanks.">No, thanks.</option>
+          </Select>
+        </Label>
+        <HelperText>
+          This can be changed at anytime. For transparent accounts, anyone can
+          see your balance and donations. You choose who has access to personal
+          details.{' '}
+          <Link as="a" href="https://bank.hackclub.com/hq" target="_blank">
+            Hack Club's finances
+          </Link>{' '}
+          are transparent, for example.
+        </HelperText>
         <Field
           label="Organization website"
           name="eventWebsite"
@@ -320,6 +352,33 @@ function Field({
   required,
   sx
 }) {
+  let isRadio = type === 'radio'
+  let isCheckbox = type === 'checkbox'
+  if (isCheckbox) {
+    return (
+      <>
+        <Label
+          htmlFor={name}
+          sx={{
+            color: 'smoke',
+            fontSize: 18,
+            my: 2,
+            ...sx
+          }}
+        >
+          {label}
+        </Label>
+        <Input
+          name={name}
+          type={type}
+          value={value}
+          onChange={onChange}
+          required={required}
+          sx={{ mr: 2 }}
+        />
+      </>
+    )
+  }
   return (
     <Box sx={{ my: 2 }}>
       <Label htmlFor={name} sx={{ color: 'smoke', fontSize: 18 }}>
