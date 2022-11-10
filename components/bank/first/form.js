@@ -1,13 +1,19 @@
 import { Box, Input, Label, Button, Select, Text } from 'theme-ui'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import theme from '@hackclub/theme'
 import Icon from '../../icon'
 import { keyframes } from '@emotion/react'
+import debounce from 'lodash/debounce'
 
 const hideAnimation = keyframes({
   from: { display: 'flex' },
   to: { display: 'none', opacity: 0, padding: 0, position: 'absolute' }
+})
+
+const spinAnimation = keyframes({
+  from: { transform: 'rotate(0deg)' },
+  to: { transform: 'rotate(360deg)' }
 })
 
 function Base({ children, action, target, method, onSubmit, id }) {
@@ -26,59 +32,109 @@ function Base({ children, action, target, method, onSubmit, id }) {
   )
 }
 
-function Field({ placeholder, label, name, type, value, onChange }) {
+function Field({
+  placeholder,
+  label,
+  name,
+  type,
+  value,
+  onChange,
+  loading = false
+}) {
   return (
     <Box sx={{ my: 2 }}>
       <Label htmlFor={name} sx={{ color: 'muted', fontSize: 18 }}>
         {label}
       </Label>
-      <Input
-        id={name}
-        placeholder={placeholder}
-        name={name}
-        type={type}
-        sx={{
-          bg: 'dark'
-        }}
-        onChange={onChange}
-        value={value}
-      />
+      <Box sx={{ position: 'relative' }}>
+        {loading && (
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 10,
+              right: 10,
+              width: 20,
+              height: 20,
+              border: '1px solid white',
+              borderRightStyle: 'none',
+              animation: `${spinAnimation} 1s linear infinite`,
+              borderRadius: '50%'
+            }}
+          ></Box>
+        )}
+        <Input
+          id={name}
+          placeholder={placeholder}
+          name={name}
+          type={type}
+          sx={{
+            bg: 'dark'
+          }}
+          onChange={onChange}
+          value={value}
+        />
+      </Box>
     </Box>
   )
 }
 
 export default function Signup() {
-  const { query } = useRouter()
   const [submitted, setSubmitted] = useState(false)
 
-  const [values, setValues] = useState({
-    locationState: '',
-    locationCountry: '',
-    teamName: '',
-    teamType: '',
-    teamNumber: '',
-    userEmail: ''
-  })
+  const [eventName, setEventName] = useState('')
+  const [teamType, setTeamType] = useState('')
+  const [teamNumber, setTeamNumber] = useState('')
+  const [userEmail, setUserEmail] = useState('')
+
+  const [teamNameLoading, setTeamNameLoading] = useState(false)
+
+  const debouncedTeamNameUpdate = useRef(
+    debounce(async teamNumber => {
+      try {
+        const data = await fetch(
+          `/api/first-team?teamNumber=${teamNumber}`
+        ).then(res => res.json())
+
+        setTeamNameLoading(false)
+
+        if (data.ok !== false) {
+          setEventName(data.nickname)
+        } else {
+          setEventName('')
+        }
+      } catch (e) {}
+    }, 200)
+  )
+
+  useEffect(() => {
+    if (teamNumber && teamType === 'FRC') {
+      setTeamNameLoading(true)
+      debouncedTeamNameUpdate.current(teamNumber)
+    } else {
+      setEventName('')
+    }
+  }, [teamType, teamNumber])
 
   const handleSubmit = async e => {
     e.preventDefault()
 
     fetch('/api/bank/demo', {
       method: 'POST',
-      body: JSON.stringify(values)
+      body: JSON.stringify({
+        eventName,
+        teamType,
+        teamNumber,
+        userEmail
+      })
     })
 
     setSubmitted(true)
 
     // clear form
-    setValues({
-      locationState: '',
-      locationCountry: '',
-      eventName: '',
-      teamType: '',
-      teamNumber: '',
-      userEmail: ''
-    })
+    setEventName('')
+    setTeamType('')
+    setTeamNumber('')
+    setUserEmail('')
   }
 
   return (
@@ -89,14 +145,6 @@ export default function Signup() {
         action="/api/bank/demo"
         onSubmit={handleSubmit}
       >
-        <Field
-          label="Team Name"
-          name="eventName"
-          placeholder="Poseidon Robotics"
-          value={values.eventName}
-          onChange={e => setValues({ ...values, eventName: e.target.value })}
-          required
-        />
         <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, w: '100%' }}>
           <Box sx={{ my: 2 }}>
             <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
@@ -105,11 +153,9 @@ export default function Signup() {
                 name="teamType"
                 defaultValue="Select"
                 sx={{ bg: 'dark' }}
-                onChange={e =>
-                  setValues({ ...values, teamType: e.target.value })
-                }
+                onChange={e => setTeamType(e.target.value)}
               >
-                <option value="Select" selected disabled>
+                <option value="Select" disabled>
                   Select
                 </option>
                 <option value="FLL">FLL</option>
@@ -123,17 +169,26 @@ export default function Signup() {
             label="Team number (optional)"
             name="teamNumber"
             placeholder="12345"
-            value={values.teamNumber}
-            onChange={e => setValues({ ...values, teamNumber: e.target.value })}
+            value={teamNumber}
+            loading={teamNameLoading}
+            onChange={e => setTeamNumber(e.target.value)}
           />
         </Box>
+        <Field
+          label="Team name"
+          name="eventName"
+          placeholder="Poseidon Robotics"
+          value={eventName}
+          onChange={e => setEventName(e.target.value)}
+          required
+        />
         <Field
           label="Email address"
           name="userEmail"
           placeholder="fiona@hackclub.com"
           type="email"
-          value={values.userEmail}
-          onChange={e => setValues({ ...values, userEmail: e.target.value })}
+          value={userEmail}
+          onChange={e => setUserEmail(e.target.value)}
           required
         />
         <Button
