@@ -28,7 +28,7 @@ export default function BankApplyForm() {
     eventLocation: '',
     userPhone: '',
     returningUser: '',
-    transparent: true,
+    transparent: true
   })
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function BankApplyForm() {
       eventLocation: query.eventLocation || '',
       userPhone: query.userPhone || '',
       returningUser: query.returningUser || '',
-      transparent: query.transparent || true,
+      transparent: query.transparent || true
     })
   }, [query])
 
@@ -104,30 +104,29 @@ export default function BankApplyForm() {
           required
         />
         <Label
-          htmlFor="returningUser"
+          htmlFor="transparent"
           sx={{ color: 'smoke', fontSize: 18, my: 2 }}
         >
           Would you like to make your account transparent?
           <Select
-            name="returningUser"
+            name="transparent"
             sx={{ bg: 'dark', mt: 1 }}
-            value={values.returningUser}
+            value={values.transparent}
             onChange={handleChange}
           >
-            <option value="transparent">Yes, please!</option>
-            <option value="no-transparent">
-              No, thanks.
-            </option>
+            <option value="Yes, please!">Yes, please!</option>
+            <option value="No, thanks.">No, thanks.</option>
           </Select>
         </Label>
         <HelperText>
-          This can be changed at anytime. 
-          For transparent accounts, anyone can see your balance and donations. 
-          You choose who has access to personal details.{" "}
+          This can be changed at anytime. For transparent accounts, anyone can
+          see your balance and donations. You choose who has access to personal
+          details.{' '}
           <Link as="a" href="https://bank.hackclub.com/hq" target="_blank">
             Hack Club's finances
-          </Link>{" "} 
-          are transparent, for example.</HelperText>
+          </Link>{' '}
+          are transparent, for example.
+        </HelperText>
         <Field
           label="Organization website"
           name="eventWebsite"
@@ -376,7 +375,8 @@ function Field({
           onChange={onChange}
           required={required}
           sx={{ mr: 2 }}
-        /></>
+        />
+      </>
     )
   }
   return (
