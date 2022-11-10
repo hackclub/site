@@ -10,11 +10,12 @@ const hideAnimation = keyframes({
   to: { display: 'none', opacity: 0, padding: 0, position: 'absolute' }
 })
 
-function Base({ children, action, target, method, onSubmit }) {
+function Base({ children, action, target, method, onSubmit, id }) {
   return (
     <Box
       as="form"
       sx={{ display: 'grid', gridTemplateColumns: '1fr' }}
+      id={id}
       action={action}
       target={target}
       method={method}
@@ -77,7 +78,12 @@ export default function Signup() {
 
   return (
     <>
-      <Base method="POST" action="/api/bank/demo">
+      <Base
+        id="form"
+        method="POST"
+        action="/api/bank/demo"
+        onSubmit={handleSubmit}
+      >
         <Field
           label="Team Name"
           name="eventName"
@@ -136,7 +142,7 @@ export default function Signup() {
           Create new account
         </Button>
       </Base>
-      {query.success && (
+      {submitted && (
         <Box
           sx={{
             mt: 2,
