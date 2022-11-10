@@ -35,7 +35,9 @@ export default async function handler(req, res) {
           Status: 'Demo Account',
           'HCB account URL': `https://bank.hackclub.com/${r.slug}`
         })
-        res.send('Success! Check your email for next steps.').end()
+        res
+          .status(200)
+          .json({ message: 'Success! Check your email for next steps.' })
       })
       .catch(error => {
         console.log(error)
