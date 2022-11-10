@@ -11,7 +11,7 @@ const applicationsTable = new AirtablePlus({
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const data = req.body
+    const data = JSON.parse(req.body)
 
     await fetch('https://bank.hackclub.com/api/v1/events/create_demo', {
       body: JSON.stringify({
@@ -25,13 +25,12 @@ export default async function handler(req, res) {
       }
     })
       .then(r => r.json())
-      .then(r => {
-        console.log(r)
-        applicationsTable.create({
+      .then(async r => {
+        console.log(data)
+
+        await applicationsTable.create({
           'Email Address': data.userEmail,
-          'Event Name': `${data.eventName} ${
-            data.teamType && `(${data.teamType} ${data.teamNumber})`
-          }`,
+          'Event Name': `${data.eventName} (${data.teamType} ${data.teamNumber})`,
           Status: 'Demo Account',
           'HCB account URL': `https://bank.hackclub.com/${r.slug}`
         })

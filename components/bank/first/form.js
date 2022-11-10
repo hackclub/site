@@ -63,7 +63,7 @@ export default function Signup() {
   const handleSubmit = async e => {
     e.preventDefault()
 
-    fetch('/api/bank/demo', {
+    await fetch('/api/bank/demo', {
       method: 'POST',
       body: JSON.stringify(values)
     })
