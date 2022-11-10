@@ -30,7 +30,8 @@ export default async function handler(req, res) {
       'Event Location': data.eventLocation,
       'Have you used Hack Club Bank for any previous events?':
         data.returningUser,
-      'How did you hear about HCB?': data.referredBy
+      'How did you hear about HCB?': data.referredBy,
+      Transparent: data.transparent
     })
     const url = process.env.BANK_NOTIFS_WEBHOOK
     const body = JSON.stringify({

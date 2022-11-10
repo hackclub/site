@@ -227,6 +227,10 @@ const nextConfig = {
       {
         source: '/map/(.*)',
         destination: 'https://map.hackclub.dev/$1'
+      },
+      {
+        source: '/how-to-organize-a-hackathon',
+        destination: 'https://expandables.hackclub.dev/organizing.html'
       }
     ]
   },
