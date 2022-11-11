@@ -7,6 +7,16 @@ import Particle from '../components/particles'
 import { thousands } from '../lib/members'
 
 export default function Geohot() {
+  let minutes = 1
+  let milliseconds = minutes * 60000
+
+  if (typeof window !== 'undefined') {
+    setTimeout(function(){
+      window.location.reload();
+      console.log('hi')
+   }, milliseconds);
+  }
+  
   const calculateTimeLeft = () => {
     const difference = +new Date(`2022-11-11T23:00:00.000Z`) - +new Date()
 
@@ -247,13 +257,13 @@ export default function Geohot() {
                   fontWeight: 'bold'
                 })}
               >
-                The AMA has ended. Thank you to Vitalik and everyone for joining
+                The AMA has ended. Thank you to George Hotz and everyone for joining
                 us!
               </Text>
               <Box>
                 <Button
                   as="a"
-                  href="https://hack.af/vitalik-livestream"
+                  href="https://hack.af/geohot-livestream"
                   sx={{
                     background: '#00FF15',
                     margin: ['10px', '15px'],
