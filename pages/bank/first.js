@@ -5,9 +5,7 @@ import {
   Card,
   Text,
   Flex,
-  Link,
   Button,
-  Grid,
   Badge
 } from 'theme-ui'
 
@@ -16,11 +14,9 @@ import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
-import NextLink from 'next/link'
 import Icon from '../../components/icon'
 import Features from '../../components/bank/first/features'
 
-import Zoom from 'react-reveal/Zoom'
 import Form from '../../components/bank/first/form'
 import Testimonials from '../../components/bank/first/testimonials'
 import Steps from '../../components/bank/first/steps'

@@ -1,6 +1,5 @@
 import { Box, Input, Label, Button, Select, Text } from 'theme-ui'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 import theme from '@hackclub/theme'
 import Icon from '../../icon'
 import { keyframes } from '@emotion/react'
@@ -57,7 +56,6 @@ function Field({
 }
 
 export default function Signup() {
-  const { query } = useRouter()
   const [submitted, setSubmitted] = useState(false)
 
   const [values, setValues] = useState({

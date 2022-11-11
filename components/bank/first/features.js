@@ -1,14 +1,4 @@
-import {
-  Box,
-  Heading,
-  Link,
-  Text,
-  Container,
-  Grid,
-  Card,
-  Flex,
-  Image
-} from 'theme-ui'
+import { Box, Heading, Link, Text, Container, Card, Image } from 'theme-ui'
 import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
 import NextImage from 'next/image'

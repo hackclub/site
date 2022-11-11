@@ -31,44 +31,46 @@ export default function Testimonials() {
           Hack&nbsp;Club&nbsp;Bank powers teams of all sizes.
         </Text>
       </Container>
-      <Grid
-        gap={4}
-        sx={{
-          gridTemplateColumns: ['100%', null, null, '1fr 1fr']
-        }}
-      >
-        <Organization
-          logo="https://cloud-ga0lm1r8d-hack-club-bot.vercel.app/0image.png"
-          name="Poseidon Robotics"
-          teamNum="FTC Team #16898"
-          teamLocation="San Jose, CA"
-          budget="$1,000,000"
-          budgetLabel="in grants"
-          website="evposeidon.wixsite.com"
-          url="https://evposeidon.wixsite.com/robo/home"
-          imgSrc="https://cloud-qtng6088u-hack-club-bot.vercel.app/0image.png"
-          quote="Overall, Hack Club Bank has opened more opportunities for Poseidon, allowing us to undertake larger projects, both on the playing field and in our community."
-          hackerName="Ian Marwong"
-          hackerRole="Team Lead"
-          hackerAvatarUrl="/hackers/ian-marwong.jpg"
-          transparency="poseidon-robotics"
-        />
-        <Organization
-          logo="https://cloud-ab81zjlm9-hack-club-bot.vercel.app/0image.png"
-          name="Killabytez"
-          teamNum="FTC Team #14663"
-          teamLocation="Fremont, CA"
-          budget="$1,000,000"
-          budgetLabel="in grants"
-          website="killabytez.club"
-          url="http://www.killabytez.club/"
-          hackerAvatarUrl="/hackers/brian-cisto.jpeg"
-          hackerName="Brian Cisto"
-          hackerRole="Team Captain & Software Lead"
-          imgSrc="https://cloud-oelh6sp7b-hack-club-bot.vercel.app/0screen_shot_2022-11-06_at_8.45.37_pm.png"
-          quote="Hack Club Bank has been essential to keeping track of our finances as well as giving us the opportunity to establish ourselves as a nonprofit."
-        />
-      </Grid>
+      <Container>
+        <Grid
+          gap={4}
+          sx={{
+            gridTemplateColumns: ['100%', null, null, '1fr 1fr']
+          }}
+        >
+          <Organization
+            logo="https://cloud-ga0lm1r8d-hack-club-bot.vercel.app/0image.png"
+            name="Poseidon Robotics"
+            teamNum="FTC Team #16898"
+            teamLocation="San Jose, CA"
+            budget="$1,000,000"
+            budgetLabel="in grants"
+            website="evposeidon.wixsite.com"
+            url="https://evposeidon.wixsite.com/robo/home"
+            imgSrc="https://cloud-qtng6088u-hack-club-bot.vercel.app/0image.png"
+            quote="Overall, Hack Club Bank has opened more opportunities for Poseidon, allowing us to undertake larger projects, both on the playing field and in our community."
+            hackerName="Ian Marwong"
+            hackerRole="Team Lead"
+            hackerAvatarUrl="/hackers/ian-marwong.jpg"
+            transparency="poseidon-robotics"
+          />
+          <Organization
+            logo="https://cloud-ab81zjlm9-hack-club-bot.vercel.app/0image.png"
+            name="Killabytez"
+            teamNum="FTC Team #14663"
+            teamLocation="Fremont, CA"
+            budget="$1,000,000"
+            budgetLabel="in grants"
+            website="killabytez.club"
+            url="http://www.killabytez.club/"
+            hackerAvatarUrl="/hackers/brian-cisto.jpeg"
+            hackerName="Brian Cisto"
+            hackerRole="Team Captain & Software Lead"
+            imgSrc="https://cloud-oelh6sp7b-hack-club-bot.vercel.app/0screen_shot_2022-11-06_at_8.45.37_pm.png"
+            quote="Hack Club Bank has been essential to keeping track of our finances as well as giving us the opportunity to establish ourselves as a nonprofit."
+          />
+        </Grid>
+      </Container>
     </>
   )
 }
