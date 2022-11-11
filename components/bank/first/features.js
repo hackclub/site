@@ -71,12 +71,17 @@ export default function Features() {
           />
 
           <ModuleDetails>
-            <NextImage
-              src="/bank/poseidon-dashboard.png"
-              alt="iPad"
-              width={500}
-              height={300}
-            />
+            <Link
+              href="https://bank.hackclub.com/poseidon-robotics"
+              target="_blank"
+            >
+              <NextImage
+                src="/bank/poseidon-dashboard.png"
+                alt="iPad"
+                width={500}
+                height={300}
+              />
+            </Link>
           </ModuleDetails>
 
           <Module
@@ -253,8 +258,8 @@ export default function Features() {
           </Tilt> */}
           <Module
             icon="rep"
-            name="Fee-free"
-            body="All fees waived for the first year on up to $25,000 raised. Then, just 7% of revenue. "
+            name="No start-up costs"
+            body="All fees waived on your first $25k for the 2022-23 season. Then, just 7% of revenue. "
           />
         </Masonry>
       </Container>

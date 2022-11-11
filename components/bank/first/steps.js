@@ -48,7 +48,8 @@ function Circle({ children }) {
   return (
     <Box
       sx={{
-        padding: 12,
+        p: 14,
+        px: 18,
         background: 'red',
         color: 'white',
         backgroundImage:

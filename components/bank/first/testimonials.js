@@ -187,7 +187,10 @@ function Organization({
                 <Avatar
                   src={hackerAvatarUrl}
                   size={48}
-                  mr={2}
+                  sx={{
+                    mr: 2,
+                    borderRadius: '100%'
+                  }}
                   alt="Photo of ${hackerName}"
                 />
                 <Text

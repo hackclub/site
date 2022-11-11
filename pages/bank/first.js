@@ -35,7 +35,7 @@ export default function First() {
         }`}
       </style>
       <Meta as={Head}>
-        <title>Hack Club Bank — Toolkit for FIRST Teams</title>
+        <title>Financial Toolkit for FIRST Teams — Hack Club Bank</title>
       </Meta>
 
       <Box as="main" key="main" sx={{ mb: 6 }}>
