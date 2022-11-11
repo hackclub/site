@@ -127,7 +127,6 @@ export default function RealTimeline() {
         icon="friend"
         name="Start acceping grants &amp; issue debit cards"
         duration="Step 3"
-        mb={0}
       />
     </Timeline>
   )

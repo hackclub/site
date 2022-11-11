@@ -26,7 +26,15 @@ function Base({ children, action, target, method, onSubmit, id }) {
   )
 }
 
-function Field({ placeholder, label, name, type, value, onChange }) {
+function Field({
+  placeholder,
+  label,
+  name,
+  type,
+  value,
+  onChange,
+  required = true
+}) {
   return (
     <Box sx={{ my: 2 }}>
       <Label htmlFor={name} sx={{ color: 'muted', fontSize: 18 }}>
@@ -42,6 +50,7 @@ function Field({ placeholder, label, name, type, value, onChange }) {
         }}
         onChange={onChange}
         value={value}
+        required={required}
       />
     </Box>
   )
@@ -95,7 +104,6 @@ export default function Signup() {
           placeholder="Poseidon Robotics"
           value={values.eventName}
           onChange={e => setValues({ ...values, eventName: e.target.value })}
-          required
         />
         <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, w: '100%' }}>
           <Box sx={{ my: 2 }}>
@@ -125,6 +133,7 @@ export default function Signup() {
             placeholder="12345"
             value={values.teamNumber}
             onChange={e => setValues({ ...values, teamNumber: e.target.value })}
+            required={false}
           />
         </Box>
         <Field
@@ -134,7 +143,6 @@ export default function Signup() {
           type="email"
           value={values.userEmail}
           onChange={e => setValues({ ...values, userEmail: e.target.value })}
-          required
         />
         <Button
           sx={{
