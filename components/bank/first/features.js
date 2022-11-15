@@ -114,7 +114,7 @@ export default function Features() {
           <Module
             icon="support"
             name="Support anytime"
-            body="We’ll never leave you hanging with 24-hour response time on weekdays."
+            body="With 24-hour response time on weekdays, we'll never leave you hanging."
           />
           {/* <Tilt>
             <Card
