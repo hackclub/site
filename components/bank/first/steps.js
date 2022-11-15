@@ -49,7 +49,6 @@ function Circle({ children }) {
     <Box
       sx={{
         p: 14,
-        px: 18,
         background: 'red',
         color: 'white',
         backgroundImage:
@@ -69,44 +68,46 @@ function Circle({ children }) {
 function Step({ icon, name, duration, href }) {
   return (
     <TimelineStep sx={{ pb: 1 }}>
-      {/* <Slide left> */}
-      <Circle>
-        {href ? (
-          <Link href={href} sx={{ cursor: 'pointer' }}>
-            <Icon glyph={icon} size={48} color="white" />
-          </Link>
-        ) : (
-          <Icon glyph={icon} size={48} />
-        )}
-      </Circle>
-      <Container
-        sx={{
-          mt: 0,
-          display: 'flex',
-          justifyContent: 'left',
-          flexDirection: 'column',
-          textAlign: 'left'
-        }}
-      >
-        <Badge
-          variant="pill"
+      <Slide left>
+        <Circle>
+          {href ? (
+            <Link href={href} sx={{ cursor: 'pointer' }}>
+              <Icon glyph={icon} size={48} color="white" />
+            </Link>
+          ) : (
+            <Icon glyph={icon} size={48} />
+          )}
+        </Circle>
+        <Container
           sx={{
-            bg: 'muted',
-            color: 'darker',
-            fontWeight: 'normal',
-            textTransform: 'uppercase',
-            width: 64,
-            fontSize: 18,
-            px: 2
+            mt: 0,
+            display: 'flex',
+            justifyContent: 'left',
+            flexDirection: 'column',
+            textAlign: 'left'
           }}
         >
-          {duration}
-        </Badge>
-        <Text sx={{ color: 'white', fontSize: 24, maxWidth: [300, null, 550] }}>
-          {name}
-        </Text>
-      </Container>
-      {/* </Slide> */}
+          <Badge
+            variant="pill"
+            sx={{
+              bg: 'muted',
+              color: 'darker',
+              fontWeight: 'normal',
+              textTransform: 'uppercase',
+              width: 64,
+              fontSize: 18,
+              px: 2
+            }}
+          >
+            {duration}
+          </Badge>
+          <Text
+            sx={{ color: 'white', fontSize: 24, maxWidth: [300, null, 550] }}
+          >
+            {name}
+          </Text>
+        </Container>
+      </Slide>
     </TimelineStep>
   )
 }
