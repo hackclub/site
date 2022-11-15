@@ -1,4 +1,4 @@
-import { Box, Input, Label, Button, Select, Text } from 'theme-ui'
+import { Box, Input, Label, Button, Select, Text, Grid } from 'theme-ui'
 import { useEffect, useRef, useState } from 'react'
 import theme from '@hackclub/theme'
 import Icon from '../../icon'
@@ -146,25 +146,23 @@ export default function Signup() {
         action="/api/bank/demo"
         onSubmit={handleSubmit}
       >
-        <Box sx={{ display: 'flex', flexDirection: 'row', gap: 2, w: '100%' }}>
-          <Box sx={{ my: 2 }}>
-            <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
-              Level
-              <Select
-                name="teamType"
-                defaultValue="Select"
-                sx={{ bg: 'dark' }}
-                onChange={e => setTeamType(e.target.value)}
-              >
-                <option value="Select" disabled>
-                  Select
-                </option>
-                <option value="FLL">FLL</option>
-                <option value="FTC">FTC</option>
-                <option value="FRC">FRC</option>
-              </Select>
-            </Label>
-          </Box>
+        <Grid sx={{ gridTemplateColumns: '1fr 2fr', alignItems: 'center' }}>
+          <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
+            Level
+            <Select
+              name="teamType"
+              defaultValue="Select"
+              sx={{ bg: 'dark', w: '500px !important' }}
+              onChange={e => setTeamType(e.target.value)}
+            >
+              <option value="Select" disabled>
+                Select
+              </option>
+              <option value="FLL">FLL</option>
+              <option value="FTC">FTC</option>
+              <option value="FRC">FRC</option>
+            </Select>
+          </Label>
 
           <Field
             label="Team number (optional)"
@@ -175,7 +173,7 @@ export default function Signup() {
             onChange={e => setTeamNumber(e.target.value)}
             required={false}
           />
-        </Box>
+        </Grid>
         <Field
           label="Team name"
           name="eventName"
