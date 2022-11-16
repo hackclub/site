@@ -65,9 +65,10 @@ const Page = ({ upcoming, past }) => (
           AMAs
         </Heading>
         <Text as="p" variant="subtitle" sx={{ a: { color: 'inherit' } }}>
-          We call someone we’ve always wanted to talk to—and the
-          entire Hack&nbsp;Club Slack community is invited to ask questions &
-          chat with the guest live. No vetting questions. No endorsements. Conversations are streamed live publicly on{' '}
+          We call someone we’ve always wanted to talk to—and the entire
+          Hack&nbsp;Club Slack community is invited to ask questions & chat with
+          the guest live. No vetting questions. No endorsements. Conversations
+          are streamed live publicly on{' '}
           <Link href="https://www.youtube.com/c/HackClubHQ">YouTube</Link>.
         </Text>
         <NextLink href="/slack" passHref>
