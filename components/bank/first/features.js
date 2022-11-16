@@ -255,7 +255,7 @@ export default function Features() {
           <Module
             icon="rep"
             name="No start-up costs"
-            body="All fees waived on your first $25k for the 2022-23 season. Then, just 7% of revenue (as compared to 10-14% charged by other fiscal sponsors). "
+            body="All fees waived on your first $25k until September 1st, 2023. Then, just 7% of revenue (as compared to 10-14% charged by other fiscal sponsors). "
           />
         </Masonry>
       </Container>
