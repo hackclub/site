@@ -30,7 +30,11 @@ export default function First() {
           scroll-behavior: smooth;
         }`}
       </style>
-      <Meta as={Head}>
+      <Meta
+        as={Head}
+        description="Hack Club Bank is the ultimate financial tool for FRC, FTC, and FLL teams to receive grants, fundraise, make purchases, and so much more."
+        image="/bank/first/og-image.png"
+      >
         <title>Financial Toolkit for FIRST Teams — Hack Club Bank</title>
       </Meta>
 
