@@ -83,7 +83,7 @@ export default function Features() {
           <Module
             icon="card"
             name="Debit cards"
-            body={<>Issue physical debit cards to all your teammates.</>}
+            body="Issue physical debit cards to all your teammates."
           />
 
           <Module
@@ -97,7 +97,7 @@ export default function Features() {
             name="Reimbursement flow"
             body="Reimburse teammates for expenses with flexible money transfer options including ACH, PayPal, mailed checks, and more."
           />
-          <Fade bottom>
+          {/* <Fade bottom>
             <Tilt>
               <Card
                 as="div"
@@ -110,7 +110,13 @@ export default function Features() {
                 }}
               />
             </Tilt>
-          </Fade>
+          </Fade> */}
+          <Module
+            icon="explore"
+            name="Transparency Grant"
+            body="Get a $250 grant when you join, available for the first 1,000 teams who sign up before June 1st, 2023."
+            iconColor="#D4AF37"
+          />
           <Module
             icon="support"
             name="Support anytime"
@@ -249,7 +255,7 @@ export default function Features() {
           <Module
             icon="rep"
             name="No start-up costs"
-            body="All fees waived on your first $25k for the 2022-23 season. Then, just 7% of revenue. "
+            body="All fees waived on your first $25k for the 2022-23 season. Then, just 7% of revenue (as compared to 10-14% charged by other fiscal sponsors). "
           />
         </Masonry>
       </Container>
@@ -322,19 +328,23 @@ export default function Features() {
   )
 }
 
-function Module({ icon, name, body }) {
+function Module({ icon, name, body, iconColor }) {
   return (
     <Fade bottom>
       <Card
         variant="primary"
-        sx={{ display: 'flex', flexDirection: 'column', p: [4, null, 4] }}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          p: [4, null, 4]
+        }}
         className="post"
       >
         <Box
           as="span"
           sx={{
             width: 'fit-content',
-            bg: 'primary',
+            background: iconColor || 'primary',
             borderRadius: 'default',
             lineHeight: 0,
             p: 1,
@@ -350,7 +360,13 @@ function Module({ icon, name, body }) {
         </Box>
         <Box>
           <Heading sx={{ color: 'snow', lineHeight: '1.5' }}>{name}</Heading>
-          <Text sx={{ color: 'muted', lineHeight: '1.375', fontSize: 17 }}>
+          <Text
+            sx={{
+              color: 'muted',
+              lineHeight: '1.375',
+              fontSize: 17
+            }}
+          >
             {body}
           </Text>
         </Box>
