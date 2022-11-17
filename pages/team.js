@@ -77,6 +77,13 @@ export default function Team() {
                 img="/team/leo.png"
                 pronouns="he/him"
               />
+               <Bio
+                name="Holly Delisle"
+                teamRole="Club Operations Lead"
+                text="Holly comes to Hack Club with 10 years of operations management in the banking industry, bringing people together and simplifying processes. She's lived in Maine and Vermont in intervals all her life and she loves the outdoors in every season. Now, Holly meets and works with amazing, inspiring technical teenagers every day from around the world. She's got two sons, two dogs and two cats, the latter of which are all named after characters in some of her favorite books."
+                img="https://cloud-486o6w3c6-hack-club-bot.vercel.app/0image_from_ios.jpg"
+                pronouns="she/her"
+              />    
               <Bio
                 name="Cedric Hutchings"
                 teamRole="Clubs Constructionist"
