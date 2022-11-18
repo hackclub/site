@@ -22,7 +22,7 @@ const styles = `
   }
 `
 
-export default function Bank({ isPartner, stats }) {
+export default function Bank({ stats }) {
   return (
     <>
       <Box as="main" key="main">
@@ -34,40 +34,25 @@ export default function Bank({ isPartner, stats }) {
           description="Hack Club Bank is the largest fiscal sponsor of teen-led organizations in the US. Get a 501(c)(3) status-backed fund optimized for events, nonprofits, and more."
           image="/bank/og-image.png"
         >
-          <title>Hack Club Bank — Fiscal Sponsorship</title>
+          <title>Fiscal Sponsorship — Hack Club Bank</title>
         </Meta>
         <style>{styles}</style>
         <Box>
-          {isPartner ? (
-            <Landing eventsCount={stats.events_count} />
-          ) : (
-            <Landing eventsCount={stats.events_count} showButton />
-          )}
-          {isPartner ? (
-            <Features partner={true} />
-          ) : (
-            <Features partner={false} />
-          )}
+          <Landing eventsCount={stats.events_count} showButton />
+
+          <Features />
+
           <Testimonials />
           <Nonprofits />
-          {isPartner ? (
-            <Everything fee="10" partner={true} />
-          ) : (
-            <Everything fee="7" partner={false} />
-          )}
-          {!isPartner && <Start />}
+
+          <Everything fee="7" />
+
+          <Start />
         </Box>
       </Box>
       <Footer dark key="footer" />
     </>
   )
-}
-
-export async function getStaticPaths() {
-  return {
-    paths: [{ params: { type: 'partner' } }, { params: { type: 'index' } }],
-    fallback: false
-  }
 }
 
 export async function getStaticProps(context) {
@@ -76,7 +61,6 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      isPartner: context.params.type === 'partner',
       stats
     }
   }
