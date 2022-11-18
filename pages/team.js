@@ -78,18 +78,18 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
+                name="Holly Delisle"
+                teamRole="Club Operations Lead"
+                text="Holly comes to Hack Club with 10 years of operations management in the banking industry, bringing people together and simplifying processes. She's lived in Maine and Vermont in intervals all her life and loves the outdoors in every season. Now, Holly meets and works with amazing, inspiring technical teenagers every day from around the world. She's got two sons, two dogs and two cats, the latter of which are all named after characters in some of her favorite books."
+                img="/team/holly.jpeg"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Cedric Hutchings"
                 teamRole="Clubs Constructionist"
                 text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
                 img="/team/ced.png"
                 pronouns="he/him"
-              />
-              <Bio
-                name="Celeste Drummond"
-                teamRole="Community Engineer"
-                text="After existing in and building various online communities (including a large Twitter presence and an active Discord server), Celeste joined Hack Club to make the Slack an even better space for teens who code. They are interested in— among other things— programming, generative art, music and effective altruism."
-                img="/team/celeste.jpg"
-                pronouns="they/them"
               />
               <Bio
                 name="Kognise"
@@ -192,7 +192,7 @@ When not seen busy juggling between different tasks he takes up, he enjoys tinke
                 name="Kunal Botla"
                 teamRole="Bank Operations"
                 text={`Kunal loves to make for making! He started Project Boom to help provide computers, helps build and run Hack Club Bank, and is organizing MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
-                img="https://kunalbotla.com/images/kunal.jpeg"
+                img="https://github.com/kunalbotla.png"
                 pronouns="he/him"
               />
               <Bio
@@ -232,7 +232,7 @@ and participating in academic competitions with his friends.`}
                 img="https://github.com/abbyfischler.png"
                 pronouns="she/her"
               />
-              
+
               <Bio
                 name="Claire Wang"
                 teamRole="Community Team"
