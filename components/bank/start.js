@@ -66,7 +66,6 @@ export default function Start() {
           <Container variant="narrow" sx={{ pr: [null, null, 2, 6], m: 0 }}>
             <Stats
               color="smoke"
-              labelColor="muted"
               fontSize={[7, 8]}
               my={[3, 4]}
               px={0}
