@@ -78,6 +78,9 @@ const nextConfig = {
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
       { source: '/branding/', destination: '/brand/', permanent: true },
       { source: '/ama/', destination: '/amas/', permanent: false },
+      { source: '/geohot', destination: '/amas/geohot/', permanent: false },
+      { source: '/sal', destination: '/amas/sal/', permanent: false },
+      { source: '/vitalik', destination: '/amas/vitalik/', permanent: false },
       {
         source: '/open-source/',
         destination: '/opensource/',
