@@ -1,27 +1,14 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Link,
-  Text
-} from 'theme-ui'
+import { Box, Button, Card, Flex, Grid, Heading, Link, Text } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import ForceTheme from '../components/force-theme'
-import BGImg from '../components/background-image'
+import ForceTheme from '../../components/force-theme'
+import BGImg from '../../components/background-image'
 import NextLink from 'next/link'
 import Image from 'next/image'
-import Nav from '../components/nav'
-import SlideDown from '../components/slide-down'
-import FadeIn from '../components/fade-in'
-import Icon from '../components/icon'
-import Footer from '../components/footer'
-import { dt } from '../lib/dates'
+import Nav from '../../components/nav'
+import SlideDown from '../../components/slide-down'
+import Footer from '../../components/footer'
+import { dt } from '../../lib/dates'
 
 const Page = ({ upcoming, past }) => (
   <>
