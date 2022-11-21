@@ -126,10 +126,10 @@ const Page = () => (
         priority
       />
       <Announcement
-        copy="Sprig: the game console where every player is a creator."
-        caption="Build an original game and we'll ship you a Sprig kit!"
-        href="https://sprig.hackclub.com"
-        iconLeft="bolt"
+        copy="Epoch: celebrate the New Year with Hack Club."
+        caption="Join 150+ hackers in Delhi for a magical high-school hackathon!"
+        href="https://epoch.hackclub.com"
+        iconLeft="explore"
         color="primary"
       />
 
