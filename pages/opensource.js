@@ -123,6 +123,10 @@ const Page = ({ repos }) => (
           name="Assemble"
           url="https://bank.hackclub.com/assemble"
         />
+         <BankProject
+          name="Epoch"
+          url="https://bank.hackclub.com/epoch"
+        />
       </Grid>
       <Heading
         variant="headline"
