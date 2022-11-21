@@ -55,7 +55,7 @@ const Stats = props => {
       <Text
         variant="lead"
         fontSize={[2, 3]}
-        color={props.labelColor}
+        color="muted"
         mt={[2, 4]}
         mb={[2, 3]}
       >

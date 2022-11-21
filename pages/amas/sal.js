@@ -3,12 +3,21 @@ import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import React, { useEffect, useState } from 'react'
 import tt from 'tinytime'
-import Particle from '../components/particles'
-import { thousands } from '../lib/members'
+import { thousands } from '../../lib/members'
 
-export default function Vitalik() {
+export default function Sal() {
+  let minutes = 1
+  let milliseconds = minutes * 60000
+
+  if (typeof window !== 'undefined') {
+    setTimeout(function () {
+      window.location.reload()
+      console.log('hi')
+    }, milliseconds)
+  }
+
   const calculateTimeLeft = () => {
-    const difference = +new Date(`2022-02-04T01:00:00.000Z`) - +new Date()
+    const difference = +new Date(`2022-10-28T23:00:00.000Z`) - +new Date()
 
     let timeLeft = {}
 
@@ -79,13 +88,13 @@ export default function Vitalik() {
       <Box
         sx={theme => ({
           color: 'primary',
-          ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+          ...theme.util.gxText('#ffffff', '#ffffff'),
           position: 'relative',
-          width: ['16vw', '15vw', '15vw'],
-          height: ['15vh', '20vh', '35vh'],
+          width: '100%',
+          height: ['125%', '125%', '150%'],
           borderRadius: '5px',
           border: ['none', '1.5px solid'],
-          borderColor: theme.util.gxText('#CDAEFB', '#82A9F9'),
+          borderColor: theme.util.gxText('#14BF96', '#14BF96'),
           fontSize: [4, 5, 7],
           fontWeight: 'bold',
           display: 'flex',
@@ -98,7 +107,7 @@ export default function Vitalik() {
           <Text
             sx={theme => ({
               color: 'primary',
-              ...theme.util.gxText('#CDAEFB', '#82A9F9')
+              ...theme.util.gxText('#14BF96', '#14BF96')
             })}
           >
             {timeLeft[e]}{' '}
@@ -106,7 +115,7 @@ export default function Vitalik() {
           <Text
             sx={theme => ({
               color: 'primary',
-              ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+              ...theme.util.gxText('#14BF96', '#14BF96'),
               position: 'relative',
               fontSize: [1, 3, 4],
               fontWeight: 'bold',
@@ -125,27 +134,32 @@ export default function Vitalik() {
     <>
       <Meta
         as={Head}
-        title="Vitalik Buterin | AMA"
-        description="We’re excited to welcome Vitalik Buterin (Co-creator of Ethereum) to speak to teenagers at Hack Club!"
-        image="https://cloud-je16il79h-hack-club-bot.vercel.app/0slack.png"
+        title="Sal Khan | AMA"
+        description="We’re excited to welcome Sal Khan (founder of Khan Academy) to speak to teenagers at Hack Club!"
+        image="https://cloud-4vmtnc0af-hack-club-bot.vercel.app/0sal_ama__7_.png"
       />
       <Head>
-        <meta name="theme-color" content="#CDAEFB" />
+        <meta name="theme-color" content="#14BF96" />
       </Head>
 
       <Box
         sx={{
           minHeight: '100vh',
           width: '100vw',
-          bg: '#222222',
+          backgroundImage:
+            'url(https://cloud-72izs50b1-hack-club-bot.vercel.app/0sal_ama__4_.png)',
           position: 'relative',
           zIndex: '0',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: ['flex-start', 'flex-start', 'center']
         }}
       >
         <Link href="https://hackclub.com" target="_blank" color="inherit">
           <Image
-            src={`/ama/logo-purple.svg`}
+            src={
+              'https://cloud-2pnucywiu-hack-club-bot.vercel.app/0group__8_.png'
+            }
             width={150}
             height={75}
             sx={{
@@ -153,34 +167,33 @@ export default function Vitalik() {
               top: '0',
               left: ['10vw', '5vw']
             }}
-            alt="Purple Ethereum logo"
+            alt="Green Hack Club Flag"
           />
         </Link>
-        <Particle />
         <Box>
           <Box sx={{ position: 'absolute', top: '10px', right: '5%' }}>
             <Text
               sx={theme => ({
                 color: 'primary',
-                ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+                ...theme.util.gxText('#14BF96', '#14BF96'),
                 mt: [3, 4],
                 px: '10px',
                 py: '5px',
                 borderRadius: '5px',
-                border: '1px solid',
+                border: '1px solid #14BF96',
                 fontSize: [1, 2],
                 display: 'block',
                 fontWeight: 'bold'
               })}
             >
               {tt('{MM} {Do} {h}:{mm} {a}').render(
-                new Date(`2022-02-04T01:00:00.000Z`)
+                new Date(`2022-10-28T23:00:00.000Z`)
               )}
             </Text>
             <Text
               sx={theme => ({
                 color: 'primary',
-                ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+                ...theme.util.gxText('#14BF96', '#14BF96'),
                 display: 'block'
               })}
             >
@@ -200,18 +213,18 @@ export default function Vitalik() {
           }}
         >
           <Image
-            src={`/ama/vitalikName2.svg`}
+            src={`https://cloud-cvi8ihfcw-hack-club-bot.vercel.app/0vector__4_.svg`}
             width={700}
             height={500}
             sx={{ display: ['none', 'block'], pb: '50px' }}
-            alt="Vitalik Buterin"
+            alt="Sal Khan"
           />
           <Image
-            src={`/ama/vitalikNameMobile.svg`}
+            src={`https://cloud-cvi8ihfcw-hack-club-bot.vercel.app/0vector__4_.svg`}
             width={250}
             height={200}
             sx={{ display: ['block', 'none'], pt: '20px', pb: '10px' }}
-            alt="Vitalik Buterin"
+            alt="Sal Khan"
           />
 
           {timer.length ? (
@@ -220,7 +233,8 @@ export default function Vitalik() {
               gap={[1, 2, 4]}
               columns={[
                 '1fr 1fr 1fr 1fr',
-                '1fr 1fr 1fr 1fr',
+                '1fr 1fr 1fr',
+                '1fr 1fr 1fr',
                 '1fr 1fr 1fr 1fr 1fr'
               ]}
               sx={{
@@ -232,7 +246,7 @@ export default function Vitalik() {
           ) : (
             <Box
               sx={{
-                border: ['none', '#CDAEFB 1.6px solid'],
+                border: ['none', '#FFFFFF 1.6px solid'],
                 my: ['30px', 0],
                 px: ['0px', '40px', '40px'],
                 py: ['0px', '40px', '40px'],
@@ -243,124 +257,78 @@ export default function Vitalik() {
               <Text
                 sx={theme => ({
                   color: 'primary',
-                  ...theme.util.gxText('#CDAEFB', '#82A9F9'),
+                  ...theme.util.gxText('#ffffff', '#ffffff'),
                   fontSize: [3, 4, 5],
                   fontWeight: 'bold'
                 })}
               >
-                The AMA has ended. Thank you to Vitalik and everyone for joining
-                us!
+                The livestream has ended. Thank you to everyone for joining us!
               </Text>
               <Box>
                 <Button
                   as="a"
-                  href="https://hack.af/vitalik-livestream"
+                  href="https://hack.af/sal-livestream"
                   sx={{
-                    background: '#CDAEFB',
+                    background: '#14BF96',
                     margin: ['10px', '15px'],
                     marginLeft: '0',
                     color: '#222222',
                     display: 'inline-block'
                   }}
                 >
-                  Watch Recording
+                  Watch recording
                 </Button>
               </Box>
             </Box>
           )}
-          {timer.length ? (
-            <Box
-              sx={{
-                color: '#82A9F9',
-                width: ['25vw', '50vw', '50vw'],
-                pt: ['10px', '50px'],
-                zIndex: '2',
-                fontSize: ['12px', 1, 2],
-                '@media screen and (min-width: 768px) and (max-width: 1200px)':
-                  {
-                    fontSize: '15px'
-                  }
-              }}
-            >
-              <Text>
-                <strong>Teenager? New here? Welcome!</strong>{' '}
-                <Link
-                  href="https://hackclub.com"
-                  target="_blank"
-                  color="inherit"
-                >
-                  Hack Club
-                </Link>{' '}
-                is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+ teenagers
-                learning to code & building amazing projects, & you’ll fit right
-                in.
-              </Text>
-            </Box>
-          ) : (
-            <Box
-              sx={{
-                color: '#82A9F9',
-                width: ['80vw', '50vw'],
-                pt: ['10px', '50px'],
-                zIndex: '2',
-                fontSize: ['15px', 1, 2],
-                '@media screen and (min-width: 768px) and (max-width: 1200px)':
-                  {
-                    fontSize: '15px'
-                  }
-              }}
-            >
-              <Text>
-                <strong>Teenager? New here? Welcome!</strong>{' '}
-                <Link
-                  href="https://hackclub.com"
-                  target="_blank"
-                  color="inherit"
-                >
-                  Hack Club
-                </Link>{' '}
-                is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+ teenagers
-                learning to code & building amazing projects, & you’ll fit right
-                in.
-              </Text>
-            </Box>
-          )}
+          <Box
+            sx={{
+              color: '#ffffff',
+              width: ['70vw', '60vw', '60vw'],
+              py: ['20px', '100px', '120px'],
+              zIndex: '2',
+              fontSize: ['12px', 1, 2],
+              '@media screen and (min-width: 768px) and (max-width: 1200px)': {
+                fontSize: '15px'
+              }
+            }}
+          >
+            <Text>
+              <strong>Teenager? New here? Welcome!</strong>{' '}
+              <Link href="https://hackclub.com" target="_blank" color="inherit">
+                Hack Club
+              </Link>{' '}
+              is a global community of high school makers & student-led coding
+              clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+ teenagers
+              learning to code & building amazing projects, & you’ll fit right
+              in.
+            </Text>
+          </Box>
         </Box>
         <Box
           sx={{
             position: 'absolute',
             bottom: '0',
             right: '0',
-            marginRight: ['-100px', '-50px', '-50px'],
-            width: ['100vw', '70vw', '40vw']
+            width: ['100vw', '80vw', '70vw', '60vw']
           }}
         >
           {timer.length ? (
             <>
               <Image
-                src={`/ama/vitalikImage.svg`}
-                layout="responsive"
-                sx={{ display: ['none', 'block'] }}
-                alt="Image of Vitalik Buterin"
-              />
-              <Image
-                src={`/ama/vitalikImageMobile.svg`}
-                // layout="fill"
-                width={400}
-                height={400}
-                sx={{ display: ['block', 'none'] }}
-                alt="Image of Vitalik Buterin"
+                src={`https://cloud-oik8els6y-hack-club-bot.vercel.app/0frame_54__1_.png`}
+                alt="Image of Sal Khan"
+                fill="object-positon"
+                sx={{ position: 'absolute', bottom: 0 }}
               />
             </>
           ) : (
             <>
               <Image
-                src={`/ama/vitalikImage.svg`}
+                src={`https://cloud-oik8els6y-hack-club-bot.vercel.app/0frame_54__1_.png`}
                 layout="responsive"
                 sx={{ display: ['none', 'block'] }}
-                alt="Image of Vitalik Buterin"
+                alt="Image of Sal Khan"
               />
             </>
           )}

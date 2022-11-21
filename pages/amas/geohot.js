@@ -3,20 +3,19 @@ import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import React, { useEffect, useState } from 'react'
 import tt from 'tinytime'
-import Particle from '../components/particles'
-import { thousands } from '../lib/members'
+import { thousands } from '../../lib/members'
 
 export default function Geohot() {
   let minutes = 1
   let milliseconds = minutes * 60000
 
   if (typeof window !== 'undefined') {
-    setTimeout(function(){
-      window.location.reload();
+    setTimeout(function () {
+      window.location.reload()
       console.log('hi')
-   }, milliseconds);
+    }, milliseconds)
   }
-  
+
   const calculateTimeLeft = () => {
     const difference = +new Date(`2022-11-11T23:00:00.000Z`) - +new Date()
 
@@ -150,7 +149,7 @@ export default function Geohot() {
           bg: '#0f0f0f',
           position: 'relative',
           zIndex: '0',
-          overflow: 'hidden',
+          overflow: 'hidden'
         }}
       >
         <Link href="https://hackclub.com" target="_blank" color="inherit">
@@ -257,8 +256,8 @@ export default function Geohot() {
                   fontWeight: 'bold'
                 })}
               >
-                The AMA has ended. Thank you to George Hotz and everyone for joining
-                us!
+                The AMA has ended. Thank you to George Hotz and everyone for
+                joining us!
               </Text>
               <Box>
                 <Button
@@ -301,9 +300,9 @@ export default function Geohot() {
                   Hack Club
                 </Link>{' '}
                 is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+ teenagers
-                learning to code & building amazing projects, & you’ll fit right
-                in.
+                clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+
+                teenagers learning to code & building amazing projects, & you’ll
+                fit right in.
               </Text>
             </Box>
           ) : (
@@ -330,9 +329,9 @@ export default function Geohot() {
                   Hack Club
                 </Link>{' '}
                 is a global community of high school makers & student-led coding
-                clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+ teenagers
-                learning to code & building amazing projects, & you’ll fit right
-                in.
+                clubs. We’ve got a 24/7 Slack chatroom of {thousands}k+
+                teenagers learning to code & building amazing projects, & you’ll
+                fit right in.
               </Text>
             </Box>
           )}
@@ -344,10 +343,9 @@ export default function Geohot() {
             right: '0',
             marginRight: ['-100px', '-50px', '-50px'],
             width: ['100vw', '70vw', '40vw'],
-            zIndex: '-30',
+            zIndex: '-30'
           }}
         >
-
           {timer.length ? (
             <>
               <Image
@@ -377,16 +375,17 @@ export default function Geohot() {
           )}
         </Box>
         <Image
-            src={`/ama/geohotBg.svg`}
-            width={1500}
-            height={750}
-            sx={{
-              position: 'absolute',
-              bottom: '5vw',
-              left: ['10vw', '20vw'],
-              zIndex: '-2000'
-            }}
-          />
+          src={`/ama/geohotBg.svg`}
+          alt="Grid pattern"
+          width={1500}
+          height={750}
+          sx={{
+            position: 'absolute',
+            bottom: '5vw',
+            left: ['10vw', '20vw'],
+            zIndex: '-2000'
+          }}
+        />
       </Box>
     </>
   )
