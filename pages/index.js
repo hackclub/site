@@ -222,7 +222,7 @@ const Page = () => (
       >
         <Badge
           as="a"
-          href="https://assemble.hackclub.com"
+          href="https://www.youtube.com/watch?v=PnK4gzO6S3Q"
           variant="pill"
           sx={{
             zIndex: '1',
@@ -236,7 +236,7 @@ const Page = () => (
           }}
           title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
         >
-          Hackers at Assemble in SF
+          Hackers assembling in SF
         </Badge>
       </Box>
     </Box>
