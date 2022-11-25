@@ -20,6 +20,9 @@ import { useState } from 'react'
 import ForceTheme from '../components/force-theme'
 import RealTimeline from '../components/winter/timeline'
 import InfoGrid from '../components/winter/info'
+import Breakdown from '../components/winter/breakdown'
+import Projects from '../components/winter/projects'
+import Landing from '../components/winter/landing'
 
 export default function Winter() {
   return (
@@ -33,18 +36,9 @@ export default function Winter() {
         />
         <Nav light />
         <ForceTheme theme="light" />
-        {/* hero */}
-
-        {/* 3 sections */}
-        <Container>
-          <Heading>
-            For 10 days, build something together with hundreds of other makers
-            around the world.
-          </Heading>
-        </Container>
-
-        {/* scrolly thing with the project ideas */}
-
+        <Landing />
+        <Breakdown />
+        <Projects />
         {/* grid section thing with the requirements, info etc. */}
         <InfoGrid />
 
