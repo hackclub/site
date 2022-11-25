@@ -38,15 +38,6 @@ export default function Winter() {
         <Landing />
         <Breakdown />
         <Projects />
-        <Container>
-          <Heading>
-            For 10 days, build something together with hundreds of other makers
-            around the world.
-          </Heading>
-        </Container>
-
-        {/* scrolly thing with the project ideas */}
-
         {/* grid section thing with the requirements, info etc. */}
 
         {/* timeline */}
