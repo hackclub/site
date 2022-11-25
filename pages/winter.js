@@ -19,6 +19,9 @@ import FadeIn from '../components/fade-in'
 import { useState } from 'react'
 import ForceTheme from '../components/force-theme'
 import RealTimeline from '../components/winter/timeline'
+import Breakdown from '../components/winter/breakdown'
+import Projects from '../components/winter/projects'
+import Landing from '../components/winter/landing'
 
 export default function Winter() {
   return (
@@ -32,9 +35,9 @@ export default function Winter() {
         />
         <Nav light />
         <ForceTheme theme="light" />
-        {/* hero */}
-
-        {/* 3 sections */}
+        <Landing />
+        <Breakdown />
+        <Projects />
         <Container>
           <Heading>
             For 10 days, build something together with hundreds of other makers
