@@ -19,6 +19,7 @@ import FadeIn from '../components/fade-in'
 import { useState } from 'react'
 import ForceTheme from '../components/force-theme'
 import RealTimeline from '../components/winter/timeline'
+import InfoGrid from '../components/winter/info'
 
 export default function Winter() {
   return (
@@ -45,6 +46,7 @@ export default function Winter() {
         {/* scrolly thing with the project ideas */}
 
         {/* grid section thing with the requirements, info etc. */}
+        <InfoGrid />
 
         {/* timeline */}
         <Flex
