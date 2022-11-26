@@ -57,7 +57,8 @@ export default function Winter() {
               sx={{
                 color: 'white',
                 textTransform: 'uppercase',
-                transform: ['none', null, 'rotate(-90deg)']
+                transform: ['none', null, 'rotate(-90deg)'],
+                textShadow: '0px 0px 21px #E1F1FF'
               }}
             >
               Timeline
