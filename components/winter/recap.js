@@ -5,7 +5,7 @@ import BreakdownBox from './breakdown-box'
 function Recap() {
   return (
     <>
-      <Container sx={{ py: 4 }}>
+      <Container sx={{ py: 5 }}>
         <Slide>
           <Heading
             variant="headline"
@@ -32,7 +32,13 @@ function Recap() {
             description="grants instantly disbursed through Hack Club Bank"
             delay="200"
           />
-          <Box>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'left'
+            }}
+          >
             <Button
               variant="outlineLg"
               sx={{
@@ -54,3 +60,4 @@ function Recap() {
 }
 
 export default Recap
+
