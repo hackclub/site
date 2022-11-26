@@ -39,10 +39,10 @@ export default function Winter() {
         <Landing />
         <Breakdown />
         <Projects />
-        {/* grid section thing with the requirements, info etc. */}
         <InfoGrid />
 
-        {/* timeline */}
+        {/* Timeline */}
+
         <Flex
           sx={{
             flexDirection: ['column', null, 'row'],
@@ -73,6 +73,7 @@ export default function Winter() {
           </Box>
           <RealTimeline />
         </Flex>
+
         {/* bottom section */}
 
         {/* footer */}
