@@ -23,6 +23,7 @@ import InfoGrid from '../components/winter/info'
 import Breakdown from '../components/winter/breakdown'
 import Projects from '../components/winter/projects'
 import Landing from '../components/winter/landing'
+import Recap from '../components/winter/recap'
 
 export default function Winter() {
   return (
@@ -74,9 +75,7 @@ export default function Winter() {
           <RealTimeline />
         </Flex>
 
-        {/* bottom section */}
-
-        {/* footer */}
+        <Recap />
         <Footer />
       </Box>
     </>
