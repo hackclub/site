@@ -10,10 +10,11 @@ import {
   Grid,
   Link as A,
   Text,
-  Avatar
+  Avatar,
+  Image
 } from 'theme-ui'
 import Photo from '../../components/photo'
-import Image from 'next/image'
+import NextImage from 'next/image'
 import Marquee from 'react-marquee-slider'
 import ExecuteBig from '../../public/donate/codedaydc_hack.jpg'
 import HackCamp from '../../public/donate/sf.jpg'
@@ -71,7 +72,7 @@ const PhotoRow = ({ photos }) => (
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
       <Marquee velocity={12}>
         {photos.map((photo, index) => (
-          <Image
+          <NextImage
             placeholder="blur"
             src={photo}
             objectFit="cover"
@@ -87,7 +88,7 @@ const PhotoRow = ({ photos }) => (
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
       <Marquee velocity={12}>
         {photos.map((photo, index) => (
-          <Image
+          <NextImage
             placeholder="blur"
             src={photo}
             objectFit="cover"
@@ -150,13 +151,17 @@ export default function Projects() {
                     py: 2,
                     px: 3,
                     borderRadius: 10,
-                    position: 'relative'
+                    position: 'relative',
+                    lineHeight: '1.5'
                   }}
                   onClick={() => setCount(count + 1)}
                 >
-                  {project_idea}
-                  <img
+                  <Box as="span" sx={{ whiteSpace: 'nowrap' }}>
+                    {project_idea}
+                  </Box>
+                  <Image
                     src="https://cloud-ohzuz4m3t-hack-club-bot.vercel.app/0click_me.svg"
+                    alt="click me"
                     sx={{
                       position: 'absolute',
                       top: -4,
