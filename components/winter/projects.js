@@ -27,7 +27,6 @@ import Flagship from '../../public/donate/flagship.png'
 import GoldenTrain from '../../public/home/golden-train.png'
 /** @jsxImportSource theme-ui */
 
-
 const Header = styled(Box)`
   background: url('/pattern.svg');
 `
@@ -107,7 +106,7 @@ const PhotoRow = ({ photos }) => (
 export default function Projects() {
   const [count, setCount] = useState(0)
 
-  let list = ['keyboard', 'thing1', 'thing2', 'thing3']
+  let list = ['mechanical keyboard', '3D printer', 'drone', 'CNC machine']
 
   if (count == list.length - 1) {
     setCount(0)
