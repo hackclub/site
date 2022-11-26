@@ -80,12 +80,21 @@ export default function InfoGrid() {
             <Heading variant="headline">
               Send in your project proposal through GitHub.
             </Heading>
-            <Text variant="lead">
+            <Text>
               (& see what other Hack Clubbers, like{' '}
               <UserMention user="bellesea" />, are building)
+              {/* todo: link a random pr from the repo that is tagged with "accepted" */}
             </Text>
-            <Button as="a" href="/hardware" variant="outline">
-              Get started
+            <Button
+              as="a"
+              href="https://github.com/hackclub/wom"
+              variant="outline"
+              sx={{
+                color: 'text',
+                mt: 3
+              }}
+            >
+              See projects &#10138;
             </Button>
           </Card>
         </Box>
@@ -147,16 +156,16 @@ function BulletItem({ children, iconGlyph, iconColor, iconSize }) {
 
 function UserMention({ user }) {
   return (
-    <>
+    <Box as="span" sx={{ whiteSpace: 'nowrap' }}>
       <Text as="a" href={`https://github.com/${user}`}>
         @{user}
       </Text>
       <Avatar
         src={`https://github.com/${user}.png`}
-        height="36"
-        width="36"
+        height="24px"
+        width="24px"
         sx={{ backgroundColor: 'white' }}
       />
-    </>
+    </Box>
   )
 }
