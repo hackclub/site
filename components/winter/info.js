@@ -14,7 +14,7 @@ import Tilt from '../tilt'
 
 export default function InfoGrid() {
   return (
-    <Container>
+    <Container sx={{ my: 6 }}>
       <Grid
         sx={{
           gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr 1fr'],
