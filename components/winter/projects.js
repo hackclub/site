@@ -156,7 +156,10 @@ export default function Projects() {
                   }}
                   onClick={() => setCount(count + 1)}
                 >
-                  <Box as="span" sx={{ whiteSpace: 'nowrap' }}>
+                  <Box
+                    as="span"
+                    sx={{ whiteSpace: 'nowrap', cursor: 'pointer' }}
+                  >
                     {project_idea}
                   </Box>
                   <Image
