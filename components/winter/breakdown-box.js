@@ -9,7 +9,7 @@ function BreakdownBox({ subtitle, icon, text, description, delay }) {
         {subtitle != null ? (
           <Text as="h1">{subtitle}</Text>
         ) : (
-          <Icon glyph={icon} sx={{ ml: 2, color: '#5BC0DE' }} />
+          <Icon glyph={icon} sx={{ ml: 2 }} color={'#5BC0DE'} />
         )}
         <Heading
           sx={{
