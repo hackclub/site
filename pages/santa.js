@@ -70,7 +70,7 @@ const Page = () => (
   <Box sx={{ overflowX: 'hidden' }}>
     <Meta
       as={Head}
-      title="Secret Santa – Holiday 2021"
+      title="Secret Santa"
       description="Find your holiday zen this year with Hack Club’s Secret Santa."
       image="https://cloud-9kgqrlg7o-hack-club-bot.vercel.app/0santa.png"
     />
@@ -84,7 +84,7 @@ const Page = () => (
           caps
         >
           <FadeIn delay={300} duration={600}>
-            It's 2021,
+            It's 2022,
           </FadeIn>
           <FadeIn delay={1200} duration={600}>
             the holidays have come,
@@ -125,10 +125,10 @@ const Page = () => (
             just in time for the holidays!
           </Lead>
           {/* Signup form */}
-          {/* <Signup /> */}
-          <Button disabled sx={{ bg: 'primary', mb: 4 }}>
+          <Signup />
+          {/* <Button disabled sx={{ bg: 'primary', mb: 4 }}>
             Signups closed. Check back next year!
-          </Button>
+          </Button> */}
         </FadeIn>
       </Container>
     </Hero>
