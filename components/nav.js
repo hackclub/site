@@ -109,8 +109,9 @@ const layout = props =>
     : css`
         @media (min-width: 56em) {
           display: flex;
+          justify-content: flex-end;
           position: absolute;
-          left: 50%;
+          left: 70%;
           transform: translateX(-50%);
         }
         a {
@@ -136,17 +137,19 @@ const NavBar = styled(Box)`
 
 const Navigation = props => (
   <NavBar role="navigation" {...props}>
-    <NextLink href="/slack" passHref>
-      <Link>Slack</Link>
+    <NextLink href="/clubs" passHref>
+      <Link>Clubs</Link>
     </NextLink>
-    <Link href="https://workshops.hackclub.com/">Workshops</Link>
-    <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
     <NextLink href="/bank" passHref>
       <Link>Bank</Link>
     </NextLink>
     <NextLink href="/hackathons" passHref>
       <Link>Hackathons</Link>
     </NextLink>
+    <NextLink href="/slack" passHref>
+      <Link>Slack</Link>
+    </NextLink>
+    <Link href="https://workshops.hackclub.com/">Workshops</Link>
   </NavBar>
 )
 
