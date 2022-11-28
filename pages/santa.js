@@ -13,7 +13,7 @@ import {
   Link
 } from 'theme-ui'
 import styled from '@emotion/styled'
-import Snow from 'resnow'
+import Snowfall from 'react-snowfall'
 import Footer from '../components/footer'
 import FadeIn from '../components/fade-in'
 import { keyframes } from '@emotion/react'
@@ -76,7 +76,7 @@ const Page = () => (
     />
     <Nav />
     <Hero py={4}>
-      <Snow style={{ width: '100vw' }} />
+      <Snowfall />
       <Container px={3} py={[3, 4]}>
         <Heading
           sx={{ py: [3, 5], fontSize: [4, 5], color: 'white', opacity: 0.8 }}
