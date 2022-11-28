@@ -73,6 +73,10 @@ const nextConfig = {
         destination: '/bank/first/',
         permanent: false
       },
+      {
+        source: '/wom/',
+        destination: '/winter/'
+      },
       { source: '/workshops/slack/', destination: '/slack/', permanent: true },
       { source: '/community/', destination: '/slack/', permanent: true },
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
