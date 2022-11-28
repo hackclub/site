@@ -75,7 +75,8 @@ const nextConfig = {
       },
       {
         source: '/wom/',
-        destination: '/winter/'
+        destination: '/winter/',
+        permanent: false
       },
       { source: '/workshops/slack/', destination: '/slack/', permanent: true },
       { source: '/community/', destination: '/slack/', permanent: true },
