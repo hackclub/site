@@ -302,7 +302,7 @@ const rollout = keyframes`
 }
 `
 
-function Page({ dataPieces, slackData, hackathonsData, bankData }) {
+function Page({ dataPieces, hackathonsData, bankData }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       // Check if it's open
@@ -442,11 +442,12 @@ function Page({ dataPieces, slackData, hackathonsData, bankData }) {
         <Container>
           <Text variant="title">Join our open-source projects</Text>
           <Text variant="subtitle" as="p">
-            We collaborate via <Link href='/slack'>Slack</Link>, our online community with <Text sx={{ animation: `.4s ${rollout}` }} key={Math.random()}>
-            {
+            We collaborate via <Link href='/slack'>Slack</Link>, our online community with <Text sx={{ animation: `.4s ${rollout}` }} key={Math.random()}>23,452
+            {/* {
               slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
                 .total_members_count
-            } fabulous people to talk to at all hours. Come for the skills, stay for the friends!
+            } */}
+            fabulous people to talk to at all hours. Come for the skills, stay for the friends!
           </Text>
           </Text>
           <Sprig />
@@ -474,7 +475,7 @@ function Page({ dataPieces, slackData, hackathonsData, bankData }) {
           <Epoch />
           <Hackathons />
         </Container>
-        <ScrollingHackathons eventData={hackathonsData} />
+        {/* <ScrollingHackathons eventData={hackathonsData} /> */}
       </Box>
       <Box bg="snow" color="black" py={[5, 6]}>
         <Container sx={{ textAlign: ['left', 'center'] }}>
@@ -639,27 +640,27 @@ export async function getStaticProps() {
     )
   ]
 
-  const formData = new FormData()
+  // const formData = new FormData()
 
-  formData.append('token', process.env.SLACK_API_TOKEN)
-  formData.append('date_range', '30d')
+  // formData.append('token', process.env.SLACK_API_TOKEN)
+  // formData.append('date_range', '30d')
 
-  const slackData = await fetch(
-    'https://hackclub.slack.com/api/team.stats.timeSeries',
-    {
-      method: 'POST',
-      body: formData,
-      headers: {
-        Cookie: process.env.SLACK_API_COOKIE
-      }
-    }
-  ).then(r => r.json())
+  // const slackData = await fetch(
+  //   'https://hackclub.slack.com/api/team.stats.timeSeries',
+  //   {
+  //     method: 'POST',
+  //     body: formData,
+  //     headers: {
+  //       Cookie: process.env.SLACK_API_COOKIE
+  //     }
+  //   }
+  // ).then(r => r.json())
 
   const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming')
   const hackathonsData = await res.json()
 
   return {
-    props: { dataPieces, slackData, hackathonsData, bankData },
+    props: { dataPieces, hackathonsData, bankData },
     revalidate: 10
   }
 }
