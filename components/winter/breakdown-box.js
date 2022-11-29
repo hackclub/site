@@ -1,11 +1,11 @@
-import { Box, Flex, Container, Heading, Text, Badge, Link } from 'theme-ui'
+import { Box, Card, Flex, Container, Heading, Text, Badge, Link } from 'theme-ui'
 import { Zoom } from 'react-reveal'
 import Icon from '@hackclub/icons'
 
 function BreakdownBox({ subtitle, icon, text, description, delay }) {
   return (
     <Zoom delay={delay}>
-      <Box sx={{ color: 'white' }}>
+      <Card sx={{ color: 'white', background: 'rgba(225,225,225,0.2)', height: '100%' }} variant="interactive">
         {subtitle != null ? (
           <Text as="h1">{subtitle}</Text>
         ) : (
@@ -26,7 +26,7 @@ function BreakdownBox({ subtitle, icon, text, description, delay }) {
         >
           {description}
         </Text>
-      </Box>
+      </Card>
     </Zoom>
   )
 }

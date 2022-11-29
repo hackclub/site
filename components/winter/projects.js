@@ -104,10 +104,61 @@ const PhotoRow = ({ photos }) => (
   </Box>
 )
 
+const Cards = ({ avatar, username, description, image }) => {
+  return (
+    <Card
+      className="post"
+      sx={{ p: [3, 3], width: '100%', background: 'rgba(225,225,225,0.9)' }}
+    >
+      <Flex
+        as="a"
+        href={`https://scrapbook.hackclub.com/`}
+        sx={{
+          color: 'inherit',
+          textDecoration: 'none',
+          alignItems: 'center',
+          mb: 2
+        }}
+      >
+        <Avatar loading="lazy" src={avatar} alt="" mr={2} />
+        <Box>
+          <Text variant="subheadline" my={0} fontSize={[1, 1]}>
+            @{username}
+          </Text>
+        </Box>
+      </Flex>
+      <Text
+        as="p"
+        sx={{
+          fontSize: 1,
+          textAlign: 'left',
+          mb: 2,
+          a: {
+            color: 'primary',
+            wordBreak: 'break-all',
+            wordWrap: 'break-word'
+          },
+          '> div': { width: 18, height: 18 }
+        }}
+      >
+        {description}
+      </Text>
+      <img src={image} sx={{ width: '100%' }} />
+    </Card>
+  )
+}
+
 export default function Projects() {
   const [count, setCount] = useState(0)
 
-  let list = ['mechanical keyboard', '3D printer', 'drone', 'CNC machine']
+  let list = [
+    'mechanical keyboard',
+    '3D printer',
+    'drone',
+    'CNC machine',
+    'pixel art display',
+    'camera'
+  ]
 
   if (count == list.length - 1) {
     setCount(0)
@@ -124,7 +175,7 @@ export default function Projects() {
             zIndex: 1,
             position: 'relative',
             color: 'white!important',
-            height: '400px'
+            height: '800px'
           }}
           pt={[5, 5, '110px']}
         >
@@ -167,12 +218,43 @@ export default function Projects() {
                     alt="click me"
                     sx={{
                       position: 'absolute',
-                      top: -4,
-                      right: -5
+                      top: -3,
+                      right: -4
                     }}
                   />
                 </Text>
               </Heading>
+              <Grid columns={[1, 3, 3]} mt={4}>
+                <Cards
+                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2021-07-09/2257244348787_a6641b8fe5463f3690a8_192.jpg&w=96&q=75"
+                  username="vineetkaemail"
+                  description="I made an IoT device last month that used to count how many times I enter or leave my room. It plugs into any USB port, connects to the WiFi and starts working instantly."
+                  image="https://cloud-e1fn2ugnf.vercel.app/0img_20200907_111148_ll.jpg"
+                />
+                <Cards
+                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2021-06-21/2215194850128_1326a9ce1fd28c15e4ed_192.jpg&w=96&q=75"
+                  username="akshaygautam010"
+                  description="I had nearly forgotten the joy of disassembling things, 🤪 feels awesome to be back. The base is taking shape now...."
+                  image="https://cloud-hdyb4x8cj.vercel.app/0img20200916145227.jpg"
+                />
+                <Cards
+                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://secure.gravatar.com/avatar/6af7218c982a84d6239ab5c1a2ae4ec8.jpg?s%3D192%26d%3Dhttps%253A%252F%252Fa.slack-edge.com%252Fdf10d%252Fimg%252Favatars%252Fava_0018-192.png&w=96&q=75"
+                  username="toyatakahashi522"
+                  description="Yay the display matches what I type in real time."
+                  image="https://cloud-6avjg2xpp-hack-club-bot.vercel.app/00image_from_ios_1.png"
+                />
+              </Grid>
+              <Button
+                as="a"
+                variant="cta"
+                href="https://scrapbook.hackclub.com/"
+                sx={{
+                  background: 'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
+                  mt: 2
+                }}
+              >
+                Keep exploring →
+              </Button>
             </Container>
           </Box>
         </Box>
@@ -193,6 +275,12 @@ export default function Projects() {
               LaptopDonations,
               Kerala
             ]}
+          />
+          <PhotoRow
+            photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]}
+          />
+          <PhotoRow
+            photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]}
           />
           <PhotoRow
             photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]}

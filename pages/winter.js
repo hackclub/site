@@ -24,8 +24,10 @@ import Breakdown from '../components/winter/breakdown'
 import Projects from '../components/winter/projects'
 import Landing from '../components/winter/landing'
 import Recap from '../components/winter/recap'
+import { Zoom } from 'react-reveal'
 
 export default function Winter() {
+
   return (
     <>
       <Box as="main" sx={{ bg: 'blue' }}>
@@ -53,6 +55,7 @@ export default function Winter() {
           }}
         >
           <Box sx={{ display: 'flex', flexDirection: ['row', null, 'column'] }}>
+            <Zoom>
             <Heading
               variant="title"
               sx={{
@@ -73,6 +76,7 @@ export default function Winter() {
                 ml: [2, null, null]
               }}
             />
+            </Zoom>
           </Box>
           <RealTimeline />
         </Flex>
