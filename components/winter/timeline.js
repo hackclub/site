@@ -13,7 +13,7 @@ function TimelineStep({ children }) {
         '&:before': {
           content: '""',
           background: 'snow',
-          height: '320px',
+          height: ['420px', '320px', '320px'],
           width: '4px',
           marginLeft: 36,
           position: 'absolute',
@@ -26,8 +26,8 @@ function TimelineStep({ children }) {
         },
         '&:last-of-type:before': {
           bottom: [0, null, 'auto'],
-          left: [null, null, 0],
-          width: [null, null, 0]
+          left: [0, null, 0],
+          width: [0, null, 0]
         }
       }}
     >
@@ -61,7 +61,7 @@ function Circle({ children }) {
 function Step({ icon, name, duration, href }) {
   return (
     <TimelineStep sx={{ pb: 1 }}>
-      <Slide left>
+      <Slide left sx={{ zIndex: 999 }}>
         <Circle>
           {href ? (
             <Link href={href} sx={{ cursor: 'pointer' }}>
