@@ -3,6 +3,7 @@ import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
 import hero from '../../public/bank/bg.webp'
+import Announcement from '../announcement'
 
 export default function Landing({ showButton, eventsCount }) {
   return (
@@ -26,6 +27,13 @@ export default function Landing({ showButton, eventsCount }) {
               paddingTop: '96px'
             }}
           >
+            <Announcement
+              copy="Hack Club Bank: the ultimate financial tool for FIRST teams."
+              caption="Learn more and sign up for Hack Club Bank. &rarr;"
+              href="/first"
+              iconLeft="sam"
+              color="primary"
+            />
             <Fade duration={625} bottom>
               <Container
                 variant="container"
