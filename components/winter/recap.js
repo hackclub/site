@@ -21,7 +21,7 @@ function Recap() {
             friends.{' '}
           </Heading>
         </Slide>
-        <Grid gap={[2, 4, 5]} columns={[1, 3, 3]} pb={4}>
+        <Grid gap={[2, 2, 3]} columns={[1, 1, 3, 3]} pb={4}>
           <BreakdownBox
             icon="event-code"
             text="10 days"

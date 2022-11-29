@@ -78,7 +78,8 @@ export default function Landing() {
             <Heading
               variant="eyebrow"
               sx={{
-                color: '#C1B9D3'
+                color: '#C1B9D3',
+                fontSize: ['18px', '20px','24px']
               }}
             >
               Join the Hack Club community for a
@@ -97,9 +98,11 @@ export default function Landing() {
             <Container variant="copy">
               <Text
                 variant="subtitle"
+                as="p"
                 sx={{
                   color: 'white',
-                  textShadow: '0 0 16px rgba(0, 0, 0, 0.2)'
+                  textShadow: '0 0 16px rgba(0, 0, 0, 0.2)',
+                  pt: 2
                 }}
               >
                 Get up to $250 in grant money build a hardware project this

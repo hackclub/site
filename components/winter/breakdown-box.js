@@ -7,7 +7,9 @@ function BreakdownBox({ subtitle, icon, text, description, delay }) {
     <Zoom delay={delay}>
       <Card sx={{ color: 'white', background: 'rgba(225,225,225,0.2)', height: '100%' }} variant="interactive">
         {subtitle != null ? (
-          <Text as="h1">{subtitle}</Text>
+          <Text as="h1" sx={{
+            fontSize: [2, 3, 4]
+          }}>{subtitle}</Text>
         ) : (
           <Icon glyph={icon} sx={{ ml: 2 }} color={'#5BC0DE'} />
         )}

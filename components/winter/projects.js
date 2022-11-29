@@ -49,16 +49,6 @@ Sheet.defaultProps = {
   }
 }
 
-const Row = styled(Box)`
-  text-align: left;
-  @media screen and (min-width: 48em) {
-    display: grid;
-    grid-gap: 18px;
-    grid-template-columns: ${({ reverse }) =>
-      reverse ? '3fr 2fr' : '2fr 3fr'};
-  }
-`
-
 Sheet.defaultProps = {
   sx: {
     maxWidth: '52rem',
@@ -168,16 +158,16 @@ export default function Projects() {
 
   return (
     <Box>
-      <Header sx={{ position: 'relative' }}>
+      <Header sx={{position: 'relative'}}>
         <Box
           sx={{
             background: 'rgba(0,0,0, 0.8)',
             zIndex: 1,
             position: 'relative',
             color: 'white!important',
-            height: '800px'
-          }}
+            height: ['auto', '800px', '800px']          }}
           pt={[5, 5, '110px']}
+          pb={[5, 0, 0]}
         >
           <Box
             sx={{
@@ -193,7 +183,11 @@ export default function Projects() {
             <Container sx={{ maxWidth: '48rem' }}>
               <Heading
                 variant="title"
-                sx={{ textShadow: '0px 0px 21px #E1F1FF', color: 'white' }}
+                sx={{
+                  textShadow: '0px 0px 21px #E1F1FF',
+                  color: 'white',
+                  fontSize: [4, 5, 6]
+                }}
               >
                 You could be building a{' '}
                 <Text
@@ -224,7 +218,7 @@ export default function Projects() {
                   />
                 </Text>
               </Heading>
-              <Grid columns={[1, 3, 3]} mt={4}>
+              <Grid columns={[1, 3, 3]} mt={4} mx={['5vw', 'auto', 'auto']}>
                 <Cards
                   avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2021-07-09/2257244348787_a6641b8fe5463f3690a8_192.jpg&w=96&q=75"
                   username="vineetkaemail"
@@ -249,7 +243,8 @@ export default function Projects() {
                 variant="cta"
                 href="https://scrapbook.hackclub.com/"
                 sx={{
-                  background: 'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
+                  background:
+                    'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
                   mt: 2
                 }}
               >
@@ -264,7 +259,7 @@ export default function Projects() {
             top: 0,
             zIndex: 0,
             width: '100%',
-            display: 'block'
+            display: ['none', 'block', 'block']
           }}
         >
           <PhotoRow

@@ -20,7 +20,7 @@ function Breakdown() {
           <Heading
             variant="headline"
             sx={{
-              textAlign: 'center',
+              textAlign: ['left', 'center','center'],
               textShadow: '0px 0px 21px #E1F1FF',
               color: 'white',
               fontSize: [3, 4, 5],
@@ -30,12 +30,13 @@ function Breakdown() {
             <Fade delay={500}>
             Mark your calendars.
             </Fade>
+            <br />
             <Fade delay={1000}>
             For 10 days, hundreds of makers are gathering in the Hack Club Slack to code together.
             </Fade>
           </Heading>
         </Slide>
-        <Grid gap={[2, 4, 5]} columns={[1, 3, 3]} pb={4}>
+        <Grid gap={[2, 2, 3]} columns={[1, 1, 3, 3]} pb={4}>
         <BreakdownBox
             subtitle="Online"
             text="Community"
