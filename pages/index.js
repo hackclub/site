@@ -3,6 +3,7 @@ import {
   Button,
   Card,
   Container,
+  Flex,
   Grid,
   Heading,
   Image,
@@ -31,6 +32,17 @@ import Announcement from '../components/announcement'
 import Stage from '../components/stage'
 import devtools from '../node_modules/devtools-detect/index.js'
 import Carousel from '../components/carousel'
+import Sprig from '../components/cards/sprig'
+import Sinerider from '../components/cards/sinerider'
+import SprigConsole from '../components/cards/sprig-console'
+import Clubs from '../components/cards/clubs'
+import Workshops from '../components/cards/workshops'
+import Bank from '../components/cards/bank'
+import FormData from 'form-data'
+import Epoch from '../components/cards/epoch'
+import Hackathons from '../components/cards/hackathons'
+import ScrollingHackathons from '../components/hackathons/scrolling-hackathons'
+import Fade from 'react-reveal/Fade'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -241,7 +253,7 @@ const animation2 = keyframes`
 `
 
 const Glitch = styled(Text)`
-  color: #fff;
+  color: #000;
   text-decoration: none;
   bottom: 0px;
   right: 0px;
@@ -258,7 +270,7 @@ const Glitch = styled(Text)`
   ,
   &:before,
   &:after {
-    color: #fff;
+    color: #000;
     content: 'Hacker? Inspect 🔍 this page to learn more.';
     position: absolute;
     // background: #303039;
@@ -281,59 +293,16 @@ const Glitch = styled(Text)`
   }
 `
 
-const Feature = ({ icon, color, name, desc, children, sx, ...props }) => (
-  <Box
-    sx={{
-      display: 'grid',
-      gridGap: [0, 4],
-      gridTemplateColumns: [null, 'auto 1fr'],
-      alignItems: 'start',
-      justifyContent: 'start',
-      bg: 'rgba(224, 230, 237, 0.25)',
-      p: [3, 4],
-      mt: [1, 1],
-      borderRadius: 'extra',
-      span: { transform: 'none', width: 'min-intrinsic' },
-      svg: { color: 'white' },
-      ...sx
-    }}
-  >
-    {children || (
-      <Box
-        as="span"
-        sx={{
-          width: 'fit-content',
-          bg: color,
-          borderRadius: 18,
-          lineHeight: 0,
-          p: 2,
-          mb: 1,
-          display: 'inline-block',
-          transform: ['scale(0.75)', 'none'],
-          transformOrigin: 'bottom left',
-          boxShadow:
-            'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
-        }}
-      >
-        <Icon glyph={icon} size={48} />
-      </Box>
-    )}
-    <Box>
-      <Heading as="h3" variant="headline" mb={2} mt={0}>
-        {name}
-      </Heading>
-      <Text
-        as="p"
-        variant="subtitle"
-        sx={{ mt: 0, pb: 2, a: { variant: 'styles.a', color: 'blue' } }}
-      >
-        {desc}
-      </Text>
-    </Box>
-  </Box>
-)
+const rollout = keyframes`
+0% {
+  transform: translateY(-100px);
+}
+100% {
+  transform: translateY(0);
+}
+`
 
-function Page() {
+function Page({ dataPieces, slackData, hackathonsData, bankData }) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       // Check if it's open
@@ -349,6 +318,36 @@ function Page() {
       })
     }
   })
+
+  // useEffect(() => {
+  //   return (
+  //     <Text sx={{ animation: `.4s ${rollout}` }} key={Math.random()}>
+  //       {
+  //         slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
+  //           .total_members_count
+  //       }
+  //     </Text>
+  //   )
+  // }, slackData)
+
+  const Node = ({ text }) => (
+    <Badge
+      variant="pill"
+      bg="sunken"
+      sx={{
+        flexGrow: 1,
+        fontSize: 2,
+        color: 'text'
+      }}
+    >
+      <Link
+        href="https://github.com/hackclub"
+        sx={{ textDecoration: 'none', color: 'inherit' }}
+      >
+        {text}
+      </Link>
+    </Badge>
+  )
   return (
     <>
       <Meta
@@ -364,7 +363,7 @@ function Page() {
           size="512x512"
         />
       </Head>
-      <ForceTheme theme="dark" />
+      <ForceTheme theme="light" />
       <Nav />
       <Box
         as="header"
@@ -374,37 +373,29 @@ function Page() {
           pb: [2, 3],
           textAlign: 'left',
           position: 'relative',
-          overflow: 'hidden'
+          overflowX: 'hidden'
         }}
       >
         {/* <BGImg
-        src={AssembleImgFile}
-        alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
-        priority
-      /> */}
-        <SlideDown duration={768}>
-          <Box
-            sx={{
-              maxWidth: [null, 'layoutPlus'],
-              position: 'relative',
-              mx: 'auto'
-            }}
-          >
-            <Announcement
-              copy="Epoch: celebrate the New Year with Hack Club."
-              caption="Join 150+ hackers in Delhi for a magical high-school hackathon!"
-              href="https://epoch.hackclub.com"
-              iconLeft="explore"
-              color="primary"
-            />{' '}
+          src={AssembleImgFile}
+          alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
+          priority
+        /> */}
+        {/* <SlideDown duration={768}> */}
+        <Box
+          sx={{
+            maxWidth: [null, 'layoutPlus'],
+            position: 'relative',
+            mx: 'auto'
+          }}
+        >
+          <Node text={dataPieces[0]} />
+          <Fade bottom cascade>
             <Heading
               as="h1"
               variant="ultratitle"
               sx={{
                 color: 'text',
-                // textShadow: 'text',
-                // filter: 'drop-shadow(0 -2px 4px rgba(0,0,0,0.5))',
-                // WebkitFilter: 'drop-shadow(0 -2px 4px rgba(0,0,0,0.5))',
                 my: [3, 4],
                 mx: 'auto',
                 zIndex: 1,
@@ -428,8 +419,9 @@ function Page() {
                       backgroundColor: 'red',
                       position: 'absolute',
                       borderRadius: 10,
-                      transform: 'rotate(3deg)',
+                      transform: 'rotate(-3deg)',
                       color: 'white',
+                      whiteSpace: 'nowrap',
                       '&:hover': { cursor: 'pointer' }
                     }}
                   >
@@ -440,377 +432,57 @@ function Page() {
                 around the world by building things we care about together.
               </Text>
             </Heading>
-            <Glitch>Hacker? Inspect 🔍 this page to learn more.</Glitch>
-          </Box>
-        </SlideDown>
+          </Fade>
+          <Glitch>Hacker? Inspect 🔍 this page to learn more.</Glitch>
+        </Box>
+        {/* </SlideDown> */}
         <Carousel />
       </Box>
       <Box as="section" sx={{ py: [4, 5], color: 'black' }}>
         <Container>
-          <Text as="p" variant="eyebrow">
-            The rundown
+          <Text variant="title">Join our open-source projects</Text>
+          <Text variant="subtitle" as="p">
+            We collaborate via <Link href='/slack'>Slack</Link>, our online community with <Text sx={{ animation: `.4s ${rollout}` }} key={Math.random()}>
+            {
+              slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
+                .total_members_count
+            } fabulous people to talk to at all hours. Come for the skills, stay for the friends!
           </Text>
-          <Heading as="h2" variant="title">
-            Clubs discovering the{' '}
-            <Text
-              as="span"
-              sx={{
-                borderRadius: 'default',
-                px: 2,
-                mx: [-2, 0],
-                whiteSpace: 'nowrap',
-                color: '#5d114c',
-                bg: 'rgb(255, 212, 64)'
-              }}
-            >
-              joy of code
-            </Text>
-            .
-          </Heading>
-          <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus' }}>
-            Hack Clubs typically meet for 1.5 hours each week in high schools,
-            makerspaces, community centers, churches, and any other venue where
-            teenagers can gather. As a club leader, you get members (mostly
-            beginners) started on something to learn/create, then members work
-            at their own pace, building websites, apps, & games, and presenting
-            them at the end.
           </Text>
-          <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
-            <Photo
-              src="https://dl.airtable.com/.attachmentThumbnails/904cf56ceac6b0921eceae02958dcd29/5851864a"
-              alt="Summer Creek Hack Club meeting, February 2020"
-              width={3000}
-              height={2550}
-              showAlt
-            />
-            <Grid
-              columns="auto 1fr"
-              sx={{
-                gridColumnGap: 3,
-                span: {
-                  width: 36,
-                  height: 36,
-                  borderRadius: 24,
-                  display: 'inline-block',
-                  fontSize: 2,
-                  lineHeight: '30px',
-                  textAlign: 'center',
-                  fontWeight: 'bold',
-                  border: '3px solid currentColor'
-                },
-                p: { my: 0 },
-                strong: { display: 'block' }
-              }}
-            >
-              <Text as="span" color="green">
-                1
-              </Text>
-              <Text as="p" variant="subtitle">
-                <strong>
-                  A group of teens, many beginners, gather to start coding.
-                </strong>
-                The leader (that’s you!) presents for a few minutes, getting the
-                group started building something new.
-              </Text>
-              <Text as="span" color="cyan">
-                2
-              </Text>
-              <Text
-                as="p"
-                variant="subtitle"
-                sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
-              >
-                <strong>Everyone gets hacking, individually.</strong> Not
-                hacking bank accounts, being creative and{' '}
-                <Link href="/ship">making something awesome</Link>.
-              </Text>
-              <Text as="span" color="blue">
-                3
-              </Text>
-              <Text as="p" variant="subtitle">
-                <strong>To end, everyone demos their work.</strong>
-                As a leader, you’re cultivating a community of makers. Each
-                member showing off their work builds momentum & motivation.
-              </Text>
-            </Grid>
-          </Grid>
-          <Grid
-            columns={[null, '1fr 2fr']}
-            mt={[3, 5]}
-            sx={{ maxWidth: 'copyUltra', mx: 'auto' }}
-          >
-            <Heading
-              as="h3"
-              variant="headline"
-              sx={{ fontSize: [4, 5], mb: 0 }}
-            >
-              Go beyond club meetings.
-            </Heading>
-            <Text
-              as="p"
-              variant="lead"
-              sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
-            >
-              Hack Clubs attend and run{' '}
-              <NextLink href="/hackathons" passHref>
-                <a>hackathons</a>
-              </NextLink>{' '}
-              like{' '}
-              <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a> &{' '}
-              <a href="https://www.sfchronicle.com/bayarea/article/Hack-the-Fog-makes-history-as-San-12729895.php">
-                Hack the Fog
-              </a>
-              , run summer programs like{' '}
-              <a href="https://web.archive.org/web/20200808171549/http://thecspn.com/?p=43434">
-                Hack Camp
-              </a>
-              , and compete in events like the{' '}
-              <a href="http://www.congressionalappchallenge.us">
-                Congressional App Challenge
-              </a>
-              . The&nbsp;hack’s the limit.
-            </Text>
-          </Grid>
+          <Sprig />
+          <Sinerider />
+          <SprigConsole />
         </Container>
-      </Box>
-      <Box
-        as="section"
-        sx={{
-          py: 6,
-          bg: 'dark',
-          color: 'white',
-          'h2,p': { textShadow: 'text' },
-          textAlign: [null, 'center'],
-          position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        <BGImg
-          gradient="linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625))"
-          src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855"
-          width={2048}
-          height={1170}
-          alt="Hack Clubbers gather at the Elon Musk AMA in 2020"
-        />
-        <Container>
-          <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
-            ~ Welcome to Hackerland ~
+        {/* <Slack /> */}
+        <Container mt={4}>
+          <Text variant="title">Start a coding club</Text>
+          <Text variant="subtitle" as="p">
+            Join or start a Hack Club and be part of a network of high quality
+            coding clubs where students gather to discover the joy of code.
           </Text>
-          <Heading as="h2" variant="title">
-            By the students, for the students.
-          </Heading>
-          <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
-            Learning to code is like gaining a superpower — turning you from a
-            consumer of technology into a creator. It shouldn’t be taught like a
-            class — it should be a creative, inclusive space. To foster this
-            environment,{' '}
-            <Highlight>every&nbsp;Hack&nbsp;Club is student-led</Highlight> &
-            members make self-directed projects.
+          <Clubs />
+          <Workshops />
+        </Container>
+        <Container mt={4}>
+          <Text variant="title">Find a hackathon</Text>
+          <Text variant="subtitle" as="p">
+            It's not an extracurricular or a club. It's not a class or a
+            lecture. Hackathons are a place to build things for fun and meet
+            others doing the same.
           </Text>
-          <NextLink href="/philosophy" passHref>
-            <Button
-              as="a"
-              variant="ctaLg"
-              sx={{
-                background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)'
-              }}
-            >
-              Our philosophy →
-            </Button>
-          </NextLink>
+          <Bank data={bankData} />
+          <Epoch />
+          <Hackathons />
         </Container>
+        <ScrollingHackathons eventData={hackathonsData} />
       </Box>
-      <Box as="section" sx={{ py: [4, 5, 6], color: 'black' }}>
-        <Container
-          sx={{
-            maxWidth: [null, 'copyUltra'],
-            svg: { filter: 'drop-shadow(0 2px 3px rgba(0,0,0,.125))' }
-          }}
-        >
-          <Box as="header" sx={{ textAlign: [null, 'center'], pb: [4, 5] }}>
-            <Text as="p" variant="eyebrow">
-              Hit the ground running
-            </Text>
-            <Heading as="h2" variant="title">
-              Get your club{' '}
-              <Text
-                as="span"
-                sx={{
-                  borderRadius: 'default',
-                  px: 2,
-                  mx: [-2, 0],
-                  bg: 'rgb(91, 255, 205)',
-                  color: '#095365',
-                  display: 'inline-block',
-                  whiteSpace: ['wrap', 'nowrap']
-                }}
-              >
-                going & growing
-              </Text>
-              with Hack&nbsp;Club.
-            </Heading>
-          </Box>
-          <Grid
-            columns={[null, 1]}
-            gap={[2, 3]}
-            sx={{ alignItems: 'end', span: { color: 'white' } }}
-          >
-            <Feature
-              icon="slack-fill"
-              color="#5d114c"
-              name="Chat with 100s of club leaders"
-              desc={
-                <>
-                  In our <Link href="/slack">Slack community</Link>, you’ll be
-                  invited to a space for Hack&nbsp;Club leaders to ask questions
-                  & chat, share projects, & attend weekly live events.
-                </>
-              }
-            />
-            <Feature
-              icon="bolt"
-              color="green"
-              name="Tools to hack on"
-              desc={
-                <>
-                  We build tools, such as{' '}
-                  <a href="https://sprig.hackclub.com">Sprig</a>, that your
-                  members can use to make projects with in meetings! Built more
-                  of them with us in our{' '}
-                  <Link href="/slack">Slack community</Link>.
-                </>
-              }
-            ></Feature>
-            <Feature
-              icon="docs"
-              color="red"
-              name="Meeting content"
-              desc={
-                <>
-                  Come prepared to every meeting with over 100{' '}
-                  <a href="https://workshops.hackclub.com">workshops</a> (3
-                  years’ worth!) that guide your club members through making
-                  fun, creative projects.
-                </>
-              }
-            ></Feature>
-            {/* <Feature
-            name="A comprehensive leader guide"
-            desc={
-              <>
-                Need help getting started? Watch real club leaders run meetings, and
-                learn how to run them in your own club, with{' '}
-                <a href="https://meetings.hackclub.com">Hack Club Meetings</a>.
-              </>
-            }
-          >
-            <Photo
-              src="/home/meetings.png"
-              alt="Claire running a workshop on Generative Art in an online meeting"
-              width={1000}
-              height={653}
-              sx={{ maxWidth: [null, 332] }}
-            />
-          </Feature> */}
-            <Feature
-              name="Stickers"
-              desc={
-                <>
-                  Get <Link href="/stickers">amazing stickers</Link> for
-                  marketing your club shipped directly to you & your club
-                  members.
-                </>
-              }
-              color="purple"
-              icon="sticker"
-            ></Feature>
-            <Feature
-              icon="bank-account"
-              color="black"
-              name="A nonprofit bank account"
-              desc={
-                <>
-                  Use our 501(c)(3) status and a restricted fund with{' '}
-                  <Link href="/bank">Hack Club Bank</Link> to fundraise, accept
-                  donations, buy things!
-                </>
-              }
-            />
-            <Feature
-              name="Weekly events"
-              desc={
-                <>
-                  From <Link href="/night">Hack Night</Link> to{' '}
-                  <Link href="/amas">AMAs</Link>
-                  {' to '}
-                  <a href="https://twitter.com/hackclub/status/1300494921997193217?s=21">
-                    weirder events
-                  </a>
-                  , the Slack community has live events for leaders & members
-                  alike every week.
-                </>
-              }
-              icon="event-code"
-              color="blue"
-            ></Feature>
-            <Feature
-              icon="purse"
-              color="orange"
-              name="A basket of free tools"
-              desc={
-                <>
-                  We're always building new tools for leaders, such as{' '}
-                  <a href="https://sprig.hackclub.com">Sprig</a>! We've also got
-                  free subscriptions to Figma Pro, Postman, and more for running
-                  a great club.
-                </>
-              }
-            />
-            {/* <Feature
-            icon="sam"
-            color="blue"
-            name="Free Zoom Pro"
-            desc="24/7 access to Zoom Pro enabled meeting rooms for your club (that means no time limit)."
-          /> */}
-          </Grid>
-          <Feature
-            icon="welcome"
-            color="rgb(255,88,88)"
-            name="Existing clubs welcome"
-            desc={
-              <>
-                When established CS clubs join, they get all the Hack&nbsp;Club
-                benefits: Zoom&nbsp;Pro, stickers, our Slack community,{' '}
-                <a href="https://workshops.hackclub.com/">workshops</a>, the
-                works. They’re welcome to use the “Hack&nbsp;Club” name or keep
-                their existing one.
-              </>
-            }
-            as="aside"
-            sx={{
-              display: 'grid',
-              gridGap: [0, 4],
-              gridTemplateColumns: [null, 'auto 1fr'],
-              alignItems: 'start',
-              justifyContent: 'start',
-              bg: 'rgba(255,88,88,0.125)',
-              p: [3, 4],
-              mt: [3, 4],
-              borderRadius: 'extra',
-              span: { transform: 'none', width: 'min-intrinsic' },
-              svg: { color: 'white' }
-            }}
-          />
-        </Container>
-      </Box>
-      <Slack />
       <Box bg="snow" color="black" py={[5, 6]}>
         <Container sx={{ textAlign: ['left', 'center'] }}>
           <Text as="p" variant="eyebrow">
-            Next steps
+            Let's quickly review
           </Text>
           <Heading as="h2" variant="title">
-            Apply today to{' '}
+            Find your second-home in{' '}
             <Text
               as="span"
               sx={{
@@ -819,16 +491,13 @@ function Page() {
                 ml: [-2, 0],
                 whiteSpace: ['wrap', 'nowrap'],
                 color: 'white',
-                bg: '#6f31b7'
+                bg: 'red'
               }}
             >
-              start your club
+              Hack Club
             </Text>
             .
           </Heading>
-          <Text as="p" variant="lead" mt={3} color="slate">
-            It’s all-online, free, & takes under an hour. We’ll help from there!
-          </Text>
           <Grid
             pt={[3, 4]}
             pb={[4, 5]}
@@ -851,7 +520,7 @@ function Page() {
           >
             <Card
               as="a"
-              href="https://apply.hackclub.com/"
+              href="https://ahackclub.com/slack"
               variant="interactive"
               sx={{
                 background:
@@ -861,10 +530,10 @@ function Page() {
               }}
             >
               <Stage
-                icon="send"
+                icon="slack"
                 color="white"
-                name="1. Application"
-                desc="Start by telling us about your club & who’s leading it."
+                name="Join the Slack"
+                desc="Connect with other technical teenagers and hack on things together."
               />
             </Card>
             <Card
@@ -876,10 +545,10 @@ function Page() {
               }}
             >
               <Stage
-                icon="emoji"
+                icon="clubs"
                 color="white"
-                name="2. Onboarding call"
-                desc="Hop on a quick Zoom with someone from Hack Club HQ."
+                name="Start a Club or Attend a Hackathon"
+                desc="Build an in-person community of high school hackers, and we're here to help."
               />
             </Card>
             <Card
@@ -890,22 +559,13 @@ function Page() {
               }}
             >
               <Stage
-                icon="event-check"
+                icon="event-code"
                 color="white"
-                name="3. First meeting"
-                desc="Schedule your club’s first meeting & get going!"
+                name="Explore our open-sourced tools"
+                desc="We're currently building a game engine, daily streak system, graphing game, and more!"
               />
             </Card>
           </Grid>
-          <Button
-            as="a"
-            href="https://apply.hackclub.com"
-            target="_blank"
-            rel="noopener"
-            variant="ctaLg"
-          >
-            Apply to Hack Club
-          </Button>
         </Container>
       </Box>
       <Footer
@@ -939,6 +599,69 @@ function Page() {
       </Footer>
     </>
   )
+}
+
+export async function getStaticProps() {
+  let dataPieces = []
+  let bankData = []
+  let initialBankData = await fetch('https://bank.hackclub.com/stats').then(r =>
+    r.json()
+  )
+  bankData.push(
+    `💰 ${initialBankData.raised.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    })} raised on Bank`
+  )
+  let initialGitHubData = await fetch(
+    'https://api.github.com/orgs/hackclub/events'
+  ).then(r => r.json())
+  initialGitHubData = initialGitHubData.map(x =>
+    x.type == 'PushEvent' ||
+    x.type == 'WatchEvent' ||
+    (x.type == 'PullRequestEvent' && x.actor.login != 'github-actions[bot]')
+      ? x.type == 'PushEvent'
+        ? `✅ New commit in ${x.repo.name} by ${x.actor.login}`
+        : x.type == 'WatchEvent'
+        ? `⭐️ New star on ${x.repo.name}`
+        : x.type == 'PullRequestEvent'
+        ? `🔀 New PR for ${x.repo.name}`
+        : `🎉 New activity in ${x.repo.name}`
+      : null
+  )
+  console.log([...new Set(initialGitHubData)])
+  dataPieces = [
+    ...dataPieces,
+    ...new Set(
+      initialGitHubData.filter(function (el) {
+        return el != null
+      })
+    )
+  ]
+
+  const formData = new FormData()
+
+  formData.append('token', process.env.SLACK_API_TOKEN)
+  formData.append('date_range', '30d')
+
+  const slackData = await fetch(
+    'https://hackclub.slack.com/api/team.stats.timeSeries',
+    {
+      method: 'POST',
+      body: formData,
+      headers: {
+        Cookie: process.env.SLACK_API_COOKIE
+      }
+    }
+  ).then(r => r.json())
+
+  const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming')
+  const hackathonsData = await res.json()
+
+  return {
+    props: { dataPieces, slackData, hackathonsData, bankData },
+    revalidate: 10
+  }
 }
 
 export default Page
