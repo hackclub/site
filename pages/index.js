@@ -253,7 +253,7 @@ const animation2 = keyframes`
 `
 
 const Glitch = styled(Text)`
-  color: #000;
+  color: #fff;
   text-decoration: none;
   bottom: 0px;
   right: 0px;
@@ -270,7 +270,7 @@ const Glitch = styled(Text)`
   ,
   &:before,
   &:after {
-    color: #000;
+    color: #fff;
     content: 'Hacker? Inspect 🔍 this page to learn more.';
     position: absolute;
     // background: #303039;
@@ -333,11 +333,11 @@ function Page({ dataPieces, hackathonsData, bankData }) {
   const Node = ({ text }) => (
     <Badge
       variant="pill"
-      bg="sunken"
+      bg="black"
       sx={{
         flexGrow: 1,
         fontSize: 2,
-        color: 'text'
+        color: 'white'
       }}
     >
       <Link
@@ -368,7 +368,7 @@ function Page({ dataPieces, hackathonsData, bankData }) {
       <Box
         as="header"
         sx={{
-          bg: 'light',
+          bg: 'black',
           pt: [5, 6],
           pb: [2, 3],
           textAlign: 'left',
@@ -390,12 +390,11 @@ function Page({ dataPieces, hackathonsData, bankData }) {
           }}
         >
           <Node text={dataPieces[0]} />
-          <Fade bottom cascade>
             <Heading
               as="h1"
               variant="ultratitle"
               sx={{
-                color: 'text',
+                color: 'white',
                 my: [3, 4],
                 mx: 'auto',
                 zIndex: 1,
@@ -410,8 +409,9 @@ function Page({ dataPieces, hackathonsData, bankData }) {
                   pb: 3
                 }}
               >
-                We inspire the hacker ethic in{' '}
-                <Text sx={{ color: 'transparent', mr: 2 }}>
+              <Fade bottom cascade delay={200}>
+                We inspire the hacker ethic {''}in teen makers around the {''}world by building things we {''}care about together.
+                {/* <Text sx={{ color: 'transparent', mr: 2 }}>
                   <Text
                     sx={{
                       lineHeight: 0.875,
@@ -428,11 +428,10 @@ function Page({ dataPieces, hackathonsData, bankData }) {
                     teen makers
                   </Text>
                   teen makers{' '}
-                </Text>
-                around the world by building things we care about together.
+                </Text> */}
+                </Fade>
               </Text>
             </Heading>
-          </Fade>
           <Glitch>Hacker? Inspect 🔍 this page to learn more.</Glitch>
         </Box>
         {/* </SlideDown> */}
@@ -442,7 +441,7 @@ function Page({ dataPieces, hackathonsData, bankData }) {
         <Container>
           <Text variant="title">Join our open-source projects</Text>
           <Text variant="subtitle" as="p">
-            We collaborate via <Link href='/slack'>Slack</Link>, our online community with <Text sx={{ animation: `.4s ${rollout}` }} key={Math.random()}>23,452
+            We collaborate via <Link href='/slack'>Slack</Link>, our online community with <Text sx={{ animation: `.4s ${rollout}` }} key={Math.random()}>23,452{' '}
             {/* {
               slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
                 .total_members_count
@@ -474,6 +473,7 @@ function Page({ dataPieces, hackathonsData, bankData }) {
           <Bank data={bankData} />
           <Epoch />
           <Hackathons />
+          <iframe src="https://bank.hackclub.com/poseidon-robotics"  width="100%" height="400px" />
         </Container>
         {/* <ScrollingHackathons eventData={hackathonsData} /> */}
       </Box>
@@ -521,7 +521,7 @@ function Page({ dataPieces, hackathonsData, bankData }) {
           >
             <Card
               as="a"
-              href="https://ahackclub.com/slack"
+              href="/slack"
               variant="interactive"
               sx={{
                 background:
@@ -542,8 +542,12 @@ function Page({ dataPieces, hackathonsData, bankData }) {
                 background:
                   'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
                 color: 'white',
-                svg: { color: 'rgb(236, 55, 80)' }
+                svg: { color: 'rgb(236, 55, 80)' },
+                textDecoration: 'none'
               }}
+              as="a"
+              href="/clubs"
+              variant="interactive"
             >
               <Stage
                 icon="clubs"
@@ -556,8 +560,12 @@ function Page({ dataPieces, hackathonsData, bankData }) {
               sx={{
                 background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
                 color: 'white',
-                svg: { color: '#fb558e' }
+                svg: { color: '#fb558e' },
+                textDecoration: 'none'
               }}
+              as="a"
+              href="https://github.com/hackclub"
+              variant="interactive"
             >
               <Stage
                 icon="event-code"
