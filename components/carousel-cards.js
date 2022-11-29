@@ -18,15 +18,24 @@ export default function CarouselCards({
   descriptionColor,
   title,
   description,
-  img
+  img,
+  link
 }) {
   return (
-    <Box sx={{ position: 'relative', display: 'inline-block', transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out', '&:hover' : {transform: 'scale(1.0625)', boxShadow: 'elevated'} }}>
+    <Box
+      sx={{
+        position: 'relative',
+        display: 'inline-block',
+        transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
+        '&:hover': { transform: 'scale(1.0625)', boxShadow: 'elevated' },
+      }}
+    >
+      <Link sx={{textDecoration: 'none', '&:hover': {cursor: 'pointer'}}} href={link}>
       <img
         src={img}
         width="40"
         height="40"
-        sx={{ position: 'absolute', top: '-20px', left: 2, zIndex: 2 }}
+        sx={{ position: 'absolute', top: '-20px', left: 4, zIndex: 2 }}
       />
       <Card
         // variant="interactive"
@@ -34,8 +43,8 @@ export default function CarouselCards({
           mr: 3,
           backgroundColor: background,
           position: 'relative',
-          color: 'text',
-          // width: '400px'
+          color: 'white',
+          width: '350px',
         }}
       >
         <Text as="h2" sx={{ color: titleColor }}>
@@ -45,6 +54,7 @@ export default function CarouselCards({
           {description}
         </Text>
       </Card>
+      </Link>
     </Box>
   )
 }
