@@ -13,7 +13,7 @@ import {
   Link
 } from 'theme-ui'
 import styled from '@emotion/styled'
-import Snow from 'resnow'
+import Snowfall from 'react-snowfall'
 import Footer from '../components/footer'
 import FadeIn from '../components/fade-in'
 import { keyframes } from '@emotion/react'
@@ -70,13 +70,13 @@ const Page = () => (
   <Box sx={{ overflowX: 'hidden' }}>
     <Meta
       as={Head}
-      title="Secret Santa – Holiday 2021"
+      title="Secret Santa"
       description="Find your holiday zen this year with Hack Club’s Secret Santa."
       image="https://cloud-9kgqrlg7o-hack-club-bot.vercel.app/0santa.png"
     />
     <Nav />
     <Hero py={4}>
-      <Snow style={{ width: '100vw' }} />
+      <Snowfall />
       <Container px={3} py={[3, 4]}>
         <Heading
           sx={{ py: [3, 5], fontSize: [4, 5], color: 'white', opacity: 0.8 }}
@@ -84,7 +84,7 @@ const Page = () => (
           caps
         >
           <FadeIn delay={300} duration={600}>
-            It's 2021,
+            It's 2022,
           </FadeIn>
           <FadeIn delay={1200} duration={600}>
             the holidays have come,
@@ -125,10 +125,10 @@ const Page = () => (
             just in time for the holidays!
           </Lead>
           {/* Signup form */}
-          {/* <Signup /> */}
-          <Button disabled sx={{ bg: 'primary', mb: 4 }}>
+          <Signup />
+          {/* <Button disabled sx={{ bg: 'primary', mb: 4 }}>
             Signups closed. Check back next year!
-          </Button>
+          </Button> */}
         </FadeIn>
       </Container>
     </Hero>

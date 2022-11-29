@@ -587,17 +587,17 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-12.3.1.tgz#18266bd92de3b4aa4037b1927aa59e6f11879260"
   integrity sha512-9P9THmRFVKGKt9DYqeC2aKIxm8rlvkK38V1P1sRE7qyoPBIs8l9oo79QoSdPtOWfzkbDAVUqvbQGgTMsb8BtJg==
 
-"@next/eslint-plugin-next@13.0.4":
-  version "13.0.4"
-  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-13.0.4.tgz#46800f48d9f81e8bb460319a15a00bf2f4016e91"
-  integrity sha512-jZ4urKT+aO9QHm3ttihrIQscQISDSKK8isAom750+EySn9o3LCSkTdPGBtvBqY7Yku+NqhfQempR5J58DqTaVg==
+"@next/eslint-plugin-next@13.0.5":
+  version "13.0.5"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-13.0.5.tgz#75af8572ee3163908f08cf357d65ccd24edf5e6b"
+  integrity sha512-H9U9B1dFnCDmylDZ6/dYt95Ie1Iu+SLBMcO6rkIGIDcj5UK+DNyMiWm83xWBZ1gREM8cfp5Srv1g6wqf8pM4lw==
   dependencies:
     glob "7.1.7"
 
-"@next/mdx@^13.0.4":
-  version "13.0.4"
-  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-13.0.4.tgz#f1e77eea1a2ad4316a8c29ca0447f13548a6102f"
-  integrity sha512-eKmn8YC5nSBwcvjxBi5X9F+4L0p5+YMJcLXZXaAkfXbjxO1mMpj+EpMn2EINNPIGCRKTypZfZaJgvrxuU8a72g==
+"@next/mdx@^13.0.5":
+  version "13.0.5"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-13.0.5.tgz#e92c713fa1ca66b504962775e6b626cc593131e4"
+  integrity sha512-4BMiUpul73hlHH4127Z+/yun+V/C4uZEm3DvUeqPEeRpRc6ZvaN6YiCaHJXfVIuarl+ZsJlhoevCxV9oXe/5xw==
   dependencies:
     source-map "^0.7.0"
 
@@ -1363,10 +1363,10 @@ axe-core@^4.3.5:
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.3.5.tgz"
   integrity sha512-WKTW1+xAzhMS5dJsxWkliixlO/PqC4VhmO9T4juNYcaTg9jzWiJsou6m5pxWYGfigWbwzJWeFY6z47a+4neRXA==
 
-axios@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.1.3.tgz#8274250dada2edf53814ed7db644b9c2866c1e35"
-  integrity sha512-00tXVRwKx/FZr/IDVFt4C+f9FYairX517WoGCL6dpOntqLkZofjhu43F/Xl44UOpqa+9sLFDrG/XAnFsUYgkDA==
+axios@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.2.0.tgz#1cb65bd75162c70e9f8d118a905126c4a201d383"
+  integrity sha512-zT7wZyNYu3N5Bu0wuZ6QccIf93Qk1eV8LOewxgjOZFd2DenOs98cJ7+Y6703d0wkaXGY6/nZd4EweJaHz9uzQw==
   dependencies:
     follow-redirects "^1.15.0"
     form-data "^4.0.0"
@@ -2010,12 +2010,12 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-eslint-config-next@13.0.4:
-  version "13.0.4"
-  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-13.0.4.tgz#78954caf26b3aa718bed077bce90c1f505db0005"
-  integrity sha512-moEC7BW2TK7JKq3QfnaauqRjWzVcEf71gp5DbClpFPHM6QXE0u0uVvSTiHlmOgtCe1vyWAO+AhF87ZITd8mIDw==
+eslint-config-next@13.0.5:
+  version "13.0.5"
+  resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-13.0.5.tgz#7a72d8b422358f1141046a7e952f06249369a765"
+  integrity sha512-lge94W7ME6kNCO96eCykq5GbKbllzmcDNDhh1/llMCRgNPl0+GIQ8dOoM0I7uRQVW56VmTXFybJFXgow11a5pg==
   dependencies:
-    "@next/eslint-plugin-next" "13.0.4"
+    "@next/eslint-plugin-next" "13.0.5"
     "@rushstack/eslint-patch" "^1.1.3"
     "@typescript-eslint/parser" "^5.42.0"
     eslint-import-resolver-node "^0.3.6"
@@ -3755,6 +3755,11 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
+react-fast-compare@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
+  integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+
 react-is@^16.10.2, react-is@^16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
@@ -3803,6 +3808,13 @@ react-smooth@^2.0.1:
   dependencies:
     fast-equals "^2.0.0"
     react-transition-group "2.9.0"
+
+react-snowfall@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-snowfall/-/react-snowfall-1.2.1.tgz#68cab6a1d05aa7c3211bce96a3a97977ca7dc57f"
+  integrity sha512-d2UR3nDq3F0DJGaTfJ0QNbBo76UZHtT9wHFj+ePxAl4FgSxWBhxB/Bjn06f5iDBwhgwiZ7CZmv3lwfNvjo6a+w==
+  dependencies:
+    react-fast-compare "^3.2.0"
 
 react-ticker@^1.3.2:
   version "1.3.2"
@@ -3969,11 +3981,6 @@ request@2.88.0:
     tough-cookie "~2.4.3"
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
-
-resnow@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/resnow/-/resnow-1.0.0.tgz"
-  integrity sha512-lsqv4IQcFdfkS0cFMzyLAMSn0PF0PKGa6r3PXYtgBBpIthtKHWA3hEXaTiE9ZwJ7wujZKliCQAiVaBADBd/yFg==
 
 resolve-from@^4.0.0:
   version "4.0.0"
