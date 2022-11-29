@@ -13,7 +13,7 @@ import {
   Link,
   Flex
 } from 'theme-ui'
-// import Snow from 'resnow'
+import Snowfall from 'react-snowfall'
 import Footer from '../components/footer'
 import FadeIn from '../components/fade-in'
 import { useState } from 'react'
@@ -36,6 +36,7 @@ export default function Winter() {
           image="/winter/og-image.png" // TODO: add og image
         />
         <Nav light />
+        <Snowfall />
         <ForceTheme theme="light" />
         <Landing />
         <Breakdown />

@@ -33,13 +33,13 @@ function Breakdown() {
           <BreakdownBox
             subtitle="From"
             text="Feb 5-15"
-            description="make progress on project and share an update"
+            description="work on your project while sharing daily progress in Slack."
             delay="100"
           />
           <BreakdownBox
-            subtitle="Up to"
-            text="250 dollars"
-            description="hardware grant per person"
+            subtitle="Get up to"
+            text="$250"
+            description="in grant money to build your project. Varies by project."
             delay="200"
           />
           <BreakdownBox

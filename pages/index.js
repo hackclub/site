@@ -126,10 +126,10 @@ const Page = () => (
         priority
       />
       <Announcement
-        copy="Epoch: celebrate the New Year with Hack Club."
-        caption="Join 150+ hackers in Delhi for a magical high-school hackathon!"
-        href="https://epoch.hackclub.com"
-        iconLeft="explore"
+        copy="Join the community for a winter of hardware hacking."
+        caption="Get a grant of up to $250 to build an electronics project."
+        href="/winter"
+        iconLeft="idea"
         color="primary"
       />
 
@@ -464,10 +464,10 @@ const Page = () => (
             name="Tools to hack on"
             desc={
               <>
-                We build tools, such as{" "}
-                <a href="https://sprig.hackclub.com">Sprig</a>, that your members can 
-                use to make projects with in meetings! Built more of them with us in our 
-                {" "}<Link href="/slack">Slack community</Link>.
+                We build tools, such as{' '}
+                <a href="https://sprig.hackclub.com">Sprig</a>, that your
+                members can use to make projects with in meetings! Built more of
+                them with us in our <Link href="/slack">Slack community</Link>.
               </>
             }
           ></Feature>

@@ -13,23 +13,25 @@ function Recap() {
               textShadow: '0px 0px 21px #E1F1FF',
               color: 'white',
               fontSize: [3, 4, 5],
-              pb: 4
+              pb: 4,
+              maxWidth: '90%'
             }}
           >
-            Bring your idea into the physical world today.{' '}
+            Make your ideas real this winter, with electronics and Hack Club
+            friends.{' '}
           </Heading>
         </Slide>
         <Grid gap={[2, 4, 5]} columns={[1, 3, 3]} pb={4}>
           <BreakdownBox
             icon="event-code"
             text="10 days"
-            description="of making with other teenagers around the world"
+            description="of building with other teenagers around the world"
             delay="100"
           />
           <BreakdownBox
             icon="payment-transfer"
-            text="250 dollars"
-            description="grants instantly disbursed through Hack Club Bank"
+            text="$250"
+            description="grants instantly transferred through Hack Club Bank"
             delay="200"
           />
           <Box
@@ -60,4 +62,3 @@ function Recap() {
 }
 
 export default Recap
-

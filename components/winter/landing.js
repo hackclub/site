@@ -1,4 +1,4 @@
-import { Box, Heading, Button } from 'theme-ui'
+import { Box, Heading, Button, Text, Container } from 'theme-ui'
 
 export default function Landing() {
   return (
@@ -24,7 +24,7 @@ export default function Landing() {
         }}
       >
         <Heading
-          variant="headline"
+          variant="eyebrow"
           sx={{
             color: '#C1B9D3'
           }}
@@ -42,6 +42,16 @@ export default function Landing() {
           Winter Hardware <br />
           Wonderland
         </Heading>
+        <Container variant="copy">
+          <Text
+            variant="subtitle"
+            sx={{ color: 'white', textShadow: '0 0 16px rgba(0, 0, 0, 0.2)' }}
+          >
+            Get up to $250 in grant money build a hardware project this winter
+            alongside hundreds of other hackers.
+          </Text>
+        </Container>
+        <br />
         <Button
           variant="outlineLg"
           sx={{
@@ -53,7 +63,7 @@ export default function Landing() {
           target="_blank"
           rel="noreferrer"
         >
-          Apply
+          Submit a proposal &rarr;
         </Button>
       </Box>
     </Box>
