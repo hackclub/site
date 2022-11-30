@@ -170,7 +170,7 @@ export default function Bank() {
           <Text
             as="p"
             sx={{
-              fontSize: 'larger',
+              fontSize: [2, 3],
               fontWeight: 'bold',
               mt: 2,
               color: '#FF4794'
@@ -178,7 +178,7 @@ export default function Bank() {
           >
             Get involved
           </Text>
-          <ul sx={{ mt: 0, fontSize: 'larger' }}>
+          <ul sx={{ mt: 0, fontSize: [2, 3] }}>
             <li>
               <Link
                 href="https://epoch.hackclub.com"

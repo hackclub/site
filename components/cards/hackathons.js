@@ -28,10 +28,10 @@ export default function Hackathons({data}) {
         <Box>
           <Text as="p" variant="subtitle">
           We maintain and support the largest network of high school hackathons in the world. From a community of organizers to free stickers and more! </Text>
-          <Text as="p" sx={{ fontSize: 'larger', fontWeight: 'bold', mt: 2 }}>
+          <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
             Get involved
           </Text>
-          <ul sx={{ mt: 0, fontSize: 'larger' }}>
+          <ul sx={{ mt: 0, fontSize: [2, 3] }}>
             <li>
               <Link
                 href="https://editor.sprig.hackclub.com"

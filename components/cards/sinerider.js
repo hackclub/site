@@ -36,10 +36,10 @@ export default function Sinerider() {
           <Text as="p" variant="subtitle">
             A game about love and graphing, coming 2023! Join #gamedev in Slack to contribute.
           </Text>
-          <Text as="p" sx={{ fontSize: 'larger', fontWeight: 'bold', mt: 2 }}>
+          <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
             Get involved
           </Text>
-          <ul sx={{ mt: 0, fontSize: 'larger'}}>
+          <ul sx={{ mt: 0, fontSize: [2, 3]}}>
             <li>
               <Link
                 href="https://editor.sprig.hackclub.com"

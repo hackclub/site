@@ -15,9 +15,6 @@ import {
 /** @jsxImportSource theme-ui */
 
 const CardModel = ({ children, link, github_link, color, ...props }) => (
-  <Tilt>
-    {/* // <Box> */}
-    {/* // <Link href={link} sx={{textDecoration: 'none'}}> */}
       <Card
         sx={{ position: 'relative', width: '100%', color: color, my: 5}}
         {...props}
@@ -36,9 +33,6 @@ const CardModel = ({ children, link, github_link, color, ...props }) => (
         )}
         {children}
       </Card>
-    {/* // </Link>
-    //</Box> */}
-  </Tilt>
 )
 
 export default CardModel
