@@ -42,10 +42,6 @@ export default function Winter() {
         <ForceTheme theme="light" />
         <Landing />
         <Breakdown />
-        <Projects />
-        <InfoGrid />
-
-        {/* Timeline */}
 
         <Flex
           sx={{
@@ -80,6 +76,11 @@ export default function Winter() {
           </Box>
           <RealTimeline />
         </Flex>
+
+        <Projects />
+        <InfoGrid />
+
+        {/* Timeline */}
 
         <Recap />
         {/* <Signup /> */}
