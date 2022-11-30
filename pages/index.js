@@ -330,23 +330,31 @@ function Page({ dataPieces, hackathonsData, bankData }) {
   //   )
   // }, slackData)
 
-  const Node = ({ text }) => (
-    <Badge
-      variant="pill"
-      bg="black"
-      sx={{
-        flexGrow: 1,
-        fontSize: 2,
-        color: 'white'
-      }}
-    >
-      <Link
-        href="https://github.com/hackclub"
-        sx={{ textDecoration: 'none', color: 'inherit' }}
+  const Node = ({ text, ...props }) => (
+    <Fade>
+      <Badge
+        variant="pill"
+        bg="black"
+        sx={{
+          flexGrow: 1,
+          fontSize: 2,
+          color: 'white',
+          fontWeight: '400 !important'
+        }}
+        {...props}
       >
-        {text}
-      </Link>
-    </Badge>
+        <Link
+          href="https://github.com/hackclub"
+          sx={{
+            textDecoration: 'none',
+            color: 'inherit',
+            fontWeight: '400 !important'
+          }}
+        >
+          {text}
+        </Link>
+      </Badge>
+    </Fade>
   )
   return (
     <>
@@ -368,7 +376,7 @@ function Page({ dataPieces, hackathonsData, bankData }) {
       <Box
         as="header"
         sx={{
-          bg: 'black',
+          bg: 'dark',
           pt: [5, 6],
           pb: [2, 3],
           textAlign: 'left',
@@ -389,7 +397,20 @@ function Page({ dataPieces, hackathonsData, bankData }) {
             mx: 'auto'
           }}
         >
-          <Node text={dataPieces[0]} />
+          <Node
+            text={dataPieces[0] != null ? dataPieces[0] : dataPieces[1]}
+            sx={{
+              position: 'absolute',
+              top: 0,
+              right: 2,
+              zIndex: 4,
+              transform: 'rotate(3deg)'
+            }}
+          />
+          <Fade>
+            <Text variant="eyebrow">Welcome to Hack Club</Text>
+          </Fade>
+          <Fade bottom delay={200}>
             <Heading
               as="h1"
               variant="ultratitle"
@@ -409,9 +430,8 @@ function Page({ dataPieces, hackathonsData, bankData }) {
                   pb: 3
                 }}
               >
-              <Fade bottom cascade delay={200}>
-                We inspire the hacker ethic {''}in teen makers around the {''}world by building things we {''}care about together.
-                {/* <Text sx={{ color: 'transparent', mr: 2 }}>
+                We inspire the hacker ethic in
+                <Text sx={{ color: 'transparent', mr: 2 }}>
                   <Text
                     sx={{
                       lineHeight: 0.875,
@@ -428,43 +448,87 @@ function Page({ dataPieces, hackathonsData, bankData }) {
                     teen makers
                   </Text>
                   teen makers{' '}
-                </Text> */}
-                </Fade>
+                </Text>
+                around the {''}world by building things we {''}care about
+                together.
               </Text>
             </Heading>
-          <Glitch>Hacker? Inspect 🔍 this page to learn more.</Glitch>
+          </Fade>
+          {/* <Glitch>Hacker? Inspect 🔍 this page to learn more.</Glitch> */}
         </Box>
         {/* </SlideDown> */}
         <Carousel />
       </Box>
       <Box as="section" sx={{ py: [4, 5], color: 'black' }}>
+        <Box>
+        <Container py={4}>
+          <Text variant="title" sx={{ textAlign: 'center' }}>
+            The largest online community of technical teenagers
+          </Text>
+          <Text as="p" variant="subtitle">
+            Coding is often seen as an isolating activity. The stereotype of a
+            programmer is a person who sits alone in a dark room. It doesn't
+            have to be this way—in the Hack Club Slack (Discord-style online
+            groupchat), you'll find a group of 20,000+ fabulous people — Hack
+            Clubbers — to talk to, active at all hours.
+          </Text>
+          <Link href="/slack" passHref sx={{textDecoration: 'none'}}>
+            <Button
+              as="a"
+              variant="ctaLg"
+              sx={{
+                background: 'linear-gradient(-132deg, #338eda 14%, #33d6a6 82%)'
+              }}
+              my={3}
+            >
+              Join our Slack →
+            </Button>
+          </Link>
+        </Container>
+        </Box>
         <Container>
-          <Text variant="title">Join our open-source projects</Text>
+          <Text variant="eyebrow" as="p">
+            Hack Clubbers
+          </Text>
+          <Text variant="title">Build open source tools</Text>
           <Text variant="subtitle" as="p">
-            We collaborate via <Link href='/slack'>Slack</Link>, our online community with <Text sx={{ animation: `.4s ${rollout}` }} key={Math.random()}>23,452{' '}
-            {/* {
+            We collaborate via <Link href="/slack">Slack</Link>, our online
+            community with{' '}
+            <Text sx={{ animation: `.4s ${rollout}` }} key={Math.random()}>
+              23,452{' '}
+              {/* {
               slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
                 .total_members_count
             } */}
-            fabulous people to talk to at all hours. Come for the skills, stay for the friends!
-          </Text>
+              fabulous people to talk to at all hours. Come for the skills, stay
+              for the friends!
+            </Text>
           </Text>
           <Sprig />
           <Sinerider />
           <SprigConsole />
         </Container>
         {/* <Slack /> */}
-        <Container mt={4}>
-          <Text variant="title">Start a coding club</Text>
-          <Text variant="subtitle" as="p">
-            Join or start a Hack Club and be part of a network of high quality
-            coding clubs where students gather to discover the joy of code.
+        <Box sx={{ background: 'snow' }}>
+          <Container py={4}>
+            {/* <Text variant="eyebrow" as="p">At Hack Club we </Text> */}
+            <Text variant="eyebrow" as="p">
+              Hack Clubbers
+            </Text>
+            <Text variant="title">Gather IRL to discover the joy of code</Text>
+            <Text variant="subtitle" as="p">
+              Join or start a Hack Club and be part of a network of high quality
+              coding clubs where students gather to discover the joy of code.
+            </Text>
+            <Clubs />
+            <Workshops />
+          </Container>
+        </Box>
+        <Container py={4}>
+          <Text variant="eyebrow" as="p">
+            Hack Clubbers
           </Text>
-          <Clubs />
-          <Workshops />
-        </Container>
-        <Container mt={4}>
-          <Text variant="title">Find a hackathon</Text>
+          <Text variant="title">Run high quality high school hackathons</Text>
           <Text variant="subtitle" as="p">
             It's not an extracurricular or a club. It's not a class or a
             lecture. Hackathons are a place to build things for fun and meet
@@ -473,7 +537,11 @@ function Page({ dataPieces, hackathonsData, bankData }) {
           <Bank data={bankData} />
           <Epoch />
           <Hackathons />
-          <iframe src="https://bank.hackclub.com/poseidon-robotics"  width="100%" height="400px" />
+          {/* <iframe
+            src="https://bank.hackclub.com/poseidon-robotics"
+            width="100%"
+            height="400px"
+          /> */}
         </Container>
         {/* <ScrollingHackathons eventData={hackathonsData} /> */}
       </Box>
@@ -626,9 +694,9 @@ export async function getStaticProps() {
     'https://api.github.com/orgs/hackclub/events'
   ).then(r => r.json())
   initialGitHubData = initialGitHubData.map(x =>
-    x.type == 'PushEvent' ||
+    (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]') ||
     x.type == 'WatchEvent' ||
-    (x.type == 'PullRequestEvent' && x.actor.login != 'github-actions[bot]')
+    x.type == 'PullRequestEvent'
       ? x.type == 'PushEvent'
         ? `✅ New commit in ${x.repo.name} by ${x.actor.login}`
         : x.type == 'WatchEvent'

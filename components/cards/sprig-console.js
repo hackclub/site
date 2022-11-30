@@ -39,10 +39,10 @@ export default function SprigConsole() {
               parts needed for getting started with hardware engineering and
               embedded systems programming.{' '}
             </Text>
-            <Text as="p" sx={{ fontSize: 'larger', fontWeight: 'bold', mt: 2 }}>
+            <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
               Get involved
             </Text>
-            <ul sx={{ mt: 0, fontSize: 'larger' }}>
+            <ul sx={{ mt: 0, fontSize: [2, 3] }}>
               <li>
                 <Link
                   href="https://editor.sprig.hackclub.com"

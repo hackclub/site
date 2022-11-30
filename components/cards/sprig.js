@@ -35,10 +35,10 @@ export default function Sprig() {
           <Text as="p" variant="subtitle">
             Build JavaScript games and earn a free console to play your games
           </Text>
-          <Text as="p" sx={{ fontSize: 'larger', fontWeight: 'bold', mt: 2 }}>
+          <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
             Get involved
           </Text>
-          <ul sx={{ mt: 0, fontSize: 'larger' }}>
+          <ul sx={{ mt: 0, fontSize: [2, 3] }}>
             <li>
               <Link
                 href="https://editor.sprig.hackclub.com"
