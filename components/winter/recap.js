@@ -1,6 +1,7 @@
-import { Box, Button, Container, Heading, Grid } from 'theme-ui'
+import { Box, Button, Container, Heading, Grid, Card, Text } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import BreakdownBox from './breakdown-box'
+import Signup from './form'
 
 function Recap() {
   return (
@@ -34,7 +35,36 @@ function Recap() {
             description="grants instantly transferred through Hack Club Bank"
             delay="200"
           />
-          <Box
+          <Card
+            variant="translucent"
+            sx={{
+              borderRadius: 'default',
+              px: 3,
+              pb: 4,
+              pt: 2,
+              display: 'flex',
+              flexDirection: 'column'
+            }}
+          >
+            <Text
+              variant="subtitle"
+              sx={{
+                fontWeight: 'bold',
+                color: 'blue',
+                textShadow: '0px 0px 21px #ffffff'
+              }}
+            >
+              Open a Demo Account
+            </Text>
+            <Text variant="caption">
+              While you wait for your hardware, explore and get familiar with
+              Hack Club Bank with limited access to features until you get fully
+              activated.
+            </Text>
+            <Signup />
+          </Card>
+
+          {/* <Box
             sx={{
               display: 'flex',
               alignItems: 'center',
@@ -54,7 +84,7 @@ function Recap() {
             >
               Apply
             </Button>
-          </Box>
+          </Box> */}
         </Grid>
       </Container>
     </>

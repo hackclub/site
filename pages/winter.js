@@ -25,9 +25,9 @@ import Projects from '../components/winter/projects'
 import Landing from '../components/winter/landing'
 import Recap from '../components/winter/recap'
 import { Zoom } from 'react-reveal'
+// import Signup from '../components/winter/form'
 
 export default function Winter() {
-
   return (
     <>
       <Box as="main" sx={{ bg: 'blue' }}>
@@ -56,32 +56,33 @@ export default function Winter() {
         >
           <Box sx={{ display: 'flex', flexDirection: ['row', null, 'column'] }}>
             <Zoom>
-            <Heading
-              variant="title"
-              sx={{
-                color: 'white',
-                textTransform: 'uppercase',
-                transform: ['none', null, 'rotate(-90deg)'],
-                textShadow: '0px 0px 21px #E1F1FF'
-              }}
-            >
-              Timeline
-            </Heading>
-            <Image
-              src="https://cloud-lbajgdi3a-hack-club-bot.vercel.app/0fox_1.png"
-              alt="Illustrated orange fox sleeping in a curled position"
-              sx={{
-                width: ['100px', null, '80%'],
-                pt: [null, null, 6],
-                ml: [2, null, null]
-              }}
-            />
+              <Heading
+                variant="title"
+                sx={{
+                  color: 'white',
+                  textTransform: 'uppercase',
+                  transform: ['none', null, 'rotate(-90deg)'],
+                  textShadow: '0px 0px 21px #E1F1FF'
+                }}
+              >
+                Timeline
+              </Heading>
+              <Image
+                src="https://cloud-lbajgdi3a-hack-club-bot.vercel.app/0fox_1.png"
+                alt="Illustrated orange fox sleeping in a curled position"
+                sx={{
+                  width: ['100px', null, '80%'],
+                  pt: [null, null, 6],
+                  ml: [2, null, null]
+                }}
+              />
             </Zoom>
           </Box>
           <RealTimeline />
         </Flex>
 
         <Recap />
+        {/* <Signup /> */}
         <Footer />
       </Box>
     </>
