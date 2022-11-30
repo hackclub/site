@@ -3,6 +3,7 @@ import { Box, Heading, Button, Text, Container } from 'theme-ui'
 import { useEffect } from 'react'
 // import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 /** @jsxImportSource theme-ui */
+import Snowfall from 'react-snowfall'
 
 export default function Landing() {
   // useEffect(() => {
@@ -54,7 +55,7 @@ export default function Landing() {
           backgroundSize: ['200%', '150%', '100%'],
           backgroundRepeat: 'no-repeat',
           width: '100vw',
-          height: '100vh',
+          height: '90vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -62,6 +63,7 @@ export default function Landing() {
           zIndex: 2
         }}
       >
+        <Snowfall />
         <Box>
           {/* <img
         src="https://cloud-mvlym308h-hack-club-bot.vercel.app/0cloud_2.png"
@@ -101,7 +103,7 @@ export default function Landing() {
                 as="p"
                 sx={{
                   color: 'white',
-                  textShadow: '0 0 16px rgba(0, 0, 0, 0.2)',
+                  textShadow: '0 0 16px rgba(0, 0, 0, 1)',
                   pt: 2
                 }}
               >

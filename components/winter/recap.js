@@ -36,34 +36,34 @@ function Recap() {
             delay="200"
           />
           <Zoom delay="300">
-          <Card
-            variant="translucent"
-            sx={{
-              borderRadius: 'default',
-              px: 3,
-              pb: 4,
-              pt: 2,
-              display: 'flex',
-              flexDirection: 'column'
-            }}
-          >
-            <Text
-              variant="subtitle"
+            <Card
+              variant="translucent"
               sx={{
-                fontWeight: 'bold',
-                color: 'blue',
-                textShadow: '0px 0px 21px #ffffff'
+                borderRadius: 'default',
+                px: 3,
+                pb: 4,
+                pt: 2,
+                display: 'flex',
+                flexDirection: 'column'
               }}
             >
-              Open a Demo Account
-            </Text>
-            <Text variant="caption">
-              While you wait for your hardware, explore and get familiar with
-              Hack Club Bank with limited access to features until you get fully
-              activated.
-            </Text>
-            <Signup />
-          </Card>
+              <Text
+                variant="subtitle"
+                sx={{
+                  fontWeight: 'bold',
+                  color: 'blue',
+                  textShadow: '0px 0px 21px #ffffff'
+                }}
+              >
+                Open a Demo Account
+              </Text>
+              <Text variant="caption">
+                While you wait for your hardware, explore and get familiar with
+                Hack Club Bank with limited access to features until you get
+                fully activated.
+              </Text>
+              <Signup />
+            </Card>
           </Zoom>
           {/* <Box
             sx={{
@@ -87,6 +87,9 @@ function Recap() {
             </Button>
           </Box> */}
         </Grid>
+        <Button variant="ctaLg" as="a" href="#apply" style={{ zIndex: '100', textAlign: 'center' }}>
+          RSVP
+        </Button>
       </Container>
     </>
   )

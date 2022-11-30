@@ -110,7 +110,7 @@ export default function RealTimeline() {
     <Flex sx={{ flexDirection: 'column', justifyContent: 'center', pb: 4 }}>
       <Step
         icon="post"
-        name={`Project propsals open. Submit it via a Pull Request to our repo`}
+        name={`Project proposals open. Submit it via a Pull Request to our repo.`}
         duration="Decemeber 1"
       />
       <Step
