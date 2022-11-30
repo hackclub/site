@@ -79,7 +79,7 @@ export default function Landing() {
               variant="eyebrow"
               sx={{
                 color: '#C1B9D3',
-                fontSize: ['18px', '20px','24px']
+                fontSize: ['18px', '20px', '24px']
               }}
             >
               Join the Hack Club community for a
@@ -121,7 +121,7 @@ export default function Landing() {
               target="_blank"
               rel="noreferrer"
             >
-              Submit a proposal &rarr;
+              Propose a project &rarr;
             </Button>
           </Box>
         </Box>

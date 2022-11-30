@@ -11,7 +11,7 @@ import {
 import { Zoom } from 'react-reveal'
 import Icon from '@hackclub/icons'
 
-function BreakdownBox({ subtitle, icon, text, description, delay }) {
+function BreakdownBox({ subtitle, icon, text, description, delay, href }) {
   return (
     <Zoom delay={delay}>
       <Card
@@ -19,11 +19,14 @@ function BreakdownBox({ subtitle, icon, text, description, delay }) {
           color: 'white',
           background: 'rgba(225,225,225,0.2)',
           height: '100%',
+          cursor: `${href ? 'pointer' : 'default'}`,
           display: 'flex',
           flexDirection: 'column'
           // justifyContent: 'flex-end'
         }}
         variant="interactive"
+        as={href ? 'a' : 'div'}
+        href={href}
       >
         {subtitle ? (
           <Text
