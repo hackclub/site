@@ -1,7 +1,7 @@
 import { Box, Heading, Button, Text, Container } from 'theme-ui'
-import { gsap } from 'gsap'
+// import { gsap } from 'gsap'
 import { useEffect } from 'react'
-import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+// import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 /** @jsxImportSource theme-ui */
 
 export default function Landing() {

@@ -16,16 +16,37 @@ import {
 import Photo from '../../components/photo'
 import NextImage from 'next/image'
 import Marquee from 'react-marquee-slider'
-import ExecuteBig from '../../public/donate/codedaydc_hack.jpg'
-import HackCamp from '../../public/donate/sf.jpg'
-import HackerGames from '../../public/donate/0img_20210830_161125.jpg'
-import LaptopDonations from '../../public/donate/0screenshot_2021-10-03_at_4.20.30_pm.png'
-import Kerala from '../../public/donate/0img-20210918-wa0091.jpg'
-import HackPenn from '../../public/donate/0color_pop.jpg'
-import ElonAMA from '../../public/donate/elon.jpg'
-import SpaceX from '../../public/donate/0spacex_and_hack_club.jpg'
-import Flagship from '../../public/donate/flagship.png'
-import GoldenTrain from '../../public/home/golden-train.png'
+import Photo1 from '../../public/winter/1.jpeg'
+import Photo2 from '../../public/winter/2.png'
+import Photo3 from '../../public/winter/3.jpeg'
+import Photo4 from '../../public/winter/4.jpeg'
+import Photo5 from '../../public/winter/5.jpeg'
+import Photo6 from '../../public/winter/6.jpeg'
+import Photo7 from '../../public/winter/7.jpeg'
+import Photo8 from '../../public/winter/8.jpeg'
+import Photo9 from '../../public/winter/9.jpeg'
+import Photo10 from '../../public/winter/10.jpeg'
+import Photo12 from '../../public/winter/12.jpeg'
+import Photo13 from '../../public/winter/13.jpeg'
+import Photo14 from '../../public/winter/14.jpeg'
+import Photo15 from '../../public/winter/15.jpeg'
+import Photo16 from '../../public/winter/16.jpeg'
+import Photo17 from '../../public/winter/17.jpeg'
+import Photo18 from '../../public/winter/18.jpeg'
+import Photo19 from '../../public/winter/19.jpeg'
+import Photo20 from '../../public/winter/20.jpeg'
+import Photo21 from '../../public/winter/21.jpeg'
+import Photo22 from '../../public/winter/22.jpeg'
+import Photo23 from '../../public/winter/23.jpeg'
+import Photo24 from '../../public/winter/24.jpeg'
+import Photo25 from '../../public/winter/25.jpeg'
+import Photo26 from '../../public/winter/26.jpeg'
+import Photo27 from '../../public/winter/27.jpeg'
+import Photo28 from '../../public/winter/28.jpeg'
+import Photo29 from '../../public/winter/29.jpeg'
+import Photo30 from '../../public/winter/30.jpeg'
+import Photo31 from '../../public/winter/31.png'
+
 /** @jsxImportSource theme-ui */
 
 const Header = styled(Box)`
@@ -264,21 +285,39 @@ export default function Projects() {
         >
           <PhotoRow
             photos={[
-              ExecuteBig,
-              HackCamp,
-              HackerGames,
-              LaptopDonations,
-              Kerala
+              Photo1,
+              Photo2,
+              Photo3,
+              Photo4,
+              Photo5
             ]}
           />
           <PhotoRow
-            photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]}
+            photos={[
+              Photo6,
+              Photo7,
+              Photo8,
+              Photo9,
+              Photo10
+            ]}
           />
           <PhotoRow
-            photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]}
+            photos={[
+              Photo21,
+              Photo12,
+              Photo13,
+              Photo14,
+              Photo15
+            ]}
           />
           <PhotoRow
-            photos={[HackPenn, ElonAMA, SpaceX, GoldenTrain, Flagship]}
+            photos={[
+              Photo16,
+              Photo17,
+              Photo18,
+              Photo19,
+              Photo20
+            ]}
           />
         </Box>
       </Header>
