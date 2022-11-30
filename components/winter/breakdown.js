@@ -16,7 +16,7 @@ function Breakdown() {
     <>
       <Box
         sx={{
-          py: 4,
+          py: 5,
           background: 'linear-gradient(180deg, #579AC9 0%, #338EDA 100%)'
         }}
       >

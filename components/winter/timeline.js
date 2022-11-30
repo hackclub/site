@@ -107,10 +107,10 @@ function Step({ icon, name, duration, href }) {
 
 export default function RealTimeline() {
   return (
-    <Flex sx={{ flexDirection: 'column', justifyContent: 'center' }}>
+    <Flex sx={{ flexDirection: 'column', justifyContent: 'center', pb: 4 }}>
       <Step
         icon="post"
-        name="Project propsals open. Submit it via GitHub TODO: woof"
+        name={`Project propsals open. Submit it via a Pull Request to our repo`}
         duration="Decemeber 1"
       />
       <Step
