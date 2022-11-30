@@ -43,7 +43,7 @@ export default function InfoGrid() {
             <br />
             <Button
               as="a"
-              href="/hardware"
+              href="https://github.com/hackclub/wom"
               variant="ctaLg"
               sx={{ mt: 5, mb: 4 }}
             >

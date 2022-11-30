@@ -121,7 +121,7 @@ export default function Landing() {
               target="_blank"
               rel="noreferrer"
             >
-              Propose a project &rarr;
+              Apply &rarr;
             </Button>
           </Box>
         </Box>

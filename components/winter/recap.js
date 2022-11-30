@@ -1,5 +1,5 @@
 import { Box, Button, Container, Heading, Grid, Card, Text } from 'theme-ui'
-import { Slide } from 'react-reveal'
+import { Slide, Zoom } from 'react-reveal'
 import BreakdownBox from './breakdown-box'
 import Signup from './form'
 
@@ -35,6 +35,7 @@ function Recap() {
             description="grants instantly transferred through Hack Club Bank"
             delay="200"
           />
+          <Zoom delay="300">
           <Card
             variant="translucent"
             sx={{
@@ -63,7 +64,7 @@ function Recap() {
             </Text>
             <Signup />
           </Card>
-
+          </Zoom>
           {/* <Box
             sx={{
               display: 'flex',

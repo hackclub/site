@@ -36,7 +36,7 @@ function Breakdown() {
               <br />
               <Fade delay={1000}>
                 For 10 days, hundreds of makers are gathering in the Hack Club
-                Slack to code together.
+                Slack to build together.
               </Fade>
             </Heading>
           </Slide>

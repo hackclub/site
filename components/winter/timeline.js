@@ -64,7 +64,7 @@ function Step({ icon, name, duration, href }) {
       <Slide left sx={{ zIndex: 999 }}>
         <Circle>
           {href ? (
-            <Link href={href} sx={{ cursor: 'pointer' }}>
+            <Link href={href} sx={{ cursor: 'pointer', zIndex: 999 }}>
               <Icon glyph={icon} size={48} color="white" />
             </Link>
           ) : (
