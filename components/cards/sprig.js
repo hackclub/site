@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   Container,
+  Flex,
   Grid,
   Heading,
   Image,
@@ -11,20 +12,17 @@ import {
   Link,
   Text
 } from 'theme-ui'
+import Buttons from './button'
+
 /** @jsxImportSource theme-ui */
 
-export default function Sprig() {
+export default function Sprig({ stars }) {
   return (
     <CardModel
-      github_link="https://github.com/hackclub/sinerider/"
-      // link="https://sprig.hackclub.com"
+      github_link="https://github.com/hackclub/sprig/"
       color="white"
-      sx={{
-        backgroundSize: 'cover',
-        backgroundImage: 'url(https://sprig.hackclub.com/background.jpg)',
-        backgroundPosition: 'center bottom',
-        backgroundRepeat: 'no-repeat'
-      }}
+      background="https://sprig.hackclub.com/background.jpg"
+      stars={stars}
     >
       <img
         src="https://cloud-8z5u8nfqb-hack-club-bot.vercel.app/0sprig.svg"
@@ -33,12 +31,18 @@ export default function Sprig() {
       <Grid columns={[1, 2]}>
         <Box>
           <Text as="p" variant="subtitle">
-            Build JavaScript games and earn a free console to play your games
+          Draw, make music, and craft games in our web-based JavaScript game editor.
           </Text>
-          <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
+          <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 3 }}>
             Get involved
           </Text>
-          <ul sx={{ mt: 0, fontSize: [2, 3] }}>
+          <Flex sx={{ flexDirection: 'column' }}>
+            <Buttons content="click here to get started in our editor" id="6" icon="emoji" link="https://editor.sprig.hackclub.com">Make a game</Buttons>
+            <Buttons content="DM @leo in Slack to join" id="7" icon="friend" link="/slack">Help review games</Buttons>
+            <Buttons content="make a PR to our engine repo" id="8" link="https://github.com/hackclub/kaluma">Work on the engine</Buttons>
+            <Buttons content="we're all hanging out in #sprig on Slack" id="9" icon="friend" link="/slack">Answer questions in slack</Buttons>
+          </Flex>
+          {/* <ul sx={{ mt: 0, fontSize: [2, 3] }}>
             <li>
               <Link
                 href="https://editor.sprig.hackclub.com"
@@ -52,7 +56,7 @@ export default function Sprig() {
                 href="/slack"
                 sx={{ textDecoration: 'none', color: 'inherit' }}
               >
-                review game
+                help review games
               </Link>
             </li>
             <li>
@@ -71,15 +75,16 @@ export default function Sprig() {
                 answer questions in Slack
               </Link>
             </li>
-          </ul>
+          </ul> */}
           <Button
             variant="lg"
             sx={{
               backgroundColor: '#FFDE4D',
               color: '#000',
-              position: 'absolute',
-              bottom: '32px',
-              left: '32px'
+              mt: 3
+              // position: 'absolute',
+              // bottom: '32px',
+              // left: '32px'
             }}
           >
             Make a game

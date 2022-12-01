@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   Container,
+  Flex,
   Grid,
   Heading,
   Image,
@@ -11,13 +12,15 @@ import {
   Link,
   Text
 } from 'theme-ui'
+import Buttons from './button'
+
 /** @jsxImportSource theme-ui */
 
 export default function SprigConsole() {
   return (
     <Box sx={{ position: 'relative' }}>
       <CardModel
-        github_link="https://github.com/hackclub/sinerider/"
+        // github_link="https://github.com/hackclub/sinerider/"
         // link="https://sprig.hackclub.com"
         color="white"
         sx={{
@@ -42,7 +45,12 @@ export default function SprigConsole() {
             <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
               Get involved
             </Text>
-            <ul sx={{ mt: 0, fontSize: [2, 3] }}>
+            <Flex sx={{ flexDirection: 'column' }}>
+            <Buttons id="10">Build a game</Buttons>
+            <Buttons content="more info" id="11">Share it in the gallery</Buttons>
+            <Buttons content="more info" id="12" icon="sam">Get a console</Buttons>
+          </Flex>
+            {/* <ul sx={{ mt: 0, fontSize: [2, 3] }}>
               <li>
                 <Link
                   href="https://editor.sprig.hackclub.com"
@@ -67,15 +75,16 @@ export default function SprigConsole() {
                   get a console
                 </Link>
               </li>
-            </ul>
+            </ul> */}
             <Button
               variant="lg"
               sx={{
                 backgroundColor: '#427A43',
                 color: '#fff',
-                position: 'absolute',
-                bottom: '32px',
-                left: '32px'
+                // position: 'absolute',
+                // bottom: '32px',
+                // left: '32px',
+                mt: 3
               }}
             >
               Make a game

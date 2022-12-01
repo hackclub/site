@@ -4,6 +4,7 @@ import {
   Box,
   Button,
   Card,
+  Flex,
   Container,
   Grid,
   Heading,
@@ -12,27 +13,45 @@ import {
   Link,
   Text
 } from 'theme-ui'
+import { Zoom } from 'react-reveal'
+import ReactTooltip from 'react-tooltip';
+
 /** @jsxImportSource theme-ui */
 
-const CardModel = ({ children, link, github_link, color, ...props }) => (
-      <Card
-        sx={{ position: 'relative', width: '100%', color: color, my: 5}}
-        {...props}
-      >
-        {github_link != null ? (
-          <Link href={github_link}>
-            <Icon
-              glyph="github"
-              size={64}
-              color={color}
-              sx={{ position: 'absolute', right: 2, top: 2 }}
-            />
-          </Link>
-        ) : (
-          <></>
-        )}
-        {children}
-      </Card>
+const CardModel = ({ background, children, link, github_link, color, stars, delay, ...props }) => (
+  // <Zoom delay={delay}>
+    <Card
+      sx={{
+        position: 'relative',
+        width: '100%',
+        color: color,
+        my: 5,
+        backgroundSize: 'cover',
+        backgroundImage: `url(${background})` || '',
+        backgroundPosition: 'center bottom',
+        backgroundRepeat: 'no-repeat'
+      }}
+      {...props}
+    >
+      {github_link != null ? (
+        <Flex sx={{ flexDirection: 'column' }}>
+        {/* <Text>{stars.sar} stars</Text> */}
+        <Link href={github_link}>
+          <Icon
+            glyph="github"
+            size={64}
+            color={color}
+            sx={{ position: 'absolute', right: 2, top: 2 }}
+          />
+        </Link>
+        </Flex>
+      ) : (
+        <></>
+      )}
+      {children}
+      <ReactTooltip />
+    </Card>
+  // </Zoom>
 )
 
 export default CardModel

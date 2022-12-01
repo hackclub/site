@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   Container,
+  Flex,
   Grid,
   Heading,
   Image,
@@ -11,17 +12,20 @@ import {
   Link,
   Text
 } from 'theme-ui'
+import Buttons from './button'
+
 /** @jsxImportSource theme-ui */
 
 export default function Sinerider() {
   return (
     <CardModel
-      github_link="https://github.com/hackclub/sprig/"
+      // github_link="https://github.com/hackclub/sprig/"
       // link="https://sprig.hackclub.com"
       color="white"
       sx={{
         backgroundSize: 'cover',
-        backgroundImage: 'url(https://cloud-pwqxgzqdg-hack-club-bot.vercel.app/0initial-bg__1_.png)',
+        backgroundImage:
+          'url(https://cloud-pwqxgzqdg-hack-club-bot.vercel.app/0initial-bg__1_.png)',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat'
       }}
@@ -30,16 +34,24 @@ export default function Sinerider() {
         src="https://cloud-9cei11221-hack-club-bot.vercel.app/0logo_text_2.png"
         sx={{ width: ['200px', '250px', '300px'] }}
       />
-      <Grid columns={[1, 2]}>
+      <Grid columns={[1, '0.4fr 0.6fr']}>
         <Box></Box>
-        <Box sx={{mt: '-100px'}}>
+        <Box sx={{ mt: '-180px' }}>
           <Text as="p" variant="subtitle">
-            A game about love and graphing, coming 2023! Join #gamedev in Slack to contribute.
+            A game about love and graphing, coming 2023! This
+            project is powered by teenage hackers of all kinds: artists,
+            musicians, programmers, storytellers… so if that's you, come join
+            us; we need your help to make this thing real!
           </Text>
           <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
             Get involved
           </Text>
-          <ul sx={{ mt: 0, fontSize: [2, 3]}}>
+          <Flex sx={{ flexDirection: 'column' }}>
+            {/* <Buttons content="coming sooon" id="3" icon="rainbow">Play the game</Buttons> */}
+            <Buttons content="join #gamedev in Slack to get started" id="4" icon="rainbow">Create art for the game</Buttons>
+            <Buttons content="DM @cwalker in Slack to learn more" id="5" icon="view">Be a scene maker</Buttons>
+          </Flex>
+          {/* <ul sx={{ mt: 0, fontSize: [2, 3] }}>
             <li>
               <Link
                 href="https://editor.sprig.hackclub.com"
@@ -64,12 +76,13 @@ export default function Sinerider() {
                 be a scenemaker and put it all together
               </Link>
             </li>
-          </ul>
+          </ul> */}
           <Button
             variant="lg"
             sx={{
               backgroundColor: '#CAB4D4',
               color: '#271932',
+              mt: 3
             }}
           >
             Make a game

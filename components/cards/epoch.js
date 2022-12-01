@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   Container,
+  Flex,
   Grid,
   Heading,
   Image,
@@ -11,10 +12,18 @@ import {
   Link,
   Text
 } from 'theme-ui'
+import Buttons from './button'
+
 /** @jsxImportSource theme-ui */
 import { useEffect, useState } from 'react'
+// import { fairyDustCursor } from 'cursor-effects'
 
-export default function Bank() {
+export default function Epoch() {
+  // if (typeof window !== 'undefined') {
+  //   const targetElement = document.querySelector("#epoch")
+  //   new fairyDustCursor({element: targetElement})
+  // }
+
   const calculateTimeLeft = () => {
     const difference = +new Date(`2022-12-30T23:00:00.000Z`) - +new Date()
 
@@ -91,7 +100,7 @@ export default function Bank() {
           position: 'relative',
           // width: ['16%', '15%', '15%'],
           width: '120%',
-          height: '90%',
+          height: '85%',
           py: 4,
           // height: ['15vh', '20vh', '35vh'],
           borderRadius: '5px',
@@ -131,6 +140,7 @@ export default function Bank() {
   })
   return (
     <CardModel
+    id="epoch"
       color="white"
       sx={{
         backgroundColor: '#000'
@@ -140,7 +150,7 @@ export default function Bank() {
         src="https://cloud-ox8syzbet-hack-club-bot.vercel.app/0ep0ch.svg"
         sx={{ width: ['150px', '180px', '220px'] }}
       />
-      <Grid columns={[1, 2, 2]}>
+      <Grid columns={[1, 2, 2]} mt="0">
         <Box>
           {timer.length ? (
             <Grid
@@ -160,12 +170,10 @@ export default function Bank() {
           ) : (
             <></>
           )}
-          <Text>DEC. 30 2022 TO JAN. 1 2023</Text>
-          <Text>GURUGRAM, DELHI NCR</Text>
         </Box>
-        <Box>
-          <Text as="p" variant="subtitle">
-            The most exciting hackthon this New Years
+        <Box mt="-70px">
+        <Text as="p" variant="subtitle">
+            Celebrate the New Year with 42 hours of hacking in Delhi, India
           </Text>
           <Text
             as="p"
@@ -178,7 +186,7 @@ export default function Bank() {
           >
             Get involved
           </Text>
-          <ul sx={{ mt: 0, fontSize: [2, 3] }}>
+          {/* <ul sx={{ mt: 0, fontSize: [2, 3] }}>
             <li>
               <Link
                 href="https://epoch.hackclub.com"
@@ -195,12 +203,16 @@ export default function Bank() {
                 help make the hackathon possible by joining #epoch-bts in slack
               </Link>
             </li>
-          </ul>
+          </ul> */}
+          <Flex sx={{ flexDirection: 'column' }}>
+            <Buttons content="more 222" id="17">Attend the hackathon</Buttons>
+            <Buttons content="more info" id="18">Plan the hackathon</Buttons>
+          </Flex>
           <Button
             variant="lg"
             as="a"
             href="/bank"
-            sx={{ background: '#FF4794', color: 'white' }}
+            sx={{ background: '#FF4794', color: 'white', mt: 3 }}
           >
             Sign up for Epoch
           </Button>
