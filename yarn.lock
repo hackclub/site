@@ -486,6 +486,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@github/time-elements@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@github/time-elements/-/time-elements-4.0.0.tgz#ca6aec5e9fbc18348d3fc980610b79c244b1b81f"
+  integrity sha512-oTPpERR/FylYCyUdVjufmF5MmlrIZ7gYzN59xe5mF3aQA+zn5IWiNj+5/D/6NgQWFNXoRB84DILnP/YlkETKhg==
+
 "@hackclub/icons@^0.0.12":
   version "0.0.12"
   resolved "https://registry.npmjs.org/@hackclub/icons/-/icons-0.0.12.tgz"
@@ -1203,6 +1208,11 @@ acorn@^8.8.0:
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.8.0.tgz"
   integrity sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==
 
+add@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+  integrity sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==
+
 airtable-plus@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/airtable-plus/-/airtable-plus-1.0.4.tgz"
@@ -1698,6 +1708,11 @@ csstype@^3.0.2:
   version "3.0.7"
   resolved "https://registry.npmjs.org/csstype/-/csstype-3.0.7.tgz"
   integrity sha512-KxnUB0ZMlnUWCsx2Z8MUsr6qV6ja1w9ArPErJaJaF8a5SOWoHLIszeCTKGRGRgtLgYrs1E8CHkNSP1VZTTPc9g==
+
+cursor-effects@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/cursor-effects/-/cursor-effects-1.0.7.tgz#782554feea4af814af1b39a2e4f4cdceb0aa0c37"
+  integrity sha512-v1RKMRuAtxR5ftVRokiBQH1maKIX7/Dja2i+N8nBUzaczCzM/pG1KMzqcp4DahcxarUTbcjiNqKD2zeYu35DJQ==
 
 d3-array@2, d3-array@^2.3.0:
   version "2.12.1"
@@ -3821,6 +3836,14 @@ react-ticker@^1.3.2:
   resolved "https://registry.npmjs.org/react-ticker/-/react-ticker-1.3.2.tgz"
   integrity sha512-9sLgc9gFx/EMNxn2QcwUJAOf3jdEROKRyXZGbWrEbfJG/MTkHwR+WRrVtypv3iFXPpcrKmPD91+vatHq0BgR0Q==
 
+react-tooltip@^4.5.1:
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-4.5.1.tgz#77eccccdf16adec804132e558ec20ca5783b866a"
+  integrity sha512-Zo+CSFUGXar1uV+bgXFFDe7VeS2iByeIp5rTgTcc2HqtuOS5D76QapejNNfx320MCY91TlhTQat36KGFTqgcvw==
+  dependencies:
+    prop-types "^15.8.1"
+    uuid "^7.0.3"
+
 react-transition-group@2.9.0:
   version "2.9.0"
   resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-2.9.0.tgz"
@@ -4609,6 +4632,11 @@ uuid@^3.3.2:
   resolved "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
+uuid@^7.0.3:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
+  integrity sha512-DPSke0pXhTZgoF/d+WSt2QaKMCFSfx7QegxEWT+JOuHF5aWrKEn0G+ztjuJg/gG8/ItK+rbPCD/yNv8yyih6Cg==
+
 vanilla-tilt@^1.7.3:
   version "1.7.3"
   resolved "https://registry.npmjs.org/vanilla-tilt/-/vanilla-tilt-1.7.3.tgz"
@@ -4716,6 +4744,11 @@ yaml@^1.10.0:
   version "1.10.2"
   resolved "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
+
+yarn@^1.22.19:
+  version "1.22.19"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.22.19.tgz#4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
+  integrity sha512-/0V5q0WbslqnwP91tirOvldvYISzaqhClxzyUKXYxs07yUILIs5jx/k6CFe8bvKSkds5w+eiOqta39Wk3WxdcQ==
 
 yocto-queue@^0.1.0:
   version "0.1.0"

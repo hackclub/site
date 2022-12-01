@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   Container,
+  Flex,
   Grid,
   Heading,
   Image,
@@ -11,27 +12,39 @@ import {
   Link,
   Text
 } from 'theme-ui'
+import Buttons from './button'
+
 /** @jsxImportSource theme-ui */
 
-export default function Hackathons({data}) {
+export default function Hackathons({ data }) {
   return (
     <CardModel
       color="white"
       sx={{
         backgroundColor: 'elevated',
         background:
-          'linear-gradient(to top right, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)'
+          'linear-gradient(to bottom,rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.4) 25%,rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.6) 100%), url("https://hackclub.com/bank/bg.webp")',
+          backgroundPositon: 'center center',
+          backgroundSize: '100% auto',
       }}
+      // background="https://hackclub.com/bank/bg.webp"
     >
-      <Text variant="title">Hackathons</Text>
+      <Text variant="title">High School Hackathons</Text>
       <Grid columns={[1]}>
         <Box>
           <Text as="p" variant="subtitle">
-          We maintain and support the largest network of high school hackathons in the world. From a community of organizers to free stickers and more! </Text>
+            We maintain and support the largest network of high school
+            hackathons in the world. From a community of organizers to free
+            stickers and more!{' '}
+          </Text>
           <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
             Get involved
           </Text>
-          <ul sx={{ mt: 0, fontSize: [2, 3] }}>
+          <Flex sx={{ flexDirection: 'column' }}>
+            <Buttons content="more 222" id="19"> Find a high school hackathon near you</Buttons>
+            <Buttons content="more info" id="20">Organize a hackthon in your community</Buttons>
+          </Flex>
+          {/* <ul sx={{ mt: 0, fontSize: [2, 3] }}>
             <li>
               <Link
                 href="https://editor.sprig.hackclub.com"
@@ -45,15 +58,11 @@ export default function Hackathons({data}) {
                 href="/slack"
                 sx={{ textDecoration: 'none', color: 'inherit' }}
               >
-               Organize your a hackathon in your community
+                Organize your a hackathon in your community
               </Link>
             </li>
-          </ul>
-          <Button
-            variant="lg"
-          >
-            Learn more
-          </Button>
+          </ul> */}
+          <Button variant="lg" mt={3}>Learn more</Button>
         </Box>
       </Grid>
     </CardModel>

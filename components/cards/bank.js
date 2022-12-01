@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   Container,
+  Flex,
   Grid,
   Heading,
   Image,
@@ -11,23 +12,28 @@ import {
   Link,
   Text
 } from 'theme-ui'
+import { Fade } from 'react-reveal'
+import Buttons from './button'
+
 /** @jsxImportSource theme-ui */
 
 export default function Bank({ data }) {
   return (
     <Box sx={{ position: 'relative' }}>
-      <Badge
-        variant="pill"
-        sx={{
-          position: 'absolute',
-          right: -3,
-          top: -1,
-          transform: 'rotate(7deg)',
-          zIndex: 3
-        }}
-      >
-        {data[0]}
-      </Badge>
+      {/* <Fade spy={data} bottom delay={500} appear> */}
+        <Badge
+          variant="pill"
+          sx={{
+            position: 'absolute',
+            right: -3,
+            top: -1,
+            transform: 'rotate(7deg)',
+            zIndex: 3
+          }}
+        >
+          {data[0]}
+        </Badge>
+      {/* </Fade> */}
       <CardModel
         color="white"
         sx={{
@@ -46,26 +52,24 @@ export default function Bank({ data }) {
             <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
               Get involved
             </Text>
-            <ul sx={{ mt: 0, fontSize: [2, 3] }}>
+            <Flex sx={{ flexDirection: 'column' }}>
+            <Buttons content="more 222" id="15" icon="bank-account">Run your event/organziation on Hack Club Bank</Buttons>
+          </Flex>
+            {/* <ul sx={{ mt: 0, fontSize: [2, 3] }}>
               <li>
                 <Link
                   href="https://editor.sprig.hackclub.com"
                   sx={{ textDecoration: 'none', color: 'inherit' }}
                 >
-                  opening a Hack Club Bank account
-                </Link>
+                  run your event/organization on Hack Club Bank
+                </Link><Flex sx={{ flexDirection: 'column' }}>
+            <Buttons content="more 222" id="3">Play the game</Buttons>
+            <Buttons content="more info" id="4">Create art for the game</Buttons>
+            <Buttons content="more info" id="5">Be a scene maker</Buttons>
+          </Flex>
               </li>
-              <li>
-                <Link
-                  href="/slack"
-                  sx={{ textDecoration: 'none', color: 'inherit' }}
-                >
-                  contributing to Hack Club Bank (reach out to bank@hackclub.com
-                  if interested)
-                </Link>
-              </li>
-            </ul>
-            <Button variant="lg" as="a" href="/bank">
+            </ul> */}
+            <Button variant="lg" as="a" href="/bank" mt={3}>
               Start bankin!
             </Button>
           </Box>
