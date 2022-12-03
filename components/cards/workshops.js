@@ -18,7 +18,7 @@ import Buttons from './button'
 
 /** @jsxImportSource theme-ui */
 
-export default function Workshops({ data }) {
+export default function Workshops({ data, stars }) {
   const [workshop, setWorkshop] = useState('Splatter Paintv')
   const [workshopSlug, setWorkshopSlug] = useState('')
 
@@ -47,6 +47,7 @@ export default function Workshops({ data }) {
           'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)'
       }}
       github_link="https://github.com/hackclub/workshops"
+      stars={stars}
     >
       <Text variant="title">Workshops</Text>
       <Grid columns={[1]}>

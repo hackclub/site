@@ -10,7 +10,10 @@ export default async function handler(req, res) {
       },
       sprig: repository(name: "sprig") {
         stargazerCount
-      }
+      },
+      hackclub: repository(name: "hackclub") {
+        stargazerCount
+      },
     }
   }`,
     {

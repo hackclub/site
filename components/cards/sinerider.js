@@ -19,7 +19,7 @@ import Buttons from './button'
 export default function Sinerider({stars}) {
   return (
     <CardModel
-      // github_link="https://github.com/hackclub/sprig/"
+      github_link="https://github.com/hackclub/sinerider/"
       // link="https://sprig.hackclub.com"
       stars={stars}
       color="white"
