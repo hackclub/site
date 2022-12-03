@@ -14,6 +14,12 @@ export default async function handler(req, res) {
       hackclub: repository(name: "hackclub") {
         stargazerCount
       },
+      hackathons: repository(name: "hackathons") {
+        stargazerCount
+      },
+      sprigHardware: repository(name: "sprig-hardware") {
+        stargazerCount
+      },
     }
   }`,
     {
