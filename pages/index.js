@@ -40,6 +40,7 @@ import AssembleImgFile from '../public/home/assemble.jpg'
 import RelativeTime from 'react-relative-time'
 import { get } from 'lodash'
 import useSWR from 'swr'
+import Konami from 'react-konami-code'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -78,6 +79,134 @@ const rollout = keyframes`
 //    )
 // }
 
+// credits: https://codepen.io/Coding-Star/pen/WNpbvwB
+
+function Secret({ reveal, ...props }) {
+  const [img, setImage] = useState('')
+
+  useEffect(() => {
+    setImage('https://geta.dino.icu/dino.png')
+  })
+
+  return (
+    <Box
+      sx={{
+        position: 'fixed',
+        right: 5,
+        bottom: 0,
+        transform: `${reveal ? 'translateY(0)' : 'translateY(100%)'}`,
+        transition: '1s',
+        zIndex: 3
+      }}
+      {...props}
+    >
+      <Box
+        as="div"
+        sx={{
+          height: '200px',
+          width: '300px',
+          backgroundColor: 'black',
+          position: 'relative',
+          display: 'flex',
+          justifyContent: 'center',
+          zIndex: 0,
+          '&:hover > .lid-one': {
+            transform: 'rotateX(90deg)',
+            transitionDelay: '0s'
+          },
+          '&:hover > .lid-two': {
+            transform: 'rotateX(180deg)',
+            transitionDelay: '0.25s'
+          },
+          '&:hover > .letter': {
+            transform: 'translateY(-50px)',
+            transitionDelay: '0.5s'
+          }
+        }}
+      >
+        <Box
+          as="div"
+          className="lid-one"
+          sx={{
+            position: 'absolute',
+            height: '100%',
+            width: '100%',
+            top: 0,
+            left: 0,
+            borderRight: '150px solid transparent',
+            borderBottom: '100px solid transparent',
+            borderLeft: '150px solid transparent',
+            transformOrigin: 'top',
+            transition: 'transform 0.25s linear',
+            borderTop: '100px solid #8492a6',
+            transform: 'rotateX(0deg)',
+            zIndex: 3,
+            transitionDelay: '0.75s'
+          }}
+        ></Box>
+        <Box
+          as="div"
+          className="lid-two"
+          sx={{
+            position: 'absolute',
+            height: '100%',
+            width: '100%',
+            top: 0,
+            left: 0,
+            borderRight: '150px solid transparent',
+            borderBottom: '100px solid transparent',
+            borderLeft: '150px solid transparent',
+            transformOrigin: 'top',
+            transition: 'transform 0.25s linear',
+            borderTop: '100px solid #8492a6',
+            transform: 'rotateX(90deg)',
+            zIndex: 1,
+            transitionDelay: '0.5s'
+          }}
+        ></Box>
+        <Box
+          as="div"
+          className="envelope"
+          sx={{
+            position: 'absolute',
+            height: '100%',
+            width: '100%',
+            top: 0,
+            left: 0,
+            borderTop: '100px solid transparent',
+            borderRight: '150px solid #f9fafc',
+            borderBottom: '150px solid #f9fafc',
+            borderLeft: '150px solid #f9fafc',
+            zIndex: 3
+          }}
+        ></Box>
+        <Box
+          as="div"
+          className="letter"
+          sx={{
+            position: 'absolute',
+            top: 0,
+            width: '80%',
+            height: '80%',
+            backgroundColor: 'white',
+            borderRadius: '5px',
+            border: '3px solid #e0e6ed',
+            zIndex: 2,
+            transition: '0.5s',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            mt: 3
+          }}
+        >
+          <img src={img} width="30%" sx={{ margin: 'auto' }} />
+          <Text>print kc</Text>
+        </Box>
+      </Box>
+    </Box>
+  )
+}
+
 function Page({
   hackathonsData,
   bankData,
@@ -90,6 +219,8 @@ function Page({
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
+  let [reveal, setReveal] = useState(false)
+  const [hover, setHover] = useState(false)
 
   let [key, setKey] = useState(0)
   let [key1, setKey1] = useState(0)
@@ -109,6 +240,8 @@ function Page({
         console.log('Is DevTools open:', event.detail.isOpen)
         console.log('DevTools orientation:', event.detail.orientation)
       })
+
+      window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
     }
   })
 
@@ -171,6 +304,20 @@ function Page({
   // }
   // })
 
+  const easterEgg = () => {
+    alert('Hey, you typed the Konami Code!');
+  }
+
+  useEffect(() => {
+    if (reveal && !hover) {
+      setTimeout(() => {
+        if (reveal && !hover) {
+          setReveal(false)
+        }
+      }, 3000)
+    }
+  }, [reveal, hover])
+
   const Node = ({ text, time, ...props }) => (
     <Flip
       bottom
@@ -194,13 +341,14 @@ function Page({
           sx={{
             textDecoration: 'none',
             color: 'inherit',
-            fontWeight: '400 !important'
+            fontWeight: '400 !important',
+            display: 'flex'
           }}
         >
-          {text}{' '}
-          <span>
+          <Text as="span" sx={{ fontSize: 'smaller', color: 'sunken', mr: 2 }}>
             <RelativeTime value={time} titleformat="iso8601" />
-          </span>
+          </Text>
+          {text}{' '}
         </Link>
       </Badge>
     </Flip>
@@ -226,9 +374,24 @@ function Page({
       <Box
         as="main"
         sx={{
-          overflowX: 'hidden'
+          overflowX: 'hidden',
+          position: 'relative'
         }}
       >
+        <Secret
+          reveal={reveal}
+          onMouseEnter={() => {
+            setHover(false)
+            console.log('hover:', hover)
+          }}
+          onMouseOut={() => {
+            setHover(true)
+            console.log('hover:', hover)
+          }}
+        />
+        <Konami action={easterEgg} code={[38,38,40,40]}>
+          {"Hey, I'm an Easter Egg! Look at me!"}
+        </Konami>
         <Box
           as="header"
           sx={{
@@ -302,7 +465,14 @@ function Page({
                         borderRadius: 10,
                         transform: 'rotate(-3deg)',
                         color: 'white',
-                        whiteSpace: 'nowrap'
+                        whiteSpace: 'nowrap',
+                        '&:hover': {
+                          cursor: 'pointer'
+                        }
+                      }}
+                      as="a"
+                      onClick={() => {
+                        !reveal ? setReveal(true) : setReveal(false)
                       }}
                     >
                       teen makers
