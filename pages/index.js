@@ -725,9 +725,22 @@ export async function getStaticProps() {
 
   gameTitle = game.map(r => r.title)
 
-  let stars = await fetch('https://hackclub.com/api/stars').then(
-    res => res.json
-  )
+  // let stars = await fetch('https://hackclub.com/api/stars').then(
+  //   res => res.json
+  // )
+
+  let stars = {
+    "data": {
+      "organization": {
+        "sinerider": {
+          "stargazerCount": 186
+        },
+        "sprig": {
+          "stargazerCount": 515
+        }
+      }
+    }
+  }
 
   // const httpLink = createHttpLink({
   //   uri: 'https://api.github.com/graphql',
