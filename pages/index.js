@@ -434,7 +434,7 @@ function Page({
               />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <SprigConsole delay={300} />
-              <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
+              {/* <Workshops delay={400} stars={stars.hackclub.stargazerCount} /> */}
             </Container>
           </Box>
           <Box>
