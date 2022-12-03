@@ -119,57 +119,57 @@ function Page({
     setKey1(Math.random())
   }, slackData)
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      let imgURL = undefined
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     let imgURL = undefined
 
-      const decode = ({ data, width }) => {
-        const decodedString = atob(data)
-        const l = decodedString.length
-        const buf = new Uint8ClampedArray(l)
-        for (let i = 0; i < l; i++) {
-          const char = decodedString[i]
-          const byte = char.charCodeAt(0)
-          buf[i] = byte
-        }
-        return new ImageData(buf, width)
-      }
+  //     const decode = ({ data, width }) => {
+  //       const decodedString = atob(data)
+  //       const l = decodedString.length
+  //       const buf = new Uint8ClampedArray(l)
+  //       for (let i = 0; i < l; i++) {
+  //         const char = decodedString[i]
+  //         const byte = char.charCodeAt(0)
+  //         buf[i] = byte
+  //       }
+  //       return new ImageData(buf, width)
+  //     }
 
-      async function load(title) {
-        if (imgURL) return
-        try {
-          const res = await fetch(
-            `https://editor.sprig.hackclub.com/api/thumbnail/${title}`
-          )
-          // console.log(title)
-          const json = await res.json()
+  //     async function load(title) {
+  //       if (imgURL) return
+  //       try {
+  //         const res = await fetch(
+  //           `https://editor.sprig.hackclub.com/api/thumbnail/${title}`
+  //         )
+  //         // console.log(title)
+  //         const json = await res.json()
 
-          if (json.image.kind === 'png') {
-            return `data:image/png;base64,${json.image.data}`
-          } else {
-            // Raw, hopefully
-            const imageData = decode(json.image)
-            const c = document.createElement('canvas')
-            c.width = imageData.width
-            c.height = imageData.height
-            c.getContext('2d').putImageData(imageData, 0, 0)
-            c.style['image-rendering'] = 'pixelated'
-            return c.toDataURL()
-          }
-        } catch (err) {
-          console.error(err)
-        }
-      }
+  //         if (json.image.kind === 'png') {
+  //           return `data:image/png;base64,${json.image.data}`
+  //         } else {
+  //           // Raw, hopefully
+  //           const imageData = decode(json.image)
+  //           const c = document.createElement('canvas')
+  //           c.width = imageData.width
+  //           c.height = imageData.height
+  //           c.getContext('2d').putImageData(imageData, 0, 0)
+  //           c.style['image-rendering'] = 'pixelated'
+  //           return c.toDataURL()
+  //         }
+  //       } catch (err) {
+  //         console.error(err)
+  //       }
+  //     }
 
-      async function getImage() {
-        const thing0 = await load(gameTitle[0])
-        const thing1 = await load(gameTitle[1])
-        setGameImage(thing0)
-        setGameImage1(thing1)
-      }
-      getImage()
-    }
-  })
+  //     async function getImage() {
+  //       const thing0 = await load(gameTitle[0])
+  //       const thing1 = await load(gameTitle[1])
+  //       setGameImage(thing0)
+  //       setGameImage1(thing1)
+  //     }
+  //     getImage()
+  //   }
+  // })
 
   const Node = ({ text, time, ...props }) => (
     <Flip
@@ -718,9 +718,11 @@ export async function getStaticProps() {
 
   gameTitle = game.map(r => r.title)
 
-  let stars = await fetch('https://hackclub.com/api/stars').then(
-    res => res.json
-  )
+  // let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
+  //   res => res.json
+  // )
+
+  let stars = {"sinerider":{"stargazerCount":186},"sprig":{"stargazerCount":516}}
 
   return {
     props: {
