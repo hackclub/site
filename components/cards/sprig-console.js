@@ -35,7 +35,7 @@ export default function SprigConsole() {
           src="https://cloud-8u6hh0ho9-hack-club-bot.vercel.app/0sprig_console.svg"
           sx={{ width: ['250px', '450px', '500px'] }}
         />
-        <Grid columns={[1, 2]}>
+        <Grid columns={[1, '1.2fr 1fr']}>
           <Box>
             <Text as="p" variant="subtitle">
               A console you can assemble and disassemble. Each kit includes
@@ -46,44 +46,35 @@ export default function SprigConsole() {
               Get involved
             </Text>
             <Flex sx={{ flexDirection: 'column' }}>
-            <Buttons id="10">Build a game</Buttons>
-            <Buttons content="more info" id="11">Share it in the gallery</Buttons>
-            <Buttons content="more info" id="12" icon="sam">Get a console</Buttons>
-          </Flex>
-            {/* <ul sx={{ mt: 0, fontSize: [2, 3] }}>
-              <li>
-                <Link
-                  href="https://editor.sprig.hackclub.com"
-                  sx={{ textDecoration: 'none', color: 'inherit' }}
-                >
-                  build a game
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/slack"
-                  sx={{ textDecoration: 'none', color: 'inherit' }}
-                >
-                  share it in the gallery
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/slack"
-                  sx={{ textDecoration: 'none', color: 'inherit' }}
-                >
-                  get a console
-                </Link>
-              </li>
-            </ul> */}
+              <Buttons
+                content="click here to get started in our editor"
+                id="6"
+                icon="emoji"
+                link="https://editor.sprig.hackclub.com"
+              >
+                Make a game
+              </Buttons>
+              <Buttons
+                content="make a PR to our website, click for more instructions"
+                id="11"
+                link="https://sprig.hackclub.com/share"
+              >
+                Share it in the gallery
+              </Buttons>
+              <Buttons
+                content="only teenagers (and younger) can get a console"
+                id="12"
+                icon="sam"
+                link="https://sprig.hackclub.com/"
+              >
+                Get a console
+              </Buttons>
+            </Flex>
             <Button
               variant="lg"
               sx={{
                 backgroundColor: '#427A43',
                 color: '#fff',
-                // position: 'absolute',
-                // bottom: '32px',
-                // left: '32px',
                 mt: 3
               }}
             >
@@ -94,9 +85,15 @@ export default function SprigConsole() {
         </Grid>
       </CardModel>
       <img
-        src="https://cloud-fctxfuxex-hack-club-bot.vercel.app/0sprig-light__1_.png"
-        width="120%"
-        sx={{ position: 'absolute', right: '-100px', top: 5, width: '50%' }}
+        src="https://cloud-7dokxtxhu-hack-club-bot.vercel.app/0sprig-light-top.png"
+        sx={{
+          position: 'absolute',
+          right: '-120px',
+          top: 5,
+          width: '60%',
+          pointerEvents: 'none',
+          userSelect: 'none'
+        }}
       />
     </Box>
   )

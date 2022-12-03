@@ -96,13 +96,10 @@ export default function Epoch() {
       <Box
         sx={theme => ({
           color: '#FF4794',
-          // ...theme.util.gxText('#00FF15', '#00FF15'),
           position: 'relative',
-          // width: ['16%', '15%', '15%'],
           width: '120%',
           height: '85%',
           py: 4,
-          // height: ['15vh', '20vh', '35vh'],
           borderRadius: '5px',
           border: ['none', '1.5px solid'],
           borderColor: '#FF4794',
@@ -140,7 +137,7 @@ export default function Epoch() {
   })
   return (
     <CardModel
-    id="epoch"
+      id="epoch"
       color="white"
       sx={{
         backgroundColor: '#000'
@@ -150,7 +147,7 @@ export default function Epoch() {
         src="https://cloud-ox8syzbet-hack-club-bot.vercel.app/0ep0ch.svg"
         sx={{ width: ['150px', '180px', '220px'] }}
       />
-      <Grid columns={[1, 2, 2]} mt="0">
+      <Grid columns={[1, 2, 2]} mt={3}>
         <Box>
           {timer.length ? (
             <Grid
@@ -172,7 +169,7 @@ export default function Epoch() {
           )}
         </Box>
         <Box mt="-70px">
-        <Text as="p" variant="subtitle">
+          <Text as="p" variant="subtitle">
             Celebrate the New Year with 42 hours of hacking in Delhi, India
           </Text>
           <Text
@@ -186,32 +183,23 @@ export default function Epoch() {
           >
             Get involved
           </Text>
-          {/* <ul sx={{ mt: 0, fontSize: [2, 3] }}>
-            <li>
-              <Link
-                href="https://epoch.hackclub.com"
-                sx={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                attend the hackathon
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/slack"
-                sx={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                help make the hackathon possible by joining #epoch-bts in slack
-              </Link>
-            </li>
-          </ul> */}
           <Flex sx={{ flexDirection: 'column' }}>
-            <Buttons content="more 222" id="17">Attend the hackathon</Buttons>
-            <Buttons content="more info" id="18">Plan the hackathon</Buttons>
+            <Buttons
+              content="travel stipends available"
+              id="17"
+              link="https://epoch.hackclub.com"
+              icon="post"
+            >
+              Sign up and attend EPOCH
+            </Buttons>
+            <Buttons content="join #epoch-bts on Slack" id="18" link="/slack" icon="idea">
+              Plan the hackathon
+            </Buttons>
           </Flex>
           <Button
             variant="lg"
             as="a"
-            href="/bank"
+            href="https://epoch.hackclub.com/"
             sx={{ background: '#FF4794', color: 'white', mt: 3 }}
           >
             Sign up for Epoch

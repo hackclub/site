@@ -52,7 +52,7 @@ export default function Buttons({ children, icon, id, content, link }) {
           backdropFilter: 'blur(2px)'
         }}
         as="a"
-        href={link || "/"}
+        href={link || '/'}
         target="_blank"
         rel="noreferrer"
       >
@@ -62,11 +62,23 @@ export default function Buttons({ children, icon, id, content, link }) {
           size={32}
           mr={2}
         />
-        <Text sx={{ fontFamily: 'Phantom Sans' }}>
-          {children}
-        </Text>
+        <Text sx={{ fontFamily: 'Phantom Sans' }}>{children}</Text>
       </Button>
-      <ReactTooltip id={id} delayHide={300} delayUpdate={500} clickable={true} getContent={() => { return null }}>{content}</ReactTooltip>
+      <ReactTooltip
+        id={id}
+        delayShow={150}
+        delayHide={100}
+        delayUpdate={500}
+        clickable={true}
+        getContent={() => {
+          return null
+        }}
+        className="custom-tooltip-radius custom-arrow-radius"
+        arrowRadius="2"
+        tooltipRadius="4"
+      >
+        {content}
+      </ReactTooltip>
     </Box>
   )
 }

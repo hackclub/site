@@ -29,10 +29,6 @@ export default function Clubs() {
         backgroundColor: 'elevated',
         background:
           'linear-gradient(rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)'
-        // backgroundImage:
-        //   "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('https://cloud-4re3avrpo-hack-club-bot.vercel.app/0screenshot_2022-11-30_at_10.16.45_pm.png')",
-        // backgroundPosition: 'center center',
-        // textShadow: '0 0 20px rgba(0, 0, 0, 0.35)'
       }}
     >
       <Text
@@ -61,30 +57,12 @@ export default function Clubs() {
             Get involved
           </Text>
           <Flex sx={{ flexDirection: 'column' }}>
-            <Buttons content="more info" id="1">Join a Hack Club near you</Buttons>
-            <Buttons content="more infooo" id="2">Start a club</Buttons>
+            <Buttons content="scan our clubs map and reach out to team@hackclub.com to be connected" id="1" icon="rep" link="/map">Join a Hack Club near you</Buttons>
+            <Buttons content="we'll support you with meeting content, stickers, and more" id="2" icon="welcome" link="/clubs">Start a club</Buttons>
           </Flex>
           <Button variant="lg" sx={{mt: 3, backgroundColor: 'orange'}}>Learn more</Button>
         </Box>
       </Grid>
-      {/* <Buttons /> */}
-      {/* <a data-tip="hello" data-event="click focus" data-for="custom-event">Tooltip</a>
-      <ReactTooltip id="custom-event" globalEventOff="click" /> */}
-      {/* <p ></p> */}
-      {/* <button
-        ref={ref => (fooRef = ref)}
-        data-tip="tooltip"
-        onClick={() => {
-          if (toggle) {
-            ReactTooltip.show(fooRef)
-            setToggle(false)
-          } else {
-            ReactTooltip.hide(fooRef)
-            setToggle(true)
-          }
-        }}
-      ></button>
-      <ReactTooltip /> */}
     </CardModel>
   )
 }

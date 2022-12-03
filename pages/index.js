@@ -37,6 +37,15 @@ import Flip from 'react-reveal/Flip'
 import Fade from 'react-reveal/Fade'
 import Inspect from '../components/inspect'
 import AssembleImgFile from '../public/home/assemble.jpg'
+import RelativeTime from 'react-relative-time'
+import { get } from 'lodash'
+import {
+  ApolloClient,
+  InMemoryCache,
+  gql,
+  createHttpLink
+} from '@apollo/client'
+import { setContext } from '@apollo/client/link/context'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -58,7 +67,6 @@ const rollout = keyframes`
   transform: translateY(0);
 }
 `
-
 // function SlackNum({slackData}) {
 //   let [key, setKey] = useState()
 //   useEffect(() => {
@@ -75,14 +83,23 @@ const rollout = keyframes`
 //      <></>
 //    )
 // }
+// let workshopImage = ['/', '/']
 
 function Page({
   hackathonsData,
   bankData,
   slackData,
-  stars
+  stars,
+  githubData2,
+  dataPieces,
+  game,
+  gameTitle
+  // workshopImage
   // workshops
 }) {
+  let [gameImage, setGameImage] = useState('')
+  let [gameImage1, setGameImage1] = useState('')
+
   let [key, setKey] = useState(0)
   let [key1, setKey1] = useState(0)
 
@@ -108,6 +125,58 @@ function Page({
     setKey(Math.random())
     setKey1(Math.random())
   }, slackData)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      let imgURL = undefined
+
+      const decode = ({ data, width }) => {
+        const decodedString = atob(data)
+        const l = decodedString.length
+        const buf = new Uint8ClampedArray(l)
+        for (let i = 0; i < l; i++) {
+          const char = decodedString[i]
+          const byte = char.charCodeAt(0)
+          buf[i] = byte
+        }
+        return new ImageData(buf, width)
+      }
+
+      async function load(title) {
+        if (imgURL) return
+        try {
+          const res = await fetch(
+            `https://editor.sprig.hackclub.com/api/thumbnail/${title}`
+          )
+          // console.log(title)
+          const json = await res.json()
+
+          if (json.image.kind === 'png') {
+            return `data:image/png;base64,${json.image.data}`
+          } else {
+            // Raw, hopefully
+            const imageData = decode(json.image)
+            const c = document.createElement('canvas')
+            c.width = imageData.width
+            c.height = imageData.height
+            c.getContext('2d').putImageData(imageData, 0, 0)
+            c.style['image-rendering'] = 'pixelated'
+            return c.toDataURL()
+          }
+        } catch (err) {
+          console.error(err)
+        }
+      }
+
+      async function getImage() {
+        const thing0 = await load(gameTitle[0])
+        const thing1 = await load(gameTitle[1])
+        setGameImage(thing0)
+        setGameImage1(thing1)
+      }
+      getImage()
+    }
+  })
 
   const Node = ({ text, time, ...props }) => (
     <Flip
@@ -135,12 +204,15 @@ function Page({
             fontWeight: '400 !important'
           }}
         >
-          {text} 
-          {/* <relative-time datetime={time}>Nov 30, 2022</relative-time> */}
+          {text}{' '}
+          <span>
+            <RelativeTime value={time} titleformat="iso8601" />
+          </span>
         </Link>
       </Badge>
     </Flip>
   )
+
   return (
     <>
       <Meta
@@ -159,365 +231,356 @@ function Page({
       <ForceTheme theme="light" />
       <Nav />
       <Box
-        as="header"
+        as="main"
         sx={{
-          bg: 'dark',
-          pt: [5, 6],
-          pb: [2, 3],
-          textAlign: 'left',
-          position: 'relative',
           overflowX: 'hidden'
         }}
       >
-        <BGImg
-          src={AssembleImgFile}
-          alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
-          priority
-          gradient="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7))"
-        />
-        {/* <SlideDown duration={768}> */}
         <Box
+          as="header"
           sx={{
-            maxWidth: [null, 'layoutPlus'],
+            bg: 'dark',
+            pt: [5, 6],
+            pb: [2, 3],
+            textAlign: 'left',
             position: 'relative',
-            mx: 'auto'
+            overflowX: 'hidden'
           }}
         >
-          <Node
-            // text={dataPieces[0]}
-            // time={githubData2[0]}
-            text="✅ New commit in hackclub/hackclub by @bellesea"
-            sx={{
-              position: 'absolute',
-              top: 0,
-              right: 2,
-              zIndex: 4,
-              transform: 'rotate(3deg)'
-            }}
+          <BGImg
+            src={AssembleImgFile}
+            alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
+            priority
+            gradient="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7))"
           />
-          <Fade>
-            <Text variant="eyebrow" sx={{ color: 'sunken' }}>
-              Welcome to Hack Club
-            </Text>
-          </Fade>
-          <Fade bottom delay={200}>
-            <Heading
-              as="h1"
-              variant="ultratitle"
+          {/* <SlideDown duration={768}> */}
+          <Box
+            sx={{
+              maxWidth: [null, 'layoutPlus'],
+              position: 'relative',
+              mx: 'auto'
+            }}
+          >
+            <Node
+              // text={dataPieces[0]}
+              // time={githubData2[0]}
+              text="✅ New commit in hackclub/hackclub by @bellesea"
               sx={{
-                color: 'white',
-                my: [3, 4],
-                mx: 'auto',
-                zIndex: 1,
-                textAlign: 'left'
+                position: 'absolute',
+                top: 0,
+                right: 2,
+                zIndex: 4,
+                transform: 'rotate(3deg)'
               }}
-            >
-              <Text
-                as="span"
-                sx={{
-                  lineHeight: 1,
-                  display: 'block',
-                  pb: 3
-                }}
-              >
-                We inspire the hacker ethic in
-                <Text sx={{ color: 'transparent', mr: 2 }}>
-                  <Text
-                    sx={{
-                      lineHeight: 0.875,
-                      px: 2,
-                      backgroundColor: 'red',
-                      position: 'absolute',
-                      borderRadius: 10,
-                      transform: 'rotate(-3deg)',
-                      color: 'white',
-                      whiteSpace: 'nowrap',
-                      '&:hover': { cursor: 'pointer' }
-                    }}
-                  >
-                    teen makers
-                  </Text>
-                  teen makers{' '}
-                </Text>
-                around the {''}world by building things we {''}care about
-                together.
+            />
+            <Fade>
+              <Text variant="eyebrow" sx={{ color: 'sunken' }}>
+                Welcome to Hack Club
               </Text>
-            </Heading>
-          </Fade>
-        </Box>
-        {/* </SlideDown> */}
-        <Carousel />
-      </Box>
-      <Box as="section" sx={{ pt: [4, 5], color: 'black' }}>
-        <Container sx={{ position: 'relative' }} pb={4}>
-          <Text variant="eyebrow" as="p">
-            A Hack Clubber is someone that
-          </Text>
-          <Text variant="title">
-            Makes interesting things in the real world
-          </Text>
-          <Grid columns={[1, 2]}>
-            <Box
-              pt={4}
-              pb={5}
-              sx={{
-                position: 'relative',
-                margin: 'auto'
-              }}
-            >
-              <Text variant="subtitle" as="p">
-                Here, teenagers don't wait for permission to code. Hack Clubbers
-                come together to code because it's fun. Whether you’re a
-                beginner programmer or have years of experience, there’s a place
-                for you at Hack Club. Coding doesn't have to be a solidary
-                activity. In the Hack Club Slack (Discord-style online
-                groupchat), you'll find a group of{' '}
-                {withCommas(
-                  slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
-                    .total_members_count
-                )}{' '}
-                fabulous people to talk to, active at all hours.
-              </Text>
-              {/* <Text variant="headline" sx={{ textAlign: 'center' }}>
-              Code alongside{' '}
-              <Text
-                key={key}
+            </Fade>
+            <Fade bottom delay={200}>
+              <Heading
+                as="h1"
+                variant="ultratitle"
                 sx={{
-                  width: 'fit-content',
-                  display: 'inline',
-                  animation: `${rollout} 4s linear 2s`
-                }}
-              >
-                {withCommas(
-                  slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
-                    .total_members_count
-                )}
-              </Text>{' '}
-              other teenagers like you and make friends in the largest online
-              community of technical teenagers.
-            </Text> */}
-              <Link href="/slack" passHref sx={{ textDecoration: 'none' }}>
-                <Button
-                  as="a"
-                  variant="ctaLg"
-                  sx={{
-                    background:
-                      'linear-gradient(-132deg, #338eda 14%, #33d6a6 82%)'
-                  }}
-                  my={3}
-                >
-                  Join us →
-                </Button>
-              </Link>
-            </Box>
-            <Box
-              sx={{
-                position: 'relative',
-                width: '100%',
-                pb: '56.25%',
-                margin: 'auto',
-                borderRadius: '10px',
-                overflow: 'none'
-              }}
-            >
-              <Box
-                as="iframe"
-                muted
-                duration={2000}
-                sx={{
-                  position: 'absolute',
-                  // bottom: 0,
-                  top: 0,
-                  left: 0,
-                  // right: 0,
-                  // height: '100%',
+                  color: 'white',
+                  my: [3, 4],
+                  mx: 'auto',
                   zIndex: 1,
-                  width: '100%',
-                  height: '100%'
-                  // objectFit: 'cover'
+                  textAlign: 'left'
                 }}
-                src="https://www.youtube.com/embed/-sxRdKtKNa0"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></Box>
-            </Box>
-          </Grid>
-          <Inspect />
-        </Container>
-        <Box
-          sx={{
-            background: 'snow',
-            py: 4,
-            backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
-            backgroundSize: '40px 40px',
-            backgroundRepeat: 'repeat',
-            backgroundPosition: '10% 10%'
-          }}
-        >
-          <Container>
-            <Text variant="eyebrow" as="p">
-              Hack Clubbers
-            </Text>
-            <Text variant="title">Build open source tools</Text>
-            <Text variant="subtitle" as="p">
-              Led by engineers on the Hack Club team in collaboration with Hack
-              Clubbers in the community, these learning tools are built with and
-              for teenagers. Get involved with these projects by building
-              something with our tools or building out the tools itself.
-            </Text>
-            <Sprig delay={100} stars={stars} />
-            <Sinerider delay={200} />
-            <SprigConsole delay={300} />
-            <Workshops delay={400} />
-          </Container>
+              >
+                <Text
+                  as="span"
+                  sx={{
+                    lineHeight: 1,
+                    display: 'block',
+                    pb: 3
+                  }}
+                >
+                  We inspire the hacker ethic in
+                  <Text sx={{ color: 'transparent', mx: 2 }}>
+                    <Text
+                      sx={{
+                        lineHeight: 0.875,
+                        px: 2,
+                        backgroundColor: 'red',
+                        position: 'absolute',
+                        borderRadius: 10,
+                        transform: 'rotate(-3deg)',
+                        color: 'white',
+                        whiteSpace: 'nowrap'
+                      }}
+                    >
+                      teen makers
+                    </Text>
+                    teen makers{' '}
+                  </Text>
+                  around the {''}world by building things we {''}care about
+                  together.
+                </Text>
+              </Heading>
+            </Fade>
+          </Box>
+          {/* </SlideDown> */}
+          <Carousel />
         </Box>
-        <Box>
-          <Container py={4}>
+        <Box as="section" sx={{ pt: [4, 5], color: 'black' }}>
+          <Container
+            sx={{
+              position: 'relative'
+            }}
+            pb={4}
+          >
             <Text variant="eyebrow" as="p">
-              Hack Clubbers
+              A Hack Clubber is someone that
             </Text>
             <Text variant="title">
-              Gather IRL to discover the{' '}
+              Discovers technology by building things for the joy of it
+            </Text>
+            <Grid columns={[1, 2]}>
+              <Box
+                pt={4}
+                pb={5}
+                sx={{
+                  position: 'relative',
+                  margin: 'auto'
+                }}
+              >
+                <Text variant="subtitle" as="p">
+                  Here, teenagers don't wait for permission to code. Hack
+                  Clubbers come together to code because it's fun. Whether
+                  you’re a beginner programmer or have years of experience,
+                  there’s a place for you at Hack Club. Coding doesn't have to
+                  be a solidary activity. In the Hack Club Slack (Discord-style
+                  online groupchat), you'll find a group of{' '}
+                  {withCommas(
+                    slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
+                      .total_members_count
+                  )}{' '}
+                  fabulous people to talk to, active at all hours.
+                </Text>
+                <Link href="/slack" passHref sx={{ textDecoration: 'none' }}>
+                  <Button
+                    as="a"
+                    variant="ctaLg"
+                    sx={{
+                      background:
+                        'linear-gradient(-132deg, #338eda 14%, #33d6a6 82%)'
+                    }}
+                    my={3}
+                  >
+                    Join us →
+                  </Button>
+                </Link>
+              </Box>
+              <Box
+                sx={{
+                  position: 'relative',
+                  width: '100%',
+                  pb: '56.25%',
+                  margin: 'auto',
+                  borderRadius: '10px',
+                  overflow: 'none'
+                }}
+              >
+                <Box
+                  as="iframe"
+                  muted
+                  duration={2000}
+                  sx={{
+                    position: 'absolute',
+                    // bottom: 0,
+                    top: 0,
+                    left: 0,
+                    // right: 0,
+                    // height: '100%',
+                    zIndex: 1,
+                    width: '100%',
+                    height: '100%'
+                    // objectFit: 'cover'
+                  }}
+                  src="https://www.youtube.com/embed/-sxRdKtKNa0"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></Box>
+              </Box>
+            </Grid>
+            <Inspect />
+          </Container>
+          <Box
+            py={4}
+            sx={{
+              background: 'snow',
+              backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
+              backgroundSize: '40px 40px',
+              backgroundRepeat: 'repeat',
+              backgroundPosition: '10% 10%'
+            }}
+          >
+            <Container>
+              <Text variant="eyebrow" as="p">
+                Hack Clubbers
+              </Text>
+              <Text variant="title">Build open source tools</Text>
+              <Text variant="subtitle" as="p">
+                Led by engineers on the Hack Club team in collaboration with
+                Hack Clubbers in the community, these learning tools are built
+                with and for teenagers. Get involved with these projects by
+                building something with our tools or building out the tools
+                itself.
+              </Text>
+              <Sprig
+                delay={100}
+                stars={stars.sprig.stargazerCount}
+                game={game}
+                gameImage={gameImage}
+                gameImage1={gameImage1}
+              />
+              <Sinerider delay={200} stars={stars.sprig.stargazerCount} />
+              <SprigConsole delay={300} />
+              <Workshops delay={400} />
+            </Container>
+          </Box>
+          <Box>
+            <Container py={3}>
+              <Text variant="eyebrow" as="p">
+                Hack Clubbers
+              </Text>
+              <Text variant="title">
+                Gather IRL to discover the{' '}
+                <Text
+                  as="span"
+                  sx={{
+                    borderRadius: 'default',
+                    px: 2,
+                    mx: [-2, 0],
+                    whiteSpace: 'nowrap',
+                    color: '#5d114c',
+                    bg: 'rgb(255, 212, 64)'
+                  }}
+                >
+                  joy of code
+                </Text>
+              </Text>
+              <Text variant="subtitle" as="p">
+                Meet other Hack Clubbers in your community to code and make
+                things, be it once a week after school, a one-time 48 hour
+                event, or anything in-between!
+              </Text>
+              <Bank data={bankData} delay={100} />
+              <Clubs delay={200} />
+              <Epoch delay={300} />
+              <Hackathons delay={400} data={hackathonsData} />
+            </Container>
+          </Box>
+        </Box>
+        <Box bg="snow" color="black" py={[3, 4]}>
+          <Container
+            sx={{
+              textAlign: 'left'
+            }}
+          >
+            <Text as="p" variant="eyebrow">
+              Let's quickly review
+            </Text>
+            <Heading as="h2" variant="title">
+              Find your second-home in{' '}
               <Text
                 as="span"
                 sx={{
                   borderRadius: 'default',
                   px: 2,
-                  mx: [-2, 0],
-                  whiteSpace: 'nowrap',
-                  color: '#5d114c',
-                  bg: 'rgb(255, 212, 64)'
+                  ml: [-2, 0],
+                  whiteSpace: ['wrap', 'nowrap'],
+                  color: 'white',
+                  bg: 'red'
                 }}
               >
-                joy of code
+                Hack Club
               </Text>
-            </Text>
-            <Text variant="subtitle" as="p">
-              Join or start a Hack Club and be part of a network of high quality
-              coding clubs where you learn to code entirely through building
-              things. You can start with no experience and build and ship a
-              project every meeting.
-            </Text>
-            <Clubs delay={100} />
-            <Bank data={bankData} delay={100} />
-            <Epoch delay={200} />
-            <Hackathons delay={300} />
+              .
+            </Heading>
+            <Grid
+              pt={[3, 4]}
+              pb={[4, 5]}
+              gap={[4, 3, 4]}
+              columns={[null, 3]}
+              sx={{
+                textAlign: 'left',
+                '> a, > div': {
+                  borderRadius: 'extra',
+                  boxShadow: 'elevated',
+                  p: [3, null, 4]
+                },
+                span: {
+                  boxShadow:
+                    '-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)'
+                },
+                svg: { fill: 'currentColor' }
+              }}
+            >
+              <Card
+                as="a"
+                href="/slack"
+                variant="interactive"
+                sx={{
+                  background:
+                    'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
+                  color: 'white',
+                  svg: { color: 'rgb(51, 142, 218)' }
+                }}
+              >
+                <Stage
+                  icon="slack"
+                  color="white"
+                  name="Join our online community"
+                  desc="Connect with other technical teenagers on Slack and hack on things together."
+                />
+              </Card>
+              <Card
+                sx={{
+                  background:
+                    'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
+                  color: 'white',
+                  svg: { color: 'rgb(236, 55, 80)' },
+                  textDecoration: 'none'
+                }}
+                as="a"
+                href="/clubs"
+                variant="interactive"
+              >
+                <Stage
+                  icon="clubs"
+                  color="white"
+                  name="Start a Club or Attend a Hackathon"
+                  desc="Build an in-person community of high school hackers, and we're here to help."
+                />
+              </Card>
+              <Card
+                sx={{
+                  background:
+                    'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
+                  color: 'white',
+                  svg: { color: '#fb558e' },
+                  textDecoration: 'none'
+                }}
+                as="a"
+                href="https://github.com/hackclub"
+                variant="interactive"
+              >
+                <Stage
+                  icon="github"
+                  color="white"
+                  name="Explore our open-sourced tools"
+                  desc="We're currently building a game engine, daily streak system, graphing game, and more!"
+                />
+              </Card>
+            </Grid>
           </Container>
         </Box>
-        {/* <Container py={4}>
-          <Text variant="eyebrow" as="p">
-            Hack Clubbers
-          </Text>
-          <Text variant="title">Run high quality high school hackathons</Text>
-          <Text variant="subtitle" as="p">
-            It's not an extracurricular or a club. It's not a class or a
-            lecture. Hackathons are a place to build things for fun and meet
-            others doing the same.
-          </Text>
-        </Container> */}
-        {/* <ScrollingHackathons eventData={hackathonsData} /> */}
-      </Box>
-      <Box bg="snow" color="black" py={[5, 6]}>
-        <Container sx={{ textAlign: ['left', 'center'] }}>
-          <Text as="p" variant="eyebrow">
-            Let's quickly review
-          </Text>
-          <Heading as="h2" variant="title">
-            Find your second-home in{' '}
-            <Text
-              as="span"
-              sx={{
-                borderRadius: 'default',
-                px: 2,
-                ml: [-2, 0],
-                whiteSpace: ['wrap', 'nowrap'],
-                color: 'white',
-                bg: 'red'
-              }}
-            >
-              Hack Club
-            </Text>
-            .
-          </Heading>
-          <Grid
-            pt={[3, 4]}
-            pb={[4, 5]}
-            gap={[4, 3, 4]}
-            columns={[null, 3]}
-            sx={{
-              textAlign: 'left',
-              '> a, > div': {
-                borderRadius: 'extra',
-                boxShadow: 'elevated',
-                px: [3, null, 4],
-                py: [4, null, 5]
-              },
-              span: {
-                boxShadow:
-                  '-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)'
-              },
-              svg: { fill: 'currentColor' }
-            }}
-          >
-            <Card
-              as="a"
-              href="/slack"
-              variant="interactive"
-              sx={{
-                background:
-                  'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
-                color: 'white',
-                svg: { color: 'rgb(51, 142, 218)' }
-              }}
-            >
-              <Stage
-                icon="slack"
-                color="white"
-                name="Join the Slack"
-                desc="Connect with other technical teenagers and hack on things together."
-              />
-            </Card>
-            <Card
-              sx={{
-                background:
-                  'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
-                color: 'white',
-                svg: { color: 'rgb(236, 55, 80)' },
-                textDecoration: 'none'
-              }}
-              as="a"
-              href="/clubs"
-              variant="interactive"
-            >
-              <Stage
-                icon="clubs"
-                color="white"
-                name="Start a Club or Attend a Hackathon"
-                desc="Build an in-person community of high school hackers, and we're here to help."
-              />
-            </Card>
-            <Card
-              sx={{
-                background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
-                color: 'white',
-                svg: { color: '#fb558e' },
-                textDecoration: 'none'
-              }}
-              as="a"
-              href="https://github.com/hackclub"
-              variant="interactive"
-            >
-              <Stage
-                icon="event-code"
-                color="white"
-                name="Explore our open-sourced tools"
-                desc="We're currently building a game engine, daily streak system, graphing game, and more!"
-              />
-            </Card>
-          </Grid>
-        </Container>
       </Box>
       <Footer
         dark
@@ -554,9 +617,10 @@ function Page({
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
-  let dataPieces = []
+  let dataPieces = ['hehe']
+  let githubData2 = ['hehe']
   let bankData = []
-  let stars = []
+  // let stars = []
   let initialBankData = await fetch('https://bank.hackclub.com/stats').then(r =>
     r.json()
   )
@@ -576,9 +640,9 @@ export async function getStaticProps() {
   //   'https://api.github.com/orgs/hackclub/events'
   // ).then(r => r.json())
 
-  console.log(initialBankData)
+  // console.log(initialBankData)
 
-  // if(initialGitHubData != null) {
+  // // if(initialGitHubData != null) {
   // let initialGitHubData1 = initialGitHubData.map(x =>
   //   (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]') ||
   //   x.type == 'WatchEvent' ||
@@ -592,6 +656,7 @@ export async function getStaticProps() {
   //       : `🎉 New activity in ${x.repo.name}`
   //     : null
   // )
+  // // }
 
   // let initialGithubData2 = initialGitHubData.map(x =>
   //   (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]') ||
@@ -623,10 +688,10 @@ export async function getStaticProps() {
   // let sar = await fetch(
   //   'https://api.github.com/repos/hackclub/some-assembly-required'
   // ).then(r => r.json())
-  
+
   // stars.push({'sar': sar.stargazers_count})
 
-  console.log(stars)
+  // console.log(stars)
 
   const formData = new FormData()
 
@@ -649,25 +714,67 @@ export async function getStaticProps() {
   let games = []
   let tags = []
 
-  // games = await fetch('https://editor.sprig.hackclub.com/metadata.json').then(
-  //   res => res.json()
-  // )
-  // ;[...games]
-  //   .sort((a, b) => new Date(b.addedOn) - new Date(a.addedOn))
-  //   .slice(games.length - 2, games.length)
-  //   .forEach(game => (game.isNew = true))
-  // tags = [...new Set(games.reduce((p, c) => [...p, ...c.tags], []))]
+  games = await fetch('https://editor.sprig.hackclub.com/metadata.json').then(
+    res => res.json()
+  )
+  let game = games
+    .sort((a, b) => new Date(b.addedOn) - new Date(a.addedOn))
+    .slice(0, 2)
 
-  // console.log(games)
+  let gameTitle = []
 
-  // const workshops = await fetch('https://api.github.com/repos/hackclub/hackclub/contents/workshops?recursive=1')
-  // 		.then((res) => res.json())
-  // 		.catch((error) => {
-  // 			console.log(error);
-  // 			return [];
-  // 		});
+  gameTitle = game.map(r => r.title)
+
+  let stars = await fetch('https://hackclub.com/api/stars').then(
+    res => res.json
+  )
+
+  // const httpLink = createHttpLink({
+  //   uri: 'https://api.github.com/graphql',
+  // });
+
+  // const authLink = setContext(() => {
+  //   return {
+  //     headers: {
+  //       authorization: `Bearer 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`
+  //     }
+  //   }
+  // })
+
+  // const client = new ApolloClient({
+  //   link: authLink.concat(httpLink),
+  //   cache: new InMemoryCache()
+  // });
+
+  // const { githubStars } = await client.query({
+  //   query: gql`
+  //   query {
+  //     organization(login: "hackclub") {
+  //       sinerider: repository(name: "sinerider") {
+  //         stargazerCount
+  //       },
+  //       sprig: repository(name: "sprig") {
+  //         stargazerCount
+  //       }
+  //     }
+  //   }
+  //   `
+  // })
+
+  console.log('g', githubStars)
   return {
-    props: { hackathonsData, bankData, slackData, stars },
+    props: {
+      dataPieces,
+      game,
+      gameTitle,
+      // githubStars,
+      // workshopImage,
+      githubData2,
+      hackathonsData,
+      bankData,
+      slackData,
+      stars: stars.data.organization
+    },
     revalidate: 30
   }
 }
