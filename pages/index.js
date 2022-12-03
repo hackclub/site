@@ -761,7 +761,7 @@ export async function getStaticProps() {
   //   `
   // })
 
-  console.log('g', githubStars)
+  // console.log('g', githubStars)
   return {
     props: {
       dataPieces,
