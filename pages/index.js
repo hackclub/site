@@ -722,7 +722,10 @@ export async function getStaticProps() {
   //   res => res.json
   // )
 
-  let stars = {"sinerider":{"stargazerCount":186},"sprig":{"stargazerCount":516}}
+  let stars = {
+    sinerider: { stargazerCount: 186 },
+    sprig: { stargazerCount: 516 }
+  }
 
   return {
     props: {
@@ -735,7 +738,7 @@ export async function getStaticProps() {
       hackathonsData,
       bankData,
       slackData,
-      stars: stars.data
+      stars
     },
     revalidate: 30
   }
