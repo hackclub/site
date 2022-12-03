@@ -432,9 +432,9 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Sinerider delay={200} stars={stars.sprig.stargazerCount} />
+              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <SprigConsole delay={300} />
-              <Workshops delay={400} />
+              <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
             </Container>
           </Box>
           <Box>
@@ -718,14 +718,14 @@ export async function getStaticProps() {
 
   gameTitle = game.map(r => r.title)
 
-  // let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
-  //   res => res.json
-  // )
+  let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
+    res => res.json()
+  )
 
-  let stars = {
-    sinerider: { stargazerCount: 186 },
-    sprig: { stargazerCount: 516 }
-  }
+  // let stars = {
+  //   sinerider: { stargazerCount: 186 },
+  //   sprig: { stargazerCount: 516 }
+  // }
 
   return {
     props: {
