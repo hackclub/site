@@ -17,7 +17,7 @@ import ScrollingHackathons from '../hackathons/scrolling-hackathons'
 
 /** @jsxImportSource theme-ui */
 
-export default function Hackathons({ data }) {
+export default function Hackathons({ data, stars }) {
   return (
     <CardModel
       color="white"
@@ -28,6 +28,8 @@ export default function Hackathons({ data }) {
         backgroundPositon: 'center center',
         backgroundSize: '100% auto'
       }}
+      stars={stars}
+      github_link="https://github.com/hackclub/hackathons"
       // background="https://hackclub.com/bank/bg.webp"
     >
       <Text variant="title">High School Hackathons</Text>

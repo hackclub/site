@@ -18,9 +18,10 @@ import Buttons from './button'
 
 export default function SprigConsole() {
   return (
-    <Box sx={{ position: 'relative' }}>
+    <Box sx={{ position: 'relative', stars }}>
       <CardModel
-        // github_link="https://github.com/hackclub/sinerider/"
+        github_link="https://github.com/hackclub/sprig-hardware"
+        stars={stars}
         // link="https://sprig.hackclub.com"
         color="white"
         sx={{

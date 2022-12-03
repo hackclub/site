@@ -433,8 +433,8 @@ function Page({
                 gameImage1={gameImage1}
               />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
-              <SprigConsole delay={300} />
-              {/* <Workshops delay={400} stars={stars.hackclub.stargazerCount} /> */}
+              {/* <SprigConsole delay={300} stars={stars.sprigHardware.stargazerCount} /> */}
+              <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
             </Container>
           </Box>
           <Box>
@@ -466,7 +466,7 @@ function Page({
               <Bank data={bankData} delay={100} />
               <Clubs delay={200} />
               <Epoch delay={300} />
-              <Hackathons delay={400} data={hackathonsData} />
+              {/* <Hackathons delay={400} data={hackathonsData} stars={stars.hackathons.stargazerCount}/> */}
             </Container>
           </Box>
         </Box>
