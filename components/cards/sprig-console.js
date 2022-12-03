@@ -16,9 +16,9 @@ import Buttons from './button'
 
 /** @jsxImportSource theme-ui */
 
-export default function SprigConsole() {
+export default function SprigConsole({ stars }) {
   return (
-    <Box sx={{ position: 'relative', stars }}>
+    <Box sx={{ position: 'relative' }}>
       <CardModel
         github_link="https://github.com/hackclub/sprig-hardware"
         stars={stars}

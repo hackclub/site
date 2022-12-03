@@ -39,6 +39,7 @@ import Inspect from '../components/inspect'
 import AssembleImgFile from '../public/home/assemble.jpg'
 import RelativeTime from 'react-relative-time'
 import { get } from 'lodash'
+import useSWR from 'swr'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -76,7 +77,6 @@ const rollout = keyframes`
 //      <></>
 //    )
 // }
-// let workshopImage = ['/', '/']
 
 function Page({
   hackathonsData,
@@ -87,8 +87,6 @@ function Page({
   dataPieces,
   game,
   gameTitle
-  // workshopImage
-  // workshops
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -121,54 +119,56 @@ function Page({
 
   // useEffect(() => {
   //   if (typeof window !== 'undefined') {
-  //     let imgURL = undefined
+  let imgURL = undefined
 
-  //     const decode = ({ data, width }) => {
-  //       const decodedString = atob(data)
-  //       const l = decodedString.length
-  //       const buf = new Uint8ClampedArray(l)
-  //       for (let i = 0; i < l; i++) {
-  //         const char = decodedString[i]
-  //         const byte = char.charCodeAt(0)
-  //         buf[i] = byte
-  //       }
-  //       return new ImageData(buf, width)
-  //     }
+  const decode = ({ data, width }) => {
+    const decodedString = atob(data)
+    const l = decodedString.length
+    const buf = new Uint8ClampedArray(l)
+    for (let i = 0; i < l; i++) {
+      const char = decodedString[i]
+      const byte = char.charCodeAt(0)
+      buf[i] = byte
+    }
+    return new ImageData(buf, width)
+  }
 
-  //     async function load(title) {
-  //       if (imgURL) return
-  //       try {
-  //         const res = await fetch(
-  //           `https://editor.sprig.hackclub.com/api/thumbnail/${title}`
-  //         )
-  //         // console.log(title)
-  //         const json = await res.json()
+  async function load(title) {
+    if (imgURL) return
+    try {
+      const res = await fetch(
+        `https://editor.sprig.hackclub.com/api/thumbnail/${title}`
+      )
+      // console.log(title)
+      const json = await res.json()
 
-  //         if (json.image.kind === 'png') {
-  //           return `data:image/png;base64,${json.image.data}`
-  //         } else {
-  //           // Raw, hopefully
-  //           const imageData = decode(json.image)
-  //           const c = document.createElement('canvas')
-  //           c.width = imageData.width
-  //           c.height = imageData.height
-  //           c.getContext('2d').putImageData(imageData, 0, 0)
-  //           c.style['image-rendering'] = 'pixelated'
-  //           return c.toDataURL()
-  //         }
-  //       } catch (err) {
-  //         console.error(err)
-  //       }
-  //     }
+      if (json.image.kind === 'png') {
+        return `data:image/png;base64,${json.image.data}`
+      } else {
+        // Raw, hopefully
+        const imageData = decode(json.image)
+        const c = document.createElement('canvas')
+        c.width = imageData.width
+        c.height = imageData.height
+        c.getContext('2d').putImageData(imageData, 0, 0)
+        c.style['image-rendering'] = 'pixelated'
+        return c.toDataURL()
+      }
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
-  //     async function getImage() {
-  //       const thing0 = await load(gameTitle[0])
-  //       const thing1 = await load(gameTitle[1])
-  //       setGameImage(thing0)
-  //       setGameImage1(thing1)
-  //     }
-  //     getImage()
-  //   }
+  const fetcher = async function getImage() {
+    const thing0 = await load(gameTitle[0])
+    const thing1 = await load(gameTitle[1])
+    setGameImage(thing0)
+    setGameImage1(thing1)
+  }
+
+  const { data, error } = useSWR('/api/profile-data', fetcher)
+
+  // }
   // })
 
   const Node = ({ text, time, ...props }) => (
@@ -255,9 +255,9 @@ function Page({
             }}
           >
             <Node
-              // text={dataPieces[0]}
-              // time={githubData2[0]}
-              text="✅ New commit in hackclub/hackclub by @bellesea"
+              text={dataPieces[0]}
+              time={githubData2[0]}
+              // text="✅ New commit in hackclub/hackclub by @bellesea"
               sx={{
                 position: 'absolute',
                 top: 0,
@@ -433,7 +433,10 @@ function Page({
                 gameImage1={gameImage1}
               />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
-              {/* <SprigConsole delay={300} stars={stars.sprigHardware.stargazerCount} /> */}
+              <SprigConsole
+                delay={300}
+                stars={stars.sprigHardware.stargazerCount}
+              />
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
             </Container>
           </Box>
@@ -466,7 +469,11 @@ function Page({
               <Bank data={bankData} delay={100} />
               <Clubs delay={200} />
               <Epoch delay={300} />
-              {/* <Hackathons delay={400} data={hackathonsData} stars={stars.hackathons.stargazerCount}/> */}
+              <Hackathons
+                delay={400}
+                data={hackathonsData}
+                stars={stars.hackathons.stargazerCount}
+              />
             </Container>
           </Box>
         </Box>
@@ -610,8 +617,7 @@ function Page({
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
-  let dataPieces = ['hehe']
-  let githubData2 = ['hehe']
+  let dataPieces = []
   let bankData = []
   // let stars = []
   let initialBankData = await fetch('https://bank.hackclub.com/stats').then(r =>
@@ -629,62 +635,54 @@ export async function getStaticProps() {
     })} raised`
   )
 
-  // let initialGitHubData = await fetch(
-  //   'https://api.github.com/orgs/hackclub/events'
-  // ).then(r => r.json())
+  let initialGitHubData = await fetch(
+    'https://api.github.com/orgs/hackclub/events'
+  ).then(r => r.json())
 
-  // console.log(initialBankData)
+  console.log(initialBankData)
 
-  // // if(initialGitHubData != null) {
-  // let initialGitHubData1 = initialGitHubData.map(x =>
-  //   (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]') ||
-  //   x.type == 'WatchEvent' ||
-  //   x.type == 'PullRequestEvent'
-  //     ? x.type == 'PushEvent'
-  //       ? `✅ New commit in ${x.repo.name} by @${x.actor.login}`
-  //       : x.type == 'WatchEvent'
-  //       ? `⭐️ New star on ${x.repo.name}`
-  //       : x.type == 'PullRequestEvent'
-  //       ? `🔀 New PR for ${x.repo.name} by @${x.actor.login}`
-  //       : `🎉 New activity in ${x.repo.name}`
-  //     : null
-  // )
-  // // }
+  // if(initialGitHubData != null) {
+  let initialGitHubData1 = initialGitHubData.map(x =>
+    (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]') ||
+    x.type == 'WatchEvent' ||
+    x.type == 'PullRequestEvent'
+      ? x.type == 'PushEvent'
+        ? `✅ New commit in ${x.repo.name} by @${x.actor.login}`
+        : x.type == 'WatchEvent'
+        ? `⭐️ New star on ${x.repo.name}`
+        : x.type == 'PullRequestEvent'
+        ? `🔀 New PR for ${x.repo.name} by @${x.actor.login}`
+        : `🎉 New activity in ${x.repo.name}`
+      : null
+  )
+  // }
 
-  // let initialGithubData2 = initialGitHubData.map(x =>
-  //   (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]') ||
-  //   x.type == 'WatchEvent' ||
-  //   x.type == 'PullRequestEvent'
-  //     ? x.type == 'PushEvent'
-  //       ? x.created_at
-  //       : x.type == 'WatchEvent'
-  //       ? x.created_at
-  //       : x.type == 'PullRequestEvent'
-  //       ? x.created_at
-  //       : x.created_at
-  //     : null
-  // )
-  // console.log([...new Set(initialGitHubData1)])
-  // dataPieces = [
-  //   ...dataPieces,
-  //   ...new Set(
-  //     initialGitHubData1.filter(function (el) {
-  //       return el != null
-  //     })
-  //   )
-  // ]
+  let initialGithubData2 = initialGitHubData.map(x =>
+    (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]') ||
+    x.type == 'WatchEvent' ||
+    x.type == 'PullRequestEvent'
+      ? x.type == 'PushEvent'
+        ? x.created_at
+        : x.type == 'WatchEvent'
+        ? x.created_at
+        : x.type == 'PullRequestEvent'
+        ? x.created_at
+        : x.created_at
+      : null
+  )
+  console.log([...new Set(initialGitHubData1)])
+  dataPieces = [
+    ...dataPieces,
+    ...new Set(
+      initialGitHubData1.filter(function (el) {
+        return el != null
+      })
+    )
+  ]
 
-  // let githubData2 = initialGithubData2.filter(function (el) {
-  //   return el != null
-  // })
-
-  // let sar = await fetch(
-  //   'https://api.github.com/repos/hackclub/some-assembly-required'
-  // ).then(r => r.json())
-
-  // stars.push({'sar': sar.stargazers_count})
-
-  // console.log(stars)
+  let githubData2 = initialGithubData2.filter(function (el) {
+    return el != null
+  })
 
   const formData = new FormData()
 
@@ -722,18 +720,11 @@ export async function getStaticProps() {
     res => res.json()
   )
 
-  // let stars = {
-  //   sinerider: { stargazerCount: 186 },
-  //   sprig: { stargazerCount: 516 }
-  // }
-
   return {
     props: {
       dataPieces,
       game,
       gameTitle,
-      // githubStars,
-      // workshopImage,
       githubData2,
       hackathonsData,
       bankData,
