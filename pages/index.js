@@ -39,13 +39,6 @@ import Inspect from '../components/inspect'
 import AssembleImgFile from '../public/home/assemble.jpg'
 import RelativeTime from 'react-relative-time'
 import { get } from 'lodash'
-import {
-  ApolloClient,
-  InMemoryCache,
-  gql,
-  createHttpLink
-} from '@apollo/client'
-import { setContext } from '@apollo/client/link/context'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -725,56 +718,10 @@ export async function getStaticProps() {
 
   gameTitle = game.map(r => r.title)
 
-  // let stars = await fetch('https://hackclub.com/api/stars').then(
-  //   res => res.json
-  // )
+  let stars = await fetch('https://hackclub.com/api/stars').then(
+    res => res.json
+  )
 
-  let stars = {
-    "data": {
-      "organization": {
-        "sinerider": {
-          "stargazerCount": 186
-        },
-        "sprig": {
-          "stargazerCount": 515
-        }
-      }
-    }
-  }
-
-  // const httpLink = createHttpLink({
-  //   uri: 'https://api.github.com/graphql',
-  // });
-
-  // const authLink = setContext(() => {
-  //   return {
-  //     headers: {
-  //       authorization: `Bearer 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`
-  //     }
-  //   }
-  // })
-
-  // const client = new ApolloClient({
-  //   link: authLink.concat(httpLink),
-  //   cache: new InMemoryCache()
-  // });
-
-  // const { githubStars } = await client.query({
-  //   query: gql`
-  //   query {
-  //     organization(login: "hackclub") {
-  //       sinerider: repository(name: "sinerider") {
-  //         stargazerCount
-  //       },
-  //       sprig: repository(name: "sprig") {
-  //         stargazerCount
-  //       }
-  //     }
-  //   }
-  //   `
-  // })
-
-  // console.log('g', githubStars)
   return {
     props: {
       dataPieces,
@@ -786,7 +733,7 @@ export async function getStaticProps() {
       hackathonsData,
       bankData,
       slackData,
-      stars: stars.data.organization
+      stars: stars.data
     },
     revalidate: 30
   }
