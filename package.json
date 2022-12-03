@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@github/time-elements": "^4.0.0",
@@ -32,6 +33,7 @@
     "devtools-detect": "^4.0.0",
     "form-data": "^4.0.0",
     "globby": "^11.0.4",
+    "graphql": "^16.6.0",
     "jquery": "^3.6.1",
     "lodash": "^4.17.21",
     "next": "^12.3.1",
@@ -43,6 +45,7 @@
     "react-marquee-slider": "^1.1.5",
     "react-masonry-css": "^1.0.16",
     "react-page-visibility": "^7.0.0",
+    "react-relative-time": "^0.0.7",
     "react-reveal": "^1.2.2",
     "react-scrolllock": "^5.0.1",
     "react-ticker": "^1.3.2",

@@ -46,7 +46,7 @@ export default function Workshops({ data }) {
         background:
           'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)'
       }}
-      // github_link="https://github.com/hackclub/workshops"
+      github_link="https://github.com/hackclub/workshops"
     >
       <Text variant="title">Workshops</Text>
       <Grid columns={[1]}>
@@ -59,31 +59,22 @@ export default function Workshops({ data }) {
             Get involved
           </Text>
           <Flex sx={{ flexDirection: 'column' }}>
-            <Buttons content="more 222" id="13">
+            <Buttons
+              content="click to learn more about how to submit a workshop"
+              id="13"
+              link="https://workshops.hackclub.com/submit-a-workshop/"
+              icon="event-add"
+            >
               Write and submit a workshop
             </Buttons>
-            <Buttons content="more info" id="14">
+            <Buttons
+              id="14"
+              link="https://workshops.hackclub.com"
+              icon="code"
+            >
               Follow a workshop and build a project
             </Buttons>
           </Flex>
-          {/* <ul sx={{ mt: 0, fontSize: [2, 3] }}>
-            <li>
-              <Link
-                href="https://editor.sprig.hackclub.com"
-                sx={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                Write and submit a workshop
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/slack"
-                sx={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                Build a project with a workshop
-              </Link>
-            </li>
-          </ul> */}
           <Button
             variant="lg"
             sx={{
@@ -91,11 +82,13 @@ export default function Workshops({ data }) {
               color: 'blue',
               mt: 3
             }}
+            as="a"
+            href="https://workshops.hackclub.com"
           >
             Find workshops
           </Button>
         </Box>
-        <Fade spy={workshop} bottom>
+        {/* <Fade spy={workshop} bottom>
           <Text
             // onClick={New}
             sx={{
@@ -106,7 +99,7 @@ export default function Workshops({ data }) {
           >
             Click for random workshop: {workshop} 👀
           </Text>
-        </Fade>
+        </Fade> */}
       </Grid>
     </CardModel>
   )
