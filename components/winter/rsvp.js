@@ -64,7 +64,7 @@ const Rsvp = () => {
   }
 
   return (
-    <Card sx={{ maxWidth: 'narrowPlus', mx: 'auto', mt: [3, 4] }}>
+    <Card sx={{ maxWidth: 'narrowPlus', mx: 'auto', mt: [3, 4], background: 'rgb(255,255,255, 0.45)', backdropFilter: 'blur(8px)' }}>
       <Heading as="h2" variant="subheadline" sx={{ mb: 1 }}>
         Get up to $250 to build a hardware project this winter.
       </Heading>

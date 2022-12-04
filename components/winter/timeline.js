@@ -61,7 +61,7 @@ function Circle({ children }) {
 function Step({ icon, name, duration, href }) {
   return (
     <TimelineStep sx={{ pb: 1 }}>
-      <Slide left sx={{ zIndex: 999 }}>
+      <Slide left>
         <Circle>
           {href ? (
             <Link href={href} sx={{ cursor: 'pointer', zIndex: 999 }}>
@@ -110,18 +110,18 @@ export default function RealTimeline() {
     <Flex sx={{ flexDirection: 'column', justifyContent: 'center', pb: 4 }}>
       <Step
         icon="post"
-        name={`Project proposals open. Submit it via a Pull Request to our repo.`}
-        duration="Decemeber 1"
+        name="Instructions sent out on how to submit your hardware plan to qualify for the grant."
+        duration="When we reach 500 RSVPs"
       />
       <Step
         icon="send"
-        name="Project proposals close. Make sure to order your hardware by this time!"
+        name="Deadline for sharing your hardware plan. Make sure to order your hardware by this time!"
         duration="January 15"
       />
       <Step
         icon="slack"
-        name="Join the #scrapbook channel on Slack for 10 consecutive days of bulding your project in public, alongisde other teenagers in the community."
-        duration="February 3 - 12"
+        name="Start of a 10 days building in public challenge where you share daily updates on your hardware project"
+        duration="February 15"
       />
     </Flex>
   )

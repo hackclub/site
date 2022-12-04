@@ -154,7 +154,17 @@ const Cards = ({ avatar, username, description, image }) => {
       >
         {description}
       </Text>
-      <img src={image} sx={{ width: '100%' }} />
+      <Box
+        sx={{
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          maxHeight: '250px',
+          overflow: 'hidden'
+        }}
+      >
+        <img src={image} sx={{ width: '100%' }} />
+      </Box>
     </Card>
   )
 }
@@ -179,15 +189,16 @@ export default function Projects() {
 
   return (
     <Box>
-      <Header sx={{position: 'relative'}}>
+      <Header sx={{ position: 'relative' }}>
         <Box
           sx={{
             background: 'rgba(0,0,0, 0.8)',
             zIndex: 1,
             position: 'relative',
             color: 'white!important',
-            height: ['auto', '800px', '800px']          }}
-          pt={[5, 5, '110px']}
+            height: ['auto', '800px', '800px']
+          }}
+          pt={[5, 5, '50px']}
           pb={[5, 0, 0]}
         >
           <Box
@@ -241,22 +252,22 @@ export default function Projects() {
               </Heading>
               <Grid columns={[1, 3, 3]} mt={4} mx={['5vw', 'auto', 'auto']}>
                 <Cards
-                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2021-07-09/2257244348787_a6641b8fe5463f3690a8_192.jpg&w=96&q=75"
-                  username="vineetkaemail"
-                  description="I made an IoT device last month that used to count how many times I enter or leave my room. It plugs into any USB port, connects to the WiFi and starts working instantly."
-                  image="https://cloud-e1fn2ugnf.vercel.app/0img_20200907_111148_ll.jpg"
+                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2021-12-03/2798567440515_11b452bb2e685f7704f8_192.jpg&w=96&q=75"
+                  username="obreymuchenajr"
+                  description="only a few features left to apply on this assistant robot we are building with @edwardphirijr698 "
+                  image="https://cloud-8pfb3hvnt.vercel.app/0obward.jpg"
                 />
                 <Cards
-                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2021-06-21/2215194850128_1326a9ce1fd28c15e4ed_192.jpg&w=96&q=75"
-                  username="akshaygautam010"
-                  description="I had nearly forgotten the joy of disassembling things, 🤪 feels awesome to be back. The base is taking shape now...."
-                  image="https://cloud-hdyb4x8cj.vercel.app/0img20200916145227.jpg"
+                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2020-06-19/1188269280230_6bfefc5bfd4ddb3a9516_192.jpg&w=640&q=75"
+                  username="chewtzihwee"
+                  description="Working on a project with a custom PCB which was a first for me"
+                  image="https://cloud-pyuq9xu7i.vercel.app/0image.png"
                 />
                 <Cards
                   avatar="https://scrapbook.hackclub.com/_next/image?url=https://secure.gravatar.com/avatar/6af7218c982a84d6239ab5c1a2ae4ec8.jpg?s%3D192%26d%3Dhttps%253A%252F%252Fa.slack-edge.com%252Fdf10d%252Fimg%252Favatars%252Fava_0018-192.png&w=96&q=75"
-                  username="toyatakahashi522"
-                  description="Yay the display matches what I type in real time."
-                  image="https://cloud-6avjg2xpp-hack-club-bot.vercel.app/00image_from_ios_1.png"
+                  username="jglav45"
+                  description="Update on exoskeleton project: custom motor mounts have been 3D printed. They have been attached to the aluminum plates. Electronics are going not so smoothly, so troubleshooting is underway."
+                  image="https://cloud-ir870iwuy.vercel.app/0image_from_ios.jpg"
                 />
               </Grid>
               <Button
@@ -283,42 +294,10 @@ export default function Projects() {
             display: ['none', 'block', 'block']
           }}
         >
-          <PhotoRow
-            photos={[
-              Photo1,
-              Photo2,
-              Photo3,
-              Photo4,
-              Photo5
-            ]}
-          />
-          <PhotoRow
-            photos={[
-              Photo6,
-              Photo7,
-              Photo8,
-              Photo9,
-              Photo10
-            ]}
-          />
-          <PhotoRow
-            photos={[
-              Photo21,
-              Photo12,
-              Photo13,
-              Photo14,
-              Photo15
-            ]}
-          />
-          <PhotoRow
-            photos={[
-              Photo16,
-              Photo17,
-              Photo18,
-              Photo19,
-              Photo20
-            ]}
-          />
+          <PhotoRow photos={[Photo1, Photo2, Photo3, Photo4, Photo5]} />
+          <PhotoRow photos={[Photo6, Photo7, Photo8, Photo9, Photo10]} />
+          <PhotoRow photos={[Photo21, Photo12, Photo13, Photo14, Photo15]} />
+          <PhotoRow photos={[Photo16, Photo17, Photo18, Photo19, Photo20]} />
         </Box>
       </Header>
     </Box>

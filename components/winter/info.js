@@ -11,6 +11,7 @@ import {
 } from 'theme-ui'
 import Icon from '../icon'
 import Tilt from '../tilt'
+import { Zoom } from 'react-reveal'
 
 export default function InfoGrid() {
   return (
@@ -22,35 +23,37 @@ export default function InfoGrid() {
           h: 'fit-content'
         }}
       >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: ['100%']
-          }}
-        >
-          <Card
-            variant="translucent"
-            sx={{ borderRadius: 'default', px: 4, py: [2, 3, 5] }}
+        <Zoom>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              height: ['100%']
+            }}
           >
-            <Icon glyph="sam" size={64} color="#5BC0DE" />
-            <Heading as="h2" variant="title">
-              Hardware Grant
-            </Heading>
-            <Text variant="lead">
-              Get up to $250 to build an awesome electronics project.
-            </Text>
-            <br />
-            <Button
-              as="a"
-              href="https://github.com/hackclub/wom"
-              variant="ctaLg"
-              sx={{ mt: 5, mb: 4 }}
+            <Card
+              variant="translucent"
+              sx={{ borderRadius: 'default', px: 4, py: [2, 3, 5] }}
             >
-              Apply
-            </Button>
-          </Card>
-        </Box>
+              {/* <Icon glyph="sam" size={64} color="#5BC0DE" /> */}
+              <Text variant="lead" as="p">
+                A deeper look at
+              </Text>
+              <Heading as="h2" variant="title">
+                Free hardware for your project
+              </Heading>
+              <br />
+              <Button
+                as="a"
+                href="https://github.com/hackclub/wom"
+                variant="ctaLg"
+                sx={{ mt: 4 }}
+              >
+                Apply
+              </Button>
+            </Card>
+          </Box>
+        </Zoom>
         <Box
           sx={{
             display: 'flex',
@@ -58,47 +61,61 @@ export default function InfoGrid() {
             height: '100%'
           }}
         >
-          <Card
-            variant="translucent"
-            sx={{
-              borderRadius: 'default',
-              px: 4,
-              py: 3,
-              mb: 3,
-              height: ['fit-content', 'fit-content', '100%', '40%']
-            }}
-          >
-            <Heading variant="headline">Details</Heading>
-            <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
-              Up to $250 per person
-            </BulletItem>
-            <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
-              Open to all high schoolers (& younger)
-            </BulletItem>
-            <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
-              Spend the grant transparently, using Hack Club Bank
-            </BulletItem>
-          </Card>
-          <Card
-            variant="translucent"
-            sx={{
-              borderRadius: 'default',
-              px: 4,
-              py: 4,
-              display: 'flex',
-              flexDirection: 'column',
-              height: 'fit-content'
-            }}
-          >
-            <Heading variant="headline">
-              Send in your project proposal through GitHub.
-            </Heading>
-            <Text>
+          <Zoom delay={200}>
+            <Card
+              variant="translucent"
+              sx={{
+                borderRadius: 'default',
+                px: 4,
+                py: 3,
+                mb: 3
+              }}
+            >
+              <Heading variant="headline">To qualify:</Heading>
+              {/* <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
+              Up to $250 grant per person
+            </BulletItem> */}
+              <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
+                Be a high schoolers (& younger)
+              </BulletItem>
+              {/* <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
+              Share a plan for what you want to build and how much you need (up to $250)
+            </BulletItem> */}
+              <Text sx={{ color: 'muted' }}>
+                If you qualify, share your idea! We're giving out as many grants
+                as possible!
+              </Text>
+            </Card>
+          </Zoom>
+          <Zoom delay={400}>
+            <Card
+              variant="translucent"
+              sx={{
+                borderRadius: 'default',
+                px: 4,
+                py: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                height: 'fit-content'
+              }}
+            >
+              <Heading variant="headline">
+                Once you have a project idea,
+              </Heading>
+              <Text as="p">
+                figure out the hardware you need and where you can buy it. Share
+                that with us and we'll give you a grant of up to $250.
+              </Text>
+              <Text as="p" mt={3}>
+                It could be your first ever electronics project or your tenth,
+                we want to support you in building whatever you want.
+              </Text>
+              {/* <Text>
               (& see what other Hack Clubbers, like{' '}
               <UserMention user="bellesea" />, are building)
-              {/* todo: link a random pr from the repo that is tagged with "accepted" */}
-            </Text>
-            <Button
+              todo: link a random pr from the repo that is tagged with "accepted"
+            </Text> */}
+              {/* <Button
               as="a"
               href="https://github.com/hackclub/wom"
               variant="outline"
@@ -108,8 +125,9 @@ export default function InfoGrid() {
               }}
             >
               See projects &#10138;
-            </Button>
-          </Card>
+            </Button> */}
+            </Card>
+          </Zoom>
         </Box>
         <Box
           sx={{
@@ -118,45 +136,47 @@ export default function InfoGrid() {
             height: '100%'
           }}
         >
-          <Card
-            variant="translucent"
-            sx={{
-              borderRadius: 'default',
-              px: 4,
-              py: 3,
-              mb: 3,
-              height: ['fit-content', 'fit-content', '100%', '60%']
-            }}
-          >
-            <Heading variant="headline">
-              Receive and spend the grant through Hack Club Bank.
-            </Heading>
-            <BulletItem iconGlyph="bank-account" iconColor="#5BC0DE">
-              Full history and balance stuff on powerful web dashbaord
-            </BulletItem>
-            <BulletItem iconGlyph="card" iconColor="#5BC0DE">
-              Issue yourself a debit card to spend the funds
-            </BulletItem>
-            <BulletItem iconGlyph="explore" iconColor="#5BC0DE">
-              Use transparency mode to spend it in public
-            </BulletItem>
-          </Card>
-
-          <Tilt>
+          <Zoom delay={600}>
             <Card
-              as="div"
+              variant="translucent"
               sx={{
-                backgroundColor: 'transparent',
-                backgroundImage:
-                  'url("https://cloud-ehtgzdn7u-hack-club-bot.vercel.app/0card.png")',
-                height: ['300px', '500px', '100%', '230px'],
-                backgroundSize: '100%',
-                backgroundRepeat: 'no-repeat',
-                boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)',
-                display: ['block', 'block', 'none', 'block']
+                borderRadius: 'default',
+                px: 4,
+                py: 3,
+                mb: 3,
               }}
-            />
-          </Tilt>
+            >
+              <Heading variant="headline">
+                Receive and spend the grant through Hack Club Bank.
+              </Heading>
+              <BulletItem iconGlyph="bank-account" iconColor="#5BC0DE">
+                Full history and balance stuff on powerful web dashbaord
+              </BulletItem>
+              <BulletItem iconGlyph="card" iconColor="#5BC0DE">
+                Issue yourself a debit card to spend the funds
+              </BulletItem>
+              <BulletItem iconGlyph="explore" iconColor="#5BC0DE">
+                Use transparency mode to spend it in public
+              </BulletItem>
+            </Card>
+          </Zoom>
+          <Zoom delay={800}>
+            <Tilt>
+              <Card
+                as="div"
+                sx={{
+                  backgroundColor: 'transparent',
+                  backgroundImage:
+                    'url("https://cloud-ehtgzdn7u-hack-club-bot.vercel.app/0card.png")',
+                  height: ['300px', '500px', '100%', '230px'],
+                  backgroundSize: '100%',
+                  backgroundRepeat: 'no-repeat',
+                  boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)',
+                  display: ['block', 'block', 'none', 'block']
+                }}
+              />
+            </Tilt>
+          </Zoom>
         </Box>
         <Tilt>
           <Card
@@ -180,7 +200,14 @@ export default function InfoGrid() {
 
 function BulletItem({ children, iconGlyph, iconColor, iconSize }) {
   return (
-    <Flex sx={{ flexDirection: 'row', alignItems: 'flex-start' }}>
+    <Flex
+      sx={{
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        alignItems: 'center',
+        my: 2
+      }}
+    >
       <Icon
         glyph={iconGlyph}
         size={iconSize || 36}
