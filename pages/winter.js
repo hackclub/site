@@ -26,7 +26,7 @@ import Landing from '../components/winter/landing'
 import Recap from '../components/winter/recap'
 import { Zoom } from 'react-reveal'
 // import Signup from '../components/winter/form'
-export const Winter = ({ rsvps }) => {
+export function Winter({ rsvps }) {
 
   // console.log(rsvps)
   return (

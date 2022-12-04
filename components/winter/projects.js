@@ -123,7 +123,7 @@ const Cards = ({ avatar, username, description, image }) => {
     >
       <Flex
         as="a"
-        href={`https://scrapbook.hackclub.com/`}
+        href={username != 'cjmika110'? `https://scrapbook.hackclub.com/${username}`: 'https://scrapbook.hackclub.com' }
         sx={{
           color: 'inherit',
           textDecoration: 'none',
@@ -158,12 +158,15 @@ const Cards = ({ avatar, username, description, image }) => {
         sx={{
           position: 'relative',
           width: '100%',
-          height: '100%',
-          maxHeight: '250px',
-          overflow: 'hidden'
+          height: '200px',
+          overflow: 'hidden',
+          backgroundImage: `url('${image}')`,
+          backgroundSize: '100%',
+          backgroundPosition: 'bottom center',
+          backgroundRepeat: 'no-repeat'
         }}
       >
-        <img src={image} sx={{ width: '100%' }} />
+        {/* <img src={image} sx={{ width: '100%' }} /> */}
       </Box>
     </Card>
   )
@@ -252,22 +255,22 @@ export default function Projects() {
               </Heading>
               <Grid columns={[1, 3, 3]} mt={4} mx={['5vw', 'auto', 'auto']}>
                 <Cards
-                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2021-12-03/2798567440515_11b452bb2e685f7704f8_192.jpg&w=96&q=75"
-                  username="obreymuchenajr"
-                  description="only a few features left to apply on this assistant robot we are building with @edwardphirijr698 "
-                  image="https://cloud-8pfb3hvnt.vercel.app/0obward.jpg"
+                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2022-12-04/4449277732855_bc5a70015c4b2146cdec_192.jpg&w=640&q=75"
+                  username="sampoder"
+                  description="today i presented.. the *CLIMATATOR*! it’s a 4D interactive media experience / climate change simulator that showcases the effects of climate change to a younger audience..."
+                  image="https://cloud-lwd22jmab-hack-club-bot.vercel.app/420210303_154846.jpg"
                 />
                 <Cards
-                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2020-06-19/1188269280230_6bfefc5bfd4ddb3a9516_192.jpg&w=640&q=75"
-                  username="chewtzihwee"
-                  description="Working on a project with a custom PCB which was a first for me"
-                  image="https://cloud-pyuq9xu7i.vercel.app/0image.png"
+                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2022-07-26/3865494839057_a471d7e9c871ca9121ea_192.png&w=640&q=75"
+                  username="maggie"
+                  description="working on something…"
+                  image="https://image.mux.com/50200NTyKdeFIayts00oUjauhMTTfQiOPgVn9Xm00mE1aS8/thumbnail.jpg?width=512&fit_mode=pad&time=0"
                 />
                 <Cards
-                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://secure.gravatar.com/avatar/6af7218c982a84d6239ab5c1a2ae4ec8.jpg?s%3D192%26d%3Dhttps%253A%252F%252Fa.slack-edge.com%252Fdf10d%252Fimg%252Favatars%252Fava_0018-192.png&w=96&q=75"
-                  username="jglav45"
-                  description="Update on exoskeleton project: custom motor mounts have been 3D printed. They have been attached to the aluminum plates. Electronics are going not so smoothly, so troubleshooting is underway."
-                  image="https://cloud-ir870iwuy.vercel.app/0image_from_ios.jpg"
+                  avatar="https://www.gravatar.com/avatar/04484b2178b8fd17c5a529c54614e14c?d=identicon&r=pg"
+                  username="cjmika110"
+                  description="Tired of QWERTY keyboards? Is typing too intuitive for you? Karl the Keyboard is a portable, squishable, fun, easy- to-use binary keyboard! Instead of pressing keys, you move a joystick up and down to represent ones..."
+                  image="https://assemble-images.hackclub.com/a34cbf72-7023-424a-8239-abf4146529e8-Untitled%20drawing%20(1).png"
                 />
               </Grid>
               <Button
