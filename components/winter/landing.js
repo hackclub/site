@@ -7,8 +7,10 @@ import Snowfall from 'react-snowfall'
 import { Fade } from 'react-reveal'
 import Rsvp from './rsvp'
 import ScrollHint from '../scroll-hint'
+import useSWR from 'swr'
+import fetcher from '../../lib/fetcher'
 
-export default function Landing({ rsvps }) {
+export default function Landing({ rsvpCount }) {
   // useEffect(() => {
   //   if (typeof window !== 'undefined') {
   //     gsap.registerPlugin(ScrollTrigger)
@@ -82,7 +84,7 @@ export default function Landing({ rsvps }) {
                   // fontSize: ['18px', '20px', '24px']
                 }}
               >
-                154 more RSVPs till the start of a hacker's
+                {rsvpCount} more RSVPs till the start of a hacker's
               </Heading>
             </Fade>
             <Fade left cascade>
@@ -112,7 +114,6 @@ export default function Landing({ rsvps }) {
                 winter alongside hundreds of other hackers.
               </Text>
             </Container> */}
-            <Text>rsvps: {rsvps}</Text>
             <Rsvp />
           </Box>
           {/* <ScrollHint sx={{mt: 3}} /> */}
@@ -120,16 +121,4 @@ export default function Landing({ rsvps }) {
       </Box>
     </Box>
   )
-}
-
-export async function getStaticProps() {
-  const res = await fetch(
-    'http://airbridge.hackclub.com/v0.1/Winter%20Hardware%20Wonderland/rsvp'
-  )
-  const rsvps = await res.json()
-  return {
-    props: {
-      rsvps
-    }
-  }
 }

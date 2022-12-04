@@ -25,10 +25,15 @@ import Projects from '../components/winter/projects'
 import Landing from '../components/winter/landing'
 import Recap from '../components/winter/recap'
 import { Zoom } from 'react-reveal'
-// import Signup from '../components/winter/form'
-export function Winter({ rsvps }) {
+import useSWR from 'swr'
+import fetcher from '../lib/fetcher'
 
-  // console.log(rsvps)
+export function Winter() {
+  const { data: rsvps } = useSWR(
+    'http://airbridge.hackclub.com/v0.1/Winter%20Hardware%20Wonderland/rsvp',
+    fetcher,
+    { refreshInterval: 1000 }
+  )
   return (
     <>
       <Box as="main" sx={{ bg: 'blue' }}>
@@ -41,59 +46,61 @@ export function Winter({ rsvps }) {
         <Nav light />
         <Snowfall />
         <ForceTheme theme="light" />
-        <Landing />
+        <Landing rsvpCount={500 - rsvps?.length} />
         <Breakdown />
         <Projects />
         <InfoGrid />
         <Container>
-        <Zoom>
-        <Heading
-            variant="headline"
-            sx={{
-              textShadow: '0px 0px 21px #E1F1FF',
-              color: 'white',
-              fontSize: [3, 4, 5],
-              pb: 4,
-              maxWidth: '90%'
-            }}
-          >
-            You've RSVPed, what's next?
-          </Heading>
+          <Zoom>
+            <Heading
+              variant="headline"
+              sx={{
+                textShadow: '0px 0px 21px #E1F1FF',
+                color: 'white',
+                fontSize: [3, 4, 5],
+                pb: 4,
+                maxWidth: '90%'
+              }}
+            >
+              You've RSVPed, what's next?
+            </Heading>
           </Zoom>
 
-        <Flex
-          sx={{
-            flexDirection: ['column', null, 'row'],
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <Box sx={{ display: 'flex', flexDirection: ['row', null, 'column'] }}>
-            <Zoom>
-              <Heading
-                variant="title"
-                sx={{
-                  color: 'white',
-                  textTransform: 'uppercase',
-                  transform: ['none', null, 'rotate(-90deg)'],
-                  textShadow: '0px 0px 21px #E1F1FF'
-                }}
-              >
-                Timeline
-              </Heading>
-              <Image
-                src="https://cloud-lbajgdi3a-hack-club-bot.vercel.app/0fox_1.png"
-                alt="Illustrated orange fox sleeping in a curled position"
-                sx={{
-                  width: ['100px', null, '80%'],
-                  pt: [null, null, 6],
-                  ml: [2, null, null]
-                }}
-              />
-            </Zoom>
-          </Box>
-          <RealTimeline />
-        </Flex>
+          <Flex
+            sx={{
+              flexDirection: ['column', null, 'row'],
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Box
+              sx={{ display: 'flex', flexDirection: ['row', null, 'column'] }}
+            >
+              <Zoom>
+                <Heading
+                  variant="title"
+                  sx={{
+                    color: 'white',
+                    textTransform: 'uppercase',
+                    transform: ['none', null, 'rotate(-90deg)'],
+                    textShadow: '0px 0px 21px #E1F1FF'
+                  }}
+                >
+                  Timeline
+                </Heading>
+                <Image
+                  src="https://cloud-lbajgdi3a-hack-club-bot.vercel.app/0fox_1.png"
+                  alt="Illustrated orange fox sleeping in a curled position"
+                  sx={{
+                    width: ['100px', null, '80%'],
+                    pt: [null, null, 6],
+                    ml: [2, null, null]
+                  }}
+                />
+              </Zoom>
+            </Box>
+            <RealTimeline />
+          </Flex>
         </Container>
         {/* Timeline */}
 
@@ -103,22 +110,6 @@ export function Winter({ rsvps }) {
       </Box>
     </>
   )
-}
-
-export async function getStaticProps() {
-  const rsvps = await fetch(
-    'http://airbridge.hackclub.com/v0.1/Winter%20Hardware%20Wonderland/rsvp'
-  ).then(
-    res => res.json()
-  )
-
-  console.log("heh", rsvps.length)
-  return {
-    props: {
-      rsvps
-    },
-    revalidate: 10
-  }
 }
 
 export default Winter
