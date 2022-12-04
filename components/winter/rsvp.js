@@ -43,19 +43,16 @@ const Rsvp = () => {
     e.preventDefault()
     setSubmitting(true)
 
-    await fetch(
-      'https://airtable-forms-proxy.hackclub.dev/api/app1o9tRo6XulLnsr/rsvp',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          Name: e.target.name.value,
-          Email: e.target.email.value
-        })
-      }
-    )
+    await fetch('/api/winter-rsvp', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        Name: e.target.name.value,
+        Email: e.target.email.value
+      })
+    })
 
     formRef.current.reset()
     setSubmitting(false)
