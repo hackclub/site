@@ -75,30 +75,29 @@ export default function Landing({ rsvps }) {
             }}
           >
             <Fade left cascade>
-            <Heading
-              variant="eyebrow"
-              sx={{
-                color: 'sunken',
-                // fontSize: ['18px', '20px', '24px']
-              }}
-            >
-              154 more RSVPs till the start of a hacker's
-            </Heading>
+              <Heading
+                variant="eyebrow"
+                sx={{
+                  color: 'sunken'
+                  // fontSize: ['18px', '20px', '24px']
+                }}
+              >
+                154 more RSVPs till the start of a hacker's
+              </Heading>
             </Fade>
             <Fade left cascade>
-            <Heading
-              as="h1"
-              variant="ultratitle"
-              sx={{
-                color: 'white',
-                textShadow: '0 0 16px rgba(0, 0, 0, 0.2)'
-              }}
-            >
-              Winter Hardware <br />
-              Wonderland
-            </Heading>
+              <Heading
+                as="h1"
+                variant="ultratitle"
+                sx={{
+                  color: 'white',
+                  textShadow: '0 0 16px rgba(0, 0, 0, 0.2)'
+                }}
+              >
+                Winter Hardware <br />
+                Wonderland
+              </Heading>
             </Fade>
-            {/* <Container variant="copy"> */}
             {/* <Container variant="copy">
               <Text
                 variant="subtitle"
