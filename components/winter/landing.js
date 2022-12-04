@@ -7,7 +7,7 @@ import Snowfall from 'react-snowfall'
 import Rsvp from './rsvp'
 import ScrollHint from '../scroll-hint'
 
-export default function Landing() {
+export default function Landing({ rsvps }) {
   // useEffect(() => {
   //   if (typeof window !== 'undefined') {
   //     gsap.registerPlugin(ScrollTrigger)
@@ -113,7 +113,7 @@ export default function Landing() {
                 winter alongside hundreds of other hackers.
               </Text>
             </Container> */}
-
+            <Text>rsvps: {rsvps}</Text>
             <Rsvp />
           </Box>
         </Box>
@@ -121,4 +121,16 @@ export default function Landing() {
       <ScrollHint />
     </Box>
   )
+}
+
+export async function getStaticProps() {
+  const res = await fetch(
+    'http://airbridge.hackclub.com/v0.1/Winter%20Hardware%20Wonderland/rsvp'
+  )
+  const rsvps = await res.json()
+  return {
+    props: {
+      rsvps
+    }
+  }
 }
