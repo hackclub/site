@@ -5,6 +5,8 @@ import { useEffect } from 'react'
 /** @jsxImportSource theme-ui */
 import Snowfall from 'react-snowfall'
 import { Fade } from 'react-reveal'
+import Rsvp from './rsvp'
+import ScrollHint from '../scroll-hint'
 
 export default function Landing() {
   // useEffect(() => {
@@ -66,12 +68,6 @@ export default function Landing() {
       >
         <Snowfall />
         <Box>
-          {/* <img
-        src="https://cloud-mvlym308h-hack-club-bot.vercel.app/0cloud_2.png"
-        width="200px"
-        height="auto"
-        class="box"
-      /> */}
           <Box
             sx={{
               backdropFilter: 'blur(1.5px)',
@@ -102,7 +98,8 @@ export default function Landing() {
               Wonderland
             </Heading>
             </Fade>
-            <Container variant="copy">
+            {/* <Container variant="copy"> */}
+            {/* <Container variant="copy">
               <Text
                 variant="subtitle"
                 as="p"
@@ -115,22 +112,11 @@ export default function Landing() {
                 Get up to $250 in grant money build a hardware project this
                 winter alongside hundreds of other hackers.
               </Text>
-            </Container>
-            <br />
-            <Button
-              variant="outlineLg"
-              sx={{
-                color: 'white',
-                mt: 3
-              }}
-              as="a"
-              href="https://github.com/hackclub/wom"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apply &rarr;
-            </Button>
+            </Container> */}
+
+            <Rsvp />
           </Box>
+          {/* <ScrollHint sx={{mt: 3}} /> */}
         </Box>
       </Box>
     </Box>
