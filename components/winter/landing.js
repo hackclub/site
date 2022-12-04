@@ -4,6 +4,8 @@ import { useEffect } from 'react'
 // import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 /** @jsxImportSource theme-ui */
 import Snowfall from 'react-snowfall'
+import Rsvp from './rsvp'
+import ScrollHint from '../scroll-hint'
 
 export default function Landing() {
   // useEffect(() => {
@@ -97,7 +99,7 @@ export default function Landing() {
               Winter Hardware <br />
               Wonderland
             </Heading>
-            <Container variant="copy">
+            {/* <Container variant="copy">
               <Text
                 variant="subtitle"
                 as="p"
@@ -110,24 +112,13 @@ export default function Landing() {
                 Get up to $250 in grant money build a hardware project this
                 winter alongside hundreds of other hackers.
               </Text>
-            </Container>
-            <br />
-            <Button
-              variant="outlineLg"
-              sx={{
-                color: 'white',
-                mt: 3
-              }}
-              as="a"
-              href="https://github.com/hackclub/wom"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Apply &rarr;
-            </Button>
+            </Container> */}
+
+            <Rsvp />
           </Box>
         </Box>
       </Box>
+      <ScrollHint />
     </Box>
   )
 }
