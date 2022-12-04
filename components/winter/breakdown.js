@@ -16,7 +16,8 @@ function Breakdown() {
     <>
       <Box
         sx={{
-          py: 5,
+          pt: 3,
+          pb: 5,
           background: 'linear-gradient(180deg, #579AC9 0%, #338EDA 100%)'
         }}
       >
@@ -25,40 +26,74 @@ function Breakdown() {
             <Heading
               variant="headline"
               sx={{
-                textAlign: ['left', 'center', 'center'],
                 textShadow: '0px 0px 21px #E1F1FF',
                 color: 'white',
-                fontSize: [3, 4, 5],
-                pb: 4
+                fontStyle: 'italic'
               }}
             >
-              <Fade delay={500}>Mark your calendars.</Fade>
-              <br />
-              <Fade delay={1000}>
-                For 10 days, hundreds of makers are gathering in the Hack Club
-                Slack to build together.
+              <Fade>
+                Dear high school hacker, we have a challenge for you:
+              </Fade>
+            </Heading>
+            <Heading
+              variant="headline"
+              sx={{
+                textShadow: '0px 0px 21px #E1F1FF',
+                color: 'white',
+                fontSize: [4, 5, 6],
+                pb: 4,
+                mt: 0
+              }}
+            >
+              <Fade>
+                What will you make this winter?
               </Fade>
             </Heading>
           </Slide>
-          <Grid gap={[2, 2, 3]} columns={[1, 1, 3, 3]} pb={4}>
+          <Fade>
+            <Heading
+              variant="headline"
+              sx={{
+                // textShadow: '0px 0px 21px #E1F1FF',
+                color: '#338eda',
+                background: 'white',
+                px: 3,
+                py: 2,
+                borderRadius: '10px',
+                width: 'fit-content'
+              }}
+            >
+              Join Hack Clubbers in a winter of making with
+            </Heading>
+          </Fade>
+
+          <Grid gap={[2, 2, 3]} columns={[1, 1, 3, 3]} py={3}>
             <BreakdownBox
-              subtitle="Slack"
-              text="Community"
-              description="of 20k+ teenagers who code, draw, make things, and more."
+              icon="friend"
+              color="#5bc0de"
+              text="Friends"
+              description="Find support from our community of 20k+ teenagers in the Hack Club Slack."
               delay="300"
               href="/slack"
             />
             <BreakdownBox
-              subtitle="From"
-              text="Feb 5-15"
-              description="work on your project while sharing daily progress in Slack."
+              icon="event-code"
+              color="#5bc0de"
+              text="Daily progress"
+              description={
+                <>
+                  From <strong>Feb 15-25</strong>, work on your project, share
+                  short photo/video updates each day.
+                </>
+              }
               delay="100"
               href="https://scrapbook.hackclub.com/r/10daysinpublic"
             />
             <BreakdownBox
-              subtitle="Get up to"
-              text="$250"
-              description="in grant money to build your project. Varies by project."
+              icon="settings"
+              color="#5bc0de"
+              text="Free hardware"
+              description="We'll pay for up to $250 of your hardware to build your project."
               delay="200"
             />
           </Grid>

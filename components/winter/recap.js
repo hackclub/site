@@ -28,12 +28,14 @@ function Recap() {
             text="10 days"
             description="of building with other teenagers around the world"
             delay="100"
+            bg="blue"
           />
           <BreakdownBox
             icon="payment-transfer"
             text="$250"
             description="grants instantly transferred through Hack Club Bank"
             delay="200"
+            bg="blue"
           />
           <Zoom delay="300">
             <Card

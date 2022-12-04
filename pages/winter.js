@@ -42,6 +42,23 @@ export default function Winter() {
         <ForceTheme theme="light" />
         <Landing />
         <Breakdown />
+        <Projects />
+        <InfoGrid />
+        <Container>
+        <Zoom>
+        <Heading
+            variant="headline"
+            sx={{
+              textShadow: '0px 0px 21px #E1F1FF',
+              color: 'white',
+              fontSize: [3, 4, 5],
+              pb: 4,
+              maxWidth: '90%'
+            }}
+          >
+            You've RSVPed, what's next?
+          </Heading>
+          </Zoom>
 
         <Flex
           sx={{
@@ -76,10 +93,7 @@ export default function Winter() {
           </Box>
           <RealTimeline />
         </Flex>
-
-        <Projects />
-        <InfoGrid />
-
+        </Container>
         {/* Timeline */}
 
         <Recap />

@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 // import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 /** @jsxImportSource theme-ui */
 import Snowfall from 'react-snowfall'
+import { Fade } from 'react-reveal'
 
 export default function Landing() {
   // useEffect(() => {
@@ -50,12 +51,12 @@ export default function Landing() {
       <Box
         sx={{
           background:
-            'url(https://cloud-8whbcu45i-hack-club-bot.vercel.app/0western_slopes_background_no_sky__1_.png), linear-gradient(0deg, #3561A4 0%, #338EDA 100%)',
+            'url(https://cloud-6h53svh6x-hack-club-bot.vercel.app/0group_5.png), linear-gradient(0deg, #3561A4 0%, #338EDA 100%)',
           backgroundPosition: 'bottom center',
           backgroundSize: ['200%', '150%', '100%'],
           backgroundRepeat: 'no-repeat',
           width: '100vw',
-          height: '90vh',
+          height: '85vh',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -77,15 +78,18 @@ export default function Landing() {
               maxWidth: 'container'
             }}
           >
+            <Fade left cascade>
             <Heading
               variant="eyebrow"
               sx={{
-                color: '#C1B9D3',
-                fontSize: ['18px', '20px', '24px']
+                color: 'sunken',
+                // fontSize: ['18px', '20px', '24px']
               }}
             >
-              Join the Hack Club community for a
+              154 more RSVPs till the start of a hacker's
             </Heading>
+            </Fade>
+            <Fade left cascade>
             <Heading
               as="h1"
               variant="ultratitle"
@@ -97,13 +101,14 @@ export default function Landing() {
               Winter Hardware <br />
               Wonderland
             </Heading>
+            </Fade>
             <Container variant="copy">
               <Text
                 variant="subtitle"
                 as="p"
                 sx={{
                   color: 'white',
-                  textShadow: '0 0 16px rgba(0, 0, 0, 1)',
+                  textShadow: '2px 2px 10px rgba(0, 0, 0, 1)',
                   pt: 2
                 }}
               >
