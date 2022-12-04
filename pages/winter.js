@@ -26,8 +26,9 @@ import Landing from '../components/winter/landing'
 import Recap from '../components/winter/recap'
 import { Zoom } from 'react-reveal'
 // import Signup from '../components/winter/form'
+export const Winter = ({ rsvps }) => {
 
-export default function Winter() {
+  // console.log(rsvps)
   return (
     <>
       <Box as="main" sx={{ bg: 'blue' }}>
@@ -103,3 +104,21 @@ export default function Winter() {
     </>
   )
 }
+
+export async function getStaticProps() {
+  const rsvps = await fetch(
+    'http://airbridge.hackclub.com/v0.1/Winter%20Hardware%20Wonderland/rsvp'
+  ).then(
+    res => res.json()
+  )
+
+  console.log("heh", rsvps.length)
+  return {
+    props: {
+      rsvps
+    },
+    revalidate: 10
+  }
+}
+
+export default Winter
