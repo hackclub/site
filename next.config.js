@@ -18,6 +18,7 @@ const nextConfig = {
       'cloud-k3mgtdz5i-hack-club-bot.vercel.app',
       'cloud-2jmtbnrpz-hack-club-bot.vercel.app',
       'assets.hackclub.com',
+      'v5.airtableusercontent.com',
       ''
     ]
   },
