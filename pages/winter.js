@@ -30,7 +30,7 @@ import fetcher from '../lib/fetcher'
 
 export function Winter() {
   const { data: rsvps } = useSWR(
-    'http://airbridge.hackclub.com/v0.1/Winter%20Hardware%20Wonderland/rsvp',
+    'https://airbridge.hackclub.com/v0.1/Winter%20Hardware%20Wonderland/rsvp',
     fetcher,
     { refreshInterval: 1000 }
   )
