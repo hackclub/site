@@ -15,7 +15,7 @@ import { keyframes } from '@emotion/react'
 import React, { useEffect, useState } from 'react'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
-
+import { Fade } from 'react-reveal'
 /** @jsxImportSource theme-ui */
 
 // const noOfCards = 7
@@ -51,6 +51,7 @@ export default function Carousel() {
     // >
     <PageVisibility onChange={handleVisibilityChange}>
       {pageIsVisible && (
+        <Fade>
         <Ticker speed={speed} sx={{ overflowX: 'hidden' }}>
           {() => (
             <Box
@@ -125,6 +126,7 @@ export default function Carousel() {
             </Box>
           )}
         </Ticker>
+        </Fade>
       )}
     </PageVisibility>
     // </Box>
