@@ -126,13 +126,12 @@ const Page = () => (
         priority
       />
       <Announcement
-        copy="Join the community for a winter of hardware hacking."
-        caption="Get a grant of up to $250 to build an electronics project."
-        href="/winter"
-        iconLeft="idea"
+        copy="Epoch: celebrate the New Year with Hack Club."
+        caption="Join 150+ hackers in Delhi for a magical high-school hackathon!"
+        href="https://epoch.hackclub.com"
+        iconLeft="explore"
         color="primary"
       />
-
       <SlideDown duration={768}>
         <Heading
           as="h1"
