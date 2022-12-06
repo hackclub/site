@@ -750,7 +750,7 @@ export async function getStaticProps() {
   // }
 
   let initialGithubData2 = initialGitHubData.map(x =>
-    (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]') ||
+    (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]' && x.actor.login != 'dependabot[bot]') ||
     x.type == 'WatchEvent' ||
     x.type == 'PullRequestEvent'
       ? x.type == 'PushEvent'
