@@ -95,6 +95,7 @@ export default function Landing({ rsvpCount }) {
                   color: 'white',
                   textShadow: '0 0 16px rgba(0, 0, 0, 0.2)'
                 }}
+                id="rsvp"
               >
                 Winter Hardware <br />
                 Wonderland
@@ -114,7 +115,7 @@ export default function Landing({ rsvpCount }) {
                 winter alongside hundreds of other hackers.
               </Text>
             </Container> */}
-            <Rsvp id="rsvp" />
+            <Rsvp />
           </Box>
           {/* <ScrollHint sx={{mt: 3}} /> */}
         </Box>

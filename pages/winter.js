@@ -105,6 +105,7 @@ export function Winter() {
         {/* Timeline */}
 
         <Recap />
+        <Container sx={{ margin: 'auto', fontStyle: 'italic', color: 'snow', mb: 3, textAlign: 'left'}}>Illustrations by Ripley</Container>
         {/* <Signup /> */}
         <Footer />
       </Box>
