@@ -45,11 +45,11 @@ export default function InfoGrid() {
               <br />
               <Button
                 as="a"
-                href="https://github.com/hackclub/wom"
+                href="#rsvp"
                 variant="ctaLg"
                 sx={{ mt: 4 }}
               >
-                Apply
+                RSVP
               </Button>
             </Card>
           </Box>
