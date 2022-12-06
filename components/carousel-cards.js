@@ -44,10 +44,10 @@ export default function CarouselCards({
           backgroundColor: background,
           position: 'relative',
           color: 'white',
-          width: '350px',
+          width: '300px',
         }}
       >
-        <Text as="h2" sx={{ color: titleColor }}>
+        <Text as="h2" sx={{ color: titleColor, fontSize: ['12px', '16px', '18px'], }}>
           {title}
         </Text>
         <Text as="p" sx={{ color: descriptionColor }}>

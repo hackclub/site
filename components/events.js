@@ -2,6 +2,7 @@ import { Card, Box, Text, Grid, Flex, Avatar, Heading } from 'theme-ui'
 import tt from 'tinytime'
 import Link from 'next/link'
 import Sparkles from './sparkles'
+import { keyframes } from '@emotion/react'
 
 const past = dt => new Date(dt) < new Date()
 const now = (start, end) =>
@@ -61,7 +62,7 @@ const Event = ({ id, slug, title, desc, leader, avatar, start, end, cal }) => (
         )}
         <Text as="span">{leader}</Text>
       </Flex>
-      {now(start, end) && (
+      {/* {now(start, end) && (
         <Sparkles
           aria-hidden
           style={{
@@ -73,39 +74,70 @@ const Event = ({ id, slug, title, desc, leader, avatar, start, end, cal }) => (
             bottom: 0
           }}
         />
-      )}
+      )} */}
     </Box>
   </Link>
 )
 
+const flashing = keyframes({
+  from: { opacity: 0 },
+  '50%': { opacity: 1 },
+  to: { opacity: 0 }
+})
+
+function Dot() {
+  return (
+    <Text
+      sx={{
+        bg: 'green',
+        color: 'white',
+        borderRadius: 'circle',
+        display: 'inline-block',
+        lineHeight: 0,
+        width: '.5em',
+        height: '.5em',
+        marginRight: '.4em',
+        marginBottom: '.12em',
+        animationName: `${flashing}`,
+        animationDuration: '3s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite'
+      }}
+    />
+  )
+}
+
 export default function Events({ events }) {
   return (
     <Box mb={3}>
-      <Heading>
+      {/* <Heading>
         Come hangout, talk to cool people*, and hack together at one of our {' '}
         <Link href="https://events.hackclub.com" target="_blank">
           upcoming events
         </Link>
-      </Heading>
+      </Heading> */}
+      <Text>
+        Events happening this month <Dot />
+      </Text>
       <Grid
         mt={3}
         mb={2}
-        columns={[2, 3, 4]}
+        columns={[2, 3]}
         gap="1px"
         sx={{
           bg: 'sunken',
           borderRadius: 'extra',
           overflow: 'hidden',
-          boxShadow: 'elevated',
+          boxShadow: 'elevated'
         }}
       >
         {events.map(event => (
           <Event {...event} key={event.id} />
         ))}
       </Grid>
-      <Link href="/amas" target="_blank">
+      {/* <Link href="/amas" target="_blank">
         *like George Hotz, Dylan Field, Sal Khan, and more
-      </Link>
+      </Link> */}
     </Box>
   )
 }

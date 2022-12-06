@@ -77,7 +77,7 @@ export default function Workshops({ data, stars }) {
             </Buttons>
           </Flex>
           <Button
-            variant="lg"
+            variant="primary"
             sx={{
               background: 'white',
               color: 'blue',

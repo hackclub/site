@@ -72,7 +72,7 @@ export default function SprigConsole({ stars }) {
               </Buttons>
             </Flex>
             <Button
-              variant="lg"
+              variant="primary"
               sx={{
                 backgroundColor: '#427A43',
                 color: '#fff',

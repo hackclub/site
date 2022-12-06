@@ -51,33 +51,13 @@ export default function Hackathons({ data, stars }) {
               Organize a hackthon in your community
             </Buttons>
           </Flex>
-          <Button variant="lg" mt={3}>
+          <Button variant="primary" mt={3}>
             Learn more
           </Button>
         </Box>
         <Box
           sx={{
             transform: 'translateY(25%)'
-            // '&:before': {
-            //   background: 'linear-gradient(to right,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%)',
-            //   content: '""',
-            //   height: '231.992px',
-            //   position: 'absolute',
-            //   width: '150px',
-            //   zIndex: 2,
-            //   left: 0,
-            //   top: 0
-            // }, '&:after': {
-            //   background: 'linear-gradient(to right,  rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)',
-            //   content: '""',
-            //   height: '231.992px',
-            //   position: 'absolute',
-            //   width: '150px',
-            //   zIndex: 2,
-            //   right: 0,
-            //   top: 0,
-            //   transform: 'rotateZ(180deg)'
-            // },
           }}
         >
           <ScrollingHackathons eventData={data} mode="await" />

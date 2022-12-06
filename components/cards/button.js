@@ -29,7 +29,7 @@ export default function Buttons({ children, icon, id, content, link }) {
       //   }
       // }}
     >
-      <Button
+      <Box
         // ref={ref => (fooRef = ref)}
         data-place="right"
         data-for={id}
@@ -43,27 +43,27 @@ export default function Buttons({ children, icon, id, content, link }) {
           display: 'flex',
           alignItems: 'start',
           color: 'inherit',
-          pr: 3,
+          px: 3,
           py: 1,
           width: 'fit-content',
           textTransform: 'none',
           fontWeight: '400',
-          fontSize: [1, 2],
+          fontSize: [1, '14px', '16px'],
           backdropFilter: 'blur(2px)'
         }}
-        as="a"
-        href={link || '/'}
-        target="_blank"
-        rel="noreferrer"
+        // as="a"
+        // href={link || '/'}
+        // target="_blank"
+        // rel="noreferrer"
       >
         <Icon
           glyph={icon || 'plus-fill'}
           sx={{ color: 'inherit', marginRight: 2 }}
-          size={32}
+          size={24}
           mr={2}
         />
         <Text sx={{ fontFamily: 'Phantom Sans' }}>{children}</Text>
-      </Button>
+      </Box>
       <ReactTooltip
         id={id}
         delayShow={150}

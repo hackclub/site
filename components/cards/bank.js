@@ -57,18 +57,18 @@ export default function Bank({ data }) {
                 Run your event/organziation on Hack Club Bank
               </Buttons>
             </Flex>
-            <Button variant="lg" as="a" href="/bank" mt={3}>
+            <Button variant="primary" as="a" href="/bank" mt={3}>
               Start bankin!
             </Button>
           </Box>
         </Grid>
       </CardModel>
-      <Box sx={{ position: 'absolute', right: '-200px', top: 5 }}>
+      <Box sx={{ position: 'absolute', right: '-100px', top: 5 }}>
         {' '}
         <Box
           sx={{
-            width: ['300px', '600px'],
-            height: ['200px','400px'],
+            width: ['250px', '500px'],
+            height: ['180px','360px'],
             position: 'relative',
             display: 'block',
             textAlign: 'center',

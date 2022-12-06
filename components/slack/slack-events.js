@@ -43,7 +43,7 @@ const generateEvent = () => ({
 
 
 
-const SlackEvents = ({ sx, ...props }) => {
+const SlackEvents = ({ sx, color, textColor, ...props }) => {
   const didUnmount = useRef(false)
   const [events, setEvents] = useState([])
   function createMockEvents(){
@@ -104,7 +104,7 @@ const SlackEvents = ({ sx, ...props }) => {
         listStyle: 'none',
         lineHeight: 'heading',
         pl: 0,
-        color: 'black',
+        color: textColor || 'black',
         fontSize: 2,
         overflowY: 'hidden',
         position: 'relative',
@@ -117,7 +117,7 @@ const SlackEvents = ({ sx, ...props }) => {
           display: 'block',
           height: '2em',
           backgroundImage: theme =>
-            `linear-gradient(rgba(255,255,255,0), ${theme.colors.white})`
+            `linear-gradient(rgba(255,255,255,0), ${color || theme.colors.white})`
         },
         div: { mb: [1, 2] },
         'circle:last-of-type': { animationDuration: '1s' },
@@ -152,3 +152,15 @@ const SlackEvents = ({ sx, ...props }) => {
 }
 
 export default SlackEvents
+
+
+// `
+//   10-days-in-public amas assemble all-hands apple art bank books ib
+//   challenges code college-apps confessions cooking  community coronavirus counttoamillion deals
+//   debate design the-democratic-republic-of-yishun dogs ethical-hacking epoch epoch-bts flutter film food
+//   gamedev gh go go-bears hack-night hackathons hardware
+//   homelab hours hq india javascript languages late-night-hw-club leaders lgbtq linux lounge
+//   mayhaps memes minecraft music neuroscience photography python orpheus-podcast
+//   rust scrapbook ship sink-my-ship sleep social studycorner support swift swim
+//   politics newsletter surroundings sprig hackathon-organizers hq hq-surroundings
+// `

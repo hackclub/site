@@ -28,7 +28,9 @@ export default function Clubs() {
       sx={{
         backgroundColor: 'elevated',
         background:
-          'linear-gradient(rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)'
+          'linear-gradient(to bottom,rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.4) 25%,rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.6) 100%), url("https://cloud-flzg18ipb-hack-club-bot.vercel.app/0screenshot_2022-12-05_at_9.44.11_pm.png")',
+          backgroundPositon: 'center center',
+        backgroundSize: '100% auto',
       }}
     >
       <Text
@@ -38,7 +40,7 @@ export default function Clubs() {
           px: 2,
           mx: [-2, 0],
           whiteSpace: 'nowrap',
-          color: 'orange',
+          color: 'red',
           bg: 'white',
           textShadow: 'none'
         }}
@@ -60,7 +62,7 @@ export default function Clubs() {
             <Buttons content="scan our clubs map and reach out to team@hackclub.com to be connected" id="1" icon="rep" link="/map">Join a Hack Club near you</Buttons>
             <Buttons content="we'll support you with meeting content, stickers, and more" id="2" icon="welcome" link="/clubs">Start a club</Buttons>
           </Flex>
-          <Button variant="lg" sx={{mt: 3, backgroundColor: 'orange'}}>Learn more</Button>
+          <Button variant="primary" sx={{mt: 3, backgroundColor: 'red'}}>Learn more</Button>
         </Box>
       </Grid>
     </CardModel>
