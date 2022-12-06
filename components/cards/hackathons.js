@@ -36,23 +36,38 @@ export default function Hackathons({ data, stars }) {
       <Grid columns={[1, 2]}>
         <Box>
           <Text as="p" variant="subtitle">
-            We support the largest network of high school
-            hackathons in the world. From an online community of organizers to free
-            stickers and more!{' '}
+            We support the largest network of high school hackathons in the
+            world. From an online community of organizers to free stickers and
+            more!{' '}
           </Text>
           <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
             Get involved
           </Text>
           <Flex sx={{ flexDirection: 'column' }}>
-            <Buttons id="19" icon="event-code" link="https://hackathons.hackclub.com">
+            <Buttons
+              id="19"
+              icon="event-code"
+              link="https://hackathons.hackclub.com"
+            >
               Find a high school hackathon near you
             </Buttons>
-            <Buttons content="learn more about available resources" id="20" icon="bolt" link="/hackathons">
+            <Buttons
+              content="learn more about available resources"
+              id="20"
+              icon="bolt"
+              link="/hackathons"
+            >
               Organize a hackthon in your community
             </Buttons>
           </Flex>
-          <Button variant="primary" mt={3}>
-            Learn more
+          <Button
+            variant="primary"
+            sx={{bg: 'blue'}}
+            mt={3}
+            as="a"
+            href="https://editor.sprig.hackclub.com"
+          >
+            Find a hackathon
           </Button>
         </Box>
         <Box
