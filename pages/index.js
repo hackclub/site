@@ -703,11 +703,11 @@ function Page({
                   background:
                     'linear-gradient(to bottom, rgba(166, 51, 214, 0.9) 0%, rgba(51, 142, 218, 0.9) 100%)',
                   color: 'white',
-                  svg: { color: 'rgb(236, 55, 80)' },
+                  svg: { color: 'purple' },
                   textDecoration: 'none'
                 }}
                 as="a"
-                href="/clubs"
+                href="/hackathons"
                 variant="interactive"
               >
                 <Stage

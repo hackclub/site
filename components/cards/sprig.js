@@ -216,12 +216,14 @@ export default function Sprig({
             </Buttons>
           </Flex>
           <Button
+          as="a"
             variant="primary"
             sx={{
               backgroundColor: '#FFDE4D',
               color: '#000',
               mt: 3
             }}
+            href="https://editor.sprig.hackclub.com"
           >
             Make a game
           </Button>

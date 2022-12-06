@@ -72,12 +72,14 @@ export default function SprigConsole({ stars }) {
               </Buttons>
             </Flex>
             <Button
+            as="a"
               variant="primary"
               sx={{
                 backgroundColor: '#427A43',
                 color: '#fff',
                 mt: 3
               }}
+              href="https://editor.sprig.hackclub.com"
             >
               Make a game
             </Button>
