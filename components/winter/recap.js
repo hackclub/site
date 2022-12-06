@@ -1,4 +1,5 @@
 import { Box, Button, Container, Heading, Grid, Card, Text } from 'theme-ui'
+import theme from '@hackclub/theme'
 import { Slide, Zoom } from 'react-reveal'
 import BreakdownBox from './breakdown-box'
 import Signup from './form'
@@ -89,7 +90,7 @@ function Recap() {
             </Button>
           </Box> */}
         </Grid>
-        <Button variant="ctaLg" as="a" href="#apply" style={{ zIndex: '100', textAlign: 'center' }}>
+        <Button variant="ctaLg" as="a" href="#rsvp" style={{ zIndex: '100', textAlign: 'center', backgroundImage: theme.util.gx('green', 'blue') }}>
           RSVP
         </Button>
       </Container>
