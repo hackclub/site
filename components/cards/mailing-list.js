@@ -62,7 +62,7 @@ const MailingList = () => {
   // }
 
   return (
-    <CardModel sx={{my: '0 !important', height: '100%'}}>
+    <CardModel sx={{height: '100%'}}>
       {/* <Card
       sx={{
         maxWidth: 'narrowPlus',
@@ -73,7 +73,7 @@ const MailingList = () => {
       }}
     > */}
       <Text variant="title" sx={{ fontSize: [3, 4, 5], zIndex: 2 }}>
-        Hacker Newsletter
+        Mailing List
       </Text>
       <Text sx={{ color: 'muted' }} as="p">
         We'll send you an email whenever we launch a new project, so you can get
