@@ -114,7 +114,7 @@ export default function Landing({ rsvpCount }) {
                 winter alongside hundreds of other hackers.
               </Text>
             </Container> */}
-            <Rsvp />
+            <Rsvp id="rsvp" />
           </Box>
           {/* <ScrollHint sx={{mt: 3}} /> */}
         </Box>
