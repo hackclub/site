@@ -79,6 +79,7 @@ function Page({
   let [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
   let [slackNum, setSlackNum] = useState([])
+  let [github, setGithub] = useState(0)
 
   let [key, setKey] = useState(0)
   let [key1, setKey1] = useState(0)
@@ -87,8 +88,8 @@ function Page({
   const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
   // console.log(slackData)
   // useEffect(() => {
-  //   let array = slackNum
-  //   let newNum = withCommas(
+  //   let array = github
+  //   let post = withCommas(
   //     slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
   //       .total_members_count
   //   )
@@ -98,28 +99,38 @@ function Page({
   //   setSlackKey(Math.random())
   // }, [slackData])
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Check if it's open
-      console.log('Is DevTools open:', devtools.isOpen)
+  // useEffect(() => {
+  //   if (typeof window !== 'undefined') {
+  //     // Check if it's open
+  //     console.log('Is DevTools open:', devtools.isOpen)
 
-      // Check it's orientation, `undefined` if not open
-      console.log('DevTools orientation:', devtools.orientation)
+  //     // Check it's orientation, `undefined` if not open
+  //     console.log('DevTools orientation:', devtools.orientation)
 
-      // Get notified when it's opened/closed or orientation changes
-      window.addEventListener('devtoolschange', event => {
-        console.log('Is DevTools open:', event.detail.isOpen)
-        console.log('DevTools orientation:', event.detail.orientation)
-      })
+  //     // Get notified when it's opened/closed or orientation changes
+  //     window.addEventListener('devtoolschange', event => {
+  //       console.log('Is DevTools open:', event.detail.isOpen)
+  //       console.log('DevTools orientation:', event.detail.orientation)
+  //     })
 
-      window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
-    }
-  })
+  //     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
+  //   }
+  // })
 
   // useEffect(() => {
   //   setKey(Math.random())
   //   setKey1(Math.random())
   // }, slackData)
+
+  useEffect(() => {
+    //     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
+    setInterval(() => {
+      setKey(Math.random())
+      // setGithub(Math.floor(Math.random()) * dataPieces.length)
+      // console.log(Math.floor(Math.random()) * githubData2.length)
+      console.log(Math.floor(Math.random() * dataPieces.length + 1))
+    }, 8000)
+  }, [])
 
   // useEffect(() => {
   //   if (typeof window !== 'undefined') {
@@ -191,11 +202,10 @@ function Page({
   }, [hover])
 
   const Node = ({ text, time, ...props }) => (
-    <Flip
-      bottom
-      key={key1}
+    <Box
+      // key={key1}
       style={{ width: 'fit-content', display: 'inline' }}
-      spy={key1}
+      // spy={key1}
     >
       <Badge
         variant="pill"
@@ -217,13 +227,14 @@ function Page({
             fontSize: '14px'
           }}
         >
+          {/* <Fade             key={key}> */}
           <Text as="span" sx={{ fontSize: 'small', color: 'sunken', mr: 2 }}>
             <RelativeTime value={time} titleformat="iso8601" />
           </Text>
-          {text}{' '}
+          {text} {/* </Fade> */}
         </Link>
       </Badge>
-    </Flip>
+    </Box>
   )
 
   return (
@@ -290,8 +301,8 @@ function Page({
             }}
           >
             <Node
-              text={dataPieces[0]}
-              time={githubData2[0]}
+              text={dataPieces[github]}
+              time={githubData2[github]}
               // text="✅ New commit in hackclub/hackclub by @bellesea"
               sx={{
                 position: 'absolute',
@@ -319,18 +330,18 @@ function Page({
                   mx: 'auto',
                   zIndex: 1,
                   textAlign: 'left',
-                  fontSize: 'large'
+                  fontSize: 'large',
                 }}
               >
                 <Text
                   as="span"
                   sx={{
-                    lineHeight: 1,
+                    lineHeight: 1.1,
                     display: 'block',
                     pb: 3
                   }}
                 >
-                  We inspire the hacker ethic in
+                  Where teen makers around the world practice the
                   <Text
                     sx={{ color: 'transparent', mx: 2, whiteSpace: 'nowrap' }}
                   >
@@ -341,7 +352,8 @@ function Page({
                         backgroundColor: 'red',
                         position: 'absolute',
                         borderRadius: 10,
-                        transform: 'rotate(-3deg)',
+                        // transform: 'rotate(-3deg)',
+                        transform: 'rotate(-3deg) translateY(5px)',
                         color: 'white',
                         whiteSpace: 'nowrap',
                         '&:hover': {
@@ -354,12 +366,12 @@ function Page({
                         !reveal ? setReveal(true) : setReveal(false)
                       }}
                     >
-                      teen makers
+                      hacker ethic
                     </Text>
-                    teen makers{' '}
+                    hacker ethic{' '}
                   </Text>
-                  around the {''}world by building things we {''}care about
-                  together.
+                  by building things
+                  we care about together.
                 </Text>
               </Heading>
             </Fade>
@@ -376,7 +388,7 @@ function Page({
             }}
             // pb={4}
           >
-            <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3] }}>
+            {/* <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3] }}>
               A Hack Clubber is someone that
             </Text>
             <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
@@ -391,16 +403,26 @@ function Page({
               come together to code because it's fun. Whether you’re a beginner
               programmer or have years of experience, there’s a place for you at
               Hack Club.
-            </Text>
+            </Text> */}
             {/* <Slack slackKey={slackKey} /> */}
             {/* <Events events={events} /> */}
             <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3], mt: 4 }}>
               Hack Clubbers
             </Text>
             <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
-              Hangout online
+              Connect with each other from around the
             </Text>
-            <Grid columns={[1, 2]}>
+            <Text
+              variant="subtitle"
+              as="p"
+              sx={{ fontSize: [1, '16px', '20px'] }}
+            >
+              Here, teenagers don't wait for permission to code. Hack Clubbers
+              come together to code because it's fun. Whether you’re a beginner
+              programmer or have years of experience, there’s a place for you at
+              Hack Club.
+            </Text>
+            <Grid columns={[1, 1]}>
               {/* <Box
                 pt={4}
                 pb={5}
@@ -409,7 +431,7 @@ function Page({
                   margin: 'auto'
                 }}
               > */}
-                {/* <Button
+              {/* <Button
                     as="a"
                     variant="ctaLg"
                     sx={{
@@ -420,8 +442,8 @@ function Page({
                   >
                     Join us →
                   </Button> */}
-                <Slack slackKey={slackKey} />
-                <MailingList />
+              <Slack slackKey={slackKey} />
+              {/* <MailingList /> */}
               {/* </Box> */}
               {/* <Box
                 sx={{
@@ -483,11 +505,10 @@ function Page({
                 as="p"
                 sx={{ fontSize: [1, '16px', '20px'] }}
               >
-                Led by engineers on the Hack Club team in collaboration with
-                Hack Clubbers in the community, these learning tools are built
-                with and for teenagers. Get involved with these projects by
-                building something with our tools or building out the tools
-                itself.
+                In collaboration with engineers on the Hack Club team, Hack
+                Clubbers build learning tools for each other. Get involved with
+                these projects by building somethnig with our tools or
+                contribute to the tools themselves.
               </Text>
               <Sprig
                 delay={100}
@@ -496,11 +517,11 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <SprigConsole
                 delay={300}
                 stars={stars.sprigHardware.stargazerCount}
               />
+              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
             </Box>
           </Box>
@@ -562,7 +583,7 @@ function Page({
               Let's quickly review
             </Text>
             <Heading as="h2" variant="title" sx={{ fontSize: [3, 4, 5] }}>
-              Find your second-family with{' '}
+              Find your place with{' '}
               <Text
                 as="span"
                 sx={{
@@ -581,8 +602,8 @@ function Page({
             <Grid
               pt={[3, 4]}
               pb={[4, 5]}
-              gap={[4, 3, 4]}
-              columns={[null, 3]}
+              gap={3}
+              columns={[null, 4]}
               sx={{
                 textAlign: 'left',
                 '> a, > div': {
@@ -616,6 +637,9 @@ function Page({
                   sx={{
                     p: {
                       fontSize: [1, '16px', '20px']
+                    },
+                    h3: {
+                      fontSize: ['16px', '22px', '26px']
                     }
                   }}
                 />
@@ -635,11 +659,14 @@ function Page({
                 <Stage
                   icon="clubs"
                   color="white"
-                  name="Start a Club or Attend a Hackathon"
+                  name="Start a Club"
                   desc="Build an in-person community of high school hackers, and we're here to help."
                   sx={{
                     p: {
                       fontSize: [1, '16px', '20px']
+                    },
+                    h3: {
+                      fontSize: ['16px', '22px', '26px']
                     }
                   }}
                 />
@@ -664,6 +691,36 @@ function Page({
                   sx={{
                     p: {
                       fontSize: [1, '16px', '20px']
+                    },
+                    h3: {
+                      fontSize: ['16px', '22px', '26px']
+                    }
+                  }}
+                />
+              </Card>
+              <Card
+                sx={{
+                  background:
+                    'linear-gradient(to bottom, rgba(166, 51, 214, 0.9) 0%, rgba(51, 142, 218, 0.9) 100%)',
+                  color: 'white',
+                  svg: { color: 'rgb(236, 55, 80)' },
+                  textDecoration: 'none'
+                }}
+                as="a"
+                href="/clubs"
+                variant="interactive"
+              >
+                <Stage
+                  icon="event-code"
+                  color="white"
+                  name="Attend a Hackathon"
+                  desc="Make friends, build cool stuff, have an adventure. Attend a hackathon."
+                  sx={{
+                    p: {
+                      fontSize: [1, '16px', '20px']
+                    },
+                    h3: {
+                      fontSize: ['16px', '22px', '26px']
                     }
                   }}
                 />
@@ -750,7 +807,9 @@ export async function getStaticProps() {
   // }
 
   let initialGithubData2 = initialGitHubData.map(x =>
-    (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]' && x.actor.login != 'dependabot[bot]') ||
+    (x.type == 'PushEvent' &&
+      x.actor.login != 'github-actions[bot]' &&
+      x.actor.login != 'dependabot[bot]') ||
     x.type == 'WatchEvent' ||
     x.type == 'PullRequestEvent'
       ? x.type == 'PushEvent'

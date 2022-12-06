@@ -103,7 +103,7 @@ export default function Slack({ slackNum, slackKey }) {
       sx={{
         position: 'relative',
         overflow: 'hidden',
-        my: '0 !important'
+        mb: '0 !important'
         // backgroundImage: `url(https://cloud-nykwtt0z7.vercel.app/2020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png)`,
         // backgroundSize: 'cover'
       }}

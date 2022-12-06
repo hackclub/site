@@ -62,7 +62,7 @@ export default function Clubs() {
             <Buttons content="scan our clubs map and reach out to team@hackclub.com to be connected" id="1" icon="rep" link="/map">Join a Hack Club near you</Buttons>
             <Buttons content="we'll support you with meeting content, stickers, and more" id="2" icon="welcome" link="/clubs">Start a club</Buttons>
           </Flex>
-          <Button variant="primary" sx={{mt: 3, backgroundColor: 'red'}}>Learn more</Button>
+          <Button variant="primary" sx={{mt: 3, backgroundColor: 'red'}} as="a" href="/clubs">Learn more</Button>
         </Box>
       </Grid>
     </CardModel>
