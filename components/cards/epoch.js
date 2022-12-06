@@ -197,7 +197,7 @@ export default function Epoch() {
             </Buttons>
           </Flex>
           <Button
-            variant="lg"
+            variant="primary"
             as="a"
             href="https://epoch.hackclub.com/"
             sx={{ background: '#FF4794', color: 'white', mt: 3 }}

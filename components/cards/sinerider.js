@@ -52,7 +52,7 @@ export default function Sinerider({stars}) {
             <Buttons content="DM @cwalker in Slack to learn more" id="5" icon="view" href="/slack">Be a scene maker</Buttons>
           </Flex>
           <Button
-            variant="lg"
+            variant="primary"
             sx={{
               backgroundColor: '#CAB4D4',
               color: '#271932',

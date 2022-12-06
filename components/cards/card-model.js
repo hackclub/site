@@ -38,7 +38,10 @@ const CardModel = ({
       backgroundSize: 'cover',
       backgroundImage: `url(${background})` || '',
       backgroundPosition: 'center bottom',
-      backgroundRepeat: 'no-repeat'
+      backgroundRepeat: 'no-repeat',
+      p: {
+        fontSize: [1, '16px', '20px']
+      }
     }}
     {...props}
   >

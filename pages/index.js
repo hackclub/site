@@ -42,28 +42,10 @@ import { get } from 'lodash'
 import useSWR from 'swr'
 import Konami from 'react-konami-code'
 import Secret from '../components/secret'
-import Events from '../components/events'
+import MailingList from '../components/cards/mailing-list'
+import Slack from '../components/cards/slack'
+import Events from '../components/cards/events'
 
-let Highlight = styled(Text)`
-  color: inherit;
-  border-radius: 1em 0 1em 0;
-  background: linear-gradient(
-    -100deg,
-    rgba(250, 247, 133, 0.33),
-    rgba(250, 247, 133, 0.66) 95%,
-    rgba(250, 247, 133, 0.1)
-  );
-`
-Highlight = Highlight.withComponent('mark')
-
-const rollout = keyframes`
-0% {
-  transform: translateY(-100px);
-}
-100% {
-  transform: translateY(0);
-}
-`
 // function SlackNum({slackData}) {
 //   let [key, setKey] = useState()
 //   useEffect(() => {
@@ -84,7 +66,7 @@ const rollout = keyframes`
 function Page({
   hackathonsData,
   bankData,
-  slackData,
+  // slackData,
   stars,
   githubData2,
   dataPieces,
@@ -96,11 +78,25 @@ function Page({
   let [gameImage1, setGameImage1] = useState('')
   let [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
+  let [slackNum, setSlackNum] = useState([])
 
   let [key, setKey] = useState(0)
   let [key1, setKey1] = useState(0)
+  let [slackKey, setSlackKey] = useState(0)
 
   const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  // console.log(slackData)
+  // useEffect(() => {
+  //   let array = slackNum
+  //   let newNum = withCommas(
+  //     slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
+  //       .total_members_count
+  //   )
+  //   array.unshift(newNum)
+  //   array.splice(2)
+  //   setSlackNum(array)
+  //   setSlackKey(Math.random())
+  // }, [slackData])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -120,10 +116,10 @@ function Page({
     }
   })
 
-  useEffect(() => {
-    setKey(Math.random())
-    setKey1(Math.random())
-  }, slackData)
+  // useEffect(() => {
+  //   setKey(Math.random())
+  //   setKey1(Math.random())
+  // }, slackData)
 
   // useEffect(() => {
   //   if (typeof window !== 'undefined') {
@@ -180,16 +176,16 @@ function Page({
   // })
 
   const easterEgg = () => {
-    alert('Hey, you typed the Konami Code!');
+    alert('Hey, you typed the Konami Code!')
   }
 
   useEffect(() => {
     console.log('hi')
     if (reveal && !hover) {
       setTimeout(() => {
-          console.log(reveal)          
-          console.log(hover)
-          setReveal(false)
+        console.log(reveal)
+        console.log(hover)
+        setReveal(false)
       }, 2000)
     }
   }, [hover])
@@ -206,7 +202,6 @@ function Page({
         bg="black"
         sx={{
           flexGrow: 1,
-          fontSize: 2,
           color: 'white',
           fontWeight: '400 !important'
         }}
@@ -218,10 +213,11 @@ function Page({
             textDecoration: 'none',
             color: 'inherit',
             fontWeight: '400 !important',
-            display: 'flex'
+            display: 'flex',
+            fontSize: '14px'
           }}
         >
-          <Text as="span" sx={{ fontSize: 'smaller', color: 'sunken', mr: 2 }}>
+          <Text as="span" sx={{ fontSize: 'small', color: 'sunken', mr: 2 }}>
             <RelativeTime value={time} titleformat="iso8601" />
           </Text>
           {text}{' '}
@@ -265,7 +261,7 @@ function Page({
             console.log('hover:', hover)
           }}
         />
-        <Konami action={easterEgg} code={[38,38,40,40]}>
+        <Konami action={easterEgg} code={[38, 38, 40, 40]}>
           {"Hey, I'm an Easter Egg! Look at me!"}
         </Konami>
         <Box
@@ -288,7 +284,7 @@ function Page({
           {/* <SlideDown duration={768}> */}
           <Box
             sx={{
-              maxWidth: [null, 'layoutPlus'],
+              maxWidth: [null, 'layout'],
               position: 'relative',
               mx: 'auto'
             }}
@@ -306,20 +302,24 @@ function Page({
               }}
             />
             <Fade>
-              <Text variant="eyebrow" sx={{ color: 'sunken' }}>
+              <Text
+                variant="eyebrow"
+                sx={{ color: 'sunken', fontSize: [1, 2, 3] }}
+              >
                 Welcome to Hack Club
               </Text>
             </Fade>
             <Fade bottom delay={200}>
               <Heading
                 as="h1"
-                variant="ultratitle"
+                variant="title"
                 sx={{
                   color: 'white',
                   my: [3, 4],
                   mx: 'auto',
                   zIndex: 1,
-                  textAlign: 'left'
+                  textAlign: 'left',
+                  fontSize: 'large'
                 }}
               >
                 <Text
@@ -331,7 +331,9 @@ function Page({
                   }}
                 >
                   We inspire the hacker ethic in
-                  <Text sx={{ color: 'transparent', mx: 2 }}>
+                  <Text
+                    sx={{ color: 'transparent', mx: 2, whiteSpace: 'nowrap' }}
+                  >
                     <Text
                       sx={{
                         lineHeight: 0.875,
@@ -348,7 +350,8 @@ function Page({
                       }}
                       as="a"
                       onClick={() => {
-                        setHover(false); !reveal ? setReveal(true) : setReveal(false)
+                        setHover(false)
+                        !reveal ? setReveal(true) : setReveal(false)
                       }}
                     >
                       teen makers
@@ -365,42 +368,48 @@ function Page({
           <Carousel />
         </Box>
         <Box as="section" sx={{ pt: [4, 5], color: 'black' }}>
-          <Container
+          <Box
             sx={{
-              position: 'relative'
+              position: 'relative',
+              maxWidth: 'layout',
+              margin: 'auto'
             }}
-            pb={4}
+            // pb={4}
           >
-            <Text variant="eyebrow" as="p">
+            <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3] }}>
               A Hack Clubber is someone that
             </Text>
-            <Text variant="title">
+            <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
               Discovers technology by building things for the joy of it
             </Text>
+            <Text
+              variant="subtitle"
+              as="p"
+              sx={{ fontSize: [1, '16px', '20px'] }}
+            >
+              Here, teenagers don't wait for permission to code. Hack Clubbers
+              come together to code because it's fun. Whether you’re a beginner
+              programmer or have years of experience, there’s a place for you at
+              Hack Club.
+            </Text>
+            {/* <Slack slackKey={slackKey} /> */}
+            {/* <Events events={events} /> */}
+            <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3], mt: 4 }}>
+              Hack Clubbers
+            </Text>
+            <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
+              Hangout online
+            </Text>
             <Grid columns={[1, 2]}>
-              <Box
+              {/* <Box
                 pt={4}
                 pb={5}
                 sx={{
                   position: 'relative',
                   margin: 'auto'
                 }}
-              >
-                <Text variant="subtitle" as="p">
-                  Here, teenagers don't wait for permission to code. Hack
-                  Clubbers come together to code because it's fun. Whether
-                  you’re a beginner programmer or have years of experience,
-                  there’s a place for you at Hack Club. Coding doesn't have to
-                  be a solidary activity. In the Hack Club Slack (Discord-style
-                  online groupchat), you'll find a group of{' '}
-                  {withCommas(
-                    slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
-                      .total_members_count
-                  )}{' '}
-                  fabulous people to talk to, active at all hours.
-                </Text>
-                <Link href="/slack" passHref sx={{ textDecoration: 'none' }}>
-                  <Button
+              > */}
+                {/* <Button
                     as="a"
                     variant="ctaLg"
                     sx={{
@@ -410,10 +419,11 @@ function Page({
                     my={3}
                   >
                     Join us →
-                  </Button>
-                </Link>
-              </Box>
-              <Box
+                  </Button> */}
+                <Slack slackKey={slackKey} />
+                <MailingList />
+              {/* </Box> */}
+              {/* <Box
                 sx={{
                   position: 'relative',
                   width: '100%',
@@ -441,11 +451,11 @@ function Page({
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                 ></Box>
-              </Box>
+              </Box> */}
             </Grid>
-            <Events events={events}/>
+            <Events events={events} />
             {/* <Inspect /> */}
-          </Container>
+          </Box>
           <Box
             py={4}
             sx={{
@@ -456,12 +466,23 @@ function Page({
               backgroundPosition: '10% 10%'
             }}
           >
-            <Container>
-              <Text variant="eyebrow" as="p">
+            <Box
+              sx={{
+                maxWidth: 'layout',
+                margin: 'auto'
+              }}
+            >
+              <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3] }}>
                 Hack Clubbers
               </Text>
-              <Text variant="title">Build open source tools</Text>
-              <Text variant="subtitle" as="p">
+              <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
+                Build open source tools
+              </Text>
+              <Text
+                variant="subtitle"
+                as="p"
+                sx={{ fontSize: [1, '16px', '20px'] }}
+              >
                 Led by engineers on the Hack Club team in collaboration with
                 Hack Clubbers in the community, these learning tools are built
                 with and for teenagers. Get involved with these projects by
@@ -481,14 +502,20 @@ function Page({
                 stars={stars.sprigHardware.stargazerCount}
               />
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
-            </Container>
+            </Box>
           </Box>
           <Box>
-            <Container py={3}>
+            <Box
+              py={3}
+              sx={{
+                maxWidth: 'layout',
+                margin: 'auto'
+              }}
+            >
               <Text variant="eyebrow" as="p">
                 Hack Clubbers
               </Text>
-              <Text variant="title">
+              <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
                 Gather IRL to discover the{' '}
                 <Text
                   as="span"
@@ -504,7 +531,11 @@ function Page({
                   joy of code
                 </Text>
               </Text>
-              <Text variant="subtitle" as="p">
+              <Text
+                variant="subtitle"
+                as="p"
+                sx={{ fontSize: [1, '16px', '20px'] }}
+              >
                 Meet other Hack Clubbers in your community to code and make
                 things, be it once a week after school, a one-time 48 hour
                 event, or anything in-between!
@@ -517,20 +548,21 @@ function Page({
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
-            </Container>
+            </Box>
           </Box>
         </Box>
         <Box bg="snow" color="black" py={[3, 4]}>
-          <Container
+          <Box
             sx={{
-              textAlign: 'left'
+              maxWidth: 'layout',
+              margin: 'auto'
             }}
           >
             <Text as="p" variant="eyebrow">
               Let's quickly review
             </Text>
-            <Heading as="h2" variant="title">
-              Find your second-home in{' '}
+            <Heading as="h2" variant="title" sx={{ fontSize: [3, 4, 5] }}>
+              Find your second-family with{' '}
               <Text
                 as="span"
                 sx={{
@@ -581,6 +613,11 @@ function Page({
                   color="white"
                   name="Join our online community"
                   desc="Connect with other technical teenagers on Slack and hack on things together."
+                  sx={{
+                    p: {
+                      fontSize: [1, '16px', '20px']
+                    }
+                  }}
                 />
               </Card>
               <Card
@@ -600,6 +637,11 @@ function Page({
                   color="white"
                   name="Start a Club or Attend a Hackathon"
                   desc="Build an in-person community of high school hackers, and we're here to help."
+                  sx={{
+                    p: {
+                      fontSize: [1, '16px', '20px']
+                    }
+                  }}
                 />
               </Card>
               <Card
@@ -619,10 +661,15 @@ function Page({
                   color="white"
                   name="Explore our open-sourced tools"
                   desc="We're currently building a game engine, daily streak system, graphing game, and more!"
+                  sx={{
+                    p: {
+                      fontSize: [1, '16px', '20px']
+                    }
+                  }}
                 />
               </Card>
             </Grid>
-          </Container>
+          </Box>
         </Box>
       </Box>
       <Footer
@@ -686,7 +733,9 @@ export async function getStaticProps() {
 
   // if(initialGitHubData != null) {
   let initialGitHubData1 = initialGitHubData.map(x =>
-    (x.type == 'PushEvent' && x.actor.login != 'github-actions[bot]' && x.actor.login != 'dependabot[bot]') ||
+    (x.type == 'PushEvent' &&
+      x.actor.login != 'github-actions[bot]' &&
+      x.actor.login != 'dependabot[bot]') ||
     x.type == 'WatchEvent' ||
     x.type == 'PullRequestEvent'
       ? x.type == 'PushEvent'
@@ -727,21 +776,21 @@ export async function getStaticProps() {
     return el != null
   })
 
-  const formData = new FormData()
+  // const formData = new FormData()
 
-  formData.append('token', process.env.SLACK_API_TOKEN)
-  formData.append('date_range', '30d')
+  // formData.append('token', process.env.SLACK_API_TOKEN)
+  // formData.append('date_range', '30d')
 
-  const slackData = await fetch(
-    'https://hackclub.slack.com/api/team.stats.timeSeries',
-    {
-      method: 'POST',
-      body: formData,
-      headers: {
-        Cookie: process.env.SLACK_API_COOKIE
-      }
-    }
-  ).then(r => r.json())
+  // const slackData = await fetch(
+  //   'https://hackclub.slack.com/api/team.stats.timeSeries',
+  //   {
+  //     method: 'POST',
+  //     body: formData,
+  //     headers: {
+  //       Cookie: process.env.SLACK_API_COOKIE
+  //     }
+  //   }
+  // ).then(r => r.json())
 
   const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming')
   const hackathonsData = await res.json()
@@ -763,9 +812,9 @@ export async function getStaticProps() {
     res => res.json()
   )
 
-  let events = await fetch('https://events.hackclub.com/api/events/upcoming/').then(
-    res => res.json()
-  )
+  let events = await fetch(
+    'https://events.hackclub.com/api/events/upcoming/'
+  ).then(res => res.json())
 
   return {
     props: {
@@ -775,7 +824,7 @@ export async function getStaticProps() {
       githubData2,
       hackathonsData,
       bankData,
-      slackData,
+      // slackData,
       stars,
       events
     },

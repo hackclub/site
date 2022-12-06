@@ -51,7 +51,6 @@ export default function Carousel() {
     // >
     <PageVisibility onChange={handleVisibilityChange}>
       {pageIsVisible && (
-        <Fade>
         <Ticker speed={speed} sx={{ overflowX: 'hidden' }}>
           {() => (
             <Box
@@ -126,7 +125,6 @@ export default function Carousel() {
             </Box>
           )}
         </Ticker>
-        </Fade>
       )}
     </PageVisibility>
     // </Box>

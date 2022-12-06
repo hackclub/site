@@ -216,7 +216,7 @@ export default function Sprig({
             </Buttons>
           </Flex>
           <Button
-            variant="lg"
+            variant="primary"
             sx={{
               backgroundColor: '#FFDE4D',
               color: '#000',
@@ -227,8 +227,8 @@ export default function Sprig({
           </Button>
         </Box>
         <Box>
-          <Text as="p" sx={{fontStyle: 'italic'}}>New from <Link href="https://sprig.hackclub.com/gallery" sx={{textDecoration: 'none', color: 'inherit'}}>the gallery</Link>...</Text>
-          <Flex sx={{height: '80%', gap: '20px', mt: 3}}>
+          <Text sx={{fontStyle: 'italic', fontSize: [1, '14px', '16px']}}>New from <Link href="https://sprig.hackclub.com/gallery" sx={{textDecoration: 'none', color: 'inherit'}}>the gallery</Link>...</Text>
+          <Flex sx={{height: '80%', gap: '20px', mt: 3, width: '90%'}}>
             <Game game={game[0]} gameImage={gameImage} />
             <Game game={game[1]} gameImage1={gameImage1} />
           </Flex>
