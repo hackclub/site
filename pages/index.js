@@ -410,14 +410,14 @@ function Page({
               Hack Clubbers
             </Text>
             <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
-              Connect with each other from around the
+              Connect with each other from around the world.
             </Text>
             <Text
               variant="subtitle"
               as="p"
               sx={{ fontSize: [1, '16px', '20px'] }}
             >
-              Here, teenagers don't wait for permission to code. Hack Clubbers
+              Here, we don't wait for permission to code. Hack Clubbers
               come together to code because it's fun. Whether you’re a beginner
               programmer or have years of experience, there’s a place for you at
               Hack Club.
