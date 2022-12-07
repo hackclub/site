@@ -51,7 +51,8 @@ const Rsvp = () => {
       },
       body: JSON.stringify({
         Name: e.target.name.value,
-        Email: e.target.email.value
+        Email: e.target.email.value,
+        Age: e.target.age.value
       })
     })
 
@@ -112,17 +113,21 @@ const Rsvp = () => {
             required
           />
         </div>
+        <div>
+          <Label htmlFor="age">Under 18?</Label>
+          <Input type="checkbox" name="age" id="age" checked/>
+        </div>
         <Zoom delay={200}>
-        <Button type="submit" sx={{ mt: [2, 0] }}>
-          {submitting ? (
-            <>
-              <Loading />
-              &nbsp;RSVP
-            </>
-          ) : (
-            'RSVP'
-          )}
-        </Button>
+          <Button type="submit" sx={{ mt: [2, 0] }}>
+            {submitting ? (
+              <>
+                <Loading />
+                &nbsp;RSVP
+              </>
+            ) : (
+              'RSVP'
+            )}
+          </Button>
         </Zoom>
       </Grid>
 
