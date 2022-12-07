@@ -29,7 +29,7 @@ export default function Buttons({ children, icon, id, content, link }) {
       //   }
       // }}
     >
-      <Box
+      <Button
         // ref={ref => (fooRef = ref)}
         data-place="right"
         data-for={id}
@@ -51,10 +51,10 @@ export default function Buttons({ children, icon, id, content, link }) {
           fontSize: [1, '14px', '16px'],
           backdropFilter: 'blur(2px)'
         }}
-        // as="a"
-        // href={link || '/'}
-        // target="_blank"
-        // rel="noreferrer"
+        as="a"
+        href={link || '/'}
+        target="_blank"
+        rel="noreferrer"
       >
         <Icon
           glyph={icon || 'plus-fill'}
@@ -63,7 +63,7 @@ export default function Buttons({ children, icon, id, content, link }) {
           mr={2}
         />
         <Text sx={{ fontFamily: 'Phantom Sans' }}>{children}</Text>
-      </Box>
+      </Button>
       <ReactTooltip
         id={id}
         delayShow={150}

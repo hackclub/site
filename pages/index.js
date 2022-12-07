@@ -67,8 +67,9 @@ function Page({
   hackathonsData,
   bankData,
   // slackData,
+  gitHubData,
   stars,
-  githubData2,
+  // githubData2,
   dataPieces,
   game,
   gameTitle,
@@ -86,6 +87,8 @@ function Page({
   let [slackKey, setSlackKey] = useState(0)
 
   const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
+  console.log(gitHubData)
   // console.log(slackData)
   // useEffect(() => {
   //   let array = github
@@ -201,7 +204,7 @@ function Page({
     }
   }, [hover])
 
-  const Node = ({ text, time, ...props }) => (
+  const Node = ({ type, img, user, text, time, message, ...props }) => (
     <Box
       // key={key1}
       style={{ width: 'fit-content', display: 'inline' }}
@@ -227,11 +230,62 @@ function Page({
             fontSize: '14px'
           }}
         >
-          {/* <Fade             key={key}> */}
+          {user != null ? (
+            user != 'dependabot[bot]' ? (
+              user != 'github-actions[bot]' ? (
+                <img src={img} sx={{ borderRadius: '100%' }} />
+              ) : (
+                <></>
+              )
+            ) : (
+              <></>
+            )
+          ) : (
+            <></>
+          )}
+          {user != null ? (
+            user != 'dependabot[bot]' ? (
+              user != 'github-actions[bot]' ? (
+                <Text>{user}</Text>
+              ) : (
+                <></>
+              )
+            ) : (
+              <></>
+            )
+          ) : (
+            <></>
+          )}
+          {user != null ? (
+            user != 'dependabot[bot]' ? (
+              user != 'github-actions[bot]' ? (
+                <Text sx={{ textOverflow: 'ellipsis' }}>{message}</Text>
+              ) : (
+                <></>
+              )
+            ) : (
+              <></>
+            )
+          ) : (
+            <></>
+          )}
+          {type == 'CreateEvent' ? (
+            user != 'dependabot[bot]' ? (
+              user != 'github-actions[bot]' ? (
+                <Text sx={{ textOverflow: 'ellipsis' }}>{message}</Text>
+              ) : (
+                <></>
+              )
+            ) : (
+              <></>
+            )
+          ) : (
+            <></>
+          )}
           <Text as="span" sx={{ fontSize: 'small', color: 'sunken', mr: 2 }}>
             <RelativeTime value={time} titleformat="iso8601" />
           </Text>
-          {text} {/* </Fade> */}
+          {message}
         </Link>
       </Badge>
     </Box>
@@ -301,8 +355,12 @@ function Page({
             }}
           >
             <Node
-              text={dataPieces[github]}
-              time={githubData2[github]}
+              type={gitHubData.type}
+              img={gitHubData.userImage}
+              user={gitHubData.user}
+              //  text={gitHubData.message}
+              time={gitHubData.time}
+              message={gitHubData.message}
               // text="✅ New commit in hackclub/hackclub by @bellesea"
               sx={{
                 position: 'absolute',
@@ -330,7 +388,7 @@ function Page({
                   mx: 'auto',
                   zIndex: 1,
                   textAlign: 'left',
-                  fontSize: 'large',
+                  fontSize: 'large'
                 }}
               >
                 <Text
@@ -370,8 +428,7 @@ function Page({
                     </Text>
                     hacker ethic{' '}
                   </Text>
-                  by building things
-                  we care about together.
+                  by building things we care about together.
                 </Text>
               </Heading>
             </Fade>
@@ -410,15 +467,15 @@ function Page({
               Hack Clubbers
             </Text>
             <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
-              Connect with each other from around the
+              Connect with other teenager coders from around the world
             </Text>
             <Text
               variant="subtitle"
               as="p"
               sx={{ fontSize: [1, '16px', '20px'] }}
             >
-              Here, teenagers don't wait for permission to code. Hack Clubbers
-              come together to code because it's fun. Whether you’re a beginner
+              Here, we don't wait for permission to code. Hack Clubbers come
+              together to code because it's fun. Whether you’re a beginner
               programmer or have years of experience, there’s a place for you at
               Hack Club.
             </Text>
@@ -789,51 +846,100 @@ export async function getStaticProps() {
   console.log(initialBankData)
 
   // if(initialGitHubData != null) {
-  let initialGitHubData1 = initialGitHubData.map(x =>
-    (x.type == 'PushEvent' &&
-      x.actor.login != 'github-actions[bot]' &&
-      x.actor.login != 'dependabot[bot]') ||
-    x.type == 'WatchEvent' ||
-    x.type == 'PullRequestEvent'
-      ? x.type == 'PushEvent'
-        ? `✅ New commit in ${x.repo.name} by @${x.actor.login}`
-        : x.type == 'WatchEvent'
-        ? `⭐️ New star on ${x.repo.name}`
-        : x.type == 'PullRequestEvent'
-        ? `🔀 New PR for ${x.repo.name} by @${x.actor.login}`
-        : `🎉 New activity in ${x.repo.name}`
-      : null
-  )
+  // let initialGitHubData1 = initialGitHubData.map(x =>
+  //   (x.type == 'PushEvent' &&
+  //     x.actor.login != 'github-actions[bot]' &&
+  //     x.actor.login != 'dependabot[bot]') ||
+  //   x.type == 'WatchEvent' ||
+  //   x.type == 'PullRequestEvent'
+  //     ? x.type == 'PushEvent'
+  //       ? `✅ New commit in ${x.repo.name} by @${x.actor.login}`
+  //       : x.type == 'WatchEvent'
+  //       ? `⭐️ New star on ${x.repo.name}`
+  //       : x.type == 'PullRequestEvent'
+  //       ? `🔀 New PR for ${x.repo.name} by @${x.actor.login}`
+  //       : `🎉 New activity in ${x.repo.name}`
+  //     : null
+  // )
   // }
 
-  let initialGithubData2 = initialGitHubData.map(x =>
-    (x.type == 'PushEvent' &&
-      x.actor.login != 'github-actions[bot]' &&
-      x.actor.login != 'dependabot[bot]') ||
-    x.type == 'WatchEvent' ||
-    x.type == 'PullRequestEvent'
-      ? x.type == 'PushEvent'
-        ? x.created_at
-        : x.type == 'WatchEvent'
-        ? x.created_at
+  let gitHubData = initialGitHubData.map(x => ({
+    type: x.type,
+    user:
+      x.type == 'PushEvent'
+        ? x.actor.login
         : x.type == 'PullRequestEvent'
-        ? x.created_at
-        : x.created_at
-      : null
-  )
-  console.log([...new Set(initialGitHubData1)])
-  dataPieces = [
-    ...dataPieces,
-    ...new Set(
-      initialGitHubData1.filter(function (el) {
-        return el != null
-      })
-    )
-  ]
+        ? x.actor.login
+        : x.type == 'CreateEvent'
+        ? x.actor.login
+        : null,
+    userImage:
+      x.type == 'PushEvent'
+        ? x.actor.avatar_url
+        : x.type == 'PullRequestEvent'
+        ? x.actor.avatar_url
+        : x.type == 'CreateEvent'
+        ? x.actor.avatar_url
+        : null,
+    message:
+      x.type == 'PushEvent'
+        ? x.payload.commits[0].message
+        : x.type == 'PullRequestEvent'
+        ? x.payload.pull_request.title
+        : x.type == 'PullRequestEvent'
+        ? x.payload.ref_type == 'branch'
+          ? 'Created a branch'
+          : null
+        : null,
+    time: x.created_at
+  }))
 
-  let githubData2 = initialGithubData2.filter(function (el) {
-    return el != null
-  })
+  console.log(gitHubData)
+  console.log('hi')
+  // let initialGithubData3 = initialGitHubData.map(x =>
+  //   (x.type == 'PushEvent' &&
+  //     x.actor.login != 'github-actions[bot]' &&
+  //     x.actor.login != 'dependabot[bot]') ||
+  //   x.type == 'WatchEvent' ||
+  //   x.type == 'PullRequestEvent'
+  //     ? x.type == 'PushEvent'
+  //       ? x.actor.login
+  //       : x.type == 'WatchEvent'
+  //       ? x.created_at
+  //       : x.type == 'PullRequestEvent'
+  //       ? x.actor.login
+  //       : x.created_at
+  //     : null
+  // )
+
+  // let initialGithubData2 = initialGitHubData.map(x =>
+  //   (x.type == 'PushEvent' &&
+  //     x.actor.login != 'github-actions[bot]' &&
+  //     x.actor.login != 'dependabot[bot]') ||
+  //   x.type == 'WatchEvent' ||
+  //   x.type == 'PullRequestEvent'
+  //     ? x.type == 'PushEvent'
+  //       ? x.created_at
+  //       : x.type == 'WatchEvent'
+  //       ? x.created_at
+  //       : x.type == 'PullRequestEvent'
+  //       ? x.created_at
+  //       : x.created_at
+  //     : null
+  // )
+  // console.log([...new Set(gitHubData)])
+  // dataPieces = [
+  //   ...dataPieces,
+  //   ...new Set(
+  //     initialGitHubData1.filter(function (el) {
+  //       return el != null
+  //     })
+  //   )
+  // ]
+
+  // let githubData2 = initialGithubData2.filter(function (el) {
+  //   return el != null
+  // })
 
   // const formData = new FormData()
 
@@ -880,7 +986,8 @@ export async function getStaticProps() {
       dataPieces,
       game,
       gameTitle,
-      githubData2,
+      gitHubData,
+      // githubData2,
       hackathonsData,
       bankData,
       // slackData,
