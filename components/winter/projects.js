@@ -248,7 +248,7 @@ export default function Projects() {
                     sx={{
                       position: 'absolute',
                       top: -3,
-                      right: -4
+                      right: '-40px',
                     }}
                   />
                 </Text>

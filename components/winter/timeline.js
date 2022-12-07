@@ -120,7 +120,7 @@ export default function RealTimeline() {
       />
       <Step
         icon="slack"
-        name="Start of a 10 days building in public challenge where you share daily updates on your hardware project"
+        name="Start of a 10 days building in public challenge where you share daily updates on your hardware project."
         duration="February 15"
       />
     </Flex>
