@@ -84,7 +84,7 @@ export default function Landing({ rsvpCount }) {
                   // fontSize: ['18px', '20px', '24px']
                 }}
               >
-                {rsvpCount} more RSVPs till the start of a hacker's
+                <Text sx={{background: 'white', color: 'blue', px: 2, py: 1, borderRadius: 'default'}}>{rsvpCount}</Text> more RSVPs till the start of a hacker's
               </Heading>
             </Fade>
             <Fade left cascade>

@@ -11,6 +11,7 @@ import {
   Heading,
   Grid
 } from 'theme-ui'
+import { Zoom } from 'react-reveal'
 
 const Loading = () => (
   <Box
@@ -111,7 +112,7 @@ const Rsvp = () => {
             required
           />
         </div>
-
+        <Zoom delay={200}>
         <Button type="submit" sx={{ mt: [2, 0] }}>
           {submitting ? (
             <>
@@ -122,6 +123,7 @@ const Rsvp = () => {
             'RSVP'
           )}
         </Button>
+        </Zoom>
       </Grid>
 
       {submitted && (

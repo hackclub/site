@@ -23,7 +23,7 @@ export default function InfoGrid() {
           h: 'fit-content'
         }}
       >
-        <Zoom>
+        <Zoom delay={100}>
           <Box
             sx={{
               display: 'flex',
@@ -61,7 +61,7 @@ export default function InfoGrid() {
             height: '100%'
           }}
         >
-          <Zoom delay={200}>
+          <Zoom delay={300}>
             <Card
               variant="translucent"
               sx={{
@@ -76,7 +76,7 @@ export default function InfoGrid() {
               Up to $250 grant per person
             </BulletItem> */}
               <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
-                Be a high schoolers (& younger)
+                Be a high schooler (or younger)
               </BulletItem>
               {/* <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
               Share a plan for what you want to build and how much you need (up to $250)
@@ -150,7 +150,7 @@ export default function InfoGrid() {
                 Receive and spend the grant through Hack Club Bank.
               </Heading>
               <BulletItem iconGlyph="bank-account" iconColor="#5BC0DE">
-                Full history and balance stuff on powerful web dashbaord
+                Full history and balance, viewed on a powerful web dashbaord
               </BulletItem>
               <BulletItem iconGlyph="card" iconColor="#5BC0DE">
                 Issue yourself a debit card to spend the funds
