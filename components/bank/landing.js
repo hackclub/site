@@ -28,8 +28,8 @@ export default function Landing({ showButton, eventsCount }) {
             }}
           >
             <Announcement
-              copy="Hack Club Bank: the ultimate financial tool for FIRST teams."
-              caption="Learn more and sign up for Hack Club Bank. &rarr;"
+              copy="FRC, FTC, FLL, oh my!"
+              caption="This build season, get a $250 grant, waived fees, and more! &rarr;"
               href="/first"
               iconLeft="sam"
               color="primary"
