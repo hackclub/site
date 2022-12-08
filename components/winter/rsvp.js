@@ -9,7 +9,9 @@ import {
   Alert,
   Card,
   Heading,
-  Grid
+  Grid,
+  Flex,
+  Checkbox
 } from 'theme-ui'
 import { Zoom } from 'react-reveal'
 
@@ -51,7 +53,8 @@ const Rsvp = () => {
       },
       body: JSON.stringify({
         Name: e.target.name.value,
-        Email: e.target.email.value
+        Email: e.target.email.value,
+        Age: e.target.age.checked
       })
     })
 
@@ -77,54 +80,62 @@ const Rsvp = () => {
       <Text sx={{ color: 'muted' }}>
         RSVP to get notified when applications open.
       </Text>
-      <Grid
+      <Box
         as="form"
         ref={formRef}
         onSubmit={handleSubmit}
         gap={[2, 3]}
         sx={{
           mt: [null, 3],
-          gridTemplateColumns: [null, '1fr 1fr auto'],
           textAlign: 'left',
           alignItems: 'end',
           input: { bg: 'sunken' }
         }}
       >
-        <div>
-          <Label htmlFor="location">Name</Label>
-          <Input
-            autofillBackgroundColor="highlight"
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Fiona Hackworth"
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor="email">Email</Label>
-          <Input
-            autofillBackgroundColor="highlight"
-            type="email"
-            name="email"
-            id="email"
-            placeholder="fiona@hackclub.com"
-            required
-          />
-        </div>
-        <Zoom delay={200}>
-        <Button type="submit" sx={{ mt: [2, 0] }}>
-          {submitting ? (
-            <>
-              <Loading />
-              &nbsp;RSVP
-            </>
-          ) : (
-            'RSVP'
-          )}
-        </Button>
-        </Zoom>
-      </Grid>
+        <Grid sx={{ gridTemplateColumns: '1fr 1fr' }}>
+          <div>
+            <Label htmlFor="location">Name</Label>
+            <Input
+              autofillBackgroundColor="highlight"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Fiona Hackworth"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="email">Email</Label>
+            <Input
+              autofillBackgroundColor="highlight"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="fiona@hackclub.com"
+              required
+            />
+          </div>
+        </Grid>
+
+        <Flex sx={{ flexDirection: 'column' }}>
+          <Label variant="labelHoriz" sx={{ m: 0, fontSize: 1, pt: 1 }}>
+            <Checkbox name="age" defaultChecked={false} />I am 19 years of age
+            or younger.
+          </Label>
+          <br />
+
+          <Button type="submit" sx={{ mt: -3 }}>
+            {submitting ? (
+              <>
+                <Loading />
+                &nbsp;RSVP
+              </>
+            ) : (
+              'RSVP'
+            )}
+          </Button>
+        </Flex>
+      </Box>
 
       {submitted && (
         <Alert variant="primary" sx={{ bg: 'green', mt: [2, 3] }}>

@@ -11,6 +11,7 @@ export default async function handler(req, res) {
     const rsvp = await airtable.create({
       Name: req.body.Name,
       Email: req.body.Email,
+      Age: req.body.Age,
       IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
     })
     const url = process.env.WOM_SLACK_WEBHOOK_URL
