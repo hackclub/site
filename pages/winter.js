@@ -41,7 +41,7 @@ export function Winter() {
           as={Head}
           title="Winter Hardware Wonderland"
           description="Join the Hack Club community for a winter of hardware hacking, and get a $250 grant to build your project."
-          image="/winter/og-image.png" // TODO: add og image
+          image="/winter/og-image.png"
         />
         <Nav light />
         <Snowfall />
@@ -105,7 +105,17 @@ export function Winter() {
         {/* Timeline */}
 
         <Recap />
-        <Container sx={{ margin: 'auto', fontStyle: 'italic', color: 'snow', mb: 3, textAlign: 'left'}}>Illustrations by Ripley</Container>
+        <Container
+          sx={{
+            margin: 'auto',
+            fontStyle: 'italic',
+            color: 'snow',
+            mb: 3,
+            textAlign: 'left'
+          }}
+        >
+          Illustrations by Ripley
+        </Container>
         {/* <Signup /> */}
         <Footer />
       </Box>
