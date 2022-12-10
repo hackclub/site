@@ -34,6 +34,10 @@ export function Winter() {
     fetcher,
     { refreshInterval: 1000 }
   )
+
+  const rsvpCount = rsvps
+    ? rsvps.filter(rsvp => rsvp.fields.Status === 'rsvp').length
+    : 100 // arbitrary fallback number
   return (
     <>
       <Box as="main" sx={{ bg: 'blue' }}>
@@ -46,7 +50,8 @@ export function Winter() {
         <Nav light />
         <Snowfall />
         <ForceTheme theme="light" />
-        <Landing rsvpCount={500 - rsvps?.length} />
+        {/* filter out rsvps that are "invalid" */}
+        <Landing rsvpCount={500 - rsvpCount} />
         <Breakdown />
         <Projects />
         <InfoGrid />
