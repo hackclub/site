@@ -21,7 +21,6 @@ export default function SprigConsole({ stars }) {
     <Box sx={{ position: 'relative' }}>
       <CardModel
         github_link="https://github.com/hackclub/sprig-hardware"
-        stars={stars}
         // link="https://sprig.hackclub.com"
         color="white"
         sx={{
@@ -72,7 +71,7 @@ export default function SprigConsole({ stars }) {
               </Buttons>
             </Flex>
             <Button
-            as="a"
+              as="a"
               variant="primary"
               sx={{
                 backgroundColor: '#427A43',
@@ -80,6 +79,8 @@ export default function SprigConsole({ stars }) {
                 mt: 3
               }}
               href="https://editor.sprig.hackclub.com"
+              target="_blank"
+              rel="noopener"
             >
               Make a game
             </Button>

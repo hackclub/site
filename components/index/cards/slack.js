@@ -13,10 +13,10 @@ import {
   Text
 } from 'theme-ui'
 import Buttons from './button'
-import usePrefersMotion from '../../lib/use-prefers-motion'
-import useHasMounted from '../../lib/use-has-mounted'
+import usePrefersMotion from '../../../lib/use-prefers-motion'
+import useHasMounted from '../../../lib/use-has-mounted'
 import { keyframes } from '@emotion/react'
-import SlackEvents from '../slack/slack-events'
+import SlackEvents from '../../slack/slack-events'
 
 /** @jsxImportSource theme-ui */
 
@@ -154,10 +154,11 @@ export default function Slack({ slackNum, slackKey }) {
             as="p"
             sx={{ fontSize: [1, '16px', '20px'] }}
           >
-            Coding doesn't have to be a solidary activity. At Hack Club, it's a team sport and in our
-            Slack (Discord-style online groupchat), you'll find a
-            group of{' '}
-            <Box
+            Coding doesn't have to be a solidary activity. At Hack Club, it's a
+            team sport and in our Slack (similar to Discord, but better), you'll
+            find a group of{' '}
+            <Box sx={{ display: 'inline', fontWeight: '700' }}>{slackNum} </Box>
+            {/* <Box
               as="div"
               sx={{
                 color: 'transparent',
@@ -169,7 +170,7 @@ export default function Slack({ slackNum, slackKey }) {
               }}
               key={slackKey}
             >
-              {/* {slackNum[0]}{' '} */}
+              {slackNum}{' '}
               <Text
                 sx={{
                   position: 'absolute',
@@ -180,7 +181,7 @@ export default function Slack({ slackNum, slackKey }) {
                   animationFillMode: 'forwards'
                 }}
               >
-                {/* {slackNum[0]} */}
+                {slackNum}
               </Text>
               <Text
                 sx={{
@@ -192,10 +193,26 @@ export default function Slack({ slackNum, slackKey }) {
                   animationFillMode: 'forwards'
                 }}
               >
-                {/* {slackNum[1]} */}
+                {slackNum}
               </Text>
-            </Box>
+            </Box> */}
             fabulous people to talk to, active at all hours.
+          </Text>
+          <Text
+            variant="subtitle"
+            as="p"
+            sx={{ fontSize: [1, '16px', '20px'] }}
+          >
+            We're united by our love for coding but talk about everything else
+            too. You could launch your latest project and get feedback or
+            discuss a cool article you read, alongside other Hack Clubbers.
+          </Text>
+          <Text
+            variant="subtitle"
+            as="p"
+            sx={{ fontSize: [1, '16px', '20px'] }}
+          >
+            Come for the skills, stay for the friends!
           </Text>
           <Button
             variant="primary"
@@ -206,11 +223,13 @@ export default function Slack({ slackNum, slackKey }) {
             }}
             as="a"
             href="/slack"
+            target="_blank"
+            rel="noopener"
           >
             Join our community
           </Button>
         </Box>
-          {/* <Box sx={{py: 3, px: 4, borderRadius: 4, float: 'right', backgroundColor: 'rgb(255,255,255, 0.2)', backdropFilter: 'blur(8px)', mt: '-40px'}}>
+        {/* <Box sx={{py: 3, px: 4, borderRadius: 4, float: 'right', backgroundColor: 'rgb(255,255,255, 0.2)', backdropFilter: 'blur(8px)', mt: '-40px'}}>
           <Heading
               as="h2"
               variant="subheadline"
