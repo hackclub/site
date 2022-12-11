@@ -62,7 +62,7 @@ const MailingList = () => {
   // }
 
   return (
-    <CardModel sx={{height: '100%'}}>
+    <CardModel sx={{ height: '100%' }}>
       {/* <Card
       sx={{
         maxWidth: 'narrowPlus',

@@ -46,18 +46,30 @@ export default function Bank({ data }) {
         <Grid columns={[1, '1fr 0.6fr']}>
           <Box>
             <Text as="p" variant="subtitle">
-              A fiscal sponsor and banking platform in one to help you organize
+              Tool developed to make organising easier: a fiscal sponsor and banking platform in one to help you organize
               clubs, hackathons, and more!
             </Text>
             <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
               Get involved
             </Text>
             <Flex sx={{ flexDirection: 'column' }}>
-              <Buttons content="501(c)3 status, custom dashboard, debit cards, free domains/google workspace, and more" id="15" icon="bank-account" link="/bank">
+              <Buttons
+                content="501(c)3 status, custom dashboard, debit cards, free domains/google workspace, and more"
+                id="15"
+                icon="bank-account"
+                link="/bank"
+              >
                 Run your event/organziation on Hack Club Bank
               </Buttons>
             </Flex>
-            <Button variant="primary" as="a" href="/bank" mt={3}>
+            <Button
+              variant="primary"
+              as="a"
+              href="/bank"
+              mt={3}
+              target="_blank"
+              rel="noopener"
+            >
               Start bankin!
             </Button>
           </Box>
@@ -68,7 +80,7 @@ export default function Bank({ data }) {
         <Box
           sx={{
             width: ['250px', '500px'],
-            height: ['180px','360px'],
+            height: ['180px', '360px'],
             position: 'relative',
             display: 'block',
             textAlign: 'center',

@@ -23,28 +23,30 @@ import Footer from '../components/footer'
 import FooterImgFile from '../public/home/footer.png'
 import Stage from '../components/stage'
 import devtools from '../node_modules/devtools-detect/index.js'
-import Carousel from '../components/carousel'
-import Sprig from '../components/cards/sprig'
-import Sinerider from '../components/cards/sinerider'
-import SprigConsole from '../components/cards/sprig-console'
-import Clubs from '../components/cards/clubs'
-import Workshops from '../components/cards/workshops'
-import Bank from '../components/cards/bank'
+import Carousel from '../components/index/carousel'
+import Sprig from '../components/index/cards/sprig'
+import Sinerider from '../components/index/cards/sinerider'
+import SprigConsole from '../components/index/cards/sprig-console'
+import Clubs from '../components/index/cards/clubs'
+import Workshops from '../components/index/cards/workshops'
+import Bank from '../components/index/cards/bank'
 import FormData from 'form-data'
-import Epoch from '../components/cards/epoch'
-import Hackathons from '../components/cards/hackathons'
+import Epoch from '../components/index/cards/epoch'
+import Hackathons from '../components/index/cards/hackathons'
 import Flip from 'react-reveal/Flip'
 import Fade from 'react-reveal/Fade'
-import Inspect from '../components/inspect'
 import AssembleImgFile from '../public/home/assemble.jpg'
-import RelativeTime from 'react-relative-time'
 import { get } from 'lodash'
 import useSWR from 'swr'
 import Konami from 'react-konami-code'
 import Secret from '../components/secret'
-import MailingList from '../components/cards/mailing-list'
-import Slack from '../components/cards/slack'
-import Events from '../components/cards/events'
+import MailingList from '../components/index/cards/mailing-list'
+import Slack from '../components/index/cards/slack'
+import Events from '../components/index/cards/events'
+import Icon from '../components/icon'
+import GitHub from '../components/index/github'
+import Photo from '../components/photo'
+import ReactTooltip from 'react-tooltip'
 
 // function SlackNum({slackData}) {
 //   let [key, setKey] = useState()
@@ -68,6 +70,7 @@ function Page({
   bankData,
   // slackData,
   gitHubData,
+  gitHubDataLength,
   stars,
   // githubData2,
   dataPieces,
@@ -79,28 +82,48 @@ function Page({
   let [gameImage1, setGameImage1] = useState('')
   let [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
-  let [slackNum, setSlackNum] = useState([])
+  let [slackNum, setSlackNum] = useState(22594)
+  let [slack, setSlack] = useState(22594)
   let [github, setGithub] = useState(0)
-
-  let [key, setKey] = useState(0)
   let [key1, setKey1] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
+  let [key, setKey] = useState(0)
+
+  // let gitHubDataLength = gitHubData.length
+
+  // console.log(gitHubDataLength)
+
+  // useEffect(() => {
+  //   function hehe() {
+  //     setKey(Math.random())
+  //     setGithub(Math.floor(Math.random() * (gitHubDataLength)))
+  //     console.log(gitHubData[github])
+  //   }
+  //   setInterval(hehe, 6000)
+  // }, [])
 
   const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
-  console.log(gitHubData)
+  // console.log(gitHubData)
   // console.log(slackData)
   // useEffect(() => {
-  //   let array = github
-  //   let post = withCommas(
-  //     slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
-  //       .total_members_count
-  //   )
-  //   array.unshift(newNum)
-  //   array.splice(2)
-  //   setSlackNum(array)
-  //   setSlackKey(Math.random())
-  // }, [slackData])
+  //   setSlack(slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
+  //   .total_members_count)
+  // })
+  useEffect(() => {
+    // console.log("one", slack)
+
+    const add = setTimeout(() => {
+      setSlack(x => x + 1)
+      setSlackNum(slack)
+      console.log(slackNum)
+    }, Math.floor((Math.random() * (5 - 2) + 1) * 10000))
+
+    return () => clearTimeout(add)
+
+    // setInterval(add, 2000)
+    // setSlackKey(Math.random())
+  }, [slack])
 
   // useEffect(() => {
   //   if (typeof window !== 'undefined') {
@@ -125,15 +148,15 @@ function Page({
   //   setKey1(Math.random())
   // }, slackData)
 
-  useEffect(() => {
-    //     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
-    setInterval(() => {
-      setKey(Math.random())
-      // setGithub(Math.floor(Math.random()) * dataPieces.length)
-      // console.log(Math.floor(Math.random()) * githubData2.length)
-      console.log(Math.floor(Math.random() * dataPieces.length + 1))
-    }, 8000)
-  }, [])
+  // useEffect(() => {
+  //   //     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
+  //   setInterval(() => {
+  //     setKey(Math.random())
+  //     // setGithub(Math.floor(Math.random()) * dataPieces.length)
+  //     // console.log(Math.floor(Math.random()) * githubData2.length)
+  //     console.log(Math.floor(Math.random() * dataPieces.length + 1))
+  //   }, 8000)
+  // }, [])
 
   // useEffect(() => {
   //   if (typeof window !== 'undefined') {
@@ -204,93 +227,6 @@ function Page({
     }
   }, [hover])
 
-  const Node = ({ type, img, user, text, time, message, ...props }) => (
-    <Box
-      // key={key1}
-      style={{ width: 'fit-content', display: 'inline' }}
-      // spy={key1}
-    >
-      <Badge
-        variant="pill"
-        bg="black"
-        sx={{
-          flexGrow: 1,
-          color: 'white',
-          fontWeight: '400 !important'
-        }}
-        {...props}
-      >
-        <Link
-          href="https://github.com/hackclub"
-          sx={{
-            textDecoration: 'none',
-            color: 'inherit',
-            fontWeight: '400 !important',
-            display: 'flex',
-            fontSize: '14px'
-          }}
-        >
-          {user != null ? (
-            user != 'dependabot[bot]' ? (
-              user != 'github-actions[bot]' ? (
-                <img src={img} sx={{ borderRadius: '100%' }} />
-              ) : (
-                <></>
-              )
-            ) : (
-              <></>
-            )
-          ) : (
-            <></>
-          )}
-          {user != null ? (
-            user != 'dependabot[bot]' ? (
-              user != 'github-actions[bot]' ? (
-                <Text>{user}</Text>
-              ) : (
-                <></>
-              )
-            ) : (
-              <></>
-            )
-          ) : (
-            <></>
-          )}
-          {user != null ? (
-            user != 'dependabot[bot]' ? (
-              user != 'github-actions[bot]' ? (
-                <Text sx={{ textOverflow: 'ellipsis' }}>{message}</Text>
-              ) : (
-                <></>
-              )
-            ) : (
-              <></>
-            )
-          ) : (
-            <></>
-          )}
-          {type == 'CreateEvent' ? (
-            user != 'dependabot[bot]' ? (
-              user != 'github-actions[bot]' ? (
-                <Text sx={{ textOverflow: 'ellipsis' }}>{message}</Text>
-              ) : (
-                <></>
-              )
-            ) : (
-              <></>
-            )
-          ) : (
-            <></>
-          )}
-          <Text as="span" sx={{ fontSize: 'small', color: 'sunken', mr: 2 }}>
-            <RelativeTime value={time} titleformat="iso8601" />
-          </Text>
-          {message}
-        </Link>
-      </Badge>
-    </Box>
-  )
-
   return (
     <>
       <Meta
@@ -344,37 +280,29 @@ function Page({
             src={AssembleImgFile}
             alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
             priority
-            gradient="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7))"
+            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5))"
           />
           {/* <SlideDown duration={768}> */}
           <Box
             sx={{
               maxWidth: [null, 'layout'],
               position: 'relative',
-              mx: 'auto'
+              mx: 'auto',
+              py: 4
             }}
           >
-            <Node
-              type={gitHubData.type}
-              img={gitHubData.userImage}
-              user={gitHubData.user}
-              //  text={gitHubData.message}
-              time={gitHubData.time}
-              message={gitHubData.message}
+            <GitHub
+              type={gitHubData[github].type}
+              img={gitHubData[github].userImage}
+              user={gitHubData[github].user}
+              //  text={gitHubData[github].message}
+              time={gitHubData[github].time}
+              message={gitHubData[github].message}
+              key={key}
               // text="✅ New commit in hackclub/hackclub by @bellesea"
-              sx={{
-                position: 'absolute',
-                top: 0,
-                right: 2,
-                zIndex: 4,
-                transform: 'rotate(3deg)'
-              }}
             />
             <Fade>
-              <Text
-                variant="eyebrow"
-                sx={{ color: 'sunken', fontSize: [1, 2, 3] }}
-              >
+              <Text variant="eyebrow" sx={{ color: 'sunken' }}>
                 Welcome to Hack Club
               </Text>
             </Fade>
@@ -384,7 +312,7 @@ function Page({
                 variant="title"
                 sx={{
                   color: 'white',
-                  my: [3, 4],
+                  mb: [3, 4],
                   mx: 'auto',
                   zIndex: 1,
                   textAlign: 'left',
@@ -399,9 +327,30 @@ function Page({
                     pb: 3
                   }}
                 >
-                  Where teen makers around the world practice the
+                  Where{' '}
                   <Text
-                    sx={{ color: 'transparent', mx: 2, whiteSpace: 'nowrap' }}
+                    as="a"
+                    onClick={() => {
+                      setHover(false)
+                      !reveal ? setReveal(true) : setReveal(false)
+                    }}
+                    sx={{
+                      color: 'inherit',
+                      '&:hover': {
+                        cursor: 'help'
+                      }
+                    }}
+                  >
+                    teen makers
+                  </Text>{' '}
+                  around the world practice the
+                  <Text
+                    sx={{
+                      color: 'transparent',
+                      ml: 2,
+                      mr: 4,
+                      whiteSpace: 'nowrap'
+                    }}
                   >
                     <Text
                       sx={{
@@ -414,28 +363,342 @@ function Page({
                         transform: 'rotate(-3deg) translateY(5px)',
                         color: 'white',
                         whiteSpace: 'nowrap',
+                        textDecoration: 'none',
                         '&:hover': {
                           cursor: 'pointer'
+                        },
+                        svg: {
+                          mb: '20px',
+                          opacity: 0.5,
+                          transition: '0.3s',
+                          mr: '-5px'
+                        },
+                        '&:hover svg': {
+                          opacity: 1
                         }
                       }}
                       as="a"
-                      onClick={() => {
-                        setHover(false)
-                        !reveal ? setReveal(true) : setReveal(false)
-                      }}
+                      href="/philosophy"
+                      target="_blank"
+                      rel="noopener"
                     >
                       hacker ethic
+                      <Icon glyph="external" size={24} />
                     </Text>
                     hacker ethic{' '}
                   </Text>
-                  by building things we care about together.
+                  by using code to build things we care about together.
                 </Text>
               </Heading>
             </Fade>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: ['center', 'center', 'flex-end'],
+                marginRight: 2,
+                mt: [2, 2, 1]
+              }}
+            >
+              <Badge
+                as="a"
+                href="https://www.youtube.com/watch?v=PnK4gzO6S3Q"
+                target="_blank"
+                rel="noopener"
+                variant="pill"
+                sx={{
+                  zIndex: '1',
+                  bg: '#000',
+                  color: 'white',
+                  opacity: 0.5,
+                  textDecoration: 'none',
+                  fontWeight: 'normal',
+                  ':hover': { opacity: 1 },
+                  transition: '0.3s ease'
+                }}
+                title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
+              >
+                Hackers at Assemble in SF
+              </Badge>
+            </Box>
           </Box>
           {/* </SlideDown> */}
-          <Carousel />
         </Box>
+        <Box as="section" sx={{ pt: [4, 5], color: 'black' }}>
+          <Box
+            sx={{
+              position: 'relative',
+              maxWidth: 'layout',
+              margin: 'auto'
+            }}
+            // pb={4}
+          >
+            <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3], mt: 4 }}>
+              The rundown
+            </Text>
+            <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
+              Join us in discovering the joy of code
+            </Text>
+            <Text
+              variant="subtitle"
+              as="p"
+              sx={{ fontSize: [1, '16px', '20px'] }}
+            >
+              Here, we don't wait for permission to code. Hack Clubbers come
+              together to code because it's fun. Whether you’re a beginner
+              programmer or have years of experience, there’s a place for you at
+              Hack Club. Read about our{' '}
+              <Link href="/philosophy" target="_blank" rel="noopener">
+                hacker ethic
+              </Link>
+              .
+            </Text>
+            <Grid
+              columns={[null, null, 2, '2.5fr 3fr']}
+              gap={[3, 4]}
+              pt={[3, 4]}
+            >
+              <Box
+                sx={{
+                  position: 'relative',
+                  figure: {
+                    position: 'absolute',
+                    transform: 'rotate(-3deg)',
+                    height: '85%',
+                    width: '100%'
+                  }
+                }}
+              >
+                <Photo
+                  src="https://dl.airtable.com/.attachmentThumbnails/904cf56ceac6b0921eceae02958dcd29/5851864a"
+                  alt="Summer Creek Hack Club meeting, February 2020"
+                  width={3000}
+                  height={2550}
+                  showAlt
+                />
+              </Box>
+              <Grid
+                columns="1fr"
+                sx={{
+                  gridColumnGap: 3,
+                  span: {
+                    width: 36,
+                    height: 36,
+                    borderRadius: 24,
+                    display: 'inline-block',
+                    fontSize: 2,
+                    lineHeight: '30px',
+                    textAlign: 'center',
+                    fontWeight: 'bold',
+                    border: '3px solid currentColor'
+                  },
+                  p: { my: 0, fontSize: [1, '16px', '20px'] },
+                  strong: { display: 'block', fontSize: [1, '18px', '22px'] }
+                }}
+              >
+                <Grid
+                  columns="auto 1fr"
+                  sx={{
+                    transitionDuration: '0.39s',
+                    py: 2,
+                    px: 2,
+                    color: 'inherit',
+                    position: 'relative',
+                    textDecoration: 'none',
+                    borderRadius: 'extra',
+                    '&:hover': {
+                      bg: 'purple',
+                      color: 'white',
+                      cursor: 'pointer'
+                    },
+                    '&:hover span': {
+                      color: 'white'
+                    }
+                  }}
+                  as="a"
+                  href="#community"
+                  data-effect="solid"
+                  data-tip="learn more about our online community"
+                >
+                  <Text as="span" color="purple">
+                    1
+                  </Text>
+                  <Text as="p" variant="subtitle">
+                    <strong>Connect virtually with other teenagers</strong>
+                    We're united by our love for coding but talk about and do
+                    everything else too.
+                    {/* <Button
+                    variant="primary"
+                    sx={{
+                      backgroundColor: 'purple',
+                      color: 'white',
+                      mt: 3,
+                      display: 'flex',
+                      width: 'fit-content'
+                    }}
+                    as="a"
+                    href="/slack"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Join our community{' '}
+                    <Icon
+                      glyph="slack"
+                      sx={{ ml: '4px !important', display: 'inline-block' }}
+                    />
+                  </Button> */}
+                  </Text>
+                  <Icon
+                    glyph="external"
+                    size={32}
+                    sx={{
+                      position: 'absolute',
+                      top: 1,
+                      right: 2,
+                      color: 'white'
+                    }}
+                  />
+                </Grid>
+                <Grid
+                  columns="auto 1fr"
+                  sx={{
+                    transitionDuration: '0.39s',
+                    py: 2,
+                    px: 2,
+                    color: 'inherit',
+                    position: 'relative',
+                    textDecoration: 'none',
+                    borderRadius: 'extra',
+                    '&:hover': {
+                      bg: 'cyan',
+                      color: 'white',
+                      cursor: 'pointer'
+                    },
+                    '&:hover span': {
+                      color: 'white'
+                    }
+                  }}
+                  as="a"
+                  href="#irl"
+                  data-effect="solid"
+                  data-tip="check out clubs and hackathons at Hack Club"
+                >
+                  <Text as="span" color="cyan">
+                    2
+                  </Text>
+                  <Text
+                    as="p"
+                    variant="subtitle"
+                    sx={{
+                      mt: 0,
+                      pb: 3
+                    }}
+                  >
+                    <strong>Gather IRL with other makers</strong> Meet other
+                    Hack Clubbers in your community to code and make things, be
+                    it once a week after school (at{' '}
+                    <Link href="/clubs">Hack Clubs</Link>), a one-time 48 hour
+                    event (<Link href="/hackathons">hackathons</Link>), or
+                    anything in-between!
+                    {/* <Button
+                    variant="primary"
+                    sx={{
+                      backgroundColor: 'blue',
+                      color: 'white',
+                      mt: 3,
+                      display: 'flex',
+                      width: 'fit-content'
+                    }}
+                    as="a"
+                    href="/slack"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Start a club{' '}
+                    <Icon
+                      glyph="slack"
+                      sx={{ ml: '4px !important', display: 'inline-block' }}
+                    />
+                  </Button> */}
+                  </Text>
+                  <Icon
+                    glyph="external"
+                    size={32}
+                    sx={{
+                      position: 'absolute',
+                      top: 1,
+                      right: 2,
+                      color: 'white'
+                    }}
+                  />
+                </Grid>
+                <Grid
+                  columns="auto 1fr"
+                  sx={{
+                    transitionDuration: '0.39s',
+                    py: 2,
+                    px: 2,
+                    color: 'inherit',
+                    position: 'relative',
+                    textDecoration: 'none',
+                    borderRadius: 'extra',
+                    '&:hover': {
+                      bg: 'orange',
+                      color: 'white',
+                      cursor: 'pointer'
+                    },
+                    '&:hover span': {
+                      color: 'white'
+                    }
+                  }}
+                  as="a"
+                  href="#tools"
+                  data-tip="click to projects we're currently working on"
+                  data-effect="solid"
+                >
+                  <Text as="span" color="orange">
+                    3
+                  </Text>
+                  <Text as="p" variant="subtitle">
+                    <strong>Build open-source learning tools</strong>
+                    Contribute to projects like a game engine, daily streak
+                    system, graphing game, and more!
+                    {/* <Button
+                    variant="primary"
+                    sx={{
+                      backgroundColor: 'orange',
+                      color: 'white',
+                      mt: 3,
+                      display: 'flex',
+                      width: 'fit-content'
+                    }}
+                    as="a"
+                    href="/slack"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Find a hackathon{' '}
+                    <Icon
+                      glyph="slack"
+                      sx={{ ml: '4px !important', display: 'inline-block' }}
+                    />
+                  </Button> */}
+                  </Text>
+                  <Icon
+                    glyph="external"
+                    size={32}
+                    sx={{
+                      position: 'absolute',
+                      top: 1,
+                      right: 2,
+                      color: 'white'
+                    }}
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+        <Carousel />
         <Box as="section" sx={{ pt: [4, 5], color: 'black' }}>
           <Box
             sx={{
@@ -463,7 +726,12 @@ function Page({
             </Text> */}
             {/* <Slack slackKey={slackKey} /> */}
             {/* <Events events={events} /> */}
-            <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3], mt: 4 }}>
+            <Text
+              variant="eyebrow"
+              as="p"
+              sx={{ fontSize: [1, 2, 3], mt: 4 }}
+              id="community"
+            >
               Hack Clubbers
             </Text>
             <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
@@ -499,7 +767,8 @@ function Page({
                   >
                     Join us →
                   </Button> */}
-              <Slack slackKey={slackKey} />
+              <Slack slackKey={slackKey} slackNum={slackNum} />
+              <Epoch delay={300} />
               {/* <MailingList /> */}
               {/* </Box> */}
               {/* <Box
@@ -544,6 +813,7 @@ function Page({
               backgroundRepeat: 'repeat',
               backgroundPosition: '10% 10%'
             }}
+            id="tools"
           >
             <Box
               sx={{
@@ -589,13 +859,14 @@ function Page({
                 maxWidth: 'layout',
                 margin: 'auto'
               }}
+              id="irl"
             >
               <Text variant="eyebrow" as="p">
                 Hack Clubbers
               </Text>
               <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
-                Gather IRL to discover the{' '}
-                <Text
+                Gather IRL to create together
+                {/* <Text
                   as="span"
                   sx={{
                     borderRadius: 'default',
@@ -607,7 +878,7 @@ function Page({
                   }}
                 >
                   joy of code
-                </Text>
+                </Text> */}
               </Text>
               <Text
                 variant="subtitle"
@@ -618,14 +889,13 @@ function Page({
                 things, be it once a week after school, a one-time 48 hour
                 event, or anything in-between!
               </Text>
-              <Bank data={bankData} delay={100} />
               <Clubs delay={200} />
-              <Epoch delay={300} />
               <Hackathons
                 delay={400}
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
+              <Bank data={bankData} delay={100} />
             </Box>
           </Box>
         </Box>
@@ -678,6 +948,8 @@ function Page({
               <Card
                 as="a"
                 href="/slack"
+                target="_blank"
+                rel="noopener"
                 variant="interactive"
                 sx={{
                   background:
@@ -712,6 +984,8 @@ function Page({
                 as="a"
                 href="/clubs"
                 variant="interactive"
+                target="_blank"
+                rel="noopener"
               >
                 <Stage
                   icon="clubs"
@@ -739,6 +1013,8 @@ function Page({
                 as="a"
                 href="https://github.com/hackclub"
                 variant="interactive"
+                target="_blank"
+                rel="noopener"
               >
                 <Stage
                   icon="github"
@@ -766,6 +1042,8 @@ function Page({
                 as="a"
                 href="/hackathons"
                 variant="interactive"
+                target="_blank"
+                rel="noopener"
               >
                 <Stage
                   icon="event-code"
@@ -830,7 +1108,7 @@ export async function getStaticProps() {
 
   let raised = initialBankData.raised / 100
 
-  console.log(raised)
+  // console.log(raised)
 
   bankData.push(
     `💰 ${raised.toLocaleString('en-US', {
@@ -843,7 +1121,7 @@ export async function getStaticProps() {
     'https://api.github.com/orgs/hackclub/events'
   ).then(r => r.json())
 
-  console.log(initialBankData)
+  // console.log(initialBankData)
 
   // if(initialGitHubData != null) {
   // let initialGitHubData1 = initialGitHubData.map(x =>
@@ -870,7 +1148,7 @@ export async function getStaticProps() {
         ? x.actor.login
         : x.type == 'PullRequestEvent'
         ? x.actor.login
-        : x.type == 'CreateEvent'
+        : x.type == 'WatchEvent'
         ? x.actor.login
         : null,
     userImage:
@@ -878,7 +1156,7 @@ export async function getStaticProps() {
         ? x.actor.avatar_url
         : x.type == 'PullRequestEvent'
         ? x.actor.avatar_url
-        : x.type == 'CreateEvent'
+        : x.type == 'WatchEvent'
         ? x.actor.avatar_url
         : null,
     message:
@@ -886,16 +1164,22 @@ export async function getStaticProps() {
         ? x.payload.commits[0].message
         : x.type == 'PullRequestEvent'
         ? x.payload.pull_request.title
-        : x.type == 'PullRequestEvent'
-        ? x.payload.ref_type == 'branch'
-          ? 'Created a branch'
-          : null
+        : x.type == 'WatchEvent'
+        ? `starred ${x.repo.name}`
         : null,
     time: x.created_at
   }))
 
+  gitHubData = gitHubData.filter(
+    x =>
+      x.type == 'PushEvent' ||
+      x.type == 'PullRequestEvent' ||
+      x.type == 'WatchEvent'
+  )
+
+  let gitHubDataLength = gitHubData.length
+
   console.log(gitHubData)
-  console.log('hi')
   // let initialGithubData3 = initialGitHubData.map(x =>
   //   (x.type == 'PushEvent' &&
   //     x.actor.login != 'github-actions[bot]' &&
@@ -957,6 +1241,8 @@ export async function getStaticProps() {
   //   }
   // ).then(r => r.json())
 
+  // console.log(slackData)
+
   const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming')
   const hackathonsData = await res.json()
   let games = []
@@ -987,6 +1273,7 @@ export async function getStaticProps() {
       game,
       gameTitle,
       gitHubData,
+      gitHubDataLength,
       // githubData2,
       hackathonsData,
       bankData,

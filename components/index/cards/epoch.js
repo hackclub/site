@@ -97,7 +97,7 @@ export default function Epoch() {
         sx={theme => ({
           color: '#FF4794',
           position: 'relative',
-          width: '120%',
+          width: '135%',
           height: '85%',
           py: 4,
           borderRadius: '5px',
@@ -192,7 +192,12 @@ export default function Epoch() {
             >
               Sign up and attend EPOCH
             </Buttons>
-            <Buttons content="join #epoch-bts on Slack" id="18" link="/slack" icon="idea">
+            <Buttons
+              content="join #epoch-bts on Slack"
+              id="18"
+              link="/slack"
+              icon="idea"
+            >
               Plan the hackathon
             </Buttons>
           </Flex>
@@ -200,6 +205,8 @@ export default function Epoch() {
             variant="primary"
             as="a"
             href="https://epoch.hackclub.com/"
+            target="_blank"
+            rel="noopener"
             sx={{ background: '#FF4794', color: 'white', mt: 3 }}
           >
             Sign up for Epoch

@@ -13,7 +13,7 @@ import {
   Text
 } from 'theme-ui'
 import Buttons from './button'
-import ScrollingHackathons from '../hackathons/scrolling-hackathons'
+import ScrollingHackathons from '../../hackathons/scrolling-hackathons'
 
 /** @jsxImportSource theme-ui */
 
@@ -62,10 +62,12 @@ export default function Hackathons({ data, stars }) {
           </Flex>
           <Button
             variant="primary"
-            sx={{bg: 'blue'}}
+            sx={{ bg: 'blue' }}
             mt={3}
             as="a"
             href="https://editor.sprig.hackclub.com"
+            target="_blank"
+            rel="noopener"
           >
             Find a hackathon
           </Button>

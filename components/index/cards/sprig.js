@@ -145,7 +145,11 @@ function Game({ game, gameImage, gameImage1 }) {
               fontWeight: '300',
               fontSize: '1.1rem',
               color: 'rgb(151, 166, 187)',
-              padding: 0
+              padding: 0,
+              textOverflow: 'ellipsis',
+              width: '100%',
+              overflow: 'hidden',
+              whiteSpace: 'nowrap',
             }}
           >
             by {game.author}
@@ -156,12 +160,7 @@ function Game({ game, gameImage, gameImage1 }) {
   )
 }
 
-export default function Sprig({
-  stars,
-  game,
-  gameImage,
-  gameImage1
-}) {
+export default function Sprig({ stars, game, gameImage, gameImage1 }) {
   return (
     <CardModel
       github_link="https://github.com/hackclub/sprig/"
@@ -216,7 +215,7 @@ export default function Sprig({
             </Buttons>
           </Flex>
           <Button
-          as="a"
+            as="a"
             variant="primary"
             sx={{
               backgroundColor: '#FFDE4D',
@@ -224,13 +223,24 @@ export default function Sprig({
               mt: 3
             }}
             href="https://editor.sprig.hackclub.com"
+            target="_blank"
+            rel="noopener"
           >
             Make a game
           </Button>
         </Box>
         <Box>
-          <Text sx={{fontStyle: 'italic', fontSize: [1, '14px', '16px']}}>New from <Link href="https://sprig.hackclub.com/gallery" sx={{textDecoration: 'none', color: 'inherit'}}>the gallery</Link>...</Text>
-          <Flex sx={{height: '80%', gap: '20px', mt: 3, width: '90%'}}>
+          <Text sx={{ fontStyle: 'italic', fontSize: [1, '14px', '16px'] }}>
+            New from{' '}
+            <Link
+              href="https://sprig.hackclub.com/gallery"
+              sx={{ textDecoration: 'none', color: 'inherit' }}
+            >
+              the gallery
+            </Link>
+            ...
+          </Text>
+          <Flex sx={{ height: '80%', gap: '20px', mt: 3, width: '90%' }}>
             <Game game={game[0]} gameImage={gameImage} />
             <Game game={game[1]} gameImage1={gameImage1} />
           </Flex>
