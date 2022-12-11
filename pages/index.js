@@ -518,6 +518,7 @@ function Page({
                   href="#community"
                   data-effect="solid"
                   data-tip="learn more about our online community"
+                  data-delay-show="236"
                 >
                   <Text as="span" color="purple">
                     1
@@ -581,6 +582,7 @@ function Page({
                   href="#irl"
                   data-effect="solid"
                   data-tip="check out clubs and hackathons at Hack Club"
+                  data-delay-show="236"
                 >
                   <Text as="span" color="cyan">
                     2
@@ -654,6 +656,7 @@ function Page({
                   href="#tools"
                   data-tip="click to projects we're currently working on"
                   data-effect="solid"
+                  data-delay-show="236"
                 >
                   <Text as="span" color="orange">
                     3
