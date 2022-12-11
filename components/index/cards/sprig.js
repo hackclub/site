@@ -14,6 +14,7 @@ import {
 } from 'theme-ui'
 import Buttons from './button'
 import styled from '@emotion/styled'
+import RelativeTime from 'react-relative-time'
 
 /** @jsxImportSource theme-ui */
 
@@ -134,7 +135,9 @@ function Game({ game, gameImage, gameImage1 }) {
               whiteSpace: 'nowrap',
               margin: '0.8rem 0 0.8rem 0',
               fontSize: '1.4rem',
-              fontWeight: '400'
+              fontWeight: '400',
+              mt: 1,
+              mb: 0,
             }}
           >
             {game.title}
@@ -150,9 +153,24 @@ function Game({ game, gameImage, gameImage1 }) {
               width: '100%',
               overflow: 'hidden',
               whiteSpace: 'nowrap',
+              mt: 0,
+              lineHeight: '1rem'
             }}
           >
             by {game.author}
+          </Text>
+          <Text
+            as="span"
+            sx={{
+              fontWeight: '300',
+              fontSize: '0.8rem',
+              color: 'snow',
+              padding: 0,
+              my: 0,
+              opacity: 0.3
+            }}
+          >
+            <RelativeTime value={game.addedOn} titleFormat="YYYY-MM-DD" />
           </Text>
         </Box>
       </Box>

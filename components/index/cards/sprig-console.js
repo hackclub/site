@@ -13,10 +13,21 @@ import {
   Text
 } from 'theme-ui'
 import Buttons from './button'
-
+import useSWR from 'swr'
+import fetcher from '../../../lib/fetcher'
 /** @jsxImportSource theme-ui */
 
 export default function SprigConsole({ stars }) {
+
+  const { data: consoles } = useSWR(
+    'https://airbridge.hackclub.com/v0.1/Sprig%20Waitlist/Requests',
+    fetcher,
+    { refreshInterval: 1000 }
+  )
+
+  const consoleCount = consoles
+    ? consoles.filter(console => console.fields.Status === 'Pending').length
+    : 100 // arbitrary fallback number
   return (
     <Box sx={{ position: 'relative' }}>
       <CardModel
@@ -35,6 +46,7 @@ export default function SprigConsole({ stars }) {
           src="https://cloud-8u6hh0ho9-hack-club-bot.vercel.app/0sprig_console.svg"
           sx={{ width: ['250px', '450px', '500px'] }}
         />
+        <Text as="p" variant="subheadline" sx={{background: 'white', px: 2, py: 1, width: 'fit-content', borderRadius: 'extra', color: '#016535'}}>{450 - consoleCount} consoles left</Text>
         <Grid columns={[1, '1.2fr 1fr']}>
           <Box>
             <Text as="p" variant="subtitle">
