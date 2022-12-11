@@ -23,12 +23,12 @@ const Content = () => (
         variant="title"
         sx={{
           color: 'white',
-          fontSize: [5, 6, 7],
+          fontSize: [5, 6, 6],
           lineHeight: 'limit',
           mb: [2, 3]
         }}
       >
-        Hack Club Slack
+        Hack Club Slack For Teenagers
       </Heading>
     </Box>
     <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
