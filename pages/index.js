@@ -735,7 +735,7 @@ function Page({
               Hack Clubbers
             </Text>
             <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
-              Connect with other teenager coders from around the world
+              Connect with each other from around the world.
             </Text>
             <Text
               variant="subtitle"
