@@ -121,7 +121,7 @@ const Cover = () => (
   />
 )
 
-export default function Slack({ slackNum, slackKey }) {
+export default function Slack({ data, slackKey }) {
   const hasMounted = useHasMounted()
   const prefersMotion = usePrefersMotion()
 
@@ -130,7 +130,7 @@ export default function Slack({ slackNum, slackKey }) {
       color="white"
       sx={{
         position: 'relative',
-        overflow: 'hidden',
+        overflow: 'hidden'
       }}
     >
       <Box
@@ -168,9 +168,26 @@ export default function Slack({ slackNum, slackKey }) {
       </Box>
       <Cover />
       <Grid sx={{ zIndex: 2 }}>
-      <Box sx={{background: 'rgb(0,0,0,0.3)', height: '100%', position: 'absolute', zIndex: 3, width: '210px', right: 0, top: 0, p: 3}}>
-        <Text variant="eyebrow" as="p" sx={{color: 'white'}}><Dot />Live from Slack</Text>
-      </Box>
+        <Box
+          sx={{
+            background: 'rgb(0,0,0,0.3)',
+            height: '100%',
+            position: 'absolute',
+            zIndex: 3,
+            width: '210px',
+            right: 0,
+            top: 0,
+            p: 3
+          }}
+        >
+          <Text variant="eyebrow" as="p" sx={{ color: 'white' }}>
+            <Dot />
+            Live from Slack
+          </Text>
+          <Box sx={{py: 2}}>Total members: {data.total_members_count}</Box>
+          <Box sx={{py: 2}}>Daily messages: {data.messages_count_1d}</Box>
+          <Box sx={{py: 2}}>Online right now: {data.readers_count_1d}</Box>
+        </Box>
       </Grid>
       <Grid sx={{ zIndex: 2 }}>
         <Text variant="title" sx={{ fontSize: [3, 4, 5], zIndex: 2 }}>
@@ -187,7 +204,9 @@ export default function Slack({ slackNum, slackKey }) {
             Coding doesn't have to be a solidary activity. At Hack Club, it's a
             team sport and in our Slack (similar to Discord, but better), you'll
             find a group of{' '}
-            <Box sx={{ display: 'inline', fontWeight: '700' }}>{slackNum} </Box>
+            <Box sx={{ display: 'inline', fontWeight: '700' }}>
+              {data.total_members_count}{' '}
+            </Box>
             {/* <Box
               as="div"
               sx={{
