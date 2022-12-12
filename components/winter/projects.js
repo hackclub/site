@@ -247,8 +247,10 @@ export default function Projects() {
                     alt="click me"
                     sx={{
                       position: 'absolute',
-                      top: -3,
-                      right: '-40px',
+                      top: [null, -3, -3],
+                      bottom: [-3, null, null],
+                      right: [0, '-40px', '-40px'],
+                      transform: 'rotate(-12deg)'
                     }}
                   />
                 </Text>
