@@ -62,7 +62,7 @@ export default function GitHub({
             {user != null ? (
               user != 'dependabot[bot]' ? (
                 user != 'github-actions[bot]' ? (
-                  <img src={img} sx={{ borderRadius: '100%', height: '90%' }} />
+                  <img src={img} sx={{ borderRadius: '100%', height: '90%', mr: 2 }} />
                 ) : (
                   <></>
                 )
