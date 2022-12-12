@@ -1120,13 +1120,17 @@ export async function getStaticProps() {
     })} raised`
   )
 
-  let gitHubData = await fetch(
-    'https://site-git-v4.hackclub.dev/api/github'
-  ).then(r => r.json())
+  let gitHubData = [{"type":"PullRequestEvent","user":"dependabot[bot]","userImage":"https://avatars.githubusercontent.com/u/49699333?","message":"Bump express from 4.17.1 to 4.17.3","time":"2022-12-12T13:27:03Z"},{"type":"WatchEvent","user":"brenopolanski","userImage":"https://avatars.githubusercontent.com/u/1894191?","message":"starred hackclub/site","time":"2022-12-12T12:52:02Z"},{"type":"PullRequestEvent","user":"dependabot[bot]","userImage":"https://avatars.githubusercontent.com/u/49699333?","message":"Bump @slack/bolt from 3.12.1 to 3.12.2","time":"2022-12-12T08:05:34Z"},{"type":"WatchEvent","user":"sozonome","userImage":"https://avatars.githubusercontent.com/u/17046154?","message":"starred hackclub/site","time":"2022-12-12T06:54:00Z"},{"type":"PullRequestEvent","user":"dependabot[bot]","userImage":"https://avatars.githubusercontent.com/u/49699333?","message":"Bump axios from 1.2.0 to 1.2.1","time":"2022-12-12T06:01:02Z"},{"type":"PushEvent","user":"aileencrivera","userImage":"https://avatars.githubusercontent.com/u/105252146?","message":"sinusoidal desert biome background upload","time":"2022-12-11T22:36:40Z"},{"type":"PullRequestEvent","user":"NGada930","userImage":"https://avatars.githubusercontent.com/u/120214135?","message":"Fox Treasure Escape","time":"2022-12-11T21:19:41Z"},{"type":"WatchEvent","user":"Aaronjwork","userImage":"https://avatars.githubusercontent.com/u/80801745?","message":"starred hackclub/sprig","time":"2022-12-11T21:07:03Z"},{"type":"PushEvent","user":"LucasHT22","userImage":"https://avatars.githubusercontent.com/u/88567622?","message":"add #625","time":"2022-12-11T20:44:21Z"},{"type":"PullRequestEvent","user":"LucasHT22","userImage":"https://avatars.githubusercontent.com/u/88567622?","message":"Add randomworld","time":"2022-12-11T20:42:01Z"},{"type":"PushEvent","user":"LucasHT22","userImage":"https://avatars.githubusercontent.com/u/88567622?","message":"Add Randomworld","time":"2022-12-11T20:42:01Z"},{"type":"PushEvent","user":"bellesea","userImage":"https://avatars.githubusercontent.com/u/65808924?","message":"some data","time":"2022-12-11T20:19:20Z"},{"type":"PullRequestEvent","user":"WojtekWidomski","userImage":"https://avatars.githubusercontent.com/u/98206524?","message":"Add randomworld","time":"2022-12-11T19:49:18Z"},{"type":"PullRequestEvent","user":"brunoblaise","userImage":"https://avatars.githubusercontent.com/u/25270994?","message":"Added specification that Slack is for teens only","time":"2022-12-11T15:14:00Z"}]
+
+  // let gitHubData = await fetch(
+  //   'https://site-git-v4.hackclub.dev/api/github'
+  // ).then(r => r.json())
 
   let gitHubDataLength = gitHubData.length
 
-  let game = await fetch('https://site-git-v4.hackclub.dev/api/games').then(r => r.json())
+  let game = [{"filename":"randomworld","title":"randomworld","author":"Wojtek Widomski","img":"randomworld","tags":["puzzle"],"addedOn":"2022-12-11"},{"filename":"Maze_Runner","title":"Maze_Runner","author":"Alan Alwakeel, Samuel Sapatla, Suhaan Palakamshetty, Martin Beythoon","img":"","tags":["puzzle"],"addedOn":"2022-12-10"}]
+
+  // let game = await fetch('https://site-git-v4.hackclub.dev/api/games').then(r => r.json())
   console.log(game)
 
   let gameTitle = []
