@@ -34,6 +34,10 @@ export function Winter() {
     fetcher,
     { refreshInterval: 1000 }
   )
+
+  const rsvpCount = rsvps
+    ? rsvps.filter(rsvp => rsvp.fields.Status === 'rsvp').length
+    : 100 // arbitrary fallback number
   return (
     <>
       <Box as="main" sx={{ bg: 'blue' }}>
@@ -41,12 +45,13 @@ export function Winter() {
           as={Head}
           title="Winter Hardware Wonderland"
           description="Join the Hack Club community for a winter of hardware hacking, and get a $250 grant to build your project."
-          image="/winter/og-image.png" // TODO: add og image
+          image="/winter/og-image.png"
         />
         <Nav light />
         <Snowfall />
         <ForceTheme theme="light" />
-        <Landing rsvpCount={500 - rsvps?.length} />
+        {/* filter out rsvps that are "invalid" */}
+        <Landing rsvpCount={500 - rsvpCount} />
         <Breakdown />
         <Projects />
         <InfoGrid />
@@ -105,7 +110,17 @@ export function Winter() {
         {/* Timeline */}
 
         <Recap />
-        <Container sx={{ margin: 'auto', fontStyle: 'italic', color: 'snow', mb: 3, textAlign: 'left'}}>Illustrations by Ripley</Container>
+        <Container
+          sx={{
+            margin: 'auto',
+            fontStyle: 'italic',
+            color: 'snow',
+            mb: 3,
+            textAlign: 'left'
+          }}
+        >
+          Illustrations by Ripley
+        </Container>
         {/* <Signup /> */}
         <Footer />
       </Box>

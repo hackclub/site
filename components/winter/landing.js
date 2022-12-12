@@ -9,6 +9,35 @@ import Rsvp from './rsvp'
 import ScrollHint from '../scroll-hint'
 import useSWR from 'swr'
 import fetcher from '../../lib/fetcher'
+import { keyframes } from '@emotion/react'
+
+const flashing = keyframes({
+  from: { opacity: 0 },
+  '50%': { opacity: 1 },
+  to: { opacity: 0 }
+})
+
+function Dot() {
+  return (
+    <Text
+      sx={{
+        bg: 'green',
+        color: 'white',
+        borderRadius: 'circle',
+        display: 'inline-block',
+        lineHeight: 0,
+        width: '.4em',
+        height: '.4em',
+        marginRight: '.4em',
+        marginBottom: '.12em',
+        animationName: `${flashing}`,
+        animationDuration: '3s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite'
+      }}
+    />
+  )
+}
 
 export default function Landing({ rsvpCount }) {
   // useEffect(() => {
@@ -59,8 +88,8 @@ export default function Landing({ rsvpCount }) {
           backgroundPosition: 'bottom center',
           backgroundSize: ['200%', '150%', '100%'],
           backgroundRepeat: 'no-repeat',
-          width: '100vw',
           height: '85vh',
+          minHeight: [null, '750px'],
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -69,7 +98,7 @@ export default function Landing({ rsvpCount }) {
         }}
       >
         <Snowfall />
-        <Box>
+        <Container>
           <Box
             sx={{
               backdropFilter: 'blur(1.5px)',
@@ -84,7 +113,8 @@ export default function Landing({ rsvpCount }) {
                   // fontSize: ['18px', '20px', '24px']
                 }}
               >
-                <Text sx={{background: 'white', color: 'blue', px: 2, py: 1, borderRadius: 'default'}}>{rsvpCount}</Text> more RSVPs till the start of a hacker's
+                <Dot />
+                {rsvpCount} more RSVPs till the start of a hacker's
               </Heading>
             </Fade>
             <Fade left cascade>
@@ -118,7 +148,7 @@ export default function Landing({ rsvpCount }) {
             <Rsvp />
           </Box>
           {/* <ScrollHint sx={{mt: 3}} /> */}
-        </Box>
+        </Container>
       </Box>
     </Box>
   )
