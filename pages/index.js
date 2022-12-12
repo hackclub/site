@@ -30,7 +30,6 @@ import SprigConsole from '../components/index/cards/sprig-console'
 import Clubs from '../components/index/cards/clubs'
 import Workshops from '../components/index/cards/workshops'
 import Bank from '../components/index/cards/bank'
-import FormData from 'form-data'
 import Epoch from '../components/index/cards/epoch'
 import Hackathons from '../components/index/cards/hackathons'
 import Flip from 'react-reveal/Flip'
@@ -96,7 +95,7 @@ function Page({
   useEffect(() => {
     function hehe() {
       setKey(Math.random())
-      setGithub(Math.floor(Math.random() * (gitHubDataLength)))
+      setGithub(Math.floor(Math.random() * gitHubDataLength))
       console.log(gitHubData[github])
     }
     setInterval(hehe, 30000)
@@ -142,24 +141,10 @@ function Page({
   //     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
   //   }
   // })
+  useEffect(() => {
+    window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
+  }, [])
 
-  // useEffect(() => {
-  //   setKey(Math.random())
-  //   setKey1(Math.random())
-  // }, slackData)
-
-  // useEffect(() => {
-  //   //     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
-  //   setInterval(() => {
-  //     setKey(Math.random())
-  //     // setGithub(Math.floor(Math.random()) * dataPieces.length)
-  //     // console.log(Math.floor(Math.random()) * githubData2.length)
-  //     console.log(Math.floor(Math.random() * dataPieces.length + 1))
-  //   }, 8000)
-  // }, [])
-
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
   let imgURL = undefined
 
   const decode = ({ data, width }) => {
@@ -180,7 +165,6 @@ function Page({
       const res = await fetch(
         `https://editor.sprig.hackclub.com/api/thumbnail/${title}`
       )
-      // console.log(title)
       const json = await res.json()
 
       if (json.image.kind === 'png') {
@@ -208,9 +192,6 @@ function Page({
   }
 
   const { data, error } = useSWR('/api/profile-data', fetcher)
-
-  // }
-  // })
 
   const easterEgg = () => {
     alert('Hey, you typed the Konami Code!')
@@ -282,7 +263,6 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5))"
           />
-          {/* <SlideDown duration={768}> */}
           <Box
             sx={{
               maxWidth: [null, 'layout'],
@@ -295,11 +275,9 @@ function Page({
               type={gitHubData[github].type}
               img={gitHubData[github].userImage}
               user={gitHubData[github].user}
-              //  text={gitHubData[github].message}
               time={gitHubData[github].time}
               message={gitHubData[github].message}
               key={key}
-              // text="✅ New commit in hackclub/hackclub by @bellesea"
             />
             <Fade>
               <Text variant="eyebrow" sx={{ color: 'sunken' }}>
@@ -498,7 +476,7 @@ function Page({
                 <Grid
                   columns="auto 1fr"
                   sx={{
-                    transitionDuration: '0.39s',
+                    transitionDuration: '0.52s',
                     py: 2,
                     px: 2,
                     color: 'inherit',
@@ -515,7 +493,7 @@ function Page({
                     }
                   }}
                   as="a"
-                  href="#community"
+                  href="/slack"
                   data-effect="solid"
                   data-tip="learn more about our online community"
                   data-delay-show="142"
@@ -562,7 +540,7 @@ function Page({
                 <Grid
                   columns="auto 1fr"
                   sx={{
-                    transitionDuration: '0.39s',
+                    transitionDuration: '0.52s',
                     py: 2,
                     px: 2,
                     color: 'inherit',
@@ -636,7 +614,7 @@ function Page({
                 <Grid
                   columns="auto 1fr"
                   sx={{
-                    transitionDuration: '0.39s',
+                    transitionDuration: '0.52s',
                     py: 2,
                     px: 2,
                     color: 'inherit',
@@ -709,7 +687,7 @@ function Page({
               maxWidth: 'layout',
               margin: 'auto'
             }}
-            // pb={4}
+            pb={4}
           >
             {/* <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3] }}>
               A Hack Clubber is someone that
@@ -732,79 +710,27 @@ function Page({
             <Text
               variant="eyebrow"
               as="p"
-              sx={{ fontSize: [1, 2, 3], mt: 4 }}
+              sx={{ fontSize: [1, 2, 3], mt: 2 }}
               id="community"
             >
               Hack Clubbers
             </Text>
             <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
-              Connect with each other from around the world.
+              Connect with each other from around the world
             </Text>
             <Text
               variant="subtitle"
               as="p"
               sx={{ fontSize: [1, '16px', '20px'] }}
             >
-              Here, we don't wait for permission to code. Hack Clubbers come
-              together to code because it's fun. Whether you’re a beginner
-              programmer or have years of experience, there’s a place for you at
-              Hack Club.
+              We gather both online and in-person to share our love of code and
+              make things together!
             </Text>
-            <Grid columns={[1, 1]}>
-              {/* <Box
-                pt={4}
-                pb={5}
-                sx={{
-                  position: 'relative',
-                  margin: 'auto'
-                }}
-              > */}
-              {/* <Button
-                    as="a"
-                    variant="ctaLg"
-                    sx={{
-                      background:
-                        'linear-gradient(-132deg, #338eda 14%, #33d6a6 82%)'
-                    }}
-                    my={3}
-                  >
-                    Join us →
-                  </Button> */}
-              <Slack slackKey={slackKey} slackNum={slackNum} />
+            <Box>
               <Epoch delay={300} />
+              <Slack slackKey={slackKey} slackNum={slackNum} />
               {/* <MailingList /> */}
-              {/* </Box> */}
-              {/* <Box
-                sx={{
-                  position: 'relative',
-                  width: '100%',
-                  pb: '56.25%',
-                  margin: 'auto',
-                  borderRadius: '10px',
-                  overflow: 'none'
-                }}
-              >
-                <Box
-                  as="iframe"
-                  muted
-                  duration={2000}
-                  sx={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    zIndex: 1,
-                    width: '100%',
-                    height: '100%'
-                  }}
-                  src="https://www.youtube.com/embed/-sxRdKtKNa0"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></Box>
-              </Box> */}
-            </Grid>
-            <Events events={events} />
+            </Box>
             {/* <Inspect /> */}
           </Box>
           <Box
@@ -868,7 +794,7 @@ function Page({
                 Hack Clubbers
               </Text>
               <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
-                Gather IRL to create together
+                Create spaces to have fun with code
                 {/* <Text
                   as="span"
                   sx={{
@@ -898,6 +824,7 @@ function Page({
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
+              <Events events={events} />
               <Bank data={bankData} delay={100} />
             </Box>
           </Box>
@@ -1120,17 +1047,15 @@ export async function getStaticProps() {
     })} raised`
   )
 
-  let gitHubData = [{"type":"PullRequestEvent","user":"dependabot[bot]","userImage":"https://avatars.githubusercontent.com/u/49699333?","message":"Bump express from 4.17.1 to 4.17.3","time":"2022-12-12T13:27:03Z"},{"type":"WatchEvent","user":"brenopolanski","userImage":"https://avatars.githubusercontent.com/u/1894191?","message":"starred hackclub/site","time":"2022-12-12T12:52:02Z"},{"type":"PullRequestEvent","user":"dependabot[bot]","userImage":"https://avatars.githubusercontent.com/u/49699333?","message":"Bump @slack/bolt from 3.12.1 to 3.12.2","time":"2022-12-12T08:05:34Z"},{"type":"WatchEvent","user":"sozonome","userImage":"https://avatars.githubusercontent.com/u/17046154?","message":"starred hackclub/site","time":"2022-12-12T06:54:00Z"},{"type":"PullRequestEvent","user":"dependabot[bot]","userImage":"https://avatars.githubusercontent.com/u/49699333?","message":"Bump axios from 1.2.0 to 1.2.1","time":"2022-12-12T06:01:02Z"},{"type":"PushEvent","user":"aileencrivera","userImage":"https://avatars.githubusercontent.com/u/105252146?","message":"sinusoidal desert biome background upload","time":"2022-12-11T22:36:40Z"},{"type":"PullRequestEvent","user":"NGada930","userImage":"https://avatars.githubusercontent.com/u/120214135?","message":"Fox Treasure Escape","time":"2022-12-11T21:19:41Z"},{"type":"WatchEvent","user":"Aaronjwork","userImage":"https://avatars.githubusercontent.com/u/80801745?","message":"starred hackclub/sprig","time":"2022-12-11T21:07:03Z"},{"type":"PushEvent","user":"LucasHT22","userImage":"https://avatars.githubusercontent.com/u/88567622?","message":"add #625","time":"2022-12-11T20:44:21Z"},{"type":"PullRequestEvent","user":"LucasHT22","userImage":"https://avatars.githubusercontent.com/u/88567622?","message":"Add randomworld","time":"2022-12-11T20:42:01Z"},{"type":"PushEvent","user":"LucasHT22","userImage":"https://avatars.githubusercontent.com/u/88567622?","message":"Add Randomworld","time":"2022-12-11T20:42:01Z"},{"type":"PushEvent","user":"bellesea","userImage":"https://avatars.githubusercontent.com/u/65808924?","message":"some data","time":"2022-12-11T20:19:20Z"},{"type":"PullRequestEvent","user":"WojtekWidomski","userImage":"https://avatars.githubusercontent.com/u/98206524?","message":"Add randomworld","time":"2022-12-11T19:49:18Z"},{"type":"PullRequestEvent","user":"brunoblaise","userImage":"https://avatars.githubusercontent.com/u/25270994?","message":"Added specification that Slack is for teens only","time":"2022-12-11T15:14:00Z"}]
-
-  // let gitHubData = await fetch(
-  //   'https://site-git-v4.hackclub.dev/api/github'
-  // ).then(r => r.json())
+  let gitHubData = await fetch(
+    'https://site-git-v4.hackclub.dev/api/github'
+  ).then(r => r.json())
 
   let gitHubDataLength = gitHubData.length
 
-  let game = [{"filename":"randomworld","title":"randomworld","author":"Wojtek Widomski","img":"randomworld","tags":["puzzle"],"addedOn":"2022-12-11"},{"filename":"Maze_Runner","title":"Maze_Runner","author":"Alan Alwakeel, Samuel Sapatla, Suhaan Palakamshetty, Martin Beythoon","img":"","tags":["puzzle"],"addedOn":"2022-12-10"}]
-
-  // let game = await fetch('https://site-git-v4.hackclub.dev/api/games').then(r => r.json())
+  let game = await fetch('https://site-git-v4.hackclub.dev/api/games').then(r =>
+    r.json()
+  )
   console.log(game)
 
   let gameTitle = []
@@ -1139,7 +1064,6 @@ export async function getStaticProps() {
 
   const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming')
   const hackathonsData = await res.json()
-
 
   let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
     res => res.json()

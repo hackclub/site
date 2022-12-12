@@ -97,7 +97,7 @@ export default function Epoch() {
         sx={theme => ({
           color: '#FF4794',
           position: 'relative',
-          width: '135%',
+          width: '115%',
           height: '85%',
           py: 4,
           borderRadius: '5px',
@@ -147,20 +147,16 @@ export default function Epoch() {
         src="https://cloud-ox8syzbet-hack-club-bot.vercel.app/0ep0ch.svg"
         sx={{ width: ['150px', '180px', '220px'] }}
       />
-      <Grid columns={[1, 2, 2]} mt={3}>
+      <Grid columns={[1, '0.8fr 1fr', '0.8fr 1fr']} mt={3}>
         <Box>
           {timer.length ? (
             <Grid
               key="{e}"
-              gap={[1, 2, 4]}
+              gap={[1, 2, '25px']}
               columns={[
-                '1fr 1fr 1fr 1fr',
-                '1fr 1fr 1fr 1fr',
-                '1fr 1fr 1fr 1fr 1fr'
+                '1fr 1fr 1fr 1fr'
               ]}
-              sx={{
-                width: ['100%', '100%']
-              }}
+              sx={{mr: 2}}
             >
               {timer}
             </Grid>
@@ -168,9 +164,12 @@ export default function Epoch() {
             <></>
           )}
         </Box>
-        <Box mt="-70px">
+        <Box mt="-100px" ml={3}>
           <Text as="p" variant="subtitle">
-            Celebrate the New Year with 42 hours of hacking in Delhi, India
+            Join us this winter as 150+ teenage hackers from all around the world
+            travel to Delhi, India for Epoch — Hack Club’s first hackathon
+            outside the US! We’ll build the unexpected, share what we’ve learnt
+            in 2022, and experience the thrill of being in-person together.
           </Text>
           <Text
             as="p"
