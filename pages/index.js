@@ -93,14 +93,14 @@ function Page({
 
   // console.log(gitHubDataLength)
 
-  // useEffect(() => {
-  //   function hehe() {
-  //     setKey(Math.random())
-  //     setGithub(Math.floor(Math.random() * (gitHubDataLength)))
-  //     console.log(gitHubData[github])
-  //   }
-  //   setInterval(hehe, 6000)
-  // }, [])
+  useEffect(() => {
+    function hehe() {
+      setKey(Math.random())
+      setGithub(Math.floor(Math.random() * (gitHubDataLength)))
+      console.log(gitHubData[github])
+    }
+    setInterval(hehe, 30000)
+  }, [])
 
   const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
@@ -518,7 +518,7 @@ function Page({
                   href="#community"
                   data-effect="solid"
                   data-tip="learn more about our online community"
-                  data-delay-show="236"
+                  data-delay-show="142"
                 >
                   <Text as="span" color="purple">
                     1
@@ -582,7 +582,7 @@ function Page({
                   href="#irl"
                   data-effect="solid"
                   data-tip="check out clubs and hackathons at Hack Club"
-                  data-delay-show="236"
+                  data-delay-show="142"
                 >
                   <Text as="span" color="cyan">
                     2
@@ -656,7 +656,7 @@ function Page({
                   href="#tools"
                   data-tip="click to projects we're currently working on"
                   data-effect="solid"
-                  data-delay-show="236"
+                  data-delay-show="142"
                 >
                   <Text as="span" color="orange">
                     3
@@ -1120,147 +1120,22 @@ export async function getStaticProps() {
     })} raised`
   )
 
-  let initialGitHubData = await fetch(
-    'https://api.github.com/orgs/hackclub/events'
+  let gitHubData = await fetch(
+    'https://site-git-v4.hackclub.dev/api/github'
   ).then(r => r.json())
-
-  // console.log(initialBankData)
-
-  // if(initialGitHubData != null) {
-  // let initialGitHubData1 = initialGitHubData.map(x =>
-  //   (x.type == 'PushEvent' &&
-  //     x.actor.login != 'github-actions[bot]' &&
-  //     x.actor.login != 'dependabot[bot]') ||
-  //   x.type == 'WatchEvent' ||
-  //   x.type == 'PullRequestEvent'
-  //     ? x.type == 'PushEvent'
-  //       ? `✅ New commit in ${x.repo.name} by @${x.actor.login}`
-  //       : x.type == 'WatchEvent'
-  //       ? `⭐️ New star on ${x.repo.name}`
-  //       : x.type == 'PullRequestEvent'
-  //       ? `🔀 New PR for ${x.repo.name} by @${x.actor.login}`
-  //       : `🎉 New activity in ${x.repo.name}`
-  //     : null
-  // )
-  // }
-
-  let gitHubData = initialGitHubData.map(x => ({
-    type: x.type,
-    user:
-      x.type == 'PushEvent'
-        ? x.actor.login
-        : x.type == 'PullRequestEvent'
-        ? x.actor.login
-        : x.type == 'WatchEvent'
-        ? x.actor.login
-        : null,
-    userImage:
-      x.type == 'PushEvent'
-        ? x.actor.avatar_url
-        : x.type == 'PullRequestEvent'
-        ? x.actor.avatar_url
-        : x.type == 'WatchEvent'
-        ? x.actor.avatar_url
-        : null,
-    message:
-      x.type == 'PushEvent'
-        ? x.payload.commits[0].message
-        : x.type == 'PullRequestEvent'
-        ? x.payload.pull_request.title
-        : x.type == 'WatchEvent'
-        ? `starred ${x.repo.name}`
-        : null,
-    time: x.created_at
-  }))
-
-  gitHubData = gitHubData.filter(
-    x =>
-      x.type == 'PushEvent' ||
-      x.type == 'PullRequestEvent' ||
-      x.type == 'WatchEvent'
-  )
 
   let gitHubDataLength = gitHubData.length
 
-  console.log(gitHubData)
-  // let initialGithubData3 = initialGitHubData.map(x =>
-  //   (x.type == 'PushEvent' &&
-  //     x.actor.login != 'github-actions[bot]' &&
-  //     x.actor.login != 'dependabot[bot]') ||
-  //   x.type == 'WatchEvent' ||
-  //   x.type == 'PullRequestEvent'
-  //     ? x.type == 'PushEvent'
-  //       ? x.actor.login
-  //       : x.type == 'WatchEvent'
-  //       ? x.created_at
-  //       : x.type == 'PullRequestEvent'
-  //       ? x.actor.login
-  //       : x.created_at
-  //     : null
-  // )
-
-  // let initialGithubData2 = initialGitHubData.map(x =>
-  //   (x.type == 'PushEvent' &&
-  //     x.actor.login != 'github-actions[bot]' &&
-  //     x.actor.login != 'dependabot[bot]') ||
-  //   x.type == 'WatchEvent' ||
-  //   x.type == 'PullRequestEvent'
-  //     ? x.type == 'PushEvent'
-  //       ? x.created_at
-  //       : x.type == 'WatchEvent'
-  //       ? x.created_at
-  //       : x.type == 'PullRequestEvent'
-  //       ? x.created_at
-  //       : x.created_at
-  //     : null
-  // )
-  // console.log([...new Set(gitHubData)])
-  // dataPieces = [
-  //   ...dataPieces,
-  //   ...new Set(
-  //     initialGitHubData1.filter(function (el) {
-  //       return el != null
-  //     })
-  //   )
-  // ]
-
-  // let githubData2 = initialGithubData2.filter(function (el) {
-  //   return el != null
-  // })
-
-  // const formData = new FormData()
-
-  // formData.append('token', process.env.SLACK_API_TOKEN)
-  // formData.append('date_range', '30d')
-
-  // const slackData = await fetch(
-  //   'https://hackclub.slack.com/api/team.stats.timeSeries',
-  //   {
-  //     method: 'POST',
-  //     body: formData,
-  //     headers: {
-  //       Cookie: process.env.SLACK_API_COOKIE
-  //     }
-  //   }
-  // ).then(r => r.json())
-
-  // console.log(slackData)
-
-  const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming')
-  const hackathonsData = await res.json()
-  let games = []
-  let tags = []
-
-  games = await fetch('https://editor.sprig.hackclub.com/metadata.json').then(
-    res => res.json()
-  )
-  let game = games
-    .sort((a, b) => new Date(b.addedOn) - new Date(a.addedOn))
-    .slice(0, 2)
+  let game = await fetch('https://site-git-v4.hackclub.dev/api/games').then(r => r.json())
+  console.log(game)
 
   let gameTitle = []
 
   gameTitle = game.map(r => r.title)
+
+  const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming')
+  const hackathonsData = await res.json()
+
 
   let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
     res => res.json()
