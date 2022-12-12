@@ -79,7 +79,7 @@ export default function Carousel() {
                   titleColor="#FF4794"
                   descriptionColor="white"
                   title="EPOCH"
-                  description="The most epic high school hackathon this new years!."
+                  description="The most epic high school hackathon this new years!"
                   img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f386@2x.png"
                   link="https://epoch.hackclub.com"
                 />
@@ -115,7 +115,7 @@ export default function Carousel() {
                   titleColor="yellow"
                   textColor="white"
                   title="High school Hackathons"
-                  description="🔍 A curated list of high school hackathons"
+                  description="🔍 A curated list of high school hackathons."
                   img="https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png"
                   link="/hackathons"
                 />
@@ -124,7 +124,7 @@ export default function Carousel() {
                   titleColor="dark"
                   descriptionColor="black"
                   title="Workshops"
-                  description="100+ short coding workshops to start building"
+                  description="100+ short coding workshops to start building :)"
                   img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f4bb@2x.png"
                   link="https://workshops.hackclub.com"
                 />

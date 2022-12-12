@@ -22,7 +22,7 @@ export default function SprigConsole({ stars }) {
   const { data: consoles } = useSWR(
     'https://airbridge.hackclub.com/v0.1/Sprig%20Waitlist/Requests',
     fetcher,
-    { refreshInterval: 1000 }
+    { refreshInterval: 10000 }
   )
 
   const consoleCount = consoles

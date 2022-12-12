@@ -20,6 +20,34 @@ import SlackEvents from '../../slack/slack-events'
 
 /** @jsxImportSource theme-ui */
 
+const flashing = keyframes({
+  from: { opacity: 0 },
+  '50%': { opacity: 1 },
+  to: { opacity: 0 }
+})
+
+function Dot() {
+  return (
+    <Text
+      sx={{
+        bg: 'green',
+        color: 'white',
+        borderRadius: 'circle',
+        display: 'inline-block',
+        lineHeight: 0,
+        width: '.4em',
+        height: '.4em',
+        marginRight: '.4em',
+        marginBottom: '.12em',
+        animationName: `${flashing}`,
+        animationDuration: '3s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite'
+      }}
+    />
+  )
+}
+
 // const Cover = () => (
 //   <Box
 //     sx={{
@@ -103,9 +131,6 @@ export default function Slack({ slackNum, slackKey }) {
       sx={{
         position: 'relative',
         overflow: 'hidden',
-        mb: '0 !important'
-        // backgroundImage: `url(https://cloud-nykwtt0z7.vercel.app/2020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png)`,
-        // backgroundSize: 'cover'
       }}
     >
       <Box
@@ -143,12 +168,17 @@ export default function Slack({ slackNum, slackKey }) {
       </Box>
       <Cover />
       <Grid sx={{ zIndex: 2 }}>
+      <Box sx={{background: 'rgb(0,0,0,0.3)', height: '100%', position: 'absolute', zIndex: 3, width: '210px', right: 0, top: 0, p: 3}}>
+        <Text variant="eyebrow" as="p" sx={{color: 'white'}}><Dot />Live from Slack</Text>
+      </Box>
+      </Grid>
+      <Grid sx={{ zIndex: 2 }}>
         <Text variant="title" sx={{ fontSize: [3, 4, 5], zIndex: 2 }}>
           Our online community
         </Text>
       </Grid>
       <Grid columns={[1, 1]} sx={{ zIndex: 2 }}>
-        <Box sx={{ zIndex: 2 }}>
+        <Box sx={{ zIndex: 2, width: 'calc(100% - 200px)' }}>
           <Text
             variant="subtitle"
             as="p"
