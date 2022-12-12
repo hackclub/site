@@ -63,12 +63,14 @@ export function Winter() {
                 textShadow: '0px 0px 21px #E1F1FF',
                 color: 'white',
                 fontSize: [3, 4, 5],
-                pb: 4,
                 maxWidth: '90%'
               }}
             >
               You've RSVPed, what's next?
             </Heading>
+            <Text as="p" sx={{ pb: 4, color: 'white', fontSize: [2, 3]}}>
+             Get a free DevKit (and gaming console 👀) by building a <Link href="https://sprig.hackclub.com" target="_blank" sx={{color: 'inherit'}}>JavaScript game</Link>. Or come hangout with us in #hardware-party on <Link target="_blank" href="/slack" sx={{color: 'inherit'}}>Slack</Link>.
+            </Text>
           </Zoom>
 
           <Flex
