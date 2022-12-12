@@ -47,27 +47,10 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import ReactTooltip from 'react-tooltip'
 
-// function SlackNum({slackData}) {
-//   let [key, setKey] = useState()
-//   useEffect(() => {
-//     return SlackNum =
-//        <Text sx={{ animation: `.4s ${rollout}` }} key={Math.random()}>
-//          {
-//            slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
-//              .total_members_count
-//          }
-//        </Text>
-//    }, slackData)
-
-//    return(
-//      <></>
-//    )
-// }
-
 function Page({
   hackathonsData,
   bankData,
-  // slackData,
+  slackData,
   gitHubData,
   gitHubDataLength,
   stars,
@@ -81,7 +64,7 @@ function Page({
   let [gameImage1, setGameImage1] = useState('')
   let [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
-  let [slackNum, setSlackNum] = useState(22594)
+  // let [slackNum, setSlackNum] = useState(22594)
   let [slack, setSlack] = useState(22594)
   let [github, setGithub] = useState(0)
   let [key1, setKey1] = useState(0)
@@ -109,20 +92,17 @@ function Page({
   //   setSlack(slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
   //   .total_members_count)
   // })
-  useEffect(() => {
-    // console.log("one", slack)
+  // useEffect(() => {
 
-    const add = setTimeout(() => {
-      setSlack(x => x + 1)
-      setSlackNum(slack)
-      console.log(slackNum)
-    }, Math.floor((Math.random() * (5 - 2) + 1) * 10000))
+  //   const add = setTimeout(() => {
+  //     setSlack(x => x + 1)
+  //     setSlackNum(slack)
+  //     console.log(slackNum)
+  //   }, Math.floor((Math.random() * (5 - 2) + 1) * 10000))
 
-    return () => clearTimeout(add)
+  //   return () => clearTimeout(add)
 
-    // setInterval(add, 2000)
-    // setSlackKey(Math.random())
-  }, [slack])
+  // }, [slack])
 
   // useEffect(() => {
   //   if (typeof window !== 'undefined') {
@@ -728,7 +708,7 @@ function Page({
             </Text>
             <Box>
               <Epoch delay={300} />
-              <Slack slackKey={slackKey} slackNum={slackNum} />
+              <Slack slackKey={slackKey} data={slackData} />
               {/* <MailingList /> */}
             </Box>
             {/* <Inspect /> */}
@@ -1038,7 +1018,8 @@ export async function getStaticProps() {
 
   let raised = initialBankData.raised / 100
 
-  // console.log(raised)
+  let slackData = await fetch('https://site-git-v4.hackclub.dev/api/slack').then(r => r.json())
+  console.log(slackData)
 
   bankData.push(
     `💰 ${raised.toLocaleString('en-US', {
@@ -1062,9 +1043,7 @@ export async function getStaticProps() {
 
   gameTitle = game.map(r => r.title)
 
-  const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming')
-  const hackathonsData = await res.json()
-
+  const hackathonsData = await fetch('https://hackathons.hackclub.com/api/events/upcoming').then(res => res.json())
   let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
     res => res.json()
   )
@@ -1083,7 +1062,7 @@ export async function getStaticProps() {
       // githubData2,
       hackathonsData,
       bankData,
-      // slackData,
+      slackData,
       stars,
       events
     },

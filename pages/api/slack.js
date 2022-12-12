@@ -20,4 +20,4 @@ export default async function Slack(req, res) {
   slackData = slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
 
   res.json(slackData)
-} 
+}
