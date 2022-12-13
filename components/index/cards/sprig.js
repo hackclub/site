@@ -18,7 +18,7 @@ import RelativeTime from 'react-relative-time'
 
 /** @jsxImportSource theme-ui */
 
-function Game({ game, gameImage, gameImage1 }) {
+function Game({ game, gameImage, gameImage1, ...props }) {
   return (
     <Box
       as="div"
@@ -42,6 +42,7 @@ function Game({ game, gameImage, gameImage1 }) {
           background: 'rgba(77, 90, 114, 0.8)'
         }
       }}
+      {...props}
     >
       <Box
         as="a"
@@ -137,7 +138,7 @@ function Game({ game, gameImage, gameImage1 }) {
               fontSize: '1.4rem',
               fontWeight: '400',
               mt: 1,
-              mb: 0,
+              mb: 0
             }}
           >
             {game.title}
@@ -196,7 +197,8 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
             Draw, make music, and craft games in our web-based JavaScript game
             editor.
           </Text>
-          <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 3 }}>
+          <Text sx={{ fontSize: ['18px', '20px', 3],
+              display: 'block', fontWeight: 'bold', mt: 3 }}>
             Get involved
           </Text>
           <Flex sx={{ flexDirection: 'column' }}>
@@ -206,22 +208,22 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               icon="emoji"
               link="https://editor.sprig.hackclub.com"
             >
-              Make a game
+             Build a Sprig game
             </Buttons>
-            <Buttons
+            {/* <Buttons
               content="DM @leo in Slack to join"
               id="7"
               icon="friend"
               link="/slack"
             >
               Help review games
-            </Buttons>
+            </Buttons> */}
             <Buttons
-              content="make a PR to our engine repo"
+              content="learn more on our github"
               id="8"
-              link="https://github.com/hackclub/kaluma"
+              link="https://github.com/hackclub/sprig"
             >
-              Work on the engine
+              Help review games or contribute to the engine
             </Buttons>
             <Buttons
               content="we're all hanging out in #sprig on Slack"
@@ -229,7 +231,7 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               icon="friend"
               link="/slack"
             >
-              Answer questions in slack
+              Connect with other Sprig game developers
             </Buttons>
           </Flex>
           <Button
@@ -247,7 +249,7 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
             Make a game
           </Button>
         </Box>
-        <Box>
+        <Box sx={{mt: [0, -4, -4]}}>
           <Text sx={{ fontStyle: 'italic', fontSize: [1, '14px', '16px'] }}>
             New from{' '}
             <Link
@@ -258,9 +260,9 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
             </Link>
             ...
           </Text>
-          <Flex sx={{ height: '80%', gap: '20px', mt: 3, width: '90%' }}>
+          <Flex sx={{ height: ['250px', '80%', '80%'], gap: '20px', mt: 3, width: ['100%', '90%', '90%'] }}>
             <Game game={game[0]} gameImage={gameImage} />
-            <Game game={game[1]} gameImage1={gameImage1} />
+            <Game game={game[1]} gameImage1={gameImage1} sx={{display: ['flex', 'none', 'flex']}} />
           </Flex>
         </Box>
       </Grid>

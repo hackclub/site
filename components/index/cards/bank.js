@@ -37,31 +37,59 @@ export default function Bank({ data }) {
       <CardModel
         color="white"
         sx={{
-          backgroundColor: 'dark'
+          backgroundColor: 'dark',
+          minHeight: ['300px', '400px','300px']
         }}
       >
-        <Text variant="title" sx={{ color: 'red' }}>
+        <Text variant="title" sx={{ color: 'red', fontSize: ['36px', 4, 5] }}>
           Hack Club Bank
         </Text>
-        <Grid columns={[1, '1fr 0.6fr']}>
+        <Grid columns={[1, 1, '1fr 0.6fr']}>
           <Box>
             <Text as="p" variant="subtitle">
-              Tool developed to make organising easier: a fiscal sponsor and banking platform in one to help you organize
-              clubs, hackathons, and more!
+              Tool developed to make organising easier: a fiscal sponsor and
+              banking platform in one to help you organize clubs, hackathons,
+              and more!
             </Text>
-            <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
-              Get involved
-            </Text>
-            <Flex sx={{ flexDirection: 'column' }}>
-              <Buttons
-                content="501(c)3 status, custom dashboard, debit cards, free domains/google workspace, and more"
-                id="15"
-                icon="bank-account"
-                link="/bank"
+            <Box sx={{ position: 'relative', width: '100%', display: [null, 'none', 'none'], mb: '-50px', mt: 3}}>
+              {' '}
+              <Box
+                sx={{
+                  width: '100%',
+                  height: '250px',
+                  position: 'relative',
+                  display: 'block',
+                  textAlign: 'center',
+                  '&:before': {
+                    content: '""',
+                    backgroundImage:
+                      'url("https://cloud-bubbgk6up-hack-club-bot.vercel.app/0gallery_hw__cc6xqmf7tbyq_medium_2x__1_.png")',
+                    backgroundSize: '100%',
+                    backgroundRepeat: 'no-repeat',
+                    width: '100%',
+                    height: '100%',
+                    marginX: 'auto',
+                    display: 'block'
+                  }
+                }}
               >
-                Run your event/organziation on Hack Club Bank
-              </Buttons>
-            </Flex>
+                <Box
+                  sx={{
+                    backgroundImage:
+                      'url("https://cloud-f1orvtxst-hack-club-bot.vercel.app/0bank_vid.gif")',
+                    zIndex: 2,
+                    position: 'absolute',
+                    margin: 'auto',
+                    top: '13px',
+                    left: '45px',
+                    width: '75%',
+                    height: '80%',
+                    backgroundSize: '100%',
+                    backgroundRepeat: 'no-repeat'
+                  }}
+                ></Box>
+              </Box>
+            </Box>
             <Button
               variant="primary"
               as="a"
@@ -75,7 +103,14 @@ export default function Bank({ data }) {
           </Box>
         </Grid>
       </CardModel>
-      <Box sx={{ position: 'absolute', right: '-100px', top: 5 }}>
+      <Box
+        sx={{
+          position: 'absolute',
+          right: [0 ,0,'-100px'],
+          bottom: [0 ,'-120px','-100px'],
+          display: ['none', 'block', 'block']
+        }}
+      >
         {' '}
         <Box
           sx={{
@@ -84,7 +119,6 @@ export default function Bank({ data }) {
             position: 'relative',
             display: 'block',
             textAlign: 'center',
-            // zIndex: 2,
             '&:before': {
               content: '""',
               backgroundImage:

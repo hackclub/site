@@ -29,7 +29,7 @@ export default function CarouselCards({
         position: 'relative',
         display: 'inline-block',
         transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
-        '&:hover': { transform: 'scale(1.0625)', boxShadow: 'elevated' }
+        '&:hover': { transform: 'scale(1.0625)' }
       }}
     >
       <Link
@@ -44,9 +44,9 @@ export default function CarouselCards({
       >
         <img
           src={img}
-          width="40"
-          height="40"
-          sx={{ position: 'absolute', top: '-20px', left: 4, zIndex: 2 }}
+          width={["30", "40", "40"]}
+          height={["30", "40", "40"]}
+          sx={{ position: 'absolute', top: '-20px', left: [3, 4, 4], zIndex: 2 }}
         />
         <Card
           // variant="interactive"
@@ -55,12 +55,12 @@ export default function CarouselCards({
             backgroundColor: background,
             position: 'relative',
             color: 'white',
-            width: '300px'
+            width: ['200px', '300px', '300px']
           }}
         >
           <Text
             as="h2"
-            sx={{ color: titleColor, fontSize: ['12px', '16px', '18px'] }}
+            sx={{ color: titleColor, fontSize: ['16px', '16px', '18px'] }}
           >
             {title}
           </Text>
@@ -70,7 +70,7 @@ export default function CarouselCards({
           <Icon
             glyph="external"
             size={32}
-            sx={{ position: 'absolute', top: 2, right: 2, opacity: 0.3 }}
+            sx={{ position: 'absolute', top: 2, right: 2, opacity: 0.3, fontSize: [1, '16px', '20px'] }}
           />
         </Card>
       </Link>

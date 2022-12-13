@@ -32,7 +32,7 @@ export default function Hackathons({ data, stars }) {
       github_link="https://github.com/hackclub/hackathons"
       // background="https://hackclub.com/bank/bg.webp"
     >
-      <Text variant="title">High School Hackathons</Text>
+      <Text variant="title" sx={{fontSize: ['36px', 4, 5]}}>High School Hackathons</Text>
       <Grid columns={[1, 2]}>
         <Box>
           <Text as="p" variant="subtitle">
@@ -40,7 +40,8 @@ export default function Hackathons({ data, stars }) {
             world. From an online community of organizers to free stickers and
             more!{' '}
           </Text>
-          <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
+          <Text sx={{ fontSize: ['18px', '20px', 3],
+              display: 'block', fontWeight: 'bold', mt: 2 }}>
             Get involved
           </Text>
           <Flex sx={{ flexDirection: 'column' }}>
@@ -74,7 +75,7 @@ export default function Hackathons({ data, stars }) {
         </Box>
         <Box
           sx={{
-            transform: 'translateY(25%)'
+            transform: [null,'translateY(25%)' ,'translateY(25%)']
           }}
         >
           <ScrollingHackathons eventData={data} mode="await" />

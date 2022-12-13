@@ -46,6 +46,7 @@ import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import ReactTooltip from 'react-tooltip'
+import Winter from '../components/index/cards/winter'
 
 function Page({
   hackathonsData,
@@ -64,63 +65,21 @@ function Page({
   let [gameImage1, setGameImage1] = useState('')
   let [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
-  // let [slackNum, setSlackNum] = useState(22594)
-  let [slack, setSlack] = useState(22594)
   let [github, setGithub] = useState(0)
-  let [key1, setKey1] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
 
-  // let gitHubDataLength = gitHubData.length
-
-  // console.log(gitHubDataLength)
-
-  useEffect(() => {
-    function hehe() {
-      setKey(Math.random())
-      setGithub(Math.floor(Math.random() * gitHubDataLength))
-      console.log(gitHubData[github])
-    }
-    setInterval(hehe, 30000)
-  }, [])
+  // useEffect(() => {
+  //   function hehe() {
+  //     setKey(Math.random())
+  //     setGithub(Math.floor(Math.random() * gitHubDataLength))
+  //     console.log(gitHubData[github])
+  //   }
+  //   setInterval(hehe, 30000)
+  // }, [])
 
   const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
-  // console.log(gitHubData)
-  // console.log(slackData)
-  // useEffect(() => {
-  //   setSlack(slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
-  //   .total_members_count)
-  // })
-  // useEffect(() => {
-
-  //   const add = setTimeout(() => {
-  //     setSlack(x => x + 1)
-  //     setSlackNum(slack)
-  //     console.log(slackNum)
-  //   }, Math.floor((Math.random() * (5 - 2) + 1) * 10000))
-
-  //   return () => clearTimeout(add)
-
-  // }, [slack])
-
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     // Check if it's open
-  //     console.log('Is DevTools open:', devtools.isOpen)
-
-  //     // Check it's orientation, `undefined` if not open
-  //     console.log('DevTools orientation:', devtools.orientation)
-
-  //     // Get notified when it's opened/closed or orientation changes
-  //     window.addEventListener('devtoolschange', event => {
-  //       console.log('Is DevTools open:', event.detail.isOpen)
-  //       console.log('DevTools orientation:', event.detail.orientation)
-  //     })
-
-  //     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
-  //   }
-  // })
   useEffect(() => {
     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
   }, [])
@@ -188,6 +147,30 @@ function Page({
     }
   }, [hover])
 
+  const [count, setCount] = useState(0)
+
+  let photos = [
+    '/home/hero.png',
+    '/home/golden-train.png',
+    '/home/flagship_4.jpg',
+    '/home/meetings.png',
+    '/home/flagship_megan.png',
+    '/hackathons/mahacks.jpeg'
+  ]
+
+  let alt = [
+    'Flagship meeting with club leaders, 2019',
+    'Hack Clubbers on cross country train trip, Zephyr',
+    'Hack Clubbers at Flagship, 2019',
+    'Virtual Hack Club meeting, 2022',
+    'Hack Clubber giving a talk on sponsorship',
+    'Hack Clubber organized MA Hacks'
+  ]
+
+  if (count == photos.length) {
+    setCount(0)
+  }
+
   return (
     <>
       <Meta
@@ -245,6 +228,7 @@ function Page({
           />
           <Box
             sx={{
+              width: '90vw',
               maxWidth: [null, 'layout'],
               position: 'relative',
               mx: 'auto',
@@ -274,7 +258,7 @@ function Page({
                   mx: 'auto',
                   zIndex: 1,
                   textAlign: 'left',
-                  fontSize: 'large'
+                  fontSize: ['36px', '48px', '64px']
                 }}
               >
                 <Text
@@ -326,7 +310,7 @@ function Page({
                           cursor: 'pointer'
                         },
                         svg: {
-                          mb: '20px',
+                          mb: [0, '20px', '20px'],
                           opacity: 0.5,
                           transition: '0.3s',
                           mr: '-5px'
@@ -379,21 +363,20 @@ function Page({
               </Badge>
             </Box>
           </Box>
-          {/* </SlideDown> */}
         </Box>
         <Box as="section" sx={{ pt: [4, 5], color: 'black' }}>
           <Box
             sx={{
               position: 'relative',
+              width: '90vw',
               maxWidth: 'layout',
               margin: 'auto'
             }}
-            // pb={4}
           >
             <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3], mt: 4 }}>
               The rundown
             </Text>
-            <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
+            <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
               Join us in discovering the joy of code
             </Text>
             <Text
@@ -411,28 +394,84 @@ function Page({
               .
             </Text>
             <Grid
-              columns={[null, null, 2, '2.5fr 3fr']}
-              gap={[3, 4]}
+              columns={[1, 1, '2.5fr 3fr', '2.5fr 3fr']}
+              gap={[0, 3, 4]}
               pt={[3, 4]}
             >
               <Box
-                sx={{
-                  position: 'relative',
-                  figure: {
-                    position: 'absolute',
-                    transform: 'rotate(-3deg)',
-                    height: '85%',
-                    width: '100%'
-                  }
-                }}
+                sx={{ position: 'relative', height: ['400px', '100%', '100%'] }}
+                onClick={() => setCount(count + 1)}
               >
-                <Photo
-                  src="https://dl.airtable.com/.attachmentThumbnails/904cf56ceac6b0921eceae02958dcd29/5851864a"
-                  alt="Summer Creek Hack Club meeting, February 2020"
-                  width={3000}
-                  height={2550}
-                  showAlt
-                />
+                <Box
+                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
+                >
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      height: ['400px', '400px', '100%'],
+                      figure: {
+                        position: 'absolute',
+                        transform:
+                          count % 2 == 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
+                        height: ['85%', '85%', '55%', '85%'],
+                        width: '100%'
+                      },
+                      zIndex: 3,
+                      '&:hover': {
+                        cursor: 'pointer'
+                      }
+                    }}
+                    data-tip="next"
+                    data-arrow-color="transparent"
+                    data-background-color="white"
+                    data-text-color="black"
+                  >
+                    <Photo
+                      src={
+                        count == photos.length - 1
+                          ? photos[0]
+                          : photos[count + 1]
+                      }
+                      alt={alt[count + 1]}
+                      width={3000}
+                      height={2550}
+                      showAlt
+                    />
+                  </Box>
+                </Box>
+                <Box
+                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
+                >
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      height: ['400px', '100%', '100%'],
+                      figure: {
+                        position: 'absolute',
+                        transform:
+                          count % 2 == 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
+                        height: ['85%', '85%', '55%', '85%'],
+                        width: '100%'
+                      },
+                      zIndex: 3,
+                      '&:hover': {
+                        cursor: 'pointer'
+                      }
+                    }}
+                    data-tip="next"
+                    data-arrow-color="transparent"
+                    data-background-color="white"
+                    data-text-color="black"
+                  >
+                    <Photo
+                      src={photos[count]}
+                      alt={alt[count]}
+                      width={3000}
+                      height={2550}
+                      showAlt
+                    />
+                  </Box>
+                </Box>
               </Box>
               <Grid
                 columns="1fr"
@@ -473,38 +512,18 @@ function Page({
                     }
                   }}
                   as="a"
-                  href="/slack"
-                  data-effect="solid"
-                  data-tip="learn more about our online community"
-                  data-delay-show="142"
+                  href="#community"
+                  // data-effect="solid"
+                  // data-tip="learn more about our online community"
+                  // data-delay-show="142"
                 >
                   <Text as="span" color="purple">
                     1
                   </Text>
                   <Text as="p" variant="subtitle">
-                    <strong>Connect virtually with other teenagers</strong>
+                    <strong>Connect with other teenage coders</strong>
                     We're united by our love for coding but talk about and do
                     everything else too.
-                    {/* <Button
-                    variant="primary"
-                    sx={{
-                      backgroundColor: 'purple',
-                      color: 'white',
-                      mt: 3,
-                      display: 'flex',
-                      width: 'fit-content'
-                    }}
-                    as="a"
-                    href="/slack"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Join our community{' '}
-                    <Icon
-                      glyph="slack"
-                      sx={{ ml: '4px !important', display: 'inline-block' }}
-                    />
-                  </Button> */}
                   </Text>
                   <Icon
                     glyph="external"
@@ -538,9 +557,9 @@ function Page({
                   }}
                   as="a"
                   href="#irl"
-                  data-effect="solid"
-                  data-tip="check out clubs and hackathons at Hack Club"
-                  data-delay-show="142"
+                  // data-effect="solid"
+                  // data-tip="check out clubs and hackathons at Hack Club"
+                  // data-delay-show="142"
                 >
                   <Text as="span" color="cyan">
                     2
@@ -559,26 +578,6 @@ function Page({
                     <Link href="/clubs">Hack Clubs</Link>), a one-time 48 hour
                     event (<Link href="/hackathons">hackathons</Link>), or
                     anything in-between!
-                    {/* <Button
-                    variant="primary"
-                    sx={{
-                      backgroundColor: 'blue',
-                      color: 'white',
-                      mt: 3,
-                      display: 'flex',
-                      width: 'fit-content'
-                    }}
-                    as="a"
-                    href="/slack"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Start a club{' '}
-                    <Icon
-                      glyph="slack"
-                      sx={{ ml: '4px !important', display: 'inline-block' }}
-                    />
-                  </Button> */}
                   </Text>
                   <Icon
                     glyph="external"
@@ -612,9 +611,9 @@ function Page({
                   }}
                   as="a"
                   href="#tools"
-                  data-tip="click to projects we're currently working on"
-                  data-effect="solid"
-                  data-delay-show="142"
+                  // data-tip="click to projects we're currently working on"
+                  // data-effect="solid"
+                  // data-delay-show="142"
                 >
                   <Text as="span" color="orange">
                     3
@@ -623,26 +622,6 @@ function Page({
                     <strong>Build open-source learning tools</strong>
                     Contribute to projects like a game engine, daily streak
                     system, graphing game, and more!
-                    {/* <Button
-                    variant="primary"
-                    sx={{
-                      backgroundColor: 'orange',
-                      color: 'white',
-                      mt: 3,
-                      display: 'flex',
-                      width: 'fit-content'
-                    }}
-                    as="a"
-                    href="/slack"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Find a hackathon{' '}
-                    <Icon
-                      glyph="slack"
-                      sx={{ ml: '4px !important', display: 'inline-block' }}
-                    />
-                  </Button> */}
                   </Text>
                   <Icon
                     glyph="external"
@@ -664,29 +643,12 @@ function Page({
           <Box
             sx={{
               position: 'relative',
+              width: '90vw',
               maxWidth: 'layout',
               margin: 'auto'
             }}
             pb={4}
           >
-            {/* <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3] }}>
-              A Hack Clubber is someone that
-            </Text>
-            <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
-              Discovers technology by building things for the joy of it
-            </Text>
-            <Text
-              variant="subtitle"
-              as="p"
-              sx={{ fontSize: [1, '16px', '20px'] }}
-            >
-              Here, teenagers don't wait for permission to code. Hack Clubbers
-              come together to code because it's fun. Whether you’re a beginner
-              programmer or have years of experience, there’s a place for you at
-              Hack Club.
-            </Text> */}
-            {/* <Slack slackKey={slackKey} /> */}
-            {/* <Events events={events} /> */}
             <Text
               variant="eyebrow"
               as="p"
@@ -695,7 +657,7 @@ function Page({
             >
               Hack Clubbers
             </Text>
-            <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
+            <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
               Connect with each other from around the world
             </Text>
             <Text
@@ -707,11 +669,10 @@ function Page({
               make things together!
             </Text>
             <Box>
-              <Epoch delay={300} />
-              <Slack slackKey={slackKey} data={slackData} />
-              {/* <MailingList /> */}
+              <Winter />
+              <Epoch />
+              <Slack slackKey={slackKey} data={slackData} events={events}/>
             </Box>
-            {/* <Inspect /> */}
           </Box>
           <Box
             py={4}
@@ -726,6 +687,7 @@ function Page({
           >
             <Box
               sx={{
+                width: '90vw',
                 maxWidth: 'layout',
                 margin: 'auto'
               }}
@@ -733,7 +695,7 @@ function Page({
               <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3] }}>
                 Hack Clubbers
               </Text>
-              <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
+              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
                 Build open source tools
               </Text>
               <Text
@@ -765,6 +727,7 @@ function Page({
             <Box
               py={3}
               sx={{
+                width: '90vw',
                 maxWidth: 'layout',
                 margin: 'auto'
               }}
@@ -773,21 +736,8 @@ function Page({
               <Text variant="eyebrow" as="p">
                 Hack Clubbers
               </Text>
-              <Text variant="title" sx={{ fontSize: [3, 4, 5] }}>
+              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
                 Create spaces to have fun with code
-                {/* <Text
-                  as="span"
-                  sx={{
-                    borderRadius: 'default',
-                    px: 2,
-                    mx: [-2, 0],
-                    whiteSpace: 'nowrap',
-                    color: '#5d114c',
-                    bg: 'rgb(255, 212, 64)'
-                  }}
-                >
-                  joy of code
-                </Text> */}
               </Text>
               <Text
                 variant="subtitle"
@@ -798,28 +748,29 @@ function Page({
                 things, be it once a week after school, a one-time 48 hour
                 event, or anything in-between!
               </Text>
-              <Clubs delay={200} />
+              <Clubs />
               <Hackathons
                 delay={400}
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
-              <Events events={events} />
-              <Bank data={bankData} delay={100} />
+              {/* <Events events={events} /> */}
+              <Bank data={bankData} />
             </Box>
           </Box>
         </Box>
         <Box bg="snow" color="black" py={[3, 4]}>
           <Box
             sx={{
+              width: '90vw',
               maxWidth: 'layout',
               margin: 'auto'
             }}
           >
             <Text as="p" variant="eyebrow">
-              Let's quickly review
+              Let's recap
             </Text>
-            <Heading as="h2" variant="title" sx={{ fontSize: [3, 4, 5] }}>
+            <Heading as="h2" variant="title" sx={{fontSize: ['36px', 4, 5]}}>
               Find your place with{' '}
               <Text
                 as="span"
@@ -840,7 +791,7 @@ function Page({
               pt={[3, 4]}
               pb={[4, 5]}
               gap={3}
-              columns={[null, 4]}
+              columns={[1, 2, 3]}
               sx={{
                 textAlign: 'left',
                 '> a, > div': {
@@ -900,7 +851,7 @@ function Page({
                 <Stage
                   icon="clubs"
                   color="white"
-                  name="Start a Club"
+                  name="Start a club"
                   desc="Build an in-person community of high school hackers, and we're here to help."
                   sx={{
                     p: {
@@ -941,7 +892,7 @@ function Page({
                   }}
                 />
               </Card>
-              <Card
+              {/* <Card
                 sx={{
                   background:
                     'linear-gradient(to bottom, rgba(166, 51, 214, 0.9) 0%, rgba(51, 142, 218, 0.9) 100%)',
@@ -958,7 +909,7 @@ function Page({
                 <Stage
                   icon="event-code"
                   color="white"
-                  name="Attend a Hackathon"
+                  name="Attend a hackathon"
                   desc="Make friends, build cool stuff, have an adventure. Attend a hackathon."
                   sx={{
                     p: {
@@ -969,8 +920,10 @@ function Page({
                     }
                   }}
                 />
-              </Card>
+              </Card> */}
             </Grid>
+            <MailingList />
+
           </Box>
         </Box>
       </Box>
@@ -1018,7 +971,9 @@ export async function getStaticProps() {
 
   let raised = initialBankData.raised / 100
 
-  let slackData = await fetch('https://site-git-v4.hackclub.dev/api/slack').then(r => r.json())
+  let slackData = await fetch(
+    'https://site-git-v4.hackclub.dev/api/slack'
+  ).then(r => r.json())
   console.log(slackData)
 
   bankData.push(
@@ -1043,7 +998,9 @@ export async function getStaticProps() {
 
   gameTitle = game.map(r => r.title)
 
-  const hackathonsData = await fetch('https://hackathons.hackclub.com/api/events/upcoming').then(res => res.json())
+  const hackathonsData = await fetch(
+    'https://hackathons.hackclub.com/api/events/upcoming'
+  ).then(res => res.json())
   let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
     res => res.json()
   )

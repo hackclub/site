@@ -17,36 +17,9 @@ import usePrefersMotion from '../../../lib/use-prefers-motion'
 import useHasMounted from '../../../lib/use-has-mounted'
 import { keyframes } from '@emotion/react'
 import SlackEvents from '../../slack/slack-events'
-
+import Event from '../events'
+import Dot from '../../dot'
 /** @jsxImportSource theme-ui */
-
-const flashing = keyframes({
-  from: { opacity: 0 },
-  '50%': { opacity: 1 },
-  to: { opacity: 0 }
-})
-
-function Dot() {
-  return (
-    <Text
-      sx={{
-        bg: 'green',
-        color: 'white',
-        borderRadius: 'circle',
-        display: 'inline-block',
-        lineHeight: 0,
-        width: '.4em',
-        height: '.4em',
-        marginRight: '.4em',
-        marginBottom: '.12em',
-        animationName: `${flashing}`,
-        animationDuration: '3s',
-        animationTimingFunction: 'ease-in-out',
-        animationIterationCount: 'infinite'
-      }}
-    />
-  )
-}
 
 // const Cover = () => (
 //   <Box
@@ -115,13 +88,13 @@ const Cover = () => (
       left: 0,
       right: 0,
       backgroundImage: t => t.util.gx('cyan', 'purple'),
-      opacity: 0.9,
+      opacity: 0.8,
       zIndex: 1
     }}
   />
 )
 
-export default function Slack({ data, slackKey }) {
+export default function Slack({ data, slackKey, events }) {
   const hasMounted = useHasMounted()
   const prefersMotion = usePrefersMotion()
 
@@ -168,101 +141,85 @@ export default function Slack({ data, slackKey }) {
       </Box>
       <Cover />
       <Grid sx={{ zIndex: 2 }}>
-        <Box
-          sx={{
-            background: 'rgb(0,0,0,0.3)',
-            height: '100%',
-            position: 'absolute',
-            zIndex: 3,
-            width: '210px',
-            right: 0,
-            top: 0,
-            p: 3
-          }}
-        >
-          <Text variant="eyebrow" as="p" sx={{ color: 'white' }}>
-            <Dot />
-            Live from Slack
-          </Text>
-          <Box sx={{py: 2}}>Total members: {data.total_members_count}</Box>
-          <Box sx={{py: 2}}>Daily messages: {data.messages_count_1d}</Box>
-          <Box sx={{py: 2}}>Online right now: {data.readers_count_1d}</Box>
-        </Box>
-      </Grid>
-      <Grid sx={{ zIndex: 2 }}>
-        <Text variant="title" sx={{ fontSize: [3, 4, 5], zIndex: 2 }}>
+        <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2 }}>
           Our online community
         </Text>
       </Grid>
       <Grid columns={[1, 1]} sx={{ zIndex: 2 }}>
-        <Box sx={{ zIndex: 2, width: 'calc(100% - 200px)' }}>
+        <Box
+          sx={{
+            zIndex: 2,
+            width: [null, 'calc(100% - 200px)', 'calc(100% - 200px)']
+          }}
+        >
           <Text
             variant="subtitle"
             as="p"
             sx={{ fontSize: [1, '16px', '20px'] }}
           >
-            Coding doesn't have to be a solidary activity. At Hack Club, it's a
-            team sport and in our Slack (similar to Discord, but better), you'll
-            find a group of{' '}
+            Coding doesn't have to be a solidary activity. At Hack Club, we make
+            things together and in our Slack (similar to Discord, but better),
+            you'll find a group of{' '}
             <Box sx={{ display: 'inline', fontWeight: '700' }}>
               {data.total_members_count}{' '}
             </Box>
-            {/* <Box
-              as="div"
+            fabulous people to talk to, active at all hours. You could launch
+            your latest project and get feedback or discuss a cool article you
+            read, alongside other Hack Clubbers.
+          </Text>
+          <Text as="p" variant="subtitle">
+            Sometimes, we also invite someone we really want to speak to (like{' '}
+            <Link
+              href="https://www.youtube.com/watch?v=qiLiyQ_2gho"
+              target="_blank"
+              rel="noopener"
               sx={{
-                color: 'transparent',
-                position: 'relative',
-                overflow: 'hidden',
-                display: 'inline-block',
-                mb: '-8px',
-                mr: '2px'
+                color: 'inherit',
+                fontStyle: 'italic',
+                textDecoration: 'none'
               }}
-              key={slackKey}
             >
-              {slackNum}{' '}
-              <Text
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  color: 'text',
-                  animation: `${rollout} 2s`,
-                  animationFillMode: 'forwards'
-                }}
-              >
-                {slackNum}
-              </Text>
-              <Text
-                sx={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  color: 'white',
-                  animation: `${rollin} 2s`,
-                  animationFillMode: 'forwards'
-                }}
-              >
-                {slackNum}
-              </Text>
-            </Box> */}
-            fabulous people to talk to, active at all hours.
+              Sal Khan
+            </Link>
+            ,{' '}
+            <Link
+              href="https://www.youtube.com/watch?v=h3nAdaz5fOg"
+              target="_blank"
+              rel="noopener"
+              sx={{
+                color: 'inherit',
+                fontStyle: 'italic',
+                textDecoration: 'none'
+              }}
+            >
+              George Hotz
+            </Link>
+            , and{' '}
+            <Link
+              href="https://www.youtube.com/watch?v=IWFtj9cCaB0"
+              target="_blank"
+              rel="noopener"
+              sx={{
+                color: 'inherit',
+                fontStyle: 'italic',
+                textDecoration: 'none'
+              }}
+            >
+              Lady Ada
+            </Link>
+            ) and host an{' '}
+            <Link
+              href="/amas"
+              target="_blank"
+              rel="noopener"
+              sx={{ color: 'inherit' }}
+            >
+              AMA
+            </Link>{' '}
+            with them.{' '}
           </Text>
-          <Text
-            variant="subtitle"
-            as="p"
-            sx={{ fontSize: [1, '16px', '20px'] }}
-          >
-            We're united by our love for coding but talk about everything else
-            too. You could launch your latest project and get feedback or
-            discuss a cool article you read, alongside other Hack Clubbers.
-          </Text>
-          <Text
-            variant="subtitle"
-            as="p"
-            sx={{ fontSize: [1, '16px', '20px'] }}
-          >
-            Come for the skills, stay for the friends!
-          </Text>
+          <Event events={events} />
+
           <Button
             variant="primary"
             sx={{
@@ -277,22 +234,38 @@ export default function Slack({ data, slackKey }) {
           >
             Join our community
           </Button>
-        </Box>
-        {/* <Box sx={{py: 3, px: 4, borderRadius: 4, float: 'right', backgroundColor: 'rgb(255,255,255, 0.2)', backdropFilter: 'blur(8px)', mt: '-40px'}}>
-          <Heading
-              as="h2"
-              variant="subheadline"
+          <Grid sx={{ zIndex: 2 }}>
+            <Box
               sx={{
-                mt: 0,
-                color: 'white',
-                textTransform: 'uppercase',
-                letterSpacing: 'headline'
+                background: 'rgb(0,0,0,0.3)',
+                height: ['170px', '100%', '100%'],
+                position: ['relative', 'absolute', 'absolute'],
+                zIndex: 3,
+                width: ['120%', '210px', '210px'],
+                right: 0,
+                top: [null, 0, 0],
+                mt: [3, 0, 0],
+                ml: -3,
+                mb: -3,
+                p: 3
               }}
             >
-              Live from our&nbsp;Slack
-            </Heading>
-            <SlackEvents color="transparent" textColor="white" />
-            </Box> */}
+              <Text variant="eyebrow" as="p" sx={{ color: 'white' }}>
+                <Dot />
+                Live from Slack
+              </Text>
+              <Box sx={{ py: 2, fontWeight: '400' }}>
+                Total members: {data.total_members_count}
+              </Box>
+              <Box sx={{ py: 2, fontWeight: '400' }}>
+                Daily messages: {data.messages_count_1d}
+              </Box>
+              <Box sx={{ py: 2, fontWeight: '400' }}>
+                Online today: {data.readers_count_1d}
+              </Box>
+            </Box>
+          </Grid>
+        </Box>
       </Grid>
     </CardModel>
   )

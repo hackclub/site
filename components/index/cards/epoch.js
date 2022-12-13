@@ -13,17 +13,11 @@ import {
   Text
 } from 'theme-ui'
 import Buttons from './button'
-
+import Dot from '../../dot'
 /** @jsxImportSource theme-ui */
 import { useEffect, useState } from 'react'
-// import { fairyDustCursor } from 'cursor-effects'
 
 export default function Epoch() {
-  // if (typeof window !== 'undefined') {
-  //   const targetElement = document.querySelector("#epoch")
-  //   new fairyDustCursor({element: targetElement})
-  // }
-
   const calculateTimeLeft = () => {
     const difference = +new Date(`2022-12-30T23:00:00.000Z`) - +new Date()
 
@@ -136,7 +130,20 @@ export default function Epoch() {
     )
   })
   return (
-    <CardModel
+    <Box sx={{position: 'relative'}}>
+      <Badge
+        variant="pill"
+        sx={{
+          position: 'absolute',
+          right: -3,
+          top: -1,
+          transform: 'rotate(7deg)',
+          zIndex: 3
+        }}
+      >
+        Happening Now <Dot />
+      </Badge>
+      <CardModel
       id="epoch"
       color="white"
       sx={{
@@ -147,16 +154,14 @@ export default function Epoch() {
         src="https://cloud-ox8syzbet-hack-club-bot.vercel.app/0ep0ch.svg"
         sx={{ width: ['150px', '180px', '220px'] }}
       />
-      <Grid columns={[1, '0.8fr 1fr', '0.8fr 1fr']} mt={3}>
+      <Grid columns={[1, 1, '0.8fr 1fr']} mt={[0, 3, 3]}>
         <Box>
           {timer.length ? (
             <Grid
               key="{e}"
               gap={[1, 2, '25px']}
-              columns={[
-                '1fr 1fr 1fr 1fr'
-              ]}
-              sx={{mr: 2}}
+              columns={['1fr 1fr 1fr 1fr']}
+              sx={{ mr: 2 }}
             >
               {timer}
             </Grid>
@@ -164,19 +169,18 @@ export default function Epoch() {
             <></>
           )}
         </Box>
-        <Box mt="-100px" ml={3}>
+        <Box mt={['-60px', '-20px', '-100px']} ml={[0, 3, 3]}>
           <Text as="p" variant="subtitle">
-            Join us this winter as 150+ teenage hackers from all around the world
-            travel to Delhi, India for Epoch — Hack Club’s first hackathon
-            outside the US! We’ll build the unexpected, share what we’ve learnt
+            Join us this winter as 150+ teenage hackers from all around the
+            world travel to Delhi, India for Epoch! Together, we’ll build the unexpected, share what we’ve learnt
             in 2022, and experience the thrill of being in-person together.
           </Text>
           <Text
-            as="p"
             sx={{
-              fontSize: [2, 3],
+              fontSize: ['18px', '20px', 3],
+              display: 'block',
               fontWeight: 'bold',
-              mt: 2,
+              mt: [3, 3, 2],
               color: '#FF4794'
             }}
           >
@@ -189,7 +193,7 @@ export default function Epoch() {
               link="https://epoch.hackclub.com"
               icon="post"
             >
-              Sign up and attend EPOCH
+              Sign up and attend Epoch
             </Buttons>
             <Buttons
               content="join #epoch-bts on Slack"
@@ -197,7 +201,7 @@ export default function Epoch() {
               link="/slack"
               icon="idea"
             >
-              Plan the hackathon
+              Help plan the hackathon
             </Buttons>
           </Flex>
           <Button
@@ -206,12 +210,18 @@ export default function Epoch() {
             href="https://epoch.hackclub.com/"
             target="_blank"
             rel="noopener"
-            sx={{ background: '#FF4794', color: 'white', mt: 3 }}
+            sx={{
+              background: '#FF4794',
+              color: 'white',
+              mt: 3,
+              mb: [3, null, null]
+            }}
           >
             Sign up for Epoch
           </Button>
         </Box>
       </Grid>
     </CardModel>
+    </Box>
   )
 }
