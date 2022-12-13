@@ -69,14 +69,14 @@ function Page({
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
 
-  // useEffect(() => {
-  //   function hehe() {
-  //     setKey(Math.random())
-  //     setGithub(Math.floor(Math.random() * gitHubDataLength))
-  //     console.log(gitHubData[github])
-  //   }
-  //   setInterval(hehe, 30000)
-  // }, [])
+  useEffect(() => {
+    function getNewGitHubActivity() {
+      setKey(Math.random())
+      setGithub(Math.floor(Math.random() * gitHubDataLength))
+      console.log(gitHubData[github])
+    }
+    setInterval(getNewGitHubActivity, 30000)
+  }, [])
 
   const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
@@ -892,35 +892,6 @@ function Page({
                   }}
                 />
               </Card>
-              {/* <Card
-                sx={{
-                  background:
-                    'linear-gradient(to bottom, rgba(166, 51, 214, 0.9) 0%, rgba(51, 142, 218, 0.9) 100%)',
-                  color: 'white',
-                  svg: { color: 'purple' },
-                  textDecoration: 'none'
-                }}
-                as="a"
-                href="/hackathons"
-                variant="interactive"
-                target="_blank"
-                rel="noopener"
-              >
-                <Stage
-                  icon="event-code"
-                  color="white"
-                  name="Attend a hackathon"
-                  desc="Make friends, build cool stuff, have an adventure. Attend a hackathon."
-                  sx={{
-                    p: {
-                      fontSize: [1, '16px', '20px']
-                    },
-                    h3: {
-                      fontSize: ['16px', '22px', '26px']
-                    }
-                  }}
-                />
-              </Card> */}
             </Grid>
             <MailingList />
 

@@ -27,6 +27,7 @@ export default function SprigConsole({ stars }) {
   const consoleCount = consoles
     ? consoles.filter(console => console.fields.Status === 'Pending').length
     : 100 // arbitrary fallback number
+
   return (
     <Box sx={{ position: 'relative' }}>
       <CardModel
