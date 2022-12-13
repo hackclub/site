@@ -81,7 +81,7 @@ const HackathonGrant = () => {
       <Meta
         as={Head}
         title="Hackathon Grant"
-        description="Hack Club is partnering with FIRST to provide $500 grants to in-person high school hackathons happening between August and December 31, 2022."
+        description="Hack Club is partnering with FIRST to provide $500 grants to in-person high school hackathons happening <s>between August and December 31, 2022</s> until June 30th, 2023."
         image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
       <Box as="main" key="main">
