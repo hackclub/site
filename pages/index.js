@@ -329,7 +329,7 @@ function Page({
                     </Text>
                     hacker ethic{' '}
                   </Text>
-                  by using code to build things we care about together.
+                  by building things together.
                 </Text>
               </Heading>
             </Fade>
@@ -384,8 +384,8 @@ function Page({
               as="p"
               sx={{ fontSize: [1, '16px', '20px'] }}
             >
-              Here, we don't wait for permission to code. Hack Clubbers come
-              together to code because it's fun. Whether you’re a beginner
+              Hack Clubbers come together to code because it's fun. 
+              Whether you’re a beginner
               programmer or have years of experience, there’s a place for you at
               Hack Club. Read about our{' '}
               <Link href="/philosophy" target="_blank" rel="noopener">
@@ -522,8 +522,7 @@ function Page({
                   </Text>
                   <Text as="p" variant="subtitle">
                     <strong>Connect with other teenage coders</strong>
-                    We're united by our love for coding but talk about and do
-                    everything else too.
+                    We're united by our love for coding but talk about everything else we do too.
                   </Text>
                   <Icon
                     glyph="external"
@@ -705,7 +704,7 @@ function Page({
               >
                 In collaboration with engineers on the Hack Club team, Hack
                 Clubbers build learning tools for each other. Get involved with
-                these projects by building somethnig with our tools or
+                these projects by building something with our tools or
                 contribute to the tools themselves.
               </Text>
               <Sprig
