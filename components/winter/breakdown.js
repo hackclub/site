@@ -31,9 +31,7 @@ function Breakdown() {
                 fontStyle: 'italic'
               }}
             >
-              <Fade>
-                Dear high school hacker, we have a challenge for you:
-              </Fade>
+              <Fade>Dear high school hacker, we have a challenge for you:</Fade>
             </Heading>
             <Heading
               variant="headline"
@@ -45,9 +43,7 @@ function Breakdown() {
                 mt: 0
               }}
             >
-              <Fade>
-                What will you make this winter?
-              </Fade>
+              <Fade>What will you make this winter?</Fade>
             </Heading>
           </Slide>
           <Fade>
@@ -82,7 +78,7 @@ function Breakdown() {
               text="Daily progress"
               description={
                 <>
-                  From <strong>Feb 15-25</strong>, work on your project, share
+                  From <strong>Feb 14-23</strong>, work on your project, share
                   short photo/video updates each day.
                 </>
               }
