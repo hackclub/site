@@ -228,8 +228,7 @@ const HackathonGrant = () => {
             >
               We want to bring back high schooler-led events around the world,
               so we're only offering this grant for high school hackathons that
-              take place this semester (from August 19th to December 31st,
-              2022).
+              take place this semester (until June 30th).
               <br />
               <br />
               <Text
