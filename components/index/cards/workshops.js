@@ -18,13 +18,14 @@ import Buttons from './button'
 
 /** @jsxImportSource theme-ui */
 
-const WorkshopCard = ({ slug, name, description, img, height, section }) => (
+const WorkshopCard = ({ slug, name, description, img, height, section, ...props }) => (
   <Link
     href={`/${slug}`}
     passHref
     sx={{ textDecoration: 'none' }}
     target="_blank"
     rel="noopener"
+    {...props}
   >
     <Card
       as="a"
@@ -92,7 +93,7 @@ export default function Workshops({ data, stars }) {
       github_link="https://github.com/hackclub/workshops"
       stars={stars}
     >
-      <Text variant="title">Workshops</Text>
+      <Text variant="title" sx={{fontSize: ['36px', 4, 5]}}>Workshops</Text>
       <Box>
         <Text as="p" variant="subtitle">
           A collection of community-contributed, self-guided coding tutorials +
@@ -100,7 +101,7 @@ export default function Workshops({ data, stars }) {
         </Text>
         <Grid columns={[1, '0.8fr 1fr']}>
           <Flex sx={{ flexDirection: 'column' }}>
-            <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 4 }}>
+            <Text sx={{ fontSize: ['18px', '20px', 3], fontWeight: 'bold', mt: 4 }}>
               Get involved
             </Text>
             <Buttons id="14" link="https://workshops.hackclub.com" icon="code">
@@ -130,7 +131,7 @@ export default function Workshops({ data, stars }) {
               Find workshops
             </Button>
           </Flex>
-          <Grid sx={{ gap: 3 }} columns={[1, 2]}>
+          <Grid sx={{ gap: 3 }} columns={[1, 1, 2]} mt={[0, 2, 0]}>
             <WorkshopCard
               key="personal_website"
               slug="personal_website"
@@ -145,6 +146,7 @@ export default function Workshops({ data, stars }) {
               description="Creating a basic particle physics simulation and rendering using p5.js"
               img="https://cloud-k50jkthdw.vercel.app/0particle-physics-summary.png"
               height="100px"
+              sx={{display: ['block', 'none', 'block']}}
             />
           </Grid>
         </Grid>

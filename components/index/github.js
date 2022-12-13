@@ -39,7 +39,7 @@ export default function GitHub({
           top: 0,
           right: 2,
           zIndex: 4,
-          transform: 'rotate(3deg)'
+          transform: [null, null, 'rotate(3deg)']
         }}
         {...props}
       >
@@ -51,8 +51,8 @@ export default function GitHub({
               color: 'inherit',
               fontWeight: '400 !important',
               display: 'flex',
-              fontSize: '14px',
-              height: '25px',
+              fontSize: ['11px', '11px', '14px'],
+              height: ['15px', '15px', '25px'],
               position: 'relative',
               alignItems: 'center'
             }}
@@ -113,7 +113,7 @@ export default function GitHub({
                 user != 'github-actions[bot]' ? (
                   <Text
                     as="span"
-                    sx={{ fontSize: 'small', color: 'sunken', mx: 2 }}
+                    sx={{ fontSize: ['8px','8px','10px'], color: 'sunken', mx: 2 }}
                   >
                     <RelativeTime value={time} titleformat="iso8601" />
                   </Text>

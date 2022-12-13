@@ -14,6 +14,7 @@ import {
 } from 'theme-ui'
 import Buttons from './button'
 import Event from '../events'
+
 /** @jsxImportSource theme-ui */
 
 export default function Events({ data, stars, events }) {
@@ -28,7 +29,7 @@ export default function Events({ data, stars, events }) {
         backgroundSize: '100% auto'
       }}
     >
-      <Text variant="title" sx={{ fontSize: [3, 4, 5], zIndex: 2 }}>
+      <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2 }}>
         Virtual Events
       </Text>
       <Grid columns={[1, '0.6fr 1fr']}>

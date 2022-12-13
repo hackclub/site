@@ -40,40 +40,40 @@ const MailingList = () => {
   const [submitted, setSubmitted] = useState(false)
   const formRef = useRef(null)
 
-  // const handleSubmit = async e => {
-  //   e.preventDefault()
-  //   setSubmitting(true)
+  const handleSubmit = async e => {
+    e.preventDefault()
+    setSubmitting(true)
 
-  //   await fetch('/api/winter-rsvp', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       Name: e.target.name.value,
-  //       Email: e.target.email.value
-  //     })
-  //   })
+    await fetch('http://postal.hackclub.com/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        api_key: process.env.POSTAL_API_KEY,
+        name: e.target.name.value,
+        email: e.target.email.value,
+        list: process.env.POSTAL_LIST_ID
+      })
+    })
 
-  //   formRef.current.reset()
-  //   setSubmitting(false)
+    formRef.current.reset()
+    setSubmitting(false)
 
-  //   setSubmitted(true)
-  // }
+    setSubmitted(true)
+  }
 
   return (
-    <CardModel sx={{ height: '100%' }}>
-      {/* <Card
-      sx={{
-        maxWidth: 'narrowPlus',
-        mx: 'auto',
-        mt: [3, 4],
-        background: 'rgb(255,255,255, 0.45)',
-        backdropFilter: 'blur(8px)'
-      }}
-    > */}
-      <Text variant="title" sx={{ fontSize: [3, 4, 5], zIndex: 2 }}>
-        Mailing List
+    <Card sx={{
+      maxWidth: 'narrowPlus',
+      mx: 'auto',
+      // mt: [3, 4],
+      background: 'rgb(255,255,255, 0.45)',
+      backdropFilter: 'blur(8px)'
+    }}>
+
+      <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2 }}>
+        Stay in touch
       </Text>
       <Text sx={{ color: 'muted' }} as="p">
         We'll send you an email whenever we launch a new project, so you can get
@@ -82,7 +82,7 @@ const MailingList = () => {
       <Grid
         as="form"
         ref={formRef}
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         gap={[2, 3]}
         sx={{
           mt: [null, 3],
@@ -133,8 +133,7 @@ const MailingList = () => {
           <Text sx={{ ml: 2 }}>Signed up!</Text>
         </Alert>
       )}
-      {/* </Card> */}
-    </CardModel>
+    </Card>
   )
 }
 

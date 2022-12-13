@@ -111,7 +111,7 @@ const layout = props =>
           display: flex;
           justify-content: flex-end;
           position: absolute;
-          left: 75%;
+          left: 65%;
           transform: translateX(-50%);
         }
         a {

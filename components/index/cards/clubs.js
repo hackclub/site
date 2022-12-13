@@ -30,7 +30,8 @@ export default function Clubs() {
         background:
           'linear-gradient(to bottom,rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.45) 25%,rgba(0, 0, 0, 0.47) 50%, rgba(0, 0, 0, 0.5) 100%), url("https://cloud-flzg18ipb-hack-club-bot.vercel.app/0screenshot_2022-12-05_at_9.44.11_pm.png")',
         backgroundPositon: 'center center',
-        backgroundSize: '100% auto'
+        backgroundSize: ['cover', '100% auto', '100% auto'],
+        backgroundRepeat: 'no-repeat'
       }}
     >
       <Text
@@ -39,9 +40,10 @@ export default function Clubs() {
           borderRadius: 'default',
           px: 2,
           mx: [-2, 0],
-          whiteSpace: 'nowrap',
-          color: 'red',
-          bg: 'white'
+          whiteSpace: [null, 'nowrap', 'nowrap'],
+          color: ['white', 'red', 'red'],
+          bg: ['transparent', 'white', 'white'],
+          fontSize: ['36px', 4, 5]
         }}
       >
         Network of coding clubs
@@ -58,12 +60,19 @@ export default function Clubs() {
             things. You can start with no experience and build and ship a
             project every meeting.
           </Text>
-          <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold', mt: 2 }}>
+          <Text
+            sx={{
+              fontSize: ['18px', '20px', 3],
+              display: 'block',
+              fontWeight: 'bold',
+              mt: 2
+            }}
+          >
             Get involved
           </Text>
           <Flex sx={{ flexDirection: 'column' }}>
             <Buttons
-              content="scan our clubs map and reach out to team@hackclub.com to be connected"
+              content="click for our clubs map and reach out to team@hackclub.com to be connected"
               id="1"
               icon="rep"
               link="/map"

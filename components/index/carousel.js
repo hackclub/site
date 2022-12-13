@@ -70,7 +70,7 @@ export default function Carousel() {
                   titleColor="yellow"
                   descriptionColor="white"
                   title="Sprig"
-                  description="Learn to code by making games in a JavaScript game editor."
+                  description="Learn to code by making games in a JavaScript game editor"
                   img="https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png"
                   link="https://sprig.hackclub.com"
                 />
@@ -79,7 +79,7 @@ export default function Carousel() {
                   titleColor="#FF4794"
                   descriptionColor="white"
                   title="EPOCH"
-                  description="The most epic high school hackathon this new years!"
+                  description="The most epic high school hackathon this new years"
                   img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f386@2x.png"
                   link="https://epoch.hackclub.com"
                 />
@@ -97,16 +97,25 @@ export default function Carousel() {
                   titleColor="red"
                   textColor="white"
                   title="Hack Club Bank"
-                  description="Fiscal sponsorship and banking platform to organize anything."
+                  description="Fiscal sponsor and banking platform to organize anything"
                   img="https://emoji.slack-edge.com/T0266FRGM/bank-hackclub-dark/8c6f85f387365072.png"
                   link="/bank"
+                />
+                <CarouselCards
+                  background="snow"
+                  titleColor="dark"
+                  descriptionColor="black"
+                  title="Some Assembly Required"
+                  description="An approachable introduction to learning Assembly"
+                  img="https://emoji.slack-edge.com/T0266FRGM/someassemblyrequired/cfacfacaaa2d8b1d.png"
+                  link="https://github.com/hackclub/some-assembly-required"
                 />
                 <CarouselCards
                   background="#271932"
                   titleColor="#CAB4D4"
                   textColor="#CAB4D4"
                   title="Sinerider"
-                  description="💖 A game about love, math, and graphing built by teenagers!"
+                  description="💖 A game about love, math, and graphing built by teenagers"
                   img="https://emoji.slack-edge.com/T0266FRGM/sinerider/68a0bc1208e885dd.png"
                   link="https://sinerider.hackclub.com"
                 />
@@ -116,7 +125,7 @@ export default function Carousel() {
                   textColor="white"
                   title="High school Hackathons"
                   description="🔍 A curated list of high school hackathons."
-                  img="https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png"
+                  img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f4bb@2x.png"
                   link="/hackathons"
                 />
                 <CarouselCards
