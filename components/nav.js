@@ -52,10 +52,12 @@ const Root = styled(Box)`
   }
 `
 
-export const Content = styled(Container)`
+export const Content = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1024px;
+  margin: auto;
   position: relative;
   z-index: 2;
   padding-left: ${theme.space[3]}px;
@@ -110,9 +112,6 @@ const layout = props =>
         @media (min-width: 56em) {
           display: flex;
           justify-content: flex-end;
-          position: absolute;
-          left: 65%;
-          transform: translateX(-50%);
         }
         a {
           font-size: ${theme.fontSizes[1]}px;

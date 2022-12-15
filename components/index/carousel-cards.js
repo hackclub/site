@@ -44,9 +44,7 @@ export default function CarouselCards({
       >
         <img
           src={img}
-          width={["30", "40", "40"]}
-          height={["30", "40", "40"]}
-          sx={{ position: 'absolute', top: '-20px', left: [3, 4, 4], zIndex: 2 }}
+          sx={{ position: 'absolute', top: ["-26px", "-30px", "-40px"], left: ["10px", "12px", "15px"], zIndex: 2, width: ["42px", "50px", "58px"], height: ["42px", "50px", "58px"] }}
         />
         <Card
           // variant="interactive"
@@ -55,12 +53,14 @@ export default function CarouselCards({
             backgroundColor: background,
             position: 'relative',
             color: 'white',
-            width: ['200px', '300px', '300px']
+            width: ['200px', '300px', '300px'],
+            padding: ['12px !important', '16px !important', '20px !important'],
+            height: '100%'
           }}
         >
           <Text
             as="h2"
-            sx={{ color: titleColor, fontSize: ['16px', '16px', '18px'] }}
+            sx={{ color: titleColor, fontSize: ['20px', '21px', '22px'] }}
           >
             {title}
           </Text>
@@ -70,6 +70,7 @@ export default function CarouselCards({
           <Icon
             glyph="external"
             size={32}
+            color="#E9E9E9"
             sx={{ position: 'absolute', top: 2, right: 2, opacity: 0.3, fontSize: [1, '16px', '20px'] }}
           />
         </Card>

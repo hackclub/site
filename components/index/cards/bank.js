@@ -21,7 +21,7 @@ export default function Bank({ data }) {
   return (
     <Box sx={{ position: 'relative' }}>
       {/* <Fade spy={data} bottom delay={500} appear> */}
-      <Badge
+      {/* <Badge
         variant="pill"
         sx={{
           position: 'absolute',
@@ -32,24 +32,47 @@ export default function Bank({ data }) {
         }}
       >
         {data[0]}
-      </Badge>
+      </Badge> */}
+      <Box
+        sx={{
+          position: 'absolute',
+          right: 3,
+          top: 3,
+          zIndex: 3,
+          px: 2,
+          py: 1,
+          background: 'red',
+          borderRadius: 'extra',
+          fontWeight: 'bold',
+          color: 'white'
+        }}
+      >
+        {data[0]}
+      </Box>
       {/* </Fade> */}
       <CardModel
         color="white"
         sx={{
           backgroundColor: 'dark',
-          minHeight: ['300px', '400px','300px']
+          minHeight: ['300px', '400px','300px'],
+          backgroundColor: 'darkless',
+          backgroundImage: `url('https://icons.hackclub.com/api/icons/0x291829/glyph:bank-account.svg')`,
+          backgroundSize: '40px 40px',
+          backgroundRepeat: 'repeat',
+          backgroundPosition: '10% 10%',
+          color: 'snow',
         }}
       >
         <Text variant="title" sx={{ color: 'red', fontSize: ['36px', 4, 5] }}>
           Hack Club Bank
         </Text>
-        <Grid columns={[1, 1, '1fr 0.6fr']}>
+        <Grid columns={[1, 1, 2]}>
           <Box>
             <Text as="p" variant="subtitle">
-              Tool developed to make organising easier: a fiscal sponsor and
-              banking platform in one to help you organize clubs, hackathons,
-              and more!
+             Become a 501(c)3 nonprofit and join 700+ teams using Hack Club Bank to run world-class events.
+            </Text>
+            <Text as="p" variant="subtitle">
+             This platform is built and maintained by the Hack Club team.
             </Text>
             <Box sx={{ position: 'relative', width: '100%', display: [null, 'none', 'none'], mb: '-50px', mt: 3}}>
               {' '}
@@ -90,16 +113,18 @@ export default function Bank({ data }) {
                 ></Box>
               </Box>
             </Box>
-            <Button
-              variant="primary"
-              as="a"
-              href="/bank"
-              mt={3}
-              target="_blank"
-              rel="noopener"
+            <Text sx={{ fontSize: ['18px', '20px', 3],
+              display: 'block', fontWeight: 'bold', mt: 2 }}>
+            Get involved
+          </Text>
+            <Buttons
+              id="27"
+              icon="bank-account"
+              link="/bank"
+              primary="red"
             >
-              Start bankin!
-            </Button>
+              Start banking!
+            </Buttons>
           </Box>
         </Grid>
       </CardModel>
@@ -107,7 +132,7 @@ export default function Bank({ data }) {
         sx={{
           position: 'absolute',
           right: [0 ,0,'-100px'],
-          bottom: [0 ,'-120px','-100px'],
+          bottom: [0 ,'-120px','-120px'],
           display: ['none', 'block', 'block']
         }}
       >
@@ -135,7 +160,7 @@ export default function Bank({ data }) {
           <Box
             sx={{
               backgroundImage:
-                'url("https://cloud-i4x0iu63l-hack-club-bot.vercel.app/0bank.gif")',
+                'url("https://cloud-f1orvtxst-hack-club-bot.vercel.app/0bank_vid.gif")',
               zIndex: 2,
               position: 'absolute',
               margin: 'auto',

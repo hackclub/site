@@ -62,7 +62,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
           textDecoration: 'none'
         }}
       >
-        <Box
+        {/* <Box
           sx={{
             width: '100%',
             height: '65%',
@@ -123,7 +123,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
               background: 'white'
             }}
           />
-        </Box>
+        </Box> */}
         <Box sx={{ display: 'flex', flex: '60% 40%', flexWrap: 'wrap' }}>
           <Text
             as="h3"
@@ -137,8 +137,8 @@ function Game({ game, gameImage, gameImage1, ...props }) {
               margin: '0.8rem 0 0.8rem 0',
               fontSize: '1.4rem',
               fontWeight: '400',
-              mt: 1,
-              mb: 0
+              my: 0,
+              lineHeight: '1.4rem'
             }}
           >
             {game.title}
@@ -167,8 +167,8 @@ function Game({ game, gameImage, gameImage1, ...props }) {
               fontSize: '0.8rem',
               color: 'snow',
               padding: 0,
-              my: 0,
-              opacity: 0.3
+              opacity: 0.3,
+              mb: 1,
             }}
           >
             <RelativeTime value={game.addedOn} titleFormat="YYYY-MM-DD" />
@@ -184,21 +184,49 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
     <CardModel
       github_link="https://github.com/hackclub/sprig/"
       color="white"
-      background="https://sprig.hackclub.com/background.jpg"
+      // background="https://sprig.hackclub.com/background.jpg"
       stars={stars}
+      highlight="#FFDE4D"
+      sx={{ backgroundColor: '#0C0C16' }}
     >
-      <img
+      <Image
+        src="https://sprig.hackclub.com/background.jpg"
+        sx={{
+          objectFit: 'cover',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          ml: -4,
+          mt: -4,
+          zIndex: 0
+        }}
+      />
+      <Image
         src="https://sprig.hackclub.com/spriglogotext.png"
-        sx={{ width: ['150px', '180px', '220px'] }}
+        sx={{
+          width: ['150px', '180px', '220px'],
+          zIndex: 3,
+          position: 'relative'
+        }}
       />
       <Grid columns={[1, 2]}>
         <Box>
-          <Text as="p" variant="subtitle">
+          <Text
+            as="p"
+            variant="subtitle"
+            sx={{ zIndex: 2, position: 'relative' }}
+          >
             Draw, make music, and craft games in our web-based JavaScript game
-            editor.
+            editor, which has been used by 7k+ makers around the world.
           </Text>
-          <Text sx={{ fontSize: ['18px', '20px', 3],
-              display: 'block', fontWeight: 'bold', mt: 3 }}>
+          <Text
+            sx={{
+              fontSize: ['18px', '20px', 3],
+              display: 'block',
+              fontWeight: 'bold',
+              mt: 3
+            }}
+          >
             Get involved
           </Text>
           <Flex sx={{ flexDirection: 'column' }}>
@@ -207,8 +235,10 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               id="6"
               icon="emoji"
               link="https://editor.sprig.hackclub.com"
+              primary="#FFDE4D"
+              sx={{ color: 'black' }}
             >
-             Build a Sprig game
+              Build a Sprig game
             </Buttons>
             {/* <Buttons
               content="DM @leo in Slack to join"
@@ -234,7 +264,7 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               Connect with other Sprig game developers
             </Buttons>
           </Flex>
-          <Button
+          {/* <Button
             as="a"
             variant="primary"
             sx={{
@@ -247,9 +277,9 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
             rel="noopener"
           >
             Make a game
-          </Button>
+          </Button> */}
         </Box>
-        <Box sx={{mt: [0, -4, -4]}}>
+        <Box sx={{ mt: [0, -4, -4] }}>
           <Text sx={{ fontStyle: 'italic', fontSize: [1, '14px', '16px'] }}>
             New from{' '}
             <Link
@@ -260,10 +290,27 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
             </Link>
             ...
           </Text>
-          <Flex sx={{ height: ['250px', '80%', '80%'], gap: '20px', mt: 3, width: ['100%', '90%', '90%'] }}>
+          <Grid
+          columns={[1, 1, 2]}
+            sx={{
+              // height: ['250px', '80%', '80%'],
+              gap: '20px',
+              mt: 3,
+              width: ['100%', '90%', '90%']
+            }}
+          >
             <Game game={game[0]} gameImage={gameImage} />
-            <Game game={game[1]} gameImage1={gameImage1} sx={{display: ['flex', 'none', 'flex']}} />
-          </Flex>
+            <Game
+              game={game[1]}
+              gameImage1={gameImage1}
+            />
+            <Game game={game[0]} gameImage={gameImage}  sx={{ display: ['flex', 'none', 'flex'] }} />
+            <Game
+              game={game[1]}
+              gameImage1={gameImage1}
+              sx={{ display: ['flex', 'none', 'flex'] }}
+            />
+          </Grid>
         </Box>
       </Grid>
     </CardModel>

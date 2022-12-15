@@ -50,10 +50,10 @@ const MailingList = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        api_key: process.env.POSTAL_API_KEY,
+        api_key: '0RVoIVdbt0fm7mDs5vnS',
         name: e.target.name.value,
         email: e.target.email.value,
-        list: process.env.POSTAL_LIST_ID
+        list: 'SUTgXFrqIRPE61eg08bC5Q'
       })
     })
 
@@ -64,25 +64,28 @@ const MailingList = () => {
   }
 
   return (
-    <Card sx={{
-      maxWidth: 'narrowPlus',
-      mx: 'auto',
-      // mt: [3, 4],
-      background: 'rgb(255,255,255, 0.45)',
-      backdropFilter: 'blur(8px)'
-    }}>
-
+    <Card
+      sx={{
+        maxWidth: 'narrowPlus',
+        mx: 'auto',
+        // mt: [3, 4],
+        background: 'rgb(255,255,255, 0.45)',
+        backdropFilter: 'blur(8px)'
+      }}
+    >
       <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2 }}>
         Stay in touch
       </Text>
       <Text sx={{ color: 'muted' }} as="p">
-        We'll send you an email whenever we launch a new project, so you can get
-        involved if you're interested. We never spam or sell your data.
+        We’ll send you an email no more than once a month, when we work on
+        something cool :) You'll be joining 20k+ teenagers on the list.
       </Text>
       <Grid
         as="form"
         ref={formRef}
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
+        action="http://postal.hackclub.com/subscribe"
+        method="POST"
         gap={[2, 3]}
         sx={{
           mt: [null, 3],
@@ -114,7 +117,8 @@ const MailingList = () => {
             required
           />
         </div>
-
+        {/* <Input type="hidden" name="list" value="SUTgXFrqIRPE61eg08bC5Q" />
+        <Input type="hidden" name="subform" value="yes" /> */}
         <Button type="submit" sx={{ mt: [2, 0] }}>
           {submitting ? (
             <>
@@ -130,7 +134,7 @@ const MailingList = () => {
       {submitted && (
         <Alert variant="primary" sx={{ bg: 'green', mt: [2, 3] }}>
           <Icon glyph="send" />
-          <Text sx={{ ml: 2 }}>Signed up!</Text>
+          <Text sx={{ ml: 2 }}>You're on the list!</Text>
         </Alert>
       )}
     </Card>

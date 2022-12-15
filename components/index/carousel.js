@@ -18,13 +18,6 @@ import PageVisibility from 'react-page-visibility'
 import { Fade } from 'react-reveal'
 /** @jsxImportSource theme-ui */
 
-// const noOfCards = 7
-
-// const move = keyframes`
-// 0% { transform: translateX(150vw); }
-// 	100% { transform: translateX(-50vw)}
-// `
-
 export default function Carousel() {
   let [speed, setSpeed] = useState(5)
 
@@ -35,24 +28,13 @@ export default function Carousel() {
   }
 
   return (
-    // <Box
-    //   sx={{
-    //     display: 'flex',
-    //     animation: `${move} 10s linear infinite`,
-    //     gap: '10px',
-    //     width: '150vw',
-    //     flexWrap: 'nowrap',
-    //     transform: 'translateX(0)',
-    //     animationPlayState: 'paused',
-    //     '&:hover': {
-    //       animationPlayState: 'paused'
-    //     }
-    //   }}
-    // >
     <PageVisibility onChange={handleVisibilityChange}>
       {pageIsVisible && (
         <Box>
-          <Box sx={{ maxWidth: 'layout', margin: 'auto', pt: [3, 4, 5] }} as="div">
+          <Box
+            sx={{ maxWidth: 'layout', margin: 'auto', pt: [3, 4, 5] }}
+            as="div"
+          >
             <Text variant="eyebrow" sx={{ fontSize: [1, 2, 3], mt: 4 }}>
               Here's a few projects you could get involved in:
             </Text>
@@ -61,7 +43,7 @@ export default function Carousel() {
             {() => (
               <Box
                 as="div"
-                sx={{ display: 'flex', py: 4 }}
+                sx={{ display: 'flex', py: [3, 4, 5] }}
                 onMouseOver={() => setSpeed(3)}
                 onMouseOut={() => setSpeed(6)}
               >
@@ -70,7 +52,7 @@ export default function Carousel() {
                   titleColor="yellow"
                   descriptionColor="white"
                   title="Sprig"
-                  description="Learn to code by making games in a JavaScript game editor"
+                  description="Join hundreds of teenagers making tile-based JavaScript games"
                   img="https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png"
                   link="https://sprig.hackclub.com"
                 />
@@ -78,8 +60,8 @@ export default function Carousel() {
                   background="#000"
                   titleColor="#FF4794"
                   descriptionColor="white"
-                  title="EPOCH"
-                  description="The most epic high school hackathon this new years"
+                  title="Epoch"
+                  description="Attend the most epic high school hackathon this New Years"
                   img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f386@2x.png"
                   link="https://epoch.hackclub.com"
                 />
@@ -88,7 +70,7 @@ export default function Carousel() {
                   titleColor="white"
                   textColor="white"
                   title="Clubs network"
-                  description="High school students come together to have fun and code, IRL"
+                  description="Join one of 400+ coding clubs around the world"
                   img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f5fa-fe0f@2x.png"
                   link="/clubs"
                 />
@@ -97,7 +79,7 @@ export default function Carousel() {
                   titleColor="red"
                   textColor="white"
                   title="Hack Club Bank"
-                  description="Fiscal sponsor and banking platform to organize anything"
+                  description="No. 1 fiscal sponsor for teenagers (we crossed $7 million in transactions)"
                   img="https://emoji.slack-edge.com/T0266FRGM/bank-hackclub-dark/8c6f85f387365072.png"
                   link="/bank"
                 />
@@ -106,7 +88,7 @@ export default function Carousel() {
                   titleColor="dark"
                   descriptionColor="black"
                   title="Some Assembly Required"
-                  description="An approachable introduction to learning Assembly"
+                  description="The 4th most starred Assembly repository on GitHub"
                   img="https://emoji.slack-edge.com/T0266FRGM/someassemblyrequired/cfacfacaaa2d8b1d.png"
                   link="https://github.com/hackclub/some-assembly-required"
                 />
@@ -115,7 +97,7 @@ export default function Carousel() {
                   titleColor="#CAB4D4"
                   textColor="#CAB4D4"
                   title="Sinerider"
-                  description="💖 A game about love, math, and graphing built by teenagers"
+                  description="Help build a game about love, math, and graphing 💖"
                   img="https://emoji.slack-edge.com/T0266FRGM/sinerider/68a0bc1208e885dd.png"
                   link="https://sinerider.hackclub.com"
                 />
@@ -124,8 +106,8 @@ export default function Carousel() {
                   titleColor="yellow"
                   textColor="white"
                   title="High school Hackathons"
-                  description="🔍 A curated list of high school hackathons."
-                  img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f4bb@2x.png"
+                  description="🔍 A curated list of high school hackathons with hundreds of events"
+                  img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f469-200d-1f4bb@2x.png"
                   link="/hackathons"
                 />
                 <CarouselCards
@@ -133,7 +115,7 @@ export default function Carousel() {
                   titleColor="dark"
                   descriptionColor="black"
                   title="Workshops"
-                  description="100+ short coding workshops to start building :)"
+                  description="100+ coding workshops to build a project in under an hour"
                   img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f4bb@2x.png"
                   link="https://workshops.hackclub.com"
                 />
@@ -143,6 +125,5 @@ export default function Carousel() {
         </Box>
       )}
     </PageVisibility>
-    // </Box>
   )
 }

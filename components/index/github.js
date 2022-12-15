@@ -27,7 +27,26 @@ export default function GitHub({
   ...props
 }) {
   return (
-    <Box style={{ width: 'fit-content', display: 'inline' }}>
+    <Box
+      style={{
+        width: 'fit-content',
+        position: ['relative', 'absolute', 'absolute'],
+        display: 'block',
+        top: '-10px',
+        right: 0
+      }}
+    >
+      <Text
+        as="p"
+        sx={{
+          // transform: [null, null, 'rotate(3deg)'],
+          fontSize: ['8px', '8px', '10px'],
+          textAlign: ['left', 'left', 'right'],
+          width: '100%'
+        }}
+      >
+        Live from GitHub
+      </Text>
       <Badge
         variant="pill"
         bg="black"
@@ -35,11 +54,10 @@ export default function GitHub({
           flexGrow: 1,
           color: 'white',
           fontWeight: '400 !important',
-          position: 'absolute',
-          top: 0,
-          right: 2,
+          textAlign: ['left', 'left', 'right'],
           zIndex: 4,
-          transform: [null, null, 'rotate(3deg)']
+          // transform: [null, null, 'rotate(3deg)'],
+          float: ['left', 'left', 'right']
         }}
         {...props}
       >
@@ -62,7 +80,10 @@ export default function GitHub({
             {user != null ? (
               user != 'dependabot[bot]' ? (
                 user != 'github-actions[bot]' ? (
-                  <img src={img} sx={{ borderRadius: '100%', height: '90%', mr: 2 }} />
+                  <img
+                    src={img}
+                    sx={{ borderRadius: '100%', height: '90%', mr: 2 }}
+                  />
                 ) : (
                   <></>
                 )
@@ -113,7 +134,11 @@ export default function GitHub({
                 user != 'github-actions[bot]' ? (
                   <Text
                     as="span"
-                    sx={{ fontSize: ['8px','8px','10px'], color: 'sunken', mx: 2 }}
+                    sx={{
+                      fontSize: ['8px', '8px', '10px'],
+                      color: 'sunken',
+                      mx: 2
+                    }}
                   >
                     <RelativeTime value={time} titleformat="iso8601" />
                   </Text>
