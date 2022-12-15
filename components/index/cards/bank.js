@@ -131,7 +131,7 @@ export default function Bank({ data }) {
       <Box
         sx={{
           position: 'absolute',
-          right: [0 ,0,'-100px'],
+          right: [0 ,'-30px','-100px'],
           bottom: [0 ,'-120px','-120px'],
           display: ['none', 'block', 'block']
         }}

@@ -168,7 +168,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
               color: 'snow',
               padding: 0,
               opacity: 0.3,
-              mb: 1,
+              mb: 1
             }}
           >
             <RelativeTime value={game.addedOn} titleFormat="YYYY-MM-DD" />
@@ -291,23 +291,29 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
             ...
           </Text>
           <Grid
-          columns={[1, 1, 2]}
+            columns={[1, 1, 2]}
             sx={{
               // height: ['250px', '80%', '80%'],
+              ml:[0, 4, 0],
               gap: '20px',
-              mt: 3,
+              mt: [0, 0, 3],
               width: ['100%', '90%', '90%']
             }}
           >
-            <Game game={game[0]} gameImage={gameImage} />
-            <Game
-              game={game[1]}
-              gameImage1={gameImage1}
+            <Game game={game[0]} 
+            // gameImage={gameImage} 
             />
-            <Game game={game[0]} gameImage={gameImage}  sx={{ display: ['flex', 'none', 'flex'] }} />
+            <Game game={game[1]} 
+            // gameImage1={gameImage1} 
+            />
             <Game
-              game={game[1]}
-              gameImage1={gameImage1}
+              game={game[2]}
+              // gameImage={gameImage}
+              sx={{ display: ['flex', 'none', 'flex'] }}
+            />
+            <Game
+              game={game[3]}
+              // gameImage1={gameImage1}
               sx={{ display: ['flex', 'none', 'flex'] }}
             />
           </Grid>
