@@ -119,8 +119,8 @@ const Rsvp = () => {
 
         <Flex sx={{ flexDirection: 'column' }}>
           <Label variant="labelHoriz" sx={{ m: 0, fontSize: 1, pt: 1 }}>
-            <Checkbox name="age" defaultChecked={false} />I am 19 years of age
-            or younger.
+            <Checkbox name="age" defaultChecked={false} />I am a current high
+            school student (or younger).
           </Label>
           <br />
 

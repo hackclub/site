@@ -6,9 +6,6 @@ import { useEffect } from 'react'
 import Snowfall from 'react-snowfall'
 import { Fade } from 'react-reveal'
 import Rsvp from './rsvp'
-import ScrollHint from '../scroll-hint'
-import useSWR from 'swr'
-import fetcher from '../../lib/fetcher'
 import { keyframes } from '@emotion/react'
 
 const flashing = keyframes({
@@ -88,8 +85,8 @@ export default function Landing({ rsvpCount }) {
           backgroundPosition: 'bottom center',
           backgroundSize: ['200%', '150%', '100%'],
           backgroundRepeat: 'no-repeat',
-          width: '100vw',
           height: '85vh',
+          minHeight: [null, '750px'],
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -98,7 +95,7 @@ export default function Landing({ rsvpCount }) {
         }}
       >
         <Snowfall />
-        <Box>
+        <Container>
           <Box
             sx={{
               backdropFilter: 'blur(1.5px)',
@@ -148,7 +145,7 @@ export default function Landing({ rsvpCount }) {
             <Rsvp />
           </Box>
           {/* <ScrollHint sx={{mt: 3}} /> */}
-        </Box>
+        </Container>
       </Box>
     </Box>
   )

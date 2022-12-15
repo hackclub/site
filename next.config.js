@@ -240,6 +240,10 @@ const nextConfig = {
       {
         source: '/how-to-organize-a-hackathon',
         destination: 'https://expandables.hackclub.dev/organizing.html'
+      },
+      {
+        source: '/how-to-organize-a-hackathon/style.css',
+        destination: 'https://expandables.hackclub.dev/style.css'
       }
     ]
   },
