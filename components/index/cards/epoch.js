@@ -162,17 +162,6 @@ export default function Epoch() {
             world travel to Delhi, India for Epoch! Together, we’ll build the unexpected, share what we’ve learnt
             in 2022, and experience the thrill of being in-person together.
           </Text>
-          <Text
-            sx={{
-              fontSize: ['18px', '20px', 3],
-              display: 'block',
-              fontWeight: 'bold',
-              mt: [3, 3, 2],
-              color: '#FF4794'
-            }}
-          >
-            Get involved
-          </Text>
           <Flex sx={{ flexDirection: 'column' }}>
             <Buttons
               content="travel stipends available"

@@ -59,16 +59,6 @@ export default function Sinerider({ stars }) {
             storytellers… so if that’s you, come join us; we need your help to
             make this thing real!
           </Text>
-          <Text
-            sx={{
-              fontSize: ['18px', '20px', 3],
-              display: 'block',
-              fontWeight: 'bold',
-              mt: 2
-            }}
-          >
-            Get involved
-          </Text>
           <Flex sx={{ flexDirection: 'column' }}>
             <Buttons
               content="you could create the art, be a scene maker, or write graphics rendering code"

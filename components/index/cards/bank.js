@@ -113,10 +113,6 @@ export default function Bank({ data }) {
                 ></Box>
               </Box>
             </Box>
-            <Text sx={{ fontSize: ['18px', '20px', 3],
-              display: 'block', fontWeight: 'bold', mt: 2 }}>
-            Get involved
-          </Text>
             <Buttons
               id="27"
               icon="bank-account"

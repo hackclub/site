@@ -384,7 +384,7 @@ function Page({
               The rundown
             </Text>
             <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-              Join us in discovering the{' '}
+              Discover the{' '}
               <Text
                 as="span"
                 sx={{
@@ -598,7 +598,7 @@ function Page({
                     <Link href="/clubs" target="_blank" rel="noopener">
                       Slack{' '}
                     </Link>
-                    (Discord, but better), active at all hours.
+                    (like Discord), active at all hours.
                   </Text>
                 </Grid>
                 <Grid

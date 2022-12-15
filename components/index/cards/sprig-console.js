@@ -86,16 +86,6 @@ export default function SprigConsole({ stars, consoleCount }) {
               started with hardware engineering and embedded systems
               programming.{' '}
             </Text>
-            <Text
-              sx={{
-                fontSize: ['18px', '20px', 3],
-                display: 'block',
-                fontWeight: 'bold',
-                mt: 2
-              }}
-            >
-              Get involved
-            </Text>
             <Flex sx={{ flexDirection: 'column' }}>
               <Buttons
                 content="click here to get started in our editor"
