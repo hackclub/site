@@ -35,7 +35,8 @@ function BreakdownBox({
         height: '100%',
         cursor: `${href ? 'pointer' : 'default'}`,
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        zIndex: 2
         // justifyContent: 'flex-end'
       }}
       variant="interactive"
@@ -57,7 +58,7 @@ function BreakdownBox({
           sx={{
             width: 'fit-content',
             bg: bg || 'white',
-            borderRadius: 18,
+            borderRadius: 10,
             lineHeight: 0,
             p: 2,
             mb: 1,
@@ -68,12 +69,13 @@ function BreakdownBox({
               'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
           }}
         >
-          <Icon glyph={icon} size={48} color={color || 'white'} />
+          <Icon glyph={icon} size={32} color={color || 'white'} />
         </Box>
       )}
       <Heading
         sx={{
-          fontSize: [2, 3, 4]
+          fontSize: ['20px', '24px', '26px'],
+          pt: [1, 2, 3]
         }}
       >
         {text}
@@ -81,7 +83,8 @@ function BreakdownBox({
       <Text
         as="p"
         sx={{
-          fontSize: [2, 3]
+          fontSize: [1, '16px', '20px'],
+          lineHeight: 1.25
         }}
       >
         {description}
@@ -92,37 +95,53 @@ function BreakdownBox({
 
 export default function Winter() {
   return (
-    <Box sx={{position: 'relative'}}>
-      <Badge
-        variant="pill"
-        sx={{
-          position: 'absolute',
-          left: -3,
-          top: -1,
-          transform: 'rotate(-7deg)',
-          zIndex: 3
-        }}
-      >
-        Happening Now <Dot />
-      </Badge>
-      <CardModel
+    // <Box sx={{position: 'relative'}}>
+    <CardModel
       color="white"
       sx={{
         backgroundSize: 'cover',
-        backgroundImage:
-          'url(https://cloud-6h53svh6x-hack-club-bot.vercel.app/0group_5.png)',
-        backgroundPosition: 'center top',
-        backgroundRepeat: 'no-repeat',
+        // backgroundImage:
+        //   'url(https://cloud-6h53svh6x-hack-club-bot.vercel.app/0group_5.png)',
+        // backgroundPosition: 'center top',
+        // backgroundRepeat: 'no-repeat',
         backgroundColor: '#3561A4'
       }}
       position={[null, 'bottom', 'bottom']}
     >
+      <Image
+        src="https://cloud-6h53svh6x-hack-club-bot.vercel.app/0group_5.png"
+        sx={{
+          objectFit: 'cover',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          ml: -4,
+          mt: -4,
+          zIndex: 0
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          right: 3,
+          top: 3,
+          zIndex: 3,
+          px: 3,
+          py: 2,
+          background: 'rgba(255,255,255,0.2)',
+          borderRadius: 'extra',
+          fontWeight: 'bold',
+        }}
+      >
+        Happening now
+      </Box>
       <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-        Winter Hardware Wonderland
+        Winter hardware wonderland
       </Text>
       <Text as="p" variant="subtitle">
-      Build your own electronics projects alongside hundreds of other teenagers in the Hack Club community!
-        </Text>
+        Build your own electronics projects alongside hundreds of other
+        teenagers in the Hack Club community!
+      </Text>
       <Box>
         <Grid gap={[2, 2, 3]} columns={[1, 1, 3, 3]} py={3}>
           <BreakdownBox
@@ -154,20 +173,18 @@ export default function Winter() {
             href="/slack"
           />
         </Grid>
-        <Button
-          variant="primary"
-          sx={{
-            backgroundColor: '#3561A4',
-            color: 'white',
-            mt: 3
-          }}
-          as="a"
-          href="/winter"
+        <Buttons
+          content="click to learn more about how to submit a workshop"
+          id="13"
+          link="/winter"
+          icon="freeze"
+          primary="white"
+          sx={{ color: 'blue' }}
         >
           RSVP
-        </Button>
+        </Buttons>
       </Box>
     </CardModel>
-    </Box>
+    // </Box>
   )
 }

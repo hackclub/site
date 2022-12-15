@@ -15,29 +15,20 @@ import ReactTooltip from 'react-tooltip'
 import Icon from '@hackclub/icons'
 /** @jsxImportSource theme-ui */
 
-export default function Buttons({ children, icon, id, content, link, ...props }) {
+export default function Buttons({ children, icon, id, content, link, primary, ...props }) {
+  let fontWeight = primary != null ? '700' : '400'
+
   return (
     <Box
       py={1}
-      // onClick={() => {
-      //   if (toggle) {
-      //     setToggle(false)
-      //     console.log(toggle)
-      //   } else {
-      //     setToggle(true)
-      //     console.log(toggle)
-      //   }
-      // }}
     >
       <Button
-        // ref={ref => (fooRef = ref)}
         data-place="right"
         data-for={id}
         data-effect="solid"
         data-tip
-        // data-event="click"
         sx={{
-          background: 'rgb(255, 255, 255, 0.3)',
+          background: primary || 'rgb(255, 255, 255, 0.3)',
           borderRadius: '100px',
           border: 'none',
           display: 'flex',
@@ -50,6 +41,7 @@ export default function Buttons({ children, icon, id, content, link, ...props })
           fontWeight: '400',
           fontSize: [1, '14px', '16px'],
           backdropFilter: 'blur(2px)',
+          fontWeight: fontWeight
         }}
         as={"a"}
         href={link || '/'}

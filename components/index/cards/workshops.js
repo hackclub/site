@@ -20,7 +20,7 @@ import Buttons from './button'
 
 const WorkshopCard = ({ slug, name, description, img, height, section, ...props }) => (
   <Link
-    href={`/${slug}`}
+    href={`https://workshops.hackclub.com/${slug}`}
     passHref
     sx={{ textDecoration: 'none' }}
     target="_blank"
@@ -36,7 +36,10 @@ const WorkshopCard = ({ slug, name, description, img, height, section, ...props 
         p: [0, 0],
         lineHeight: 0,
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        '& span': {
+          lineHeight: 1.25
+        }
       }}
     >
       <Box sx={{ p: 3, lineHeight: 'body' }}>
@@ -49,39 +52,20 @@ const WorkshopCard = ({ slug, name, description, img, height, section, ...props 
         sx={{
           width: '100%',
           height: height || '120px',
-          mt: 'auto',
-          backgroundImage: `url('${img}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat'
+          // mt: 'auto',
+          // backgroundImage: `url('${img}')`,
+          // backgroundSize: 'cover',
+          // backgroundPosition: 'center center',
+          // backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* <img alt={`${name} demo`} src={img} /> */}
+        <Image alt={`${name} demo`} src={img} sx={{width: '100%', height: 'auto'}} />
       </Box>
     </Card>
   </Link>
 )
 
 export default function Workshops({ data, stars }) {
-  const [workshop, setWorkshop] = useState('Splatter Paintv')
-  const [workshopSlug, setWorkshopSlug] = useState('')
-
-  // function New() {
-  //   let rand = Math.floor(Math.random() * data.length - 2)
-
-  //   setWorkshop(
-  //     data[rand].name
-  //       .replace('.js', '')
-  //       .replace(/[-]/g, ' ')
-  //       .replace(/[_]/g, ' ')
-  //       .replace('.', '')
-  //       .replace(/(?:^|\s|[-"'([{])+\S/g, (c) => c.toUpperCase())
-  //   )
-
-  //   setWorkshopSlug(data[rand].name)
-  // }
-
-  // console.log(data[Math.floor(Math.random() * data[0].length)])
   return (
     <CardModel
       color="white"
@@ -92,20 +76,19 @@ export default function Workshops({ data, stars }) {
       }}
       github_link="https://github.com/hackclub/workshops"
       stars={stars}
+      highlight="blue"
     >
       <Text variant="title" sx={{fontSize: ['36px', 4, 5]}}>Workshops</Text>
-      <Box>
-        <Text as="p" variant="subtitle">
-          A collection of community-contributed, self-guided coding tutorials +
-          ideas. Learn to code by building, one project at a time.
-        </Text>
-        <Grid columns={[1, '0.8fr 1fr']}>
+        <Grid columns={[1, 1, 2]}>
           <Flex sx={{ flexDirection: 'column' }}>
-            <Text sx={{ fontSize: ['18px', '20px', 3], fontWeight: 'bold', mt: 4 }}>
+          <Text as="p" variant="subtitle">
+          100+ community-contributed, self-guided coding tutorials and ideas. Learn to code by building, one project at a time.
+        </Text>
+            <Text sx={{ fontSize: ['18px', '20px', 3], fontWeight: 'bold', mt: 3 }}>
               Get involved
             </Text>
-            <Buttons id="14" link="https://workshops.hackclub.com" icon="code">
-              Follow a workshop and build a project
+            <Buttons id="14" link="https://workshops.hackclub.com" icon="code" primary="white" sx={{color: 'blue'}}>
+              Find a workshop
             </Buttons>
             <Buttons
               content="click to learn more about how to submit a workshop"
@@ -115,42 +98,27 @@ export default function Workshops({ data, stars }) {
             >
               Write and submit a workshop
             </Buttons>
-            <Button
-              variant="primary"
-              sx={{
-                background: 'white',
-                color: 'blue',
-                mt: 3,
-                width: 'fit-content'
-              }}
-              as="a"
-              href="https://workshops.hackclub.com"
-              target="_blank"
-              rel="noopener"
-            >
-              Find workshops
-            </Button>
           </Flex>
-          <Grid sx={{ gap: 3 }} columns={[1, 1, 2]} mt={[0, 2, 0]}>
+          <Grid sx={{ gap: 3 }} columns={[1, 1, 2]}>
             <WorkshopCard
-              key="personal_website"
-              slug="personal_website"
-              name="Personal Website"
-              description="Make your first website from scratch"
-              img="https://workshops.hackclub.com/_next/image/?url=/content/workshops/personal_website/img/demo.png&w=1080&q=75"
+              key="splatter_paint"
+              slug="splatter_paint"
+              name="Splatter Paint"
+              description="Crazy colorful splatter paint in your browser with Paper.js"
+              img="https://cloud-3aosybiuc-hack-club-bot.vercel.app/1final-demo.png"
             />
             <WorkshopCard
               key="particle_physics"
               slug="particle_physics"
               name="Particle Physics"
-              description="Creating a basic particle physics simulation and rendering using p5.js"
+              description="Create a particle physics simulation and with p5.js"
               img="https://cloud-k50jkthdw.vercel.app/0particle-physics-summary.png"
               height="100px"
-              sx={{display: ['block', 'none', 'block']}}
+              sx={{display: ['flex', 'none', 'flex']}}
             />
           </Grid>
         </Grid>
-      </Box>
+
       {/* <Fade spy={workshop} bottom>
           <Text
             // onClick={New}

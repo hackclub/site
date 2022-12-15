@@ -25,42 +25,64 @@ export default function Sinerider({ stars }) {
       color="white"
       sx={{
         backgroundSize: 'cover',
-        backgroundImage:
-          'url(https://cloud-pwqxgzqdg-hack-club-bot.vercel.app/0initial-bg__1_.png)',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat'
+        // backgroundImage:
+        //   'url(https://cloud-pwqxgzqdg-hack-club-bot.vercel.app/0initial-bg__1_.png)',
+        // backgroundPosition: 'center -60px',
+        // backgroundRepeat: 'no-repeat',
+        backgroundColor: '#271932'
       }}
-      position={[null, "bottom", "bottom"]}
+      position={[null, 'bottom', 'bottom']}
+      highlight="#271932"
     >
+      <Image
+        src="https://cloud-pwqxgzqdg-hack-club-bot.vercel.app/0initial-bg__1_.png"
+        sx={{
+          objectFit: 'cover',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          ml: -4,
+          mt: -4,
+          zIndex: 0
+        }}
+      />
       <img
         src="https://cloud-9cei11221-hack-club-bot.vercel.app/0logo_text_2.png"
-        sx={{ width: ['200px', '250px', '300px'] }}
+        sx={{ width: ['200px', '250px', '300px'], mt: '-20px', position: 'relative', zIndex: 2 }}
       />
-      <Grid columns={[1, 1, '0.4fr 0.6fr']}>
+      <Grid columns={[1, 1, 2]} sx={{position: 'relative', zIndex: 2}}>
         <Box></Box>
-        <Box sx={{ mt: ['-40px', '-40px', '-180px'] }}>
+        <Box sx={{ mt: ['-40px', '-40px', '-150px'] }}>
           <Text as="p" variant="subtitle">
             A game about love and graphing, coming 2023! This project is powered
             by teenage hackers of all kinds: artists, musicians, programmers,
-            storytellers… so if that's you, come join us; we need your help to
+            storytellers… so if that’s you, come join us; we need your help to
             make this thing real!
           </Text>
-          <Text sx={{ fontSize: ['18px', '20px', 3],
-              display: 'block',fontWeight: 'bold', mt: 2 }}>
+          <Text
+            sx={{
+              fontSize: ['18px', '20px', 3],
+              display: 'block',
+              fontWeight: 'bold',
+              mt: 2
+            }}
+          >
             Get involved
           </Text>
           <Flex sx={{ flexDirection: 'column' }}>
             <Buttons
-              // content="join #gamedev in Slack to get started"
+              content="you could create the art, be a scene maker, or write graphics rendering code"
               id="4"
               icon="rainbow"
-              // href="/slack"
+              href="https://github.com/hackclub/sinerider/#readme"
               target="_blank"
               rel="noopener"
+              primary="#CAB4D4"
+              sx={{ color: '#271932' }}
             >
-              Create art for the game
+              Join the development
             </Buttons>
-            <Buttons
+            {/* <Buttons
               // content="DM @cwalker in Slack to learn more"
               id="5"
               icon="view"
@@ -69,7 +91,7 @@ export default function Sinerider({ stars }) {
               rel="noopener"
             >
               Be a scene maker
-            </Buttons>
+            </Buttons> */}
             <Buttons
               // content="DM @cwalker in Slack to learn more"
               id="26"
@@ -81,7 +103,7 @@ export default function Sinerider({ stars }) {
               View a game preview
             </Buttons>
           </Flex>
-          <Button
+          {/* <Button
             variant="primary"
             sx={{
               backgroundColor: '#CAB4D4',
@@ -92,7 +114,7 @@ export default function Sinerider({ stars }) {
             href="https://github.com/hackclub/sinerider/#readme"
           >
             Join the development
-          </Button>
+          </Button> */}
         </Box>
       </Grid>
     </CardModel>

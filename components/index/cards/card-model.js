@@ -1,5 +1,5 @@
 import Tilt from './tilt'
-import Icon from '@hackclub/icons'
+import Icon from '../../icon'
 import {
   Box,
   Button,
@@ -15,6 +15,7 @@ import {
 } from 'theme-ui'
 import { Zoom } from 'react-reveal'
 import ReactTooltip from 'react-tooltip'
+import Comma from '../../comma'
 
 /** @jsxImportSource theme-ui */
 
@@ -22,6 +23,7 @@ const CardModel = ({
   background,
   children,
   link,
+  highlight,
   github_link,
   color,
   stars,
@@ -35,13 +37,13 @@ const CardModel = ({
       position: 'relative',
       width: '100%',
       color: color,
-      my: 4,
+      my: [3, 4, 5],
       p: 3,
       backgroundSize: 'cover',
       backgroundImage: `url(${background})` || '',
       backgroundPosition: 'center bottom',
       backgroundRepeat: 'no-repeat',
-      p: {
+      '& p': {
         fontSize: [1, '16px', '20px']
       }
     }}
@@ -55,7 +57,8 @@ const CardModel = ({
               position: 'absolute',
               left: 3,
               bottom: 2,
-              alignItems: 'center'
+              alignItems: 'center',
+              zIndex: 2
             }}
           >
             <Link
@@ -64,9 +67,25 @@ const CardModel = ({
               target="_blank"
               rel="noopener"
             >
-              <Icon glyph="github" size={42} color={color} />
+              <Icon
+                glyph="github"
+                size={42}
+                color="#2351fs"
+                sx={{
+                  color: '#000',
+                  '&:hover': {
+                    color: highlight || color
+                  }
+                }}
+              />
             </Link>
-            {stars != null ? <Text as="h2">{stars} ⭐️</Text> : <></>}
+            {stars != null ? (
+              <Text as="h2">
+                ⭐️ <Comma>{stars}</Comma>
+              </Text>
+            ) : (
+              <></>
+            )}
           </Flex>
         ) : (
           <Flex
@@ -74,12 +93,29 @@ const CardModel = ({
               position: 'absolute',
               right: 2,
               top: 2,
-              alignItems: 'center'
+              alignItems: 'center',
+              zIndex: 2
             }}
           >
-            {stars != null ? <Text as="h2">{stars} ⭐️</Text> : <></>}
+            {stars != null ? (
+              <Text as="h2">
+                ⭐️ <Comma>{stars}</Comma>
+              </Text>
+            ) : (
+              <></>
+            )}
             <Link href={github_link} sx={{ ml: 2 }}>
-              <Icon glyph="github" size={42} color={color} />
+              <Icon
+                glyph="github"
+                size={42}
+                sx={{
+                  color: color,
+                  transition: '0.4s',
+                  '&:hover': {
+                    color: highlight || color
+                  }
+                }}
+              />
             </Link>
           </Flex>
         )}

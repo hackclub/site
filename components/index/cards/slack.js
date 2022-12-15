@@ -19,6 +19,7 @@ import { keyframes } from '@emotion/react'
 import SlackEvents from '../../slack/slack-events'
 import Event from '../events'
 import Dot from '../../dot'
+import Comma from '../../comma'
 /** @jsxImportSource theme-ui */
 
 // const Cover = () => (
@@ -87,7 +88,8 @@ const Cover = () => (
       top: 0,
       left: 0,
       right: 0,
-      backgroundImage: t => t.util.gx('cyan', 'purple'),
+      backgroundImage:
+        'linear-gradient(to bottom,rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85))',
       opacity: 0.8,
       zIndex: 1
     }}
@@ -103,10 +105,27 @@ export default function Slack({ data, slackKey, events }) {
       color="white"
       sx={{
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        backgroundImage: t => t.util.gx('cyan', 'purple')
+        // background:
+        //   'linear-gradient(to bottom,rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.6) 25%,rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.8) 100%), url("https://hackclub.com/_next/image/?url=https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%252F2020-05-16_screenshot.jpeg?v%3D1589633885855&w=2048&q=75")',
+        // backgroundPositon: 'center center',
+        // backgroundSize: '100% auto'
       }}
     >
-      <Box
+      <Image
+        src="/home/slack_ama.webp"
+        sx={{
+          objectFit: 'cover',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          ml: -4,
+          mt: -4
+        }}
+      />
+            <Cover />
+      {/* <Box
         as="video"
         autoPlay
         muted
@@ -138,8 +157,7 @@ export default function Slack({ data, slackKey, events }) {
           src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.mov?v=1590781491717"
           type="video/quicktime"
         />
-      </Box>
-      <Cover />
+      </Box> */}
       <Grid sx={{ zIndex: 2 }}>
         <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2 }}>
           Our online community
@@ -157,57 +175,15 @@ export default function Slack({ data, slackKey, events }) {
             as="p"
             sx={{ fontSize: [1, '16px', '20px'] }}
           >
-            Coding doesn't have to be a solidary activity. At Hack Club, we make
-            things together and in our Slack (similar to Discord, but better),
-            you'll find a group of{' '}
-            <Box sx={{ display: 'inline', fontWeight: '700' }}>
-              {data.total_members_count}{' '}
-            </Box>
-            fabulous people to talk to, active at all hours. You could launch
-            your latest project and get feedback or discuss a cool article you
-            read, alongside other Hack Clubbers.
+            Coding doesn’t have to be a solidary activity. At Hack Club, we make
+            things together and in our Slack, you'll find awesome people to
+            hangout with to. Across 2,000 public channels, find the community
+            for your favorite programming language, ask for advice, or just hang
+            out.
           </Text>
           <Text as="p" variant="subtitle">
-            Sometimes, we also invite someone we really want to speak to (like{' '}
-            <Link
-              href="https://www.youtube.com/watch?v=qiLiyQ_2gho"
-              target="_blank"
-              rel="noopener"
-              sx={{
-                color: 'inherit',
-                fontStyle: 'italic',
-                textDecoration: 'none'
-              }}
-            >
-              Sal Khan
-            </Link>
-            ,{' '}
-            <Link
-              href="https://www.youtube.com/watch?v=h3nAdaz5fOg"
-              target="_blank"
-              rel="noopener"
-              sx={{
-                color: 'inherit',
-                fontStyle: 'italic',
-                textDecoration: 'none'
-              }}
-            >
-              George Hotz
-            </Link>
-            , and{' '}
-            <Link
-              href="https://www.youtube.com/watch?v=IWFtj9cCaB0"
-              target="_blank"
-              rel="noopener"
-              sx={{
-                color: 'inherit',
-                fontStyle: 'italic',
-                textDecoration: 'none'
-              }}
-            >
-              Lady Ada
-            </Link>
-            ) and host an{' '}
+            Sometimes, we also invite someone we really want to speak to (like
+            Sal Khan, George Hotz, and Lady Ada) and host an{' '}
             <Link
               href="/amas"
               target="_blank"
@@ -220,24 +196,19 @@ export default function Slack({ data, slackKey, events }) {
           </Text>
           <Event events={events} />
 
-          <Button
-            variant="primary"
-            sx={{
-              backgroundColor: 'white',
-              color: 'purple',
-              mt: 3
-            }}
-            as="a"
-            href="/slack"
-            target="_blank"
-            rel="noopener"
+          <Buttons
+            content="click to learn more about how to submit a workshop"
+            id="13"
+            link="/slack"
+            icon="slack"
+            primary="purple"
           >
-            Join our community
-          </Button>
+            Join our Slack
+          </Buttons>
           <Grid sx={{ zIndex: 2 }}>
             <Box
               sx={{
-                background: 'rgb(0,0,0,0.3)',
+                background: 'rgb(0,0,0,0.6)',
                 height: ['170px', '100%', '100%'],
                 position: ['relative', 'absolute', 'absolute'],
                 zIndex: 3,
@@ -254,15 +225,24 @@ export default function Slack({ data, slackKey, events }) {
                 <Dot />
                 Live from Slack
               </Text>
-              <Box sx={{ py: 2, fontWeight: '400' }}>
-                Total members: {data.total_members_count}
-              </Box>
-              <Box sx={{ py: 2, fontWeight: '400' }}>
-                Daily messages: {data.messages_count_1d}
-              </Box>
-              <Box sx={{ py: 2, fontWeight: '400' }}>
-                Online today: {data.readers_count_1d}
-              </Box>
+              <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                <Comma>{data.readers_count_1d}</Comma>
+              </Heading>
+              <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                Online today
+              </Text>
+              <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                <Comma>{data.messages_count_1d}</Comma>
+              </Heading>
+              <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                Daily messages
+              </Text>
+              <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                <Comma>{data.total_members_count}</Comma>
+              </Heading>
+              <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                Total members
+              </Text>
             </Box>
           </Grid>
         </Box>

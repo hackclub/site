@@ -130,19 +130,6 @@ export default function Epoch() {
     )
   })
   return (
-    <Box sx={{position: 'relative'}}>
-      <Badge
-        variant="pill"
-        sx={{
-          position: 'absolute',
-          right: -3,
-          top: -1,
-          transform: 'rotate(7deg)',
-          zIndex: 3
-        }}
-      >
-        Happening Now <Dot />
-      </Badge>
       <CardModel
       id="epoch"
       color="white"
@@ -154,7 +141,7 @@ export default function Epoch() {
         src="https://cloud-ox8syzbet-hack-club-bot.vercel.app/0ep0ch.svg"
         sx={{ width: ['150px', '180px', '220px'] }}
       />
-      <Grid columns={[1, 1, '0.8fr 1fr']} mt={[0, 3, 3]}>
+      <Grid columns={[1, 1, 2]} mt={[0, 3, 3]}>
         <Box>
           {timer.length ? (
             <Grid
@@ -192,6 +179,7 @@ export default function Epoch() {
               id="17"
               link="https://epoch.hackclub.com"
               icon="post"
+              primary="#FF4794"
             >
               Sign up and attend Epoch
             </Buttons>
@@ -204,7 +192,7 @@ export default function Epoch() {
               Help plan the hackathon
             </Buttons>
           </Flex>
-          <Button
+          {/* <Button
             variant="primary"
             as="a"
             href="https://epoch.hackclub.com/"
@@ -218,10 +206,9 @@ export default function Epoch() {
             }}
           >
             Sign up for Epoch
-          </Button>
+          </Button> */}
         </Box>
       </Grid>
     </CardModel>
-    </Box>
   )
 }
