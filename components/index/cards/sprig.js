@@ -219,16 +219,6 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
             Draw, make music, and craft games in our web-based JavaScript game
             editor, which has been used by 7k+ makers around the world.
           </Text>
-          <Text
-            sx={{
-              fontSize: ['18px', '20px', 3],
-              display: 'block',
-              fontWeight: 'bold',
-              mt: 3
-            }}
-          >
-            Get involved
-          </Text>
           <Flex sx={{ flexDirection: 'column' }}>
             <Buttons
               content="click here to get started in our editor"

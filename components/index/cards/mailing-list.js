@@ -78,7 +78,7 @@ const MailingList = () => {
       </Text>
       <Text sx={{ color: 'muted' }} as="p">
         We’ll send you an email no more than once a month, when we work on
-        something cool :) You'll be joining 20k+ teenagers on the list.
+        something cool for you.
       </Text>
       <Grid
         as="form"

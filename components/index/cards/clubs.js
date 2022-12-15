@@ -93,22 +93,12 @@ export default function Clubs() {
             You can start with no experience and build and ship a project every
             meeting.
           </Text>
-          <Text
-            sx={{
-              fontSize: ['18px', '20px', 3],
-              display: 'block',
-              fontWeight: 'bold',
-              mt: 2
-            }}
-          >
-            Get involved
-          </Text>
           <Flex sx={{ flexDirection: 'column' }}>
             <Buttons
               content="we'll support you with meeting content, stickers, and more"
               id="2"
               icon="welcome"
-              link="/clubs"
+              link="https://apply.hackclub.com/"
               primary="red"
             >
               Start a club

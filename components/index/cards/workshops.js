@@ -85,9 +85,6 @@ export default function Workshops({ data, stars }) {
           <Text as="p" variant="subtitle">
           100+ community-contributed, self-guided coding tutorials and ideas. Learn to code by building, one project at a time.
         </Text>
-            <Text sx={{ fontSize: ['18px', '20px', 3], fontWeight: 'bold', mt: 3 }}>
-              Get involved
-            </Text>
             <Buttons id="14" link="https://workshops.hackclub.com" icon="code" primary="white" sx={{color: 'blue'}}>
               Find a workshop
             </Buttons>

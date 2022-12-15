@@ -75,16 +75,6 @@ export default function Hackathons({ data, stars }) {
             world. From an online community of organizers to free stickers and
             more!{' '}
           </Text>
-          <Text
-            sx={{
-              fontSize: ['18px', '20px', 3],
-              display: 'block',
-              fontWeight: 'bold',
-              mt: 2
-            }}
-          >
-            Get involved
-          </Text>
           <Flex sx={{ flexDirection: 'column' }}>
             <Buttons
               id="19"
