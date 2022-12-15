@@ -38,8 +38,7 @@ export default function Hackathons({ data, stars }) {
     <CardModel
       color="white"
       sx={{
-        backgroundColor: 'dark'
-        // background:
+        backgroundColor: 'dark',        // background:
         //   'linear-gradient(to bottom,rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.4) 25%,rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.6) 100%), url("https://hackclub.com/bank/bg.webp")',
         // backgroundPositon: 'center center',
         // backgroundSize: '100% auto'
@@ -68,7 +67,8 @@ export default function Hackathons({ data, stars }) {
       >
         High school hackathons
       </Text>
-      <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
+      <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2,         minHeight: '200px'
+ }}>
         <Box>
           <Text as="p" variant="subtitle">
             We support the largest network of high school hackathons in the
@@ -119,7 +119,10 @@ export default function Hackathons({ data, stars }) {
           sx={{
             flexDirection: 'column',
             alignItems: 'flex-end',
-            alignSelf: 'flex-end'
+            alignSelf: 'flex-end',
+            position: ['absolute', 'absolute', 'relative'],
+            right: 0,
+            bottom: 0
           }}
         >
           <Text sx={{ fontSize: 'small' }}>

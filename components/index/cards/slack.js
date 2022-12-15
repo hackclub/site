@@ -124,7 +124,7 @@ export default function Slack({ data, slackKey, events }) {
           mt: -4
         }}
       />
-            <Cover />
+      <Cover />
       {/* <Box
         as="video"
         autoPlay
@@ -163,11 +163,10 @@ export default function Slack({ data, slackKey, events }) {
           Our online community
         </Text>
       </Grid>
-      <Grid columns={[1, 1]} sx={{ zIndex: 2 }}>
+      <Grid columns={[1, 1, 2, 2]} sx={{ zIndex: 2 }}>
         <Box
           sx={{
             zIndex: 2,
-            width: [null, 'calc(100% - 200px)', 'calc(100% - 200px)']
           }}
         >
           <Text
@@ -209,15 +208,15 @@ export default function Slack({ data, slackKey, events }) {
             <Box
               sx={{
                 background: 'rgb(0,0,0,0.6)',
-                height: ['170px', '100%', '100%'],
-                position: ['relative', 'absolute', 'absolute'],
+                height: ['170px', '170px', '100%', '100%'],
+                position: ['relative', 'relative', 'absolute', 'absolute'],
                 zIndex: 3,
-                width: ['120%', '210px', '210px'],
+                width: ['120%', '120%', '210px', '210px'],
                 right: 0,
-                top: [null, 0, 0],
-                mt: [3, 0, 0],
-                ml: -3,
-                mb: -3,
+                top: [null, null, 0, 0],
+                mt: [3, 3, 0, 0],
+                ml: -4,
+                mb: -4,
                 p: 3
               }}
             >
@@ -225,24 +224,32 @@ export default function Slack({ data, slackKey, events }) {
                 <Dot />
                 Live from Slack
               </Text>
-              <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
-                <Comma>{data.readers_count_1d}</Comma>
-              </Heading>
-              <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
-                Online today
-              </Text>
-              <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
-                <Comma>{data.messages_count_1d}</Comma>
-              </Heading>
-              <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
-                Daily messages
-              </Text>
-              <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
-                <Comma>{data.total_members_count}</Comma>
-              </Heading>
-              <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
-                Total members
-              </Text>
+              <Flex sx={{flexDirection: ['row', 'row', 'column', 'column'], gap: '20px'}}>
+                <Box>
+                  <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                    <Comma>{data.readers_count_1d}</Comma>
+                  </Heading>
+                  <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                    Online today
+                  </Text>
+                </Box>
+                <Box>
+                  <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                    <Comma>{data.messages_count_1d}</Comma>
+                  </Heading>
+                  <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                    Daily messages
+                  </Text>
+                </Box>
+                <Box>
+                  <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                    <Comma>{data.total_members_count}</Comma>
+                  </Heading>
+                  <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                    Total members
+                  </Text>
+                </Box>
+              </Flex>
             </Box>
           </Grid>
         </Box>

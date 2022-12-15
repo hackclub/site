@@ -174,7 +174,7 @@ function Page({
     // {alt: 'Hack Clubber giving a talk on sponsorship', src: '/home/flagship_megan.png'},
   ]
 
-  if (count == images.length - 1) {
+  if (count == images.length - 2) {
     setCount(0)
   }
 
@@ -419,7 +419,7 @@ function Page({
               pt={[3, 4]}
             >
               <Box
-                sx={{ position: 'relative', height: ['400px', '100%', '100%'] }}
+                sx={{ position: 'relative', height: ['300px', '300px', '100%'] }}
                 onClick={() => setCount(count + 1)}
               >
                 <Box
@@ -428,13 +428,56 @@ function Page({
                   <Box
                     sx={{
                       position: 'relative',
-                      height: ['400px', '400px', '100%'],
+                      height: ['300px', '300px', '100%'],
+                      figure: {
+                        position: 'absolute',
+                        transform:
+                          count % 2 == 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
+                        height: '85%',
+                        width: ['70%', '70%', '100%'],
+                      },
+                      zIndex: 3,
+                      '&:hover': {
+                        cursor: 'pointer'
+                      }
+                    }}
+                    data-tip="next"
+                    data-arrow-color="transparent"
+                    data-background-color="white"
+                    data-text-color="black"
+                  >
+                    <Photo
+                      src={
+                        count == images.length - 2
+                          ? images[1].src
+                          : images[count + 2].src
+                      }
+                      alt={
+                        count == images.length - 2
+                          ? images[1].alt
+                          : images[count + 2].alt
+                      }
+                      width={3000}
+                      height={2550}
+                      showAlt
+                      // loading="eager"
+                    />
+                  </Box>
+                </Box>
+                <Box
+                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
+                >
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      height: ['300px', '300px', '100%'],
                       figure: {
                         position: 'absolute',
                         transform:
                           count % 2 == 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
-                        height: ['85%', '85%', '55%', '85%'],
-                        width: '100%'
+                        height: '85%',
+                        width: ['70%', '70%', '100%'],
+                        margin: 'auto'
                       },
                       zIndex: 3,
                       '&:hover': {
@@ -470,13 +513,14 @@ function Page({
                   <Box
                     sx={{
                       position: 'relative',
-                      height: ['400px', '100%', '100%'],
+                      height: ['300px', '300px', '100%'],
                       figure: {
                         position: 'absolute',
                         transform:
                           count % 2 == 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
-                        height: ['85%', '85%', '55%', '85%'],
-                        width: '100%'
+                        height: '85%',
+                        width: ['70%', '70%', '100%'],
+                        margin: 'auto'
                       },
                       zIndex: 3,
                       '&:hover': {
@@ -809,7 +853,7 @@ function Page({
               Let's recap
             </Text>
             <Heading as="h2" variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-              Find your place with{' '}
+              Find your second home at{' '}
               <Text
                 as="span"
                 sx={{
@@ -823,7 +867,6 @@ function Page({
               >
                 Hack Club
               </Text>
-              .
             </Heading>
             <Grid
               pt={[3, 4]}

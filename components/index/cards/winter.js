@@ -143,7 +143,7 @@ export default function Winter() {
         teenagers in the Hack Club community!
       </Text>
       <Box>
-        <Grid gap={[2, 2, 3]} columns={[1, 1, 3, 3]} py={3}>
+        <Grid gap={[2, 2, 3]} columns={[1, 3, 3]} py={3}>
           <BreakdownBox
             icon="settings"
             color="#5bc0de"

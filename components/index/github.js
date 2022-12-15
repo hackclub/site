@@ -28,12 +28,13 @@ export default function GitHub({
 }) {
   return (
     <Box
-      style={{
+      sx={{
         width: 'fit-content',
-        position: ['relative', 'absolute', 'absolute'],
+        position: 'absolute',
         display: 'block',
-        top: '-10px',
-        right: 0
+        top: ['-40px', '-40px', '-10px'],
+        right: [null, '-40px', '-10px'],
+        left: [0, null, null]
       }}
     >
       <Text
@@ -41,7 +42,7 @@ export default function GitHub({
         sx={{
           // transform: [null, null, 'rotate(3deg)'],
           fontSize: ['8px', '8px', '10px'],
-          textAlign: ['left', 'left', 'right'],
+          textAlign: ['left', 'right', 'right'],
           width: '100%'
         }}
       >

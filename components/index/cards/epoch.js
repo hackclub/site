@@ -91,9 +91,9 @@ export default function Epoch() {
         sx={theme => ({
           color: '#FF4794',
           position: 'relative',
-          width: '115%',
-          height: '85%',
-          py: 4,
+          width: [null, '85%', '115%'],
+          height: [null, '100%', '85%'],
+          py: [null, 2, 4],
           borderRadius: '5px',
           border: ['none', '1.5px solid'],
           borderColor: '#FF4794',
@@ -148,7 +148,7 @@ export default function Epoch() {
               key="{e}"
               gap={[1, 2, '25px']}
               columns={['1fr 1fr 1fr 1fr']}
-              sx={{ mr: 2 }}
+              // sx={{ mr: 2 }}
             >
               {timer}
             </Grid>
@@ -156,7 +156,7 @@ export default function Epoch() {
             <></>
           )}
         </Box>
-        <Box mt={['-60px', '-20px', '-100px']} ml={[0, 3, 3]}>
+        <Box mt={['-60px', '-20px', '-100px']} ml={[0, 0, 3]}>
           <Text as="p" variant="subtitle">
             Join us this winter as 150+ teenage hackers from all around the
             world travel to Delhi, India for Epoch! Together, we’ll build the unexpected, share what we’ve learnt

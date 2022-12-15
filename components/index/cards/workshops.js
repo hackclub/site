@@ -39,7 +39,8 @@ const WorkshopCard = ({ slug, name, description, img, height, section, ...props 
         flexDirection: 'column',
         '& span': {
           lineHeight: 1.25
-        }
+        },
+        maxWidth: '250px'
       }}
     >
       <Box sx={{ p: 3, lineHeight: 'body' }}>
@@ -79,7 +80,7 @@ export default function Workshops({ data, stars }) {
       highlight="blue"
     >
       <Text variant="title" sx={{fontSize: ['36px', 4, 5]}}>Workshops</Text>
-        <Grid columns={[1, 1, 2]}>
+        <Grid columns={[1, 2, 2]}>
           <Flex sx={{ flexDirection: 'column' }}>
           <Text as="p" variant="subtitle">
           100+ community-contributed, self-guided coding tutorials and ideas. Learn to code by building, one project at a time.

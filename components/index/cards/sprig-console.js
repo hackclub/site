@@ -137,7 +137,7 @@ export default function SprigConsole({ stars, consoleCount }) {
         sx={{
           position: 'absolute',
           right: ['', '-50%', '-20%'],
-          top: ['', '25%', '15%'],
+          top: ['', '12%', '15%'],
           width: ['', '100%', '70%'],
           pointerEvents: 'none',
           userSelect: 'none',
