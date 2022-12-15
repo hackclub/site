@@ -720,7 +720,7 @@ function Page({
           >
             <Box sx={{ maxWidth: 'copyPlus' }}>
               <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-                We connect with each other from around the world
+                Connect with builders from around the world
               </Text>
               <Text
                 variant="subtitle"
@@ -828,7 +828,8 @@ function Page({
                 as="p"
                 sx={{ fontSize: [1, '16px', '20px'] }}
               >
-                Hack Clubs are coding clubs that build something every meeting
+                Each year we support thousands of teenagers in organizing hackathons and after-school clubs.
+                Hundreds of Hack Clubs run by high schoolers meet every week to code together in person. 
               </Text>
               <Clubs />
               <Hackathons
