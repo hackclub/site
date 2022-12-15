@@ -123,7 +123,11 @@ const Cards = ({ avatar, username, description, image }) => {
     >
       <Flex
         as="a"
-        href={username != 'cjmika110'? `https://scrapbook.hackclub.com/${username}`: 'https://scrapbook.hackclub.com' }
+        href={
+          username != 'cjmika110'
+            ? `https://scrapbook.hackclub.com/${username}`
+            : 'https://scrapbook.hackclub.com'
+        }
         sx={{
           color: 'inherit',
           textDecoration: 'none',
@@ -221,10 +225,14 @@ export default function Projects() {
                 sx={{
                   textShadow: '0px 0px 21px #E1F1FF',
                   color: 'white',
-                  fontSize: [4, 5, 6]
+                  fontSize: [4, 5, 6],
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 1
                 }}
               >
-                You could be building a{' '}
+                <Text>You could be building a</Text>
                 <Text
                   sx={{
                     backgroundColor: '#406BAB',
@@ -232,14 +240,14 @@ export default function Projects() {
                     px: 3,
                     borderRadius: 10,
                     position: 'relative',
-                    lineHeight: '1.5'
+                    width: 'fit-content',
+                    height: 'min-content',
+                    cursor: 'pointer',
+                    userSelect: 'none'
                   }}
                   onClick={() => setCount(count + 1)}
                 >
-                  <Box
-                    as="span"
-                    sx={{ whiteSpace: 'nowrap', cursor: 'pointer' }}
-                  >
+                  <Box as="span" sx={{ whiteSpace: 'nowrap' }}>
                     {project_idea}
                   </Box>
                   <Image
