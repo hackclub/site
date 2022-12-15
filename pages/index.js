@@ -151,26 +151,26 @@ function Page({
   const [count, setCount] = useState(0)
 
   let images = [
-    {
-      alt: '10 day cross-country hackathon with 42 hackers in 2020',
-      src: '/home/golden-train.png'
-    },
     { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
     {
       alt: 'Hack Clubbers at Space X HQ in LA',
       src: '/home/zephyr-spacex.jpeg'
     },
-    { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' },
-    // {alt: 'Virtual Hack Club meeting, 2022', src: '/home/meetings.png'},
-    {
-      alt: 'Hacker reverse engineering a power extender!',
-      src: '/home/assemble-hardware.jpg'
-    },
     {
       alt: 'MA Hacks, Hack Clubber organized hackathon',
       src: '/hackathons/mahacks.jpeg'
     },
-    { alt: 'AMA with Sal Khan', src: '/home/ama.png' }
+    { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
+    // {
+    //   alt: '10 day cross-country hackathon with 42 hackers in 2020',
+    //   src: '/home/golden-train.png'
+    // },
+    { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' },
+    // {alt: 'Virtual Hack Club meeting, 2022', src: '/home/meetings.png'},
+    // {
+    //   alt: 'Hacker reverse engineering a power extender!',
+    //   src: '/home/assemble-hardware.jpg'
+    // },
     // {alt: 'Hack Clubber giving a talk on sponsorship', src: '/home/flagship_megan.png'},
   ]
 
@@ -593,7 +593,7 @@ function Page({
                   <Text as="p" variant="subtitle">
                     <strong>Connect with other teenage coders</strong>
                     Have a coding question? Looking for project feedback? You’ll
-                    find <Comma>{slackData.total_members_count}</Comma> fabulous
+                    find hundreds of fabulous
                     people to talk to in our global{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
                       Slack{' '}
