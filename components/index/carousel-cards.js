@@ -64,7 +64,7 @@ export default function CarouselCards({
           >
             {title}
           </Text>
-          <Text as="p" sx={{ color: descriptionColor }}>
+          <Text as="p" sx={{ color: descriptionColor,  fontSize: [1, '16px', '20px']}}>
             {description}
           </Text>
           <Icon
