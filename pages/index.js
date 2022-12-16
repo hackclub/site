@@ -74,6 +74,7 @@ function Page({
 
   useEffect(() => {
     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
+    window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
   }, [])
 
   const easterEgg = () => {
@@ -94,23 +95,28 @@ function Page({
   const [count, setCount] = useState(0)
 
   let images = [
-    { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
+    { alt: '1Map of Hack Clubs around the world', src: '/home/map.png' },
     {
-      alt: 'Hack Clubbers at Space X HQ in LA',
+      alt: '2Hack Clubbers at Space X HQ in LA',
       src: '/home/zephyr-spacex.jpeg'
     },
     {
-      alt: 'MA Hacks, Hack Clubber organized hackathon',
+      alt: '3MA Hacks, Hack Clubber organized hackathon',
       src: '/hackathons/mahacks.jpeg'
     },
-    { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
-    { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
+    { alt: '4AMA with Sal Khan', src: '/home/ama.png' },
+    { alt: '5Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
   ]
 
-  if (count == images.length - 2) {
-    setCount(0)
-  }
-
+  // janky right now and does not show last image
+  console.log(
+    `White sheets of paper\nWaiting to be printed on\nA blank console waits`
+  )
+  useEffect(() => {
+    if (count == images.length - 1) {
+      setCount(0)
+    }
+  }, [count])
   return (
     <>
       <Meta
@@ -289,7 +295,9 @@ function Page({
                   mx: [-2, 0],
                   whiteSpace: 'nowrap',
                   color: 'white',
-                  bg: 'red'
+                  background: theme => theme.util.gx('red', 'orange'),
+                  '-webkit-background-clip': 'text',
+                  '-webkit-text-fill-color': 'transparent'
                 }}
               >
                 joy of code
@@ -319,7 +327,10 @@ function Page({
                   position: 'relative',
                   height: ['300px', '300px', '100%']
                 }}
-                onClick={() => setCount(count + 1)}
+                onClick={() => {
+                  setCount(count + 1)
+                  console.log(count)
+                }}
               >
                 <Box
                   sx={{ position: 'absolute', width: '100%', height: '100%' }}
@@ -348,11 +359,15 @@ function Page({
                     <Photo
                       src={
                         count == images.length - 2
+                          ? images[0].src
+                          : images.length - 1
                           ? images[1].src
                           : images[count + 2].src
                       }
                       alt={
                         count == images.length - 2
+                          ? images[0].alt
+                          : images.length - 1
                           ? images[1].alt
                           : images[count + 2].alt
                       }
@@ -471,20 +486,7 @@ function Page({
                     position: 'relative',
                     textDecoration: 'none',
                     borderRadius: 'extra'
-                    // '&:hover': {
-                    //   bg: 'purple',
-                    //   color: 'white',
-                    //   cursor: 'pointer'
-                    // },
-                    // '&:hover span': {
-                    //   color: 'white'
-                    // }
                   }}
-                  // as="a"
-                  // href="#community"
-                  // data-effect="solid"
-                  // data-tip="learn more about our online community"
-                  // data-delay-show="142"
                 >
                   <Text as="span" color="red">
                     1
@@ -509,20 +511,7 @@ function Page({
                     position: 'relative',
                     textDecoration: 'none',
                     borderRadius: 'extra'
-                    // '&:hover': {
-                    //   bg: 'cyan',
-                    //   color: 'white',
-                    //   cursor: 'pointer'
-                    // },
-                    // '&:hover span': {
-                    //   color: 'white'
-                    // }
                   }}
-                  // as="a"
-                  // href="#irl"
-                  // data-effect="solid"
-                  // data-tip="check out clubs and hackathons at Hack Club"
-                  // data-delay-show="142"
                 >
                   <Text as="span" color="orange">
                     2
@@ -550,20 +539,7 @@ function Page({
                     position: 'relative',
                     textDecoration: 'none',
                     borderRadius: 'extra'
-                    // '&:hover': {
-                    //   bg: 'orange',
-                    //   color: 'white',
-                    //   cursor: 'pointer'
-                    // },
-                    // '&:hover span': {
-                    //   color: 'white'
-                    // }
                   }}
-                  // as="a"
-                  // href="#tools"
-                  // data-tip="click to projects we're currently working on"
-                  // data-effect="solid"
-                  // data-delay-show="142"
                 >
                   <Text as="span" color="yellow">
                     3
@@ -586,15 +562,6 @@ function Page({
             </Grid>
           </Box>
         </Box>
-        {/* <CarouselCards
-                  background="#000"
-                  titleColor="yellow"
-                  descriptionColor="white"
-                  title="Sprig"
-                  description="Learn to code by making games in a JavaScript game editor"
-                  img="https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png"
-                  link="https://sprig.hackclub.com"
-                /> */}
         <Carousel />
         <Box
           as="section"
@@ -604,7 +571,6 @@ function Page({
             backgroundSize: '40px 40px',
             backgroundRepeat: 'repeat',
             backgroundPosition: '10% 10%',
-            py: [3, 4, 5]
           }}
         >
           <Box
@@ -614,11 +580,25 @@ function Page({
               maxWidth: 'layout',
               margin: 'auto'
             }}
-            pb={4}
+            py={5}
           >
             <Box sx={{ maxWidth: 'copyPlus' }}>
               <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-                Connect with builders from around the world
+                Connect with{' '}
+                <Text
+                  as="span"
+                  sx={{
+                    borderRadius: 'default',
+                    px: 2,
+                    mx: [-2, 0],
+                    whiteSpace: 'nowrap',
+                    color: 'white',
+                    bg: 'red'
+                  }}
+                >
+                  builders
+                </Text>{' '}
+                from around the world
               </Text>
               <Text
                 variant="subtitle"
@@ -633,7 +613,9 @@ function Page({
             <Epoch />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
-          <Box py={4} id="tools">
+        </Box>
+        <Box>
+          <Box py={5}>
             <Box
               sx={{
                 width: '90vw',
@@ -646,7 +628,21 @@ function Page({
                 Hack Clubbers
               </Text> */}
               <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-                We build open source games and tools together
+                We build{' '}
+                <Text
+                  as="span"
+                  sx={{
+                    borderRadius: 'default',
+                    px: 2,
+                    mx: [-2, 0],
+                    whiteSpace: 'nowrap',
+                    color: 'white',
+                    bg: 'orange'
+                  }}
+                >
+                  open source
+                </Text>{' '}
+                games and tools together
               </Text>
               <GitHub
                 type={gitHubData[github].type}
@@ -683,17 +679,17 @@ function Page({
             </Box>
           </Box>
           <Box
-            sx={{ position: 'relative' }}
-            // sx={{
-            //   background: 'sunken',
-            //   backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
-            //   backgroundSize: '40px 40px',
-            //   backgroundRepeat: 'repeat',
-            //   backgroundPosition: '10% 10%',
-            //   '&:hover': {
-            //     backgroundImage: `url('https://icons.hackclub.com/api/icons/0x000000/glyph:rep.svg')`
-            //   }
-            // }}
+            sx={{
+              position: 'relative',
+              background: 'snow',
+            backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
+            backgroundSize: '40px 40px',
+            backgroundRepeat: 'repeat',
+            backgroundPosition: '10% 10%',
+              // '&:hover': {
+              //   backgroundImage: `url('https://icons.hackclub.com/api/icons/0x000000/glyph:rep.svg')`
+              // }
+            }}
           >
             <Box
               sx={{
@@ -707,26 +703,39 @@ function Page({
               {}
             </Box>
             <Box
-              py={3}
+              py={5}
               sx={{
                 width: '90vw',
                 maxWidth: 'layout',
                 margin: 'auto'
               }}
-              id="irl"
             >
               {/* <Text variant="eyebrow" as="p">
                 Hack Clubbers
               </Text> */}
               <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-              Find your IRL community
+                Find your{' '}
+                <Text
+                  as="span"
+                  sx={{
+                    borderRadius: 'default',
+                    px: 2,
+                    mx: [-2, 0],
+                    whiteSpace: 'nowrap',
+                    color: 'white',
+                    bg: 'yellow'
+                  }}
+                >
+                  IRL community
+                </Text>
               </Text>
               <Text
                 variant="subtitle"
                 as="p"
                 sx={{ fontSize: [1, '16px', '20px'] }}
               >
-                Thousands of Hack Clubbers organize and participate in hackathons and after school coding clubs.
+                Thousands of Hack Clubbers organize and participate in
+                hackathons and after school coding clubs.
               </Text>
               <Clubs />
               <Hackathons
@@ -739,7 +748,7 @@ function Page({
             </Box>
           </Box>
         </Box>
-        <Box bg="snow" color="black" py={[3, 4]}>
+        <Box py={5}>
           <Box
             sx={{
               width: '90vw',

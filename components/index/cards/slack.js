@@ -23,64 +23,6 @@ import Comma from '../../comma'
 import RelativeTime from 'react-relative-time'
 /** @jsxImportSource theme-ui */
 
-// const Cover = () => (
-//   <Box
-//     sx={{
-//       position: 'absolute',
-//       bottom: 0,
-//       top: 0,
-//       left: 0,
-//       right: 0,
-//       backgroundImage: t => t.util.gx('cyan', 'purple'),
-//       opacity: 0.825,
-//       zIndex: 1
-//     }}
-//   />
-// )
-
-// const Static = ({
-//   img = 'https://cloud-nykwtt0z7.vercel.app/2020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png'
-//   // img="https://cloud-re5hkabx0.vercel.app/2020-07-25_hn13qhejqrzu4n1jy9yacxxgrgp3wf5u.png"
-// }) => (
-//   <Box
-//     as="section"
-//     id="slack"
-//     sx={{
-//       position: 'relative',
-//       overflow: 'hidden',
-//       backgroundImage: `url(https://cloud-nykwtt0z7.vercel.app/2020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png)`,
-//       backgroundSize: 'cover'
-//     }}
-//   >
-//     <Cover />
-//     <Content />
-//   </Box>
-// )
-
-const rollin = keyframes`
-0% {
-  transform: translateY(100%);
-},
-30% {
-  transform: translateY(100%);
-},
-100% {
-  transform: translateY(0);
-}
-`
-
-const rollout = keyframes`
-0% {
-  transform: translateY(0);
-},
-60% {
-  transform: translateY(-100%);
-},
-100% {
-  transform: translateY(-100%);
-}
-`
-
 const Cover = () => (
   <Box
     sx={{
@@ -188,7 +130,12 @@ export default function Slack({ data, slackKey, events }) {
                 pt: 3
               }}
             >
-              <Flex sx={{ flexDirection: ['row', 'row', 'column'], justifyContent: 'space-between' }}>
+              <Flex
+                sx={{
+                  flexDirection: ['row', 'row', 'column'],
+                  justifyContent: 'space-between'
+                }}
+              >
                 <Text variant="eyebrow" as="p" sx={{ color: 'white' }}>
                   <Dot />
                   Live from Slack
