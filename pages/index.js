@@ -489,7 +489,7 @@ function Page({
                     <strong>Connect with other teenage coders</strong>
                     Have a coding question? Looking for project feedback? You’ll
                     find hundreds of fabulous people to talk to in our global{' '}
-                    <Link href="/clubs" target="_blank" rel="noopener">
+                    <Link href="/slack" target="_blank" rel="noopener">
                       Slack{' '}
                     </Link>
                     (like Discord), active at all hours.
@@ -519,7 +519,7 @@ function Page({
                   >
                     <strong>Build open source learning tools</strong>
                     We build large open source projects together (
-                    <Link href="https://github.com/hackclub">
+                    <Link href="https://github.com/hackclub" target="_blank">
                       3k+ PRs a year
                     </Link>
                     ) like this website, a game engine, daily streak system, and
