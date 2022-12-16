@@ -518,9 +518,12 @@ function Page({
                     }}
                   >
                     <strong>Build open source learning tools</strong>
-                    We build large open source projects together (<Link href="https://github.com/hackclub">3k+ PRs a
-                    year</Link>) like this website, a game engine, daily streak system,
-                    and more!
+                    We build large open source projects together (
+                    <Link href="https://github.com/hackclub">
+                      3k+ PRs a year
+                    </Link>
+                    ) like this website, a game engine, daily streak system, and
+                    more!
                   </Text>
                 </Grid>
                 <Grid

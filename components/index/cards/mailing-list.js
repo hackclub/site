@@ -83,7 +83,7 @@ const MailingList = () => {
       <Grid
         as="form"
         ref={formRef}
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         action="https://postal.hackclub.com/subscribe"
         method="POST"
         gap={[2, 3]}
@@ -117,8 +117,8 @@ const MailingList = () => {
             required
           />
         </div>
-        {/* <Input type="hidden" name="list" value="SUTgXFrqIRPE61eg08bC5Q" />
-        <Input type="hidden" name="subform" value="yes" /> */}
+        <Input type="hidden" name="list" value="SUTgXFrqIRPE61eg08bC5Q" />
+        <Input type="hidden" name="subform" value="yes" />
         <Button type="submit" sx={{ mt: [2, 0] }}>
           {submitting ? (
             <>
