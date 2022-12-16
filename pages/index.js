@@ -224,9 +224,9 @@ function Page({
                       }
                     }}
                   >
-                    teen makers
+                    teen hackers
                   </Text>
-                  teen makers
+                  teen hackers
                 </Text>
                 from around the world that code together
               </Text>
