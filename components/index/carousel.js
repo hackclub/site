@@ -30,7 +30,7 @@ export default function Carousel() {
   return (
     <PageVisibility onChange={handleVisibilityChange}>
       {pageIsVisible && (
-        <Box sx={{mt: 4}}>
+        <Box sx={{ mt: 4 }}>
           <Text
             variant="eyebrow"
             as="div"
@@ -39,7 +39,7 @@ export default function Carousel() {
               mt: 4,
               maxWidth: 'layout',
               width: '90vw',
-              margin: 'auto',
+              margin: 'auto'
             }}
           >
             Here are a few projects you could get involved in:
@@ -101,16 +101,16 @@ export default function Carousel() {
                   background="#271932"
                   titleColor="#CAB4D4"
                   textColor="#CAB4D4"
-                  title="Sinerider"
+                  title="SineRider"
                   description="Help build a game about love, math, and graphing 💖"
                   img="https://emoji.slack-edge.com/T0266FRGM/sinerider/68a0bc1208e885dd.png"
-                  link="https://sinerider.hackclub.com"
+                  link="https://sinerider.com"
                 />
                 <CarouselCards
                   background="black"
                   titleColor="yellow"
                   textColor="white"
-                  title="High school Hackathons"
+                  title="High school hackathons"
                   description="🔍 A curated list of high school hackathons with hundreds of events"
                   img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f469-200d-1f4bb@2x.png"
                   link="/hackathons"
