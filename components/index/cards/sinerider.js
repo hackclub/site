@@ -35,7 +35,7 @@ export default function Sinerider({ stars }) {
       highlight="#271932"
     >
       <Image
-        src="https://cloud-pwqxgzqdg-hack-club-bot.vercel.app/0initial-bg__1_.png"
+        src="https://cloud-4seh308a9-hack-club-bot.vercel.app/00initial-bg__1_-min.png"
         sx={{
           objectFit: 'cover',
           position: 'absolute',
@@ -59,7 +59,7 @@ export default function Sinerider({ stars }) {
             storytellers… so if that’s you, come join us; we need your help to
             make this thing real!
           </Text>
-          <Flex sx={{ flexDirection: 'column' }}>
+          <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
             <Buttons
               content="you could create the art, be a scene maker, or write graphics rendering code"
               id="4"

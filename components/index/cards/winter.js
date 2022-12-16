@@ -39,9 +39,6 @@ function BreakdownBox({
         zIndex: 2
         // justifyContent: 'flex-end'
       }}
-      variant="interactive"
-      as={href ? 'a' : 'div'}
-      href={href}
     >
       {subtitle ? (
         <Text
@@ -130,7 +127,7 @@ export default function Winter() {
           py: 2,
           background: 'rgba(255,255,255,0.2)',
           borderRadius: 'extra',
-          fontWeight: 'bold',
+          fontWeight: 'bold'
         }}
       >
         Happening now
@@ -162,7 +159,6 @@ export default function Winter() {
               </>
             }
             delay="100"
-            href="https://scrapbook.hackclub.com/r/10daysinpublic"
           />
           <BreakdownBox
             icon="friend"
@@ -170,11 +166,10 @@ export default function Winter() {
             text="Friends"
             description="Find support from our community of 20k+ teenagers in the Hack Club Slack."
             delay="300"
-            href="/slack"
           />
         </Grid>
         <Buttons
-          content="click to learn more about how to submit a workshop"
+          // content="click to learn more about how to submit a workshop"
           id="13"
           link="/winter"
           icon="freeze"

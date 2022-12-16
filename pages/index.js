@@ -72,66 +72,9 @@ function Page({
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
 
-  // useEffect(() => {
-  //   function getNewGitHubActivity() {
-  //     setKey(Math.random())
-  //     setGithub(Math.floor(Math.random() * gitHubDataLength))
-  //     console.log(gitHubData[github])
-  //   }
-  //   setInterval(getNewGitHubActivity, 30000)
-  // }, [])
-
   useEffect(() => {
     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
   }, [])
-
-  // let imgURL = undefined
-
-  // const decode = ({ data, width }) => {
-  //   const decodedString = atob(data)
-  //   const l = decodedString.length
-  //   const buf = new Uint8ClampedArray(l)
-  //   for (let i = 0; i < l; i++) {
-  //     const char = decodedString[i]
-  //     const byte = char.charCodeAt(0)
-  //     buf[i] = byte
-  //   }
-  //   return new ImageData(buf, width)
-  // }
-
-  // async function load(title) {
-  //   if (imgURL) return
-  //   try {
-  //     const res = await fetch(
-  //       `https://editor.sprig.hackclub.com/api/thumbnail/${title}`
-  //     )
-  //     const json = await res.json()
-
-  //     if (json.image.kind === 'png') {
-  //       return `data:image/png;base64,${json.image.data}`
-  //     } else {
-  //       // Raw, hopefully
-  //       const imageData = decode(json.image)
-  //       const c = document.createElement('canvas')
-  //       c.width = imageData.width
-  //       c.height = imageData.height
-  //       c.getContext('2d').putImageData(imageData, 0, 0)
-  //       c.style['image-rendering'] = 'pixelated'
-  //       return c.toDataURL()
-  //     }
-  //   } catch (err) {
-  //     console.error(err)
-  //   }
-  // }
-
-  // const fetcher = async function getImage() {
-  //   const thing0 = await load(gameTitle[0])
-  //   const thing1 = await load(gameTitle[1])
-  //   setGameImage(thing0)
-  //   setGameImage1(thing1)
-  // }
-
-  // const { data, error } = useSWR('/api/profile-data', fetcher)
 
   const easterEgg = () => {
     alert('Hey, you typed the Konami Code!')
@@ -161,17 +104,7 @@ function Page({
       src: '/hackathons/mahacks.jpeg'
     },
     { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
-    // {
-    //   alt: '10 day cross-country hackathon with 42 hackers in 2020',
-    //   src: '/home/golden-train.png'
-    // },
-    { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' },
-    // {alt: 'Virtual Hack Club meeting, 2022', src: '/home/meetings.png'},
-    // {
-    //   alt: 'Hacker reverse engineering a power extender!',
-    //   src: '/home/assemble-hardware.jpg'
-    // },
-    // {alt: 'Hack Clubber giving a talk on sponsorship', src: '/home/flagship_megan.png'},
+    { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
   ]
 
   if (count == images.length - 2) {
@@ -182,7 +115,7 @@ function Page({
     <>
       <Meta
         as={Head}
-        title="A home for high school coders"
+        title="Hack Club — Home for high school coders"
         description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
         image="https://cloud-epiki4yvg.vercel.app/2020-09-09_drbp62kayjuyyy0ek89mf9fwcp5t4kuz.jpeg"
       />
@@ -262,37 +195,7 @@ function Page({
                     lineHeight: 1.1
                   }}
                 >
-                  We are <Comma>{slackData.total_members_count}</Comma> high
-                  schoolers from around the world that come together and code.
-                </Text>
-                <Button variant="ctaLg" as="a" href="/slack">
-                  Join our community
-                </Button>
-                {/* <Text
-                  as="span"
-                  sx={{
-                    lineHeight: 1.1,
-                    display: 'block',
-                    pb: 3
-                  }}
-                >
-                  Where{' '}
-                  <Text
-                    as="a"
-                    onClick={() => {
-                      setHover(false)
-                      !reveal ? setReveal(true) : setReveal(false)
-                    }}
-                    sx={{
-                      color: 'inherit',
-                      '&:hover': {
-                        cursor: 'help'
-                      }
-                    }}
-                  >
-                    teen makers
-                  </Text>{' '}
-                  around the world practice the
+                  We are <Comma>{slackData.total_members_count}</Comma>{' '}
                   <Text
                     sx={{
                       color: 'transparent',
@@ -302,42 +205,35 @@ function Page({
                     }}
                   >
                     <Text
+                      onClick={() => {
+                        setHover(false)
+                        !reveal ? setReveal(true) : setReveal(false)
+                      }}
                       sx={{
-                        lineHeight: 0.875,
+                        // lineHeight: 0.875,
                         px: 2,
                         backgroundColor: 'red',
                         position: 'absolute',
                         borderRadius: 10,
-                        // transform: 'rotate(-3deg)',
-                        transform: 'rotate(-3deg) translateY(5px)',
+                        transform: 'rotate(-3deg)',
                         color: 'white',
                         whiteSpace: 'nowrap',
                         textDecoration: 'none',
                         '&:hover': {
                           cursor: 'pointer'
-                        },
-                        svg: {
-                          mb: [0, '20px', '20px'],
-                          opacity: 0.5,
-                          transition: '0.3s',
-                          mr: '-5px'
-                        },
-                        '&:hover svg': {
-                          opacity: 1
                         }
                       }}
-                      as="a"
-                      href="/philosophy"
-                      target="_blank"
-                      rel="noopener"
                     >
-                      hacker ethic
-                      <Icon glyph="external" size={24} />
+                      teen makers
+                      {/* <Icon glyph="external" size={24} /> */}
                     </Text>
-                    hacker ethic{' '}
+                    teen makers
                   </Text>
-                  by building things together.
-                </Text> */}
+                  from around the world that code together.
+                </Text>
+                <Button variant="ctaLg" as="a" href="/slack">
+                  Join our community
+                </Button>
               </Heading>
             </Fade>
             <Box
@@ -419,7 +315,10 @@ function Page({
               pt={[3, 4]}
             >
               <Box
-                sx={{ position: 'relative', height: ['300px', '300px', '100%'] }}
+                sx={{
+                  position: 'relative',
+                  height: ['300px', '300px', '100%']
+                }}
                 onClick={() => setCount(count + 1)}
               >
                 <Box
@@ -434,7 +333,7 @@ function Page({
                         transform:
                           count % 2 == 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
                         height: '85%',
-                        width: ['70%', '70%', '100%'],
+                        width: ['70%', '70%', '100%']
                       },
                       zIndex: 3,
                       '&:hover': {
@@ -593,8 +492,7 @@ function Page({
                   <Text as="p" variant="subtitle">
                     <strong>Connect with other teenage coders</strong>
                     Have a coding question? Looking for project feedback? You’ll
-                    find hundreds of fabulous
-                    people to talk to in our global{' '}
+                    find hundreds of fabulous people to talk to in our global{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
                       Slack{' '}
                     </Link>
@@ -748,7 +646,7 @@ function Page({
                 Hack Clubbers
               </Text> */}
               <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-                We build open source tools
+                We build open source games and tools together
               </Text>
               <GitHub
                 type={gitHubData[github].type}
@@ -775,12 +673,12 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
+              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <SprigConsole
                 delay={300}
                 stars={stars.sprigHardware.stargazerCount}
                 consoleCount={consoleCount}
               />
-              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
             </Box>
           </Box>
@@ -821,15 +719,14 @@ function Page({
                 Hack Clubbers
               </Text> */}
               <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-                Join or run an IRL coding event
+              Find your IRL community
               </Text>
               <Text
                 variant="subtitle"
                 as="p"
                 sx={{ fontSize: [1, '16px', '20px'] }}
               >
-                Each year we support thousands of teenagers in organizing hackathons and after-school clubs.
-                Hundreds of Hack Clubs run by high schoolers meet every week to code together in person. 
+                Thousands of Hack Clubbers organize and participate in hackathons and after school coding clubs.
               </Text>
               <Clubs />
               <Hackathons
@@ -898,9 +795,34 @@ function Page({
                   background:
                     'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
                   color: 'white',
-                  svg: { color: 'rgb(51, 142, 218)' }
+                  svg: { color: 'rgb(51, 142, 218)' },
+                  position: 'relative',
+                  '.icon': {
+                    transition:
+                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+                  },
+                  ':hover,:focus': {
+                    '.icon': {
+                      transform: 'translateX(28px) translateY(-28px)',
+                      opacity: 0
+                    }
+                  }
                 }}
               >
+                <Icon
+                  glyph="external"
+                  size={32}
+                  className="icon"
+                  sx={{
+                    position: 'absolute',
+                    top: 2,
+                    right: 2,
+                    opacity: 0.3,
+                    fontSize: [1, '16px', '20px'],
+                    zIndex: 3,
+                    color: 'white !important'
+                  }}
+                />
                 <Stage
                   icon="slack"
                   color="white"
@@ -922,7 +844,18 @@ function Page({
                     'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
                   color: 'white',
                   svg: { color: 'rgb(236, 55, 80)' },
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  position: 'relative',
+                  '.icon': {
+                    transition:
+                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+                  },
+                  ':hover,:focus': {
+                    '.icon': {
+                      transform: 'translateX(28px) translateY(-28px)',
+                      opacity: 0
+                    }
+                  }
                 }}
                 as="a"
                 href="/clubs"
@@ -930,6 +863,20 @@ function Page({
                 target="_blank"
                 rel="noopener"
               >
+                <Icon
+                  glyph="external"
+                  size={32}
+                  className="icon"
+                  sx={{
+                    position: 'absolute',
+                    top: 2,
+                    right: 2,
+                    opacity: 0.3,
+                    fontSize: [1, '16px', '20px'],
+                    zIndex: 3,
+                    color: 'white !important'
+                  }}
+                />
                 <Stage
                   icon="clubs"
                   color="white"
@@ -951,7 +898,18 @@ function Page({
                     'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
                   color: 'white',
                   svg: { color: '#fb558e' },
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  position: 'relative',
+                  '.icon': {
+                    transition:
+                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+                  },
+                  ':hover,:focus': {
+                    '.icon': {
+                      transform: 'translateX(28px) translateY(-28px)',
+                      opacity: 0
+                    }
+                  }
                 }}
                 as="a"
                 href="https://github.com/hackclub"
@@ -959,6 +917,20 @@ function Page({
                 target="_blank"
                 rel="noopener"
               >
+                <Icon
+                  glyph="external"
+                  size={32}
+                  className="icon"
+                  sx={{
+                    position: 'absolute',
+                    top: 2,
+                    right: 2,
+                    opacity: 0.3,
+                    fontSize: [1, '16px', '20px'],
+                    zIndex: 3,
+                    color: 'white !important'
+                  }}
+                />
                 <Stage
                   icon="github"
                   color="white"
@@ -980,28 +952,28 @@ function Page({
         </Box>
       </Box>
       <Footer
-      // dark
-      // sx={{
-      //   backgroundColor: 'dark',
-      //   position: 'relative',
-      //   overflow: 'hidden',
-      //   textShadow: '0 1px 2px rgba(0,0,0,0.375)',
-      //   'h2,span,p,a': { color: 'white !important' },
-      //   '> div img': { objectPosition: ['left', 'center'] },
-      //   svg: {
-      //     fill: 'white',
-      //     filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
-      //   }
-      // }}
+        dark
+        sx={{
+          backgroundColor: 'dark',
+          position: 'relative',
+          overflow: 'hidden',
+          textShadow: '0 1px 2px rgba(0,0,0,0.375)',
+          'h2,span,p,a': { color: 'white !important' },
+          '> div img': { objectPosition: ['left', 'center'] },
+          svg: {
+            fill: 'white',
+            filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
+          }
+        }}
       >
-        {/* <BGImg
+        <BGImg
           width={2544}
           height={2048}
           gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
           src={FooterImgFile}
           placeholder="blur"
           alt="Globe with hundreds of Hack Clubs"
-        /> */}
+        />
         <style>
           {`a{
           color: #338eda
@@ -1014,19 +986,12 @@ function Page({
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
-  let dataPieces = []
+  // HCB: get total raised
   let bankData = []
-  // let stars = []
   let initialBankData = await fetch('https://bank.hackclub.com/stats').then(r =>
     r.json()
   )
-
   let raised = initialBankData.raised / 100
-
-  let slackData = await fetch(
-    'https://site-git-v4.hackclub.dev/api/slack'
-  ).then(r => r.json())
-  console.log(slackData)
 
   bankData.push(
     `💰 ${raised.toLocaleString('en-US', {
@@ -1035,12 +1000,22 @@ export async function getStaticProps() {
     })} raised`
   )
 
+  // Slack: get total raised
+  let slackData = await fetch(
+    'https://site-git-v4.hackclub.dev/api/slack'
+  ).then(r => r.json())
+
+  // GitHub: get latest github activity
   let gitHubData = await fetch(
     'https://site-git-v4.hackclub.dev/api/github'
   ).then(r => r.json())
 
-  let gitHubDataLength = gitHubData.length
+  // GitHub: get latest GitHub stars
+  let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
+    res => res.json()
+  )
 
+  // Sprig: get newest games
   let game = await fetch('https://site-git-v4.hackclub.dev/api/games').then(r =>
     r.json()
   )
@@ -1050,16 +1025,15 @@ export async function getStaticProps() {
 
   gameTitle = game.map(r => r.title)
 
-  const hackathonsData = await fetch(
-    'https://hackathons.hackclub.com/api/events/upcoming'
-  ).then(res => res.json())
-  let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
-    res => res.json()
-  )
-
+  // Sprig: get console count
   const consoleCount = await fetch(
     'https://site-git-v4.hackclub.dev/api/sprig-console'
   ).then(r => r.json())
+
+  // Hackathons: get latest hackathons
+  const hackathonsData = await fetch(
+    'https://hackathons.hackclub.com/api/events/upcoming'
+  ).then(res => res.json())
 
   let events = await fetch(
     'https://events.hackclub.com/api/events/upcoming/'
@@ -1067,20 +1041,17 @@ export async function getStaticProps() {
 
   return {
     props: {
-      dataPieces,
       game,
       gameTitle,
       gitHubData,
-      gitHubDataLength,
       consoleCount,
-      // githubData2,
       hackathonsData,
       bankData,
       slackData,
       stars,
       events
     },
-    revalidate: 30
+    revalidate: 60
   }
 }
 

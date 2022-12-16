@@ -86,38 +86,16 @@ export default function SprigConsole({ stars, consoleCount }) {
               started with hardware engineering and embedded systems
               programming.{' '}
             </Text>
-            <Flex sx={{ flexDirection: 'column' }}>
               <Buttons
                 content="click here to get started in our editor"
                 id="6"
                 icon="emoji"
                 link="https://github.com/hackclub/sprig/blob/main/docs/GET_A_SPRIG.md"
                 primary="#427A43"
+                sx={{mt: [3, 3, 4]}}
               >
                 Build a game and get your console
               </Buttons>
-              {/* <Buttons
-                content="make a PR to our website, click for more instructions"
-                id="11"
-                link="https://sprig.hackclub.com/share"
-              >
-                Share it in the gallery
-              </Buttons> */}
-            </Flex>
-            {/* <Button
-              as="a"
-              variant="primary"
-              sx={{
-                backgroundColor: '#427A43',
-                color: '#fff',
-                mt: 3
-              }}
-              href="https://sprig.hackclub.com/shar"
-              target="_blank"
-              rel="noopener"
-            >
-              Get your console
-            </Button> */}
           </Box>
           <Box></Box>
         </Grid>

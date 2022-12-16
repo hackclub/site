@@ -219,14 +219,14 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
             Draw, make music, and craft games in our web-based JavaScript game
             editor, which has been used by 7k+ makers around the world.
           </Text>
-          <Flex sx={{ flexDirection: 'column' }}>
+          <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
             <Buttons
               content="click here to get started in our editor"
               id="6"
               icon="emoji"
               link="https://editor.sprig.hackclub.com"
               primary="#FFDE4D"
-              sx={{ color: 'black' }}
+              sx={{ color: 'black'}}
             >
               Build a Sprig game
             </Buttons>
@@ -254,20 +254,6 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               Connect with other Sprig game developers
             </Buttons>
           </Flex>
-          {/* <Button
-            as="a"
-            variant="primary"
-            sx={{
-              backgroundColor: '#FFDE4D',
-              color: '#000',
-              mt: 3
-            }}
-            href="https://editor.sprig.hackclub.com"
-            target="_blank"
-            rel="noopener"
-          >
-            Make a game
-          </Button> */}
         </Box>
         <Box sx={{ mt: [0, -4, -4] }}>
           <Text sx={{ fontStyle: 'italic', fontSize: [1, '14px', '16px'] }}>
