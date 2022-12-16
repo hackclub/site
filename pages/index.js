@@ -707,9 +707,6 @@ function Page({
                 margin: 'auto'
               }}
             >
-              {/* <Text variant="eyebrow" as="p">
-                Hack Clubbers
-              </Text> */}
               <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
                 Find your{' '}
                 <Text
@@ -847,60 +844,6 @@ function Page({
               <Card
                 sx={{
                   background:
-                    'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
-                  color: 'white',
-                  svg: { color: 'rgb(236, 55, 80)' },
-                  textDecoration: 'none',
-                  position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
-                  },
-                  ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
-                    }
-                  }
-                }}
-                as="a"
-                href="/clubs"
-                variant="interactive"
-                target="_blank"
-                rel="noopener"
-              >
-                <Icon
-                  glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: ['18px', '20px', '22px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
-                <Stage
-                  icon="clubs"
-                  color="white"
-                  name="Start a club"
-                  desc="Build an in-person community of high school hackers, and we're here to help."
-                  sx={{
-                    p: {
-                      fontSize: ['18px', '20px', '22px']
-                    },
-                    h3: {
-                      fontSize: ['22px', 2, 3]
-                    }
-                  }}
-                />
-              </Card>
-              <Card
-                sx={{
-                  background:
                     'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
                   color: 'white',
                   svg: { color: '#fb558e' },
@@ -945,6 +888,60 @@ function Page({
                   sx={{
                     p: {
                       fontSize: [1, '16px', '20px']
+                    },
+                    h3: {
+                      fontSize: ['22px', 2, 3]
+                    }
+                  }}
+                />
+              </Card>
+              <Card
+                sx={{
+                  background:
+                    'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
+                  color: 'white',
+                  svg: { color: 'rgb(236, 55, 80)' },
+                  textDecoration: 'none',
+                  position: 'relative',
+                  '.icon': {
+                    transition:
+                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+                  },
+                  ':hover,:focus': {
+                    '.icon': {
+                      transform: 'translateX(28px) translateY(-28px)',
+                      opacity: 0
+                    }
+                  }
+                }}
+                as="a"
+                href="/clubs"
+                variant="interactive"
+                target="_blank"
+                rel="noopener"
+              >
+                <Icon
+                  glyph="external"
+                  size={32}
+                  className="icon"
+                  sx={{
+                    position: 'absolute',
+                    top: 2,
+                    right: 2,
+                    opacity: 0.3,
+                    fontSize: ['18px', '20px', '22px'],
+                    zIndex: 3,
+                    color: 'white !important'
+                  }}
+                />
+                <Stage
+                  icon="clubs"
+                  color="white"
+                  name="Start a club"
+                  desc="Build an in-person community of high school hackers, and we're here to help."
+                  sx={{
+                    p: {
+                      fontSize: ['18px', '20px', '22px']
                     },
                     h3: {
                       fontSize: ['22px', 2, 3]

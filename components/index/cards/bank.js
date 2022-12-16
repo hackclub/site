@@ -24,7 +24,7 @@ export default function Bank({ data }) {
         color="white"
         sx={{
           backgroundColor: 'dark',
-          minHeight: ['300px', '400px', '350px'],
+          minHeight: ['300px', '400px', '380px'],
           backgroundColor: 'darkless',
           backgroundImage: `url('https://icons.hackclub.com/api/icons/0x29282C/glyph:bank-account.svg')`,
           backgroundSize: '40px 40px',
