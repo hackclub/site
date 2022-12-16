@@ -64,12 +64,19 @@ export default function Slack({ data, slackKey, events }) {
           width: '100%',
           height: '100%',
           ml: ['-24px', '-32px', '-32px', '-32px'],
-          mt: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px']
         }}
       />
       <Cover />
       <Grid sx={{ zIndex: 2 }}>
-        <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2, maxWidth: [null, null, '70%', null] }}>
+        <Text
+          variant="title"
+          sx={{
+            fontSize: ['36px', 4, 5],
+            zIndex: 2,
+            maxWidth: [null, null, '70%', null]
+          }}
+        >
           Our online community
         </Text>
       </Grid>
@@ -117,7 +124,7 @@ export default function Slack({ data, slackKey, events }) {
             <Box
               sx={{
                 background: 'rgb(0,0,0,0.6)',
-                height: ['170px', '170px', '100%'],
+                height: ['200px', '170px', '170px', '100%'],
                 position: ['relative', 'relative', 'absolute'],
                 zIndex: 3,
                 width: ['120%', '120%', '260px'],
@@ -132,7 +139,7 @@ export default function Slack({ data, slackKey, events }) {
             >
               <Flex
                 sx={{
-                  flexDirection: ['row', 'row', 'column'],
+                  flexDirection: ['column', 'row', 'row', 'column'],
                   justifyContent: 'space-between'
                 }}
               >
@@ -148,7 +155,8 @@ export default function Slack({ data, slackKey, events }) {
               <Flex
                 sx={{
                   flexDirection: ['row', 'row', 'column'],
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap'
                 }}
               >
                 <Box>

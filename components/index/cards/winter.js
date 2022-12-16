@@ -72,7 +72,7 @@ function BreakdownBox({
       )}
       <Heading
         sx={{
-          fontSize: ['18px', '18px', '24px', '26px'],
+          fontSize: ['16px', '16px', '24px', '26px'],
           pt: [1, 2, 3]
         }}
       >

@@ -188,11 +188,11 @@ function Page({
                 sx={{
                   color: 'white',
                   mb: [3, 4],
-                  mx: 'auto',
                   zIndex: 1,
                   textAlign: 'left',
                   fontSize: ['42px', '52px', '64px'],
-                  lineHeight: 1.2
+                  lineHeight: 1.2,
+                  width: '100%'
                 }}
               >
                 We are <Comma>{slackData.total_members_count}</Comma>{' '}
@@ -200,7 +200,7 @@ function Page({
                   sx={{
                     color: 'transparent',
                     ml: 2,
-                    mr: 4,
+                    mr: 3,
                     whiteSpace: 'nowrap'
                   }}
                 >
