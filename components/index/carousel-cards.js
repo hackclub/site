@@ -42,7 +42,7 @@ export default function CarouselCards({
         target="_blank"
         rel="noopener"
       >
-        <img
+        <Image
           src={img}
           sx={{ position: 'absolute', top: ["-26px", "-30px", "-40px"], left: ["10px", "12px", "15px"], zIndex: 2, width: ["42px", "50px", "58px"], height: ["42px", "50px", "58px"] }}
         />

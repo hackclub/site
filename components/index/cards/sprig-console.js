@@ -28,9 +28,9 @@ export default function SprigConsole({ stars, consoleCount }) {
         sx={{
           backgroundSize: 'cover',
           backgroundColor: '#2E5626',
-          // backgroundImage: 'linear-gradient(to bottom,rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://sprig.hackclub.com/pcb.svg")',
           backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat'
+          backgroundRepeat: 'no-repeat',
+          minHeight: ['300px', '400px','400px'],
         }}
         highlight="#427A43"
       >
@@ -46,7 +46,7 @@ export default function SprigConsole({ stars, consoleCount }) {
             zIndex: 0
           }}
         />
-        <img
+        <Image
           src="https://cloud-8u6hh0ho9-hack-club-bot.vercel.app/0sprig_console.svg"
           sx={{
             width: ['250px', '450px', '500px'],
@@ -72,7 +72,7 @@ export default function SprigConsole({ stars, consoleCount }) {
         </Text>
         <Grid columns={[1, '1.2fr 1fr']} sx={{zIndex: 2, position: 'relative'}}>
           <Box>
-            <img
+            <Image
               src="https://cloud-7dokxtxhu-hack-club-bot.vercel.app/0sprig-light-top.png"
               sx={{
                 width: '120%',
@@ -100,12 +100,12 @@ export default function SprigConsole({ stars, consoleCount }) {
           <Box></Box>
         </Grid>
       </CardModel>
-      <img
-        src="https://cloud-7dokxtxhu-hack-club-bot.vercel.app/0sprig-light-top.png"
+      <Image
+        src="https://cloud-b8z9l7ihq-hack-club-bot.vercel.app/0sprig-light-top-min.png"
         sx={{
           position: 'absolute',
-          right: ['', '-50%', '-20%'],
-          top: ['', '12%', '15%'],
+          right: ['', '-50%', '-25%'],
+          top: ['', '12%', '10%'],
           width: ['', '100%', '70%'],
           pointerEvents: 'none',
           userSelect: 'none',

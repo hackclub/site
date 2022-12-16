@@ -176,6 +176,9 @@ export default function Epoch() {
             unexpected, share what we’ve learnt in 2022, and experience the
             thrill of being in-person together.
           </Text>
+          <Text as="p" variant="subtitle">
+            In <Link sx={{color: '#FF4794' }} href="https://hackclub.slack.com/archives/C04CGDDLC72" target="_blank" rel="noopener">Austin</Link>, <Link sx={{color: '#FF4794' }} href="https://epochba.hackclub.com/" target="_blank" rel="noopener">Bay Area</Link>, or <Link sx={{color: '#FF4794' }} target="_blank" rel="noopener">Vermont</Link>? Join a regional Epoch event!
+          </Text>
           <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4], position: 'relative' }}>
             <Buttons
               // content="travel stipends available"
