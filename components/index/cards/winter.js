@@ -36,7 +36,8 @@ function BreakdownBox({
         cursor: `${href ? 'pointer' : 'default'}`,
         display: 'flex',
         flexDirection: 'column',
-        zIndex: 2
+        zIndex: 2,
+        p: [3, 3, 4]
         // justifyContent: 'flex-end'
       }}
     >
@@ -71,7 +72,7 @@ function BreakdownBox({
       )}
       <Heading
         sx={{
-          fontSize: ['20px', '24px', '26px'],
+          fontSize: ['18px','18px', '24px', '26px'],
           pt: [1, 2, 3]
         }}
       >
@@ -80,8 +81,9 @@ function BreakdownBox({
       <Text
         as="p"
         sx={{
-          fontSize: [1, '16px', '20px'],
-          lineHeight: 1.25
+          fontSize: ['18px', '20px', '22px'],
+          lineHeight: 1.25,
+          display: ['none', 'none', 'block', 'block']
         }}
       >
         {description}
@@ -104,6 +106,7 @@ export default function Winter() {
         backgroundColor: '#3561A4'
       }}
       position={[null, 'bottom', 'bottom']}
+      badge
     >
       <Image
         src="/home/winter-bg.webp"
@@ -112,35 +115,20 @@ export default function Winter() {
           position: 'absolute',
           width: '100%',
           height: '100%',
-          ml: -4,
-          mt: -4,
+          ml: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px'],
           zIndex: 0
         }}
       />
-      <Box
-        sx={{
-          position: 'absolute',
-          right: 3,
-          top: 3,
-          zIndex: 3,
-          px: 3,
-          py: 2,
-          background: 'rgba(255,255,255,0.2)',
-          borderRadius: 'extra',
-          fontWeight: 'bold'
-        }}
-      >
-        Happening now
-      </Box>
       <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
         Winter hardware wonderland
       </Text>
       <Text as="p" variant="subtitle">
-        Build your own electronics projects alongside hundreds of other
+        Get $250 to build your own electronics projects alongside hundreds of other
         teenagers in the Hack Club community!
       </Text>
       <Box>
-        <Grid gap={[2, 2, 3]} columns={[1, 3, 3]} py={3}>
+        <Grid gap={[2, 2, 3]} columns={3} py={3}>
           <BreakdownBox
             icon="settings"
             color="#5bc0de"

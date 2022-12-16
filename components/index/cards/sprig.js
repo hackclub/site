@@ -190,19 +190,19 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
       sx={{ backgroundColor: '#0C0C16' }}
     >
       <Image
-        src="https://sprig.hackclub.com/background.jpg"
+        src="/home/sprig-bg.webp"
         sx={{
           objectFit: 'cover',
           position: 'absolute',
           width: '100%',
           height: '100%',
-          ml: -4,
-          mt: -4,
+          ml: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px'],
           zIndex: 0
         }}
       />
       <Image
-        src="https://sprig.hackclub.com/spriglogotext.png"
+        src="/home/sprig-logo.webp"
         sx={{
           width: ['150px', '180px', '220px'],
           zIndex: 3,
@@ -226,24 +226,16 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               icon="emoji"
               link="https://editor.sprig.hackclub.com"
               primary="#FFDE4D"
-              sx={{ color: 'black'}}
+              sx={{ color: 'black' }}
             >
               Build a Sprig game
             </Buttons>
-            {/* <Buttons
-              content="DM @leo in Slack to join"
-              id="7"
-              icon="friend"
-              link="/slack"
-            >
-              Help review games
-            </Buttons> */}
             <Buttons
               content="learn more on our github"
               id="8"
               link="https://github.com/hackclub/sprig"
             >
-              Help review games or contribute to the engine
+              Review games / build the engine
             </Buttons>
             <Buttons
               content="we're all hanging out in #sprig on Slack"
@@ -251,12 +243,18 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               icon="friend"
               link="/slack"
             >
-              Connect with other Sprig game developers
+              Connect with other game devs
             </Buttons>
           </Flex>
         </Box>
         <Box sx={{ mt: [0, -4, -4] }}>
-          <Text sx={{ fontStyle: 'italic', fontSize: [1, '14px', '16px'] }}>
+          <Text
+            sx={{
+              fontStyle: 'italic',
+              fontSize: [1, '14px', '16px'],
+              position: 'relative'
+            }}
+          >
             New from{' '}
             <Link
               href="https://sprig.hackclub.com/gallery"
@@ -267,30 +265,35 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
             ...
           </Text>
           <Grid
-            columns={[1, 1, 2]}
+            columns={[1, 1, 1, 2]}
             sx={{
               // height: ['250px', '80%', '80%'],
-              ml:[0, 4, 0],
+              ml: [0, 4, 0],
               gap: '20px',
-              mt: [0, 0, 3],
+              mt: [2, 0, 3],
+              ml: [1, 0, 0],
+              mb: [1, 0, 0],
               width: ['100%', '90%', '90%']
             }}
           >
-            <Game game={game[0]} 
-            // gameImage={gameImage} 
+            <Game
+              game={game[0]}
+              // gameImage={gameImage}
             />
-            <Game game={game[1]} 
-            // gameImage1={gameImage1} 
+            <Game
+              game={game[1]}
+              // gameImage1={gameImage1}
+              sx={{ display: ['none', 'flex', 'flex'] }}
             />
             <Game
               game={game[2]}
               // gameImage={gameImage}
-              sx={{ display: ['flex', 'none', 'flex'] }}
+              sx={{ display: ['none', 'none', 'flex'] }}
             />
             <Game
               game={game[3]}
               // gameImage1={gameImage1}
-              sx={{ display: ['flex', 'none', 'flex'] }}
+              sx={{ display: ['none', 'none', 'none', 'flex'] }}
             />
           </Grid>
         </Box>

@@ -41,16 +41,21 @@ export default function Sinerider({ stars }) {
           position: 'absolute',
           width: '100%',
           height: '100%',
-          ml: -4,
-          mt: -4,
+          ml: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px'],
           zIndex: 0
         }}
       />
       <Image
         src="https://cloud-9cei11221-hack-club-bot.vercel.app/0logo_text_2.png"
-        sx={{ width: ['200px', '250px', '300px'], mt: '-20px', position: 'relative', zIndex: 2 }}
+        sx={{
+          width: ['200px', '250px', '300px'],
+          mt: ['-10px', '-20px', '-20px'],
+          position: 'relative',
+          zIndex: 2
+        }}
       />
-      <Grid columns={[1, 1, 2]} sx={{position: 'relative', zIndex: 2}}>
+      <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Box></Box>
         <Box sx={{ mt: ['-40px', '-40px', '-150px'] }}>
           <Text as="p" variant="subtitle">

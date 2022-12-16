@@ -30,7 +30,7 @@ export default function SprigConsole({ stars, consoleCount }) {
           backgroundColor: '#2E5626',
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
-          minHeight: ['300px', '400px','400px'],
+          minHeight: ['300px', '400px', '400px']
         }}
         highlight="#427A43"
       >
@@ -40,16 +40,18 @@ export default function SprigConsole({ stars, consoleCount }) {
             objectFit: 'cover',
             position: 'absolute',
             width: '100%',
-            height: '100%',
-            ml: -4,
-            mt: -4,
+            height: '120%',
+            ml: '-24px',
+            opacity: '0.4',
+            mt: '-24px',
             zIndex: 0
           }}
         />
         <Image
           src="https://cloud-8u6hh0ho9-hack-club-bot.vercel.app/0sprig_console.svg"
           sx={{
-            width: ['250px', '450px', '500px'],
+            width: ['90%', '450px', '500px'],
+            mt: ['42px', 0, 0],
             position: 'relative',
             zIndex: 2
           }}
@@ -65,19 +67,24 @@ export default function SprigConsole({ stars, consoleCount }) {
             borderRadius: 'extra',
             color: '#016535',
             zIndex: 2,
-            position: 'relative'
+            position: ['absolute', 'relative', 'relative'],
+            top: ['24px', 0, '5px']
           }}
         >
           {420 - consoleCount} consoles left
         </Text>
-        <Grid columns={[1, '1.2fr 1fr']} sx={{zIndex: 2, position: 'relative'}}>
+        <Grid
+          columns={[1, '1.2fr 1fr']}
+          sx={{ zIndex: 2, position: 'relative' }}
+        >
           <Box>
             <Image
               src="https://cloud-b8z9l7ihq-hack-club-bot.vercel.app/0sprig-light-top-min.png"
               sx={{
-                width: '120%',
-                ml: '-10%',
-                display: [null, 'none', 'none'],
+                width: ['120%', '', ''],
+                maxWidth: ['120%', '', ''],
+                ml: ['-10%', '', ''],
+                display: [null, 'none', 'none']
               }}
             />
             <Text as="p" variant="subtitle" mt={[0, null, null]}>
@@ -86,16 +93,15 @@ export default function SprigConsole({ stars, consoleCount }) {
               started with hardware engineering and embedded systems
               programming.{' '}
             </Text>
-              <Buttons
-                content="click here to get started in our editor"
-                id="6"
-                icon="emoji"
-                link="https://github.com/hackclub/sprig/blob/main/docs/GET_A_SPRIG.md"
-                primary="#427A43"
-                sx={{mt: [3, 3, 4]}}
-              >
-                Build a game and get your console
-              </Buttons>
+            <Buttons
+              id="6"
+              icon="emoji"
+              link="https://github.com/hackclub/sprig/blob/main/docs/GET_A_SPRIG.md"
+              primary="#427A43"
+              sx={{ mt: [3, 3, 4] }}
+            >
+              Build a game and get your console
+            </Buttons>
           </Box>
           <Box></Box>
         </Grid>
@@ -104,9 +110,9 @@ export default function SprigConsole({ stars, consoleCount }) {
         src="https://cloud-b8z9l7ihq-hack-club-bot.vercel.app/0sprig-light-top-min.png"
         sx={{
           position: 'absolute',
-          right: ['', '-50%', '-25%'],
-          top: ['', '12%', '10%'],
-          width: ['', '100%', '70%'],
+          right: ['', '-50%', '-35%','-25%'],
+          top: ['', '12%', '20%', '10%'],
+          width: ['', '100%', '85%','70%'],
           pointerEvents: 'none',
           userSelect: 'none',
           display: ['none', 'block', 'block']

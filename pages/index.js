@@ -92,17 +92,17 @@ function Page({
   const [count, setCount] = useState(0)
 
   let images = [
-    { alt: '1Map of Hack Clubs around the world', src: '/home/map.png' },
+    { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
     {
-      alt: '2Hack Clubbers at Space X HQ in LA',
+      alt: 'Hack Clubbers at Space X HQ in LA',
       src: '/home/zephyr-spacex.jpeg'
     },
     {
-      alt: '3MA Hacks, Hack Clubber organized hackathon',
+      alt: 'MA Hacks, Hack Clubber organized hackathon',
       src: '/hackathons/mahacks.jpeg'
     },
-    { alt: '4AMA with Sal Khan', src: '/home/ama.png' },
-    { alt: '5Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
+    { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
+    { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
   ]
 
   // janky right now and does not show last image
@@ -175,72 +175,71 @@ function Page({
               maxWidth: [null, 'layout'],
               position: 'relative',
               mx: 'auto',
-              py: 5
+              py: [4, 4, 5]
             }}
           >
-              <Text variant="eyebrow" sx={{ color: 'sunken' }}>
-                Welcome to Hack Club
-              </Text>
-              <Heading>
+            <Text variant="eyebrow" sx={{ color: 'sunken' }}>
+              Welcome to Hack Club
+            </Text>
+            <Heading>
+              <Text
+                as="h1"
+                variant="title"
+                sx={{
+                  color: 'white',
+                  mb: [3, 4],
+                  mx: 'auto',
+                  zIndex: 1,
+                  textAlign: 'left',
+                  fontSize: ['42px', '52px', '64px'],
+                  lineHeight: 1.2
+                }}
+              >
+                We are <Comma>{slackData.total_members_count}</Comma>{' '}
                 <Text
-                  as="h1"
-                  variant="title"
                   sx={{
-                    color: 'white',
-                    mb: [3, 4],
-                    mx: 'auto',
-                    zIndex: 1,
-                    textAlign: 'left',
-                    fontSize: ['36px', '48px', '64px'],
-                    lineHeight: 1.1
+                    color: 'transparent',
+                    ml: 2,
+                    mr: 4,
+                    whiteSpace: 'nowrap'
                   }}
                 >
-                  We are <Comma>{slackData.total_members_count}</Comma>{' '}
                   <Text
+                    onClick={() => {
+                      setHover(false)
+                      !reveal ? setReveal(true) : setReveal(false)
+                    }}
                     sx={{
-                      color: 'transparent',
-                      ml: 2,
-                      mr: 4,
-                      whiteSpace: 'nowrap'
+                      // lineHeight: 0.875,
+                      px: 2,
+                      backgroundColor: 'red',
+                      position: 'absolute',
+                      borderRadius: 10,
+                      transform: 'rotate(-3deg)',
+                      color: 'white',
+                      whiteSpace: 'nowrap',
+                      textDecoration: 'none',
+                      '&:hover': {
+                        cursor: 'pointer'
+                      }
                     }}
                   >
-                    <Text
-                      onClick={() => {
-                        setHover(false)
-                        !reveal ? setReveal(true) : setReveal(false)
-                      }}
-                      sx={{
-                        // lineHeight: 0.875,
-                        px: 2,
-                        backgroundColor: 'red',
-                        position: 'absolute',
-                        borderRadius: 10,
-                        transform: 'rotate(-3deg) translateY(-5px)',
-                        color: 'white',
-                        whiteSpace: 'nowrap',
-                        textDecoration: 'none',
-                        '&:hover': {
-                          cursor: 'pointer'
-                        }
-                      }}
-                    >
-                      teen makers
-                      {/* <Icon glyph="external" size={24} /> */}
-                    </Text>
                     teen makers
                   </Text>
-                  from around the world that code together.
+                  teen makers
                 </Text>
-                <Button variant="ctaLg" as="a" href="/slack">
-                  Join our community
-                </Button>
-              </Heading>
+                from around the world that code together
+              </Text>
+              <Button variant="ctaLg" as="a" href="/slack" mt={[3, 0, 0]}>
+                Join our community
+              </Button>
+            </Heading>
             <Box
               sx={{
                 display: 'flex',
-                justifyContent: ['center', 'center', 'flex-end'],
+                justifyContent: ['flex-start', 'flext-start', 'flex-end'],
                 marginRight: 2,
-                mt: [2, 2, 1]
+                mt: [4, 3, 1]
               }}
             >
               <Badge
@@ -275,7 +274,11 @@ function Page({
               margin: 'auto'
             }}
           >
-            <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3], mt: 4 }}>
+            <Text
+              variant="eyebrow"
+              as="p"
+              sx={{ fontSize: ['22px', 2, 3], mt: 4 }}
+            >
               The rundown
             </Text>
             <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
@@ -285,8 +288,8 @@ function Page({
                 sx={{
                   borderRadius: 'default',
                   px: 2,
-                  mx: [-2, 0],
-                  whiteSpace: 'nowrap',
+                  mx: 0,
+                  whiteSpace: ['wrap', 'nowrap', 'nowrap'],
                   color: 'white',
                   background: theme => theme.util.gx('red', 'orange'),
                   '-webkit-background-clip': 'text',
@@ -299,7 +302,7 @@ function Page({
             <Text
               variant="subtitle"
               as="p"
-              sx={{ fontSize: [1, '16px', '20px'] }}
+              sx={{ fontSize: ['18px', '20px', '22px'] }}
             >
               Every day, thousands of Hack Clubbers gather online and in-person
               to make things with code. Whether you’re a beginner programmer or
@@ -310,15 +313,12 @@ function Page({
               </Link>
               .
             </Text>
-            <Grid
-              columns={[1, 1, '2.5fr 3fr', '2.5fr 3fr']}
-              gap={[0, 3, 4]}
-              pt={[3, 4]}
-            >
+            <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
               <Box
                 sx={{
                   position: 'relative',
-                  height: ['300px', '300px', '100%']
+                  height: ['300px', '300px', '300px', '100%'],
+                  py: [3, 3, 3, 0]
                 }}
                 onClick={() => {
                   setCount(count + 1)
@@ -337,7 +337,8 @@ function Page({
                         transform:
                           count % 2 == 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
                         height: '85%',
-                        width: ['70%', '70%', '100%']
+                        width: ['80%', '80%', '70%', '100%'],
+                        marginLeft: ['10%', '10%', '15%', '0']
                       },
                       zIndex: 3,
                       '&:hover': {
@@ -383,8 +384,8 @@ function Page({
                         transform:
                           count % 2 == 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
                         height: '85%',
-                        width: ['70%', '70%', '100%'],
-                        margin: 'auto'
+                        width: ['80%', '80%', '70%', '100%'],
+                        marginLeft: ['10%', '10%', '15%', '0']
                       },
                       zIndex: 3,
                       '&:hover': {
@@ -426,8 +427,8 @@ function Page({
                         transform:
                           count % 2 == 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
                         height: '85%',
-                        width: ['70%', '70%', '100%'],
-                        margin: 'auto'
+                        width: ['80%', '80%', '70%', '100%'],
+                        marginLeft: ['10%', '10%', '15%', '0']
                       },
                       zIndex: 3,
                       '&:hover': {
@@ -465,8 +466,8 @@ function Page({
                     fontWeight: 'bold',
                     border: '3px solid currentColor'
                   },
-                  p: { my: 0, fontSize: [1, '16px', '20px'] },
-                  strong: { display: 'block', fontSize: [1, '18px', '22px'] }
+                  p: { my: 0, fontSize: ['18px', '20px', '22px'] },
+                  strong: { display: 'block', fontSize: ['22px', 2, 3] }
                 }}
               >
                 <Grid
@@ -484,7 +485,7 @@ function Page({
                   <Text as="span" color="red">
                     1
                   </Text>
-                  <Text as="p" variant="subtitle">
+                  <Box as="p" variant="subtitle">
                     <strong>Connect with other teenage coders</strong>
                     Have a coding question? Looking for project feedback? You’ll
                     find hundreds of fabulous people to talk to in our global{' '}
@@ -492,7 +493,7 @@ function Page({
                       Slack{' '}
                     </Link>
                     (like Discord), active at all hours.
-                  </Text>
+                  </Box>
                 </Grid>
                 <Grid
                   columns="auto 1fr"
@@ -517,8 +518,8 @@ function Page({
                     }}
                   >
                     <strong>Build open source learning tools</strong>
-                    We build large open source projects together (3k+ PRs a
-                    year) like this website, a game engine, daily streak system,
+                    We build large open source projects together (<Link href="https://github.com/hackclub">3k+ PRs a
+                    year</Link>) like this website, a game engine, daily streak system,
                     and more!
                   </Text>
                 </Grid>
@@ -563,7 +564,7 @@ function Page({
             backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
             backgroundSize: '40px 40px',
             backgroundRepeat: 'repeat',
-            backgroundPosition: '10% 10%',
+            backgroundPosition: '10% 10%'
           }}
         >
           <Box
@@ -573,9 +574,9 @@ function Page({
               maxWidth: 'layout',
               margin: 'auto'
             }}
-            py={5}
+            py={[4, 4, 5]}
           >
-            <Box sx={{ maxWidth: 'copyPlus' }}>
+            <Box>
               <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
                 Connect with{' '}
                 <Text
@@ -583,7 +584,7 @@ function Page({
                   sx={{
                     borderRadius: 'default',
                     px: 2,
-                    mx: [-2, 0],
+                    mx: 0,
                     whiteSpace: 'nowrap',
                     color: 'white',
                     bg: 'red'
@@ -596,7 +597,7 @@ function Page({
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{ fontSize: [1, '16px', '20px'] }}
+                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
               >
                 We gather both online and in-person to share our love of code
                 and make things together!
@@ -608,7 +609,7 @@ function Page({
           </Box>
         </Box>
         <Box>
-          <Box py={5}>
+          <Box py={[4, 4, 5]}>
             <Box
               sx={{
                 width: '90vw',
@@ -620,6 +621,14 @@ function Page({
               {/* <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3] }}>
                 Hack Clubbers
               </Text> */}
+              <GitHub
+                type={gitHubData[github].type}
+                img={gitHubData[github].userImage}
+                user={gitHubData[github].user}
+                time={gitHubData[github].time}
+                message={gitHubData[github].message}
+                key={key}
+              />
               <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
                 We build{' '}
                 <Text
@@ -627,7 +636,7 @@ function Page({
                   sx={{
                     borderRadius: 'default',
                     px: 2,
-                    mx: [-2, 0],
+                    mx: 0,
                     whiteSpace: 'nowrap',
                     color: 'white',
                     bg: 'orange'
@@ -637,18 +646,10 @@ function Page({
                 </Text>{' '}
                 games and tools together
               </Text>
-              <GitHub
-                type={gitHubData[github].type}
-                img={gitHubData[github].userImage}
-                user={gitHubData[github].user}
-                time={gitHubData[github].time}
-                message={gitHubData[github].message}
-                key={key}
-              />
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{ fontSize: [1, '16px', '20px'] }}
+                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
               >
                 In collaboration with engineers on the Hack Club team, Hack
                 Clubbers build learning tools for each other. Get involved with
@@ -675,10 +676,10 @@ function Page({
             sx={{
               position: 'relative',
               background: 'snow',
-            backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
-            backgroundSize: '40px 40px',
-            backgroundRepeat: 'repeat',
-            backgroundPosition: '10% 10%',
+              backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
+              backgroundSize: '40px 40px',
+              backgroundRepeat: 'repeat',
+              backgroundPosition: '10% 10%'
               // '&:hover': {
               //   backgroundImage: `url('https://icons.hackclub.com/api/icons/0x000000/glyph:rep.svg')`
               // }
@@ -696,7 +697,7 @@ function Page({
               {}
             </Box>
             <Box
-              py={5}
+              py={[4, 4, 5]}
               sx={{
                 width: '90vw',
                 maxWidth: 'layout',
@@ -713,7 +714,7 @@ function Page({
                   sx={{
                     borderRadius: 'default',
                     px: 2,
-                    mx: [-2, 0],
+                    mx: 0,
                     whiteSpace: 'nowrap',
                     color: 'white',
                     bg: 'yellow'
@@ -725,7 +726,7 @@ function Page({
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{ fontSize: [1, '16px', '20px'] }}
+                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
               >
                 Thousands of Hack Clubbers organize and participate in
                 hackathons and after school coding clubs.
@@ -741,7 +742,7 @@ function Page({
             </Box>
           </Box>
         </Box>
-        <Box py={5}>
+        <Box py={[4, 4, 5]}>
           <Box
             sx={{
               width: '90vw',
@@ -749,7 +750,7 @@ function Page({
               margin: 'auto'
             }}
           >
-            <Text as="p" variant="eyebrow">
+            <Text as="p" variant="eyebrow" sx={{ fontSize: ['22px', 2, 3] }}>
               Let's recap
             </Text>
             <Heading as="h2" variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
@@ -759,7 +760,7 @@ function Page({
                 sx={{
                   borderRadius: 'default',
                   px: 2,
-                  ml: [-2, 0],
+                  ml: 0,
                   whiteSpace: ['wrap', 'nowrap'],
                   color: 'white',
                   bg: 'red'
@@ -820,7 +821,7 @@ function Page({
                     top: 2,
                     right: 2,
                     opacity: 0.3,
-                    fontSize: [1, '16px', '20px'],
+                    fontSize: ['18px', '20px', '22px'],
                     zIndex: 3,
                     color: 'white !important'
                   }}
@@ -832,10 +833,10 @@ function Page({
                   desc="Connect with other technical teenagers on Slack and hack on things together."
                   sx={{
                     p: {
-                      fontSize: [1, '16px', '20px']
+                      fontSize: ['18px', '20px', '22px']
                     },
                     h3: {
-                      fontSize: ['16px', '22px', '26px']
+                      fontSize: ['22px', 2, 3]
                     }
                   }}
                 />
@@ -874,7 +875,7 @@ function Page({
                     top: 2,
                     right: 2,
                     opacity: 0.3,
-                    fontSize: [1, '16px', '20px'],
+                    fontSize: ['18px', '20px', '22px'],
                     zIndex: 3,
                     color: 'white !important'
                   }}
@@ -886,10 +887,10 @@ function Page({
                   desc="Build an in-person community of high school hackers, and we're here to help."
                   sx={{
                     p: {
-                      fontSize: [1, '16px', '20px']
+                      fontSize: ['18px', '20px', '22px']
                     },
                     h3: {
-                      fontSize: ['16px', '22px', '26px']
+                      fontSize: ['22px', 2, 3]
                     }
                   }}
                 />
@@ -943,7 +944,7 @@ function Page({
                       fontSize: [1, '16px', '20px']
                     },
                     h3: {
-                      fontSize: ['16px', '22px', '26px']
+                      fontSize: ['22px', 2, 3]
                     }
                   }}
                 />

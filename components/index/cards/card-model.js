@@ -25,6 +25,8 @@ const CardModel = ({
   link,
   highlight,
   github_link,
+  badge,
+  text,
   color,
   stars,
   delay,
@@ -37,18 +39,39 @@ const CardModel = ({
       position: 'relative',
       width: '100%',
       color: color,
-      my: [3, 4, 5],
-      p: 3,
+      my: [4, 5],
+      p: '24px',
       backgroundSize: 'cover',
       backgroundImage: `url(${background})` || '',
       backgroundPosition: 'center bottom',
       backgroundRepeat: 'no-repeat',
       '& p': {
-        fontSize: [1, '16px', '20px']
+        fontSize: ['18px', '20px', '22px']
       }
     }}
     {...props}
   >
+    {badge && (
+      <Box
+        sx={{
+          position: ['relative', 'relative', 'relative', 'absolute'],
+          width: 'fit-content',
+          // float: 'right',
+          right: [0, 0, 0, 3],
+          top: [0, 0, 0, 3],
+          zIndex: 3,
+          px: 3,
+          py: 2,
+          mb: 2,
+          float: [null, 'right', null],
+          background: 'rgba(255,255,255,0.2)',
+          borderRadius: 'extra',
+          fontWeight: 'bold'
+        }}
+      >
+        {text || 'Happening now'}
+      </Box>
+    )}
     {github_link != null ? (
       <Box>
         {position == 'bottom' ? (
