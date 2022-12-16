@@ -238,7 +238,7 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               Review games / build the engine
             </Buttons>
             <Buttons
-              content="we're all hanging out in #sprig on Slack"
+              // content="we're all hanging out in #sprig on Slack"
               id="9"
               icon="friend"
               link="/slack"

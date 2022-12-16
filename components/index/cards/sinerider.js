@@ -66,7 +66,7 @@ export default function Sinerider({ stars }) {
           </Text>
           <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
             <Buttons
-              content="you could create the art, be a scene maker, or write graphics rendering code"
+              // content="you could create the art, be a scene maker, or write graphics rendering code"
               id="4"
               icon="rainbow"
               href="https://github.com/hackclub/sinerider/#readme"
