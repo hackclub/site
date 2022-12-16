@@ -345,10 +345,6 @@ function Page({
                         cursor: 'pointer'
                       }
                     }}
-                    // data-tip="next"
-                    // data-arrow-color="transparent"
-                    // data-background-color="white"
-                    // data-text-color="black"
                   >
                     <Photo
                       src={
@@ -368,7 +364,6 @@ function Page({
                       width={3000}
                       height={2550}
                       showAlt
-                      // loading="eager"
                     />
                   </Box>
                 </Box>
@@ -392,10 +387,6 @@ function Page({
                         cursor: 'pointer'
                       }
                     }}
-                    data-tip="next"
-                    data-arrow-color="transparent"
-                    data-background-color="white"
-                    data-text-color="black"
                   >
                     <Photo
                       src={
@@ -411,7 +402,6 @@ function Page({
                       width={3000}
                       height={2550}
                       showAlt
-                      // loading="eager"
                     />
                   </Box>
                 </Box>
@@ -435,10 +425,6 @@ function Page({
                         cursor: 'pointer'
                       }
                     }}
-                    data-tip="next"
-                    data-arrow-color="transparent"
-                    data-background-color="white"
-                    data-text-color="black"
                   >
                     <Photo
                       src={images[count].src}
@@ -446,7 +432,6 @@ function Page({
                       width={3000}
                       height={2550}
                       showAlt
-                      // loading="eager"
                     />
                   </Box>
                 </Box>
