@@ -44,23 +44,23 @@ const MailingList = () => {
     e.preventDefault()
     setSubmitting(true)
 
-    await fetch('http://postal.hackclub.com/subscribe', {
+    let res = await fetch('/api/mailing-list', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        api_key: '0RVoIVdbt0fm7mDs5vnS',
         name: e.target.name.value,
-        email: e.target.email.value,
-        list: 'SUTgXFrqIRPE61eg08bC5Q'
+        email: e.target.email.value
       })
     })
 
     formRef.current.reset()
-    setSubmitting(false)
 
-    setSubmitted(true)
+    if (res.ok) {
+      setSubmitted(true)
+    }
+    setSubmitting(false)
   }
 
   return (
@@ -84,8 +84,9 @@ const MailingList = () => {
         as="form"
         ref={formRef}
         onSubmit={handleSubmit}
-        action="https://postal.hackclub.com/subscribe"
-        method="POST"
+        // method="POST" action="/api/mailing-list"
+        // action="https://postal.hackclub.com/subscribe"
+        // method="POST"
         gap={[2, 3]}
         sx={{
           mt: [null, 3],
