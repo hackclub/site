@@ -81,20 +81,20 @@ export default function Workshops({ data, stars }) {
     >
       <Text variant="title" sx={{fontSize: ['36px', 4, 5]}}>Workshops</Text>
         <Grid columns={[1, 2, 2]}>
-          <Flex sx={{ flexDirection: 'column' }}>
+          <Flex sx={{ flexDirection: 'column'}}>
           <Text as="p" variant="subtitle">
           100+ community-contributed, self-guided coding tutorials and ideas. Learn to code by building, one project at a time.
         </Text>
-            <Buttons id="14" link="https://workshops.hackclub.com" icon="code" primary="white" sx={{color: 'blue'}}>
-              Find a workshop
+            <Buttons id="14" link="https://workshops.hackclub.com" icon="code" primary="white" sx={{color: 'blue', mt: [3, 3, 4]}}>
+              Browse a workshop
             </Buttons>
             <Buttons
-              content="click to learn more about how to submit a workshop"
+              // content="click to learn more about how to submit a workshop"
               id="13"
               link="https://workshops.hackclub.com/submit-a-workshop/"
               icon="event-add"
             >
-              Write and submit a workshop
+              Build a workshop
             </Buttons>
           </Flex>
           <Grid sx={{ gap: 3 }} columns={[1, 1, 2]}>

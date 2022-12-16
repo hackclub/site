@@ -56,7 +56,7 @@ export default function Bank({ data }) {
           backgroundColor: 'dark',
           minHeight: ['300px', '400px','300px'],
           backgroundColor: 'darkless',
-          backgroundImage: `url('https://icons.hackclub.com/api/icons/0x291829/glyph:bank-account.svg')`,
+          backgroundImage: `url('https://icons.hackclub.com/api/icons/0x29282C/glyph:bank-account.svg')`,
           backgroundSize: '40px 40px',
           backgroundRepeat: 'repeat',
           backgroundPosition: '10% 10%',
@@ -99,7 +99,7 @@ export default function Bank({ data }) {
                 <Box
                   sx={{
                     backgroundImage:
-                      'url("https://cloud-f1orvtxst-hack-club-bot.vercel.app/0bank_vid.gif")',
+                      'url("https://cloud-my3o4j7oe-hack-club-bot.vercel.app/0laptop-dark__2__1.png")',
                     zIndex: 2,
                     position: 'absolute',
                     margin: 'auto',
@@ -118,6 +118,7 @@ export default function Bank({ data }) {
               icon="bank-account"
               link="/bank"
               primary="red"
+              sx={{mt: [3, 3, 4]}}
             >
               Start banking!
             </Buttons>
@@ -156,7 +157,7 @@ export default function Bank({ data }) {
           <Box
             sx={{
               backgroundImage:
-                'url("https://cloud-f1orvtxst-hack-club-bot.vercel.app/0bank_vid.gif")',
+                'url("https://cloud-my3o4j7oe-hack-club-bot.vercel.app/0laptop-dark__2__1.png")',
               zIndex: 2,
               position: 'absolute',
               margin: 'auto',

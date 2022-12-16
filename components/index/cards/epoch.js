@@ -91,18 +91,16 @@ export default function Epoch() {
         sx={theme => ({
           color: '#FF4794',
           position: 'relative',
-          width: [null, '85%', '115%'],
-          height: [null, '100%', '85%'],
-          py: [null, 2, 4],
-          borderRadius: '5px',
-          border: ['none', '1.5px solid'],
+          width: [null, '85%', '80%'],
+          height: [null, '50%', '85%'],
+          border: 'none',
           borderColor: '#FF4794',
-          fontSize: [4, 5],
-          fontWeight: 'bold',
+          fontSize: [3, 4],
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          textAlign: 'center'
+          textAlign: 'center',
+          opacity: 0.7
         })}
       >
         <Box>
@@ -117,8 +115,7 @@ export default function Epoch() {
             sx={{
               color: 'white',
               position: 'relative',
-              fontSize: [1, 3, 4],
-              fontWeight: 'bold',
+              fontSize: [1, '16px', '20px'],
               display: 'block',
               pb: '15px'
             }}
@@ -130,25 +127,40 @@ export default function Epoch() {
     )
   })
   return (
-      <CardModel
+    <CardModel
       id="epoch"
       color="white"
       sx={{
         backgroundColor: '#000'
       }}
     >
-      <img
-        src="https://cloud-ox8syzbet-hack-club-bot.vercel.app/0ep0ch.svg"
-        sx={{ width: ['150px', '180px', '220px'] }}
+      <Image
+        src="https://cloud-15qevu1zp-hack-club-bot.vercel.app/0assemble_2.png"
+        sx={{
+          objectFit: 'cover',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          ml: -4,
+          mt: -4
+        }}
       />
-      <Grid columns={[1, 1, 2]} mt={[0, 3, 3]}>
+      <Grid columns={[1, 1, '1fr 1.5fr']} sx={{ position: 'relative' }}>
+        <Box>
+        <img
+          src="https://cloud-jzsq7jfvg-hack-club-bot.vercel.app/0group_9.png"
+          sx={{
+            width: ['170px', '220px', '350px'],
+            position: 'relative',
+            zIndex: 2
+          }}
+        />
         <Box>
           {timer.length ? (
             <Grid
               key="{e}"
-              gap={[1, 2, '25px']}
               columns={['1fr 1fr 1fr 1fr']}
-              // sx={{ mr: 2 }}
+              sx={{ mr: 2, mt: 2 }}
             >
               {timer}
             </Grid>
@@ -156,15 +168,17 @@ export default function Epoch() {
             <></>
           )}
         </Box>
-        <Box mt={['-60px', '-20px', '-100px']} ml={[0, 0, 3]}>
+        </Box>
+        <Box ml={[0, 0, 3]}>
           <Text as="p" variant="subtitle">
             Join us this winter as 150+ teenage hackers from all around the
-            world travel to Delhi, India for Epoch! Together, we’ll build the unexpected, share what we’ve learnt
-            in 2022, and experience the thrill of being in-person together.
+            world travel to Delhi, India for Epoch! Together, we’ll build the
+            unexpected, share what we’ve learnt in 2022, and experience the
+            thrill of being in-person together.
           </Text>
-          <Flex sx={{ flexDirection: 'column' }}>
+          <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4], position: 'relative' }}>
             <Buttons
-              content="travel stipends available"
+              // content="travel stipends available"
               id="17"
               link="https://epoch.hackclub.com"
               icon="post"
@@ -181,21 +195,6 @@ export default function Epoch() {
               Help plan the hackathon
             </Buttons>
           </Flex>
-          {/* <Button
-            variant="primary"
-            as="a"
-            href="https://epoch.hackclub.com/"
-            target="_blank"
-            rel="noopener"
-            sx={{
-              background: '#FF4794',
-              color: 'white',
-              mt: 3,
-              mb: [3, null, null]
-            }}
-          >
-            Sign up for Epoch
-          </Button> */}
         </Box>
       </Grid>
     </CardModel>

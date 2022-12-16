@@ -49,7 +49,7 @@ export default function Hackathons({ data, stars }) {
       // background="https://hackclub.com/bank/bg.webp"
     >
       <Image
-        src="https://hackclub.com/bank/bg.webp"
+        src="https://cloud-3zkwhtiid-hack-club-bot.vercel.app/0bg-min.png"
         sx={{
           objectFit: 'cover',
           position: 'absolute',
@@ -75,7 +75,7 @@ export default function Hackathons({ data, stars }) {
             world. From an online community of organizers to free stickers and
             more!{' '}
           </Text>
-          <Flex sx={{ flexDirection: 'column' }}>
+          <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
             <Buttons
               id="19"
               icon="event-code"
@@ -85,7 +85,7 @@ export default function Hackathons({ data, stars }) {
               Find a high school hackathon
             </Buttons>
             <Buttons
-              content="learn more about available resources"
+              // content="learn more about available resources"
               id="20"
               icon="bolt"
               link="/hackathons"

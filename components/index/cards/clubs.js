@@ -93,7 +93,7 @@ export default function Clubs() {
             You can start with no experience and build and ship a project every
             meeting.
           </Text>
-          <Flex sx={{ flexDirection: 'column' }}>
+          <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
             <Buttons
               content="we'll support you with meeting content, stickers, and more"
               id="2"

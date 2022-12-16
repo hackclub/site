@@ -20,6 +20,7 @@ import SlackEvents from '../../slack/slack-events'
 import Event from '../events'
 import Dot from '../../dot'
 import Comma from '../../comma'
+import RelativeTime from 'react-relative-time'
 /** @jsxImportSource theme-ui */
 
 // const Cover = () => (
@@ -125,48 +126,15 @@ export default function Slack({ data, slackKey, events }) {
         }}
       />
       <Cover />
-      {/* <Box
-        as="video"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="https://cloud-nykwtt0z7.vercel.app/2020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png"
-        duration={2000}
-        sx={{
-          position: 'absolute',
-          bottom: 0,
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '100%',
-          zIndex: 0,
-          width: '100vw',
-          objectFit: 'cover'
-        }}
-      >
-        <source
-          src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.hecv.mp4?v=1590780967658"
-          type="video/mp4; codecs=hevc"
-        />
-        <source
-          src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.webm?v=1590781698834"
-          type="video/webm; codecs=vp9,opus"
-        />
-        <source
-          src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.mov?v=1590781491717"
-          type="video/quicktime"
-        />
-      </Box> */}
       <Grid sx={{ zIndex: 2 }}>
         <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2 }}>
           Our online community
         </Text>
       </Grid>
-      <Grid columns={[1, 1, 2, 2]} sx={{ zIndex: 2 }}>
+      <Grid columns={[1, 1, '1.6fr 1fr', '1.6fr 1fr']} sx={{ zIndex: 2 }}>
         <Box
           sx={{
-            zIndex: 2,
+            zIndex: 2
           }}
         >
           <Text
@@ -176,9 +144,8 @@ export default function Slack({ data, slackKey, events }) {
           >
             Coding doesn’t have to be a solidary activity. At Hack Club, we make
             things together and in our Slack, you'll find awesome people to
-            hangout with to. Across 2,000 public channels, find the community
-            for your favorite programming language, ask for advice, or just hang
-            out.
+            hangout with to. Code together, find your programming community, or
+            just hang out.
           </Text>
           <Text as="p" variant="subtitle">
             Sometimes, we also invite someone we really want to speak to (like
@@ -196,11 +163,11 @@ export default function Slack({ data, slackKey, events }) {
           <Event events={events} />
 
           <Buttons
-            content="click to learn more about how to submit a workshop"
             id="13"
             link="/slack"
             icon="slack"
-            primary="purple"
+            primary="red"
+            sx={{ mt: [3, 3, 4] }}
           >
             Join our Slack
           </Buttons>
@@ -211,26 +178,41 @@ export default function Slack({ data, slackKey, events }) {
                 height: ['170px', '170px', '100%', '100%'],
                 position: ['relative', 'relative', 'absolute', 'absolute'],
                 zIndex: 3,
-                width: ['120%', '120%', '210px', '210px'],
+                width: ['120%', '120%', '240px', '240px'],
                 right: 0,
                 top: [null, null, 0, 0],
                 mt: [3, 3, 0, 0],
                 ml: -4,
                 mb: -4,
-                p: 3
+                p: 4,
+                pt: 3
               }}
             >
-              <Text variant="eyebrow" as="p" sx={{ color: 'white' }}>
-                <Dot />
-                Live from Slack
-              </Text>
-              <Flex sx={{flexDirection: ['row', 'row', 'column', 'column'], gap: '20px'}}>
+              <Flex sx={{ flexDirection: ['row', 'row', 'column'], justifyContent: 'space-between' }}>
+                <Text variant="eyebrow" as="p" sx={{ color: 'white' }}>
+                  <Dot />
+                  Live from Slack
+                </Text>
+                <Text sx={{ color: 'muted' }}>
+                  As of{' '}
+                  <RelativeTime value={data.ds} titleFormat="YYYY-MM-DD" />
+                </Text>
+              </Flex>
+              <Grid columns={[3, 3, 1]} gap="5px">
                 <Box>
                   <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
                     <Comma>{data.readers_count_1d}</Comma>
                   </Heading>
                   <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
-                    Online today
+                    Online
+                  </Text>
+                </Box>
+                <Box>
+                  <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                    <Comma>{data.chats_channels_count_1d}</Comma>
+                  </Heading>
+                  <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                    Total channels
                   </Text>
                 </Box>
                 <Box>
@@ -249,7 +231,7 @@ export default function Slack({ data, slackKey, events }) {
                     Total members
                   </Text>
                 </Box>
-              </Flex>
+              </Grid>
             </Box>
           </Grid>
         </Box>
