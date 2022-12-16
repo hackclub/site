@@ -46,7 +46,7 @@ export default function Clubs() {
       }}
     >
       <Image
-        src="https://cloud-flzg18ipb-hack-club-bot.vercel.app/0screenshot_2022-12-05_at_9.44.11_pm.png"
+        src="/home/clubs-bg.webp"
         sx={{
           objectFit: 'cover',
           position: 'absolute',

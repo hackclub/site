@@ -73,7 +73,7 @@ export default function SprigConsole({ stars, consoleCount }) {
         <Grid columns={[1, '1.2fr 1fr']} sx={{zIndex: 2, position: 'relative'}}>
           <Box>
             <Image
-              src="https://cloud-7dokxtxhu-hack-club-bot.vercel.app/0sprig-light-top.png"
+              src="https://cloud-b8z9l7ihq-hack-club-bot.vercel.app/0sprig-light-top-min.png"
               sx={{
                 width: '120%',
                 ml: '-10%',

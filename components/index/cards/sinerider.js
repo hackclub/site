@@ -35,7 +35,7 @@ export default function Sinerider({ stars }) {
       highlight="#271932"
     >
       <Image
-        src="https://cloud-4seh308a9-hack-club-bot.vercel.app/00initial-bg__1_-min.png"
+        src="/home/sinerider-bg.webp"
         sx={{
           objectFit: 'cover',
           position: 'absolute',
@@ -46,7 +46,7 @@ export default function Sinerider({ stars }) {
           zIndex: 0
         }}
       />
-      <img
+      <Image
         src="https://cloud-9cei11221-hack-club-bot.vercel.app/0logo_text_2.png"
         sx={{ width: ['200px', '250px', '300px'], mt: '-20px', position: 'relative', zIndex: 2 }}
       />

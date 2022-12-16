@@ -86,7 +86,7 @@ export default function Bank({ data }) {
                   '&:before': {
                     content: '""',
                     backgroundImage:
-                      'url("https://cloud-bubbgk6up-hack-club-bot.vercel.app/0gallery_hw__cc6xqmf7tbyq_medium_2x__1_.png")',
+                      'url(/home/bank-computer.webp)',
                     backgroundSize: '100%',
                     backgroundRepeat: 'no-repeat',
                     width: '100%',
@@ -99,7 +99,7 @@ export default function Bank({ data }) {
                 <Box
                   sx={{
                     backgroundImage:
-                      'url("https://cloud-my3o4j7oe-hack-club-bot.vercel.app/0laptop-dark__2__1.png")',
+                      'url(/home/bank-screen.webp)',
                     zIndex: 2,
                     position: 'absolute',
                     margin: 'auto',
@@ -144,7 +144,7 @@ export default function Bank({ data }) {
             '&:before': {
               content: '""',
               backgroundImage:
-                'url("https://cloud-bubbgk6up-hack-club-bot.vercel.app/0gallery_hw__cc6xqmf7tbyq_medium_2x__1_.png")',
+                'url(/home/bank-computer.webp)',
               backgroundSize: '100%',
               backgroundRepeat: 'no-repeat',
               width: '100%',
@@ -157,7 +157,7 @@ export default function Bank({ data }) {
           <Box
             sx={{
               backgroundImage:
-                'url("https://cloud-my3o4j7oe-hack-club-bot.vercel.app/0laptop-dark__2__1.png")',
+                'url(/home/bank-screen.webp)',
               zIndex: 2,
               position: 'absolute',
               margin: 'auto',
