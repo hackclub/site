@@ -39,7 +39,7 @@ export default function Testimonials() {
           }}
         >
           <Organization
-            logo="https://cloud-ga0lm1r8d-hack-club-bot.vercel.app/0image.png"
+            logo="https://cloud-ab81zjlm9-hack-club-bot.vercel.app/0image.png"
             name="Poseidon Robotics"
             teamNum="FTC Team #16898"
             teamLocation="San Jose, CA"
@@ -55,7 +55,7 @@ export default function Testimonials() {
             transparency="poseidon-robotics"
           />
           <Organization
-            logo="https://cloud-ab81zjlm9-hack-club-bot.vercel.app/0image.png"
+            logo="https://cloud-ga0lm1r8d-hack-club-bot.vercel.app/0image.png"
             name="Killabytez"
             teamNum="FTC Team #14663"
             teamLocation="Fremont, CA"
