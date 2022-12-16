@@ -153,6 +153,7 @@ export default function Hackathons({ data, stars }) {
                     color: 'white'
                   }
                 }}
+                key={data.name}
               >
                 {data.logo && (
                   <Box
@@ -220,6 +221,7 @@ export default function Hackathons({ data, stars }) {
                 color: 'white'
               }
             }}
+            key={data.name}
           >
             {data.logo && (
               <Box
