@@ -52,10 +52,12 @@ const Root = styled(Box)`
   }
 `
 
-export const Content = styled(Container)`
+export const Content = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1024px;
+  margin: auto;
   position: relative;
   z-index: 2;
   padding-left: ${theme.space[3]}px;
@@ -109,9 +111,7 @@ const layout = props =>
     : css`
         @media (min-width: 56em) {
           display: flex;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
+          justify-content: flex-end;
         }
         a {
           font-size: ${theme.fontSizes[1]}px;
@@ -136,17 +136,22 @@ const NavBar = styled(Box)`
 
 const Navigation = props => (
   <NavBar role="navigation" {...props}>
-    <NextLink href="/slack" passHref>
-      <Link>Slack</Link>
+    <NextLink href="/clubs" passHref>
+      <Link>Clubs</Link>
     </NextLink>
-    <Link href="https://workshops.hackclub.com/">Workshops</Link>
-    <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
     <NextLink href="/bank" passHref>
       <Link>Bank</Link>
     </NextLink>
     <NextLink href="/hackathons" passHref>
       <Link>Hackathons</Link>
     </NextLink>
+    <NextLink href="/slack" passHref>
+      <Link>Slack</Link>
+    </NextLink>
+    <NextLink href="/clubs" passHref>
+      <Link>Events</Link>
+    </NextLink>
+    <Link href="https://workshops.hackclub.com/">Workshops</Link>
   </NavBar>
 )
 

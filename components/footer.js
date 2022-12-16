@@ -85,15 +85,6 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Heading as="h2" variant="subheadline" mb={3}>
             Hack Club
           </Heading>
-          <NextLink href="/slack" passHref>
-            <Link>Slack</Link>
-          </NextLink>
-          <NextLink href="/hackathons" passHref>
-            <Link>Hackathons</Link>
-          </NextLink>
-          <NextLink href="/opensource" passHref>
-            <Link>Open Source</Link>
-          </NextLink>
           <NextLink href="/philosophy" passHref>
             <Link>Philosophy</Link>
           </NextLink>
@@ -117,14 +108,6 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Heading as="h2" variant="subheadline" mb={3}>
             Resources
           </Heading>
-          <Link href="https://workshops.hackclub.com/">Workshops</Link>
-          <NextLink href="/bank" passHref>
-            <Link>Fiscal Sponsorship</Link>
-          </NextLink>
-          <Link href="https://sprig.hackclub.com/">Sprig</Link>
-          <Link href="https://hackathons.hackclub.com/">
-            Upcoming Hackathons
-          </Link>
           <Link href="https://events.hackclub.com/">Community Events</Link>
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
           <Link href="https://hackclub.com/map">Clubs Map</Link>

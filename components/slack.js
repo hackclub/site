@@ -37,14 +37,12 @@ const Content = () => (
       Come for the skills, <br /> stay for the people.
     </Heading>
     <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
-      Coding is often seen as an isolating activity. Plenty of groups exist for
+      Communication and planning for our open source projects happen in the Slack. Coding is often seen as an isolating activity. Plenty of groups exist for
       kids who are interested in sports, theater, or chess, but the stereotype
       of a programmer is a person who sits alone in a dark room.{' '}
       <strong>It doesn't have to be this way</strong>—in the Hack Club Slack
       (Discord-style online groupchat), you'll find a group of {formatted}+{' '}
       <Highlight>fabulous people</Highlight> to talk to, active at all hours.
-      For leaders, you'll be able to connect with other leaders and support one
-      another.
     </Text>
     <Link href="/slack" passHref>
       <Button
