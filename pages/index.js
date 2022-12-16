@@ -32,11 +32,8 @@ import Workshops from '../components/index/cards/workshops'
 import Bank from '../components/index/cards/bank'
 import Epoch from '../components/index/cards/epoch'
 import Hackathons from '../components/index/cards/hackathons'
-import Flip from 'react-reveal/Flip'
-import Fade from 'react-reveal/Fade'
 import AssembleImgFile from '../public/home/assemble.jpg'
 import { get } from 'lodash'
-import useSWR from 'swr'
 import Konami from 'react-konami-code'
 import Secret from '../components/secret'
 import MailingList from '../components/index/cards/mailing-list'
@@ -121,7 +118,7 @@ function Page({
     <>
       <Meta
         as={Head}
-        title="Hack Club — Home for high school coders"
+        title="Hack Club | Home for high school coders"
         description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
         image="https://cloud-epiki4yvg.vercel.app/2020-09-09_drbp62kayjuyyy0ek89mf9fwcp5t4kuz.jpeg"
       />
@@ -178,15 +175,12 @@ function Page({
               maxWidth: [null, 'layout'],
               position: 'relative',
               mx: 'auto',
-              py: 4
+              py: 5
             }}
           >
-            <Fade>
               <Text variant="eyebrow" sx={{ color: 'sunken' }}>
                 Welcome to Hack Club
               </Text>
-            </Fade>
-            <Fade bottom delay={200}>
               <Heading>
                 <Text
                   as="h1"
@@ -221,7 +215,7 @@ function Page({
                         backgroundColor: 'red',
                         position: 'absolute',
                         borderRadius: 10,
-                        transform: 'rotate(-3deg)',
+                        transform: 'rotate(-3deg) translateY(-5px)',
                         color: 'white',
                         whiteSpace: 'nowrap',
                         textDecoration: 'none',
@@ -241,7 +235,6 @@ function Page({
                   Join our community
                 </Button>
               </Heading>
-            </Fade>
             <Box
               sx={{
                 display: 'flex',

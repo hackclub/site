@@ -49,7 +49,7 @@ export default function Hackathons({ data, stars }) {
       // background="https://hackclub.com/bank/bg.webp"
     >
       <Image
-        src="https://cloud-3zkwhtiid-hack-club-bot.vercel.app/0bg-min.png"
+        src="/home/hackathons-bg.webp"
         sx={{
           objectFit: 'cover',
           position: 'absolute',

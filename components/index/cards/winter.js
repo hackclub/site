@@ -106,7 +106,7 @@ export default function Winter() {
       position={[null, 'bottom', 'bottom']}
     >
       <Image
-        src="https://cloud-6h53svh6x-hack-club-bot.vercel.app/0group_5.png"
+        src="/home/winter-bg.webp"
         sx={{
           objectFit: 'cover',
           position: 'absolute',

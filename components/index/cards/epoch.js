@@ -135,7 +135,7 @@ export default function Epoch() {
       }}
     >
       <Image
-        src="https://cloud-15qevu1zp-hack-club-bot.vercel.app/0assemble_2.png"
+        src="/home/epoch-bg.webp"
         sx={{
           objectFit: 'cover',
           position: 'absolute',
