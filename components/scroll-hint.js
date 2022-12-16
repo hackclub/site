@@ -14,7 +14,7 @@ const handleClick = () => {
     }
   })
 }
-const ScrollHint = () => (
+const ScrollHint = ({...props}) => (
   <Box
     sx={{
       display: 'block',
@@ -33,6 +33,7 @@ const ScrollHint = () => (
       '&:active': { transform: ' translateY(6px) rotate(45deg)' }
     }}
     onClick={handleClick}
+    {...props}
   ></Box>
 )
 
