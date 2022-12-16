@@ -6,7 +6,7 @@ export default function Secret({ reveal, ...props }) {
 
   useEffect(() => {
     setImage('https://geta.dino.icu/dino.png')
-  })
+  },[])
 
   return (
     <Box
