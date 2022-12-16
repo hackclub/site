@@ -228,7 +228,7 @@ function Page({
                   </Text>
                   teen hackers
                 </Text>
-                from around the world that code together
+                from around the world who code together
               </Text>
               <Button variant="ctaLg" as="a" href="/slack" mt={[3, 0, 0]}>
                 Join our community
