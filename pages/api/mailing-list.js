@@ -8,7 +8,7 @@ export default async function submit(req, res) {
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       body: new URLSearchParams({
-        api_key: '0RVoIVdbt0fm7mDs5vnS',
+        api_key: process.env.POSTAL_API_KEY,
         name: data.name,
         email: data.email,
         list: 'SUTgXFrqIRPE61eg08bC5Q',
