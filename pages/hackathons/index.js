@@ -28,7 +28,7 @@ export default function Hackathons({ data }) {
         <Box as="main">
           <Landing />
           <Overview />
-          <ScrollingHackathons eventData={data} />
+          <ScrollingHackathons eventData={data} title={true} />
           <KeepExploring />
           <Money />
           <Slack />
