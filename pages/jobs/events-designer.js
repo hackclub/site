@@ -240,8 +240,8 @@ const Page = () => (
         variant="headline"
         sx={{ fontWeight: 700, fontSize: [4, 5], mb: 4 }}
       >
-        Hack Club is where {formatted}+ teenage programmers talk, build, and have fun
-        together.
+        Hack Club is where {formatted}+ teenage programmers talk, build, and
+        have fun together.
       </Heading>
 
       <Grid my={4} gap={3} columns={[null, 2, 3]}>

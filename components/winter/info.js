@@ -43,12 +43,7 @@ export default function InfoGrid() {
                 Free hardware for your project
               </Heading>
               <br />
-              <Button
-                as="a"
-                href="#rsvp"
-                variant="ctaLg"
-                sx={{ mt: 4 }}
-              >
+              <Button as="a" href="#rsvp" variant="ctaLg" sx={{ mt: 4 }}>
                 RSVP
               </Button>
             </Card>
@@ -143,7 +138,7 @@ export default function InfoGrid() {
                 borderRadius: 'default',
                 px: 4,
                 py: 3,
-                mb: 3,
+                mb: 3
               }}
             >
               <Heading variant="headline">

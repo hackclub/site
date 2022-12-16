@@ -70,7 +70,7 @@ const Page = () => (
         >
           <Card>
             <Heading as="h3" variant="subheadline">
-             Vanilla Server
+              Vanilla Server
             </Heading>
             <Text as="p">
               Hang out with the tree-punchers of Hack&nbsp;Club playing on the
@@ -85,11 +85,11 @@ const Page = () => (
               Modded Server
             </Heading>
             <Text as="p">
-              Want a unique Minecraft experience? Come explore the limits of 
+              Want a unique Minecraft experience? Come explore the limits of
               Minecraft with us on the official modded server!
             </Text>
           </Card>
-          <Card sx={{ display: 'none'}}>
+          <Card sx={{ display: 'none' }}>
             <Heading as="h3" variant="subheadline">
               Compete weekly
             </Heading>

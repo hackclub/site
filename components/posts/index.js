@@ -7,7 +7,8 @@ import Image from 'next/image'
 import Mention from './mention'
 import Emoji from './emoji'
 
-const dataDetector = /(<.+?\|?\S+>)|(@\S+)|(`{3}[\S\s]+`{3})|(`[^`]+`)|(_[^_]+_)|(\*[^\*]+\*)|(:[^ .,;`\u2013~!@#$%^&*(){}=\\:"<>?|A-Z]+:)/
+const dataDetector =
+  /(<.+?\|?\S+>)|(@\S+)|(`{3}[\S\s]+`{3})|(`[^`]+`)|(_[^_]+_)|(\*[^\*]+\*)|(:[^ .,;`\u2013~!@#$%^&*(){}=\\:"<>?|A-Z]+:)/
 
 export const formatText = text =>
   text.split(dataDetector).map((chunk, i) => {
@@ -117,13 +118,13 @@ const Post = ({
             img: { objectFit: 'cover', width: '100%' }
           }}
         >
-            {filter(attachments, a => ['jpg', 'jpeg', 'png'].includes(a.split('.')[a.split('.').length - 1])).map(img => (
-              <img
-                key={img}
-                alt={img}
-                src={img}
-              />
-            ))}
+          {filter(attachments, a =>
+            ['jpg', 'jpeg', 'png'].includes(
+              a.split('.')[a.split('.').length - 1]
+            )
+          ).map(img => (
+            <img key={img} alt={img} src={img} />
+          ))}
         </Grid>
       </>
     )}

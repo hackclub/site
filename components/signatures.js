@@ -1,7 +1,6 @@
 import { Image, useColorMode } from 'theme-ui'
 
-
-const Signatures = ({fileName, width}) => {
+const Signatures = ({ fileName, width }) => {
   // enforce a sane color mode (typescript should do this in the future)
   let [colorMode] = useColorMode()
   colorMode = colorMode === 'dark' ? 'light' : 'dark'

@@ -94,7 +94,11 @@ function Step({ icon, name, duration, href }) {
             {duration}
           </Badge>
           <Text
-            sx={{ color: 'white', fontSize: [2, 3], maxWidth: [300, null, 550] }}
+            sx={{
+              color: 'white',
+              fontSize: [2, 3],
+              maxWidth: [300, null, 550]
+            }}
           >
             {name}
           </Text>

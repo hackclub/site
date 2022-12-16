@@ -14,7 +14,7 @@ const handleClick = () => {
     }
   })
 }
-const ScrollHint = ({...props}) => (
+const ScrollHint = ({ ...props }) => (
   <Box
     sx={{
       display: 'block',

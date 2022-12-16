@@ -137,7 +137,7 @@ export default function Events({ events }) {
           !past(event.end) ? <Event {...event} key={event.id} /> : <></>
         )}
       </Grid>
-      <Text sx={{display: 'block'}}>
+      <Text sx={{ display: 'block' }}>
         We just had these events:{' '}
         {events.slice(0, 3).map(event =>
           past(event.end) ? (

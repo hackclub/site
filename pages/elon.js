@@ -1,5 +1,9 @@
 import { Box, Container, Heading, Text } from 'theme-ui'
-import { PillHolder, AuthorPill, DatePill } from '../components/announcements/pills'
+import {
+  PillHolder,
+  AuthorPill,
+  DatePill
+} from '../components/announcements/pills'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'

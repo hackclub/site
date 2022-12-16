@@ -15,13 +15,19 @@ import ReactTooltip from 'react-tooltip'
 import Icon from '@hackclub/icons'
 /** @jsxImportSource theme-ui */
 
-export default function Buttons({ children, icon, id, content, link, primary, ...props }) {
+export default function Buttons({
+  children,
+  icon,
+  id,
+  content,
+  link,
+  primary,
+  ...props
+}) {
   let fontWeight = primary != null ? '700' : '400'
 
   return (
-    <Box
-      py={1}
-    >
+    <Box py={1}>
       <Button
         data-place="right"
         data-for={id}
@@ -39,11 +45,12 @@ export default function Buttons({ children, icon, id, content, link, primary, ..
           width: 'fit-content',
           textTransform: 'none',
           fontWeight: '400',
-          fontSize: primary != null ? ['18px', '20px', '22px'] : [1, '16px', '18px'],
+          fontSize:
+            primary != null ? ['18px', '20px', '22px'] : [1, '16px', '18px'],
           backdropFilter: 'blur(2px)',
           fontWeight: fontWeight
         }}
-        as={"a"}
+        as={'a'}
         href={link || '/'}
         target="_blank"
         rel="noreferrer"
@@ -55,7 +62,9 @@ export default function Buttons({ children, icon, id, content, link, primary, ..
           size={24}
           mr={2}
         />
-        <Text sx={{ fontFamily: 'Phantom Sans', textAlign: 'left' }}>{children}</Text>
+        <Text sx={{ fontFamily: 'Phantom Sans', textAlign: 'left' }}>
+          {children}
+        </Text>
       </Button>
       <ReactTooltip
         id={id}

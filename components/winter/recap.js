@@ -90,7 +90,16 @@ function Recap() {
             </Button>
           </Box> */}
         </Grid>
-        <Button variant="ctaLg" as="a" href="#rsvp" style={{ zIndex: '100', textAlign: 'center', backgroundImage: theme.util.gx('green', 'blue') }}>
+        <Button
+          variant="ctaLg"
+          as="a"
+          href="#rsvp"
+          style={{
+            zIndex: '100',
+            textAlign: 'center',
+            backgroundImage: theme.util.gx('green', 'blue')
+          }}
+        >
           RSVP
         </Button>
       </Container>

@@ -64,12 +64,19 @@ export default function Slack({ data, slackKey, events }) {
           width: '100%',
           height: '100%',
           ml: ['-24px', '-32px', '-32px', '-32px'],
-          mt: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px']
         }}
       />
       <Cover />
       <Grid sx={{ zIndex: 2 }}>
-        <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2, maxWidth: [null, null, '70%', null] }}>
+        <Text
+          variant="title"
+          sx={{
+            fontSize: ['36px', 4, 5],
+            zIndex: 2,
+            maxWidth: [null, null, '70%', null]
+          }}
+        >
           Our online community
         </Text>
       </Grid>
