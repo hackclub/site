@@ -94,7 +94,7 @@ function Page({
   let images = [
     { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
     {
-      alt: 'Hack Clubbers at Space X HQ in LA',
+      alt: 'Hack Clubbers at SpaceX HQ in LA',
       src: '/home/zephyr-spacex.jpeg'
     },
     {
@@ -228,7 +228,7 @@ function Page({
                   </Text>
                   teen hackers
                 </Text>
-                from around the world who code together
+                from around the world that code together
               </Text>
               <Button variant="ctaLg" as="a" href="/slack" mt={[3, 0, 0]}>
                 Join our community
