@@ -30,7 +30,6 @@ const nextConfig = {
     return [
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
       { source: '/start/', destination: '/', permanent: false },
-      { source: '/clubs/', destination: '/', permanent: false },
       { source: '/repl/', destination: '/', permanent: true },
       { source: '/c9/', destination: '/deprecated/cloud9/', permanent: true },
       {
@@ -240,6 +239,10 @@ const nextConfig = {
       {
         source: '/how-to-organize-a-hackathon',
         destination: 'https://expandables.hackclub.dev/organizing.html'
+      },
+      {
+        source: '/how-to-organize-a-hackathon/style.css',
+        destination: 'https://expandables.hackclub.dev/style.css'
       }
     ]
   },

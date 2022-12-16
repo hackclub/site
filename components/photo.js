@@ -16,7 +16,7 @@ const Caption = styled(Text)`
   z-index: 0;
 `
 
-const Photo = ({ src, width, height, alt, showAlt, dark, ...props }) => {
+const Photo = ({ src, width, height, alt, showAlt, dark, loading, ...props }) => {
   const [colorMode] = useColorMode()
   const showCaption = showAlt && alt
   return (
@@ -41,6 +41,7 @@ const Photo = ({ src, width, height, alt, showAlt, dark, ...props }) => {
         width={width}
         height={height}
         layout="responsive"
+        loading={loading || 'lazy'}
       />
       {showCaption && (
         <Caption
