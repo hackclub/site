@@ -73,6 +73,11 @@ const nextConfig = {
         destination: '/bank/first/',
         permanent: false
       },
+      {
+        source: '/wom/',
+        destination: '/winter/',
+        permanent: false
+      },
       { source: '/workshops/slack/', destination: '/slack/', permanent: true },
       { source: '/community/', destination: '/slack/', permanent: true },
       { source: '/hack_camp/', destination: '/camp/', permanent: true },
@@ -234,6 +239,10 @@ const nextConfig = {
       {
         source: '/how-to-organize-a-hackathon',
         destination: 'https://expandables.hackclub.dev/organizing.html'
+      },
+      {
+        source: '/how-to-organize-a-hackathon/style.css',
+        destination: 'https://expandables.hackclub.dev/style.css'
       }
     ]
   },

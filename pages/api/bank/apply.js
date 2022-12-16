@@ -33,15 +33,15 @@ export default async function handler(req, res) {
       'How did you hear about HCB?': data.referredBy,
       Transparent: data.transparent
     })
-    const url = process.env.BANK_NOTIFS_WEBHOOK
-    const body = JSON.stringify({
-      application
-    })
-    fetch(url, {
-      body,
+    await fetch('https://bank.hackclub.com/api/v1/events/create_demo', {
+      body: JSON.stringify({
+        email: data.userEmail,
+        name: data.eventName
+      }),
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.HCB_API_TOKEN}`
       }
     })
       .then(r => {
