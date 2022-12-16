@@ -85,13 +85,6 @@ export default function Team() {
                 pronouns="she/her"
               />
               <Bio
-                name="Cedric Hutchings"
-                teamRole="Clubs Constructionist"
-                text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. Now he's at Hack Club making materials that share his enthusiasm for making fun somethings from nothing but technology."
-                img="/team/ced.png"
-                pronouns="he/him"
-              />
-              <Bio
                 name="Kognise"
                 teamRole="Special Projects and Hiring"
                 text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they support hiring and contribute to various projects."
@@ -138,42 +131,6 @@ export default function Team() {
                 text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
                 img="/team/bence.png"
                 pronouns="he/him"
-              />
-            </Grid>
-
-            <br />
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
-              Asia-Pacific HQ
-            </Text>
-            <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
-                img="/team/athul.jpg"
-                name="Athul Blesson"
-                teamRole="APAC Director"
-                text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined as the Regional Manager of Asia-Pacific & Africa, where he actively manages 117 clubs."
-                pronouns="he/him"
-              />
-              <Bio
-                name="Harsh Bajpai"
-                teamRole="Clubs Lead"
-                text="Harsh is a gentle force in both his local and the Slack community. He is a vegetarian musician who enjoys traveling around India. When he is not reading ancient mythology, he is programming with purpose and passion."
-                img="/team/harsh.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Annlee Fores"
-                teamRole="Operations"
-                text="As the COO of Hack Club APAC, he oversees operations and handles event organisation & logistics at Hack Club APAC.
-When not seen busy juggling between different tasks he takes up, he enjoys tinkering & building fun projects."
-                img="/team/annlee.jpg"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Anna Grace Benny"
-                teamRole="Clubs Lead"
-                text="Anna is a visual communication graduate and a social media enthusiast. She loves films and everything related. Managing and meeting new Hack Clubbers is her jam. She helps with onboarding new Hack Clubbers in the APAC region and manages the social media pages."
-                img="/team/anna.png"
-                pronouns="she/her"
               />
             </Grid>
             <br />
@@ -274,6 +231,42 @@ and participating in academic competitions with his friends.`}
               Acknowledgements
             </Text>
             <Grid columns={[1, null, 2]} gap={4}>
+              <Bio
+                name="Cedric Hutchings"
+                teamRole="Clubs Constructionist"
+                text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. At Hack Club, Ced made materials that shared his enthusiasm for making fun somethings from nothing but technology."
+                img="/team/ced.png"
+                pronouns="he/him"
+              />
+              <Bio
+                img="/team/athul.jpg"
+                name="Athul Blesson"
+                teamRole="APAC Director"
+                text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined Hack Club as the Regional Manager of the Asia-Pacific & Africa team where he actively managed hundreds of clubs. Then, as the APAC Director, Athul lead the APAC HQ team dedicated to supporting all of the clubs in the APAC region."
+                pronouns="he/him"
+              />
+              <Bio
+                name="Harsh Bajpai"
+                teamRole="Clubs Lead"
+                text="Harsh is a vegetarian musician who enjoys traveling around India. As the APAC Clubs Lead, Harsh welcomed new clubs to the community and built amazing tools for them. When he is not reading ancient mythology, he is programming with purpose and passion."
+                img="/team/harsh.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Annlee Fores"
+                teamRole="Operations"
+                text="As the COO of Hack Club APAC, Annlee oversaw operations and handled event organisation & logistics at Hack Club APAC.
+When not busy juggling different tasks he takes up, he enjoys tinkering & building fun projects."
+                img="/team/annlee.jpg"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Anna Grace Benny"
+                teamRole="Clubs Lead"
+                text="Anna is a visual communication graduate and a social media enthusiast. She loves films and everything related. Managing and meeting new Hack Clubbers as the APAC Clubs Lead, she helped with onboarding new clubs and managed the APAC social media pages."
+                img="/team/anna.png"
+                pronouns="she/her"
+              />
               <Bio
                 name="Ishan Goel"
                 teamRole="2022 Summer Communications Intern"

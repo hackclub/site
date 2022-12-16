@@ -81,7 +81,7 @@ const HackathonGrant = () => {
       <Meta
         as={Head}
         title="Hackathon Grant"
-        description="Hack Club is partnering with FIRST to provide $500 grants to in-person high school hackathons happening between August and December 31, 2022."
+        description="Hack Club is partnering with FIRST to provide $500 grants to in-person high school hackathons happening until June 30th, 2023."
         image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
       <Box as="main" key="main">
@@ -185,8 +185,8 @@ const HackathonGrant = () => {
                 Hack Club Bank
               </Link>{' '}
               fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons this
-              semester (August - December 31, 2022).
+              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons <s>this
+              semester between August and December 31, 2022</s> until June 30th, 2023.
             </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
               {open ? 'Apply Now' : 'Coming Soon'}
@@ -228,8 +228,7 @@ const HackathonGrant = () => {
             >
               We want to bring back high schooler-led events around the world,
               so we're only offering this grant for high school hackathons that
-              take place this semester (from August 19th to December 31st,
-              2022).
+              take place this semester (until June 30th).
               <br />
               <br />
               <Text
