@@ -105,7 +105,7 @@ function Page({
     { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
   ]
 
-  // janky right now and does not show last image
+  // // janky right now and does not show last image
   console.log(
     `White sheets of paper\nWaiting to be printed on\nA blank console waits`
   )
@@ -345,10 +345,10 @@ function Page({
                         cursor: 'pointer'
                       }
                     }}
-                    data-tip="next"
-                    data-arrow-color="transparent"
-                    data-background-color="white"
-                    data-text-color="black"
+                    // data-tip="next"
+                    // data-arrow-color="transparent"
+                    // data-background-color="white"
+                    // data-text-color="black"
                   >
                     <Photo
                       src={
