@@ -26,51 +26,47 @@ const WorkshopCard = ({
   section,
   ...props
 }) => (
-  <Link
+  <Card
     href={`https://workshops.hackclub.com/${slug}`}
     passHref
-    sx={{ textDecoration: 'none' }}
+    as="a"
+    variant="interactive"
     target="_blank"
     rel="noopener"
+    sx={{
+      color: 'text',
+      textDecoration: 'none',
+      p: [0, 0],
+      lineHeight: 0,
+      display: 'flex',
+      flexDirection: 'column',
+      height: '80%',
+      '& span': {
+        lineHeight: 1.25
+      },
+      maxWidth: '250px',
+    }}
     {...props}
   >
-    <Card
-      as="a"
-      variant="interactive"
+    <Box sx={{ p: 3, lineHeight: 'body' }}>
+      <Heading as="h3" sx={{ my: 1 }}>
+        {name}
+      </Heading>
+      <Text variant="caption">{description}</Text>
+    </Box>
+    <Box
       sx={{
-        color: 'text',
-        textDecoration: 'none',
-        p: [0, 0],
-        lineHeight: 0,
-        display: 'flex',
-        flexDirection: 'column',
-        height: '80%',
-        '& span': {
-          lineHeight: 1.25
-        },
-        maxWidth: '250px'
+        width: '100%',
+        height: '100%'
       }}
     >
-      <Box sx={{ p: 3, lineHeight: 'body' }}>
-        <Heading as="h3" sx={{ my: 1 }}>
-          {name}
-        </Heading>
-        <Text variant="caption">{description}</Text>
-      </Box>
-      <Box
-        sx={{
-          width: '100%',
-          height: '100%'
-        }}
-      >
-        <Image
-          alt={`${name} demo`}
-          src={img}
-          sx={{ height: '100%', width: 'auto' }}
-        />
-      </Box>
-    </Card>
-  </Link>
+      <Image
+        alt={`${name} demo`}
+        src={img}
+        sx={{ width: '100%', height: 'auto' }}
+      />
+    </Box>
+  </Card>
 )
 
 export default function Workshops({ data, stars }) {
@@ -89,7 +85,7 @@ export default function Workshops({ data, stars }) {
       <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
         Workshops
       </Text>
-      <Grid columns={[1, 2, 2]}>
+      <Grid columns={[1, 2, 2]} >
         <Flex sx={{ flexDirection: 'column' }}>
           <Text as="p" variant="subtitle">
             100+ community-contributed, self-guided coding tutorials and ideas.
@@ -113,7 +109,10 @@ export default function Workshops({ data, stars }) {
             Build a workshop
           </Buttons>
         </Flex>
-        <Grid sx={{ gap: 3 }} columns={[1, 1, 2]}>
+        <Grid
+          sx={{ display: ['none', 'grid', 'grid'], gap: 3}}
+          columns={[1, 1, 1, 2]}
+        >
           <WorkshopCard
             key="splatter_paint"
             slug="splatter_paint"
@@ -127,6 +126,7 @@ export default function Workshops({ data, stars }) {
             name="Particle Physics"
             description="Create a particle physics simulation and with p5.js"
             img="/home/workshops/particle_physics.png"
+            sx={{display: ['none', 'none', 'none', 'flex']}}
           />
         </Grid>
       </Grid>

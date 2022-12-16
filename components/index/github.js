@@ -30,11 +30,12 @@ export default function GitHub({
     <Box
       sx={{
         width: 'fit-content',
-        position: 'absolute',
+        position: ['relative', 'relative', 'absolute'],
         display: 'block',
-        top: ['-40px', '-40px', '-10px'],
+        top: [0, '-40px', '-55px'],
         right: [null, '-40px', '-10px'],
-        left: [0, null, null]
+        // left: [0, null, null],
+        pb: ['42px', 4, 0]
       }}
     >
       <Text
@@ -50,10 +51,10 @@ export default function GitHub({
       </Text>
       <Badge
         variant="pill"
-        bg="black"
+        bg="snow"
         sx={{
           flexGrow: 1,
-          color: 'white',
+          color: 'black',
           fontWeight: '400 !important',
           textAlign: ['left', 'left', 'right'],
           zIndex: 4,
@@ -137,7 +138,7 @@ export default function GitHub({
                     as="span"
                     sx={{
                       fontSize: ['8px', '8px', '10px'],
-                      color: 'sunken',
+                      color: 'inherit',
                       mx: 2
                     }}
                   >

@@ -50,10 +50,10 @@ export default function Clubs() {
         sx={{
           objectFit: 'cover',
           position: 'absolute',
-          width: '100%',
-          height: '100%',
-          ml: -4,
-          mt: -4,
+          width: '120%',
+          height: '120%',
+          ml: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px'],
           zIndex: 0
         }}
       />
@@ -103,14 +103,14 @@ export default function Clubs() {
             >
               Start a club
             </Buttons>
-            <Buttons
+            {/* <Buttons
               content="click for our clubs map and reach out to team@hackclub.com to be connected"
               id="1"
               icon="rep"
               link="/map"
             >
               Join a Hack Club near you
-            </Buttons>
+            </Buttons> */}
           </Flex>
         </Box>
       </Grid>

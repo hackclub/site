@@ -141,8 +141,8 @@ export default function Epoch() {
           position: 'absolute',
           width: '100%',
           height: '100%',
-          ml: -4,
-          mt: -4
+          ml: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px'],
         }}
       />
       <Grid columns={[1, 1, '1fr 1.5fr']} sx={{ position: 'relative' }}>
@@ -150,7 +150,7 @@ export default function Epoch() {
         <img
           src="https://cloud-jzsq7jfvg-hack-club-bot.vercel.app/0group_9.png"
           sx={{
-            width: ['170px', '220px', '350px'],
+            width: ['220px', '220px', '240px', '350px'],
             position: 'relative',
             zIndex: 2
           }}
@@ -170,16 +170,16 @@ export default function Epoch() {
         </Box>
         </Box>
         <Box ml={[0, 0, 3]}>
-          <Text as="p" variant="subtitle">
+          <Text as="p" variant="subtitle" sx={{mt: 0}}>
             Join us this winter as 150+ teenage hackers from all around the
             world travel to Delhi, India for Epoch! Together, we’ll build the
             unexpected, share what we’ve learnt in 2022, and experience the
             thrill of being in-person together.
           </Text>
           <Text as="p" variant="subtitle">
-            In <Link sx={{color: '#FF4794' }} href="https://hackclub.slack.com/archives/C04CGDDLC72" target="_blank" rel="noopener">Austin</Link>, <Link sx={{color: '#FF4794' }} href="https://epochba.hackclub.com/" target="_blank" rel="noopener">Bay Area</Link>, or <Link sx={{color: '#FF4794' }} target="_blank" rel="noopener">Vermont</Link>? Join a regional Epoch event!
+            In <Link sx={{color: '#FF4794' }} href="https://hackclub.slack.com/archives/C04CGDDLC72" target="_blank" rel="noopener">Austin</Link>, <Link sx={{color: '#FF4794' }} href="https://epochba.hackclub.com/" target="_blank" rel="noopener">Bay Area</Link>, or <Link sx={{color: '#FF4794' }} href="https://epochvt.hackclub.com/" target="_blank" rel="noopener">Vermont</Link>? Join a regional Epoch event!
           </Text>
-          <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4], position: 'relative' }}>
+          <Flex sx={{ flexDirection: 'column', mt: [4, 3, 4], position: 'relative' }}>
             <Buttons
               // content="travel stipends available"
               id="17"

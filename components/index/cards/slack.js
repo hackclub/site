@@ -63,13 +63,13 @@ export default function Slack({ data, slackKey, events }) {
           position: 'absolute',
           width: '100%',
           height: '100%',
-          ml: -4,
-          mt: -4
+          ml: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px'],
         }}
       />
       <Cover />
       <Grid sx={{ zIndex: 2 }}>
-        <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2 }}>
+        <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2, maxWidth: [null, null, '70%', null] }}>
           Our online community
         </Text>
       </Grid>
@@ -117,17 +117,17 @@ export default function Slack({ data, slackKey, events }) {
             <Box
               sx={{
                 background: 'rgb(0,0,0,0.6)',
-                height: ['170px', '170px', '100%', '100%'],
-                position: ['relative', 'relative', 'absolute', 'absolute'],
+                height: ['170px', '170px', '100%'],
+                position: ['relative', 'relative', 'absolute'],
                 zIndex: 3,
-                width: ['120%', '120%', '240px', '240px'],
+                width: ['120%', '120%', '260px'],
                 right: 0,
-                top: [null, null, 0, 0],
-                mt: [3, 3, 0, 0],
-                ml: -4,
-                mb: -4,
+                top: [null, null, 0],
+                mt: [3, 3, 0],
+                ml: ['-10%', '-10%', '-5%'],
+                mb: ['-10%', '-10%', '-5%'],
                 p: 4,
-                pt: 3
+                pt: [3, 3, 4]
               }}
             >
               <Flex
@@ -145,40 +145,81 @@ export default function Slack({ data, slackKey, events }) {
                   <RelativeTime value={data.ds} titleFormat="YYYY-MM-DD" />
                 </Text>
               </Flex>
-              <Grid columns={[3, 3, 1]} gap="5px">
+              <Flex
+                sx={{
+                  flexDirection: ['row', 'row', 'column'],
+                  justifyContent: 'space-between'
+                }}
+              >
                 <Box>
-                  <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                  <Heading
+                    variant="headline"
+                    sx={{ mb: 0, pt: 2, fontSize: ['28px', '36px', '38px'] }}
+                  >
                     <Comma>{data.readers_count_1d}</Comma>
                   </Heading>
-                  <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                  <Text
+                    sx={{
+                      textTransform: 'uppercase',
+                      color: 'muted',
+                      fontSize: ['14px', '16px', '18px']
+                    }}
+                  >
                     Online
                   </Text>
                 </Box>
-                <Box>
-                  <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                <Box sx={{ display: ['none', 'block', 'block'] }}>
+                  <Heading
+                    variant="headline"
+                    sx={{ mb: 0, pt: 2, fontSize: ['28px', '36px', '38px'] }}
+                  >
                     <Comma>{data.chats_channels_count_1d}</Comma>
                   </Heading>
-                  <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                  <Text
+                    sx={{
+                      textTransform: 'uppercase',
+                      color: 'muted',
+                      fontSize: ['14px', '16px', '18px']
+                    }}
+                  >
                     Total channels
                   </Text>
                 </Box>
                 <Box>
-                  <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                  <Heading
+                    variant="headline"
+                    sx={{ mb: 0, pt: 2, fontSize: ['28px', '36px', '38px'] }}
+                  >
                     <Comma>{data.messages_count_1d}</Comma>
                   </Heading>
-                  <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                  <Text
+                    sx={{
+                      textTransform: 'uppercase',
+                      color: 'muted',
+                      fontSize: ['14px', '16px', '18px']
+                    }}
+                  >
                     Daily messages
                   </Text>
                 </Box>
                 <Box>
-                  <Heading variant="headline" sx={{ mb: 0, pt: 2 }}>
+                  <Heading
+                    variant="headline"
+                    sx={{ mb: 0, pt: 2, fontSize: ['28px', '36px', '38px'] }}
+                  >
                     <Comma>{data.total_members_count}</Comma>
                   </Heading>
-                  <Text sx={{ textTransform: 'uppercase', color: 'muted' }}>
+                  <Text
+                    sx={{
+                      textTransform: 'uppercase',
+                      color: 'muted',
+                      fontSize: ['14px', '16px', '18px']
+                    }}
+                  >
                     Total members
                   </Text>
                 </Box>
-              </Grid>
+              </Flex>
             </Box>
           </Grid>
         </Box>

@@ -30,20 +30,25 @@ export default function Carousel() {
   return (
     <PageVisibility onChange={handleVisibilityChange}>
       {pageIsVisible && (
-        <Box>
-          <Box
-            sx={{ maxWidth: 'layout', margin: 'auto', pt: [3, 4, 5] }}
+        <Box sx={{mt: 4}}>
+          <Text
+            variant="eyebrow"
             as="div"
+            sx={{
+              fontSize: ['22px', 2, 3],
+              mt: 4,
+              maxWidth: 'layout',
+              width: '90vw',
+              margin: 'auto',
+            }}
           >
-            <Text variant="eyebrow" sx={{ fontSize: [1, 2, 3], mt: 4 }}>
-              Here's a few projects you could get involved in:
-            </Text>
-          </Box>
+            Here are a few projects you could get involved in:
+          </Text>
           <Ticker speed={speed} sx={{ overflowX: 'hidden' }}>
             {() => (
               <Box
                 as="div"
-                sx={{ display: 'flex', py: [3, 4, 5] }}
+                sx={{ display: 'flex', py: [4, 5, 5] }}
                 onMouseOver={() => setSpeed(3)}
                 onMouseOut={() => setSpeed(6)}
               >

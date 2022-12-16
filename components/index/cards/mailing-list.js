@@ -84,7 +84,7 @@ const MailingList = () => {
         as="form"
         ref={formRef}
         // onSubmit={handleSubmit}
-        action="http://postal.hackclub.com/subscribe"
+        action="https://postal.hackclub.com/subscribe"
         method="POST"
         gap={[2, 3]}
         sx={{
