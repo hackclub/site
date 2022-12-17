@@ -131,7 +131,40 @@ export function Winter() {
             fontStyle: 'italic',
             color: 'snow',
             mb: 3,
-            textAlign: 'left'
+            textAlign: 'left',
+            '& a': {
+              color: 'inherit'
+            }
+          }}
+        >
+          <Link href="/">Hack Club</Link> is a registered 501(c)3 nonprofit
+          organization that supports a network of 20k+ technical high schoolers
+          and coding events. We believe you learn best by building and through
+          this Winter Hardware Wonderland, we're removing barriers to hardware
+          access so any teenager in the world can have fun building. In the past
+          few years, we've{' '}
+          <Link href="https://summer.hackclub.com" target="_blank">
+            partnered with GitHub to give away $50k of hardware
+          </Link>
+          ,{' '}
+          <Link
+            href="https://github.com/hackclub/the-hacker-zephyr"
+            target="_blank"
+          >
+            hosted the world's longest hackathon on land (3,502 miles)
+          </Link>
+          , and{' '}
+          <Link href="https://github.com/hackclub/assemble" target="_blank">
+            brought 183 teenagers to SF for a 42 hour hackathon
+          </Link>
+          .
+        </Container>
+        <Container
+          sx={{
+            margin: 'auto',
+            fontStyle: 'italic',
+            color: 'snow',
+            mb: 3
           }}
         >
           Illustrations by Ripley
