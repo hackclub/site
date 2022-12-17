@@ -69,13 +69,14 @@ export function Winter() {
               You've RSVPed, what's next?
             </Heading>
             <Text as="p" sx={{ pb: 4, color: 'white', fontSize: [2, 3] }}>
-              Get a free DevKit (and gaming console 👀) by building a{' '}
+              Get a free hardware development kit by building a tile-based game
+              in
               <Link
                 href="https://github.com/hackclub/sprig#readme"
                 target="_blank"
                 sx={{ color: 'inherit' }}
               >
-                JavaScript game
+                Sprig
               </Link>
               . Or come hangout with us in #hardware-party on{' '}
               <Link target="_blank" href="/slack" sx={{ color: 'inherit' }}>
