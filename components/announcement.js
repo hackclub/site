@@ -21,7 +21,7 @@ const Announcement = ({
     variant="interactive"
     sx={{
       variant: 'cards.translucent',
-      // mx: 'auto',
+      mx: 'auto',
       maxWidth: 'narrow',
       width: '100%',
       textAlign: 'left',
