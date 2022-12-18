@@ -331,7 +331,7 @@ export default function Donate({ sprig }) {
               fontSize: 4,
               textTransform: 'uppercase',
               fontWeight: [400, 800],
-              mb: [0,0]
+              mb: [0, 0]
             }}
           >
             Now introducing...
@@ -408,7 +408,7 @@ export default function Donate({ sprig }) {
             width={3000}
             height={2550}
             showAlt
-            sx={{height: '100%'}}
+            sx={{ height: '100%' }}
           />
         </Grid>
         <Sheet

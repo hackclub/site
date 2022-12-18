@@ -658,7 +658,8 @@ const Philanthropy = ({ posts = [] }) => {
               </Button>
             </Flex>
             <span>
-              Starting in 2021, Hack Club has engaged with an external auditing firm and has audited financials through the current fiscal year.
+              Starting in 2021, Hack Club has engaged with an external auditing
+              firm and has audited financials through the current fiscal year.
             </span>
           </Fade>
           {/* <Fade bottom delay={300}>
@@ -1190,14 +1191,19 @@ const Philanthropy = ({ posts = [] }) => {
             <Fade bottom delay={200}>
               <Q>
                 <Heading mb={3} sx={{ fontWeight: 'normal', fontSize: '18px' }}>
-                  In 2021, Maggie joined the Hack Club community; she has since shipped 10+
-                  coding projects from widgets to raycast extensions.
+                  In 2021, Maggie joined the Hack Club community; she has since
+                  shipped 10+ coding projects from widgets to raycast
+                  extensions.
                 </Heading>
                 <Heading
                   fontSize={[4, 5]}
                   sx={{ fontWeight: '700', fontSize: ['18px', '20px', '22px'] }}
                 >
-                  The Hack Club community "inspired me to step outside my comfort zone and take on challenges I never previously would have — starting a CS Club at my school, (co-)hosting AMAs, and even organizing Leland Hacks, the first in-person hackathon in my city after the pandemic.”
+                  The Hack Club community "inspired me to step outside my
+                  comfort zone and take on challenges I never previously would
+                  have — starting a CS Club at my school, (co-)hosting AMAs, and
+                  even organizing Leland Hacks, the first in-person hackathon in
+                  my city after the pandemic.”
                 </Heading>
                 <Flex align="center" mt={[3, 4]}>
                   <Avatar

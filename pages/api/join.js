@@ -77,7 +77,7 @@ export default async function handler(req, res) {
         teen: data.educationLevel != 'tertiary' ? true : false,
         educationLevel: data.educationLevel,
         reason: data.reason,
-        userAgent: req.headers['user-agent'],
+        userAgent: req.headers['user-agent']
       },
       { authorization: `Bearer ${process.env.TORIEL_KEY}` }
     )

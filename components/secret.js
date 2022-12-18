@@ -1,12 +1,12 @@
-import { Box, Text } from "theme-ui"
-import { useState, useEffect } from "react"
+import { Box, Text } from 'theme-ui'
+import { useState, useEffect } from 'react'
 
 export default function Secret({ reveal, ...props }) {
   const [img, setImage] = useState('')
 
   useEffect(() => {
     setImage('https://geta.dino.icu/dino.png')
-  },[])
+  }, [])
 
   return (
     <Box

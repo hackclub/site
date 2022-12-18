@@ -1,7 +1,7 @@
 import FormData from 'form-data'
 
 export default async function Slack(req, res) {
-    const formData = new FormData()
+  const formData = new FormData()
 
   formData.append('token', process.env.SLACK_API_TOKEN)
   formData.append('date_range', '30d')

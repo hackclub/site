@@ -8,9 +8,13 @@ import {
   Flex,
   Grid,
   Heading,
-  Text,
+  Text
 } from 'theme-ui'
-import { PillHolder, AuthorPill, DatePill } from '../components/announcements/pills'
+import {
+  PillHolder,
+  AuthorPill,
+  DatePill
+} from '../components/announcements/pills'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import styled from '@emotion/styled'
@@ -24,22 +28,18 @@ import Amount from '../components/announcements/amount'
 import SlackCTA from '../components/announcements/cta'
 import AnnouncementHolder from '../components/announcements/holder'
 
-
 const StyledLink = styled.a`
   text-decoration: none;
   color: ${theme.colors.white};
-`;
+`
 
-const RelonLink = (props) => {
-  const {href} = props
+const RelonLink = props => {
+  const { href } = props
   return (
     <NextLink href={href} passHref>
-      <StyledLink>
-        {props.children}
-      </StyledLink>
+      <StyledLink>{props.children}</StyledLink>
     </NextLink>
   )
-
 }
 
 const RelonPage = () => (
@@ -74,7 +74,8 @@ const RelonPage = () => (
             }
           }}
         >
-          Elon Musk is donating <Amount amount="$1,000,000" /> to <RelonLink href="/">Hack Club</RelonLink>
+          Elon Musk is donating <Amount amount="$1,000,000" /> to{' '}
+          <RelonLink href="/">Hack Club</RelonLink>
         </Heading>
       </Container>
     </Box>

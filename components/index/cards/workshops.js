@@ -44,7 +44,7 @@ const WorkshopCard = ({
       '& span': {
         lineHeight: 1.25
       },
-      maxWidth: '250px',
+      maxWidth: '250px'
     }}
     {...props}
   >
@@ -85,7 +85,7 @@ export default function Workshops({ data, stars }) {
       <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
         Workshops
       </Text>
-      <Grid columns={[1, 2, 2]} >
+      <Grid columns={[1, 2, 2]}>
         <Flex sx={{ flexDirection: 'column' }}>
           <Text as="p" variant="subtitle">
             100+ community-contributed, self-guided coding tutorials and ideas.
@@ -110,7 +110,7 @@ export default function Workshops({ data, stars }) {
           </Buttons>
         </Flex>
         <Grid
-          sx={{ display: ['none', 'grid', 'grid'], gap: 3}}
+          sx={{ display: ['none', 'grid', 'grid'], gap: 3 }}
           columns={[1, 1, 1, 2]}
         >
           <WorkshopCard
@@ -126,7 +126,7 @@ export default function Workshops({ data, stars }) {
             name="Particle Physics"
             description="Create a particle physics simulation and with p5.js"
             img="/home/workshops/particle_physics.png"
-            sx={{display: ['none', 'none', 'none', 'flex']}}
+            sx={{ display: ['none', 'none', 'none', 'flex'] }}
           />
         </Grid>
       </Grid>

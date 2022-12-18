@@ -4,11 +4,13 @@ import { createAppAuth } from '@octokit/auth-app'
 const auth = createAppAuth({
   appId: process.env.GITHUB_APP_ID,
   privateKey: process.env.GITHUB_PRIVATE_KEY,
-  installationId: process.env.GITHUB_INSTALLATION_ID,
+  installationId: process.env.GITHUB_INSTALLATION_ID
 })
 
 export default async function handler(req, res) {
-  const { organization } = await graphql(!req.query.admin ? `
+  const { organization } = await graphql(
+    !req.query.admin
+      ? `
     query orgQuery($login: String!) {
       organization(login: $login) {
         repositories(first: 50, privacy: PUBLIC, orderBy: {
@@ -30,8 +32,8 @@ export default async function handler(req, res) {
           }
         }
       }
-    }` :
-    `query orgQuery($login: String!) {
+    }`
+      : `query orgQuery($login: String!) {
       organization(login: $login) {
         repositories(first: 100, privacy: PUBLIC, orderBy: {
           field: PUSHED_AT, direction: DESC
@@ -65,9 +67,9 @@ export default async function handler(req, res) {
     {
       login: 'hackclub',
       request: {
-        hook: auth.hook,
+        hook: auth.hook
       }
     }
   )
-  res.status(200).json(organization);
+  res.status(200).json(organization)
 }

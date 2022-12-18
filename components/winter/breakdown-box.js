@@ -11,7 +11,16 @@ import {
 import { Zoom } from 'react-reveal'
 import Icon from '@hackclub/icons'
 
-function BreakdownBox({ subtitle, icon, text, description, delay, href, color, bg }) {
+function BreakdownBox({
+  subtitle,
+  icon,
+  text,
+  description,
+  delay,
+  href,
+  color,
+  bg
+}) {
   return (
     <Zoom delay={delay}>
       <Card
@@ -39,23 +48,23 @@ function BreakdownBox({ subtitle, icon, text, description, delay, href, color, b
           </Text>
         ) : (
           <Box
-        as="span"
-        sx={{
-          width: 'fit-content',
-          bg: bg || 'white',
-          borderRadius: 18,
-          lineHeight: 0,
-          p: 2,
-          mb: 1,
-          display: 'inline-block',
-          transform: ['scale(0.75)', 'none'],
-          transformOrigin: 'bottom left',
-          boxShadow:
-            'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
-        }}
-      >
-        <Icon glyph={icon} size={48} color={color || 'white'} />
-      </Box>
+            as="span"
+            sx={{
+              width: 'fit-content',
+              bg: bg || 'white',
+              borderRadius: 18,
+              lineHeight: 0,
+              p: 2,
+              mb: 1,
+              display: 'inline-block',
+              transform: ['scale(0.75)', 'none'],
+              transformOrigin: 'bottom left',
+              boxShadow:
+                'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
+            }}
+          >
+            <Icon glyph={icon} size={48} color={color || 'white'} />
+          </Box>
         )}
         <Heading
           sx={{

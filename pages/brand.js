@@ -27,7 +27,11 @@ export const Logo = ({ name }) => (
       sx={{ width: '100%', height: 96, mb: 1 }}
       alt={startCase(name)}
     />
-    <Text as="div" variant="subheadline" sx={{ fontSize: [2, 3], mt: 2, mb: 2 }}>
+    <Text
+      as="div"
+      variant="subheadline"
+      sx={{ fontSize: [2, 3], mt: 2, mb: 2 }}
+    >
       {startCase(name)
         .replace('Flag Orpheus', 'Orpheus Flag –')
         .replace('Bw', ' (B/W)')}
@@ -242,7 +246,7 @@ const Page = ({ css }) => (
       </Grid>
       <Heading variant="headline">Fonts</Heading>
       <Text variant="title">Phantom Sans</Text>
-      <Text variant="subtitle" sx={{ mb: 3 , ml: 2}}>
+      <Text variant="subtitle" sx={{ mb: 3, ml: 2 }}>
         is our brand font.
       </Text>
       <Box as="details" mb={[4, 5]}>
@@ -254,11 +258,7 @@ const Page = ({ css }) => (
         </Text>
       </Box>
       <Heading variant="headline">Icons</Heading>
-      <Text
-        as="p"
-        variant="subtitle"
-        sx={{ mb: 3 }}
-      >
+      <Text as="p" variant="subtitle" sx={{ mb: 3 }}>
         We have a custom iconset, published as{' '}
         <A href="https://github.com/hackclub/icons">@hackclub/icons</A>.
       </Text>
@@ -285,12 +285,9 @@ const Page = ({ css }) => (
         Explore Hack Club Icons →
       </Button>
       <Heading variant="headline">UI components</Heading>
-      <Text
-        as="p"
-        variant="subtitle"
-        sx={{ mb: 3 }}
-      >
-        Want to make a Hack Club themed site? Use our pre-made CSS and UI components to hackify your site.
+      <Text as="p" variant="subtitle" sx={{ mb: 3 }}>
+        Want to make a Hack Club themed site? Use our pre-made CSS and UI
+        components to hackify your site.
       </Text>
       <Button
         as="a"

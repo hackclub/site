@@ -15,7 +15,9 @@ const emoji = ['🚀', '🥳', '😂', '💖', '👀', '👍', '🙌', '🙂', '
 const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', '#8067c3']
 
 const Channel = ({ color, channel }) => (
-  <Text as="strong" color={color}>{ channel }</Text>
+  <Text as="strong" color={color}>
+    {channel}
+  </Text>
 )
 
 const whitelistedChannels = new Set(
@@ -41,17 +43,23 @@ const generateEvent = () => ({
   timestamp: new Date().toISOString()
 })
 
-
-
 const SlackEvents = ({ sx, color, textColor, ...props }) => {
   const didUnmount = useRef(false)
   const [events, setEvents] = useState([])
-  function createMockEvents(){
+  function createMockEvents() {
     setEvents(e => [generateEvent(), ...e])
     setTimeout(() => createMockEvents(), 10000)
   }
   useEffect(() => {
-    setEvents([generateEvent(), generateEvent(), generateEvent(), generateEvent(), generateEvent(), generateEvent(), generateEvent()])
+    setEvents([
+      generateEvent(),
+      generateEvent(),
+      generateEvent(),
+      generateEvent(),
+      generateEvent(),
+      generateEvent(),
+      generateEvent()
+    ])
     setTimeout(() => createMockEvents(), 5000)
   }, [])
 
@@ -117,7 +125,9 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
           display: 'block',
           height: '2em',
           backgroundImage: theme =>
-            `linear-gradient(rgba(255,255,255,0), ${color || theme.colors.white})`
+            `linear-gradient(rgba(255,255,255,0), ${
+              color || theme.colors.white
+            })`
         },
         div: { mb: [1, 2] },
         'circle:last-of-type': { animationDuration: '1s' },
@@ -152,7 +162,6 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
 }
 
 export default SlackEvents
-
 
 // `
 //   10-days-in-public amas assemble all-hands apple art bank books ib

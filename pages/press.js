@@ -9,7 +9,6 @@ import { Logo } from './brand'
 
 const Page = () => (
   <>
-  
     <Meta
       as={Head}
       title="Press"
