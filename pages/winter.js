@@ -14,7 +14,7 @@ import {
   Flex
 } from 'theme-ui'
 import Snowfall from 'react-snowfall'
-import Footer from '../components/footer'
+import WinterFooter from '../components/winter/footer'
 import FadeIn from '../components/fade-in'
 import { useState } from 'react'
 import ForceTheme from '../components/force-theme'
@@ -51,7 +51,7 @@ export function Winter() {
         <Snowfall />
         <ForceTheme theme="light" />
         {/* filter out rsvps that are "invalid" */}
-        <Landing rsvpCount={500 - rsvpCount} />
+        <Landing rsvpCount={rsvpCount} />
         <Breakdown />
         <Projects />
         <InfoGrid />
@@ -125,19 +125,8 @@ export function Winter() {
         {/* Timeline */}
 
         <Recap />
-        <Container
-          sx={{
-            margin: 'auto',
-            fontStyle: 'italic',
-            color: 'snow',
-            mb: 3,
-            textAlign: 'left'
-          }}
-        >
-          Illustrations by Ripley
-        </Container>
         {/* <Signup /> */}
-        <Footer />
+        <WinterFooter />
       </Box>
     </>
   )

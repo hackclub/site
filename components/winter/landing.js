@@ -111,7 +111,7 @@ export default function Landing({ rsvpCount }) {
                 }}
               >
                 <Dot />
-                {rsvpCount} more RSVPs till the start of a hacker's
+                RSVP to join {rsvpCount} hackers for a
               </Heading>
             </Fade>
             <Fade left cascade>
