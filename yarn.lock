@@ -1910,10 +1910,10 @@ detab@2.0.4:
   dependencies:
     repeat-string "^1.5.4"
 
-devtools-detect@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/devtools-detect/-/devtools-detect-4.0.0.tgz#a5bf7f990df093ba231a37ed301ec9ba157ecafb"
-  integrity sha512-BnCKIj1DDWite4sml9z8baFlkZWdtFH0rl1+HcBZ6ORm3HG7JSuehQUVzdOUxbPDLLVmEVuqkrvy3y8y2GOXyQ==
+devtools-detect@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/devtools-detect/-/devtools-detect-4.0.1.tgz#2f3795b9339d25a5413107eb1b606ea9933e1b0a"
+  integrity sha512-Bfd5XzZhZ/oDqrLMD4F6fAE0QFUsoBbgEEhUjY6pYJ63xmzhg5NCzhxBz8hsx7ge8Nh0bxhtdU/naYeARUZyWg==
 
 dir-glob@^3.0.1:
   version "3.0.1"
