@@ -1,17 +1,9 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react'
+import { sample, take } from 'lodash'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { Slide } from 'react-reveal'
 import useWebSocket from 'react-use-websocket'
 import { Box, Text } from 'theme-ui'
-import { take, sample } from 'lodash'
-import { Slide } from 'react-reveal'
 
-const types = {
-  user_typing: 'typing',
-  reaction_added: 'reaction',
-  unmarshalling_error: 'message',
-  message: 'message'
-}
-
-const emoji = ['🚀', '🥳', '😂', '💖', '👀', '👍', '🙌', '🙂', '👏']
 const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', '#8067c3']
 
 const Channel = ({ color, channel }) => (
@@ -21,47 +13,14 @@ const Channel = ({ color, channel }) => (
 )
 
 const whitelistedChannels = new Set(
-  `
-  3d-printing ai all-hands apple art bank blockchain books cats
-  challenges code college-apps confessions cooking coronavirus counttoamillion deals
-  debate design dogs ethical-hacking flutter film food
-  functional gamedev gh go go-bears hack-night hackathons hardware
-  homelab hours hq india javascript languages late-night-hw-club lgbtq linux lounge
-  mason math memes minecraft music neuroscience photography python
-  ricing rust scrapbook ship sink-my-ship sleep social studycorner support swift
-  todayilearned politics welcome westborough wip workshops writing
-`
+  `lounge counttoamillion code scrapbook hq epoch ship welcome confessions lobby question-of-the-day hack-night announcements assemble community leaders bank college-apps cdn present sprig hackathons 8-ball hackathon-organizers zrl-land design ishan-ded apple out-of-context amas batcave matthews-brain-dump memes epoch-bts poll-of-the-day pasture music too-much-information corgi-states-of-hugo gamedev denio-den india linux neighbourhood packages politics sarthaks-dreams fayd-lives-here bayarea reesericdotci celesticide minecraft cabin -코트니- neon replit-embassy the-democratic-peoples-republic-of-yishun scrapbook-dev speedy-diffusion 10-days-in-public orpheus-legion hq-surroundings annοuncements productivity hackathon-grants secret-santa ian-things-ᴛᴍ emojibot hardware-party koggy-woggy surroundings honest-impressions charlie confessions-meta carot-dev wordle pranavs-lair crypto adventofcode cake one-north mayhaps epoch-food-n-fun toby-shenanigans seattle math fishhead lgbtq chars-corner github-embassy project-ideas rant-about-high-school orpheus-show shoutout rust alumni slack-themes 3d-printing art hacktoberfest newsletter india swim`
     .split(/\s+/gi)
     .filter(i => i.length > 0)
-    .map(i => '#' + i)
 )
-
-const generateEvent = () => ({
-  type: sample(['message', 'typing']),
-  color: sample(colors),
-  channel: sample(Array.from(whitelistedChannels)),
-  timestamp: new Date().toISOString()
-})
 
 const SlackEvents = ({ sx, color, textColor, ...props }) => {
   const didUnmount = useRef(false)
   const [events, setEvents] = useState([])
-  function createMockEvents() {
-    setEvents(e => [generateEvent(), ...e])
-    setTimeout(() => createMockEvents(), 10000)
-  }
-  useEffect(() => {
-    setEvents([
-      generateEvent(),
-      generateEvent(),
-      generateEvent(),
-      generateEvent(),
-      generateEvent(),
-      generateEvent(),
-      generateEvent()
-    ])
-    setTimeout(() => createMockEvents(), 5000)
-  }, [])
 
   const STATIC_OPTIONS = useMemo(
     () => ({
@@ -70,30 +29,47 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
     }),
     []
   )
-  /* const { lastMessage } = useWebSocket(
-    'wss://streambot-hackclub.herokuapp.com/',
+
+  const { lastJsonMessage } = useWebSocket(
+    'wss://joebunyan.haas.hackclub.com/stream',
     STATIC_OPTIONS
   )
 
   useEffect(() => {
-    let e = lastMessage?.data
-    if (e) {
-      try {
-        e = JSON.parse(e)
+    try {
+      async function resolveEvent() {
         if (
-          Object.keys(types).includes(e.type) &&
-          whitelistedChannels.has(e.channel)
+          !lastJsonMessage ||
+          !lastJsonMessage.type === 'message' ||
+          !lastJsonMessage.channel
         ) {
-          e.type = types[e.type]
-          e.color = sample(colors)
-          if (e.type === 'reaction') e.emoji = sample(emoji)
-          setEvents(prev => [e, ...prev])
+          return false
         }
-      } catch (err) {
-        true
+
+        const { name } = await fetch(
+          `/api/channels/resolve/?id=${lastJsonMessage.channel}`
+        )
+          .then(r => r.json())
+          .catch(err => console.log(err))
+
+        if (whitelistedChannels.has(name)) {
+          //this check should happen before the web req, to save on net resources
+          setEvents(prev => [
+            {
+              type: lastJsonMessage.type,
+              channel: `#${name}`,
+              color: sample(colors)
+            },
+            ...prev
+          ])
+        }
       }
+
+      resolveEvent()
+    } catch (err) {
+      true
     }
-  }, [lastMessage]) */
+  }, [lastJsonMessage])
 
   useEffect(() => {
     return () => {
@@ -136,22 +112,12 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
       aria-hidden="true"
       {...props}
     >
-      {take(events, 7).map(({ timestamp, type, emoji, ...channel }) => (
-        <Slide top duration={256} key={timestamp + JSON.stringify(channel)}>
+      {take(events, 7).map(({ type, channel, color }) => (
+        <Slide top duration={256} key={type + channel + color}>
           <>
             {type === 'message' && (
               <>
-                Message in <Channel {...channel} />
-              </>
-            )}
-            {type === 'typing' && (
-              <>
-                …typing in <Channel {...channel} />
-              </>
-            )}
-            {type === 'reaction' && (
-              <>
-                <Channel {...channel} /> reaction: {emoji}
+                Message in <Channel channel={channel} color={color} />
               </>
             )}
           </>
@@ -162,14 +128,3 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
 }
 
 export default SlackEvents
-
-// `
-//   10-days-in-public amas assemble all-hands apple art bank books ib
-//   challenges code college-apps confessions cooking  community coronavirus counttoamillion deals
-//   debate design the-democratic-republic-of-yishun dogs ethical-hacking epoch epoch-bts flutter film food
-//   gamedev gh go go-bears hack-night hackathons hardware
-//   homelab hours hq india javascript languages late-night-hw-club leaders lgbtq linux lounge
-//   mayhaps memes minecraft music neuroscience photography python orpheus-podcast
-//   rust scrapbook ship sink-my-ship sleep social studycorner support swift swim
-//   politics newsletter surroundings sprig hackathon-organizers hq hq-surroundings
-// `
