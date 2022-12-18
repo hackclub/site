@@ -1,18 +1,18 @@
-import { Badge, Box, Card, Container, Heading, Grid, Text } from 'theme-ui'
 import { keyframes } from '@emotion/react'
+import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import NextLink from 'next/link'
-import Meta from '@hackclub/meta'
-import Nav from '../components/nav'
+import useSWR from 'swr'
+import { Badge, Box, Card, Container, Grid, Heading, Text } from 'theme-ui'
+import Footer from '../components/footer'
 import ForceTheme from '../components/force-theme'
 import Icon from '../components/icon'
-import Stat from '../components/stat'
-import Footer from '../components/footer'
+import Nav from '../components/nav'
 import Header from '../components/slack/header'
 import SlackEvents from '../components/slack/slack-events'
-import { formatted, thousands } from '../lib/members'
-import useSWR from 'swr'
+import Stat from '../components/stat'
 import fetcher from '../lib/fetcher'
+import { formatted, thousands } from '../lib/members'
 
 const zoomSlide = keyframes({
   from: { backgroundPosition: '-32px bottom' },
@@ -139,13 +139,26 @@ const SlackPage = () => {
               variant="subheadline"
               sx={{
                 mt: 0,
+                mb: 0,
                 color: 'red',
                 textTransform: 'uppercase',
                 letterSpacing: 'headline'
               }}
             >
-              Live from our&nbsp;Slack
+              Live from our&nbsp;Slack <br />
             </Heading>
+            <Text
+              as="p"
+              variant="caption"
+              sx={{
+                fontSize: 1,
+                fontWeight: 300,
+                fontStyle: 'italic',
+                mb: '16px'
+              }}
+            >
+              Waiting for more messages...
+            </Text>
             <SlackEvents />
           </Box>
           <NextLink href="/ship" passHref>
