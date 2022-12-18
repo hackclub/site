@@ -93,7 +93,7 @@ export default function Slack({ data, slackKey, events }) {
           >
             Coding doesn’t have to be a solidary activity. At Hack Club, we make
             things together and in our Slack, you'll find awesome people to
-            hangout with to. Code together, find your programming community, or
+            hangout with too. Code together, find your programming community, or
             just hang out.
           </Text>
           <Text as="p" variant="subtitle">
