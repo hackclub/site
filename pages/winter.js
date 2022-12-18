@@ -51,7 +51,7 @@ export function Winter() {
         <Snowfall />
         <ForceTheme theme="light" />
         {/* filter out rsvps that are "invalid" */}
-        <Landing rsvpCount={500 - rsvpCount} />
+        <Landing rsvpCount={rsvpCount} />
         <Breakdown />
         <Projects />
         <InfoGrid />
