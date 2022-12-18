@@ -113,7 +113,7 @@ export default function RealTimeline() {
     <Flex sx={{ flexDirection: 'column', justifyContent: 'center', pb: 4 }}>
       <Step
         icon="post"
-        name="Instructions will be sent out on how to submit your hardware plan to qualify for the grant."
+        name="RSVP to receive instructions on how to share your hardware idea and receive a grant!"
         duration="Now"
       />
       <Step
@@ -124,7 +124,7 @@ export default function RealTimeline() {
       <Step
         icon="slack"
         name="Start of a 10 days building in public challenge where you share daily updates on your hardware project."
-        duration="February 15"
+        duration="February 14"
       />
     </Flex>
   )
