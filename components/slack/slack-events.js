@@ -47,7 +47,7 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
         }
 
         const { name } = await fetch(
-          `/api/channels/resolve?id=${lastJsonMessage.channel}`
+          `/api/channels/resolve/?id=${lastJsonMessage.channel}`
         )
           .then(r => r.json())
           .catch(err => console.log(err))
