@@ -3,6 +3,7 @@ import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
 import hero from '../../public/bank/bg.webp'
+import Announcement from '../announcement'
 
 export default function Landing({ showButton, eventsCount }) {
   return (
@@ -26,6 +27,13 @@ export default function Landing({ showButton, eventsCount }) {
               paddingTop: '96px'
             }}
           >
+            <Announcement
+              copy="FRC, FTC, FLL, oh my!"
+              caption="This build season, get a $250 grant, waived fees, and more! &rarr;"
+              href="/first"
+              iconLeft="sam"
+              color="primary"
+            />
             <Fade duration={625} bottom>
               <Container
                 variant="container"
