@@ -58,8 +58,8 @@ const Footer = ({ dark = false, children, ...props }) => (
     as="footer"
     {...props}
   >
-    {children}
     <Container px={[3, null, 4]}>
+    {children}
       <Grid
         as="article"
         gap={[2, 4]}
