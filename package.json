@@ -66,6 +66,6 @@
   },
   "devDependencies": {
     "eslint": "8.28.0",
-    "eslint-config-next": "13.0.5"
+    "eslint-config-next": "13.0.7"
   }
 }
