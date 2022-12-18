@@ -110,9 +110,9 @@ export default function SprigConsole({ stars, consoleCount }) {
         src="https://cloud-b8z9l7ihq-hack-club-bot.vercel.app/0sprig-light-top-min.png"
         sx={{
           position: 'absolute',
-          right: ['', '-50%', '-35%','-25%'],
+          right: ['', '-50%', '-35%', '-25%'],
           top: ['', '12%', '20%', '10%'],
-          width: ['', '100%', '85%','70%'],
+          width: ['', '100%', '85%', '70%'],
           pointerEvents: 'none',
           userSelect: 'none',
           display: ['none', 'block', 'block']

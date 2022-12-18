@@ -1,4 +1,4 @@
-import { Text } from "theme-ui"
+import { Text } from 'theme-ui'
 import { keyframes } from '@emotion/react'
 
 const flashing = keyframes({

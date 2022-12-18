@@ -16,7 +16,11 @@ import Footer from '../components/footer'
 import PrestonWernerCopy from '../components/announcements/preston-werner.mdx'
 import SlackCTA from '../components/announcements/cta'
 import AnnouncementHolder from '../components/announcements/holder'
-import { PillHolder, AuthorPill, DatePill } from '../components/announcements/pills'
+import {
+  PillHolder,
+  AuthorPill,
+  DatePill
+} from '../components/announcements/pills'
 
 const Page = () => (
   <>

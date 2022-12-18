@@ -66,7 +66,9 @@ const RequestForm = () => {
             Choose a country
           </option>
           {countries.countries.map(country => (
-            <option value={country} key={country}>{country}</option>
+            <option value={country} key={country}>
+              {country}
+            </option>
           ))}
         </Select>
       </Label>

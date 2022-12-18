@@ -22,7 +22,6 @@ import Sponsors from '../../components/donate/sponsors'
 import donors from '../../components/donate/donors.json'
 import Footer from '../../components/footer'
 
-
 const Header = styled(Box)`
   background: url('/pattern.svg');
 `
@@ -233,14 +232,18 @@ export default function Donate({ sprig }) {
           <Sponsors />
         </Row>
         <Button
-              as="a"
-              href="/philanthropy"
-              target="_blank"
-              mb={4}
-              sx={{fontSize: '1em !important', background: 'slate', textAlign: 'center'}}
-            >
-              Learn more about Hack Club
-            </Button>
+          as="a"
+          href="/philanthropy"
+          target="_blank"
+          mb={4}
+          sx={{
+            fontSize: '1em !important',
+            background: 'slate',
+            textAlign: 'center'
+          }}
+        >
+          Learn more about Hack Club
+        </Button>
       </Container>
       <Footer />
     </Box>

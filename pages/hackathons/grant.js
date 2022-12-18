@@ -185,8 +185,9 @@ const HackathonGrant = () => {
                 Hack Club Bank
               </Link>{' '}
               fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons <s>this
-              semester between August and December 31, 2022</s> until June 30th, 2023.
+              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons{' '}
+              <s>this semester between August and December 31, 2022</s> until
+              June 30th, 2023.
             </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
               {open ? 'Apply Now' : 'Coming Soon'}

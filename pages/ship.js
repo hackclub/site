@@ -139,8 +139,9 @@ const ShipPage = ({ posts = [] }) => (
           Want to ship your own projects?
         </Heading>
         <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
-          The #ship channel on the Hack&nbsp;Club Slack is where {thousands}k+ teenagers
-          from around the world share what they’re working on & help each other.
+          The #ship channel on the Hack&nbsp;Club Slack is where {thousands}k+
+          teenagers from around the world share what they’re working on & help
+          each other.
         </Text>
         <NextLink href="/slack" passHref>
           <Button variant="cta" sx={{ py: 2, px: 3, fontSize: 2 }} as="a">

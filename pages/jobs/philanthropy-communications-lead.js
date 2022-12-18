@@ -25,7 +25,7 @@ const Page = () => (
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading as="h1" variant="title" mb={30}>
-        Philanthropy Communications Lead @&nbsp;Hack&nbsp;Club
+          Philanthropy Communications Lead @&nbsp;Hack&nbsp;Club
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
           This position has been filled as of May 3rd, 2022.

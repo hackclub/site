@@ -1,5 +1,3 @@
-
-
 export default async function github(req, res) {
   let initialGitHubData = await fetch(
     'https://api.github.com/orgs/hackclub/events'
