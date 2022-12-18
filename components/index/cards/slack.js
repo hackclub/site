@@ -124,7 +124,7 @@ export default function Slack({ data, slackKey, events }) {
             <Box
               sx={{
                 background: 'rgb(0,0,0,0.6)',
-                height: ['170px', '170px', '100%'],
+                height: ['200px', '170px', '170px', '100%'],
                 position: ['relative', 'relative', 'absolute'],
                 zIndex: 3,
                 width: ['120%', '120%', '260px'],
@@ -139,7 +139,7 @@ export default function Slack({ data, slackKey, events }) {
             >
               <Flex
                 sx={{
-                  flexDirection: ['row', 'row', 'column'],
+                  flexDirection: ['column', 'row', 'row', 'column'],
                   justifyContent: 'space-between'
                 }}
               >
@@ -155,7 +155,8 @@ export default function Slack({ data, slackKey, events }) {
               <Flex
                 sx={{
                   flexDirection: ['row', 'row', 'column'],
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap'
                 }}
               >
                 <Box>

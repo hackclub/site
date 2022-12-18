@@ -118,10 +118,11 @@ const CardModel = ({
               top: 2,
               alignItems: 'center',
               zIndex: 2
+              // flexDirection: ['column', 'row', 'row']
             }}
           >
             {stars != null ? (
-              <Text as="h2">
+              <Text as="h2" sx={{ fontSize: ['20px', '24px', '28px'] }}>
                 ⭐️ <Comma>{stars}</Comma>
               </Text>
             ) : (

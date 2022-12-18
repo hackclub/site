@@ -46,6 +46,7 @@ import ReactTooltip from 'react-tooltip'
 import Winter from '../components/index/cards/winter'
 import Comma from '../components/comma'
 import CarouselCards from '../components/index/carousel-cards'
+/** @jsxImportSource theme-ui */
 
 function Page({
   hackathonsData,
@@ -94,7 +95,7 @@ function Page({
   let images = [
     { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
     {
-      alt: 'Hack Clubbers at Space X HQ in LA',
+      alt: 'Hack Clubbers at SpaceX HQ in LA',
       src: '/home/zephyr-spacex.jpeg'
     },
     {
@@ -120,7 +121,7 @@ function Page({
         as={Head}
         title="Hack Club | Home for high school coders"
         description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
-        image="https://cloud-epiki4yvg.vercel.app/2020-09-09_drbp62kayjuyyy0ek89mf9fwcp5t4kuz.jpeg"
+        image="https://cloud-jbdkjynve-hack-club-bot.vercel.app/0og-image.png"
       />
       <Head>
         <meta
@@ -188,11 +189,11 @@ function Page({
                 sx={{
                   color: 'white',
                   mb: [3, 4],
-                  mx: 'auto',
                   zIndex: 1,
                   textAlign: 'left',
                   fontSize: ['42px', '52px', '64px'],
-                  lineHeight: 1.2
+                  lineHeight: 1.2,
+                  width: '100%'
                 }}
               >
                 We are <Comma>{slackData.total_members_count}</Comma>{' '}
@@ -200,7 +201,7 @@ function Page({
                   sx={{
                     color: 'transparent',
                     ml: 2,
-                    mr: 4,
+                    mr: 3,
                     whiteSpace: 'nowrap'
                   }}
                 >
@@ -228,7 +229,8 @@ function Page({
                   </Text>
                   teen hackers
                 </Text>
-                from around the world that code together
+                <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
+                the world who code together
               </Text>
               <Button variant="ctaLg" as="a" href="/slack" mt={[3, 0, 0]}>
                 Join our community
@@ -345,10 +347,6 @@ function Page({
                         cursor: 'pointer'
                       }
                     }}
-                    // data-tip="next"
-                    // data-arrow-color="transparent"
-                    // data-background-color="white"
-                    // data-text-color="black"
                   >
                     <Photo
                       src={
@@ -368,7 +366,6 @@ function Page({
                       width={3000}
                       height={2550}
                       showAlt
-                      // loading="eager"
                     />
                   </Box>
                 </Box>
@@ -392,10 +389,6 @@ function Page({
                         cursor: 'pointer'
                       }
                     }}
-                    data-tip="next"
-                    data-arrow-color="transparent"
-                    data-background-color="white"
-                    data-text-color="black"
                   >
                     <Photo
                       src={
@@ -411,7 +404,6 @@ function Page({
                       width={3000}
                       height={2550}
                       showAlt
-                      // loading="eager"
                     />
                   </Box>
                 </Box>
@@ -435,10 +427,6 @@ function Page({
                         cursor: 'pointer'
                       }
                     }}
-                    data-tip="next"
-                    data-arrow-color="transparent"
-                    data-background-color="white"
-                    data-text-color="black"
                   >
                     <Photo
                       src={images[count].src}
@@ -446,7 +434,6 @@ function Page({
                       width={3000}
                       height={2550}
                       showAlt
-                      // loading="eager"
                     />
                   </Box>
                 </Box>

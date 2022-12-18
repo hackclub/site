@@ -72,7 +72,7 @@ function BreakdownBox({
       )}
       <Heading
         sx={{
-          fontSize: ['18px','18px', '24px', '26px'],
+          fontSize: ['16px', '16px', '24px', '26px'],
           pt: [1, 2, 3]
         }}
       >
@@ -124,8 +124,8 @@ export default function Winter() {
         Winter hardware wonderland
       </Text>
       <Text as="p" variant="subtitle">
-        Get $250 to build your own electronics projects alongside hundreds of other
-        teenagers in the Hack Club community!
+        Get $250 to build your own electronics projects alongside hundreds of
+        other teenagers in the Hack Club community!
       </Text>
       <Box>
         <Grid gap={[2, 2, 3]} columns={3} py={3}>
@@ -142,8 +142,8 @@ export default function Winter() {
             text="Daily progress"
             description={
               <>
-                From <strong>Feb 15-25</strong>, work on your project, share
-                short photo/video updates each day.
+                From <strong>Feb 14-23</strong>, work on your project, sharing
+                daily updates.
               </>
             }
             delay="100"
