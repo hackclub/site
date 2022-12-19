@@ -3082,10 +3082,10 @@ isstream@~0.1.2:
   resolved "https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jquery@^3.6.1:
-  version "3.6.1"
-  resolved "https://registry.npmjs.org/jquery/-/jquery-3.6.1.tgz"
-  integrity sha512-opJeO4nCucVnsjiXOE+/PcCgYw9Gwpvs/a6B1LL/lQhwWwpbVEVYDZ1FokFr8PRc7ghYlrFPuyHuiiDNTQxmcw==
+jquery@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.2.tgz#8302bbc9160646f507bdf59d136a478b312783c4"
+  integrity sha512-/e7ulNIEEYk1Z/l4X0vpxGt+B/dNsV8ghOPAWZaJs8pkGvsSC0tm33aMGylXcj/U7y4IcvwtMXPMyBFZn/gK9A==
 
 js-sdsl@^4.1.4:
   version "4.1.4"
