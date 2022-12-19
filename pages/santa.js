@@ -186,20 +186,20 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 function Signup() {
   const [values, setValues] = useState({})
   return (
-    <Base method="get" action="https://hack.af/santa-signup">
+    <Base method="get" action="https://airtable.com/shrL7dmiWE6vdlyYf">
       <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>
         Register!
       </Heading>
       <Text sx={{ textAlign: 'left', color: 'muted' }}>
         Be sure to check out the{' '}
-        <Link href="https://hack.af/rules-santa" sx={{ color: 'blue' }}>
+        <Link href="https://hackclub.slack.com/archives/C01D7AHKMPF/p1671483616032169" sx={{ color: 'blue' }}>
           rules
         </Link>{' '}
         before you sign up!
       </Text>
       <Field
         label="Your Name"
-        name="prefill_Real Name"
+        name="prefill_Name"
         placeholder="Fiona Hackworth"
         value={values.name}
         onChange={e => setValues({ ...values, name: e.target.value })}
@@ -207,7 +207,7 @@ function Signup() {
 
       <Field
         label="Likes"
-        name="prefill_Likes"
+        name="prefill_What do you like?"
         placeholder="Hardware, plushies, microwaved apples?"
         type="text"
         value={values.likes}
@@ -215,7 +215,7 @@ function Signup() {
       />
       <Field
         label="Dislikes"
-        name="prefill_Dislikes"
+        name="prefill_What do you absolutely NOT like?"
         placeholder="Socks, cheese, coal..."
         type="text"
         value={values.dislikes}
