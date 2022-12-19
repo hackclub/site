@@ -122,10 +122,9 @@ export function Winter() {
             <RealTimeline />
           </Flex>
         </Container>
-        {/* Timeline */}
-
-        <Recap />
-        {/* <Signup /> */}
+        <Box id="demo-account">
+          <Recap />
+        </Box>
         <WinterFooter />
       </Box>
     </>
