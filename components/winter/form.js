@@ -93,7 +93,7 @@ export default function Signup() {
       body: JSON.stringify({
         eventName,
         userEmail,
-        category: 'hardware grant'
+        eventCategory: 'hardware grant'
       })
     })
 

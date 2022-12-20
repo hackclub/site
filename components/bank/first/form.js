@@ -126,7 +126,7 @@ export default function Signup() {
         teamType,
         teamNumber,
         userEmail,
-        category: 'robotics team'
+        eventCategory: 'robotics team'
       })
     })
 
