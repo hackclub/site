@@ -28,7 +28,7 @@ export default function Landing({ showButton, eventsCount }) {
             }}
           >
             <Announcement
-              copy="FRC, FTC, FLL, oh my!"
+              copy="FRC and FTC and FLL! Oh My!"
               caption="This build season, get a $250 grant, waived fees, and more! &rarr;"
               href="/first"
               iconLeft="sam"
