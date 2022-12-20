@@ -37,7 +37,7 @@ export function Winter() {
 
   const rsvpCount = rsvps
     ? rsvps.filter(rsvp => rsvp.fields.Status === 'rsvp').length
-    : 100 // arbitrary fallback number
+    : 1000 // arbitrary fallback number
   return (
     <>
       <Box as="main" sx={{ bg: 'blue' }}>
