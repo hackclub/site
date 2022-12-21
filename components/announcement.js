@@ -50,11 +50,7 @@ const Announcement = ({
     )}
     <Text
       as="p"
-      sx={{
-        flex: '1 1 auto',
-        strong: { display: ['inline', 'block'] },
-        color: 'black'
-      }}
+      sx={{ flex: '1 1 auto', strong: { display: ['inline', 'block'] } }}
     >
       <strong>{copy}</strong>
       {caption && (
