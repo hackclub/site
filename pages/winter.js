@@ -70,7 +70,7 @@ export function Winter() {
             </Heading>
             <Text as="p" sx={{ pb: 4, color: 'white', fontSize: [2, 3] }}>
               Get a free hardware development kit by building a tile-based game
-              in
+              in{' '}
               <Link
                 href="https://github.com/hackclub/sprig#readme"
                 target="_blank"
