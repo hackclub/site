@@ -113,7 +113,7 @@ export default function RealTimeline() {
     <Flex sx={{ flexDirection: 'column', justifyContent: 'center', pb: 4 }}>
       <Step
         icon="post"
-        name={<>RSVP to receive instructions on how to share your hardware idea and receive a grant!Here are some <a href="https://github.com/hackclub/winter/blob/main/docs/faq.md">FAQs</a></>}
+        name={<>RSVP to receive instructions on how to share your hardware idea and receive a grant! Here are some <a href="https://github.com/hackclub/winter/blob/main/docs/faq.md">FAQs</a></>}
         duration="Now"
       />
       <Step
