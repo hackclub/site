@@ -84,8 +84,8 @@ export default function KeepExploring() {
             </a>
             . The&nbsp;hack’s the limit.
             <Box as="div" sx={{ mt: 3 }}></Box>
-            This semester, Hack Club is providing grants, support, and more, to
-            help you run the next amazing hackathon.
+            Hack Club is providing grants, support, and more, to help you run
+            the next amazing hackathon.
           </Text>
         </Grid>
       </Container>

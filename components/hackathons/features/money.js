@@ -65,7 +65,7 @@ const Content = () => (
           icon="bolt"
           leadText="All fees waived."
           body={`
-          This semester, run your hackathon on Hack Club Bank for free. All the money you raise goes 
+          Run your hackathon on Hack Club Bank for free. All the money you raise goes 
           directly towards your hackathon.`}
         />
         <ListItem
