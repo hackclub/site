@@ -180,12 +180,12 @@ export default function Projects() {
   const [count, setCount] = useState(0)
 
   let list = [
-    'mechanical keyboard',
-    '3D printer',
+    'drawing robot',
     'drone',
     'CNC machine',
     'pixel art display',
-    'camera'
+    'camera',
+    '3D printer'
   ]
 
   if (count == list.length - 1) {
