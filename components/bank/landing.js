@@ -76,7 +76,7 @@ export default function Landing({ showButton, eventsCount }) {
                     </Link>{' '}
                     is one of {Math.round((eventsCount - 50) / 100) * 100}+
                     teams who use <strong>Hack&nbsp;Club&nbsp;Bank</strong> to
-                    run world-class events.
+                    run world-class organizations, hackathons, and clubs.
                   </Text>
                 </Container>
               </Container>
