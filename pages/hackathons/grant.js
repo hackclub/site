@@ -67,7 +67,7 @@ const HackathonGrant = () => {
         description="Hack Club is partnering with FIRST to provide $500 grants to in-person high school hackathons happening until June 30th, 2023."
         image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
-      <styles>{styles}</styles>
+      <style>{styles}</style>
       <Box as="main" key="main">
         <Nav dark />
         <ForceTheme theme="dark" />
