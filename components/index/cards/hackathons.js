@@ -183,7 +183,7 @@ export default function Hackathons({ data, stars }) {
                 <Link href={data.website}>
                   {data.name} |{' '}
                   {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
-                    new Date(data.start).getMonth()
+                    new Date(data.start)
                   )}{' '}
                   {new Date(data.start).getUTCDate()}
                 </Link>
