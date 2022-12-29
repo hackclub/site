@@ -13,29 +13,12 @@ import Apply from '../../components/hackathons/grant/apply'
 
 import Zoom from 'react-reveal/Zoom'
 /** @jsxImportSource theme-ui */
-if (typeof window !== 'undefined') {
-  window.$ = window.jQuery = require('jquery')
 
-  $(document).ready(function () {
-    // Add smooth scrolling to all links (source: w3schools)
-    $('a').on('click', function (event) {
-      if (this.hash !== '') {
-        event.preventDefault()
-        var hash = this.hash
-
-        $('html, body').animate(
-          {
-            scrollTop: $(hash).offset().top
-          },
-          800,
-          function () {
-            window.location.hash = hash
-          }
-        )
-      }
-    })
-  })
-}
+const styles = `
+  html {
+    scroll-behavior: smooth;
+  }
+`
 
 const Requirement = ({ title, children, checkmark, background, size }) => {
   return (
@@ -84,6 +67,7 @@ const HackathonGrant = () => {
         description="Hack Club is partnering with FIRST to provide $500 grants to in-person high school hackathons happening until June 30th, 2023."
         image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
+      <style>{styles}</style>
       <Box as="main" key="main">
         <Nav dark />
         <ForceTheme theme="dark" />
