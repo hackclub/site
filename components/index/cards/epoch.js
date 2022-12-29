@@ -19,8 +19,7 @@ import { useEffect, useState } from 'react'
 
 export default function Epoch() {
   const calculateTimeLeft = () => {
-    const difference = +new Date(`2022-12-30T23:00:00.000Z`) - +new Date()
-
+    const difference = +new Date(`2022-12-30T12:30:00.000Z`) - +new Date()
     let timeLeft = {}
 
     if (difference > 0) {
