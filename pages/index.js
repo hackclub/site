@@ -1,18 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Image,
-  Badge,
-  Link,
-  Text
-} from 'theme-ui'
-import { keyframes } from '@emotion/react'
-import styled from '@emotion/styled'
+import { Box, Button, Card, Grid, Heading, Badge, Link, Text } from 'theme-ui'
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
@@ -22,7 +8,6 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import FooterImgFile from '../public/home/footer.png'
 import Stage from '../components/stage'
-import devtools from '../node_modules/devtools-detect/index.js'
 import Carousel from '../components/index/carousel'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
@@ -33,19 +18,15 @@ import Bank from '../components/index/cards/bank'
 import Epoch from '../components/index/cards/epoch'
 import Hackathons from '../components/index/cards/hackathons'
 import AssembleImgFile from '../public/home/assemble.jpg'
-import { get } from 'lodash'
 import Konami from 'react-konami-code'
 import Secret from '../components/secret'
 import MailingList from '../components/index/cards/mailing-list'
 import Slack from '../components/index/cards/slack'
-import Events from '../components/index/cards/events'
 import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
-import ReactTooltip from 'react-tooltip'
 import Winter from '../components/index/cards/winter'
 import Comma from '../components/comma'
-import CarouselCards from '../components/index/carousel-cards'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -106,7 +87,7 @@ function Page({
     { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
   ]
 
-  // // janky right now and does not show last image
+  // janky right now and does not show last image
   console.log(
     `White sheets of paper\nWaiting to be printed on\nA blank console waits`
   )
