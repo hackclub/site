@@ -1,8 +1,4 @@
 import { Box, Heading, Button, Text, Container } from 'theme-ui'
-// import { gsap } from 'gsap'
-import { useEffect } from 'react'
-// import ScrollTrigger from 'gsap/dist/ScrollTrigger'
-/** @jsxImportSource theme-ui */
 import Snowfall from 'react-snowfall'
 import { Fade } from 'react-reveal'
 import Rsvp from './rsvp'
@@ -37,24 +33,6 @@ function Dot() {
 }
 
 export default function Landing({ rsvpCount }) {
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     gsap.registerPlugin(ScrollTrigger)
-  //     gsap.to('.box', {
-  //       scrollTrigger: {
-  //         trigger: '.box',
-  //         start: 'top center',
-  //         end: 'top 100%',
-  //         scrub: true,
-  //         markers: true,
-  //       }, // start the animation when ".box" enters the viewport (once)
-  //       x: 600,
-  //       ease: 'none',
-  //       duration: 5
-  //     })
-  //   }
-  // })
-
   return (
     <Box sx={{ position: 'relative' }}>
       {/* <img
