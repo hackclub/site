@@ -46,7 +46,7 @@ export default function CarouselCards({
           src={img}
           sx={{
             position: 'absolute',
-            top: ['-26px', '-30px', '-40px'],
+            top: ['-26px', '-30px', '-35px'],
             left: ['10px', '12px', '15px'],
             zIndex: 2,
             width: ['42px', '50px', '58px'],
@@ -62,6 +62,7 @@ export default function CarouselCards({
             color: 'white',
             width: ['200px', '300px', '300px'],
             padding: ['12px !important', '16px !important', '20px !important'],
+            paddingTop: ['14px !important', '20px !important', '24px !important'],
             height: '100%'
           }}
         >

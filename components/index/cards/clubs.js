@@ -81,7 +81,7 @@ export default function Clubs() {
             variant="subtitle"
             sx={{ textShadow: '1px 1px 5px black' }}
           >
-            Join or start a Hack Club and be part of a network of high quality
+            Join or start a Hack&nbsp;Club and be part of a network of high quality
             coding clubs where you learn to code entirely through building
             things.
           </Text>

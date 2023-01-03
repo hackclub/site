@@ -99,33 +99,18 @@ export default function Winter() {
       color="white"
       sx={{
         backgroundSize: 'cover',
-        // backgroundImage:
-        //   'url(https://cloud-6h53svh6x-hack-club-bot.vercel.app/0group_5.png)',
-        // backgroundPosition: 'center top',
-        // backgroundRepeat: 'no-repeat',
         backgroundColor: '#3561A4'
       }}
       position={[null, 'bottom', 'bottom']}
+      image="/home/winter-bg.webp"
       badge
     >
-      <Image
-        src="/home/winter-bg.webp"
-        sx={{
-          objectFit: 'cover',
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          ml: ['-24px', '-32px', '-32px', '-32px'],
-          mt: ['-24px', '-32px', '-32px', '-32px'],
-          zIndex: 0
-        }}
-      />
       <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
         Winter hardware wonderland
       </Text>
       <Text as="p" variant="subtitle">
         Get $250 to build your own electronics projects alongside hundreds of
-        other teenagers in the Hack Club community!
+        other teenagers in the Hack&nbsp;Club community!
       </Text>
       <Box>
         <Grid gap={[2, 2, 3]} columns={3} py={3}>
@@ -152,12 +137,11 @@ export default function Winter() {
             icon="friend"
             color="#5bc0de"
             text="Friends"
-            description="Find support from our community of 20k+ teenagers in the Hack Club Slack."
+            description="Find support from our community of 20k+ teenagers in the Hack&nbsp;Club&nbsp;Slack."
             delay="300"
           />
         </Grid>
         <Buttons
-          // content="click to learn more about how to submit a workshop"
           id="13"
           link="/winter"
           icon="freeze"

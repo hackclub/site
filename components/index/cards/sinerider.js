@@ -33,19 +33,8 @@ export default function Sinerider({ stars }) {
       }}
       position={[null, 'bottom', 'bottom']}
       highlight="#271932"
+      image="/home/sinerider-bg.webp"
     >
-      <Image
-        src="/home/sinerider-bg.webp"
-        sx={{
-          objectFit: 'cover',
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          ml: ['-24px', '-32px', '-32px', '-32px'],
-          mt: ['-24px', '-32px', '-32px', '-32px'],
-          zIndex: 0
-        }}
-      />
       <Image
         src="https://cloud-9cei11221-hack-club-bot.vercel.app/0logo_text_2.png"
         sx={{

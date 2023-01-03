@@ -77,7 +77,7 @@ export default function Buttons({
         }}
         className="custom-tooltip-radius custom-arrow-radius"
         arrowRadius="2"
-        tooltipRadius="4"
+        tooltipRadius="10"
       >
         {content}
       </ReactTooltip>

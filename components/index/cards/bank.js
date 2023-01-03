@@ -36,16 +36,16 @@ export default function Bank({ data }) {
         text={data[0]}
       >
         <Text variant="title" sx={{ color: 'red', fontSize: ['36px', 4, 5] }}>
-          Hack Club Bank
+          Hack&nbsp;Club&nbsp;Bank
         </Text>
         <Grid columns={[1, '1.3fr 1fr', 2]}>
           <Box>
             <Text as="p" variant="subtitle">
-              Become a 501(c)3 nonprofit and join 700+ teams using Hack Club
+              Become a 501(c)3 nonprofit and join 700+ teams using Hack&nbsp;Club
               Bank to run world-class events.
             </Text>
             <Text as="p" variant="subtitle">
-              This platform is built and maintained by the Hack Club team.
+              This platform is built and maintained by the Hack&nbsp;Club team.
             </Text>
             <Box
               sx={{

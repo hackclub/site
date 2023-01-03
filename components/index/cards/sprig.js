@@ -184,23 +184,11 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
     <CardModel
       github_link="https://github.com/hackclub/sprig/"
       color="white"
-      // background="https://sprig.hackclub.com/background.jpg"
       stars={stars}
       highlight="#FFDE4D"
       sx={{ backgroundColor: '#0C0C16' }}
+      image="/home/sprig-bg.webp"
     >
-      <Image
-        src="/home/sprig-bg.webp"
-        sx={{
-          objectFit: 'cover',
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          ml: ['-24px', '-32px', '-32px', '-32px'],
-          mt: ['-24px', '-32px', '-32px', '-32px'],
-          zIndex: 0
-        }}
-      />
       <Image
         src="/home/sprig-logo.webp"
         sx={{

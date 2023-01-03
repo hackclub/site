@@ -149,7 +149,7 @@ function Page({
             src={AssembleImgFile}
             alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
             priority
-            gradient="linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.6))"
+            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
           <Box
             sx={{
@@ -157,11 +157,12 @@ function Page({
               maxWidth: [null, 'layout'],
               position: 'relative',
               mx: 'auto',
-              py: [4, 4, 5]
+              py: [4, 4, 5],
+              textShadow: 'text'
             }}
           >
-            <Text variant="eyebrow" sx={{ color: 'sunken' }}>
-              Welcome to Hack Club
+            <Text variant="eyebrow" sx={{ color: 'sunken', pb: 2, position: 'relative', display: 'block' }}>
+              Welcome to Hack&nbsp;Club
             </Text>
             <Heading>
               <Text
@@ -197,7 +198,7 @@ function Page({
                       backgroundColor: 'red',
                       position: 'absolute',
                       borderRadius: 10,
-                      transform: 'rotate(-3deg)',
+                      transform: 'rotate(-3deg) translateY(-5px)',
                       color: 'white',
                       whiteSpace: 'nowrap',
                       textDecoration: 'none',
@@ -205,6 +206,7 @@ function Page({
                         cursor: 'pointer'
                       }
                     }}
+                    aria-hidden="true"
                   >
                     teen hackers
                   </Text>
@@ -213,11 +215,12 @@ function Page({
                 <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
                 the world who code together
               </Text>
-              <Button variant="ctaLg" as="a" href="/slack" mt={[3, 0, 0]}>
+              <Button variant="ctaLg" as="a" href="/slack" mt={[3, 0, 0]} sx={{transformOrigin: 'center left'}}>
                 Join our community
               </Button>
             </Heading>
-            <Box
+          </Box>
+          <Box
               sx={{
                 display: 'flex',
                 justifyContent: ['flex-start', 'flext-start', 'flex-end'],
@@ -233,22 +236,22 @@ function Page({
                 variant="pill"
                 sx={{
                   zIndex: '1',
-                  bg: '#000',
+                  bg: 'black',
                   color: 'white',
-                  opacity: 0.5,
+                  opacity: 1,
                   textDecoration: 'none',
                   fontWeight: 'normal',
                   ':hover': { opacity: 1 },
-                  transition: '0.3s ease'
+                  transition: '0.3s ease',
+                  // mixBlendMode: 'multiply'
                 }}
                 title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
               >
                 Hackers at Assemble in SF
               </Badge>
             </Box>
-          </Box>
         </Box>
-        <Box as="section" sx={{ pt: [4, 5], color: 'black' }}>
+        <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
           <Box
             sx={{
               position: 'relative',
@@ -264,7 +267,7 @@ function Page({
             >
               The rundown
             </Text>
-            <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+            <Text variant="title" sx={{ fontSize: ['36px', 4, '56px'] }}>
               Discover the{' '}
               <Text
                 as="span"
@@ -285,11 +288,11 @@ function Page({
             <Text
               variant="subtitle"
               as="p"
-              sx={{ fontSize: ['18px', '20px', '22px'] }}
+              sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 3, 4] }}
             >
-              Every day, thousands of Hack Clubbers gather online and in-person
+              Every day, thousands of Hack&nbsp;Clubbers gather online and in-person
               to make things with code. Whether you’re a beginner programmer or
-              have years of experience, there’s a place for you at Hack Club.
+              have years of experience, there’s a place for you at Hack&nbsp;Club.
               Read about our{' '}
               <Link href="/philosophy" target="_blank" rel="noopener">
                 hacker ethic
@@ -437,6 +440,7 @@ function Page({
                   p: { my: 0, fontSize: ['18px', '20px', '22px'] },
                   strong: { display: 'block', fontSize: ['22px', 2, 3] }
                 }}
+                as="ul"
               >
                 <Grid
                   columns="auto 1fr"
@@ -449,19 +453,20 @@ function Page({
                     textDecoration: 'none',
                     borderRadius: 'extra'
                   }}
+                  as="li"
                 >
-                  <Text as="span" color="red">
+                  <Text as="span" color="red" aria-hidden="true">
                     1
                   </Text>
-                  <Box as="p" variant="subtitle">
-                    <strong>Connect with other teenage coders</strong>
+                  <Text as="p" variant="subtitle">
+                    <strong sx={{mb: 1}}>Connect with other teenage coders</strong>
                     Have a coding question? Looking for project feedback? You’ll
                     find hundreds of fabulous people to talk to in our global{' '}
                     <Link href="/slack" target="_blank" rel="noopener">
                       Slack{' '}
                     </Link>
                     (like Discord), active at all hours.
-                  </Box>
+                  </Text>
                 </Grid>
                 <Grid
                   columns="auto 1fr"
@@ -474,8 +479,9 @@ function Page({
                     textDecoration: 'none',
                     borderRadius: 'extra'
                   }}
+                  as="li"
                 >
-                  <Text as="span" color="orange">
+                  <Text as="span" color="orange" aria-hidden="true">
                     2
                   </Text>
                   <Text
@@ -485,10 +491,10 @@ function Page({
                       mt: 0
                     }}
                   >
-                    <strong>Build open source learning tools</strong>
+                    <strong sx={{mb: 1}}>Build open source learning tools</strong>
                     We build large open source projects together (
                     <Link href="https://github.com/hackclub" target="_blank">
-                      3k+ PRs a year
+                      3k+&nbsp;PRs a year
                     </Link>
                     ) like this website, a game engine, daily streak system, and
                     more!
@@ -505,16 +511,17 @@ function Page({
                     textDecoration: 'none',
                     borderRadius: 'extra'
                   }}
+                  as="li"
                 >
-                  <Text as="span" color="yellow">
+                  <Text as="span" color="yellow" aria-hidden="true">
                     3
                   </Text>
                   <Text as="p" variant="subtitle">
-                    <strong>Gather IRL with other makers</strong>
-                    Meet other Hack Clubbers in your community to build together
+                    <strong sx={{mb: 1}}>Gather IRL with other makers</strong>
+                    Meet other Hack&nbsp;Clubbers in your community to build together
                     at one of the 400+{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
-                      Hack Clubs
+                      Hack&nbsp;Clubs
                     </Link>{' '}
                     and{' '}
                     <Link href="/hackathons" target="_blank" rel="noopener">
@@ -545,10 +552,10 @@ function Page({
               maxWidth: 'layout',
               margin: 'auto'
             }}
-            py={[4, 4, 5]}
+            py={[4, 5, '82px']}
           >
             <Box>
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+              <Text variant="title" sx={{ fontSize: ['36px', 4, '56px'] }}>
                 Connect with{' '}
                 <Text
                   as="span"
@@ -580,7 +587,7 @@ function Page({
           </Box>
         </Box>
         <Box>
-          <Box py={[4, 4, 5]}>
+          <Box py={[4, 5, '82px']}>
             <Box
               sx={{
                 width: '90vw',
@@ -600,7 +607,7 @@ function Page({
                 message={gitHubData[github].message}
                 key={key}
               />
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+              <Text variant="title" sx={{ fontSize: ['36px', 4, '56px'] }}>
                 We build{' '}
                 <Text
                   as="span"
@@ -622,7 +629,7 @@ function Page({
                 as="p"
                 sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
               >
-                In collaboration with engineers on the Hack Club team, Hack
+                In collaboration with engineers on the Hack&nbsp;Club team, Hack
                 Clubbers build learning tools for each other. Get involved with
                 these projects by building something with our tools or
                 contribute to the tools themselves.
@@ -668,14 +675,14 @@ function Page({
               {}
             </Box>
             <Box
-              py={[4, 4, 5]}
+              py={[4, 5, '82px']}
               sx={{
                 width: '90vw',
                 maxWidth: 'layout',
                 margin: 'auto'
               }}
             >
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+              <Text variant="title" sx={{ fontSize: ['36px', 4, '56px'] }}>
                 Find your{' '}
                 <Text
                   as="span"
@@ -696,7 +703,7 @@ function Page({
                 as="p"
                 sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
               >
-                Thousands of Hack Clubbers organize and participate in
+                Thousands of Hack&nbsp;Clubbers organize and participate in
                 hackathons and after school coding clubs.
               </Text>
               <Clubs />
@@ -710,7 +717,7 @@ function Page({
             </Box>
           </Box>
         </Box>
-        <Box py={[4, 4, 5]}>
+        <Box py={[4, 5, '82px']}>
           <Box
             sx={{
               width: '90vw',
@@ -719,9 +726,9 @@ function Page({
             }}
           >
             <Text as="p" variant="eyebrow" sx={{ fontSize: ['22px', 2, 3] }}>
-              Let's recap
+              Let’s recap
             </Text>
-            <Heading as="h2" variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+            <Heading as="h2" variant="title" sx={{ fontSize: ['36px', 4, '56px'] }}>
               Find your second home at{' '}
               <Text
                 as="span"
@@ -734,7 +741,7 @@ function Page({
                   bg: 'red'
                 }}
               >
-                Hack Club
+                Hack&nbsp;Club
               </Text>
             </Heading>
             <Grid
@@ -906,7 +913,7 @@ function Page({
                   icon="clubs"
                   color="white"
                   name="Start a club"
-                  desc="Build an in-person community of high school hackers, and we're here to help."
+                  desc="Build an in-person community of high school hackers, and we’re here to help."
                   sx={{
                     p: {
                       fontSize: ['18px', '20px', '22px']
@@ -973,23 +980,21 @@ export async function getStaticProps() {
 
   // Slack: get total raised
   let slackData = await fetch(
-    'https://site-git-v4.hackclub.dev/api/slack'
+    'https://hackclub.com/api/slack'
   ).then(r => r.json())
 
   // GitHub: get latest github activity
   let gitHubData = await fetch(
-    'https://site-git-v4.hackclub.dev/api/github'
+    'https://hackclub.com/api/github'
   ).then(r => r.json())
 
   // GitHub: get latest GitHub stars
-//   let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
-//     res => res.json()
-//   )
-  
-  let stars = {"sinerider":{"stargazerCount":195},"sprig":{"stargazerCount":571},"hackclub":{"stargazerCount":2284},"hackathons":{"stargazerCount":129},"sprigHardware":{"stargazerCount":23}}
+  let stars = await fetch('https://hackclub.com/api/stars').then(
+    res => res.json()
+  )
 
   // Sprig: get newest games
-  let game = await fetch('https://site-git-v4.hackclub.dev/api/games').then(r =>
+  let game = await fetch('https://hackclub.com/api/games').then(r =>
     r.json()
   )
   console.log(game)
@@ -1000,7 +1005,7 @@ export async function getStaticProps() {
 
   // Sprig: get console count
   const consoleCount = await fetch(
-    'https://site-git-v4.hackclub.dev/api/sprig-console'
+    'https://hackclub.com/api/sprig-console'
   ).then(r => r.json())
 
   // Hackathons: get latest hackathons

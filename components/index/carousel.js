@@ -36,7 +36,7 @@ export default function Carousel() {
             as="div"
             sx={{
               fontSize: ['22px', 2, 3],
-              mt: 4,
+              mt: [4, 4, 5],
               maxWidth: 'layout',
               width: '90vw',
               margin: 'auto'
@@ -49,7 +49,7 @@ export default function Carousel() {
               <Box
                 as="div"
                 sx={{ display: 'flex', py: [4, 5, 5] }}
-                onMouseOver={() => setSpeed(3)}
+                onMouseOver={() => setSpeed(2)}
                 onMouseOut={() => setSpeed(6)}
               >
                 <CarouselCards
@@ -66,7 +66,7 @@ export default function Carousel() {
                   titleColor="#FF4794"
                   descriptionColor="white"
                   title="Epoch"
-                  description="Attend the most epic high school hackathon this New Year's"
+                  description="Attend the most epic high school hackathon this New Year’s"
                   img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f386@2x.png"
                   link="https://epoch.hackclub.com"
                 />
@@ -83,7 +83,7 @@ export default function Carousel() {
                   background="dark"
                   titleColor="red"
                   textColor="white"
-                  title="Hack Club Bank"
+                  title="Hack&nbsp;Club&nbsp;Bank"
                   description="No. 1 fiscal sponsor for teenagers (we crossed $7 million in transactions)"
                   img="https://emoji.slack-edge.com/T0266FRGM/bank-hackclub-dark/8c6f85f387365072.png"
                   link="/bank"
