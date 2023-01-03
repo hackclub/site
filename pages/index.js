@@ -982,9 +982,11 @@ export async function getStaticProps() {
   ).then(r => r.json())
 
   // GitHub: get latest GitHub stars
-  let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
-    res => res.json()
-  )
+//   let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
+//     res => res.json()
+//   )
+  
+  let stars = {"sinerider":{"stargazerCount":195},"sprig":{"stargazerCount":571},"hackclub":{"stargazerCount":2284},"hackathons":{"stargazerCount":129},"sprigHardware":{"stargazerCount":23}}
 
   // Sprig: get newest games
   let game = await fetch('https://site-git-v4.hackclub.dev/api/games').then(r =>
