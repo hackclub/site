@@ -50,7 +50,7 @@ export const BankProject = ({ name, url }) => (
   </Card>
 )
 
-const Page = ({ repos }) => (
+const Page = ({ repos, transparentAccounts }) => (
   <>
     <Meta
       as={Head}
@@ -105,38 +105,20 @@ const Page = ({ repos }) => (
         All open sourced through Hack Club Bank Transparency Mode.
       </Text>
       <Grid columns={2} gap={3} mt={2} mb={[4]}>
+        {transparentAccounts
+          .filter(account => account.category === 'hack_club_hq')
+          .map(account => (
+            <BankProject
+              key={account.id}
+              name={account.name}
+              url={`https://bank.hackclub.com/${account.slug}`}
+            />
+          ))}
         <BankProject name="HQ" url={`https://bank.hackclub.com/hq/`} />
         <BankProject
           name="Endowment"
           url={`https://bank.hackclub.com/endowment`}
         />
-        <BankProject
-          name="Discretionary Fund"
-          url={`https://bank.hackclub.com/discretionary-fund`}
-        />
-        <BankProject
-          name="Summer of Making"
-          desc={`Our 2020 Summer Program`}
-          url="https://bank.hackclub.com/summer-of-making"
-        />
-        <BankProject
-          name="Summer of Making Stickers"
-          url="https://bank.hackclub.com/som-sticker-shipments"
-        />
-        <BankProject
-          name="The Hacker Zephyr"
-          url={`https://bank.hackclub.com/zephyr`}
-        />
-        <BankProject
-          name="Community Team"
-          url="https://bank.hackclub.com/community-team"
-        />
-        <BankProject
-          name="Wild Wild West"
-          url="https://bank.hackclub.com/wild-wild-west"
-        />
-        <BankProject name="Assemble" url="https://bank.hackclub.com/assemble" />
-        <BankProject name="Epoch" url="https://bank.hackclub.com/epoch" />
       </Grid>
       <Heading
         variant="headline"
@@ -260,5 +242,10 @@ export async function getStaticProps() {
   const repos = await octokit.paginate('GET /orgs/{org}/repos', {
     org: 'hackclub'
   })
-  return { props: { repos }, revalidate: 30 }
+
+  const transparentAccounts = await fetch(
+    'https://bank.hackclub.com/api/v3/organizations'
+  ).then(res => res.json())
+
+  return { props: { repos, transparentAccounts }, revalidate: 30 }
 }
