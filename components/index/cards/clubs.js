@@ -3,15 +3,9 @@ import Buttons from './button'
 import CardModel from './card-model'
 import {
   Box,
-  Button,
-  Card,
-  Container,
   Grid,
   Flex,
-  Heading,
   Image,
-  Badge,
-  Link,
   Text
 } from 'theme-ui'
 import ReactTooltip from 'react-tooltip'
@@ -60,6 +54,7 @@ export default function Clubs() {
       <Cover />
       <Text
         variant="title"
+        as="h3"
         sx={{
           borderRadius: 'default',
           px: 2,
@@ -69,7 +64,8 @@ export default function Clubs() {
           bg: ['transparent', 'white', 'white'],
           fontSize: ['36px', 4, 5],
           position: 'relative',
-          zIndex: 2
+          zIndex: 2,
+          width: 'fit-content'
         }}
       >
         Network of 400+ coding clubs
@@ -103,14 +99,6 @@ export default function Clubs() {
             >
               Start a club
             </Buttons>
-            {/* <Buttons
-              content="click for our clubs map and reach out to team@hackclub.com to be connected"
-              id="1"
-              icon="rep"
-              link="/map"
-            >
-              Join a Hack Club near you
-            </Buttons> */}
           </Flex>
         </Box>
       </Grid>

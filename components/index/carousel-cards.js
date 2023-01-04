@@ -1,12 +1,7 @@
 import {
   Box,
-  Button,
   Card,
-  Container,
-  Grid,
-  Heading,
   Image,
-  Badge,
   Link,
   Text
 } from 'theme-ui'
@@ -29,7 +24,17 @@ export default function CarouselCards({
         position: 'relative',
         display: 'inline-block',
         transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
-        '&:hover': { transform: 'scale(1.0625)' }
+        '&:hover': { transform: 'scale(1.0625)' },
+        '.icon': {
+          transition:
+            'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
+        },
+        ':hover,:focus': {
+          '.icon': {
+            transform: 'translateX(28px) translateY(-28px)',
+            opacity: 0
+          }
+        }
       }}
     >
       <Link
@@ -67,7 +72,7 @@ export default function CarouselCards({
           }}
         >
           <Text
-            as="h2"
+            as="h3"
             sx={{ color: titleColor, fontSize: ['20px', '21px', '22px'] }}
           >
             {title}
@@ -89,6 +94,7 @@ export default function CarouselCards({
               opacity: 0.3,
               fontSize: [1, '16px', '20px']
             }}
+            className="icon"
           />
         </Card>
       </Link>

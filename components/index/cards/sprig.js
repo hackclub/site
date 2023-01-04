@@ -1,14 +1,9 @@
 import CardModel from './card-model'
 import {
   Box,
-  Button,
-  Card,
-  Container,
   Flex,
   Grid,
-  Heading,
   Image,
-  Badge,
   Link,
   Text
 } from 'theme-ui'
@@ -144,7 +139,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
             {game.title}
           </Text>
           <Text
-            as="span"
+            as="h4"
             sx={{
               fontWeight: '300',
               fontSize: '1.1rem',
@@ -194,8 +189,11 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
         sx={{
           width: ['150px', '180px', '220px'],
           zIndex: 3,
-          position: 'relative'
+          position: 'relative',
+          fontSize: ['36px', 4, 5],
+          color: 'white'
         }}
+        alt="Sprig"
       />
       <Grid columns={[1, 2]}>
         <Box>

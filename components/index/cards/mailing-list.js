@@ -8,7 +8,7 @@ import {
   Text,
   Alert,
   Card,
-  Heading,
+  Flex,
   Grid
 } from 'theme-ui'
 import CardModel from './card-model'
@@ -66,66 +66,77 @@ const MailingList = () => {
   return (
     <Card
       sx={{
-        maxWidth: 'narrowPlus',
+        // maxWidth: 'narrowPlus',
         mx: 'auto',
         // mt: [3, 4],
         background: 'rgb(255,255,255, 0.45)',
         backdropFilter: 'blur(8px)'
       }}
     >
-      <Text variant="title" sx={{ fontSize: ['36px', 4, 5], zIndex: 2 }}>
-        Stay in touch
-      </Text>
-      <Text sx={{ color: 'muted' }} as="p">
-        We’ll send you an email no more than once a month, when we work on
-        something cool for you.
-      </Text>
-      <Grid
-        as="form"
-        ref={formRef}
-        onSubmit={handleSubmit}
-        gap={[2, 3]}
+      <Flex
         sx={{
-          mt: [null, 3],
-          gridTemplateColumns: [null, '1fr 1fr auto'],
-          textAlign: 'left',
-          alignItems: 'end',
-          input: { bg: 'sunken' }
+          justifyContent: 'space-between',
+          alignItems: ['left', 'left', 'center'],
+          flexDirection: ['column', 'column', 'row'],
+          gap: '10px'
         }}
       >
-        <div>
-          <Label htmlFor="location">Name</Label>
-          <Input
-            autofillBackgroundColor="highlight"
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Fiona Hackworth"
-            required
-          />
-        </div>
-        <div>
-          <Label htmlFor="email">Email</Label>
-          <Input
-            autofillBackgroundColor="highlight"
-            type="email"
-            name="email"
-            id="email"
-            placeholder="fiona@hackclub.com"
-            required
-          />
-        </div>
-        <Button type="submit" sx={{ mt: [2, 0] }}>
-          {submitting ? (
-            <>
-              <Loading />
-              &nbsp;Subscribe
-            </>
-          ) : (
-            'Subscribe'
-          )}
-        </Button>
-      </Grid>
+        <Box>
+          <Text variant="title" sx={{ fontSize: [4, '36px', '42px', 5], zIndex: 2 }}>
+            Stay in touch
+          </Text>
+          <Text sx={{ color: 'muted', mt: 2, maxWidth: ['40ch', '40ch', '28ch', '40ch'] }} as="p">
+            We’ll send you an email no more than once a month, when we work on
+            something cool for you.
+          </Text>
+        </Box>
+        <Grid
+          as="form"
+          ref={formRef}
+          onSubmit={handleSubmit}
+          gap={[2, 3]}
+          sx={{
+            mt: [null, 3],
+            gridTemplateColumns: [null, '1fr 1fr auto'],
+            textAlign: 'left',
+            alignItems: 'end',
+            input: { bg: 'sunken' }
+          }}
+        >
+          <div>
+            <Label htmlFor="location">Name</Label>
+            <Input
+              autofillBackgroundColor="highlight"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Fiona Hackworth"
+              required
+            />
+          </div>
+          <div>
+            <Label htmlFor="email">Email</Label>
+            <Input
+              autofillBackgroundColor="highlight"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="fiona@hackclub.com"
+              required
+            />
+          </div>
+          <Button type="submit" sx={{ mt: [2, 0] }}>
+            {submitting ? (
+              <>
+                <Loading />
+                &nbsp;Subscribe
+              </>
+            ) : (
+              'Subscribe'
+            )}
+          </Button>
+        </Grid>
+      </Flex>
 
       {submitted && (
         <Alert variant="primary" sx={{ bg: 'green', mt: [2, 3] }}>

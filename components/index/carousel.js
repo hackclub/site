@@ -1,13 +1,5 @@
 import {
   Box,
-  Button,
-  Card,
-  Container,
-  Grid,
-  Heading,
-  Image,
-  Badge,
-  Link,
   Text
 } from 'theme-ui'
 import CarouselCards from './carousel-cards'
@@ -33,7 +25,7 @@ export default function Carousel() {
         <Box sx={{ mt: 4 }}>
           <Text
             variant="eyebrow"
-            as="div"
+            as="h4"
             sx={{
               fontSize: ['22px', 2, 3],
               mt: [4, 4, 5],

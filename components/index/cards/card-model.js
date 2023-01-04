@@ -1,15 +1,9 @@
-import Tilt from './tilt'
 import Icon from '../../icon'
 import {
   Box,
-  Button,
   Card,
   Flex,
-  Container,
-  Grid,
-  Heading,
   Image,
-  Badge,
   Link,
   Text
 } from 'theme-ui'
@@ -148,7 +142,8 @@ const CardModel = ({
     ) : (
       <></>
     )}
-    <Image
+    {image && (
+      <Image
         src={image}
         draggable="false"
         sx={{
@@ -161,6 +156,7 @@ const CardModel = ({
           zIndex: 0
         }}
       />
+    )}
     {children}
     <ReactTooltip />
   </Card>

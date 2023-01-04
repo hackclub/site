@@ -2,13 +2,6 @@ import React, { useState } from 'react'
 import {
   Box,
   Button,
-  Card,
-  Container,
-  Grid,
-  Heading,
-  Image,
-  Badge,
-  Link,
   Text
 } from 'theme-ui'
 import ReactTooltip from 'react-tooltip'
@@ -27,7 +20,7 @@ export default function Buttons({
   let fontWeight = primary != null ? '700' : '400'
 
   return (
-    <Box py={1}>
+    <Box as="button" sx={{background: 'transparent', border: 'none', color: 'white'}}py={1}>
       <Button
         data-place="right"
         data-for={id}

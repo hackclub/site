@@ -6,10 +6,10 @@ const Tilt = ({ options = {}, children, ...props }) => {
   const root = useRef(null)
   useEffect(() => {
     VanillaTilt.init(root.current, {
-      max: 2,
+      max: 3,
       scale: 1.05,
       speed: 600,
-      glare: false,
+      glare: true,
       'max-glare': 0.25,
       gyroscope: false,
       ...options

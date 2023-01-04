@@ -1,15 +1,7 @@
 import CardModel from './card-model'
 import {
   Box,
-  Button,
-  Card,
-  Container,
-  Flex,
   Grid,
-  Heading,
-  Image,
-  Badge,
-  Link,
   Text
 } from 'theme-ui'
 import { Fade } from 'react-reveal'
@@ -26,7 +18,7 @@ export default function Bank({ data }) {
           backgroundColor: 'dark',
           minHeight: ['300px', '400px', '380px'],
           backgroundColor: 'darkless',
-          backgroundImage: `url('https://icons.hackclub.com/api/icons/0x29282C/glyph:bank-account.svg')`,
+          backgroundImage: `url('https://icons.hackclub.com/api/icons/0x302F33/glyph:bank-account.svg')`,
           backgroundSize: '40px 40px',
           backgroundRepeat: 'repeat',
           backgroundPosition: '10% 10%',
@@ -47,6 +39,15 @@ export default function Bank({ data }) {
             <Text as="p" variant="subtitle">
               This platform is built and maintained by the Hack&nbsp;Club team.
             </Text>
+            <Buttons
+              id="27"
+              icon="bank-account"
+              link="/bank"
+              primary="red"
+              sx={{ mt: [0, 3, 4] }}
+            >
+              Start banking!
+            </Buttons>
             <Box
               sx={{
                 position: 'relative',
@@ -65,7 +66,7 @@ export default function Bank({ data }) {
                   textAlign: 'center',
                   '&:before': {
                     content: '""',
-                    backgroundImage: 'url(/home/bank-computer.webp)',
+                    backgroundImage: 'url(/home/bank-mobile.webp)',
                     backgroundSize: '100%',
                     backgroundRepeat: 'no-repeat',
                     width: '100%',
@@ -75,7 +76,7 @@ export default function Bank({ data }) {
                   }
                 }}
               >
-                <Box
+                {/* <Box
                   sx={{
                     backgroundImage: 'url(/home/bank-screen.webp)',
                     zIndex: 2,
@@ -88,18 +89,9 @@ export default function Bank({ data }) {
                     backgroundSize: '100%',
                     backgroundRepeat: 'no-repeat'
                   }}
-                ></Box>
+                ></Box> */}
               </Box>
             </Box>
-            <Buttons
-              id="27"
-              icon="bank-account"
-              link="/bank"
-              primary="red"
-              sx={{ mt: [0, 3, 4] }}
-            >
-              Start banking!
-            </Buttons>
           </Box>
         </Grid>
       </CardModel>
@@ -107,7 +99,7 @@ export default function Bank({ data }) {
         sx={{
           position: 'absolute',
           right: [0, '-120px', '-30px'],
-          bottom: [0, '-30px', '-60px'],
+          bottom: [0, '-30px', '-50px'],
           display: ['none', 'block', 'block'],
           zIndex: 3
         }}
@@ -122,7 +114,7 @@ export default function Bank({ data }) {
             textAlign: 'center',
             '&:before': {
               content: '""',
-              backgroundImage: 'url(/home/bank-computer.webp)',
+              backgroundImage: 'url(/home/bank.webp)',
               backgroundSize: '100%',
               backgroundRepeat: 'no-repeat',
               width: '100%',
@@ -132,7 +124,7 @@ export default function Bank({ data }) {
             }
           }}
         >
-          <Box
+          {/* <Box
             sx={{
               backgroundImage: 'url(/home/bank-screen.webp)',
               zIndex: 2,
@@ -145,7 +137,7 @@ export default function Bank({ data }) {
               backgroundSize: '100%',
               backgroundRepeat: 'no-repeat'
             }}
-          ></Box>
+          ></Box> */}
         </Box>
       </Box>
     </Box>
