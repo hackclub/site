@@ -114,11 +114,6 @@ const Page = ({ repos, transparentAccounts }) => (
               url={`https://bank.hackclub.com/${account.slug}`}
             />
           ))}
-        <BankProject name="HQ" url={`https://bank.hackclub.com/hq/`} />
-        <BankProject
-          name="Endowment"
-          url={`https://bank.hackclub.com/endowment`}
-        />
       </Grid>
       <Heading
         variant="headline"
