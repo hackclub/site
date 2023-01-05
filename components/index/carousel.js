@@ -54,15 +54,6 @@ export default function Carousel() {
                   link="https://sprig.hackclub.com"
                 />
                 <CarouselCards
-                  background="#000"
-                  titleColor="#FF4794"
-                  descriptionColor="white"
-                  title="Epoch"
-                  description="Attend the most epic high school hackathon this New Year’s"
-                  img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f386@2x.png"
-                  link="https://epoch.hackclub.com"
-                />
-                <CarouselCards
                   background="blue"
                   titleColor="white"
                   textColor="white"

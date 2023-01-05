@@ -227,7 +227,7 @@ export default function Hackathons({ data, stars }) {
               >
                 <Image
                   src={data.logo}
-                  alt={`logo`}
+                  alt={`${data.name} logo`}
                   loading="lazy"
                   sx={{
                     height: '70%',
