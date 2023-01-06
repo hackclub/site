@@ -106,7 +106,7 @@ const Page = ({ repos, transparentAccounts }) => (
       </Text>
       <Grid columns={2} gap={3} mt={2} mb={[4]}>
         {transparentAccounts
-          .filter(account => account.category === 'hack_club_hq')
+          .filter(account => account.category === 'hack club hq')
           .map(account => (
             <BankProject
               key={account.id}
