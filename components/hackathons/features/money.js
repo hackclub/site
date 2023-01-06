@@ -73,7 +73,7 @@ const Content = () => (
           leadText="A suite of free tools."
           body={`
           When you join Hack Club Bank, you'll have access to a suite of free tools including
-          debit cards, a domain name, Google Workspace, stickers, and more.`}
+          debit cards, a domain name, stickers, and more.`}
         />
       </List>
       <NextLink href="/bank" passHref>

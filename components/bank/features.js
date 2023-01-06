@@ -120,13 +120,6 @@ export default function Features({ partner = false }) {
             name="Transparency Mode"
             body="If you’d like, show your finances on public pages for full transparency."
           />
-          {!partner && (
-            <Module
-              icon="google"
-              name="Google Workspace"
-              body="Get instant, free accounts for your team (like sam@innovationcircuit.com)."
-            />
-          )}
           <Module
             icon="email"
             name="Postal"

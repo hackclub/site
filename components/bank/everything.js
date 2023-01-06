@@ -24,7 +24,6 @@ export default function Everything({ fee, partner = false }) {
             {Object.entries({
               'Legal entity with 501(c)(3) status': 'briefcase',
               'We do your taxes': 'checkmark',
-              'Collect donations via card, check, or ACH': 'enter',
               'Share access with your whole team': 'member-add',
               'Bank account backed by Silicon Valley Bank': 'bank-account',
               'Instant invoice sending': 'transactions',
@@ -66,7 +65,6 @@ export default function Everything({ fee, partner = false }) {
             ))}
             {!partner
               ? Object.entries({
-                  'Instant Google Workspace & email addresses': '',
                   'Online, embeddable donation form': ''
                 }).map(([item, date]) => (
                   <ListItem
