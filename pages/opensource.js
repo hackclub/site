@@ -238,9 +238,9 @@ export async function getStaticProps() {
     org: 'hackclub'
   })
 
-  const transparentAccounts = await fetch(
+  const transparentAccounts = (await fetch(
     'https://bank.hackclub.com/api/v3/organizations'
-  ).then(res => res.json())
+  ).then(res => res.json())).filter(account => account.category === 'hack club hq')
 
   return { props: { repos, transparentAccounts }, revalidate: 30 }
 }
