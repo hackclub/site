@@ -239,7 +239,7 @@ export async function getStaticProps() {
 
   const transparentAccounts = (await fetch(
     'https://bank.hackclub.com/api/v3/organizations'
-  ).then(res => res.json())).filter(account => account.category === 'hack club hq')
+  ).then(res => res.json())).filter(account => account.category.replaceAll(' ', '_') === 'hack_club_hq')
 
   return { props: { repos, transparentAccounts }, revalidate: 30 }
 }
