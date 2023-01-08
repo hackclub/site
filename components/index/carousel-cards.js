@@ -1,12 +1,7 @@
 import {
   Box,
-  Button,
   Card,
-  Container,
-  Grid,
-  Heading,
   Image,
-  Badge,
   Link,
   Text
 } from 'theme-ui'
@@ -29,7 +24,17 @@ export default function CarouselCards({
         position: 'relative',
         display: 'inline-block',
         transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
-        '&:hover': { transform: 'scale(1.0625)' }
+        '&:hover': { transform: 'scale(1.0625)' },
+        '.icon': {
+          transition:
+            'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
+        },
+        ':hover,:focus': {
+          '.icon': {
+            transform: 'translateX(28px) translateY(-28px)',
+            opacity: 0
+          }
+        }
       }}
     >
       <Link
@@ -46,7 +51,7 @@ export default function CarouselCards({
           src={img}
           sx={{
             position: 'absolute',
-            top: ['-26px', '-30px', '-40px'],
+            top: ['-26px', '-30px', '-35px'],
             left: ['10px', '12px', '15px'],
             zIndex: 2,
             width: ['42px', '50px', '58px'],
@@ -62,11 +67,12 @@ export default function CarouselCards({
             color: 'white',
             width: ['200px', '300px', '300px'],
             padding: ['12px !important', '16px !important', '20px !important'],
+            paddingTop: ['14px !important', '20px !important', '24px !important'],
             height: '100%'
           }}
         >
           <Text
-            as="h2"
+            as="h3"
             sx={{ color: titleColor, fontSize: ['20px', '21px', '22px'] }}
           >
             {title}
@@ -88,6 +94,7 @@ export default function CarouselCards({
               opacity: 0.3,
               fontSize: [1, '16px', '20px']
             }}
+            className="icon"
           />
         </Card>
       </Link>

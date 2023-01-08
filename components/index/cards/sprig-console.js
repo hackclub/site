@@ -1,20 +1,12 @@
 import CardModel from './card-model'
 import {
   Box,
-  Button,
-  Card,
-  Container,
-  Flex,
   Grid,
-  Heading,
   Image,
-  Badge,
-  Link,
   Text
 } from 'theme-ui'
 import Buttons from './button'
-import useSWR from 'swr'
-import fetcher from '../../../lib/fetcher'
+import Tilt from './tilt'
 /** @jsxImportSource theme-ui */
 
 export default function SprigConsole({ stars, consoleCount }) {
@@ -23,11 +15,10 @@ export default function SprigConsole({ stars, consoleCount }) {
       <CardModel
         github_link="https://github.com/hackclub/sprig-hardware"
         stars={stars}
-        // link="https://sprig.hackclub.com"
         color="white"
         sx={{
           backgroundSize: 'cover',
-          backgroundColor: '#2E5626',
+          backgroundColor: '#1A3C14',
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
           minHeight: ['300px', '400px', '400px']
@@ -50,22 +41,25 @@ export default function SprigConsole({ stars, consoleCount }) {
         <Image
           src="https://cloud-8u6hh0ho9-hack-club-bot.vercel.app/0sprig_console.svg"
           sx={{
-            width: ['90%', '450px', '500px'],
+            width: ['90%', '320px', '450px', '500px'],
             mt: ['42px', 0, 0],
             position: 'relative',
-            zIndex: 2
+            zIndex: 2,
+            fontSize: ['36px', 4, 5],
+            color: 'white'
           }}
+          alt="Sprig console"
         />
         <Text
           as="p"
           variant="subheadline"
           sx={{
-            background: 'white',
             px: 2,
             py: 1,
             width: 'fit-content',
             borderRadius: 'extra',
-            color: '#016535',
+            color: 'white',
+            border: 'rgba(255,255,255,0.2) dashed 1px',
             zIndex: 2,
             position: ['absolute', 'relative', 'relative'],
             top: ['24px', 0, '5px']
@@ -74,7 +68,7 @@ export default function SprigConsole({ stars, consoleCount }) {
           {420 - consoleCount} consoles left
         </Text>
         <Grid
-          columns={[1, '1.2fr 1fr']}
+          columns={[1, 1, '1.2fr 1fr', '1.2fr 1fr']}
           sx={{ zIndex: 2, position: 'relative' }}
         >
           <Box>
@@ -84,7 +78,9 @@ export default function SprigConsole({ stars, consoleCount }) {
                 width: ['120%', '', ''],
                 maxWidth: ['120%', '', ''],
                 ml: ['-10%', '', ''],
-                display: [null, 'none', 'none']
+                mt: ['-10px', '-30px', '', ''],
+                mb: ['-15px', '-30px', '', ''],
+                display: [null, null, 'none', 'none']
               }}
             />
             <Text as="p" variant="subtitle" mt={[0, null, null]}>
@@ -106,18 +102,22 @@ export default function SprigConsole({ stars, consoleCount }) {
           <Box></Box>
         </Grid>
       </CardModel>
-      <Image
-        src="https://cloud-b8z9l7ihq-hack-club-bot.vercel.app/0sprig-light-top-min.png"
-        sx={{
-          position: 'absolute',
-          right: ['', '-50%', '-35%', '-25%'],
-          top: ['', '12%', '20%', '10%'],
-          width: ['', '100%', '85%', '70%'],
-          pointerEvents: 'none',
-          userSelect: 'none',
-          display: ['none', 'block', 'block']
-        }}
-      />
+      <Tilt>
+        <Image
+          src="/home/sprig-console.webp"
+          sx={{
+            position: 'absolute',
+            right: ['', '-50%', '-35%', '-25%'],
+            top: ['', '15%', '15%', '10%'],
+            width: ['', '100%', '85%', '70%'],
+            display: ['none', 'none', 'block', 'block'],
+            '&:hover': {
+              cursor: 'pointer'
+            },
+            zIndex: 3
+          }}
+        />
+      </Tilt>
     </Box>
   )
 }

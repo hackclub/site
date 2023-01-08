@@ -1,4 +1,4 @@
-import { Card, Box, Text, Grid, Badge, Flex, Avatar, Heading } from 'theme-ui'
+import { Box, Text, Grid, Badge, Flex, Avatar, Heading } from 'theme-ui'
 import tt from 'tinytime'
 import Link from 'next/link'
 import { keyframes } from '@emotion/react'
@@ -112,15 +112,6 @@ export default function Events({ events }) {
   console.log(events.length)
   return (
     <Box mb={3}>
-      {/* <Heading>
-        Come hangout, talk to cool people*, and hack together at one of our {' '}
-        <Link href="https://events.hackclub.com" target="_blank">
-          upcoming events
-        </Link>
-      </Heading> */}
-      {/* <Text>
-        {events.map(e => !past(e.end)) ? <>Upcoming events <Dot /></> : <></>}
-      </Text> */}
       <Grid
         mt={3}
         mb={2}
@@ -137,41 +128,45 @@ export default function Events({ events }) {
           !past(event.end) ? <Event {...event} key={event.id} /> : <></>
         )}
       </Grid>
-      <Text sx={{ display: 'block' }}>
-        We just had these events:{' '}
-        {events.slice(0, 3).map(event =>
-          past(event.end) ? (
-            <Badge
-              variant="pill"
-              sx={{
-                zIndex: '1',
-                bg: 'rgb(255, 255, 255, 0.3)',
-                color: 'white',
-                textDecoration: 'none',
-                fontWeight: 'normal',
-                fontSize: 'small',
-                mr: 1,
-                my: 1,
-                ':hover': { bg: 'rgb(255, 255, 255, 0.5)', cursor: 'pointer' },
-                transition: '0.3s ease',
-                a: {
+      {events.length != 0 ? (
+        <Text sx={{ display: 'block', mb: [3, 3, 4] }}>
+          We just had these events:{' '}
+          {events.slice(0, 3).map(event =>
+            past(event.end) ? (
+              <Badge
+                variant="pill"
+                sx={{
+                  zIndex: '1',
+                  bg: 'rgb(255, 255, 255, 0.3)',
+                  color: 'white',
                   textDecoration: 'none',
-                  color: 'white'
-                }
-              }}
-            >
-              <Link href={`https://events.hackclub.com/${event.slug}`}>
-                {event.title}
-              </Link>
-            </Badge>
-          ) : (
-            <></>
-          )
-        )}{' '}
-      </Text>
-      {/* <Link href="/amas" target="_blank">
-        *like George Hotz, Dylan Field, Sal Khan, and more
-      </Link> */}
+                  fontWeight: 'normal',
+                  fontSize: 'small',
+                  mr: 1,
+                  my: 1,
+                  ':hover': {
+                    bg: 'rgb(255, 255, 255, 0.5)',
+                    cursor: 'pointer'
+                  },
+                  transition: '0.3s ease',
+                  a: {
+                    textDecoration: 'none',
+                    color: 'white'
+                  }
+                }}
+              >
+                <Link href={`https://events.hackclub.com/${event.slug}`}>
+                  {event.title}
+                </Link>
+              </Badge>
+            ) : (
+              <></>
+            )
+          )}{' '}
+        </Text>
+      ) : (
+        <></>
+      )}
     </Box>
   )
 }

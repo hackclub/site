@@ -1,15 +1,9 @@
 import CardModel from './card-model'
 import {
   Box,
-  Button,
-  Card,
-  Container,
   Flex,
   Grid,
-  Heading,
   Image,
-  Badge,
-  Link,
   Text
 } from 'theme-ui'
 import Buttons from './button'
@@ -33,27 +27,19 @@ export default function Sinerider({ stars }) {
       }}
       position={[null, 'bottom', 'bottom']}
       highlight="#271932"
+      image="/home/sinerider-bg.webp"
     >
-      <Image
-        src="/home/sinerider-bg.webp"
-        sx={{
-          objectFit: 'cover',
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          ml: ['-24px', '-32px', '-32px', '-32px'],
-          mt: ['-24px', '-32px', '-32px', '-32px'],
-          zIndex: 0
-        }}
-      />
       <Image
         src="https://cloud-9cei11221-hack-club-bot.vercel.app/0logo_text_2.png"
         sx={{
           width: ['200px', '250px', '300px'],
           mt: ['-10px', '-20px', '-20px'],
           position: 'relative',
-          zIndex: 2
+          zIndex: 2,
+          fontSize: ['36px', 4, 5],
+          color: 'white'
         }}
+        alt="Sinerider"
       />
       <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Box></Box>
@@ -66,8 +52,6 @@ export default function Sinerider({ stars }) {
           </Text>
           <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
             <Buttons
-              // content="you could create the art, be a scene maker, or write graphics rendering code"
-              id="4"
               icon="rainbow"
               href="https://github.com/hackclub/sinerider/#readme"
               target="_blank"
@@ -77,19 +61,7 @@ export default function Sinerider({ stars }) {
             >
               Join the development
             </Buttons>
-            {/* <Buttons
-              // content="DM @cwalker in Slack to learn more"
-              id="5"
-              icon="view"
-              // href="/slack"
-              target="_blank"
-              rel="noopener"
-            >
-              Be a scene maker
-            </Buttons> */}
             <Buttons
-              // content="DM @cwalker in Slack to learn more"
-              id="26"
               icon="view"
               href="https://sinerider.com"
               target="_blank"
@@ -98,18 +70,6 @@ export default function Sinerider({ stars }) {
               View a game preview
             </Buttons>
           </Flex>
-          {/* <Button
-            variant="primary"
-            sx={{
-              backgroundColor: '#CAB4D4',
-              color: '#271932',
-              mt: 3
-            }}
-            as="a"
-            href="https://github.com/hackclub/sinerider/#readme"
-          >
-            Join the development
-          </Button> */}
         </Box>
       </Grid>
     </CardModel>

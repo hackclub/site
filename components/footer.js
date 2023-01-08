@@ -83,7 +83,7 @@ const Footer = ({ dark = false, children, ...props }) => (
       >
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
-            Hack Club
+            Hack&nbsp;Club
           </Heading>
           <NextLink href="/philosophy" passHref>
             <Link>Philosophy</Link>
@@ -181,7 +181,7 @@ const Footer = ({ dark = false, children, ...props }) => (
         </Box>
       </Grid>
       <Text as="p" variant="caption" sx={{ mt: 3 }}>
-        © {new Date().getFullYear()} Hack Club. 501(c)(3) nonprofit (EIN:
+        © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
         81-2908499)
       </Text>
     </Container>

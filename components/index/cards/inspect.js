@@ -1,14 +1,4 @@
 import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Image,
-  Badge,
-  Link,
   Text
 } from 'theme-ui'
 import { keyframes } from '@emotion/react'

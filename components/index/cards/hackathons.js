@@ -1,14 +1,9 @@
 import CardModel from './card-model'
 import {
   Box,
-  Button,
-  Card,
-  Container,
   Flex,
   Grid,
-  Heading,
   Image,
-  Badge,
   Link,
   Text
 } from 'theme-ui'
@@ -36,31 +31,15 @@ const Cover = () => (
 )
 
 export default function Hackathons({ data, stars }) {
-  // let [count, setCount] = useState(0)
-  // useEffect(() => {
-  //   function add() {
-  //     if (count < data.length) {
-  //       setCount(count + 1)
-  //     } else {
-  //       setCount(0)
-  //     }
-  //   }
-
-  //     setInterval(add, 2000)
-  // }, [count])
   return (
     <CardModel
       color="white"
       sx={{
-        backgroundColor: 'dark' // background:
-        //   'linear-gradient(to bottom,rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.4) 25%,rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.6) 100%), url("https://hackclub.com/bank/bg.webp")',
-        // backgroundPositon: 'center center',
-        // backgroundSize: '100% auto'
+        backgroundColor: 'dark'
       }}
       stars={stars}
       github_link="https://github.com/hackclub/hackathons"
       highlight="blue"
-      // background="https://hackclub.com/bank/bg.webp"
     >
       <Image
         src="/home/hackathons-bg.webp"
@@ -77,6 +56,7 @@ export default function Hackathons({ data, stars }) {
       <Cover />
       <Text
         variant="title"
+        as="h3"
         sx={{ fontSize: ['36px', 4, 5], position: 'relative', zIndex: 2 }}
       >
         High school hackathons
@@ -109,17 +89,6 @@ export default function Hackathons({ data, stars }) {
               Organizer? Learn more
             </Buttons>
           </Flex>
-          {/* <Button
-            variant="primary"
-            sx={{ bg: 'blue' }}
-            mt={3}
-            as="a"
-            href="https://editor.sprig.hackclub.com"
-            target="_blank"
-            rel="noopener"
-          >
-            Find a hackathon
-          </Button> */}
         </Box>
         <Flex
           sx={{
@@ -133,8 +102,8 @@ export default function Hackathons({ data, stars }) {
           }}
         >
           <Box sx={{ width: 'fit-content', float: 'right' }}>
-            <Text sx={{ fontSize: 'small', width: 'fit-content' }}>
-              Upcoming hackathons <Dot />
+            <Text as="h4" sx={{ fontSize: 'small', width: 'fit-content' }}>
+              <Dot /> Upcoming hackathons
             </Text>
             {data.slice(0, 5).map(data => (
               <Box
@@ -165,7 +134,8 @@ export default function Hackathons({ data, stars }) {
                       justifyContent: 'center',
                       borderRadius: 'circle',
                       height: ['20px', '25px', '30px'],
-                      width: ['20px', '25px', '30px']
+                      width: ['20px', '25px', '30px'],
+                      mr: '10px'
                     }}
                   >
                     <Image
@@ -181,9 +151,30 @@ export default function Hackathons({ data, stars }) {
                     />
                   </Box>
                 )}
-                <Link href={data.website}>
-                  {data.name} | {formatDate('mmmm d', new Date(data.start))}
-                </Link>
+                <Flex sx={{ flexDirection: 'column' }}>
+                  <Link
+                    href={data.website}
+                    as="a"
+                    target="_blank"
+                    sx={{
+                      color: 'inherit',
+                      textDecoration: 'none',
+                      fontWeight: 'bold'
+                    }}
+                  >
+                    {data.name}
+                  </Link>
+                  <Text
+                    as="h6"
+                    sx={{
+                      fontWeight: '400',
+                      fontSize: '0.8em',
+                      color: 'sunken'
+                    }}
+                  >
+                    {formatDate('mmmm d', new Date(data.start))}
+                  </Text>
+                </Flex>
               </Box>
             ))}
           </Box>
@@ -199,8 +190,9 @@ export default function Hackathons({ data, stars }) {
           display: ['block', 'block', 'none']
         }}
       >
-        <Text sx={{ fontSize: 'small' }}>Upcoming hackathon:</Text>
-        {data.slice(0, 1).map(data => (
+        <Text sx={{ fontSize: 'small' }}>Upcoming hackathons:</Text>
+        <Flex sx={{gap: '10px'}}>
+        {data.slice(0, 2).map(data => (
           <Box
             sx={{
               zIndex: '1',
@@ -229,7 +221,8 @@ export default function Hackathons({ data, stars }) {
                   justifyContent: 'center',
                   borderRadius: 'circle',
                   height: ['20px', '25px', '30px'],
-                  width: ['20px', '25px', '30px']
+                  width: ['20px', '25px', '30px'],
+                  mr: '5px'
                 }}
               >
                 <Image
@@ -240,7 +233,8 @@ export default function Hackathons({ data, stars }) {
                     height: '70%',
                     width: '70%',
                     objectFit: 'contain',
-                    borderRadius: 'default'
+                    borderRadius: 'default',
+                    fontSize: 'small'
                   }}
                 />
               </Box>
@@ -248,6 +242,7 @@ export default function Hackathons({ data, stars }) {
             <Link href={data.website}>{data.name}</Link>
           </Box>
         ))}
+        </Flex>
       </Flex>
     </CardModel>
   )

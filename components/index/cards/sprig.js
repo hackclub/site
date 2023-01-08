@@ -1,14 +1,9 @@
 import CardModel from './card-model'
 import {
   Box,
-  Button,
-  Card,
-  Container,
   Flex,
   Grid,
-  Heading,
   Image,
-  Badge,
   Link,
   Text
 } from 'theme-ui'
@@ -144,7 +139,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
             {game.title}
           </Text>
           <Text
-            as="span"
+            as="h4"
             sx={{
               fontWeight: '300',
               fontSize: '1.1rem',
@@ -184,30 +179,21 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
     <CardModel
       github_link="https://github.com/hackclub/sprig/"
       color="white"
-      // background="https://sprig.hackclub.com/background.jpg"
       stars={stars}
       highlight="#FFDE4D"
       sx={{ backgroundColor: '#0C0C16' }}
+      image="/home/sprig-bg.webp"
     >
-      <Image
-        src="/home/sprig-bg.webp"
-        sx={{
-          objectFit: 'cover',
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          ml: ['-24px', '-32px', '-32px', '-32px'],
-          mt: ['-24px', '-32px', '-32px', '-32px'],
-          zIndex: 0
-        }}
-      />
       <Image
         src="/home/sprig-logo.webp"
         sx={{
           width: ['150px', '180px', '220px'],
           zIndex: 3,
-          position: 'relative'
+          position: 'relative',
+          fontSize: ['36px', 4, 5],
+          color: 'white'
         }}
+        alt="Sprig"
       />
       <Grid columns={[1, 2]}>
         <Box>

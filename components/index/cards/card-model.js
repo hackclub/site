@@ -1,15 +1,9 @@
-import Tilt from './tilt'
 import Icon from '../../icon'
 import {
   Box,
-  Button,
   Card,
   Flex,
-  Container,
-  Grid,
-  Heading,
   Image,
-  Badge,
   Link,
   Text
 } from 'theme-ui'
@@ -22,6 +16,7 @@ import Comma from '../../comma'
 const CardModel = ({
   background,
   children,
+  image,
   link,
   highlight,
   github_link,
@@ -56,16 +51,16 @@ const CardModel = ({
         sx={{
           position: ['relative', 'relative', 'relative', 'absolute'],
           width: 'fit-content',
-          // float: 'right',
           right: [0, 0, 0, 3],
           top: [0, 0, 0, 3],
           zIndex: 3,
-          px: 3,
-          py: 2,
+          px: '12px',
+          py: '4px',
           mb: 2,
           float: [null, 'right', null],
-          background: 'rgba(255,255,255,0.2)',
-          borderRadius: 'extra',
+          // background: 'rgba(255,255,255,0.2)',
+          border: 'rgba(255,255,255,0.2) dashed 1px',
+          borderRadius: 'circle',
           fontWeight: 'bold'
         }}
       >
@@ -146,6 +141,21 @@ const CardModel = ({
       </Box>
     ) : (
       <></>
+    )}
+    {image && (
+      <Image
+        src={image}
+        draggable="false"
+        sx={{
+          objectFit: 'cover',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          ml: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px'],
+          zIndex: 0
+        }}
+      />
     )}
     {children}
     <ReactTooltip />

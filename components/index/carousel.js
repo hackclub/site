@@ -1,13 +1,5 @@
 import {
   Box,
-  Button,
-  Card,
-  Container,
-  Grid,
-  Heading,
-  Image,
-  Badge,
-  Link,
   Text
 } from 'theme-ui'
 import CarouselCards from './carousel-cards'
@@ -33,10 +25,10 @@ export default function Carousel() {
         <Box sx={{ mt: 4 }}>
           <Text
             variant="eyebrow"
-            as="div"
+            as="h4"
             sx={{
               fontSize: ['22px', 2, 3],
-              mt: 4,
+              mt: [4, 4, 5],
               maxWidth: 'layout',
               width: '90vw',
               margin: 'auto'
@@ -49,7 +41,7 @@ export default function Carousel() {
               <Box
                 as="div"
                 sx={{ display: 'flex', py: [4, 5, 5] }}
-                onMouseOver={() => setSpeed(3)}
+                onMouseOver={() => setSpeed(2)}
                 onMouseOut={() => setSpeed(6)}
               >
                 <CarouselCards
@@ -60,15 +52,6 @@ export default function Carousel() {
                   description="Join hundreds of teenagers making tile-based JavaScript games"
                   img="https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png"
                   link="https://sprig.hackclub.com"
-                />
-                <CarouselCards
-                  background="#000"
-                  titleColor="#FF4794"
-                  descriptionColor="white"
-                  title="Epoch"
-                  description="Attend the most epic high school hackathon this New Year's"
-                  img="https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f386@2x.png"
-                  link="https://epoch.hackclub.com"
                 />
                 <CarouselCards
                   background="blue"
@@ -83,7 +66,7 @@ export default function Carousel() {
                   background="dark"
                   titleColor="red"
                   textColor="white"
-                  title="Hack Club Bank"
+                  title="Hack&nbsp;Club&nbsp;Bank"
                   description="No. 1 fiscal sponsor for teenagers (we crossed $7 million in transactions)"
                   img="https://emoji.slack-edge.com/T0266FRGM/bank-hackclub-dark/8c6f85f387365072.png"
                   link="/bank"

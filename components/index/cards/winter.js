@@ -1,15 +1,10 @@
 import CardModel from './card-model'
 import {
   Box,
-  Button,
   Card,
-  Container,
   Flex,
   Grid,
   Heading,
-  Image,
-  Badge,
-  Link,
   Text
 } from 'theme-ui'
 import Buttons from './button'
@@ -37,53 +32,28 @@ function BreakdownBox({
         display: 'flex',
         flexDirection: 'column',
         zIndex: 2,
-        p: [3, 3, 4]
+        p: [2, 3, '24px']
         // justifyContent: 'flex-end'
       }}
     >
-      {subtitle ? (
-        <Text
-          as="h1"
+      <Flex sx={{ alignItems: 'center', gap: '10px' }}>
+        <Icon glyph={icon} size={32} color={'white'} />
+        <Heading
           sx={{
-            fontSize: [2, 3, 4]
+            fontSize: ['16px', '16px', '24px', '26px']
           }}
+          as="h4"
         >
-          {subtitle}
-        </Text>
-      ) : (
-        <Box
-          as="span"
-          sx={{
-            width: 'fit-content',
-            bg: bg || 'white',
-            borderRadius: 10,
-            lineHeight: 0,
-            p: 2,
-            mb: 1,
-            display: 'inline-block',
-            transform: ['scale(0.75)', 'none'],
-            transformOrigin: 'bottom left',
-            boxShadow:
-              'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
-          }}
-        >
-          <Icon glyph={icon} size={32} color={color || 'white'} />
-        </Box>
-      )}
-      <Heading
-        sx={{
-          fontSize: ['16px', '16px', '24px', '26px'],
-          pt: [1, 2, 3]
-        }}
-      >
-        {text}
-      </Heading>
+          {text}
+        </Heading>
+      </Flex>
       <Text
         as="p"
         sx={{
-          fontSize: ['18px', '20px', '22px'],
+          fontSize: [1, '16px !important', '18px !important'],
           lineHeight: 1.25,
-          display: ['none', 'none', 'block', 'block']
+          display: ['none', 'none', 'block', 'block'],
+          mt: [1, 2, 2]
         }}
       >
         {description}
@@ -94,38 +64,22 @@ function BreakdownBox({
 
 export default function Winter() {
   return (
-    // <Box sx={{position: 'relative'}}>
     <CardModel
       color="white"
       sx={{
         backgroundSize: 'cover',
-        // backgroundImage:
-        //   'url(https://cloud-6h53svh6x-hack-club-bot.vercel.app/0group_5.png)',
-        // backgroundPosition: 'center top',
-        // backgroundRepeat: 'no-repeat',
         backgroundColor: '#3561A4'
       }}
       position={[null, 'bottom', 'bottom']}
+      image="/home/winter-bg.webp"
       badge
     >
-      <Image
-        src="/home/winter-bg.webp"
-        sx={{
-          objectFit: 'cover',
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          ml: ['-24px', '-32px', '-32px', '-32px'],
-          mt: ['-24px', '-32px', '-32px', '-32px'],
-          zIndex: 0
-        }}
-      />
-      <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+      <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
         Winter hardware wonderland
       </Text>
-      <Text as="p" variant="subtitle">
+      <Text as="p" variant="subtitle" sx={{ maxWidth: '45ch' }}>
         Get $250 to build your own electronics projects alongside hundreds of
-        other teenagers in the Hack Club community!
+        other teenagers in the Hack&nbsp;Club community!
       </Text>
       <Box>
         <Grid gap={[2, 2, 3]} columns={3} py={3}>
@@ -152,12 +106,11 @@ export default function Winter() {
             icon="friend"
             color="#5bc0de"
             text="Friends"
-            description="Find support from our community of 20k+ teenagers in the Hack Club Slack."
+            description="Find support from our community of 20k+ teenagers in the Slack."
             delay="300"
           />
         </Grid>
         <Buttons
-          // content="click to learn more about how to submit a workshop"
           id="13"
           link="/winter"
           icon="freeze"
@@ -168,6 +121,5 @@ export default function Winter() {
         </Buttons>
       </Box>
     </CardModel>
-    // </Box>
   )
 }

@@ -1,14 +1,9 @@
 import CardModel from './card-model'
 import {
   Box,
-  Button,
-  Card,
-  Container,
   Flex,
   Grid,
-  Heading,
   Image,
-  Badge,
   Link,
   Text
 } from 'theme-ui'

@@ -1,15 +1,11 @@
 import CardModel from './card-model'
 import {
   Box,
-  Button,
   Card,
-  Container,
   Flex,
   Grid,
   Heading,
   Image,
-  Badge,
-  Link,
   Text
 } from 'theme-ui'
 import { useState } from 'react'
@@ -49,7 +45,7 @@ const WorkshopCard = ({
     {...props}
   >
     <Box sx={{ p: 3, lineHeight: 'body' }}>
-      <Heading as="h3" sx={{ my: 1 }}>
+      <Heading as="h4" sx={{ my: 1 }}>
         {name}
       </Heading>
       <Text variant="caption">{description}</Text>
@@ -82,7 +78,7 @@ export default function Workshops({ data, stars }) {
       stars={stars}
       highlight="blue"
     >
-      <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+      <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
         Workshops
       </Text>
       <Grid columns={[1, 2, 2]}>

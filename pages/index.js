@@ -1,4 +1,14 @@
-import { Box, Button, Card, Grid, Heading, Badge, Link, Text } from 'theme-ui'
+import {
+  Box,
+  Button,
+  Card,
+  Grid,
+  Heading,
+  Flex,
+  Badge,
+  Link,
+  Text
+} from 'theme-ui'
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
@@ -27,6 +37,7 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Winter from '../components/index/cards/winter'
 import Comma from '../components/comma'
+
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -96,6 +107,19 @@ function Page({
       setCount(0)
     }
   }, [count])
+
+  // const styles = `
+  // ::selection {
+  //   background-color: #e42d42;
+  //   color: #ffffff;
+  //   text-shadow: none;
+  //   -webkit-background-clip: inherit;
+  //   -webkit-text-fill-color: initial;
+  // },
+  // input:-webkit-autofill {
+  //   -webkit-text-fill-color: white;
+  // }
+  // `
   return (
     <>
       <Meta
@@ -120,6 +144,7 @@ function Page({
           position: 'relative'
         }}
       >
+        {/* <style>{styles}</style> */}
         <Secret
           reveal={reveal}
           onMouseEnter={() => {
@@ -149,7 +174,7 @@ function Page({
             src={AssembleImgFile}
             alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
             priority
-            gradient="linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.6))"
+            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
           <Box
             sx={{
@@ -157,11 +182,21 @@ function Page({
               maxWidth: [null, 'layout'],
               position: 'relative',
               mx: 'auto',
-              py: [4, 4, 5]
+              py: [4, 4, 5],
+              textShadow: 'text'
             }}
           >
-            <Text variant="eyebrow" sx={{ color: 'sunken' }}>
-              Welcome to Hack Club
+            <Text
+              variant="eyebrow"
+              sx={{
+                color: 'sunken',
+                pb: 2,
+                position: 'relative',
+                display: 'block'
+              }}
+              as="h4"
+            >
+              Welcome to Hack&nbsp;Club
             </Text>
             <Heading>
               <Text
@@ -197,7 +232,7 @@ function Page({
                       backgroundColor: 'red',
                       position: 'absolute',
                       borderRadius: 10,
-                      transform: 'rotate(-3deg)',
+                      transform: 'rotate(-3deg) translateY(-5px)',
                       color: 'white',
                       whiteSpace: 'nowrap',
                       textDecoration: 'none',
@@ -205,6 +240,7 @@ function Page({
                         cursor: 'pointer'
                       }
                     }}
+                    aria-hidden="true"
                   >
                     teen hackers
                   </Text>
@@ -213,42 +249,49 @@ function Page({
                 <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
                 the world who code together
               </Text>
-              <Button variant="ctaLg" as="a" href="/slack" mt={[3, 0, 0]}>
+              <Button
+                variant="ctaLg"
+                as="a"
+                href="/slack"
+                mt={[3, 0, 0]}
+                sx={{ transformOrigin: 'center left' }}
+              >
                 Join our community
               </Button>
             </Heading>
-            <Box
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: ['flex-start', 'flext-start', 'flex-end'],
+              marginRight: 2,
+              mt: [4, 3, 1]
+            }}
+          >
+            <Badge
+              as="a"
+              href="https://www.youtube.com/watch?v=PnK4gzO6S3Q"
+              target="_blank"
+              rel="noopener"
+              variant="pill"
               sx={{
-                display: 'flex',
-                justifyContent: ['flex-start', 'flext-start', 'flex-end'],
-                marginRight: 2,
-                mt: [4, 3, 1]
+                zIndex: '1',
+                bg: 'black',
+                color: 'white',
+                opacity: 1,
+                textDecoration: 'none',
+                fontWeight: 'normal',
+                ':hover': { opacity: 1 },
+                transition: '0.3s ease'
+                // mixBlendMode: 'multiply'
               }}
+              title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
             >
-              <Badge
-                as="a"
-                href="https://www.youtube.com/watch?v=PnK4gzO6S3Q"
-                target="_blank"
-                rel="noopener"
-                variant="pill"
-                sx={{
-                  zIndex: '1',
-                  bg: '#000',
-                  color: 'white',
-                  opacity: 0.5,
-                  textDecoration: 'none',
-                  fontWeight: 'normal',
-                  ':hover': { opacity: 1 },
-                  transition: '0.3s ease'
-                }}
-                title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
-              >
-                Hackers at Assemble in SF
-              </Badge>
-            </Box>
+              Hackers at Assemble in SF
+            </Badge>
           </Box>
         </Box>
-        <Box as="section" sx={{ pt: [4, 5], color: 'black' }}>
+        <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
           <Box
             sx={{
               position: 'relative',
@@ -259,18 +302,22 @@ function Page({
           >
             <Text
               variant="eyebrow"
-              as="p"
+              as="h4"
               sx={{ fontSize: ['22px', 2, 3], mt: 4 }}
             >
               The rundown
             </Text>
-            <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+            <Text
+              variant="title"
+              as="h1"
+              sx={{ fontSize: ['36px', '48px', '56px'] }}
+            >
               Discover the{' '}
               <Text
                 as="span"
                 sx={{
                   borderRadius: 'default',
-                  px: 2,
+                  px: 1,
                   mx: 0,
                   whiteSpace: ['wrap', 'nowrap', 'nowrap'],
                   color: 'white',
@@ -285,12 +332,16 @@ function Page({
             <Text
               variant="subtitle"
               as="p"
-              sx={{ fontSize: ['18px', '20px', '22px'] }}
+              sx={{
+                fontSize: ['18px', '20px', '22px'],
+                pb: [3, 3, 4],
+                maxWidth: '62ch'
+              }}
             >
-              Every day, thousands of Hack Clubbers gather online and in-person
-              to make things with code. Whether you’re a beginner programmer or
-              have years of experience, there’s a place for you at Hack Club.
-              Read about our{' '}
+              Every day, thousands of Hack&nbsp;Clubbers gather online and
+              in-person to make things with code. Whether you’re a beginner
+              programmer or have years of experience, there’s a place for you at
+              Hack&nbsp;Club. Read about our{' '}
               <Link href="/philosophy" target="_blank" rel="noopener">
                 hacker ethic
               </Link>
@@ -437,6 +488,7 @@ function Page({
                   p: { my: 0, fontSize: ['18px', '20px', '22px'] },
                   strong: { display: 'block', fontSize: ['22px', 2, 3] }
                 }}
+                as="ul"
               >
                 <Grid
                   columns="auto 1fr"
@@ -449,19 +501,22 @@ function Page({
                     textDecoration: 'none',
                     borderRadius: 'extra'
                   }}
+                  as="li"
                 >
-                  <Text as="span" color="red">
+                  <Text as="span" color="red" aria-hidden="true">
                     1
                   </Text>
-                  <Box as="p" variant="subtitle">
-                    <strong>Connect with other teenage coders</strong>
+                  <Text as="p" variant="subtitle">
+                    <strong sx={{ mb: 1 }}>
+                      Connect with other teenage coders
+                    </strong>
                     Have a coding question? Looking for project feedback? You’ll
                     find hundreds of fabulous people to talk to in our global{' '}
                     <Link href="/slack" target="_blank" rel="noopener">
                       Slack{' '}
                     </Link>
                     (like Discord), active at all hours.
-                  </Box>
+                  </Text>
                 </Grid>
                 <Grid
                   columns="auto 1fr"
@@ -474,8 +529,9 @@ function Page({
                     textDecoration: 'none',
                     borderRadius: 'extra'
                   }}
+                  as="li"
                 >
-                  <Text as="span" color="orange">
+                  <Text as="span" color="orange" aria-hidden="true">
                     2
                   </Text>
                   <Text
@@ -485,10 +541,12 @@ function Page({
                       mt: 0
                     }}
                   >
-                    <strong>Build open source learning tools</strong>
+                    <strong sx={{ mb: 1 }}>
+                      Build open source learning tools
+                    </strong>
                     We build large open source projects together (
                     <Link href="https://github.com/hackclub" target="_blank">
-                      3k+ PRs a year
+                      3k+&nbsp;PRs a year
                     </Link>
                     ) like this website, a game engine, daily streak system, and
                     more!
@@ -505,16 +563,17 @@ function Page({
                     textDecoration: 'none',
                     borderRadius: 'extra'
                   }}
+                  as="li"
                 >
-                  <Text as="span" color="yellow">
+                  <Text as="span" color="yellow" aria-hidden="true">
                     3
                   </Text>
                   <Text as="p" variant="subtitle">
-                    <strong>Gather IRL with other makers</strong>
-                    Meet other Hack Clubbers in your community to build together
-                    at one of the 400+{' '}
+                    <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
+                    Meet other Hack&nbsp;Clubbers in your community to build
+                    together at one of the 400+{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
-                      Hack Clubs
+                      Hack&nbsp;Clubs
                     </Link>{' '}
                     and{' '}
                     <Link href="/hackathons" target="_blank" rel="noopener">
@@ -545,20 +604,22 @@ function Page({
               maxWidth: 'layout',
               margin: 'auto'
             }}
-            py={[4, 4, 5]}
+            py={[4, 5, '82px']}
           >
             <Box>
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+              <Text
+                variant="title"
+                as="h2"
+                sx={{ fontSize: ['36px', '48px', '56px'], width: '18ch' }}
+              >
                 Connect with{' '}
                 <Text
                   as="span"
                   sx={{
                     borderRadius: 'default',
-                    px: 2,
                     mx: 0,
                     whiteSpace: 'nowrap',
-                    color: 'white',
-                    bg: 'red'
+                    color: 'red'
                   }}
                 >
                   builders
@@ -575,12 +636,11 @@ function Page({
               </Text>
             </Box>
             <Winter />
-            <Epoch />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
         <Box>
-          <Box py={[4, 4, 5]}>
+          <Box py={[4, 5, '82px']}>
             <Box
               sx={{
                 width: '90vw',
@@ -592,41 +652,107 @@ function Page({
               {/* <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3] }}>
                 Hack Clubbers
               </Text> */}
-              <GitHub
-                type={gitHubData[github].type}
-                img={gitHubData[github].userImage}
-                user={gitHubData[github].user}
-                time={gitHubData[github].time}
-                message={gitHubData[github].message}
-                key={key}
-              />
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-                We build{' '}
-                <Text
-                  as="span"
+              <Flex
+                sx={{
+                  flexDirection: ['column', 'column', 'column', 'row'],
+                  justifyContent: 'center',
+                  alignItems: ['flex-start', 'flex-start', 'flex-start', 'center'],
+                  gap: '10px'
+                }}
+              >
+                <Box sx={{ mb: [3, 0, 0] }}>
+                  <Text
+                    variant="title"
+                    as="h2"
+                    sx={{
+                      fontSize: ['36px', '48px', '56px'],
+                      maxWidth: '20ch'
+                    }}
+                  >
+                    We build{' '}
+                    <Text
+                      as="span"
+                      sx={{
+                        borderRadius: 'default',
+                        mx: 0,
+                        whiteSpace: 'nowrap',
+                        color: 'orange'
+                      }}
+                    >
+                      open source
+                    </Text>{' '}
+                    games and tools together
+                  </Text>
+                  <Text
+                    variant="subtitle"
+                    as="p"
+                    sx={{
+                      fontSize: ['18px', '20px', '22px'],
+                      pb: [3, 0, 0],
+                      maxWidth: '60ch'
+                    }}
+                  >
+                    In collaboration with engineers on the Hack&nbsp;Club team,
+                    Hack Clubbers build learning tools for each other. Get
+                    involved with these projects by building something with our
+                    tools or contribute to the tools themselves.
+                  </Text>
+                </Box>
+                <Flex
                   sx={{
-                    borderRadius: 'default',
-                    px: 2,
-                    mx: 0,
-                    whiteSpace: 'nowrap',
-                    color: 'white',
-                    bg: 'orange'
+                    flexDirection: ['row', 'row', 'row', 'column'],
+                    gap: [1, 2, 2],
+                    alignItems: ['center', 'center', 'center', 'flex-start']
                   }}
                 >
-                  open source
-                </Text>{' '}
-                games and tools together
-              </Text>
-              <Text
-                variant="subtitle"
-                as="p"
-                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
-              >
-                In collaboration with engineers on the Hack Club team, Hack
-                Clubbers build learning tools for each other. Get involved with
-                these projects by building something with our tools or
-                contribute to the tools themselves.
-              </Text>
+                  <Text
+                    as="p"
+                    sx={{
+                      fontSize: ['11px', '11px', '14px'],
+                      textAlign: 'left',
+                      lineHeight: '90%',
+                      width: 'fit-content',
+                      fontStyle: 'italic'
+                    }}
+                  >
+                    Live from GitHub
+                  </Text>
+                  <GitHub
+                    type={gitHubData[0].type}
+                    img={gitHubData[0].userImage}
+                    user={gitHubData[0].user}
+                    time={gitHubData[0].time}
+                    message={gitHubData[0].message}
+                    key={key}
+                  />
+                  <GitHub
+                    type={gitHubData[1].type}
+                    img={gitHubData[1].userImage}
+                    user={gitHubData[1].user}
+                    time={gitHubData[1].time}
+                    message={gitHubData[1].message}
+                    key={key}
+                  />
+                  <GitHub
+                    type={gitHubData[2].type}
+                    img={gitHubData[2].userImage}
+                    user={gitHubData[2].user}
+                    time={gitHubData[2].time}
+                    message={gitHubData[2].message}
+                    key={key}
+                    sx={{ display: ['none', 'none', 'none', 'inline'] }}
+                  />
+                  <GitHub
+                    type={gitHubData[3].type}
+                    img={gitHubData[3].userImage}
+                    user={gitHubData[3].user}
+                    time={gitHubData[3].time}
+                    message={gitHubData[3].message}
+                    key={key}
+                    sx={{ display: ['none', 'none', 'none', 'inline'] }}
+                  />
+                </Flex>
+              </Flex>
               <Sprig
                 delay={100}
                 stars={stars.sprig.stargazerCount}
@@ -668,24 +794,27 @@ function Page({
               {}
             </Box>
             <Box
-              py={[4, 4, 5]}
+              py={[4, 5, '82px']}
               sx={{
                 width: '90vw',
                 maxWidth: 'layout',
-                margin: 'auto'
+                margin: 'auto',
+                position: 'relative',
               }}
             >
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+              <Text
+                variant="title"
+                as="h2"
+                sx={{ fontSize: ['36px', '48px', '56px'] }}
+              >
                 Find your{' '}
                 <Text
                   as="span"
                   sx={{
                     borderRadius: 'default',
-                    px: 2,
                     mx: 0,
                     whiteSpace: 'nowrap',
-                    color: 'white',
-                    bg: 'yellow'
+                    color: 'yellow'
                   }}
                 >
                   IRL community
@@ -694,9 +823,13 @@ function Page({
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
+                sx={{
+                  fontSize: ['18px', '20px', '22px'],
+                  pb: [3, 0, 0],
+                  maxWidth: '40ch'
+                }}
               >
-                Thousands of Hack Clubbers organize and participate in
+                Thousands of Hack&nbsp;Clubbers organize and participate in
                 hackathons and after school coding clubs.
               </Text>
               <Clubs />
@@ -710,7 +843,7 @@ function Page({
             </Box>
           </Box>
         </Box>
-        <Box py={[4, 4, 5]}>
+        <Box py={[4, 5, '82px']}>
           <Box
             sx={{
               width: '90vw',
@@ -719,22 +852,29 @@ function Page({
             }}
           >
             <Text as="p" variant="eyebrow" sx={{ fontSize: ['22px', 2, 3] }}>
-              Let's recap
+              Let’s recap
             </Text>
-            <Heading as="h2" variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+            <Heading
+              as="h2"
+              variant="title"
+              sx={{
+                fontSize: ['36px', '48px', '56px'],
+                maxWidth: ['15ch', '15ch', '15ch', '30ch']
+              }}
+            >
               Find your second home at{' '}
               <Text
                 as="span"
                 sx={{
                   borderRadius: 'default',
-                  px: 2,
                   ml: 0,
                   whiteSpace: ['wrap', 'nowrap'],
-                  color: 'white',
-                  bg: 'red'
+                  background: theme => theme.util.gx('red', 'orange'),
+                  '-webkit-background-clip': 'text',
+                  '-webkit-text-fill-color': 'transparent'
                 }}
               >
-                Hack Club
+                Hack&nbsp;Club
               </Text>
             </Heading>
             <Grid
@@ -873,7 +1013,7 @@ function Page({
                   position: 'relative',
                   '.icon': {
                     transition:
-                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+                      'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
                   },
                   ':hover,:focus': {
                     '.icon': {
@@ -906,7 +1046,7 @@ function Page({
                   icon="clubs"
                   color="white"
                   name="Start a club"
-                  desc="Build an in-person community of high school hackers, and we're here to help."
+                  desc="Build an in-person community of high school hackers, and we’re here to help."
                   sx={{
                     p: {
                       fontSize: ['18px', '20px', '22px']
@@ -972,26 +1112,22 @@ export async function getStaticProps() {
   )
 
   // Slack: get total raised
-  let slackData = await fetch(
-    'https://site-git-v4.hackclub.dev/api/slack'
-  ).then(r => r.json())
-
-  // GitHub: get latest github activity
-  let gitHubData = await fetch(
-    'https://site-git-v4.hackclub.dev/api/github'
-  ).then(r => r.json())
-
-  // GitHub: get latest GitHub stars
-//   let stars = await fetch('https://site-git-v4.hackclub.dev/api/stars').then(
-//     res => res.json()
-//   )
-  
-  let stars = {"sinerider":{"stargazerCount":195},"sprig":{"stargazerCount":571},"hackclub":{"stargazerCount":2284},"hackathons":{"stargazerCount":129},"sprigHardware":{"stargazerCount":23}}
-
-  // Sprig: get newest games
-  let game = await fetch('https://site-git-v4.hackclub.dev/api/games').then(r =>
+  let slackData = await fetch('https://hackclub.com/api/slack').then(r =>
     r.json()
   )
+
+  // GitHub: get latest github activity
+  let gitHubData = await fetch('https://hackclub.com/api/github').then(r =>
+    r.json()
+  )
+
+  // GitHub: get latest GitHub stars
+  let stars = await fetch('https://hackclub.com/api/stars').then(res =>
+    res.json()
+  )
+
+  // Sprig: get newest games
+  let game = await fetch('https://hackclub.com/api/games').then(r => r.json())
   console.log(game)
 
   let gameTitle = []
@@ -1000,7 +1136,7 @@ export async function getStaticProps() {
 
   // Sprig: get console count
   const consoleCount = await fetch(
-    'https://site-git-v4.hackclub.dev/api/sprig-console'
+    'https://hackclub.com/api/sprig-console'
   ).then(r => r.json())
 
   // Hackathons: get latest hackathons
