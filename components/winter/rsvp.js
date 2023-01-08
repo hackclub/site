@@ -77,9 +77,7 @@ const Rsvp = () => {
       <Heading as="h2" variant="subheadline" sx={{ mb: 1 }}>
         Get up to $250 to build a hardware project this winter.
       </Heading>
-      <Text sx={{ color: 'muted' }}>
-        RSVP to get notified when applications open.
-      </Text>
+      <Text sx={{ color: 'muted' }}>RSVP to join the event.</Text>
       <Box
         as="form"
         ref={formRef}
