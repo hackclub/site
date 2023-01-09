@@ -128,45 +128,45 @@ export default function Events({ events }) {
           !past(event.end) ? <Event {...event} key={event.id} /> : <></>
         )}
       </Grid>
-      {events.length != 0 ? (
-        <Text sx={{ display: 'block', mb: [3, 3, 4] }}>
-          We just had these events:{' '}
-          {events.slice(0, 3).map(event =>
-            past(event.end) ? (
-              <Badge
-                variant="pill"
-                sx={{
-                  zIndex: '1',
-                  bg: 'rgb(255, 255, 255, 0.3)',
-                  color: 'white',
-                  textDecoration: 'none',
-                  fontWeight: 'normal',
-                  fontSize: 'small',
-                  mr: 1,
-                  my: 1,
-                  ':hover': {
-                    bg: 'rgb(255, 255, 255, 0.5)',
-                    cursor: 'pointer'
-                  },
-                  transition: '0.3s ease',
-                  a: {
-                    textDecoration: 'none',
-                    color: 'white'
-                  }
-                }}
-              >
-                <Link href={`https://events.hackclub.com/${event.slug}`}>
-                  {event.title}
-                </Link>
-              </Badge>
-            ) : (
-              <></>
-            )
-          )}{' '}
-        </Text>
-      ) : (
-        <></>
-      )}
+//       {events.length != 0 ? (
+//         <Text sx={{ display: 'block', mb: [3, 3, 4] }}>
+//           We just had these events:{' '}
+//           {events.slice(0, 3).map(event =>
+//             past(event.end) ? (
+//               <Badge
+//                 variant="pill"
+//                 sx={{
+//                   zIndex: '1',
+//                   bg: 'rgb(255, 255, 255, 0.3)',
+//                   color: 'white',
+//                   textDecoration: 'none',
+//                   fontWeight: 'normal',
+//                   fontSize: 'small',
+//                   mr: 1,
+//                   my: 1,
+//                   ':hover': {
+//                     bg: 'rgb(255, 255, 255, 0.5)',
+//                     cursor: 'pointer'
+//                   },
+//                   transition: '0.3s ease',
+//                   a: {
+//                     textDecoration: 'none',
+//                     color: 'white'
+//                   }
+//                 }}
+//               >
+//                 <Link href={`https://events.hackclub.com/${event.slug}`}>
+//                   {event.title}
+//                 </Link>
+//               </Badge>
+//             ) : (
+//               <></>
+//             )
+//           )}{' '}
+//         </Text>
+//       ) : (
+//         <></>
+//       )}
     </Box>
   )
 }
