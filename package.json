@@ -27,7 +27,7 @@
     "airtable-plus": "^1.0.4",
     "animated-value": "^0.2.4",
     "animejs": "^3.2.1",
-    "axios": "^1.2.0",
+    "axios": "^1.2.2",
     "country-list-js": "^3.1.7",
     "cursor-effects": "^1.0.8",
     "devtools-detect": "^4.0.1",
