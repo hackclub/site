@@ -53,7 +53,7 @@
     "react-tooltip": "^4.5.1",
     "react-tsparticles": "^2.7.1",
     "react-use-websocket": "^4.2.0",
-    "react-wrap-balancer": "^0.2.4",
+    "react-wrap-balancer": "^0.3.0",
     "recharts": "2.1.12",
     "styled-components": "^5.3.6",
     "swr": "^2.0.0",
