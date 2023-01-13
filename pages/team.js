@@ -86,8 +86,8 @@ export default function Team() {
               />
               <Bio
                 name="Kognise"
-                teamRole="Special Projects and Hiring"
-                text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they support hiring and contribute to various projects."
+                teamRole="Clubs Engineer"
+                text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they spend their time working on whatever fantastic project is happening in the present moment."
                 img="https://media.kognise.dev/other-avatars/bean-man.jpg"
               />
               <Bio
