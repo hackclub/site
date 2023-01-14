@@ -52,7 +52,8 @@ function Page({
   dataPieces,
   game,
   gameTitle,
-  events
+  events,
+  carouselCards
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -586,7 +587,7 @@ function Page({
             </Grid>
           </Box>
         </Box>
-        <Carousel />
+        <Carousel cards={carouselCards} />
         <Box
           as="section"
           sx={{
@@ -656,7 +657,12 @@ function Page({
                 sx={{
                   flexDirection: ['column', 'column', 'column', 'row'],
                   justifyContent: 'center',
-                  alignItems: ['flex-start', 'flex-start', 'flex-start', 'center'],
+                  alignItems: [
+                    'flex-start',
+                    'flex-start',
+                    'flex-start',
+                    'center'
+                  ],
                   gap: '10px'
                 }}
               >
@@ -799,7 +805,7 @@ function Page({
                 width: '90vw',
                 maxWidth: 'layout',
                 margin: 'auto',
-                position: 'relative',
+                position: 'relative'
               }}
             >
               <Text
@@ -1097,6 +1103,8 @@ function Page({
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
+  const carouselCards = require('../lib/carousel.json')
+
   // HCB: get total raised
   let bankData = []
   let initialBankData = await fetch('https://bank.hackclub.com/stats').then(r =>
@@ -1158,7 +1166,8 @@ export async function getStaticProps() {
       bankData,
       slackData,
       stars,
-      events
+      events,
+      carouselCards
     },
     revalidate: 60
   }
