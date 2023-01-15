@@ -57,6 +57,7 @@ export default function Sinerider({ stars }) {
               target="_blank"
               rel="noopener"
               primary="#CAB4D4"
+              id="43"
               sx={{ color: '#271932' }}
             >
               Join the development
@@ -66,6 +67,7 @@ export default function Sinerider({ stars }) {
               href="https://sinerider.com"
               target="_blank"
               rel="noopener"
+              id="44"
             >
               View a game preview
             </Buttons>
