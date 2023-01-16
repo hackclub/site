@@ -113,18 +113,18 @@ export default function RealTimeline() {
     <Flex sx={{ flexDirection: 'column', justifyContent: 'center', pb: 4 }}>
       <Step
         icon="post"
-        name={<>RSVP to receive instructions on how to share your hardware idea and receive a grant! Have a question? Here are the <a href="https://github.com/hackclub/winter/blob/main/docs/faq.md">FAQs</a>.</>}
-        duration="Now"
+        name={<>RSVPs are closed. Have a question? Here are the <a href="https://github.com/hackclub/winter/blob/main/docs/faq.md">FAQs</a>.</>}
+        duration="RSVP"
       />
       <Step
         icon="send"
-        name="Deadline for sharing your hardware plan. Make sure to order your hardware by this time!"
-        duration="January 15"
+        name="Deadline for hardware plans submission (Jan 15) has arrived, we are no longer accepting new projects."
+        duration="Share your plan"
       />
       <Step
         icon="slack"
-        name="Start of a 10 days building in public challenge where you share daily updates on your hardware project."
-        duration="February 14"
+        name="From Feb 14-23, join a 10 days building in public challenge where you share daily updates of your hardware project."
+        duration="Build"
       />
     </Flex>
   )

@@ -1,4 +1,4 @@
-import { Box, Heading, Button, Text, Container } from 'theme-ui'
+import { Box, Heading, Button, Link, Text, Container } from 'theme-ui'
 import Snowfall from 'react-snowfall'
 import { Fade } from 'react-reveal'
 import Rsvp from './rsvp'
@@ -35,27 +35,6 @@ function Dot() {
 export default function Landing({ rsvpCount }) {
   return (
     <Box sx={{ position: 'relative' }}>
-      {/* <img
-        src="https://cloud-mvlym308h-hack-club-bot.vercel.app/0cloud_2.png"
-        width="200px"
-        height="auto"
-        class="box"
-        sx={{ zIndex: 3, position: 'absolute', top: '10%', left: '60%' }}
-      />
-      <img
-        src="https://cloud-mvlym308h-hack-club-bot.vercel.app/1cloud_1.png"
-        width="200px"
-        height="auto"
-        class="box"
-        sx={{ zIndex: 3, position: 'absolute', top: '20%', left: '80%' }}
-      />
-      <img
-        src="https://cloud-mvlym308h-hack-club-bot.vercel.app/1cloud_1.png"
-        width="200px"
-        height="auto"
-        class="box"
-        sx={{ zIndex: 3, position: 'absolute', top: '40%', left: '40%' }}
-      /> */}
       <Box
         sx={{
           background:
@@ -88,8 +67,8 @@ export default function Landing({ rsvpCount }) {
                   // fontSize: ['18px', '20px', '24px']
                 }}
               >
-                <Dot />
-                RSVP to join {rsvpCount} hackers for a
+                {/* <Dot /> */}
+                a hacker's
               </Heading>
             </Fade>
             <Fade left cascade>
@@ -106,23 +85,46 @@ export default function Landing({ rsvpCount }) {
                 Wonderland
               </Heading>
             </Fade>
-            {/* <Container variant="copy">
-              <Text
-                variant="subtitle"
-                as="p"
+            <Text
+              variant="subtitle"
+              as="p"
+              sx={{
+                color: 'white',
+                textShadow: '2px 2px 10px rgba(0, 0, 0, 1)',
+                pt: 2,
+                maxWidth: '50ch',
+                margin: 'auto',
+                my: 3
+              }}
+            >
+              RSVPs have closed and hundreds of projects will soon be built
+              together in the{' '}
+              <Link
+                href="/slack"
+                target="_blank"
                 sx={{
-                  color: 'white',
-                  textShadow: '2px 2px 10px rgba(0, 0, 0, 1)',
-                  pt: 2
+                  color: 'blue',
+                  textShadow: '2px 2px 10px rgba(255, 255, 255, 1)'
                 }}
               >
-                Get up to $250 in grant money build a hardware project this
-                winter alongside hundreds of other hackers.
-              </Text>
-            </Container> */}
-            <Rsvp />
+                Hack Club Slack
+              </Link>
+              .
+            </Text>
+            <Button
+              as="a"
+              variant="cta"
+              link="https://github.com/hackclub/winter"
+              sx={{
+                background:
+                  'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
+                mt: 2
+              }}
+            >
+              {' '}
+              View the projects
+            </Button>
           </Box>
-          {/* <ScrollHint sx={{mt: 3}} /> */}
         </Container>
       </Box>
     </Box>
