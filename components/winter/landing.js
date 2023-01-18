@@ -114,7 +114,7 @@ export default function Landing({ rsvpCount }) {
             <Button
               as="a"
               variant="cta"
-              link="https://github.com/hackclub/winter"
+              href="https://github.com/hackclub/winter"
               sx={{
                 background:
                   'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
