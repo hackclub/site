@@ -3,15 +3,18 @@ import { Box, Container, Card } from 'theme-ui'
 import ForceTheme from '../../components/force-theme'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
+import GeoPattern from 'geopattern'
+import { useEffect } from 'react'
 
 export default function Apply() {
+  const bg = GeoPattern.generate(new Date()).toDataUrl()
+
   return (
     <>
       <Meta as={Head} title="Apply for Hack Club Bank" />
       <Box
         sx={{
-          backgroundImage:
-            'linear-gradient(to bottom,rgba(0, 0, 0, .3),rgba(0, 0, 0, 0.45) 25%,rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.7) 100%), url("https://cloud-knk7z9mq5-hack-club-bot.vercel.app/0geo-pattern__2_.svg")',
+          backgroundImage: bg,
           py: 4,
           backgroundAttachment: 'fixed'
         }}

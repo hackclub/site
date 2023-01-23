@@ -32,6 +32,7 @@
     "cursor-effects": "^1.0.8",
     "devtools-detect": "^4.0.1",
     "form-data": "^4.0.0",
+    "geopattern": "^1.2.3",
     "globby": "^11.0.4",
     "graphql": "^16.6.0",
     "lodash": "^4.17.21",
