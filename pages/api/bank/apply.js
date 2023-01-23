@@ -21,6 +21,7 @@ export default async function handler(req, res) {
         Authorization: `Bearer ${process.env.HCB_API_TOKEN}`
       }
     })
+      .then(r => r.json())
       .then(async r => {
         console.log(data)
 
