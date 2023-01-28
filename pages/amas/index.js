@@ -86,7 +86,9 @@ const Page = ({ upcoming, past }) => (
               placeContent: 'center'
             }}
           >
-            {upcoming.map(event => (
+            {upcoming.sort((x, y) => {
+                return new Date(y.start).getTime() - new Date(x.start).getTime();
+            }).map(event => (
               <Card
                 as="a"
                 href={`https://events.hackclub.com/${event.slug}`}
@@ -138,7 +140,9 @@ const Page = ({ upcoming, past }) => (
         variant="layout.container"
         sx={{ pt: 4, textAlign: 'left' }}
       >
-        {past.map(event => (
+        {past.sort((x, y) => {
+            return new Date(y.start).getTime() - new Date(x.start).getTime();
+        }).map(event => (
           <Card
             as={event.youtube ? 'a' : 'section'}
             href={event.youtube}
