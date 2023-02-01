@@ -9,6 +9,7 @@ import Nav from '../../components/nav'
 import SlideDown from '../../components/slide-down'
 import Footer from '../../components/footer'
 import { dt } from '../../lib/dates'
+import Sal from '../../public/ama/sal.png'
 
 const Page = ({ upcoming, past }) => (
   <>
@@ -31,7 +32,7 @@ const Page = ({ upcoming, past }) => (
     >
       <BGImg
         gradient="linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625))"
-        src="https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%2F2020-05-16_screenshot.jpeg?v=1589633885855"
+        src={Sal}
         width={2048}
         height={1170}
         alt="Screenshot of Elon Musk AMA on Zoom"
@@ -58,15 +59,24 @@ const Page = ({ upcoming, past }) => (
           are streamed live publicly on{' '}
           <Link href="https://www.youtube.com/c/HackClubHQ">YouTube</Link>.
         </Text>
-        <NextLink href="/slack" passHref>
-          <Button
-            variant="outlineLg"
-            as="a"
-            sx={{ mt: [3, 4], color: 'white', bg: 'rgba(0,0,0,0.5)' }}
-          >
-            Join Slack
-          </Button>
-        </NextLink>
+        <Button
+          variant="lg"
+          as="a"
+          href="/slack"
+          target="_blank"
+          sx={{ mt: [3, 4], mx: [1, 2], color: 'black', bg: 'white' }}
+        >
+          Join Slack
+        </Button>
+        <Button
+          variant="outlineLg"
+          as="a"
+          href="https://www.youtube.com/watch?v=O1J1pwGPQXY"
+          target="_blank"
+          sx={{ mt: [3, 4], mx: [1, 2], color: 'white', bg: 'rgba(0,0,0,0.5)' }}
+        >
+          Watch our highlights
+        </Button>
       </SlideDown>
     </Box>
     <Box
@@ -86,40 +96,42 @@ const Page = ({ upcoming, past }) => (
               placeContent: 'center'
             }}
           >
-            {upcoming.sort((x, y) => {
-                return new Date(y.start).getTime() - new Date(x.start).getTime();
-            }).map(event => (
-              <Card
-                as="a"
-                href={`https://events.hackclub.com/${event.slug}`}
-                variant="interactive"
-                m={[2, 3]}
-                sx={{
-                  img: {
-                    width: [96, 128],
-                    height: [96, 128],
-                    borderRadius: 'circle'
-                  }
-                }}
-                key={event.id}
-              >
-                <Image
-                  width={128}
-                  height={128}
-                  src={event.amaAvatar}
-                  alt={event.title}
-                />
-                <Heading as="h3" variant="subheadline" my={2}>
-                  {event.title.replace('AMA with ', '')}
-                </Heading>
-                <Text as="p" variant="caption" mb={3}>
-                  {dt(event.start)}
-                </Text>
-                <Button as="strong" variant="outline" sx={{ py: 0 }}>
-                  RSVP
-                </Button>
-              </Card>
-            ))}
+            {upcoming
+              .sort((x, y) => {
+                return new Date(y.start).getTime() - new Date(x.start).getTime()
+              })
+              .map(event => (
+                <Card
+                  as="a"
+                  href={`https://events.hackclub.com/${event.slug}`}
+                  variant="interactive"
+                  m={[2, 3]}
+                  sx={{
+                    img: {
+                      width: [96, 128],
+                      height: [96, 128],
+                      borderRadius: 'circle'
+                    }
+                  }}
+                  key={event.id}
+                >
+                  <Image
+                    width={128}
+                    height={128}
+                    src={event.amaAvatar}
+                    alt={event.title}
+                  />
+                  <Heading as="h3" variant="subheadline" my={2}>
+                    {event.title.replace('AMA with ', '')}
+                  </Heading>
+                  <Text as="p" variant="caption" mb={3}>
+                    {dt(event.start)}
+                  </Text>
+                  <Button as="strong" variant="outline" sx={{ py: 0 }}>
+                    RSVP
+                  </Button>
+                </Card>
+              ))}
           </Flex>
         </>
       )}
@@ -140,42 +152,44 @@ const Page = ({ upcoming, past }) => (
         variant="layout.container"
         sx={{ pt: 4, textAlign: 'left' }}
       >
-        {past.sort((x, y) => {
-            return new Date(y.start).getTime() - new Date(x.start).getTime();
-        }).map(event => (
-          <Card
-            as={event.youtube ? 'a' : 'section'}
-            href={event.youtube}
-            variant="interactive"
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              p: [0, 0],
-              img: { borderRadius: 'extra' }
-            }}
-            key={event.id}
-          >
-            <Image
-              width={128}
-              height={128}
-              src={event.amaAvatar}
-              alt={event.title}
-            />
-            <Box ml={3}>
-              <Heading as="h3" variant="subheadline" mb={1}>
-                {event.title.replace('AMA with ', '')}
-              </Heading>
-              <Text as="p" variant="caption" mb={2}>
-                {dt(event.start)}
-              </Text>
-              {event.youtube && (
-                <Text as="span" variant="styles.a">
-                  Watch now »
+        {past
+          .sort((x, y) => {
+            return new Date(y.start).getTime() - new Date(x.start).getTime()
+          })
+          .map(event => (
+            <Card
+              as={event.youtube ? 'a' : 'section'}
+              href={event.youtube}
+              variant="interactive"
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                p: [0, 0],
+                img: { borderRadius: 'extra' }
+              }}
+              key={event.id}
+            >
+              <Image
+                width={128}
+                height={128}
+                src={event.amaAvatar}
+                alt={event.title}
+              />
+              <Box ml={3}>
+                <Heading as="h3" variant="subheadline" mb={1}>
+                  {event.title.replace('AMA with ', '')}
+                </Heading>
+                <Text as="p" variant="caption" mb={2}>
+                  {dt(event.start)}
                 </Text>
-              )}
-            </Box>
-          </Card>
-        ))}
+                {event.youtube && (
+                  <Text as="span" variant="styles.a">
+                    Watch now »
+                  </Text>
+                )}
+              </Box>
+            </Card>
+          ))}
       </Grid>
     </Box>
     <Footer dark />
