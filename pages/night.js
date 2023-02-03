@@ -42,7 +42,7 @@ const Page = () => (
       as={Head}
       title="Hack Night"
       description="Every Saturday night, the Hack Club community gathers on Slack Huddles to show off what we’re working on & hang out."
-      image="https://cloud-9h1w4lj4d.vercel.app/2020-07-25_52g0nw40p2b00dh39mt93xq5ubku6yaj.jpeg"
+      image="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/52020-07-25_52g0nw40p2b00dh39mt93xq5ubku6yaj.jpeg"
     />
     <Nav color={color} dark />
     <Box
@@ -54,7 +54,7 @@ const Page = () => (
         color: 'muted',
         textAlign: 'center',
         backgroundImage:
-          'url(https://cloud-8j1jfvspm.vercel.app/2020-07-24_stars.svg)',
+          'url(https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/62020-07-24_stars.svg)',
         backgroundSize: '512px auto'
       }}
     >
@@ -69,7 +69,7 @@ const Page = () => (
           height: '100%',
           display: 'block',
           background:
-            'transparent url(https://cloud-c5tvihg15.vercel.app/2020-07-24_afnkcwju2hfkbrkc1ee0h5a5y72a2r5f.png) repeat top center',
+            'transparent url(https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/72020-07-24_afnkcwju2hfkbrkc1ee0h5a5y72a2r5f.png) repeat top center',
           animation: `${twinkling} 200s linear infinite`
         }}
       ></Box>
@@ -125,12 +125,12 @@ const Page = () => (
         }}
       >
         <Image
-          src="https://cloud-2oi5yv0i8.vercel.app/2020-07-24_gbetd0kafcxjp2e5hkv4w9u3m40pmmmt.png"
+          src="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/82020-07-24_gbetd0kafcxjp2e5hkv4w9u3m40pmmmt.png"
           alt="Moon background"
           width={512}
         />
         <Image
-          src="https://cloud-9pj8ga86m.vercel.app/2020-07-24_zdd8ycnkp9q0bbf1fj8a1amjv3zndufz.png"
+          src="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/92020-07-24_zdd8ycnkp9q0bbf1fj8a1amjv3zndufz.png"
           alt="Illustration of Orpheus with a moon"
           width={512}
           sx={{

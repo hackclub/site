@@ -24,7 +24,7 @@ const Page = () => (
       as={Head}
       title="Minecraft"
       description="Join the Minecrafters of Hack Club on our official server and build plugins with our technical community."
-      image="https://cloud-4i6tavcro.vercel.app/2020-07-16_xuyhwktf92atdc6k0rf93vqwendrfvy5.jpeg"
+      image="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/22020-07-16_xuyhwktf92atdc6k0rf93vqwendrfvy5.jpeg"
     />
     <Nav color="#759B40" dark />
     <Box
@@ -33,7 +33,7 @@ const Page = () => (
         bg: 'dark',
         color: 'white',
         backgroundImage:
-          'url(https://cloud-pnifmh0fb.vercel.app/2020-07-16_939yf850qwck1y57zne89qtt2a4g8hrf.png)',
+          'url(https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/32020-07-16_939yf850qwck1y57zne89qtt2a4g8hrf.png)',
         backgroundPosition: 'top center',
         backgroundSize: 'cover',
         position: 'relative'
@@ -41,7 +41,7 @@ const Page = () => (
     >
       <SlideDown duration={768} sx={{ pt: 6, textAlign: 'center' }}>
         <Image
-          src="https://cloud-2232bk22y.vercel.app/2020-07-16_minecraft-banner.svg"
+          src="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/42020-07-16_minecraft-banner.svg"
           alt="Hack Club stylized as Minecraft logo"
           width={256}
           sx={{
