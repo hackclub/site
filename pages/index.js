@@ -759,13 +759,15 @@ function Page({
                   />
                 </Flex>
               </Flex>
-              <Sprig
-                delay={100}
-                stars={stars.sprig.stargazerCount}
-                game={game}
-                gameImage={gameImage}
-                gameImage1={gameImage1}
-              />
+              <Box as="section" id="sprig">
+                <Sprig
+                  delay={100}
+                  stars={stars.sprig.stargazerCount}
+                  game={game}
+                  gameImage={gameImage}
+                  gameImage1={gameImage1}
+                />
+              </Box>
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <SprigConsole
                 delay={300}
