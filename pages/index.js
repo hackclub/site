@@ -759,21 +759,21 @@ function Page({
                   />
                 </Flex>
               </Flex>
+              <Sprig
+                delay={100}
+                stars={stars.sprig.stargazerCount}
+                game={game}
+                gameImage={gameImage}
+                gameImage1={gameImage1}
+              />
+              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
-                <Sprig
-                  delay={100}
-                  stars={stars.sprig.stargazerCount}
-                  game={game}
-                  gameImage={gameImage}
-                  gameImage1={gameImage1}
+                <SprigConsole
+                  delay={300}
+                  stars={stars.sprigHardware.stargazerCount}
+                  consoleCount={consoleCount}
                 />
               </Box>
-              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
-              <SprigConsole
-                delay={300}
-                stars={stars.sprigHardware.stargazerCount}
-                consoleCount={consoleCount}
-              />
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
             </Box>
           </Box>
