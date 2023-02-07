@@ -65,7 +65,7 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
-    "eslint": "8.31.0",
+    "eslint": "8.33.0",
     "eslint-config-next": "13.1.6"
   }
 }
