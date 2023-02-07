@@ -34,7 +34,7 @@ const SlackPage = () => {
         as={Head}
         name="Join our Slack"
         description={`The Hack Club Slack is a community of ${thousands}k+ high school hackers around the world. Chat, meet new friends, code together, share your work.`}
-        image="https://cloud-ls9rh3hok.vercel.app/2020-07-25_d2dd4egb1th5k71w4uj0abbfkvvtnc01.jpeg"
+        image="https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/02020-07-25_d2dd4egb1th5k71w4uj0abbfkvvtnc01.jpeg"
       />
       <ForceTheme theme="light" />
       <Nav />
@@ -221,7 +221,7 @@ const SlackPage = () => {
           <Card
             sx={{
               backgroundImage:
-                'url(https://cloud-dfzi9msk3.vercel.app/2020-07-25_fqxym71bmqjr1d35btawn5q6ph1zt0mk.png)',
+                'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/12020-07-25_fqxym71bmqjr1d35btawn5q6ph1zt0mk.png)',
               backgroundColor: '#FEC62E',
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
@@ -267,7 +267,7 @@ const SlackPage = () => {
             sx={{
               bg: 'dark',
               backgroundImage:
-                'url(https://cloud-ds22ysgb0.vercel.app/2020-07-25_r6thfxwv1u0c71uw0qk94juv6fxxjygf.png)',
+                'url(https://cloud-jnfb0t781-hack-club-bot.vercel.app/02020-07-25_r6thfxwv1u0c71uw0qk94juv6fxxjygf.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               textShadow: 'text',
@@ -329,7 +329,7 @@ const SlackPage = () => {
               sx={{
                 bg: '#000',
                 backgroundImage:
-                  'linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.375)), url(https://cloud-qivhneg5o.vercel.app/2020-07-25_hz5hy2bw5x70ped8akzwtrj4hzuex3vw.jpeg)',
+                  'linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.375)), url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/22020-07-25_hz5hy2bw5x70ped8akzwtrj4hzuex3vw.jpeg)',
                 backgroundSize: '100% auto',
                 textShadow: 'text'
               }}
@@ -346,7 +346,7 @@ const SlackPage = () => {
               sx={{
                 bg: 'dark',
                 backgroundImage:
-                  'url(https://cloud-58v67k4qk.vercel.app/2020-07-25_pp7t4h8738hdm46r2xxrd8tz3kjc5x0t.png)',
+                  'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/32020-07-25_pp7t4h8738hdm46r2xxrd8tz3kjc5x0t.png)',
                 backgroundPosition: 'bottom center',
                 backgroundSize: 'cover',
                 h3: {
@@ -370,7 +370,7 @@ const SlackPage = () => {
               sx={{
                 bg: '#759B40',
                 backgroundImage:
-                  'url(https://cloud-mvq23w0hk.vercel.app/2020-07-25_56ygmzej7r9kjrrudmnb0t0cmg0m3gtg.jpeg)',
+                  'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/42020-07-25_56ygmzej7r9kjrrudmnb0t0cmg0m3gtg.jpeg)',
                 backgroundSize: 'cover',
                 textShadow: 'text'
               }}
@@ -387,7 +387,7 @@ const SlackPage = () => {
             sx={{
               bg: '#3b6fce',
               backgroundImage:
-                'url(https://cloud-1k2khgx4q.vercel.app/2020-07-25_zoomus-icon.svg)',
+                'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/52020-07-25_zoomus-icon.svg)',
               backgroundRepeat: 'repeat-x',
               backgroundPosition: '0 bottom',
               '@media (prefers-reduced-motion: no-preference)': {

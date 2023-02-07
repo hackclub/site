@@ -5,7 +5,7 @@ export default function Secret({ reveal, ...props }) {
   const [img, setImage] = useState('')
 
   useEffect(() => {
-    setImage('https://geta.dino.icu/dino.png')
+    setImage('https://github.com/hackclub/dinosaurs/raw/main/club_dinosaur.png')
   }, [])
 
   return (
