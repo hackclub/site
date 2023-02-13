@@ -113,7 +113,7 @@ export default function RealTimeline() {
     <Flex sx={{ flexDirection: 'column', justifyContent: 'center', pb: 4 }}>
       <Step
         icon="post"
-        name={<>RSVPs are closed. Have a question? Here are the <a href="https://github.com/hackclub/winter/blob/main/docs/faq.md">FAQs</a>.</>}
+        name={<>RSVPs are closed. Have a question? Here are the <Link target="_blank" sx={{ color: 'inherit' }} href="https://github.com/hackclub/winter/blob/main/docs/faq.md">FAQs</Link>.</>}
         duration="RSVP"
       />
       <Step

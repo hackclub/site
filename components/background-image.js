@@ -31,7 +31,7 @@ const BGImg = ({
         bottom: 0
       },
       '> span': { height: '100% !important', width: '100% !important' },
-      img: { objectFit: 'cover', objectPosition: 'center' },
+      img: { objectFit: 'cover', objectPosition: 'center 100%' },
       '~ *': { position: 'relative' }
     }}
   >
