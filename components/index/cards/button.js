@@ -34,7 +34,7 @@ export default function Buttons({
           alignItems: 'center',
           color: 'inherit',
           px: '3',
-          py: primary != null ? '5px' : 1,
+          py: primary != null ? '12px' : 2,
           width: 'fit-content',
           textTransform: 'none',
           fontWeight: '400',

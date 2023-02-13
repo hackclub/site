@@ -15,7 +15,7 @@ const Cover = () => (
       left: 0,
       right: 0,
       backgroundImage:
-        'linear-gradient(to bottom,rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.85))',
+        'linear-gradient(to bottom,rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95))',
       opacity: 0.8,
       zIndex: 1
     }}
@@ -50,7 +50,8 @@ export default function Slack({ data, slackKey, events }) {
         position: 'relative',
         overflow: 'hidden',
         backgroundImage: t => t.util.gx('cyan', 'purple'),
-        minHeight: ['300px', '400px', '500px']
+        minHeight: ['300px', '400px'],
+        py: [0, 0, 4]
       }}
     >
       <Image
@@ -75,7 +76,7 @@ export default function Slack({ data, slackKey, events }) {
             maxWidth: [null, null, '70%', null]
           }}
         >
-          Our online community
+          Our Online Community
         </Text>
       </Grid>
       <Grid columns={[1, 1, '1.6fr 1fr', '1.6fr 1fr']} sx={{ zIndex: 2 }}>
@@ -85,9 +86,9 @@ export default function Slack({ data, slackKey, events }) {
           }}
         >
           <Text
-            variant="subtitle"
             as="p"
-            sx={{ fontSize: [1, '16px', '20px'] }}
+            variant="subtitle"
+            sx={{ fontSize: [1, '16px', '24px'] }}
           >
             Coding doesn’t have to be a solidary activity. At Hack&nbsp;Club, we
             make things together and in our Slack, you’ll find awesome people to
@@ -95,7 +96,7 @@ export default function Slack({ data, slackKey, events }) {
             just hang out.
           </Text>
           <Text as="p" variant="subtitle">
-            We also invite someone we really want to speak to (like
+            Occasionally we invite someone we really want to speak to (like
             Sal Khan, George Hotz, and Lady Ada) and host an{' '}
             <Link
               href="/amas"
@@ -125,39 +126,29 @@ export default function Slack({ data, slackKey, events }) {
                 ml: ['-10%', '-10%', '-5%'],
                 mb: ['-10%', '-10%', '-5%'],
                 p: 4,
-                pt: [3, 3, 4]
+                py: [3, 3, 2]
               }}
             >
               <Flex
                 sx={{
-                  flexDirection: ['column', 'row', 'row', 'column'],
-                  justifyContent: 'space-between'
-                }}
-              >
-                <Text variant="eyebrow" as="p" sx={{ color: 'white' }}>
-                  <Dot />
-                  Live from Slack
-                </Text>
-              </Flex>
-              <Flex
-                sx={{
                   flexDirection: ['row', 'row', 'column'],
                   justifyContent: 'space-between',
-                  flexWrap: 'wrap'
+                  flexWrap: 'wrap',
+                  textAlign: 'center'
                 }}
               >
-                <Stats data={data.readers_count_1d} subheading="Online" />
+                <Stats data={data.readers_count_1d} subheading="Currently Online" />
                 <Stats
                   data={data.chats_channels_count_1d}
-                  subheading="Total channels"
+                  subheading="Total Channels"
                 />
                 <Stats
                   data={data.messages_count_1d}
-                  subheading="Daily messages"
+                  subheading="Daily Messages"
                 />
                 <Stats
                   data={data.total_members_count}
-                  subheading="Total members"
+                  subheading="Total Members"
                 />
               </Flex>
             </Box>

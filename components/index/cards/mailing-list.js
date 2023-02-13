@@ -12,6 +12,8 @@ import {
   Grid
 } from 'theme-ui'
 import CardModel from './card-model'
+import BGImg from '../../background-image'
+import FooterImgFile from '../../../public/home/footer.png'
 
 const Loading = () => (
   <Box
@@ -64,12 +66,15 @@ const MailingList = () => {
   }
 
   return (
+    <Box sx={{position: 'relative', py: 6, background: 'darker'}}>
     <Card
       sx={{
-        // maxWidth: 'narrowPlus',
+        maxWidth: 'narrowPlus',
         mx: 'auto',
         // mt: [3, 4],
         background: 'rgb(255,255,255, 0.45)',
+        position: 'relative',
+        zIndex: 2,
         backdropFilter: 'blur(8px)'
       }}
     >
@@ -77,15 +82,16 @@ const MailingList = () => {
         sx={{
           justifyContent: 'space-between',
           alignItems: ['left', 'left', 'center'],
-          flexDirection: ['column', 'column', 'row'],
-          gap: '10px'
+          flexDirection: ['column', 'column', 'column'],
+          gap: '10px',
+          textAlign: 'center'
         }}
       >
         <Box>
-          <Text variant="title" sx={{ fontSize: [4, '36px', '42px', 5], zIndex: 2 }}>
-            Stay in touch
+          <Text variant="title" sx={{ fontSize: [4, '36px', '42px', 6], zIndex: 2 }}>
+            Stay in Touch
           </Text>
-          <Text sx={{ color: 'muted', mt: 2, maxWidth: ['40ch', '40ch', '28ch', '40ch'] }} as="p">
+          <Text sx={{ color: 'darkless', mt: 2, fontSize: 3 }} as="p">
             We’ll send you an email no more than once a month, when we work on
             something cool for you.
           </Text>
@@ -96,36 +102,35 @@ const MailingList = () => {
           onSubmit={handleSubmit}
           gap={[2, 3]}
           sx={{
-            mt: [null, 3],
-            gridTemplateColumns: [null, '1fr 1fr auto'],
-            textAlign: 'left',
+            textAlign: 'center',
             alignItems: 'end',
-            input: { bg: 'sunken' }
+            input: { bg: 'sunken' },
+            width: '100%'
           }}
         >
-          <div>
-            <Label htmlFor="location">Name</Label>
+          <Box sx={{width: '100%'}}>
             <Input
               autofillBackgroundColor="highlight"
               type="text"
               name="name"
               id="name"
-              placeholder="Fiona Hackworth"
+              placeholder="Your Name"
               required
+              sx={{width: '100%', textAlign: 'center', fontSize: 2}}
             />
-          </div>
+          </Box>
           <div>
-            <Label htmlFor="email">Email</Label>
             <Input
               autofillBackgroundColor="highlight"
               type="email"
               name="email"
               id="email"
-              placeholder="fiona@hackclub.com"
+              placeholder="Your Email"
               required
+              sx={{width: '100%', textAlign: 'center', fontSize: 2}}
             />
           </div>
-          <Button type="submit" sx={{ mt: [2, 0] }}>
+          <Button type="submit" sx={{ mt: [2, 0], fontSize: 2 }}>
             {submitting ? (
               <>
                 <Loading />
@@ -144,7 +149,17 @@ const MailingList = () => {
           <Text sx={{ ml: 2 }}>You're on the list!</Text>
         </Alert>
       )}
+      
     </Card>
+    <BGImg
+          width={2544}
+          height={2048}
+          gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
+          src={FooterImgFile}
+          placeholder="blur"
+          alt="Globe with hundreds of Hack Clubs"
+        />
+        </Box>
   )
 }
 

@@ -23,7 +23,7 @@ const Cover = () => (
       left: 0,
       right: 0,
       backgroundImage:
-        'linear-gradient(to bottom,rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))',
+        'linear-gradient(to bottom,rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6))',
       opacity: 0.8,
       zIndex: 1
     }}
@@ -42,7 +42,7 @@ export default function Hackathons({ data, stars }) {
       highlight="blue"
     >
       <Image
-        src="/home/hackathons-bg.webp"
+        src="https://cloud-issl87d62-hack-club-bot.vercel.app/0bmc_1823.jpg"
         sx={{
           objectFit: 'cover',
           position: 'absolute',
@@ -59,7 +59,7 @@ export default function Hackathons({ data, stars }) {
         as="h3"
         sx={{ fontSize: ['36px', 4, 5], position: 'relative', zIndex: 2 }}
       >
-        High school hackathons
+        High School Hackathons
       </Text>
       <Grid
         columns={[1, 1, 2]}
@@ -78,7 +78,7 @@ export default function Hackathons({ data, stars }) {
               link="https://hackathons.hackclub.com"
               primary="blue"
             >
-              Browse hackathons
+              Attend a hackathon
             </Buttons>
             <Buttons
               // content="learn more about available resources"
@@ -86,7 +86,7 @@ export default function Hackathons({ data, stars }) {
               icon="bolt"
               link="/hackathons"
             >
-              Organizer? Learn more
+              Organizer? Learn more.
             </Buttons>
           </Flex>
         </Box>
@@ -102,8 +102,8 @@ export default function Hackathons({ data, stars }) {
           }}
         >
           <Box sx={{ width: 'fit-content', float: 'right' }}>
-            <Text as="h4" sx={{ fontSize: 'small', width: 'fit-content' }}>
-              <Dot /> Upcoming hackathons
+            <Text as="h4" sx={{ fontSize: 'small', width: '100%', textAlign: 'center' }}>
+              <Dot /> Upcoming Hackathons
             </Text>
             {data.slice(0, 5).map(data => (
               <Box
