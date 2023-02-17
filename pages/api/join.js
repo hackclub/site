@@ -44,8 +44,8 @@ export default async function handler(req, res) {
 
   const data = req.body || {}
   const open = process.env.NEXT_PUBLIC_OPEN == 'true'
+  const waitlist = !open
   const isAdult = data.educationLevel != 'tertiary' 
-  const waitlist = !open || isAdult
 
   const secrets = (process.env.NAUGHTY || '').split(',')
 
@@ -61,7 +61,7 @@ export default async function handler(req, res) {
   await joinTable.create({
     'Full Name': data.name,
     'Email Address': data.email,
-    Student: data.educationLevel != 'tertiary' ? true : false,
+    Student: !isAdult,
     Reason: data.reason,
     Invited: !waitlist,
     Club: data.club ? data.club : '',
@@ -75,7 +75,7 @@ export default async function handler(req, res) {
         email: data.email,
         ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress,
         continent: data.continent,
-        teen: data.educationLevel != 'tertiary' ? true : false,
+        teen: !isAdult,
         educationLevel: data.educationLevel,
         reason: data.reason,
         userAgent: req.headers['user-agent']
