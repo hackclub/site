@@ -25,8 +25,6 @@ async function postData(url = '', data = {}, headers = {}) {
 }
 
 export default async function handler(req, res) {
-  let open = process.env.NEXT_PUBLIC_OPEN == 'true' ? true : false
-
   if (req.method === 'OPTIONS') {
     return res.status(200).send('YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.')
   }
@@ -45,8 +43,11 @@ export default async function handler(req, res) {
   }
 
   const data = req.body || {}
+  const open = process.env.NEXT_PUBLIC_OPEN == 'true'
+  const isAdult = data.educationLevel != 'tertiary' 
+  const waitlist = !open || isAdult
 
-  let secrets = (process.env.NAUGHTY || '').split(',')
+  const secrets = (process.env.NAUGHTY || '').split(',')
 
   for (const secret of secrets) {
     if (secret === req.headers['x-forwarded-for']) {
@@ -62,12 +63,12 @@ export default async function handler(req, res) {
     'Email Address': data.email,
     Student: data.educationLevel != 'tertiary' ? true : false,
     Reason: data.reason,
-    Invited: open,
+    Invited: !waitlist,
     Club: data.club ? data.club : '',
     IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
   })
 
-  if (open) {
+  if (!waitlist) {
     let result = await postData(
       'https://toriel.hackclub.com/slack-invite',
       {

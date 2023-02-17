@@ -13,6 +13,9 @@ const JoinForm = ({ sx = {} }) => {
       : { reason: router.query.reason }
   })
 
+  const isAdult = useField('educationLevel').value == 'tertiary'
+  const useWaitlist = process.env.NEXT_PUBLIC_OPEN == 'true' || isAdult
+
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
@@ -84,14 +87,14 @@ const JoinForm = ({ sx = {} }) => {
           mt={'0px!important'}
           labels={{
             default:
-              process.env.NEXT_PUBLIC_OPEN == 'true'
-                ? 'Get Invite'
-                : 'Join Waitlist',
+              useWaitlist
+                ? 'Join Waitlist'
+                : 'Get Invite',
             error: 'Something went wrong',
             success:
-              process.env.NEXT_PUBLIC_OPEN == 'true'
-                ? 'Email coming soon!'
-                : "We'll be in touch soon!"
+              useWaitlist
+                ? "We'll be in touch soon!"
+                : 'Email coming soon!'
           }}
         />
       </form>
