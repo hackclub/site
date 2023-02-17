@@ -88,7 +88,7 @@ const JoinForm = ({ sx = {} }) => {
             color="secondary">
               Hold your horses! Our Slack community for teenagers, and as such
               we're really careful about letting adults join. If you feel you'd
-              have a place here, we'll put you on a waitlist for review.
+              have a place here, reach out to conduct@hackclub.com.
           </Text>
         )}
         <Submit
