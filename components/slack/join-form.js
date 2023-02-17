@@ -1,4 +1,4 @@
-import { Card, Label, Input, Textarea, Select, Grid } from 'theme-ui'
+import { Card, Label, Input, Textarea, Select, Grid, Text } from 'theme-ui'
 import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
@@ -82,6 +82,15 @@ const JoinForm = ({ sx = {} }) => {
             required
           />
         </Label>
+        {isAdult && (
+          <Text
+            variant="caption"
+            color="secondary">
+              Hold your horses! Our Slack community for teenagers, and as such
+              we're really careful about letting adults join. If you feel you'd
+              have a place here, we'll put you on a waitlist for review.
+          </Text>
+        )}
         <Submit
           status={status}
           mt={'0px!important'}
