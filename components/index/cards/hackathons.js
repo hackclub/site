@@ -190,7 +190,7 @@ export default function Hackathons({ data, stars }) {
           display: ['block', 'block', 'none']
         }}
       >
-        <Text sx={{ fontSize: 'small' }}>Upcoming hackathons:</Text>
+        <Text sx={{ fontSize: 'small', color: 'white' }}>Upcoming Hackathons:</Text>
         <Flex sx={{gap: '10px'}}>
         {data.slice(0, 2).map(data => (
           <Box
