@@ -22,7 +22,7 @@ const Cover = () => (
   />
 )
 const Stats = ({ data, subheading, nonMobile = false }) => (
-  <Box>
+  <Box sx={{ display: nonMobile ? ['none', 'block'] : 'block' }}>
     <Heading
       variant="headline"
       as="h4"
