@@ -807,7 +807,7 @@ function Page({
                 <Text
                   variant="subtitle"
                   as="p"
-                  sx={{ fontSize: ['18px', '24px', '32px'], width: '66vw',margin: 'auto', pt: 2, pb: [3, 0, 0], textAlign: 'center' }}
+                  sx={{ fontSize: ['18px', '24px', '32px'], width: ['95vw', '66vw'],margin: 'auto', pt: 2, pb: [1, 0, 0], textAlign: 'center' }}
                 >
                   Thousands of Hack Clubbers organize and participate in hackathons and after school coding clubs.
                 </Text>
