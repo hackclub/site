@@ -26,7 +26,7 @@ const Stats = ({ data, subheading, nonMobile = false }) => (
     <Heading
       variant="headline"
       as="h4"
-      sx={{ mb: 0, pt: 2, fontSize: ['28px', '36px', '38px'], display: nonMobile ? ['none', 'block'] : 'block' }}
+      sx={{ mb: 0, pt: 2, fontSize: ['28px', '36px', '38px'] }}
     >
       <Comma>{data}</Comma>
     </Heading>
