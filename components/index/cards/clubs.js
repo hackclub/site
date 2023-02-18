@@ -21,7 +21,7 @@ const Cover = () => (
       left: 0,
       right: 0,
       backgroundImage:
-        'linear-gradient(to bottom,rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5))',
+        'linear-gradient(to bottom,rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8))',
       opacity: 0.8,
       zIndex: 1
     }}
@@ -40,7 +40,8 @@ export default function Clubs() {
       }}
     >
       <Image
-        src="/home/clubs-bg.webp"
+        src="https://dl.airtable.com/.attachmentThumbnails/904cf56ceac6b0921eceae02958dcd29/5851864a"
+        alt="Summer Creek Hack Club meeting, February 2020"
         sx={{
           objectFit: 'cover',
           position: 'absolute',
@@ -60,15 +61,13 @@ export default function Clubs() {
           px: 2,
           mx: [-2, 0],
           whiteSpace: [null, 'nowrap', 'nowrap'],
-          color: ['white', 'red', 'red'],
-          bg: ['transparent', 'white', 'white'],
           fontSize: ['36px', 4, 5],
           position: 'relative',
           zIndex: 2,
           width: 'fit-content'
         }}
       >
-        Network of 400+ coding clubs
+        A Network of 400+ Coding Clubs
       </Text>
       <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Box>
