@@ -21,12 +21,12 @@ const Cover = () => (
     }}
   />
 )
-const Stats = ({ data, subheading }) => (
+const Stats = ({ data, subheading, nonMobile = false }) => (
   <Box>
     <Heading
       variant="headline"
       as="h4"
-      sx={{ mb: 0, pt: 2, fontSize: ['28px', '36px', '38px'] }}
+      sx={{ mb: 0, pt: 2, fontSize: ['28px', '36px', '38px'], display: nonMobile ? ['none', 'block'] : 'block' }}
     >
       <Comma>{data}</Comma>
     </Heading>
@@ -50,8 +50,8 @@ export default function Slack({ data, slackKey, events }) {
         position: 'relative',
         overflow: 'hidden',
         backgroundImage: t => t.util.gx('cyan', 'purple'),
-        minHeight: ['300px', '400px'],
-        py: [0, 0, 4]
+        minHeight: ['500px', '400px'],
+        py: [3, 3, 4]
       }}
     >
       <Image
@@ -116,7 +116,7 @@ export default function Slack({ data, slackKey, events }) {
             <Box
               sx={{
                 background: 'rgb(0,0,0,0.6)',
-                height: ['200px', '170px', '170px', '100%'],
+                height: ['130px', '170px', '170px', '100%'],
                 position: ['relative', 'relative', 'absolute'],
                 zIndex: 3,
                 width: ['120%', '120%', '260px'],
@@ -141,6 +141,7 @@ export default function Slack({ data, slackKey, events }) {
                 <Stats
                   data={data.chats_channels_count_1d}
                   subheading="Total Channels"
+                  nonMobile={true}
                 />
                 <Stats
                   data={data.messages_count_1d}
