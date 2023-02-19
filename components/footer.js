@@ -101,7 +101,7 @@ const Footer = ({ dark = false, children, ...props }) => (
             <Link>Press Inquiries</Link>
           </NextLink>
           <NextLink href="/philanthropy" passHref>
-            <Link>Donate</Link>
+            <Link>Donate / Board of Directors</Link>
           </NextLink>
         </Box>
         <Box>
