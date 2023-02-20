@@ -41,7 +41,7 @@ const Page = () => (
     <Meta
       as={Head}
       title="Hack Night"
-      description="Every Saturday night, the Hack Club community gathers on Slack Huddles to show off what we’re working on & hang out."
+      description="The Hack Club community regularly gathers on Slack Huddles and Zoom calls to show off what we’re working on & hang out."
       image="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/52020-07-25_52g0nw40p2b00dh39mt93xq5ubku6yaj.jpeg"
     />
     <Nav color={color} dark />
@@ -94,12 +94,12 @@ const Page = () => (
           Hack Night
         </Heading>
         <Text as="p" variant="subtitle">
-          Every Saturday, the Hack Club community gathers on Zoom. It’s a chance
+          The Hack Club community regularly gathers on Zoom or Huddles. It’s a chance
           to meet new friends, livestream what you’re hacking on, or just hang
           out on a chill call.
         </Text>
         <Text as="p" variant="subtitle">
-          Join in Saturday at 8:30 PM ET on{' '}
+          Join in Saturdays at 1pm or 11pm UTC, and Wednesdays at 6pm UTC, or join or start an impromptu Hack session on{' '}
           <NextLink href="/slack" passHref>
             <Link sx={{ color, opacity: 0.75 }}>#hack-night</Link>
           </NextLink>
