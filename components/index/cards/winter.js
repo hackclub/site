@@ -75,7 +75,7 @@ export default function Winter() {
       badge
     >
       <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
-        Winter hardware wonderland
+        Winter Hardware Wonderland
       </Text>
       <Text as="p" variant="subtitle" sx={{ maxWidth: '45ch' }}>
         Get $250 to build your own electronics projects alongside hundreds of
@@ -112,12 +112,12 @@ export default function Winter() {
         </Grid>
         <Buttons
           id="13"
-          link="/winter"
+          link="https://github.com/hackclub/winter"
           icon="freeze"
           primary="white"
           sx={{ color: 'blue' }}
         >
-          RSVP
+          View The Projects
         </Buttons>
       </Box>
     </CardModel>

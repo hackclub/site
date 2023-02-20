@@ -34,7 +34,7 @@ const CardModel = ({
       position: 'relative',
       width: '100%',
       color: color,
-      my: [4, 5],
+      my: [4, 4],
       p: '24px',
       backgroundSize: 'cover',
       backgroundImage: `url(${background})` || '',
