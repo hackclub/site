@@ -37,7 +37,7 @@ export default function Start() {
           <Timeline />
           <Flex sx={{ flexDirection: 'column', gap: 4 }}>
             <ApplyButton />
-            <Text color='muted'>We run Hack Club HQ on Bank!{' '}
+            <Text color='muted' sx={{ fontSize: 18 }}>We run Hack Club HQ on Bank!{' '}
               <Link
                 href='https://bank.hackclub.com/hq'
                 color='primary'
