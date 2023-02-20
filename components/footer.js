@@ -89,7 +89,7 @@ const Footer = ({ dark = false, children, ...props }) => (
             <Link>Philosophy</Link>
           </NextLink>
           <NextLink href="/team" passHref>
-            <Link>Team</Link>
+            <Link>Our Team and Board</Link>
           </NextLink>
           <NextLink href="/jobs" passHref>
             <Link>Jobs</Link>
@@ -101,7 +101,7 @@ const Footer = ({ dark = false, children, ...props }) => (
             <Link>Press Inquiries</Link>
           </NextLink>
           <NextLink href="/philanthropy" passHref>
-            <Link>Donate / Board of Directors</Link>
+            <Link>Donate</Link>
           </NextLink>
         </Box>
         <Box>
