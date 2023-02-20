@@ -35,14 +35,14 @@ export default function Start() {
           </Flex>
           <Stats />
           <Timeline />
-          <Flex sx={{ flexDirection: 'column', gap: 4 }}>
+          <Flex sx={{ flexDirection: 'column', textAlign: 'center', gap: 4 }}>
             <ApplyButton />
             <Text color='muted' sx={{ fontSize: 18 }}>We run Hack Club HQ on Bank!{' '}
               <Link
                 href='https://bank.hackclub.com/hq'
                 color='primary'
               >
-                See our finances.
+                See&nbsp;our&nbsp;finances.
               </Link>
             </Text>
           </Flex>
