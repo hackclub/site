@@ -1,4 +1,4 @@
-import { Text, Box, Flex } from 'theme-ui'
+import { Text, Box, Flex, Heading } from 'theme-ui'
 import useSWR from 'swr'
 import fetcher from '../../lib/fetcher'
 
@@ -20,19 +20,19 @@ const Stats = () => {
 
   return (
     <Box>
-      <Flex sx={{flexDirection: 'column', alignItems: 'center' }}>
-        <Text sx={{fontSize: 4}}>
+      <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
+        <Text sx={{ fontSize: [3, 4] }}>
           So far we have enabled
         </Text>
-        <Text variant='heading' sx={{
+        <Text variant='title' color='green' sx={{
             color: 'green',
-            fontSize: 84
+            fontSize: [5, 6]
           }}
         >
           { transacted[0] }
-          <Text sx={{ fontSize: 4 }}>.{ transacted[1] }</Text>
+          <Text sx={{ fontSize: [3, 4] }}>.{ transacted[1] }</Text>
         </Text>
-        <Text sx={{fontSize: 4}}>
+        <Text sx={{ fontSize: [3, 4] }}>
           in transactions
         </Text>
       </Flex>
