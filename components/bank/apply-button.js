@@ -4,8 +4,9 @@ import Icon from '../icon'
 export default function ApplyButton() {
     return (
         <Button
-            // color='red'
             variant='ctaLg'
+            as='a'
+            href='apply'
             sx={{
                 width: '20rem',
                 height: '4.2rem',
