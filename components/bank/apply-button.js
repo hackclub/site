@@ -16,7 +16,7 @@ export default function ApplyButton() {
             <Flex sx={{
                 alignItems: 'center',
                 gap: 3,
-                mr: '-28px' // Man...
+                mr: '-32px' // Man...
             }}>
                 <Text
                     color='white'
