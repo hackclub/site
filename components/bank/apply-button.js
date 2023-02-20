@@ -8,7 +8,7 @@ export default function ApplyButton() {
             as='a'
             href='apply'
             sx={{
-                width: '20rem',
+                width: '100%',
                 height: '4.2rem',
                 // borderRadius: '1.5rem',
             }}
