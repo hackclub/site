@@ -16,7 +16,6 @@ import Nav from '../components/nav'
 import BGImg from '../components/background-image'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
-import FooterImgFile from '../public/home/footer.png'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
 import Sprig from '../components/index/cards/sprig'
@@ -73,11 +72,9 @@ function Page({
   }
 
   useEffect(() => {
-    console.log('hi')
+    console.log('Why, hello there!')
     if (reveal && !hover) {
       setTimeout(() => {
-        console.log(reveal)
-        console.log(hover)
         setReveal(false)
       }, 2000)
     }
@@ -109,18 +106,6 @@ function Page({
     }
   }, [count])
 
-  // const styles = `
-  // ::selection {
-  //   background-color: #e42d42;
-  //   color: #ffffff;
-  //   text-shadow: none;
-  //   -webkit-background-clip: inherit;
-  //   -webkit-text-fill-color: initial;
-  // },
-  // input:-webkit-autofill {
-  //   -webkit-text-fill-color: white;
-  // }
-  // `
   return (
     <>
       <Meta
@@ -145,7 +130,6 @@ function Page({
           position: 'relative'
         }}
       >
-        {/* <style>{styles}</style> */}
         <Secret
           reveal={reveal}
           onMouseEnter={() => {
@@ -160,6 +144,7 @@ function Page({
         <Konami action={easterEgg} code={[38, 38, 40, 40]}>
           {"Hey, I'm an Easter Egg! Look at me!"}
         </Konami>
+
         <Box
           as="header"
           sx={{
@@ -183,7 +168,7 @@ function Page({
               maxWidth: [null, 'layout'],
               position: 'relative',
               mx: 'auto',
-              py: [4, 4, 5],
+              py: [4, 4, 4],
               textShadow: 'text'
             }}
           >
@@ -264,7 +249,7 @@ function Page({
           <Box
             sx={{
               display: 'flex',
-              justifyContent: ['flex-start', 'flext-start', 'flex-end'],
+              justifyContent: ['flex-start', 'flex-start', 'flex-end'],
               marginRight: 2,
               mt: [4, 3, 1]
             }}
@@ -302,13 +287,6 @@ function Page({
             }}
           >
             <Text
-              variant="eyebrow"
-              as="h4"
-              sx={{ fontSize: ['22px', 2, 3], mt: 4 }}
-            >
-              The rundown
-            </Text>
-            <Text
               variant="title"
               as="h1"
               sx={{ fontSize: ['36px', '48px', '56px'] }}
@@ -328,7 +306,7 @@ function Page({
                 }}
               >
                 joy of code
-              </Text>
+              </Text>, together.
             </Text>
             <Text
               variant="subtitle"
@@ -611,7 +589,7 @@ function Page({
               <Text
                 variant="title"
                 as="h2"
-                sx={{ fontSize: ['36px', '48px', '56px'], width: '18ch' }}
+                sx={{ fontSize: ['36px', '48px', '72px'], width: '18ch', textAlign: 'center', margin: 'auto' }}
               >
                 Connect with{' '}
                 <Text
@@ -625,15 +603,15 @@ function Page({
                 >
                   builders
                 </Text>{' '}
-                from around the world
-              </Text>
+                from around the world.
+                </Text>
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
+                sx={{ fontSize: ['18px', '24px', '32px'], width: ['95vw','66vw'],margin: 'auto', pt: 2, pb: [1, 0, 0], textAlign: 'center' }}
               >
                 We gather both online and in-person to share our love of code
-                and make things together!
+                and make things together.
               </Text>
             </Box>
             <Winter />
@@ -650,9 +628,6 @@ function Page({
                 position: 'relative'
               }}
             >
-              {/* <Text variant="eyebrow" as="p" sx={{ fontSize: [1, 2, 3] }}>
-                Hack Clubbers
-              </Text> */}
               <Flex
                 sx={{
                   flexDirection: ['column', 'column', 'column', 'row'],
@@ -810,36 +785,33 @@ function Page({
                 position: 'relative'
               }}
             >
-              <Text
-                variant="title"
-                as="h2"
-                sx={{ fontSize: ['36px', '48px', '56px'] }}
-              >
-                Find your{' '}
+              <Box>
                 <Text
-                  as="span"
-                  sx={{
-                    borderRadius: 'default',
-                    mx: 0,
-                    whiteSpace: 'nowrap',
-                    color: 'yellow'
-                  }}
+                  variant="title"
+                  as="h2"
+                  sx={{ fontSize: ['36px', '48px', '72px'], width: '18ch', textAlign: 'center', margin: 'auto' }}
                 >
-                  IRL community
+                  Find your{' '}
+                  <Text
+                    as="span"
+                    sx={{
+                      borderRadius: 'default',
+                      mx: 0,
+                      whiteSpace: 'nowrap',
+                      color: 'orange'
+                    }}
+                  >
+                    IRL community.
+                  </Text>
+                  </Text>
+                <Text
+                  variant="subtitle"
+                  as="p"
+                  sx={{ fontSize: ['18px', '24px', '32px'], width: ['100%', '66vw'],margin: 'auto', pt: 2, textAlign: 'center' }}
+                >
+                  Thousands of Hack Clubbers organize and participate in hackathons and after school coding clubs.
                 </Text>
-              </Text>
-              <Text
-                variant="subtitle"
-                as="p"
-                sx={{
-                  fontSize: ['18px', '20px', '22px'],
-                  pb: [3, 0, 0],
-                  maxWidth: '40ch'
-                }}
-              >
-                Thousands of Hack&nbsp;Clubbers organize and participate in
-                hackathons and after school coding clubs.
-              </Text>
+              </Box>
               <Clubs />
               <Hackathons
                 delay={400}
@@ -1066,10 +1038,11 @@ function Page({
                 />
               </Card>
             </Grid>
-            <MailingList />
+            
           </Box>
         </Box>
       </Box>
+      <MailingList />
       <Footer
         dark
         sx={{
@@ -1085,14 +1058,7 @@ function Page({
           }
         }}
       >
-        <BGImg
-          width={2544}
-          height={2048}
-          gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
-          src={FooterImgFile}
-          placeholder="blur"
-          alt="Globe with hundreds of Hack Clubs"
-        />
+        
         <style>
           {`a{
           color: #338eda

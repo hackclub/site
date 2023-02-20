@@ -2,6 +2,7 @@ import CardModel from './card-model'
 import {
   Box,
   Grid,
+  Heading,
   Text
 } from 'theme-ui'
 import { Fade } from 'react-reveal'
@@ -18,18 +19,17 @@ export default function Bank({ data }) {
           backgroundColor: 'dark',
           minHeight: ['300px', '400px', '380px'],
           backgroundColor: 'darkless',
-          backgroundImage: `url('https://icons.hackclub.com/api/icons/0x302F33/glyph:bank-account.svg')`,
-          backgroundSize: '40px 40px',
-          backgroundRepeat: 'repeat',
-          backgroundPosition: '10% 10%',
-          color: 'snow'
+          backgroundImage: `linear-gradient(to bottom,rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('/home/hackathons-bg.webp')`,
+          backgroundSize: 'cover',
+          backgroundPosition: '40%',
+          color: 'snow',
         }}
         badge
         text={data[0]}
       >
-        <Text variant="title" sx={{ color: 'red', fontSize: ['36px', 4, 5] }}>
+        <Heading variant="title" sx={{ color: 'red', fontSize: ['36px', 4, 5], mt: [0, 3]}}>
           Hack&nbsp;Club&nbsp;Bank
-        </Text>
+        </Heading>
         <Grid columns={[1, '1.3fr 1fr', 2]}>
           <Box>
             <Text as="p" variant="subtitle">
@@ -44,7 +44,7 @@ export default function Bank({ data }) {
               icon="bank-account"
               link="/bank"
               primary="red"
-              sx={{ mt: [0, 3, 4] }}
+              sx={{ mt: [0, 2, 3] }}
             >
               Start banking!
             </Buttons>
