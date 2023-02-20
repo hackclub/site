@@ -12,41 +12,42 @@ import {
 import { Fade } from 'react-reveal'
 import Timeline from './timeline'
 import Stats from './stats'
-import Signup from './signup'
+import ApplyButton from './apply-button'
 
 export default function Start() {
   return (
     <>
-      <Box
-        as="section"
-        id="apply"
-        sx={{
-          pt: 6,
-          zIndex: -999
-        }}
-      >
-        <Container
-          px={3}
-          mb={[4, 5]}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            textAlign: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          <Heading variant="ultratitle" color="white" mb={2}>
-            Sign up for Hack&nbsp;Club&nbsp;Bank.
-          </Heading>
-          <Container variant="narrow" sx={{ color: 'muted' }}>
-            <Text variant="lead">
-              Open to all registered Hack Clubs, hackathons, and charitable
-              organizations in the US and Canada.
+      <Box as="section" id="apply" py={6}>
+        <Flex sx={{ flexDirection: 'column', alignItems: 'center', gap: 5, mx: 4 }}>
+          <Flex
+            sx={{
+              flexDirection: 'column',
+              textAlign: 'center',
+              gap: 3,
+            }}
+          >
+            <Heading variant="ultratitle" color="white">
+              Sign up for Hack&nbsp;Club&nbsp;Bank.
+            </Heading>
+            <Text color='muted' variant='lead' m='0 !important'>
+              Open to Hack Clubs, hackathons, and charitable organizations in the US and Canada.
             </Text>
-          </Container>
-        </Container>
-        <Timeline />
-        <Grid mt={[4, 5]} mb={[3, 4]} px={3} columns={[1, 1, '1fr 1fr']}>
+          </Flex>
+          <Stats />
+          <Timeline />
+          <Flex sx={{ flexDirection: 'column', gap: 4 }}>
+            <ApplyButton />
+            <Text color='muted'>We run Hack Club HQ on Bank!{' '}
+              <Link
+                href='https://bank.hackclub.com/hq'
+                color='primary'
+              >
+                See our finances.
+              </Link>
+            </Text>
+          </Flex>
+        </Flex>
+        {/* <Grid mt={[4, 5]} mb={[3, 4]} px={3} columns={[1, 1, '1fr 1fr']}>
           <Fade bottom>
             <Card
               variant="primary"
@@ -64,14 +65,7 @@ export default function Start() {
             </Card>
           </Fade>
           <Container variant="narrow" sx={{ pr: [null, null, 2, 6], m: 0 }}>
-            <Stats
-              color="smoke"
-              fontSize={[7, 8]}
-              my={[3, 4]}
-              px={0}
-              width="auto"
-              align="left"
-            />
+            
             <Text
               sx={{
                 fontSize: 18,
@@ -104,7 +98,7 @@ export default function Start() {
             services provided by Silicon Valley Bank, an FDIC-certified
             institution.
           </Text>
-        </Container>
+        </Container> */}
       </Box>
     </>
   )

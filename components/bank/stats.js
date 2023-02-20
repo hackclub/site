@@ -1,4 +1,4 @@
-import { Text, Box } from 'theme-ui'
+import { Text, Box, Flex } from 'theme-ui'
 import { keyframes } from '@emotion/react'
 import { timeSince } from '../../lib/helpers'
 import useSWR from 'swr'
@@ -45,14 +45,27 @@ const Stats = props => {
   const { data } = useSWR('https://bank.hackclub.com/stats', fetcher, {
     fallbackData: {
       transactions_volume: 500 * 1000 * 1000,
-      raised: 200 * 1000 * 500,
       last_transaction_date: Date.now()
     }
   })
 
   return (
     <Box>
-      <Text
+      <Flex sx={{flexDirection: 'column', alignItems: 'center' }}>
+        <Text sx={{fontSize: 4}}>
+          So far we have enabled
+        </Text>
+        <Text variant='heading' sx={{
+          color: 'green',
+          fontSize: 84
+        }}>
+          $7,711,681
+        </Text>
+        <Text sx={{fontSize: 4}}>
+          in transactions
+        </Text>
+      </Flex>
+      {/* <Text
         variant="lead"
         fontSize={[2, 3]}
         color="muted"
@@ -74,7 +87,7 @@ const Stats = props => {
           value={renderMoney(data?.transactions_volume)}
           label="total amount transacted"
         />
-      </Box>
+      </Box> */}
     </Box>
   )
 }
