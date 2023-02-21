@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Nav from '../components/nav';
 import Footer from '../components/footer';
 import Bio from '../components/bio';
-import ForceTheme from './force-theme';
+import ForceTheme from '../components/force-theme';
 
 export default function Team() {
 	return (
