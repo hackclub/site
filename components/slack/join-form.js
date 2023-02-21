@@ -85,7 +85,10 @@ const JoinForm = ({ sx = {} }) => {
         {isAdult && (
           <Text
             variant="caption"
-            color="secondary">
+            color="secondary"
+            as="div"
+            sx={{ maxWidth: "600px", textAlign: 'center', mb: 2 }}
+          >
               Hold your horses! Our Slack community for teenagers, and as such
               we're really careful about letting adults join. If you feel you'd
               have a place here, reach out to conduct@hackclub.com.
