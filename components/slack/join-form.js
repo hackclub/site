@@ -1,4 +1,4 @@
-import { Card, Label, Input, Textarea, Select, Grid, Text } from 'theme-ui'
+import { Card, Label, Input, Textarea, Select, Grid, Text, Link } from 'theme-ui'
 import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
