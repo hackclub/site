@@ -4,11 +4,13 @@ import Head from 'next/head';
 import Nav from '../components/nav';
 import Footer from '../components/footer';
 import Bio from '../components/bio';
+import ForceTheme from './force-theme';
 
 export default function Team() {
 	return (
 		<>
 			<Box as="main" key="main">
+				<ForceTheme theme="light" />
 				<Nav light />
 				<Meta as={Head} title="Team" description="Meet the team that runs Hack Club, a global nonprofit network of high school computer science clubs." />
 				<Box pt={6} pb={5} px={[2, 4]} sx={{ backgroundImage: 'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-jt11b2jd3-hack-club-bot.vercel.app/0img_5171.jpg)', backgroundSize: 'cover', backgroundPosition: '75%' }}>
