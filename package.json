@@ -21,7 +21,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^13.1.1",
     "@octokit/auth-app": "^4.0.9",
-    "@octokit/core": "^4.0.5",
+    "@octokit/core": "^4.2.0",
     "@octokit/rest": "^19.0.7",
     "add": "^2.0.6",
     "airtable-plus": "^1.0.4",
