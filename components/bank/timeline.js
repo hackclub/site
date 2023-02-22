@@ -38,7 +38,7 @@ export default function Timeline() {
           mx: 'auto',
           position: 'relative'
         }}>
-          {labels.map((label, idx) => <Step stepIndex={idx + 1} label={label} />)}
+          {labels.map((label, idx) => <Step stepIndex={idx + 1} label={label} key={idx} />)}
           <Box sx={{
           border: 'solid #8492a6',
             borderWidth: '3px 3px 0 0',
