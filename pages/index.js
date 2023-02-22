@@ -1092,11 +1092,15 @@ export async function getStaticProps() {
     r.json()
   )
 
-  // GitHub: get latest github activity
-  let gitHubData = await fetch('https://hackclub.com/api/github').then(r =>
+  // GitHub: get latest github activity (currently this is erroring and
+  // preventing the site from deploying
+  
+  /* let gitHubData = await fetch('https://hackclub.com/api/github').then(r =>
     r.json()
-  )
+  ) */
 
+  let gitHubData = []
+  
   // GitHub: get latest GitHub stars
   let stars = await fetch('https://hackclub.com/api/stars').then(res =>
     res.json()
