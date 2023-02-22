@@ -631,7 +631,7 @@ function Page({
               <Flex
                 sx={{
                   flexDirection: ['column', 'column', 'column', 'row'],
-                  justifyContent: 'center',
+                  justifyContent: gitHubData ? 'center' : 'flex-start',
                   alignItems: [
                     'flex-start',
                     'flex-start',
