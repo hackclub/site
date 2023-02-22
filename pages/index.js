@@ -1116,13 +1116,14 @@ export async function getStaticProps() {
   const { Slack: Slacky } = require('./api/slack')
   let slackData = await Slacky()
 
+
   // GitHub: get latest github activity (currently this is erroring and
   // preventing the site from deploying
 
-//   const { fetchGitHub } = require('./api/github')
-//   let gitHubData = await fetchGitHub()
+  const { fetchGitHub } = require('./api/github')
+  let gitHubData = await fetchGitHub()
 
-  let gitHubData = null
+//   let gitHubData = null
 
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')

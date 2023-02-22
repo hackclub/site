@@ -39,7 +39,7 @@ export async function fetchGitHub() {
       x.type === 'WatchEvent'
   )
 
-  return githubData
+  return gitHubData
 }
 
 export default async function github(req, res) {
