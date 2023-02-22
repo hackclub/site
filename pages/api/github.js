@@ -1,4 +1,4 @@
-export default async function github(req, res) {
+export async function fetchGitHub() {
   let initialGitHubData = await fetch(
     'https://api.github.com/orgs/hackclub/events'
   ).then(r => r.json())
@@ -39,5 +39,9 @@ export default async function github(req, res) {
       x.type === 'WatchEvent'
   )
 
-  res.json(gitHubData)
+  return githubData
 }
+
+export default async function github(req, res) {
+    await fetchGithub(req, res)
+    }

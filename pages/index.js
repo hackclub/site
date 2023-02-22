@@ -306,7 +306,8 @@ function Page({
                 }}
               >
                 joy of code
-              </Text>, together.
+              </Text>
+              , together.
             </Text>
             <Text
               variant="subtitle"
@@ -589,7 +590,12 @@ function Page({
               <Text
                 variant="title"
                 as="h2"
-                sx={{ fontSize: ['36px', '48px', '72px'], width: '18ch', textAlign: 'center', margin: 'auto' }}
+                sx={{
+                  fontSize: ['36px', '48px', '72px'],
+                  width: '18ch',
+                  textAlign: 'center',
+                  margin: 'auto'
+                }}
               >
                 Connect with{' '}
                 <Text
@@ -604,11 +610,18 @@ function Page({
                   builders
                 </Text>{' '}
                 from around the world.
-                </Text>
+              </Text>
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{ fontSize: ['18px', '24px', '32px'], width: ['95vw','66vw'],margin: 'auto', pt: 2, pb: [1, 0, 0], textAlign: 'center' }}
+                sx={{
+                  fontSize: ['18px', '24px', '32px'],
+                  width: ['95vw', '66vw'],
+                  margin: 'auto',
+                  pt: 2,
+                  pb: [1, 0, 0],
+                  textAlign: 'center'
+                }}
               >
                 We gather both online and in-person to share our love of code
                 and make things together.
@@ -679,61 +692,62 @@ function Page({
                     tools or contribute to the tools themselves.
                   </Text>
                 </Box>
-                { gitHubData && (
-                <Flex
-                  sx={{
-                    flexDirection: ['row', 'row', 'row', 'column'],
-                    gap: [1, 2, 2],
-                    alignItems: ['center', 'center', 'center', 'flex-start']
-                  }}
-                >
-                  <Text
-                    as="p"
+                {gitHubData && (
+                  <Flex
                     sx={{
-                      fontSize: ['11px', '11px', '14px'],
-                      textAlign: 'left',
-                      lineHeight: '90%',
-                      width: 'fit-content',
-                      fontStyle: 'italic'
+                      flexDirection: ['row', 'row', 'row', 'column'],
+                      gap: [1, 2, 2],
+                      alignItems: ['center', 'center', 'center', 'flex-start']
                     }}
                   >
-                    Live from GitHub
-                  </Text>
-                  <GitHub
-                    type={gitHubData[0].type}
-                    img={gitHubData[0].userImage}
-                    user={gitHubData[0].user}
-                    time={gitHubData[0].time}
-                    message={gitHubData[0].message}
-                    key={key}
-                  />
-                  <GitHub
-                    type={gitHubData[1].type}
-                    img={gitHubData[1].userImage}
-                    user={gitHubData[1].user}
-                    time={gitHubData[1].time}
-                    message={gitHubData[1].message}
-                    key={key}
-                  />
-                  <GitHub
-                    type={gitHubData[2].type}
-                    img={gitHubData[2].userImage}
-                    user={gitHubData[2].user}
-                    time={gitHubData[2].time}
-                    message={gitHubData[2].message}
-                    key={key}
-                    sx={{ display: ['none', 'none', 'none', 'inline'] }}
-                  />
-                  <GitHub
-                    type={gitHubData[3].type}
-                    img={gitHubData[3].userImage}
-                    user={gitHubData[3].user}
-                    time={gitHubData[3].time}
-                    message={gitHubData[3].message}
-                    key={key}
-                    sx={{ display: ['none', 'none', 'none', 'inline'] }}
-                  />
-                </Flex>)}
+                    <Text
+                      as="p"
+                      sx={{
+                        fontSize: ['11px', '11px', '14px'],
+                        textAlign: 'left',
+                        lineHeight: '90%',
+                        width: 'fit-content',
+                        fontStyle: 'italic'
+                      }}
+                    >
+                      Live from GitHub
+                    </Text>
+                    <GitHub
+                      type={gitHubData[0].type}
+                      img={gitHubData[0].userImage}
+                      user={gitHubData[0].user}
+                      time={gitHubData[0].time}
+                      message={gitHubData[0].message}
+                      key={key}
+                    />
+                    <GitHub
+                      type={gitHubData[1].type}
+                      img={gitHubData[1].userImage}
+                      user={gitHubData[1].user}
+                      time={gitHubData[1].time}
+                      message={gitHubData[1].message}
+                      key={key}
+                    />
+                    <GitHub
+                      type={gitHubData[2].type}
+                      img={gitHubData[2].userImage}
+                      user={gitHubData[2].user}
+                      time={gitHubData[2].time}
+                      message={gitHubData[2].message}
+                      key={key}
+                      sx={{ display: ['none', 'none', 'none', 'inline'] }}
+                    />
+                    <GitHub
+                      type={gitHubData[3].type}
+                      img={gitHubData[3].userImage}
+                      user={gitHubData[3].user}
+                      time={gitHubData[3].time}
+                      message={gitHubData[3].message}
+                      key={key}
+                      sx={{ display: ['none', 'none', 'none', 'inline'] }}
+                    />
+                  </Flex>
+                )}
               </Flex>
               <Sprig
                 delay={100}
@@ -790,7 +804,12 @@ function Page({
                 <Text
                   variant="title"
                   as="h2"
-                  sx={{ fontSize: ['36px', '48px', '72px'], width: '18ch', textAlign: 'center', margin: 'auto' }}
+                  sx={{
+                    fontSize: ['36px', '48px', '72px'],
+                    width: '18ch',
+                    textAlign: 'center',
+                    margin: 'auto'
+                  }}
                 >
                   Find your{' '}
                   <Text
@@ -804,13 +823,20 @@ function Page({
                   >
                     IRL community.
                   </Text>
-                  </Text>
+                </Text>
                 <Text
                   variant="subtitle"
                   as="p"
-                  sx={{ fontSize: ['18px', '24px', '32px'], width: ['100%', '66vw'],margin: 'auto', pt: 2, textAlign: 'center' }}
+                  sx={{
+                    fontSize: ['18px', '24px', '32px'],
+                    width: ['100%', '66vw'],
+                    margin: 'auto',
+                    pt: 2,
+                    textAlign: 'center'
+                  }}
                 >
-                  Thousands of Hack Clubbers organize and participate in hackathons and after school coding clubs.
+                  Thousands of Hack Clubbers organize and participate in
+                  hackathons and after school coding clubs.
                 </Text>
               </Box>
               <Clubs />
@@ -1039,7 +1065,6 @@ function Page({
                 />
               </Card>
             </Grid>
-            
           </Box>
         </Box>
       </Box>
@@ -1059,7 +1084,6 @@ function Page({
           }
         }}
       >
-        
         <style>
           {`a{
           color: #338eda
@@ -1089,26 +1113,24 @@ export async function getStaticProps() {
   )
 
   // Slack: get total raised
-  const { Slack : Slacky } = require('./api/slack');
-  let slackData = await Slacky();
+  const { Slack: Slacky } = require('./api/slack')
+  let slackData = await Slacky()
 
   // GitHub: get latest github activity (currently this is erroring and
   // preventing the site from deploying
-  
-  /* let gitHubData = await fetch('https://hackclub.com/api/github').then(r =>
-    r.json()
-  ) */
+
+//   const { fetchGitHub } = require('./api/github')
+//   let gitHubData = await fetchGitHub()
 
   let gitHubData = null
-  
+
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')
-  let stars = await fetchStars();
-
+  let stars = await fetchStars()
 
   // Sprig: get newest games
   const { getGames } = require('./api/games')
-  let game = await getGames();
+  let game = await getGames()
   console.log(game)
 
   let gameTitle = []
@@ -1117,7 +1139,7 @@ export async function getStaticProps() {
 
   // Sprig: get console count
   const { getConsoles } = require('./api/sprig-console')
-  const consoleCount = await getConsoles();
+  const consoleCount = await getConsoles()
 
   // Hackathons: get latest hackathons
   const hackathonsData = await fetch(
