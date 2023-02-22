@@ -1,6 +1,6 @@
 import FormData from 'form-data'
 
-export default async function Slack(req, res) {
+export async function Slack() {
   const formData = new FormData()
 
   formData.append('token', process.env.SLACK_API_TOKEN)
@@ -19,5 +19,9 @@ export default async function Slack(req, res) {
 
   slackData = slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]
 
-  res.json(slackData)
+  return slackData
+}
+
+export default async function Slacky(req, res) {
+  res.status(200).json(await Slack())
 }

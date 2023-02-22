@@ -13,16 +13,16 @@
   "dependencies": {
     "@apollo/client": "^3.7.7",
     "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/styled": "^11.10.6",
     "@github/time-elements": "^4.0.0",
     "@hackclub/icons": "^0.0.12",
     "@hackclub/meta": "1.1.32",
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
-    "@next/mdx": "^13.1.1",
+    "@next/mdx": "^13.1.6",
     "@octokit/auth-app": "^4.0.9",
-    "@octokit/core": "^4.0.5",
-    "@octokit/rest": "^19.0.5",
+    "@octokit/core": "^4.2.0",
+    "@octokit/rest": "^19.0.7",
     "add": "^2.0.6",
     "airtable-plus": "^1.0.4",
     "animated-value": "^0.2.4",
@@ -65,7 +65,7 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
-    "eslint": "8.33.0",
+    "eslint": "8.34.0",
     "eslint-config-next": "13.1.6"
   }
 }
