@@ -1089,9 +1089,8 @@ export async function getStaticProps() {
   )
 
   // Slack: get total raised
-  let slackData = await fetch('https://hackclub.com/api/slack').then(r =>
-    r.json()
-  )
+  const { Slack : Slacky } = require('./api/slack');
+  let slackData = await Slacky();
 
   // GitHub: get latest github activity (currently this is erroring and
   // preventing the site from deploying
@@ -1103,12 +1102,13 @@ export async function getStaticProps() {
   let gitHubData = null
   
   // GitHub: get latest GitHub stars
-  let stars = await fetch('https://hackclub.com/api/stars').then(res =>
-    res.json()
-  )
+  const { fetchStars } = require('./api/stars')
+  let stars = await fetchStars();
+
 
   // Sprig: get newest games
-  let game = await fetch('https://hackclub.com/api/games').then(r => r.json())
+  const { getGames } = require('./api/games')
+  let game = await getGames();
   console.log(game)
 
   let gameTitle = []
@@ -1116,9 +1116,8 @@ export async function getStaticProps() {
   gameTitle = game.map(r => r.title)
 
   // Sprig: get console count
-  const consoleCount = await fetch(
-    'https://hackclub.com/api/sprig-console'
-  ).then(r => r.json())
+  const { getConsoles } = require('./api/sprig-console')
+  const consoleCount = await getConsoles();
 
   // Hackathons: get latest hackathons
   const hackathonsData = await fetch(
