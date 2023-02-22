@@ -23,7 +23,7 @@ export default async function github(req, res) {
         : null,
     message:
       x.type === 'PushEvent'
-        ? x.payload.commits[0].message
+        ? x.payload.commits[0]?.message
         : x.type === 'PullRequestEvent'
         ? x.payload.pull_request.title
         : x.type === 'WatchEvent'
