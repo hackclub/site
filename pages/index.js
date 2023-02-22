@@ -1100,7 +1100,7 @@ export async function getStaticProps() {
     r.json()
   ) */
 
-  let gitHubData = undefined
+  let gitHubData = null
   
   // GitHub: get latest GitHub stars
   let stars = await fetch('https://hackclub.com/api/stars').then(res =>
