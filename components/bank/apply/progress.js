@@ -1,13 +1,15 @@
+import { useRouter } from 'next/router'
 import { Box, Flex, Text } from 'theme-ui'
 import FlexCol from '../../flex-col'
 
-function StepIcon({ completed = false, number }) {
+function StepIcon({ completed, number }) {
   let strokeColour = completed ? '#33d6a6' : '#8492a6'
   let fillColour = completed ? '#33d6a6' : 'none'
 
   return (
     <Box id='11111111111123' sx={{ position: 'relative' }}>
       <svg
+        style={{ translate: '0 1px' }}
         width="40"
         height="40"
         viewBox="0 0 40 40"
@@ -35,7 +37,7 @@ function StepIcon({ completed = false, number }) {
         <Text
           sx={{
             color: 'white',
-            fontSize: 3,
+            fontSize: 2,
           }}
         >
           { number }
@@ -45,7 +47,19 @@ function StepIcon({ completed = false, number }) {
   )
 }
 
-function Step({ number }) {
+function Step({ number, label, completed }) {
+  return (
+    <Flex sx={{ lineHeight: '1', alignItems: 'center', gap: '4' }}>
+      <StepIcon completed={completed} number={number + 1} />
+      <Text sx={{ fontSize: '3' }}>{ label }</Text>
+    </Flex>
+  )
+}
+
+export default function Progress() {
+  const router = useRouter()
+  const step = parseInt(router.query.step)
+
   const labels = [
     'Intro',
     'Organization info',
@@ -53,19 +67,10 @@ function Step({ number }) {
   ]
 
   return (
-    <Flex sx={{ lineHeight: '1', alignItems: 'center', gap: '4' }}>
-      <StepIcon completed number={number + 1} />
-      <Text sx={{ fontSize: '3' }}>{ labels[number] }</Text>
-    </Flex>
+    <FlexCol gap={3} translate='-1rem 0'>
+      {labels.map((label, i) => (
+        <Step number={i} label={label} completed={step > i} key={i} />
+      ))}
+    </FlexCol>
   )
-}
-
-export default function Progress({ number }) {
-    return (
-        <FlexCol gap={3}>
-            <Step number={0} />
-            <Step number={1} />
-            <Step number={2} />
-        </FlexCol>
-    )
 }
