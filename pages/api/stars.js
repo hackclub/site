@@ -1,6 +1,6 @@
 import { graphql } from '@octokit/graphql'
 
-export default async function handler(req, res) {
+export async function fetchStars() {
   const { organization } = await graphql(
     `
       {
@@ -29,5 +29,9 @@ export default async function handler(req, res) {
       }
     }
   )
-  res.status(200).json(organization)
+  return organization
+}
+
+export default async function Stars(req, res) {
+  res.status(200).json(await fetchStars())
 }
