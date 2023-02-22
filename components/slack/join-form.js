@@ -94,21 +94,23 @@ const JoinForm = ({ sx = {} }) => {
               have a place here, reach out to <Link href="mailto:conduct@hackclub.com">conduct@hackclub.com</Link>.
           </Text>
         )}
-        <Submit
-          status={status}
-          mt={'0px!important'}
-          labels={{
-            default:
-              useWaitlist
-                ? 'Join Waitlist'
-                : 'Get Invite',
-            error: 'Something went wrong',
-            success:
-              useWaitlist
-                ? "We'll be in touch soon!"
-                : 'Email coming soon!'
-          }}
-        />
+        {!isAdult && (
+          <Submit
+            status={status}
+            mt={'0px!important'}
+            labels={{
+              default:
+                useWaitlist
+                  ? 'Join Waitlist'
+                  : 'Get Invite',
+              error: 'Something went wrong',
+              success:
+                useWaitlist
+                  ? "We'll be in touch soon!"
+                  : 'Email coming soon!'
+            }}
+          />
+        )}
       </form>
     </Card>
   )
