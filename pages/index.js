@@ -679,6 +679,7 @@ function Page({
                     tools or contribute to the tools themselves.
                   </Text>
                 </Box>
+                { gitHubData && (
                 <Flex
                   sx={{
                     flexDirection: ['row', 'row', 'row', 'column'],
@@ -732,7 +733,7 @@ function Page({
                     key={key}
                     sx={{ display: ['none', 'none', 'none', 'inline'] }}
                   />
-                </Flex>
+                </Flex>)}
               </Flex>
               <Sprig
                 delay={100}
@@ -1099,7 +1100,7 @@ export async function getStaticProps() {
     r.json()
   ) */
 
-  let gitHubData = []
+  let gitHubData = undefined
   
   // GitHub: get latest GitHub stars
   let stars = await fetch('https://hackclub.com/api/stars').then(res =>
