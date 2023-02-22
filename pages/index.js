@@ -679,60 +679,62 @@ function Page({
                     tools or contribute to the tools themselves.
                   </Text>
                 </Box>
-                <Flex
-                  sx={{
-                    flexDirection: ['row', 'row', 'row', 'column'],
-                    gap: [1, 2, 2],
-                    alignItems: ['center', 'center', 'center', 'flex-start']
-                  }}
-                >
-                  <Text
-                    as="p"
+                {gitHubData != [] &&
+                  (<Flex
                     sx={{
-                      fontSize: ['11px', '11px', '14px'],
-                      textAlign: 'left',
-                      lineHeight: '90%',
-                      width: 'fit-content',
-                      fontStyle: 'italic'
+                      flexDirection: ['row', 'row', 'row', 'column'],
+                      gap: [1, 2, 2],
+                      alignItems: ['center', 'center', 'center', 'flex-start']
                     }}
                   >
-                    Live from GitHub
-                  </Text>
-                  <GitHub
-                    type={gitHubData[0].type}
-                    img={gitHubData[0].userImage}
-                    user={gitHubData[0].user}
-                    time={gitHubData[0].time}
-                    message={gitHubData[0].message}
-                    key={key}
-                  />
-                  <GitHub
-                    type={gitHubData[1].type}
-                    img={gitHubData[1].userImage}
-                    user={gitHubData[1].user}
-                    time={gitHubData[1].time}
-                    message={gitHubData[1].message}
-                    key={key}
-                  />
-                  <GitHub
-                    type={gitHubData[2].type}
-                    img={gitHubData[2].userImage}
-                    user={gitHubData[2].user}
-                    time={gitHubData[2].time}
-                    message={gitHubData[2].message}
-                    key={key}
-                    sx={{ display: ['none', 'none', 'none', 'inline'] }}
-                  />
-                  <GitHub
-                    type={gitHubData[3].type}
-                    img={gitHubData[3].userImage}
-                    user={gitHubData[3].user}
-                    time={gitHubData[3].time}
-                    message={gitHubData[3].message}
-                    key={key}
-                    sx={{ display: ['none', 'none', 'none', 'inline'] }}
-                  />
-                </Flex>
+                    <Text
+                      as="p"
+                      sx={{
+                        fontSize: ['11px', '11px', '14px'],
+                        textAlign: 'left',
+                        lineHeight: '90%',
+                        width: 'fit-content',
+                        fontStyle: 'italic'
+                      }}
+                    >
+                      Live from GitHub
+                    </Text>
+                    <GitHub
+                      type={gitHubData[0].type}
+                      img={gitHubData[0].userImage}
+                      user={gitHubData[0].user}
+                      time={gitHubData[0].time}
+                      message={gitHubData[0].message}
+                      key={key}
+                    />
+                    <GitHub
+                      type={gitHubData[1].type}
+                      img={gitHubData[1].userImage}
+                      user={gitHubData[1].user}
+                      time={gitHubData[1].time}
+                      message={gitHubData[1].message}
+                      key={key}
+                    />
+                    <GitHub
+                      type={gitHubData[2].type}
+                      img={gitHubData[2].userImage}
+                      user={gitHubData[2].user}
+                      time={gitHubData[2].time}
+                      message={gitHubData[2].message}
+                      key={key}
+                      sx={{ display: ['none', 'none', 'none', 'inline'] }}
+                    />
+                    <GitHub
+                      type={gitHubData[3].type}
+                      img={gitHubData[3].userImage}
+                      user={gitHubData[3].user}
+                      time={gitHubData[3].time}
+                      message={gitHubData[3].message}
+                      key={key}
+                      sx={{ display: ['none', 'none', 'none', 'inline'] }}
+                    />
+                  </Flex>
+                )}
               </Flex>
               <Sprig
                 delay={100}
