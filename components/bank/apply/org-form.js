@@ -1,21 +1,16 @@
 import { useState, useEffect } from 'react'
 import {
     Box,
-    Button,
-    Flex,
     Label,
     Input,
-    Select,
     Text,
     Textarea,
-    Radio,
     Checkbox,
-    Slider,
 } from 'theme-ui'
 import FlexCol from '../../flex-col'
 import Auto from './address-autocomplete'
 
-function Field({ name, label, type, address=false }) {
+function Field({ name, label, children }) {
     return (
         <FlexCol gap={3}>
             <Label
@@ -27,19 +22,8 @@ function Field({ name, label, type, address=false }) {
             >
                 {label}
             </Label>
-            {
-                address ?
-                    <Auto name={name} />
-                    :
-                    <Input
-                        name={name}
-                        id={name}
-                        type={type}
-                        mb={3}
-                        sx={{ width: '250px' }}
-                    />
-            }
-        </FlexCol>
+            { children }
+        </FlexCol>       
     )
 }
 
@@ -53,21 +37,56 @@ export default function OrganizationInfoForm() {
     return (
         <Box
             as="form"
-            sx={{ width: '50ch', pl: 1 }}
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 4,
+                width: '50ch',
+                pl: 1
+            }}
             onSubmit={(e) => e.preventDefault()}
         >
-            <Field name='eventName' label={`${org} name`} />
-            <Field name='eventWebsite' label={`${org} website`} type='url' />
-            <Field name='eventLocation' label={`${org} location`} address={true} />
-            <Label>
-                <Text sx={{ fontSize: 3 }}>Transparency mode</Text>
+            <Field name='eventName' label={`${org} name`}>
+                <Input name='eventName' id='eventName' placeholder='Shelburne School Hackathon' />
+            </Field>
+            <Field name='eventWebsite' label={`${org} website`}>
+                <Input name='eventWebsite' id='eventWebsite' type='url' placeholder='hackclub.com' />
+            </Field>
+            <Field name='eventLocation' label={`${org} location`}>
+                <Auto name='eventLocation' />
+            </Field>
+            <FlexCol gap={3}>   
+                <Label
+                    sx={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: 3,
+                        width: 'fit-content',
+                        fontSize: 3,
+                    }}>
+                    Transparency mode
+                    <Checkbox checked />
+                </Label>
                 <Text sx={{ color: 'muted', fontSize: 1 }}>
                         Transparent accounts’ balances and donations are public.
                         You choose who has access to personal details.
                         This can be changed later. 
                         As an example, Hack Club's finances are transparent.
                     </Text>
-            </Label>
+            </FlexCol>
+
+            <Field name='eventDescription' label={`Tell us about your ${org}!`}>
+                <Textarea
+                    name='eventDescription'
+                    id='eventDescription'
+                    placeholder='1 or 2 sentences will suffice'
+                    rows={4}
+                    sx={{
+                        resize: 'vertical',
+                        width: '100%'
+                    }}
+                />
+            </Field>
         </Box>
     )
 }
