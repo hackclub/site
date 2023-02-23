@@ -1,6 +1,10 @@
 import { graphql } from '@octokit/graphql'
 
 export async function fetchStars() {
+  if (process.env.GITHUB_TOKEN == null) {
+    console.warn("Note - GITHUB_TOKEN not defined, stars will not be fetched from github")
+    return { sprig:"?", sinerider:"?", sprigHardware:"?", hackclub:"?", hackathons:"?"};
+  }
   const { organization } = await graphql(
     `
       {
