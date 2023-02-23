@@ -56,7 +56,7 @@ export default function Watermark() {
                                 position: 'absolute',
                                 width: '100%',
                                 height: '100%',
-                                backgroundColor: '#2d1a22',
+                                backgroundColor: '#1d181f',
                                 clipPath: 'url(#my-clip-path)',
                             }}
                         >
@@ -68,7 +68,7 @@ export default function Watermark() {
                                     height: '2px',
                                     borderRadius: '50%',
                                     backgroundColor: 'red',
-                                    filter: 'blur(32px)',
+                                    filter: 'blur(16px)',
                                 }}
                             />
                         </Box>
