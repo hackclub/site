@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Box } from 'theme-ui'
 import { keyframes } from '@emotion/react'
 import BankInfo from './bank-info'
-
+import OrganizationInfoForm from './org-form'
 
 function generateFadeKeyframes(resolution = 20) {
   let maskFade = {}
@@ -44,7 +44,7 @@ export default function FormContentContainer() {
     }
 
     useEffect(() => {
-        if (!router.isReady) return    
+      if (!router.isReady) return   
         const step = parseInt(router.query.step)
 
         handleScroll()
@@ -66,7 +66,8 @@ export default function FormContentContainer() {
                 },  
             }}
         >
-            <BankInfo />
+        {/* <BankInfo /> */}
+          <OrganizationInfoForm />
         </Box>   
     )
 }
