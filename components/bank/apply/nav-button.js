@@ -29,27 +29,28 @@ export default function NavButton({ isBack }) {
         const step = parseInt(router.query.step)
 
         if (!step) {
-            router.query.step = '1'
+            step = 1
         } else if (step === 1 && isBack) {
             router.push('/bank')
             return
         } else if (step < 1) {
-            router.query.step = 1
+            step = 1
         } else {
-            router.query.step += isBack ? -1 : 1
+            step += isBack ? -1 : 1
         }
+        router.query.step = step
         router.push(router)
     }
 
     return (
         <Button
-            { ...isBack ? { variant: 'outline' } : null }
+            variant={ isBack ? 'outline' : 'ctaLg' }
             sx={{
                 color: 'white',
                 borderColor: 'muted',
                 width: 'fit-content',
-                translate: isBack ? '-3.5rem' : '-3rem', // Keyline alignment
-
+                translate: isBack ? '-3.3rem' : '-4rem', // Keyline alignment
+                mb: 5,
             }}
             onClick={click}
         >
