@@ -65,7 +65,7 @@ export default function OrganizationInfoForm() {
                         fontSize: 3,
                     }}>
                     Transparency mode
-                    <Checkbox checked />
+                    <Checkbox defaultChecked />
                 </Label>
                 <Text sx={{ color: 'muted', fontSize: 1 }}>
                         Transparent accounts’ balances and donations are public.
