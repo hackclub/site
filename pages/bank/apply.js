@@ -40,7 +40,7 @@ export default function Apply() {
             <Progress />
             <NavButton isBack={true} />
           </FlexCol>
-          <FlexCol justifyContent='space-between' height='100%' gap={3}>
+          <FlexCol justifyContent='space-between' height='100%' gap={3} width='fit-content'>
             <FormContentContainer />
             <NavButton isBack={false} />
           </FlexCol>
