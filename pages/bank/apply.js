@@ -11,7 +11,7 @@ import NavButton from '../../components/bank/apply/nav-button'
 import Watermark from '../../components/bank/apply/watermark'
 import BankInfo from '../../components/bank/apply/bank-info'
 
-function generateFadeKeyframes(resolution = 100) {
+function generateFadeKeyframes(resolution = 20) {
   let maskFade = {}
   let maskFadeOut = {}
   for (let i = 0; i <= resolution; i++) {
