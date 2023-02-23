@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { Box, Divider, Input, Text } from 'theme-ui'
+import { Box, Input, Text } from 'theme-ui'
 import FlexCol from '../../flex-col'
-
-// Test signed commit
 
 export default function AutoComplete({ name }) {
     const input = useRef()
@@ -57,11 +55,12 @@ export default function AutoComplete({ name }) {
                 src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAFRkv4LUuUGZOWbPGjX4ksMHSOrRTjHjo&libraries=places'
             ></script>
 
-            <FlexCol gap={2} width='250px' position='relative'>
+            <FlexCol gap={2} position='relative'>
                 <Input
                     ref={input}
                     name={name}
                     id={name}
+                    placeholder='Shelburne, VT'
                     autoComplete="off"
                 />
                 {
@@ -71,7 +70,8 @@ export default function AutoComplete({ name }) {
                         width: '100%',
                         p: 3,
                         borderRadius: '4px',
-
+                            position: 'absolute',
+                        top: '3em',
                     }}>
                         <FlexCol gap={1}>
                             {predictions.map((prediction, idx) => (
@@ -80,10 +80,13 @@ export default function AutoComplete({ name }) {
                                         as='button'
                                         onClick={optionClicked}
                                         sx={{
+                                            cursor: 'pointer',
                                             border: 'none',
-                                            // outline: 'none',
                                             background: 'none',
-                                            color: 'white',
+                                            color: 'muted',
+                                            '&:hover': {
+                                                color: 'white',
+                                            },
                                             fontFamily: 'inherit',
                                             fontSize: 'inherit',
                                             textAlign: 'inherit',
