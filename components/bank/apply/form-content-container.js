@@ -58,7 +58,8 @@ export default function FormContentContainer() {
             sx={{
                 flex: 1,
                 overflowY: 'auto',
-                pr: '1ch',
+                pr: '2ch',
+                pb: 3,
                 position: 'relative',
                 animation: `${maskFadeOut} 0.2s forwards`,
                 '&.gradient': {
