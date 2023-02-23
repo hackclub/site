@@ -1,5 +1,4 @@
 import { useRef, useEffect } from 'react'
-import { useRouter } from 'next/router'
 import { Box } from 'theme-ui'
 import { keyframes } from '@emotion/react'
 import BankInfo from './bank-info'
@@ -27,48 +26,44 @@ function generateFadeKeyframes(resolution = 20) {
   return { maskFade, maskFadeOut }
 }
 
-export default function FormContentContainer() {
-    const router = useRouter()
-    const scrollView = useRef()
-    const { maskFade, maskFadeOut } = generateFadeKeyframes()
+export default function FormContentContainer({ children }) {
+  const scrollView = useRef()
+  const { maskFade, maskFadeOut } = generateFadeKeyframes()
 
-    const handleScroll = () => {
-        const scroll = scrollView.current.scrollTop
-        const scrollMax = scrollView.current.scrollTopMax
-        
-        if (scroll >= scrollMax) {
-        scrollView.current.classList.remove('gradient')
-        } else {
-        scrollView.current.classList.add('gradient')
-        }
+  const handleScroll = () => {
+    if (!scrollView.current) return
+    const scroll = scrollView.current.scrollTop
+    const scrollMax = scrollView.current.scrollTopMax
+    
+    if (scroll >= scrollMax) {
+    scrollView.current.classList.remove('gradient')
+    } else {
+    scrollView.current.classList.add('gradient')
     }
+  }
 
-    useEffect(() => {
-      if (!router.isReady) return   
-        const step = parseInt(router.query.step)
+  useEffect(() => {
+    handleScroll()
+    scrollView.current.addEventListener('scroll', handleScroll)
+    return () => scrollView.current.removeEventListener('scroll', handleScroll)
+  })
 
-        handleScroll()
-        scrollView.current.addEventListener('scroll', handleScroll)
-        return () => scrollView.current.removeEventListener('scroll', handleScroll)
-    }, [router.isReady])
-
-    return (
-       <Box
-            ref={scrollView}
-            sx={{
-                flex: 1,
-                overflowY: 'auto',
-                pr: '2ch',
-                pb: 3,
-                position: 'relative',
-                animation: `${maskFadeOut} 0.2s forwards`,
-                '&.gradient': {
-                    animation: `${maskFade} 0.2s forwards`,
-                },  
-            }}
-        >
-        {/* <BankInfo /> */}
-          <OrganizationInfoForm />
-        </Box>   
+  return (
+    <Box
+      ref={scrollView}
+      sx={{
+        flex: 1,
+        overflowY: 'auto',
+        pr: '2ch',
+        pb: 3,
+        position: 'relative',
+        animation: `${maskFadeOut} 0.2s forwards`,
+        '&.gradient': {
+            animation: `${maskFade} 0.2s forwards`,
+        },  
+      }}
+    >
+      { children }
+    </Box>   
     )
 }

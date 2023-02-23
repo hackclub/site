@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { Box, Flex, Text } from 'theme-ui'
 import ForceTheme from '../../components/force-theme'
@@ -9,19 +9,22 @@ import Progress from '../../components/bank/apply/progress'
 import NavButton from '../../components/bank/apply/nav-button'
 import Watermark from '../../components/bank/apply/watermark'
 import FormContentContainer from '../../components/bank/apply/form-content-container'
+import BankInfo from '../../components/bank/apply/bank-info'
+import OrganizationInfoForm from '../../components/bank/apply/org-form'
 
 export default function Apply() {
   const router = useRouter()
+  const [step, setStep] = useState(1)
 
   useEffect(() => {
     if (!router.isReady) return
-    const step = parseInt(router.query.step)
+    setStep(parseInt(router.query.step))
 
     if (!step || step < 1) {
       router.query.step = 1
       router.replace(router)
     }
-  }, [router.isReady])
+  })
 
   return (
     <>
@@ -41,7 +44,10 @@ export default function Apply() {
             <NavButton isBack={true} />
           </FlexCol>
           <FlexCol justifyContent='space-between' height='100%' gap={3} width='fit-content'>
-            <FormContentContainer />
+            <FormContentContainer>
+              { step === 1 && <BankInfo />}
+              { step === 2 && <OrganizationInfoForm />}
+            </FormContentContainer>
             <NavButton isBack={false} />
           </FlexCol>
         </Flex>
