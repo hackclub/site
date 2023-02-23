@@ -1,4 +1,4 @@
-import { Card, Label, Input, Textarea, Select, Grid } from 'theme-ui'
+import { Card, Label, Input, Textarea, Select, Grid, Text, Link } from 'theme-ui'
 import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
@@ -12,6 +12,9 @@ const JoinForm = ({ sx = {} }) => {
       ? { continent: router.query.continent, reason: router.query.reason }
       : { reason: router.query.reason }
   })
+
+  const isAdult = useField('educationLevel').value == 'tertiary'
+  const useWaitlist = process.env.NEXT_PUBLIC_OPEN != 'true'
 
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
@@ -79,19 +82,31 @@ const JoinForm = ({ sx = {} }) => {
             required
           />
         </Label>
+        {isAdult && (
+          <Text
+            variant="caption"
+            color="secondary"
+            as="div"
+            sx={{ maxWidth: "600px", textAlign: 'center', mb: 2 }}
+          >
+              Hold your horses! <b>Our Slack community for teenagers</b>, and as such
+              we're really careful about letting adults join. If you feel you'd
+              have a place here, reach out to <Link href="mailto:conduct@hackclub.com">conduct@hackclub.com</Link>.
+          </Text>
+        )}
         <Submit
           status={status}
           mt={'0px!important'}
           labels={{
             default:
-              process.env.NEXT_PUBLIC_OPEN == 'true'
-                ? 'Get Invite'
-                : 'Join Waitlist',
+              useWaitlist
+                ? 'Join Waitlist'
+                : 'Get Invite',
             error: 'Something went wrong',
             success:
-              process.env.NEXT_PUBLIC_OPEN == 'true'
-                ? 'Email coming soon!'
-                : "We'll be in touch soon!"
+              useWaitlist
+                ? "We'll be in touch soon!"
+                : 'Email coming soon!'
           }}
         />
       </form>
