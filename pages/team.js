@@ -55,7 +55,7 @@ export default function Team() {
                 borderRadius: '20px',
                 mb: 3,
                 gap: 3,
-                flexWrap: 'wrap'
+                flexWrap: ['wrap', null, null, 'nowrap']
               }}
             >
               <Text
