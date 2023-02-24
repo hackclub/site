@@ -1,14 +1,16 @@
-import { Box, Container, Text, Grid } from 'theme-ui'
+import { Box, Container, Text, Grid, Flex } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Bio from '../components/bio'
+import ForceTheme from '../components/force-theme'
 
 export default function Team() {
   return (
     <>
       <Box as="main" key="main">
+        <ForceTheme theme="light" />
         <Nav light />
         <Meta
           as={Head}
@@ -19,7 +21,12 @@ export default function Team() {
           pt={6}
           pb={5}
           px={[2, 4]}
-          sx={{ background: theme => theme.util.gx('#24B5A5', '#1E9789') }}
+          sx={{
+            backgroundImage:
+              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-jt11b2jd3-hack-club-bot.vercel.app/0img_5171.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: '75%'
+          }}
         >
           <Container>
             <Text variant="ultratitle" color="snow">
@@ -41,199 +48,385 @@ export default function Team() {
         </Box>
         <Box bg="#f9f9fa" py={4}>
           <Container>
-            <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
-                img="/team/zach.jpg"
-                name="Zach Latta"
-                teamRole="Founder"
-                text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
-                pronouns="he/him"
-              />
-              <Bio
-                img="/team/christina.jpg"
-                name="Christina Asquith"
-                teamRole="Co-founder and COO"
-                text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”                "
-                pronouns="she/her"
-              />
-              <Bio
-                img="/team/max.jpg"
-                name="Max Wofford"
-                teamRole="Tech & Creative Lead"
-                text="After teaching himself to code in junior year of high school, Max joined a group of nomadic hackers in Costa Rica to experience coding in a real-world setting. He has been with Hack Club since day one and is now working full-time in Vermont to grow the movement."
-                pronouns="he/him"
-              />
-              <Bio
-                name="Kara Massie"
-                teamRole="Clubs & Community Production Lead"
-                text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
-                img="/team/kara.png"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Leo McElroy"
-                teamRole="Clubs Lead"
-                text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
-                img="/team/leo.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Holly Delisle"
-                teamRole="Club Operations Lead"
-                text="Holly comes to Hack Club with 10 years of operations management in the banking industry, bringing people together and simplifying processes. She's lived in Maine and Vermont in intervals all her life and loves the outdoors in every season. Now, Holly meets and works with amazing, inspiring technical teenagers every day from around the world. She's got two sons, two dogs and two cats, the latter of which are all named after characters in some of her favorite books."
-                img="/team/holly.jpeg"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Kognise"
-                teamRole="Clubs Engineer"
-                text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they spend their time working on whatever fantastic project is happening in the present moment."
-                img="https://media.kognise.dev/other-avatars/bean-man.jpg"
-              />
-              <Bio
-                name="Caleb Denio"
-                teamRole="Bank Engineer"
-                text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. At Hack Club Bank, he writes code that makes money go 'cha-ching!'"
-                img="/team/caleb.jpg"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Ella Xu"
-                teamRole="Bank Engineer"
-                text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
-                img="https://scrapbook.hackclub.com/ella.png"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Melanie Smith"
-                teamRole="Bank Operations Lead"
-                text="Melanie grew up in northern New England where she obtained a degree in Marine Biology. She then spent several years running a pet store with 20+ employees and recently decided to change career paths. This led her to Hack Club where she is excited about helping students pursue their dreams."
-                img="/team/mel.png"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Liv Cook"
-                teamRole="Bank Operations"
-                text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
-                img="/team/liv.png"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Belle See"
-                teamRole="Engineer for Comms"
-                text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
-                img="https://github.com/bellesea.png"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Bence Beres"
-                teamRole="Bookkeeper"
-                text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
-                img="/team/bence.png"
-                pronouns="he/him"
-              />
+            <Flex
+              sx={{
+                bg: 'rgb(51 142 218 / 40%)',
+                p: 3,
+                borderRadius: '20px',
+                mb: 3,
+                gap: 3,
+                flexWrap: ['wrap', null, null, 'nowrap']
+              }}
+            >
+              <Text
+                variant="headline"
+                my={[0, 0, 3]}
+                as="h3"
+                sx={{
+                  textAlign: 'center',
+                  fontSize: 4,
+                  writingMode: [null, null, null, 'vertical-rl'],
+                  mr: [0, 0, 0, 2],
+                  transform: [null, null, null, 'rotate(180deg)'],
+                  width: ['100%', null, null, 'fit-content'],
+                  marginBottom: [
+                    '0px!important',
+                    '0px!important',
+                    '0px!important',
+                    3
+                  ]
+                }}
+              >
+                Our Board
+              </Text>
+              <Box sx={{ flexGrow: 1 }}>
+                <Grid columns={[1, null, 2]} gap={2} mb={2}>
+                  <Bio
+                    img="/team/zach.jpg"
+                    name="Zach Latta"
+                    teamRole="Founder"
+                    text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
+                    pronouns="he/him"
+                  />
+                  <Bio
+                    img="/team/christina.jpg"
+                    name="Christina Asquith"
+                    teamRole="Co-founder and COO"
+                    text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
+                    pronouns="she/her"
+                  />
+                </Grid>
+                <Grid columns={[1, null, 3]} gap={2}>
+                  <Bio
+                    img="https://cloud-80nhjzldl-hack-club-bot.vercel.app/0.jpeg"
+                    name="Tom Preston-Werner"
+                    teamRole={<>Board Member</>}
+                    subrole="Co-Founder, GitHub"
+                    pronouns="he/him"
+                    href="https://github.com/mojombo"
+                  />
+                  <Bio
+                    img="https://philanthropy.hackclub.com/_next/image?url=/quinn.png&w=1200&q=75"
+                    name="
+              Quinn Slack"
+                    teamRole={<>Board Member</>}
+                    subrole="CEO, Sourcegraph"
+                    pronouns="he/him"
+                    href="https://github.com/sqs"
+                  />
+                  <Bio
+                    img="https://media.licdn.com/dms/image/C5603AQFum8zxW-IEEA/profile-displayphoto-shrink_800_800/0/1517058384850?e=2147483647&v=beta&t=-oM8no3Zc7xUzCDBsHxajD_joBkQi8Ge5iPaeF5p0gM"
+                    name="John Abele"
+                    teamRole={<>Board Advisor</>}
+                    href="https://en.wikipedia.org/wiki/John_Abele"
+                    subrole="Founder, Boston Scientific"
+                    pronouns="he/him"
+                  />
+                </Grid>
+              </Box>
+            </Flex>
+            <Grid columns={[1, null, null, 2]} gap={3}>
+              <Box
+                sx={{ bg: 'rgb(51 214 166 / 40%)', p: 3, borderRadius: '20px' }}
+              >
+                <Text
+                  variant="headline"
+                  mt={2}
+                  mb={3}
+                  as="h3"
+                  sx={{ textAlign: 'center', fontSize: 4 }}
+                >
+                  Clubs & Community Team
+                </Text>
+                <Grid columns={[1, null, 2]} gap={2}>
+                  <Bio
+                    name="Kara Massie"
+                    teamRole="Production Lead"
+                    text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
+                    img="/team/kara.png"
+                    pronouns="she/her"
+                  />
+                  <Bio
+                    name="Leo McElroy"
+                    teamRole="Clubs Engineering Lead"
+                    text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
+                    img="/team/leo.png"
+                    pronouns="he/him"
+                  />
+                  <Bio
+                    name="Holly Delisle"
+                    teamRole="Clubs Operations Lead"
+                    text="Holly comes to Hack Club with 10 years of operations management in the banking industry, bringing people together and simplifying processes. She's lived in Maine and Vermont in intervals all her life and loves the outdoors in every season. Now, Holly meets and works with amazing, inspiring technical teenagers every day from around the world. She's got two sons, two dogs and two cats, the latter of which are all named after characters in some of her favorite books."
+                    img="/team/holly.jpeg"
+                    pronouns="she/her"
+                  />
+                  <Bio
+                    name="Al Harder-Hyde"
+                    teamRole="Project Manager"
+                    img="https://scrapbook.hackclub.com/al.png"
+                    pronouns="she/her"
+                  />
+                  <Bio
+                    name="Kognise"
+                    teamRole="Clubs Engineering"
+                    text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they spend their time working on whatever fantastic project is happening in the present moment."
+                    img="https://media.kognise.dev/other-avatars/bean-man.jpg"
+                  />
+                  <Bio
+                    name="Ella Xu"
+                    teamRole="Clubs Engineering"
+                    text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
+                    img="https://scrapbook.hackclub.com/ella.png"
+                    pronouns="she/her"
+                  />
+                  <Bio
+                    name="Sam Poder"
+                    teamRole="Engineering & Operations"
+                    text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. 
+                Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys traveling with his family 
+                and participating in academic competitions with his friends.`}
+                    img="https://change-my-pfp.vercel.app/api/current/"
+                    pronouns="he/him"
+                    href="https://github.com/sampoder"
+                  />
+                  <Bio
+                    name="Hugo Hu"
+                    teamRole="Mail Coordinator & Engineering"
+                    text="Hugo manages Hack Club’s mail. His responsibilities include designing magical mail experiences, negotiating with carriers, and writing mail-related software. He's also involved in many of Hack Club's special projects, such as Sprig & Assemble. Hugo also enjoys designing hardware, competing in math competitions, and admiring corgis."
+                    img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
+                    pronouns="he/him"
+                  />
+                  <Bio
+                    name="Claire Wang"
+                    teamRole="Moderation & Events"
+                    text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
+                    img="/team/claire.png"
+                    pronouns="she/her"
+                  />
+                  <Bio
+                    name="Toby Brown"
+                    teamRole="Moderation & Events"
+                    img="https://scrapbook.hackclub.com/toby.png"
+                    pronouns="he/him"
+                  />
+                  <Bio
+                    name="Mutammim"
+                    teamRole="Moderation & Events"
+                    img="https://ca.slack-edge.com/T0266FRGM-U021VLF7880-2bf2660768cc-512"
+                    pronouns="he/him"
+                  />
+                  <Bio
+                    name="Fayd Sayed"
+                    teamRole="Moderation & Events"
+                    img="https://github.com/faisalsayed10.png"
+                    pronouns="he/him"
+                  />
+                  <Bio
+                    name="Maggie"
+                    teamRole="Moderation & Events"
+                    img="https://scrapbook.hackclub.com/maggie.png"
+                    pronouns="she/her"
+                  />
+                  <Bio
+                    name="Shane Celis"
+                    teamRole="Community Engineer"
+                    img="https://scrapbook.hackclub.com/ShaneCelis-U04F7QE6H41.png"
+                    pronouns="he/him"
+                  />
+                  <Bio
+                    img="/team/chris.jpg"
+                    name="Chris Walker"
+                    teamRole="Hacker Resources"
+                    text="Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He worked on Hack Club’s learning resources & clubs program for two years."
+                    pronouns="he/him"
+                  />
+                  <Bio
+                    name="Woody Keppel"
+                    teamRole="Club Alchemist"
+                    text={`Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!”`}
+                    img="/team/woody.jpg"
+                    pronouns="he/him"
+                  />
+                  <Bio
+                    name="Graham Darcey"
+                    teamRole="Creative Technologist"
+                    text="Originally from Vermont, Graham has worked as a full-stack software engineer in Silicon Valley for over 20 years, most recently at Uber where he worked on their core routing services and map data platform.  He recently moved back east, and currently resides in Shelburne VT.  Graham's hobbies include gaming, gamedev, cooking with his wife, and playing joyfully with his two year old daughter."
+                    img="/team/graham.jpg"
+                    pronouns="he/him"
+                  />
+                </Grid>
+              </Box>
+              <Box>
+                <Box
+                  sx={{
+                    bg: 'rgb(236 55 80 / 40%)',
+                    p: 3,
+                    borderRadius: '20px'
+                  }}
+                >
+                  <Text
+                    variant="headline"
+                    mt={2}
+                    mb={3}
+                    as="h3"
+                    sx={{ textAlign: 'center', fontSize: 4 }}
+                  >
+                    Bank Team
+                  </Text>
+                  <Grid
+                    columns={[1, null, 2]}
+                    gap={2}
+                    sx={{ height: 'fit-content' }}
+                  >
+                    <Bio
+                      img="/team/max.jpg"
+                      name="Max Wofford"
+                      teamRole="Tech & Creative Lead"
+                      text="After teaching himself to code in junior year of high school, Max joined a group of nomadic hackers in Costa Rica to experience coding in a real-world setting. He has been with Hack Club since day one and is now working full-time in Vermont to grow the movement."
+                      pronouns="he/him"
+                    />
+                    <Bio
+                      name="Melanie Smith"
+                      teamRole="Operations Lead"
+                      text="Melanie grew up in northern New England where she obtained a degree in Marine Biology. She then spent several years running a pet store with 20+ employees and recently decided to change career paths. This led her to Hack Club where she is excited about helping students pursue their dreams."
+                      img="/team/mel.png"
+                      pronouns="she/her"
+                    />
+                    <Bio
+                      name="Caleb Denio"
+                      teamRole="Engineering"
+                      text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. At Hack Club Bank, he writes code that makes money go 'cha-ching!'"
+                      img="/team/caleb.jpg"
+                      pronouns="he/him"
+                    />
+                    <Bio
+                      name="Liv Cook"
+                      teamRole="Operations Coordinator"
+                      text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
+                      img="/team/liv.png"
+                      pronouns="she/her"
+                    />
+                    <Bio
+                      name="Gary Tou"
+                      teamRole="Engineering"
+                      text="Gary is a software engineer from Seattle and loves photography! After using Hack Club Bank to launch a nonprofit organization, Gary joined Hack Club to make the product that enabled him to do great things even greater for others."
+                      img="https://assets.garytou.com/profile/GaryTou.jpg"
+                      pronouns="he/him"
+                    />
+                    <Bio
+                      name="Daisy Reyes"
+                      teamRole="Operations Associate"
+                      img="https://ca.slack-edge.com/T0266FRGM-U046V3EK56W-b9777e33eece-512"
+                      pronouns="she/her"
+                    />
+                    <Bio
+                      name="Bence Beres"
+                      teamRole="Bookkeeper"
+                      text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
+                      img="/team/bence.png"
+                      pronouns="he/him"
+                    />
+                    <Bio
+                      name="Kunal Botla"
+                      teamRole="Operations"
+                      text={`Kunal loves to make for making! He started Project Boom to help provide computers, helps build and run Hack Club Bank, and is organizing MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
+                      img="https://github.com/kunalbotla.png"
+                      pronouns="he/him"
+                    />
+                    <Bio
+                      name="Arianna Martinelli"
+                      teamRole="Operations"
+                      text={`Arianna is a Hack Clubber from Kentucky excited about how technology and humans can work together to solve problems. She joined Hack Club in 2020 to start a club at her all-girls high school and to learn from a community of fellow coders, and she joined Hack Club Bank in 2021 to fiscally sponsor her non-profit Tandem. She loves swimming, trees, videography, film photography, reading Joan Didion, Formula 1, making memes, and crafting cards with puns.`}
+                      img="https://cloud-oubklmp6c-hack-club-bot.vercel.app/0arianna_profile_photo.png"
+                      pronouns="she/her"
+                    />
+                    <Bio
+                      name="Deven Jadhav"
+                      teamRole="Operations"
+                      text="Deven is a Hack Clubber from India who enjoys building meaningful things at the intersections of art and technology. He also loves music and plays the guitar & drums! Along with this, he also likes talking to strangers over the internet and having interesting & deep conversations. He is also a sucker for nature photography and enjoys hikes and treks into the wild!"
+                      img="https://github.com/devenjadhav.png"
+                      pronouns="he/him"
+                    />
+                  </Grid>
+                </Box>
+                <Box
+                  sx={{
+                    bg: 'rgb(255 142 55 / 40%)',
+                    p: 3,
+                    borderRadius: '20px',
+                    mt: 3
+                  }}
+                >
+                  <Text
+                    variant="headline"
+                    mt={2}
+                    mb={3}
+                    as="h3"
+                    sx={{ textAlign: 'center', fontSize: 4 }}
+                  >
+                    Communications & Philanthropy
+                  </Text>
+                  <Grid
+                    columns={[1, null, 2]}
+                    gap={2}
+                    sx={{ height: 'fit-content' }}
+                  >
+                    <Bio
+                      name="Belle See"
+                      teamRole="Engineer for Comms"
+                      text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
+                      img="https://github.com/bellesea.png"
+                      pronouns="she/her"
+                    />
+                    <Bio
+                      name="Abby Fischler"
+                      teamRole="Technical Intern to COO"
+                      text={`Abby is a high school junior from Los Angeles that loves technology! Since joining the Hack Club community in May 2020, she’s enjoyed learning with friends in the Slack and on board the Hacker Zephyr. She joined Hack Club to support Christina’s work in encouraging more girls to get involved. Abby has hosted events for the community and loves sharing her coding journey on the #ship channel.`}
+                      img="https://github.com/abbyfischler.png"
+                      pronouns="she/her"
+                    />
+                    <Bio
+                      name="Mark Allen"
+                      teamRole="AMA Producer"
+                      img="https://ca.slack-edge.com/T0266FRGM-U03Q20XM953-91ae3b0d0243-512"
+                      pronouns="he/him"
+                    />
+                  </Grid>
+                </Box>
+              </Box>
             </Grid>
             <br />
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
-              Student Team
-            </Text>
-            <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
-                name="Gary Tou"
-                teamRole="Bank Engineering"
-                text="Gary is a software engineer from Seattle and loves photography! After using Hack Club Bank to launch a nonprofit organization, Gary joined Hack Club to make the product that enabled him to do great things even greater for others."
-                img="https://assets.garytou.com/profile/GaryTou.jpg"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Kunal Botla"
-                teamRole="Bank Operations"
-                text={`Kunal loves to make for making! He started Project Boom to help provide computers, helps build and run Hack Club Bank, and is organizing MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
-                img="https://github.com/kunalbotla.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Arianna Martinelli"
-                teamRole="Bank Operations"
-                text={`Arianna is a Hack Clubber from Kentucky excited about how technology and humans can work together to solve problems. She joined Hack Club in 2020 to start a club at her all-girls high school and to learn from a community of fellow coders, and she joined Hack Club Bank in 2021 to fiscally sponsor her non-profit Tandem. She loves swimming, trees, videography, film photography, reading Joan Didion, Formula 1, making memes, and crafting cards with puns.`}
-                img="https://cloud-oubklmp6c-hack-club-bot.vercel.app/0arianna_profile_photo.png"
-                pronouns="she/her"
-              />
-              <Bio
-                name="Deven Jadhav"
-                teamRole="Bank Operations (APAC)"
-                text="Deven is a Hack Clubber from India who enjoys building meaningful things at the intersections of art and technology. He also loves music and plays the guitar & drums! Along with this, he also likes talking to strangers over the internet and having interesting & deep conversations. He is also a sucker for nature photography and enjoys hikes and treks into the wild!"
-                img="https://github.com/devenjadhav.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Sam Poder"
-                teamRole="Engineering & Operations"
-                text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. 
-Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys traveling with his family 
-and participating in academic competitions with his friends.`}
-                img="https://change-my-pfp.vercel.app/api/current/"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Hugo Hu"
-                teamRole="Mail Coordinator & Engineering"
-                text="Hugo manages Hack Club’s mail. His responsibilities include designing magical mail experiences, negotiating with carriers, and writing mail-related software. He's also involved in many of Hack Club's special projects, such as Sprig & Assemble. Hugo also enjoys designing hardware, competing in math competitions, and admiring corgis."
-                img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
-                pronouns="he/him"
-              />
-              <Bio
-                name="Abby Fischler"
-                teamRole="Technical Intern to COO"
-                text={`Abby is a high school junior from Los Angeles that loves technology! Since joining the Hack Club community in May 2020, she’s enjoyed learning with friends in the Slack and on board the Hacker Zephyr. She joined Hack Club to support Christina’s work in encouraging more girls to get involved. Abby has hosted events for the community and loves sharing her coding journey on the #ship channel.`}
-                img="https://github.com/abbyfischler.png"
-                pronouns="she/her"
-              />
-
-              <Bio
-                name="Claire Wang"
-                teamRole="Community Team"
-                text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
-                img="/team/claire.png"
-                pronouns="she/her"
-              />
-
-              <Bio
-                name="Rishi Kothari"
-                teamRole="Community Team"
-                text="Rishi is a high school senior that's super interested in open-source development, startups, React, and everything in between! He is primarily a JS/TS dev, but has worked with Rust 🔥, C++ 💖, Haskell ⚡️, and Swift 🏎 in the past. He is the president of TFSS' Hack Club and a workshop coordinator at TurnerHacks, among other things."
-                img="https://github.com/rishiosaur.png"
-                pronouns="he/him"
-              />
-            </Grid>
-            <br />
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
-              Part Time
-            </Text>
-            <Grid columns={[1, null, 2]} gap={4}>
-              <Bio
-                img="/team/chris.jpg"
-                name="Chris Walker"
-                teamRole="Hacker Resources"
-                text="Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He worked on Hack Club’s learning resources & clubs program for two years."
-                pronouns="he/him"
-              />
-              <Bio
-                name="Woody Keppel"
-                teamRole="Club Alchemist"
-                text={`Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!”`}
-                img="/team/woody.jpg"
-                pronouns="he/him"
-              />
-            </Grid>
-            <br />
-            <Text variant="title" color="orange" sx={{ lineHeight: '1.75em' }}>
-              Acknowledgements
-            </Text>
-            <Grid columns={[1, null, 2]} gap={4}>
+            <Box sx={{ textAlign: 'center', mt: 2, mb: [3, 4] }}>
+              <Text
+                variant="title"
+                color="orange"
+                sx={{ lineHeight: '1em', fontSize: [4, 5, 6] }}
+                as="h2"
+              >
+                Acknowledgements
+              </Text>
+              <Text
+                variant="title"
+                color="text"
+                sx={{
+                  lineHeight: '1em',
+                  fontSize: [1, 3, 4],
+                  my: [3, 0, 0],
+                  fontWeight: 400,
+                  maxWidth: '600px',
+                  width: '100%',
+                  margin: 'auto'
+                }}
+                as="h2"
+              >
+                Thank you to everyone who helped shape Hack Club into what it is
+                today...
+              </Text>
+            </Box>
+            <Grid columns={[1, null, 2, 4]} gap={2}>
               <Bio
                 name="Cedric Hutchings"
-                teamRole="Clubs Constructionist"
+                teamRole="Constructionist"
                 text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. At Hack Club, Ced made materials that shared his enthusiasm for making fun somethings from nothing but technology."
                 img="/team/ced.png"
                 pronouns="he/him"
@@ -247,14 +440,14 @@ and participating in academic competitions with his friends.`}
               />
               <Bio
                 name="Harsh Bajpai"
-                teamRole="Clubs Lead"
+                teamRole="APAC Clubs"
                 text="Harsh is a vegetarian musician who enjoys traveling around India. As the APAC Clubs Lead, Harsh welcomed new clubs to the community and built amazing tools for them. When he is not reading ancient mythology, he is programming with purpose and passion."
                 img="/team/harsh.png"
                 pronouns="he/him"
               />
               <Bio
                 name="Annlee Fores"
-                teamRole="Operations"
+                teamRole="APAC Ops."
                 text="As the COO of Hack Club APAC, Annlee oversaw operations and handled event organisation & logistics at Hack Club APAC.
 When not busy juggling different tasks he takes up, he enjoys tinkering & building fun projects."
                 img="/team/annlee.jpg"
@@ -262,14 +455,14 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
               />
               <Bio
                 name="Anna Grace Benny"
-                teamRole="Clubs Lead"
+                teamRole="APAC Clubs"
                 text="Anna is a visual communication graduate and a social media enthusiast. She loves films and everything related. Managing and meeting new Hack Clubbers as the APAC Clubs Lead, she helped with onboarding new clubs and managed the APAC social media pages."
                 img="/team/anna.png"
                 pronouns="she/her"
               />
               <Bio
                 name="Ishan Goel"
-                teamRole="2022 Summer Communications Intern"
+                teamRole="Communications Intern"
                 text="Ishan was a summer intern from Seattle! During the summer of 2022, he worked on shipping projects with partners to get the word out about Hack Club, and bring more people into the community."
                 img="https://github.com/quackduck.png"
                 pronouns="he/him"
@@ -282,6 +475,13 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
                 pronouns="she/her"
               />
               <Bio
+                name="Rishi Kothari"
+                teamRole="Summer Intern"
+                text="Rishi is a high school senior that's super interested in open-source development, startups, React, and everything in between! He is primarily a JS/TS dev, but has worked with Rust 🔥, C++ 💖, Haskell ⚡️, and Swift 🏎 in the past. He is the president of TFSS' Hack Club and a workshop coordinator at TurnerHacks, among other things."
+                img="https://github.com/rishiosaur.png"
+                pronouns="he/him"
+              />
+              <Bio
                 name="Zach Fogg"
                 teamRole="Community Game Designer"
                 text="At college, Zach Fogg started Bitcamp, one of the largest & longest-running annual college hackathons. He then went on to work as a software engineer in SF and mentor many more student hackathons. Zach joined the team at HQ in early 2021, he went on to bring his energy to the community and hack on countless creative projects (such as the Zephyrnet, which he then maintained as it traveled across the US)."
@@ -291,7 +491,7 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
               <Bio
                 img="/team/matthew.jpg"
                 name="Matthew Stanciu"
-                teamRole="Clubs"
+                teamRole="Clubs Lead"
                 text="After leading a successful Hack Club in West Lafayette, Indiana, & organizing multiple hackathons with Hack Club Bank, Matthew joined the team to lead the clubs program. He wrote curriculum, helped mentor club leaders around the world, & in spring 2020 drove across the U.S. to visit clubs."
                 pronouns="he/him"
               />
@@ -305,21 +505,21 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
               <Bio
                 img="/team/scott.jpg"
                 name="Scott Motte"
-                teamRole="Hack Club Bank"
+                teamRole="Bank Engineer"
                 text="After teaching himself to code in college, Scott went on to lead an exciting software life with multiple startups. Now a father, he joined Hack Club to help build the program he wants available to his children—when they reach high school age."
                 pronouns="he/him"
               />
               <Bio
                 img="/team/tina.jpg"
                 name="Tina Soriano"
-                teamRole="Assistant"
+                teamRole="Exec. Assistant"
                 text="Philippine bred and settled with family in the U.S., Tina shifted her career from marketing and film production to teaching kids in the Clark County School District. At Hack Club, she helped thousands of high school students hack their way to a fabulous future."
                 pronouns="she/her"
               />
               <Bio
                 img="/team/dina.jpg"
                 name="Dina Elhanan"
-                teamRole="2020 Summer Intern"
+                teamRole="Summer Intern"
                 text="Dina started a club in Canada in 2018. Since then she’s run a local hackathon, organized club events & trips, and spoke at Hack Club’s Flagship 2019 Summit. After graduating high school, Dina joined HQ as a ✨Vibes Influencer✨ summer intern. She now studies Electrical Engineering at McMaster University, class of 2024."
                 pronouns="she/her"
               />
@@ -340,7 +540,7 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
               <Bio
                 img="/team/linus.jpg"
                 name="Linus Lee"
-                teamRole="Hack Club Bank"
+                teamRole="Bank Engineer"
                 text="Linus spends most of his free time working on side projects ranging from an audio travel diary to creative coding tools to his own programming language. He brought his experience in product & community from Cal Hacks & Dorm Room Fund to grow Hack Club Bank."
                 pronouns="he/him"
               />
@@ -354,7 +554,7 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
               <Bio
                 img="/team/michael.jpg"
                 name="Michael Destefanis"
-                teamRole="Hack Club Bank"
+                teamRole="Bank Ops."
                 text="After graduating high school, Michael moved to California where he began working with Hack Club. He handled the day-to-day operations of Hack Club Bank from its start starting to its first million dollars in transactions."
                 pronouns="he/him"
               />
