@@ -23,7 +23,8 @@ export default function Bio({ popup = true, ...props }) {
           zIndex: !popup ? 1002 : 5,
           maxHeight: '90vh',
           overflowY: 'scroll',
-          overscrollBehavior: 'contain'
+          overscrollBehavior: 'contain',
+          margin: 'auto'
         }}
         as={href && !text ? 'a' : 'div'}
         href={href}
