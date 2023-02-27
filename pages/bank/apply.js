@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { Box, Flex, Text } from 'theme-ui'
 import ForceTheme from '../../components/force-theme'
@@ -8,26 +8,45 @@ import FlexCol from '../../components/flex-col'
 import Progress from '../../components/bank/apply/progress'
 import NavButton from '../../components/bank/apply/nav-button'
 import Watermark from '../../components/bank/apply/watermark'
-import FormContentContainer from '../../components/bank/apply/form-content-container'
+import FormContainer from '../../components/bank/apply/form-container'
 import BankInfo from '../../components/bank/apply/bank-info'
 import OrganizationInfoForm from '../../components/bank/apply/org-form'
+import PersonalInfoForm from '../../components/bank/apply/personal-form'
+import AddressAlert from '../../components/bank/apply/address-alert'
+
+function NextClick() {
+  
+}
 
 export default function Apply() {
   const router = useRouter()
   const [step, setStep] = useState(1)
+  const formContainer = useRef()
+  const [validationResult, setValidationResult] = useState()
+  const [shouldShowAddressAlert, setShouldShowAddressAlert] = useState(false)
 
   useEffect(() => {
     if (!router.isReady) return
     setStep(parseInt(router.query.step))
 
+    // Set the query url parameter to 1 if it's not present
     if (!step || step < 1) {
-      router.query.step = 1
-      router.replace(router)
+      router.push({ 
+        pathname: router.pathname,
+        query: { ...router.query, step: 1 } }, 
+        undefined, 
+        {}
+      )
     }
   })
 
   return (
     <>
+      <script
+        async
+        src='https://maps.googleapis.com/maps/api/js?key=AIzaSyApxZZ8-Eh_6RgHUu8-BAOpx3xhfF2yK9U&libraries=places&mapInit=foo'
+      ></script>
+      
       <Meta as={Head} title="Apply for Hack Club Bank" />
       <ForceTheme theme="dark" />
 
@@ -41,17 +60,86 @@ export default function Apply() {
           <FlexCol justifyContent='space-between' height='100%' >
             <Text variant='title'>Let's get you<br />set up on bank.</Text>
             <Progress />
-            <NavButton isBack={true} />
+            <NavButton isBack={true} form={formContainer} />
           </FlexCol>
-          <FlexCol justifyContent='space-between' height='100%' gap={3} width='fit-content'>
-            <FormContentContainer>
-              { step === 1 && <BankInfo />}
-              { step === 2 && <OrganizationInfoForm />}
-            </FormContentContainer>
-            <NavButton isBack={false} />
+          <FlexCol justifyContent='space-between' height='100%' gap={3} >
+            <FormContainer ref={formContainer}>
+              { step === 1 && <BankInfo /> }
+              { step === 2 && <OrganizationInfoForm /> }
+              { step === 3 && <PersonalInfoForm
+
+                  setValidationResult={setValidationResult}
+                />
+              }
+            </FormContainer>
+            <NavButton
+              isBack={false}
+              form={formContainer}
+              clickHandler={async () => {
+                // Validate the address
+                if (step === 3) {
+                  const key = atob('QUl6YVN5QXB4Wlo4LUVoXzZSZ0hVdTgtQkFPcHgzeGhmRjJ5SzlV')
+            
+                  // Get the raw personal address input
+                  const userAddress = sessionStorage.getItem('bank-signup-userAddress')
+                  if (!userAddress) return false
+
+                  const res = await fetch(`https://addressvalidation.googleapis.com/v1:validateAddress?key=${key}`, {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                      address: {
+                        addressLines: userAddress
+                      },
+                    }),
+                  })
+                  const resJson = await res.json()
+                  const { result } = resJson
+                  setValidationResult(result)
+
+                  if (!result) return false
+                  console.info(result)
+
+                  if (result.address.missingComponentTypes || result.verdict.hasUnconfirmedComponents) {
+                    setShouldShowAddressAlert(true)
+                    return false
+                  } else {
+                    /* If the address is valid, the returned address can be 
+                    inserted into the hidden fields. Let's change the backend 
+                    so that the user address is just a string? */
+
+                    /*TODO: Replace null with the returned address components.
+                    This could be tricky since the returned address components
+                    could not always be in the same order or format,
+                    so doing addressLine1=result[0]; addressLine2=result[1] ..etc
+                    would be unreliable. One workaround to simply accepting a string
+                    for the whole address would be using the address component types
+                    provided in the result to work out which to concat and in which
+                    fields to put the components. */
+                    sessionStorage.setItem('bank-signup-addressLine1', null)
+                    sessionStorage.setItem('bank-signup-addressLine2', null)
+                    sessionStorage.setItem('bank-signup-addressCity', null)
+                    sessionStorage.setItem('bank-signup-addressState', null)
+                    sessionStorage.setItem('bank-signup-addressZip', null)
+                    sessionStorage.setItem('bank-signup-addressCountry', null)
+
+                    setShouldShowAddressAlert(false)
+                    return true
+                  }
+                }
+
+                return true
+              }}
+            />
           </FlexCol>
         </Flex>
       </Box>
+      { shouldShowAddressAlert && <AddressAlert
+        validationResult={validationResult}
+        setShouldShowAddressAlert={setShouldShowAddressAlert}
+      /> }
       <Watermark />
     </>
   )

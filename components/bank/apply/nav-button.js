@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
-import { Box, Button, Flex, Text } from 'theme-ui'
+import { useState } from 'react'
+import { Button, Flex, Text, Spinner } from 'theme-ui'
 
 function NavIcon({ isBack }) {
     const style = {
@@ -22,10 +23,27 @@ function NavIcon({ isBack }) {
         </svg>
 }
 
-export default function NavButton({ isBack }) {
+export default function NavButton({ isBack, form, clickHandler }) {
     const router = useRouter()
+    const [spinner, setSpinner] = useState(false)
 
-    const click = () => {
+    const click = async () => {
+        // Save form data
+        new FormData(form.current).forEach((value, key) => {
+            sessionStorage.setItem('bank-signup-' + key, value)
+        })
+
+        // Run the parent's click handler for this button.
+        // If it returns false, don't navigate.
+        if (!isBack && clickHandler) {
+            setSpinner(true)
+
+            const result = await clickHandler()
+            setSpinner(false)
+            if (!result) return
+            
+        }
+
         const step = parseInt(router.query.step)
 
         if (!step) {
@@ -38,8 +56,14 @@ export default function NavButton({ isBack }) {
         } else {
             step += isBack ? -1 : 1
         }
-        router.query.step = step
-        router.push(router)
+        router.push({ 
+            pathname: router.pathname,
+            query: { ...router.query, step } }, 
+            undefined, 
+            {}
+        )
+
+        setSpinner(false)
     }
 
     return (
@@ -49,7 +73,7 @@ export default function NavButton({ isBack }) {
                 color: 'white',
                 borderColor: 'muted',
                 width: 'fit-content',
-                translate: isBack ? '-3.3rem' : '-4rem', // Keyline alignment
+                translate: isBack ? '-3.3rem' : '-3.8rem', // Keyline alignment
                 mb: 5,
             }}
             onClick={click}
@@ -71,6 +95,12 @@ export default function NavButton({ isBack }) {
                     {isBack ? 'Back' : 'Next'}
                 </Text>
             </Flex>
+            {!isBack && spinner && <Spinner sx={{
+                height: '32px',
+                color: 'white',
+                position: 'absolute',
+                right: 0
+            }} />}
         </Button>
     )
 }

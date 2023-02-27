@@ -1,31 +1,12 @@
 import { useState, useEffect } from 'react'
 import {
     Box,
-    Label,
     Input,
-    Text,
     Textarea,
-    Checkbox,
 } from 'theme-ui'
-import FlexCol from '../../flex-col'
-import Auto from './address-autocomplete'
-
-function Field({ name, label, children }) {
-    return (
-        <FlexCol gap={3}>
-            <Label
-                htmlFor={name}
-                sx={{
-                    textTransform: 'capitalize',
-                    fontSize: 3,
-                }}
-            >
-                {label}
-            </Label>
-            { children }
-        </FlexCol>       
-    )
-}
+import Checkbox from './checkbox'
+import AddressInput from './address-input'
+import Field from './field'
 
 export default function OrganizationInfoForm() {
     const [org, setOrg] = useState('organization')
@@ -35,58 +16,48 @@ export default function OrganizationInfoForm() {
     }, [])
 
     return (
-        <Box
-            as="form"
-            sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 4,
-                width: '50ch',
-                pl: 1
-            }}
-            onSubmit={(e) => e.preventDefault()}
-        >
+        <>
             <Field name='eventName' label={`${org} name`}>
                 <Input name='eventName' id='eventName' placeholder='Shelburne School Hackathon' />
             </Field>
-            <Field name='eventWebsite' label={`${org} website`}>
+            <Field
+                name='eventWebsite'
+                label={`${org} website`}
+                description='If you don’t have one yet, you can leave this blank.'
+            >
                 <Input name='eventWebsite' id='eventWebsite' type='url' placeholder='hackclub.com' />
             </Field>
             <Field name='eventLocation' label={`${org} location`}>
-                <Auto name='eventLocation' />
+                <AddressInput isPersonalAddressInput={false} name='eventLocation' />
             </Field>
-            <FlexCol gap={3}>   
-                <Label
-                    sx={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        gap: 3,
-                        width: 'fit-content',
-                        fontSize: 3,
-                    }}>
-                    Transparency mode
-                    <Checkbox defaultChecked />
-                </Label>
-                <Text sx={{ color: 'muted', fontSize: 1 }}>
-                        Transparent accounts’ balances and donations are public.
-                        You choose who has access to personal details.
-                        This can be changed later. 
-                        As an example, Hack Club's finances are transparent.
-                    </Text>
-            </FlexCol>
-
-            <Field name='eventDescription' label={`Tell us about your ${org}!`}>
+            <Field
+                name='transparent'
+                label='Transparency mode'
+                col={false}
+                description={`
+                    Transparent accounts’ balances and donations are public.
+                    You choose who has access to personal details.
+                    This can be changed later.
+                    As an example, Hack Club's finances are transparent!
+                `}
+            >
+                <Checkbox defaultChecked={true} name='transparent' />
+            </Field>
+            <Field
+                name='eventDescription'
+                label={`Tell us about your ${org}!`}
+                description='1 or 2 sentences will suffice'
+            >
                 <Textarea
                     name='eventDescription'
                     id='eventDescription'
-                    placeholder='1 or 2 sentences will suffice'
-                    rows={4}
+                    rows={3}
                     sx={{
                         resize: 'vertical',
                         width: '100%'
                     }}
                 />
             </Field>
-        </Box>
+        </>
     )
 }
