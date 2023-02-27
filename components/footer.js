@@ -59,7 +59,7 @@ const Footer = ({ dark = false, children, ...props }) => (
     {...props}
   >
     <Container px={[3, null, 4]}>
-    {children}
+      {children}
       <Grid
         as="article"
         gap={[2, 4]}
@@ -89,7 +89,7 @@ const Footer = ({ dark = false, children, ...props }) => (
             <Link>Philosophy</Link>
           </NextLink>
           <NextLink href="/team" passHref>
-            <Link>Team</Link>
+            <Link>Our Team & Board</Link>
           </NextLink>
           <NextLink href="/jobs" passHref>
             <Link>Jobs</Link>

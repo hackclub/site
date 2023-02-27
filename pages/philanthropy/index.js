@@ -1360,7 +1360,7 @@ const Philanthropy = ({ posts = [] }) => {
               <Box>
                 <Text as="h3">The Hack Foundation</Text>
                 <Text as="p" sx={{ width: '70%' }}>
-                  Address: The Hack Foundation at 8605 Santa Monica Blvd #86294,
+                  Address: The Hack Foundation at 8605 Santa Monica Blvd #86294,
                   West Hollywood, CA, 90069
                 </Text>
                 <Text as="p">EIN: 81-2908499</Text>

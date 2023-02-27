@@ -89,26 +89,28 @@ const JoinForm = ({ sx = {} }) => {
             as="div"
             sx={{ maxWidth: "600px", textAlign: 'center', mb: 2 }}
           >
-              Hold your horses! <b>Our Slack community for teenagers</b>, and as such
+              Hold your horses! <b>Our Slack community is for teenagers</b>, and as such
               we're really careful about letting adults join. If you feel you'd
               have a place here, reach out to <Link href="mailto:conduct@hackclub.com">conduct@hackclub.com</Link>.
           </Text>
         )}
-        <Submit
-          status={status}
-          mt={'0px!important'}
-          labels={{
-            default:
-              useWaitlist
-                ? 'Join Waitlist'
-                : 'Get Invite',
-            error: 'Something went wrong',
-            success:
-              useWaitlist
-                ? "We'll be in touch soon!"
-                : 'Email coming soon!'
-          }}
-        />
+        {!isAdult && (
+          <Submit
+            status={status}
+            mt={'0px!important'}
+            labels={{
+              default:
+                useWaitlist
+                  ? 'Join Waitlist'
+                  : 'Get Invite',
+              error: 'Something went wrong',
+              success:
+                useWaitlist
+                  ? "We'll be in touch soon!"
+                  : 'Email coming soon!'
+            }}
+          />
+        )}
       </form>
     </Card>
   )
