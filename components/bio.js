@@ -24,6 +24,7 @@ export default function Bio({ popup = true, ...props }) {
           maxHeight: '90vh',
           overflowY: 'scroll',
           overscrollBehavior: 'contain'
+          zIndex: popup ? 1003 : null,
         }}
         as={href && !text ? 'a' : 'div'}
         href={href}
@@ -130,7 +131,7 @@ export default function Bio({ popup = true, ...props }) {
           <Flex
             sx={{
               position: 'fixed',
-              zIndex: 1002,
+              zIndex: 1001,
               top: 0,
               left: 0,
               height: '100vh',
@@ -146,7 +147,7 @@ export default function Bio({ popup = true, ...props }) {
           <Flex
             sx={{
               position: 'fixed',
-              zIndex: 1001,
+              zIndex: 1002,
               top: 0,
               left: 0,
               height: '100vh',
