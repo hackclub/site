@@ -197,6 +197,19 @@ export default function Team() {
                     pronouns="he/him"
                   />
                   <Bio
+                    name="Quillan George"
+                    teamRole="Events Director"
+                    img="https://cloud-4rby0bgnb-hack-club-bot.vercel.app/0qg.png"
+                    pronouns="he/him"
+                  />
+                  <Bio
+                    name="Graham Darcey"
+                    teamRole="Creative Technologist"
+                    text="Originally from Vermont, Graham has worked as a full-stack software engineer in Silicon Valley for over 20 years, most recently at Uber where he worked on their core routing services and map data platform.  He recently moved back east, and currently resides in Shelburne VT.  Graham's hobbies include gaming, gamedev, cooking with his wife, and playing joyfully with his two year old daughter."
+                    img="/team/graham.jpg"
+                    pronouns="he/him"
+                  />
+                  <Bio
                     name="Claire Wang"
                     teamRole="Moderation & Events"
                     text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
@@ -247,13 +260,7 @@ export default function Team() {
                     img="/team/woody.jpg"
                     pronouns="he/him"
                   />
-                  <Bio
-                    name="Graham Darcey"
-                    teamRole="Creative Technologist"
-                    text="Originally from Vermont, Graham has worked as a full-stack software engineer in Silicon Valley for over 20 years, most recently at Uber where he worked on their core routing services and map data platform.  He recently moved back east, and currently resides in Shelburne VT.  Graham's hobbies include gaming, gamedev, cooking with his wife, and playing joyfully with his two year old daughter."
-                    img="/team/graham.jpg"
-                    pronouns="he/him"
-                  />
+                  
                 </Grid>
               </Box>
               <Box>
