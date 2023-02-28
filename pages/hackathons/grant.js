@@ -203,6 +203,17 @@ const HackathonGrant = () => {
           >
             Check if your hackathon qualifies
           </Text>
+          <Text
+            as="p"
+            sx={{
+              textAlign: 'center',
+              my: 3,
+              color: 'white',
+              fontSize: [1, 2, 2]
+            }}
+          >
+            Your hackathon should be <Text as="b">free</Text> for all attendees and meet the following requirements:
+          </Text>
 
           <Grid columns={[1, 1, 2, 2]} gap={4}>
             <Requirement
