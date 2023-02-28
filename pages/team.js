@@ -409,7 +409,7 @@ export default function Team() {
                 variant="title"
                 color="text"
                 sx={{
-                  lineHeight: '1em',
+                  lineHeight: '1.2',
                   fontSize: [1, 3, 4],
                   my: [3, 0, 0],
                   fontWeight: 400,
