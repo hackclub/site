@@ -130,21 +130,7 @@ export default function Bio({ popup = true, ...props }) {
           <Flex
             sx={{
               position: 'fixed',
-              zIndex: 1001,
-              top: 0,
-              left: 0,
-              height: '100vh',
-              width: '100vw',
-              alignItems: 'center',
-              justifyContent: 'center',
-              pb: 4
-            }}
-            onClick={() => setExpand(false)}
-          ></Flex>
-          <Flex
-            sx={{
-              position: 'fixed',
-              zIndex: 1000,
+              zIndex: 1002,
               top: 0,
               left: 0,
               height: '100vh',
@@ -157,6 +143,21 @@ export default function Bio({ popup = true, ...props }) {
           >
             <Bio {...props} popup={false} />
           </Flex>
+          <Flex
+            sx={{
+              position: 'fixed',
+              zIndex: 1001,
+              top: 0,
+              left: 0,
+              height: '100vh',
+              width: '100vw',
+              alignItems: 'center',
+              justifyContent: 'center',
+              pb: 4
+            }}
+            onClick={() => setExpand(false)}
+          ></Flex>
+          
         </>
       )}
     </>
