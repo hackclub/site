@@ -20,11 +20,10 @@ export default function Bio({ popup = true, ...props }) {
           cursor: (text && popup) || href ? 'pointer' : null,
           textDecoration: 'none',
           maxWidth: '600px',
-          zIndex: !popup ? 1002 : 5,
+          zIndex: !popup ? 1003 : 5,
           maxHeight: '90vh',
           overflowY: 'scroll',
           overscrollBehavior: 'contain',
-          zIndex: popup ? 1003 : null
         }}
         as={href && !text ? 'a' : 'div'}
         href={href}
