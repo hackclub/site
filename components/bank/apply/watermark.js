@@ -68,7 +68,7 @@ export default function Watermark() {
                                     height: '2px',
                                     borderRadius: '50%',
                                     backgroundColor: 'red',
-                                    filter: 'blur(16px)',
+                                    filter: 'blur(2px)',
                                 }}
                             />
                         </Box>
