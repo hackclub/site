@@ -212,7 +212,8 @@ const HackathonGrant = () => {
               fontSize: [1, 2, 2]
             }}
           >
-            Your hackathon should be <Text as="b">free</Text> for all attendees and meet the following requirements:
+            Your hackathon should be <Text as="b">free</Text> for all attendees
+            and meet the following requirements:
           </Text>
 
           <Grid columns={[1, 1, 2, 2]} gap={4}>
@@ -273,6 +274,17 @@ const HackathonGrant = () => {
               bring hackers together IRL. We believe that fully IRL (not hybrid)
               events allow organisers to maximize the unique hackathon
               experience for attendees.
+              <br />
+              <br />
+              <Text
+                sx={{
+                  color: 'muted',
+                  fontSize: ['14px', 1, 1]
+                }}
+              >
+                Your event must be at least 8 consecutive hours long to qualify
+                for the grant.
+              </Text>
             </Requirement>
             <Requirement
               title="Venue secured"
@@ -289,6 +301,17 @@ const HackathonGrant = () => {
               with your venue. Your scan should have the date of your hackathon
               and address, contact details, and the specific commitment of your
               venue.
+              <br />
+              <br />
+              <Text
+                sx={{
+                  color: 'muted',
+                  fontSize: ['14px', 1, 1]
+                }}
+              >
+                If your venue is a school, attendance must not be limited to a
+                specific school or club.
+              </Text>
             </Requirement>
             <Requirement
               title="Handmade website"
