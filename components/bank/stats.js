@@ -70,28 +70,26 @@ const Stats = () => {
         <Text sx={{ fontSize: [3, 4] }}>
           So far we have enabled
         </Text>
-        { !balance &&
+        { balance ?
+          <>
+            <Text variant='title' color='green' sx={{
+                color: 'green',
+                fontSize: [5, 6]
+              }}
+            >
+              { balance[0] }
+              <Text sx={{ fontSize: [3, 4] }}>.{ balance[1] }</Text>
+            </Text>
+            <Text sx={{ fontSize: [3, 4] }}>
+              in transactions
+            </Text>
+          </>
+          :
           <Text variant='title' color='green' sx={{
             color: 'green',
             fontSize: [5, 6]
-            }}
-          >
-            ...
-          </Text>
+          }}>...</Text>  
         }
-        { balance && <>
-          <Text variant='title' color='green' sx={{
-              color: 'green',
-              fontSize: [5, 6]
-            }}
-          >
-            { balance[0] }
-            <Text sx={{ fontSize: [3, 4] }}>.{ balance[1] }</Text>
-          </Text>
-          <Text sx={{ fontSize: [3, 4] }}>
-            in transactions
-          </Text>
-        </>}
       </Flex>
     </Box>
   )
