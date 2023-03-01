@@ -97,12 +97,12 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
               )}
             </Text>
           </Flex>
-          {popup == false && (
+          {!popup && (
             <Text mt={2} mb={0} color="black">
               {text}
             </Text>
           )}
-          {popup == false && href && (
+          {!popup && href && (
             <Flex sx={{ alignItems: 'center' }}>
               <Text
                 sx={{
@@ -127,7 +127,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           )}
         </Box>
       </Card>
-      {popup == true && expand && (
+      {popup && expand && (
         <>
           <Flex
             sx={{

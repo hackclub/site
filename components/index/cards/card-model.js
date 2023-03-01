@@ -69,7 +69,7 @@ const CardModel = ({
     )}
     {github_link != null ? (
       <Box>
-        {position == 'bottom' ? (
+        {position === 'bottom' ? (
           <Flex
             sx={{
               position: 'absolute',
