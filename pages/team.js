@@ -169,7 +169,7 @@ export default function Team() {
                       name="Al Harder-Hyde"
                       teamRole="Project Manager"
                       img="https://scrapbook.hackclub.com/al.png"
-                      pronouns="she/her"
+                      pronouns="they/them"
                     />
                     <Bio
                       name="Kognise"
