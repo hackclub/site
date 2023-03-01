@@ -40,7 +40,8 @@ const WorkshopCard = ({
       '& span': {
         lineHeight: 1.25
       },
-      maxWidth: '250px'
+      maxWidth: '250px',
+      height: '250px'
     }}
     {...props}
   >
@@ -72,7 +73,8 @@ export default function Workshops({ data, stars }) {
       sx={{
         backgroundColor: 'elevated',
         background:
-          'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)'
+          'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
+        height: 'fit-content'
       }}
       github_link="https://github.com/hackclub/workshops"
       stars={stars}
@@ -81,8 +83,8 @@ export default function Workshops({ data, stars }) {
       <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
         Workshops
       </Text>
-      <Grid columns={[1, 2, 2]}>
-        <Flex sx={{ flexDirection: 'column' }}>
+      <Grid columns={[1, 2, 2]} sx={{ gap: 4, height: 'fit-content' }}>
+        <Flex sx={{ flexDirection: 'column', height: 'fit-content' }}>
           <Text as="p" variant="subtitle">
             100+ community-contributed, self-guided coding tutorials and ideas.
             Learn to code by building, one project at a time.
@@ -94,7 +96,7 @@ export default function Workshops({ data, stars }) {
             primary="white"
             sx={{ color: 'blue', mt: [3, 3, 4] }}
           >
-            Browse a workshop
+            Browse The Workshops
           </Buttons>
           <Buttons
             // content="click to learn more about how to submit a workshop"
@@ -102,11 +104,11 @@ export default function Workshops({ data, stars }) {
             link="https://workshops.hackclub.com/submit-a-workshop/"
             icon="event-add"
           >
-            Build a workshop
+            Build A Workshop
           </Buttons>
         </Flex>
         <Grid
-          sx={{ display: ['none', 'grid', 'grid'], gap: 3 }}
+          sx={{ display: ['none', 'grid', 'grid'] }}
           columns={[1, 1, 1, 2]}
         >
           <WorkshopCard

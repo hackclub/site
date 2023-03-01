@@ -91,7 +91,7 @@ const JoinForm = ({ sx = {} }) => {
           >
               Hold your horses! <b>Our Slack community is for teenagers</b>, and as such
               we're really careful about letting adults join. If you feel you'd
-              have a place here, reach out to <Link href="mailto:conduct@hackclub.com">conduct@hackclub.com</Link>.
+              have a place here, reach out to <Link href="mailto:slack@hackclub.com">slack@hackclub.com</Link>.
           </Text>
         )}
         {!isAdult && (

@@ -110,9 +110,9 @@ function Page({
     <>
       <Meta
         as={Head}
-        title="Hack Club | Home for high school coders"
+        title="Hack Club - A Home for High School Hackers"
         description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
-        image="https://cloud-nqhrewrzc-hack-club-bot.vercel.app/0og-image-min.png"
+        image="https://cloud-lgl7kg862-hack-club-bot.vercel.app/0start__1_.png"
       />
       <Head>
         <meta
@@ -858,32 +858,36 @@ function Page({
               margin: 'auto'
             }}
           >
-            <Text as="p" variant="eyebrow" sx={{ fontSize: ['22px', 2, 3] }}>
-              Let’s recap
-            </Text>
-            <Heading
-              as="h2"
-              variant="title"
-              sx={{
-                fontSize: ['36px', '48px', '56px'],
-                maxWidth: ['15ch', '15ch', '15ch', '30ch']
-              }}
-            >
-              Find your second home at{' '}
+            <Box>
+              <Text as="p" variant="eyebrow" sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}>
+                We've got a lot going on - Let’s recap
+              </Text>
               <Text
-                as="span"
+                variant="title"
+                as="h2"
                 sx={{
-                  borderRadius: 'default',
-                  ml: 0,
-                  whiteSpace: ['wrap', 'nowrap'],
-                  background: theme => theme.util.gx('red', 'orange'),
-                  '-webkit-background-clip': 'text',
-                  '-webkit-text-fill-color': 'transparent'
+                  fontSize: ['36px', '48px', '72px'],
+                  width: '16ch',
+                  textAlign: 'center',
+                  margin: 'auto'
                 }}
               >
-                Hack&nbsp;Club
+                Find your second home at{' '}
+                <Text
+                  as="span"
+                  sx={{
+                    borderRadius: 'default',
+                    ml: 0,
+                    whiteSpace: ['wrap', 'nowrap'],
+                    background: theme => theme.util.gx('red', 'orange'),
+                    '-webkit-background-clip': 'text',
+                    '-webkit-text-fill-color': 'transparent'
+                  }}
+                >
+                  Hack&nbsp;Club
+                </Text>
               </Text>
-            </Heading>
+            </Box> 
             <Grid
               pt={[3, 4]}
               pb={[4, 5]}
@@ -944,7 +948,7 @@ function Page({
                 <Stage
                   icon="slack"
                   color="white"
-                  name="Join our online community"
+                  name="Join Our Slack"
                   desc="Connect with other technical teenagers on Slack and hack on things together."
                   sx={{
                     p: {
@@ -998,7 +1002,7 @@ function Page({
                 <Stage
                   icon="github"
                   color="white"
-                  name="Explore our open sourced tools"
+                  name="Explore Our Open Sourced Tools"
                   desc="We’re currently building a game engine, daily streak system, graphing game, and more!"
                   sx={{
                     p: {
@@ -1052,7 +1056,7 @@ function Page({
                 <Stage
                   icon="clubs"
                   color="white"
-                  name="Start a club"
+                  name="Start A Club"
                   desc="Build an in-person community of high school hackers, and we’re here to help."
                   sx={{
                     p: {
