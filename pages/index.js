@@ -858,8 +858,6 @@ function Page({
               margin: 'auto'
             }}
           >
-            
-            
             <Box>
               <Text as="p" variant="eyebrow" sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}>
                 We've got a lot going on - Let’s recap
