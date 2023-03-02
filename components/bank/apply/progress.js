@@ -7,7 +7,7 @@ function StepIcon({ completed, number }) {
   let fillColour = completed ? '#33d6a6' : 'none'
 
   return (
-    <Box id='11111111111123' sx={{ position: 'relative' }}>
+    <Box sx={{ position: 'relative' }}>
       <svg
         style={{ translate: '0 1px' }}
         width="40"
@@ -51,7 +51,10 @@ function Step({ number, label, completed }) {
   return (
     <Flex sx={{ lineHeight: '1', alignItems: 'center', gap: '4' }}>
       <StepIcon completed={completed} number={number + 1} />
-      <Text sx={{ fontSize: '3' }}>{ label }</Text>
+      <Text sx={{
+        fontSize: '3',
+        display: ['none', null, null, 'block']
+      }}>{label}</Text>
     </Flex>
   )
 }
@@ -67,10 +70,16 @@ export default function Progress() {
   ]
 
   return (
-    <FlexCol gap={3} translate='-1rem 0'>
+    <Flex
+      sx={{
+        gap: 3,
+        translate: [0, null, null, '-1rem 0'],
+        flexDirection: ['row', null, null, 'column']
+      }}
+    >
       {labels.map((label, i) => (
         <Step number={i} label={label} completed={step > i} key={i} />
       ))}
-    </FlexCol>
+    </Flex>
   )
 }

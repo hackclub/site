@@ -7,9 +7,9 @@ export default forwardRef(({ children }, ref) => {
             ref={ref}
             as='form'
             sx={{
-                width: '50ch',
+                width: ['100%', null, null, '50ch'],
                 flex: '1',
-                overflowY: 'auto',
+                overflowY: ['none', null, null, 'auto'],
                 pr: '2ch',
                 pl: 1,
                 pb: 3,
