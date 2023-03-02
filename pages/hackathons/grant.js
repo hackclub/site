@@ -251,8 +251,8 @@ const HackathonGrant = () => {
             >
               To create a uniquely tailored high school hackathon, your
               hackathon should be organized by high school students*. All
-              attendees should be 18 & under <u>AND</u> not full-time college
-              students.
+              attendees should be 18 & under <strong>AND</strong> not full-time
+              college students.
               <br />
               <br />
               <Text
@@ -332,16 +332,15 @@ const HackathonGrant = () => {
                 }}
               >
                 You will need to share a link to your website. Don't have a
-                domain?{' '}
-                <Link href="/bank" target="_blank">
-                  Hack Club Bank
-                </Link>{' '}
-                provides a free domain. Check out{' '}
+                domain? Hack Club Bank provides a free domain. Check out this{' '}
                 <Link
                   href="https://notebook.lachlanjc.com/2019-09-06_making_a_hackathon_site"
                   target="_blank"
+                  sx={{
+                    color: 'muted'
+                  }}
                 >
-                  a guide on building hackathon websites
+                  guide on building hackathon websites
                 </Link>{' '}
                 or ask in{' '}
                 <Link
@@ -362,12 +361,8 @@ const HackathonGrant = () => {
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:bank-account.svg"
               size="28"
             >
-              You'll receive your grant through{' '}
-              <NextLink href="/bank" passHref>
-                <Link target="_blank">Hack&nbsp;Club&nbsp;Bank</Link>
-              </NextLink>
-              , our financial platform for hackathons, and spend it in the open
-              with{' '}
+              You'll receive your grant through Hack Club Bank, our financial
+              platform for hackathons, and spend it in the open with{' '}
               <Link
                 href="https://changelog.bank.hackclub.com/transparent-finances-(optional-feature)-151427"
                 target="_blank"
@@ -375,13 +370,7 @@ const HackathonGrant = () => {
                 Transparency Mode
               </Link>
               . Sign up for{' '}
-              <Link
-                href="/bank"
-                target="_blank"
-                sx={{
-                  color: 'white'
-                }}
-              >
+              <Link href="/bank" target="_blank">
                 Hack Club Bank
               </Link>{' '}
               before applying.
@@ -393,18 +382,8 @@ const HackathonGrant = () => {
                   color: 'muted'
                 }}
               >
-                If you're unable to use{' '}
-                <Link
-                  href="/bank"
-                  target="_blank"
-                  sx={{
-                    color: 'muted'
-                  }}
-                >
-                  Hack Club Bank
-                </Link>{' '}
-                , we're unfortunately unable to support you through this grant
-                program.
+                If you're unable to use Hack Club Bank, we're unfortunately
+                unable to support you through this grant program.
               </Text>
             </Requirement>
           </Grid>
