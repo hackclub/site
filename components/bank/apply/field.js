@@ -17,7 +17,7 @@ export default function Field({ name, label, description, col = true, children }
     }, [])
     
     return (
-        <FlexCol gap={2}>
+        <FlexCol gap={2} width={'100%'}>
             <Flex sx={{
                 flexDirection: col ? 'column' : 'row',
                 alignItems: col ? 'flex-start' : 'center',
