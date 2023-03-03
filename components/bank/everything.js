@@ -184,8 +184,8 @@ function Percentage({ fee }) {
         alignItems: 'center',
         bg: 'slate',
         color: 'green',
-        width: [fee.length == 1 ? 70 : 80, fee.length == 1 ? 128 : 138],
-        height: [fee.length == 1 ? 70 : 80, fee.length == 1 ? 128 : 138],
+        width: [fee.length === 1 ? 70 : 80, fee.length === 1 ? 128 : 138],
+        height: [fee.length === 1 ? 70 : 80, fee.length === 1 ? 128 : 138],
         borderRadius: 'circle',
         fontWeight: 'bold',
         justifyContent: 'center',
@@ -195,8 +195,8 @@ function Percentage({ fee }) {
           content: '"%"',
           fontSize: [24, 40],
           fontWeight: 'normal',
-          marginRight: fee.length == 1 ? -2 : 0,
-          marginLeft: [null, fee.length == 1 ? 2 : 0],
+          marginRight: fee.length === 1 ? -2 : 0,
+          marginLeft: [null, fee.length === 1 ? 2 : 0],
           color: 'muted'
         }
       }}

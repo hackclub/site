@@ -101,7 +101,7 @@ function Page({
     `White sheets of paper\nWaiting to be printed on\nA blank console waits`
   )
   useEffect(() => {
-    if (count == images.length - 1) {
+    if (count === images.length - 1) {
       setCount(0)
     }
   }, [count])
@@ -349,7 +349,7 @@ function Page({
                       figure: {
                         position: 'absolute',
                         transform:
-                          count % 2 == 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
+                          count % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
                         height: '85%',
                         width: ['80%', '80%', '70%', '100%'],
                         marginLeft: ['10%', '10%', '15%', '0']
@@ -362,14 +362,14 @@ function Page({
                   >
                     <Photo
                       src={
-                        count == images.length - 2
+                        count === images.length - 2
                           ? images[0].src
                           : images.length - 1
                           ? images[1].src
                           : images[count + 2].src
                       }
                       alt={
-                        count == images.length - 2
+                        count === images.length - 2
                           ? images[0].alt
                           : images.length - 1
                           ? images[1].alt
@@ -391,7 +391,7 @@ function Page({
                       figure: {
                         position: 'absolute',
                         transform:
-                          count % 2 == 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
+                          count % 2 === 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
                         height: '85%',
                         width: ['80%', '80%', '70%', '100%'],
                         marginLeft: ['10%', '10%', '15%', '0']
@@ -404,12 +404,12 @@ function Page({
                   >
                     <Photo
                       src={
-                        count == images.length - 1
+                        count === images.length - 1
                           ? images[0].src
                           : images[count + 1].src
                       }
                       alt={
-                        count == images.length - 1
+                        count === images.length - 1
                           ? images[0].alt
                           : images[count + 1].alt
                       }
@@ -429,7 +429,7 @@ function Page({
                       figure: {
                         position: 'absolute',
                         transform:
-                          count % 2 == 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
+                          count % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
                         height: '85%',
                         width: ['80%', '80%', '70%', '100%'],
                         marginLeft: ['10%', '10%', '15%', '0']

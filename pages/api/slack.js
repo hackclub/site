@@ -17,7 +17,7 @@ export async function Slack() {
     }
   ).then(r => r.json())
 
-  if (slackData == null || slackData.stats == null) {
+  if (!slackData || !slackData.stats) {
     console.warn("No slack data");
     return {}
   } else {

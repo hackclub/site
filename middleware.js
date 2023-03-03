@@ -7,7 +7,7 @@ export function middleware(request) {
     let url = request.nextUrl
     if (!url.searchParams.get('continent')) {
       let continent = country.findByIso2(request.geo.country || 'AU').continent
-      if (continent == 'Oceania') {
+      if (continent === 'Oceania') {
         continent = 'Australia'
       }
       url.searchParams.set('continent', continent)

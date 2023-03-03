@@ -13,8 +13,8 @@ const JoinForm = ({ sx = {} }) => {
       : { reason: router.query.reason }
   })
 
-  const isAdult = useField('educationLevel').value == 'tertiary'
-  const useWaitlist = process.env.NEXT_PUBLIC_OPEN != 'true'
+  const isAdult = useField('educationLevel').value === 'tertiary'
+  const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
@@ -41,7 +41,7 @@ const JoinForm = ({ sx = {} }) => {
             <Select
               {...useField('continent')}
               required
-              sx={{ color: useField('continent').value == '' ? 'muted' : '' }}
+              sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
               <option value="" selected disabled hidden>
                 Select a continent...
@@ -60,7 +60,7 @@ const JoinForm = ({ sx = {} }) => {
               {...useField('educationLevel')}
               required
               sx={{
-                color: useField('educationLevel').value == '' ? 'muted' : ''
+                color: useField('educationLevel').value === '' ? 'muted' : ''
               }}
             >
               <option value="" selected disabled hidden>

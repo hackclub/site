@@ -4,7 +4,7 @@ export async function getConsoles() {
   ).then(r => r.json())
 
   function check(val) {
-    return val == 'Pending' || val == 'Approved'
+    return val === 'Pending' || val === 'Approved'
   }
 
   const consoleCount = data
