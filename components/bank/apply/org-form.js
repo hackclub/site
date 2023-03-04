@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react'
-import {
-    Box,
-    Input,
-    Textarea,
-} from 'theme-ui'
+import { Input, Textarea } from 'theme-ui'
 import Checkbox from './checkbox'
 import AddressInput from './address-input'
 import Field from './field'
+import AutofillColourFix from './autofill-colour-fix'
 
 export default function OrganizationInfoForm() {
     const [org, setOrg] = useState('organization')
@@ -18,14 +15,25 @@ export default function OrganizationInfoForm() {
     return (
         <>
             <Field name='eventName' label={`${org} name`}>
-                <Input name='eventName' id='eventName' placeholder='Shelburne School Hackathon' />
+                <Input
+                    name='eventName'
+                    id='eventName' 
+                    placeholder='Shelburne School Hackathon' 
+                    sx={{...AutofillColourFix}}
+                />
             </Field>
             <Field
                 name='eventWebsite'
                 label={`${org} website`}
                 description='If you don’t have one yet, you can leave this blank.'
             >
-                <Input name='eventWebsite' id='eventWebsite' type='url' placeholder='hackclub.com' />
+                <Input
+                    name='eventWebsite' 
+                    id='eventWebsite' 
+                    type='url' 
+                    placeholder='hackclub.com' 
+                    sx={{...AutofillColourFix}}
+                />
             </Field>
             <Field name='eventLocation' label={`${org} location`}>
                 <AddressInput isPersonalAddressInput={false} name='eventLocation' />
@@ -54,7 +62,8 @@ export default function OrganizationInfoForm() {
                     rows={3}
                     sx={{
                         resize: 'vertical',
-                        width: '100%'
+                        width: '100%',
+                        ...AutofillColourFix
                     }}
                 />
             </Field>
