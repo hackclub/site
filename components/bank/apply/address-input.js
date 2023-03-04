@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Box, Input, Text } from 'theme-ui'
 import FlexCol from '../../flex-col'
+import AutofillColourFix from './autofill-colour-fix'
 
 function HiddenInput({ name }) {
     return <input aria-hidden='true' type='hidden' name={name} />
@@ -63,6 +64,7 @@ export default function AutoComplete({ name, isPersonalAddressInput, setValidati
                 id={name}
                 placeholder='Shelburne, VT'
                 autoComplete="off"
+                sx={{...AutofillColourFix}}
             />
             { isPersonalAddressInput && (
                 <>
@@ -78,12 +80,14 @@ export default function AutoComplete({ name, isPersonalAddressInput, setValidati
             {
                 predictions && predictions.length > 0 &&
                 <Box sx={{
-                    background: '#252429',
+                    background: '#47454f',
+                    border: '1px solid #696675',
                     width: '100%',
                     p: 3,
                     borderRadius: '4px',
-                        position: 'absolute',
+                    position: 'absolute',
                     top: '3em',
+                    
                 }}>
                     <FlexCol gap={1}>
                         {predictions.map((prediction, idx) => (
@@ -95,7 +99,7 @@ export default function AutoComplete({ name, isPersonalAddressInput, setValidati
                                         cursor: 'pointer',
                                         border: 'none',
                                         background: 'none',
-                                        color: 'muted',
+                                        color: '#d1cbe7',
                                         '&:hover': {
                                             color: 'white',
                                         },
