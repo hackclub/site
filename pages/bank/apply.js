@@ -14,10 +14,6 @@ import OrganizationInfoForm from '../../components/bank/apply/org-form'
 import PersonalInfoForm from '../../components/bank/apply/personal-form'
 import AddressAlert from '../../components/bank/apply/address-alert'
 
-function NextClick() {
-  
-}
-
 export default function Apply() {
   const router = useRouter()
   const [step, setStep] = useState(1)
@@ -50,19 +46,133 @@ export default function Apply() {
       <Meta as={Head} title="Apply for Hack Club Bank" />
       <ForceTheme theme="dark" />
 
-      <Box p={100} pb={0} sx={{ height: '100vh' }}>
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: ['1fr', null, null, '1fr 1fr'],
+          gridTemplateRows: ['auto auto auto auto', null, '1fr 1fr 1fr'],
+          gap: '64px',
+          gridTemplateAreas: [
+            '"title" "form" "form" "nav"',
+            null,
+            null,
+            '"title form" "title form" "nav form"',
+          ],
+          height: ['auto', null, null, '100vh'],
+          p: ['32px', '64px', null, '100px']
+        }}
+      >
+        <Box sx={{ gridArea: 'title' }}>
+          <FlexCol gap={[4, null, null, '20vh']}>
+            <Text variant='title'>Let's get you<br />set up on bank.</Text>
+            <Progress />
+          </FlexCol>
+        </Box>
+        <Box sx={{ gridArea: 'form' }}>
+          <FormContainer ref={formContainer}>
+            { step === 1 && <BankInfo /> }
+            { step === 2 && <OrganizationInfoForm /> }
+            { step === 3 && <PersonalInfoForm
+                setValidationResult={setValidationResult}
+              />
+            }
+          </FormContainer>
+        </Box>
         <Flex
           sx={{
+            gridArea: 'nav',
+            alignSelf: 'end',
+            alignItems: 'flex-end',
+            justifyContent: 'space-between',
+            // mt: 5
+          }}
+        >
+          <NavButton isBack={true} form={formContainer} />
+          <NavButton
+            isBack={false}
+            form={formContainer}
+            clickHandler={async () => {
+              // Validate the address
+              if (step === 3) {
+                const key = atob('QUl6YVN5QXB4Wlo4LUVoXzZSZ0hVdTgtQkFPcHgzeGhmRjJ5SzlV')
+          
+                // Get the raw personal address input
+                const userAddress = sessionStorage.getItem('bank-signup-userAddress')
+                if (!userAddress) return false
+
+                const res = await fetch(`https://addressvalidation.googleapis.com/v1:validateAddress?key=${key}`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    address: {
+                      addressLines: userAddress
+                    },
+                  }),
+                })
+                const resJson = await res.json()
+                const { result } = resJson
+                setValidationResult(result)
+
+                if (!result) return false
+                console.info(result)
+
+                if (result.address.missingComponentTypes || result.verdict.hasUnconfirmedComponents) {
+                  setShouldShowAddressAlert(true)
+                  return false
+                } else {
+                  /* If the address is valid, the returned address can be 
+                  inserted into the hidden fields. Let's change the backend 
+                  so that the user address is just a string? */
+
+                  /*TODO: Replace null with the returned address components.
+                  This could be tricky since the returned address components
+                  could not always be in the same order or format,
+                  so doing addressLine1=result[0]; addressLine2=result[1] ..etc
+                  would be unreliable. One workaround to simply accepting a string
+                  for the whole address would be using the address component types
+                  provided in the result to work out which to concat and in which
+                  fields to put the components. */
+                  sessionStorage.setItem('bank-signup-addressLine1', null)
+                  sessionStorage.setItem('bank-signup-addressLine2', null)
+                  sessionStorage.setItem('bank-signup-addressCity', null)
+                  sessionStorage.setItem('bank-signup-addressState', null)
+                  sessionStorage.setItem('bank-signup-addressZip', null)
+                  sessionStorage.setItem('bank-signup-addressCountry', null)
+
+                  setShouldShowAddressAlert(false)
+                  return true
+                }
+              }
+
+              return true
+            }}
+          />
+        </Flex>
+      </Box>
+      {/* <Flex
+        p={[32, null, 100]}
+        sx={{
+          flexDirection: 'column',
+          // justifyContent: 'space-around',
+          gap: 5,
+          height: '100vh'
+        }}
+      >
+        <Flex
+          sx={{
+            flexDirection: ['column', null, null, 'row'],
+            gap: 64,
             justifyContent: 'space-between',
             height: '100%',
           }}
         >
-          <FlexCol justifyContent='space-between' height='100%' >
+          <FlexCol gap={[4, null, null, '20vh']}>
             <Text variant='title'>Let's get you<br />set up on bank.</Text>
             <Progress />
-            <NavButton isBack={true} form={formContainer} />
           </FlexCol>
-          <FlexCol justifyContent='space-between' height='100%' gap={3} >
+          <FlexCol height={'65vh'} gap={3} >
             <FormContainer ref={formContainer}>
               { step === 1 && <BankInfo /> }
               { step === 2 && <OrganizationInfoForm /> }
@@ -72,70 +182,80 @@ export default function Apply() {
                 />
               }
             </FormContainer>
-            <NavButton
-              isBack={false}
-              form={formContainer}
-              clickHandler={async () => {
-                // Validate the address
-                if (step === 3) {
-                  const key = atob('QUl6YVN5QXB4Wlo4LUVoXzZSZ0hVdTgtQkFPcHgzeGhmRjJ5SzlV')
-            
-                  // Get the raw personal address input
-                  const userAddress = sessionStorage.getItem('bank-signup-userAddress')
-                  if (!userAddress) return false
-
-                  const res = await fetch(`https://addressvalidation.googleapis.com/v1:validateAddress?key=${key}`, {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                      address: {
-                        addressLines: userAddress
-                      },
-                    }),
-                  })
-                  const resJson = await res.json()
-                  const { result } = resJson
-                  setValidationResult(result)
-
-                  if (!result) return false
-                  console.info(result)
-
-                  if (result.address.missingComponentTypes || result.verdict.hasUnconfirmedComponents) {
-                    setShouldShowAddressAlert(true)
-                    return false
-                  } else {
-                    /* If the address is valid, the returned address can be 
-                    inserted into the hidden fields. Let's change the backend 
-                    so that the user address is just a string? */
-
-                    /*TODO: Replace null with the returned address components.
-                    This could be tricky since the returned address components
-                    could not always be in the same order or format,
-                    so doing addressLine1=result[0]; addressLine2=result[1] ..etc
-                    would be unreliable. One workaround to simply accepting a string
-                    for the whole address would be using the address component types
-                    provided in the result to work out which to concat and in which
-                    fields to put the components. */
-                    sessionStorage.setItem('bank-signup-addressLine1', null)
-                    sessionStorage.setItem('bank-signup-addressLine2', null)
-                    sessionStorage.setItem('bank-signup-addressCity', null)
-                    sessionStorage.setItem('bank-signup-addressState', null)
-                    sessionStorage.setItem('bank-signup-addressZip', null)
-                    sessionStorage.setItem('bank-signup-addressCountry', null)
-
-                    setShouldShowAddressAlert(false)
-                    return true
-                  }
-                }
-
-                return true
-              }}
-            />
           </FlexCol>
         </Flex>
-      </Box>
+        <Flex
+          sx={{
+            alignItems: 'flex-end',
+            gap: 6
+          }}
+        >
+          <NavButton isBack={true} form={formContainer} />
+          <NavButton
+            isBack={false}
+            form={formContainer}
+            clickHandler={async () => {
+              // Validate the address
+              if (step === 3) {
+                const key = atob('QUl6YVN5QXB4Wlo4LUVoXzZSZ0hVdTgtQkFPcHgzeGhmRjJ5SzlV')
+          
+                // Get the raw personal address input
+                const userAddress = sessionStorage.getItem('bank-signup-userAddress')
+                if (!userAddress) return false
+
+                const res = await fetch(`https://addressvalidation.googleapis.com/v1:validateAddress?key=${key}`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    address: {
+                      addressLines: userAddress
+                    },
+                  }),
+                })
+                const resJson = await res.json()
+                const { result } = resJson
+                setValidationResult(result)
+
+                if (!result) return false
+                console.info(result)
+
+                if (result.address.missingComponentTypes || result.verdict.hasUnconfirmedComponents) {
+                  setShouldShowAddressAlert(true)
+                  return false
+                } else {
+                  /* If the address is valid, the returned address can be 
+                  inserted into the hidden fields. Let's change the backend 
+                  so that the user address is just a string? */
+
+                  /*TODO: Replace null with the returned address components.
+                  This could be tricky since the returned address components
+                  could not always be in the same order or format,
+                  so doing addressLine1=result[0]; addressLine2=result[1] ..etc
+                  would be unreliable. One workaround to simply accepting a string
+                  for the whole address would be using the address component types
+                  provided in the result to work out which to concat and in which
+                  fields to put the components. */
+                  /*sessionStorage.setItem('bank-signup-addressLine1', null)
+                  sessionStorage.setItem('bank-signup-addressLine2', null)
+                  sessionStorage.setItem('bank-signup-addressCity', null)
+                  sessionStorage.setItem('bank-signup-addressState', null)
+                  sessionStorage.setItem('bank-signup-addressZip', null)
+                  sessionStorage.setItem('bank-signup-addressCountry', null)
+
+                  setShouldShowAddressAlert(false)
+                  return true
+                }
+              }
+
+              return true
+            }}
+          />
+        </Flex>
+
+
+      </Flex> */}
       { shouldShowAddressAlert && <AddressAlert
         validationResult={validationResult}
         setShouldShowAddressAlert={setShouldShowAddressAlert}
