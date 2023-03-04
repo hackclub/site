@@ -1,18 +1,20 @@
 import { forwardRef } from 'react'
 import { Box } from 'theme-ui'
 
-export default forwardRef(({ children }, ref) => {
+export default forwardRef(({ children }, ref) => {   
     return (
         <Box
             ref={ref}
             as='form'
             sx={{
+                height: '100%',
                 width: ['100%', null, null, '50ch'],
                 flex: '1',
+                // overflowX: 'visible',
                 overflowY: ['none', null, null, 'auto'],
-                pr: '2ch',
-                pl: 1,
-                pb: 3,
+                pr: [0, null, '2ch'],
+                pl: [0, null, 1],
+                pb: [0, null, 3],
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 4,
