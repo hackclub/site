@@ -87,10 +87,12 @@ export default function Apply() {
             // mt: 5
           }}
         >
-          <NavButton isBack={true} form={formContainer} />
+          <NavButton isBack={true} form={formContainer} minStep={1} maxStep={3} />
           <NavButton
             isBack={false}
             form={formContainer}
+            minStep={1}
+            maxStep={3}
             clickHandler={async () => {
               // Validate the address
               if (step === 3) {
