@@ -71,19 +71,19 @@ export default function NavButton({ isBack, form, clickHandler }) {
             variant={ isBack ? 'outline' : 'ctaLg' }
             sx={{
                 color: 'white',
-                borderColor: 'muted',
                 width: 'fit-content',
-                translate: isBack ? '-3.3rem' : '-3.8rem', // Keyline alignment
-                mb: 5,
+                width: '100%',
+                maxWidth: isBack ? '8rem' : '10rem'
             }}
             onClick={click}
         >
             <Flex sx={{
                 flexDirection: isBack ? 'row' : 'row-reverse',
+                justifyContent: 'center',
                 placeItems: 'center',
-                mx: isBack ? 2 : 4,
+                // width: '100%',
                 fontSize: isBack ? 2 : 4,
-                gap: 3,
+                gap: [2, null, null, 3],
             }}>
                 <NavIcon isBack={isBack} />
                 <Text
