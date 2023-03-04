@@ -1,9 +1,11 @@
 import FormData from 'form-data'
 
 export async function Slack() {
+  if (!process.env.SLACK_API_TOKEN) return { error: 'No Slack API token found!' }
+
   const formData = new FormData()
 
-  formData.append('token', process.env.SLACK_API_TOKEN || 'invalid_no_slack_token')
+  formData.append('token', process.env.SLACK_API_TOKEN)
   formData.append('date_range', '30d')
 
   let slackData = await fetch(
@@ -17,7 +19,7 @@ export async function Slack() {
     }
   ).then(r => r.json())
 
-  if (slackData == null || slackData.stats == null) {
+  if (!slackData || !slackData.stats) {
     console.warn("No slack data");
     return {}
   } else {

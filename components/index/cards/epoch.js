@@ -43,13 +43,13 @@ export default function Epoch() {
 
   Object.keys(timeLeft).forEach(e => {
     if (!timeLeft[e]) {
-      if (e == 'days') {
+      if (e === 'days') {
         return
-      } else if (e == 'hours') {
+      } else if (e === 'hours') {
         if (!timeLeft['days']) {
           return
         }
-      } else if (e == 'min') {
+      } else if (e === 'min') {
         if (!timeLeft['days'] && !timeLeft['hours']) {
           return
         }
@@ -62,19 +62,19 @@ export default function Epoch() {
 
     var name = ''
 
-    if (e == 'days') {
-      if (timeLeft[e] == 1 || timeLeft[e] == 0) {
+    if (e === 'days') {
+      if (timeLeft[e] === 1 || timeLeft[e] === 0) {
         name = 'day'
       } else {
         name = 'days'
       }
-    } else if (e == 'hours') {
-      if (timeLeft[e] == 1 || timeLeft[e] == 0) {
+    } else if (e === 'hours') {
+      if (timeLeft[e] === 1 || timeLeft[e] === 0) {
         name = 'hour'
       } else {
         name = 'hours'
       }
-    } else if (e == 'min') {
+    } else if (e === 'min') {
       name = 'min'
     } else {
       name = 'sec'
