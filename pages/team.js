@@ -172,10 +172,11 @@ export default function Team() {
                       pronouns="they/them"
                     />
                     <Bio
-                      name="Kognise"
+                      name="Lexi Mattick"
                       teamRole="Clubs Engineering"
-                      text="Always driven by curiosity for how things work, Kognise fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. They spend their time programming, making music, and studying for their private pilot license; at Hack Club, they spend their time working on whatever fantastic project is happening in the present moment."
+                      text="Always driven by curiosity for how things work, Lexi fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. She spends her time programming, making music, and studying for her private pilot license; at Hack Club, she spends her time working on whatever fantastic project is happening in the present moment."
                       img="https://media.kognise.dev/other-avatars/bean-man.jpg"
+                      pronouns="she/her"
                     />
                     <Bio
                       name="Ella Xu"
