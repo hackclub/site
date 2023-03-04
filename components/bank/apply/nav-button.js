@@ -2,6 +2,19 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { Button, Flex, Text, Spinner } from 'theme-ui'
 
+function sendApplication() {
+    // Get the form data from sessionStorage
+    const data = {}
+    for (let i = 0; i < sessionStorage.length; i++) {
+        const key = sessionStorage.key(i)
+        if (key.startsWith('bank-signup-')) {
+            data[key.replace('bank-signup-', '')] = sessionStorage.getItem(key)
+        }
+    }
+
+    console.dir(data)
+}
+
 function NavIcon({ isBack }) {
     const style = {
         height: '1em',
@@ -23,7 +36,7 @@ function NavIcon({ isBack }) {
         </svg>
 }
 
-export default function NavButton({ isBack, form, clickHandler }) {
+export default function NavButton({ isBack, form, clickHandler, minStep, maxStep }) {
     const router = useRouter()
     const [spinner, setSpinner] = useState(false)
 
@@ -47,12 +60,16 @@ export default function NavButton({ isBack, form, clickHandler }) {
         const step = parseInt(router.query.step)
 
         if (!step) {
-            step = 1
-        } else if (step === 1 && isBack) {
+            step = minStep
+        } else if (step === minStep && isBack) {
             router.push('/bank')
             return
-        } else if (step < 1) {
-            step = 1
+        } else if (step < minStep) {
+            step = minStep
+        } else if (step > maxStep) {
+            sendApplication()
+            router.push('/bank/apply/success')
+            return
         } else {
             step += isBack ? -1 : 1
         }
