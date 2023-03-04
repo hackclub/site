@@ -50,8 +50,8 @@ export default function GitHub({
         rel="noopener"
       >
         {user != null ? (
-          user != 'dependabot[bot]' ? (
-            user != 'github-actions[bot]' ? (
+          user !== 'dependabot[bot]' ? (
+            user !== 'github-actions[bot]' ? (
               <img
                 src={img}
                 sx={{ borderRadius: '100%', height: '90%', mr: 2 }}
@@ -66,8 +66,8 @@ export default function GitHub({
           <></>
         )}
         {user != null ? (
-          user != 'dependabot[bot]' ? (
-            user != 'github-actions[bot]' ? (
+          user !== 'dependabot[bot]' ? (
+            user !== 'github-actions[bot]' ? (
               <Text
                 sx={{
                   mr: 2,
@@ -91,8 +91,8 @@ export default function GitHub({
           <></>
         )}
         {user != null ? (
-          user != 'dependabot[bot]' ? (
-            user != 'github-actions[bot]' ? (
+          user !== 'dependabot[bot]' ? (
+            user !== 'github-actions[bot]' ? (
               <Text
                 sx={{
                   textOverflow: 'ellipsis',
@@ -114,8 +114,8 @@ export default function GitHub({
           <></>
         )}
         {user != null ? (
-          user != 'dependabot[bot]' ? (
-            user != 'github-actions[bot]' ? (
+          user !== 'dependabot[bot]' ? (
+            user !== 'github-actions[bot]' ? (
               <Text
                 as="span"
                 sx={{
