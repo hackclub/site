@@ -9,10 +9,7 @@ export default function Field({ name, label, description, col = true, children }
         const value = sessionStorage.getItem('bank-signup-' + name)
         if (value) {
             const input = document.getElementById(name)
-            if (input) {
-                input.value = value
-                input.checked = value === 'true'
-            }
+            if (input) input.value = value
         }
     }, [])
     
@@ -37,12 +34,4 @@ export default function Field({ name, label, description, col = true, children }
             </Text> }
         </FlexCol>
     )
-
-    {/*
-        FlexCol
-            Flex(Col?)
-                Label
-                Children
-            Description?
-    */}
 }
