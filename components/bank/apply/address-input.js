@@ -3,7 +3,7 @@ import { Box, Input, Text } from 'theme-ui'
 import FlexCol from '../../flex-col'
 import AutofillColourFix from './autofill-colour-fix'
 
-export default function AutoComplete({ name, isPersonalAddressInput, setValidationResult }) {
+export default function AutoComplete({ name, isPersonalAddressInput }) {
     const input = useRef()
     const [predictions, setPredictions] = useState(null)
 

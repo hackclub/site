@@ -17,7 +17,6 @@ export default function Apply() {
   const router = useRouter()
   const [step, setStep] = useState(1)
   const formContainer = useRef()
-  const [validationResult, setValidationResult] = useState()
 
   useEffect(() => {
     if (!router.isReady) return
@@ -68,10 +67,7 @@ export default function Apply() {
           <FormContainer ref={formContainer}>
             { step === 1 && <BankInfo /> }
             { step === 2 && <OrganizationInfoForm /> }
-            { step === 3 && <PersonalInfoForm
-                setValidationResult={setValidationResult}
-              />
-            }
+            { step === 3 && <PersonalInfoForm /> }
           </FormContainer>
         </Box>
         <Flex
@@ -80,7 +76,6 @@ export default function Apply() {
             alignSelf: 'end',
             alignItems: 'flex-end',
             justifyContent: 'space-between',
-            // mt: 5
           }}
         >
           <NavButton isBack={true} form={formContainer} />
@@ -110,7 +105,6 @@ export default function Apply() {
                 const resJson = await res.json()
                 const { result } = resJson
                 //#endregion
-                setValidationResult(result)
 
                 const addrComp = (type) =>
                     result.address.addressComponents.find(el => el.componentType === type)?.componentName.text
