@@ -616,7 +616,6 @@ function Page({
                 as="p"
                 sx={{
                   fontSize: ['18px', '24px', '32px'],
-                  width: ['95vw', '66vw'],
                   margin: 'auto',
                   pt: 2,
                   pb: [1, 0, 0],
