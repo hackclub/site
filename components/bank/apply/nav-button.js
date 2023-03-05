@@ -2,7 +2,9 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { Button, Flex, Text, Spinner } from 'theme-ui'
 
-function sendApplication() {
+function sendApplication(setSpinner) {
+    setSpinner(true)
+
     // Get the form data from sessionStorage
     const data = {}
     for (let i = 0; i < sessionStorage.length; i++) {
@@ -36,9 +38,12 @@ function NavIcon({ isBack }) {
         </svg>
 }
 
-export default function NavButton({ isBack, form, clickHandler, minStep, maxStep }) {
+export default function NavButton({ isBack, form, clickHandler }) {
     const router = useRouter()
     const [spinner, setSpinner] = useState(false)
+
+    const minStep = 1
+    const maxStep = 3
 
     const click = async () => {
         // Save form data
@@ -54,26 +59,25 @@ export default function NavButton({ isBack, form, clickHandler, minStep, maxStep
             const result = await clickHandler()
             setSpinner(false)
             if (!result) return
-            
         }
 
-        const step = parseInt(router.query.step)
+        let step = parseInt(router.query.step)
 
         if (!step) {
             step = minStep
         } else if (step === minStep && isBack) {
-            router.push('/bank')
+            await router.push('/bank')
             return
         } else if (step < minStep) {
             step = minStep
-        } else if (step > maxStep) {
-            sendApplication()
-            router.push('/bank/apply/success')
+        } else if (step >= maxStep && !isBack) {
+            sendApplication(setSpinner)
+            await router.push('/bank/apply/success')
             return
         } else {
             step += isBack ? -1 : 1
         }
-        router.push({ 
+        await router.push({
             pathname: router.pathname,
             query: { ...router.query, step } }, 
             undefined, 
@@ -88,7 +92,6 @@ export default function NavButton({ isBack, form, clickHandler, minStep, maxStep
             variant={ isBack ? 'outline' : 'ctaLg' }
             sx={{
                 color: 'white',
-                width: 'fit-content',
                 width: '100%',
                 maxWidth: isBack ? '8rem' : '10rem'
             }}

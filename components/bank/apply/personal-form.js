@@ -53,7 +53,6 @@ export default function PersonalInfoForm({ setValidationResult }) {
                     name='userBirthday'
                     id='date'
                     type='date'
-                    placeholder='4 Mar 2023'
                     sx={{...AutofillColourFix}}
                 />
             </Field>
