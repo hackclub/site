@@ -83,6 +83,8 @@ export default function Apply() {
             isBack={false}
             form={formContainer}
             clickHandler={async () => {
+              //TODO: Put this somewhere else
+
               // Validate the address
               if (step === 3) {
                 // Get the raw personal address input
@@ -129,7 +131,7 @@ export default function Apply() {
                 sessionStorage.setItem('bank-signup-addressState', state ?? '')
                 sessionStorage.setItem('bank-signup-addressZip', postalCode ?? '')
                 sessionStorage.setItem('bank-signup-addressCountry', country ?? '')
-                
+
                 //#endregion
               }
 
