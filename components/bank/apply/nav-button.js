@@ -2,19 +2,35 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { Button, Flex, Text, Spinner } from 'theme-ui'
 
-function sendApplication(setSpinner) {
-    setSpinner(true)
-
+async function sendApplication() {
     // Get the form data from sessionStorage
     const data = {}
     for (let i = 0; i < sessionStorage.length; i++) {
         const key = sessionStorage.key(i)
         if (key.startsWith('bank-signup-')) {
-            data[key.replace('bank-signup-', '')] = sessionStorage.getItem(key)
+            if (key === 'bank-signup-transparent') {
+                data[key.replace('bank-signup-', '')] =
+                    sessionStorage.getItem(key) === 'true' ?
+                        'Yes, please!' : 'No, thanks.'
+            } else if (key === 'bank-signup-returningUser') {
+                data[key.replace('bank-signup-', '')] =
+                    sessionStorage.getItem(key) === 'true' ?
+                        'Yes, I have used Hack Club Bank before' : 'No, first time!'
+            } else {
+                data[key.replace('bank-signup-', '')] = sessionStorage.getItem(key)
+            }
         }
     }
 
-    console.dir(data)
+    console.log(data)
+    
+    // Send the data
+    // await fetch('https://hackclub.com/api/bank/apply', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(data),
+    // })
+
 }
 
 function NavIcon({ isBack }) {
@@ -71,7 +87,7 @@ export default function NavButton({ isBack, form, clickHandler }) {
         } else if (step < minStep) {
             step = minStep
         } else if (step >= maxStep && !isBack) {
-            sendApplication(setSpinner)
+            await sendApplication()
             await router.push('/bank/apply/success')
             return
         } else {
