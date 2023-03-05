@@ -42,7 +42,7 @@ export default function PersonalInfoForm({ setValidationResult }) {
             >
                 <Input
                     name='userPhone'
-                    id='phone'
+                    id='userPhone'
                     type='tel'
                     placeholder='(123) 456-7890'
                     sx={{...AutofillColourFix}} 
@@ -51,7 +51,7 @@ export default function PersonalInfoForm({ setValidationResult }) {
             <Field name='userBirthday' label='Birthday'>
                 <Input
                     name='userBirthday'
-                    id='date'
+                    id='userBirthday'
                     type='date'
                     sx={{...AutofillColourFix}}
                 />
