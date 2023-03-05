@@ -53,7 +53,7 @@ export default function ApplicationSuccess() {
         textAlign='center'
         alignItems='center'
         justifyContent='space-between'
-        py={4}
+        py={5}
         gap={4}
       >
         <FlexCol gap={4} alignItems='center'>
