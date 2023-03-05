@@ -10,6 +10,8 @@ export default function Watermark() {
 
     // Mouse move event
     const handleMouseMove = ({ clientX, clientY }) => {
+        if (!shineRef.current || !svgRef.current) return
+        
         const svgWidth = svgRef.current.clientWidth / 100
         const svgFromTop = svgRef.current.getBoundingClientRect().top
         const svgFromLeft = svgRef.current.getBoundingClientRect().left
