@@ -3,21 +3,17 @@ import { Box, Input, Text } from 'theme-ui'
 import FlexCol from '../../flex-col'
 import AutofillColourFix from './autofill-colour-fix'
 
-function HiddenInput({ name }) {
-    return <input aria-hidden='true' type='hidden' name={name} />
-}
-
 export default function AutoComplete({ name, isPersonalAddressInput, setValidationResult }) {
     const input = useRef()
-    const [predictions, setPredictions] = useState([])
+    const [predictions, setPredictions] = useState(null)
 
     const optionClicked = (e) => {
         input.current.value = e.target.innerText
-        setPredictions([])
+        setPredictions(null)
     }
     const clickOutside = (e) => {
         if (input.current && !input.current.contains(e.target)) {
-            setPredictions([])
+            setPredictions(null)
         }
     }
 
@@ -31,14 +27,14 @@ export default function AutoComplete({ name, isPersonalAddressInput, setValidati
         
         const onInput = (e) => {
             if (!e.target.value) {
-                setPredictions([])
+                setPredictions(null)
             } else {
                 service.getPlacePredictions(
                     { input: e.target.value },
                     (predictions, status) => {
                         setPredictions(predictions)
                         if (status !== window.google.maps.places.PlacesServiceStatus.OK) { //DEBUG
-                            alert(status)
+                            setPredictions([])
                         }
                     }
                 )
@@ -66,19 +62,8 @@ export default function AutoComplete({ name, isPersonalAddressInput, setValidati
                 autoComplete="off"
                 sx={{...AutofillColourFix}}
             />
-            { isPersonalAddressInput && (
-                <>
-                    <HiddenInput name='addressLine1' />
-                    <HiddenInput name='addressLine2' />
-                    <HiddenInput name='addressCity' />
-                    <HiddenInput name='addressState' />
-                    <HiddenInput name='addressZip' />
-                    <HiddenInput name='addressCountry' />
-                </>
-            )}
-            
             {
-                predictions && predictions.length > 0 &&
+                predictions &&
                 <Box sx={{
                     background: '#47454f',
                     border: '1px solid #696675',
@@ -86,11 +71,11 @@ export default function AutoComplete({ name, isPersonalAddressInput, setValidati
                     p: 3,
                     borderRadius: '4px',
                     position: 'absolute',
-                    top: '3em',
+                    bottom: '3em',
                     
                 }}>
                     <FlexCol gap={1}>
-                        {predictions.map((prediction, idx) => (
+                        { predictions.map((prediction, idx) => (
                             <>
                                 <Text
                                     as='button'
