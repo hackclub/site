@@ -828,7 +828,6 @@ function Page({
                   as="p"
                   sx={{
                     fontSize: ['18px', '24px', '32px'],
-                    width: ['100%', '66vw'],
                     margin: 'auto',
                     pt: 2,
                     textAlign: 'center'
