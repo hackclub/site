@@ -106,8 +106,11 @@ export default function Apply() {
                 const { result } = resJson
                 //#endregion
 
+                //#region Save the validated address components
+
                 const addrComp = (type) =>
-                    result.address.addressComponents.find(el => el.componentType === type)?.componentName.text
+                  result.address.addressComponents.find(el => el.componentType === type)?.componentName.text
+                
                 const streetNumber = addrComp('street_number')
                 const road = addrComp('route')
                 const city = addrComp('postal_town') || addrComp('locality')
@@ -115,11 +118,19 @@ export default function Apply() {
                 const postalCode = addrComp('postal_code')
                 const country = addrComp('country')
 
-                sessionStorage.setItem('bank-signup-addressLine1', streetNumber ?? '' + (streetNumber && road ? ' ' : '') + road ?? '')
+                let formattedAddressLine1;
+                if (!streetNumber && !road) formattedAddressLine1 = ''
+                else if (!streetNumber && road) formattedAddressLine1 = road
+                else if (streetNumber && !road) formattedAddressLine1 = streetNumber
+                else formattedAddressLine1 = `${streetNumber} ${road}`
+
+                sessionStorage.setItem('bank-signup-addressLine1', formattedAddressLine1)
                 sessionStorage.setItem('bank-signup-addressCity', city ?? '')
                 sessionStorage.setItem('bank-signup-addressState', state ?? '')
                 sessionStorage.setItem('bank-signup-addressZip', postalCode ?? '')
                 sessionStorage.setItem('bank-signup-addressCountry', country ?? '')
+                
+                //#endregion
               }
 
               return true
