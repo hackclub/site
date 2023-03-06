@@ -89,7 +89,7 @@ export default function Apply() {
               if (step === 3) {
                 // Get the raw personal address input
                 const userAddress = sessionStorage.getItem('bank-signup-userAddress')
-                if (!userAddress) return false
+                if (!userAddress) return
 
                 //#region Address Validation API
                 const key = atob('QUl6YVN5QXB4Wlo4LUVoXzZSZ0hVdTgtQkFPcHgzeGhmRjJ5SzlV')
@@ -134,8 +134,6 @@ export default function Apply() {
 
                 //#endregion
               }
-
-              return true
             }}
           />
         </Flex>
