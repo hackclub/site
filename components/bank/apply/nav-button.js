@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, Flex, Text, Spinner } from 'theme-ui'
 
 async function sendApplication() {
@@ -21,16 +21,16 @@ async function sendApplication() {
             }
         }
     }
+    console.dir('Sending data:', data)
 
-    console.log(data)
-    
     // Send the data
-    // await fetch('https://hackclub.com/api/bank/apply', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(data),
-    // })
-
+    const res = await fetch('https://hackclub.com/api/bank/apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+    const json = await res.json()
+    console.log(json)
 }
 
 function NavIcon({ isBack }) {
@@ -58,24 +58,21 @@ export default function NavButton({ isBack, form, clickHandler }) {
     const router = useRouter()
     const [spinner, setSpinner] = useState(false)
 
+    useEffect(() => setSpinner(false), [router.query.step])
+
     const minStep = 1
     const maxStep = 3
 
     const click = async () => {
+        setSpinner(true)
+
         // Save form data
         new FormData(form.current).forEach((value, key) => {
             sessionStorage.setItem('bank-signup-' + key, value)
         })
 
         // Run the parent's click handler for this button.
-        // If it returns false, don't navigate.
-        if (!isBack && clickHandler) {
-            setSpinner(true)
-
-            const result = await clickHandler()
-            setSpinner(false)
-            if (!result) return
-        }
+        if (clickHandler) await clickHandler()
 
         let step = parseInt(router.query.step)
 
@@ -99,8 +96,6 @@ export default function NavButton({ isBack, form, clickHandler }) {
             undefined, 
             {}
         )
-
-        setSpinner(false)
     }
 
     return (
