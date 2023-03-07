@@ -192,7 +192,10 @@ function Signup() {
       </Heading>
       <Text sx={{ textAlign: 'left', color: 'muted' }}>
         Be sure to check out the{' '}
-        <Link href="https://hackclub.slack.com/archives/C01D7AHKMPF/p1671483616032169" sx={{ color: 'blue' }}>
+        <Link
+          href="https://hackclub.slack.com/archives/C01D7AHKMPF/p1671483616032169"
+          sx={{ color: 'blue' }}
+        >
           rules
         </Link>{' '}
         before you sign up!

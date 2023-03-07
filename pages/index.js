@@ -857,7 +857,11 @@ function Page({
             }}
           >
             <Box>
-              <Text as="p" variant="eyebrow" sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}>
+              <Text
+                as="p"
+                variant="eyebrow"
+                sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
+              >
                 We've got a lot going on - Let’s recap
               </Text>
               <Text
@@ -885,7 +889,7 @@ function Page({
                   Hack&nbsp;Club
                 </Text>
               </Text>
-            </Box> 
+            </Box>
             <Grid
               pt={[3, 4]}
               pb={[4, 5]}
@@ -1118,14 +1122,13 @@ export async function getStaticProps() {
   const { Slack: Slacky } = require('./api/slack')
   let slackData = await Slacky()
 
-
   // GitHub: get latest github activity (currently this is erroring and
   // preventing the site from deploying
 
   const { fetchGitHub } = require('./api/github')
   let gitHubData = await fetchGitHub()
 
-//   let gitHubData = null
+  //   let gitHubData = null
 
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')

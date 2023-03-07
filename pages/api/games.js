@@ -9,7 +9,6 @@ export async function getGames() {
   return games
 }
 
-
 export default async function Games(req, res) {
   const games = await getGames()
   res.json(games)

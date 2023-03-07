@@ -101,7 +101,7 @@ const FirstQuote = styled(Quote)`
     rgb(45, 228, 207),
     rgb(41, 206, 104),
     rgb(53, 181, 36)
-  ); ;
+  );
 `
 const SecondQuote = styled(Quote)`
   background-image: radial-gradient(

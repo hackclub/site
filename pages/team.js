@@ -377,7 +377,7 @@ export default function Team() {
                     />
                   </Grid>
                 </Box>
-                
+
                 <Box
                   sx={{
                     bg: 'rgb(166 51 214 / 40%)',

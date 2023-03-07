@@ -1,8 +1,4 @@
-import {
-  Badge,
-  Link,
-  Text
-} from 'theme-ui'
+import { Badge, Link, Text } from 'theme-ui'
 import { useEffect, useState } from 'react'
 import RelativeTime from 'react-relative-time'
 import Fade from 'react-reveal/Fade'
@@ -76,7 +72,12 @@ export default function GitHub({
                   display: 'inline-block',
                   overflow: 'hidden',
                   whiteSpace: 'nowrap',
-                  display: ['none',  'inline-block', 'inline-block', 'inline-block']
+                  display: [
+                    'none',
+                    'inline-block',
+                    'inline-block',
+                    'inline-block'
+                  ]
                 }}
               >
                 {user}

@@ -1,10 +1,5 @@
 import CardModel from './card-model'
-import {
-  Box,
-  Grid,
-  Heading,
-  Text
-} from 'theme-ui'
+import { Box, Grid, Heading, Text } from 'theme-ui'
 import { Fade } from 'react-reveal'
 import Buttons from './button'
 
@@ -22,19 +17,22 @@ export default function Bank({ data }) {
           backgroundImage: `linear-gradient(to bottom,rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('/home/hackathons-bg.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: '40%',
-          color: 'snow',
+          color: 'snow'
         }}
         badge
         text={data[0]}
       >
-        <Heading variant="title" sx={{ color: 'red', fontSize: ['36px', 4, 5], mt: [0, 3]}}>
+        <Heading
+          variant="title"
+          sx={{ color: 'red', fontSize: ['36px', 4, 5], mt: [0, 3] }}
+        >
           Hack&nbsp;Club&nbsp;Bank
         </Heading>
         <Grid columns={[1, '1.3fr 1fr', 2]}>
           <Box>
             <Text as="p" variant="subtitle">
-              Become a 501(c)3 nonprofit and join 700+ teams using Hack&nbsp;Club
-              Bank to run world-class events.
+              Become a 501(c)3 nonprofit and join 700+ teams using
+              Hack&nbsp;Club Bank to run world-class events.
             </Text>
             <Text as="p" variant="subtitle">
               This platform is built and maintained by the Hack&nbsp;Club team.
