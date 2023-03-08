@@ -26,6 +26,7 @@ async function sendApplication() {
     // Send the data
     const res = await fetch('https://hackclub.com/api/bank/apply', {
         method: 'POST',
+        cors: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
     })
