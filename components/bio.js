@@ -158,7 +158,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
               }}
               onClick={() => setExpand(false)}
             ></Flex>
-          </Flex>          
+          </Flex>
         </>
       )}
     </>

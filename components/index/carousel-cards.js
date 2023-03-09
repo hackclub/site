@@ -1,10 +1,4 @@
-import {
-  Box,
-  Card,
-  Image,
-  Link,
-  Text
-} from 'theme-ui'
+import { Box, Card, Image, Link, Text } from 'theme-ui'
 import Icon from '../icon'
 
 /** @jsxImportSource theme-ui */
@@ -26,8 +20,7 @@ export default function CarouselCards({
         transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
         '&:hover': { transform: 'scale(1.0625)' },
         '.icon': {
-          transition:
-            'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
+          transition: 'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
         },
         ':hover,:focus': {
           '.icon': {
@@ -67,7 +60,11 @@ export default function CarouselCards({
             color: 'white',
             width: ['200px', '300px', '300px'],
             padding: ['12px !important', '16px !important', '20px !important'],
-            paddingTop: ['14px !important', '20px !important', '24px !important'],
+            paddingTop: [
+              '14px !important',
+              '20px !important',
+              '24px !important'
+            ],
             height: '100%'
           }}
         >

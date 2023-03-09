@@ -1,13 +1,5 @@
 import CardModel from './card-model'
-import {
-  Box,
-  Card,
-  Flex,
-  Grid,
-  Heading,
-  Image,
-  Text
-} from 'theme-ui'
+import { Box, Card, Flex, Grid, Heading, Image, Text } from 'theme-ui'
 import { useState } from 'react'
 import Buttons from './button'
 
@@ -107,10 +99,7 @@ export default function Workshops({ data, stars }) {
             Build A Workshop
           </Buttons>
         </Flex>
-        <Grid
-          sx={{ display: ['none', 'grid', 'grid'] }}
-          columns={[1, 1, 1, 2]}
-        >
+        <Grid sx={{ display: ['none', 'grid', 'grid'] }} columns={[1, 1, 1, 2]}>
           <WorkshopCard
             key="splatter_paint"
             slug="splatter_paint"

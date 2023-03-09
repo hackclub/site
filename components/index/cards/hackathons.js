@@ -1,12 +1,5 @@
 import CardModel from './card-model'
-import {
-  Box,
-  Flex,
-  Grid,
-  Image,
-  Link,
-  Text
-} from 'theme-ui'
+import { Box, Flex, Grid, Image, Link, Text } from 'theme-ui'
 import { useState, useEffect } from 'react'
 import Buttons from './button'
 import ScrollingHackathons from '../../hackathons/scrolling-hackathons'
@@ -102,7 +95,10 @@ export default function Hackathons({ data, stars }) {
           }}
         >
           <Box sx={{ width: 'fit-content', float: 'right' }}>
-            <Text as="h4" sx={{ fontSize: 'small', width: '100%', textAlign: 'center' }}>
+            <Text
+              as="h4"
+              sx={{ fontSize: 'small', width: '100%', textAlign: 'center' }}
+            >
               <Dot /> Upcoming Hackathons
             </Text>
             {data.slice(0, 5).map(data => (
@@ -190,58 +186,60 @@ export default function Hackathons({ data, stars }) {
           display: ['block', 'block', 'none']
         }}
       >
-        <Text sx={{ fontSize: 'small', color: 'white' }}>Upcoming Hackathons:</Text>
-        <Flex sx={{gap: '10px'}}>
-        {data.slice(0, 2).map(data => (
-          <Box
-            sx={{
-              zIndex: '1',
-              // bg: 'rgb(255, 255, 255, 0.3)',
-              color: 'white',
-              textDecoration: 'none',
-              fontWeight: 'normal',
-              width: 'fit-content',
-              display: 'flex',
-              alignItems: 'center',
-              fontSize: 'small',
-              my: 2,
-              a: {
+        <Text sx={{ fontSize: 'small', color: 'white' }}>
+          Upcoming Hackathons:
+        </Text>
+        <Flex sx={{ gap: '10px' }}>
+          {data.slice(0, 2).map(data => (
+            <Box
+              sx={{
+                zIndex: '1',
+                // bg: 'rgb(255, 255, 255, 0.3)',
+                color: 'white',
                 textDecoration: 'none',
-                color: 'white'
-              }
-            }}
-            key={data.name}
-          >
-            {data.logo && (
-              <Box
-                sx={{
-                  backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.375) 75%), url('${data.banner}')`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  borderRadius: 'circle',
-                  height: ['20px', '25px', '30px'],
-                  width: ['20px', '25px', '30px'],
-                  mr: '5px'
-                }}
-              >
-                <Image
-                  src={data.logo}
-                  alt={`${data.name} logo`}
-                  loading="lazy"
+                fontWeight: 'normal',
+                width: 'fit-content',
+                display: 'flex',
+                alignItems: 'center',
+                fontSize: 'small',
+                my: 2,
+                a: {
+                  textDecoration: 'none',
+                  color: 'white'
+                }
+              }}
+              key={data.name}
+            >
+              {data.logo && (
+                <Box
                   sx={{
-                    height: '70%',
-                    width: '70%',
-                    objectFit: 'contain',
-                    borderRadius: 'default',
-                    fontSize: 'small'
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.375) 75%), url('${data.banner}')`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: 'circle',
+                    height: ['20px', '25px', '30px'],
+                    width: ['20px', '25px', '30px'],
+                    mr: '5px'
                   }}
-                />
-              </Box>
-            )}
-            <Link href={data.website}>{data.name}</Link>
-          </Box>
-        ))}
+                >
+                  <Image
+                    src={data.logo}
+                    alt={`${data.name} logo`}
+                    loading="lazy"
+                    sx={{
+                      height: '70%',
+                      width: '70%',
+                      objectFit: 'contain',
+                      borderRadius: 'default',
+                      fontSize: 'small'
+                    }}
+                  />
+                </Box>
+              )}
+              <Link href={data.website}>{data.name}</Link>
+            </Box>
+          ))}
         </Flex>
       </Flex>
     </CardModel>

@@ -94,12 +94,13 @@ const Page = () => (
           Hack Night
         </Heading>
         <Text as="p" variant="subtitle">
-          The Hack Club community regularly gathers on Zoom or Huddles. It’s a chance
-          to meet new friends, livestream what you’re hacking on, or just hang
-          out on a chill call.
+          The Hack Club community regularly gathers on Zoom or Huddles. It’s a
+          chance to meet new friends, livestream what you’re hacking on, or just
+          hang out on a chill call.
         </Text>
         <Text as="p" variant="subtitle">
-          Join in Saturdays at 1pm or 11pm UTC, and Wednesdays at 6pm UTC, or join or start an impromptu Hack session on{' '}
+          Join in Saturdays at 1pm or 11pm UTC, and Wednesdays at 6pm UTC, or
+          join or start an impromptu Hack session on{' '}
           <NextLink href="/slack" passHref>
             <Link sx={{ color, opacity: 0.75 }}>#hack-night</Link>
           </NextLink>

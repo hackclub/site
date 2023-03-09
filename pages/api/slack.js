@@ -1,7 +1,8 @@
 import FormData from 'form-data'
 
 export async function Slack() {
-  if (!process.env.SLACK_API_TOKEN) return { error: 'No Slack API token found!' }
+  if (!process.env.SLACK_API_TOKEN)
+    return { error: 'No Slack API token found!' }
 
   const formData = new FormData()
 
@@ -20,7 +21,7 @@ export async function Slack() {
   ).then(r => r.json())
 
   if (!slackData || !slackData.stats) {
-    console.warn("No slack data");
+    console.warn('No slack data')
     return {}
   } else {
     return slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]

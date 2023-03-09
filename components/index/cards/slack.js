@@ -96,8 +96,8 @@ export default function Slack({ data, slackKey, events }) {
             just hang out.
           </Text>
           <Text as="p" variant="subtitle">
-            Occasionally we invite someone we really want to speak to (like
-            Sal Khan, George Hotz, and Lady Ada) and host an{' '}
+            Occasionally we invite someone we really want to speak to (like Sal
+            Khan, George Hotz, and Lady Ada) and host an{' '}
             <Link
               href="/amas"
               target="_blank"
@@ -137,7 +137,10 @@ export default function Slack({ data, slackKey, events }) {
                   textAlign: 'center'
                 }}
               >
-                <Stats data={data.readers_count_1d} subheading="Currently Online" />
+                <Stats
+                  data={data.readers_count_1d}
+                  subheading="Currently Online"
+                />
                 <Stats
                   data={data.chats_channels_count_1d}
                   subheading="Total Channels"

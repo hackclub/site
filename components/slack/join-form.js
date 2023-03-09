@@ -1,4 +1,13 @@
-import { Card, Label, Input, Textarea, Select, Grid, Text, Link } from 'theme-ui'
+import {
+  Card,
+  Label,
+  Input,
+  Textarea,
+  Select,
+  Grid,
+  Text,
+  Link
+} from 'theme-ui'
 import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
@@ -87,11 +96,12 @@ const JoinForm = ({ sx = {} }) => {
             variant="caption"
             color="secondary"
             as="div"
-            sx={{ maxWidth: "600px", textAlign: 'center', mb: 2 }}
+            sx={{ maxWidth: '600px', textAlign: 'center', mb: 2 }}
           >
-              Hold your horses! <b>Our Slack community is for teenagers</b>, and as such
-              we're really careful about letting adults join. If you feel you'd
-              have a place here, reach out to <Link href="mailto:slack@hackclub.com">slack@hackclub.com</Link>.
+            Hold your horses! <b>Our Slack community is for teenagers</b>, and
+            as such we're really careful about letting adults join. If you feel
+            you'd have a place here, reach out to{' '}
+            <Link href="mailto:slack@hackclub.com">slack@hackclub.com</Link>.
           </Text>
         )}
         {!isAdult && (
@@ -99,15 +109,11 @@ const JoinForm = ({ sx = {} }) => {
             status={status}
             mt={'0px!important'}
             labels={{
-              default:
-                useWaitlist
-                  ? 'Join Waitlist'
-                  : 'Get Invite',
+              default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
               error: 'Something went wrong',
-              success:
-                useWaitlist
-                  ? "We'll be in touch soon!"
-                  : 'Email coming soon!'
+              success: useWaitlist
+                ? "We'll be in touch soon!"
+                : 'Email coming soon!'
             }}
           />
         )}
