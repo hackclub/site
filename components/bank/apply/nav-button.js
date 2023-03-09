@@ -8,31 +8,23 @@ async function sendApplication() {
     for (let i = 0; i < sessionStorage.length; i++) {
         const key = sessionStorage.key(i)
         if (key.startsWith('bank-signup-')) {
-            if (key === 'bank-signup-transparent') {
-                data[key.replace('bank-signup-', '')] =
-                    sessionStorage.getItem(key) === 'true' ?
-                        'Yes, please!' : 'No, thanks.'
-            } else if (key === 'bank-signup-returningUser') {
-                data[key.replace('bank-signup-', '')] =
-                    sessionStorage.getItem(key) === 'true' ?
-                        'Yes, I have used Hack Club Bank before' : 'No, first time!'
-            } else {
-                data[key.replace('bank-signup-', '')] = sessionStorage.getItem(key)
-            }
+            data[key.replace('bank-signup-', '')] = sessionStorage.getItem(key)
         }
     }
     console.dir('Sending data:', data)
 
     // Send the data
-    const res = await fetch('https://hackclub.com/api/bank/apply', {
-        method: 'POST',
-        cors: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    })
-    const json = await res.json()
-    console.log(json)
-}
+    try {
+        const res = await fetch('/api/bank/apply', {
+            method: 'POST',
+            cors: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        })
+    } catch (error) {
+        alert(error);
+    }
+} 
 
 function NavIcon({ isBack }) {
     const style = {
