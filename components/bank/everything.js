@@ -121,7 +121,7 @@ export default function Everything({ fee, partner = false }) {
                 >
                   fiscal sponsor
                 </Link>
-                . Fiscal sponsorship fees typically vary between 7-14%
+                . Other fiscal sponsors' fees typically vary between 7-14%
                 of&nbsp;revenue. Hack Club is a 501(c)(3) nonprofit.
               </Text>
             </Container>
