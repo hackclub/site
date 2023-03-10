@@ -101,7 +101,7 @@ export default function Start() {
         >
           <Text sx={{ fontSize: 18, color: 'muted', mx: [3, null, 6] }}>
             Hack Club does not directly provide banking services. Banking services
-            provided by another FDIC-certified financial institution.
+            provided by FDIC-certified financial institutions.
           </Text>
         </Container>
       </Box>
