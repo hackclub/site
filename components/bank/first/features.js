@@ -269,7 +269,7 @@ export default function Features() {
       >
         <Text variant="caption" sx={{ color: 'muted' }}>
           Hack Club does not directly provide banking services. Banking services
-          provided by Silicon Valley Bank, an FDIC-certified institution.
+          provided by another FDIC-certified financial institution.
         </Text>
       </Container>
 
