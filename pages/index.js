@@ -34,7 +34,6 @@ import Slack from '../components/index/cards/slack'
 import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
-import Winter from '../components/index/cards/winter'
 import Comma from '../components/comma'
 
 /** @jsxImportSource theme-ui */
@@ -626,7 +625,6 @@ function Page({
                 and make things together.
               </Text>
             </Box>
-            <Winter />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
