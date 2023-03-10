@@ -269,7 +269,7 @@ export default function Features() {
       >
         <Text variant="caption" sx={{ color: 'muted' }}>
           Hack Club does not directly provide banking services. Banking services
-          provided by another FDIC-certified financial institution.
+          provided by FDIC-certified financial institutions.
         </Text>
       </Container>
 
