@@ -25,7 +25,7 @@ export default function Everything({ fee, partner = false }) {
               'Legal entity with 501(c)(3) status': 'briefcase',
               'We do your taxes': 'checkmark',
               'Share access with your whole team': 'member-add',
-              'Bank account backed by Silicon Valley Bank': 'bank-account',
+              'Backed by a bank account under the hood': 'bank-account',
               'Instant invoice sending': 'transactions',
               'Real-time dashboard of finances': 'analytics',
               'Transaction data export': 'download',

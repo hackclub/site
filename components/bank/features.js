@@ -27,16 +27,7 @@ export default function Features({ partner = false }) {
               name="Bank account"
               body={
                 <>
-                  Backed by{' '}
-                  <Link
-                    href="https://www.svb.com"
-                    color="smoke"
-                    hoverline
-                    target="_blank"
-                  >
-                    Silicon Valley Bank
-                  </Link>{' '}
-                  with a custom, beautiful dashboard.
+                  Bank account under the hood with a custom, beautiful dashboard.
                 </>
               }
             />
