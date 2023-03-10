@@ -22,7 +22,7 @@ async function sendApplication() {
             body: JSON.stringify(data),
         })
     } catch (error) {
-        alert(error);
+        console.error(error);
     }
 } 
 
