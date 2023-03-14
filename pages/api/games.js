@@ -1,6 +1,6 @@
 export async function getGames() {
   let games = await fetch(
-    'https://editor.sprig.hackclub.com/metadata.json'
+    'https://raw.githubusercontent.com/hackclub/sprig/main/games/metadata.json'
   ).then(res => res.json())
   games = games
     .sort((a, b) => new Date(b.addedOn) - new Date(a.addedOn))

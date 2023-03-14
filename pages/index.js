@@ -71,7 +71,6 @@ function Page({
   }
 
   useEffect(() => {
-    console.log('Why, hello there!')
     if (reveal && !hover) {
       setTimeout(() => {
         setReveal(false)
