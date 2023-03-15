@@ -12,13 +12,22 @@ import FormContainer from '../../components/bank/apply/form-container'
 import BankInfo from '../../components/bank/apply/bank-info'
 import OrganizationInfoForm from '../../components/bank/apply/org-form'
 import PersonalInfoForm from '../../components/bank/apply/personal-form'
+import AlertModal from '../../components/bank/apply/alert-modal'
 
 export default function Apply() {
   const router = useRouter()
   const [step, setStep] = useState(1)
   const formContainer = useRef()
+  const [formError, setFormError] = useState(null)
+
+  const requiredFields = [
+    [],
+    ['eventName', 'eventLocation'],
+    ['firstName', 'lastName', 'userEmail']
+  ]
 
   useEffect(() => {
+    console.log(`Form error: ${formError}`)
     if (!router.isReady) return
     setStep(parseInt(router.query.step))
 
@@ -63,11 +72,11 @@ export default function Apply() {
             <Progress />
           </FlexCol>
         </Box>
-        <Box sx={{ gridArea: 'form' }}>
+        <Box sx={{ gridArea: 'form', overflowY: 'auto' }}>
           <FormContainer ref={formContainer}>
             { step === 1 && <BankInfo /> }
-            { step === 2 && <OrganizationInfoForm /> }
-            { step === 3 && <PersonalInfoForm /> }
+            { step === 2 && <OrganizationInfoForm requiredFields={requiredFields} /> }
+            { step === 3 && <PersonalInfoForm requiredFields={requiredFields} /> }
           </FormContainer>
         </Box>
         <Flex
@@ -82,6 +91,8 @@ export default function Apply() {
           <NavButton
             isBack={false}
             form={formContainer}
+            setFormError={setFormError}
+            requiredFields={requiredFields}
             clickHandler={async () => {
               //TODO: Put this somewhere else
 
@@ -106,6 +117,8 @@ export default function Apply() {
                 })
                 const resJson = await res.json()
                 const { result } = resJson
+
+
                 //#endregion
 
                 //#region Save the validated address components
@@ -133,11 +146,27 @@ export default function Apply() {
                 sessionStorage.setItem('bank-signup-addressCountry', country ?? '')
 
                 //#endregion
+
+                // I mean, while we're here we might as well get the event country code.
+                const resEventCountry = await fetch(`https://addressvalidation.googleapis.com/v1:validateAddress?key=${key}`, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    address: {
+                      addressLines: sessionStorage.getItem('bank-signup-eventLocation')
+                    },
+                  }),
+                })
+                const resJsonEventCountry = await res.json()
+                const { resultEventCountry } = resJson
               }
             }}
           />
         </Flex>
       </Box>
+      <AlertModal formError={formError} setFormError={setFormError} />
       <Watermark />
     </>
   )

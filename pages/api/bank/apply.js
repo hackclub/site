@@ -1,15 +1,16 @@
 import AirtablePlus from 'airtable-plus'
 
-// const applicationsTable = new AirtablePlus({
-//   baseID: 'apppALh5FEOKkhjLR',
-//   apiKey: process.env.AIRTABLE_API_KEY,
-//   tableName: 'Events'
-// })
+const applicationsTable = new AirtablePlus({
+  baseID: 'apppALh5FEOKkhjLR',
+  apiKey: process.env.AIRTABLE_API_KEY,
+  tableName: 'Events'
+})
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const data = req.body
 
+    // https://bank.hackclub.com
     await fetch('http://127.0.0.1:3005/api/v1/events/create_demo', {
       body: JSON.stringify({
         email: data.userEmail,

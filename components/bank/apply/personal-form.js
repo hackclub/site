@@ -4,11 +4,11 @@ import AddressInput from './address-input'
 import Field from './field'
 import AutofillColourFix from './autofill-colour-fix'
 
-export default function PersonalInfoForm({ setValidationResult }) {
+export default function PersonalInfoForm({ setValidationResult, requiredFields }) {
     return (
         <>
             <Flex sx={{ justifyContent: 'space-between', gap: 4 }}>
-                <Field name='firstName' label='First name'>
+                <Field name='firstName' label='First name' requiredFields={requiredFields}>
                     <Input
                         name='firstName'
                         id='firstName'
@@ -17,7 +17,7 @@ export default function PersonalInfoForm({ setValidationResult }) {
 
                     />
                 </Field>
-                <Field name='lastName' label='Last name'>
+                <Field name='lastName' label='Last name' requiredFields={requiredFields}>
                     <Input
                         name='lastName'
                         id='lastName'
@@ -26,7 +26,7 @@ export default function PersonalInfoForm({ setValidationResult }) {
                     />
                 </Field>
             </Flex>
-            <Field name='userEmail' label='Email'>
+            <Field name='userEmail' label='Email' requiredFields={requiredFields}>
                 <Input
                     name='userEmail'
                     id='userEmail'
@@ -39,6 +39,7 @@ export default function PersonalInfoForm({ setValidationResult }) {
                 name='userPhone'
                 label='Phone'
                 description='We’ll only use this if we need to get in touch with you urgently.'
+                requiredFields={requiredFields}
             >
                 <Input
                     name='userPhone'
@@ -48,7 +49,7 @@ export default function PersonalInfoForm({ setValidationResult }) {
                     sx={{...AutofillColourFix}} 
                 />
             </Field>
-            <Field name='userBirthday' label='Birthday'>
+            <Field name='userBirthday' label='Birthday' requiredFields={requiredFields}>
                 <Input
                     name='userBirthday'
                     id='userBirthday'
@@ -56,7 +57,7 @@ export default function PersonalInfoForm({ setValidationResult }) {
                     sx={{...AutofillColourFix}}
                 />
             </Field>
-            <Field name='referredBy' label='Who were you referred by?'>
+            <Field name='referredBy' label='Who were you referred by?' requiredFields={requiredFields}>
                 <Input
                     name='referredBy'
                     id='referredBy'
@@ -64,13 +65,19 @@ export default function PersonalInfoForm({ setValidationResult }) {
                     sx={{...AutofillColourFix}}
                 />
             </Field>
-            <Field name='returningUser' label='Have you used Bank before?' col={false}>
+            <Field
+                name='returningUser'
+                label='Have you used Bank before?'
+                col={false}
+                requiredFields={requiredFields}
+            >
                 <Checkbox name='returningUser' />
             </Field>
             <Field
                 name='userAddress'
                 label='Address'
                 description='This is so we can send you some swag and goodies if you ever request them!'
+                requiredFields={requiredFields}
             >
                 <AddressInput
                     name='userAddress'
