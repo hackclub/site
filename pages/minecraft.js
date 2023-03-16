@@ -68,19 +68,24 @@ const Page = () => (
             p: { lineHeight: 'caption' }
           }}
         >
-          <Card>
+          <Card
+            sx={{
+              gridColumnStart: 1,
+              gridColumnEnd: 3
+            }}
+          >
             <Heading as="h3" variant="subheadline">
               Vanilla Server
             </Heading>
             <Text as="p">
               Hang out with the tree-punchers of Hack&nbsp;Club playing on the
               official server, mc.hackclub.com.{' '}
-              <Link href="https://mc.hackclub.com/map/" color="#759B40">
+              <Link href="http://mc.hackclub.com:2008" color="#759B40">
                 Check out the map »
               </Link>
             </Text>
           </Card>
-          <Card>
+          <Card sx={{ display: 'none' }}>
             <Heading as="h3" variant="subheadline">
               Modded Server
             </Heading>
