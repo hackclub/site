@@ -8,31 +8,23 @@ async function sendApplication() {
     for (let i = 0; i < sessionStorage.length; i++) {
         const key = sessionStorage.key(i)
         if (key.startsWith('bank-signup-')) {
-            if (key === 'bank-signup-transparent') {
-                data[key.replace('bank-signup-', '')] =
-                    sessionStorage.getItem(key) === 'true' ?
-                        'Yes, please!' : 'No, thanks.'
-            } else if (key === 'bank-signup-returningUser') {
-                data[key.replace('bank-signup-', '')] =
-                    sessionStorage.getItem(key) === 'true' ?
-                        'Yes, I have used Hack Club Bank before' : 'No, first time!'
-            } else {
-                data[key.replace('bank-signup-', '')] = sessionStorage.getItem(key)
-            }
+            data[key.replace('bank-signup-', '')] = sessionStorage.getItem(key)
         }
     }
     console.dir('Sending data:', data)
 
     // Send the data
-    const res = await fetch('https://hackclub.com/api/bank/apply', {
-        method: 'POST',
-        cors: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    })
-    const json = await res.json()
-    console.log(json)
-}
+    try {
+        const res = await fetch('/api/bank/apply', {
+            method: 'POST',
+            cors: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        })
+    } catch (error) {
+        console.error(error);
+    }
+} 
 
 function NavIcon({ isBack }) {
     const style = {
@@ -55,11 +47,13 @@ function NavIcon({ isBack }) {
         </svg>
 }
 
-export default function NavButton({ isBack, form, clickHandler }) {
+export default function NavButton({ isBack, form, clickHandler, requiredFields, setFormError }) {
     const router = useRouter()
     const [spinner, setSpinner] = useState(false)
 
-    useEffect(() => setSpinner(false), [router.query.step])
+    useEffect(() => {
+        setSpinner(false)
+    }, [router.query.step])
 
     const minStep = 1
     const maxStep = 3
@@ -67,36 +61,60 @@ export default function NavButton({ isBack, form, clickHandler }) {
     const click = async () => {
         setSpinner(true)
 
-        // Save form data
-        new FormData(form.current).forEach((value, key) => {
-            sessionStorage.setItem('bank-signup-' + key, value)
-        })
-
-        // Run the parent's click handler for this button.
-        if (clickHandler) await clickHandler()
-
         let step = parseInt(router.query.step)
 
+        async function setStep(s) {
+            await router.push({
+                pathname: router.pathname,
+                query: { ...router.query, step: s } }, 
+                undefined, 
+                {}
+            )
+        }
+
         if (!step) {
-            step = minStep
+            // Set the step query param to minStep if it's not there.
+            await setStep(minStep)
         } else if (step === minStep && isBack) {
             await router.push('/bank')
             return
         } else if (step < minStep) {
-            step = minStep
-        } else if (step >= maxStep && !isBack) {
+            // Set the step query param to minStep if it's lower than that.
+            await setStep(minStep)
+        }
+
+        /* Don't return from inside the loop since 
+        we want all input values to be saved every time */
+        let wasError = false;
+
+        // Save form data
+        new FormData(form.current).forEach((value, key) => {
+            sessionStorage.setItem('bank-signup-' + key, value)
+
+            // Check if there are empty required fields.
+            if (
+                !isBack &&
+                (!value || value.trim() === "")
+                && requiredFields[step - 1].includes(key)
+            ) {
+                setFormError("Please fill all required fields")
+                wasError = true
+                setSpinner(false)
+            }
+        })
+        if (wasError) return
+
+        // Run the parent's click handler for this button.
+        if (clickHandler) await clickHandler()
+
+        if (step >= maxStep && !isBack) {
             await sendApplication()
             await router.push('/bank/apply/success')
             return
         } else {
             step += isBack ? -1 : 1
         }
-        await router.push({
-            pathname: router.pathname,
-            query: { ...router.query, step } }, 
-            undefined, 
-            {}
-        )
+        await setStep(step)
     }
 
     return (
@@ -105,7 +123,7 @@ export default function NavButton({ isBack, form, clickHandler }) {
             sx={{
                 color: 'white',
                 width: '100%',
-                maxWidth: isBack ? '8rem' : '10rem'
+                maxWidth: isBack ? '8rem' : '10rem',
             }}
             onClick={click}
         >

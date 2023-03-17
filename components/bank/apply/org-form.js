@@ -5,7 +5,7 @@ import AddressInput from './address-input'
 import Field from './field'
 import AutofillColourFix from './autofill-colour-fix'
 
-export default function OrganizationInfoForm() {
+export default function OrganizationInfoForm({ requiredFields }) {
     const [org, setOrg] = useState('organization')
 
     useEffect(() => {
@@ -14,7 +14,7 @@ export default function OrganizationInfoForm() {
 
     return (
         <>
-            <Field name='eventName' label={`${org} name`}>
+            <Field name='eventName' label={`${org} name`} requiredFields={requiredFields}>
                 <Input
                     name='eventName'
                     id='eventName' 
@@ -26,7 +26,8 @@ export default function OrganizationInfoForm() {
                 name='eventWebsite'
                 label={`${org} website`}
                 description='If you don’t have one yet, you can leave this blank.'
-            >
+                requiredFields={requiredFields}
+            >   
                 <Input
                     name='eventWebsite' 
                     id='eventWebsite' 
@@ -35,7 +36,7 @@ export default function OrganizationInfoForm() {
                     sx={{...AutofillColourFix}}
                 />
             </Field>
-            <Field name='eventLocation' label={`${org} location`}>
+            <Field name='eventLocation' label={`${org} location`} requiredFields={requiredFields}>
                 <AddressInput isPersonalAddressInput={false} name='eventLocation' />
             </Field>
             <Field
@@ -48,6 +49,7 @@ export default function OrganizationInfoForm() {
                     This can be changed later.
                     As an example, Hack Club's finances are transparent!
                 `}
+                requiredFields={requiredFields}
             >
                 <Checkbox defaultChecked={true} name='transparent' />
             </Field>
@@ -55,6 +57,7 @@ export default function OrganizationInfoForm() {
                 name='eventDescription'
                 label={`Tell us about your ${org}!`}
                 description='1 or 2 sentences will suffice'
+                requiredFields={requiredFields}
             >
                 <Textarea
                     name='eventDescription'
