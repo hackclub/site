@@ -148,19 +148,21 @@ export default function Apply() {
                 //#endregion
 
                 // I mean, while we're here we might as well get the event country code.
-                const resEventCountry = await fetch(`https://addressvalidation.googleapis.com/v1:validateAddress?key=${key}`, {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    address: {
-                      addressLines: sessionStorage.getItem('bank-signup-eventLocation')
-                    },
-                  }),
-                })
-                const resJsonEventCountry = await res.json()
-                const { resultEventCountry } = resJson
+                // const resEventCountry = await fetch(`https://addressvalidation.googleapis.com/v1:validateAddress?key=${key}`, {
+                //   method: 'POST',
+                //   headers: {
+                //     'Content-Type': 'application/json',
+                //   },
+                //   body: JSON.stringify({
+                //     address: {
+                //       addressLines: sessionStorage.getItem('bank-signup-eventLocation')
+                //     },
+                //   }),
+                // })
+                // const resJsonEventCountry = await res.json()
+                // const { resultEventCountry } = resJsonEventCountry
+                // console.log(resultEventCountry)
+                // sessionStorage.setItem('bank-signup-eventCountry', )
               }
             }}
           />
