@@ -1,11 +1,5 @@
 import CardModel from './card-model'
-import {
-  Box,
-  Button,
-  Grid,
-  Link,
-  Text
-} from 'theme-ui'
+import { Box, Button, Grid, Link, Text } from 'theme-ui'
 import Buttons from './button'
 import Event from '../events'
 

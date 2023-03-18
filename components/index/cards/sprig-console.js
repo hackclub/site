@@ -1,10 +1,5 @@
 import CardModel from './card-model'
-import {
-  Box,
-  Grid,
-  Image,
-  Text
-} from 'theme-ui'
+import { Box, Grid, Image, Text } from 'theme-ui'
 import Buttons from './button'
 import Tilt from './tilt'
 /** @jsxImportSource theme-ui */

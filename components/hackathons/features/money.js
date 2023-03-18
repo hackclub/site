@@ -18,18 +18,12 @@ const Content = () => (
         position: 'relative'
       }}
     >
-      <Container maxWidth={28} sx={{ mx: 0, py: 4 }}>
+      <Container maxWidth={28} sx={{ mx: 0, pt: 4, pb: 2 }}>
         <Text variant="eyebrow">Hack Club Bank</Text>
         <br />
         <Text
           as="span"
           variant="title"
-          sx={{
-            WebkitTextStroke: 'currentColor',
-            WebkitTextStrokeWidth: '2px',
-            WebkitTextFillColor: theme => theme.colors.white,
-            textShadow: theme => `0 0 12px ${theme.colors.red}`
-          }}
         >
           Grants, waived fees, and more!
         </Text>
@@ -45,7 +39,7 @@ const Content = () => (
           }
           body={
             <>
-              Get a $500 grant* once you have a venue for your hackathon,
+              Running on Bank? Get a $500 grant once you have a venue,
               provided by Hack Club with the help of{' '}
               <Link
                 href="https://www.firstinspires.org/"
@@ -85,18 +79,6 @@ const Content = () => (
           →
         </Button>
       </NextLink>
-      <Text
-        variant="small"
-        sx={{
-          display: ['none', 'inline', ''],
-          marginTop: 2,
-          width: [null, null, 500],
-          textAlign: 'center',
-          opacity: 0.8
-        }}
-      >
-        * Open to hackathons that are able to run on Hack Club Bank.
-      </Text>
     </Container>
   </>
 )

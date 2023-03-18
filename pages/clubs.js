@@ -263,7 +263,7 @@ const Page = () => (
           .
         </Heading>
         <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus' }}>
-          Hack Clubs typically meet for 1.5 hours each week in high schools,
+          Hack Clubs typically meet for 1 hour each week in high schools,
           makerspaces, community centers, churches, and any other venue where
           teenagers can gather. As a club leader, you get members (mostly
           beginners) started on something to learn/create, then members work at

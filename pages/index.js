@@ -34,7 +34,6 @@ import Slack from '../components/index/cards/slack'
 import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
-import Winter from '../components/index/cards/winter'
 import Comma from '../components/comma'
 
 /** @jsxImportSource theme-ui */
@@ -72,7 +71,6 @@ function Page({
   }
 
   useEffect(() => {
-    console.log('Why, hello there!')
     if (reveal && !hover) {
       setTimeout(() => {
         setReveal(false)
@@ -626,7 +624,6 @@ function Page({
                 and make things together.
               </Text>
             </Box>
-            <Winter />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
@@ -857,7 +854,11 @@ function Page({
             }}
           >
             <Box>
-              <Text as="p" variant="eyebrow" sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}>
+              <Text
+                as="p"
+                variant="eyebrow"
+                sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
+              >
                 We've got a lot going on - Let’s recap
               </Text>
               <Text
@@ -885,7 +886,7 @@ function Page({
                   Hack&nbsp;Club
                 </Text>
               </Text>
-            </Box> 
+            </Box>
             <Grid
               pt={[3, 4]}
               pb={[4, 5]}
@@ -1118,14 +1119,13 @@ export async function getStaticProps() {
   const { Slack: Slacky } = require('./api/slack')
   let slackData = await Slacky()
 
-
   // GitHub: get latest github activity (currently this is erroring and
   // preventing the site from deploying
 
   const { fetchGitHub } = require('./api/github')
   let gitHubData = await fetchGitHub()
 
-//   let gitHubData = null
+  //   let gitHubData = null
 
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')

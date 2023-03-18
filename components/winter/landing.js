@@ -67,8 +67,7 @@ export default function Landing({ rsvpCount }) {
                   // fontSize: ['18px', '20px', '24px']
                 }}
               >
-                {/* <Dot /> */}
-                a hacker's
+                {/* <Dot /> */}a hacker's
               </Heading>
             </Fade>
             <Fade left cascade>

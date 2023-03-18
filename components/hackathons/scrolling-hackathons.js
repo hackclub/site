@@ -30,25 +30,31 @@ export default function ScrollingHackathons({
   return (
     <>
       {title ? (
-        <Container sx={{ mb: 5 }}>
+        <Container>
           <Heading
             sx={{
-              fontSize: [36, 48],
-              color: 'black'
+              fontSize: [36, 64],
+              color: 'black',
+              textAlign: 'center',
+              maxWidth: ['95vw', '66vw'],
+              margin: 'auto',
+              mt: 4
             }}
           >
-            Upcoming high school hackathons...
+            Join other high-schoolers at an upcoming hackathon.
           </Heading>
-          <Dot />
-          <Text variant="lead" sx={{ mb: 4, color: 'muted', mr: 2 }}>
-            from{' '}
-            <NextLink href="https://hackathons.hackclub.com" passHref>
-              <Link sx={{ color: 'currentcolor' }}>
-                hackathons.hackclub.com
-              </Link>
-            </NextLink>
-            , last updated just now.
-          </Text>
+          <Box sx={{ maxWidth: ['95vw', '66vw'], margin: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 2 }}>
+            <Text sx={{display: ['none', 'flex'], alignItems: 'center'}} ><Dot /></Text>
+            <Text variant="lead" sx={{ color: 'muted', mr: 2, textAlign: 'center' }}>
+              from{' '}
+              <NextLink href="https://hackathons.hackclub.com" passHref>
+                <Link sx={{ color: 'currentcolor' }}>
+                  hackathons.hackclub.com
+                </Link>
+              </NextLink>
+              , last updated just now.
+            </Text>
+          </Box>
         </Container>
       ) : (
         <></>

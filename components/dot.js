@@ -7,7 +7,7 @@ const flashing = keyframes({
   to: { opacity: 0 }
 })
 
-export default function Dot() {
+export default function Dot({hideOnMobile}) {
   return (
     <Text
       sx={{
@@ -23,7 +23,8 @@ export default function Dot() {
         animationName: `${flashing}`,
         animationDuration: '3s',
         animationTimingFunction: 'ease-in-out',
-        animationIterationCount: 'infinite'
+        animationIterationCount: 'infinite',
+        display: hideOnMobile ? ['none', 'default'] : 'default'
       }}
     />
   )

@@ -8,10 +8,11 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write ."
   },
   "dependencies": {
-    "@apollo/client": "^3.7.7",
+    "@apollo/client": "^3.7.9",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@github/time-elements": "^4.0.0",
@@ -57,8 +58,8 @@
     "react-use-websocket": "^4.3.1",
     "react-wrap-balancer": "^0.4.0",
     "recharts": "2.1.12",
-    "styled-components": "^5.3.6",
-    "swr": "^2.0.3",
+    "styled-components": "^5.3.8",
+    "swr": "^2.0.4",
     "theme-ui": "^0.14",
     "tinytime": "^0.2.6",
     "turndown": "^7.1.1",
@@ -66,7 +67,8 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
-    "eslint": "8.34.0",
-    "eslint-config-next": "13.2.1"
+    "eslint-config-next": "13.2.3",
+    "eslint": "8.35.0",
+    "prettier": "^2.8.4"
   }
 }

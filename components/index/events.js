@@ -124,9 +124,11 @@ export default function Events({ events }) {
           boxShadow: 'elevated'
         }}
       >
-        {events.slice(0, 3).map(event =>
-          !past(event.end) ? <Event {...event} key={event.id} /> : <></>
-        )}
+        {events
+          .slice(0, 3)
+          .map(event =>
+            !past(event.end) ? <Event {...event} key={event.id} /> : <></>
+          )}
       </Grid>
     </Box>
   )
