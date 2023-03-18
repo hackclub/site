@@ -7,6 +7,9 @@ import Icon from '../../components/icon'
 import FlexCol from '../../components/flex-col'
 
 function Option({ icon, label, link }) {
+  const color =
+    icon === 'email' ? '#338eda' : icon === 'slack' ? '#a633d6' : '#ec3750';
+
   return (
     <Button
       variant='outline'
@@ -17,6 +20,8 @@ function Option({ icon, label, link }) {
         flexDirection: 'column',
         alignItems: 'center',
         width: 'fit-content',
+        color,
+        borderColor: color
       }}
     >
       <Flex sx={{ alignItems: 'center', gap: [0, null, 1], px: 2 }}>
@@ -49,46 +54,67 @@ export default function ApplicationSuccess() {
     <Container variant="copy">
       <ForceTheme theme="dark" />
       <FlexCol
-        height='100vh'
-        textAlign='center'
-        alignItems='center'
-        justifyContent='space-between'
+        height="100vh"
+        textAlign="center"
+        alignItems="center"
+        justifyContent="space-between"
         py={5}
         gap={4}
       >
-        <FlexCol gap={4} alignItems='center'>
+        <FlexCol gap={4} alignItems="center">
           <Image
-            src='/bank/apply/party-orpheus.svg'
+            src="/bank/apply/party-orpheus.svg"
             alt="Dinosaur partying"
-            sx={{ width: '40%' }}
+            sx={{ width: "40%" }}
           />
           <FlexCol gap={2}>
-            <Text variant='title'>
-              Thanks for applying!
-            </Text>
-            <Text variant='lead'>
-              We’ll reach out to schedule your introductory call within 24 hours on
-              weekdays.
+            <Text variant="title">Thanks for applying!</Text>
+            <Text variant="lead">
+              We’ll reach out to schedule your introductory call within 24 hours
+              on weekdays.
             </Text>
           </FlexCol>
         </FlexCol>
 
-        <FlexCol gap={4} width='100%'>
-          <Text sx={{ fontSize: [3, null, 4] }}>Questions about your application?</Text>
-          <Flex sx={{ flexDirection: ['column', null, 'row'], justifyContent: 'space-evenly', alignItems: 'center', gap: [3, null, 0] }}>
-            <Option icon='email' label='Mail' link='mailto:bank@hackclub.com'>bank@hackclub.com</Option>
-            <Option icon='slack' label='Slack' link='https://hackclub.slack.com/channels/bank'>#bank</Option>
-            <Option icon='help' label='FAQ' link='https://bank.hackclub.com/faq'>FAQ</Option>
+        <FlexCol gap={4} width="100%">
+          <Text sx={{ fontSize: [3, null, 4] }}>
+            Questions about your application?
+          </Text>
+          <Flex
+            sx={{
+              flexDirection: ["column", null, "row"],
+              justifyContent: "space-evenly",
+              alignItems: "center",
+              gap: [3, null, 0],
+            }}
+          >
+            <Option icon="email" label="Mail" link="mailto:bank@hackclub.com">
+              bank@hackclub.com
+            </Option>
+            <Option
+              icon="slack"
+              label="Slack"
+              link="https://hackclub.slack.com/channels/bank"
+            >
+              #bank
+            </Option>
+            <Option
+              icon="help"
+              label="FAQ"
+              link="https://bank.hackclub.com/faq"
+            >
+              FAQ
+            </Option>
           </Flex>
         </FlexCol>
 
-        <Button as='a' href='/bank'>
-          <Flex sx={{ alignItems: 'center', px: [2, null, 3], py: 2 }}>
-            <Icon glyph='home' size={36} />
-            <Text sx={{ fontSize: 3 }}>Back to home</Text>
+        <Button as="a" href="https://bank.hackclub.com">
+          <Flex sx={{ alignItems: "center", px: [2, null, 3], py: 2 }}>
+            <Icon glyph="bank-account" size={36} />
+            <Text sx={{ fontSize: 3 }}>Head to Bank!</Text>
           </Flex>
         </Button>
       </FlexCol>
     </Container>
-  )
+  );
 }
