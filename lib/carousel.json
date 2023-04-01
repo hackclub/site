@@ -45,6 +45,15 @@
     "link": "https://sinerider.com"
   },
   {
+    "background": "#EC3750",
+    "titleColor": "snow",
+    "textColor": "white",
+    "title": "The Orpheus Show",
+    "description": "🎤 The podcast all about Hack Club",
+    "img": "https://emoji.slack-edge.com/T0266FRGM/tos-cover/212dd2faee6f9caa.png",
+    "link": "https://podcast.hackclub.com"
+  },
+  {
     "background": "black",
     "titleColor": "yellow",
     "textColor": "white",
