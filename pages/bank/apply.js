@@ -13,6 +13,7 @@ import BankInfo from '../../components/bank/apply/bank-info'
 import OrganizationInfoForm from '../../components/bank/apply/org-form'
 import PersonalInfoForm from '../../components/bank/apply/personal-form'
 import AlertModal from '../../components/bank/apply/alert-modal'
+import { search, geocode } from '../../lib/bank/apply/address-validation'
 
 export default function Apply() {
   const router = useRouter()
@@ -99,70 +100,27 @@ export default function Apply() {
               // Validate the address
               if (step === 3) {
                 // Get the raw personal address input
-                const userAddress = sessionStorage.getItem('bank-signup-userAddress')
+                const userAddress = sessionStorage.getItem('bank-signup-userAddressRaw')
                 if (!userAddress) return
-
-                //#region Address Validation API
-                const key = atob('QUl6YVN5QXB4Wlo4LUVoXzZSZ0hVdTgtQkFPcHgzeGhmRjJ5SzlV')
-                const res = await fetch(`https://addressvalidation.googleapis.com/v1:validateAddress?key=${key}`, {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    address: {
-                      addressLines: userAddress
-                    },
-                  }),
-                })
-                const resJson = await res.json()
-                const { result } = resJson
-
-
-                //#endregion
-
-                //#region Save the validated address components
+                
+                const result = await geocode(userAddress)
 
                 const addrComp = (type) =>
-                  result.address.addressComponents.find(el => el.componentType === type)?.componentName.text
+                  result.results[0].structuredAddress[type]
                 
-                const streetNumber = addrComp('street_number')
-                const road = addrComp('route')
-                const city = addrComp('postal_town') || addrComp('locality')
-                const state = addrComp('administrative_area_level_1')
+                const thoroughfare = addrComp('fullThoroughfare')
+                const city = addrComp('locality')
+                const state = addrComp('administrativeArea')
                 const postalCode = addrComp('postal_code')
-                const country = addrComp('country')
+                const country = result.results[0].country
+                const countryCode = result.results[0].countryCode
 
-                let formattedAddressLine1;
-                if (!streetNumber && !road) formattedAddressLine1 = ''
-                else if (!streetNumber && road) formattedAddressLine1 = road
-                else if (streetNumber && !road) formattedAddressLine1 = streetNumber
-                else formattedAddressLine1 = `${streetNumber} ${road}`
-
-                sessionStorage.setItem('bank-signup-addressLine1', formattedAddressLine1)
+                sessionStorage.setItem('bank-signup-addressLine1', thoroughfare)
                 sessionStorage.setItem('bank-signup-addressCity', city ?? '')
                 sessionStorage.setItem('bank-signup-addressState', state ?? '')
                 sessionStorage.setItem('bank-signup-addressZip', postalCode ?? '')
                 sessionStorage.setItem('bank-signup-addressCountry', country ?? '')
-
-                //#endregion
-
-                // I mean, while we're here we might as well get the event country code.
-                // const resEventCountry = await fetch(`https://addressvalidation.googleapis.com/v1:validateAddress?key=${key}`, {
-                //   method: 'POST',
-                //   headers: {
-                //     'Content-Type': 'application/json',
-                //   },
-                //   body: JSON.stringify({
-                //     address: {
-                //       addressLines: sessionStorage.getItem('bank-signup-eventLocation')
-                //     },
-                //   }),
-                // })
-                // const resJsonEventCountry = await res.json()
-                // const { resultEventCountry } = resJsonEventCountry
-                // console.log(resultEventCountry)
-                // sessionStorage.setItem('bank-signup-eventCountry', )
+                sessionStorage.setItem('bank-signup-addressCountryCode', countryCode ?? '')
               }
             }}
           />

@@ -31,6 +31,7 @@ function NavIcon({ isBack }) {
         height: '1em',
         fill: 'white',
         margin: 0,
+        flexShrink: 0,
     }
 
     return isBack ?
@@ -124,6 +125,7 @@ export default function NavButton({ isBack, form, clickHandler, requiredFields, 
                 color: 'white',
                 width: '100%',
                 maxWidth: isBack ? '8rem' : '10rem',
+                position: 'relative',
             }}
             onClick={click}
         >
@@ -131,7 +133,6 @@ export default function NavButton({ isBack, form, clickHandler, requiredFields, 
                 flexDirection: isBack ? 'row' : 'row-reverse',
                 justifyContent: 'center',
                 placeItems: 'center',
-                // width: '100%',
                 fontSize: isBack ? 2 : 4,
                 gap: [2, null, null, 3],
             }}>
@@ -149,7 +150,8 @@ export default function NavButton({ isBack, form, clickHandler, requiredFields, 
                 height: '32px',
                 color: 'white',
                 position: 'absolute',
-                right: 0
+                right: '-0.3rem',
+                margin: '0 !important',
             }} />}
         </Button>
     )

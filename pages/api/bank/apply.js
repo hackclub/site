@@ -10,7 +10,6 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const data = req.body
 
-    // await fetch('http://127.0.0.1:3005/api/v1/events/create_demo', {
     await fetch('https://bank.hackclub.com/api/v1/events/create_demo', {
       body: JSON.stringify({
         email: data.userEmail,
@@ -24,8 +23,6 @@ export default async function handler(req, res) {
     })
       .then(r => r.json())
       .then(async r => {
-        console.log(data)
-
         await applicationsTable.create({
           'First Name': data.firstName,
           'Last Name': data.lastName,
