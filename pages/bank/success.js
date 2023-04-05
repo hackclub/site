@@ -9,7 +9,7 @@ import FlexCol from '../../components/flex-col'
 function Option({ icon, label, link }) {
   const color =
     icon === 'email' ? '#338eda' : icon === 'slack' ? '#a633d6' : '#ec3750';
-
+  
   return (
     <Button
       variant='outline'
@@ -70,8 +70,7 @@ export default function ApplicationSuccess() {
           <FlexCol gap={2}>
             <Text variant="title">Thanks for applying!</Text>
             <Text variant="lead">
-              We’ll reach out to schedule your introductory call within 24 hours
-              on weekdays.
+              Head on over to Bank and explore the dashboard
             </Text>
           </FlexCol>
         </FlexCol>
