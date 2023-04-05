@@ -5,7 +5,7 @@ import FlexCol from '../../flex-col'
 export default function BankInfo() {
   return (
     <Box>
-      <FlexCol gap={5}>
+      <FlexCol gap={4}>
         <FlexCol gap={4}>
           <Text sx={{ fontSize: 36 }}>
             What Hack Club Bank <i>is</i>
@@ -23,15 +23,31 @@ export default function BankInfo() {
                 <Icon glyph="external" />
               </Flex>
               <Text sx={{ color: "muted" }}>
-                This means you won’t have to pay tax to the government on the
-                funds you raise.
+                <ul>
+                  <li>
+                    Nonprofit status.
+                  </li>
+                  <li>
+                    Tax-deductable donations.
+                  </li>
+                </ul>
               </Text>
             </FlexCol>
             <FlexCol gap={2}>
-              <Text sx={{ fontSize: 3 }}>A card issuer</Text>
+              <Text sx={{ fontSize: 3 }}>A financial platform</Text>
               <Text sx={{ color: "muted" }}>
-                Each team member can have their own physical card to spend your
-                organization’s funds.
+                <ul>
+                  <li>
+                    A donations page and invoicing system.
+                  </li>
+                  <li>
+                    Transfer money electronically.
+                  </li>
+                  <li>
+                    Order cards for you and your team to
+                    make purchases.
+                  </li>
+                </ul>
               </Text>
             </FlexCol>
           </FlexCol>
@@ -42,18 +58,28 @@ export default function BankInfo() {
           </Text>
           <FlexCol gap={3} ml={3}>
             <FlexCol gap={2}>
-              <Text sx={{ fontSize: 3 }}>A traditional bank</Text>
+              <Text sx={{ fontSize: 3 }}>A bank! <Text sx={{ color: 'muted', fontSize: 2 }}>(we're better)</Text></Text>
               <Text sx={{ color: "muted" }}>
-                You will not get a routing or account number. Instead, you’ll
-                get a donations page and invoicing system, through the Hack Club
-                Bank dashboard.
+                <ul>
+                  <li>
+                      Rather than setting up a standard bank account,
+                      you'll get a restricted fund within Hack Club accounts.
+                  </li>
+                  <li>
+                    You can't deposit or withdraw money.
+                  </li>
+                </ul>
               </Text>
             </FlexCol>
             <FlexCol gap={2}>
               <Text sx={{ fontSize: 3 }}>For-profit</Text>
               <Text sx={{ color: "muted" }}>
-                If you’re a for-profit entity, then Bank is not for you.
-                Consider setting up a business.
+                <ul>
+                  <li>
+                    If you’re a for-profit entity, then Bank is not for you.
+                    Consider setting up a business.
+                  </li>
+                </ul>
               </Text>
             </FlexCol>
           </FlexCol>
