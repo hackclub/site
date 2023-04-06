@@ -1,8 +1,5 @@
 import { Badge, Link, Text } from 'theme-ui'
-import { useEffect, useState } from 'react'
 import RelativeTime from 'react-relative-time'
-import Fade from 'react-reveal/Fade'
-/** @jsxImportSource theme-ui */
 
 export default function GitHub({
   type,
@@ -49,6 +46,7 @@ export default function GitHub({
           user !== 'dependabot[bot]' ? (
             user !== 'github-actions[bot]' ? (
               <img
+                alt=''
                 src={img}
                 sx={{ borderRadius: '100%', height: '90%', mr: 2 }}
               />
