@@ -1,6 +1,5 @@
 import {
   Avatar,
-  BaseStyles,
   Box,
   Button,
   Card,
@@ -12,7 +11,6 @@ import {
   Text
 } from 'theme-ui'
 import styled from '@emotion/styled'
-import { keyframes } from '@emotion/react'
 import Image from 'next/image'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
@@ -40,15 +38,11 @@ import WindyCity from '../../public/donate/6screenshot_2021-10-03_at_3.29.29_pm.
 import ZephyrFun from '../../public/donate/0screenshot_2021-10-03_at_3.59.34_pm.png'
 import GoldenTrain from '../../public/home/golden-train.png'
 
-/** @jsxImportSource theme-ui */
-
 import {
   BarChart,
   Bar,
-  Label,
   XAxis,
   YAxis,
-  Tooltip,
   ResponsiveContainer
 } from 'recharts'
 
@@ -754,6 +748,7 @@ const Philanthropy = ({ posts = [] }) => {
                   width="20"
                   height="20"
                   sx={{ borderRadius: '100%' }}
+                  alt='belle'
                 />
                 Belle, 17, Malaysia
               </Text>
@@ -788,6 +783,7 @@ const Philanthropy = ({ posts = [] }) => {
                   src="/philanthropy/insider-logo.svg"
                   width={530}
                   height={150}
+                  alt='insider logo'
                 />
               </Link>
               <Link
@@ -799,6 +795,7 @@ const Philanthropy = ({ posts = [] }) => {
                   src="/philanthropy/wsj-logo.svg"
                   width={270}
                   height={100}
+                  alt='wsj logo'
                 />
               </Link>
               <Link
@@ -810,6 +807,7 @@ const Philanthropy = ({ posts = [] }) => {
                   src="/philanthropy/forbes-logo.svg"
                   width={500}
                   height={100}
+                  alt='forbes logo'
                 />
               </Link>
               <Link
@@ -817,7 +815,12 @@ const Philanthropy = ({ posts = [] }) => {
                 target="_blank"
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
-                <Image src="/philanthropy/cop.png" width={750} height={250} />
+                <Image
+                  src="/philanthropy/cop.png"
+                  width={750}
+                  height={250}
+                  alt='cop logo'
+                />
               </Link>
             </Grid>
           </Fade>
@@ -1334,6 +1337,7 @@ const Philanthropy = ({ posts = [] }) => {
                     src="/philanthropy/christina-s.png"
                     width={250}
                     height={100}
+                    alt='christina'
                   />
                   <Text as="p">Christina Asquith, Co-founder and COO</Text>
                 </Box>
@@ -1344,6 +1348,7 @@ const Philanthropy = ({ posts = [] }) => {
                     src="/philanthropy/zach-s.png"
                     width={150}
                     height={100}
+                    alt='zach'
                   />
                   <Text as="p">Zach Latta, Founder and Executive Director</Text>
                 </Box>
