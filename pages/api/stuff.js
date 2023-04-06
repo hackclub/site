@@ -1,6 +1,6 @@
 import FormData from 'form-data'
 
-export default async function (req, res) {
+export default async function stuff(req, res) {
   const formData = new FormData()
 
   formData.append(
