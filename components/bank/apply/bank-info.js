@@ -14,13 +14,19 @@ export default function BankInfo() {
             <FlexCol gap={2}>
               <Flex sx={{ alignItems: "center", gap: 2 }}>
                 <Link
-                  color="white"
-                  href="https://givebutter.com/blog/fiscal-sponsorship"
-                  sx={{ fontSize: 3 }}
+                  color='white'
+                  href="/bank/fiscal-sponsorship"
+                  target='_blank'
+                  sx={{
+                    fontSize: 3,
+                    display: "inline-flex",
+                    alignItems: "flex-end",
+                    gap: 1
+                  }}
                 >
                   A fiscal sponsor
+                  <Icon glyph="external" />
                 </Link>
-                <Icon glyph="external" />
               </Flex>
               <Text sx={{ color: "muted" }}>
                 <ul>
