@@ -182,11 +182,11 @@ export default function FiscalSponsorship() {
                     position: 'fixed',
                     inset: 0,
                     height: '1000%',
-                    zIndex: -5,
+                    zIndex: -2,
                     backgroundSize: '20px 20px',
                     backgroundImage: `linear-gradient(to right,  #23262D 1px, transparent 1px), 
                                       linear-gradient(to bottom, #23262D 1px, transparent 1px) `,
-                    backgroundPosition: 'top center',
+                    backgroundPosition: 'top left',
                     maskImage: `linear-gradient(180deg, transparent 0%, white 3%)`,
                 }}
             />
