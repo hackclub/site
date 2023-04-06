@@ -4,6 +4,7 @@ import VanillaTilt from 'vanilla-tilt'
 // NOTE(@lachlanjc): only pass one child!
 const Tilt = ({ options = {}, children, ...props }) => {
   const root = useRef(null)
+  
   useEffect(() => {
     VanillaTilt.init(root.current, {
       max: 7.5,
@@ -15,6 +16,7 @@ const Tilt = ({ options = {}, children, ...props }) => {
       ...options
     })
   }, [options])
+
   return React.cloneElement(children, { ref: root })
 }
 
