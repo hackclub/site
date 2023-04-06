@@ -144,7 +144,7 @@ export default function FiscalSponsorship() {
 
     useEffect(() => {
         const handleScroll = (e) => {
-            const s = -window.scrollY
+            const s = -window.scrollY / 10
 
             gridRef.current.style.transform = `translateY(${s}px)`
 
