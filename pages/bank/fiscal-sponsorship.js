@@ -139,6 +139,7 @@ export default function FiscalSponsorship() {
     const setGlowMaskPosition = () => {
         const finalPos = [-mousePos[0], -mousePos[1] + scrollPos]
         glowRef.current.style.maskPosition = `${finalPos[0]}px ${finalPos[1]}px`;
+        glowRef.current.style.WebkitMaskPosition = `${finalPos[0]}px ${finalPos[1]}px`;
     }
 
     useEffect(() => {
