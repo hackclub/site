@@ -60,7 +60,8 @@ const CardModel = ({
         {text || 'Happening now'}
       </Box>
     )}
-    {github_link != null ? (
+
+    {github_link && (
       <Box>
         {position === 'bottom' ? (
           <Flex
@@ -90,7 +91,7 @@ const CardModel = ({
                 }}
               />
             </Link>
-            {stars != null ? (
+            {stars ? (
               <Text as="h2">
                 ⭐️ <Comma>{stars}</Comma>
               </Text>
@@ -109,7 +110,7 @@ const CardModel = ({
               // flexDirection: ['column', 'row', 'row']
             }}
           >
-            {stars != null ? (
+            {stars ? (
               <Text as="h2" sx={{ fontSize: ['20px', '24px', '28px'] }}>
                 ⭐️ <Comma>{stars}</Comma>
               </Text>
@@ -132,9 +133,8 @@ const CardModel = ({
           </Flex>
         )}
       </Box>
-    ) : (
-      <></>
     )}
+
     {image && (
       <Image
         src={image}
@@ -148,6 +148,7 @@ const CardModel = ({
           mt: ['-24px', '-32px', '-32px', '-32px'],
           zIndex: 0
         }}
+        alt=''
       />
     )}
     {children}

@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Box, Button, Text } from 'theme-ui'
 import ReactTooltip from 'react-tooltip'
 import Icon from '@hackclub/icons'
-/** @jsxImportSource theme-ui */
 
 export default function Buttons({
   children,
@@ -13,7 +12,7 @@ export default function Buttons({
   primary,
   ...props
 }) {
-  let fontWeight = primary != null ? '700' : '400'
+  let fontWeight = primary ? '700' : '400'
 
   return (
     <Box
@@ -34,12 +33,12 @@ export default function Buttons({
           alignItems: 'center',
           color: 'inherit',
           px: '3',
-          py: primary != null ? '12px' : 2,
+          py: primary  ? '12px' : 2,
           width: 'fit-content',
           textTransform: 'none',
           fontWeight: '400',
           fontSize:
-            primary != null ? ['18px', '20px', '22px'] : [1, '16px', '18px'],
+            primary ? ['18px', '20px', '22px'] : [1, '16px', '18px'],
           backdropFilter: 'blur(2px)',
           fontWeight: fontWeight
         }}
