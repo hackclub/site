@@ -28,6 +28,7 @@ import Epoch from '../components/index/cards/epoch'
 import Hackathons from '../components/index/cards/hackathons'
 import AssembleImgFile from '../public/home/assemble.jpg'
 import Konami from 'react-konami-code'
+import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
 import MailingList from '../components/index/cards/mailing-list'
 import Slack from '../components/index/cards/slack'
@@ -61,13 +62,29 @@ function Page({
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
 
+  let jsConfetti;
+
   useEffect(() => {
+    jsConfetti = new JSConfetti()
+    
     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
     window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
   }, [])
 
   const easterEgg = () => {
     alert('Hey, you typed the Konami Code!')
+
+    jsConfetti.addConfetti({
+      confettiColors: [ // Hack Club colours!
+        '#ec3750',
+        '#ff8c37',
+        '#f1c40f',
+        '#33d6a6',
+        '#5bc0de',
+        '#338eda',
+        '#a633d6',
+      ],
+    })
   }
 
   useEffect(() => {
@@ -139,7 +156,7 @@ function Page({
             console.log('hover:', hover)
           }}
         />
-        <Konami action={easterEgg} code={[38, 38, 40, 40]}>
+        <Konami action={easterEgg}>
           {"Hey, I'm an Easter Egg! Look at me!"}
         </Konami>
 
