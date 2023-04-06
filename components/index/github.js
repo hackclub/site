@@ -45,7 +45,7 @@ export default function GitHub({
         target="_blank"
         rel="noopener"
       >
-        {user != null ? (
+        {user !== null ? (
           user !== 'dependabot[bot]' ? (
             user !== 'github-actions[bot]' ? (
               <img
@@ -61,7 +61,7 @@ export default function GitHub({
         ) : (
           <></>
         )}
-        {user != null ? (
+        {user !== null ? (
           user !== 'dependabot[bot]' ? (
             user !== 'github-actions[bot]' ? (
               <Text
@@ -91,7 +91,7 @@ export default function GitHub({
         ) : (
           <></>
         )}
-        {user != null ? (
+        {user !== null ? (
           user !== 'dependabot[bot]' ? (
             user !== 'github-actions[bot]' ? (
               <Text
@@ -114,7 +114,7 @@ export default function GitHub({
         ) : (
           <></>
         )}
-        {user != null ? (
+        {user !== null ? (
           user !== 'dependabot[bot]' ? (
             user !== 'github-actions[bot]' ? (
               <Text
