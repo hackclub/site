@@ -1,8 +1,6 @@
 import { Box, Card, Image, Link, Text } from 'theme-ui'
 import Icon from '../icon'
 
-/** @jsxImportSource theme-ui */
-
 export default function CarouselCards({
   background,
   titleColor,

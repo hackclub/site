@@ -1,10 +1,7 @@
 import CardModel from './card-model'
 import { Box, Flex, Grid, Image, Link, Text } from 'theme-ui'
 import Buttons from './button'
-import styled from '@emotion/styled'
 import RelativeTime from 'react-relative-time'
-
-/** @jsxImportSource theme-ui */
 
 function Game({ game, gameImage, gameImage1, ...props }) {
   return (

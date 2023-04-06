@@ -2,9 +2,7 @@ import CardModel from './card-model'
 import { Box, Flex, Grid, Heading, Image, Link, Text } from 'theme-ui'
 import Buttons from './button'
 import Event from '../events'
-import Dot from '../../dot'
 import Comma from '../../comma'
-/** @jsxImportSource theme-ui */
 
 const Cover = () => (
   <Box
