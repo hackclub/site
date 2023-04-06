@@ -14,7 +14,7 @@ Install dependencies:
 
 Start running the website on your computer:
 
-    $ yarn run dev
+    $ yarn dev
 
 And then open up your web browser and go to [localhost:3000](http://localhost:3000).
 
