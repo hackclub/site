@@ -32,6 +32,7 @@ export default function SprigConsole({ stars, consoleCount }) {
             mt: '-24px',
             zIndex: 0
           }}
+          alt='pcb'
         />
         <Image
           src="https://cloud-8u6hh0ho9-hack-club-bot.vercel.app/0sprig_console.svg"
@@ -77,6 +78,7 @@ export default function SprigConsole({ stars, consoleCount }) {
                 mb: ['-15px', '-30px', '', ''],
                 display: [null, null, 'none', 'none']
               }}
+              alt="sprig console"
             />
             <Text as="p" variant="subtitle" mt={[0, null, null]}>
               Play your own Sprig games on this console, which you can assemble
@@ -111,6 +113,7 @@ export default function SprigConsole({ stars, consoleCount }) {
             },
             zIndex: 3
           }}
+          alt="sprig console"
         />
       </Tilt>
     </Box>
