@@ -14,7 +14,7 @@ const Tilt = ({ options = {}, children, ...props }) => {
       gyroscope: false,
       ...options
     })
-  })
+  }, [options])
   return React.cloneElement(children, { ref: root })
 }
 
