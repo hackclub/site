@@ -12,6 +12,9 @@ import Start from '../../components/bank/start'
 import Nonprofits from '../../components/bank/nonprofits'
 
 const styles = `
+  html {
+    scroll-behavior: smooth;
+  }
   ::selection {
     background-color: #e42d42;
     color: #ffffff;

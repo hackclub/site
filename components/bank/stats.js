@@ -1,80 +1,96 @@
-import { Text, Box } from 'theme-ui'
-import { keyframes } from '@emotion/react'
-import { timeSince } from '../../lib/helpers'
-import useSWR from 'swr'
-import Stat from '../stat'
-import fetcher from '../../lib/fetcher'
+import { Text, Box, Flex } from 'theme-ui'
+import { useEffect, useState } from 'react'
 
-const renderMoney = amount =>
-  Math.floor(amount / 100)
-    .toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    })
-    .replace('.00', '')
+const easeInOutExpo = (x) =>
+  x === 0
+    ? 0
+    : x === 1
+    ? 1
+    : x < 0.5
+    ? Math.pow(2, 20 * x - 10) / 2
+      : (2 - Math.pow(2, -20 * x + 10)) / 2;
+    
+function startMoneyAnimation(setBalance, amount, duration = 2_000, moneyFormatter) {  
+  const startTime = performance.now();
 
-const flashing = keyframes({
-  from: { opacity: 0 },
-  '50%': { opacity: 1 },
-  to: { opacity: 0 }
-})
+  function animate() {
+    const time = performance.now() - startTime;
+    const progress = time / duration;
+    const easedProgress = easeInOutExpo(progress);
 
-function Dot() {
-  return (
-    <Text
-      sx={{
-        bg: 'green',
-        color: 'white',
-        borderRadius: 'circle',
-        display: 'inline-block',
-        lineHeight: 0,
-        width: '.4em',
-        height: '.4em',
-        marginRight: '.4em',
-        marginBottom: '.12em',
-        animationName: `${flashing}`,
-        animationDuration: '3s',
-        animationTimingFunction: 'ease-in-out',
-        animationIterationCount: 'infinite'
-      }}
-    />
-  )
+    setBalance(moneyFormatter(amount * easedProgress))
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      setBalance(moneyFormatter(amount))
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+  
+function formatMoney(amount) {
+  const normalisedAmount = amount / 100
+  return normalisedAmount
+    .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+    .split('.')
 }
 
-const Stats = props => {
-  const { data } = useSWR('https://bank.hackclub.com/stats', fetcher, {
-    fallbackData: {
-      transactions_volume: 500 * 1000 * 1000,
-      raised: 200 * 1000 * 500,
-      last_transaction_date: Date.now()
+const Stats = () => {
+  const [transactedRaw, setTransactedRaw] = useState() // The raw amount transacted (in cents).
+  const [balance, setBalance] = useState(0) // A formatted balance string, split by decimal  
+
+  useEffect(() => {
+    if (!transactedRaw) {
+      fetch('https://bank.hackclub.com/stats')
+        .then(res => res.json())
+        .then(data => setTransactedRaw(data.transactions_volume))
+        .catch(err => {
+          console.error(err)
+          setTransactedRaw(830796389)
+        })
     }
-  })
+
+    let observer = new IntersectionObserver(
+      (e) => {
+        if (e[0].isIntersecting) {
+          console.info('intersecting')
+          startMoneyAnimation(setBalance, transactedRaw, 2_500, formatMoney)
+        }
+      },
+      { threshold: 1.0 }
+    );
+    observer.observe(document.querySelector("#parent"));
+
+    return () => observer.disconnect();
+  }, [transactedRaw])
 
   return (
-    <Box>
-      <Text
-        variant="lead"
-        fontSize={[2, 3]}
-        color="muted"
-        mt={[2, 4]}
-        mb={[2, 3]}
-      >
-        <Dot />
-        As of {timeSince(data?.last_transaction_date * 1000, false, true)}...
-      </Text>
-      <Box>
-        <Stat
-          {...props}
-          value={renderMoney(data?.raised)}
-          label="raised on Hack Club Bank"
-        />
-        <Stat
-          {...props}
-          fontSize={[3, 4, 5]}
-          value={renderMoney(data?.transactions_volume)}
-          label="total amount transacted"
-        />
-      </Box>
+    <Box id='parent'>
+      <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
+        <Text sx={{ fontSize: [3, 4] }}>
+          So far we have enabled
+        </Text>
+        { transactedRaw ?
+          <>
+            <Text variant='title' color='green' sx={{
+                color: 'green',
+                fontSize: [5, 6]
+              }}
+            >
+              { balance[0] }
+              <Text sx={{ fontSize: [3, 4] }}>.{ balance[1] }</Text>
+            </Text>
+          </>
+          :
+          <Text variant='title' color='green' sx={{
+            color: 'green',
+            fontSize: [5, 6]
+          }}>...</Text>  
+        }
+        <Text sx={{ fontSize: [3, 4] }}>in transactions</Text>
+      </Flex>
     </Box>
   )
 }

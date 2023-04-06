@@ -34,7 +34,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
     >
       <Box
         as="a"
-        href={`https://editor.sprig.hackclub.com/?file=https://raw.githubusercontent.com/hackclub/sprig/main/games/${game.filename}.js`}
+        href={`https://editor.sprig.hackclub.com/?file=https://raw.githubusercontent.com/hackclub/sprig/main/games/${game?.filename}.js`}
         target="_blank"
         rel="noopener noreferrer"
         sx={{
@@ -129,7 +129,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
               lineHeight: '1.4rem'
             }}
           >
-            {game.title}
+            {game?.title}
           </Text>
           <Text
             as="h4"
@@ -146,7 +146,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
               lineHeight: '1rem'
             }}
           >
-            by {game.author}
+            by {game?.author}
           </Text>
           <Text
             as="span"
@@ -159,7 +159,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
               mb: 1
             }}
           >
-            <RelativeTime value={game.addedOn} titleFormat="YYYY-MM-DD" />
+            <RelativeTime value={game?.addedOn} titleFormat="YYYY-MM-DD" />
           </Text>
         </Box>
       </Box>
@@ -210,6 +210,7 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               Build a Sprig game
             </Buttons>
             <Buttons
+
               content="learn more on our github"
               id="8"
               link="https://github.com/hackclub/sprig"

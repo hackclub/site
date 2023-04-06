@@ -6,7 +6,7 @@ export async function getGames() {
     .sort((a, b) => new Date(b.addedOn) - new Date(a.addedOn))
     .slice(0, 4)
 
-  return games
+  return []
 }
 
 export default async function Games(req, res) {

@@ -151,7 +151,7 @@ const Footer = ({ dark = false, children, ...props }) => (
             />
             <Service
               href="https://figma.com/@hackclub"
-              icon="figma"
+              icon="figma-fill"
               name="Figma"
             />
             <Service
@@ -169,7 +169,7 @@ const Footer = ({ dark = false, children, ...props }) => (
               icon="instagram"
               name="Instagram"
             />
-            <Service href="mailto:team@hackclub.com" icon="email" />
+            <Service href="mailto:team@hackclub.com" icon="email-fill" />
           </Grid>
           <Text my={2}>
             <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>
