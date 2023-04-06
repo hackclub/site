@@ -3,6 +3,9 @@ import Buttons from './button'
 import CardModel from './card-model'
 import Tilt from '../../tilt'
 
+/** @jsxImportSource theme-ui */
+
+
 export default function SprigConsole({ stars, consoleCount }) {
   return (
     <Box sx={{ position: 'relative' }}>
