@@ -4,13 +4,14 @@ import { trim } from 'lodash'
 
 const Mention = memo(function Mention({ username }) {
   const [img, setImg] = useState(null)
+
   useEffect(() => {
-    try {
-      fetch(`https://scrapbook.hackclub.com/api/profiles/${trim(username)}`)
-        .then(r => r.json())
-        .then(profile => setImg(profile.avatar))
-    } catch (e) {}
-  }, [])
+    fetch(`https://scrapbook.hackclub.com/api/profiles/${trim(username)}`)
+      .then(r => r.json())
+      .then(profile => setImg(profile.avatar))
+      .catch(e => console.error(e))
+  }, [username])
+
   return (
     <Link
       href={`https://scrapbook.hackclub.com/${username}`}
