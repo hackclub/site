@@ -2,6 +2,8 @@ import CardModel from './card-model'
 import { Box, Card, Flex, Grid, Heading, Text } from 'theme-ui'
 import Buttons from './button'
 import Icon from '@hackclub/icons'
+import Dot from '../../dot'
+/** @jsxImportSource theme-ui */
 
 function BreakdownBox({
   subtitle,

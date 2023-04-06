@@ -1,8 +1,11 @@
 import { Box, Text } from 'theme-ui'
 import CarouselCards from './carousel-cards'
-import React, { useState } from 'react'
+import { keyframes } from '@emotion/react'
+import React, { useEffect, useState } from 'react'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
+import { Fade } from 'react-reveal'
+/** @jsxImportSource theme-ui */
 
 export default function Carousel({ cards }) {
   let [speed, setSpeed] = useState(5)

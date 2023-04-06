@@ -47,6 +47,8 @@ import Photo29 from '../../public/winter/29.jpeg'
 import Photo30 from '../../public/winter/30.jpeg'
 import Photo31 from '../../public/winter/31.png'
 
+/** @jsxImportSource theme-ui */
+
 const Header = styled(Box)`
   background: url('/pattern.svg');
 `

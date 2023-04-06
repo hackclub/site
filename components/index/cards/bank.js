@@ -1,6 +1,9 @@
 import CardModel from './card-model'
 import { Box, Grid, Heading, Text } from 'theme-ui'
+import { Fade } from 'react-reveal'
 import Buttons from './button'
+
+/** @jsxImportSource theme-ui */
 
 export default function Bank({ data }) {
   return (

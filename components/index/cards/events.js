@@ -1,6 +1,9 @@
 import CardModel from './card-model'
 import { Box, Button, Grid, Link, Text } from 'theme-ui'
+import Buttons from './button'
 import Event from '../events'
+
+/** @jsxImportSource theme-ui */
 
 export default function Events({ data, stars, events }) {
   return (

@@ -37,6 +37,8 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
 
+/** @jsxImportSource theme-ui */
+
 function Page({
   hackathonsData,
   bankData,

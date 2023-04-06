@@ -2,6 +2,8 @@ import CardModel from './card-model'
 import { Box, Flex, Grid, Image, Text } from 'theme-ui'
 import Buttons from './button'
 
+/** @jsxImportSource theme-ui */
+
 export default function Sinerider({ stars }) {
   return (
     <CardModel

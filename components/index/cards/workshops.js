@@ -1,6 +1,9 @@
 import CardModel from './card-model'
 import { Box, Card, Flex, Grid, Heading, Image, Text } from 'theme-ui'
+import { useState } from 'react'
 import Buttons from './button'
+
+/** @jsxImportSource theme-ui */
 
 const WorkshopCard = ({
   slug,

@@ -10,7 +10,9 @@ import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import Form from '../../components/hackathons/grant/form'
 import Apply from '../../components/hackathons/grant/apply'
+
 import Zoom from 'react-reveal/Zoom'
+/** @jsxImportSource theme-ui */
 
 const styles = `
   html {

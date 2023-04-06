@@ -1,7 +1,10 @@
 import Icon from '../../icon'
 import { Box, Card, Flex, Image, Link, Text } from 'theme-ui'
+import { Zoom } from 'react-reveal'
 import ReactTooltip from 'react-tooltip'
 import Comma from '../../comma'
+
+/** @jsxImportSource theme-ui */
 
 const CardModel = ({
   background,
