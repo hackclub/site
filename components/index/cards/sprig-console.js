@@ -1,8 +1,7 @@
-import CardModel from './card-model'
 import { Box, Grid, Image, Text } from 'theme-ui'
 import Buttons from './button'
-import Tilt from './tilt'
-/** @jsxImportSource theme-ui */
+import CardModel from './card-model'
+import Tilt from '../../tilt'
 
 export default function SprigConsole({ stars, consoleCount }) {
   return (
@@ -32,7 +31,7 @@ export default function SprigConsole({ stars, consoleCount }) {
             mt: '-24px',
             zIndex: 0
           }}
-          alt='pcb'
+          alt='Printed circuit board'
         />
         <Image
           src="https://cloud-8u6hh0ho9-hack-club-bot.vercel.app/0sprig_console.svg"
@@ -78,7 +77,7 @@ export default function SprigConsole({ stars, consoleCount }) {
                 mb: ['-15px', '-30px', '', ''],
                 display: [null, null, 'none', 'none']
               }}
-              alt="sprig console"
+              alt="Sprig console"
             />
             <Text as="p" variant="subtitle" mt={[0, null, null]}>
               Play your own Sprig games on this console, which you can assemble
@@ -113,7 +112,7 @@ export default function SprigConsole({ stars, consoleCount }) {
             },
             zIndex: 3
           }}
-          alt="sprig console"
+          alt="Sprig console"
         />
       </Tilt>
     </Box>
