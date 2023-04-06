@@ -1,9 +1,7 @@
-import CardModel from './card-model'
 import { Box, Flex, Grid, Image, Link, Text } from 'theme-ui'
-import Buttons from './button'
-import Dot from '../../dot'
-/** @jsxImportSource theme-ui */
 import { useEffect, useState } from 'react'
+import Buttons from './button'
+import CardModel from './card-model'
 
 export default function Epoch() {
   const calculateTimeLeft = () => {
@@ -131,6 +129,7 @@ export default function Epoch() {
           ml: ['-24px', '-32px', '-32px', '-32px'],
           mt: ['-24px', '-32px', '-32px', '-32px']
         }}
+        alt='Hack Club Presents Epoch background'
       />
       <Grid columns={[1, 1, '1fr 1.5fr']} sx={{ position: 'relative' }}>
         <Box>
@@ -141,6 +140,7 @@ export default function Epoch() {
               position: 'relative',
               zIndex: 2
             }}
+            alt='Hack Club Presents Epoch header'
           />
           <Box>
             {timer.length ? (
