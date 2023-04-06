@@ -3,7 +3,6 @@ import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
 import NextImage from 'next/image'
 
-import Tilt from '../../tilt'
 import Fade from 'react-reveal/Fade'
 
 export default function Features() {
