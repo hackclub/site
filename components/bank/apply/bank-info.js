@@ -12,15 +12,15 @@ export default function BankInfo() {
           </Text>
           <FlexCol gap={3} ml={3}>
             <FlexCol gap={2}>
-              <Flex sx={{ alignItems: "center", gap: 2 }}>
+              <Flex sx={{ alignItems: 'center', gap: 2 }}>
                 <Link
-                  color='white'
+                  color="white"
                   href="/bank/fiscal-sponsorship"
-                  target='_blank'
+                  target="_blank"
                   sx={{
                     fontSize: 3,
-                    display: "inline-flex",
-                    alignItems: "flex-end",
+                    display: 'inline-flex',
+                    alignItems: 'flex-end',
                     gap: 1
                   }}
                 >
@@ -28,31 +28,20 @@ export default function BankInfo() {
                   <Icon glyph="external" />
                 </Link>
               </Flex>
-              <Text sx={{ color: "muted" }}>
+              <Text sx={{ color: 'muted' }}>
                 <ul>
-                  <li>
-                    Nonprofit status.
-                  </li>
-                  <li>
-                    Tax-deductable donations.
-                  </li>
+                  <li>Nonprofit status.</li>
+                  <li>Tax-deductable donations.</li>
                 </ul>
               </Text>
             </FlexCol>
             <FlexCol gap={2}>
               <Text sx={{ fontSize: 3 }}>A financial platform</Text>
-              <Text sx={{ color: "muted" }}>
+              <Text sx={{ color: 'muted' }}>
                 <ul>
-                  <li>
-                    A donations page and invoicing system.
-                  </li>
-                  <li>
-                    Transfer money electronically.
-                  </li>
-                  <li>
-                    Order cards for you and your team to
-                    make purchases.
-                  </li>
+                  <li>A donations page and invoicing system.</li>
+                  <li>Transfer money electronically.</li>
+                  <li>Order cards for you and your team to make purchases.</li>
                 </ul>
               </Text>
             </FlexCol>
@@ -64,22 +53,23 @@ export default function BankInfo() {
           </Text>
           <FlexCol gap={3} ml={3}>
             <FlexCol gap={2}>
-              <Text sx={{ fontSize: 3 }}>A bank! <Text sx={{ color: 'muted', fontSize: 2 }}>(we're better)</Text></Text>
-              <Text sx={{ color: "muted" }}>
+              <Text sx={{ fontSize: 3 }}>
+                A bank!{' '}
+                <Text sx={{ color: 'muted', fontSize: 2 }}>(we're better)</Text>
+              </Text>
+              <Text sx={{ color: 'muted' }}>
                 <ul>
                   <li>
-                      Rather than setting up a standard bank account,
-                      you'll get a restricted fund within Hack Club accounts.
+                    Rather than setting up a standard bank account, you'll get a
+                    restricted fund within Hack Club accounts.
                   </li>
-                  <li>
-                    You can't deposit or withdraw money.
-                  </li>
+                  <li>You can't deposit or withdraw money.</li>
                 </ul>
               </Text>
             </FlexCol>
             <FlexCol gap={2}>
               <Text sx={{ fontSize: 3 }}>For-profit</Text>
-              <Text sx={{ color: "muted" }}>
+              <Text sx={{ color: 'muted' }}>
                 <ul>
                   <li>
                     If you’re a for-profit entity, then Bank is not for you.
@@ -92,5 +82,5 @@ export default function BankInfo() {
         </FlexCol>
       </FlexCol>
     </Box>
-  );
+  )
 }

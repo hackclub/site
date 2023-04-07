@@ -27,7 +27,8 @@ export default function Features({ partner = false }) {
               name="Bank account"
               body={
                 <>
-                  Bank account under the hood with a custom, beautiful dashboard.
+                  Bank account under the hood with a custom, beautiful
+                  dashboard.
                 </>
               }
             />

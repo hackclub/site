@@ -1,6 +1,16 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { Box, Button, Card, Container, Divider, Text, Link, Flex, Image } from 'theme-ui'
+import {
+  Box,
+  Button,
+  Card,
+  Container,
+  Divider,
+  Text,
+  Link,
+  Flex,
+  Image
+} from 'theme-ui'
 import ForceTheme from '../../components/force-theme'
 import JSConfetti from 'js-confetti'
 import Icon from '../../components/icon'
@@ -8,12 +18,12 @@ import FlexCol from '../../components/flex-col'
 
 function Option({ icon, label, link }) {
   const color =
-    icon === 'email' ? '#338eda' : icon === 'slack' ? '#a633d6' : '#ec3750';
-  
+    icon === 'email' ? '#338eda' : icon === 'slack' ? '#a633d6' : '#ec3750'
+
   return (
     <Button
-      variant='outline'
-      as='a'
+      variant="outline"
+      as="a"
       href={link}
       sx={{
         display: 'flex',
@@ -25,8 +35,11 @@ function Option({ icon, label, link }) {
       }}
     >
       <Flex sx={{ alignItems: 'center', gap: [0, null, 1], px: 2 }}>
-        <Icon glyph={icon} sx={{ width: [32, null, 46], height: [32, null, 46] }} /> 
-        <Text sx={{ fontSize: [2, null, 3] }}>{ label }</Text>
+        <Icon
+          glyph={icon}
+          sx={{ width: [32, null, 46], height: [32, null, 46] }}
+        />
+        <Text sx={{ fontSize: [2, null, 3] }}>{label}</Text>
       </Flex>
     </Button>
   )
@@ -38,15 +51,16 @@ export default function ApplicationSuccess() {
   useEffect(() => {
     const jsConfetti = new JSConfetti()
     jsConfetti.addConfetti({
-      confettiColors: [ // Hack Club colours!
+      confettiColors: [
+        // Hack Club colours!
         '#ec3750',
         '#ff8c37',
         '#f1c40f',
         '#33d6a6',
         '#5bc0de',
         '#338eda',
-        '#a633d6',
-      ],
+        '#a633d6'
+      ]
     })
   }, [router])
 
@@ -65,7 +79,7 @@ export default function ApplicationSuccess() {
           <Image
             src="/bank/apply/party-orpheus.svg"
             alt="Dinosaur partying"
-            sx={{ width: "40%" }}
+            sx={{ width: '40%' }}
           />
           <FlexCol gap={2}>
             <Text variant="title">Thanks for applying!</Text>
@@ -81,10 +95,10 @@ export default function ApplicationSuccess() {
           </Text>
           <Flex
             sx={{
-              flexDirection: ["column", null, "row"],
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              gap: [3, null, 0],
+              flexDirection: ['column', null, 'row'],
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+              gap: [3, null, 0]
             }}
           >
             <Option icon="email" label="Mail" link="mailto:bank@hackclub.com">
@@ -108,12 +122,12 @@ export default function ApplicationSuccess() {
         </FlexCol>
 
         <Button as="a" href="https://bank.hackclub.com">
-          <Flex sx={{ alignItems: "center", px: [2, null, 3], py: 2 }}>
+          <Flex sx={{ alignItems: 'center', px: [2, null, 3], py: 2 }}>
             <Icon glyph="bank-account" size={36} />
             <Text sx={{ fontSize: 3 }}>Head to Bank!</Text>
           </Flex>
         </Button>
       </FlexCol>
     </Container>
-  );
+  )
 }

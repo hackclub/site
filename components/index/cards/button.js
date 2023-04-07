@@ -33,16 +33,15 @@ export default function Buttons({
           alignItems: 'center',
           color: 'inherit',
           px: '3',
-          py: primary  ? '12px' : 2,
+          py: primary ? '12px' : 2,
           width: 'fit-content',
           textTransform: 'none',
           fontWeight: '400',
-          fontSize:
-            primary ? ['18px', '20px', '22px'] : [1, '16px', '18px'],
+          fontSize: primary ? ['18px', '20px', '22px'] : [1, '16px', '18px'],
           backdropFilter: 'blur(2px)',
           fontWeight: fontWeight
         }}
-        as='a'
+        as="a"
         href={link || '/'}
         target="_blank"
         rel="noreferrer"

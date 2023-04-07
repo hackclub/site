@@ -15,10 +15,10 @@ export default function GitHub({
     <Badge
       variant="pill"
       bg="snow"
-      as='a'
-      href='https://github.com/hackclub'
-      target='_blank'
-      rel='noopener'
+      as="a"
+      href="https://github.com/hackclub"
+      target="_blank"
+      rel="noopener"
       sx={{
         color: 'black',
         textDecoration: 'none',
@@ -32,14 +32,14 @@ export default function GitHub({
         gap: 2,
         height: '2rem',
         width: ['fit-content', null, null, '100%'],
-        maxWidth: '30rem',
+        maxWidth: '30rem'
       }}
       {...props}
     >
       <Image
-        alt='GitHub user avatar'
+        alt="GitHub user avatar"
         src={img}
-        sx={{ borderRadius: '100%', height: '90%', mr: 2, flexShrink: 0, }}
+        sx={{ borderRadius: '100%', height: '90%', mr: 2, flexShrink: 0 }}
       />
       <Text
         sx={{
@@ -47,14 +47,9 @@ export default function GitHub({
           textOverflow: 'ellipsis',
           display: 'inline-block',
           overflow: 'hidden',
-        whiteSpace: 'nowrap',
+          whiteSpace: 'nowrap',
           flexShrink: 0,
-          display: [
-            'none',
-            'inline-block',
-            'inline-block',
-            'inline-block'
-          ]
+          display: ['none', 'inline-block', 'inline-block', 'inline-block']
         }}
       >
         {user}
@@ -65,8 +60,8 @@ export default function GitHub({
           maxWidth: '100%',
           display: 'inline-block',
           overflow: 'hidden',
-        whiteSpace: 'nowrap',
-          flexShrink: 1,
+          whiteSpace: 'nowrap',
+          flexShrink: 1
         }}
       >
         {message}
@@ -78,7 +73,7 @@ export default function GitHub({
           color: 'inherit',
           mx: 2,
           flexShrink: 0,
-          ml: 'auto',
+          ml: 'auto'
         }}
       >
         <RelativeTime value={time} titleformat="iso8601" />

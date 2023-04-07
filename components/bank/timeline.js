@@ -3,22 +3,29 @@ import Slide from 'react-reveal'
 
 function Step({ stepIndex, label }) {
   return (
-    <Flex sx={{
-      flexDirection: ['row', null, 'column'],
-      flex: '1 0 0',
-      alignItems: 'center',
-      maxWidth: ['24rem', null, '12rem'],
-      gap: 3
-    }}>
+    <Flex
+      sx={{
+        flexDirection: ['row', null, 'column'],
+        flex: '1 0 0',
+        alignItems: 'center',
+        maxWidth: ['24rem', null, '12rem'],
+        gap: 3
+      }}
+    >
       <Image
         src={`/bank/timeline-steps/step${stepIndex}.svg`}
         sx={{ flexShrink: 0 }}
-        alt=''
+        alt=""
       />
-      <Text variant='lead' sx={{
-        textAlign: ['left', null, 'center'], 
-        margin: '0px !important'
-      }}>{label}</Text>
+      <Text
+        variant="lead"
+        sx={{
+          textAlign: ['left', null, 'center'],
+          margin: '0px !important'
+        }}
+      >
+        {label}
+      </Text>
     </Flex>
   )
 }
@@ -30,29 +37,35 @@ export default function Timeline() {
     'Hop on an intro call with the Bank team',
     'Start fundraising!'
   ]
-  const stepSideLength = 64;
+  const stepSideLength = 64
 
   return (
     <Slide>
-      <Flex sx={{
-        flexDirection: ['column', null, 'row'],
-        justifyContent: 'space-between',
-        gap: 4,
-        maxWidth: ['300px', null, '1200px'],
-        mx: 'auto',
-        position: 'relative'
-      }}>
-        {labels.map((label, idx) => <Step stepIndex={idx + 1} label={label} key={idx} />)}
-        <Box sx={{
-          border: 'solid #8492a6',
-          borderWidth: '3px 3px 0 0',
-          position: 'absolute',
-          top: stepSideLength / 2,
-          left: '10%', // TODO: make this dynamic
-          right: ['auto', null, '10%'],
-          bottom: [stepSideLength / 2, null, 'auto'],
-          zIndex: -1,
-        }} />
+      <Flex
+        sx={{
+          flexDirection: ['column', null, 'row'],
+          justifyContent: 'space-between',
+          gap: 4,
+          maxWidth: ['300px', null, '1200px'],
+          mx: 'auto',
+          position: 'relative'
+        }}
+      >
+        {labels.map((label, idx) => (
+          <Step stepIndex={idx + 1} label={label} key={idx} />
+        ))}
+        <Box
+          sx={{
+            border: 'solid #8492a6',
+            borderWidth: '3px 3px 0 0',
+            position: 'absolute',
+            top: stepSideLength / 2,
+            left: '10%', // TODO: make this dynamic
+            right: ['auto', null, '10%'],
+            bottom: [stepSideLength / 2, null, 'auto'],
+            zIndex: -1
+          }}
+        />
       </Flex>
     </Slide>
   )

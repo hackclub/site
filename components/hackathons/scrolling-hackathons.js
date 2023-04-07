@@ -43,9 +43,23 @@ export default function ScrollingHackathons({
           >
             Join other high-schoolers at an upcoming hackathon.
           </Heading>
-          <Box sx={{ maxWidth: ['95vw', '66vw'], margin: 'auto', display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 2 }}>
-            <Text sx={{display: ['none', 'flex'], alignItems: 'center'}} ><Dot /></Text>
-            <Text variant="lead" sx={{ color: 'muted', mr: 2, textAlign: 'center' }}>
+          <Box
+            sx={{
+              maxWidth: ['95vw', '66vw'],
+              margin: 'auto',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              mb: 2
+            }}
+          >
+            <Text sx={{ display: ['none', 'flex'], alignItems: 'center' }}>
+              <Dot />
+            </Text>
+            <Text
+              variant="lead"
+              sx={{ color: 'muted', mr: 2, textAlign: 'center' }}
+            >
               from{' '}
               <NextLink href="https://hackathons.hackclub.com" passHref>
                 <Link sx={{ color: 'currentcolor' }}>

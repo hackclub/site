@@ -210,7 +210,6 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
               Build a Sprig game
             </Buttons>
             <Buttons
-
               content="learn more on our github"
               id="8"
               link="https://github.com/hackclub/sprig"

@@ -34,10 +34,12 @@ export default function Apply() {
 
     // Set the query url parameter to 1 if it's not present
     if (!step || step < 1) {
-      router.push({ 
-        pathname: router.pathname,
-        query: { ...router.query, step: 1 } }, 
-        undefined, 
+      router.push(
+        {
+          pathname: router.pathname,
+          query: { ...router.query, step: 1 }
+        },
+        undefined,
         {}
       )
     }
@@ -47,9 +49,9 @@ export default function Apply() {
     <>
       <script
         async
-        src='https://maps.googleapis.com/maps/api/js?key=AIzaSyApxZZ8-Eh_6RgHUu8-BAOpx3xhfF2yK9U&libraries=places&mapInit=foo'
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApxZZ8-Eh_6RgHUu8-BAOpx3xhfF2yK9U&libraries=places&mapInit=foo"
       ></script>
-      
+
       <Meta as={Head} title="Apply for Hack Club Bank" />
       <ForceTheme theme="dark" />
 
@@ -61,7 +63,7 @@ export default function Apply() {
             '"title" "form" "form" "nav"',
             null,
             null,
-            '"title form" "title form" "nav form"',
+            '"title form" "title form" "nav form"'
           ],
           height: ['auto', null, null, '100vh'],
           p: [4, 5]
@@ -69,15 +71,21 @@ export default function Apply() {
       >
         <Box sx={{ gridArea: 'title' }}>
           <FlexCol gap={[4, null, null, '20vh']}>
-            <Text variant='title'>Let's get you<br />set up on bank.</Text>
+            <Text variant="title">
+              Let's get you
+              <br />
+              set up on bank.
+            </Text>
             <Progress />
           </FlexCol>
         </Box>
         <Box sx={{ gridArea: 'form', overflowY: 'auto' }}>
           <FormContainer ref={formContainer}>
-            { step === 1 && <BankInfo /> }
-            { step === 2 && <OrganizationInfoForm requiredFields={requiredFields} /> }
-            { step === 3 && <PersonalInfoForm requiredFields={requiredFields} /> }
+            {step === 1 && <BankInfo />}
+            {step === 2 && (
+              <OrganizationInfoForm requiredFields={requiredFields} />
+            )}
+            {step === 3 && <PersonalInfoForm requiredFields={requiredFields} />}
           </FormContainer>
         </Box>
         <Flex
@@ -85,7 +93,7 @@ export default function Apply() {
             gridArea: 'nav',
             alignSelf: 'end',
             alignItems: 'flex-end',
-            justifyContent: 'space-between',
+            justifyContent: 'space-between'
           }}
         >
           <NavButton isBack={true} form={formContainer} />
@@ -100,14 +108,16 @@ export default function Apply() {
               // Validate the address
               if (step === 3) {
                 // Get the raw personal address input
-                const userAddress = sessionStorage.getItem('bank-signup-userAddressRaw')
+                const userAddress = sessionStorage.getItem(
+                  'bank-signup-userAddressRaw'
+                )
                 if (!userAddress) return
-                
+
                 const result = await geocode(userAddress)
 
-                const addrComp = (type) =>
+                const addrComp = type =>
                   result.results[0].structuredAddress[type]
-                
+
                 const thoroughfare = addrComp('fullThoroughfare')
                 const city = addrComp('locality')
                 const state = addrComp('administrativeArea')
@@ -118,9 +128,18 @@ export default function Apply() {
                 sessionStorage.setItem('bank-signup-addressLine1', thoroughfare)
                 sessionStorage.setItem('bank-signup-addressCity', city ?? '')
                 sessionStorage.setItem('bank-signup-addressState', state ?? '')
-                sessionStorage.setItem('bank-signup-addressZip', postalCode ?? '')
-                sessionStorage.setItem('bank-signup-addressCountry', country ?? '')
-                sessionStorage.setItem('bank-signup-addressCountryCode', countryCode ?? '')
+                sessionStorage.setItem(
+                  'bank-signup-addressZip',
+                  postalCode ?? ''
+                )
+                sessionStorage.setItem(
+                  'bank-signup-addressCountry',
+                  country ?? ''
+                )
+                sessionStorage.setItem(
+                  'bank-signup-addressCountryCode',
+                  countryCode ?? ''
+                )
               }
             }}
           />

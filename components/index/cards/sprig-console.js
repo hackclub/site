@@ -5,7 +5,6 @@ import Tilt from '../../tilt'
 
 /** @jsxImportSource theme-ui */
 
-
 export default function SprigConsole({ stars, consoleCount }) {
   return (
     <Box sx={{ position: 'relative' }}>
@@ -34,7 +33,7 @@ export default function SprigConsole({ stars, consoleCount }) {
             mt: '-24px',
             zIndex: 0
           }}
-          alt='Printed circuit board'
+          alt="Printed circuit board"
         />
         <Image
           src="https://cloud-8u6hh0ho9-hack-club-bot.vercel.app/0sprig_console.svg"

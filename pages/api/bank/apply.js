@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.HCB_API_TOKEN || ""}`
+        Authorization: `Bearer ${process.env.HCB_API_TOKEN || ''}`
       }
     })
       .then(r => r.json())
@@ -35,15 +35,16 @@ export default async function handler(req, res) {
           'Mailing Address': data.mailingAddress,
           'Address Line 1': data.addressLine1,
           'Address Line 2': data.addressLine2,
-          'City': data.addressCity,
-          'State': data.addressState,
+          City: data.addressCity,
+          State: data.addressState,
           'Zip Code': data.addressZip,
           'Address Country': data.addressCountry,
-          'Country': data.eventCountry,
+          Country: data.eventCountry,
           'Event Location': data.eventLocation,
-          'Have you used Hack Club Bank for any previous events?': data.returningUser,
+          'Have you used Hack Club Bank for any previous events?':
+            data.returningUser,
           'How did you hear about HCB?': data.referredBy,
-          'Transparent': data.transparent,
+          Transparent: data.transparent,
           'HCB account URL': `https://bank.hackclub.com/${r.slug}`
         })
         res.writeHead(302, { Location: '/bank/apply/success' }).end()

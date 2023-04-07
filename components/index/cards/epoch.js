@@ -129,7 +129,7 @@ export default function Epoch() {
           ml: ['-24px', '-32px', '-32px', '-32px'],
           mt: ['-24px', '-32px', '-32px', '-32px']
         }}
-        alt='Hack Club Presents Epoch background'
+        alt="Hack Club Presents Epoch background"
       />
       <Grid columns={[1, 1, '1fr 1.5fr']} sx={{ position: 'relative' }}>
         <Box>
@@ -140,7 +140,7 @@ export default function Epoch() {
               position: 'relative',
               zIndex: 2
             }}
-            alt='Hack Club Presents Epoch header'
+            alt="Hack Club Presents Epoch header"
           />
           <Box>
             {timer.length ? (

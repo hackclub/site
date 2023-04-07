@@ -21,10 +21,7 @@ const Content = () => (
       <Container maxWidth={28} sx={{ mx: 0, pt: 4, pb: 2 }}>
         <Text variant="eyebrow">Hack Club Bank</Text>
         <br />
-        <Text
-          as="span"
-          variant="title"
-        >
+        <Text as="span" variant="title">
           Grants, waived fees, and more!
         </Text>
       </Container>
@@ -39,8 +36,8 @@ const Content = () => (
           }
           body={
             <>
-              Running on Bank? Get a $500 grant once you have a venue,
-              provided by Hack Club with the help of{' '}
+              Running on Bank? Get a $500 grant once you have a venue, provided
+              by Hack Club with the help of{' '}
               <Link
                 href="https://www.firstinspires.org/"
                 sx={{ fontStyle: 'italic', color: 'white' }}

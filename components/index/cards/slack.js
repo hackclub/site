@@ -64,7 +64,7 @@ export default function Slack({ data, slackKey, events }) {
           ml: ['-24px', '-32px', '-32px', '-32px'],
           mt: ['-24px', '-32px', '-32px', '-32px']
         }}
-        alt='Slack AMA'
+        alt="Slack AMA"
       />
       <Cover />
       <Grid sx={{ zIndex: 2 }}>
