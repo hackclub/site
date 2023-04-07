@@ -31,7 +31,7 @@ export default function GitHub({
         alignItems: 'center',
         gap: '1rem',
         height: '2rem',
-        width: 'fit-content',
+        width: ['fit-content', null, null, '100%'],
         maxWidth: '30rem',
       }}
       {...props}
