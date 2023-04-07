@@ -14,7 +14,7 @@ export default function Checkbox({ name, defaultChecked=false, size=38 }) {
             const input = document.getElementById(name)
             input && setChecked(value === 'true')
         }
-    }, [])
+    }, [name])
 
     return (<>
         <input

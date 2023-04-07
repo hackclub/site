@@ -42,7 +42,7 @@ export default function Buttons({
           backdropFilter: 'blur(2px)',
           fontWeight: fontWeight
         }}
-        as={'a'}
+        as='a'
         href={link || '/'}
         target="_blank"
         rel="noreferrer"

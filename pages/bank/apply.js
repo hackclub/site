@@ -41,7 +41,7 @@ export default function Apply() {
         {}
       )
     }
-  })
+  }, [formError, router, step])
 
   return (
     <>

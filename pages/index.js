@@ -9,7 +9,7 @@ import {
   Link,
   Text
 } from 'theme-ui'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
@@ -62,12 +62,10 @@ function Page({
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
 
-  let jsConfetti;
-
-  console.info(gitHubData)
+  let jsConfetti = useRef();
 
   useEffect(() => {
-    jsConfetti = new JSConfetti()
+    jsConfetti.current = new JSConfetti()
     
     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
     window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
@@ -76,7 +74,7 @@ function Page({
   const easterEgg = () => {
     alert('Hey, you typed the Konami Code!')
 
-    jsConfetti.addConfetti({
+    jsConfetti.current.addConfetti({
       confettiColors: [ // Hack Club colours!
         '#ec3750',
         '#ff8c37',
@@ -95,7 +93,7 @@ function Page({
         setReveal(false)
       }, 2000)
     }
-  }, [hover])
+  }, [reveal, hover])
 
   const [count, setCount] = useState(0)
 
@@ -121,7 +119,7 @@ function Page({
     if (count === images.length - 1) {
       setCount(0)
     }
-  }, [count])
+  }, [count, images.length])
 
   return (
     <>

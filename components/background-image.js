@@ -10,6 +10,7 @@ import Image from 'next/image'
 
 const BGImg = ({
   gradient = 'linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.5))',
+  alt = '',
   ...props
 }) => (
   <Box
@@ -35,7 +36,11 @@ const BGImg = ({
       '~ *': { position: 'relative' }
     }}
   >
-    <Image layout="responsive" {...props} />
+    <Image
+      layout="responsive"
+      alt={alt}
+      {...props}
+    />
   </Box>
 )
 

@@ -103,7 +103,7 @@ function Bullet({ glow=true, icon, href, children }) {
     )
 }
 
-function BulletBox({ padding = '2rem', children }) {
+function BulletBox({ padding='2rem', children }) {
     return (
         <Box
             as='ul'
@@ -133,22 +133,21 @@ export default function FiscalSponsorship() {
     const gridRef = useRef()
     const glowRef = useRef()
 
-    const scrollPos = 0
-    const mousePos = [0, 0]
+    const scrollPos = useRef(0)
+    const mousePos = useRef([0, 0])
 
     const setGlowMaskPosition = () => {
-        const finalPos = [-mousePos[0], -mousePos[1] + scrollPos]
+        const finalPos = [-mousePos.current[0], -mousePos.current[1] + scrollPos.current]
         glowRef.current.style.maskPosition = `${finalPos[0]}px ${finalPos[1]}px`;
         glowRef.current.style.WebkitMaskPosition = `${finalPos[0]}px ${finalPos[1]}px`;
     }
 
     useEffect(() => {
         const handleScroll = (e) => {
-            const s = -window.scrollY / 10
+            scrollPos.current = -window.scrollY / 10
 
-            gridRef.current.style.transform = `translateY(${s}px)`
+            gridRef.current.style.transform = `translateY(${scrollPos.current}px)`
 
-            scrollPos = s
             setGlowMaskPosition()
         }
 
@@ -158,7 +157,7 @@ export default function FiscalSponsorship() {
             glowRef.current.style.left = x + 'px'
             glowRef.current.style.top = y + 'px'
 
-            mousePos = [x, y]
+            mousePos.current = [x, y]
             setGlowMaskPosition()
         }
 

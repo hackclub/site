@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 import { Box } from 'theme-ui'
 
-export default forwardRef(({ children }, ref) => {   
+const formContainer = forwardRef(({ children }, ref) => {   
     return (
         <Box
             ref={ref}
@@ -23,3 +23,7 @@ export default forwardRef(({ children }, ref) => {
         </Box>
     )
 })
+
+https://stackoverflow.com/a/67993106/10652680
+formContainer.displayName = 'formContainer'
+export default formContainer

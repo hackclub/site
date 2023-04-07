@@ -15,7 +15,7 @@ export default function Field({ name, label, description, col = true, requiredFi
             const input = document.getElementById(name)
             if (input) input.value = value
         }
-    }, [])
+    }, [name])
     
     return (
         <FlexCol gap={2} width={'100%'}>

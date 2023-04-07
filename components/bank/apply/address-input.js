@@ -43,7 +43,9 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
     //TODO: Navigate suggestions with arrow keys.
 
     useEffect(() => {
-        if (!window.google || !input.current) return
+        const inputEl = input.current
+        
+        if (!window.google || !inputEl) return
 
         const service = new window.google.maps.places.AutocompleteService()
         
@@ -64,13 +66,13 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
         }
 
         document.addEventListener('click', clickOutside)
-        input.current.addEventListener('input', onInput)
-        input.current.addEventListener('focus', onInput)
+        inputEl.addEventListener('input', onInput)
+        inputEl.addEventListener('focus', onInput)
         
         return () => {
             document.removeEventListener('click', clickOutside)
-            input.current?.removeEventListener('input', onInput)
-            input.current?.removeEventListener('focus', onInput)
+            inputEl.removeEventListener('input', onInput)
+            inputEl.removeEventListener('focus', onInput)
         }
     }, [])
 
