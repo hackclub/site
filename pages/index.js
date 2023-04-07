@@ -64,6 +64,8 @@ function Page({
 
   let jsConfetti;
 
+  console.info(gitHubData)
+
   useEffect(() => {
     jsConfetti = new JSConfetti()
     
@@ -664,7 +666,7 @@ function Page({
                     'flex-start',
                     'center'
                   ],
-                  gap: '10px'
+                  gap: '10px',
                 }}
               >
                 <Box sx={{ mb: [3, 0, 0] }}>
@@ -673,7 +675,7 @@ function Page({
                     as="h2"
                     sx={{
                       fontSize: ['36px', '48px', '56px'],
-                      maxWidth: '20ch'
+                      maxWidth: '20ch',
                     }}
                   >
                     We build{' '}
@@ -708,57 +710,43 @@ function Page({
                 {gitHubData && (
                   <Flex
                     sx={{
-                      flexDirection: ['row', 'row', 'row', 'column'],
+                      flexDirection: ['row', null, null, 'column'],
                       gap: [1, 2, 2],
-                      alignItems: ['center', 'center', 'center', 'flex-start']
+                      alignItems: ['center', 'center', 'center', 'flex-start'],
+                      flexWrap: 'wrap',
+                      width: ['100%', null, null, 'fit-content'],
+
+                      '& > a:nth-child(n+4)': {
+                        display: ['none', null, null, 'flex']
+                      }
                     }}
                   >
-                    <Text
-                      as="p"
-                      sx={{
-                        fontSize: ['11px', '11px', '14px'],
-                        textAlign: 'left',
-                        lineHeight: '90%',
-                        width: 'fit-content',
-                        fontStyle: 'italic'
-                      }}
-                    >
-                      Live from GitHub
-                    </Text>
-                    <GitHub
-                      type={gitHubData[0].type}
-                      img={gitHubData[0].userImage}
-                      user={gitHubData[0].user}
-                      time={gitHubData[0].time}
-                      message={gitHubData[0].message}
-                      key={key}
-                    />
-                    <GitHub
-                      type={gitHubData[1].type}
-                      img={gitHubData[1].userImage}
-                      user={gitHubData[1].user}
-                      time={gitHubData[1].time}
-                      message={gitHubData[1].message}
-                      key={key}
-                    />
-                    <GitHub
-                      type={gitHubData[2].type}
-                      img={gitHubData[2].userImage}
-                      user={gitHubData[2].user}
-                      time={gitHubData[2].time}
-                      message={gitHubData[2].message}
-                      key={key}
-                      sx={{ display: ['none', 'none', 'none', 'inline'] }}
-                    />
-                    <GitHub
-                      type={gitHubData[3].type}
-                      img={gitHubData[3].userImage}
-                      user={gitHubData[3].user}
-                      time={gitHubData[3].time}
-                      message={gitHubData[3].message}
-                      key={key}
-                      sx={{ display: ['none', 'none', 'none', 'inline'] }}
-                    />
+                  <Text
+                    sx={{
+                      fontSize: ['11px', '11px', '14px'],
+                      textAlign: 'left',
+                      lineHeight: '90%',
+                      fontStyle: 'italic',
+                      width: 'fit-content'
+                    }}
+                  >
+                    Live from GitHub
+                  </Text>
+                  {gitHubData
+                    .filter((data) => !data.user.endsWith('[bot]'))
+                    .slice(0, 4)
+                    .map((data, key) => {
+                    return (
+                      <GitHub
+                        type={data.type}
+                        img={data.userImage}
+                        user={data.user}
+                        time={data.time}
+                        message={data.message}
+                        key={key}
+                      />
+                    )
+                  })}
                   </Flex>
                 )}
               </Flex>
