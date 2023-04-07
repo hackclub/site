@@ -29,7 +29,7 @@ export default function GitHub({
         width: '100%',
         display: 'flex',
         alignItems: 'center',
-        gap: '1rem',
+        gap: 2,
         height: '2rem',
         width: ['fit-content', null, null, '100%'],
         maxWidth: '30rem',
