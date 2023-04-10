@@ -43,6 +43,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
       <Field
         name="eventLocation"
         label={`${org} location`}
+        description="If your organization runs online, put your own address."
         requiredFields={requiredFields}
       >
         <AddressInput isPersonalAddressInput={false} name="eventLocation" />
