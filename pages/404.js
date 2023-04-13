@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/react'
-import { Heading, Container, Button, Text } from 'theme-ui'
+import { Heading, Container, Button, Text, Image } from 'theme-ui'
 import NextLink from 'next/link'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
@@ -169,13 +169,27 @@ const Blinking = styled(Heading)`
   }
 `
 
+const Spinning = styled(Image)`
+  @keyframes spin {
+      from {transform:rotate(0deg);}
+      to {transform:rotate(360deg);}
+  }
+
+  animation-name: spin;
+  animation-duration: 10000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  aspect-ratio: 1;
+`
+
 const NotFoundPage = () => (
   <>
     <Meta as={Head} title="404" />
     <ForceTheme theme="dark" />
     <Nav color="primary" dark />
     <Container variant="narrow" sx={{ py: [5, 6], textAlign: 'center' }}>
-      <Blinking as="h1" variant="title" sx={{ fontSize: [128, 256] }}>
+      <Spinning sx={{fontSize: [128, 256], textAlign: 'center', height: '1lh'}} src="/404/dinobox.svg"></Spinning>
+      <Blinking as="h1" variant="title" sx={{ fontSize: [64, 128] }}>
         404!
       </Blinking>
       <Text
