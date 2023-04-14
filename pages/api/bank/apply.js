@@ -35,16 +35,16 @@ export default async function handler(req, res) {
           'Mailing Address': data.mailingAddress,
           'Address Line 1': data.addressLine1,
           'Address Line 2': data.addressLine2,
-          City: data.addressCity,
-          State: data.addressState,
+          'City': data.addressCity,
+          'State': data.addressState,
           'Zip Code': data.addressZip,
           'Address Country': data.addressCountry,
-          Country: data.eventCountry,
+          'Country': data.eventCountry,
           'Event Location': data.eventLocation,
           'Have you used Hack Club Bank for any previous events?':
-            data.returningUser,
+            data.returningUser ? 'Yes, I have used Hack Club Bank before' : 'No, first time!',
           'How did you hear about HCB?': data.referredBy,
-          Transparent: data.transparent,
+          'Transparent': data.transparent ? 'Yes, please!' : 'No, thanks.',
           'HCB account URL': `https://bank.hackclub.com/${r.slug}`
         })
         res.writeHead(302, { Location: '/bank/apply/success' }).end()
