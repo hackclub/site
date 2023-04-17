@@ -42,26 +42,15 @@ function formatMoney(amount) {
     .split('.')
 }
 
-const Stats = () => {
-  const [transactedRaw, setTransactedRaw] = useState() // The raw amount transacted (in cents).
+const Stats = ({ stats }) => {
   const [balance, setBalance] = useState(0) // A formatted balance string, split by decimal
 
   useEffect(() => {
-    if (!transactedRaw) {
-      fetch('https://bank.hackclub.com/stats')
-        .then(res => res.json())
-        .then(data => setTransactedRaw(data.transactions_volume))
-        .catch(err => {
-          console.error(err)
-          setTransactedRaw(830796389)
-        })
-    }
-
     let observer = new IntersectionObserver(
       e => {
         if (e[0].isIntersecting) {
           console.info('intersecting')
-          startMoneyAnimation(setBalance, transactedRaw, 2_500, formatMoney)
+          startMoneyAnimation(setBalance, stats.transactions_volume, 2_500, formatMoney)
         }
       },
       { threshold: 1.0 }
@@ -69,13 +58,13 @@ const Stats = () => {
     observer.observe(document.querySelector('#parent'))
 
     return () => observer.disconnect()
-  }, [transactedRaw])
+  }, [stats.transactions_volume])
 
   return (
     <Box id="parent">
       <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
         <Text sx={{ fontSize: [3, 4] }}>So far we have enabled</Text>
-        {transactedRaw ? (
+        {stats ? (
           <>
             <Text
               variant="title"
@@ -105,6 +94,17 @@ const Stats = () => {
       </Flex>
     </Box>
   )
+}
+
+export async function getStaticProps(context) {
+  const res = await fetch(`https://bank.hackclub.com/stats`)
+  const stats = await res.json()
+
+  return {
+    props: {
+      stats
+    }
+  }
 }
 
 export default Stats

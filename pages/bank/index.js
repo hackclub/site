@@ -50,7 +50,7 @@ export default function Bank({ stats }) {
 
           <Everything fee="7" />
 
-          <Start />
+          <Start stats={stats} />
         </Box>
       </Box>
       <Footer dark key="footer" />
