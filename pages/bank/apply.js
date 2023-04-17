@@ -13,7 +13,32 @@ import BankInfo from '../../components/bank/apply/bank-info'
 import OrganizationInfoForm from '../../components/bank/apply/org-form'
 import PersonalInfoForm from '../../components/bank/apply/personal-form'
 import AlertModal from '../../components/bank/apply/alert-modal'
-import { search, geocode } from '../../lib/bank/apply/address-validation'
+import { geocode } from '../../lib/bank/apply/address-validation'
+
+const valiadateAddress = async (step) => {
+  // Validate the address
+  if (step === 3) {
+    // Get the raw personal address input
+    const userAddress = sessionStorage.getItem(
+      'bank-signup-userAddress'
+    )
+  
+  console.log(userAddress)
+    if (!userAddress) return
+
+    const result = await geocode(userAddress)
+
+    const addrComp = type =>
+      result.results[0].structuredAddress[type] ?? ''
+
+    sessionStorage.setItem('bank-signup-addressLine1', addrComp('fullThoroughfare'))
+    sessionStorage.setItem('bank-signup-addressCity', addrComp('locality'))
+    sessionStorage.setItem('bank-signup-addressState', addrComp('administrativeArea'))
+    sessionStorage.setItem('bank-signup-addressZip', addrComp('postCode'))
+    sessionStorage.setItem('bank-signup-addressCountry', result.results[0].country ?? '')
+    sessionStorage.setItem('bank-signup-addressCountryCode', result.results[0].countryCode ?? '')
+  }
+}
 
 export default function Apply() {
   const router = useRouter()
@@ -102,46 +127,7 @@ export default function Apply() {
             form={formContainer}
             setFormError={setFormError}
             requiredFields={requiredFields}
-            clickHandler={async () => {
-              //TODO: Put this somewhere else
-
-              // Validate the address
-              if (step === 3) {
-                // Get the raw personal address input
-                const userAddress = sessionStorage.getItem(
-                  'bank-signup-userAddressRaw'
-                )
-                if (!userAddress) return
-
-                const result = await geocode(userAddress)
-
-                const addrComp = type =>
-                  result.results[0].structuredAddress[type]
-
-                const thoroughfare = addrComp('fullThoroughfare')
-                const city = addrComp('locality')
-                const state = addrComp('administrativeArea')
-                const postalCode = addrComp('postal_code')
-                const country = result.results[0].country
-                const countryCode = result.results[0].countryCode
-
-                sessionStorage.setItem('bank-signup-addressLine1', thoroughfare)
-                sessionStorage.setItem('bank-signup-addressCity', city ?? '')
-                sessionStorage.setItem('bank-signup-addressState', state ?? '')
-                sessionStorage.setItem(
-                  'bank-signup-addressZip',
-                  postalCode ?? ''
-                )
-                sessionStorage.setItem(
-                  'bank-signup-addressCountry',
-                  country ?? ''
-                )
-                sessionStorage.setItem(
-                  'bank-signup-addressCountryCode',
-                  countryCode ?? ''
-                )
-              }
-            }}
+            clickHandler={() => valiadateAddress(step)}
           />
         </Flex>
       </Box>
