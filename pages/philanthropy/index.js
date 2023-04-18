@@ -1011,54 +1011,54 @@ const Philanthropy = ({ posts = [] }) => {
                     The Libermans
                   </Text>
                 </Fade>
+                <Fade bottom delay={230}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Lizzy Danhakl/Andrew Reed
+                  </Text>
+                </Fade>
               </Box>
               <Box>
-                <Fade bottom delay={230}>
+                <Fade bottom delay={260}>
                   <Text as="h3">$200k - $500k</Text>
                 </Fade>
-                <Fade bottom delay={260}>
+                <Fade bottom delay={290}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Vitalik Buterin
                   </Text>
                 </Fade>
-                <Fade bottom delay={290}>
+                <Fade bottom delay={320}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Craig Newmark
                   </Text>
                 </Fade>
-                <Fade bottom delay={320}>
+                <Fade bottom delay={350}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Ron Conway
                   </Text>
                 </Fade>
-                <Fade bottom delay={350}>
+                <Fade bottom delay={380}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Endless Network
                   </Text>
                 </Fade>
-                 <Fade bottom delay={380}>
+                 <Fade bottom delay={410}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Argosy Foundation
                   </Text>
                 </Fade>
               </Box>
               <Box>
-                <Fade bottom delay={380}>
+                <Fade bottom delay={440}>
                   <Text as="h3">$100k- $200k</Text>
                 </Fade>
-                <Fade bottom delay={410}>
+                <Fade bottom delay={470}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Quinn Slack
                   </Text>
                 </Fade>
-                <Fade bottom delay={440}>
+                <Fade bottom delay={500}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Adam Ross
-                  </Text>
-                </Fade>
-                <Fade bottom delay={470}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Danhakl Family Foundation
                   </Text>
                 </Fade>
               </Box>
