@@ -144,7 +144,7 @@ export default function Features({ partner = false }) {
               <>
                 Issue the{' '}
                 <Link
-                  href="https://www.presidentialserviceawards.gov"
+                  href="https://presidentialserviceawards.gov"
                   color="smoke"
                   hoverline
                   target="_blank"
