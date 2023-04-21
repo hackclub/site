@@ -416,7 +416,7 @@ export default function Team() {
                       pronouns="he/him"
                     />
                     <Bio
-                      name="Fayd Sayed"
+                      name="Faisal Sayed"
                       teamRole="Moderation & Events"
                       img="https://github.com/faisalsayed10.png"
                       pronouns="he/him"
