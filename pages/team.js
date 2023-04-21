@@ -426,7 +426,12 @@ export default function Team() {
                       teamRole="Moderation & Events"
                       img="https://scrapbook.hackclub.com/maggie.png"
                       pronouns="she/her"
-                      spanTwo
+                    />
+                    <Bio
+                      name="Sahiti Dasari"
+                      teamRole="Moderation & Events"
+                      img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
+                      pronouns="she/her"
                     />
                   </Grid>
                 </Box>
