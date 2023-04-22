@@ -91,7 +91,7 @@ export default function Slack({ data, slackKey, events }) {
             variant="subtitle"
             sx={{ fontSize: [1, '16px', '24px'] }}
           >
-            Coding doesn’t have to be a solidary activity. At Hack&nbsp;Club, we
+            Coding doesn’t have to be a solitary activity. At Hack&nbsp;Club, we
             make things together and in our Slack, you’ll find awesome people to
             hangout with too. Code together, find your programming community, or
             just hang out.
