@@ -433,6 +433,13 @@ export default function Team() {
                       img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
                       pronouns="she/her"
                     />
+                    <Bio
+                      name="Gaurav Pandey"
+                      teamRole="Moderation & Events"
+                      img="https://scrapbook.hackclub.com/yednapg.png"
+                      pronouns="he/him"
+                      spanTwo
+                    />
                   </Grid>
                 </Box>
               </Box>
