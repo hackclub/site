@@ -31,6 +31,25 @@ const JoinForm = ({ sx = {} }) => {
 
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
+        {Eventreferrer && (
+          <Box
+            sx={{
+              bg: 'red',
+              color: 'white',
+              p: 2,
+              mb: 3,
+              borderRadius: 5,
+              textAlign: 'center'
+            }}
+          >
+            <Text variant="headline" sx={{ fontSize: 3 }}>
+              We can't wait to see you at {Eventreferrer}! {''}
+              <br />
+              In the meantime, we'll be hanging around in the Slack.
+            </Text>
+          </Box>
+
+        )}
         <Grid columns={[1, 2]} gap={1} sx={{ columnGap: 2 }}>
           <Label>
             Full name
