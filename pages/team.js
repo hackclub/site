@@ -438,6 +438,7 @@ export default function Team() {
                       teamRole="Moderation & Events"
                       img="https://scrapbook.hackclub.com/yednapg.png"
                       pronouns="he/him"
+                      spanTwo
                     />
                   </Grid>
                 </Box>
