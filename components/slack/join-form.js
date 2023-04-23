@@ -22,6 +22,7 @@ const JoinForm = ({ sx = {} }) => {
       : { reason: router.query.reason, event: router.query.event }
   })
 
+  const Eventreferrer = useField('event').value
   const isAdult = useField('educationLevel').value === 'tertiary'
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
@@ -37,6 +38,17 @@ const JoinForm = ({ sx = {} }) => {
               required
             />
           </Label>
+          {Eventreferrer && (
+
+            <Label>
+              Event
+              <Input
+                {...useField('event')}
+                placeholder="Hack Club Summit"
+                required
+              />
+            </Label>
+          )}
           <Label>
             Email address
             <Input
@@ -82,6 +94,7 @@ const JoinForm = ({ sx = {} }) => {
               <option value="tertiary">Tertiary Education (18+)</option>
             </Select>
           </Label>
+
         </Grid>
         <Label>
           Why do you want to join the Hack Club Slack?
