@@ -28,26 +28,9 @@ const JoinForm = ({ sx = {} }) => {
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
   return (
-    
+
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
-      {Eventreferrer && (
-          <Box
-            sx={{
-              bg: 'red',
-              color: 'white',
-              p: 2,
-              mb: 3,
-              borderRadius: 20,
-              textAlign: 'center'
-            }}
-          >
-            <Text variant="headline" sx={{ fontSize: 3 }}>
-              {Eventreferrer} is happening soon!
-            </Text>
-    </Box>
-
-       )}
         <Grid columns={[1, 2]} gap={1} sx={{ columnGap: 2 }}>
           <Label>
             Full name
@@ -112,7 +95,7 @@ const JoinForm = ({ sx = {} }) => {
             required
           />
         </Label>
-     
+
         {isAdult && (
           <Text
             variant="caption"
@@ -126,7 +109,7 @@ const JoinForm = ({ sx = {} }) => {
             <Link href="mailto:slack@hackclub.com">slack@hackclub.com</Link>.
           </Text>
         )}
-      
+
         {!isAdult && (
           <Submit
             status={status}
