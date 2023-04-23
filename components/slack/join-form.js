@@ -45,6 +45,7 @@ const JoinForm = ({ sx = {} }) => {
               <Input
                 {...useField('event')}
                 placeholder="Hack Club Summit"
+                readOnly
                 required
               />
             </Label>
