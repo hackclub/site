@@ -73,7 +73,7 @@ export default async function handler(req, res) {
 
   if (!waitlist) {
     let result = await postData(
-      'https://to.underpass.clb.li/slack-invite',
+      'https://toriel.hackclub.com/slack-invite',
       {
         email: data.email,
         ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress,

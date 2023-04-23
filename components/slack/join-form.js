@@ -23,7 +23,7 @@ const JoinForm = ({ sx = {} }) => {
       : { reason: router.query.reason, event: router.query.event }
   })
 
-  const Eventreferrer = useField('event').value
+  const eventReferrer = useField('event').value
   const isAdult = useField('educationLevel').value === 'tertiary'
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
@@ -31,7 +31,7 @@ const JoinForm = ({ sx = {} }) => {
 
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
-        {Eventreferrer && (
+        {eventReferrer && (
           <Box
             sx={{
               bg: 'red',
