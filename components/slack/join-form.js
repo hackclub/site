@@ -18,8 +18,8 @@ const JoinForm = ({ sx = {} }) => {
     clearOnSubmit: 5000,
     method: 'POST',
     initData: router.query.continent
-      ? { continent: router.query.continent, reason: router.query.reason }
-      : { reason: router.query.reason }
+      ? { continent: router.query.continent, reason: router.query.reason, event: router.query.event }
+      : { reason: router.query.reason, event: router.query.event }
   })
 
   const isAdult = useField('educationLevel').value === 'tertiary'
