@@ -44,8 +44,9 @@ const JoinForm = ({ sx = {} }) => {
           >
             <Text variant="headline" sx={{ fontSize: 3 }}>
               We can't wait to see you at {Eventreferrer}! {''}
-              <br />
-              In the meantime, we'll be hanging around in the Slack.
+            </Text>
+            <Text variant='subtitle' sx={{ fontSize: 2 }}>
+              <i> In the meantime, we'll be hanging around in the Slack </i>
             </Text>
           </Box>
 
