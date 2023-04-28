@@ -34,7 +34,7 @@ export default function Clubs() {
       }}
     >
       <Image
-        src="https://cloud-a1f7qswlr-hack-club-bot.vercel.app/0flagship_3.jpg"
+        src="https://cloud-5pdwvchgm-hack-club-bot.vercel.app/05851864a.jpg"
         alt="Summer Creek Hack Club meeting, February 2020"
         sx={{
           objectFit: 'cover',
