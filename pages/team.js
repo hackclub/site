@@ -269,7 +269,7 @@ export default function Team() {
                     />
                     <Bio
                       name="Abby Fischler"
-                      teamRole="Technical Intern to COO"
+                      teamRole="Junior Administrative Engineer"
                       text={`Abby is a high school junior from Los Angeles that loves technology! Since joining the Hack Club community in May 2020, she’s enjoyed learning with friends in the Slack and on board the Hacker Zephyr. She joined Hack Club to support Christina’s work in encouraging more girls to get involved. Abby has hosted events for the community and loves sharing her coding journey on the #ship channel.`}
                       img="https://github.com/abbyfischler.png"
                       pronouns="she/her"
