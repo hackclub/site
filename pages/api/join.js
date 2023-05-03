@@ -49,6 +49,7 @@ export default async function handler(req, res) {
 
   const secrets = (process.env.NAUGHTY || '').split(',')
 
+
   for (const secret of secrets) {
     if (secret === req.headers['x-forwarded-for']) {
       return res.json({
@@ -58,6 +59,7 @@ export default async function handler(req, res) {
     }
   }
 
+
   await joinTable.create({
     'Full Name': data.name,
     'Email Address': data.email,
@@ -65,6 +67,7 @@ export default async function handler(req, res) {
     Reason: data.reason,
     Invited: !waitlist,
     Club: data.club ? data.club : '',
+    Event: data.event ? data.event : '',
     IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
   })
 
@@ -78,6 +81,7 @@ export default async function handler(req, res) {
         teen: !isAdult,
         educationLevel: data.educationLevel,
         reason: data.reason,
+        event: data.event,
         userAgent: req.headers['user-agent']
       },
       { authorization: `Bearer ${process.env.TORIEL_KEY}` }

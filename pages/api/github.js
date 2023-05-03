@@ -43,5 +43,6 @@ export async function fetchGitHub() {
 }
 
 export default async function github(req, res) {
-  await fetchGithub(req, res)
+  const git = await fetchGitHub(req, res)
+  res.json(git)
 }

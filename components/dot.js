@@ -7,7 +7,7 @@ const flashing = keyframes({
   to: { opacity: 0 }
 })
 
-export default function Dot({hideOnMobile}) {
+export default function Dot({ hideOnMobile }) {
   return (
     <Text
       sx={{

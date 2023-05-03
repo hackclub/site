@@ -9,7 +9,7 @@ const Mention = memo(function Mention({ username }) {
     fetch(`https://scrapbook.hackclub.com/api/profiles/${trim(username)}`)
       .then(r => r.json())
       .then(profile => setImg(profile.avatar))
-      .catch(e => console.error(e))
+      .catch(console.error)
   }, [username])
 
   return (

@@ -42,7 +42,7 @@ export default function CarouselCards({
       >
         <Image
           src={img}
-          alt='carousel card'
+          alt="carousel card"
           sx={{
             position: 'absolute',
             top: ['-26px', '-30px', '-35px'],

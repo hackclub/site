@@ -416,7 +416,7 @@ export default function Team() {
                       pronouns="he/him"
                     />
                     <Bio
-                      name="Fayd Sayed"
+                      name="Faisal Sayed"
                       teamRole="Moderation & Events"
                       img="https://github.com/faisalsayed10.png"
                       pronouns="he/him"
@@ -426,6 +426,18 @@ export default function Team() {
                       teamRole="Moderation & Events"
                       img="https://scrapbook.hackclub.com/maggie.png"
                       pronouns="she/her"
+                    />
+                    <Bio
+                      name="Sahiti Dasari"
+                      teamRole="Moderation & Events"
+                      img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
+                      pronouns="she/her"
+                    />
+                    <Bio
+                      name="Gaurav Pandey"
+                      teamRole="Moderation & Events"
+                      img="https://scrapbook.hackclub.com/yednapg.png"
+                      pronouns="he/him"
                       spanTwo
                     />
                   </Grid>

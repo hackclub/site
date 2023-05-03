@@ -27,7 +27,8 @@ export default function Features({ partner = false }) {
               name="Bank account"
               body={
                 <>
-                  Bank account under the hood with a custom, beautiful dashboard.
+                  Bank account under the hood with a custom, beautiful
+                  dashboard.
                 </>
               }
             />
@@ -143,7 +144,7 @@ export default function Features({ partner = false }) {
               <>
                 Issue the{' '}
                 <Link
-                  href="https://www.presidentialserviceawards.gov"
+                  href="https://presidentialserviceawards.gov"
                   color="smoke"
                   hoverline
                   target="_blank"

@@ -148,7 +148,7 @@ const CardModel = ({
           mt: ['-24px', '-32px', '-32px', '-32px'],
           zIndex: 0
         }}
-        alt=''
+        alt=""
       />
     )}
     {children}

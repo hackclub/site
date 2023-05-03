@@ -34,7 +34,7 @@ export default function Clubs() {
       }}
     >
       <Image
-        src="https://dl.airtable.com/.attachmentThumbnails/904cf56ceac6b0921eceae02958dcd29/5851864a"
+        src="https://cloud-5pdwvchgm-hack-club-bot.vercel.app/05851864a.jpg"
         alt="Summer Creek Hack Club meeting, February 2020"
         sx={{
           objectFit: 'cover',

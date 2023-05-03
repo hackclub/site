@@ -129,18 +129,18 @@ export default function Epoch() {
           ml: ['-24px', '-32px', '-32px', '-32px'],
           mt: ['-24px', '-32px', '-32px', '-32px']
         }}
-        alt='Hack Club Presents Epoch background'
+        alt="Hack Club Presents Epoch background"
       />
       <Grid columns={[1, 1, '1fr 1.5fr']} sx={{ position: 'relative' }}>
         <Box>
-          <img
+          <Image
             src="https://cloud-jzsq7jfvg-hack-club-bot.vercel.app/0group_9.png"
             sx={{
               width: ['220px', '220px', '240px', '350px'],
               position: 'relative',
               zIndex: 2
             }}
-            alt='Hack Club Presents Epoch header'
+            alt="Hack Club Presents Epoch header"
           />
           <Box>
             {timer.length ? (

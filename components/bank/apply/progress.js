@@ -31,16 +31,16 @@ function StepIcon({ completed, number }) {
           alignItems: 'center',
           justifyContent: 'center',
           position: 'absolute',
-          inset: '0',
+          inset: '0'
         }}
       >
         <Text
           sx={{
             color: 'white',
-            fontSize: 2,
+            fontSize: 2
           }}
         >
-          { number }
+          {number}
         </Text>
       </Flex>
     </Box>
@@ -51,10 +51,14 @@ function Step({ number, label, completed }) {
   return (
     <Flex sx={{ lineHeight: '1', alignItems: 'center', gap: '4' }}>
       <StepIcon completed={completed} number={number + 1} />
-      <Text sx={{
-        fontSize: '3',
-        display: ['none', null, null, 'block']
-      }}>{label}</Text>
+      <Text
+        sx={{
+          fontSize: '3',
+          display: ['none', null, null, 'block']
+        }}
+      >
+        {label}
+      </Text>
     </Flex>
   )
 }
@@ -63,11 +67,7 @@ export default function Progress() {
   const router = useRouter()
   const step = parseInt(router.query.step)
 
-  const labels = [
-    'Intro',
-    'Organization info',
-    'Personal info'
-  ]
+  const labels = ['Intro', 'Organization info', 'Personal info']
 
   return (
     <Flex

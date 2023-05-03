@@ -124,7 +124,8 @@ export default function Donate({ sprig }) {
     if (sprig) {
       window.document.getElementById('sprig-donation').scrollIntoView()
     }
-  }, [])
+  }, [sprig])
+
   return (
     <Box>
       <Meta

@@ -6,7 +6,8 @@ import {
   Select,
   Grid,
   Text,
-  Link
+  Link,
+  Box
 } from 'theme-ui'
 import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
@@ -18,17 +19,40 @@ const JoinForm = ({ sx = {} }) => {
     clearOnSubmit: 5000,
     method: 'POST',
     initData: router.query.continent
-      ? { continent: router.query.continent, reason: router.query.reason }
-      : { reason: router.query.reason }
+      ? { continent: router.query.continent, reason: router.query.reason, event: router.query.event }
+      : { reason: router.query.reason, event: router.query.event }
   })
 
+  const eventReferrer = useField('event').value
   const isAdult = useField('educationLevel').value === 'tertiary'
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
   return (
+
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
-        <Grid columns={[1, 2]} gap={1} sx={{ columnGap: 3 }}>
+        {eventReferrer && (
+          <Box
+            sx={{
+              bg: 'purple',
+              color: 'white',
+              p: 2,
+              mb: 3,
+              borderRadius: 5,
+              textAlign: 'center'
+            }}
+          >
+            <Text variant="headline" sx={{ fontSize: 3 }}>
+              We can't wait to see you at {eventReferrer}! {''}
+            </Text>
+            <br />
+            <Text variant='subtitle' sx={{ fontSize: 2 }}>
+              <i> In the meantime, we'll be hanging around in the Slack </i>
+            </Text>
+          </Box>
+
+        )}
+        <Grid columns={[1, 2]} gap={1} sx={{ columnGap: 2 }}>
           <Label>
             Full name
             <Input
@@ -82,6 +106,7 @@ const JoinForm = ({ sx = {} }) => {
               <option value="tertiary">Tertiary Education (18+)</option>
             </Select>
           </Label>
+
         </Grid>
         <Label>
           Why do you want to join the Hack Club Slack?
@@ -91,6 +116,7 @@ const JoinForm = ({ sx = {} }) => {
             required
           />
         </Label>
+
         {isAdult && (
           <Text
             variant="caption"
@@ -104,6 +130,7 @@ const JoinForm = ({ sx = {} }) => {
             <Link href="mailto:slack@hackclub.com">slack@hackclub.com</Link>.
           </Text>
         )}
+
         {!isAdult && (
           <Submit
             status={status}
