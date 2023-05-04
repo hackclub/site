@@ -15,8 +15,7 @@ export default function BankInfo() {
               <Flex sx={{ alignItems: 'center', gap: 2 }}>
                 <Link
                   color="white"
-                  // href="/bank/fiscal-sponsorship"
-                  href='https://givebutter.com/blog/fiscal-sponsorship'
+                  href="/bank/fiscal-sponsorship"
                   target="_blank"
                   sx={{
                     fontSize: 3,
