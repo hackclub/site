@@ -39,31 +39,31 @@ export default function Sinerider({ stars }) {
         <Box></Box>
         <Box sx={{ mt: ['-40px', '-40px', '-150px'] }}>
           <Text as="p" variant="subtitle">
-            A game about love and graphing, coming 2023! This project is powered
-            by teenage hackers of all kinds: artists, musicians, programmers,
-            storytellers… so if that’s you, come join us; we need your help to
-            make this thing real!
+            SineRider is a game about love and graphing, powered by
+            teenage hackers of all kinds: artists, musicians, programmers,
+            storytellers… so if that’s you, come join us! We can always
+            use help keeping everything up to date and running smoothly.
           </Text>
           <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
             <Buttons
-              icon="rainbow"
-              href="https://github.com/hackclub/sinerider/#readme"
+              icon="view"
+              href="https://sinerider.com/"
               target="_blank"
               rel="noopener"
               primary="#CAB4D4"
               id="43"
               sx={{ color: '#271932' }}
             >
-              Join the development
+              Play now
             </Buttons>
             <Buttons
-              icon="view"
-              href="https://sinerider.com"
+              icon="rainbow"
+              href="https://github.com/hackclub/sinerider/#readme"
               target="_blank"
               rel="noopener"
               id="44"
             >
-              View a game preview
+              Join the development
             </Buttons>
           </Flex>
         </Box>
