@@ -988,12 +988,12 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade bottom delay={80}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Musk Foundation
+                    Tom Preston-Werner
                   </Text>
                 </Fade>
                 <Fade bottom delay={110}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Preston-Werner Ventures
+                    Musk Foundation
                   </Text>
                 </Fade>
               </Box>
