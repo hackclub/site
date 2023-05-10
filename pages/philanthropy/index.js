@@ -1046,17 +1046,22 @@ const Philanthropy = ({ posts = [] }) => {
                     Argosy Foundation
                   </Text>
                 </Fade>
+                  <Fade bottom delay={440}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Ron Baron
+                  </Text>
+                </Fade>
               </Box>
               <Box>
-                <Fade bottom delay={440}>
+                <Fade bottom delay={470}>
                   <Text as="h3">$100k- $200k</Text>
                 </Fade>
-                <Fade bottom delay={470}>
+                <Fade bottom delay={5000}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Quinn Slack
                   </Text>
                 </Fade>
-                <Fade bottom delay={500}>
+                <Fade bottom delay={530}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Adam Ross
                   </Text>
