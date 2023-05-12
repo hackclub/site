@@ -203,22 +203,10 @@ export default function Team() {
                       pronouns="he/him"
                     />
                     <Bio
-                      name="Quillan George"
-                      teamRole="Events Director"
-                      img="https://cloud-4rby0bgnb-hack-club-bot.vercel.app/0qg.png"
-                      pronouns="he/him"
-                    />
-                    <Bio
                       name="Graham Darcey"
                       teamRole="Creative Technologist"
                       text="Originally from Vermont, Graham has worked as a full-stack software engineer in Silicon Valley for over 20 years, most recently at Uber where he worked on their core routing services and map data platform.  He recently moved back east, and currently resides in Shelburne VT.  Graham's hobbies include gaming, gamedev, cooking with his wife, and playing joyfully with his two year old daughter."
                       img="/team/graham.jpg"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Shane Celis"
-                      teamRole="Community Engineer"
-                      img="https://scrapbook.hackclub.com/ShaneCelis-U04F7QE6H41.png"
                       pronouns="he/him"
                     />
                     <Bio
@@ -230,7 +218,7 @@ export default function Team() {
                     />
                     <Bio
                       name="Woody Keppel"
-                      teamRole="Club Alchemist"
+                      teamRole="Event Alchemist"
                       text={`Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!”`}
                       img="/team/woody.jpg"
                       pronouns="he/him"
