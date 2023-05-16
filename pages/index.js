@@ -24,9 +24,10 @@ import SprigConsole from '../components/index/cards/sprig-console'
 import Clubs from '../components/index/cards/clubs'
 import Workshops from '../components/index/cards/workshops'
 import Bank from '../components/index/cards/bank'
-import Epoch from '../components/index/cards/epoch'
 import Hackathons from '../components/index/cards/hackathons'
 import AssembleImgFile from '../public/home/assemble.jpg'
+import Announcement from '../components/announcement'
+import AngelHacks from '../components/index/cards/angelhacks'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
@@ -177,6 +178,13 @@ function Page({
             alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
+          />
+          <Announcement
+            copy="AngelHacks 3.0: make games with Hack Clubbers just like you."
+            caption="Join 100+ hackers in Boston for a cosmic high-school game jam!"
+            href="https://angelhacks.hackclub.com/"
+            iconLeft="explore"
+            color="primary"
           />
           <Box
             sx={{
@@ -600,48 +608,36 @@ function Page({
               maxWidth: 'layout',
               margin: 'auto'
             }}
-            py={[4, 5, '82px']}
+            py={[4, 4, 5]}
           >
             <Box>
-              <Text
-                variant="title"
-                as="h2"
-                sx={{
-                  fontSize: ['36px', '48px', '72px'],
-                  width: '18ch',
-                  textAlign: 'center',
-                  margin: 'auto'
-                }}
-              >
+              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
                 Connect with{' '}
                 <Text
                   as="span"
                   sx={{
                     borderRadius: 'default',
+                    px: 2,
                     mx: 0,
                     whiteSpace: 'nowrap',
-                    color: 'red'
+                    color: 'white',
+                    bg: 'red'
                   }}
                 >
                   builders
                 </Text>{' '}
-                from around the world.
+                from around the world
               </Text>
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{
-                  fontSize: ['18px', '24px', '32px'],
-                  margin: 'auto',
-                  pt: 2,
-                  pb: [1, 0, 0],
-                  textAlign: 'center'
-                }}
+                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
               >
                 We gather both online and in-person to share our love of code
-                and make things together.
+                and make things together!
               </Text>
             </Box>
+            <AngelHacks />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
