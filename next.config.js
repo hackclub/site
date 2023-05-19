@@ -11,16 +11,16 @@ const nextConfig = {
       'emoji.slack-edge.com',
       'cdn.glitch.com',
       'scrapbook.hackclub.com',
-      'cloud-k18c7grqc-hack-club-bot.vercel.app',
-      'cloud-kcloydjv0-hack-club-bot.vercel.app',
-      'cloud-dtijd5g0u-hack-club-bot.vercel.app',
-      'cloud-3aeson6ue-hack-club-bot.vercel.app',
-      'cloud-k3mgtdz5i-hack-club-bot.vercel.app',
-      'cloud-2jmtbnrpz-hack-club-bot.vercel.app',
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
       ''
-    ]
+    ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cloud-*-hack-club-bot.vercel.app',
+      },
+    ],
   },
   webpack: (config, { isServer }) => {
     if (isServer) require('./lib/sitemap')
