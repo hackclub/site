@@ -45,10 +45,8 @@ function Page({
   bankData,
   slackData,
   gitHubData,
-  gitHubDataLength,
   consoleCount,
   stars,
-  // githubData2,
   dataPieces,
   game,
   gameTitle,
@@ -702,7 +700,7 @@ function Page({
                     tools or contribute to the tools themselves.
                   </Text>
                 </Box>
-                {gitHubData && (
+                {gitHubData && gitHubData.length !== 0 && (
                   <Flex
                     sx={{
                       flexDirection: ['row', null, null, 'column'],
