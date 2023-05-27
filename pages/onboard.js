@@ -364,7 +364,7 @@ const ShipPage = () => {
 						</a>
 					</Grid>
 
-					<Button variant="outlineLg" as="a" href="javascript:void(0)" target="_blank">
+					<Button variant="outlineLg" as="a" href="https://github.com/hackclub/OnBoard/blob/main/DIRECTIONS.md" target="_blank">
 						Join the Party
 					</Button>
 				</Flex>
@@ -431,7 +431,7 @@ const ShipPage = () => {
 									'Make sure your PCB can be printed by JLCPCB and they will ship to your country.',
 									(<>
 										Open source your design on GitHub and{' '}
-										<Link href="javascript:void(0)" target="_blank">apply for the grant</Link>!{' '}
+										<Link href="https://github.com/hackclub/OnBoard/blob/main/DIRECTIONS.md" target="_blank">apply for the grant</Link>!{' '}
 										You must be a teenager in high school to apply.
 									</>)
 								].map((text, i) => (
@@ -564,7 +564,7 @@ const ShipPage = () => {
 						<Flex as="article">
 							<Text as="h3">$100 Grants</Text>
 							<Text as="p">We’ll pay $100 to manufacture your boards, all components included.</Text>
-							<Button variant="outline" as="a" href="javascript:void(0)" target="_blank">
+							<Button variant="outline" as="a" href="https://github.com/hackclub/OnBoard#requirements" target="_blank">
 								Read the Rules
 							</Button>
 						</Flex>
