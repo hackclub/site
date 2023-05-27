@@ -274,7 +274,8 @@ const ShipPage = () => {
 								flexDirection: 'column',
 								gap: 3,
 								justifyContent: 'center',
-								height: '100%'
+								height: '100%',
+								zIndex: 1
 							},
 							img: {
 								pointerEvents: 'none',
@@ -326,19 +327,24 @@ const ShipPage = () => {
 
 						<a href="https://github.com/Hugoyhu/Hack-Club-Zephyr-USB-Hub" target="_blank">
 							<Flex as="article">
-								<Text as="p">
-									Make the best <strong>hackathon swag</strong> ever.
+								<Text as="p" sx={{ pr: [ 100, 100, 100, 0 ] }}>
+									Make a <strong>USB-C hub</strong> for the best <strong>hackathon swag</strong> ever.
 								</Text>
-								<Flex>
-									<Text as="p" sx={{ flex: 1, color: 'gray' }}>
-										Build a ucb-c hub for your event&nbsp;<span className="arrow">&rarr;</span>
-									</Text>
-									<Image
-										src='https://cloud-d9ugizcco-hack-club-bot.vercel.app/0usbc-hub.png'
-										alt='A rectangular circuit board in the shape of a train car that acts as a USB type C hub.'
-										sx={{ flex: 1, mt: -25, maxWidth: 250 }}
-									/>
-								</Flex>
+								<Text as="p" sx={{ color: 'gray', pr: 150 }}>
+									Build one for your event&nbsp;<span className="arrow">&rarr;</span>
+								</Text>
+								<Image
+									src='https://cloud-c953eezuq-hack-club-bot.vercel.app/0hub.png'
+									alt='A rectangular circuit board in the shape of a train car that acts as a USB type C hub.'
+									sx={{
+										flex: 1,
+										right: -15,
+										bottom: -10,
+										maxWidth: 260,
+										position: 'absolute',
+										zIndex: 6
+									}}
+								/>
 							</Flex>
 						</a>
 							
@@ -370,7 +376,7 @@ const ShipPage = () => {
 				</Flex>
 			</Flex>	
 
-			<Flex as="section" sx={{ px: 4, pt: 4, pb: 5, bg: dimBg, color: '#ffffff', justifyContent: 'center' }}>
+			{/* <Flex as="section" sx={{ px: 4, pt: 4, pb: 5, bg: dimBg, color: '#ffffff', justifyContent: 'center' }}>
 				<Flex sx={{ flexDirection: 'column', gap: 4, width: '100%', maxWidth: 'copyPlus' }}>
 					<Heading as="h2" sx={{ fontSize: 42, fontWeight: 500 }}>
 						<Balancer ratio={0.3}>Never made a circuit board before? No problem.</Balancer>
@@ -394,7 +400,7 @@ const ShipPage = () => {
 						allowfullscreen
 					/>
 				</Flex>
-			</Flex>
+			</Flex> */}
 
 			<Flex as="section" id="apply" sx={{ px: 4, pt: 5, bg: '#ffffff', color: '#000000', justifyContent: 'center' }}>
 				<Flex as="section" sx={{ flexDirection: 'column', gap: 4, width: '100%', maxWidth: 'layout' }} ref={containerRef}>
