@@ -180,9 +180,9 @@ function Page({
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
           <Announcement
-            copy="AngelHacks 3.0: make games with Hack Clubbers just like you."
-            caption="Join 100+ hackers in Boston for a cosmic high-school game jam!"
-            href="https://angelhacks.hackclub.com/"
+            copy="Hop OnBoard."
+            caption="Join 1k high schoolers in designing your first circuit board!"
+            href="https://onboard.hackclub.com/"
             iconLeft="explore"
             color="primary"
           />
