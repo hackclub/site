@@ -182,7 +182,7 @@ function Page({
           <Announcement
             copy="Hop OnBoard."
             caption="Join 1k high schoolers in designing your first circuit board!"
-            href="https://onboard.hackclub.com/"
+            href="https://hackclub.com/onboard"
             iconLeft="explore"
             color="primary"
           />
