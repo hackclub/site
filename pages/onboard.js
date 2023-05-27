@@ -14,6 +14,7 @@ import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import FadeIn from '../components/fade-in'
+import Tilt from '../components/tilt'
 import usePrefersReducedMotion from '../lib/use-prefers-reduced-motion'
 import { useRef, useEffect, useState } from 'react'
 
@@ -468,17 +469,19 @@ const ShipPage = () => {
 								))}
 							</Flex>
 
-							<Image
-								src='https://doggo.ninja/AowUhf.png'
-								alt='A complex white circuit board in the shape of a cute leaping dinosaur.'
-								loading='lazy'
-								sx={{
-									flex: 1,
-									maxWidth: 350,
-									objectFit: 'contain',
-									mt: [ '-40px', '-40px', 0 ]
-								}}
-							/>
+							<Tilt options={{ scale: 1 }}>
+								<Image
+									src='https://cloud-hy108iezt-hack-club-bot.vercel.app/0dinopcb.png'
+									alt='A complex white circuit board in the shape of a cute leaping dinosaur.'
+									loading='lazy'
+									sx={{
+										flex: 1,
+										maxWidth: 350,
+										objectFit: 'contain',
+										mt: [ '-40px', '-40px', 0 ]
+									}}
+								/>
+							</Tilt>
 						</Flex>
 					</Flex>
 				</Flex>
