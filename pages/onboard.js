@@ -14,6 +14,7 @@ import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import FadeIn from '../components/fade-in'
+import Sparkles from '../components/sparkles'
 import Tilt from '../components/tilt'
 import usePrefersReducedMotion from '../lib/use-prefers-reduced-motion'
 import { useRef, useEffect, useState } from 'react'
@@ -57,7 +58,74 @@ const stickerButtonText = 'Click 4 Stickers'
 const stickerButtonFont = 'Oleo Script'
 const stickerButtonFontStylesheet = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(stickerButtonFont)}&display=swap&text=${encodeURIComponent(stickerButtonText)}`
 
+const wandImgTraced = 'https://cloud-8lszi55ph-hack-club-bot.vercel.app/10frame_2.png'
+const wandImgRendered = 'https://cloud-8lszi55ph-hack-club-bot.vercel.app/00frame_1.png'
+
 const ShipPage = () => {
+	const prefersReducedMotion = usePrefersReducedMotion()
+
+	// Wand flicker animation
+	const [ wandImg, setWandImg ] = useState(wandImgTraced)
+	const wandAnimated = useRef(false)
+	useEffect(() => {
+		let canceled = false
+
+		const flicker = async () => {
+			if (canceled) return
+			setWandImg(wandImgTraced)
+			await sleep(Math.random() * 20 + 7); if (canceled) return
+			setWandImg(wandImgRendered)
+			setTimeout(flicker, Math.random() * 3000 + 500)
+		}
+
+		const animate = async () => {
+			if (wandAnimated.current) return
+			wandAnimated.current = true
+
+			await sleep(1500); if (canceled) return
+			
+			setWandImg(wandImgRendered)
+			await sleep(60); if (canceled) return
+			setWandImg(wandImgTraced)
+			await sleep(340); if (canceled) return
+
+			setWandImg(wandImgRendered)
+			await sleep(14); if (canceled) return
+			setWandImg(wandImgTraced)
+			await sleep(55); if (canceled) return
+
+			setWandImg(wandImgRendered)
+			await sleep(10); if (canceled) return
+			setWandImg(wandImgTraced)
+			await sleep(150); if (canceled) return
+
+			setWandImg(wandImgRendered)
+			setTimeout(flicker, 1200)
+		}
+
+		if (prefersReducedMotion) {
+			setWandImg(wandImgRendered)
+		} else {
+			animate()
+		}
+
+		return () => canceled = true
+	}, [ prefersReducedMotion ])
+
+	// Spotlight effect
+	const spotlightRef = useRef()
+	useEffect(() => {
+		const handler = (event) => {
+			spotlightRef.current.style.background = `radial-gradient(
+				circle at ${event.pageX}px ${event.pageY}px,
+				rgba(0, 0, 0, 0) 10px,
+				rgba(0, 0, 0, 0.85) 80px
+			)`
+		}
+		window.addEventListener('mousemove', handler)
+		return () => window.removeEventListener('mousemove', handler)
+	}, [])
+
 	// Calculating the bus height to match the bottom left of the first connector.
 	const [ busHeight, setBusHeight ] = useState(null)
 	const containerRef = useRef() // For ResizeObserver
@@ -76,9 +144,8 @@ const ShipPage = () => {
 	}, [])
 	
 	// Fancy lights animation
-	const prefersReducedMotion = usePrefersReducedMotion()
 	const lightsScrollTrigger = useRef()
-	const alreadyAnimated = useRef(false)
+	const lightsAnimated = useRef(false)
 	useEffect(() => {
 		let canceled = false
 
@@ -102,8 +169,8 @@ const ShipPage = () => {
 		}
 
 		const animate = async () => {
-			if (alreadyAnimated.current) return
-			alreadyAnimated.current = true
+			if (lightsAnimated.current) return
+			lightsAnimated.current = true
 
 			// Illuminate lights in diagonal lines starting with only top left.
 			for (let curColumn = 0; curColumn < recapWidth + recapHeight; curColumn++) {
@@ -145,7 +212,7 @@ const ShipPage = () => {
 		}
 		
 		if (prefersReducedMotion) {
-			if (!alreadyAnimated.current) setAll('#ffffff')
+			if (!lightsAnimated.current) setAll('#ffffff')
 			return () => canceled = true
 		} else {
 			const observer = new IntersectionObserver(([ entry ]) => {
@@ -187,56 +254,87 @@ const ShipPage = () => {
 				}
 			`}</style>
 
+			<Head>
+				<link rel="preload" href={wandImgRendered} as="image" />
+			</Head>
+
 			<Nav />
 
-			<Flex as="header" sx={{ bg: '#000000', color: '#ffffff', p: 4, flexDirection: 'column', alignItems: 'center' }}>
-				<Flex sx={{ pt: 80, width: '100%', maxWidth: 'layout', alignItems: 'center' }}>
-					<Flex sx={{ flex: 1, flexDirection: 'column', gap: 4 }}>
-						<Heading as="h1" sx={{ fontSize: 5, maxWidth: 'copyPlus' }}>
-							<Balancer ratio={.3}>Circuit boards are magical.</Balancer>
-						</Heading>
+			<Box
+				as="header"
+				sx={{
+					bg: '#000000',
+					backgroundImage: `
+						linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+						url('https://cloud-dst3a9oz5-hack-club-bot.vercel.app/0image.png')
+					`,
+					color: '#ffffff',
+					position: 'relative'
+				}}
+			>
+				<Box
+					ref={spotlightRef}
+					sx={{
+						position: 'absolute',
+						zIndex: 2,
+						top: 0,
+						left: 0,
+						right: 0,
+						bottom: 0,
+						bg: '#000000',
+						pointerEvents: 'none'
+					}}
+				/>
 
-						<Heading as="div" sx={{ fontSize: 5, maxWidth: 'copyPlus' }}>
-							<Balancer ratio={.3}>You design one, we'll print it.</Balancer>
-						</Heading>
+				<Flex sx={{ p: 4, flexDirection: 'column', alignItems: 'center', zIndex: 5, position: 'relative' }}>
+					<Flex sx={{ pt: 80, width: '100%', maxWidth: 'layout', alignItems: 'center' }}>
+						<Flex sx={{ flex: 1, flexDirection: 'column', gap: 4 }}>
+							<Heading as="h1" sx={{ fontSize: 5, maxWidth: 'copyPlus' }}>
+								<Balancer ratio={.3}>Circuit boards are <Sparkles>magical</Sparkles>.</Balancer>
+							</Heading>
 
-						<Box sx={{ mt: 2 }}>
-							<Button variant="ctaLg" as="a" href="#apply">
-								How do I apply?
-							</Button>
+							<Heading as="div" sx={{ fontSize: 4, maxWidth: 'copyPlus' }}>
+								<Balancer ratio={.3}>You design one, we'll print it. Hop #OnBoard!</Balancer>
+							</Heading>
+
+							<Box sx={{ mt: 2 }}>
+								<Button variant="ctaLg" as="a" href="#apply">
+									How do I apply?
+								</Button>
+							</Box>
+						</Flex>
+						
+						<Box sx={{ flex: 1, maxWidth: 230}}>
+							<FadeIn duration={800} delay={100}>
+								<Image
+									src={wandImg}
+									alt='A circuit board of a dino wizard with a light up wand.'
+								/>
+							</FadeIn>
 						</Box>
 					</Flex>
-					
-					<Box sx={{ flex: 1, maxWidth: 230}}>
-						<FadeIn duration={1000} delay={100}>
-							<Image
-								src='https://cloud-ahzzebs4i-hack-club-bot.vercel.app/0frame_1.png'
-								alt='A circuit board of a dino wizard with a light up wand.'
-							/>
-						</FadeIn>
-					</Box>
+
+					<Heading as="h2" sx={{ pt: 60, pb: 35, fontSize: 36, fontWeight: 500, maxWidth: 'copy', textAlign: 'center' }}>
+						<Balancer ratio={.6}>Join 1,000 others to create your own circuit board.</Balancer>
+					</Heading>
+
+					<Grid width={300} gap={4} sx={{ fontSize: 2, h3: { fontSize: 2 }, width: '100%', maxWidth: 'layout', pb: 40 }}>
+						<Flex as="article" sx={{ flexDirection: 'column', gap: 2 }}>
+							<Text as="h3">Community & Friends</Text>
+							<Text as="p">
+								Share your progress and ask for help with Hack Club teens who are designing their own circuit boards.
+							</Text>
+						</Flex>
+
+						<Flex as="article" sx={{ flexDirection: 'column', gap: 2 }}>
+							<Text as="h3">Free Manufacturing</Text>
+							<Text as="p">
+								We’ll pay $100 to cover manufacturing costs, enough for 2-3 iterations of your design.
+							</Text>
+						</Flex>
+					</Grid>
 				</Flex>
-
-				<Heading as="h2" sx={{ pt: 60, pb: 35, fontSize: 36, fontWeight: 500, maxWidth: 'copy', textAlign: 'center' }}>
-					<Balancer ratio={.6}>Join 1,000 others to create your own circuit board.</Balancer>
-				</Heading>
-
-				<Grid width={300} gap={4} sx={{ fontSize: 2, h3: { fontSize: 2 }, width: '100%', maxWidth: 'layout', pb: 40 }}>
-					<Flex as="article" sx={{ flexDirection: 'column', gap: 2 }}>
-						<Text as="h3">Community & Friends</Text>
-						<Text as="p">
-							Share your progress and ask for help with Hack Club teens who are designing their own circuit boards.
-						</Text>
-					</Flex>
-
-					<Flex as="article" sx={{ flexDirection: 'column', gap: 2 }}>
-						<Text as="h3">Free Manufacturing</Text>
-						<Text as="p">
-							We’ll pay $100 to cover manufacturing costs, enough for 2-3 iterations of your design.
-						</Text>
-					</Flex>
-				</Grid>
-			</Flex>
+			</Box>
 
 			<Flex as="section" sx={{ overflowX: 'hidden', px: 4, py: 5, bg: dimBg, color: '#ffffff', justifyContent: 'center' }}>
 				<Flex sx={{ flexDirection: 'column', alignItems: 'center', gap: 4, width: '100%', maxWidth: 'copyPlus' }}>
