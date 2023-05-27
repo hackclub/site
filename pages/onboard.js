@@ -692,10 +692,18 @@ const ShipPage = () => {
 							</Button>
 						</Flex>
 
+						<Flex as="article">
+							<Text as="h3">Free Stickers</Text>
+							<Text as="p">Like stickers? Request below and we'll ship you an envelope full of stickers for free.</Text>
+							<Button variant="outline" as="a" href="https://airtable.com/shrOOU2ZZFYtffUVz" target="_blank">
+								Request Stickers
+							</Button>
+						</Flex>
+
 						{/* <Flex as="article">
 							<Text as="h3">Learn to PCB</Text>
 							<Text as="p">Watch Maggie’s intro video to learn how to make a simple circuit board from start to end.</Text>
-							<Button variant="outline" as="a" href="javascript:void(0)" target="_blank">
+							<Button variant="outline" as="a" href="https://airtable.com/shrOOU2ZZFYtffUVz" target="_blank">
 								Watch Tutorial
 							</Button>
 						</Flex> */}
@@ -721,7 +729,7 @@ const ShipPage = () => {
 					}}
 				/>
 
-				<Flex
+				{/* <Flex
 					as="a"
 					href="javascript:void(0)"
 					target="_blank"
@@ -747,7 +755,7 @@ const ShipPage = () => {
 					}}
 				>
 					{stickerButtonText.split(' ').map((line, i) => <div key={i}>{line}</div>)}
-				</Flex>
+				</Flex> */}
 			</Box>
 
 			<Footer dark />
