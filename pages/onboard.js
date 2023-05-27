@@ -309,7 +309,14 @@ const ShipPage = () => {
 							</Heading>
 
 							<Box sx={{ mt: 16 }}>
-								<Button variant="ctaLg" as="a" href="#apply">
+								<Button
+									variant="ctaLg"
+									as="a"
+									href="#apply"
+									sx={{
+										background: t => t.util.gx('#60cc38', '#113b11')
+									}}
+								>
 									How do I apply?
 								</Button>
 							</Box>
