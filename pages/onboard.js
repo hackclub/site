@@ -692,13 +692,13 @@ const ShipPage = () => {
 							</Button>
 						</Flex>
 
-						<Flex as="article">
+						{/* <Flex as="article">
 							<Text as="h3">Learn to PCB</Text>
 							<Text as="p">Watch Maggie’s intro video to learn how to make a simple circuit board from start to end.</Text>
 							<Button variant="outline" as="a" href="javascript:void(0)" target="_blank">
 								Watch Tutorial
 							</Button>
-						</Flex>
+						</Flex> */}
 					</Grid>
 
 					<Flex sx={{ gap: 3, alignItems: 'center', textAlign: 'center', mt: '-16px' }}>
