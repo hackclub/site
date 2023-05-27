@@ -150,6 +150,9 @@ const Navigation = props => (
     </NextLink>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
     <Link href="https://workshops.hackclub.com/">Workshops</Link>
+    <NextLink href="/onboard" passHref>
+      <Link>OnBoard</Link>
+    </NextLink>
   </NavBar>
 )
 
