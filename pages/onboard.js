@@ -73,9 +73,9 @@ const ShipPage = () => {
 		const flicker = async () => {
 			if (canceled) return
 			setWandImg(wandImgTraced)
-			await sleep(Math.random() * 20 + 7); if (canceled) return
+			await sleep(Math.random() * 80 + 10); if (canceled) return
 			setWandImg(wandImgRendered)
-			setTimeout(flicker, Math.random() * 3000 + 500)
+			setTimeout(flicker, Math.random() * 4000 + 500)
 		}
 
 		const animate = async () => {
