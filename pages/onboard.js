@@ -433,10 +433,10 @@ const ShipPage = () => {
 								}}
 							>
 								{[
-									'Design a PCB using any tool that can export Gerber files.',
-									'Make sure your PCB can be printed by JLCPCB and they will ship to your country.',
+									(<><strong>Design a PCB</strong> using any tool that can export Gerber files.</>),
+									(<><strong>Upload your design</strong> to JLCPCB and take a screenshot.</>),
 									(<>
-										Open source your design on GitHub and{' '}
+										<strong>Open source your design</strong> on GitHub and{' '}
 										<Link href="https://github.com/hackclub/OnBoard/blob/main/DIRECTIONS.md" target="_blank">apply for the grant</Link>!{' '}
 										You must be a teenager in high school to apply.
 									</>)
