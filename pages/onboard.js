@@ -288,16 +288,27 @@ const ShipPage = () => {
 
 				<Flex sx={{ p: 4, flexDirection: 'column', alignItems: 'center', zIndex: 5, position: 'relative' }}>
 					<Flex sx={{ pt: 80, width: '100%', maxWidth: 'layout', alignItems: 'center' }}>
-						<Flex sx={{ flex: 1, flexDirection: 'column', gap: 4 }}>
-							<Heading as="h1" sx={{ fontSize: 5, maxWidth: 'copyPlus' }}>
-								<Balancer ratio={.3}>Circuit boards are <Sparkles>magical</Sparkles>.</Balancer>
+						<Flex sx={{ flex: 1, flexDirection: 'column', gap: 25 }}>
+							<Heading
+								as="h1"
+								sx={{
+									fontSize: 80,
+									maxWidth: 'copyPlus',
+									textShadow: '0 0 30px rgba(42, 252, 88, 0.6)',
+									color: '#87ffa1'
+								}}
+							>
+								<Balancer ratio={.3}>OnBoard</Balancer>
 							</Heading>
 
-							<Heading as="div" sx={{ fontSize: 4, maxWidth: 'copyPlus' }}>
-								<Balancer ratio={.3}>You design one, we'll print it. Hop #OnBoard!</Balancer>
+							<Heading as="div" sx={{ fontSize: 4, fontWeight: 400, maxWidth: 'copyPlus' }}>
+								<Balancer ratio={.3}>
+									Circuit boards are <Sparkles><Text sx={{ fontWeight: 400 }}>magical</Text></Sparkles>.{' '}
+									You design one, we'll print it!
+								</Balancer>
 							</Heading>
 
-							<Box sx={{ mt: 2 }}>
+							<Box sx={{ mt: 16 }}>
 								<Button variant="ctaLg" as="a" href="#apply">
 									How do I apply?
 								</Button>
