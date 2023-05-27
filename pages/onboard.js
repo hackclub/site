@@ -282,7 +282,7 @@ const ShipPage = () => {
 							}
 						}}
 					>
-						<a href="javascript:void(0)" target="_blank">
+						<a href="https://github.com/maggie-j-liu/orpheus-keychain" target="_blank">
 							<Flex as="article">
 								<Text as="p" sx={{ pr: 80 }}>
 									Make a <strong>keychain</strong> that has a <strong>light up dino</strong> on it.
@@ -303,7 +303,7 @@ const ShipPage = () => {
 							</Flex>
 						</a>
 
-						<a href="javascript:void(0)" target="_blank">
+						<a href="https://github.com/hackclub/sprig-hardware" target="_blank">
 							<Flex as="article">
 								<Text as="p" sx={{ pr: 100 }}>
 									Design a <strong>movement sensor</strong> add-on to an open source <strong>game console</strong>.
@@ -342,7 +342,7 @@ const ShipPage = () => {
 							</Flex>
 						</a>
 							
-						<a href="javascript:void(0)" target="_blank">
+						<a href="https://github.com/maggie-j-liu/macropad" target="_blank">
 							<Flex as="article">
 								<Text as="p" sx={{ pr: 170 }}>
 									Come up with your own custom <strong>keyboard layout</strong>.
