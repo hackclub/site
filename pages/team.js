@@ -428,6 +428,12 @@ export default function Team() {
                       pronouns="he/him"
                       spanTwo
                     />
+                     <Bio
+                      name="Arav Narula"
+                      teamRole="Moderation & Events"
+                      img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
+                      pronouns="he/him"
+                    />
                   </Grid>
                 </Box>
               </Box>
