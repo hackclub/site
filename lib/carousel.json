@@ -70,5 +70,14 @@
     "description": "100+ coding workshops to build a project in under an hour",
     "img": "https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f4bb@2x.png",
     "link": "https://workshops.hackclub.com"
+  },
+  {
+    "background": "dark",
+    "titleColor": "green",
+    "descriptionColor": "white",
+    "title": "Circuit boards",
+    "description": "Join 1k teens designing PCBs, learning hardware, and building electronics",
+    "img": "https://cloud-jrox24mrn.vercel.app/orpheus_leap_micro_final.png",
+    "link": "/onboard"
   }
 ]
