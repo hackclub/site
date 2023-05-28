@@ -43,6 +43,9 @@ const JoinForm = ({ sx = {} }) => {
             }}
           >
             <Text variant="headline" sx={{ fontSize: 3 }}>
+              {eventReferrer == "onboard"" (
+               We can't wait to see your PCB! 
+              )
               We can't wait to see you at {eventReferrer}! {''}
             </Text>
             <br />
