@@ -27,7 +27,6 @@ import Bank from '../components/index/cards/bank'
 import Hackathons from '../components/index/cards/hackathons'
 import AssembleImgFile from '../public/home/assemble.jpg'
 import Announcement from '../components/announcement'
-import AngelHacks from '../components/index/cards/angelhacks'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
@@ -637,7 +636,6 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <AngelHacks />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
