@@ -111,12 +111,6 @@ export default function Features() {
             </Tilt>
           </Fade> */}
           <Module
-            icon="explore"
-            name="Transparency Grant"
-            body="Get a $250 grant when you join, available for the first 1,000 teams who sign up before June 1st, 2023."
-            iconColor="#D4AF37"
-          />
-          <Module
             icon="support"
             name="Support anytime"
             body="With 24-hour response time on weekdays, we'll never leave you hanging."
