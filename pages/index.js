@@ -179,10 +179,10 @@ function Page({
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
           <Announcement
-            copy="Hop OnBoard."
-            caption="Join 1k high schoolers in designing your first circuit board!"
-            href="https://hackclub.com/onboard"
-            iconLeft="explore"
+            copy="Join us at Outernet"
+            caption="July 28-31, we are building a hacker oasis IRL together."
+            href="https://outernet.hackclub.com"
+            iconLeft="rainbow"
             color="primary"
           />
           <Box
