@@ -9,6 +9,15 @@
     "link": "https://sprig.hackclub.com"
   },
   {
+    "background": "#fff",
+    "titleColor": "black",
+    "descriptionColor": "muted",
+    "title": "Haxidraw",
+    "description": "Make art with machines",
+    "img": "https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/270d-fe0f@2x.png",
+    "link": "https://haxidraw.hackclub.com"
+  },
+  {
     "background": "blue",
     "titleColor": "white",
     "textColor": "white",
