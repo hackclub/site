@@ -751,15 +751,19 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
+              <Onboard 
+                  delay={200} 
+                  stars={stars.onboard.stargazerCount}
+              />
+              <Sinerider delay={300} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
-                  delay={300}
+                  delay={400}
                   stars={stars.sprigHardware.stargazerCount}
                   consoleCount={consoleCount}
                 />
               </Box>
-              <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
+              <Workshops delay={500} stars={stars.hackclub.stargazerCount} />
             </Box>
           </Box>
           <Box
