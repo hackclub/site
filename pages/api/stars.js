@@ -11,6 +11,7 @@ export async function fetchStars() {
       sprigHardware: '?',
       hackclub: '?',
       hackathons: '?'
+      onboard: '?',
     }
   }
   const { organization } = await graphql(
@@ -30,6 +31,9 @@ export async function fetchStars() {
             stargazerCount
           }
           sprigHardware: repository(name: "sprig-hardware") {
+            stargazerCount
+          }
+          onboard: repository(name: "onboard") {
             stargazerCount
           }
         }
