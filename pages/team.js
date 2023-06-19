@@ -166,23 +166,10 @@ export default function Team() {
                       pronouns="she/her"
                     />
                     <Bio
-                      name="Al Harder-Hyde"
-                      teamRole="Project Manager"
-                      img="https://scrapbook.hackclub.com/al.png"
-                      pronouns="they/them"
-                    />
-                    <Bio
                       name="Lexi Mattick"
                       teamRole="Clubs Engineering"
                       text="Always driven by curiosity for how things work, Lexi fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. She spends her time programming, making music, and studying for her private pilot license; at Hack Club, she spends her time working on whatever fantastic project is happening in the present moment."
                       img="https://media.kognise.dev/other-avatars/bean-man.jpg"
-                      pronouns="she/her"
-                    />
-                    <Bio
-                      name="Ella Xu"
-                      teamRole="Clubs Engineering"
-                      text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
-                      img="https://scrapbook.hackclub.com/ella.png"
                       pronouns="she/her"
                     />
                     <Bio
@@ -343,13 +330,6 @@ export default function Team() {
                       pronouns="he/him"
                     />
                     <Bio
-                      name="Kunal Botla"
-                      teamRole="Operations"
-                      text={`Kunal loves to make for making! He started Project Boom to help provide computers, helps build and run Hack Club Bank, and is organizing MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
-                      img="https://github.com/kunalbotla.png"
-                      pronouns="he/him"
-                    />
-                    <Bio
                       name="Arianna Martinelli"
                       teamRole="Operations"
                       text={`Arianna is a Hack Clubber from Kentucky excited about how technology and humans can work together to solve problems. She joined Hack Club in 2020 to start a club at her all-girls high school and to learn from a community of fellow coders, and she joined Hack Club Bank in 2021 to fiscally sponsor her non-profit Tandem. She loves swimming, trees, videography, film photography, reading Joan Didion, Formula 1, making memes, and crafting cards with puns.`}
@@ -362,6 +342,7 @@ export default function Team() {
                       text="Deven is a Hack Clubber from India who enjoys building meaningful things at the intersections of art and technology. He also loves music and plays the guitar & drums! Along with this, he also likes talking to strangers over the internet and having interesting & deep conversations. He is also a sucker for nature photography and enjoys hikes and treks into the wild!"
                       img="https://github.com/devenjadhav.png"
                       pronouns="he/him"
+                      spanTwo
                     />
                   </Grid>
                 </Box>
@@ -466,6 +447,26 @@ export default function Team() {
               </Text>
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
+              <Bio
+                name="Kunal Botla"
+                teamRole="Operations"
+                text={`Kunal loves to make for making! He started Project Boom to help provide computers, helped build and run Hack Club Bank, and organized MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
+                img="https://github.com/kunalbotla.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Al Harder-Hyde"
+                teamRole="Project Manager"
+                img="https://scrapbook.hackclub.com/al.png"
+                pronouns="they/them"
+              />
+              <Bio
+                name="Ella Xu"
+                teamRole="Clubs Engineering"
+                text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
+                img="https://scrapbook.hackclub.com/ella.png"
+                pronouns="she/her"
+              />
               <Bio
                 name="Cedric Hutchings"
                 teamRole="Constructionist"
