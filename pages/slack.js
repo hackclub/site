@@ -1,9 +1,19 @@
 import { keyframes } from '@emotion/react'
+import { useState } from 'react'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import useSWR from 'swr'
-import { Badge, Box, Card, Container, Grid, Heading, Text } from 'theme-ui'
+import {
+  Badge,
+  Box,
+  Card,
+  Container,
+  Grid,
+  Heading,
+  Text,
+  Button
+} from 'theme-ui'
 import Footer from '../components/footer'
 import ForceTheme from '../components/force-theme'
 import Icon from '../components/icon'
@@ -12,6 +22,7 @@ import Header from '../components/slack/header'
 import SlackEvents from '../components/slack/slack-events'
 import Stat from '../components/stat'
 import fetcher from '../lib/fetcher'
+// import {} from '../public/slack/frame1.png'
 import { formatted, thousands } from '../lib/members'
 
 const zoomSlide = keyframes({
@@ -21,64 +32,20 @@ const zoomSlide = keyframes({
 
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
+
+
 const SlackPage = () => {
+  const [listStatus, setListStatus] = useState('all')
+  const [focus, setFocus] = useState({all: true, trending: false})
   const { data: millionCount } = useSWR(
     'https://jia.haas.hackclub.com/api/currentNumber',
     fetcher,
     { refreshInterval: 1000 }
   )
 
-  return (
-    <>
-      <Meta
-        as={Head}
-        name="Join our Slack"
-        description={`The Hack Club Slack is a community of ${thousands}k+ high school hackers around the world. Chat, meet new friends, code together, share your work.`}
-        image="https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/02020-07-25_d2dd4egb1th5k71w4uj0abbfkvvtnc01.jpeg"
-      />
-      <ForceTheme theme="light" />
-      <Nav />
-      <Header />
-      <Container sx={{ py: [4, 5] }}>
-        <Grid
-          columns={[2, 5]}
-          gap={2}
-          sx={{ maxWidth: 'copyPlus', alignItems: 'end' }}
-        >
-          <Stat
-            value={`${thousands}k+`}
-            label="total members"
-            color="red"
-            lg
-            sx={{ gridColumn: 'span 2' }}
-          />
-          <Stat value={6} label="continents" />
-          <Stat value="1M+" label="messages/yr" />
-        </Grid>
-        <Text
-          variant="subtitle"
-          as="p"
-          sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3, mb: [3, 4] }}
-        >
-          Have a coding question? Looking for project feedback? You’ll find some
-          fabulous people to talk to in our global Slack (Discord-style online
-          groupchat) with {formatted}+ members, active at all hours.
-        </Text>
-        <Heading
-          as="h2"
-          variant="title"
-          sx={{ mt: [4, 5], color: 'black', maxWidth: 'copyUltra' }}
-        >
-          Channels for every interest.
-        </Heading>
-        <Text
-          as="p"
-          variant="subtitle"
-          sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3 }}
-        >
-          Across 2,000 public channels, find the community for your favorite
-          programming language, ask for advice, or just hang out.
-        </Text>
+  const BannerSection = ({status}) => {
+    if (status === 'trending') {
+      return (
         <Grid
           columns={[2, 9, 15]}
           gap={3}
@@ -125,42 +92,6 @@ const SlackPage = () => {
             }
           }}
         >
-          <Box
-            as="aside"
-            sx={{
-              gridRow: [null, 'span 2'],
-              gridColumn: ['span 2', 'span 3'],
-              maxHeight: '100%',
-              overflow: 'hidden'
-            }}
-          >
-            <Heading
-              as="h2"
-              variant="subheadline"
-              sx={{
-                mt: 0,
-                mb: 0,
-                color: 'red',
-                textTransform: 'uppercase',
-                letterSpacing: 'headline'
-              }}
-            >
-              Live from our&nbsp;Slack <br />
-            </Heading>
-            <Text
-              as="p"
-              variant="caption"
-              sx={{
-                fontSize: 1,
-                fontWeight: 300,
-                fontStyle: 'italic',
-                mb: '16px'
-              }}
-            >
-              Waiting for more messages...
-            </Text>
-            <SlackEvents />
-          </Box>
           <NextLink href="/ship" passHref>
             <Card
               as="a"
@@ -178,30 +109,16 @@ const SlackPage = () => {
               <Text as="p">Launch your latest projects & get feedback</Text>
             </Card>
           </NextLink>
+
           <Card
             as="a"
-            href="https://scrapbook.hackclub.com/"
             variant="interactive"
+            bg="red"
             sx={{
-              gridColumn: ['span 2', 'span 5'],
-              bg: 'dark',
-              backgroundImage: t => t.util.gx('yellow', 'orange')
+              gridColumn: ['span 2 !important', 'span 6 !important']
             }}
           >
             <Icon glyph="external" size={24} />
-            <Heading as="h3" variant="headline">
-              #scrapbook
-            </Heading>
-            <Text as="p">A daily diary of project updates</Text>
-          </Card>
-          <Card
-            bg="red"
-            sx={{
-              gridColumn: ['span 2 !important', 'span 2 !important'],
-              gridRow: ['span 1 !important', 'span 3 !important'],
-              writingMode: ['lr-tb', 'tb-rl']
-            }}
-          >
             <Heading as="h3">#counttoamillion</Heading>
             <Text as="p" sx={{ display: 'flex', alignItems: 'baseline' }}>
               We’re at{' '}
@@ -215,10 +132,24 @@ const SlackPage = () => {
               !
             </Text>
           </Card>
-          <Card bg="cyan">
-            <h3>#lounge</h3>
+          <Card
+            variant="interactive"
+            as="a"
+            bg="yellow"
+            sx={{
+              backgroundImage: 'url(../public/slack/frame1.png)',
+              backgroundSize: '100%',
+              backgroundPosition: 'center',
+              textShadow: 'text',
+              gridColumn: ['span 2', 'span 4 !important']
+            }}
+          >
+            <Icon glyph="external" size={24} />
+            <h3>#dogs</h3>
           </Card>
           <Card
+            variant="interactive"
+            as="a"
             sx={{
               backgroundImage:
                 'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/12020-07-25_fqxym71bmqjr1d35btawn5q6ph1zt0mk.png)',
@@ -226,44 +157,207 @@ const SlackPage = () => {
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: '100% auto',
-              gridColumn: ['span 2', 'span 3 !important', 'span 4 !important'],
+              gridColumn: ['span 2', 'span 5 !important'],
+              gridRow: ['span 2', 'span 4 !important'],
               h3: { opacity: 0 }
             }}
           >
+            <Icon glyph="external" size={24} />
             <h3>#design</h3>
           </Card>
           <Card
+            variant="interactive"
+            as="a"
             bg="dark"
-            sx={{ h3: { color: 'green', textShadow: '0 0 4px currentColor' } }}
+            sx={{
+              h3: { color: 'green', textShadow: '0 0 4px currentColor' },
+              gridColumn: ['span 2', 'span 5 !important'],
+              gridRow: ['span 2', 'span 4 !important']
+            }}
           >
+            <Icon glyph="external" size={24} />
             <h3>#code</h3>
           </Card>
+
           <Card
+            variant="interactive"
+            as="a"
+            bg="purple"
+            sx={{
+              gridColumn: ['span 2', 'span 5 !important'],
+              gridRow: ['span 2', 'span 4 !important']
+            }}
+          >
+            <Icon glyph="external" size={24} />
+            <h3>#music</h3>
+          </Card>
+        </Grid>
+      )
+    } else if(status === 'all') {
+      return (
+        <Grid
+          columns={[2, 9, 15, 22]}
+          gap={3}
+          sx={{
+            py: [3, 4],
+            h3: { my: 0 },
+            '> div': {
+              px: [2, 3],
+              py: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              gridColumn: ['span 1', 'span 3']
+            },
+            a: {
+              position: 'relative',
+              ':hover,:focus': {
+                svg: {
+                  transform: 'translateX(28px) translateY(-28px)',
+                  opacity: 0
+                }
+              }
+            },
+            svg: {
+              position: 'absolute',
+              top: 2,
+              right: 2,
+              fill: 'white',
+              transition:
+                'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+            },
+            h3: {
+              variant: 'text.headline',
+              color: 'white',
+              lineHeight: 'title',
+              m: 0,
+              '+ p': {
+                mt: 2,
+                color: 'white',
+                opacity: 0.75,
+                fontSize: 2,
+                lineHeight: 'caption'
+              }
+            }
+          }}
+        >
+          <NextLink href="/ship" passHref>
+            <Card
+              as="a"
+              variant="interactive"
+              sx={{
+                gridColumn: ['span 2', 'span 6'],
+                bg: 'blue',
+                backgroundImage: t => t.util.gx('cyan', 'blue')
+              }}
+            >
+              <Icon glyph="external" size={24} />
+              <Heading as="h3" variant="headline">
+                #ship
+              </Heading>
+              <Text as="p">Launch your latest projects & get feedback</Text>
+            </Card>
+          </NextLink>
+          <Card
+            as="a"
+            href="https://scrapbook.hackclub.com/"
+            variant="interactive"
+            sx={{
+              gridColumn: ['span 2', 'span 6'],
+              bg: 'dark',
+              backgroundImage: t => t.util.gx('yellow', 'orange')
+            }}
+          >
+            <Icon glyph="external" size={24} />
+            <Heading as="h3" variant="headline">
+              #scrapbook
+            </Heading>
+            <Text as="p">A daily diary of project updates</Text>
+          </Card>
+          <Card
+            as="a"
+            variant="interactive"
+            bg="red"
+            sx={{
+              gridColumn: ['span 2 !important', 'span 7 !important']
+            }}
+          >
+            <Icon glyph="external" size={24} />
+            <Heading as="h3">#counttoamillion</Heading>
+            <Text as="p" sx={{ display: 'flex', alignItems: 'baseline' }}>
+              We’re at{' '}
+              <Badge
+                variant="outline"
+                as="span"
+                sx={{ ml: [2, 0], mt: [0, 2], px: [2, 0], py: [0, 2] }}
+              >
+                {millionCount ? withCommas(millionCount.number) : '???'}
+              </Badge>
+              !
+            </Text>
+          </Card>
+          <Card
+            variant="interactive"
+            as="a"
             bg="yellow"
             sx={{
-              backgroundImage:
-                'url(https://assets.hackclub.com/log/2020-06-29_dog.jpg)',
+              backgroundImage: 'url(../public/slack/frame1.png)',
               backgroundSize: '100%',
               backgroundPosition: 'center',
               textShadow: 'text',
               gridColumn: ['span 2', 'span 3 !important']
             }}
           >
+            <Icon glyph="external" size={24} />
             <h3>#dogs</h3>
           </Card>
-          <Card bg="purple">
+          <Card
+            variant="interactive"
+            as="a"
+            sx={{
+              backgroundImage:
+                'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/12020-07-25_fqxym71bmqjr1d35btawn5q6ph1zt0mk.png)',
+              backgroundColor: '#FEC62E',
+              backgroundPosition: 'center center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '100% auto',
+              gridColumn: ['span 2', 'span 5 !important'],
+              gridRow: ['span 2', 'span 4 !important'],
+              h3: { opacity: 0 }
+            }}
+          >
+            <Icon glyph="external" size={24} />
+            <h3>#design</h3>
+          </Card>
+          <Card
+            variant="interactive"
+            as="a"
+            bg="dark"
+            sx={{
+              h3: { color: 'green', textShadow: '0 0 4px currentColor' },
+              gridColumn: ['span 2', 'span 5 !important'],
+              gridRow: ['span 2', 'span 4 !important']
+            }}
+          >
+            <Icon glyph="external" size={24} />
+            <h3>#code</h3>
+          </Card>
+
+          <Card
+            variant="interactive"
+            as="a"
+            bg="purple"
+            sx={{
+              gridColumn: ['span 2', 'span 5 !important'],
+              gridRow: ['span 2', 'span 4 !important']
+            }}
+          >
+            <Icon glyph="external" size={24} />
             <h3>#music</h3>
           </Card>
           <Card
-            bg="red"
-            sx={{
-              backgroundImage: ({ colors }) =>
-                `linear-gradient(-184deg, ${colors.red} 0%, ${colors.red} 16.6666%, ${colors.orange} 16.6666%, ${colors.orange} 33.333%, ${colors.yellow} 33.333%, ${colors.yellow} 50%, ${colors.green} 50%, ${colors.green} 66.6666%, ${colors.blue} 66.6666%, ${colors.blue} 83.3333%, ${colors.purple} 83.3333%, ${colors.purple} 100%)`
-            }}
-          >
-            <h3>#lgbtq</h3>
-          </Card>
-          <Card
+            variant="interactive"
+            as="a"
             sx={{
               bg: 'dark',
               backgroundImage:
@@ -271,19 +365,78 @@ const SlackPage = () => {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               textShadow: 'text',
-              gridColumn: ['span 2 !important', 'span 4 !important']
+              gridColumn: ['span 2 !important', 'span 7 !important']
             }}
           >
+            <Icon glyph="external" size={24} />
             <h3>#photography</h3>
           </Card>
         </Grid>
+      )
+    }
+  }
+  
+  const handleNewTrend = (status) => {
+    if(status === 'all'){
+      setListStatus('all')
+      setFocus({ all: true, trending: false})
+    }else if(status === 'trending'){
+      setListStatus('trending')
+      setFocus({ trending: true, all: false })
+    }
+  }
+
+  return (
+    <>
+      <Meta
+        as={Head}
+        name="Join our Slack"
+        description={`The Hack Club Slack is a community of ${thousands}k+ high school hackers around the world. Chat, meet new friends, code together, share your work.`}
+        image="https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/02020-07-25_d2dd4egb1th5k71w4uj0abbfkvvtnc01.jpeg"
+      />
+      <ForceTheme theme="light" />
+      <Nav />
+      <Header />
+      <Container sx={{ py: [4, 5] }}>
+        <Grid
+          columns={[2, 5]}
+          gap={2}
+          sx={{ maxWidth: 'copyPlus', alignItems: 'end' }}
+        ></Grid>
         <Heading
           as="h2"
           variant="title"
           sx={{ mt: [4, 5], color: 'black', maxWidth: 'copyUltra' }}
         >
-          Events on Zoom that don’t suck.
+          Channels for every interest.
         </Heading>
+        <Text
+          as="p"
+          variant="subtitle"
+          sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3 }}
+        >
+          Across 2,000 public channels, find the community for your favorite
+          programming language, ask for advice, or just hang out.
+        </Text>
+        <Box sx={{ mt: 4 }}>
+          <Button onClick={() => handleNewTrend('all')} sx={{ mr: 2, backgroundColor: focus.all ? 'blue' : 'rgba(199, 201, 201)', color: focus.all ? 'white' : 'black'}}>
+            All
+          </Button>
+          <Button onClick={() => handleNewTrend('trending')} sx={{backgroundColor: focus.trending ? 'blue' : 'rgba(199, 201, 201)', color: focus.trending ? 'white' : 'black'}}>trending</Button>
+        </Box>
+        <BannerSection status={listStatus} />
+        <Heading
+          as="h2"
+          variant="title"
+          sx={{ mt: [4, 5], color: 'black', maxWidth: 'copyUltra' }}
+        >
+          Zoom events that are enjoyable.
+        </Heading>
+        <Text>
+          Elevate your Zoom experience with events that don't disappoint and
+          also get familiar with some of our zooms events that are <br />
+          very interesting.
+        </Text>
         <Grid
           columns={[null, 2]}
           gap={[3, 4]}
@@ -385,14 +538,7 @@ const SlackPage = () => {
             href="https://events.hackclub.com/"
             variant="interactive"
             sx={{
-              bg: '#3b6fce',
-              backgroundImage:
-                'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/52020-07-25_zoomus-icon.svg)',
-              backgroundRepeat: 'repeat-x',
-              backgroundPosition: '0 bottom',
-              '@media (prefers-reduced-motion: no-preference)': {
-                animation: `${zoomSlide} 2s linear infinite`
-              }
+              bg: '#3b6fce'
             }}
           >
             <Icon glyph="external" size={24} />
@@ -406,4 +552,20 @@ const SlackPage = () => {
   )
 }
 
+
+
 export default SlackPage
+
+//card i removed
+
+{
+  /* <Card
+            bg="red"
+            sx={{
+              backgroundImage: ({ colors }) =>
+                `linear-gradient(-184deg, ${colors.red} 0%, ${colors.red} 16.6666%, ${colors.orange} 16.6666%, ${colors.orange} 33.333%, ${colors.yellow} 33.333%, ${colors.yellow} 50%, ${colors.green} 50%, ${colors.green} 66.6666%, ${colors.blue} 66.6666%, ${colors.blue} 83.3333%, ${colors.purple} 83.3333%, ${colors.purple} 100%)`
+            }}
+          >
+            <h3>#lgbtq</h3>
+          </Card> */
+}
