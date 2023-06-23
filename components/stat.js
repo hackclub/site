@@ -19,6 +19,7 @@ const Stat = ({
     sx={{
       fontFamily: 'heading',
       flexDirection: reversed ? 'column-reverse' : 'column',
+      alignItems: 'center',
       lineHeight: 1,
       ...props.sx
     }}
@@ -79,6 +80,7 @@ const Stat = ({
         sx={{
           fontSize: lg ? [2, 3] : sm ? [0, 0] : [1, 1],
           color: 'white',
+          textAlign: 'center !important',
           letterSpacing: 'headline',
           textTransform: 'uppercase'
         }}

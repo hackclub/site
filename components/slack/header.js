@@ -38,7 +38,7 @@ const Content = ({sx}) => (
           color: 'white',
           textShadow: 'text',
           textAlign: ['center', 'center'],
-          '@media screen and (max-width: 40em)': {
+          '@media screen and (max-width: 900px)': {
             display: 'flex',
             flexDirection: 'column',
             position: 'initial'
@@ -68,7 +68,6 @@ const Content = ({sx}) => (
             position: 'absolute',
             right: 68,
             zIndex: -2,
-            
             top: -5,
             background: 'rgba(225, 225, 225, 0.2)',
             boxShadow: '0px 4px 30px rgba(0, 0, 0, 0.1)',
@@ -78,7 +77,13 @@ const Content = ({sx}) => (
             borderRadius: 6,
             px: '24px',
             py: '7px',
-            '@media screen and (max-width: 40em)': {
+            '@media screen and (max-width: 1200px)': {
+              position: 'initial',
+              mx: 'auto',
+              justifyContent: 'space-around',
+              width: '65%'
+            },
+            '@media screen and (max-width: 720px)':{
               position: 'initial',
               mx: 'auto',
               width: '95%'
@@ -89,10 +94,10 @@ const Content = ({sx}) => (
             value={`${thousands}k+`}
             label="total members"
             color="white"
-            half
+            sm
           />
-          <Stat value={6} label="continents" half color="white" />
-          <Stat value="1M+" label="messages/yr" half color="white" />
+          <Stat value={6} label="continents" sm color="white" />
+          <Stat value="1M+"  label="messages/yr" sm color="white" />
         </Box>
       </Box>
     </Box>
