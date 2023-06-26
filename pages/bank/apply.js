@@ -58,7 +58,7 @@ export default function Apply() {
   const requiredFields = [
     [],
     ['eventName', 'eventLocation'],
-    ['firstName', 'lastName', 'userEmail', 'contactOption']
+    ['firstName', 'lastName', 'userEmail', 'userBirthday', 'contactOption']
   ]
 
   useEffect(() => {
