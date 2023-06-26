@@ -1,13 +1,17 @@
-import { Input, Flex } from 'theme-ui'
+import { Input, Flex, Label, Radio } from 'theme-ui'
 import Checkbox from './checkbox'
 import AddressInput from './address-input'
 import Field from './field'
 import AutofillColourFix from './autofill-colour-fix'
+import { useState } from 'react'
 
 export default function PersonalInfoForm({
   setValidationResult,
   requiredFields
 }) {
+	const [selectedContactOption, setSelectedContactOption] = useState(null);
+	const [email, setEmail] = useState(null); // For display only, is not used for data submission.
+
   return (
     <>
       <Flex sx={{ justifyContent: 'space-between', gap: 4 }}>
@@ -42,6 +46,7 @@ export default function PersonalInfoForm({
           id="userEmail"
           type="email"
           placeholder="fiona@hackclub.com"
+		  onInput={(e) => setEmail(e.target.value)}
           sx={{ ...AutofillColourFix }}
         />
       </Field>
@@ -102,6 +107,60 @@ export default function PersonalInfoForm({
           isPersonalAddressInput={true}
           setValidationResult={setValidationResult}
         />
+      </Field>
+
+      <Field
+        name="contactOption"
+        label="Preferred contact channel"
+        description="So we know where to message you about your application!"
+        requiredFields={requiredFields}
+      >
+        <Flex sx={{ gap: 4 }}>
+          <Label
+            sx={{
+              display: 'flex',
+              flexDirection: 'row'
+            }}
+          >
+            <Radio
+              name="contactOption"
+              value="email"
+			  defaultChecked={true}
+              onInput={() => setSelectedContactOption("Email")}
+            />
+            Email
+          </Label>
+          <Label
+            sx={{
+              display: 'flex',
+              flexDirection: 'row'
+            }}
+          >
+            <Radio
+              name="contactOption"
+              value="slack"
+              onInput={() => setSelectedContactOption("Slack")}
+            />
+            Slack
+          </Label>
+        </Flex>
+		{selectedContactOption === "Slack" ? (
+			<Field
+				name="slackUsername"
+				requiredFields={requiredFields}
+			>
+				<Input
+					name="slackUsername"
+					id="slackUsername"
+					placeholder="Your name in the Hack Club Slack"
+					sx={{ ...AutofillColourFix }}
+				/>
+			</Field>
+		  ) : (selectedContactOption === "Email" ? (
+			<div>
+				We'll use {email ?? "whatever you put for your email above!"}
+			</div>
+		  ) : null)}
       </Field>
     </>
   )

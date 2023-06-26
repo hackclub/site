@@ -15,28 +15,37 @@ import PersonalInfoForm from '../../components/bank/apply/personal-form'
 import AlertModal from '../../components/bank/apply/alert-modal'
 import { geocode } from '../../lib/bank/apply/address-validation'
 
-const valiadateAddress = async (step) => {
+const valiadateAddress = async step => {
   // Validate the address
   if (step === 3) {
     // Get the raw personal address input
-    const userAddress = sessionStorage.getItem(
-      'bank-signup-userAddress'
-    )
-  
-  console.log(userAddress)
+    const userAddress = sessionStorage.getItem('bank-signup-userAddress')
+
+    console.log(userAddress)
     if (!userAddress) return
 
     const result = await geocode(userAddress)
 
-    const addrComp = type =>
-      result.results[0].structuredAddress[type] ?? ''
+    const addrComp = type => result.results[0].structuredAddress[type] ?? ''
 
-    sessionStorage.setItem('bank-signup-addressLine1', addrComp('fullThoroughfare'))
+    sessionStorage.setItem(
+      'bank-signup-addressLine1',
+      addrComp('fullThoroughfare')
+    )
     sessionStorage.setItem('bank-signup-addressCity', addrComp('locality'))
-    sessionStorage.setItem('bank-signup-addressState', addrComp('administrativeArea'))
+    sessionStorage.setItem(
+      'bank-signup-addressState',
+      addrComp('administrativeArea')
+    )
     sessionStorage.setItem('bank-signup-addressZip', addrComp('postCode'))
-    sessionStorage.setItem('bank-signup-addressCountry', result.results[0].country ?? '')
-    sessionStorage.setItem('bank-signup-addressCountryCode', result.results[0].countryCode ?? '')
+    sessionStorage.setItem(
+      'bank-signup-addressCountry',
+      result.results[0].country ?? ''
+    )
+    sessionStorage.setItem(
+      'bank-signup-addressCountryCode',
+      result.results[0].countryCode ?? ''
+    )
   }
 }
 
@@ -49,7 +58,7 @@ export default function Apply() {
   const requiredFields = [
     [],
     ['eventName', 'eventLocation'],
-    ['firstName', 'lastName', 'userEmail']
+    ['firstName', 'lastName', 'userEmail', 'contactOption']
   ]
 
   useEffect(() => {
