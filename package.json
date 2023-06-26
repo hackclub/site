@@ -59,7 +59,7 @@
     "react-wrap-balancer": "^0.5.0",
     "recharts": "2.1.12",
     "styled-components": "^5.3.9",
-    "swr": "^2.1.2",
+    "swr": "^2.2.0",
     "theme-ui": "^0.14",
     "tinytime": "^0.2.6",
     "turndown": "^7.1.2",
