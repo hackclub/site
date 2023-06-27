@@ -9,8 +9,8 @@ export default function PersonalInfoForm({
   setValidationResult,
   requiredFields
 }) {
-	const [selectedContactOption, setSelectedContactOption] = useState(null);
-	const [email, setEmail] = useState(null); // For display only, is not used for data submission.
+	const [selectedContactOption, setSelectedContactOption] = useState("Email");
+	const [email, setEmail] = useState(window.sessionStorage.getItem('bank-signup-userEmail')); // For display only, is not used for data submission.
 
   return (
     <>
@@ -124,7 +124,7 @@ export default function PersonalInfoForm({
           >
             <Radio
               name="contactOption"
-              value="email"
+              value="Email"
 			  defaultChecked={true}
               onInput={() => setSelectedContactOption("Email")}
             />
@@ -138,7 +138,7 @@ export default function PersonalInfoForm({
           >
             <Radio
               name="contactOption"
-              value="slack"
+              value="Slack"
               onInput={() => setSelectedContactOption("Slack")}
             />
             Slack
