@@ -42,11 +42,11 @@ export default async function handler(req, res) {
           'Event Location': data.eventLocation,
           'Event Country Code': data.eventCountryCode,
           'Have you used Hack Club Bank for any previous events?':
-            data.returningUser
+            data.returningUser === 'true'
               ? 'Yes, I have used Hack Club Bank before'
               : 'No, first time!',
           'How did you hear about HCB?': data.referredBy,
-          'Transparent': data.transparent ? 'Yes, please!' : 'No, thanks.',
+          'Transparent': data.transparent === 'true' ? 'Yes, please!' : 'No, thanks.',
           'HCB account URL': `https://bank.hackclub.com/${r.slug}`,
 		  'Contact Option': data.contactOption,
 		  'Slack Username': data.slackUsername
