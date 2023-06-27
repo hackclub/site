@@ -50,7 +50,12 @@ const Stats = ({ stats }) => {
       e => {
         if (e[0].isIntersecting) {
           console.info('intersecting')
-          startMoneyAnimation(setBalance, stats.transactions_volume, 2_500, formatMoney)
+          startMoneyAnimation(
+            setBalance,
+            stats.transactions_volume,
+            2_500,
+            formatMoney
+          )
         }
       },
       { threshold: 1.0 }

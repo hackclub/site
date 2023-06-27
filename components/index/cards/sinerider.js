@@ -39,10 +39,10 @@ export default function Sinerider({ stars }) {
         <Box></Box>
         <Box sx={{ mt: ['-40px', '-40px', '-150px'] }}>
           <Text as="p" variant="subtitle">
-            SineRider is a game about love and graphing, powered by
-            teenage hackers of all kinds: artists, musicians, programmers,
-            storytellers… so if that’s you, come join us! We can always
-            use help keeping everything up to date and running smoothly.
+            SineRider is a game about love and graphing, powered by teenage
+            hackers of all kinds: artists, musicians, programmers, storytellers…
+            so if that’s you, come join us! We can always use help keeping
+            everything up to date and running smoothly.
           </Text>
           <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
             <Buttons

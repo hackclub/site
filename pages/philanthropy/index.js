@@ -1041,12 +1041,12 @@ const Philanthropy = ({ posts = [] }) => {
                     Endless Network
                   </Text>
                 </Fade>
-                 <Fade bottom delay={410}>
+                <Fade bottom delay={410}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Argosy Foundation
                   </Text>
                 </Fade>
-                  <Fade bottom delay={440}>
+                <Fade bottom delay={440}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Ron Baron
                   </Text>

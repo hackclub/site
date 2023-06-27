@@ -18,9 +18,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cloud-*-hack-club-bot.vercel.app',
-      },
-    ],
+        hostname: 'cloud-*-hack-club-bot.vercel.app'
+      }
+    ]
   },
   webpack: (config, { isServer }) => {
     if (isServer) require('./lib/sitemap')

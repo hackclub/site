@@ -148,7 +148,7 @@ const CardModel = ({
           ml: ['-24px', '-32px', '-32px', '-32px'],
           mt: ['-24px', '-32px', '-32px', '-32px'],
           zIndex: 0,
-		  filter,
+          filter
         }}
         alt=""
       />

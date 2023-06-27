@@ -408,7 +408,7 @@ export default function Team() {
                       img="https://scrapbook.hackclub.com/yednapg.png"
                       pronouns="he/him"
                     />
-                     <Bio
+                    <Bio
                       name="Arav Narula"
                       teamRole="Moderation & Events"
                       img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"

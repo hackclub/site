@@ -9,8 +9,10 @@ export default function PersonalInfoForm({
   setValidationResult,
   requiredFields
 }) {
-	const [selectedContactOption, setSelectedContactOption] = useState("Email");
-	const [email, setEmail] = useState(window.sessionStorage.getItem('bank-signup-userEmail')); // For display only, is not used for data submission.
+  const [selectedContactOption, setSelectedContactOption] = useState('Email')
+  const [email, setEmail] = useState(
+    window.sessionStorage.getItem('bank-signup-userEmail')
+  ) // For display only, is not used for data submission.
 
   return (
     <>
@@ -46,7 +48,7 @@ export default function PersonalInfoForm({
           id="userEmail"
           type="email"
           placeholder="fiona@hackclub.com"
-		  onInput={(e) => setEmail(e.target.value)}
+          onInput={e => setEmail(e.target.value)}
           sx={{ ...AutofillColourFix }}
         />
       </Field>
@@ -125,8 +127,8 @@ export default function PersonalInfoForm({
             <Radio
               name="contactOption"
               value="Email"
-			  defaultChecked={true}
-              onInput={() => setSelectedContactOption("Email")}
+              defaultChecked={true}
+              onInput={() => setSelectedContactOption('Email')}
             />
             Email
           </Label>
@@ -139,28 +141,25 @@ export default function PersonalInfoForm({
             <Radio
               name="contactOption"
               value="Slack"
-              onInput={() => setSelectedContactOption("Slack")}
+              onInput={() => setSelectedContactOption('Slack')}
             />
             Slack
           </Label>
         </Flex>
-		{selectedContactOption === "Slack" ? (
-			<Field
-				name="slackUsername"
-				requiredFields={requiredFields}
-			>
-				<Input
-					name="slackUsername"
-					id="slackUsername"
-					placeholder="Your name in the Hack Club Slack"
-					sx={{ ...AutofillColourFix }}
-				/>
-			</Field>
-		  ) : (selectedContactOption === "Email" ? (
-			<div>
-				We'll use {email ?? "whatever you put for your email above!"}
-			</div>
-		  ) : null)}
+        {selectedContactOption === 'Slack' ? (
+          <Field name="slackUsername" requiredFields={requiredFields}>
+            <Input
+              name="slackUsername"
+              id="slackUsername"
+              placeholder="Your name in the Hack Club Slack"
+              sx={{ ...AutofillColourFix }}
+            />
+          </Field>
+        ) : selectedContactOption === 'Email' ? (
+          <div>
+            We'll use {email ?? 'whatever you put for your email above!'}
+          </div>
+        ) : null}
       </Field>
     </>
   )

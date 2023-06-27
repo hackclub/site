@@ -97,18 +97,20 @@ export default function NavButton({
         we want all input values to be saved every time */
     let wasError = false
 
-	const formData = new FormData(form.current);
+    const formData = new FormData(form.current)
 
     // Save form data
-   	formData.forEach((value, key) => {
+    formData.forEach((value, key) => {
       sessionStorage.setItem('bank-signup-' + key, value)
 
       // Check if there are empty required fields.
       if (
-        !isBack &&
-        (!value || value.trim() === '') &&
-        requiredFields[step - 1].includes(key) ||
-		!isBack && formData.get("contactOption") === "slack" && !formData.get("slackUsername") // I'm so sorry for this
+        (!isBack &&
+          (!value || value.trim() === '') &&
+          requiredFields[step - 1].includes(key)) ||
+        (!isBack &&
+          formData.get('contactOption') === 'slack' &&
+          !formData.get('slackUsername')) // I'm so sorry for this
       ) {
         setFormError('Please fill all required fields')
         wasError = true

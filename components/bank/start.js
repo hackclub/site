@@ -1,10 +1,4 @@
-import {
-  Box,
-  Link,
-  Text,
-  Heading,
-  Flex,
-} from 'theme-ui'
+import { Box, Link, Text, Heading, Flex } from 'theme-ui'
 import Timeline from './timeline'
 import Stats from './stats'
 import ApplyButton from './apply-button'

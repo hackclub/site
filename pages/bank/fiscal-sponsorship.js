@@ -262,10 +262,9 @@ export default function FiscalSponsorship() {
             </Text>
           </FlexCol>
           <Text variant="headline">
-            Organizing an event, project, or organization to
-            serve the public good or your community? Consider
-            fiscal sponsorship before the pain of paperwork
-            distracts you from your goals.
+            Organizing an event, project, or organization to serve the public
+            good or your community? Consider fiscal sponsorship before the pain
+            of paperwork distracts you from your goals.
           </Text>
 
           <FlexCol gap={1} alignItems="center">
@@ -286,40 +285,41 @@ export default function FiscalSponsorship() {
             </BulletBox>
           </FlexCol>
           <Section id="costs-and-perks">
-            <Text variant="title">Why organizers go after 501(c)(3) status</Text>
+            <Text variant="title">
+              Why organizers go after 501(c)(3) status
+            </Text>
             <Text variant="lead">
-              Every year, 1.6 million nonprofits in the U.S.
-              apply for and renew 501(c)(3) status through
-              the IRS for charitable recognition and tax
-              exemption for their funding. It can take anywhere
-              from 2-12 months to hear a decision back from the
-              IRS, and in general, nonprofit organizers should be prepared for:
+              Every year, 1.6 million nonprofits in the U.S. apply for and renew
+              501(c)(3) status through the IRS for charitable recognition and
+              tax exemption for their funding. It can take anywhere from 2-12
+              months to hear a decision back from the IRS, and in general,
+              nonprofit organizers should be prepared for:
             </Text>
             <BulletBox>
               <Bullet glow={false} icon="sad">
                 $3,000 in <b>up-front costs</b>, from
-                <Link
-                  href="https://www.irs.gov/charities-non-profits/form-1023-and-1023-ez-amount-of-user-fee"
-                > forms </Link>
+                <Link href="https://www.irs.gov/charities-non-profits/form-1023-and-1023-ez-amount-of-user-fee">
+                  {' '}
+                  forms{' '}
+                </Link>
                 to state fees to support from legal counsel
               </Bullet>
               <Bullet glow={false} icon="sad">
                 The potential for the IRS to <b>reject</b> an application
               </Bullet>
               <Bullet glow={false} icon="sad">
-                <b>Hiring</b> bookkeepers and accountants to prepare taxes
-                and provide upkeep annually to stay in good standing
+                <b>Hiring</b> bookkeepers and accountants to prepare taxes and
+                provide upkeep annually to stay in good standing
               </Bullet>
               <Bullet glow={false} icon="sad">
-                <b>Closing costs</b> averaging around $5,000 if you
-                lose or terminate status
+                <b>Closing costs</b> averaging around $5,000 if you lose or
+                terminate status
               </Bullet>
             </BulletBox>
           </Section>
           <Text variant="lead">
-            Legal status sounds great and all,
-            but why go through the hassle of applying
-            when it’s so expensive and time consuming?
+            Legal status sounds great and all, but why go through the hassle of
+            applying when it’s so expensive and time consuming?
           </Text>
           <Text variant="lead">
             Because as a legally recognized 501(c)(3) nonprofit in the U.S.,
@@ -348,26 +348,26 @@ export default function FiscalSponsorship() {
             </Bullet>
           </BulletBox>
           <Text variant="lead">
-            Unfortunately between the costs and time needed to organize
-            a nonprofit, many charitable initiatives are prevented 
-            from exiting an idea phase or progressing at a pace 
-            originally hoped. Imagine how much more valuable impact 
-            could happen on the world if these barriers didn’t exist. 
+            Unfortunately between the costs and time needed to organize a
+            nonprofit, many charitable initiatives are prevented from exiting an
+            idea phase or progressing at a pace originally hoped. Imagine how
+            much more valuable impact could happen on the world if these
+            barriers didn’t exist.
           </Text>
           <Text variant="lead">
             As it turns out, there’s an alternative route for startups,
-            student-led initiatives, or anyone looking to avoid a headache
-            with the IRS to obtain all the benefits of 501(c)(3) status.
-            That’s where fiscal sponsorship comes in.
+            student-led initiatives, or anyone looking to avoid a headache with
+            the IRS to obtain all the benefits of 501(c)(3) status. That’s where
+            fiscal sponsorship comes in.
           </Text>
           <Section id="what-is">
             <Text variant="title">Fiscal Sponsorship?</Text>
             <Text variant="lead">
-              By legally working with an existing nonprofit offering 
-              fiscal sponsorship, projects and events can claim most 
-              of the legal benefits of individual 501(c)(3) status. 
-              Piggy-backing off this existing status, organizations 
-              also gain access to resources from their fiscal sponsor like:
+              By legally working with an existing nonprofit offering fiscal
+              sponsorship, projects and events can claim most of the legal
+              benefits of individual 501(c)(3) status. Piggy-backing off this
+              existing status, organizations also gain access to resources from
+              their fiscal sponsor like:
             </Text>
             <BulletBox>
               <Bullet icon="docs">
@@ -400,13 +400,12 @@ export default function FiscalSponsorship() {
           <Section id="requirements">
             <Text variant="title">Requirements for Fiscal Sponsorship</Text>
             <Text variant="lead">
-              Depending on the fiscal sponsor you choose, 
-              requirements for working together can vary. 
-              Fiscal sponsors generally ask that your nonprofit’s 
-              goals be similar to theirs. They also usually ask 
-              that your organization or event commits to remaining 
-              charitable in nature and refrains from activities that 
-              may result in loss of 501(c)(3) status. 
+              Depending on the fiscal sponsor you choose, requirements for
+              working together can vary. Fiscal sponsors generally ask that your
+              nonprofit’s goals be similar to theirs. They also usually ask that
+              your organization or event commits to remaining charitable in
+              nature and refrains from activities that may result in loss of
+              501(c)(3) status.
             </Text>
           </Section>
 
@@ -415,14 +414,14 @@ export default function FiscalSponsorship() {
               Hack&nbsp;Club&nbsp;Bank, the #1 fiscal sponsor
             </Text>
             <Text variant="lead">
-              While many fiscal sponsors require that their partners relate 
-              to their mission in similar ways, at Hack Club Bank, we’ve built
-              our infrastructure to support hundreds of causes in all areas of
-              charitability. 
+              While many fiscal sponsors require that their partners relate to
+              their mission in similar ways, at Hack Club Bank, we’ve built our
+              infrastructure to support hundreds of causes in all areas of
+              charitability.
             </Text>
             <Text variant="lead">
-              Check out some of the resources we’ve built our fiscal
-              sponsorship foundation on: 
+              Check out some of the resources we’ve built our fiscal sponsorship
+              foundation on:
             </Text>
             <BulletBox>
               <Bullet icon="bank-account">
@@ -439,8 +438,8 @@ export default function FiscalSponsorship() {
                 platforms, like Shopify and GoFundMe
               </Bullet>
               <Bullet icon="purse">
-                Perks like PVSA certification, newsletter software,
-                and 1Password credits
+                Perks like PVSA certification, newsletter software, and
+                1Password credits
               </Bullet>
             </BulletBox>
             <Text variant="lead">
@@ -448,16 +447,17 @@ export default function FiscalSponsorship() {
               organization? We’d love to meet you and chat about working
               together. Feel free to apply
               <Link href="https://hackclub.com/bank/#apply"> here </Link>or
-              <Link href="mailto:bank@hackclub.com"> email our team </Link>if you have more questions about fiscal sponsorship!
+              <Link href="mailto:bank@hackclub.com"> email our team </Link>if
+              you have more questions about fiscal sponsorship!
             </Text>
           </Section>
 
           <Text variant="lead">
             At its core, Hack Club is a nonprofit encouraging students to learn
             how to code by building and making cool things.
-            Hack&nbsp;Club&nbsp;Bank was built out by teenagers at Hack&nbsp;Club and
-            continues to be a real-world space that high schoolers can contribute to
-            every day.
+            Hack&nbsp;Club&nbsp;Bank was built out by teenagers at
+            Hack&nbsp;Club and continues to be a real-world space that high
+            schoolers can contribute to every day.
           </Text>
         </FlexCol>
       </Container>

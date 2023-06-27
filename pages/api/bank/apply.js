@@ -34,8 +34,8 @@ export default async function handler(req, res) {
           'Tell us about your event': data.eventDescription,
           'Mailing Address': data.userAddress,
           'Address Line 1': data.addressLine1,
-          'City': data.addressCity,
-          'State': data.addressState,
+          City: data.addressCity,
+          State: data.addressState,
           'Zip Code': data.addressZip,
           'Address Country': data.addressCountry,
           'Address Country Code': data.addressCountryCode,
@@ -46,10 +46,11 @@ export default async function handler(req, res) {
               ? 'Yes, I have used Hack Club Bank before'
               : 'No, first time!',
           'How did you hear about HCB?': data.referredBy,
-          'Transparent': data.transparent === 'true' ? 'Yes, please!' : 'No, thanks.',
+          Transparent:
+            data.transparent === 'true' ? 'Yes, please!' : 'No, thanks.',
           'HCB account URL': `https://bank.hackclub.com/${r.slug}`,
-		  'Contact Option': data.contactOption,
-		  'Slack Username': data.slackUsername
+          'Contact Option': data.contactOption,
+          'Slack Username': data.slackUsername
         })
         res.writeHead(302, { Location: '/bank/apply/success' }).end()
         console.log(r)

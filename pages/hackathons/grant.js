@@ -234,7 +234,8 @@ const HackathonGrant = () => {
                   color: 'muted'
                 }}
               >
-                This is not an annual program and has only been renewed until the end of this year.
+                This is not an annual program and has only been renewed until
+                the end of this year.
               </Text>
             </Requirement>
             <Requirement

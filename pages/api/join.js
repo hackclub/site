@@ -49,7 +49,6 @@ export default async function handler(req, res) {
 
   const secrets = (process.env.NAUGHTY || '').split(',')
 
-
   for (const secret of secrets) {
     if (secret === req.headers['x-forwarded-for']) {
       return res.json({
@@ -58,7 +57,6 @@ export default async function handler(req, res) {
       })
     }
   }
-
 
   await joinTable.create({
     'Full Name': data.name,

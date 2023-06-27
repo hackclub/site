@@ -171,8 +171,12 @@ const Blinking = styled(Heading)`
 
 const Spinning = styled(Image)`
   @keyframes spin {
-      from {transform:rotate(0deg);}
-      to {transform:rotate(360deg);}
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   animation-name: spin;
@@ -188,8 +192,11 @@ const NotFoundPage = () => (
     <ForceTheme theme="dark" />
     <Nav color="primary" dark />
     <Container variant="narrow" sx={{ py: [5, 6], textAlign: 'center' }}>
-      <Spinning sx={{fontSize: [128, 256], textAlign: 'center', height: '1lh'}} src="/404/dinobox.svg"></Spinning>
-      <br/>
+      <Spinning
+        sx={{ fontSize: [128, 256], textAlign: 'center', height: '1lh' }}
+        src="/404/dinobox.svg"
+      ></Spinning>
+      <br />
       <Blinking as="h1" variant="title" sx={{ fontSize: [64, 128] }}>
         404!
       </Blinking>
