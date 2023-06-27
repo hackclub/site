@@ -43,7 +43,7 @@ export default function Outernet() {
         >
           <Buttons
             icon="event-add"
-            href="https://register.outernet.hackclub.com/"
+            href="https://outernet.hackclub.com/"
             target="_blank"
             rel="noopener"
             primary="#484137"
