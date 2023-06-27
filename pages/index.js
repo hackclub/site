@@ -637,6 +637,7 @@ function Page({
                 and make things together!
               </Text>
             </Box>
+            <Outernet />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
@@ -744,7 +745,6 @@ function Page({
                   </Flex>
                 )}
               </Flex>
-              <Outernet />
               <Sprig
                 delay={100}
                 stars={stars.sprig.stargazerCount}
