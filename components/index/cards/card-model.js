@@ -19,6 +19,7 @@ const CardModel = ({
   stars,
   delay,
   position,
+  filter,
   ...props
 }) => (
   // <Zoom delay={delay}>
@@ -146,7 +147,8 @@ const CardModel = ({
           height: '100%',
           ml: ['-24px', '-32px', '-32px', '-32px'],
           mt: ['-24px', '-32px', '-32px', '-32px'],
-          zIndex: 0
+          zIndex: 0,
+		  filter,
         }}
         alt=""
       />

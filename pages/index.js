@@ -18,6 +18,7 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
+import Outernet from '../components/index/cards/outernet'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -743,6 +744,7 @@ function Page({
                   </Flex>
                 )}
               </Flex>
+              <Outernet />
               <Sprig
                 delay={100}
                 stars={stars.sprig.stargazerCount}
