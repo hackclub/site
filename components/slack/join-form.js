@@ -46,7 +46,7 @@ const JoinForm = ({ sx = {} }) => {
               {eventReferrer === "onboard" ? (
                   "We can't wait to see your PCB!"
               ): (
-                  "event"
+                  `We can't wait to see you at ${eventReferrer}!`
                 )}
             </Text>
 
