@@ -35,52 +35,11 @@ export default function Onboard({ stars, consoleCount }) {
           }}
           alt="Onboard Background"
         />
-        <Image
-          src="https://cloud-8lszi55ph-hack-club-bot.vercel.app/00frame_1.png"
-          sx={{
-            width: ['90%', '320px', '450px', '500px'],
-            mt: ['42px', 0, 0],
-            position: 'relative',
-            zIndex: 2,
-            fontSize: ['36px', 4, 5],
-            color: 'white'
-          }}
-          alt="PCB Orpheus Keychain"
-        />
-        <Text
-          as="p"
-          variant="subheadline"
-          sx={{
-            px: 2,
-            py: 1,
-            width: 'fit-content',
-            borderRadius: 'extra',
-            color: 'white',
-            border: 'rgba(255,255,255,0.2) dashed 1px',
-            zIndex: 2,
-            position: ['absolute', 'relative', 'relative'],
-            top: ['24px', 0, '5px']
-          }}
-        >
-          {420 - consoleCount} consoles left
-        </Text>
         <Grid
           columns={[1, 1, '1.2fr 1fr', '1.2fr 1fr']}
-          sx={{ zIndex: 2, position: 'relative' }}
+          sx={{ zIndex: 2, position: 'absolute', bottom: 4 }}
         >
           <Box>
-            <Image
-              src="https://cloud-8lszi55ph-hack-club-bot.vercel.app/00frame_1.png"
-              sx={{
-                width: ['120%', '', ''],
-                maxWidth: ['120%', '', ''],
-                ml: ['-10%', '', ''],
-                mt: ['-10px', '-30px', '', ''],
-                mb: ['-15px', '-30px', '', ''],
-                display: [null, null, 'none', 'none']
-              }}
-              alt="PCB Orpheus Keychain"
-            />
             <Text as="p" variant="subtitle" mt={[0, null, null]}>
               Join 1,000 students and their journey in making their first PCB.{' '}
             </Text>
@@ -99,12 +58,12 @@ export default function Onboard({ stars, consoleCount }) {
       </CardModel>
       <Tilt>
         <Image
-          src="/home/onboard.webp"
+          src="https://cloud-8lszi55ph-hack-club-bot.vercel.app/00frame_1.png"
           sx={{
             position: 'absolute',
-            right: ['', '-50%', '-35%', '-25%'],
+            right: ['', '-50%', '-35%', '-2%'],
             top: ['', '15%', '15%', '10%'],
-            width: ['', '100%', '85%', '70%'],
+            width: ['', '90%', '65%', '25%'],
             display: ['none', 'none', 'block', 'block'],
             '&:hover': {
               cursor: 'pointer'
