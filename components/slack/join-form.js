@@ -42,7 +42,7 @@ const JoinForm = ({ sx = {} }) => {
               textAlign: 'center'
             }}
           >
-            <Text variant="headline" sx={{ fontSize: 3 }}>
+            <Text variant='headline' sx={{ fontSize: 3 }}>
               {eventReferrer === "onboard" ? (
                   "We can't wait to see your PCB!"
               ): (
