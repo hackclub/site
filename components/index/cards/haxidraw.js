@@ -56,15 +56,6 @@ export default function Haxidraw() {
               Create something in the editor
             </Buttons>
             <Buttons
-              id="53"
-              link="https://github.com/hackclub/haxidraw"
-              icon="github"
-              overrideColor="rgba(255, 255, 255, 0.7)"
-              sx={{ color: 'black' }}
-            >
-              Look behind the scenes
-            </Buttons>
-            <Buttons
               id="54"
               icon="slack"
               link="/slack"
