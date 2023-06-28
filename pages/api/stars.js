@@ -10,7 +10,7 @@ export async function fetchStars() {
       sinerider: '?',
       sprigHardware: '?',
       hackclub: '?',
-      hackathons: '?'
+      hackathons: '?',
       onboard: '?',
     }
   }
