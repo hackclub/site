@@ -62,13 +62,13 @@ const Content = ({sx}) => (
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'center',
+           
             alignItems: 'center',
             gap: 4,
-            position: 'absolute',
-            right: 68,
-            zIndex: -2,
-            top: -5,
+            position: 'initial',
+            mx: 'auto',
+            justifyContent: 'space-around',
+            width: '65%',
             background: 'rgba(225, 225, 225, 0.2)',
             boxShadow: '0px 4px 30px rgba(0, 0, 0, 0.1)',
             backdropFilter: 'blur(5px)',
@@ -77,12 +77,7 @@ const Content = ({sx}) => (
             borderRadius: 6,
             px: '24px',
             py: '7px',
-            '@media screen and (max-width: 1200px)': {
-              position: 'initial',
-              mx: 'auto',
-              justifyContent: 'space-around',
-              width: '65%'
-            },
+           
             '@media screen and (max-width: 720px)':{
               position: 'initial',
               mx: 'auto',
@@ -94,10 +89,10 @@ const Content = ({sx}) => (
             value={`${thousands}k+`}
             label="total members"
             color="white"
-            sm
+            half
           />
-          <Stat value={6} label="continents" sm color="white" />
-          <Stat value="1M+"  label="messages/yr" sm color="white" />
+          <Stat value={6} label="continents" half color="white" />
+          <Stat value="1M+"  label="messages/yr" half color="white" />
         </Box>
       </Box>
     </Box>
