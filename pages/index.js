@@ -37,6 +37,7 @@ import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
+import Haxidraw from '../components/index/cards/haxidraw'
 
 /** @jsxImportSource theme-ui */
 
@@ -752,6 +753,7 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
+              <Haxidraw/>
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
