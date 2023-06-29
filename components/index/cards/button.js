@@ -10,6 +10,7 @@ export default function Buttons({
   content,
   link,
   primary,
+  overrideColor,
   ...props
 }) {
   let fontWeight = primary ? '700' : '400'
@@ -26,7 +27,7 @@ export default function Buttons({
         data-effect="solid"
         data-tip
         sx={{
-          background: primary || 'rgb(255, 255, 255, 0.3)',
+          background: primary || (overrideColor || 'rgb(255, 255, 255, 0.3)'),
           borderRadius: '100px',
           border: 'none',
           display: 'flex',
