@@ -159,7 +159,7 @@ export default function Features({ partner = false }) {
             <Module
               icon="web"
               name="Free Domains"
-              body="We'll pay for your organization's domain name for 1 year."
+              body="We'll pay up to $20 for your organization's domain name, for a year."
             />
           )}
 
