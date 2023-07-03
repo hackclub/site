@@ -19,11 +19,7 @@ const JoinForm = ({ sx = {} }) => {
     clearOnSubmit: 5000,
     method: 'POST',
     initData: router.query.continent
-      ? {
-          continent: router.query.continent,
-          reason: router.query.reason,
-          event: router.query.event
-        }
+      ? { continent: router.query.continent, reason: router.query.reason, event: router.query.event }
       : { reason: router.query.reason, event: router.query.event }
   })
 
@@ -32,6 +28,7 @@ const JoinForm = ({ sx = {} }) => {
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
   return (
+
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
         {eventReferrer && (
@@ -45,14 +42,21 @@ const JoinForm = ({ sx = {} }) => {
               textAlign: 'center'
             }}
           >
-            <Text variant="headline" sx={{ fontSize: 3 }}>
-              We can't wait to see you at {eventReferrer}! {''}
+            <Text variant='headline' sx={{ fontSize: 3 }}>
+              {eventReferrer === "onboard" ? (
+                  "We can't wait to see your PCB!"
+              ): (
+                  `We can't wait to see you at ${eventReferrer}!`
+                )}
             </Text>
+
+
             <br />
-            <Text variant="subtitle" sx={{ fontSize: 2 }}>
+            <Text variant='subtitle' sx={{ fontSize: 2 }}>
               <i> In the meantime, we'll be hanging around in the Slack </i>
             </Text>
           </Box>
+
         )}
         <Grid columns={[1, 2]} gap={1} sx={{ columnGap: 2 }}>
           <Label>
@@ -108,6 +112,7 @@ const JoinForm = ({ sx = {} }) => {
               <option value="tertiary">Tertiary Education (18+)</option>
             </Select>
           </Label>
+
         </Grid>
         <Label>
           Why do you want to join the Hack Club Slack?
