@@ -423,8 +423,10 @@ const SlackPage = () => {
             onClick={() => handleNewTrend('all')}
             sx={{
               mr: 3,
-              backgroundColor: focus.all ? 'blue' : 'rgba(199, 201, 201)',
-              color: focus.all ? 'white' : 'black'
+              backgroundColor: focus.all
+                ? 'rgba(51, 142, 218, 1)'
+                : 'rgba(245, 245, 245, 1)',
+              color: focus.all ? 'white' : 'rgba(35, 35, 35, 1)'
             }}
           >
             All
@@ -432,8 +434,10 @@ const SlackPage = () => {
           <Button
             onClick={() => handleNewTrend('trending')}
             sx={{
-              backgroundColor: focus.trending ? 'blue' : 'rgba(199, 201, 201)',
-              color: focus.trending ? 'white' : 'black'
+              backgroundColor: focus.trending
+                ? 'rgba(51, 142, 218, 1)'
+                : 'rgba(245, 245, 245, 1)',
+              color: focus.trending ? 'white' : 'rgba(35, 35, 35, 1)'
             }}
           >
             trending
