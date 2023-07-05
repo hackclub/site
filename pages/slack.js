@@ -419,10 +419,25 @@ const SlackPage = () => {
           programming language, ask for advice, or just hang out.
         </Text>
         <Box sx={{ mt: 4 }}>
-          <Button onClick={() => handleNewTrend('all')} sx={{ mr: 2, backgroundColor: focus.all ? 'blue' : 'rgba(199, 201, 201)', color: focus.all ? 'white' : 'black'}}>
+          <Button
+            onClick={() => handleNewTrend('all')}
+            sx={{
+              mr: 3,
+              backgroundColor: focus.all ? 'blue' : 'rgba(199, 201, 201)',
+              color: focus.all ? 'white' : 'black'
+            }}
+          >
             All
           </Button>
-          <Button onClick={() => handleNewTrend('trending')} sx={{backgroundColor: focus.trending ? 'blue' : 'rgba(199, 201, 201)', color: focus.trending ? 'white' : 'black'}}>trending</Button>
+          <Button
+            onClick={() => handleNewTrend('trending')}
+            sx={{
+              backgroundColor: focus.trending ? 'blue' : 'rgba(199, 201, 201)',
+              color: focus.trending ? 'white' : 'black'
+            }}
+          >
+            trending
+          </Button>
         </Box>
         <BannerSection status={listStatus} />
         <Heading
@@ -432,7 +447,11 @@ const SlackPage = () => {
         >
           Zoom events that are enjoyable.
         </Heading>
-        <Text>
+        <Text
+          as="p"
+          variant="subtitle"
+          sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3 }}
+        >
           Elevate your Zoom experience with events that don't disappoint and
           also get familiar with some of our zooms events that are <br />
           very interesting.
@@ -442,7 +461,7 @@ const SlackPage = () => {
           gap={[3, 4]}
           sx={{
             py: [3, 4],
-            mx: [null, null, null, -4],
+            mx: [null, null, null, -1],
             h3: {
               variant: 'text.title',
               color: 'white',

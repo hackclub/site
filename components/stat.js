@@ -35,7 +35,7 @@ const Stat = ({
         as="span"
         sx={{
           color,
-          fontSize: lg ? [5, 6, 7] : sm ? [1, 1] : [1,3],
+          fontSize: lg ? [5, 6, 7] : sm ? [1, 1] : [1,4],
           letterSpacing: 'title',
           my: 0
         }}
