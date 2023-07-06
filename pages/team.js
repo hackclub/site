@@ -192,7 +192,7 @@ export default function Team() {
                     <Bio
                       name="Graham Darcey"
                       teamRole="Creative Technologist"
-                      text="Originally from Vermont, Graham has worked as a full-stack software engineer in Silicon Valley for over 20 years, most recently at Uber where he worked on their core routing services and map data platform.  He recently moved back east, and currently resides in Shelburne VT.  Graham's hobbies include gaming, gamedev, cooking with his wife, and playing joyfully with his two year old daughter."
+                      text="Originally from Vermont, Graham has worked as a full-stack software engineer in Silicon Valley for over 20 years, most recently at Uber where he worked on their core routing services and map data platform.  He recently moved back east, and currently resides in Shelburne VT.  Graham's hobbies include gaming, gamedev, cooking with his wife, and playing joyfully with his three year old daughter."
                       img="/team/graham.jpg"
                       pronouns="he/him"
                     />
