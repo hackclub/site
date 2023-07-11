@@ -115,7 +115,7 @@ export default function Landing({ showButton, eventsCount }) {
           </Box>
           <ScrollHint />
         </Box>
-        <Box sx={{ position: 'absolute', bottom: 3, right: 2 }}>
+        <Box sx={{ position: 'absolute', bottom: 3, right: 2, display: ["none", "block"] }}>
           <Badge
             variant="pill"
             sx={{
