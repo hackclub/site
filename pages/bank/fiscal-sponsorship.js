@@ -142,7 +142,7 @@ function BulletBox({ padding = '2rem', children }) {
 
 function Section({ id, children }) {
   return (
-    <Flex as="section" id={id} sx={{ flexDirection: 'column', pt: 5 }}>
+    <Flex as="section" id={id} sx={{ flexDirection: 'column', pt: 5, textWrap: 'balance' }}>
       {children}
     </Flex>
   )
