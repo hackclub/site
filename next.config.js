@@ -166,8 +166,9 @@ const nextConfig = {
         permanent: false
       },
       {
-        source: '/daysofservice',
-        destination: 'https://daysofservice.hackclub.com/'
+        source: '/daysofservice/',
+        destination: 'https://daysofservice.hackclub.com',
+        permanent: true
       }
     ]
   },
