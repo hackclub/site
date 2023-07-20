@@ -108,7 +108,7 @@ export default function Apply() {
             <Text variant="title">
               Let's get you
               <br />
-              set up on bank.
+              set up on Bank.
             </Text>
             <Progress />
           </FlexCol>
