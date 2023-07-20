@@ -248,6 +248,10 @@ const nextConfig = {
       {
         source: '/how-to-organize-a-hackathon/style.css',
         destination: 'https://expandables.hackclub.dev/style.css'
+      },
+      {
+        source: '/daysofservice',
+        destination: 'https://daysofservice.hackclub.com/'
       }
     ]
   },
