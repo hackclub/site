@@ -164,6 +164,10 @@ const nextConfig = {
         source: '/jobs/vp-DonorEngagement/',
         destination: '/jobs/vp-donor-engagement/',
         permanent: false
+      },
+      {
+        source: '/daysofservice',
+        destination: 'https://daysofservice.hackclub.com/'
       }
     ]
   },
@@ -248,10 +252,6 @@ const nextConfig = {
       {
         source: '/how-to-organize-a-hackathon/style.css',
         destination: 'https://expandables.hackclub.dev/style.css'
-      },
-      {
-        source: '/daysofservice',
-        destination: 'https://daysofservice.hackclub.com/'
       }
     ]
   },
