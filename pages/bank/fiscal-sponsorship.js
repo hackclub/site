@@ -21,7 +21,6 @@ function Bullet({ glow = true, icon, href, children }) {
     '#a633d6'
   ]
 
-  // Raw doggen this trig, no AI this is natty
   function keyframeGenerator(spread, blur, colours, opacity = 0.5) {
     let hexOpacity = Math.max(Math.min(Math.round(opacity * 255), 255), 0)
       .toString(16)
@@ -142,7 +141,7 @@ function BulletBox({ padding = '2rem', children }) {
 
 function Section({ id, children }) {
   return (
-    <Flex as="section" id={id} sx={{ flexDirection: 'column', pt: 5, textWrap: 'balance' }}>
+    <Flex as="section" id={id} sx={{ flexDirection: 'column', pt: 5 }}>
       {children}
     </Flex>
   )
@@ -194,9 +193,13 @@ export default function FiscalSponsorship() {
   return (
     <Box as="main" key="main" sx={{ position: 'relative' }}>
       <style>
-        {`*{
-                    scroll-behavior: smooth;
-                }`}
+        {`* {
+            scroll-behavior: smooth;
+          }
+          p {
+            text-wrap: balance;
+          }
+        `}
       </style>
       <Box
         ref={gridRef}
