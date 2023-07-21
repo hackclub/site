@@ -1003,7 +1003,7 @@ function Page({
                 <Stage
                   icon="github"
                   color="white"
-                  name="Explore Our Open Sourced Tools"
+                  name="Explore Our Open Source Tools"
                   desc="We’re currently building a game engine, daily streak system, graphing game, and more!"
                   sx={{
                     p: {
