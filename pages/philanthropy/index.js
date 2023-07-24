@@ -1026,6 +1026,11 @@ const Philanthropy = ({ posts = [] }) => {
                     Vitalik Buterin
                   </Text>
                 </Fade>
+                <Fade bottom delay={300}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Jack Dorsey
+                  </Text>
+                </Fade>
                 <Fade bottom delay={320}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Craig Newmark
