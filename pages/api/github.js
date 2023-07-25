@@ -1,7 +1,15 @@
 export async function fetchGitHub() {
-  let initialGitHubData = await fetch(
-    'https://api.github.com/orgs/hackclub/events'
-  ).then(r => r.json())
+  let initialGitHubData;
+  
+  try {
+    initialGitHubData = await fetch(
+      'https://api.github.com/orgs/hackclub/events'
+    ).then(r => r.json())
+  } catch (error) {
+    console.error(error)
+    return []
+  }
+
 
   let gitHubData = initialGitHubData.map(x => ({
     type: x.type,
