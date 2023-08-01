@@ -92,8 +92,8 @@ export default function Team() {
                     img="/team/christina.jpg"
                     name="Christina Asquith"
                     teamRole="Co-founder and COO"
-                    text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
-                    pronouns="she/her"
+                    text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
+                    pronouns= 
                   />
                 </Grid>
                 <Grid columns={[1, null, 3]} gap={2}>
