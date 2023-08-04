@@ -181,8 +181,8 @@ function Page({
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
           <Announcement
-            copy="Do you know what happens when you run a program on your computer? "
-            caption="Read 'Putting the you in CPU', an open-sourced rabbit hole answering this question!"
+            copy="What happens when you run a program? "
+            caption="Read our open-sourced rabbit hole to CPUs, multiprocessing, memory management and more!"
             href="https://cpu.land"
             iconLeft="rainbow"
             color="primary"
