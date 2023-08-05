@@ -185,7 +185,7 @@ export default function Team() {
                     <Bio
                       name="Hugo Hu"
                       teamRole="Mail Coordinator & Engineering"
-                      text="Hugo manages Hack Club’s mail. His responsibilities include designing magical mail experiences, negotiating with carriers, and writing mail-related software. He's also involved in many of Hack Club's special projects, such as Sprig & Assemble. Hugo also enjoys designing hardware, competing in math competitions, and admiring corgis."
+                      text="Hugo is a Hack Clubber from NYC who joined during the summer of 2020 for Summer of Making, and he then went on the Hacker Zephyr in 2021. He's a lover of all things mail and logistics related, and does hardware engineering and procurement work for projects like Sprig and Haxidraw. In his free time, he's building up his courage to pet random dogs, listening to outdated music, and designing fun projects with hardware."
                       img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
                       pronouns="he/him"
                     />
