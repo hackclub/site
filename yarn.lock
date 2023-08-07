@@ -3916,10 +3916,10 @@ react-use-websocket@^4.3.1:
   resolved "https://registry.yarnpkg.com/react-use-websocket/-/react-use-websocket-4.3.1.tgz#13cd2fd2e0fb90010482ab2858f8ae81f2ce85c2"
   integrity sha512-zHPLWrgcqydJaak2O5V9hiz4q2dwkwqNQqpgFVmSuPxLZdsZlnDs8DVHy3WtHH+A6ms/8aHIyX7+7ulOcrnR0Q==
 
-react-wrap-balancer@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/react-wrap-balancer/-/react-wrap-balancer-0.5.0.tgz#a63b14b6a125c8f15509e6f8be7e2faaae5ad8a9"
-  integrity sha512-5vwe5QDczQ9zwAtv3iEVj8hdMbNwQtM/QlSNLJfDUzRE9noPtxevb+Kon916Mu2RUorCrAtashQ1F9BVBjdeZg==
+react-wrap-balancer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-wrap-balancer/-/react-wrap-balancer-1.0.0.tgz#f45f8af7cf68d9d54d16a8cf271047b75d1431d7"
+  integrity sha512-yjDH+I8WGyDfh95gKhX/6ckfSBAltwQkxiYxtLPlyIRQNUVSjvz1uHR6Hpy+zHyOkJQw6GEC5RPglA41QXvzyw==
 
 react@^17.0.2:
   version "17.0.2"
