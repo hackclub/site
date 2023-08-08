@@ -113,7 +113,7 @@ export default function Slack({ data, slackKey, events }) {
           <Buttons id="13" link="/slack" icon="slack" primary="purple">
             Join our Slack
           </Buttons>
-          <Grid sx={{ zIndex: 2 }}>
+          <Grid sx={{ zIndex: 2, display: data === {} ? 'none' : 'block' }}>
             <Box
               sx={{
                 background: 'rgb(0,0,0,0.6)',
