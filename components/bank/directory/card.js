@@ -3,44 +3,40 @@ import { Organization } from '../../../pages/bank/climate'
 import Tilt from '../../../components/tilt'
 
 const badges = {
-    "128_collective_funded": () => <></>,
-    "128_collective_recommended": () => <></>,
-    "transparent_finances": () => <>trans. finances</>,
+  '128_collective_funded': () => <></>,
+  '128_collective_recommended': () => <></>,
+  transparent_finances: () => <>trans. finances</>
 }
 
 const categories = {
-    Climate: "#FF0080",
-
+  Climate: '#FF0080'
 }
 
 const Types = {
-    Nonprofit: "#FF0080",
+  Nonprofit: '#FF0080'
 }
 
-const TagRow = ({
-    category,
-    type,
-    badgeNames
-}) => {
-    return (
-        <>
-            {badgeNames.map(name => badges[name]).map((Badge, i) => <Badge key={i} />)}
-        </>
-    )
+const TagRow = ({ category, type, badgeNames }) => {
+  return (
+    <>
+      {badgeNames
+        .map(name => badges[name])
+        .map((Badge, i) => (
+          <Badge key={i} />
+        ))}
+    </>
+  )
 }
 
 /**
- * 
+ *
  * @param {{
  * organization: Organization,
  * showTags: boolean
  * }} props
- * @returns 
+ * @returns
  */
-export const OrganizationCard = ({
-  organization,
-  showTags = false
-}) => (
+export const OrganizationCard = ({ organization, showTags = false }) => (
   <Tilt>
     <Card
       as="a"
@@ -67,52 +63,53 @@ export const OrganizationCard = ({
         p: 3,
         height: '100%',
         display: 'flex',
-        px: 3, 
+        px: 3,
         backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.375) 75%), url('${organization.branding.backgroundImage}')`,
         textAlign: 'center',
         flexDirection: 'column'
       }}
     >
-      <Box sx={{
-        display: 'flex',
-        justifyContent: 'end',
-        alignItems: 'center',
-        width: '100%',
-        gap: 2,
-        flexDirection: 'row',
-        mb: 3
-      }}>
-
-<Badge
-      as="span"
-      itemType="VirtualLocation"
-      sx={{
-        bg: 'snow',
-        color: 'blue',
-        fontSize: 'inherit',
-        textShadow: 'none',
-        borderRadius: 5,
-        display: 'block'
-      }}
-    >
-      {'Climate'}
-    </Badge>
-<Badge
-      as="span"
-      itemType="VirtualLocation"
-      sx={{
-        bg: 'snow',
-        color: 'blue',
-        fontSize: 'inherit',
-        textShadow: 'none',
-        borderRadius: 5,
-        display: 'block'
-      }}
-    >
-      {'Climate'}
-    </Badge>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'end',
+          alignItems: 'center',
+          width: '100%',
+          gap: 2,
+          flexDirection: 'row',
+          mb: 3
+        }}
+      >
+        <Badge
+          as="span"
+          itemType="VirtualLocation"
+          sx={{
+            bg: 'snow',
+            color: 'blue',
+            fontSize: 'inherit',
+            textShadow: 'none',
+            borderRadius: 5,
+            display: 'block'
+          }}
+        >
+          {'Climate'}
+        </Badge>
+        <Badge
+          as="span"
+          itemType="VirtualLocation"
+          sx={{
+            bg: 'snow',
+            color: 'blue',
+            fontSize: 'inherit',
+            textShadow: 'none',
+            borderRadius: 5,
+            display: 'block'
+          }}
+        >
+          {'Climate'}
+        </Badge>
       </Box>
-     
+
       {organization.branding.logo && (
         <Image
           src={organization.branding.logo}
@@ -152,19 +149,18 @@ export const OrganizationCard = ({
           textTransform: 'none'
         }}
       >
-          <>
-            {' '}
-            <Text
-              as="span"
-              itemProp="location"
-              itemScope
-              itemType="http://schema.org/Place"
-            >
-                <span itemProp="address">
-                  North America
-                </span>
-            </Text>
-          </>
+        <>
+          <Text
+            as="span"
+            itemProp="location"
+            itemScope
+            itemType="http://schema.org/Place"
+          >
+            <span itemProp="address">
+              {organization.raw.location.continent}
+            </span>
+          </Text>
+        </>
       </Box>
       <Box sx={{ display: 'none' }}>
         <span itemProp="url">{organization.links.website}</span>
@@ -173,4 +169,4 @@ export const OrganizationCard = ({
   </Tilt>
 )
 
-export default OrganizationCard;
+export default OrganizationCard

@@ -72,7 +72,6 @@ const FilterPanel = ({ filter, mobile }) => {
   const currentSelections = filter[1]
   const title = filter[2]
   const baseData = filter[3]
-  console.log(baseData)
   if (!baseData?.length) return <></>
   return (
     <>
@@ -84,9 +83,11 @@ const FilterPanel = ({ filter, mobile }) => {
           color: 'muted',
           mb: hiddenOnMobile ? 1 : 3,
           cursor: mobile ? 'pointer' : 'default',
-          ':hover': {
-            color: 'primary'
-          }
+          ':hover': mobile
+            ? {
+                color: 'primary'
+              }
+            : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
       >
@@ -284,10 +285,7 @@ const Requirement = ({ title, children, checkmark, background, size }) => {
   )
 }
 
-const HackathonGrant = ({ rawOrganizations }) => {
-  let open = true // applications are open
-  let channel = 'https://hackclub.slack.com/archives/C03TS0VKFPZ' // #hackathon-grants
-
+const ClimateDirectory = ({ rawOrganizations }) => {
   const [searchValue, setSearchValue] = useState('')
 
   let organizations = rawOrganizations
@@ -301,9 +299,9 @@ const HackathonGrant = ({ rawOrganizations }) => {
     organizations = search.map(({ obj }) => obj)
   }
 
-  const [currentBadges, setBadges] = useState([...badges.map(x => x.badge)])
+  const [currentBadges, setBadges] = useState([...badges.map(x => x.label)])
 
-  const [currentRegions, setRegions] = useState([...regions.map(x => x.region)])
+  const [currentRegions, setRegions] = useState([...regions.map(x => x.label)])
 
   return (
     <>
@@ -388,7 +386,11 @@ const HackathonGrant = ({ rawOrganizations }) => {
 	c7.3,5.5,15.9,9.2,24.9,10.7c8.8,1.3,23.2-1.1,33.9-7c2.9,14.2,4.4,28.9,4.4,44C475.4,285.2,469.7,313.1,459.4,338.5z`}
                   viewBox="0 0 512 512"
                 >
-                  <img src="/bank/climate/earth-on-bank.svg" alt="" height="82px" />
+                  <img
+                    src="/bank/climate/earth-on-bank.svg"
+                    alt=""
+                    height="82px"
+                  />
                 </MSparkles>
               </Flex>
               Climate-focused nonprofits on{' '}
@@ -438,7 +440,7 @@ const HackathonGrant = ({ rawOrganizations }) => {
         </Box>
 
         <Grid
-          columns="1fr 4fr"
+          columns="1fr 3fr"
           sx={{
             '@media screen and (max-width: 991.98px)': {
               display: 'block'
@@ -506,13 +508,19 @@ const HackathonGrant = ({ rawOrganizations }) => {
             <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: 3 }}>
               {organizations
                 .map(org => new Organization(org))
-                .map(organization => (
-                  <OrganizationCard
-                    organization={organization}
-                    key={organization.id}
-                    showTags={true}
-                  />
-                ))}
+                .map(organization =>
+                  currentRegions.includes(
+                    organization.raw.location.continent
+                  ) ? (
+                    <OrganizationCard
+                      organization={organization}
+                      key={organization.id}
+                      showTags={true}
+                    />
+                  ) : (
+                    <></>
+                  )
+                )}
             </Grid>
           </Container>
         </Grid>
@@ -585,12 +593,12 @@ const HackathonGrant = ({ rawOrganizations }) => {
           </Box>
         </Box>
       </Box>
-      <Footer dark key="footer" />
+      <Footer light key="footer" />
     </>
   )
 }
 
-export default HackathonGrant
+export default ClimateDirectory
 
 /**
  *
