@@ -42,27 +42,32 @@ const regions = [
   {
     label: 'North America',
     color: 'secondary',
-    icon: 'photo'
+    icon: 'photo',
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png'
   },
   {
     label: 'South America',
     color: 'secondary',
-    icon: 'photo'
+    icon: 'photo',
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png'
   },
   {
     label: 'Africa',
     color: 'secondary',
-    icon: 'explore'
+    icon: 'explore',
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/0africa.png'
   },
   {
     label: 'Europe',
     color: 'secondary',
-    icon: 'explore'
+    icon: 'explore',
+    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/1europe.png'
   },
   {
     label: 'Asia & Oceania',
     color: 'secondary',
-    icon: 'explore'
+    icon: 'explore',
+    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png'
   }
 ]
 
