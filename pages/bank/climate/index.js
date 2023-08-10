@@ -68,7 +68,7 @@ const Filtering = ({mobile, ...props}) => {
   return (
     <>
       {Object.values(props).map(filter => {
-        
+        const [hiddenOnMobile, setHiddenOnMobile] = useState(mobile)
         const setStateVariable = filter[0]
         const currentSelections = filter[1]
         const title = filter[2]
@@ -83,12 +83,17 @@ const Filtering = ({mobile, ...props}) => {
                 fontSize: 2,
                 textTransform: 'uppercase',
                 color: 'muted',
-                mb: 3
+                mb: hiddenOnMobile ? 1 : 3,
+                cursor: mobile ? 'pointer' : 'default',
+                ':hover': {
+                  color: 'primary'
+                },
               }}
+              onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
             >
-              {title}
+              {mobile && "FILTER BY "} {title} <small style={{transform: 'translateY(-1px)', display: 'inline-block'}}>{mobile && (hiddenOnMobile ? "▶︎" : "▼")}</small>
             </Heading>
-            <Flex sx={{flexDirection: mobile ? 'row' : 'column', gap: '12px', flexWrap: 'wrap', mb: 3}}>
+            <Flex sx={{flexDirection: mobile ? 'row' : 'column', gap: '12px', flexWrap: 'wrap', mb: 3, display: hiddenOnMobile ? 'none' : 'flex'}}>
               <Flex
                 sx={{
                   alignItems: 'center',
@@ -362,15 +367,16 @@ const HackathonGrant = ({ rawOrganizations }) => {
               Nonprofits are making real environmental impact with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank.
             </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ 
-              mt: 2, 
+              mt: [0, 2], 
               backgroundImage: t => t.util.gx('green', 'blue'),
               height: '56px' 
             }}>
               EXPLORE IMPACT
             </Button>
             <Button variant="outlineLg" as="a" href="#apply" sx={{ 
-              mt: 2,
+              mt: [3, 2],
               ml: 2, 
+              mb: [4, 0],
               borderColor: 'green', 
               borderWidth: '2px', 
               boxSizing: 'border-box', 
@@ -454,6 +460,7 @@ const HackathonGrant = ({ rawOrganizations }) => {
       </Grid>
       <Box
           sx={{
+            mt: [5, 0],
             pt: [5, null, null, null, 6],
             pb: [3, 4, 5, null, 6],
             minHeight: ['70vh', 'none'],
