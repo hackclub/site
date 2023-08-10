@@ -281,9 +281,7 @@ const nextConfig = {
   }
 }
 
-const withPlugins = require('next-compose-plugins')
-
 const withMDX = require('@next/mdx')({ extension: /\.mdx?$/ })
 const withTM = require('next-transpile-modules')(['animejs'])
 
-module.exports = withPlugins([withTM, withMDX], nextConfig)
+module.exports = withTM(withMDX(nextConfig))

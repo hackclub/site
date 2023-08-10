@@ -27,8 +27,6 @@ export default async function handler(req, res) {
     })
       .then(r => r.json())
       .then(async r => {
-        console.log(data)
-
         await applicationsTable.create({
           'Email Address': data.userEmail,
           'Event Name': `${data.eventName} (${data.teamType} ${data.teamNumber})`,
@@ -40,7 +38,7 @@ export default async function handler(req, res) {
           .json({ message: 'Success! Check your email for next steps.' })
       })
       .catch(error => {
-        console.log(error)
+        console.error(error)
         res.json({ status: 'Something went wrong', error })
       })
   } else {

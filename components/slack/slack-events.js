@@ -50,7 +50,7 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
           `/api/channels/resolve/?id=${lastJsonMessage.channel}`
         )
           .then(r => r.json())
-          .catch(err => console.log(err))
+          .catch(err => console.error(err))
 
         if (whitelistedChannels.has(name)) {
           //this check should happen before the web req, to save on net resources
