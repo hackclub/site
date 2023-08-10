@@ -5,6 +5,7 @@ import Tilt from '../../../components/tilt'
 const badges = {
     "128_collective_funded": () => <></>,
     "128_collective_recommended": () => <></>,
+    "transparent_finances": () => <>trans. finances</>,
 }
 
 const categories = {
@@ -77,10 +78,25 @@ export const OrganizationCard = ({
         justifyContent: 'end',
         alignItems: 'center',
         width: '100%',
+        gap: 2,
         flexDirection: 'row',
-        mb: 2
+        mb: 3
       }}>
 
+<Badge
+      as="span"
+      itemType="VirtualLocation"
+      sx={{
+        bg: 'snow',
+        color: 'blue',
+        fontSize: 'inherit',
+        textShadow: 'none',
+        borderRadius: 5,
+        display: 'block'
+      }}
+    >
+      {'Climate'}
+    </Badge>
 <Badge
       as="span"
       itemType="VirtualLocation"

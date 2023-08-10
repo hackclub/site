@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Grid, Heading, Input } from 'theme-ui'
+import { Box, Container, Flex, Grid, Heading, Input, Select } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../../components/force-theme'
@@ -9,7 +9,9 @@ import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import OrganizationCard from '../../../components/bank/directory/card'
 import Zoom from 'react-reveal/Zoom'
+import fuzzysort from 'fuzzysort';
 import ScrollHint from '../../../components/scroll-hint'
+import { useState } from 'react'
 /** @jsxImportSource theme-ui */
 
 const styles = `
@@ -18,6 +20,258 @@ const styles = `
   }
 `
 
+const badges = [
+  {
+    badge: 'Transparent',
+    color: 'purple',
+    icon: 'explore'
+  },
+  {
+    badge: 'Funded',
+    image: "https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg"
+  },
+  {
+    badge: 'Recommended',
+    image: "https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg"
+  },
+]
+
+const regions = [
+  {
+    region: 'North America',
+    color: 'secondary',
+    icon: 'photo'
+  },
+  {
+    region: 'South America',
+    color: 'secondary',
+    icon: 'photo'
+  },
+  {
+    region: 'Africa',
+    color: 'secondary',
+    icon: 'explore'
+  },
+  {
+    region: 'Europe',
+    color: 'secondary',
+    icon: 'explore'
+  },
+  {
+    region: 'Asia & Oceania',
+    color: 'secondary',
+    icon: 'explore'
+  },
+]
+
+const Filtering = ({setRegions, currentRegions, setBadges, currentBadges}) => {
+  return (
+    <>
+      <Heading
+        as="h3"
+        sx={{
+          fontSize: 2,
+          textTransform: 'uppercase',
+          color: 'muted'
+        }}
+      >
+        Badges
+      </Heading>
+      <Flex
+        sx={{
+          alignItems: 'center',
+          cursor: 'pointer',
+          gap: 2,
+          mt: 3,
+          color: 'secondary',
+          textDecoration: 'none',
+          transition: 'color 0.2s',
+          ':hover': {
+            color: 'primary'
+          },
+          width: 'fit-content'
+        }}
+        onClick={() => setBadges([...badges.map(x=> x.badge)])}
+      >
+        <Flex
+          sx={{
+            bg: 'smoke',
+            color: 'secondary',
+            p: 1,
+            borderRadius: 6
+          }}
+        >
+          <Icon glyph="list" size={24} />
+        </Flex>
+        <Heading as="h4" sx={{ color: 'inherit', fontSize: 3, color: (currentBadges.length != badges.length) ? 'black' : 'primary' }}>
+          All
+        </Heading>
+      </Flex>
+      {badges.map((badge, idx) => (
+        <Flex
+          key={idx}
+          sx={{
+            alignItems: 'center',
+            cursor: 'pointer',
+            gap: 2,
+            mt: 3,
+            textDecoration: 'none',
+            color: (currentBadges.length == badges.length || !currentBadges.includes(badge.badge)) ? 'black' : 'primary',
+            transition: 'color 0.2s',
+            ':hover': {
+              color: 'primary'
+            },
+            width: 'fit-content'
+          }}
+          onClick={() => {
+            if(currentBadges.length == badges.length){
+              setBadges([badge.badge])
+            }
+            else if(currentBadges.includes(badge.badge)){
+              let tempBadges = currentBadges
+              tempBadges = tempBadges.filter(item => item !== badge.badge)
+              if(tempBadges == []){
+                setBadges([...badges.map(x=> x.badge)])
+              }
+              else {
+                setBadges(tempBadges)
+              }
+            }
+            else {
+              setBadges([...currentBadges, badge.badge])
+            }
+          }}
+        >
+          {badge.image ? (
+            <Flex
+              sx={{
+                backgroundImage: `url("${badge.image}")`,
+                backgroundSize: 'contain',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                color: 'white',
+                p: 1,
+                borderRadius: 6
+              }}
+            >
+              <Flex
+                sx={{
+                  width: 24,
+                  height: 24,
+                }}
+              />
+            </Flex>
+          ) : (
+            <Flex
+              sx={{
+                bg: badge.color,
+                color: 'white',
+                p: 1,
+                borderRadius: 6
+              }}
+            >
+              <Icon glyph={badge.icon} size={24} />
+            </Flex>
+          )}
+          <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>
+            {badge.badge}
+          </Heading>
+        </Flex>
+      ))}
+      <Heading
+        as="h3"
+        sx={{
+          fontSize: 2,
+          textTransform: 'uppercase',
+          color: 'muted',
+          mt: 4
+        }}
+      >
+        Regions
+      </Heading>
+      <Flex
+        sx={{
+          alignItems: 'center',
+          cursor: 'pointer',
+          gap: 2,
+          mt: 3,
+          color: 'secondary',
+          textDecoration: 'none',
+          transition: 'color 0.2s',
+          ':hover': {
+            color: 'primary'
+          },
+          width: 'fit-content'
+        }}
+        onClick={() => setRegions([...regions.map(x=> x.region)])}
+      >
+        <Flex
+          sx={{
+            bg: 'smoke',
+            color: 'secondary',
+            p: 1,
+            borderRadius: 6
+          }}
+        >
+          <Icon glyph="list" size={24} />
+        </Flex>
+        <Heading as="h4" sx={{ color: 'inherit', fontSize: 3, color: (currentRegions.length != regions.length) ? 'black' : 'primary' }}>
+          All
+        </Heading>
+      </Flex>
+      {regions.map((region, idx) => (
+        <Flex
+          key={idx}
+          sx={{
+            alignItems: 'center',
+            cursor: 'pointer',
+            gap: 2,
+            mt: 3,
+            textDecoration: 'none',
+            color: (currentRegions.length == regions.length || !currentRegions.includes(region.region)) ? 'black' : 'primary',
+            transition: 'color 0.2s',
+            ':hover': {
+              color: 'primary'
+            },
+            width: 'fit-content'
+          }}
+          onClick={() => {
+            if(currentRegions.length == regions.length){
+              setRegions([region.region])
+            }
+            else if(currentRegions.includes(region.region)){
+              let tempRegions = currentRegions
+              tempRegions = tempBadges.filter(item => item !== region.region)
+              if(tempRegions == []){
+                setRegions([...badges.map(x=> x.badge)])
+              }
+              else {
+                setRegions(tempBadges)
+              }
+            }
+            else {
+              setRegions([...currentRegions, region.region])
+            }
+          }}
+        >
+          <Flex
+            sx={{
+              bg: region.color,
+              color: 'white',
+              p: 1,
+              borderRadius: 6
+            }}
+          >
+            <Icon glyph={region.icon} size={24} />
+          </Flex>
+          <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>
+            {region.region}
+          </Heading>
+        </Flex>
+      ))}
+    )
+  </>
+)}
 
 const Requirement = ({ title, children, checkmark, background, size }) => {
   return (
@@ -58,6 +312,23 @@ const HackathonGrant = ({ rawOrganizations }) => {
   let open = true // applications are open
   let channel = 'https://hackclub.slack.com/archives/C03TS0VKFPZ' // #hackathon-grants
 
+  const [searchValue, setSearchValue] = useState('');
+
+  let organizations = rawOrganizations;
+
+  if (searchValue.length) {
+    const search = fuzzysort.go(searchValue, rawOrganizations, {
+      keys: ['name', 'description'],
+      threshold: -1000,
+    });
+
+    organizations = search.map(({ obj }) => obj);
+  }
+
+  const [currentBadges, setBadges] = useState([...badges.map(x=> x.badge)]);
+
+  const [currentRegions, setRegions] = useState([...regions.map(x=> x.region)]);
+
   return (
     <>
       <Meta
@@ -68,9 +339,8 @@ const HackathonGrant = ({ rawOrganizations }) => {
       />
       <style>{styles}</style>
       <Box as="main" key="main">
-        <Nav dark />
+        <Nav light />
         <ForceTheme theme="light" />
-        <Meta as={Head} title="Hackathon Grant" />
         <Box
           sx={{
             pt: [5, null, null, null, 6],
@@ -92,7 +362,8 @@ const HackathonGrant = ({ rawOrganizations }) => {
               maxWidth: 'calc(48rem + 512px)',
               mx: 'auto',
               px: '16px',
-              backdropFilter: 'blur(1.5px)'
+              backdropFilter: 'blur(1.5px)',
+              color: 'white'
             }}
           >
             <Heading
@@ -152,46 +423,96 @@ const HackathonGrant = ({ rawOrganizations }) => {
             >
               Nonprofits are making real environmental impact with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank.
             </Box>
-            <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
+            <Button variant="ctaLg" as="a" href="#apply" sx={{ 
+              mt: 2, 
+              backgroundImage: t => t.util.gx('green', 'blue'),
+              height: '56px' 
+            }}>
               EXPLORE IMPACT
             </Button>
-            <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
+            <Button variant="outlineLg" as="a" href="#apply" sx={{ 
+              mt: 2,
+              ml: 2, 
+              borderColor: 'green', 
+              borderWidth: '4px', 
+              boxSizing: 'border-box', 
+              color: 'white',
+              height: '56px'
+            }}>
               LEARN MORE
             </Button>
           </Box>
         </Box>
-        <ScrollHint style={{
-          transform: 'translateY(-250%) rotate(45deg)'
-        }} />
 
-
-      <Container sx={{ mt: [3, 4, 5] }}>
-        <Flex>
-          <Box sx={{ flexGrow: 1, pr: [0, 3] }}>
-            <Input
-              placeholder="Search Tools"
-              onChange={async e => {
-                console.log(e)
-              }}
-              sx={{
-                border: '1px dashed white',
-                textAlign: ['left', 'left', 'left'],
-                width: '100%',
-                height: '100%',
-                bg: 'sheet',
-                fontSize: '18px'
-              }}
+      <Grid columns="1fr 4fr" sx={{
+        '@media screen and (max-width: 991.98px)': {
+          display: 'block'
+        },
+        position: 'relative'
+      }}>
+        <Container>
+          <Box
+            sx={{
+              py: [0, 4],
+              mb: [4, 0],
+              '@media screen and (max-width: 991.98px)': {
+                display: 'none'
+              },
+              '@media screen and (min-width: 992px)': {
+                position: 'sticky',
+                top: 80,
+                alignSelf: 'start'
+              }
+            }}
+          >
+            <Filtering 
+              setRegions={setRegions} 
+              currentRegions={currentRegions} 
+              setBadges={setBadges} 
+              currentBadges={currentBadges} 
             />
           </Box>
-        </Flex>
-        <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: [3, 4, 5] }}>
-          {rawOrganizations.map(org => new Organization(org)).map(organization => (
-            <OrganizationCard organization={organization} key={organization.id} showTags={true} />
-          ))}
-        </Grid>
-      </Container>
-
-<Box
+        </Container>
+        <Container pt={4}>
+          <Box
+            sx={{
+              '@media screen and (max-width: 991.99px)': {
+                display: 'block'
+              },
+              '@media screen and (min-width: 992px)': {
+                display: 'none'
+              },
+              my: 2
+            }}
+          >
+            THIS IS FOR MOBILE BADGES!
+          </Box>
+          <Flex>
+            <Box sx={{ flexGrow: 1, pr: [0, 3] }}>
+              <Input
+                placeholder="Search Organizations"
+                onChange={e => setSearchValue(e.target.value)}
+                value={searchValue}
+                sx={{
+                  border: '1px dashed black',
+                  textAlign: ['left', 'left', 'left'],
+                  width: '100%',
+                  height: '100%',
+                  bg: 'sheet',
+                  fontSize: '18px',
+                  padding: '12px'
+                }}
+              />
+            </Box>
+          </Flex>
+          <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: 3 }}>
+            {organizations.map(org => new Organization(org)).map(organization => (
+              <OrganizationCard organization={organization} key={organization.id} showTags={true} />
+            ))}
+          </Grid>
+        </Container>
+      </Grid>
+      <Box
           sx={{
             pt: [5, null, null, null, 6],
             pb: [3, 4, 5, null, 6],
@@ -203,13 +524,14 @@ const HackathonGrant = ({ rawOrganizations }) => {
             backgroundPosition: 'center center',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            color: 'white'
           }}
         >
           <Box
             sx={{
               width: '100%',
-              maxWidth: 'calc(48rem + 512px)',
+              maxWidth: 'calc(48rem + 312px)',
               mx: 'auto',
               px: '16px'
             }}
@@ -224,13 +546,13 @@ const HackathonGrant = ({ rawOrganizations }) => {
               as="h3"
               variant="subheadline"
             >
-              Join us in supporting climate initiatives.
+              Join us in supporting <br /> climate initiatives.
             </Heading>
             <Box
               sx={{
                 fontSize: [2, 3, 3],
                 textAlign: 'center',
-                my: 4
+                my: 3
               }}
             >
               Let your money work for change by donating to all climate-focused nonprofits on Hack Club Bank. Donate to 128 Collective’s curated list of recommended organizations.
@@ -247,7 +569,7 @@ const HackathonGrant = ({ rawOrganizations }) => {
             >
               <Text>
                 Donate to{' '}
-                <Text sx={{ display: ['none', 'none', 'inline'] }}>Hack Club Bank</Text>{' '}
+                <Text sx={{ display: ['none', 'none', 'inline'] }}>Hack Club Bank's</Text>{' '}
                 Climate Fund
               </Text>
             </Button>
@@ -437,7 +759,7 @@ const Grouping = ({
       as="main"
       sx={{ bg: 'background', color: 'text', textAlign: [null, 'center'] }}
     >
-        {header}
+      {header}
       <Container sx={{ mt: [3, 4, 5] }}>
         {children}
         <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: [3, 4, 5] }}>
