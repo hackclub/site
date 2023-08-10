@@ -28,6 +28,7 @@ export default function Epoch() {
     >
       <Image
         src="https://cloud-f3vv32ihb-hack-club-bot.vercel.app/0bg_angelhacks.png"
+        alt=""
         sx={{
           objectFit: 'cover',
           position: 'absolute',
@@ -41,6 +42,7 @@ export default function Epoch() {
       <Grid columns={[1, 1, '1fr 1.5fr']} sx={{ position: 'relative' }}>
         <Box>
           <img
+            alt=""
             src="https://cloud-a2oswmb6u-hack-club-bot.vercel.app/0angelhacks_edgefix.png"
             sx={{
               width: ['270px', '270px', '290px', '390px'],
