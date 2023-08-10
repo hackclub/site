@@ -409,69 +409,17 @@ export class Organization {
 }
 
 export async function fetchRawClimateOrganizations () {
-  // TODO: Get rid of unused keys
-  return [
-    {
-      "id":"org_G3ux2J",
-      "object":"organization",
-      "href":"https://bank.hackclub.com/api/v3/organizations/org_G3ux2J.json",
-      "name":"Youth Climate Finance Alliance",
-      "slug":"youth-climate-finance-alliance",
-      "website":"https://fossilfreefuture.earth/",
-      "category":"nonprofit",
-      "transparent":true,
-      "demo_mode":false,
-      "logo":"https://bank.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZ1dmIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--24792feb0b39170e10b2cdcdb9640aa226e960f7/YCFAlogo_darkbg_400x400.png",
-      "donation_header":null,
-      "background_image":"https://bank.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcFNxIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--85c11fd2730ea19872536273e35282e2163d0f56/IMG_8914.JPG",
-      "public_message":null,
-      "donation_link":"https://bank.hackclub.com/donations/start/youth-climate-finance-alliance",
-      "balances":{
-         "balance_cents":3941865,
-         "fee_balance_cents":0,
-         "incoming_balance_cents":0,
-         "total_raised":5070045
-      },
-      "created_at":"2023-02-22T22:01:06Z",
-      "users":[
-         {
-            "id":"usr_k6tvjR",
-            "object":"user",
-            "full_name":"Yousuf Munir",
-            "admin":false,
-            "photo":"https://gravatar.com/avatar/b8f5c657166f507431a48fa71c5e670c?s=48\u0026d=https%3A%2F%2Fui-avatars.com%2Fapi%2F/YM/48/ec3750/fff"
-         },
-         {
-            "id":"usr_eNtM0d",
-            "object":"user",
-            "full_name":"Sof Petros",
-            "admin":false,
-            "photo":"https://bank.hackclub.com/storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBajJQIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c36bb0149adcb437bcbc3f0a5f17775fbcb1ae3e/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2c1MGFIVnRZbTVoYVd4SklnczBPSGcwT0Y0R093WlVPZ3huY21GMmFYUjVTU0lMWTJWdWRHVnlCanNHVkRvTFpYaDBaVzUwU1NJS05EaDRORGdHT3daVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--db2756997f8f6f475b203ef1060ca1788a709656/IMG_5483.jpeg"
-         },
-         {
-            "id":"usr_Jptr7D",
-            "object":"user",
-            "full_name":"Gabrielle Heidrich",
-            "admin":false,
-            "photo":"https://gravatar.com/avatar/a0e0d170ab0c450cbccd12c8f67f0a27?s=48\u0026d=https%3A%2F%2Fui-avatars.com%2Fapi%2F/GH/48/5bc0de/fff"
-         },
-         {
-            "id":"usr_prtYXg",
-            "object":"user",
-            "full_name":"Isabella Guinigundo",
-            "admin":false,
-            "photo":"https://bank.hackclub.com/storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaE9BIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9458e78685e864949a04eb370e6128ed4813e79e/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RG5Sb2RXMWlibUZwYkVraUN6UTRlRFE0WGdZN0JsUTZER2R5WVhacGRIbEpJZ3RqWlc1MFpYSUdPd1pVT2d0bGVIUmxiblJKSWdvME9IZzBPQVk3QmxRPSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--0b7ce54a24f36efbacd451555b06eed66aa6f802/Profile-Professional(1).jpg"
-         },
-         {
-            "id":"usr_LZtYym",
-            "object":"user",
-            "full_name":"Connie Lu",
-            "admin":false,
-            "photo":"https://gravatar.com/avatar/df6027bcdc3ea817081fa2da48ff8cc8?s=48\u0026d=https%3A%2F%2Fui-avatars.com%2Fapi%2F/CL/48/ec3750/fff"
-         }
-      ]
-   }
-  ]
+  let lastLength = 50;
+  let total = [];
+  let page = 1;
+  while (lastLength >= 50) {
+    console.log("Fetching", page);
+    const json = await fetch("https://bank.hackclub.com/api/v3/directory/organizations?per_page=100&page=" + page).then(res => res.json());
+    lastLength = json.length;
+    page++;
+    total = [...total, ...json];
+  }
+  return total.filter(org => org.climate);
 }
 
 const Grouping = ({
