@@ -62,8 +62,8 @@ const HackathonGrant = ({ rawOrganizations }) => {
     <>
       <Meta
         as={Head}
-        title="Hackathon Grant"
-        description="Hack Club is partnering with FIRST to provide $500 grants to in-person high school hackathons happening until June 30th, 2023."
+        title="Climate-focused nonprofits on Bank"
+        description="Nonprofits are making real environmental impact with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank."
         image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
       <style>{styles}</style>
@@ -153,22 +153,7 @@ const HackathonGrant = ({ rawOrganizations }) => {
               Nonprofits are making real environmental impact with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank.
             </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
-              {open ? 'Apply Now' : 'Coming Soon'}
-            </Button>
-            <Button
-              variant="ctaLg"
-              as="a"
-              href="https://hackathons.hackclub.com"
-              sx={{
-                ml: [0, 3],
-                mt: 2,
-                backgroundImage: t => t.util.gx('green', 'blue')
-              }}
-            >
-              <Text>
-                Find hackathons{' '}
-                <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
-              </Text>
+              Looking to make an impact? Start a nonprofit with Bank.
             </Button>
           </Box>
         </Box>
