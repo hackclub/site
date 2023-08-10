@@ -144,7 +144,7 @@ function Underline({ children }) {
   return (
     <span
       style={{
-        backgroundImage: 'url(/underline.svg)',
+        backgroundImage: 'url(/underline-red.svg)',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% 1rem',
         backgroundPosition: 'bottom center'

@@ -98,9 +98,6 @@ export default function Header({
           >
             <Button
                 variant="ctaLg"
-                sx={{
-                    background: theme.util.gx('green', 'blue'),
-                }}
                 as="a"
                 href={button1}
                 style={{ zIndex: '100' }}
@@ -109,10 +106,6 @@ export default function Header({
             </Button>
             <Button
                 variant="outlineLg"
-                sx={{
-                    color: 'green',
-                    background: '#ffffff22'
-                }}
                 as="a"
                 href={button2}
                 target="_blank"
