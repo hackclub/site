@@ -9,7 +9,7 @@ import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import OrganizationCard from '../../../components/bank/directory/card'
 import Zoom from 'react-reveal/Zoom'
-import fuzzysort from 'fuzzysort';
+import fuzzysort from 'fuzzysort'
 import ScrollHint from '../../../components/scroll-hint'
 import { useState } from 'react'
 /** @jsxImportSource theme-ui */
@@ -28,12 +28,14 @@ const badges = [
   },
   {
     label: 'Funded',
-    image: "https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg"
+    image:
+      'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
   },
   {
     label: 'Recommended',
-    image: "https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg"
-  },
+    image:
+      'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
+  }
 ]
 
 const regions = [
@@ -61,10 +63,10 @@ const regions = [
     label: 'Asia & Oceania',
     color: 'secondary',
     icon: 'explore'
-  },
+  }
 ]
 
-const Filtering = ({mobile, ...props}) => {
+const Filtering = ({ mobile, ...props }) => {
   return (
     <>
       {Object.values(props).map(filter => {
@@ -74,10 +76,10 @@ const Filtering = ({mobile, ...props}) => {
         const title = filter[2]
         const baseData = filter[3]
         console.log(baseData)
-        if(!baseData?.length) return <></>
+        if (!baseData?.length) return <></>
         return (
           <>
-           <Heading
+            <Heading
               as="h3"
               sx={{
                 fontSize: 2,
@@ -87,13 +89,29 @@ const Filtering = ({mobile, ...props}) => {
                 cursor: mobile ? 'pointer' : 'default',
                 ':hover': {
                   color: 'primary'
-                },
+                }
               }}
               onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
             >
-              {mobile && "FILTER BY "} {title} <small style={{transform: 'translateY(-1px)', display: 'inline-block'}}>{mobile && (hiddenOnMobile ? "▶︎" : "▼")}</small>
+              {mobile && 'FILTER BY '} {title}{' '}
+              <small
+                style={{
+                  transform: 'translateY(-1px)',
+                  display: 'inline-block'
+                }}
+              >
+                {mobile && (hiddenOnMobile ? '▶︎' : '▼')}
+              </small>
             </Heading>
-            <Flex sx={{flexDirection: mobile ? 'row' : 'column', gap: '12px', flexWrap: 'wrap', mb: 3, display: hiddenOnMobile ? 'none' : 'flex'}}>
+            <Flex
+              sx={{
+                flexDirection: mobile ? 'row' : 'column',
+                gap: '12px',
+                flexWrap: 'wrap',
+                mb: 3,
+                display: hiddenOnMobile ? 'none' : 'flex'
+              }}
+            >
               <Flex
                 sx={{
                   alignItems: 'center',
@@ -115,7 +133,9 @@ const Filtering = ({mobile, ...props}) => {
                   },
                   width: 'fit-content'
                 }}
-                onClick={() => setStateVariable([...baseData.map(x=> x.label)])}
+                onClick={() =>
+                  setStateVariable([...baseData.map(x => x.label)])
+                }
               >
                 <Flex
                   sx={{
@@ -127,7 +147,17 @@ const Filtering = ({mobile, ...props}) => {
                 >
                   <Icon glyph="list" size={24} />
                 </Flex>
-                <Heading as="h4" sx={{ color: 'inherit', fontSize: 3, color: (currentSelections.length != baseData.length) ? 'black' : 'primary' }}>
+                <Heading
+                  as="h4"
+                  sx={{
+                    color: 'inherit',
+                    fontSize: 3,
+                    color:
+                      currentSelections.length != baseData.length
+                        ? 'black'
+                        : 'primary'
+                  }}
+                >
                   All
                 </Heading>
               </Flex>
@@ -146,7 +176,11 @@ const Filtering = ({mobile, ...props}) => {
                     borderRadius: '4px',
                     background: mobile ? 'snow' : 'none',
                     textDecoration: 'none',
-                    color: (currentSelections.length == baseData.length || !currentSelections.includes(item.label)) ? 'black' : 'primary',
+                    color:
+                      currentSelections.length == baseData.length ||
+                      !currentSelections.includes(item.label)
+                        ? 'black'
+                        : 'primary',
                     transition: 'color 0.2s',
                     ':hover': {
                       color: 'primary'
@@ -154,20 +188,17 @@ const Filtering = ({mobile, ...props}) => {
                     width: 'fit-content'
                   }}
                   onClick={() => {
-                    if(currentSelections.length == baseData.length){
+                    if (currentSelections.length == baseData.length) {
                       setStateVariable([item.label])
-                    }
-                    else if(currentSelections.includes(item.label)){
+                    } else if (currentSelections.includes(item.label)) {
                       let temp = currentSelections
                       temp = temp.filter(selection => selection !== item.label)
-                      if(temp.length === 0){
-                        setStateVariable([...baseData.map(x=> x.label)])
-                      }
-                      else {
+                      if (temp.length === 0) {
+                        setStateVariable([...baseData.map(x => x.label)])
+                      } else {
                         setStateVariable(temp)
                       }
-                    }
-                    else {
+                    } else {
                       setStateVariable([...currentSelections, item.label])
                     }
                   }}
@@ -187,7 +218,7 @@ const Filtering = ({mobile, ...props}) => {
                       <Flex
                         sx={{
                           width: 24,
-                          height: 24,
+                          height: 24
                         }}
                       />
                     </Flex>
@@ -211,10 +242,10 @@ const Filtering = ({mobile, ...props}) => {
             </Flex>
           </>
         )
-      }
-    )}
-  </>
-)}
+      })}
+    </>
+  )
+}
 
 const Requirement = ({ title, children, checkmark, background, size }) => {
   return (
@@ -255,22 +286,22 @@ const HackathonGrant = ({ rawOrganizations }) => {
   let open = true // applications are open
   let channel = 'https://hackclub.slack.com/archives/C03TS0VKFPZ' // #hackathon-grants
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState('')
 
-  let organizations = rawOrganizations;
+  let organizations = rawOrganizations
 
   if (searchValue.length) {
     const search = fuzzysort.go(searchValue, rawOrganizations, {
       keys: ['name', 'description'],
-      threshold: -1000,
-    });
+      threshold: -1000
+    })
 
-    organizations = search.map(({ obj }) => obj);
+    organizations = search.map(({ obj }) => obj)
   }
 
-  const [currentBadges, setBadges] = useState([...badges.map(x=> x.badge)]);
+  const [currentBadges, setBadges] = useState([...badges.map(x => x.badge)])
 
-  const [currentRegions, setRegions] = useState([...regions.map(x=> x.region)]);
+  const [currentRegions, setRegions] = useState([...regions.map(x => x.region)])
 
   return (
     <>
@@ -322,7 +353,9 @@ const HackathonGrant = ({ rawOrganizations }) => {
               <Flex
                 sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
               >
-                  <MSparkles colors={['green', 'teal', 'blue']} path={`M491.9,156.3c-19.4-46-51.9-85-92.7-112.6C358.3,16.1,309,0,256,0c-35.3,0-69,7.2-99.7,20.1c-46,19.4-85,51.9-112.6,92.7
+                <MSparkles
+                  colors={['green', 'teal', 'blue']}
+                  path={`M491.9,156.3c-19.4-46-51.9-85-92.7-112.6C358.3,16.1,309,0,256,0c-35.3,0-69,7.2-99.7,20.1c-46,19.4-85,51.9-112.6,92.7
 	C16.1,153.7,0,203,0,256c0,35.3,7.2,69,20.1,99.7c19.4,46,51.9,85,92.7,112.6C153.7,495.9,203,512,256,512c35.3,0,69-7.2,99.7-20.1
 	c46-19.4,85-51.9,112.6-92.7C495.9,358.3,512,309,512,256C512,220.7,504.8,187,491.9,156.3z M123.2,81.3c-1,11.8,2.5,23.7,9.9,33.1
 	c6.8,8.7,17.6,11.5,18.1,23.4c0.5,11.4-1.3,17.3-8.8,25.3c-3.2,3.4-5.5,8.3-8.8,11.5c-4,3.9-2.5,2.7-8.8,3.8
@@ -350,12 +383,14 @@ const HackathonGrant = ({ rawOrganizations }) => {
 	c-0.2,11.2,2.1,19,5.6,29.4c3.2,9.6,3,18.9,3.7,28.8c0.8,11.2,2.4,23.1,5.5,34.5C414.9,409.1,397.9,425,378.7,438z M459.4,338.5
 	c-0.1-2.2-0.4-4.3-0.7-6.5c-1.5-9.8-7.3-19-8.1-28.7c-1.5-18.1,1.8-32.5-12.1-47.6c-13.4-14.6-33.1-18.1-52-15.1
 	c-9.5,1.5-47.7,7.6-32.3-14.1c3-4.3,8.3-7.8,11.7-11.8c3-3.5,5.5-10,9-12.8c3.5-2.8,19.4-5.9,24-4.5c4.6,1.4,9.3,8,13.3,10.9
-	c7.3,5.5,15.9,9.2,24.9,10.7c8.8,1.3,23.2-1.1,33.9-7c2.9,14.2,4.4,28.9,4.4,44C475.4,285.2,469.7,313.1,459.4,338.5z`} viewBox="0 0 512 512">
-                <img src="/bank/climate/earth-on-bank.svg" height="82px" />
+	c7.3,5.5,15.9,9.2,24.9,10.7c8.8,1.3,23.2-1.1,33.9-7c2.9,14.2,4.4,28.9,4.4,44C475.4,285.2,469.7,313.1,459.4,338.5z`}
+                  viewBox="0 0 512 512"
+                >
+                  <img src="/bank/climate/earth-on-bank.svg" height="82px" />
                 </MSparkles>
               </Flex>
-              Climate-focused nonprofits{' '}
-              on <a sx={{ whiteSpace: 'nowrap' }}>Hack Club Bank</a>
+              Climate-focused nonprofits on{' '}
+              <a sx={{ whiteSpace: 'nowrap' }}>Hack Club Bank</a>
             </Heading>
             <Box
               sx={{
@@ -364,101 +399,122 @@ const HackathonGrant = ({ rawOrganizations }) => {
                 my: 4
               }}
             >
-              Nonprofits are making real environmental impact with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank.
+              Nonprofits are making real environmental impact with Hack Club
+              Bank's fiscal sponsorship and financial tools. Explore the climate
+              efforts running on Hack Club Bank.
             </Box>
-            <Button variant="ctaLg" as="a" href="#apply" sx={{ 
-              mt: [0, 2], 
-              backgroundImage: t => t.util.gx('green', 'blue'),
-              height: '56px' 
-            }}>
+            <Button
+              variant="ctaLg"
+              as="a"
+              href="#apply"
+              sx={{
+                mt: [0, 2],
+                backgroundImage: t => t.util.gx('green', 'blue'),
+                height: '56px'
+              }}
+            >
               EXPLORE IMPACT
             </Button>
-            <Button variant="outlineLg" as="a" href="#apply" sx={{ 
-              mt: [3, 2],
-              ml: 2, 
-              mb: [4, 0],
-              borderColor: 'green', 
-              borderWidth: '2px', 
-              boxSizing: 'border-box', 
-              color: 'white',
-              height: '56px'
-            }}>
+            <Button
+              variant="outlineLg"
+              as="a"
+              href="#apply"
+              sx={{
+                mt: [3, 2],
+                ml: 2,
+                mb: [4, 0],
+                borderColor: 'green',
+                borderWidth: '2px',
+                boxSizing: 'border-box',
+                color: 'white',
+                height: '56px'
+              }}
+            >
               LEARN MORE
             </Button>
           </Box>
         </Box>
 
-      <Grid columns="1fr 4fr" sx={{
-        '@media screen and (max-width: 991.98px)': {
-          display: 'block'
-        },
-        position: 'relative'
-      }}>
-        <Container>
-          <Box
-            sx={{
-              py: [0, 4],
-              mb: [4, 0],
-              '@media screen and (max-width: 991.98px)': {
-                display: 'none'
-              },
-              '@media screen and (min-width: 992px)': {
-                position: 'sticky',
-                top: 80,
-                alignSelf: 'start'
-              }
-            }}
-          >
-            <Filtering 
-              badges={[setBadges, currentBadges, "Badges", badges]}
-              regions={[setRegions, currentRegions, "Regions", regions]}
-            />
-          </Box>
-        </Container>
-        <Container pt={4}>
-          <Flex>
-            <Box sx={{ flexGrow: 1, pr: [0, 3], mb: 3 }}>
-              <Input
-                placeholder="Search Organizations"
-                onChange={e => setSearchValue(e.target.value)}
-                value={searchValue}
-                sx={{
-                  border: '1px dashed black',
-                  textAlign: ['left', 'left', 'left'],
-                  width: '100%',
-                  height: '100%',
-                  bg: 'sheet',
-                  fontSize: '18px',
-                  padding: '12px'
-                }}
+        <Grid
+          columns="1fr 4fr"
+          sx={{
+            '@media screen and (max-width: 991.98px)': {
+              display: 'block'
+            },
+            position: 'relative'
+          }}
+        >
+          <Container>
+            <Box
+              sx={{
+                py: [0, 4],
+                mb: [4, 0],
+                '@media screen and (max-width: 991.98px)': {
+                  display: 'none'
+                },
+                '@media screen and (min-width: 992px)': {
+                  position: 'sticky',
+                  top: 80,
+                  alignSelf: 'start'
+                }
+              }}
+            >
+              <Filtering
+                badges={[setBadges, currentBadges, 'Badges', badges]}
+                regions={[setRegions, currentRegions, 'Regions', regions]}
               />
             </Box>
-          </Flex>
-          <Box
-            sx={{
-              '@media screen and (max-width: 991.99px)': {
-                display: 'block'
-              },
-              '@media screen and (min-width: 992px)': {
-                display: 'none'
-              },
-              my: 2
-            }}
-          >
-            <Filtering 
-              badges={[setBadges, currentBadges, "Badges", badges]}
-              regions={[setRegions, currentRegions, "Regions", regions]}
-              mobile
-            />
-          </Box>
-          <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: 3 }}>
-            {organizations.map(org => new Organization(org)).map(organization => (
-              <OrganizationCard organization={organization} key={organization.id} showTags={true} />
-            ))}
-          </Grid>
-        </Container>
-      </Grid>
-      <Box
+          </Container>
+          <Container pt={4}>
+            <Flex>
+              <Box sx={{ flexGrow: 1, pr: [0, 3], mb: 3 }}>
+                <Input
+                  placeholder="Search Organizations"
+                  onChange={e => setSearchValue(e.target.value)}
+                  value={searchValue}
+                  sx={{
+                    border: '1px dashed black',
+                    textAlign: ['left', 'left', 'left'],
+                    width: '100%',
+                    height: '100%',
+                    bg: 'sheet',
+                    fontSize: '18px',
+                    padding: '12px'
+                  }}
+                />
+              </Box>
+            </Flex>
+            <Box
+              sx={{
+                '@media screen and (max-width: 991.99px)': {
+                  display: 'block'
+                },
+                '@media screen and (min-width: 992px)': {
+                  display: 'none'
+                },
+                my: 2
+              }}
+            >
+              <Filtering
+                badges={[setBadges, currentBadges, 'Badges', badges]}
+                regions={[setRegions, currentRegions, 'Regions', regions]}
+                mobile
+              />
+            </Box>
+            <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: 3 }}>
+              {organizations
+                .map(org => new Organization(org))
+                .map(organization => (
+                  <OrganizationCard
+                    organization={organization}
+                    key={organization.id}
+                    showTags={true}
+                  />
+                ))}
+            </Grid>
+          </Container>
+        </Grid>
+        <Box
           sx={{
             mt: [5, 0],
             pt: [5, null, null, null, 6],
@@ -502,7 +558,9 @@ const HackathonGrant = ({ rawOrganizations }) => {
                 my: 3
               }}
             >
-              Let your money work for change by donating to all climate-focused nonprofits on Hack Club Bank. Donate to 128 Collective’s curated list of recommended organizations.
+              Let your money work for change by donating to all climate-focused
+              nonprofits on Hack Club Bank. Donate to 128 Collective’s curated
+              list of recommended organizations.
             </Box>
             <Button
               variant="ctaLg"
@@ -516,7 +574,9 @@ const HackathonGrant = ({ rawOrganizations }) => {
             >
               <Text>
                 Donate to{' '}
-                <Text sx={{ display: ['none', 'none', 'inline'] }}>Hack Club Bank's</Text>{' '}
+                <Text sx={{ display: ['none', 'none', 'inline'] }}>
+                  Hack Club Bank's
+                </Text>{' '}
                 Climate Fund
               </Text>
             </Button>
@@ -531,7 +591,7 @@ const HackathonGrant = ({ rawOrganizations }) => {
 export default HackathonGrant
 
 /**
- * 
+ *
  *//**
  * Represents an organization.
  */
@@ -545,7 +605,7 @@ export class Organization {
      * The raw organization data.
      * @type {object}
      */
-    this.raw = rawOrganization;
+    this.raw = rawOrganization
   }
 
   /**
@@ -553,7 +613,7 @@ export class Organization {
    * @type {string}
    */
   get id() {
-    return this.raw.id;
+    return this.raw.id
   }
 
   /**
@@ -561,7 +621,7 @@ export class Organization {
    * @type {string}
    */
   get name() {
-    return this.raw.name;
+    return this.raw.name
   }
 
   /**
@@ -569,7 +629,7 @@ export class Organization {
    * @type {string}
    */
   get slug() {
-    return this.raw.slug;
+    return this.raw.slug
   }
 
   /**
@@ -577,7 +637,7 @@ export class Organization {
    * @type {boolean}
    */
   get isTransparent() {
-    return this.raw.transparent;
+    return this.raw.transparent
   }
 
   /**
@@ -585,7 +645,7 @@ export class Organization {
    * @type {boolean}
    */
   get isDemo() {
-    return this.raw.demo_mode;
+    return this.raw.demo_mode
   }
 
   /**
@@ -593,7 +653,7 @@ export class Organization {
    * @type {number}
    */
   get users() {
-    return this.raw.users.length;
+    return this.raw.users.length
   }
 
   /**
@@ -601,7 +661,7 @@ export class Organization {
    * @type {boolean}
    */
   get acceptsDonations() {
-    return this.raw.donation_link !== null;
+    return this.raw.donation_link !== null
   }
 
   /**
@@ -618,7 +678,7 @@ export class Organization {
       donationHeader: this.raw.donation_header,
       backgroundImage: this.raw.background_image,
       publicMessage: this.raw.public_message
-    };
+    }
   }
 
   /**
@@ -631,11 +691,9 @@ export class Organization {
   get tags() {
     return {
       type: this.raw.category,
-      category: "Coding",
-      badges: [
-        "128_collective_funded"
-      ]
-    };
+      category: 'Coding',
+      badges: ['128_collective_funded']
+    }
   }
 
   /**
@@ -643,7 +701,7 @@ export class Organization {
    * @type {Date}
    */
   get createdAt() {
-    return new Date(this.raw.created_at);
+    return new Date(this.raw.created_at)
   }
 
   /**
@@ -656,12 +714,13 @@ export class Organization {
   get links() {
     const links = {
       website: this.raw.website
-    };
+    }
 
-    if (this.acceptsDonations) links.donations = this.raw.donation_link;
-    if (this.isTransparent) links.financials = `https://bank.hackclub.com/${this.slug}`;
+    if (this.acceptsDonations) links.donations = this.raw.donation_link
+    if (this.isTransparent)
+      links.financials = `https://bank.hackclub.com/${this.slug}`
 
-    return links;
+    return links
   }
 
   /**
@@ -669,26 +728,29 @@ export class Organization {
    * @returns {Organization} The updated Organization instance.
    */
   async update() {
-    const response = await fetch(this.raw.href);
-    const json = await response.json();
-    this.raw = json;
+    const response = await fetch(this.raw.href)
+    const json = await response.json()
+    this.raw = json
 
-    return this;
+    return this
   }
 }
 
-export async function fetchRawClimateOrganizations () {
-  let lastLength = 50;
-  let total = [];
-  let page = 1;
+export async function fetchRawClimateOrganizations() {
+  let lastLength = 50
+  let total = []
+  let page = 1
   while (lastLength >= 50) {
-    console.log("Fetching", page);
-    const json = await fetch("https://bank.hackclub.com/api/v3/directory/organizations?per_page=100&page=" + page).then(res => res.json());
-    lastLength = json.length;
-    page++;
-    total = [...total, ...json];
+    console.log('Fetching', page)
+    const json = await fetch(
+      'https://bank.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
+        page
+    ).then(res => res.json())
+    lastLength = json.length
+    page++
+    total = [...total, ...json]
   }
-  return total.filter(org => org.climate);
+  return total.filter(org => org.climate)
 }
 
 const Grouping = ({
@@ -711,7 +773,11 @@ const Grouping = ({
         {children}
         <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: [3, 4, 5] }}>
           {organizations.map(organization => (
-            <OrganizationCard organization={organization} key={organizations.id} showTags={true} />
+            <OrganizationCard
+              organization={organization}
+              key={organizations.id}
+              showTags={true}
+            />
           ))}
         </Grid>
       </Container>
@@ -726,4 +792,4 @@ export const getStaticProps = async () => {
     },
     revalidate: 60
   }
-};
+}
