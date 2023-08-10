@@ -27,7 +27,7 @@ export default function Buttons({
         data-effect="solid"
         data-tip
         sx={{
-          background: primary || (overrideColor || 'rgb(255, 255, 255, 0.3)'),
+          background: primary || overrideColor || 'rgb(255, 255, 255, 0.3)',
           borderRadius: '100px',
           border: 'none',
           display: 'flex',
