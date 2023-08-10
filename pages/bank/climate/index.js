@@ -241,7 +241,7 @@ const Filtering = ({setRegions, currentRegions, setBadges, currentBadges}) => {
             }
             else if(currentRegions.includes(region.region)){
               let tempRegions = currentRegions
-              tempRegions = tempBadges.filter(item => item !== region.region)
+              tempRegions = tempRegions.filter(item => item !== region.region)
               if(tempRegions == []){
                 setRegions([...badges.map(x=> x.badge)])
               }
