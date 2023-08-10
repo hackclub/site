@@ -21,7 +21,7 @@ export async function Slack() {
   ).then(r => r.json())
 
   if (!slackData || !slackData.stats) {
-    console.warn('No slack data')
+    console.warn(`No slack data: ${JSON.stringify(slackData)}`)
     return {}
   } else {
     return slackData.stats.sort((a, b) => a.ds - b.ds).reverse()[0]

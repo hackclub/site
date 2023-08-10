@@ -8,6 +8,7 @@ import Link from 'next/link'
 import Icon from '../../components/icon'
 import Image from 'next/image'
 import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
+import { compact } from 'lodash'
 
 const JobListing = ({
   positionName,
@@ -57,7 +58,7 @@ const JobListing = ({
           textAlign: 'left'
         }}
       >
-        {positionDesc} • {positionLocation} • {positionType}
+        {compact([positionDesc, positionLocation, positionType]).join(' • ')}
       </Text>
     </Card>
   </Link>

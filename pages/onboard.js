@@ -701,7 +701,7 @@ const ShipPage = () => {
           <Button
             variant="outlineLg"
             as="a"
-            href="https://github.com/hackclub/OnBoard/blob/main/DIRECTIONS.md"
+            href="https://github.com/hackclub/OnBoard/blob/main/README.md"
             target="_blank"
           >
             Join the Party
@@ -804,7 +804,7 @@ const ShipPage = () => {
                   <>
                     <strong>Open source your design</strong> on GitHub and{' '}
                     <Link
-                      href="https://github.com/hackclub/OnBoard/blob/main/DIRECTIONS.md"
+                      href="https://github.com/hackclub/OnBoard/blob/main/README.md"
                       target="_blank"
                     >
                       apply for the grant

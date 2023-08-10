@@ -23,7 +23,7 @@ export default function Team() {
           px={[2, 4]}
           sx={{
             backgroundImage:
-              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-jt11b2jd3-hack-club-bot.vercel.app/0img_5171.jpg)',
+              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: '75%'
           }}
@@ -92,8 +92,8 @@ export default function Team() {
                     img="/team/christina.jpg"
                     name="Christina Asquith"
                     teamRole="Co-founder and COO"
-                    text="With more than a decade of experience in nonprofit management, Christina has built global teams and raised millions of dollars.  Before joining Hack Club, she founded & served as editor-in-chief of Fuller Project, an award-winning journalism nonprofit, which had the TIME Magazine cover story in 2019. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq.  She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
-                    pronouns="she/her"
+                    text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
+                     
                   />
                 </Grid>
                 <Grid columns={[1, null, 3]} gap={2}>
@@ -185,7 +185,7 @@ export default function Team() {
                     <Bio
                       name="Hugo Hu"
                       teamRole="Mail Coordinator & Engineering"
-                      text="Hugo manages Hack Club’s mail. His responsibilities include designing magical mail experiences, negotiating with carriers, and writing mail-related software. He's also involved in many of Hack Club's special projects, such as Sprig & Assemble. Hugo also enjoys designing hardware, competing in math competitions, and admiring corgis."
+                      text="Hugo is a Hack Clubber from NYC who joined during the summer of 2020 for Summer of Making, and he then went on the Hacker Zephyr in 2021. He's a lover of all things mail and logistics related, and does hardware engineering and procurement work for projects like Sprig and Haxidraw. In his free time, he's building up his courage to pet random dogs, listening to outdated music, and designing fun projects with hardware."
                       img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
                       pronouns="he/him"
                     />

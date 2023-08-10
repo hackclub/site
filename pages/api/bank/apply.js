@@ -57,7 +57,7 @@ export default async function handler(req, res) {
       })
       .catch(error => {
         console.log(error)
-        res.json({ status: 'Something went wrong', error })
+        res.writeHead(500, { Location: `/bank/apply?step=3&airtable-error=${error}`})
       })
   } else {
     res.status(405).json({ status: 'error', error: 'Must send POST request' })
