@@ -753,7 +753,7 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Haxidraw/>
+              <Haxidraw />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole

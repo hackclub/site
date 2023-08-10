@@ -20,20 +20,20 @@ export default function Haxidraw() {
       highlight="#271932"
       filter="brightness(0.8)"
     >
-    <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
-     Haxidraw
-    </Text>
+      <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
+        Haxidraw
+      </Text>
       <Grid columns={[1, 2]}>
         <Box>
-        <Text
+          <Text
             as="p"
             variant="subtitle"
             sx={{ zIndex: 2, position: 'relative' }}
           >
             Haxidraw is a W.I.P. open source drawing machine and online editor,
-            designed to be a fun and beginner friendly
-            introduction to digital fabrication and generative art.
-        </Text>
+            designed to be a fun and beginner friendly introduction to digital
+            fabrication and generative art.
+          </Text>
         </Box>
         <Box>
           <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>

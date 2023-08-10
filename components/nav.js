@@ -74,7 +74,7 @@ const hoverColor = name =>
     slate: 'black',
     black: 'slate',
     primary: 'error'
-  }[name] || 'black')
+  })[name] || 'black'
 
 const slide = keyframes({
   from: { transform: 'translateY(-25%)', opacity: 0 },
