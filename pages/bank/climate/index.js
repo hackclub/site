@@ -22,253 +22,192 @@ const styles = `
 
 const badges = [
   {
-    badge: 'Transparent',
+    label: 'Transparent',
     color: 'purple',
     icon: 'explore'
   },
   {
-    badge: 'Funded',
+    label: 'Funded',
     image: "https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg"
   },
   {
-    badge: 'Recommended',
+    label: 'Recommended',
     image: "https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg"
   },
 ]
 
 const regions = [
   {
-    region: 'North America',
+    label: 'North America',
     color: 'secondary',
     icon: 'photo'
   },
   {
-    region: 'South America',
+    label: 'South America',
     color: 'secondary',
     icon: 'photo'
   },
   {
-    region: 'Africa',
+    label: 'Africa',
     color: 'secondary',
     icon: 'explore'
   },
   {
-    region: 'Europe',
+    label: 'Europe',
     color: 'secondary',
     icon: 'explore'
   },
   {
-    region: 'Asia & Oceania',
+    label: 'Asia & Oceania',
     color: 'secondary',
     icon: 'explore'
   },
 ]
 
-const Filtering = ({setRegions, currentRegions, setBadges, currentBadges}) => {
+const Filtering = ({mobile, ...props}) => {
   return (
     <>
-      <Heading
-        as="h3"
-        sx={{
-          fontSize: 2,
-          textTransform: 'uppercase',
-          color: 'muted'
-        }}
-      >
-        Badges
-      </Heading>
-      <Flex
-        sx={{
-          alignItems: 'center',
-          cursor: 'pointer',
-          gap: 2,
-          mt: 3,
-          color: 'secondary',
-          textDecoration: 'none',
-          transition: 'color 0.2s',
-          ':hover': {
-            color: 'primary'
-          },
-          width: 'fit-content'
-        }}
-        onClick={() => setBadges([...badges.map(x=> x.badge)])}
-      >
-        <Flex
-          sx={{
-            bg: 'smoke',
-            color: 'secondary',
-            p: 1,
-            borderRadius: 6
-          }}
-        >
-          <Icon glyph="list" size={24} />
-        </Flex>
-        <Heading as="h4" sx={{ color: 'inherit', fontSize: 3, color: (currentBadges.length != badges.length) ? 'black' : 'primary' }}>
-          All
-        </Heading>
-      </Flex>
-      {badges.map((badge, idx) => (
-        <Flex
-          key={idx}
-          sx={{
-            alignItems: 'center',
-            cursor: 'pointer',
-            gap: 2,
-            mt: 3,
-            textDecoration: 'none',
-            color: (currentBadges.length == badges.length || !currentBadges.includes(badge.badge)) ? 'black' : 'primary',
-            transition: 'color 0.2s',
-            ':hover': {
-              color: 'primary'
-            },
-            width: 'fit-content'
-          }}
-          onClick={() => {
-            if(currentBadges.length == badges.length){
-              setBadges([badge.badge])
-            }
-            else if(currentBadges.includes(badge.badge)){
-              let tempBadges = currentBadges
-              tempBadges = tempBadges.filter(item => item !== badge.badge)
-              if(tempBadges == []){
-                setBadges([...badges.map(x=> x.badge)])
-              }
-              else {
-                setBadges(tempBadges)
-              }
-            }
-            else {
-              setBadges([...currentBadges, badge.badge])
-            }
-          }}
-        >
-          {badge.image ? (
-            <Flex
+      {Object.values(props).map(filter => {
+        
+        const setStateVariable = filter[0]
+        const currentSelections = filter[1]
+        const title = filter[2]
+        const baseData = filter[3]
+        console.log(baseData)
+        if(!baseData?.length) return <></>
+        return (
+          <>
+           <Heading
+              as="h3"
               sx={{
-                backgroundImage: `url("${badge.image}")`,
-                backgroundSize: 'contain',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                color: 'white',
-                p: 1,
-                borderRadius: 6
+                fontSize: 2,
+                textTransform: 'uppercase',
+                color: 'muted',
+                mb: 3
               }}
             >
+              {title}
+            </Heading>
+            <Flex sx={{flexDirection: mobile ? 'row' : 'column', gap: '12px', flexWrap: 'wrap', mb: 3}}>
               <Flex
                 sx={{
-                  width: 24,
-                  height: 24,
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  gap: 2,
+                  py: mobile ? 1 : 0,
+                  pl: mobile ? 1 : 0,
+                  pr: mobile ? 3 : 0,
+                  border: mobile ? '1px solid' : 'none',
+                  borderColor: 'sunken',
+                  borderRadius: '4px',
+                  background: mobile ? 'snow' : 'none',
+                  textDecoration: 'none',
+                  color: 'secondary',
+                  textDecoration: 'none',
+                  transition: 'color 0.2s',
+                  ':hover': {
+                    color: 'primary'
+                  },
+                  width: 'fit-content'
                 }}
-              />
+                onClick={() => setStateVariable([...baseData.map(x=> x.label)])}
+              >
+                <Flex
+                  sx={{
+                    bg: 'smoke',
+                    color: 'secondary',
+                    p: 1,
+                    borderRadius: 6
+                  }}
+                >
+                  <Icon glyph="list" size={24} />
+                </Flex>
+                <Heading as="h4" sx={{ color: 'inherit', fontSize: 3, color: (currentSelections.length != baseData.length) ? 'black' : 'primary' }}>
+                  All
+                </Heading>
+              </Flex>
+              {baseData?.map((item, idx) => (
+                <Flex
+                  key={idx}
+                  sx={{
+                    alignItems: 'center',
+                    cursor: 'pointer',
+                    gap: 2,
+                    py: mobile ? 1 : 0,
+                    pl: mobile ? 1 : 0,
+                    pr: mobile ? 3 : 0,
+                    border: mobile ? '1px solid' : 'none',
+                    borderColor: 'sunken',
+                    borderRadius: '4px',
+                    background: mobile ? 'snow' : 'none',
+                    textDecoration: 'none',
+                    color: (currentSelections.length == baseData.length || !currentSelections.includes(item.label)) ? 'black' : 'primary',
+                    transition: 'color 0.2s',
+                    ':hover': {
+                      color: 'primary'
+                    },
+                    width: 'fit-content'
+                  }}
+                  onClick={() => {
+                    if(currentSelections.length == baseData.length){
+                      setStateVariable([item.label])
+                    }
+                    else if(currentSelections.includes(item.label)){
+                      let temp = currentSelections
+                      temp = temp.filter(selection => selection !== item.label)
+                      if(temp.length === 0){
+                        setStateVariable([...baseData.map(x=> x.label)])
+                      }
+                      else {
+                        setStateVariable(temp)
+                      }
+                    }
+                    else {
+                      setStateVariable([...currentSelections, item.label])
+                    }
+                  }}
+                >
+                  {item.image ? (
+                    <Flex
+                      sx={{
+                        backgroundImage: `url("${item.image}")`,
+                        backgroundSize: 'contain',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        color: 'white',
+                        p: 1,
+                        borderRadius: 6
+                      }}
+                    >
+                      <Flex
+                        sx={{
+                          width: 24,
+                          height: 24,
+                        }}
+                      />
+                    </Flex>
+                  ) : (
+                    <Flex
+                      sx={{
+                        bg: item.color,
+                        color: 'white',
+                        p: 1,
+                        borderRadius: 6
+                      }}
+                    >
+                      <Icon glyph={item.icon} size={24} />
+                    </Flex>
+                  )}
+                  <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>
+                    {item.label}
+                  </Heading>
+                </Flex>
+              ))}
             </Flex>
-          ) : (
-            <Flex
-              sx={{
-                bg: badge.color,
-                color: 'white',
-                p: 1,
-                borderRadius: 6
-              }}
-            >
-              <Icon glyph={badge.icon} size={24} />
-            </Flex>
-          )}
-          <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>
-            {badge.badge}
-          </Heading>
-        </Flex>
-      ))}
-      <Heading
-        as="h3"
-        sx={{
-          fontSize: 2,
-          textTransform: 'uppercase',
-          color: 'muted',
-          mt: 4
-        }}
-      >
-        Regions
-      </Heading>
-      <Flex
-        sx={{
-          alignItems: 'center',
-          cursor: 'pointer',
-          gap: 2,
-          mt: 3,
-          color: 'secondary',
-          textDecoration: 'none',
-          transition: 'color 0.2s',
-          ':hover': {
-            color: 'primary'
-          },
-          width: 'fit-content'
-        }}
-        onClick={() => setRegions([...regions.map(x=> x.region)])}
-      >
-        <Flex
-          sx={{
-            bg: 'smoke',
-            color: 'secondary',
-            p: 1,
-            borderRadius: 6
-          }}
-        >
-          <Icon glyph="list" size={24} />
-        </Flex>
-        <Heading as="h4" sx={{ color: 'inherit', fontSize: 3, color: (currentRegions.length != regions.length) ? 'black' : 'primary' }}>
-          All
-        </Heading>
-      </Flex>
-      {regions.map((region, idx) => (
-        <Flex
-          key={idx}
-          sx={{
-            alignItems: 'center',
-            cursor: 'pointer',
-            gap: 2,
-            mt: 3,
-            textDecoration: 'none',
-            color: (currentRegions.length == regions.length || !currentRegions.includes(region.region)) ? 'black' : 'primary',
-            transition: 'color 0.2s',
-            ':hover': {
-              color: 'primary'
-            },
-            width: 'fit-content'
-          }}
-          onClick={() => {
-            if(currentRegions.length == regions.length){
-              setRegions([region.region])
-            }
-            else if(currentRegions.includes(region.region)){
-              let tempRegions = currentRegions
-              tempRegions = tempRegions.filter(item => item !== region.region)
-              if(tempRegions == []){
-                setRegions([...badges.map(x=> x.badge)])
-              }
-              else {
-                setRegions(tempBadges)
-              }
-            }
-            else {
-              setRegions([...currentRegions, region.region])
-            }
-          }}
-        >
-          <Flex
-            sx={{
-              bg: region.color,
-              color: 'white',
-              p: 1,
-              borderRadius: 6
-            }}
-          >
-            <Icon glyph={region.icon} size={24} />
-          </Flex>
-          <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>
-            {region.region}
-          </Heading>
-        </Flex>
-      ))}
+          </>
+        )
+      }
+    )}
   </>
 )}
 
@@ -433,7 +372,7 @@ const HackathonGrant = ({ rawOrganizations }) => {
               mt: 2,
               ml: 2, 
               borderColor: 'green', 
-              borderWidth: '4px', 
+              borderWidth: '2px', 
               boxSizing: 'border-box', 
               color: 'white',
               height: '56px'
@@ -465,35 +404,14 @@ const HackathonGrant = ({ rawOrganizations }) => {
             }}
           >
             <Filtering 
-              setRegions={setRegions} 
-              currentRegions={currentRegions} 
-              setBadges={setBadges} 
-              currentBadges={currentBadges} 
+              badges={[setBadges, currentBadges, "Badges", badges]}
+              regions={[setRegions, currentRegions, "Regions", regions]}
             />
           </Box>
         </Container>
         <Container pt={4}>
-          <Box
-            sx={{
-              '@media screen and (max-width: 991.99px)': {
-                display: 'block'
-              },
-              '@media screen and (min-width: 992px)': {
-                display: 'none'
-              },
-              my: 2
-            }}
-          >
-            <Filtering 
-              setRegions={setRegions} 
-              currentRegions={currentRegions} 
-              setBadges={setBadges} 
-              currentBadges={currentBadges} 
-              mobile
-            />
-          </Box>
           <Flex>
-            <Box sx={{ flexGrow: 1, pr: [0, 3] }}>
+            <Box sx={{ flexGrow: 1, pr: [0, 3], mb: 3 }}>
               <Input
                 placeholder="Search Organizations"
                 onChange={e => setSearchValue(e.target.value)}
@@ -510,6 +428,23 @@ const HackathonGrant = ({ rawOrganizations }) => {
               />
             </Box>
           </Flex>
+          <Box
+            sx={{
+              '@media screen and (max-width: 991.99px)': {
+                display: 'block'
+              },
+              '@media screen and (min-width: 992px)': {
+                display: 'none'
+              },
+              my: 2
+            }}
+          >
+            <Filtering 
+              badges={[setBadges, currentBadges, "Badges", badges]}
+              regions={[setRegions, currentRegions, "Regions", regions]}
+              mobile
+            />
+          </Box>
           <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: 3 }}>
             {organizations.map(org => new Organization(org)).map(organization => (
               <OrganizationCard organization={organization} key={organization.id} showTags={true} />
