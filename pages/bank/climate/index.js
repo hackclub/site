@@ -269,7 +269,6 @@ const Filtering = ({setRegions, currentRegions, setBadges, currentBadges}) => {
           </Heading>
         </Flex>
       ))}
-    )
   </>
 )}
 
@@ -485,7 +484,13 @@ const HackathonGrant = ({ rawOrganizations }) => {
               my: 2
             }}
           >
-            THIS IS FOR MOBILE BADGES!
+            <Filtering 
+              setRegions={setRegions} 
+              currentRegions={currentRegions} 
+              setBadges={setBadges} 
+              currentBadges={currentBadges} 
+              mobile
+            />
           </Box>
           <Flex>
             <Box sx={{ flexGrow: 1, pr: [0, 3] }}>
