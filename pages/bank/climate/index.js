@@ -242,8 +242,8 @@ const FilterPanel = ({ filter, mobile }) => {
 const Filtering = ({ mobile, ...props }) => {
   return (
     <>
-      {Object.values(props).map(filter => (
-        <FilterPanel filter={filter} mobile={mobile} />
+      {Object.values(props).map((filter, i) => (
+        <FilterPanel key={`filter-${i}`} filter={filter} mobile={mobile} />
       ))}
     </>
   )
