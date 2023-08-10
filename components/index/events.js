@@ -109,7 +109,6 @@ function Dot() {
 }
 
 export default function Events({ events }) {
-  console.log(events.length)
   return (
     <Box mb={3}>
       <Grid

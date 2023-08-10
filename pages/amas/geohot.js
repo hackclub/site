@@ -12,7 +12,6 @@ export default function Geohot() {
   if (typeof window !== 'undefined') {
     setTimeout(function () {
       window.location.reload()
-      console.log('hi')
     }, milliseconds)
   }
 

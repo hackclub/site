@@ -53,10 +53,9 @@ export default async function handler(req, res) {
           'Slack Username': data.slackUsername
         })
         res.writeHead(302, { Location: '/bank/apply/success' }).end()
-        console.log(r)
       })
       .catch(error => {
-        console.log(error)
+        console.error(error)
         res.writeHead(500, {
           Location: `/bank/apply?step=3&airtable-error=${error}`
         })

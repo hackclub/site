@@ -16,7 +16,6 @@ const WorkshopCard = ({
 }) => (
   <Card
     href={`https://workshops.hackclub.com/${slug}`}
-    passHref
     as="a"
     variant="interactive"
     target="_blank"

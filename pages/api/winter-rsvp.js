@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     })
       .then(res => res.status(200).json({ success: true }))
       .catch(error => {
-        console.log(error)
+        console.error(error)
         res.json({ status: 'Something went wrong', error })
       })
   } else {
