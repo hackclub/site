@@ -26,7 +26,6 @@ export default function Header({
     <>
       <Slide heroImage={heroImage}>
         <Vignette />
-
         <Box
           sx={{
             position: 'absolute',

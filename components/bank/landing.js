@@ -4,7 +4,7 @@ import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
 import hero from '../../public/bank/bg.webp'
 
-export default function Landing({ showButton, eventsCount }) {
+export default function Landing({ showButton = true, eventsCount }) {
   return (
     <>
       <Slide>

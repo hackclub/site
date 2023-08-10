@@ -400,7 +400,9 @@ const ClimateDirectory = ({ rawOrganizations }) => {
               sx={{
                 fontSize: [2, 3, 3],
                 textAlign: 'center',
-                my: 4
+                my: 4,
+                maxWidth: '956px',
+                mx: 'auto'
               }}
             >
               Nonprofits are making real environmental impact with Hack Club
