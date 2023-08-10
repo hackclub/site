@@ -533,7 +533,7 @@ const ClimateDirectory = ({ rawOrganizations }) => {
         </Grid>
         <Box
           sx={{
-            mt: [5, 0],
+            mt: [5, 3, 0],
             pt: [5, null, null, null, 6],
             pb: [3, 4, 5, null, 6],
             minHeight: ['70vh', 'none'],
