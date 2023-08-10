@@ -115,10 +115,11 @@ function Page({
   ]
 
   // janky right now and does not show last image
-  console.log(
-    `White sheets of paper\nWaiting to be printed on\nA blank console waits`
-  )
+
   useEffect(() => {
+    console.log(
+      `White sheets of paper\nWaiting to be printed on\nA blank console waits`
+    )
     if (count === images.length - 1) {
       setCount(0)
     }
@@ -152,11 +153,9 @@ function Page({
           reveal={reveal}
           onMouseEnter={() => {
             setHover(true)
-            console.log('hover:', hover)
           }}
           onMouseOut={() => {
             setHover(false)
-            console.log('hover:', hover)
           }}
         />
         <Konami action={easterEgg}>
@@ -361,7 +360,6 @@ function Page({
                 }}
                 onClick={() => {
                   setCount(count + 1)
-                  console.log(count)
                 }}
               >
                 <Box
@@ -1136,7 +1134,6 @@ export async function getStaticProps() {
   // Sprig: get newest games
   const { getGames } = require('./api/games')
   let game = await getGames()
-  console.log(game)
 
   let gameTitle = []
 

@@ -21,7 +21,6 @@ const valiadateAddress = async step => {
     // Get the raw personal address input
     const userAddress = sessionStorage.getItem('bank-signup-userAddress')
 
-    console.log(userAddress)
     if (!userAddress) return
 
     const result = await geocode(userAddress)
@@ -62,7 +61,7 @@ export default function Apply() {
   ]
 
   useEffect(() => {
-    console.log(`Form error: ${formError}`)
+    console.error(`Form error: ${formError}`)
     if (!router.isReady) return
     setStep(parseInt(router.query.step))
 

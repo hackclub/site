@@ -12,7 +12,6 @@ export default function Sal() {
   if (typeof window !== 'undefined') {
     setTimeout(function () {
       window.location.reload()
-      console.log('hi')
     }, milliseconds)
   }
 

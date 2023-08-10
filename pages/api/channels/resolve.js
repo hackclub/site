@@ -10,13 +10,13 @@ export default async function handler(req, res) {
   )
 
   if (!channelDataReq.ok) {
-    console.log(await channelDataReq.text())
+    console.warn(await channelDataReq.text())
     return res.status(503).end()
   }
 
   const channelData = await channelDataReq.json()
   if (!channelData.ok) {
-    console.log(channelData)
+    console.warn(channelData)
     return res.status(400).end()
   }
 

@@ -32,7 +32,7 @@ export default async function handler(req, res) {
         filterByFormula: `AND({Email} = '${data.email}', {Is Valid?} = '1', {Club} = '')`
       })
     )[0]
-    console.log('address', address)
+
     if (!address) {
       address = await addressesTable.create({
         'Street (First Line)': data.addressFirst,
@@ -43,8 +43,6 @@ export default async function handler(req, res) {
         Country: data.country,
         Person: [personRecord.id]
       })
-
-      console.log('created address:', address)
     }
 
     if (
@@ -80,10 +78,9 @@ export default async function handler(req, res) {
     })
       .then(r => {
         res.json({ status: 'success' })
-        console.log(r.statusText)
       })
       .catch(error => {
-        console.log(error)
+        console.error(error)
         res.json({ status: 'error', error })
       })
   } else {
