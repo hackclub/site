@@ -153,7 +153,10 @@ const HackathonGrant = ({ rawOrganizations }) => {
               Nonprofits are making real environmental impact with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank.
             </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
-              Looking to make an impact? Start a nonprofit with Bank.
+              EXPLORE IMPACT
+            </Button>
+            <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
+              LEARN MORE
             </Button>
           </Box>
         </Box>
