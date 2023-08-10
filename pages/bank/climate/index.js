@@ -148,7 +148,7 @@ const FilterPanel = ({ filter, mobile }) => {
               color: 'inherit',
               fontSize: 3,
               color:
-                currentSelections.length != baseData.length
+                currentSelections.length !== baseData.length
                   ? 'black'
                   : 'primary'
             }}
@@ -172,7 +172,7 @@ const FilterPanel = ({ filter, mobile }) => {
               background: mobile ? 'snow' : 'none',
               textDecoration: 'none',
               color:
-                currentSelections.length == baseData.length ||
+                currentSelections.length === baseData.length ||
                 !currentSelections.includes(item.label)
                   ? 'black'
                   : 'primary',
@@ -183,7 +183,7 @@ const FilterPanel = ({ filter, mobile }) => {
               width: 'fit-content'
             }}
             onClick={() => {
-              if (currentSelections.length == baseData.length) {
+              if (currentSelections.length === baseData.length) {
                 setStateVariable([item.label])
               } else if (currentSelections.includes(item.label)) {
                 let temp = currentSelections
@@ -388,7 +388,7 @@ const HackathonGrant = ({ rawOrganizations }) => {
 	c7.3,5.5,15.9,9.2,24.9,10.7c8.8,1.3,23.2-1.1,33.9-7c2.9,14.2,4.4,28.9,4.4,44C475.4,285.2,469.7,313.1,459.4,338.5z`}
                   viewBox="0 0 512 512"
                 >
-                  <img src="/bank/climate/earth-on-bank.svg" height="82px" />
+                  <img src="/bank/climate/earth-on-bank.svg" alt="" height="82px" />
                 </MSparkles>
               </Flex>
               Climate-focused nonprofits on{' '}
