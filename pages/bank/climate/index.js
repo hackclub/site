@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Grid, Heading } from 'theme-ui'
+import { Box, Container, Flex, Grid, Heading, Input } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../../components/force-theme'
@@ -69,7 +69,7 @@ const HackathonGrant = ({ rawOrganizations }) => {
       <style>{styles}</style>
       <Box as="main" key="main">
         <Nav dark />
-        <ForceTheme theme="dark" />
+        <ForceTheme theme="light" />
         <Meta as={Head} title="Hackathon Grant" />
         <Box
           sx={{
@@ -166,6 +166,24 @@ const HackathonGrant = ({ rawOrganizations }) => {
 
 
       <Container sx={{ mt: [3, 4, 5] }}>
+        <Flex>
+          <Box sx={{ flexGrow: 1, pr: [0, 3] }}>
+            <Input
+              placeholder="Search Tools"
+              onChange={async e => {
+                console.log(e)
+              }}
+              sx={{
+                border: '1px dashed white',
+                textAlign: ['left', 'left', 'left'],
+                width: '100%',
+                height: '100%',
+                bg: 'sheet',
+                fontSize: '18px'
+              }}
+            />
+          </Box>
+        </Flex>
         <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: [3, 4, 5] }}>
           {rawOrganizations.map(org => new Organization(org)).map(organization => (
             <OrganizationCard organization={organization} key={organization.id} showTags={true} />
