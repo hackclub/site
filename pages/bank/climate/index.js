@@ -11,8 +11,10 @@ import OrganizationCard from '../../../components/bank/directory/card'
 import Zoom from 'react-reveal/Zoom'
 import fuzzysort from 'fuzzysort'
 import ScrollHint from '../../../components/scroll-hint'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 /** @jsxImportSource theme-ui */
+import NextLink from 'next/link'
+import { kebabCase } from 'lodash'
 
 const styles = `
   html {
@@ -38,7 +40,7 @@ const badges = [
   }
 ]
 
-const regions = [
+export const regions = [
   {
     label: 'North America',
     color: 'secondary',
@@ -90,8 +92,8 @@ const FilterPanel = ({ filter, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-                color: 'primary'
-              }
+              color: 'primary'
+            }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -179,7 +181,7 @@ const FilterPanel = ({ filter, mobile }) => {
               textDecoration: 'none',
               color:
                 currentSelections.length === baseData.length ||
-                !currentSelections.includes(item.label)
+                  !currentSelections.includes(item.label)
                   ? 'black'
                   : 'primary',
               transition: 'color 0.2s',
@@ -245,12 +247,164 @@ const FilterPanel = ({ filter, mobile }) => {
   )
 }
 
+const RegionPanel = ({ mobile }) => {
+  const [hiddenOnMobile, setHiddenOnMobile] = useState(mobile)
+  return (
+    <>
+      <Heading
+        as="h3"
+        sx={{
+          fontSize: 2,
+          textTransform: 'uppercase',
+          color: 'muted',
+          mb: hiddenOnMobile ? 1 : 3,
+          cursor: mobile ? 'pointer' : 'default',
+          ':hover': mobile
+            ? {
+              color: 'primary'
+            }
+            : {}
+        }}
+        onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
+      >
+        {mobile && 'FILTER BY '} REGION{' '}
+        <small
+          style={{
+            transform: 'translateY(-1px)',
+            display: 'inline-block'
+          }}
+        >
+          {mobile && (hiddenOnMobile ? '▶︎' : '▼')}
+        </small>
+      </Heading>
+      <Flex
+        sx={{
+          flexDirection: mobile ? 'row' : 'column',
+          gap: '12px',
+          flexWrap: 'wrap',
+          mb: 3,
+          display: hiddenOnMobile ? 'none' : 'flex'
+        }}
+      >
+        <NextLink href={"/bank/climate"}>
+          <Flex
+            sx={{
+              alignItems: 'center',
+              cursor: 'pointer',
+              gap: 2,
+              py: mobile ? 1 : 0,
+              pl: mobile ? 1 : 0,
+              pr: mobile ? 3 : 0,
+              border: mobile ? '1px solid' : 'none',
+              borderColor: 'sunken',
+              borderRadius: '4px',
+              background: mobile ? 'snow' : 'none',
+              textDecoration: 'none',
+              color: 'secondary',
+              textDecoration: 'none',
+              transition: 'color 0.2s',
+              ':hover': {
+                color: 'primary'
+              },
+              width: 'fit-content'
+            }}
+            as="a"
+          >
+            <Flex
+              sx={{
+                bg: 'smoke',
+                color: 'secondary',
+                p: 1,
+                borderRadius: 6
+              }}
+            >
+              <Icon glyph="list" size={24} />
+            </Flex>
+            <Heading
+              as="h4"
+              sx={{
+                color: 'inherit',
+                fontSize: 3,
+                color: 'black'
+              }}
+            >
+              All
+            </Heading>
+          </Flex>
+        </NextLink>
+        {regions?.map((item, idx) => (
+          <NextLink href={`/bank/climate/organizations-in-${kebabCase(item.label)}`}>
+            <Flex
+              key={idx}
+              sx={{
+                alignItems: 'center',
+                cursor: 'pointer',
+                gap: 2,
+                py: mobile ? 1 : 0,
+                pl: mobile ? 1 : 0,
+                pr: mobile ? 3 : 0,
+                border: mobile ? '1px solid' : 'none',
+                borderColor: 'sunken',
+                borderRadius: '4px',
+                background: mobile ? 'snow' : 'none',
+                textDecoration: 'none',
+                color: 'black',
+                transition: 'color 0.2s',
+                ':hover': {
+                  color: 'primary'
+                },
+                width: 'fit-content'
+              }}
+            >
+              {item.image ? (
+                <Flex
+                  sx={{
+                    backgroundImage: `url("${item.image}")`,
+                    backgroundSize: 'contain',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    color: 'white',
+                    p: 1,
+                    borderRadius: 6
+                  }}
+                >
+                  <Flex
+                    sx={{
+                      width: 24,
+                      height: 24
+                    }}
+                  />
+                </Flex>
+              ) : (
+                <Flex
+                  sx={{
+                    bg: item.color,
+                    color: 'white',
+                    p: 1,
+                    borderRadius: 6
+                  }}
+                >
+                  <Icon glyph={item.icon} size={24} />
+                </Flex>
+              )}
+              <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>
+                {item.label}
+              </Heading>
+            </Flex>
+          </NextLink>
+        ))}
+      </Flex>
+    </>
+  )
+}
+
 const Filtering = ({ mobile, ...props }) => {
   return (
     <>
       {Object.values(props).map((filter, i) => (
         <FilterPanel key={`filter-${i}`} filter={filter} mobile={mobile} />
       ))}
+      <RegionPanel />
     </>
   )
 }
@@ -290,8 +444,14 @@ const Requirement = ({ title, children, checkmark, background, size }) => {
   )
 }
 
-const ClimateDirectory = ({ rawOrganizations }) => {
+const ClimateDirectory = ({ rawOrganizations, pageRegion }) => {
   const [searchValue, setSearchValue] = useState('')
+  const [region, setRegion] = useState(pageRegion);
+
+  useEffect(() => {
+    // history.pushState(null, null, `/bank/climate/organizations-in-${region.toLowerCase().split(' ').join('-')}`);
+  }, [region]);
+  const [modalOrganization, setModalOrganization] = useState(null)
 
   let organizations = rawOrganizations
 
@@ -306,19 +466,133 @@ const ClimateDirectory = ({ rawOrganizations }) => {
 
   const [currentBadges, setBadges] = useState([...badges.map(x => x.label)])
 
-  const [currentRegions, setRegions] = useState([...regions.map(x => x.label)])
+  const openModal = organization => {
+    setModalOrganization(organization)
+  }
+
+  const closeModal = () => {
+    setModalOrganization(null)
+  }
 
   return (
-    <>
+    <div style={modalOrganization ? {
+
+    } : {}}>
       <Meta
         as={Head}
-        title="Climate-focused nonprofits on Bank"
-        description="Nonprofits are making real environmental impact with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank."
+        title={"Climate-focused nonprofits on Bank" + (region ? ` in ${region.label}` : '')}
+        description={"Nonprofits are making real environmental impact" + (region ? ` in ${region.label}` : "") + " with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank."}
         image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
       <style>{styles}</style>
+      {modalOrganization && (
+        <Box sx={{
+          position: 'fixed',
+          top: '0px',
+          left: '0px',
+          right: '0px',
+          bottom: '0px',
+          zIndex: 1000,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          bg: '#00000044'
+        }} onClick={closeModal}>
+          <Card
+            sx={{
+              width: 'min(800px, 80%)',
+              bg: 'elevated',
+              borderRadius: '10px',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+            onClick={e => {
+              e.stopPropagation();
+            }}
+          >
+            <Flex sx={{ flexDirection: 'column', alignItems: 'start', gap: 3 }}>
+              <Flex sx={{
+                flexDirection: 'column', justifyContent: 'end',
+                width: '100%', height: '200px',
+                margin: -4, padding: 4, boxSizing: 'content-box',
+                backgroundPosition: 'center center',
+                color: 'white',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 60%, rgba(128,128,128,0) 80%, rgba(255,255,255,1) 100%), url('${modalOrganization.branding.backgroundImage}')`
+              }}>
+                <Flex sx={{ flexDirection: 'row', alignItems: 'end', justifyContent: 'start' }}>
+                  <img src={modalOrganization.branding.logo} sx={{ width: '100px', height: '100px', borderRadius: '8px', marginRight: 4 }} />
+                  <Text variant="title" sx={{
+                    wordBreak: 'break-word', marginBottom: '16px', color: 'white',
+                    textShadow: '0px 10px 10px rgba(0, 0, 0, 0.25)'
+                  }}>{modalOrganization.name}</Text>
+                </Flex>
+              </Flex>
+
+              <Flex sx={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+                {/* info & buttons */}
+                <Flex sx={{ flexDirection: 'column', alignItems: 'start', maxWidth: '75%' }}>
+                  <Text variant="lead" style={{ fontSize: '22px' }}>{modalOrganization.branding.description}</Text>
+                  <Flex as="a" href={modalOrganization.links.website} sx={{
+                    flexDirection: 'row',
+                    justifyContent: 'start',
+                    alignItems: 'center',
+                    color: 'slate',
+                    textDecoration: 'none'
+                  }}>
+                    <Icon glyph="web" size={38} />
+                    <Text style={{ fontSize: '20px', marginLeft: '6px' }}>Website</Text>
+                    <Icon glyph="external" size={20} style={{ marginLeft: '2px', marginBottom: '6px' }} />
+                  </Flex>
+                  <Flex as="a" href={modalOrganization.links.financials} sx={{
+                    flexDirection: 'row',
+                    justifyContent: 'start',
+                    alignItems: 'center',
+                    color: 'slate',
+                    textDecoration: 'none',
+                    my: 3
+                  }}>
+                    <Icon glyph="explore" size={38} />
+                    <Text style={{ fontSize: '20px', marginLeft: '6px' }}>Transparent Finances</Text>
+                    <Icon glyph="external" size={20} style={{ marginLeft: '2px', marginBottom: '6px' }} />
+                  </Flex>
+                </Flex>
+                {/* stats */}
+                <Flex sx={{ flexGrow: '1', flexDirection: 'column', alignItems: 'start', alignSelf: 'start' }}>
+                  <Flex sx={{ flexDirection: 'column', alignItems: 'start' }}>
+                    <Text variant="headline" sx={{
+                      mb: 0
+                    }}>Value</Text>
+                    <Text>Stat 1</Text>
+                  </Flex>
+                  <Flex sx={{ flexDirection: 'column', alignItems: 'start' }}>
+                    <Text variant="headline" sx={{
+                      mb: 0
+                    }}>Value</Text>
+                    <Text>Stat 2</Text>
+                  </Flex>
+                </Flex>
+              </Flex>
+
+              <Flex sx={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Button as="a" sx={{
+
+                }}>
+                  <Icon glyph="friend" size={24} />
+                  Make a Donation
+                </Button>
+                <Text>All donations are tax-deductible.</Text>
+              </Flex>
+            </Flex>
+          </Card>
+        </Box>
+      )}
       <Box as="main" key="main">
-        <Nav light />
+        {!modalOrganization && (
+          <Nav light />
+        )}
         <ForceTheme theme="light" />
         <Box
           sx={{
@@ -398,7 +672,7 @@ const ClimateDirectory = ({ rawOrganizations }) => {
                   />
                 </MSparkles>
               </Flex>
-              Climate-focused nonprofits on{' '}
+              Climate-focused nonprofits {region ? `in ${region.label}` : ""} on{' '}
               <a sx={{ whiteSpace: 'nowrap' }}>Hack Club Bank</a>
             </Heading>
             <Box
@@ -417,7 +691,7 @@ const ClimateDirectory = ({ rawOrganizations }) => {
             <Button
               variant="ctaLg"
               as="a"
-              href="#apply"
+              href="#listings"
               sx={{
                 mt: [0, 2],
                 backgroundImage: t => t.util.gx('green', 'blue'),
@@ -454,6 +728,7 @@ const ClimateDirectory = ({ rawOrganizations }) => {
             },
             position: 'relative'
           }}
+          id="listings"
         >
           <Container>
             <Box
@@ -471,8 +746,7 @@ const ClimateDirectory = ({ rawOrganizations }) => {
               }}
             >
               <Filtering
-                badges={[setBadges, currentBadges, 'Badges', badges]}
-                regions={[setRegions, currentRegions, 'Regions', regions]}
+                badges={[setBadges, currentBadges, 'Badges', badges, false]}
               />
             </Box>
           </Container>
@@ -508,7 +782,6 @@ const ClimateDirectory = ({ rawOrganizations }) => {
             >
               <Filtering
                 badges={[setBadges, currentBadges, 'Badges', badges]}
-                regions={[setRegions, currentRegions, 'Regions', regions]}
                 mobile
               />
             </Box>
@@ -516,17 +789,18 @@ const ClimateDirectory = ({ rawOrganizations }) => {
               {organizations
                 .map(org => new Organization(org))
                 .map(organization =>
-                  currentRegions.includes(
-                    organization.raw.location.continent
-                  ) ? (
-                    <OrganizationCard
-                      organization={organization}
-                      key={organization.id}
-                      showTags={true}
-                    />
-                  ) : (
-                    <></>
-                  )
+                  // currentRegion == organization.raw.location.continent
+                  true
+                    ? (
+                      <OrganizationCard
+                        organization={organization}
+                        openModal={openModal}
+                        key={organization.id}
+                        showTags={true}
+                      />
+                    ) : (
+                      <></>
+                    )
                 )}
             </Grid>
           </Container>
@@ -601,7 +875,7 @@ const ClimateDirectory = ({ rawOrganizations }) => {
         </Box>
       </Box>
       <Footer light key="footer" />
-    </>
+    </div>
   )
 }
 
@@ -610,8 +884,8 @@ export default ClimateDirectory
 /**
  *
  *//**
- * Represents an organization.
- */
+* Represents an organization.
+*/
 export class Organization {
   /**
    * Creates an instance of Organization.
@@ -694,7 +968,7 @@ export class Organization {
       logo: this.raw.logo,
       donationHeader: this.raw.donation_header,
       backgroundImage: this.raw.background_image,
-      publicMessage: this.raw.public_message
+      description: this.raw.description
     }
   }
 
@@ -754,14 +1028,14 @@ export class Organization {
 }
 
 export async function fetchRawClimateOrganizations() {
-  let lastLength = 50
+  let lastLength = 100
   let total = []
   let page = 1
-  while (lastLength >= 50) {
+  while (lastLength >= 100) {
     console.log('Fetching', page)
     const json = await fetch(
       'https://bank.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
-        page
+      page
     ).then(res => res.json())
     lastLength = json.length
     page++
@@ -807,6 +1081,6 @@ export const getStaticProps = async () => {
     props: {
       rawOrganizations: await fetchRawClimateOrganizations()
     },
-    revalidate: 60
+    revalidate: 600000
   }
 }

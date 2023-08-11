@@ -1,6 +1,7 @@
 import { Card, Badge, Box, Heading, Text, Image } from 'theme-ui'
 import { Organization } from '../../../pages/bank/climate'
 import Tilt from '../../../components/tilt'
+import Icon from '@hackclub/icons'
 
 const badges = {
   '128_collective_funded': () => <></>,
@@ -36,12 +37,10 @@ const TagRow = ({ category, type, badgeNames }) => {
  * }} props
  * @returns
  */
-export const OrganizationCard = ({ organization, showTags = false }) => (
+export const OrganizationCard = ({ openModal, organization, showTags = false }) => (
   <Tilt>
     <Card
-      as="a"
-      href={organization.links.website}
-      target="_blank"
+      onClick={() => openModal(organization)}
       rel="noopener noreferrer"
       itemScope
       itemType="http://schema.org/Event"
@@ -51,6 +50,7 @@ export const OrganizationCard = ({ organization, showTags = false }) => (
         alignItems: 'center',
         minHeight: 128,
         color: 'white',
+        cursor: 'pointer',
         textShadow: '0 1px 4px rgba(0, 0, 0, 0.375)',
         textDecoration: 'none',
         backgroundColor: 'black',
@@ -84,29 +84,36 @@ export const OrganizationCard = ({ organization, showTags = false }) => (
           as="span"
           itemType="VirtualLocation"
           sx={{
-            bg: 'snow',
-            color: 'blue',
+            bg: 'purple',
+            color: 'snow',
             fontSize: 'inherit',
             textShadow: 'none',
             borderRadius: 5,
-            display: 'block'
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           }}
         >
-          {'Climate'}
+          <Icon glyph="explore" size={30} />
         </Badge>
         <Badge
           as="span"
           itemType="VirtualLocation"
           sx={{
-            bg: 'snow',
-            color: 'blue',
+            backgroundImage: 'url("https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg")',
+            backgroundSize: 'contain',
+            backgroundColor: 'unset',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
             fontSize: 'inherit',
             textShadow: 'none',
             borderRadius: 5,
-            display: 'block'
+            display: 'block',
+            height: 30,
+            width: 38
           }}
         >
-          {'Climate'}
+          <span>.</span>
         </Badge>
       </Box>
 
