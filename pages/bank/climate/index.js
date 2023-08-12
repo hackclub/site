@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Grid, Heading, Input, Select } from 'theme-ui'
+import { Badge as ThemeBadge, Box, Container, Flex, Grid, Heading, Input, Select } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../../components/force-theme'
@@ -7,7 +7,7 @@ import Footer from '../../../components/footer'
 import MSparkles from '../../../components/sparkles/money'
 import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import OrganizationCard from '../../../components/bank/directory/card'
+import OrganizationCard, { Badge } from '../../../components/bank/directory/card'
 import Zoom from 'react-reveal/Zoom'
 import fuzzysort from 'fuzzysort'
 import ScrollHint from '../../../components/scroll-hint'
@@ -15,6 +15,8 @@ import { useEffect, useState } from 'react'
 /** @jsxImportSource theme-ui */
 import NextLink from 'next/link'
 import { kebabCase, intersection } from 'lodash'
+import theme from '@hackclub/theme'
+
 
 const styles = `
   html {
@@ -26,6 +28,7 @@ export const badges = [
   {
     label: 'Transparent',
     id: 'Transparent',
+    toolip: 'This organization is transparent about its finances',
     color: 'purple',
     icon: 'explore',
     match: org => org.isTransparent
@@ -33,6 +36,7 @@ export const badges = [
   {
     label: 'Funded',
     id: '128CollectiveFunded',
+    tooltip: 'This organization has been funded by 128 Collective',
     match: org => org.is128Funded,
     image:
       'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
@@ -40,6 +44,7 @@ export const badges = [
   {
     label: 'Recommended',
     id: '128CollectiveRecommended',
+    tooltip: 'This organization is recommended by 128 Collective',
     match: org => org.is128Recommended,
     image:
       'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
@@ -48,6 +53,25 @@ export const badges = [
 
 badges.__proto__.forOrg = function (org) {
   return this.filter(badge => badge.match?.(org))
+}
+
+export const tags = [
+  {
+    label: 'Climate',
+    id: 'Climate',
+    color: '#1eb36d',
+    match: org => true
+  },
+  {
+    label: 'Nonprofit',
+    id: 'Nonprofit',
+    color: 'blue',
+    match: org => true
+  }
+]
+
+tags.__proto__.forOrg = function (org) {
+  return this.filter(tag => tag.match?.(org))
 }
 
 export const regions = [
@@ -102,7 +126,7 @@ const FilterPanel = ({ filter, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-              color: 'primary'
+              color: 'blue'
             }
             : {}
         }}
@@ -144,7 +168,7 @@ const FilterPanel = ({ filter, mobile }) => {
             textDecoration: 'none',
             transition: 'color 0.2s',
             ':hover': {
-              color: 'primary'
+              color: 'blue'
             },
             width: 'fit-content'
           }}
@@ -168,7 +192,10 @@ const FilterPanel = ({ filter, mobile }) => {
               color:
                 currentSelections.length !== baseData.length
                   ? 'black'
-                  : 'primary'
+                  : 'primary',
+              ':hover': {
+                color: 'blue'
+              },
             }}
           >
             All
@@ -196,7 +223,7 @@ const FilterPanel = ({ filter, mobile }) => {
                   : 'primary',
               transition: 'color 0.2s',
               ':hover': {
-                color: 'primary'
+                color: 'blue'
               },
               width: 'fit-content'
             }}
@@ -257,7 +284,7 @@ const FilterPanel = ({ filter, mobile }) => {
   )
 }
 
-const RegionPanel = ({ mobile }) => {
+const RegionPanel = ({ currentRegion, mobile }) => {
   const [hiddenOnMobile, setHiddenOnMobile] = useState(mobile)
   return (
     <>
@@ -271,7 +298,7 @@ const RegionPanel = ({ mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-              color: 'primary'
+              color: 'blue'
             }
             : {}
         }}
@@ -314,7 +341,7 @@ const RegionPanel = ({ mobile }) => {
               textDecoration: 'none',
               transition: 'color 0.2s',
               ':hover': {
-                color: 'primary'
+                color: '#B72A3D'
               },
               width: 'fit-content'
             }}
@@ -335,9 +362,9 @@ const RegionPanel = ({ mobile }) => {
               sx={{
                 color: 'inherit',
                 fontSize: 3,
-                color: 'black',
+                color: !currentRegion ? 'red' : 'black',
                 ':hover': {
-                  color: 'primary'
+                  color: 'blue'
                 },
               }}
             >
@@ -360,10 +387,10 @@ const RegionPanel = ({ mobile }) => {
                 borderRadius: '4px',
                 background: mobile ? 'snow' : 'none',
                 textDecoration: 'none',
-                color: 'black',
+                color: currentRegion?.label == item.label ? 'red' : 'black',
                 transition: 'color 0.2s',
                 ':hover': {
-                  color: 'primary'
+                  color: 'blue'
                 },
                 width: 'fit-content'
               }}
@@ -410,24 +437,26 @@ const RegionPanel = ({ mobile }) => {
   )
 }
 
-const Filtering = ({ mobile, ...props }) => {
+const Filtering = ({ mobile, region, ...props }) => {
+  console.log({region});
   return (
     <>
       {Object.values(props).map((filter, i) => (
         <FilterPanel key={`filter-${i}`} filter={filter} mobile={mobile} />
       ))}
-      <RegionPanel />
+      <RegionPanel currentRegion={region} />
     </>
   )
 }
 
 export default function ({ rawOrganizations, pageRegion }) {
   const [searchValue, setSearchValue] = useState('')
-  const [region, setRegion] = useState(pageRegion);
+  // const [region, setRegion] = useState(pageRegion);
+  const region = pageRegion;
 
-  useEffect(() => {
-    // history.pushState(null, null, `/bank/climate/organizations-in-${region.toLowerCase().split(' ').join('-')}`);
-  }, [region]);
+  // useEffect(() => {
+  //   // history.pushState(null, null, `/bank/climate/organizations-in-${region.toLowerCase().split(' ').join('-')}`);
+  // }, [region]);
   const [modalOrganization, setModalOrganization] = useState(null)
 
   let organizations = rawOrganizations
@@ -491,22 +520,57 @@ export default function ({ rawOrganizations, pageRegion }) {
           >
             <Flex sx={{ flexDirection: 'column', alignItems: 'start', gap: 3 }}>
               <Flex sx={{
-                flexDirection: 'column', justifyContent: 'end',
-                width: '100%', height: '200px',
-                margin: -4, padding: 4, boxSizing: 'content-box',
+                flexDirection: 'column',
+                justifyContent: 'end',
+                width: '100%',
+                minHeight: '200px',
+                m: -4,
+                p: 4,
+                pb: '48px',
+                boxSizing: 'content-box',
                 backgroundPosition: 'center center',
                 color: 'white',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
                 backgroundImage: `linear-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 80%, rgba(255,255,255,1) 100%), url('${modalOrganization.branding.backgroundImage}')`
               }}>
-                <Flex sx={{ flexDirection: 'row', alignItems: 'end', justifyContent: 'start' }}>
-                  <img src={modalOrganization.branding.logo} sx={{ width: '100px', height: '100px', borderRadius: '8px', marginRight: 4, boxShadow: '0px 0px 43.20000076293945px 0px rgba(0, 0, 0, 0.72)' }} />
+                <Flex sx={{ flexDirection: ['column', 'row', 'row'], alignItems: ['center', 'end', 'end'], justifyContent: 'start' }}>
+                  <img src={modalOrganization.branding.logo} sx={{ width: '100px', height: '100px', borderRadius: '8px', marginRight: [0, 4, 4], boxShadow: '0px 0px 45px 0px rgba(0, 0, 0, 0.72)' }} />
                   <Text variant="title" sx={{
-                    wordBreak: 'break-word', marginBottom: '16px', color: 'white',
+                    wordBreak: 'break-word',
+                    marginBottom: '16px',
+                    textAlign: ['center', 'left', 'left'],
+                    fontSize: ['48px', '48px', '64px'],
+                    color: 'white',
                     textShadow: '0px 10px 10px rgba(0, 0, 0, 0.25)'
                   }}>{modalOrganization.name}</Text>
                 </Flex>
+              </Flex>
+
+              {/* Badges */}
+              <Flex sx={{ flexDirection: 'row', justifyContent: ['center', 'start', 'start'], alignItems: 'center', gap: 2, width: '100%', mt: -1, mb: -2, flexWrap: 'wrap' }}>
+
+                {tags.forOrg(modalOrganization).map((tag, i) => (
+
+                  <ThemeBadge
+                    as="span"
+                    sx={{
+                      bg: tag.color,
+                      color: 'snow',
+                      fontSize: '20px',
+                      textShadow: 'none',
+                      borderRadius: '15px',
+                      px: 2,
+                      display: 'block'
+                    }}
+                  >
+                    {tag.label}
+                  </ThemeBadge>
+                ))}
+
+                {badges.map((badge, i) => (
+                  <Badge key={i} badge={badge} />
+                ))}
               </Flex>
 
               <Flex sx={{ flexDirection: 'row', alignItems: 'center', gap: 4, width: '100%' }}>
@@ -587,7 +651,7 @@ export default function ({ rawOrganizations, pageRegion }) {
                   </Flex>
                   Make a Donation
                 </Button>
-                <Text sx={{ display: ['none', 'none', 'block' ]}}>All donations are tax-deductible.</Text>
+                <Text sx={{ display: ['none', 'none', 'block'] }}>All donations are tax-deductible.</Text>
               </Flex>
             </Flex>
           </Card>
@@ -725,7 +789,7 @@ export default function ({ rawOrganizations, pageRegion }) {
         </Box>
 
         <Grid
-          columns="1fr 3fr"
+          columns="auto 3fr"
           sx={{
             '@media screen and (max-width: 991.98px)': {
               display: 'block'
@@ -739,6 +803,7 @@ export default function ({ rawOrganizations, pageRegion }) {
               sx={{
                 py: [0, 4],
                 mb: [4, 0],
+                marginLeft: 'max(calc(50vw - 900px), 0px)',
                 '@media screen and (max-width: 991.98px)': {
                   display: 'none'
                 },
@@ -751,6 +816,7 @@ export default function ({ rawOrganizations, pageRegion }) {
             >
               <Filtering
                 badges={[setBadges, currentBadges, 'Badges', badges, false]}
+                region={region}
               />
             </Box>
           </Container>
@@ -762,7 +828,7 @@ export default function ({ rawOrganizations, pageRegion }) {
                   onChange={e => setSearchValue(e.target.value)}
                   value={searchValue}
                   sx={{
-                    border: '1px dashed black',
+                    border: '2px solid ' + theme.colors.muted,
                     textAlign: ['left', 'left', 'left'],
                     width: '100%',
                     height: '100%',
@@ -786,6 +852,7 @@ export default function ({ rawOrganizations, pageRegion }) {
             >
               <Filtering
                 badges={[setBadges, currentBadges, 'Badges', badges]}
+                region={region}
                 mobile
               />
             </Box>
@@ -808,7 +875,7 @@ export default function ({ rawOrganizations, pageRegion }) {
                     showTags={true}
                   />
                 )
-              )}
+                )}
             </Grid>
           </Container>
         </Grid>

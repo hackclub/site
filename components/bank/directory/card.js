@@ -3,7 +3,7 @@ import { Organization } from '../../../pages/bank/climate'
 import Tilt from '../../../components/tilt'
 import Icon from '@hackclub/icons'
 
-const Badge = ({ badge }) => badge.image ? (
+export const Badge = ({ badge }) => badge.image ? (
   <ThemeBadge
     as="span"
     sx={{
