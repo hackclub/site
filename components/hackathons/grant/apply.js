@@ -2,7 +2,7 @@ import { Box, Badge, Grid, Heading } from 'theme-ui'
 import { Link, Button, Card } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Zoom from 'react-reveal/Zoom'
-import MSparkles from './money'
+import MSparkles from '../../sparkles/money'
 import Image from 'next/image'
 /** @jsxImportSource theme-ui */
 
