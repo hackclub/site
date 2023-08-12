@@ -14,7 +14,7 @@ import ScrollHint from '../../../components/scroll-hint'
 import { useEffect, useState } from 'react'
 /** @jsxImportSource theme-ui */
 import NextLink from 'next/link'
-import { kebabCase } from 'lodash'
+import { kebabCase, intersection } from 'lodash'
 
 const styles = `
   html {
@@ -22,23 +22,33 @@ const styles = `
   }
 `
 
-const badges = [
+export const badges = [
   {
     label: 'Transparent',
+    id: 'Transparent',
     color: 'purple',
-    icon: 'explore'
+    icon: 'explore',
+    match: org => org.isTransparent
   },
   {
     label: 'Funded',
+    id: '128CollectiveFunded',
+    match: org => org.is128Funded,
     image:
       'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
   },
   {
     label: 'Recommended',
+    id: '128CollectiveRecommended',
+    match: org => org.is128Recommended,
     image:
       'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
   }
 ]
+
+badges.__proto__.forOrg = function (org) {
+  return this.filter(badge => badge.match?.(org))
+}
 
 export const regions = [
   {
@@ -138,7 +148,7 @@ const FilterPanel = ({ filter, mobile }) => {
             },
             width: 'fit-content'
           }}
-          onClick={() => setStateVariable([...baseData.map(x => x.label)])}
+          onClick={() => setStateVariable([...baseData.map(x => x.id)])}
         >
           <Flex
             sx={{
@@ -181,7 +191,7 @@ const FilterPanel = ({ filter, mobile }) => {
               textDecoration: 'none',
               color:
                 currentSelections.length === baseData.length ||
-                  !currentSelections.includes(item.label)
+                  !currentSelections.includes(item.id)
                   ? 'black'
                   : 'primary',
               transition: 'color 0.2s',
@@ -192,17 +202,17 @@ const FilterPanel = ({ filter, mobile }) => {
             }}
             onClick={() => {
               if (currentSelections.length === baseData.length) {
-                setStateVariable([item.label])
-              } else if (currentSelections.includes(item.label)) {
+                setStateVariable([item.id])
+              } else if (currentSelections.includes(item.id)) {
                 let temp = currentSelections
-                temp = temp.filter(selection => selection !== item.label)
+                temp = temp.filter(selection => selection !== item.id)
                 if (temp.length === 0) {
-                  setStateVariable([...baseData.map(x => x.label)])
+                  setStateVariable([...baseData.map(x => x.id)])
                 } else {
                   setStateVariable(temp)
                 }
               } else {
-                setStateVariable([...currentSelections, item.label])
+                setStateVariable([...currentSelections, item.id])
               }
             }}
           >
@@ -286,7 +296,7 @@ const RegionPanel = ({ mobile }) => {
           display: hiddenOnMobile ? 'none' : 'flex'
         }}
       >
-        <NextLink href={"/bank/climate"}>
+        <NextLink scroll={false} href={"/bank/climate"}>
           <Flex
             sx={{
               alignItems: 'center',
@@ -325,7 +335,10 @@ const RegionPanel = ({ mobile }) => {
               sx={{
                 color: 'inherit',
                 fontSize: 3,
-                color: 'black'
+                color: 'black',
+                ':hover': {
+                  color: 'primary'
+                },
               }}
             >
               All
@@ -333,9 +346,8 @@ const RegionPanel = ({ mobile }) => {
           </Flex>
         </NextLink>
         {regions?.map((item, idx) => (
-          <NextLink href={`/bank/climate/organizations-in-${kebabCase(item.label)}`}>
+          <NextLink key={idx} scroll={false} href={`/bank/climate/organizations-in-${kebabCase(item.label)}`}>
             <Flex
-              key={idx}
               sx={{
                 alignItems: 'center',
                 cursor: 'pointer',
@@ -409,42 +421,7 @@ const Filtering = ({ mobile, ...props }) => {
   )
 }
 
-const Requirement = ({ title, children, checkmark, background, size }) => {
-  return (
-    <Zoom>
-      <Card
-        variant="interactive"
-        sx={{
-          backgroundColor: 'elevated',
-          backgroundImage: `url('${background}')`,
-          backgroundSize: '40px 40px',
-          backgroundRepeat: 'repeat',
-          backgroundPosition: '10% 10%',
-          color: 'snow',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'start',
-          height: '100%'
-        }}
-      >
-        <Flex sx={{ alignItems: 'center' }}>
-          <Box mr={3} sx={{ lineHeight: 0, flexShrink: 0 }}>
-            <Icon glyph={checkmark} color="#ec3750" size={size} />
-          </Box>
-          <Text variant="heading" sx={{ fontSize: [2, 3, 3], lineHeight: 1.5 }}>
-            {title}
-          </Text>
-        </Flex>
-
-        <Text pl={48} mt={2} sx={{ fontSize: [1, 2, 2] }}>
-          {children}
-        </Text>
-      </Card>
-    </Zoom>
-  )
-}
-
-const ClimateDirectory = ({ rawOrganizations, pageRegion }) => {
+export default function ({ rawOrganizations, pageRegion }) {
   const [searchValue, setSearchValue] = useState('')
   const [region, setRegion] = useState(pageRegion);
 
@@ -464,7 +441,7 @@ const ClimateDirectory = ({ rawOrganizations, pageRegion }) => {
     organizations = search.map(({ obj }) => obj)
   }
 
-  const [currentBadges, setBadges] = useState([...badges.map(x => x.label)])
+  const [currentBadges, setBadges] = useState([...badges.map(x => x.id)])
 
   const openModal = organization => {
     setModalOrganization(organization)
@@ -497,7 +474,8 @@ const ClimateDirectory = ({ rawOrganizations, pageRegion }) => {
           justifyContent: 'center',
           alignItems: 'center',
           bg: '#00000044'
-        }} onClick={closeModal}>
+        }} onClick={closeModal}
+        >
           <Card
             sx={{
               width: 'min(800px, 80%)',
@@ -520,10 +498,10 @@ const ClimateDirectory = ({ rawOrganizations, pageRegion }) => {
                 color: 'white',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 60%, rgba(128,128,128,0) 80%, rgba(255,255,255,1) 100%), url('${modalOrganization.branding.backgroundImage}')`
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 80%, rgba(255,255,255,1) 100%), url('${modalOrganization.branding.backgroundImage}')`
               }}>
                 <Flex sx={{ flexDirection: 'row', alignItems: 'end', justifyContent: 'start' }}>
-                  <img src={modalOrganization.branding.logo} sx={{ width: '100px', height: '100px', borderRadius: '8px', marginRight: 4 }} />
+                  <img src={modalOrganization.branding.logo} sx={{ width: '100px', height: '100px', borderRadius: '8px', marginRight: 4, boxShadow: '0px 0px 43.20000076293945px 0px rgba(0, 0, 0, 0.72)' }} />
                   <Text variant="title" sx={{
                     wordBreak: 'break-word', marginBottom: '16px', color: 'white',
                     textShadow: '0px 10px 10px rgba(0, 0, 0, 0.25)'
@@ -531,59 +509,85 @@ const ClimateDirectory = ({ rawOrganizations, pageRegion }) => {
                 </Flex>
               </Flex>
 
-              <Flex sx={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+              <Flex sx={{ flexDirection: 'row', alignItems: 'center', gap: 4, width: '100%' }}>
                 {/* info & buttons */}
-                <Flex sx={{ flexDirection: 'column', alignItems: 'start', maxWidth: '75%' }}>
+                <Flex sx={{ flexDirection: 'column', alignItems: 'start', flex: '1' }}>
                   <Text variant="lead" style={{ fontSize: '22px' }}>{modalOrganization.branding.description}</Text>
-                  <Flex as="a" href={modalOrganization.links.website} sx={{
-                    flexDirection: 'row',
-                    justifyContent: 'start',
-                    alignItems: 'center',
-                    color: 'slate',
-                    textDecoration: 'none'
-                  }}>
-                    <Icon glyph="web" size={38} />
-                    <Text style={{ fontSize: '20px', marginLeft: '6px' }}>Website</Text>
-                    <Icon glyph="external" size={20} style={{ marginLeft: '2px', marginBottom: '6px' }} />
+
+                  {/* mobile stats */}
+                  <Flex sx={{ my: 3, display: ['flex', 'flex', 'none'], width: '100%', gap: 2, flexWrap: 'wrap', flexDirection: 'row', alignItems: 'start', alignSelf: 'start' }}>
+                    <Text variant="subheadline" sx={{
+                      mb: 0,
+                      color: '#3b4858',
+                      marginRight: 2
+                    }}>{modalOrganization.location.country}</Text>
+                    <Text variant="subheadline" sx={{
+                      mb: 0,
+                      color: '#3b4858'
+                    }}>{modalOrganization.location.continent}</Text>
                   </Flex>
-                  <Flex as="a" href={modalOrganization.links.financials} sx={{
-                    flexDirection: 'row',
-                    justifyContent: 'start',
-                    alignItems: 'center',
-                    color: 'slate',
-                    textDecoration: 'none',
-                    my: 3
-                  }}>
-                    <Icon glyph="explore" size={38} />
-                    <Text style={{ fontSize: '20px', marginLeft: '6px' }}>Transparent Finances</Text>
-                    <Icon glyph="external" size={20} style={{ marginLeft: '2px', marginBottom: '6px' }} />
+
+                  <Flex sx={{ flexDirection: 'column', alignItems: 'start', my: 2, ml: -1, gap: 1 }}>
+                    <Flex as="a" target="_blank" href={modalOrganization.links.website} sx={{
+                      flexDirection: 'row',
+                      justifyContent: 'start',
+                      alignItems: 'center',
+                      color: 'slate',
+                      textDecoration: 'none'
+                    }}>
+                      <Icon glyph="web" size={38} />
+                      <Text style={{ fontSize: '20px', marginLeft: '6px' }}>Website</Text>
+                      <Icon glyph="external" size={20} style={{ marginLeft: '2px', marginBottom: '6px' }} />
+                    </Flex>
+                    <Flex as="a" target="_blank" href={modalOrganization.links.financials} sx={{
+                      flexDirection: 'row',
+                      justifyContent: 'start',
+                      alignItems: 'center',
+                      color: 'slate',
+                      textDecoration: 'none'
+                    }}>
+                      <Icon glyph="explore" size={38} />
+                      <Text style={{ fontSize: '20px', marginLeft: '6px' }}>Transparent Finances</Text>
+                      <Icon glyph="external" size={20} style={{ marginLeft: '2px', marginBottom: '6px' }} />
+                    </Flex>
                   </Flex>
                 </Flex>
-                {/* stats */}
-                <Flex sx={{ flexGrow: '1', flexDirection: 'column', alignItems: 'start', alignSelf: 'start' }}>
+                {/* desktop stats */}
+                <Flex sx={{ display: ['none', 'none', 'flex'], maxWidth: '30%', flexDirection: 'column', alignItems: 'start', alignSelf: 'start' }}>
                   <Flex sx={{ flexDirection: 'column', alignItems: 'start' }}>
                     <Text variant="headline" sx={{
-                      mb: 0
-                    }}>Value</Text>
-                    <Text>Stat 1</Text>
+                      mb: 0,
+                      color: '#3b4858'
+                    }}>{modalOrganization.location.country}</Text>
+                    <Text sx={{
+                      color: '#5b616a',
+                      fontSize: '20px'
+                    }}>Country</Text>
                   </Flex>
                   <Flex sx={{ flexDirection: 'column', alignItems: 'start' }}>
                     <Text variant="headline" sx={{
-                      mb: 0
-                    }}>Value</Text>
-                    <Text>Stat 2</Text>
+                      mb: 0,
+                      color: '#3b4858'
+                    }}>{modalOrganization.location.continent}</Text>
+                    <Text sx={{
+                      color: '#5b616a',
+                      fontSize: '20px'
+                    }}>Continent</Text>
                   </Flex>
                 </Flex>
               </Flex>
 
               <Flex sx={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Button as="a" sx={{
-
+                <Button as="a" variant="lg" href={modalOrganization.links.donations} target="_blank" sx={{
+                  backgroundImage: t => t.util.gx('green', 'blue'),
+                  width: ['100%', 'auto', 'auto']
                 }}>
-                  <Icon glyph="friend" size={24} />
+                  <Flex sx={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', marginLeft: -1, marginRight: 2 }}>
+                    <Icon glyph="friend" size={20} style={{ scale: '2.5' }} />
+                  </Flex>
                   Make a Donation
                 </Button>
-                <Text>All donations are tax-deductible.</Text>
+                <Text sx={{ display: ['none', 'none', 'block' ]}}>All donations are tax-deductible.</Text>
               </Flex>
             </Flex>
           </Card>
@@ -788,20 +792,23 @@ const ClimateDirectory = ({ rawOrganizations, pageRegion }) => {
             <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: 3 }}>
               {organizations
                 .map(org => new Organization(org))
-                .map(organization =>
-                  // currentRegion == organization.raw.location.continent
-                  true
-                    ? (
-                      <OrganizationCard
-                        organization={organization}
-                        openModal={openModal}
-                        key={organization.id}
-                        showTags={true}
-                      />
-                    ) : (
-                      <></>
-                    )
-                )}
+                .filter(organization => {
+                  const organizationBadgeIds = badges.forOrg(organization).map(badge => badge.id);
+
+                  console.log({ currentBadges, organizationBadgeIds, organization });
+
+                  return currentBadges.length == badges.length || intersection(organizationBadgeIds, currentBadges).length == currentBadges.length;
+                })
+                .map(organization => (
+                  <OrganizationCard
+                    organization={organization}
+                    key={organization.id}
+                    openModal={openModal}
+                    badges={badges.forOrg(organization)}
+                    showTags={true}
+                  />
+                )
+              )}
             </Grid>
           </Container>
         </Grid>
@@ -879,13 +886,9 @@ const ClimateDirectory = ({ rawOrganizations, pageRegion }) => {
   )
 }
 
-export default ClimateDirectory
-
 /**
- *
- *//**
-* Represents an organization.
-*/
+  * Represents an organization.
+  */
 export class Organization {
   /**
    * Creates an instance of Organization.
@@ -1015,6 +1018,37 @@ export class Organization {
   }
 
   /**
+   * Gets the location of the organization.
+   * @type {object}
+   * @property {string} country - The country of the organization.
+   * @property {string} continent - The continent of the organization.
+   * @property {string} countryCode - The country code of the organization.
+   */
+  get location() {
+    return {
+      country: this.raw.location.country,
+      continent: this.raw.location.continent,
+      countryCode: this.raw.location.country_code
+    }
+  }
+
+  /**
+   * Checks if the organization is recommended by 128 Collective.
+   * @type {boolean}
+   */
+  get is128Recommended() {
+    return this.raw.partners?.['128_collective']?.recommended
+  }
+
+  /**
+   * Checks if the organization is funded by 128 Collective.
+   * @type {boolean}
+   */
+  get is128Funded() {
+    return this.raw.partners?.['128_collective']?.funded
+  }
+
+  /**
    * Updates the organization data by making an API call.
    * @returns {Organization} The updated Organization instance.
    */
@@ -1042,38 +1076,6 @@ export async function fetchRawClimateOrganizations() {
     total = [...total, ...json]
   }
   return total.filter(org => org.climate)
-}
-
-const Grouping = ({
-  title,
-  desc,
-  header,
-  children,
-  footer,
-  organizations,
-  showTags = false,
-  useFilter
-}) => {
-  return (
-    <Box
-      as="main"
-      sx={{ bg: 'background', color: 'text', textAlign: [null, 'center'] }}
-    >
-      {header}
-      <Container sx={{ mt: [3, 4, 5] }}>
-        {children}
-        <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: [3, 4, 5] }}>
-          {organizations.map(organization => (
-            <OrganizationCard
-              organization={organization}
-              key={organizations.id}
-              showTags={true}
-            />
-          ))}
-        </Grid>
-      </Container>
-    </Box>
-  )
 }
 
 export const getStaticProps = async () => {
