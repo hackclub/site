@@ -41,7 +41,7 @@ export default function Bank({ stats }) {
         </Meta>
         <style>{styles}</style>
         <Box>
-          <Landing eventsCount={stats.events_count} />
+          <Landing eventsCount={stats.events_count} showButton />
 
           <Features />
 
