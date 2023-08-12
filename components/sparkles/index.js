@@ -5,9 +5,8 @@ import { keyframes } from '@emotion/react'
 import { range, sample, random } from 'lodash'
 import { Text } from 'theme-ui'
 import theme from '@hackclub/theme'
-
-import useRandomInterval from '../lib/use-random-interval'
-import usePrefersReducedMotion from '../lib/use-prefers-reduced-motion'
+import useRandomInterval from '../../lib/use-random-interval'
+import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
 
 const generateSparkle = color => {
   const sparkle = {
