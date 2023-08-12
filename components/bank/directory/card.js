@@ -3,42 +3,43 @@ import { Organization } from '../../../pages/bank/climate'
 import Tilt from '../../../components/tilt'
 import Icon from '@hackclub/icons'
 
-export const Badge = ({ badge }) => badge.image ? (
-  <ThemeBadge
-    as="span"
-    sx={{
-      backgroundImage: `url("${badge.image}")`,
-      backgroundSize: 'contain',
-      backgroundColor: 'unset',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      fontSize: 'inherit',
-      textShadow: 'none',
-      borderRadius: 5,
-      display: 'block',
-      height: 30,
-      width: 38
-    }}
-  >
-    <span style={{ opacity: '0' }}>.</span>
-  </ThemeBadge>
-) : (
-  <ThemeBadge
-    as="span"
-    sx={{
-      bg: badge.color,
-      color: 'snow',
-      fontSize: 'inherit',
-      textShadow: 'none',
-      borderRadius: 5,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    <Icon glyph={badge.icon} size={30} />
-  </ThemeBadge>
-)
+export const Badge = ({ badge }) =>
+  badge.image ? (
+    <ThemeBadge
+      as="span"
+      sx={{
+        backgroundImage: `url("${badge.image}")`,
+        backgroundSize: 'contain',
+        backgroundColor: 'unset',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        fontSize: 'inherit',
+        textShadow: 'none',
+        borderRadius: 5,
+        display: 'block',
+        height: 30,
+        width: 38
+      }}
+    >
+      <span style={{ opacity: '0' }}>.</span>
+    </ThemeBadge>
+  ) : (
+    <ThemeBadge
+      as="span"
+      sx={{
+        bg: badge.color,
+        color: 'snow',
+        fontSize: 'inherit',
+        textShadow: 'none',
+        borderRadius: 5,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <Icon glyph={badge.icon} size={30} />
+    </ThemeBadge>
+  )
 
 const TagRow = ({ category, type, badgeNames }) => {
   return (
@@ -60,7 +61,12 @@ const TagRow = ({ category, type, badgeNames }) => {
  * }} props
  * @returns
  */
-export const OrganizationCard = ({ openModal, badges, organization, showTags = false }) => (
+export const OrganizationCard = ({
+  openModal,
+  badges,
+  organization,
+  showTags = false
+}) => (
   <Tilt>
     <Card
       onClick={() => openModal(organization)}

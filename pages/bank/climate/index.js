@@ -1,4 +1,13 @@
-import { Badge as ThemeBadge, Box, Container, Flex, Grid, Heading, Input, Select } from 'theme-ui'
+import {
+  Badge as ThemeBadge,
+  Box,
+  Container,
+  Flex,
+  Grid,
+  Heading,
+  Input,
+  Select
+} from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../../components/force-theme'
@@ -7,7 +16,9 @@ import Footer from '../../../components/footer'
 import MSparkles from '../../../components/sparkles/money'
 import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import OrganizationCard, { Badge } from '../../../components/bank/directory/card'
+import OrganizationCard, {
+  Badge
+} from '../../../components/bank/directory/card'
 import Zoom from 'react-reveal/Zoom'
 import fuzzysort from 'fuzzysort'
 import ScrollHint from '../../../components/scroll-hint'
@@ -16,7 +27,6 @@ import { useEffect, useState } from 'react'
 import NextLink from 'next/link'
 import { kebabCase, intersection } from 'lodash'
 import theme from '@hackclub/theme'
-
 
 const styles = `
   html {
@@ -103,7 +113,8 @@ export const regions = [
     label: 'Asia & Oceania',
     color: 'secondary',
     icon: 'explore',
-    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png'
+    image:
+      'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png'
   }
 ]
 
@@ -126,8 +137,8 @@ const FilterPanel = ({ filter, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-              color: 'blue'
-            }
+                color: 'blue'
+              }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -195,7 +206,7 @@ const FilterPanel = ({ filter, mobile }) => {
                   : 'primary',
               ':hover': {
                 color: 'blue'
-              },
+              }
             }}
           >
             All
@@ -218,7 +229,7 @@ const FilterPanel = ({ filter, mobile }) => {
               textDecoration: 'none',
               color:
                 currentSelections.length === baseData.length ||
-                  !currentSelections.includes(item.id)
+                !currentSelections.includes(item.id)
                   ? 'black'
                   : 'primary',
               transition: 'color 0.2s',
@@ -298,8 +309,8 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-              color: 'blue'
-            }
+                color: 'blue'
+              }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -323,7 +334,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           display: hiddenOnMobile ? 'none' : 'flex'
         }}
       >
-        <NextLink scroll={false} href={"/bank/climate"}>
+        <NextLink scroll={false} href={'/bank/climate'}>
           <Flex
             sx={{
               alignItems: 'center',
@@ -365,7 +376,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
                 color: !currentRegion ? 'red' : 'black',
                 ':hover': {
                   color: 'blue'
-                },
+                }
               }}
             >
               All
@@ -373,7 +384,11 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           </Flex>
         </NextLink>
         {regions?.map((item, idx) => (
-          <NextLink key={idx} scroll={false} href={`/bank/climate/organizations-in-${kebabCase(item.label)}`}>
+          <NextLink
+            key={idx}
+            scroll={false}
+            href={`/bank/climate/organizations-in-${kebabCase(item.label)}`}
+          >
             <Flex
               sx={{
                 alignItems: 'center',
@@ -387,7 +402,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
                 borderRadius: '4px',
                 background: mobile ? 'snow' : 'none',
                 textDecoration: 'none',
-                color: currentRegion?.label == item.label ? 'red' : 'black',
+                color: currentRegion?.label === item.label ? 'red' : 'black',
                 transition: 'color 0.2s',
                 ':hover': {
                   color: 'blue'
@@ -438,7 +453,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
 }
 
 const Filtering = ({ mobile, region, ...props }) => {
-  console.log({region});
+  console.log({ region })
   return (
     <>
       {Object.values(props).map((filter, i) => (
@@ -449,10 +464,10 @@ const Filtering = ({ mobile, region, ...props }) => {
   )
 }
 
-export default function ({ rawOrganizations, pageRegion }) {
+export default function ClimatePage({ rawOrganizations, pageRegion }) {
   const [searchValue, setSearchValue] = useState('')
   // const [region, setRegion] = useState(pageRegion);
-  const region = pageRegion;
+  const region = pageRegion
 
   // useEffect(() => {
   //   // history.pushState(null, null, `/bank/climate/organizations-in-${region.toLowerCase().split(' ').join('-')}`);
@@ -481,29 +496,36 @@ export default function ({ rawOrganizations, pageRegion }) {
   }
 
   return (
-    <div style={modalOrganization ? {
-
-    } : {}}>
+    <div style={modalOrganization ? {} : {}}>
       <Meta
         as={Head}
-        title={"Climate-focused nonprofits on Bank" + (region ? ` in ${region.label}` : '')}
-        description={"Nonprofits are making real environmental impact" + (region ? ` in ${region.label}` : "") + " with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank."}
+        title={
+          'Climate-focused nonprofits on Bank' +
+          (region ? ` in ${region.label}` : '')
+        }
+        description={
+          'Nonprofits are making real environmental impact' +
+          (region ? ` in ${region.label}` : '') +
+          " with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank."
+        }
         image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
       <style>{styles}</style>
       {modalOrganization && (
-        <Box sx={{
-          position: 'fixed',
-          top: '0px',
-          left: '0px',
-          right: '0px',
-          bottom: '0px',
-          zIndex: 1000,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          bg: '#00000044'
-        }} onClick={closeModal}
+        <Box
+          sx={{
+            position: 'fixed',
+            top: '0px',
+            left: '0px',
+            right: '0px',
+            bottom: '0px',
+            zIndex: 1000,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            bg: '#00000044'
+          }}
+          onClick={closeModal}
         >
           <Card
             sx={{
@@ -512,47 +534,80 @@ export default function ({ rawOrganizations, pageRegion }) {
               borderRadius: '10px',
               position: 'relative',
               display: 'flex',
-              flexDirection: 'column',
+              flexDirection: 'column'
             }}
             onClick={e => {
-              e.stopPropagation();
+              e.stopPropagation()
             }}
           >
             <Flex sx={{ flexDirection: 'column', alignItems: 'start', gap: 3 }}>
-              <Flex sx={{
-                flexDirection: 'column',
-                justifyContent: 'end',
-                width: '100%',
-                minHeight: '200px',
-                m: -4,
-                p: 4,
-                pb: '48px',
-                boxSizing: 'content-box',
-                backgroundPosition: 'center center',
-                color: 'white',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundImage: `linear-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 80%, rgba(255,255,255,1) 100%), url('${modalOrganization.branding.backgroundImage}')`
-              }}>
-                <Flex sx={{ flexDirection: ['column', 'row', 'row'], alignItems: ['center', 'end', 'end'], justifyContent: 'start' }}>
-                  <img src={modalOrganization.branding.logo} sx={{ width: '100px', height: '100px', borderRadius: '8px', marginRight: [0, 4, 4], boxShadow: '0px 0px 45px 0px rgba(0, 0, 0, 0.72)' }} />
-                  <Text variant="title" sx={{
-                    wordBreak: 'break-word',
-                    marginBottom: '16px',
-                    textAlign: ['center', 'left', 'left'],
-                    fontSize: ['48px', '48px', '64px'],
-                    color: 'white',
-                    textShadow: '0px 10px 10px rgba(0, 0, 0, 0.25)'
-                  }}>{modalOrganization.name}</Text>
+              <Flex
+                sx={{
+                  flexDirection: 'column',
+                  justifyContent: 'end',
+                  width: '100%',
+                  minHeight: '200px',
+                  m: -4,
+                  p: 4,
+                  pb: '48px',
+                  boxSizing: 'content-box',
+                  backgroundPosition: 'center center',
+                  color: 'white',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 80%, rgba(255,255,255,1) 100%), url('${modalOrganization.branding.backgroundImage}')`
+                }}
+              >
+                <Flex
+                  sx={{
+                    flexDirection: ['column', 'row', 'row'],
+                    alignItems: ['center', 'end', 'end'],
+                    justifyContent: 'start'
+                  }}
+                >
+                  <img
+                    alt={`${modalOrganization.name}'s logo`}
+                    src={modalOrganization.branding.logo}
+                    sx={{
+                      width: '100px',
+                      height: '100px',
+                      borderRadius: '8px',
+                      marginRight: [0, 4, 4],
+                      boxShadow: '0px 0px 45px 0px rgba(0, 0, 0, 0.72)'
+                    }}
+                  />
+                  <Text
+                    variant="title"
+                    sx={{
+                      wordBreak: 'break-word',
+                      marginBottom: '16px',
+                      textAlign: ['center', 'left', 'left'],
+                      fontSize: ['48px', '48px', '64px'],
+                      color: 'white',
+                      textShadow: '0px 10px 10px rgba(0, 0, 0, 0.25)'
+                    }}
+                  >
+                    {modalOrganization.name}
+                  </Text>
                 </Flex>
               </Flex>
 
               {/* Badges */}
-              <Flex sx={{ flexDirection: 'row', justifyContent: ['center', 'start', 'start'], alignItems: 'center', gap: 2, width: '100%', mt: -1, mb: -2, flexWrap: 'wrap' }}>
-
+              <Flex
+                sx={{
+                  flexDirection: 'row',
+                  justifyContent: ['center', 'start', 'start'],
+                  alignItems: 'center',
+                  gap: 2,
+                  width: '100%',
+                  mt: -1,
+                  mb: -2,
+                  flexWrap: 'wrap'
+                }}
+              >
                 {tags.forOrg(modalOrganization).map((tag, i) => (
-
                   <ThemeBadge
+                    key={i}
                     as="span"
                     sx={{
                       bg: tag.color,
@@ -573,94 +628,209 @@ export default function ({ rawOrganizations, pageRegion }) {
                 ))}
               </Flex>
 
-              <Flex sx={{ flexDirection: 'row', alignItems: 'center', gap: 4, width: '100%' }}>
+              <Flex
+                sx={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: 4,
+                  width: '100%'
+                }}
+              >
                 {/* info & buttons */}
-                <Flex sx={{ flexDirection: 'column', alignItems: 'start', flex: '1' }}>
-                  <Text variant="lead" style={{ fontSize: '22px' }}>{modalOrganization.branding.description}</Text>
+                <Flex
+                  sx={{
+                    flexDirection: 'column',
+                    alignItems: 'start',
+                    flex: '1'
+                  }}
+                >
+                  <Text variant="lead" style={{ fontSize: '22px' }}>
+                    {modalOrganization.branding.description}
+                  </Text>
 
                   {/* mobile stats */}
-                  <Flex sx={{ my: 3, display: ['flex', 'flex', 'none'], width: '100%', gap: 2, flexWrap: 'wrap', flexDirection: 'row', alignItems: 'start', alignSelf: 'start' }}>
-                    <Text variant="subheadline" sx={{
-                      mb: 0,
-                      color: '#3b4858',
-                      marginRight: 2
-                    }}>{modalOrganization.location.country}</Text>
-                    <Text variant="subheadline" sx={{
-                      mb: 0,
-                      color: '#3b4858'
-                    }}>{modalOrganization.location.continent}</Text>
+                  <Flex
+                    sx={{
+                      my: 3,
+                      display: ['flex', 'flex', 'none'],
+                      width: '100%',
+                      gap: 2,
+                      flexWrap: 'wrap',
+                      flexDirection: 'row',
+                      alignItems: 'start',
+                      alignSelf: 'start'
+                    }}
+                  >
+                    <Text
+                      variant="subheadline"
+                      sx={{
+                        mb: 0,
+                        color: '#3b4858',
+                        marginRight: 2
+                      }}
+                    >
+                      {modalOrganization.location.country}
+                    </Text>
+                    <Text
+                      variant="subheadline"
+                      sx={{
+                        mb: 0,
+                        color: '#3b4858'
+                      }}
+                    >
+                      {modalOrganization.location.continent}
+                    </Text>
                   </Flex>
 
-                  <Flex sx={{ flexDirection: 'column', alignItems: 'start', my: 2, ml: -1, gap: 1 }}>
-                    <Flex as="a" target="_blank" href={modalOrganization.links.website} sx={{
-                      flexDirection: 'row',
-                      justifyContent: 'start',
-                      alignItems: 'center',
-                      color: 'slate',
-                      textDecoration: 'none'
-                    }}>
+                  <Flex
+                    sx={{
+                      flexDirection: 'column',
+                      alignItems: 'start',
+                      my: 2,
+                      ml: -1,
+                      gap: 1
+                    }}
+                  >
+                    <Flex
+                      as="a"
+                      target="_blank"
+                      href={modalOrganization.links.website}
+                      sx={{
+                        flexDirection: 'row',
+                        justifyContent: 'start',
+                        alignItems: 'center',
+                        color: 'slate',
+                        textDecoration: 'none'
+                      }}
+                    >
                       <Icon glyph="web" size={38} />
-                      <Text style={{ fontSize: '20px', marginLeft: '6px' }}>Website</Text>
-                      <Icon glyph="external" size={20} style={{ marginLeft: '2px', marginBottom: '6px' }} />
+                      <Text style={{ fontSize: '20px', marginLeft: '6px' }}>
+                        Website
+                      </Text>
+                      <Icon
+                        glyph="external"
+                        size={20}
+                        style={{ marginLeft: '2px', marginBottom: '6px' }}
+                      />
                     </Flex>
-                    <Flex as="a" target="_blank" href={modalOrganization.links.financials} sx={{
-                      flexDirection: 'row',
-                      justifyContent: 'start',
-                      alignItems: 'center',
-                      color: 'slate',
-                      textDecoration: 'none'
-                    }}>
+                    <Flex
+                      as="a"
+                      target="_blank"
+                      href={modalOrganization.links.financials}
+                      sx={{
+                        flexDirection: 'row',
+                        justifyContent: 'start',
+                        alignItems: 'center',
+                        color: 'slate',
+                        textDecoration: 'none'
+                      }}
+                    >
                       <Icon glyph="explore" size={38} />
-                      <Text style={{ fontSize: '20px', marginLeft: '6px' }}>Transparent Finances</Text>
-                      <Icon glyph="external" size={20} style={{ marginLeft: '2px', marginBottom: '6px' }} />
+                      <Text style={{ fontSize: '20px', marginLeft: '6px' }}>
+                        Transparent Finances
+                      </Text>
+                      <Icon
+                        glyph="external"
+                        size={20}
+                        style={{ marginLeft: '2px', marginBottom: '6px' }}
+                      />
                     </Flex>
                   </Flex>
                 </Flex>
                 {/* desktop stats */}
-                <Flex sx={{ display: ['none', 'none', 'flex'], maxWidth: '30%', flexDirection: 'column', alignItems: 'start', alignSelf: 'start' }}>
+                <Flex
+                  sx={{
+                    display: ['none', 'none', 'flex'],
+                    maxWidth: '30%',
+                    flexDirection: 'column',
+                    alignItems: 'start',
+                    alignSelf: 'start'
+                  }}
+                >
                   <Flex sx={{ flexDirection: 'column', alignItems: 'start' }}>
-                    <Text variant="headline" sx={{
-                      mb: 0,
-                      color: '#3b4858'
-                    }}>{modalOrganization.location.country}</Text>
-                    <Text sx={{
-                      color: '#5b616a',
-                      fontSize: '20px'
-                    }}>Country</Text>
+                    <Text
+                      variant="headline"
+                      sx={{
+                        mb: 0,
+                        color: '#3b4858'
+                      }}
+                    >
+                      {modalOrganization.location.country}
+                    </Text>
+                    <Text
+                      sx={{
+                        color: '#5b616a',
+                        fontSize: '20px'
+                      }}
+                    >
+                      Country
+                    </Text>
                   </Flex>
                   <Flex sx={{ flexDirection: 'column', alignItems: 'start' }}>
-                    <Text variant="headline" sx={{
-                      mb: 0,
-                      color: '#3b4858'
-                    }}>{modalOrganization.location.continent}</Text>
-                    <Text sx={{
-                      color: '#5b616a',
-                      fontSize: '20px'
-                    }}>Continent</Text>
+                    <Text
+                      variant="headline"
+                      sx={{
+                        mb: 0,
+                        color: '#3b4858'
+                      }}
+                    >
+                      {modalOrganization.location.continent}
+                    </Text>
+                    <Text
+                      sx={{
+                        color: '#5b616a',
+                        fontSize: '20px'
+                      }}
+                    >
+                      Continent
+                    </Text>
                   </Flex>
                 </Flex>
               </Flex>
 
-              <Flex sx={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Button as="a" variant="lg" href={modalOrganization.links.donations} target="_blank" sx={{
-                  backgroundImage: t => t.util.gx('green', 'blue'),
-                  width: ['100%', 'auto', 'auto']
-                }}>
-                  <Flex sx={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', marginLeft: -1, marginRight: 2 }}>
+              <Flex
+                sx={{
+                  flexDirection: 'row',
+                  width: '100%',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
+                <Button
+                  as="a"
+                  variant="lg"
+                  href={modalOrganization.links.donations}
+                  target="_blank"
+                  sx={{
+                    backgroundImage: t => t.util.gx('green', 'blue'),
+                    width: ['100%', 'auto', 'auto']
+                  }}
+                >
+                  <Flex
+                    sx={{
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '24px',
+                      height: '24px',
+                      marginLeft: -1,
+                      marginRight: 2
+                    }}
+                  >
                     <Icon glyph="friend" size={20} style={{ scale: '2.5' }} />
                   </Flex>
                   Make a Donation
                 </Button>
-                <Text sx={{ display: ['none', 'none', 'block'] }}>All donations are tax-deductible.</Text>
+                <Text sx={{ display: ['none', 'none', 'block'] }}>
+                  All donations are tax-deductible.
+                </Text>
               </Flex>
             </Flex>
           </Card>
         </Box>
       )}
       <Box as="main" key="main">
-        {!modalOrganization && (
-          <Nav light />
-        )}
+        {!modalOrganization && <Nav light />}
         <ForceTheme theme="light" />
         <Box
           sx={{
@@ -740,7 +910,7 @@ export default function ({ rawOrganizations, pageRegion }) {
                   />
                 </MSparkles>
               </Flex>
-              Climate-focused nonprofits {region ? `in ${region.label}` : ""} on{' '}
+              Climate-focused nonprofits {region ? `in ${region.label}` : ''} on{' '}
               <a sx={{ whiteSpace: 'nowrap' }}>Hack Club Bank</a>
             </Heading>
             <Box
@@ -860,11 +1030,21 @@ export default function ({ rawOrganizations, pageRegion }) {
               {organizations
                 .map(org => new Organization(org))
                 .filter(organization => {
-                  const organizationBadgeIds = badges.forOrg(organization).map(badge => badge.id);
+                  const organizationBadgeIds = badges
+                    .forOrg(organization)
+                    .map(badge => badge.id)
 
-                  console.log({ currentBadges, organizationBadgeIds, organization });
+                  console.log({
+                    currentBadges,
+                    organizationBadgeIds,
+                    organization
+                  })
 
-                  return currentBadges.length == badges.length || intersection(organizationBadgeIds, currentBadges).length == currentBadges.length;
+                  return (
+                    currentBadges.length === badges.length ||
+                    intersection(organizationBadgeIds, currentBadges).length ===
+                      currentBadges.length
+                  )
                 })
                 .map(organization => (
                   <OrganizationCard
@@ -874,8 +1054,7 @@ export default function ({ rawOrganizations, pageRegion }) {
                     badges={badges.forOrg(organization)}
                     showTags={true}
                   />
-                )
-                )}
+                ))}
             </Grid>
           </Container>
         </Grid>
@@ -954,8 +1133,8 @@ export default function ({ rawOrganizations, pageRegion }) {
 }
 
 /**
-  * Represents an organization.
-  */
+ * Represents an organization.
+ */
 export class Organization {
   /**
    * Creates an instance of Organization.
@@ -1136,7 +1315,7 @@ export async function fetchRawClimateOrganizations() {
     console.log('Fetching', page)
     const json = await fetch(
       'https://bank.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
-      page
+        page
     ).then(res => res.json())
     lastLength = json.length
     page++
