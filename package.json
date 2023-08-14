@@ -36,7 +36,7 @@
     "fuzzysort": "^2.0.4",
     "geopattern": "^1.2.3",
     "globby": "^11.0.4",
-    "graphql": "^16.6.0",
+    "graphql": "^16.7.1",
     "js-confetti": "^0.11.0",
     "lodash": "^4.17.21",
     "next": "^12.3.1",
