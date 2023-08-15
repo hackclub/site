@@ -37,11 +37,11 @@
     "fuzzysort": "^2.0.4",
     "geopattern": "^1.2.3",
     "globby": "^11.0.4",
-    "graphql": "^16.6.0",
+    "graphql": "^16.7.1",
     "js-confetti": "^0.11.0",
     "lodash": "^4.17.21",
     "next": "^12.3.1",
-    "next-transpile-modules": "^10.0.0",
+    "next-transpile-modules": "^10.0.1",
     "react": "^17.0.2",
     "react-before-after-slider-component": "^1.1.6",
     "react-dom": "^17.0.2",
@@ -59,8 +59,8 @@
     "react-use-websocket": "^4.3.1",
     "react-wrap-balancer": "^1.0.0",
     "recharts": "2.1.12",
-    "styled-components": "^5.3.9",
-    "swr": "^2.2.0",
+    "styled-components": "^6.0.7",
+    "swr": "^2.2.1",
     "theme-ui": "^0.14",
     "tinytime": "^0.2.6",
     "turndown": "^7.1.2",
@@ -68,7 +68,7 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
-    "eslint": "8.38.0",
+    "eslint": "8.47.0",
     "eslint-config-next": "13.4.12",
     "prettier": "^3.0.1"
   }
