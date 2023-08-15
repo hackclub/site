@@ -188,7 +188,7 @@ const Page = ({ jobs }) => (
           <Button
             as="a"
             variant="ctaLg"
-            href="https://apply.hackclub.com"
+            href="https://hackclub.com/slack"
             target="_blank"
             rel="noopener"
             sx={{ mt: 3, background: theme.util.gx('purple', 'blue') }}
