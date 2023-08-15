@@ -120,8 +120,8 @@ const Page = ({ jobs }) => (
     <Meta
       as={Head}
       title="Events"
-      description="Every summer (and now every winter!), Hack Club does something special to bring the community together. Take a look back on past events with us."
-      image="https://hackclub.com/public/outernet/hack.jpg"
+      description="Every summer (and now every winter!), Hack Club does something special to bring the community together. Let's take a trip down memory lane."
+      image="https://hackclub.com/outernet/hack.jpg"
     />
     <ForceTheme theme="light" />
     <Nav />
