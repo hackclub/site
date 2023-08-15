@@ -216,7 +216,7 @@ const Page = ({ jobs }) => (
         <Card variant="sunken" sx={{textAlign: 'center', background: theme.util.gx('cyan', 'blue'), color: 'white', width: '100%', maxWidth: '64rem', mx: 'auto', mt: 3, fontSize: 2}}>
           <Box sx={{maxWidth: '600px', mx: 'auto'}}>
             Looking for more? Hack Clubbers often organise their own hackathons! 
-            Check them out at <Link href="https://hackathons.hackclub.com" sx={{color: 'white'}}>hackathons.hackclub.com</Link>.
+            Check them out at <Link href="https://hackathons.hackclub.com" sx={{color: 'white'}}>hackathons.hackclub.com</Link>. Hack Club is also behind a series of <Link href="https://daysofservice.hackclub.com/" sx={{color: 'white'}}>Day of Service</Link> events and <Link href="https://events.hackclub.com/">frequent virtual events</Link>. 
           </Box>
         </Card>
       </Container>
