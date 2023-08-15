@@ -176,7 +176,7 @@ const Page = ({ jobs }) => (
               color: 'smoke',
               mt: 3,
               fontSize: ['18px', '24px'],
-              lineHeight: ['1.5', '1.125'],
+              lineHeight: ['1.5', '1.325'],
               maxWidth: '900px',
               margin: 'auto',
               fontWeight: 400,
