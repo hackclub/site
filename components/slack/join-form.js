@@ -10,7 +10,6 @@ import {
   Box
 } from 'theme-ui'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 import { getCookie, hasCookie } from 'cookies-next';
