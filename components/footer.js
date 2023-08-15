@@ -70,7 +70,7 @@ const Footer = ({ dark = false, children, ...props }) => (
             textDecoration: 'none',
             color: 'muted',
             transition: '0.125s color ease-in-out',
-            ':hover,:focus': { color: 'slate' }
+            ':hover,:focus': { color: 'slate', textDecoration: 'underline' }
           },
           '> div > a': {
             display: 'block',
