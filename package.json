@@ -40,7 +40,7 @@
     "js-confetti": "^0.11.0",
     "lodash": "^4.17.21",
     "next": "^12.3.1",
-    "next-transpile-modules": "^10.0.0",
+    "next-transpile-modules": "^10.0.1",
     "react": "^17.0.2",
     "react-before-after-slider-component": "^1.1.6",
     "react-dom": "^17.0.2",
