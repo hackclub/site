@@ -1026,6 +1026,24 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                 mobile
               />
             </Box>
+            {organizations.length === 0 && (
+              <Box sx={{
+                textAlign: 'center',
+                p: 5
+              }}>
+                <Box>
+                  <Text variant="headline" sx={{
+                    textTransform: 'unset',
+                    display: 'block',
+                    mb: 0
+                  }}>No results</Text>
+                  <Text variant="lead" sx={{
+                    display: 'block',
+                    mt: 0
+                  }}>Try adjusting your filters.</Text>
+                </Box>
+              </Box>
+            )}
             <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: 3 }}>
               {organizations
                 .map(org => new Organization(org))
