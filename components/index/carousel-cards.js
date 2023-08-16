@@ -56,7 +56,7 @@ export default function CarouselCards({
           // variant="interactive"
           sx={{
             mr: 3,
-            backgroundColor: background,
+            background,
             position: 'relative',
             color: 'white',
             width: ['200px', '300px', '300px'],
