@@ -1123,7 +1123,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             <Button
               variant="ctaLg"
               as="a"
-              href="https://hackathons.hackclub.com"
+              href="https://bank.hackclub.com/donations/start/128-collective-fund"
+              target="_blank"
               sx={{
                 ml: [0, 3],
                 mt: 2,
