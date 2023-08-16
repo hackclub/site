@@ -28,12 +28,34 @@ Code under MIT License, assets may not be re-used or re-distributed.
 
 ## Building hackclub.com
 
-Hack Club's homepage is our chance to show new hackers what Hack Club could be for them. See something that could be better? Make a PR! See a bug? Make a PR! Is the site missing something? Make a PR! _(Do you see a trend?:))_
+Hack Club's homepage is our chance to show new hackers what Hack Club could be for them. See something that could be better? Make a PR! Have an easter egg idea? Make a PR! Is the site missing something? Make a PR! _(Do you see a trend?:))_
 
-Here are a few ways you could make specific edits to the site:
-- Adding a new card
-- Adding to the Carousel
-- 
+### Here are a some ways to add content to the site:
+
+#### Create a new card
+<img width="600" alt="Screenshot 2023-08-16 at 9 09 55 PM" src="https://github.com/hackclub/site/assets/65808924/fed45800-c834-4e4c-ad87-a21e01414fa9">
+
+Most things on the homepage are cards, modular components that can easily be added and removed according to relevancy to Hack Clubbers. There are 3 main sections: connection, open-source, and IRL community. Most new cards will likely fall within the first two sections!
+
+First, you can create a new file under [components/index/cards]() with the name of your new event/project. Next add `import CardModel from './card-model'` and add whatever you want :) Finally, for all "call to actions", use a <Buttons> component which you can import with `import Buttons from './button'`. If it's the main CTA, use the primary prop to add a background color!
+
+Your challenge: try and make the card as unique as possible, like a mini poster!
+
+#### Adding to the Carousel
+<img width="600" alt="Screenshot 2023-08-16 at 9 09 11 PM" src="https://github.com/hackclub/site/assets/65808924/044660eb-fb3d-43b6-a270-64a3fe51f3ca">
+
+If there's a Hack Club or Hack Club community-led project (past or present) that Hack Clubbers can get involved in, please add it to [lib/carousel.json]() and add your card to the end of the json file. An example looks like this:
+```
+{
+    "background": "dark",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "Hackers Wanted",
+    "description": "Our open love letter to hackers",
+    "img": "https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f4bb@2x.png",
+    "link": "/hackers-wanted"
+  }
+```
 
 ---
 
