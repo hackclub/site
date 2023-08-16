@@ -28,11 +28,11 @@ Code under MIT License, assets may not be re-used or re-distributed.
 
 <h1 align="center"><a href="https://hackclub.com/">Building hackclub.com</a></h1>
 
-Hack Club's homepage is our chance to show new hackers what Hack Club could be for them 💖.
+Join us in building Hack Club's homepage and show new hackers what Hack Club could be for them 💖.
 
 See something that could be better? Make a PR! Have an easter egg idea? Make a PR! Is the site missing something? Make a PR! _(Do you see a trend?:))_
 
-For now, if you need to add content to the site, here's how you can:
+If you need to add content to the site, here's how you can:
 
 <details> <summary>Create a new card</summary>
 <img width="600" alt="Screenshot 2023-08-16 at 9 09 55 PM" src="https://github.com/hackclub/site/assets/65808924/fed45800-c834-4e4c-ad87-a21e01414fa9">
@@ -64,7 +64,9 @@ If there's a Hack Club or Hack Club community-led project (past or present) that
 
 </details>
 
-Every week, [thousands of people](https://plausible.io/hackclub.com) visit hackclub.com. What story to you want to tell?
+Every week, [thousands of people](https://plausible.io/hackclub.com) visit hackclub.com. What story to you want to tell? 
+
+_Have questions? Join us in [#hackclub-site-dev](https://hackclub.slack.com/archives/C036BTDGP43)_
 
 ---
 
