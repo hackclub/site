@@ -30,7 +30,7 @@ Code under MIT License, assets may not be re-used or re-distributed.
 
 Join us in building Hack Club's homepage and show new hackers what Hack Club could be for them 💖.
 
-See something that could be better? Make a PR! Have an easter egg idea? Make a PR! Is the site missing something? Make a PR! _(Do you see a trend?:))_
+See something that could be better? Make a PR! Have an easter egg idea? Make a PR! Is the site missing something? Make a PR! _(Do you see a trend? :))_
 
 If you need to add content to the site, here's how you can:
 
@@ -45,11 +45,12 @@ Your challenge: try and make the card as unique as possible, like a mini poster!
 </details>
 
 <details>
-    <summary>Add to the carousel</summary>
+<summary>Add to the carousel</summary>
 
-    <img width="600" alt="Screenshot 2023-08-16 at 9 09 11 PM" src="https://github.com/hackclub/site/assets/65808924/044660eb-fb3d-43b6-a270-64a3fe51f3ca">
+<img width="600" alt="Screenshot 2023-08-16 at 9 09 11 PM" src="https://github.com/hackclub/site/assets/65808924/044660eb-fb3d-43b6-a270-64a3fe51f3ca">
 
 If there's a Hack Club or Hack Club community-led project (past or present) that Hack Clubbers can get involved in, please add it to [lib/carousel.json]() and add your card to the end of the json file. An example looks like this:
+
 ```
 {
     "background": "dark",
