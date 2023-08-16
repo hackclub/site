@@ -26,6 +26,17 @@ Code under MIT License, assets may not be re-used or re-distributed.
 
 ---
 
+## Building hackclub.com
+
+Hack Club's homepage is our chance to show new hackers what Hack Club could be for them. See something that could be better? Make a PR! See a bug? Make a PR! Is the site missing something? Make a PR! _(Do you see a trend?:))_
+
+Here are a few ways you could make specific edits to the site:
+- Adding a new card
+- Adding to the Carousel
+- 
+
+---
+
 Hack Club, 2023. MIT License.
 
 [next.js]: https://nextjs.org
