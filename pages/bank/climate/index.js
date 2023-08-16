@@ -84,37 +84,52 @@ tags.__proto__.forOrg = function (org) {
   return this.filter(tag => tag.match?.(org))
 }
 
+
+
+
+
+
 export const regions = [
   {
     label: 'North America',
     color: 'secondary',
+    iconColor: 'red',
     icon: 'photo',
-    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png'
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png',
+    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/3northamerica.png'
   },
   {
     label: 'South America',
     color: 'secondary',
+    iconColor: 'orange',
     icon: 'photo',
-    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png'
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png',
+    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/4southamerica.png'
   },
   {
     label: 'Africa',
     color: 'secondary',
+    iconColor: 'purple',
     icon: 'explore',
-    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/0africa.png'
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/0africa.png',
+    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/0africa.png'
   },
   {
     label: 'Europe',
     color: 'secondary',
+    iconColor: 'blue',
     icon: 'explore',
-    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/1europe.png'
+    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/1europe.png',
+    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/2europe.png'
   },
   {
     label: 'Asia & Oceania',
     color: 'secondary',
+    iconColor: 'green',
     icon: 'explore',
     image:
-      'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png'
+      'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png',
+    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/1asia_oceania.png'
   }
 ]
 
@@ -500,15 +515,15 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
       <Meta
         as={Head}
         title={
-          'Climate-focused nonprofits on Bank' +
-          (region ? ` in ${region.label}` : '')
+          'Climate-focused nonprofits' +
+          (region ? ` in ${region.label}` : 'on Hack Club Bank')
         }
         description={
           'Nonprofits are making real environmental impact' +
           (region ? ` in ${region.label}` : '') +
           " with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank."
         }
-        image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
+        image={region?.ogImage ?? "https://cloud-gv8bzwz6z-hack-club-bot.vercel.app/0frame_14__1_.png"}
       />
       <style>{styles}</style>
       {modalOrganization && (
@@ -910,8 +925,18 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   />
                 </MSparkles>
               </Flex>
-              Climate-focused nonprofits {region ? `in ${region.label}` : ''} on{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>Hack Club Bank</a>
+              Climate-focused nonprofits on{' '}
+              <span sx={{ whiteSpace: 'nowrap' }}>Hack Club Bank</span>
+              {region ? <>
+                {' '}in 
+                <span sx={{ display: ['none', 'inline'], whiteSpace: 'nowrap', bg: region.iconColor, pl: 3, pr: 18, mx: -1, borderRadius: 8, textShadow: 'none', ml: 2 }}>
+                  <img src={region.image} sx={{ mr: 3, height: [30, 42, 42, 64] }} />
+                  {region.label}
+                </span>
+                <span sx={{ display: ['inline', 'none'], whiteSpace: 'nowrap' }}>
+                  {' ' + region.label}
+                </span>
+              </> : ''}
             </Heading>
             <Box
               sx={{
