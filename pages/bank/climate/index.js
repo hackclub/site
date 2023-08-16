@@ -631,7 +631,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               <Flex
                 sx={{
                   flexDirection: 'row',
-                  alignItems: 'center',
+                  alignItems: 'start',
                   gap: 4,
                   width: '100%'
                 }}
@@ -691,7 +691,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                       gap: 1
                     }}
                   >
-                    <Flex
+                    {modalOrganization.links.website && <Flex
                       as="a"
                       target="_blank"
                       href={modalOrganization.links.website}
@@ -712,8 +712,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                         size={20}
                         style={{ marginLeft: '2px', marginBottom: '6px' }}
                       />
-                    </Flex>
-                    <Flex
+                    </Flex>}
+                    {modalOrganization.links.financials && <Flex
                       as="a"
                       target="_blank"
                       href={modalOrganization.links.financials}
@@ -734,7 +734,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                         size={20}
                         style={{ marginLeft: '2px', marginBottom: '6px' }}
                       />
-                    </Flex>
+                    </Flex>}
                   </Flex>
                 </Flex>
                 {/* desktop stats */}
@@ -1037,10 +1037,6 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                     display: 'block',
                     mb: 0
                   }}>No results</Text>
-                  <Text variant="lead" sx={{
-                    display: 'block',
-                    mt: 0
-                  }}>Try adjusting your filters.</Text>
                 </Box>
               </Box>
             )}
@@ -1136,10 +1132,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             >
               <Text>
                 Donate to{' '}
-                <Text sx={{ display: ['none', 'none', 'inline'] }}>
-                  Hack Club Bank's
-                </Text>{' '}
-                Climate Fund
+                Hack Club Bank's{' '}
+                Climate&nbsp;Fund
               </Text>
             </Button>
           </Box>
