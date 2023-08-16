@@ -39,9 +39,9 @@ If you need to add content to the site, here's how you can:
 
 Most things on the homepage are cards, modular components that can easily be added and removed according to relevancy to Hack Clubbers. There are 3 main sections: connection, open-source, and IRL community. Most new cards will likely fall within the first two sections!
 
-First, you can create a new file under [components/index/cards]() with the name of your new event/project. Next add `import CardModel from './card-model'` and add whatever you want :) Finally, for all "call to actions", use a <Buttons> component which you can import with `import Buttons from './button'`. If it's the main CTA, use the primary prop to add a background color!
+First, you can create a new file under [components/index/cards]() with the name of your new event/project. Next add `import CardModel from './card-model'` and add whatever you want :) Finally, use a <Buttons> component (`import Buttons from './button'`) to highlight call-to-action buttons. If it's the main button, use the primary prop to add a background color!
 
-Your challenge: try and make the card as unique as possible, like a mini poster!
+Your challenge: try and make the card as unique as possible, like a mini poster! Not sure where to start? Look at other cards on the page :)
 </details>
 
 <details>
