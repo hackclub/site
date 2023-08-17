@@ -26,7 +26,7 @@ import Clubs from '../components/index/cards/clubs'
 import Workshops from '../components/index/cards/workshops'
 import Bank from '../components/index/cards/bank'
 import Hackathons from '../components/index/cards/hackathons'
-import AssembleImgFile from '../public/home/assemble.jpg'
+import OuternetImgFile from '../public/home/outernet-110.jpg'
 import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
@@ -174,8 +174,8 @@ function Page({
           }}
         >
           <BGImg
-            src={AssembleImgFile}
-            alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
+            src={OuternetImgFile}
+            alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
@@ -280,7 +280,7 @@ function Page({
           >
             <Badge
               as="a"
-              href="https://www.youtube.com/watch?v=PnK4gzO6S3Q"
+              href="https://outernet.hackclub.com/"
               target="_blank"
               rel="noopener"
               variant="pill"
@@ -295,9 +295,9 @@ function Page({
                 transition: '0.3s ease'
                 // mixBlendMode: 'multiply'
               }}
-              title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
+              title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
             >
-              Hackers at Assemble in SF
+              Hackers at Outernet in VT
             </Badge>
           </Box>
         </Box>
