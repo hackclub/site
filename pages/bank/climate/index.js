@@ -1182,8 +1182,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             >
               <Text>
                 Donate to{' '}
-                Hack Club Bank's{' '}
-                Climate&nbsp;Fund
+                the{' '}
+                climate&nbsp;fund
               </Text>
             </Button>
           </Box>
