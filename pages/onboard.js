@@ -233,7 +233,7 @@ const ShipPage = () => {
       spotlightRef.current.style.background = `radial-gradient(
 				circle at ${event.pageX}px ${event.pageY}px,
 				rgba(0, 0, 0, 0) 10px,
-				rgba(0, 0, 0, 0.85) 80px
+				rgba(0, 0, 0, 0.8) 80px
 			)`
     }
     window.addEventListener('mousemove', handler)
@@ -397,7 +397,7 @@ const ShipPage = () => {
         sx={{
           bg: '#000000',
           backgroundImage: `
-						linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+						linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
 						url('https://cloud-dst3a9oz5-hack-club-bot.vercel.app/0image.png')
 					`,
           color: '#ffffff',
@@ -465,12 +465,13 @@ const ShipPage = () => {
                 <Button
                   variant="ctaLg"
                   as="a"
-                  href="#apply"
+                  href="https://hack.af/card-jam"
+                  target="_blank"
                   sx={{
                     background: t => t.util.gx('#60cc38', '#113b11')
                   }}
                 >
-                  How do I apply?
+                  Build a PCB
                 </Button>
               </Box>
             </Flex>
@@ -496,7 +497,7 @@ const ShipPage = () => {
               textAlign: 'center'
             }}
           >
-            <Balancer ratio={0.6}>
+            <Balancer ratio={0.8}>
               Join 1,000 others to create your own circuit board.
             </Balancer>
           </Heading>
@@ -531,12 +532,26 @@ const ShipPage = () => {
         </Flex>
       </Box>
 
+      <Flex as="section" sx={{ px: 4, pt: 6, pb: 4, bg: dimBg, color: '#ffffff', justifyContent: 'center' }}>
+        <Flex sx={{ flexDirection: 'column', gap: 4, width: '100%', maxWidth: 'copyPlus' }}>
+          <Heading as="h2" sx={{ fontSize: 42, fontWeight: 500, borderTop: '4px solid', borderTopColor: 'red', pt: 4 }}>
+            <Balancer ratio={0.3}>Never made a circuit board before? No problem.</Balancer>
+          </Heading>
+          <Text sx={{ fontSize: 3 }}>
+            Learn how to design your own circuit boards from scratch with our <strong>official tutorials</strong> and jams, like Maggie’s <Link href="https://hack.af/card-jam" target="_blank">intro to PCB design jam</Link>. Ask in the{' '}
+            <Link href={slackLink} target="_blank">Hack Club Slack</Link>{' '}
+            if you have any questions!
+          </Text>
+        </Flex>
+      </Flex>
+
       <Flex
         as="section"
         sx={{
           overflowX: 'hidden',
           px: 4,
           py: 5,
+          pb: 6,
           bg: dimBg,
           color: '#ffffff',
           justifyContent: 'center'
@@ -603,7 +618,7 @@ const ShipPage = () => {
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 80 }}>
-                  Make a <strong>keychain</strong> that has a{' '}
+                  A <strong>keychain</strong> that has a{' '}
                   <strong>light up dino</strong> on it.
                 </Text>
                 <Text as="p" sx={{ pr: 100, color: 'gray' }}>
@@ -629,7 +644,7 @@ const ShipPage = () => {
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 100 }}>
-                  Design a <strong>movement sensor</strong> add-on to an open
+                  A <strong>movement sensor</strong> add-on to an open
                   source <strong>game console</strong>.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
@@ -654,7 +669,7 @@ const ShipPage = () => {
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: [100, 100, 100, 0] }}>
-                  Make a <strong>USB-C hub</strong> for the best{' '}
+                  Hugo's <strong>USB-C hub</strong> for the best{' '}
                   <strong>hackathon swag</strong> ever.
                 </Text>
                 <Text as="p" sx={{ color: 'gray', pr: 150 }}>
@@ -679,7 +694,7 @@ const ShipPage = () => {
             <a href="https://github.com/maggie-j-liu/macropad" target="_blank">
               <Flex as="article">
                 <Text as="p" sx={{ pr: 170 }}>
-                  Come up with your own custom <strong>keyboard layout</strong>.
+                  Maggie's custom <strong>keyboard layout</strong>.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
                   Check it out&nbsp;<span className="arrow">&rarr;</span>
@@ -699,41 +714,15 @@ const ShipPage = () => {
           </Grid>
 
           <Button
-            variant="outlineLg"
+            variant="lg"
             as="a"
-            href="https://github.com/hackclub/OnBoard/blob/main/README.md"
+            href="https://hack.af/card-jam"
             target="_blank"
           >
-            Join the Party
+            Learn to build a PCB
           </Button>
         </Flex>
       </Flex>
-
-      {/* <Flex as="section" sx={{ px: 4, pt: 4, pb: 5, bg: dimBg, color: '#ffffff', justifyContent: 'center' }}>
-				<Flex sx={{ flexDirection: 'column', gap: 4, width: '100%', maxWidth: 'copyPlus' }}>
-					<Heading as="h2" sx={{ fontSize: 42, fontWeight: 500 }}>
-						<Balancer ratio={0.3}>Never made a circuit board before? No problem.</Balancer>
-					</Heading>
-					<Text sx={{ fontSize: 3 }}>
-						Learn from tutorials like Maggie’s intro to PCB design video below. Ask in the{' '}
-						<Link href={slackLink} target="_blank">Hack Club Slack</Link>{' '}
-						if you have any questions!
-					</Text>
-					<iframe
-						style={{
-							width: '100%',
-							maxWidth: 600,
-							alignSelf: 'center',
-							aspectRatio: '16 / 9'
-						}}
-						src="https://www.youtube.com/embed/PnK4gzO6S3Q"
-						title="YouTube video player"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-						allowfullscreen
-					/>
-				</Flex>
-			</Flex> */}
 
       <Flex
         as="section"
@@ -905,7 +894,7 @@ const ShipPage = () => {
               Collaborate, get help, and support others as you take the leap.
             </Text>
             <Box sx={{ mt: 1 }}>
-              <Button variant="lg" as="a" href={slackLink} target="_blank">
+              <Button variant="outlineLg" as="a" href={slackLink} target="_blank">
                 Join the Slack
               </Button>
             </Box>
@@ -952,7 +941,7 @@ const ShipPage = () => {
 
           <Grid
             ref={lightsScrollTrigger}
-            gap="4px"
+            gap={["2px", "3px", "4px"]}
             columns={recapWidth}
             sx={{ width: '100%', maxWidth: 800 }}
           >
@@ -1004,6 +993,16 @@ const ShipPage = () => {
               </Button>
             </Flex>
 
+            <Flex as="article" sx={{
+              transform: 'scale(1.1)'
+            }}>
+              <Text as="h3">Learn to PCB</Text>
+              <Text as="p">Read our Hacker Card tutorial to learn how to make a simple circuit board from start to end.</Text>
+              <Button as="a" href="https://hack.af/card-jam" target="_blank">
+                Start the Tutorial
+              </Button>
+            </Flex>
+
             <Flex as="article">
               <Text as="h3">Community</Text>
               <Text as="p">
@@ -1014,45 +1013,7 @@ const ShipPage = () => {
                 Join Slack
               </Button>
             </Flex>
-
-            <Flex as="article">
-              <Text as="h3">Free Stickers</Text>
-              <Text as="p">
-                Like stickers? Request below and we'll ship you an envelope full
-                of stickers for free.
-              </Text>
-              <Button
-                variant="outline"
-                as="a"
-                href="https://airtable.com/shrOOU2ZZFYtffUVz"
-                target="_blank"
-              >
-                Request Stickers
-              </Button>
-            </Flex>
-
-            {/* <Flex as="article">
-							<Text as="h3">Learn to PCB</Text>
-							<Text as="p">Watch Maggie’s intro video to learn how to make a simple circuit board from start to end.</Text>
-							<Button variant="outline" as="a" href="https://airtable.com/shrOOU2ZZFYtffUVz" target="_blank">
-								Watch Tutorial
-							</Button>
-						</Flex> */}
           </Grid>
-
-          <Flex
-            sx={{
-              gap: 3,
-              alignItems: 'center',
-              textAlign: 'center',
-              mt: '-16px'
-            }}
-          >
-            <Text sx={{ fontSize: 3 }}>Get started now:</Text>
-            <Button variant="ctaLg" as="a" href={slackLink} target="_blank">
-              Join the Slack
-            </Button>
-          </Flex>
         </Flex>
       </Flex>
 
@@ -1069,13 +1030,13 @@ const ShipPage = () => {
           }}
         />
 
-        {/* <Flex
+        <Flex
 					as="a"
-					href="javascript:void(0)"
+					href="https://airtable.com/shrOOU2ZZFYtffUVz"
 					target="_blank"
 					sx={{
 						bg: '#ff0000',
-						color: '#ffffff',
+						color: 'rgba(255, 255, 255, 0.7)',
 						textDecoration: 'none',
 						size: 160,
 						flexDirection: 'column',
@@ -1085,17 +1046,29 @@ const ShipPage = () => {
 						position: 'absolute',
 						top: -80,
 						right: '14vw',
-						fontSize: 3,
-						lineHeight: 1.3,
+						fontSize: '24px',
+						lineHeight: 1.2,
 						fontWeight: 'bold',
 						fontFamily: `'${stickerButtonFont}', cursive`,
 						transform: 'rotate(-25deg)',
 						borderRadius: '50%',
-						boxShadow: '0px 4px 44px rgba(0, 0, 0, 0.55), 0px 0px 10px rgba(0, 0, 0, 0.75), inset 0px 0px 60px rgba(255, 255, 255, 0.40)'
+            // Terrible buttons styles, doesn't even look good, but didn't want to waste more time:
+						backgroundImage: 'radial-gradient(75.96% 56.13% at 50.00% 50.00%, #FF6464 0%, #EF2222 32.29%, #B00 100%)',
+            boxShadow: '0px -14px 14px 0px #670000 inset, 14px 0px 14px 0px rgba(255, 255, 255, 0.25) inset, 0px 14px 14px 0px rgba(255, 255, 255, 0.25) inset, -14px 0px 14px 0px #670000 inset',
+            filter: 'drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.50))',
+            textShadow: '0px 0px 2px rgba(255, 255, 255, 0.45)',
+            WebkitTapHighlightColor: 'transparent',
+            'transition': 'box-shadow 80ms linear, filter 80ms linear, font-size 80ms linear',
+            ':active': {
+              backgroundImage: 'radial-gradient(75.96% 56.13% at 50.00% 50.00%, #FF4747 0%, #E52121 32.29%, #B00 100%, #A30101 100%)',
+              boxShadow: '0px -14px 14px 0px #440303 inset, 14px 0px 14px 0px #860000 inset, 0px 14px 14px 0px #860000 inset, -14px 0px 14px 0px #440303 inset',
+              filter: 'drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.50))',
+              fontSize: '22px'
+            }
 					}}
 				>
 					{stickerButtonText.split(' ').map((line, i) => <div key={i}>{line}</div>)}
-				</Flex> */}
+				</Flex>
       </Box>
 
       <Footer dark />
