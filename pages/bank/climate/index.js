@@ -529,7 +529,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
         as={Head}
         title={
           'Climate-focused nonprofits' +
-          (region ? ` in ${region.label}` : 'on Hack Club Bank')
+          (region ? ` in ${region.label}` : ' on Hack Club Bank')
         }
         description={
           'Nonprofits are making real environmental impact' +
