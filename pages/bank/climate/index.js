@@ -27,6 +27,7 @@ import { useEffect, useState } from 'react'
 import NextLink from 'next/link'
 import { kebabCase, intersection } from 'lodash'
 import theme from '@hackclub/theme'
+import Tooltip from '../../../components/bank/tooltip'
 
 const styles = `
   html {
@@ -38,7 +39,7 @@ export const badges = [
   {
     label: 'Transparent',
     id: 'Transparent',
-    toolip: 'This organization is transparent about its finances',
+    tooltip: 'Transparent',
     color: 'purple',
     icon: 'explore',
     match: org => org.isTransparent
@@ -46,7 +47,7 @@ export const badges = [
   {
     label: 'Funded',
     id: '128CollectiveFunded',
-    tooltip: 'This organization has been funded by 128 Collective',
+    tooltip: '128 Collective Funded',
     match: org => org.is128Funded,
     image:
       'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
@@ -54,7 +55,7 @@ export const badges = [
   {
     label: 'Recommended',
     id: '128CollectiveRecommended',
-    tooltip: 'This organization is recommended by 128 Collective',
+    tooltip: '128 Collective Recommended',
     match: org => org.is128Recommended,
     image:
       'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
@@ -84,37 +85,52 @@ tags.__proto__.forOrg = function (org) {
   return this.filter(tag => tag.match?.(org))
 }
 
+
+
+
+
+
 export const regions = [
   {
     label: 'North America',
     color: 'secondary',
+    iconColor: 'red',
     icon: 'photo',
-    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png'
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png',
+    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/3northamerica.png'
   },
   {
     label: 'South America',
     color: 'secondary',
+    iconColor: 'orange',
     icon: 'photo',
-    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png'
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png',
+    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/4southamerica.png'
   },
   {
     label: 'Africa',
     color: 'secondary',
+    iconColor: 'purple',
     icon: 'explore',
-    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/0africa.png'
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/0africa.png',
+    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/0africa.png'
   },
   {
     label: 'Europe',
     color: 'secondary',
+    iconColor: 'blue',
     icon: 'explore',
-    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/1europe.png'
+    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/1europe.png',
+    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/2europe.png'
   },
   {
     label: 'Asia & Oceania',
     color: 'secondary',
+    iconColor: 'green',
     icon: 'explore',
     image:
-      'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png'
+      'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png',
+    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/1asia_oceania.png'
   }
 ]
 
@@ -453,7 +469,6 @@ const RegionPanel = ({ currentRegion, mobile }) => {
 }
 
 const Filtering = ({ mobile, region, ...props }) => {
-  console.log({ region })
   return (
     <>
       {Object.values(props).map((filter, i) => (
@@ -473,6 +488,17 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
   //   // history.pushState(null, null, `/bank/climate/organizations-in-${region.toLowerCase().split(' ').join('-')}`);
   // }, [region]);
   const [modalOrganization, setModalOrganization] = useState(null)
+
+  useEffect(() => {
+    const handle = e => {
+      if (e.key === 'Escape') {
+        closeModal()
+      }
+    };
+
+    window.addEventListener('keydown', handle)
+    return () => window.removeEventListener('keydown', handle)
+  })
 
   let organizations = rawOrganizations
 
@@ -500,15 +526,15 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
       <Meta
         as={Head}
         title={
-          'Climate-focused nonprofits on Bank' +
-          (region ? ` in ${region.label}` : '')
+          'Climate-focused nonprofits' +
+          (region ? ` in ${region.label}` : 'on Hack Club Bank')
         }
         description={
           'Nonprofits are making real environmental impact' +
           (region ? ` in ${region.label}` : '') +
           " with Hack Club Bank's fiscal sponsorship and financial tools. Explore the climate efforts running on Hack Club Bank."
         }
-        image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
+        image={region?.ogImage ?? "https://cloud-gv8bzwz6z-hack-club-bot.vercel.app/0frame_14__1_.png"}
       />
       <style>{styles}</style>
       {modalOrganization && (
@@ -540,6 +566,20 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               e.stopPropagation()
             }}
           >
+            <Flex sx={{
+              position: 'absolute',
+              top: '10px',
+              right: '10px',
+              width: '40px',
+              height: '40px',
+              bg: 'smoke',
+              borderRadius: '50%',
+              justifyContent: 'center',
+              alignItems: 'center',
+              cursor: 'pointer'
+            }}>
+              <Icon glyph="view-close" size={32} onClick={closeModal} />
+            </Flex>
             <Flex sx={{ flexDirection: 'column', alignItems: 'start', gap: 3 }}>
               <Flex
                 sx={{
@@ -609,6 +649,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   <ThemeBadge
                     key={i}
                     as="span"
+                    aria-label="Hello there"
                     sx={{
                       bg: tag.color,
                       color: 'snow',
@@ -623,15 +664,19 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   </ThemeBadge>
                 ))}
 
-                {badges.map((badge, i) => (
-                  <Badge key={i} badge={badge} />
+                {badges.forOrg(modalOrganization).map((badge, i) => (
+                  <Tooltip.N key={i} text={badge.tooltip}>
+                    <span class="tooltipped">
+                      <Badge badge={badge} />
+                    </span>
+                  </Tooltip.N>
                 ))}
               </Flex>
 
               <Flex
                 sx={{
                   flexDirection: 'row',
-                  alignItems: 'center',
+                  alignItems: 'start',
                   gap: 4,
                   width: '100%'
                 }}
@@ -691,7 +736,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                       gap: 1
                     }}
                   >
-                    <Flex
+                    {modalOrganization.links.website && <Flex
                       as="a"
                       target="_blank"
                       href={modalOrganization.links.website}
@@ -712,8 +757,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                         size={20}
                         style={{ marginLeft: '2px', marginBottom: '6px' }}
                       />
-                    </Flex>
-                    <Flex
+                    </Flex>}
+                    {modalOrganization.links.financials && <Flex
                       as="a"
                       target="_blank"
                       href={modalOrganization.links.financials}
@@ -734,7 +779,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                         size={20}
                         style={{ marginLeft: '2px', marginBottom: '6px' }}
                       />
-                    </Flex>
+                    </Flex>}
                   </Flex>
                 </Flex>
                 {/* desktop stats */}
@@ -910,8 +955,18 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   />
                 </MSparkles>
               </Flex>
-              Climate-focused nonprofits {region ? `in ${region.label}` : ''} on{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>Hack Club Bank</a>
+              Climate-focused nonprofits on{' '}
+              <span sx={{ whiteSpace: 'nowrap' }}>Hack Club Bank</span>
+              {region ? <>
+                {' '}in 
+                <span sx={{ display: ['none', 'inline'], whiteSpace: 'nowrap', bg: region.iconColor, pl: 3, pr: 18, mx: -1, borderRadius: 8, textShadow: 'none', ml: 2 }}>
+                  <img src={region.image} alt="" sx={{ mr: 3, height: [30, 42, 42, 64] }} />
+                  {region.label}
+                </span>
+                <span sx={{ display: ['inline', 'none'], whiteSpace: 'nowrap' }}>
+                  {' ' + region.label}
+                </span>
+              </> : ''}
             </Heading>
             <Box
               sx={{
@@ -1026,6 +1081,20 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                 mobile
               />
             </Box>
+            {organizations.length === 0 && (
+              <Box sx={{
+                textAlign: 'center',
+                p: 5
+              }}>
+                <Box>
+                  <Text variant="headline" sx={{
+                    textTransform: 'unset',
+                    display: 'block',
+                    mb: 0
+                  }}>No results</Text>
+                </Box>
+              </Box>
+            )}
             <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: 3 }}>
               {organizations
                 .map(org => new Organization(org))
@@ -1033,12 +1102,6 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   const organizationBadgeIds = badges
                     .forOrg(organization)
                     .map(badge => badge.id)
-
-                  console.log({
-                    currentBadges,
-                    organizationBadgeIds,
-                    organization
-                  })
 
                   return (
                     currentBadges.length === badges.length ||
@@ -1109,7 +1172,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             <Button
               variant="ctaLg"
               as="a"
-              href="https://hackathons.hackclub.com"
+              href="https://bank.hackclub.com/donations/start/128-collective-fund"
+              target="_blank"
               sx={{
                 ml: [0, 3],
                 mt: 2,
@@ -1118,10 +1182,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             >
               <Text>
                 Donate to{' '}
-                <Text sx={{ display: ['none', 'none', 'inline'] }}>
-                  Hack Club Bank's
-                </Text>{' '}
-                Climate Fund
+                Hack Club Bank's{' '}
+                Climate&nbsp;Fund
               </Text>
             </Button>
           </Box>
@@ -1312,7 +1374,6 @@ export async function fetchRawClimateOrganizations() {
   let total = []
   let page = 1
   while (lastLength >= 100) {
-    console.log('Fetching', page)
     const json = await fetch(
       'https://bank.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
         page
