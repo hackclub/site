@@ -960,7 +960,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               {region ? <>
                 {' '}in 
                 <span sx={{ display: ['none', 'inline'], whiteSpace: 'nowrap', bg: region.iconColor, pl: 3, pr: 18, mx: -1, borderRadius: 8, textShadow: 'none', ml: 2 }}>
-                  <img src={region.image} sx={{ mr: 3, height: [30, 42, 42, 64] }} />
+                  <img src={region.image} alt="" sx={{ mr: 3, height: [30, 42, 42, 64] }} />
                   {region.label}
                 </span>
                 <span sx={{ display: ['inline', 'none'], whiteSpace: 'nowrap' }}>

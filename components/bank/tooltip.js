@@ -2,7 +2,7 @@ import React from "react";
 
 const addClassNameToChildren = (children, className) => React.Children.map(children, child => React.cloneElement(child, { className: `${child.props.className || ''} ${className}` }));
 
-const tooltip = (direction) => ({ children, text }) => {
+const tooltip = (direction) => function Tooltip ({ children, text }) {
     const escapedText = text.replace(/'/g, "\\'");
 
     const directionalStyles = ({
