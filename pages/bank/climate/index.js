@@ -1392,6 +1392,6 @@ export const getStaticProps = async () => {
     props: {
       rawOrganizations: await fetchRawClimateOrganizations()
     },
-    revalidate: 600000
+    revalidate: 60 // seconds
   }
 }

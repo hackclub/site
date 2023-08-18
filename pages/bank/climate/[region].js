@@ -39,6 +39,6 @@ export const getStaticProps = async ({ params }) => {
       rawOrganizations: orgs,
       pageRegion: region
     },
-    revalidate: 60
+    revalidate: 60 // seconds
   }
 }
