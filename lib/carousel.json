@@ -1,5 +1,14 @@
 [
   {
+    "background": "linear-gradient(to bottom right, #993CCF 0%, rgba(170, 77, 181, 0.95) 17.19%, rgba(193, 99, 146, 0.90) 31.77%, rgba(223, 129, 101, 0.71) 52.08%, rgba(240, 146, 75, 0.60) 63.54%)",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "Jams",
+    "description": "Collaborative coding workshops where sparks ignite, fears dissolve, and inventions come to life",
+    "img": "https://cloud-7xyxcf3f6-hack-club-bot.vercel.app/0new_project__3_.png",
+    "link": "https://jams.hackclub.com"
+  },
+  {
     "background": "#000",
     "titleColor": "yellow",
     "descriptionColor": "white",

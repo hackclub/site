@@ -172,14 +172,11 @@ export default function Team() {
                       pronouns="she/her"
                     />
                     <Bio
-                      name="Sam Poder"
-                      teamRole="Engineering & Operations"
-                      text={`Originally from Australia, Sam's family moved to Singapore when he was young. He now runs a Hack Club at his school in Singapore. 
-                Sam has worked on all sorts of Hack Club projects, focusing on web development and logistics. Outside of Hack Club, Sam enjoys traveling with his family 
-                and participating in academic competitions with his friends.`}
-                      img="https://change-my-pfp.vercel.app/api/current/"
+                      name="Deven Jadhav"
+                      teamRole="Events"
+                      text="Deven is a Hack Clubber from India who enjoys building meaningful things at the intersections of art and technology. He also loves music and plays the guitar & drums! Along with this, he also likes talking to strangers over the internet and having interesting & deep conversations. He is also a sucker for nature photography and enjoys hikes and treks into the wild!"
+                      img="https://github.com/devenjadhav.png"
                       pronouns="he/him"
-                      href="https://github.com/sampoder"
                     />
                     <Bio
                       name="Hugo Hu"
@@ -335,14 +332,7 @@ export default function Team() {
                       img="https://cloud-oubklmp6c-hack-club-bot.vercel.app/0arianna_profile_photo.png"
                       pronouns="she/her"
                     />
-                    <Bio
-                      name="Deven Jadhav"
-                      teamRole="Operations"
-                      text="Deven is a Hack Clubber from India who enjoys building meaningful things at the intersections of art and technology. He also loves music and plays the guitar & drums! Along with this, he also likes talking to strangers over the internet and having interesting & deep conversations. He is also a sucker for nature photography and enjoys hikes and treks into the wild!"
-                      img="https://github.com/devenjadhav.png"
-                      pronouns="he/him"
-                      spanTwo
-                    />
+                    
                   </Grid>
                 </Box>
 
@@ -454,12 +444,6 @@ export default function Team() {
                 pronouns="he/him"
               />
               <Bio
-                name="Al Harder-Hyde"
-                teamRole="Project Manager"
-                img="https://scrapbook.hackclub.com/al.png"
-                pronouns="they/them"
-              />
-              <Bio
                 name="Ella Xu"
                 teamRole="Clubs Engineering"
                 text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
@@ -472,6 +456,14 @@ export default function Team() {
                 text="Already more at home on the internet than anywhere in meat space, you can imagine a young Ced's horror when his parents moved him into a holler so deep in the Appalachian Mountains that his beloved internet was only accessible through sluggish satellite. Stubbornly refusing to be separated from his online games, he threw together his own for his brothers, a captive audience. At Hack Club, Ced made materials that shared his enthusiasm for making fun somethings from nothing but technology."
                 img="/team/ced.png"
                 pronouns="he/him"
+              />
+              <Bio
+                name="Sam Poder"
+                teamRole="Engineering & Operations"
+                text={`Originally from Australia, Sam's family moved to Singapore when he was young. In Singapore, he ran a Hack Club at his school and multiple hackathons with his friends. During his time in Hack Club, he worked on everything from events to engineering. The wildest things from his time at Hack Club include 4am rickshaw rides in New Delhi, attempting to oversee several raves, rickrolling the Slack twice, losing his voice waking up hundreds of sleeping hackers and heartstopping late-night launches. Now at university, Sam will never forget the crazy times at Hack Club and will always have his friends from Hack Club.`}
+                img="https://change-my-pfp.vercel.app/api/current/"
+                pronouns="he/him"
+                href="https://github.com/sampoder"
               />
               <Bio
                 img="/team/athul.jpg"
