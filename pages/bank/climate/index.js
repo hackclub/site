@@ -27,6 +27,7 @@ import { useEffect, useState } from 'react'
 import NextLink from 'next/link'
 import { kebabCase, intersection } from 'lodash'
 import theme from '@hackclub/theme'
+import Tooltip from '../../../components/bank/tooltip'
 
 const styles = `
   html {
@@ -38,7 +39,7 @@ export const badges = [
   {
     label: 'Transparent',
     id: 'Transparent',
-    toolip: 'This organization is transparent about its finances',
+    tooltip: 'Transparent',
     color: 'purple',
     icon: 'explore',
     match: org => org.isTransparent
@@ -46,7 +47,7 @@ export const badges = [
   {
     label: 'Funded',
     id: '128CollectiveFunded',
-    tooltip: 'This organization has been funded by 128 Collective',
+    tooltip: '128 Collective Funded',
     match: org => org.is128Funded,
     image:
       'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
@@ -54,7 +55,7 @@ export const badges = [
   {
     label: 'Recommended',
     id: '128CollectiveRecommended',
-    tooltip: 'This organization is recommended by 128 Collective',
+    tooltip: '128 Collective Recommended',
     match: org => org.is128Recommended,
     image:
       'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
@@ -468,7 +469,6 @@ const RegionPanel = ({ currentRegion, mobile }) => {
 }
 
 const Filtering = ({ mobile, region, ...props }) => {
-  console.log({ region })
   return (
     <>
       {Object.values(props).map((filter, i) => (
@@ -488,6 +488,17 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
   //   // history.pushState(null, null, `/bank/climate/organizations-in-${region.toLowerCase().split(' ').join('-')}`);
   // }, [region]);
   const [modalOrganization, setModalOrganization] = useState(null)
+
+  useEffect(() => {
+    const handle = e => {
+      if (e.key === 'Escape') {
+        closeModal()
+      }
+    };
+
+    window.addEventListener('keydown', handle)
+    return () => window.removeEventListener('keydown', handle)
+  })
 
   let organizations = rawOrganizations
 
@@ -555,6 +566,20 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               e.stopPropagation()
             }}
           >
+            <Flex sx={{
+              position: 'absolute',
+              top: '10px',
+              right: '10px',
+              width: '40px',
+              height: '40px',
+              bg: 'smoke',
+              borderRadius: '50%',
+              justifyContent: 'center',
+              alignItems: 'center',
+              cursor: 'pointer'
+            }}>
+              <Icon glyph="view-close" size={32} onClick={closeModal} />
+            </Flex>
             <Flex sx={{ flexDirection: 'column', alignItems: 'start', gap: 3 }}>
               <Flex
                 sx={{
@@ -624,6 +649,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   <ThemeBadge
                     key={i}
                     as="span"
+                    aria-label="Hello there"
                     sx={{
                       bg: tag.color,
                       color: 'snow',
@@ -638,8 +664,12 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   </ThemeBadge>
                 ))}
 
-                {badges.map((badge, i) => (
-                  <Badge key={i} badge={badge} />
+                {badges.forOrg(modalOrganization).map((badge, i) => (
+                  <Tooltip.N key={i} text={badge.tooltip}>
+                    <span class="tooltipped">
+                      <Badge badge={badge} />
+                    </span>
+                  </Tooltip.N>
                 ))}
               </Flex>
 
@@ -1073,12 +1103,6 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                     .forOrg(organization)
                     .map(badge => badge.id)
 
-                  console.log({
-                    currentBadges,
-                    organizationBadgeIds,
-                    organization
-                  })
-
                   return (
                     currentBadges.length === badges.length ||
                     intersection(organizationBadgeIds, currentBadges).length ===
@@ -1350,7 +1374,6 @@ export async function fetchRawClimateOrganizations() {
   let total = []
   let page = 1
   while (lastLength >= 100) {
-    console.log('Fetching', page)
     const json = await fetch(
       'https://bank.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
         page

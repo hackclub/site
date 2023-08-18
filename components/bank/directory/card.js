@@ -2,6 +2,7 @@ import { Card, Badge as ThemeBadge, Box, Heading, Text, Image } from 'theme-ui'
 import { Organization } from '../../../pages/bank/climate'
 import Tilt from '../../../components/tilt'
 import Icon from '@hackclub/icons'
+import Tooltip from '../tooltip'
 
 export const Badge = ({ badge }) =>
   badge.image ? (
@@ -110,7 +111,11 @@ export const OrganizationCard = ({
         }}
       >
         {badges.map((badge, i) => (
-          <Badge key={i} badge={badge} />
+          <Tooltip.W key={i} text={badge.label}>
+            <span class="tooltipped">
+              <Badge badge={badge} />
+            </span>
+          </Tooltip.W>
         ))}
       </Box>
 
