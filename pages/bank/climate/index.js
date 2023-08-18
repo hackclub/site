@@ -44,14 +44,16 @@ export const badges = [
     icon: 'explore',
     match: org => org.isTransparent
   },
-  {
-    label: 'Funded',
-    id: '128CollectiveFunded',
-    tooltip: '128 Collective Funded',
-    match: org => org.is128Funded,
-    image:
-      'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
-  },
+  // The "128 Collective Funded" is hidden for now. It may be re-added in the
+  // future after 128 Collective has more multi-year grants.
+  // {
+  //   label: 'Funded',
+  //   id: '128CollectiveFunded',
+  //   tooltip: '128 Collective Funded',
+  //   match: org => org.is128Funded,
+  //   image:
+  //     'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
+  // },
   {
     label: 'Recommended',
     id: '128CollectiveRecommended',
