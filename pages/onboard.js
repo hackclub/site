@@ -613,26 +613,25 @@ const ShipPage = () => {
             }}
           >
             <a
-              href="https://github.com/maggie-j-liu/orpheus-keychain"
+              href="https://github.com/hackclub/OnBoard/tree/main/projects/E-Fidget%20Lite"
               target="_blank"
             >
               <Flex as="article">
-                <Text as="p" sx={{ pr: 80 }}>
-                  A <strong>keychain</strong> that has a{' '}
-                  <strong>light up dino</strong> on it.
+                <Text as="p" sx={{ pr: 115 }}>
+                  A <strong>fidget spinner</strong> without any moving parts.
                 </Text>
                 <Text as="p" sx={{ pr: 100, color: 'gray' }}>
-                  See Maggie's designs&nbsp;
+                  See Micha's work&nbsp;
                   <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-ahzzebs4i-hack-club-bot.vercel.app/0frame_1.png"
-                  alt="A circuit board of a dino wizard with a light up wand, the same image from the top of the page."
+                  src="https://cloud-r2xrlpq9q-hack-club-bot.vercel.app/0spinner.png"
+                  alt="A red circular circuit board with a graphic of white fidget spinner on it."
                   sx={{
                     maxWidth: 120,
                     position: 'absolute',
-                    top: 10,
-                    right: 15
+                    top: 40,
+                    right: 10
                   }}
                 />
               </Flex>
@@ -656,7 +655,7 @@ const ShipPage = () => {
                   sx={{
                     maxWidth: 280,
                     position: 'absolute',
-                    bottom: -50,
+                    bottom: -40,
                     right: -75
                   }}
                 />
@@ -691,22 +690,23 @@ const ShipPage = () => {
               </Flex>
             </a>
 
-            <a href="https://github.com/maggie-j-liu/macropad" target="_blank">
+            <a href="https://github.com/hackclub/OnBoard/tree/main/projects/Karmanyaah_Longhorn_LEDs" target="_blank">
               <Flex as="article">
-                <Text as="p" sx={{ pr: 170 }}>
-                  Maggie's custom <strong>keyboard layout</strong>.
+                <Text as="p" sx={{ pr: 140 }}>
+                  Karmanyaah's <strong>longhorn level</strong> with colored LEDs.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  Check it out&nbsp;<span className="arrow">&rarr;</span>
+                  See the designs&nbsp;<span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-8yyfro2sg-hack-club-bot.vercel.app/0keyboard.png"
-                  alt="A 3-key custom keyboard with colored glowing translucent keys."
+                  src="https://cloud-myjum5y6g-hack-club-bot.vercel.app/0longhorn2.png"
+                  alt="A longhorn-shaped PCB with glowing horns."
                   sx={{
                     position: 'absolute',
-                    bottom: 0,
-                    right: -20,
-                    maxWidth: 230
+                    top: 40,
+                    right: -30,
+                    maxWidth: 230,
+                    transform: 'rotate(20deg)'
                   }}
                 />
               </Flex>
