@@ -461,7 +461,7 @@ const ShipPage = () => {
                 </Balancer>
               </Heading>
 
-              <Box sx={{ mt: 16 }}>
+              <Flex sx={{ mt: 16, gap: 10 }}>
                 <Button
                   variant="ctaLg"
                   as="a"
@@ -471,9 +471,22 @@ const ShipPage = () => {
                     background: t => t.util.gx('#60cc38', '#113b11')
                   }}
                 >
-                  Build a PCB
+                  Learn to Build a PCB
                 </Button>
-              </Box>
+
+                <Button
+                  variant="outlineLg"
+                  as="a"
+                  href="https://github.com/hackclub/OnBoard/blob/main/README.md"
+                  target="_blank"
+                  sx={{
+                    borderColor: '#113b11',
+                    color: '#60cc38'
+                  }}
+                >
+                  Get a Grant
+                </Button>
+              </Flex>
             </Flex>
 
             <Box sx={{ flex: 1, maxWidth: 230 }}>
@@ -895,7 +908,7 @@ const ShipPage = () => {
             </Text>
             <Box sx={{ mt: 1 }}>
               <Button variant="outlineLg" as="a" href={slackLink} target="_blank">
-                Join the Slack
+                Join Slack
               </Button>
             </Box>
           </Flex>
@@ -989,7 +1002,7 @@ const ShipPage = () => {
                 href="https://github.com/hackclub/OnBoard#requirements"
                 target="_blank"
               >
-                Read the Rules
+                Get a Grant
               </Button>
             </Flex>
 
