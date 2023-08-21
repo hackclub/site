@@ -149,7 +149,7 @@ const Navigation = props => (
       <Link>Slack</Link>
     </NextLink>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
-    <Link href="https://workshops.hackclub.com/">Workshops</Link>
+    <Link href="https://jams.hackclub.com/">Jams Workshops</Link>
     <NextLink href="/onboard" passHref>
       <Link>OnBoard</Link>
     </NextLink>
