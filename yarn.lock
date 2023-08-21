@@ -15,18 +15,18 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@apollo/client@^3.7.12":
-  version "3.7.12"
-  resolved "https://registry.npmjs.org/@apollo/client/-/client-3.7.12.tgz"
-  integrity sha512-XvH8ssDibx5hR92Tet8CHtUxhiIs+RbYjyxkflAcnF85QT3VacUdNAhjj0OcA2kcZ+5KyceJmilmBNjj6+rJFg==
+"@apollo/client@^3.8.1":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.8.1.tgz#a1e3045a5fb276c08e38f7b5f930551d79741257"
+  integrity sha512-JGGj/9bdoLEqzatRikDeN8etseY5qeFAY0vSAx/Pd0ePNsaflKzHx6V2NZ0NsGkInq+9IXXX3RLVDf0EotizMA==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.1"
-    "@wry/context" "^0.7.0"
-    "@wry/equality" "^0.5.0"
-    "@wry/trie" "^0.3.0"
+    "@wry/context" "^0.7.3"
+    "@wry/equality" "^0.5.6"
+    "@wry/trie" "^0.4.3"
     graphql-tag "^2.12.6"
     hoist-non-react-statics "^3.3.2"
-    optimism "^0.16.2"
+    optimism "^0.17.5"
     prop-types "^15.7.2"
     response-iterator "^0.2.6"
     symbol-observable "^4.0.0"
@@ -2372,24 +2372,24 @@
     "@typescript-eslint/types" "5.42.1"
     eslint-visitor-keys "^3.3.0"
 
-"@wry/context@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.npmjs.org/@wry/context/-/context-0.7.0.tgz"
-  integrity sha512-LcDAiYWRtwAoSOArfk7cuYvFXytxfVrdX7yxoUmK7pPITLk5jYh2F8knCwS7LjgYL8u1eidPlKKV6Ikqq0ODqQ==
+"@wry/context@^0.7.0", "@wry/context@^0.7.3":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@wry/context/-/context-0.7.3.tgz#240f6dfd4db5ef54f81f6597f6714e58d4f476a1"
+  integrity sha512-Nl8WTesHp89RF803Se9X3IiHjdmLBrIvPMaJkl+rKVJAYyPsz1TEUbu89943HpvujtSJgDUx9W4vZw3K1Mr3sA==
   dependencies:
     tslib "^2.3.0"
 
-"@wry/equality@^0.5.0":
-  version "0.5.3"
-  resolved "https://registry.npmjs.org/@wry/equality/-/equality-0.5.3.tgz"
-  integrity sha512-avR+UXdSrsF2v8vIqIgmeTY0UR91UT+IyablCyKe/uk22uOJ8fusKZnH9JH9e1/EtLeNJBtagNmL3eJdnOV53g==
+"@wry/equality@^0.5.6":
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/@wry/equality/-/equality-0.5.6.tgz#cd4a533c72c3752993ab8cbf682d3d20e3cb601e"
+  integrity sha512-D46sfMTngaYlrH+OspKf8mIJETntFnf6Hsjb0V41jAXJ7Bx2kB8Rv8RCUujuVWYttFtHkUNp7g+FwxNQAr6mXA==
   dependencies:
     tslib "^2.3.0"
 
-"@wry/trie@^0.3.0":
-  version "0.3.2"
-  resolved "https://registry.npmjs.org/@wry/trie/-/trie-0.3.2.tgz"
-  integrity sha512-yRTyhWSls2OY/pYLfwff867r8ekooZ4UI+/gxot5Wj8EFwSf2rG+n+Mo/6LoLQm1TKA4GRj2+LCpbfS937dClQ==
+"@wry/trie@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@wry/trie/-/trie-0.4.3.tgz#077d52c22365871bf3ffcbab8e95cb8bc5689af4"
+  integrity sha512-I6bHwH0fSf6RqQcnnXLJKhkSXG45MFral3GxPaY4uAl0LYDZM+YDVDAiU9bYwjTuysy1S0IeecWtmq1SZA3M1w==
   dependencies:
     tslib "^2.3.0"
 
@@ -4875,13 +4875,14 @@ open@^8.4.0:
     is-docker "^2.1.1"
     is-wsl "^2.2.0"
 
-optimism@^0.16.2:
-  version "0.16.2"
-  resolved "https://registry.npmjs.org/optimism/-/optimism-0.16.2.tgz"
-  integrity sha512-zWNbgWj+3vLEjZNIh/okkY2EUfX+vB9TJopzIZwT1xxaMqC5hRLLraePod4c5n4He08xuXNH+zhKFFCu390wiQ==
+optimism@^0.17.5:
+  version "0.17.5"
+  resolved "https://registry.yarnpkg.com/optimism/-/optimism-0.17.5.tgz#a4c78b3ad12c58623abedbebb4f2f2c19b8e8816"
+  integrity sha512-TEcp8ZwK1RczmvMnvktxHSF2tKgMWjJ71xEFGX5ApLh67VsMSTy1ZUlipJw8W+KaqgOmQ+4pqwkeivY89j+4Vw==
   dependencies:
     "@wry/context" "^0.7.0"
-    "@wry/trie" "^0.3.0"
+    "@wry/trie" "^0.4.3"
+    tslib "^2.3.0"
 
 optionator@^0.9.3:
   version "0.9.3"
@@ -5932,12 +5933,7 @@ tslib@^1.8.1:
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
-tslib@^2.1.0, tslib@^2.3.0, tslib@^2.4.0:
-  version "2.4.1"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-2.4.1.tgz"
-  integrity sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==
-
-tslib@^2.5.0:
+tslib@^2.1.0, tslib@^2.3.0, tslib@^2.4.0, tslib@^2.5.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.1.tgz#fd8c9a0ff42590b25703c0acb3de3d3f4ede0410"
   integrity sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==
