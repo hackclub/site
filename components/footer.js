@@ -40,7 +40,7 @@ const Logo = props => (
 const Service = ({ href, icon, name = '', ...props }) => (
   <Link
     target="_blank"
-    rel="noopener"
+    rel="noopener me"
     href={href}
     title={`Hack Club on ${name ? name : icon}`}
     {...props}
@@ -155,9 +155,9 @@ const Footer = ({ dark = false, children, ...props }) => (
               name="Figma"
             />
             <Service
-              href="https://www.facebook.com/Hack-Club-741805665870458"
-              icon="facebook"
-              name="Facebook"
+              href="https://social.dino.icu/@hackclub"
+              icon="mastodon"
+              name="Mastodon"
             />
             <Service
               href="https://www.youtube.com/c/HackClubHQ"
