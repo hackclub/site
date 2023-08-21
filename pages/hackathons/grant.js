@@ -128,25 +128,6 @@ const HackathonGrant = () => {
                     target="_blank"
                   ></Box>
                 </NextLink>
-                <Box mr={3} sx={{ fontWeight: 'normal' }}>
-                  +
-                </Box>
-                <NextLink href="https://www.firstinspires.org" passHref>
-                  <Box
-                    as="a"
-                    sx={{
-                      width: 72,
-                      height: 72,
-                      backgroundImage: "url('/hackathons/grant/first.png')",
-                      backgroundColor: '#231F20',
-                      backgroundSize: '60px, cover',
-                      backgroundPosition: 'center center',
-                      backgroundRepeat: 'no-repeat',
-                      borderRadius: 8
-                    }}
-                    target="_blank"
-                  ></Box>
-                </NextLink>
               </Flex>
               A <MSparkles>$500</MSparkles> grant for your{' '}
               <a sx={{ whiteSpace: 'nowrap' }}>in-person</a> hackathon.
@@ -158,20 +139,12 @@ const HackathonGrant = () => {
                 my: 4
               }}
             >
-              Hack Club is partnering with{' '}
-              <NextLink href="https://www.firstinspires.org" passHref>
-                <Link target="_blank">
-                  <i>FIRST®</i>
-                </Link>
-              </NextLink>{' '}
-              to provide $500 grants (and waiving{' '}
+              Hack Club is providing $500 grants (and waiving{' '}
               <Link href="/bank" target="_blank">
                 Hack Club Bank
               </Link>{' '}
               fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons{' '}
-              <s>this semester between August and December 31, 2022</s> until
-              December 31st, 2023.
+              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons until December 31st, 2023.
             </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
               {open ? 'Apply Now' : 'Coming Soon'}
