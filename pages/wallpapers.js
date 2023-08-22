@@ -101,7 +101,7 @@ const WallpapersPage = ({ wallpapers = [] }) => [
             mt: [3, 4]
           })}
         >
-          Hack Club wallpapers.
+          Hack Club Wallpapers.
         </Heading>
         <Text as="p" variant="lead" color="muted">
           High-quality wallpapers, made by Hack Clubbers.
