@@ -154,7 +154,7 @@ const Page = ({ repos, transparentAccounts }) => (
       <Grid columns={3} gap={3} mt={2} mb={[4]}>
         <BankProject
           name="Jams"
-          url={`https://github.com/hackclub/hackclub/tree/main/jams`}
+          url={`https://github.com/hackclub/jams`}
         />
         <BankProject
           name="Workshops"
