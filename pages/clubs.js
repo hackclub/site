@@ -115,7 +115,7 @@ const Page = () => (
       as="header"
       sx={{
         bg: 'dark',
-        pt: [5, 6],
+        pt: [5, 5],
         pb: [2, 3],
         textAlign: 'center',
         position: 'relative',
@@ -128,13 +128,7 @@ const Page = () => (
             priority
             gradient="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))"
         />
-      {/* <Announcement
-        copy="Epoch: celebrate the New Year with Hack Club."
-        caption="Join 150+ hackers in Delhi for a magical high-school hackathon!"
-        href="https://epoch.hackclub.com"
-        iconLeft="explore"
-        color="primary"
-      /> */}
+
 
       <SlideDown duration={768}>
         <Heading
@@ -482,7 +476,7 @@ const Page = () => (
               <>
                 Come prepared to every meeting with over 100{' '}
                 <a href="https://workshops.hackclub.com">workshops</a> (3 years’
-                worth!) that guide your club members through making fun,
+                worth!) and 18 <a href="https://jams.hackclub.com"> Jams </a> that guide your club members through making fun,
                 creative projects.
               </>
             }

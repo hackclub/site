@@ -23,7 +23,6 @@ import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
 import Clubs from '../components/index/cards/clubs'
-import Jams from '../components/index/cards/jams'
 import Workshops from '../components/index/cards/workshops'
 import Bank from '../components/index/cards/bank'
 import Hackathons from '../components/index/cards/hackathons'
@@ -760,10 +759,6 @@ function Page({
                   stars={stars.sprigHardware.stargazerCount}
                   consoleCount={consoleCount}
                 />
-              </Box>
-                <Jams delay={400} stars={stars.hackclub.stargazerCount} />
-
-            </Box>
               <Box>
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
             </Box>
