@@ -126,7 +126,7 @@ const Page = () => (
             src={OuternetImgFile}
             alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
             priority
-            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
+            gradient="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))"
         />
       {/* <Announcement
         copy="Epoch: celebrate the New Year with Hack Club."
@@ -354,7 +354,7 @@ const Page = () => (
             <a href="https://www.hackoc.org">
               HackOC
             </a>,{' ' }
-            run and take part in summer programs like{' '}
+            take part in summer programs like{' '}
             <a href="/onboard">
               OnBoard
             </a>
