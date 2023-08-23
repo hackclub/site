@@ -71,7 +71,11 @@ const Page = ({ repos, transparentAccounts }) => (
       }}
     >
       <Container variant="copy">
-        <Heading as="h1" variant="title" sx={{ color: 'primary', mt: [2.5, 4] }}>
+        <Heading
+          as="h1"
+          variant="title"
+          sx={{ color: 'primary', mt: [2.5, 4] }}
+        >
           Open Source at Hack Club
         </Heading>
         <Heading as="h2" variant="subtitle" sx={{ mt: 3, color: 'text' }}>
@@ -84,7 +88,7 @@ const Page = ({ repos, transparentAccounts }) => (
           mt={3}
           href="https://contribute.hackclub.com"
         >
-       Help contribute to our projects
+          Help contribute to our projects
         </Button>
       </Container>
     </Box>
@@ -123,14 +127,11 @@ const Page = ({ repos, transparentAccounts }) => (
         Includes planning documents, partnership emails, meeting notes etc.
       </Text>
       <Grid columns={2} gap={3} mt={2} mb={[4]}>
-          <BankProject
-              name="Outernet"
-              url={`https://github.com/hackclub/outernet`}
-          />
-          <BankProject
-              name="Epoch"
-              url={`https://github.com/hackclub/epoch`}
-          />
+        <BankProject
+          name="Outernet"
+          url={`https://github.com/hackclub/outernet`}
+        />
+        <BankProject name="Epoch" url={`https://github.com/hackclub/epoch`} />
         <BankProject
           name="Assemble"
           url={`https://github.com/hackclub/assemble`}
@@ -151,10 +152,10 @@ const Page = ({ repos, transparentAccounts }) => (
         Content
       </Heading>
       <Grid columns={3} gap={3} mt={2} mb={[4]}>
-          <BankProject
-              name="Jams"
-              url={`https://github.com/hackclub/hackclub/tree/main/jams`}
-          />
+        <BankProject
+          name="Jams"
+          url={`https://github.com/hackclub/hackclub/tree/main/jams`}
+        />
         <BankProject
           name="Workshops"
           url={`https://github.com/hackclub/hackclub/tree/main/workshops`}
