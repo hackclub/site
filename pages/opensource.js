@@ -88,7 +88,7 @@ const Page = ({ repos, transparentAccounts }) => (
           mt={3}
           href="https://contribute.hackclub.com"
         >
-          Help contribute to our projects
+          Contribute to Our Projects
         </Button>
       </Container>
     </Box>
