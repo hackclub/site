@@ -79,6 +79,16 @@ export default function Landing({ showButton = true, eventsCount }) {
                     run world-class organizations, hackathons, and clubs.
                   </Text>
                 </Container>
+                <Container variant="copy" mt={3}>
+                  <Text
+                    sx={{
+                      textShadow: '0 3px 6px rgba(0, 0, 0, 0.5)',
+                    }}
+                    color="muted"
+                  >
+                  Hack Club Bank is a <Link href="https://en.wikipedia.org/wiki/Fiscal_sponsorship">fiscal sponsor</Link> and not a banking institution.<br />Banking services are provided by <Link href="https://increase.com">Increase</Link> and <Link href="https://www.firstib.com/">First Internet Bank</Link>.
+                  </Text>
+                </Container>
               </Container>
             </Fade>
           </Box>
