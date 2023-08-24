@@ -343,7 +343,7 @@ const Page = () => (
             </NextLink>{' '}
             like <a href="https://lelandhacks.com">Leland Hacks</a> &{' '}
             <a href="https://www.hackoc.org">HackOC</a>, take part in summer
-            programs like <a href="/onboard">OnBoard</a>, and compete in events
+            programs like <NextLink href="/onboard">OnBoard</NextLink>, and compete in events
             like the{' '}
             <a href="http://www.congressionalappchallenge.us">
               Congressional App Challenge
