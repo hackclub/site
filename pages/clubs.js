@@ -27,6 +27,7 @@ import AssembleImgFile from '../public/home/assemble.jpg'
 import Slack from '../components/slack'
 import Announcement from '../components/announcement'
 import Stage from '../components/stage'
+import OuternetImgFile from '../public/home/outernet-110.jpg'
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -113,7 +114,7 @@ const Page = () => (
       as="header"
       sx={{
         bg: 'dark',
-        pt: [5, 6],
+        pt: [5, 5],
         pb: [2, 3],
         textAlign: 'center',
         position: 'relative',
@@ -121,17 +122,11 @@ const Page = () => (
       }}
     >
       <BGImg
-        src={AssembleImgFile}
-        alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
+        src={OuternetImgFile}
+        alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
         priority
+        gradient="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))"
       />
-      {/* <Announcement
-        copy="Epoch: celebrate the New Year with Hack Club."
-        caption="Join 150+ hackers in Delhi for a magical high-school hackathon!"
-        href="https://epoch.hackclub.com"
-        iconLeft="explore"
-        color="primary"
-      /> */}
 
       <SlideDown duration={768}>
         <Heading
@@ -236,7 +231,7 @@ const Page = () => (
           }}
           title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
         >
-          Hackers at Assemble in SF
+          Hackers at Outernet in VT
         </Badge>
       </Box>
     </Box>
@@ -346,16 +341,10 @@ const Page = () => (
             <NextLink href="/hackathons" passHref>
               <a>hackathons</a>
             </NextLink>{' '}
-            like <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a>{' '}
-            &{' '}
-            <a href="https://www.sfchronicle.com/bayarea/article/Hack-the-Fog-makes-history-as-San-12729895.php">
-              Hack the Fog
-            </a>
-            , run summer programs like{' '}
-            <a href="https://web.archive.org/web/20200808171549/http://thecspn.com/?p=43434">
-              Hack Camp
-            </a>
-            , and compete in events like the{' '}
+            like <a href="https://lelandhacks.com">Leland Hacks</a> &{' '}
+            <a href="https://www.hackoc.org">HackOC</a>, take part in summer
+            programs like <a href="/onboard">OnBoard</a>, and compete in events
+            like the{' '}
             <a href="http://www.congressionalappchallenge.us">
               Congressional App Challenge
             </a>
@@ -479,8 +468,9 @@ const Page = () => (
               <>
                 Come prepared to every meeting with over 100{' '}
                 <a href="https://workshops.hackclub.com">workshops</a> (3 years’
-                worth!) that guide your club members through making fun,
-                creative projects.
+                worth!) and 18 <a href="https://jams.hackclub.com"> Jams </a>{' '}
+                that guide your club members through making fun, creative
+                projects.
               </>
             }
           ></Feature>
