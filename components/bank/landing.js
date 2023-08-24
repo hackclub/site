@@ -86,7 +86,7 @@ export default function Landing({ showButton = true, eventsCount }) {
                     }}
                     color="muted"
                   >
-                  Hack Club Bank is a <Link href="https://en.wikipedia.org/wiki/Fiscal_sponsorship">fiscal sponsor</Link> and not a banking institution.<br />Banking services are provided by <Link href="https://increase.com">Increase</Link> and <Link href="https://www.firstib.com/">First Internet Bank</Link>.
+                    Hack Club Bank is a <Link href="https://en.wikipedia.org/wiki/Fiscal_sponsorship">fiscal sponsor</Link> and not a banking institution.
                   </Text>
                 </Container>
               </Container>
