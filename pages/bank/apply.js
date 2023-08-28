@@ -80,11 +80,6 @@ export default function Apply() {
 
   return (
     <>
-      <script
-        async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApxZZ8-Eh_6RgHUu8-BAOpx3xhfF2yK9U&libraries=places&mapInit=foo"
-      ></script>
-
       <Meta as={Head} title="Apply for Hack Club Bank" />
       <ForceTheme theme="dark" />
 
