@@ -465,7 +465,7 @@ const ShipPage = () => {
                 <Button
                   variant="ctaLg"
                   as="a"
-                  href="https://hack.af/card-jam"
+                  href="https://hack.af/pcb-jam"
                   target="_blank"
                   sx={{
                     background: t => t.util.gx('#60cc38', '#113b11')
@@ -551,7 +551,7 @@ const ShipPage = () => {
             <Balancer ratio={0.3}>Never made a circuit board before? No problem.</Balancer>
           </Heading>
           <Text sx={{ fontSize: 3 }}>
-            Learn how to design your own circuit boards from scratch with our <strong>official tutorials</strong> and jams, like Maggie’s <Link href="https://hack.af/card-jam" target="_blank">intro to PCB design jam</Link>. Ask in the{' '}
+            Learn how to design your own circuit boards from scratch with our <strong>official tutorials</strong> and jams, like Maggie’s <Link href="https://hack.af/pcb-jam" target="_blank">intro to PCB design jam</Link>. Ask in the{' '}
             <Link href={slackLink} target="_blank">Hack Club Slack</Link>{' '}
             if you have any questions!
           </Text>
@@ -729,7 +729,7 @@ const ShipPage = () => {
           <Button
             variant="lg"
             as="a"
-            href="https://hack.af/card-jam"
+            href="https://hack.af/pcb-jam"
             target="_blank"
           >
             Learn to build a PCB
@@ -1011,7 +1011,7 @@ const ShipPage = () => {
             }}>
               <Text as="h3">Learn to PCB</Text>
               <Text as="p">Read our Hacker Card tutorial to learn how to make a simple circuit board from start to end.</Text>
-              <Button as="a" href="https://hack.af/card-jam" target="_blank">
+              <Button as="a" href="https://hack.af/pcb-jam" target="_blank">
                 Start the Tutorial
               </Button>
             </Flex>
