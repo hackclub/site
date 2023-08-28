@@ -31,7 +31,7 @@
     "axios": "^1.4.0",
     "cookies-next": "^2.1.2",
     "country-list-js": "^3.1.7",
-    "cursor-effects": "^1.0.11",
+    "cursor-effects": "^1.0.12",
     "devtools-detect": "^4.0.1",
     "form-data": "^4.0.0",
     "fuzzysort": "^2.0.4",

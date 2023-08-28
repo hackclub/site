@@ -2969,10 +2969,10 @@ csstype@^3.1.2:
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-3.1.2.tgz#1d4bf9d572f11c14031f0436e1c10bc1f571f50b"
   integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
 
-cursor-effects@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.npmjs.org/cursor-effects/-/cursor-effects-1.0.11.tgz"
-  integrity sha512-P+nV/8Bfxk6RQvsg2uq7wW+WncJLBx8bmqT80QU1nlW15qSb5fpaCLfZ9nl2BZSRyz+u+sxKhAESPNoAkAfJmw==
+cursor-effects@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/cursor-effects/-/cursor-effects-1.0.12.tgz#d5feb442403f9b91a034fd0d8ca47e19f1123a1a"
+  integrity sha512-HDaKd+GJjveac1g52krmFiJJg0HwnxCeKgktGaPpbv6/7z8/krYgmTpDZW9GZ01S5783R6cPhEHAgHWQEm211w==
 
 d3-array@2, d3-array@^2.3.0:
   version "2.12.1"
