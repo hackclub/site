@@ -469,7 +469,7 @@ const ShipPage = () => {
                     background: t => t.util.gx('#60cc38', '#113b11')
                   }}
                 >
-                  Learn to Build a PCB
+                  Learn PCB Design Now!
                 </Button>
 
                 <Button
@@ -654,8 +654,7 @@ const ShipPage = () => {
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 100 }}>
-                  A <strong>movement sensor</strong> add-on to an open
-                  source <strong>game console</strong>.
+                  A <strong>movement sensor</strong> add-on to an open source <strong>game console</strong>.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
                   Read the source&nbsp;<span className="arrow">&rarr;</span>
@@ -704,7 +703,7 @@ const ShipPage = () => {
             <a href="https://github.com/hackclub/OnBoard/tree/main/projects/Karmanyaah_Longhorn_LEDs" target="_blank">
               <Flex as="article">
                 <Text as="p" sx={{ pr: 140 }}>
-                  Karmanyaah's <strong>longhorn level</strong> with colored LEDs.
+                  Karmanyaah's <strong>digital level</strong> in the shape of a longhorn.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
                   See the designs&nbsp;<span className="arrow">&rarr;</span>
@@ -730,7 +729,7 @@ const ShipPage = () => {
             href="https://hack.af/pcb-jam"
             target="_blank"
           >
-            Learn to build a PCB
+            Learn PCB Design Now!
           </Button>
         </Flex>
       </Flex>
