@@ -5007,10 +5007,10 @@ raw-body@2.3.2:
     iconv-lite "0.4.19"
     unpipe "1.0.0"
 
-react-before-after-slider-component@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.npmjs.org/react-before-after-slider-component/-/react-before-after-slider-component-1.1.6.tgz"
-  integrity sha512-T6MgeomX17ibpxdDcS4GyncUb8IiZPQr9yTt9+ay1m4J5P8AGwgqOnR28Y3bMdcnjg8kIo8bvffLG5vuIWQIcw==
+react-before-after-slider-component@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/react-before-after-slider-component/-/react-before-after-slider-component-1.1.8.tgz#3df14381703aaa43428cdac05f271b8b492d25ca"
+  integrity sha512-KcY231f68+7bF0Zkfat55jvgNSSCB5TkBtm1HhLeb336jtQ0hYKkdq6VwrleNrfeVdUD2v+E7DzgNJYc6dsY3Q==
 
 react-dom@^17.0.2:
   version "17.0.2"
