@@ -9,6 +9,15 @@
     "link": "https://jams.hackclub.com"
   },
   {
+  	"background": "#212529",
+	"titleColor": "white",
+	"descriptionColor": "white",
+	"title": "cpu.land",
+	"description": "Curious exactly what happens when you run a program on your computer? Read this.",
+	"img": "https://cloud-eg2ex8nol-hack-club-bot.vercel.app/0favicon-on-light-removebg-preview.png",
+	"link": "https://cpu.land"
+  },
+  {
     "background": "#000",
     "titleColor": "yellow",
     "descriptionColor": "white",
@@ -30,10 +39,10 @@
     "background": "dark",
     "titleColor": "red",
     "textColor": "white",
-    "title": "HCB",
+    "title": "Hack Club Bank",
     "description": "No. 1 fiscal sponsor for teenagers (we crossed $10 million in transactions)",
     "img": "https://emoji.slack-edge.com/T0266FRGM/bank-hackclub-dark/8c6f85f387365072.png",
-    "link": "/hcb"
+    "link": "/bank"
   },
   {
     "background": "snow",
@@ -93,7 +102,7 @@
     "background": "dark",
     "titleColor": "blue",
     "textColor": "white",
-    "title": "Haxidraw",
+    "title": "Haxidraw (coming soon!)",
     "description": "An open source drawing machine and online editor for generative art",
     "img": "https://emoji.slack-edge.com/T0266FRGM/tw_pencil2/c6afadc2280e571d.png",
     "link": "https://haxidraw.hackclub.com"
