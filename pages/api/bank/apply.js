@@ -50,7 +50,8 @@ export default async function handler(req, res) {
             data.transparent === 'true' ? 'Yes, please!' : 'No, thanks.',
           'HCB account URL': `https://bank.hackclub.com/${r.slug}`,
           'Contact Option': data.contactOption,
-          'Slack Username': data.slackUsername
+          'Slack Username': data.slackUsername,
+		  'Accommodations': data.accommodations,
         })
         res.writeHead(302, { Location: '/bank/apply/success' }).end()
       })
