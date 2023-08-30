@@ -63,7 +63,7 @@ export default function Landing({ showButton = true, eventsCount }) {
 							margin: "auto"
 						}}
 					/>
-					<Text as="h2" sx={{fontSize: 4 }}>HCB by</Text>
+					<Text as="h2" sx={{ fontSize: 4 }}>HCB by</Text>
 					<img
 						src="https://assets.hackclub.com/flag-standalone.svg"
 						alt="hack club flag"
