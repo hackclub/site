@@ -161,6 +161,19 @@ export default function PersonalInfoForm({
           </div>
         ) : null}
       </Field>
+	  <Field
+	  	name="accommodations"
+		label="Accessability needs"
+		description="Please specify any accommodations or accessability needs you have so we can support you during onboarding and while using Hack Club Bank"
+		requiredFields={requiredFields}
+	  >
+		<Input
+		  name="accommodations"
+		  id="accommodations"
+		  placeholder="I need a screen reader"
+		  sx={{ ...AutofillColourFix }}
+		/>
+	  </Field>
     </>
   )
 }
