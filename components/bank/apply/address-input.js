@@ -2,10 +2,33 @@ import { useEffect, useRef, useState } from 'react'
 import { Box, Flex, Input, Text } from 'theme-ui'
 import FlexCol from '../../flex-col'
 import AutofillColourFix from './autofill-colour-fix'
-import { geocode } from '../../../lib/bank/apply/address-validation'
+import { geocode, search } from '../../../lib/bank/apply/address-validation'
 import Icon from '../../icon'
 
-const approvedCountries = ['US', 'CA', 'MX']
+const approvedCountries = [
+	"AT",
+	"FI",
+	"FR",
+	"DE",
+	"GR",
+	"ES",
+	"IT",
+	"SE",
+	"TR",
+	"GB",
+	"NO",
+	"UA",
+	"BR",
+	"CO",
+	"US",
+	"CA",
+	"MX",
+	"JP",
+	"PH",
+	"MY",
+	"SG",
+];
+	
 
 export default function AutoComplete({ name, isPersonalAddressInput }) {
   const input = useRef()
@@ -13,25 +36,10 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
   const [predictions, setPredictions] = useState(null)
   const [countryCode, setCountryCode] = useState(null)
 
-  const performGeocode = async address => {
-    if (isPersonalAddressInput) return
-    geocode(address)
-      .then(res => {
-        const country = res?.results[0]?.country
-        const countryCode = res?.results[0]?.countryCode
-
-        setCountryCode(countryCode)
-
-        sessionStorage.setItem('bank-signup-eventCountry', country)
-        sessionStorage.setItem('bank-signup-eventCountryCode', countryCode)
-      })
-      .catch(err => console.error(err))
-  }
-
   const optionClicked = async prediction => {
-    input.current.value = prediction.description
-    performGeocode(prediction.description)
-    setPredictions(null)
+    input.current.value = prediction.name
+	await onInput(prediction.name)
+	setPredictions(null)
   }
   const clickOutside = e => {
     if (input.current && !input.current.contains(e.target)) {
@@ -39,41 +47,42 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
     }
   }
 
+      const onInput = async value => {
+    	setPredictions(value ? (await search(value)).results : null);
+
+		if (isPersonalAddressInput) return
+		geocode(value)
+		.then(res => {
+			const country = res?.results[0]?.country
+			const countryCode = res?.results[0]?.countryCode
+
+			setCountryCode(countryCode)
+
+			sessionStorage.setItem('bank-signup-eventCountry', country)
+			sessionStorage.setItem('bank-signup-eventCountryCode', countryCode)
+		})
+		.catch(err => console.error(err));
+    }
+
+	const onInputWrapper = async e => {
+		if (e.target.value) await onInput(e.target.value)
+	}
+
   //TODO: Close suggestions view when focus is lost via tabbing.
   //TODO: Navigate suggestions with arrow keys.
 
   useEffect(() => {
     const inputEl = input.current
-
-    if (!window.google || !inputEl) return
-
-    const service = new window.google.maps.places.AutocompleteService()
-
-    const onInput = async e => {
-      if (!e.target.value) {
-        setPredictions(null)
-      } else {
-        service.getPlacePredictions(
-          { input: e.target.value },
-          (predictions, status) => {
-            setPredictions(predictions)
-            if (status !== window.google.maps.places.PlacesServiceStatus.OK) {
-              //DEBUG
-              setPredictions([])
-            }
-          }
-        )
-      }
-    }
+    if (!inputEl) return
 
     document.addEventListener('click', clickOutside)
-    inputEl.addEventListener('input', onInput)
-    inputEl.addEventListener('focus', onInput)
+    inputEl.addEventListener('input', onInputWrapper)
+    inputEl.addEventListener('focus', onInputWrapper)
 
     return () => {
       document.removeEventListener('click', clickOutside)
-      inputEl.removeEventListener('input', onInput)
-      inputEl.removeEventListener('focus', onInput)
+      inputEl.removeEventListener('input', onInputWrapper)
+      inputEl.removeEventListener('focus', onInputWrapper)
     }
   }, [])
 
@@ -87,7 +96,6 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
           placeholder="Shelburne, VT"
           autoComplete="off"
           sx={{ ...AutofillColourFix }}
-          onInput={async e => performGeocode(e.target.value)}
         />
         <Box>
           {/* {String(countryCode)} */}
@@ -107,7 +115,7 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
                 }}
               >
                 Currently, we only have first-class support for organizations in
-                the United States, Canada, and Mexico.
+                select countries.
                 <br />
                 If you're somewhere else, you can still use bank!
                 <br />
@@ -117,7 +125,7 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
           )}
         </Box>
       </FlexCol>
-      {predictions && (
+      {predictions && predictions.length > 0 && (
         <Box
           sx={{
             background: '#47454f',
@@ -147,9 +155,9 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
                     fontSize: 'inherit',
                     textAlign: 'inherit'
                   }}
-                  key={prediction.id}
+                  key={idx}
                 >
-                  {prediction.description}
+                  {prediction.name}
                 </Text>
 
                 {idx < predictions.length - 1 && (

@@ -10,15 +10,16 @@ export async function Slack() {
   formData.append('date_range', '30d')
 
   let slackData = await fetch(
-    'https://hackclub.slack.com/api/team.stats.timeSeries',
+    "https://hackclub.slack.com/api/team.stats.timeSeries",
     {
-      method: 'POST',
-      body: formData,
+      method: "POST",
+      body: `--orpheus\r\nContent-Disposition: form-data; name="token"\r\n\r\n${process.env.SLACK_API_TOKEN}\r\n--orpheus\r\nContent-Disposition: form-data; name="date_range"\r\n\r\n30d\r\n--orpheus\r\nContent-Disposition: form-data;`,
       headers: {
-        Cookie: process.env.SLACK_API_COOKIE
-      }
+        "content-type": "multipart/form-data; boundary=orpheus",
+        cookie: process.env.SLACK_API_COOKIE,
+      },
     }
-  ).then(r => r.json())
+  ).then((r) => r.json());
 
   if (!slackData || !slackData.stats) {
     console.warn(`No slack data: ${JSON.stringify(slackData)}`)

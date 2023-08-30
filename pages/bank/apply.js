@@ -25,7 +25,7 @@ const valiadateAddress = async step => {
 
     const result = await geocode(userAddress)
 
-    const addrComp = type => result.results[0].structuredAddress[type] ?? ''
+    const addrComp = type => result.results[0]?.structuredAddress[type] ?? ''
 
     sessionStorage.setItem(
       'bank-signup-addressLine1',
@@ -39,11 +39,11 @@ const valiadateAddress = async step => {
     sessionStorage.setItem('bank-signup-addressZip', addrComp('postCode'))
     sessionStorage.setItem(
       'bank-signup-addressCountry',
-      result.results[0].country ?? ''
+      result.results[0]?.country ?? ''
     )
     sessionStorage.setItem(
       'bank-signup-addressCountryCode',
-      result.results[0].countryCode ?? ''
+      result.results[0]?.countryCode ?? ''
     )
   }
 }
@@ -80,11 +80,6 @@ export default function Apply() {
 
   return (
     <>
-      <script
-        async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApxZZ8-Eh_6RgHUu8-BAOpx3xhfF2yK9U&libraries=places&mapInit=foo"
-      ></script>
-
       <Meta as={Head} title="Apply for Hack Club Bank" />
       <ForceTheme theme="dark" />
 
