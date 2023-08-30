@@ -67,7 +67,7 @@ export default function Landing({ showButton = true, eventsCount }) {
 					<img
 						src="https://assets.hackclub.com/flag-standalone.svg"
 						alt="hack club flag"
-						height={64}
+						height={48}
 					/>
 				</Flex>
                 <Container variant="copy">
