@@ -25,7 +25,7 @@ const valiadateAddress = async step => {
 
     const result = await geocode(userAddress)
 
-    const addrComp = type => result.results[0].structuredAddress[type] ?? ''
+    const addrComp = type => result.results[0]?.structuredAddress[type] ?? ''
 
     sessionStorage.setItem(
       'bank-signup-addressLine1',
