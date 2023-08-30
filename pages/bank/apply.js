@@ -39,11 +39,11 @@ const valiadateAddress = async step => {
     sessionStorage.setItem('bank-signup-addressZip', addrComp('postCode'))
     sessionStorage.setItem(
       'bank-signup-addressCountry',
-      result.results[0].country ?? ''
+      result.results[0]?.country ?? ''
     )
     sessionStorage.setItem(
       'bank-signup-addressCountryCode',
-      result.results[0].countryCode ?? ''
+      result.results[0]?.countryCode ?? ''
     )
   }
 }
