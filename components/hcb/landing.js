@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Link, Text, Container, Badge } from 'theme-ui'
+import { Box, Button, Heading, Link, Flex, Text, Container, Badge } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
@@ -36,6 +36,7 @@ export default function Landing({ showButton = true, eventsCount }) {
                   textAlign: 'center'
                 }}
               >
+				
                 <Heading
                   variant="ultratitle"
                   sx={{
@@ -51,8 +52,24 @@ export default function Landing({ showButton = true, eventsCount }) {
                   }}
                   as="h1"
                 >
-                  <Underline>Become a nonprofit</Underline> with HCB.
+                  <Underline>Become a nonprofit</Underline> with HCB
                 </Heading>
+				<Flex sx={{ gap: 3, alignItems: 'center', justifyContent: 'center', marginBottom: 4 }}>
+					<img
+						src="/hcb/hcb-icon-icon-dark.png"
+						alt="HCB Icon"
+						height={64}
+						sx={{
+							margin: "auto"
+						}}
+					/>
+					<Text as="h2">HCB by</Text>
+					<img
+						src="https://assets.hackclub.com/flag-standalone.svg"
+						alt="hack club flag"
+						height={64}
+					/>
+				</Flex>
                 <Container variant="copy">
                   <Text
                     variant="lead"
