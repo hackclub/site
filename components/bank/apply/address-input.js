@@ -115,7 +115,7 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
                 }}
               >
                 Currently, we only have first-class support for organizations in
-                the United States, Canada, and Mexico.
+                select countries.
                 <br />
                 If you're somewhere else, you can still use bank!
                 <br />
