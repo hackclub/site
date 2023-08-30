@@ -270,7 +270,7 @@ export default function Team() {
                     as="h3"
                     sx={{ textAlign: 'center', fontSize: 4 }}
                   >
-                    Bank Team
+                    HCB Team
                   </Text>
                   <Grid
                     columns={[1, null, 2]}
@@ -294,7 +294,7 @@ export default function Team() {
                     <Bio
                       name="Caleb Denio"
                       teamRole="Engineering"
-                      text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. At Hack Club Bank, he writes code that makes money go 'cha-ching!'"
+                      text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. At HCB, he writes code that makes money go 'cha-ching!'"
                       img="/team/caleb.jpg"
                       pronouns="he/him"
                     />
@@ -308,7 +308,7 @@ export default function Team() {
                     <Bio
                       name="Gary Tou"
                       teamRole="Engineering"
-                      text="Gary is a software engineer from Seattle and loves photography! After using Hack Club Bank to launch a nonprofit organization, Gary joined Hack Club to make the product that enabled him to do great things even greater for others."
+                      text="Gary is a software engineer from Seattle and loves photography! After using HCB to launch a nonprofit organization, Gary joined Hack Club to make the product that enabled him to do great things even greater for others."
                       img="https://assets.garytou.com/profile/GaryTou.jpg"
                       pronouns="he/him"
                     />
@@ -321,14 +321,14 @@ export default function Team() {
                     <Bio
                       name="Bence Beres"
                       teamRole="Bookkeeper"
-                      text="Bence is responsible for keeping accurate financial books for HQ and every org on Hack Club Bank (40,000+ transactions in the last year!)."
+                      text="Bence is responsible for keeping accurate financial books for HQ and every org on HCB (40,000+ transactions in the last year!)."
                       img="/team/bence.png"
                       pronouns="he/him"
                     />
                     <Bio
                       name="Arianna Martinelli"
                       teamRole="Operations"
-                      text={`Arianna is a Hack Clubber from Kentucky excited about how technology and humans can work together to solve problems. She joined Hack Club in 2020 to start a club at her all-girls high school and to learn from a community of fellow coders, and she joined Hack Club Bank in 2021 to fiscally sponsor her non-profit Tandem. She loves swimming, trees, videography, film photography, reading Joan Didion, Formula 1, making memes, and crafting cards with puns.`}
+                      text={`Arianna is a Hack Clubber from Kentucky excited about how technology and humans can work together to solve problems. She joined Hack Club in 2020 to start a club at her all-girls high school and to learn from a community of fellow coders, and she joined HCB in 2021 to fiscally sponsor her non-profit Tandem. She loves swimming, trees, videography, film photography, reading Joan Didion, Formula 1, making memes, and crafting cards with puns.`}
                       img="https://cloud-oubklmp6c-hack-club-bot.vercel.app/0arianna_profile_photo.png"
                       pronouns="she/her"
                     />
@@ -439,14 +439,14 @@ export default function Team() {
               <Bio
                 name="Kunal Botla"
                 teamRole="Operations"
-                text={`Kunal loves to make for making! He started Project Boom to help provide computers, helped build and run Hack Club Bank, and organized MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
+                text={`Kunal loves to make for making! He started Project Boom to help provide computers, helped build and run HCB, and organized MAHacks for a post-pandemic world. He takes photos to tell stories of an ever-changing world.`}
                 img="https://github.com/kunalbotla.png"
                 pronouns="he/him"
               />
               <Bio
                 name="Ella Xu"
                 teamRole="Clubs Engineering"
-                text="Ella joined the Hack Club community after learning about Hack Club Bank from a project running on Bank. Since then, she has contributed to Bank itself in addition to other Hack Club open source projects on GitHub."
+                text="Ella joined the Hack Club community after learning about HCB from a project running on it. Since then, she has contributed to HCB itself in addition to other Hack Club open source projects on GitHub."
                 img="https://scrapbook.hackclub.com/ella.png"
                 pronouns="she/her"
               />
@@ -526,7 +526,7 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
                 img="/team/matthew.jpg"
                 name="Matthew Stanciu"
                 teamRole="Clubs Lead"
-                text="After leading a successful Hack Club in West Lafayette, Indiana, & organizing multiple hackathons with Hack Club Bank, Matthew joined the team to lead the clubs program. He wrote curriculum, helped mentor club leaders around the world, & in spring 2020 drove across the U.S. to visit clubs."
+                text="After leading a successful Hack Club in West Lafayette, Indiana, & organizing multiple hackathons with HCB, Matthew joined the team to lead the clubs program. He wrote curriculum, helped mentor club leaders around the world, & in spring 2020 drove across the U.S. to visit clubs."
                 pronouns="he/him"
               />
               <Bio
@@ -539,7 +539,7 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
               <Bio
                 img="/team/scott.jpg"
                 name="Scott Motte"
-                teamRole="Bank Engineer"
+                teamRole="HCB Engineer"
                 text="After teaching himself to code in college, Scott went on to lead an exciting software life with multiple startups. Now a father, he joined Hack Club to help build the program he wants available to his children—when they reach high school age."
                 pronouns="he/him"
               />
@@ -561,7 +561,7 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
                 img="/team/theo.jpg"
                 name="Theo Bleier"
                 teamRole="Special Projects"
-                text="Theo, a high schooler, joined the Hack Club community in Summer 2018 after reading about Bank online. Since then, he’s run multiple events on Bank & worked on coding it. In 2020, Theo worked on AMAs & distributing laptop grants to students."
+                text="Theo, a high schooler, joined the Hack Club community in Summer 2018 after reading about HCB online. Since then, he’s run multiple events on HCB & worked on coding it. In 2020, Theo worked on AMAs & distributing laptop grants to students."
                 pronouns="he/him"
               />
               <Bio
@@ -574,8 +574,8 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
               <Bio
                 img="/team/linus.jpg"
                 name="Linus Lee"
-                teamRole="Bank Engineer"
-                text="Linus spends most of his free time working on side projects ranging from an audio travel diary to creative coding tools to his own programming language. He brought his experience in product & community from Cal Hacks & Dorm Room Fund to grow Hack Club Bank."
+                teamRole="HCB Engineer"
+                text="Linus spends most of his free time working on side projects ranging from an audio travel diary to creative coding tools to his own programming language. He brought his experience in product & community from Cal Hacks & Dorm Room Fund to grow HCB."
                 pronouns="he/him"
               />
               <Bio
@@ -588,8 +588,8 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
               <Bio
                 img="/team/michael.jpg"
                 name="Michael Destefanis"
-                teamRole="Bank Ops."
-                text="After graduating high school, Michael moved to California where he began working with Hack Club. He handled the day-to-day operations of Hack Club Bank from its start starting to its first million dollars in transactions."
+                teamRole="HCB Ops."
+                text="After graduating high school, Michael moved to California where he began working with Hack Club. He handled the day-to-day operations of HCB from its start starting to its first million dollars in transactions."
                 pronouns="he/him"
               />
               <Bio

@@ -34,7 +34,7 @@ function Recap() {
           <BreakdownBox
             icon="payment-transfer"
             text="$250"
-            description="grants instantly transferred through Hack Club Bank"
+            description="grants instantly transferred through HCB"
             delay="200"
             bg="blue"
           />
@@ -62,7 +62,7 @@ function Recap() {
               </Text>
               <Text variant="caption">
                 While you wait for your hardware, explore and get familiar with
-                Hack Club Bank with limited access to features until you get
+                HCB with limited access to features until you get
                 fully activated.
               </Text>
               <Signup />
