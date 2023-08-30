@@ -106,14 +106,14 @@ const Page = ({ repos, transparentAccounts }) => (
         Finances
       </Heading>
       <Text sx={{ fontSize: 2, color: 'placeholder' }}>
-        All open sourced through Hack Club Bank Transparency Mode.
+        All open sourced through HCB Transparency Mode.
       </Text>
       <Grid columns={2} gap={3} mt={2} mb={[4]}>
         {transparentAccounts.map(account => (
           <BankProject
             key={account.id}
             name={account.name}
-            url={`https://bank.hackclub.com/${account.slug}`}
+            url={`https://hcb.hackclub.com/${account.slug}`}
           />
         ))}
       </Grid>
@@ -250,7 +250,7 @@ export async function getStaticProps() {
   })
 
   const transparentAccounts = (
-    await fetch('https://bank.hackclub.com/api/v3/organizations').then(res =>
+    await fetch('https://hcb.hackclub.com/api/v3/organizations').then(res =>
       res.json()
     )
   ).filter(account => account.category?.replaceAll(' ', '_') === 'hack_club_hq')

@@ -142,7 +142,7 @@ export default function InfoGrid() {
               }}
             >
               <Heading variant="headline">
-                Receive and spend the grant through Hack Club Bank.
+                Receive and spend the grant through HCB.
               </Heading>
               <BulletItem iconGlyph="bank-account" iconColor="#5BC0DE">
                 Full history and balance, viewed on a powerful web dashbaord

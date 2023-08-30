@@ -351,7 +351,7 @@ const Philanthropy = ({ posts = [] }) => {
                 my={3}
                 sx={{ width: ['100%', 'auto'] }}
                 as="a"
-                href="https://bank.hackclub.com/donations/start/hq"
+                href="https://hcb.hackclub.com/donations/start/hq"
               >
                 Donate
                 <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
@@ -416,7 +416,7 @@ const Philanthropy = ({ posts = [] }) => {
                   my={3}
                   sx={{ width: ['100%', 'auto'] }}
                   as="a"
-                  href="https://bank.hackclub.com/donations/start/hq"
+                  href="https://hcb.hackclub.com/donations/start/hq"
                 >
                   Donate
                   <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
@@ -604,7 +604,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Box mt={[2, 3]}>
                   <Text
                     as="a"
-                    href="https://bank.hackclub.com/donations/start/hq"
+                    href="https://hcb.hackclub.com/donations/start/hq"
                     target="_blank"
                     sx={{
                       color: '#ec3750',
@@ -654,7 +654,7 @@ const Philanthropy = ({ posts = [] }) => {
             <Text
               as="a"
               mt={2}
-              href="https://bank.hackclub.com/donations/start/hq"
+              href="https://hcb.hackclub.com/donations/start/hq"
               target="_blank"
               sx={{
                 color: '#ec3750',

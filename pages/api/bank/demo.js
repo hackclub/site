@@ -1,4 +1,4 @@
-// 1. create a demo account on Bank and invite them to it
+// 1. create a demo account on HCB and invite them to it
 // 2. add this demo account info to the Applications Table
 
 import AirtablePlus from 'airtable-plus'
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const data = JSON.parse(req.body)
 
-    await fetch('https://bank.hackclub.com/api/v1/events/create_demo', {
+    await fetch('https://hcb.hackclub.com/api/v1/events/create_demo', {
       body: JSON.stringify({
         email: data.userEmail,
         name: data.eventName,
@@ -31,7 +31,7 @@ export default async function handler(req, res) {
           'Email Address': data.userEmail,
           'Event Name': `${data.eventName} (${data.teamType} ${data.teamNumber})`,
           Status: 'Demo Account',
-          'HCB account URL': `https://bank.hackclub.com/${r.slug}`
+          'HCB account URL': `https://hcb.hackclub.com/${r.slug}`
         })
         res
           .status(200)

@@ -168,7 +168,7 @@ const Apply = ({ channel }) => {
         <Slide left>
           <Photo
             src="/hackathons/grant/step3.png"
-            alt="Screenshot of a grant in the form of a transaction on a Hack Club Bank ledger"
+            alt="Screenshot of a grant in the form of a transaction on a HCB ledger"
             width={3000}
             height={2550}
             showAlt

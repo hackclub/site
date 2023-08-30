@@ -168,7 +168,7 @@ const Page = ({ css }) => (
       </Button>
 
       <Heading id="bank" variant="headline">
-        Hack Club Bank Logos
+        HCB Logos
       </Heading>
       <Grid columns={[null, 2, 3]} gap={3}>
         <Logo name="hack-club-bank-light" />
@@ -176,12 +176,12 @@ const Page = ({ css }) => (
       </Grid>
       <Button
         as="a"
-        href="https://bank.hackclub.com/branding"
+        href="https://hcb.hackclub.com/branding"
         variant="outline"
         mt={3}
         mb={[4, 5]}
       >
-        See all Bank logos →
+        See all HCB logos →
       </Button>
 
       <Heading id="banners" variant="headline">
