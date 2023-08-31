@@ -332,7 +332,13 @@ export default function Team() {
                       img="https://cloud-oubklmp6c-hack-club-bot.vercel.app/0arianna_profile_photo.png"
                       pronouns="she/her"
                     />
-                    
+                    <Bio
+						name="Ben Dixon"
+						teamRole="Engineering"
+						text={`Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “GLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars.`}
+				  		img="https://ca.slack-edge.com/T0266FRGM-U03DFNYGPCN-d76abb1ba329-512"
+						pronouns="he/him"
+					/>
                   </Grid>
                 </Box>
 
