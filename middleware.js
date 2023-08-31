@@ -8,8 +8,8 @@ export function middleware(request) {
     if (continent === 'Oceania') {
       continent = 'Australia'
     }
-    const response = NextResponse.next();
-    response.cookies.set("continent", continent || "");
-    return response;
+    const response = NextResponse.next()
+    response.cookies.set('continent', continent || '')
+    return response
   }
 }

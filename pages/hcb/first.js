@@ -143,9 +143,9 @@ export default function First() {
               }}
               variant="copy"
             >
-              Built by <i>FIRST</i> alumni for <i>FIRST</i> teams, HCB
-			  is a comprehensive financial platform used by hundreds of
-              clubs, teams and hackathons.
+              Built by <i>FIRST</i> alumni for <i>FIRST</i> teams, HCB is a
+              comprehensive financial platform used by hundreds of clubs, teams
+              and hackathons.
             </Container>
 
             <Box

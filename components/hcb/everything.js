@@ -31,8 +31,8 @@ export default function Everything({ fee, partner = false }) {
               'Transaction data export': 'download',
               'Record shared notes on transactions': 'docs',
               '24-hour response support': 'clock',
-              'Reimbursement process': 'enter',
-            //   'Instant deposits': 'bolt'
+              'Reimbursement process': 'enter'
+              //   'Instant deposits': 'bolt'
             }).map(([item, icon = 'enter']) => (
               <ListItem key={item} icon={icon}>
                 {item}

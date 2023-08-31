@@ -26,10 +26,7 @@ export default function Features({ partner = false }) {
               icon="bank-account"
               name="Fund"
               body={
-                <>
-                  A fund under the hood with a custom, beautiful
-                  dashboard.
-                </>
+                <>A fund under the hood with a custom, beautiful dashboard.</>
               }
             />
             <ModuleDetails>

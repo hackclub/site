@@ -26,8 +26,8 @@ export default function Run() {
           </Text>
           <br />
           <Text variant="lead" sx={{ color: 'muted', fontSize: 28 }}>
-            Receiving and managing money is just the start. HCB helps
-            you handle ongoing obligations while you’re organizing.
+            Receiving and managing money is just the start. HCB helps you handle
+            ongoing obligations while you’re organizing.
           </Text>
         </Container>
         <List>

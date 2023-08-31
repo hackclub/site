@@ -144,7 +144,8 @@ const HackathonGrant = () => {
                 HCB
               </Link>{' '}
               fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons until December 31st, 2023.
+              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons until
+              December 31st, 2023.
             </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
               {open ? 'Apply Now' : 'Coming Soon'}
@@ -334,8 +335,8 @@ const HackathonGrant = () => {
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:bank-account.svg"
               size="28"
             >
-              You'll receive your grant through HCB, our financial
-              platform for hackathons, and spend it in the open with{' '}
+              You'll receive your grant through HCB, our financial platform for
+              hackathons, and spend it in the open with{' '}
               <Link
                 href="https://changelog.hcb.hackclub.com/transparent-finances-(optional-feature)-151427"
                 target="_blank"
@@ -355,8 +356,8 @@ const HackathonGrant = () => {
                   color: 'muted'
                 }}
               >
-                If you're unable to use HCB, we're unfortunately
-                unable to support you through this grant program.
+                If you're unable to use HCB, we're unfortunately unable to
+                support you through this grant program.
               </Text>
             </Requirement>
           </Grid>

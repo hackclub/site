@@ -27,8 +27,8 @@ export default function Testimonials() {
           <i>FIRST</i> teams all over the country run on HCB.
         </Heading>
         <Text variant="lead" color="muted">
-          Everywhere from San Jose to Boston to New York,
-          HCB powers teams of all sizes.
+          Everywhere from San Jose to Boston to New York, HCB powers teams of
+          all sizes.
         </Text>
       </Container>
       <Container>

@@ -31,8 +31,8 @@ export default function Bank({ data }) {
         <Grid columns={[1, '1.3fr 1fr', 2]}>
           <Box>
             <Text as="p" variant="subtitle">
-              Become a 501(c)3 nonprofit and join 700+ teams using
-              HCB to run world-class events.
+              Become a 501(c)3 nonprofit and join 700+ teams using HCB to run
+              world-class events.
             </Text>
             <Text as="p" variant="subtitle">
               This platform is built and maintained by the Hack&nbsp;Club team.

@@ -72,8 +72,8 @@ export default function Testimonials() {
             The best events across the country run on HCB.
           </Heading>
           <Text variant="lead" color="muted">
-            Everywhere from Philadelphia to Phoenix to Portland,
-            HCB powers events of all sizes.
+            Everywhere from Philadelphia to Phoenix to Portland, HCB powers
+            events of all sizes.
           </Text>
         </Container>
         <Container
@@ -94,9 +94,7 @@ export default function Testimonials() {
           >
             {events.map(event => {
               const id = kebabCase(event.name)
-              return (
-                <Event {...event} img={`/hcb/events/${id}.jpg`} key={id} />
-              )
+              return <Event {...event} img={`/hcb/events/${id}.jpg`} key={id} />
             })}
           </Grid>
         </Container>
