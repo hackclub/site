@@ -51,7 +51,7 @@ export default async function handler(req, res) {
           'HCB account URL': `https://hcb.hackclub.com/${r.slug}`,
           'Contact Option': data.contactOption,
           'Slack Username': data.slackUsername,
-		  'Accommodations': data.accommodations,
+          Accommodations: data.accommodations
         })
         res.writeHead(302, { Location: '/hcb/apply/success' }).end()
       })

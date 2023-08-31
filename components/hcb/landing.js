@@ -1,4 +1,13 @@
-import { Box, Button, Heading, Link, Flex, Text, Container, Badge } from 'theme-ui'
+import {
+  Box,
+  Button,
+  Heading,
+  Link,
+  Flex,
+  Text,
+  Container,
+  Badge
+} from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
@@ -36,7 +45,6 @@ export default function Landing({ showButton = true, eventsCount }) {
                   textAlign: 'center'
                 }}
               >
-				
                 <Heading
                   variant="ultratitle"
                   sx={{
@@ -54,22 +62,31 @@ export default function Landing({ showButton = true, eventsCount }) {
                 >
                   <Underline>Become a nonprofit</Underline> with HCB
                 </Heading>
-				<Flex sx={{ gap: 3, alignItems: 'center', justifyContent: 'center', marginBottom: 4 }}>
-					<img
-						src="/hcb/hcb-icon-icon-dark.png"
-						alt="HCB Icon"
-						height={64}
-						sx={{
-							margin: "auto"
-						}}
-					/>
-					<Text as="h2" sx={{ fontSize: 4 }}>HCB by</Text>
-					<img
-						src="https://assets.hackclub.com/flag-standalone.svg"
-						alt="hack club flag"
-						height={48}
-					/>
-				</Flex>
+                <Flex
+                  sx={{
+                    gap: 3,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: 4
+                  }}
+                >
+                  <img
+                    src="/hcb/hcb-icon-icon-dark.png"
+                    alt="HCB Icon"
+                    height={64}
+                    sx={{
+                      margin: 'auto'
+                    }}
+                  />
+                  <Text as="h2" sx={{ fontSize: 4 }}>
+                    HCB by
+                  </Text>
+                  <img
+                    src="https://assets.hackclub.com/flag-standalone.svg"
+                    alt="hack club flag"
+                    height={48}
+                  />
+                </Flex>
                 <Container variant="copy">
                   <Text
                     variant="lead"
@@ -91,8 +108,8 @@ export default function Landing({ showButton = true, eventsCount }) {
                       Innovation Circuit
                     </Link>{' '}
                     is one of {Math.round((eventsCount - 50) / 100) * 100}+
-                    teams who use <strong>HCB</strong> to
-                    run world-class organizations, hackathons, and clubs.
+                    teams who use <strong>HCB</strong> to run world-class
+                    organizations, hackathons, and clubs.
                   </Text>
                 </Container>
               </Container>

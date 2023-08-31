@@ -62,8 +62,8 @@ function Recap() {
               </Text>
               <Text variant="caption">
                 While you wait for your hardware, explore and get familiar with
-                HCB with limited access to features until you get
-                fully activated.
+                HCB with limited access to features until you get fully
+                activated.
               </Text>
               <Signup />
             </Card>

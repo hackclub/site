@@ -413,9 +413,7 @@ export default function FiscalSponsorship() {
           </Section>
 
           <Section id="partner">
-            <Text variant="title">
-              HCB, the #1 fiscal sponsor
-            </Text>
+            <Text variant="title">HCB, the #1 fiscal sponsor</Text>
             <Text variant="lead">
               While many fiscal sponsors require that their partners relate to
               their mission in similar ways, at HCB, we’ve built our
@@ -437,8 +435,8 @@ export default function FiscalSponsorship() {
                 A customizable and embeddable donations URL
               </Bullet>
               <Bullet icon="card-add">
-                A fun and routing number to connect to external
-                platforms, like Shopify and GoFundMe
+                A fun and routing number to connect to external platforms, like
+                Shopify and GoFundMe
               </Bullet>
               <Bullet icon="purse">
                 Perks like PVSA certification, newsletter software, and
@@ -450,17 +448,16 @@ export default function FiscalSponsorship() {
               organization? We’d love to meet you and chat about working
               together. Feel free to apply
               <Link href="https://hackclub.com/hcb/#apply"> here </Link>or
-              <Link href="mailto:hcb@hackclub.com"> email our team </Link>if
-              you have more questions about fiscal sponsorship!
+              <Link href="mailto:hcb@hackclub.com"> email our team </Link>if you
+              have more questions about fiscal sponsorship!
             </Text>
           </Section>
 
           <Text variant="lead">
             At its core, Hack Club is a nonprofit encouraging students to learn
-            how to code by building and making cool things.
-            HCB was built out by teenagers at
-            Hack&nbsp;Club and continues to be a real-world space that high
-            schoolers can contribute to every day.
+            how to code by building and making cool things. HCB was built out by
+            teenagers at Hack&nbsp;Club and continues to be a real-world space
+            that high schoolers can contribute to every day.
           </Text>
         </FlexCol>
       </Container>

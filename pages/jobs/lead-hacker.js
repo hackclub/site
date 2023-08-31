@@ -58,8 +58,8 @@ const Page = () => (
         of joining HCB, organizations get 501(c)(3) nonprofit status, access to
         a beautiful dashboard for managing their finances, and all financial and
         legal matters - from tax filings to payroll - handled. 50% of high
-        school hackathons worldwide run on HCB, and Elon Musk has
-        tweeted that we're a{' '}
+        school hackathons worldwide run on HCB, and Elon Musk has tweeted that
+        we're a{' '}
         <Link
           href="https://twitter.com/elonmusk/status/1263275969743216640"
           target="_blank"
@@ -88,9 +88,9 @@ const Page = () => (
       </Text>
 
       <Text as="p">
-        With the right leadership, we hope to bring HCB to thousands
-        of organizations across the United States and process tens of millions
-        of dollars in transactions. We think do-gooders need the same tools that
+        With the right leadership, we hope to bring HCB to thousands of
+        organizations across the United States and process tens of millions of
+        dollars in transactions. We think do-gooders need the same tools that
         software engineers do. For them, HCB is like GitHub: transformative.
         Right now, HCB is the{' '}
         <strong>
@@ -306,9 +306,9 @@ const Page = () => (
           >
             jobs@hackclub.com
           </Link>{' '}
-          with "HCB" in the subject line, 3 bullet points
-          demonstrating why you would be exceptional for the role, and your
-          resume / GitHub / GitLab / sourcehut.
+          with "HCB" in the subject line, 3 bullet points demonstrating why you
+          would be exceptional for the role, and your resume / GitHub / GitLab /
+          sourcehut.
         </Box>
       </Box>
 

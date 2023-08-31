@@ -35,7 +35,7 @@ export const Logo = ({ name }) => (
       {startCase(name)
         .replace('Flag Orpheus', 'Orpheus Flag –')
         .replace('Bw', ' (B/W)')
-		.replace('Hcb', 'HCB')}
+        .replace('Hcb', 'HCB')}
     </Text>
     <Grid
       columns="repeat(3, 1fr)"

@@ -1,41 +1,47 @@
-import React from "react";
+import React from 'react'
 
-const addClassNameToChildren = (children, className) => React.Children.map(children, child => React.cloneElement(child, { className: `${child.props.className || ''} ${className}` }));
+const addClassNameToChildren = (children, className) =>
+  React.Children.map(children, child =>
+    React.cloneElement(child, {
+      className: `${child.props.className || ''} ${className}`
+    })
+  )
 
-const tooltip = (direction) => function Tooltip ({ children, text }) {
-    const escapedText = text.replace(/'/g, "\\'");
+const tooltip = direction =>
+  function Tooltip({ children, text }) {
+    const escapedText = text.replace(/'/g, "\\'")
 
-    const directionalStyles = ({
-        e: `
+    const directionalStyles = {
+      e: `
             left: 100%;
             bottom: 50%;
             right: 0;
             margin-left: 0.5rem;
             transform: translateY(50%);
         `,
-        w: `
+      w: `
             right: 100%;
             bottom: 50%;
             margin-right: 0.5rem;
             transform: translateY(50%);
         `,
-        n: `
+      n: `
             right: 50%;
             bottom: 100%;
             margin-bottom: 0.5rem;
             transform: translateX(50%);
         `,
-        s: `
+      s: `
             right: 50%;
             top: 100%;
             margin-top: 0.5rem;
             transform: translateX(50%);
         `
-    })[direction || 'e'];
+    }[direction || 'e']
 
     return (
-        <>
-            <style>{`.tooltipped {
+      <>
+        <style>{`.tooltipped {
                 position: relative;
             }
             
@@ -81,16 +87,16 @@ const tooltip = (direction) => function Tooltip ({ children, text }) {
                 }
             }`}</style>
 
-            {children}
-        </>
-    );
-}
+        {children}
+      </>
+    )
+  }
 
-const Tooltip = tooltip();
-Tooltip.N = tooltip('n');
-Tooltip.S = tooltip('s');
-Tooltip.E = tooltip('e');
-Tooltip.W = tooltip('w');
+const Tooltip = tooltip()
+Tooltip.N = tooltip('n')
+Tooltip.S = tooltip('s')
+Tooltip.E = tooltip('e')
+Tooltip.W = tooltip('w')
 
-export { Tooltip };
-export default Tooltip;
+export { Tooltip }
+export default Tooltip

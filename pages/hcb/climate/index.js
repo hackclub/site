@@ -16,9 +16,7 @@ import Footer from '../../../components/footer'
 import MSparkles from '../../../components/sparkles/money'
 import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import OrganizationCard, {
-  Badge
-} from '../../../components/hcb/directory/card'
+import OrganizationCard, { Badge } from '../../../components/hcb/directory/card'
 import Zoom from 'react-reveal/Zoom'
 import fuzzysort from 'fuzzysort'
 import ScrollHint from '../../../components/scroll-hint'
@@ -87,27 +85,26 @@ tags.__proto__.forOrg = function (org) {
   return this.filter(tag => tag.match?.(org))
 }
 
-
-
-
-
-
 export const regions = [
   {
     label: 'North America',
     color: 'secondary',
     iconColor: 'red',
     icon: 'photo',
-    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png',
-    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/3northamerica.png'
+    image:
+      'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png',
+    ogImage:
+      'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/3northamerica.png'
   },
   {
     label: 'South America',
     color: 'secondary',
     iconColor: 'orange',
     icon: 'photo',
-    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png',
-    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/4southamerica.png'
+    image:
+      'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png',
+    ogImage:
+      'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/4southamerica.png'
   },
   {
     label: 'Africa',
@@ -132,7 +129,8 @@ export const regions = [
     icon: 'explore',
     image:
       'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png',
-    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/1asia_oceania.png'
+    ogImage:
+      'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/1asia_oceania.png'
   }
 ]
 
@@ -496,7 +494,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
       if (e.key === 'Escape') {
         closeModal()
       }
-    };
+    }
 
     window.addEventListener('keydown', handle)
     return () => window.removeEventListener('keydown', handle)
@@ -536,7 +534,10 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
           (region ? ` in ${region.label}` : '') +
           " with HCB's fiscal sponsorship and financial tools. Explore the climate efforts running on HCB."
         }
-        image={region?.ogImage ?? "https://cloud-gv8bzwz6z-hack-club-bot.vercel.app/0frame_14__1_.png"}
+        image={
+          region?.ogImage ??
+          'https://cloud-gv8bzwz6z-hack-club-bot.vercel.app/0frame_14__1_.png'
+        }
       />
       <style>{styles}</style>
       {modalOrganization && (
@@ -568,18 +569,20 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               e.stopPropagation()
             }}
           >
-            <Flex sx={{
-              position: 'absolute',
-              top: '10px',
-              right: '10px',
-              width: '40px',
-              height: '40px',
-              bg: 'smoke',
-              borderRadius: '50%',
-              justifyContent: 'center',
-              alignItems: 'center',
-              cursor: 'pointer'
-            }}>
+            <Flex
+              sx={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                width: '40px',
+                height: '40px',
+                bg: 'smoke',
+                borderRadius: '50%',
+                justifyContent: 'center',
+                alignItems: 'center',
+                cursor: 'pointer'
+              }}
+            >
               <Icon glyph="view-close" size={32} onClick={closeModal} />
             </Flex>
             <Flex sx={{ flexDirection: 'column', alignItems: 'start', gap: 3 }}>
@@ -738,50 +741,54 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                       gap: 1
                     }}
                   >
-                    {modalOrganization.links.website && <Flex
-                      as="a"
-                      target="_blank"
-                      href={modalOrganization.links.website}
-                      sx={{
-                        flexDirection: 'row',
-                        justifyContent: 'start',
-                        alignItems: 'center',
-                        color: 'slate',
-                        textDecoration: 'none'
-                      }}
-                    >
-                      <Icon glyph="web" size={38} />
-                      <Text style={{ fontSize: '20px', marginLeft: '6px' }}>
-                        Website
-                      </Text>
-                      <Icon
-                        glyph="external"
-                        size={20}
-                        style={{ marginLeft: '2px', marginBottom: '6px' }}
-                      />
-                    </Flex>}
-                    {modalOrganization.links.financials && <Flex
-                      as="a"
-                      target="_blank"
-                      href={modalOrganization.links.financials}
-                      sx={{
-                        flexDirection: 'row',
-                        justifyContent: 'start',
-                        alignItems: 'center',
-                        color: 'slate',
-                        textDecoration: 'none'
-                      }}
-                    >
-                      <Icon glyph="explore" size={38} />
-                      <Text style={{ fontSize: '20px', marginLeft: '6px' }}>
-                        Transparent Finances
-                      </Text>
-                      <Icon
-                        glyph="external"
-                        size={20}
-                        style={{ marginLeft: '2px', marginBottom: '6px' }}
-                      />
-                    </Flex>}
+                    {modalOrganization.links.website && (
+                      <Flex
+                        as="a"
+                        target="_blank"
+                        href={modalOrganization.links.website}
+                        sx={{
+                          flexDirection: 'row',
+                          justifyContent: 'start',
+                          alignItems: 'center',
+                          color: 'slate',
+                          textDecoration: 'none'
+                        }}
+                      >
+                        <Icon glyph="web" size={38} />
+                        <Text style={{ fontSize: '20px', marginLeft: '6px' }}>
+                          Website
+                        </Text>
+                        <Icon
+                          glyph="external"
+                          size={20}
+                          style={{ marginLeft: '2px', marginBottom: '6px' }}
+                        />
+                      </Flex>
+                    )}
+                    {modalOrganization.links.financials && (
+                      <Flex
+                        as="a"
+                        target="_blank"
+                        href={modalOrganization.links.financials}
+                        sx={{
+                          flexDirection: 'row',
+                          justifyContent: 'start',
+                          alignItems: 'center',
+                          color: 'slate',
+                          textDecoration: 'none'
+                        }}
+                      >
+                        <Icon glyph="explore" size={38} />
+                        <Text style={{ fontSize: '20px', marginLeft: '6px' }}>
+                          Transparent Finances
+                        </Text>
+                        <Icon
+                          glyph="external"
+                          size={20}
+                          style={{ marginLeft: '2px', marginBottom: '6px' }}
+                        />
+                      </Flex>
+                    )}
                   </Flex>
                 </Flex>
                 {/* desktop stats */}
@@ -959,16 +966,39 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               </Flex>
               Climate-focused nonprofits on{' '}
               <span sx={{ whiteSpace: 'nowrap' }}>HCB</span>
-              {region ? <>
-                {' '}in 
-                <span sx={{ display: ['none', 'inline'], whiteSpace: 'nowrap', bg: region.iconColor, pl: 3, pr: 18, mx: -1, borderRadius: 8, textShadow: 'none', ml: 2 }}>
-                  <img src={region.image} alt="" sx={{ mr: 3, height: [30, 42, 42, 64] }} />
-                  {region.label}
-                </span>
-                <span sx={{ display: ['inline', 'none'], whiteSpace: 'nowrap' }}>
-                  {' ' + region.label}
-                </span>
-              </> : ''}
+              {region ? (
+                <>
+                  {' '}
+                  in
+                  <span
+                    sx={{
+                      display: ['none', 'inline'],
+                      whiteSpace: 'nowrap',
+                      bg: region.iconColor,
+                      pl: 3,
+                      pr: 18,
+                      mx: -1,
+                      borderRadius: 8,
+                      textShadow: 'none',
+                      ml: 2
+                    }}
+                  >
+                    <img
+                      src={region.image}
+                      alt=""
+                      sx={{ mr: 3, height: [30, 42, 42, 64] }}
+                    />
+                    {region.label}
+                  </span>
+                  <span
+                    sx={{ display: ['inline', 'none'], whiteSpace: 'nowrap' }}
+                  >
+                    {' ' + region.label}
+                  </span>
+                </>
+              ) : (
+                ''
+              )}
             </Heading>
             <Box
               sx={{
@@ -979,8 +1009,9 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                 mx: 'auto'
               }}
             >
-              Nonprofits are making real environmental impact with HCB's fiscal sponsorship and financial tools.
-			  Explore the climate efforts running on HCB.
+              Nonprofits are making real environmental impact with HCB's fiscal
+              sponsorship and financial tools. Explore the climate efforts
+              running on HCB.
             </Box>
             <Button
               variant="ctaLg"
@@ -1083,16 +1114,23 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               />
             </Box>
             {organizations.length === 0 && (
-              <Box sx={{
-                textAlign: 'center',
-                p: 5
-              }}>
+              <Box
+                sx={{
+                  textAlign: 'center',
+                  p: 5
+                }}
+              >
                 <Box>
-                  <Text variant="headline" sx={{
-                    textTransform: 'unset',
-                    display: 'block',
-                    mb: 0
-                  }}>No results</Text>
+                  <Text
+                    variant="headline"
+                    sx={{
+                      textTransform: 'unset',
+                      display: 'block',
+                      mb: 0
+                    }}
+                  >
+                    No results
+                  </Text>
                 </Box>
               </Box>
             )}
@@ -1167,8 +1205,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               }}
             >
               Let your money work for change by donating to all climate-focused
-              nonprofits on HCB. Donate to 128 Collective’s curated
-              list of recommended organizations.
+              nonprofits on HCB. Donate to 128 Collective’s curated list of
+              recommended organizations.
             </Box>
             <Button
               variant="ctaLg"
@@ -1181,11 +1219,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                 backgroundImage: t => t.util.gx('green', 'blue')
               }}
             >
-              <Text>
-                Donate to{' '}
-                the{' '}
-                climate&nbsp;fund
-              </Text>
+              <Text>Donate to the climate&nbsp;fund</Text>
             </Button>
           </Box>
         </Box>

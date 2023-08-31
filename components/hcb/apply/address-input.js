@@ -6,29 +6,28 @@ import { geocode, search } from '../../../lib/hcb/apply/address-validation'
 import Icon from '../../icon'
 
 const approvedCountries = [
-	"AT",
-	"FI",
-	"FR",
-	"DE",
-	"GR",
-	"ES",
-	"IT",
-	"SE",
-	"TR",
-	"GB",
-	"NO",
-	"UA",
-	"BR",
-	"CO",
-	"US",
-	"CA",
-	"MX",
-	"JP",
-	"PH",
-	"MY",
-	"SG",
-];
-	
+  'AT',
+  'FI',
+  'FR',
+  'DE',
+  'GR',
+  'ES',
+  'IT',
+  'SE',
+  'TR',
+  'GB',
+  'NO',
+  'UA',
+  'BR',
+  'CO',
+  'US',
+  'CA',
+  'MX',
+  'JP',
+  'PH',
+  'MY',
+  'SG'
+]
 
 export default function AutoComplete({ name, isPersonalAddressInput }) {
   const input = useRef()
@@ -38,8 +37,8 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
 
   const optionClicked = async prediction => {
     input.current.value = prediction.name
-	await onInput(prediction.name)
-	setPredictions(null)
+    await onInput(prediction.name)
+    setPredictions(null)
   }
   const clickOutside = e => {
     if (input.current && !input.current.contains(e.target)) {
@@ -47,26 +46,26 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
     }
   }
 
-      const onInput = async value => {
-    	setPredictions(value ? (await search(value)).results : null);
+  const onInput = async value => {
+    setPredictions(value ? (await search(value)).results : null)
 
-		if (isPersonalAddressInput) return
-		geocode(value)
-		.then(res => {
-			const country = res?.results[0]?.country
-			const countryCode = res?.results[0]?.countryCode
+    if (isPersonalAddressInput) return
+    geocode(value)
+      .then(res => {
+        const country = res?.results[0]?.country
+        const countryCode = res?.results[0]?.countryCode
 
-			setCountryCode(countryCode)
+        setCountryCode(countryCode)
 
-			sessionStorage.setItem('bank-signup-eventCountry', country)
-			sessionStorage.setItem('bank-signup-eventCountryCode', countryCode)
-		})
-		.catch(err => console.error(err));
-    }
+        sessionStorage.setItem('bank-signup-eventCountry', country)
+        sessionStorage.setItem('bank-signup-eventCountryCode', countryCode)
+      })
+      .catch(err => console.error(err))
+  }
 
-	const onInputWrapper = async e => {
-		if (e.target.value) await onInput(e.target.value)
-	}
+  const onInputWrapper = async e => {
+    if (e.target.value) await onInput(e.target.value)
+  }
 
   //TODO: Close suggestions view when focus is lost via tabbing.
   //TODO: Navigate suggestions with arrow keys.

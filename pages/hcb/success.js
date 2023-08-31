@@ -111,11 +111,7 @@ export default function ApplicationSuccess() {
             >
               #hcb
             </Option>
-            <Option
-              icon="help"
-              label="FAQ"
-              link="https://hcb.hackclub.com/faq"
-            >
+            <Option icon="help" label="FAQ" link="https://hcb.hackclub.com/faq">
               FAQ
             </Option>
           </Flex>

@@ -543,14 +543,49 @@ const ShipPage = () => {
         </Flex>
       </Box>
 
-      <Flex as="section" sx={{ px: 4, pt: 6, pb: 4, bg: dimBg, color: '#ffffff', justifyContent: 'center' }}>
-        <Flex sx={{ flexDirection: 'column', gap: 4, width: '100%', maxWidth: 'copyPlus' }}>
-          <Heading as="h2" sx={{ fontSize: 42, fontWeight: 500, borderTop: '4px solid', borderTopColor: 'red', pt: 4 }}>
-            <Balancer ratio={0.3}>Never made a circuit board before? No problem.</Balancer>
+      <Flex
+        as="section"
+        sx={{
+          px: 4,
+          pt: 6,
+          pb: 4,
+          bg: dimBg,
+          color: '#ffffff',
+          justifyContent: 'center'
+        }}
+      >
+        <Flex
+          sx={{
+            flexDirection: 'column',
+            gap: 4,
+            width: '100%',
+            maxWidth: 'copyPlus'
+          }}
+        >
+          <Heading
+            as="h2"
+            sx={{
+              fontSize: 42,
+              fontWeight: 500,
+              borderTop: '4px solid',
+              borderTopColor: 'red',
+              pt: 4
+            }}
+          >
+            <Balancer ratio={0.3}>
+              Never made a circuit board before? No problem.
+            </Balancer>
           </Heading>
           <Text sx={{ fontSize: 3 }}>
-            Learn how to design your own circuit boards from scratch with our <strong>official tutorials</strong> and jams, like Maggie’s <Link href="https://hack.af/pcb-jam" target="_blank">intro to PCB design jam</Link>. Ask in the{' '}
-            <Link href={slackLink} target="_blank">Hack Club Slack</Link>{' '}
+            Learn how to design your own circuit boards from scratch with our{' '}
+            <strong>official tutorials</strong> and jams, like Maggie’s{' '}
+            <Link href="https://hack.af/pcb-jam" target="_blank">
+              intro to PCB design jam
+            </Link>
+            . Ask in the{' '}
+            <Link href={slackLink} target="_blank">
+              Hack Club Slack
+            </Link>{' '}
             if you have any questions!
           </Text>
         </Flex>
@@ -654,7 +689,8 @@ const ShipPage = () => {
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 100 }}>
-                  A <strong>movement sensor</strong> add-on to an open source <strong>game console</strong>.
+                  A <strong>movement sensor</strong> add-on to an open source{' '}
+                  <strong>game console</strong>.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
                   Read the source&nbsp;<span className="arrow">&rarr;</span>
@@ -700,10 +736,14 @@ const ShipPage = () => {
               </Flex>
             </a>
 
-            <a href="https://github.com/hackclub/OnBoard/tree/main/projects/Karmanyaah_Longhorn_LEDs" target="_blank">
+            <a
+              href="https://github.com/hackclub/OnBoard/tree/main/projects/Karmanyaah_Longhorn_LEDs"
+              target="_blank"
+            >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 140 }}>
-                  Karmanyaah's <strong>digital level</strong> in the shape of a longhorn.
+                  Karmanyaah's <strong>digital level</strong> in the shape of a
+                  longhorn.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
                   See the designs&nbsp;<span className="arrow">&rarr;</span>
@@ -904,7 +944,12 @@ const ShipPage = () => {
               Collaborate, get help, and support others as you take the leap.
             </Text>
             <Box sx={{ mt: 1 }}>
-              <Button variant="outlineLg" as="a" href={slackLink} target="_blank">
+              <Button
+                variant="outlineLg"
+                as="a"
+                href={slackLink}
+                target="_blank"
+              >
                 Join Slack
               </Button>
             </Box>
@@ -951,7 +996,7 @@ const ShipPage = () => {
 
           <Grid
             ref={lightsScrollTrigger}
-            gap={["2px", "3px", "4px"]}
+            gap={['2px', '3px', '4px']}
             columns={recapWidth}
             sx={{ width: '100%', maxWidth: 800 }}
           >
@@ -1003,11 +1048,17 @@ const ShipPage = () => {
               </Button>
             </Flex>
 
-            <Flex as="article" sx={{
-              transform: 'scale(1.1)'
-            }}>
+            <Flex
+              as="article"
+              sx={{
+                transform: 'scale(1.1)'
+              }}
+            >
               <Text as="h3">Learn to PCB</Text>
-              <Text as="p">Read our Hacker Card tutorial to learn how to make a simple circuit board from start to end.</Text>
+              <Text as="p">
+                Read our Hacker Card tutorial to learn how to make a simple
+                circuit board from start to end.
+              </Text>
               <Button as="a" href="https://hack.af/pcb-jam" target="_blank">
                 Start the Tutorial
               </Button>
@@ -1041,44 +1092,51 @@ const ShipPage = () => {
         />
 
         <Flex
-					as="a"
-					href="https://airtable.com/shrOOU2ZZFYtffUVz"
-					target="_blank"
-					sx={{
-						bg: '#ff0000',
-						color: 'rgba(255, 255, 255, 0.7)',
-						textDecoration: 'none',
-						size: 160,
-						flexDirection: 'column',
-						textAlign: 'center',
-						justifyContent: 'center',
-						alignItems: 'center',
-						position: 'absolute',
-						top: -80,
-						right: '14vw',
-						fontSize: '24px',
-						lineHeight: 1.2,
-						fontWeight: 'bold',
-						fontFamily: `'${stickerButtonFont}', cursive`,
-						transform: 'rotate(-25deg)',
-						borderRadius: '50%',
+          as="a"
+          href="https://airtable.com/shrOOU2ZZFYtffUVz"
+          target="_blank"
+          sx={{
+            bg: '#ff0000',
+            color: 'rgba(255, 255, 255, 0.7)',
+            textDecoration: 'none',
+            size: 160,
+            flexDirection: 'column',
+            textAlign: 'center',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            top: -80,
+            right: '14vw',
+            fontSize: '24px',
+            lineHeight: 1.2,
+            fontWeight: 'bold',
+            fontFamily: `'${stickerButtonFont}', cursive`,
+            transform: 'rotate(-25deg)',
+            borderRadius: '50%',
             // Terrible buttons styles, doesn't even look good, but didn't want to waste more time:
-						backgroundImage: 'radial-gradient(75.96% 56.13% at 50.00% 50.00%, #FF6464 0%, #EF2222 32.29%, #B00 100%)',
-            boxShadow: '0px -14px 14px 0px #670000 inset, 14px 0px 14px 0px rgba(255, 255, 255, 0.25) inset, 0px 14px 14px 0px rgba(255, 255, 255, 0.25) inset, -14px 0px 14px 0px #670000 inset',
+            backgroundImage:
+              'radial-gradient(75.96% 56.13% at 50.00% 50.00%, #FF6464 0%, #EF2222 32.29%, #B00 100%)',
+            boxShadow:
+              '0px -14px 14px 0px #670000 inset, 14px 0px 14px 0px rgba(255, 255, 255, 0.25) inset, 0px 14px 14px 0px rgba(255, 255, 255, 0.25) inset, -14px 0px 14px 0px #670000 inset',
             filter: 'drop-shadow(3px 3px 8px rgba(0, 0, 0, 0.50))',
             textShadow: '0px 0px 2px rgba(255, 255, 255, 0.45)',
             WebkitTapHighlightColor: 'transparent',
-            'transition': 'box-shadow 80ms linear, filter 80ms linear, font-size 80ms linear',
+            transition:
+              'box-shadow 80ms linear, filter 80ms linear, font-size 80ms linear',
             ':active': {
-              backgroundImage: 'radial-gradient(75.96% 56.13% at 50.00% 50.00%, #FF4747 0%, #E52121 32.29%, #B00 100%, #A30101 100%)',
-              boxShadow: '0px -14px 14px 0px #440303 inset, 14px 0px 14px 0px #860000 inset, 0px 14px 14px 0px #860000 inset, -14px 0px 14px 0px #440303 inset',
+              backgroundImage:
+                'radial-gradient(75.96% 56.13% at 50.00% 50.00%, #FF4747 0%, #E52121 32.29%, #B00 100%, #A30101 100%)',
+              boxShadow:
+                '0px -14px 14px 0px #440303 inset, 14px 0px 14px 0px #860000 inset, 0px 14px 14px 0px #860000 inset, -14px 0px 14px 0px #440303 inset',
               filter: 'drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.50))',
               fontSize: '22px'
             }
-					}}
-				>
-					{stickerButtonText.split(' ').map((line, i) => <div key={i}>{line}</div>)}
-				</Flex>
+          }}
+        >
+          {stickerButtonText.split(' ').map((line, i) => (
+            <div key={i}>{line}</div>
+          ))}
+        </Flex>
       </Box>
 
       <Footer dark />

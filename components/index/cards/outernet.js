@@ -39,7 +39,12 @@ export default function Outernet() {
           28th to 31st July, 2023!
         </Text>
         <Flex
-          sx={{ flexDirection: 'column', mt: [3, 3, 4], alignItems: 'end', justifyContent: 'flex-end' }}
+          sx={{
+            flexDirection: 'column',
+            mt: [3, 3, 4],
+            alignItems: 'end',
+            justifyContent: 'flex-end'
+          }}
         >
           <Buttons
             icon="event-add"

@@ -28,10 +28,10 @@ const nextConfig = {
   },
   async redirects() {
     return [
-	  {
+      {
         source: '/bank/:path*',
         destination: '/hcb/:path*',
-        permanent: true,
+        permanent: true
       },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
       {
