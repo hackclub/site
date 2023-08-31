@@ -7,7 +7,7 @@ const SprigForm = () => {
   const [count, setCount] = useState(1)
   function url() {
     const u = new URL(
-      'https://bank.hackclub.com/donations/start/game-lab-fund/'
+      'https://hcb.hackclub.com/donations/start/game-lab-fund/'
     )
     u.searchParams.set(
       'amount',
