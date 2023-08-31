@@ -34,7 +34,8 @@ export const Logo = ({ name }) => (
     >
       {startCase(name)
         .replace('Flag Orpheus', 'Orpheus Flag –')
-        .replace('Bw', ' (B/W)')}
+        .replace('Bw', ' (B/W)')
+		.replace('Hcb', 'HCB')}
     </Text>
     <Grid
       columns="repeat(3, 1fr)"
@@ -171,8 +172,8 @@ const Page = ({ css }) => (
         HCB Logos
       </Heading>
       <Grid columns={[null, 2, 3]} gap={3}>
-        <Logo name="hack-club-bank-light" />
-        <Logo name="hack-club-bank-dark" />
+        <Logo name="hcb-light" />
+        <Logo name="hcb-dark" />
       </Grid>
       <Button
         as="a"
