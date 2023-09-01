@@ -11,7 +11,7 @@ const Page = () => (
     <Meta
       as={Head}
       title="Lead Hacker"
-      description="Hack Club is a hiring a Lead Hacker for Hack Club Bank as the 9th full-time member of our team in Burlington, Vermont."
+      description="Hack Club is a hiring a Lead Hacker for HCB as the 9th full-time member of our team in Burlington, Vermont."
       image="https://workshop-cards.hackclub.com/Lead%20Hacker.png?theme=light&md=1&fontSize=250px&caption=Open%2520Role%2520%2540%2520Hack%2520Club%2520Bank&brand=HQ&md=true"
     />
     <ForceTheme theme="light" />
@@ -27,7 +27,7 @@ const Page = () => (
     >
       <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading as="h1" variant="title" mb={30}>
-          Lead Hacker @&nbsp;Hack&nbsp;Club Bank
+          Lead Hacker @&nbsp;HCB
         </Heading>
         <Text variant="headline" sx={{ fontWeight: 400 }}>
           This position has been filled as of June 14th, 2022.
@@ -46,20 +46,20 @@ const Page = () => (
         variant="headline"
         sx={{ fontWeight: 700, fontSize: [4, 5], mb: 4 }}
       >
-        Hack Club is (no longer) hiring a Lead Hacker for Hack Club Bank.
+        Hack Club is (no longer) hiring a Lead Hacker for HCB.
       </Heading>
 
       <Text as="p" mb={4}>
         Starting a nonprofit is hard, so we built{' '}
-        <Link href="/bank" target="_blank">
-          Hack Club Bank
+        <Link href="/hcb" target="_blank">
+          HCB
         </Link>{' '}
         for our community of {formatted}+ teenage programmers. Within 24 hours
-        of joining Bank, organizations get 501(c)(3) nonprofit status, access to
+        of joining HCB, organizations get 501(c)(3) nonprofit status, access to
         a beautiful dashboard for managing their finances, and all financial and
         legal matters - from tax filings to payroll - handled. 50% of high
-        school hackathons worldwide run on Hack Club Bank, and Elon Musk has
-        tweeted that we're a{' '}
+        school hackathons worldwide run on HCB, and Elon Musk has tweeted that
+        we're a{' '}
         <Link
           href="https://twitter.com/elonmusk/status/1263275969743216640"
           target="_blank"
@@ -71,9 +71,9 @@ const Page = () => (
       </Text>
 
       <Text as="p" mb={4}>
-        Now, Hack Club Bank is expanding beyond just Hack Clubbers.{' '}
+        Now, HCB is expanding beyond just Hack Clubbers.{' '}
         <strong>
-          Over 500 organizations running on Bank have transacted upwards of
+          Over 500 organizations running on HCB have transacted upwards of
           $5,000,000;
         </strong>{' '}
         from teenage-run hackathons to{' '}
@@ -88,11 +88,11 @@ const Page = () => (
       </Text>
 
       <Text as="p">
-        With the right leadership, we hope to bring Hack Club Bank to thousands
-        of organizations across the United States and process tens of millions
-        of dollars in transactions. We think do-gooders need the same tools that
-        software engineers do. For them, Bank is like GitHub: transformative.
-        Right now, Bank is the{' '}
+        With the right leadership, we hope to bring HCB to thousands of
+        organizations across the United States and process tens of millions of
+        dollars in transactions. We think do-gooders need the same tools that
+        software engineers do. For them, HCB is like GitHub: transformative.
+        Right now, HCB is the{' '}
         <strong>
           only part of Hack Club that isn't{' '}
           <Link
@@ -185,41 +185,41 @@ const Page = () => (
         variant="headline"
         sx={{ fontWeight: 700, fontSize: [4, 5], mb: 4 }}
       >
-        Make Bank even more awesome.
+        Make HCB even more awesome.
       </Heading>
 
       <Box sx={{ p: { my: [3, 4] } }}>
         <Text as="p">
-          Bank has been maintained by a{' '}
+          HCB has been maintained by a{' '}
           <Link href="/team/" target="_blank">
             {' '}
             small team
           </Link>{' '}
           of two full-time operations people, and on-and-off contributions by
           engineers and various contractors. The majority of{' '}
-          <Link href="https://changelog.bank.hackclub.com/" target="_blank">
+          <Link href="https://changelog.hcb.hackclub.com/" target="_blank">
             contributions
           </Link>{' '}
           are actually made by teenagers! In this role, you'll take point on
-          bringing Bank to its full potential.
+          bringing HCB to its full potential.
         </Text>
 
         <Text as="p">
-          Hack Club Bank already powers{' '}
-          <Link href="https://bank.hackclub.com/hq" target="_blank">
+          HCB already powers{' '}
+          <Link href="https://hcb.hackclub.com/hq" target="_blank">
             our own transparent finances
           </Link>{' '}
           as well as those of{' '}
           <Link
-            href="https://bank.hackclub.com/miami-hack-week/"
+            href="https://hcb.hackclub.com/miami-hack-week/"
             target="_blank"
           >
             many
           </Link>{' '}
-          <Link href="https://bank.hackclub.com/mesto/" target="_blank">
+          <Link href="https://hcb.hackclub.com/mesto/" target="_blank">
             other
           </Link>{' '}
-          <Link href="https://bank.hackclub.com/techshift/" target="_blank">
+          <Link href="https://hcb.hackclub.com/techshift/" target="_blank">
             organizations
           </Link>
           . These are just some of the initiatives we support:
@@ -283,11 +283,11 @@ const Page = () => (
         </Grid>
 
         <Text as="p">
-          Like a CTO, you'll work directly with real users to define Bank's
-          roadmap around <strong>making Bank better for Hack Clubbers.</strong>{' '}
+          Like a CTO, you'll work directly with real users to define HCB's
+          roadmap around <strong>making HCB better for Hack Clubbers.</strong>{' '}
           You will build and lead a team of Hack Clubbers to create a shipping
-          culture around Bank, and lead and manage relationships with technical
-          partners who integrate Bank into their products.
+          culture around HCB, and lead and manage relationships with technical
+          partners who integrate HCB into their products.
         </Text>
 
         <Text as="p">
@@ -306,9 +306,9 @@ const Page = () => (
           >
             jobs@hackclub.com
           </Link>{' '}
-          with "Hack Club Bank" in the subject line, 3 bullet points
-          demonstrating why you would be exceptional for the role, and your
-          resume / GitHub / GitLab / sourcehut.
+          with "HCB" in the subject line, 3 bullet points demonstrating why you
+          would be exceptional for the role, and your resume / GitHub / GitLab /
+          sourcehut.
         </Box>
       </Box>
 

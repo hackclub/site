@@ -6,9 +6,7 @@ const pricePerSprig = 100
 const SprigForm = () => {
   const [count, setCount] = useState(1)
   function url() {
-    const u = new URL(
-      'https://bank.hackclub.com/donations/start/game-lab-fund/'
-    )
+    const u = new URL('https://hcb.hackclub.com/donations/start/game-lab-fund/')
     u.searchParams.set(
       'amount',
       pricePerSprig * count * 100 /* convert to cents */
