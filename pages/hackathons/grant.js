@@ -140,11 +140,12 @@ const HackathonGrant = () => {
               }}
             >
               Hack Club is providing $500 grants (and waiving{' '}
-              <Link href="/bank" target="_blank">
-                Hack Club Bank
+              <Link href="/hcb" target="_blank">
+                HCB
               </Link>{' '}
               fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons until December 31st, 2023.
+              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons until
+              December 31st, 2023.
             </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
               {open ? 'Apply Now' : 'Coming Soon'}
@@ -305,7 +306,7 @@ const HackathonGrant = () => {
                 }}
               >
                 You will need to share a link to your website. Don't have a
-                domain? Hack Club Bank provides a free domain. Check out this{' '}
+                domain? HCB provides a free domain. Check out this{' '}
                 <Link
                   href="https://notebook.lachlanjc.com/2019-09-06_making_a_hackathon_site"
                   target="_blank"
@@ -334,17 +335,17 @@ const HackathonGrant = () => {
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:bank-account.svg"
               size="28"
             >
-              You'll receive your grant through Hack Club Bank, our financial
-              platform for hackathons, and spend it in the open with{' '}
+              You'll receive your grant through HCB, our financial platform for
+              hackathons, and spend it in the open with{' '}
               <Link
-                href="https://changelog.bank.hackclub.com/transparent-finances-(optional-feature)-151427"
+                href="https://changelog.hcb.hackclub.com/transparent-finances-(optional-feature)-151427"
                 target="_blank"
               >
                 Transparency Mode
               </Link>
               . Sign up for{' '}
-              <Link href="/bank" target="_blank">
-                Hack Club Bank
+              <Link href="/hcb" target="_blank">
+                HCB
               </Link>{' '}
               before applying.
               <br />
@@ -355,8 +356,8 @@ const HackathonGrant = () => {
                   color: 'muted'
                 }}
               >
-                If you're unable to use Hack Club Bank, we're unfortunately
-                unable to support you through this grant program.
+                If you're unable to use HCB, we're unfortunately unable to
+                support you through this grant program.
               </Text>
             </Requirement>
           </Grid>
@@ -402,7 +403,7 @@ const HackathonGrant = () => {
         <Card
           as="a"
           variant="interactive"
-          href="mailto:bank@hackclub.com"
+          href="mailto:hcb@hackclub.com"
           sx={{
             mx: 'auto',
             maxWidth: '52rem',
@@ -438,7 +439,7 @@ const HackathonGrant = () => {
           >
             <strong>Questions?</strong>
             <Text as="span" variant="caption" color="secondary" sx={{ pl: 3 }}>
-              Reach out to <Link>bank@hackclub.com</Link>
+              Reach out to <Link>hcb@hackclub.com</Link>
             </Text>
           </Text>
         </Card>

@@ -12,16 +12,16 @@ import {
 import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
-import { getCookie, hasCookie } from 'cookies-next';
+import { getCookie, hasCookie } from 'cookies-next'
 
 const JoinForm = ({ sx = {} }) => {
   const router = useRouter()
   const { status, formProps, useField } = useForm('/api/join/', null, {
     clearOnSubmit: 5000,
     method: 'POST',
-    initData: hasCookie("continent")
+    initData: hasCookie('continent')
       ? {
-          continent: getCookie("continent"),
+          continent: getCookie('continent'),
           reason: router.query.reason,
           event: router.query.event
         }

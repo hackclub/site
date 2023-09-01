@@ -506,12 +506,12 @@ const Page = () => (
           <Feature
             icon="bank-account"
             color="black"
-            name="A nonprofit bank account"
+            name="A nonprofit fund"
             desc={
               <>
                 Use our 501(c)(3) status and a restricted fund with{' '}
-                <Link href="/bank">Hack Club Bank</Link> to fundraise, accept
-                donations, buy things!
+                <Link href="/hcb">HCB</Link> to fundraise, accept donations, and
+                buy things!
               </>
             }
           />
