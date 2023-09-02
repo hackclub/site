@@ -11,10 +11,10 @@ import {
   Flex,
   Image
 } from 'theme-ui'
-import ForceTheme from '../../components/force-theme'
+import ForceTheme from '../../../components/force-theme'
 import JSConfetti from 'js-confetti'
-import Icon from '../../components/icon'
-import FlexCol from '../../components/flex-col'
+import Icon from '../../../components/icon'
+import FlexCol from '../../../components/flex-col'
 
 function Option({ icon, label, link }) {
   const color =
