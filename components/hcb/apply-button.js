@@ -6,7 +6,7 @@ export default function ApplyButton() {
     <Button
       variant="ctaLg"
       as="a"
-      href="apply"
+      href="/hcb/apply"
       sx={{
         width: '100%',
         height: '4.2rem'
