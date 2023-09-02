@@ -20,9 +20,10 @@ import Features from '../../components/hcb/first/features'
 import Form from '../../components/hcb/first/form'
 import Testimonials from '../../components/hcb/first/testimonials'
 import Steps from '../../components/hcb/first/steps'
+import Start from '../../components/hcb/start'
 import theme from '@hackclub/theme'
 
-export default function First() {
+export default function First({ stats }) {
   return (
     <>
       <style>
@@ -185,49 +186,25 @@ export default function First() {
           <Testimonials />
         </Box>
 
-        <Container
-          variant="container"
-          id="demo"
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            textAlign: 'center',
-            pt: 5
-          }}
-        >
-          <Heading variant="title">Get started in a day.</Heading>
-          <Text variant="lead" color="muted">
-            We’ll help you get set up and running in no time.
-          </Text>
-        </Container>
+		<Box id="demo">
+			<Start stats={stats} />
+		</Box>
 
-        <Flex
-          sx={{
-            flexDirection: ['column', null, 'row'],
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          <Steps />
-          <Card
-            variant="primary"
-            sx={{
-              backgroundColor: 'darkless',
-              color: 'snow',
-              width: ['100%', null, 356],
-              float: [null, null, 'right'],
-              height: 'fit-content'
-            }}
-          >
-            <Text variant="heading" sx={{ fontSize: 24, lineHeight: 2 }}>
-              Open a demo account
-            </Text>
-            <Form />
-          </Card>
-        </Flex>
       </Box>
       <Footer dark key="footer" />
     </>
   )
+}
+
+export async function getStaticProps(context) {
+  const res = await fetch(`https://hcb.hackclub.com/stats`)
+  const stats = await res.json()
+  console.log(stats)
+
+  return {
+    props: {
+      stats
+    },
+    revalidate: 10
+  }
 }
