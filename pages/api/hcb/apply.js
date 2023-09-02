@@ -53,7 +53,7 @@ export default async function handler(req, res) {
           'Slack Username': data.slackUsername,
           Accommodations: data.accommodations
         })
-        res.writeHead(302, { Location: '/hcb/success' }).end()
+        res.writeHead(302, { Location: '/hcb/apply/success' }).end()
       })
       .catch(error => {
         console.error(error)
