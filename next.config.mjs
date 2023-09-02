@@ -1,4 +1,10 @@
+import million from 'million/compiler';
+
+const millionConfig = { auto: true }
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true
   },
@@ -23,7 +29,6 @@ const nextConfig = {
     ]
   },
   webpack: (config, { isServer }) => {
-    if (isServer) require('./lib/sitemap')
     return config
   },
   async redirects() {
@@ -282,7 +287,10 @@ const nextConfig = {
   }
 }
 
-const withMDX = require('@next/mdx')({ extension: /\.mdx?$/ })
-const withTM = require('next-transpile-modules')(['animejs'])
+import withMDX from '@next/mdx'
+const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
 
-module.exports = withTM(withMDX(nextConfig))
+import withTM from 'next-transpile-modules'
+const withAnimeJS = withTM(['animejs'])
+
+export default million.next(withAnimeJS(withMDXConfig(nextConfig)), millionConfig);
