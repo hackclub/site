@@ -208,10 +208,6 @@ const nextConfig = {
         destination: '/content/sunsetting-som/'
       },
       {
-        source: '/bank/apply/success',
-        destination: '/bank/success'
-      },
-      {
         source: '/banner/',
         destination: 'https://workshops.hackclub.com/banner/'
       },
