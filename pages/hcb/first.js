@@ -186,10 +186,9 @@ export default function First({ stats }) {
           <Testimonials />
         </Box>
 
-		<Box id="demo">
-			<Start stats={stats} />
-		</Box>
-
+        <Box id="demo">
+          <Start stats={stats} />
+        </Box>
       </Box>
       <Footer dark key="footer" />
     </>

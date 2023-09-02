@@ -129,8 +129,11 @@ const JoinForm = ({ sx = {} }) => {
             as="div"
             sx={{ maxWidth: '600px', textAlign: 'center', mb: 2 }}
           >
-            Hold your horses! <b>Our Slack community is for minors</b>! To find out more about what all we do, check out our { ' '} <Link href="https://github.com/hackclub"> Github </Link>. If you're a parent or educator & 
-              want to talk to a member of our team, send us a email at {' '}
+            Hold your horses! <b>Our Slack community is for minors</b>! To find
+            out more about what all we do, check out our{' '}
+            <Link href="https://github.com/hackclub"> Github </Link>. If you're
+            a parent or educator & want to talk to a member of our team, send us
+            a email at{' '}
             <Link href="mailto:team@hackclub.com">team@hackclub.com</Link>.
           </Text>
         )}

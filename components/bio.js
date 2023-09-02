@@ -98,21 +98,30 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
             </Text>
           </Flex>
           {!popup && (
-			<>
-				<Text mt={2} mb={0} color="black">
-				{text}
-				</Text>
-				{ name === "Ben Dixon" && (
-					<Flex sx={{ 
-						marginTop: 4,
-						marginX: 5,
-						justifyContent: "center",
-						aspectRatio: 4/3
-					}}>
-						<iframe width="100%" src="https://www.youtube-nocookie.com/embed/POv-3yIPSWc?si=25WKed0HkazCZZOz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-					</Flex>
-				)}
-			</>
+            <>
+              <Text mt={2} mb={0} color="black">
+                {text}
+              </Text>
+              {name === 'Ben Dixon' && (
+                <Flex
+                  sx={{
+                    marginTop: 4,
+                    marginX: 5,
+                    justifyContent: 'center',
+                    aspectRatio: 4 / 3
+                  }}
+                >
+                  <iframe
+                    width="100%"
+                    src="https://www.youtube-nocookie.com/embed/POv-3yIPSWc?si=25WKed0HkazCZZOz"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </Flex>
+              )}
+            </>
           )}
           {!popup && href && (
             <Flex sx={{ alignItems: 'center' }}>
