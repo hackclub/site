@@ -46,25 +46,6 @@ export default function Outernet() {
             justifyContent: 'flex-end'
           }}
         >
-          <Buttons
-            icon="event-add"
-            href="https://outernet.hackclub.com/"
-            target="_blank"
-            rel="noopener"
-            primary="#484137"
-            id="43"
-          >
-            Join us
-          </Buttons>
-          <Buttons
-            icon="event-add"
-            href="https://github.com/hackclub/outernet/#readme"
-            target="_blank"
-            rel="noopener"
-            id="44"
-          >
-            Create a guild
-          </Buttons>
         </Flex>
 
         {/* <Box sx={{ mt: ['-40px', '-40px', '-150px'] }}>
