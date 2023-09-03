@@ -24,7 +24,7 @@ import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
 import Clubs from '../components/index/cards/clubs'
 import Workshops from '../components/index/cards/workshops'
-import Bank from '../components/index/cards/bank'
+import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
 import OuternetImgFile from '../public/home/outernet-110.jpg'
 import Announcement from '../components/announcement'
@@ -841,7 +841,7 @@ function Page({
                 stars={stars.hackathons.stargazerCount}
               />
               {/* <Events events={events} /> */}
-              <Bank data={bankData} />
+              <HCB data={bankData} />
             </Box>
           </Box>
         </Box>
@@ -1103,7 +1103,7 @@ export async function getStaticProps() {
 
   // HCB: get total raised
   let bankData = []
-  let initialBankData = await fetch('https://bank.hackclub.com/stats').then(r =>
+  let initialBankData = await fetch('https://hcb.hackclub.com/stats').then(r =>
     r.json()
   )
   let raised = initialBankData.raised / 100

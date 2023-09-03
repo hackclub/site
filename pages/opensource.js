@@ -71,7 +71,11 @@ const Page = ({ repos, transparentAccounts }) => (
       }}
     >
       <Container variant="copy">
-        <Heading as="h1" variant="title" sx={{ color: 'primary', mt: [2, 4] }}>
+        <Heading
+          as="h1"
+          variant="title"
+          sx={{ color: 'primary', mt: [2.5, 4] }}
+        >
           Open Source at Hack Club
         </Heading>
         <Heading as="h2" variant="subtitle" sx={{ mt: 3, color: 'text' }}>
@@ -84,7 +88,7 @@ const Page = ({ repos, transparentAccounts }) => (
           mt={3}
           href="https://contribute.hackclub.com"
         >
-          Our Guide to Contributing
+          Contribute to Our Projects
         </Button>
       </Container>
     </Box>
@@ -102,14 +106,14 @@ const Page = ({ repos, transparentAccounts }) => (
         Finances
       </Heading>
       <Text sx={{ fontSize: 2, color: 'placeholder' }}>
-        All open sourced through Hack Club Bank Transparency Mode.
+        All open sourced through HCB Transparency Mode.
       </Text>
       <Grid columns={2} gap={3} mt={2} mb={[4]}>
         {transparentAccounts.map(account => (
           <BankProject
             key={account.id}
             name={account.name}
-            url={`https://bank.hackclub.com/${account.slug}`}
+            url={`https://hcb.hackclub.com/${account.slug}`}
           />
         ))}
       </Grid>
@@ -123,6 +127,11 @@ const Page = ({ repos, transparentAccounts }) => (
         Includes planning documents, partnership emails, meeting notes etc.
       </Text>
       <Grid columns={2} gap={3} mt={2} mb={[4]}>
+        <BankProject
+          name="Outernet"
+          url={`https://github.com/hackclub/outernet`}
+        />
+        <BankProject name="Epoch" url={`https://github.com/hackclub/epoch`} />
         <BankProject
           name="Assemble"
           url={`https://github.com/hackclub/assemble`}
@@ -142,7 +151,8 @@ const Page = ({ repos, transparentAccounts }) => (
       >
         Content
       </Heading>
-      <Grid columns={2} gap={3} mt={2} mb={[4]}>
+      <Grid columns={3} gap={3} mt={2} mb={[4]}>
+        <BankProject name="Jams" url={`https://github.com/hackclub/jams`} />
         <BankProject
           name="Workshops"
           url={`https://github.com/hackclub/hackclub/tree/main/workshops`}
@@ -237,7 +247,7 @@ export async function getStaticProps() {
   })
 
   const transparentAccounts = (
-    await fetch('https://bank.hackclub.com/api/v3/organizations').then(res =>
+    await fetch('https://hcb.hackclub.com/api/v3/organizations').then(res =>
       res.json()
     )
   ).filter(account => account.category?.replaceAll(' ', '_') === 'hack_club_hq')

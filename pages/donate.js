@@ -271,7 +271,7 @@ export default function Donate({ sprig }) {
                 my={3}
                 sx={{ width: ['100%', 'auto'] }}
                 as="a"
-                href="https://bank.hackclub.com/donations/start/hq"
+                href="https://hcb.hackclub.com/donations/start/hq"
               >
                 Donate
                 <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
@@ -469,8 +469,8 @@ export default function Donate({ sprig }) {
           </Box>
           <Box mb={3} sx={{ fontSize: '27px' }}>
             Please get in touch at{' '}
-            <A sx={{ color: 'blue' }} href="mailto:bank@hackclub.com">
-              bank@hackclub.com
+            <A sx={{ color: 'blue' }} href="mailto:hcb@hackclub.com">
+              hcb@hackclub.com
             </A>{' '}
             if you’re interested in making a contribution with cryptocurrency or
             have questions.

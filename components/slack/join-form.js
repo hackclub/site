@@ -12,16 +12,16 @@ import {
 import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
-import { getCookie, hasCookie } from 'cookies-next';
+import { getCookie, hasCookie } from 'cookies-next'
 
 const JoinForm = ({ sx = {} }) => {
   const router = useRouter()
   const { status, formProps, useField } = useForm('/api/join/', null, {
     clearOnSubmit: 5000,
     method: 'POST',
-    initData: hasCookie("continent")
+    initData: hasCookie('continent')
       ? {
-          continent: getCookie("continent"),
+          continent: getCookie('continent'),
           reason: router.query.reason,
           event: router.query.event
         }
@@ -129,10 +129,12 @@ const JoinForm = ({ sx = {} }) => {
             as="div"
             sx={{ maxWidth: '600px', textAlign: 'center', mb: 2 }}
           >
-            Hold your horses! <b>Our Slack community is for teenagers</b>, and
-            as such we're really careful about letting adults join. If you feel
-            you'd have a place here, reach out to{' '}
-            <Link href="mailto:slack@hackclub.com">slack@hackclub.com</Link>.
+            Hold your horses! <b>Our Slack community is for minors</b>! To find
+            out more about what all we do, check out our{' '}
+            <Link href="https://github.com/hackclub"> Github </Link>. If you're
+            a parent or educator & want to talk to a member of our team, send us
+            a email at{' '}
+            <Link href="mailto:team@hackclub.com">team@hackclub.com</Link>.
           </Text>
         )}
 

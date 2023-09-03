@@ -82,8 +82,7 @@ export default function Recap() {
             desc={
               <>
                 Get a $500 grant for your hackathon (thanks to <i>FIRST</i>!),
-                and access to a suite of financial tools when you join Hack Club
-                Bank.
+                and access to a suite of financial tools when you join HCB.
               </>
             }
           />
