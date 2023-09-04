@@ -67,7 +67,7 @@ If there's a Hack Club or Hack Club community-led project (past or present) that
 
 Every week, [thousands of people](https://plausible.io/hackclub.com) visit hackclub.com. What story to you want to tell? 
 
-_Have questions? Join us in [#hackclub-site-dev](https://hackclub.slack.com/archives/C036BTDGP43)_
+_Have questions? Join us in [#hackclub-site-dev](https://hackclub.slack.com/archives/C036BTDGP43) and to learn more about the style guide at Hack Club check [this](https://hackclub.com/brand/) out_
 
 ---
 
