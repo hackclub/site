@@ -139,7 +139,15 @@ function Page({
           property="og:logo"
           content="https://assets.hackclub.com/icon-rounded.png"
           size="512x512"
-        />
+          />
+        <style>{`
+          @font-face {
+            font-family: 'Wack Club Sans';
+            src: url('https://cloud-599nblthw-hack-club-bot.vercel.app/0wackclubsans-regular.woff2')
+                format('woff2'),
+              
+          }
+        `}</style>
       </Head>
       <ForceTheme theme="light" />
       <Nav />
@@ -364,6 +372,7 @@ function Page({
                   transform: 'rotate(-25deg)',
                   textAlign: 'center',
                   fontWeight: 'bold',
+                  fontFamily: 'Wack Club Sans, sans-serif'
                 }}
               >
                 Click to see 
