@@ -4,7 +4,7 @@ export async function getGames() {
   ).then(res => res.json())
   games = games
     .sort((a, b) => new Date(b.addedOn) - new Date(a.addedOn))
-    .slice(0, 4)
+    .slice(-4)
 
   return games
 }
