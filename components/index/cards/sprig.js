@@ -159,7 +159,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
               mb: 1
             }}
           >
-            <RelativeTime value={game?.addedOn} titleFormat="YYYY-MM-DD" />
+            <RelativeTime value={game['added on']} titleFormat="YYYY-MM-DD" />
           </Text>
         </Box>
       </Box>
