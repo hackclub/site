@@ -26,7 +26,7 @@ Code under MIT License, assets may not be re-used or re-distributed.
 
 ---
 
-<h1 align="center"><a href="https://hackclub.com/">Building hackclub.com</a></h1>
+<h1 align="center">Building <a href="https://hackclub.com/">hackclub.com</a></h1>
 
 Join us in building Hack Club's homepage and show new hackers what Hack Club could be for them 💖.
 
