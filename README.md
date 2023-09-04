@@ -42,6 +42,7 @@ Most things on the homepage are cards, modular components that can easily be add
 First, you can create a new file under [components/index/cards]() with the name of your new event/project. Next add `import CardModel from './card-model'` and add whatever you want :) Finally, use a <Buttons> component (`import Buttons from './button'`) to highlight call-to-action buttons. If it's the main button, use the primary prop to add a background color!
 
 Your challenge: try and make the card as unique as possible, like a mini poster! Not sure where to start? Look at other cards on the page :)
+
 </details>
 
 <details>
@@ -65,7 +66,7 @@ If there's a Hack Club or Hack Club community-led project (past or present) that
 
 </details>
 
-Every week, [thousands of people](https://plausible.io/hackclub.com) visit hackclub.com. What story to you want to tell? 
+Every week, [thousands of people](https://plausible.io/hackclub.com) visit hackclub.com. What story to you want to tell?
 
 _Have questions? Join us in [#hackclub-site-dev](https://hackclub.slack.com/archives/C036BTDGP43) and to learn more about the style guide at Hack Club check [this](https://hackclub.com/brand/) out_
 
