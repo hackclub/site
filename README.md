@@ -18,7 +18,7 @@ Start running the website on your computer:
 
 And then open up your web browser and go to [localhost:3000](http://localhost:3000).
 
-Please note: There are a number of redirects and rewrites essential to the website's functionality, which you can see in `next.config.js`.
+Please note: There are a number of redirects and rewrites essential to the website's functionality, which you can see in [next.config.mjs](./next.config.mjs).
 
 Powered by [Next.js] with [MDX], [Theme UI], & [Hack Club Theme].
 
