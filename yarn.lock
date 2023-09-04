@@ -5089,10 +5089,10 @@ react-page-visibility@^7.0.0:
   dependencies:
     prop-types "^15.7.2"
 
-react-relative-time@^0.0.7:
-  version "0.0.7"
-  resolved "https://registry.npmjs.org/react-relative-time/-/react-relative-time-0.0.7.tgz"
-  integrity sha512-1MufiuswxbmgPR0fdfKLkQpjlphkMTjC99IOOuCENRiF+7EmtlcNFi+kCNtmeCDk3gtizG3OiuYBevN0vljNYQ==
+react-relative-time@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/react-relative-time/-/react-relative-time-0.0.9.tgz#2fcbd7e9a74ee82ff0eac24bfbd26a7dc2998ccc"
+  integrity sha512-Vf59erCwSaJaYp/IhoEtq7dtt1y4YNDqNegmOY8sK2P6oHHe3sLOXjz9VTCr0yvL2Y7W6uwufrxU4jOX8fS/dA==
 
 react-resize-detector@^7.1.2:
   version "7.1.2"
