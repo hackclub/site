@@ -5153,10 +5153,10 @@ react-transition-group@2.9.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-tsparticles@^2.12.1:
-  version "2.12.1"
-  resolved "https://registry.npmjs.org/react-tsparticles/-/react-tsparticles-2.12.1.tgz"
-  integrity sha512-6NhuND25vy0ryWod5bL1y2I4Xf7QX7Jwoh1TLzJvLK3BgJlRVVDH+TvuS1xU5SN+f/EJ6zJaFCPf9b2ytkdRLg==
+react-tsparticles@^2.12.2:
+  version "2.12.2"
+  resolved "https://registry.yarnpkg.com/react-tsparticles/-/react-tsparticles-2.12.2.tgz#679054f229650db8398a646e2bb1c4a750f2a7de"
+  integrity sha512-/nrEbyL8UROXKIMXe+f+LZN2ckvkwV2Qa+GGe/H26oEIc+wq/ybSG9REDwQiSt2OaDQGu0MwmA4BKmkL6wAWcA==
   dependencies:
     tsparticles-engine "^2.12.0"
 
