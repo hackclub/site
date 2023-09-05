@@ -25,7 +25,7 @@ const SlackPage = () => {
   const { data: millionCount } = useSWR(
     'https://jia.haas.hackclub.com/api/currentNumber',
     fetcher,
-    { refreshInterval: 1000 }
+    { refreshInterval: 10_000 }
   )
 
   return (
