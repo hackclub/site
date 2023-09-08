@@ -334,7 +334,7 @@ as="a"
 
               >
                 {pizzasByClubs.map((pizzaByClub, idx) => (
-                  <Box sx={{position: "relative", borderRadius: "16px", padding: "8px 16px 16px 16px", width: ["300px", "500px"], marginLeft: "16px", marginRight: "16px", 
+                  <Box key={idx} sx={{position: "relative", borderRadius: "16px", padding: "8px 16px 16px 16px", width: ["300px", "500px"], marginLeft: "16px", marginRight: "16px", 
                   border: "1px solid var(--Muted, #8492A6)"
                   }}>
                     <Tilt 
