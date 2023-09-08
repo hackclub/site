@@ -488,7 +488,7 @@ padding: ["24px", "32px"],
 
       </Box>
       <Box sx={{fontSize: 20, textAlign: "center", display: "flex", justifyContent: "center", marginBottom: "64px"}}>
-        <Text sx={{border: "1px solid #EC3750", color: "#EC3750", padding: "16px 32px", borderRadius: "32px"}}>p.s. if you already lead a club, you can still get pizza! draw  a pizza in<Link style={{marginLeft: "8px"}} href="https://hackclub.slack.com/archives/C05RAJBKVMJ">#pizza-party</Link></Text>
+        <Text sx={{border: "1px solid #EC3750", color: "#EC3750", padding: "16px 32px", borderRadius: "32px"}}>p.s. if you already lead a club, you can still get pizza! draw  a pizza in<Link style={{marginLeft: "8px"}} href="https://hackclub.slack.com/archives/C05RZ6K7RS5">#pizza-party</Link></Text>
       </Box>
     </Container>    
     <Footer dark 
