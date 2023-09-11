@@ -448,7 +448,7 @@ padding: ["24px", "32px"],
               <Text sx={{color: "#000", fontSize: 26, display: "block", fontWeight: 600}}>Draw A Pizza</Text>
               </Box>
               <Text sx={{ color: "#000", marginTop: "8px", display: "block", fontSize: 18, fontWeight: 500, lineHeight: "150%" }}>
-              Join #pizza-party on the Hack Club  Slack & draw a Pixel Pizza 
+              Join <Link  href="https://hackclub.slack.com/archives/C05RZ6K7RS5">#pizza-party</Link> on the Hack Club  Slack & draw a Pixel Pizza
                             </Text>
               <img alt="pixel editor gif" style={{width: "75%", borderRadius: "16px", marginTop: "12px", marginBottom: "8px"}} src="https://cloud-bpufnmh9d-hack-club-bot.vercel.app/0samplevideo-min.gif"/>
               <Box>
