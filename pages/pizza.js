@@ -81,7 +81,7 @@ const PizzaPage = () => {
       as={Head}
       title="Start A Hack Club, Get $100 in Free Pizza from GitHub"
       description="GitHub is providing $100 pizza grants to 500 Hack Clubs around the world. Wondering How To Start A Coding Club? Hack Club is the answer."
-      image="https://cloud-nxax2mrsg-hack-club-bot.vercel.app/0club.png"
+      image="https://cloud-da80uk9cy-hack-club-bot.vercel.app/00club-min__1_.png"
     />
     <ForceTheme theme="light" />
     <Nav color="dark" sx={{backgroundColor: "white"}}/>
