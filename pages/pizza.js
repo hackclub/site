@@ -108,7 +108,7 @@ pointerEvents: 'none'
     </Box>
     <Container sx={{ textAlign: 'center', position: 'relative', width: "100%", height: "100%", left: 0, top: 0, zIndex: 2, color: 'dark', paddingTop: [96, 96, 128], paddingLeft: "16px", paddingRight: "16px"
 }}>
-    <Image sx={{width: ["128px", "128px", "256px"], marginBottom: "16px"
+    <Image alt={"GitHub + Hack Club"} sx={{width: ["128px", "128px", "256px"], marginBottom: "16px"
   
   }} src="https://cloud-h0iw2xjkw-hack-club-bot.vercel.app/0combo.png"/>
         <Heading
@@ -127,7 +127,7 @@ pointerEvents: 'none'
         >
           Start A Hack Club,<br/> Get <span>
             <Text>$100 in Free Pizza</Text>
-            <Image sx={{position: "absolute", display: ["none", "none", "none", "flex"], left: "25%", bottom: "42px"}} src="https://cloud-b3bvwbz46-hack-club-bot.vercel.app/0line.svg"/></span>
+            <Image alt={""} sx={{position: "absolute", display: ["none", "none", "none", "flex"], left: "25%", bottom: "42px"}} src="https://cloud-b3bvwbz46-hack-club-bot.vercel.app/0line.svg"/></span>
         </Heading>
         <Text variant="lead">GitHub is providing $100 pizza grants to 500 Hack Clubs. <strong>You're not too late!</strong></Text>
         
@@ -170,7 +170,9 @@ pointerEvents: 'none'
     <Tilt
     options={{perspective: 75}}
     >
-    <Image sx={{
+    <Image
+    alt="mushroom"
+    sx={{
       imageRendering: "pixelated",
       display: ["none", "none", "flex"]
     }} src="https://cloud-okty851hq-hack-club-bot.vercel.app/0mushroom.png"/>
@@ -183,7 +185,9 @@ pointerEvents: 'none'
         options={{perspective: 75}}
 
     >
-    <Image sx={{imageRendering: "pixelated",
+    <Image 
+    alt="pineapple"
+    sx={{imageRendering: "pixelated",
         display: ["none", "none", "flex"]
       }} src="https://cloud-fiv5rwxlo-hack-club-bot.vercel.app/0pineapple.png"/>
     </Tilt>
@@ -192,7 +196,10 @@ pointerEvents: 'none'
     <Tilt
         options={{perspective: 75}}
         >
-    <Image  sx={{imageRendering: "pixelated",
+    <Image  
+    
+    alt="tomato"
+    sx={{imageRendering: "pixelated",
         display: ["none", "none", "flex"]
 
   }} src="https://cloud-bsv5adze8-hack-club-bot.vercel.app/0tomato.png"/>
@@ -203,7 +210,9 @@ pointerEvents: 'none'
         options={{perspective: 75}}
 
     >
-    <Image  sx={{imageRendering: "pixelated",
+    <Image 
+    alt="pizza"
+    sx={{imageRendering: "pixelated",
   
   display: ["none", "none", "flex"]
 }} src="https://cloud-4my12nuf0-hack-club-bot.vercel.app/0pizza.png"/>
@@ -235,14 +244,14 @@ pointerEvents: 'none'
         </Text>
         </Box>
         <Box>
-            <Image sx={{borderRadius: "16px"}} src="https://cloud-2mvfpa76s-hack-club-bot.vercel.app/0meta.png"/>
+            <Image alt="teens collaborating on tech products" sx={{borderRadius: "16px"}} src="https://cloud-2mvfpa76s-hack-club-bot.vercel.app/0meta.png"/>
         </Box>
     </Grid>
     <br/>
     </Container>
     <Container sx={{paddingLeft: 16, paddingRight: 16}}>
     <Grid sx={{marginTop: 32, width: "100%", paddingLeft: 0, paddingRight: 0}} gap={4} columns={[null, null, '1fr 1fr 1fr']}>
-    <Box sx={{backgroundColor: "#EEA820", padding: 32,  margin: 0, borderRadius: "24px", color: "#fff"}}>
+    <Box sx={{backgroundColor: "#E1A300", padding: 32,  margin: 0, borderRadius: "24px", color: "#fff"}}>
         <Heading
         as="h2"
         variant="heading"
@@ -261,26 +270,27 @@ pointerEvents: 'none'
         >Join The Slack</Button>
     </Box>
     
-    <Box sx={{backgroundColor: "#FF8C37", padding: 32,  margin: 0, borderRadius: "24px", color: "#fff"}}>
+    <Box sx={{backgroundColor: "#F48801", padding: 32,  margin: 0, borderRadius: "24px", color: "#fff"}}>
         <Heading
         as="h2"
         variant="heading"
         sx={{padding: 0, marginBottom: "8px", fontSize: 36}}
         >
-            Tools & Perks To Lead Your Club    
+Tools & Perks To Lead Your Club
         </Heading>
 
         <Text sx={{fontSize: 18, display: "block"}}>
-        As a club leader, you'll get to use community projects like Sprig & Jams in your Hack Club! Your Club will also get free access to Zoom Pro & Figma Pro.         </Text>
+        As a club leader, you'll get to use community projects like Sprig & Jams in your Hack Club! Your Club will also get free access to Zoom Pro & Figma Pro.
+        </Text>
         <Button
                 as="a"
 
-href="https://toolbox.hackclub.com/"
+href="https://hackathons.hackclub.com/"
         sx={{marginTop: 16, backgroundColor: "#fff", color: "#FF8C37"}}
-        >Discover Toolbox</Button>
+        >Discover Hackathons</Button>
     </Box>
 
-    <Box sx={{backgroundColor: "#EC3750", padding: 32,  margin: 0, borderRadius: "24px", color: "#fff"}}>
+    <Box sx={{backgroundColor: "#F6013B", padding: 32,  margin: 0, borderRadius: "24px", color: "#fff"}}>
         <Heading
         
         as="h2"
@@ -292,7 +302,7 @@ href="https://toolbox.hackclub.com/"
         </Heading>
 
         <Text sx={{fontSize: 18, display: "block"}}>
-        Every week you will craft club meetings to help makers at your school discover the joy of coding. Get inspired by some Jams we built to help you lead your club.        </Text>
+        Every week you can craft club meetings to help makers at your school discover the joy of coding. Get inspired by some Jams we built to help you lead your club.        </Text>
         
         <Button
 href="https://jams.hackclub.com/"
@@ -340,7 +350,7 @@ as="a"
                     <Tilt 
   
                     sx={{backgroundColor: "#fff"}} options={{scale: 1.25, perspective: 2000, speed: 500}}>
-                    <img src={pizzaByClub.sprite} style={{position: "absolute", width: "48px", top: "-16px", left: "-16px", height: "48px", padding: "8px",
+                    <img alt="pizza drawn by club" src={pizzaByClub.sprite} style={{position: "absolute", width: "48px", top: "-16px", left: "-16px", height: "48px", padding: "8px",
                   imageRendering: "pixelated",
                   borderRadius: "8px",
                   border: `1.75px solid ${getColor(idx)}`,
@@ -405,13 +415,13 @@ padding: ["24px", "32px"],
               borderRadius: "16px"
             }}>
               <Box sx={{display: "flex", alignItems: "center"}}>
-              <img style={{height: "32px", width: "32px", marginRight: "12px"}} src="https://cloud-2prihxd69-hack-club-bot.vercel.app/0group_12.png"/>
+              <img alt="1. " style={{height: "32px", width: "32px", marginRight: "12px"}} src="https://cloud-2prihxd69-hack-club-bot.vercel.app/0group_12.png"/>
               <Text sx={{color: "#000", fontSize: 26, display: "block", fontWeight: 600}}>Start Your Club</Text>
               </Box>
               <Text sx={{ color: "#000", marginTop: "8px", display: "block", fontSize: 18, fontWeight: 500, lineHeight: "150%" }}>
               Every Hack Club starts with a teenager like you who wants to bring an amazing community to their high school.
               </Text>
-              <Image sx={{width: ["75%", "75%", "40%"], borderRadius: "16px", marginTop: "8px", marginBottom: "8px"}} src="https://cloud-64fxkgyso-hack-club-bot.vercel.app/0style.png"/>
+              <Image alt="teen club of coders" sx={{width: ["75%", "75%", "40%"], borderRadius: "16px", marginTop: "8px", marginBottom: "8px"}} src="https://cloud-64fxkgyso-hack-club-bot.vercel.app/0style.png"/>
               <Box>
               <Button
               variant="outline"
@@ -434,13 +444,13 @@ padding: ["24px", "32px"],
               borderRadius: "16px"
             }}>
               <Box sx={{display: "flex", alignItems: "center"}}>
-              <img style={{height: "32px", width: "32px", marginRight: "12px"}} src="https://cloud-e10qi7h3q-hack-club-bot.vercel.app/0frame_18.png"/>
+              <img alt="2. " style={{height: "32px", width: "32px", marginRight: "12px"}} src="https://cloud-e10qi7h3q-hack-club-bot.vercel.app/0frame_18.png"/>
               <Text sx={{color: "#000", fontSize: 26, display: "block", fontWeight: 600}}>Draw A Pizza</Text>
               </Box>
               <Text sx={{ color: "#000", marginTop: "8px", display: "block", fontSize: 18, fontWeight: 500, lineHeight: "150%" }}>
               Join #pizza-party on the Hack Club  Slack & draw a Pixel Pizza 
                             </Text>
-              <img style={{width: "75%", borderRadius: "16px", marginTop: "12px", marginBottom: "8px"}} src="https://cloud-n6devwd8z-hack-club-bot.vercel.app/0screen_recording_2023-09-06_at_2.35.20_pm.gif"/>
+              <img alt="pixel editor gif" style={{width: "75%", borderRadius: "16px", marginTop: "12px", marginBottom: "8px"}} src="https://cloud-n6devwd8z-hack-club-bot.vercel.app/0screen_recording_2023-09-06_at_2.35.20_pm.gif"/>
               <Box>
               <Button
               variant="cta"
@@ -463,7 +473,7 @@ padding: ["24px", "32px"],
               borderRadius: "16px"
             }}>
               <Box sx={{display: "flex", alignItems: "center"}}>
-              <img style={{height: "32px", width: "32px", marginRight: "12px"}} src="https://cloud-et18ikluu-hack-club-bot.vercel.app/0group_14.png"/>
+              <img alt="3." style={{height: "32px", width: "32px", marginRight: "12px"}} src="https://cloud-et18ikluu-hack-club-bot.vercel.app/0group_14.png"/>
               <Text sx={{color: "#000", fontSize: 26, display: "block", fontWeight: 600}}>Order Pizza</Text>
               </Box>
               <Text sx={{ color: "#000", marginTop: "8px", display: "block", fontSize: 18, fontWeight: 500, lineHeight: "150%" }}>
@@ -474,7 +484,7 @@ padding: ["24px", "32px"],
                 boxShadow: "0px 3.17143px 3.17143px 0px rgba(0, 0, 0, 0.25)"
               }}
     >
-              <img style={{width: "75%", borderRadius: "8px", marginTop: "12px", marginBottom: "8px",
+              <img alt="HCB Card" style={{width: "75%", borderRadius: "8px", marginTop: "12px", marginBottom: "8px",
                             boxShadow: "0px 3.17143px 3.17143px 0px rgba(0, 0, 0, 0.25)"
 
             }} src="https://cloud-l4jcb8gpi-hack-club-bot.vercel.app/0screenshot_2023-09-06_at_2.32_1.png"/>
