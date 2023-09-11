@@ -840,6 +840,7 @@ function Page({
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
+              
               {/* <Events events={events} /> */}
               <HCB data={bankData} />
             </Box>
@@ -1144,9 +1145,17 @@ export async function getStaticProps() {
   const consoleCount = await getConsoles()
 
   // Hackathons: get latest hackathons
-  const hackathonsData = await fetch(
-    'https://hackathons.hackclub.com/api/events/upcoming'
-  ).then(res => res.json())
+  let hackathonsData;
+  try {
+    const response = await fetch('https://hackathons.hackclub.com/api/events/upcoming');
+    if (response.ok) {
+      hackathonsData = await response.json();
+    } else {
+      hackathonsData = []; // or some default value if the fetch fails
+    }
+  } catch (error) {
+    hackathonsData = []; // or some default value if an error occurs
+  }
 
   let events = await fetch(
     'https://events.hackclub.com/api/events/upcoming/'

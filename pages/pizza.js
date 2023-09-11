@@ -285,9 +285,9 @@ Tools & Perks To Lead Your Club
         <Button
                 as="a"
 
-href="https://hackathons.hackclub.com/"
+href="https://toolbox.hackclub.com/"
         sx={{marginTop: 16, backgroundColor: "#fff", color: "#FF8C37"}}
-        >Discover Hackathons</Button>
+        >Discover Toolbox</Button>
     </Box>
 
     <Box sx={{backgroundColor: "#F6013B", padding: 32,  margin: 0, borderRadius: "24px", color: "#fff"}}>
