@@ -32,8 +32,8 @@ const PizzaPage = () => {
         {
             sprite: "https://cloud-7sioop5e1-hack-club-bot.vercel.app/0sprite.png",
             author: "Sarvesh",
-            age: 17,
-            from: "Toronto",
+            age: 16,
+            from: "Ottawa",
             response: "I love meat lovers pizza and sharing my passion for technology. I love to get together with friends with the same mindset as me and work on amazing open source projects! MAKING A HACK CLUB WAS A GREAT DECISION!!!"
         },
         {
@@ -70,6 +70,12 @@ const PizzaPage = () => {
           age: 12,
           from: "Massachusetts",
           response: "I love pepperoni pizza and my Hack Club! I love leading a Hack Club and sharing cool open source projects. yay!!"
+        }, {
+          sprite: "https://cloud-5kl9y9pup-hack-club-bot.vercel.app/0sprite.png",
+          author: "Shubham",
+          age: 15,
+          from: "Bay Area",
+          response: "I love eating veggie pizza and hosting club meets at Mission San Jose High School's Hack Club! Hosting club meets is more than superficial for me—seeing everyone in the room, all exhibiting the same amount of excitement for code is something unique, and I'm glad to be hosting clubs meets for this passion to run wild."
         }
 
     ]
@@ -285,7 +291,7 @@ Tools & Perks To Lead Your Club
         <Button
                 as="a"
 
-href="https://hackathons.hackclub.com/"
+href="https://toolbox.hackclub.com/"
         sx={{marginTop: 16, backgroundColor: "#fff", color: "#FF8C37"}}
         >Discover Toolbox</Button>
     </Box>
