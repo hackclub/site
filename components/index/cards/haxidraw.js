@@ -9,7 +9,7 @@ import RelativeTime from 'react-relative-time'
 export default function Haxidraw() {
   return (
     <CardModel
-      github_link="https://github.com/hackclub/haxidraw/"
+      github_link="https://github.com/hackclub/blot/"
       color="white"
       sx={{
         backgroundSize: 'cover',
@@ -21,7 +21,7 @@ export default function Haxidraw() {
       filter="brightness(0.8)"
     >
       <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
-        Haxidraw
+        Blot
       </Text>
       <Grid columns={[1, 2]}>
         <Box>
@@ -30,7 +30,7 @@ export default function Haxidraw() {
             variant="subtitle"
             sx={{ zIndex: 2, position: 'relative' }}
           >
-            Haxidraw is a W.I.P. open source drawing machine and online editor,
+            Blot is a W.I.P. open source drawing machine and online editor,
             designed to be a fun and beginner friendly introduction to digital
             fabrication and generative art.
           </Text>
@@ -40,7 +40,7 @@ export default function Haxidraw() {
             <Buttons
               id="51"
               icon="align-left"
-              link="https://haxidraw.hackclub.com"
+              link="https://haxidraw.hackclub.dev"
               primary="rgba(255, 255, 255, 0.9)"
               sx={{ color: 'black' }}
             >
