@@ -209,7 +209,6 @@ function Page({
                 display: 'block'
               }}
               as="h4"
-              onClick={() => console.log(fff)}
             >
               Welcome to Hack&nbsp;Club
             </Text>
