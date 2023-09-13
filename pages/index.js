@@ -1079,18 +1079,42 @@ function Page({
       {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
         'z' && (
         <>
-          <Box sx={{ position: 'fixed', bottom: 0, left: 0, zIndex: 1000 }}>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&amp;controls=1&autoplay=1&mute=1"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
+          <Box
+            sx={{
+              position: 'fixed',
+              top: 0,
+              width: '100%',
+              zIndex: 1000
+            }}
+          >
+            <Box
+              sx={{
+                position: 'relative',
+                margin: 'auto',
+                width: 'fit-content',
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&amp;controls=1&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </Box>
           </Box>
-          <Box sx={{ position: 'fixed', bottom: 0, right: 0, zIndex: 1000 }}>
+          <Box
+            sx={{
+              position: 'fixed',
+              bottom: 0,
+              right: 0,
+              zIndex: 1000,
+              lineHeight: 0
+            }}
+          >
             <iframe
               width="560"
               height="315"
@@ -1101,22 +1125,19 @@ function Page({
               allowfullscreen
             ></iframe>
           </Box>
-          <Box sx={{ position: 'fixed', top: 0, left: 0, zIndex: 1000 }}>
+          <Box
+            sx={{
+              position: 'fixed',
+              bottom: 0,
+              left: 0,
+              zIndex: 1000,
+              lineHeight: 0
+            }}
+          >
             <iframe
               width="560"
               height="315"
               src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </Box>
-          <Box sx={{ position: 'fixed', top: 0, right: 0, zIndex: 1000 }}>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube-nocookie.com/embed/NHEaYbDWyQE?si=GDUreZOuxI1iTcoU&autoplay=1&mute=1"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
