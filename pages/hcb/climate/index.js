@@ -669,13 +669,16 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   </ThemeBadge>
                 ))}
 
-                {badges.forOrg(modalOrganization).map((badge, i) => (
-                  <Tooltip.N key={i} text={badge.tooltip}>
-                    <span class="tooltipped">
-                      <Badge badge={badge} />
-                    </span>
-                  </Tooltip.N>
-                ))}
+                {badges.forOrg(modalOrganization).map((badge, i) => {
+                  console.log('badge', badge.label)
+                  return (
+                    <Tooltip.N key={i} text={badge.tooltip} id={badge.id}>
+                      <span class={`tooltipped-${badge.id}`}>
+                        <Badge badge={badge} />
+                      </span>
+                    </Tooltip.N>
+                  )
+                })}
               </Flex>
 
               <Flex

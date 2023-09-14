@@ -8,9 +8,8 @@ const addClassNameToChildren = (children, className) =>
   )
 
 const tooltip = direction =>
-  function Tooltip({ children, text }) {
+  function Tooltip({ children, text, id }) {
     const escapedText = text.replace(/'/g, "\\'")
-
     const directionalStyles = {
       e: `
             left: 100%;
@@ -41,12 +40,12 @@ const tooltip = direction =>
 
     return (
       <>
-        <style>{`.tooltipped {
+        <style>{`.tooltipped${id ? '-' + id : ''} {
                 position: relative;
             }
             
             @media (min-width: 56em) {
-                .tooltipped:after {
+                .tooltipped${id ? '-' + id : ''}:after {
                     background-color: rgba(31, 45, 61, 0.875);
                     border-radius: 0.5rem;
                     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.0625),
@@ -74,15 +73,15 @@ const tooltip = direction =>
             
                 }
             
-                .tooltipped:hover:after,
-                .tooltipped:active:after,
-                .tooltipped:focus:after {
+                .tooltipped${id ? '-' + id : ''}:hover:after,
+                .tooltipped${id ? '-' + id : ''}:active:after,
+                .tooltipped${id ? '-' + id : ''}:focus:after {
                     opacity: 1;
                     z-index: 9000000;
                     backdrop-filter: blur(2px);
                 }
             
-                .tooltipped:after {
+                .tooltipped${id ? '-' + id : ''}:after {
                     ${directionalStyles}
                 }
             }`}</style>
