@@ -304,6 +304,7 @@ export default function Team() {
                       text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
                       img="/team/liv.png"
                       pronouns="she/her"
+                      video="https://www.youtube-nocookie.com/embed/MtN1YnoL46Q?si=FJcJN7kMptzBaGn4"
                     />
                     <Bio
                       name="Gary Tou"
@@ -338,6 +339,7 @@ export default function Team() {
                       text={`Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars.`}
                       img="https://ca.slack-edge.com/T0266FRGM-U03DFNYGPCN-d76abb1ba329-512"
                       pronouns="he/him"
+                      video="https://www.youtube-nocookie.com/embed/POv-3yIPSWc?si=25WKed0HkazCZZOz"
                     />
                   </Grid>
                 </Box>
