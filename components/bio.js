@@ -3,7 +3,7 @@ import Icon from '@hackclub/icons'
 import { useState } from 'react'
 
 export default function Bio({ popup = true, spanTwo = false, ...props }) {
-  let { img, name, teamRole, pronouns, text, subrole, href } = props
+  let { img, name, teamRole, pronouns, text, subrole, href, video } = props
   const [expand, setExpand] = useState(false)
   return (
     <>
@@ -102,7 +102,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
               <Text mt={2} mb={0} color="black">
                 {text}
               </Text>
-              {name === 'Ben Dixon' && (
+              {video && (
                 <Flex
                   sx={{
                     marginTop: 4,
@@ -113,7 +113,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                 >
                   <iframe
                     width="100%"
-                    src="https://www.youtube-nocookie.com/embed/POv-3yIPSWc?si=25WKed0HkazCZZOz"
+                    src={video}
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
