@@ -99,8 +99,7 @@ const Page = () => (
           hang out on a chill call.
         </Text>
         <Text as="p" variant="subtitle">
-          Join in Saturdays at 1pm or 11pm UTC, and Wednesdays at 6pm UTC, or
-          join or start an impromptu Hack session on{' '}
+        Hack nights are hosted regularly by Hack Clubbers. Come join or start an impromptu Hack session on{' '}
           <NextLink href="/slack" passHref>
             <Link sx={{ color, opacity: 0.75 }}>#hack-night</Link>
           </NextLink>
