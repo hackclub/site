@@ -40,7 +40,7 @@
     "graphql": "^16.7.1",
     "js-confetti": "^0.11.0",
     "lodash": "^4.17.21",
-    "million": "^2.6.0-beta.13",
+    "million": "^2.6.0-beta.16",
     "next": "^12.3.1",
     "next-transpile-modules": "^10.0.1",
     "react": "^17.0.2",
