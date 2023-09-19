@@ -610,17 +610,19 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                     justifyContent: 'start'
                   }}
                 >
-                  <img
-                    alt={`${modalOrganization.name}'s logo`}
-                    src={modalOrganization.branding.logo}
-                    sx={{
-                      width: '100px',
-                      height: '100px',
-                      borderRadius: '8px',
-                      marginRight: [0, 4, 4],
-                      boxShadow: '0px 0px 45px 0px rgba(0, 0, 0, 0.72)'
-                    }}
-                  />
+                  {modalOrganization.branding.logo &&
+                    <img
+                      alt={`${modalOrganization.name}'s logo`}
+                      src={modalOrganization.branding.logo}
+                      sx={{
+                        width: '100px',
+                        height: '100px',
+                        borderRadius: '8px',
+                        marginRight: [0, 4, 4],
+                        boxShadow: '0px 0px 45px 0px rgba(0, 0, 0, 0.72)'
+                      }}
+                    />
+                  }
                   <Text
                     variant="title"
                     sx={{
