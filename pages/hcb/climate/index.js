@@ -1027,23 +1027,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             >
               EXPLORE IMPACT
             </Button>
-            <Button
-              variant="outlineLg"
-              as="a"
-              href="#apply"
-              sx={{
-                mt: [3, 2],
-                ml: 2,
-                mb: [4, 0],
-                borderColor: 'green',
-                borderWidth: '2px',
-                boxSizing: 'border-box',
-                color: 'white',
-                height: '56px'
-              }}
-            >
-              LEARN MORE
-            </Button>
+
           </Box>
         </Box>
 
