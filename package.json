@@ -60,7 +60,7 @@
     "react-use-websocket": "^4.4.0",
     "react-wrap-balancer": "^1.1.0",
     "recharts": "2.1.12",
-    "styled-components": "^6.0.7",
+    "styled-components": "^6.0.8",
     "swr": "^2.2.2",
     "theme-ui": "^0.14",
     "tinytime": "^0.2.6",
