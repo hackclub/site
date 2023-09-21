@@ -740,6 +740,7 @@ function Page({
                             img={data.userImage}
                             user={data.user}
                             time={data.time}
+                            url={data.url}
                             message={data.message}
                             key={key}
                           />

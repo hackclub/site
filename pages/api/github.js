@@ -1,3 +1,5 @@
+import { normalizeGitHubCommitUrl } from '../../lib/helpers'
+
 const isRelevantEventType = type =>
   ['PushEvent', 'PullRequestEvent', 'WatchEvent'].includes(type)
 
@@ -14,6 +16,20 @@ const getMessage = (type, payload, repo) => {
   }
 }
 
+const getUrl = (type, payload, repo) => {
+  switch (type) {
+    case 'PushEvent':
+      console.log(payload.commits?.[0])
+      return payload.commits?.[0].url
+        ? normalizeGitHubCommitUrl(payload.commits[0].url)
+        : 'https://github.com/hackclub'
+    case 'PullRequestEvent':
+      return payload.pull_request.html_url
+    case 'WatchEvent':
+      return `https://github.com/${repo.name}`
+  }
+}
+
 export async function fetchGitHub() {
   const initialGitHubData = await fetch(
     'https://api.github.com/orgs/hackclub/events'
@@ -25,6 +41,7 @@ export async function fetchGitHub() {
       type,
       user: actor.login,
       userImage: actor.avatar_url,
+      url: getUrl(type, payload, repo),
       message: getMessage(type, payload, repo),
       time: created_at
     }))
