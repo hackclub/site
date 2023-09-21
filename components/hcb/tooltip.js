@@ -41,7 +41,7 @@ const tooltip = direction =>
 
     return (
       <>
-        <style>{`.tooltipped {
+        <style jsx>{`.tooltipped {
                 position: relative;
             }
             
