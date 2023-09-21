@@ -19,7 +19,6 @@ const getMessage = (type, payload, repo) => {
 const getUrl = (type, payload, repo) => {
   switch (type) {
     case 'PushEvent':
-      console.log(payload.commits?.[0])
       return payload.commits?.[0].url
         ? normalizeGitHubCommitUrl(payload.commits[0].url)
         : 'https://github.com/hackclub'
