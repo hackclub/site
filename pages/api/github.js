@@ -26,6 +26,8 @@ const getUrl = (type, payload, repo) => {
       return payload.pull_request.html_url
     case 'WatchEvent':
       return `https://github.com/${repo.name}`
+    default:
+      return `https://github.com/hackclub`
   }
 }
 
