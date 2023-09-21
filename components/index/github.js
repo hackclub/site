@@ -8,6 +8,7 @@ export default function GitHub({
   key,
   text,
   time,
+  url,
   message,
   ...props
 }) {
@@ -16,7 +17,7 @@ export default function GitHub({
       variant="pill"
       bg="snow"
       as="a"
-      href="https://github.com/hackclub"
+      href={url}
       target="_blank"
       rel="noopener"
       sx={{
