@@ -111,8 +111,8 @@ export const OrganizationCard = ({
         }}
       >
         {badges.map((badge, i) => (
-          <Tooltip.W key={i} text={badge.label}>
-            <span class="tooltipped">
+          <Tooltip.W key={i} text={badge.label} id={badge.id}>
+            <span class={`tooltipped-${badge.id}`}>
               <Badge badge={badge} />
             </span>
           </Tooltip.W>
