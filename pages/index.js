@@ -301,7 +301,7 @@ function Page({
               }}
               title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
             >
-              Hackers at Outernet in VT
+              Hackers at Outernet in Vermont
             </Badge>
           </Box>
         </Box>
