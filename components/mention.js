@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { memo } from 'react'
+import Link from "next/link";
+import { memo } from "react";
 
 const StaticMention = memo(function StaticMention({ avatar, username, link }) {
   return (
@@ -7,9 +7,9 @@ const StaticMention = memo(function StaticMention({ avatar, username, link }) {
       <a
         className={`mention`}
         style={{
-          display: 'inline-flex',
-          alignItems: 'baseline',
-          textDecoration: 'none'
+          display: "inline-flex",
+          alignItems: "baseline",
+          textDecoration: "none",
         }}
       >
         {avatar && (
@@ -19,16 +19,16 @@ const StaticMention = memo(function StaticMention({ avatar, username, link }) {
             width={24}
             className="mention-avatar"
             style={{
-              borderRadius: '50%',
-              marginRight: '4px',
-              alignSelf: 'flex-end'
+              borderRadius: "50%",
+              marginRight: "4px",
+              alignSelf: "flex-end",
             }}
           />
         )}
         @{username}
       </a>
     </Link>
-  )
-})
+  );
+});
 
-export default StaticMention
+export default StaticMention;
