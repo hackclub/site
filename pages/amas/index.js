@@ -1,15 +1,15 @@
-import { Box, Button, Card, Flex, Grid, Heading, Link, Text } from 'theme-ui'
-import Meta from '@hackclub/meta'
-import Head from 'next/head'
-import ForceTheme from '../../components/force-theme'
-import BGImg from '../../components/background-image'
-import NextLink from 'next/link'
-import Image from 'next/image'
-import Nav from '../../components/nav'
-import SlideDown from '../../components/slide-down'
-import Footer from '../../components/footer'
-import { dt } from '../../lib/dates'
-import Sal from '../../public/ama/sal.png'
+import { Box, Button, Card, Flex, Grid, Heading, Link, Text } from "theme-ui";
+import Meta from "@hackclub/meta";
+import Head from "next/head";
+import ForceTheme from "../../components/force-theme";
+import BGImg from "../../components/background-image";
+import NextLink from "next/link";
+import Image from "next/image";
+import Nav from "../../components/nav";
+import SlideDown from "../../components/slide-down";
+import Footer from "../../components/footer";
+import { dt } from "../../lib/dates";
+import Sal from "../../public/ama/sal.png";
 
 const Page = ({ upcoming, past }) => (
   <>
@@ -24,10 +24,10 @@ const Page = ({ upcoming, past }) => (
     <Box
       as="header"
       sx={{
-        bg: 'dark',
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden'
+        bg: "dark",
+        textAlign: "center",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
       <BGImg
@@ -40,23 +40,23 @@ const Page = ({ upcoming, past }) => (
       <SlideDown
         variant="layout.narrow"
         duration={768}
-        sx={{ py: [5, 6], color: 'white', textShadow: 'text' }}
+        sx={{ py: [5, 6], color: "white", textShadow: "text" }}
       >
-        <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.875 }}>
+        <Text as="p" variant="eyebrow" sx={{ color: "white", opacity: 0.875 }}>
           Lights, webcam…
         </Text>
         <Heading
           as="h1"
           variant="title"
-          sx={{ fontSize: [6, 8, 9], lineHeight: 'limit' }}
+          sx={{ fontSize: [6, 8, 9], lineHeight: "limit" }}
         >
           AMAs
         </Heading>
-        <Text as="p" variant="subtitle" sx={{ a: { color: 'inherit' } }}>
+        <Text as="p" variant="subtitle" sx={{ a: { color: "inherit" } }}>
           We call someone we’ve always wanted to talk to—and the entire
           Hack&nbsp;Club Slack community is invited to ask questions & chat with
           the guest live. No vetting questions. No endorsements. Conversations
-          are streamed live publicly on{' '}
+          are streamed live publicly on{" "}
           <Link href="https://www.youtube.com/c/HackClubHQ">YouTube</Link>.
         </Text>
         <Button
@@ -64,7 +64,7 @@ const Page = ({ upcoming, past }) => (
           as="a"
           href="/slack"
           target="_blank"
-          sx={{ mt: [3, 4], mx: [1, 2], color: 'black', bg: 'white' }}
+          sx={{ mt: [3, 4], mx: [1, 2], color: "black", bg: "white" }}
         >
           Join Slack
         </Button>
@@ -73,7 +73,7 @@ const Page = ({ upcoming, past }) => (
           as="a"
           href="https://www.youtube.com/watch?v=O1J1pwGPQXY"
           target="_blank"
-          sx={{ mt: [3, 4], mx: [1, 2], color: 'white', bg: 'rgba(0,0,0,0.5)' }}
+          sx={{ mt: [3, 4], mx: [1, 2], color: "white", bg: "rgba(0,0,0,0.5)" }}
         >
           Watch our highlights
         </Button>
@@ -81,7 +81,7 @@ const Page = ({ upcoming, past }) => (
     </Box>
     <Box
       as="section"
-      sx={{ py: 5, bg: 'dark', color: 'white', textAlign: 'center' }}
+      sx={{ py: 5, bg: "dark", color: "white", textAlign: "center" }}
     >
       {upcoming.length > 0 && (
         <>
@@ -92,15 +92,17 @@ const Page = ({ upcoming, past }) => (
             variant="layout.container"
             sx={{
               py: 4,
-              flexWrap: 'wrap',
-              placeContent: 'center'
+              flexWrap: "wrap",
+              placeContent: "center",
             }}
           >
             {upcoming
               .sort((x, y) => {
-                return new Date(y.start).getTime() - new Date(x.start).getTime()
+                return (
+                  new Date(y.start).getTime() - new Date(x.start).getTime()
+                );
               })
-              .map(event => (
+              .map((event) => (
                 <Card
                   as="a"
                   href={`https://events.hackclub.com/${event.slug}`}
@@ -110,8 +112,8 @@ const Page = ({ upcoming, past }) => (
                     img: {
                       width: [96, 128],
                       height: [96, 128],
-                      borderRadius: 'circle'
-                    }
+                      borderRadius: "circle",
+                    },
                   }}
                   key={event.id}
                 >
@@ -122,7 +124,7 @@ const Page = ({ upcoming, past }) => (
                     alt={event.title}
                   />
                   <Heading as="h3" variant="subheadline" my={2}>
-                    {event.title.replace('AMA with ', '')}
+                    {event.title.replace("AMA with ", "")}
                   </Heading>
                   <Text as="p" variant="caption" mb={3}>
                     {dt(event.start)}
@@ -137,12 +139,12 @@ const Page = ({ upcoming, past }) => (
       )}
       <Link
         href="https://events.hackclub.com/"
-        sx={{ display: 'block', px: 3, fontSize: [2, 3] }}
+        sx={{ display: "block", px: 3, fontSize: [2, 3] }}
       >
         See all upcoming events »
       </Link>
     </Box>
-    <Box as="section" sx={{ py: 5, bg: 'darker', textAlign: 'center' }}>
+    <Box as="section" sx={{ py: 5, bg: "darker", textAlign: "center" }}>
       <Heading as="h2" variant="title" px={3} id="past-amas">
         Past AMAs
       </Heading>
@@ -150,22 +152,22 @@ const Page = ({ upcoming, past }) => (
         columns={[null, 2, 3]}
         gap={[3, 4]}
         variant="layout.container"
-        sx={{ pt: 4, textAlign: 'left' }}
+        sx={{ pt: 4, textAlign: "left" }}
       >
         {past
           .sort((x, y) => {
-            return new Date(y.start).getTime() - new Date(x.start).getTime()
+            return new Date(y.start).getTime() - new Date(x.start).getTime();
           })
-          .map(event => (
+          .map((event) => (
             <Card
-              as={event.youtube ? 'a' : 'section'}
+              as={event.youtube ? "a" : "section"}
               href={event.youtube}
               variant="interactive"
               sx={{
-                display: 'flex',
-                alignItems: 'center',
+                display: "flex",
+                alignItems: "center",
                 p: [0, 0],
-                img: { borderRadius: 'extra' }
+                img: { borderRadius: "extra" },
               }}
               key={event.id}
             >
@@ -177,7 +179,7 @@ const Page = ({ upcoming, past }) => (
               />
               <Box ml={3}>
                 <Heading as="h3" variant="subheadline" mb={1}>
-                  {event.title.replace('AMA with ', '')}
+                  {event.title.replace("AMA with ", "")}
                 </Heading>
                 <Text as="p" variant="caption" mb={2}>
                   {dt(event.start)}
@@ -194,22 +196,22 @@ const Page = ({ upcoming, past }) => (
     </Box>
     <Footer dark />
   </>
-)
+);
 
-export default Page
+export default Page;
 
 export const getStaticProps = async () => {
-  const { filter } = require('lodash')
-  let upcoming = []
-  let past = []
-  const d = dt => new Date(new Date(dt).toISOString().substring(0, 10))
-  const today = d(new Date())
-  await fetch('https://events.hackclub.com/api/amas')
-    .then(r => r.json())
-    .then(events => {
-      upcoming = filter(events, e => d(e.start) >= today)
-      past = filter(events, e => d(e.start) < today)
+  const { filter } = require("lodash");
+  let upcoming = [];
+  let past = [];
+  const d = (dt) => new Date(new Date(dt).toISOString().substring(0, 10));
+  const today = d(new Date());
+  await fetch("https://events.hackclub.com/api/amas")
+    .then((r) => r.json())
+    .then((events) => {
+      upcoming = filter(events, (e) => d(e.start) >= today);
+      past = filter(events, (e) => d(e.start) < today);
     })
-    .catch(e => console.error(e, 'Failed to fetch AMAs'))
-  return { props: { upcoming, past }, revalidate: 10 }
-}
+    .catch((e) => console.error(e, "Failed to fetch AMAs"));
+  return { props: { upcoming, past }, revalidate: 10 };
+};
