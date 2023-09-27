@@ -1,13 +1,13 @@
-import React from 'react'
-import Head from 'next/head'
+import React from "react";
+import Head from "next/head";
 
-import Analytics from '../components/analytics.js'
+import Analytics from "../components/analytics.js";
 
-import Meta from '@hackclub/meta'
-import '@hackclub/theme/fonts/reg-bold.css'
-import theme from '../lib/theme'
-import { ThemeProvider } from 'theme-ui'
-import { Provider as BalancerProvider } from 'react-wrap-balancer'
+import Meta from "@hackclub/meta";
+import "@hackclub/theme/fonts/reg-bold.css";
+import theme from "../lib/theme";
+import { ThemeProvider } from "theme-ui";
+import { Provider as BalancerProvider } from "react-wrap-balancer";
 
 const App = ({ Component, pageProps }) => (
   <ThemeProvider theme={theme}>
@@ -22,6 +22,6 @@ const App = ({ Component, pageProps }) => (
     </BalancerProvider>
     <Analytics />
   </ThemeProvider>
-)
+);
 
-export default App
+export default App;

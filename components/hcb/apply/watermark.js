@@ -1,38 +1,38 @@
-import React, { useRef, useEffect } from 'react'
-import { Box } from 'theme-ui'
+import React, { useRef, useEffect } from "react";
+import { Box } from "theme-ui";
 
 export default function Watermark() {
   /* This is going to come back to haunt me one day.
     It's an abomination but it works ... for now */
 
-  const shineRef = useRef()
-  const svgRef = useRef()
+  const shineRef = useRef();
+  const svgRef = useRef();
 
   // Mouse move event
   const handleMouseMove = ({ clientX, clientY }) => {
-    if (!shineRef.current || !svgRef.current) return
+    if (!shineRef.current || !svgRef.current) return;
 
-    const svgWidth = svgRef.current.clientWidth / 100
-    const svgFromTop = svgRef.current.getBoundingClientRect().top
-    const svgFromLeft = svgRef.current.getBoundingClientRect().left
+    const svgWidth = svgRef.current.clientWidth / 100;
+    const svgFromTop = svgRef.current.getBoundingClientRect().top;
+    const svgFromLeft = svgRef.current.getBoundingClientRect().left;
 
-    shineRef.current.style.top = `${clientY / svgWidth + 6.2}px`
-    shineRef.current.style.left = `${clientX / svgWidth + 9.2}px`
-  }
+    shineRef.current.style.top = `${clientY / svgWidth + 6.2}px`;
+    shineRef.current.style.left = `${clientX / svgWidth + 9.2}px`;
+  };
 
   // Bind event
   useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
     <Box
       sx={{
-        position: 'absolute',
+        position: "absolute",
         zIndex: -1,
         top: -330,
-        left: -480
+        left: -480,
       }}
     >
       <svg
@@ -40,9 +40,9 @@ export default function Watermark() {
         viewBox="0 0 100 100"
         preserveAspectRatio="none"
         style={{
-          position: 'fixed',
-          width: '4600px',
-          overflow: 'hidden'
+          position: "fixed",
+          width: "4600px",
+          overflow: "hidden",
         }}
       >
         <defs>
@@ -55,22 +55,22 @@ export default function Watermark() {
           <foreignObject id="clip-content" width="100%" height="100%">
             <Box
               sx={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                backgroundColor: '#1d181f',
-                clipPath: 'url(#my-clip-path)'
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                backgroundColor: "#1d181f",
+                clipPath: "url(#my-clip-path)",
               }}
             >
               <Box
                 ref={shineRef}
                 sx={{
-                  position: 'absolute',
-                  width: '2px',
-                  height: '2px',
-                  borderRadius: '50%',
-                  backgroundColor: 'red',
-                  filter: 'blur(2px)'
+                  position: "absolute",
+                  width: "2px",
+                  height: "2px",
+                  borderRadius: "50%",
+                  backgroundColor: "red",
+                  filter: "blur(2px)",
                 }}
               />
             </Box>
@@ -78,5 +78,5 @@ export default function Watermark() {
         </g>
       </svg>
     </Box>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-import { Box, Badge, Grid, Heading } from 'theme-ui'
-import { Link, Button, Card } from 'theme-ui'
-import { Slide } from 'react-reveal'
-import Zoom from 'react-reveal/Zoom'
-import MSparkles from '../../sparkles/money'
-import Image from 'next/image'
+import { Box, Badge, Grid, Heading } from "theme-ui";
+import { Link, Button, Card } from "theme-ui";
+import { Slide } from "react-reveal";
+import Zoom from "react-reveal/Zoom";
+import MSparkles from "../../sparkles/money";
+import Image from "next/image";
 /** @jsxImportSource theme-ui */
 
 const Photo = ({
@@ -28,18 +28,18 @@ const Photo = ({
       variant="interactive"
       sx={{
         p: [0, 0, 0],
-        boxShadow: 'elevated',
-        borderRadius: 'extra',
-        position: 'relative',
-        maxWidth: '100%',
+        boxShadow: "elevated",
+        borderRadius: "extra",
+        position: "relative",
+        maxWidth: "100%",
         lineHeight: 0,
-        height: 'fit-content',
+        height: "fit-content",
         ...props.sx,
-        img: { objectFit: 'cover', objectPosition: 'center' }
+        img: { objectFit: "cover", objectPosition: "center" },
       }}
     >
-      {' '}
-      <Box sx={{ position: 'relative' }}>
+      {" "}
+      <Box sx={{ position: "relative" }}>
         <Image
           src={src}
           alt={alt}
@@ -50,35 +50,35 @@ const Photo = ({
         <Box
           as="span"
           sx={{
-            width: 'fit-content',
+            width: "fit-content",
             bg: color,
             borderRadius: 20,
             lineHeight: 0,
-            p: '14px',
+            p: "14px",
             px: 0,
             mb: 1,
-            display: 'inline-block',
-            transform: ['scale(0.75)', 'none'],
-            transformOrigin: 'bottom left',
+            display: "inline-block",
+            transform: ["scale(0.75)", "none"],
+            transformOrigin: "bottom left",
             boxShadow:
-              'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)',
-            position: 'absolute',
-            bottom: '20px',
-            left: '20px',
-            fontSize: '20px'
+              "inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)",
+            position: "absolute",
+            bottom: "20px",
+            left: "20px",
+            fontSize: "20px",
           }}
         >
           <Badge variant="pill">{duration}</Badge>
         </Box>
       </Box>
-      <Box sx={{ mt: '20px' }}>
+      <Box sx={{ mt: "20px" }}>
         <Heading variant="subtitle" mb={2} p={3} pt={0}>
           {name}
         </Heading>
       </Box>
     </Card>
-  )
-}
+  );
+};
 
 const Apply = ({ channel }) => {
   return (
@@ -86,7 +86,7 @@ const Apply = ({ channel }) => {
       <Box id="apply" sx={{ pt: 6 }}>
         <Zoom>
           <Heading
-            sx={{ textAlign: 'center', mb: 3, fontSize: [5, null, 6, 7] }}
+            sx={{ textAlign: "center", mb: 3, fontSize: [5, null, 6, 7] }}
           >
             The <MSparkles>bucks</MSparkles> start here.
           </Heading>
@@ -94,10 +94,10 @@ const Apply = ({ channel }) => {
         <Zoom>
           <Heading
             sx={{
-              textAlign: 'center',
+              textAlign: "center",
               mb: [2, null, 4],
               fontSize: [28, 30, 40],
-              color: 'muted'
+              color: "muted",
             }}
           >
             Get your hackathon funded.
@@ -110,16 +110,16 @@ const Apply = ({ channel }) => {
         gap={[4, 3, 4]}
         columns={[1, 1, 3]}
         sx={{
-          textAlign: 'left',
-          '> a, > div': {
-            borderRadius: 'extra',
-            boxShadow: 'elevated'
+          textAlign: "left",
+          "> a, > div": {
+            borderRadius: "extra",
+            boxShadow: "elevated",
           },
           span: {
             boxShadow:
-              '-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)'
+              "-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)",
           },
-          svg: { fill: 'currentColor' }
+          svg: { fill: "currentColor" },
         }}
       >
         <Slide left delay={20}>
@@ -134,17 +134,17 @@ const Apply = ({ channel }) => {
             duration="Step 1"
             name={
               <>
-                On{' '}
+                On{" "}
                 <Link
                   href="https://hackclub.com/slack"
                   target="_blank"
                   sx={{
-                    color: 'white'
+                    color: "white",
                   }}
                 >
                   Slack
                 </Link>
-                , send your website to{' '}
+                , send your website to{" "}
                 <Link href={channel} target="_blank">
                   #hackathon-grants
                 </Link>
@@ -184,16 +184,16 @@ const Apply = ({ channel }) => {
         <Link
           href="/slack/?reason=Application%20for%20the%20high%20school%20hackathon%20grant"
           target="_blank"
-          sx={{ textDecoration: 'none' }}
+          sx={{ textDecoration: "none" }}
         >
           <Button
             as="a"
             variant="primary"
             sx={{
               fontSize: [2, null, 3],
-              display: 'block',
-              mx: 'auto',
-              width: 'fit-content'
+              display: "block",
+              mx: "auto",
+              width: "fit-content",
             }}
           >
             Join Slack
@@ -201,23 +201,23 @@ const Apply = ({ channel }) => {
         </Link>
         <Box
           sx={{
-            fontSize: ['14px', 1, 1],
-            textAlign: 'center',
-            color: 'muted',
+            fontSize: ["14px", 1, 1],
+            textAlign: "center",
+            color: "muted",
             my: 3,
-            width: '60%',
-            mx: 'auto'
+            width: "60%",
+            mx: "auto",
           }}
         >
-          Already have an account? Join the{' '}
+          Already have an account? Join the{" "}
           <Link href={channel} target="_blank">
             #hackathon-grants
-          </Link>{' '}
+          </Link>{" "}
           channel!
         </Box>
       </Slide>
     </>
-  )
-}
+  );
+};
 
-export default Apply
+export default Apply;

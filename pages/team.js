@@ -1,10 +1,10 @@
-import { Box, Container, Text, Grid, Flex } from 'theme-ui'
-import Meta from '@hackclub/meta'
-import Head from 'next/head'
-import Nav from '../components/nav'
-import Footer from '../components/footer'
-import Bio from '../components/bio'
-import ForceTheme from '../components/force-theme'
+import { Box, Container, Text, Grid, Flex } from "theme-ui";
+import Meta from "@hackclub/meta";
+import Head from "next/head";
+import Nav from "../components/nav";
+import Footer from "../components/footer";
+import Bio from "../components/bio";
+import ForceTheme from "../components/force-theme";
 
 export default function Team() {
   return (
@@ -23,9 +23,9 @@ export default function Team() {
           px={[2, 4]}
           sx={{
             backgroundImage:
-              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: '75%'
+              "radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "75%",
           }}
         >
           <Container>
@@ -38,7 +38,7 @@ export default function Team() {
               as="div"
               variant="lead"
               color="smoke"
-              sx={{ maxWidth: '650px' }}
+              sx={{ maxWidth: "650px" }}
             >
               We believe in a world where every young person is empowered to be
               the change they want to see around them. At Hack Club, we’re
@@ -50,12 +50,12 @@ export default function Team() {
           <Container>
             <Flex
               sx={{
-                bg: 'rgb(51 142 218 / 40%)',
+                bg: "rgb(51 142 218 / 40%)",
                 p: 3,
-                borderRadius: '20px',
+                borderRadius: "20px",
                 mb: 3,
                 gap: 3,
-                flexWrap: ['wrap', null, null, 'nowrap']
+                flexWrap: ["wrap", null, null, "nowrap"],
               }}
             >
               <Text
@@ -63,18 +63,18 @@ export default function Team() {
                 my={[0, 0, 3]}
                 as="h3"
                 sx={{
-                  textAlign: 'center',
+                  textAlign: "center",
                   fontSize: 4,
-                  writingMode: [null, null, null, 'vertical-rl'],
+                  writingMode: [null, null, null, "vertical-rl"],
                   mr: [0, 0, 0, 2],
-                  transform: [null, null, null, 'rotate(180deg)'],
-                  width: ['100%', null, null, 'fit-content'],
+                  transform: [null, null, null, "rotate(180deg)"],
+                  width: ["100%", null, null, "fit-content"],
                   marginBottom: [
-                    '0px!important',
-                    '0px!important',
-                    '0px!important',
-                    3
-                  ]
+                    "0px!important",
+                    "0px!important",
+                    "0px!important",
+                    3,
+                  ],
                 }}
               >
                 Our Board
@@ -127,9 +127,9 @@ export default function Team() {
               <Box>
                 <Box
                   sx={{
-                    bg: 'rgb(51 214 166 / 40%)',
+                    bg: "rgb(51 214 166 / 40%)",
                     p: 3,
-                    borderRadius: '20px'
+                    borderRadius: "20px",
                   }}
                 >
                   <Text
@@ -137,7 +137,7 @@ export default function Team() {
                     mt={2}
                     mb={3}
                     as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
+                    sx={{ textAlign: "center", fontSize: 4 }}
                   >
                     Hacker Resources Team
                   </Text>
@@ -210,10 +210,10 @@ export default function Team() {
                 </Box>
                 <Box
                   sx={{
-                    bg: 'rgb(255 142 55 / 40%)',
+                    bg: "rgb(255 142 55 / 40%)",
                     p: 3,
-                    borderRadius: '20px',
-                    mt: 3
+                    borderRadius: "20px",
+                    mt: 3,
                   }}
                 >
                   <Text
@@ -221,14 +221,14 @@ export default function Team() {
                     mt={2}
                     mb={3}
                     as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
+                    sx={{ textAlign: "center", fontSize: 4 }}
                   >
                     Communications & Philanthropy
                   </Text>
                   <Grid
                     columns={[1, null, 2]}
                     gap={2}
-                    sx={{ height: 'fit-content' }}
+                    sx={{ height: "fit-content" }}
                   >
                     <Bio
                       name="Belle See"
@@ -257,9 +257,9 @@ export default function Team() {
               <Box>
                 <Box
                   sx={{
-                    bg: 'rgb(236 55 80 / 40%)',
+                    bg: "rgb(236 55 80 / 40%)",
                     p: 3,
-                    borderRadius: '20px'
+                    borderRadius: "20px",
                   }}
                 >
                   <Text
@@ -267,14 +267,14 @@ export default function Team() {
                     mt={2}
                     mb={3}
                     as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
+                    sx={{ textAlign: "center", fontSize: 4 }}
                   >
                     HCB Team
                   </Text>
                   <Grid
                     columns={[1, null, 2]}
                     gap={2}
-                    sx={{ height: 'fit-content' }}
+                    sx={{ height: "fit-content" }}
                   >
                     <Bio
                       img="/team/max.jpg"
@@ -345,10 +345,10 @@ export default function Team() {
 
                 <Box
                   sx={{
-                    bg: 'rgb(166 51 214 / 40%)',
+                    bg: "rgb(166 51 214 / 40%)",
                     p: 3,
-                    borderRadius: '20px',
-                    mt: 3
+                    borderRadius: "20px",
+                    mt: 3,
                   }}
                 >
                   <Text
@@ -356,7 +356,7 @@ export default function Team() {
                     mt={2}
                     mb={3}
                     as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
+                    sx={{ textAlign: "center", fontSize: 4 }}
                   >
                     Community Team
                   </Text>
@@ -415,11 +415,11 @@ export default function Team() {
               </Box>
             </Grid>
             <br />
-            <Box sx={{ textAlign: 'center', mt: 2, mb: [3, 4] }}>
+            <Box sx={{ textAlign: "center", mt: 2, mb: [3, 4] }}>
               <Text
                 variant="title"
                 color="orange"
-                sx={{ lineHeight: '1em', fontSize: [4, 5, 6] }}
+                sx={{ lineHeight: "1em", fontSize: [4, 5, 6] }}
                 as="h2"
               >
                 Acknowledgements
@@ -428,13 +428,13 @@ export default function Team() {
                 variant="title"
                 color="text"
                 sx={{
-                  lineHeight: '1.2',
+                  lineHeight: "1.2",
                   fontSize: [1, 3, 4],
                   my: [3, 0, 0],
                   fontWeight: 400,
-                  maxWidth: '600px',
-                  width: '100%',
-                  margin: 'auto'
+                  maxWidth: "600px",
+                  width: "100%",
+                  margin: "auto",
                 }}
                 as="h2"
               >
@@ -612,5 +612,5 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
       </Box>
       <Footer light key="footer" />
     </>
-  )
+  );
 }
