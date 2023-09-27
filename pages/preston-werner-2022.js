@@ -7,22 +7,22 @@ import {
   Grid,
   Heading,
   Link,
-  Text
-} from 'theme-ui'
-import Head from 'next/head'
-import Meta from '@hackclub/meta'
-import Nav from '../components/nav'
-import ForceTheme from '../components/force-theme'
-import Footer from '../components/footer'
-import PrestonWernerCopy from '../components/announcements/preston-werner-2022.mdx'
-import Amount from '../components/announcements/amount'
-import SlackCTA from '../components/announcements/cta'
-import AnnouncementHolder from '../components/announcements/holder'
+  Text,
+} from "theme-ui";
+import Head from "next/head";
+import Meta from "@hackclub/meta";
+import Nav from "../components/nav";
+import ForceTheme from "../components/force-theme";
+import Footer from "../components/footer";
+import PrestonWernerCopy from "../components/announcements/preston-werner-2022.mdx";
+import Amount from "../components/announcements/amount";
+import SlackCTA from "../components/announcements/cta";
+import AnnouncementHolder from "../components/announcements/holder";
 import {
   PillHolder,
   AuthorPill,
-  DatePill
-} from '../components/announcements/pills'
+  DatePill,
+} from "../components/announcements/pills";
 
 const Page = () => (
   <>
@@ -39,25 +39,25 @@ const Page = () => (
       sx={{
         pt: [5, 6],
         pb: [4, 5],
-        bg: 'rgb(104, 41, 205)',
-        backgroundImage: theme => theme.util.gx('blue', 'green')
+        bg: "rgb(104, 41, 205)",
+        backgroundImage: (theme) => theme.util.gx("blue", "green"),
       }}
     >
-      <Container sx={{ textAlign: 'center', color: 'white' }}>
+      <Container sx={{ textAlign: "center", color: "white" }}>
         <Heading
           as="h1"
           variant="title"
           sx={{
-            fontSize: [5, 6, null, '82px'],
+            fontSize: [5, 6, null, "82px"],
             span: {
-              WebkitTextStroke: 'currentColor',
-              WebkitTextStrokeWidth: ['2px', '3px'],
-              WebkitTextFillColor: 'transparent'
-            }
+              WebkitTextStroke: "currentColor",
+              WebkitTextStrokeWidth: ["2px", "3px"],
+              WebkitTextFillColor: "transparent",
+            },
           }}
         >
-          Tom and Theresa{' '}
-          <span style={{ whiteSpace: 'nowrap' }}>Preston-Werner</span> are
+          Tom and Theresa{" "}
+          <span style={{ whiteSpace: "nowrap" }}>Preston-Werner</span> are
           donating <Amount amount="$500,000" /> to&nbsp;Hack&nbsp;Club
         </Heading>
       </Container>
@@ -81,6 +81,6 @@ const Page = () => (
     <SlackCTA />
     <Footer />
   </>
-)
+);
 
-export default Page
+export default Page;

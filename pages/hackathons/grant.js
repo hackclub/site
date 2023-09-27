@@ -1,24 +1,24 @@
-import { Box, Container, Flex, Grid, Heading } from 'theme-ui'
-import Meta from '@hackclub/meta'
-import Head from 'next/head'
-import ForceTheme from '../../components/force-theme'
-import Nav from '../../components/nav'
-import Footer from '../../components/footer'
-import MSparkles from '../../components/sparkles/money'
-import NextLink from 'next/link'
-import { Link, Text, Button, Card } from 'theme-ui'
-import Icon from '@hackclub/icons'
-import Form from '../../components/hackathons/grant/form'
-import Apply from '../../components/hackathons/grant/apply'
+import { Box, Container, Flex, Grid, Heading } from "theme-ui";
+import Meta from "@hackclub/meta";
+import Head from "next/head";
+import ForceTheme from "../../components/force-theme";
+import Nav from "../../components/nav";
+import Footer from "../../components/footer";
+import MSparkles from "../../components/sparkles/money";
+import NextLink from "next/link";
+import { Link, Text, Button, Card } from "theme-ui";
+import Icon from "@hackclub/icons";
+import Form from "../../components/hackathons/grant/form";
+import Apply from "../../components/hackathons/grant/apply";
 
-import Zoom from 'react-reveal/Zoom'
+import Zoom from "react-reveal/Zoom";
 /** @jsxImportSource theme-ui */
 
 const styles = `
   html {
     scroll-behavior: smooth;
   }
-`
+`;
 
 const Requirement = ({ title, children, checkmark, background, size }) => {
   return (
@@ -26,19 +26,19 @@ const Requirement = ({ title, children, checkmark, background, size }) => {
       <Card
         variant="interactive"
         sx={{
-          backgroundColor: 'elevated',
+          backgroundColor: "elevated",
           backgroundImage: `url('${background}')`,
-          backgroundSize: '40px 40px',
-          backgroundRepeat: 'repeat',
-          backgroundPosition: '10% 10%',
-          color: 'snow',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'start',
-          height: '100%'
+          backgroundSize: "40px 40px",
+          backgroundRepeat: "repeat",
+          backgroundPosition: "10% 10%",
+          color: "snow",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "start",
+          height: "100%",
         }}
       >
-        <Flex sx={{ alignItems: 'center' }}>
+        <Flex sx={{ alignItems: "center" }}>
           <Box mr={3} sx={{ lineHeight: 0, flexShrink: 0 }}>
             <Icon glyph={checkmark} color="#ec3750" size={size} />
           </Box>
@@ -52,12 +52,12 @@ const Requirement = ({ title, children, checkmark, background, size }) => {
         </Text>
       </Card>
     </Zoom>
-  )
-}
+  );
+};
 
 const HackathonGrant = () => {
-  let open = true // applications are open
-  let channel = 'https://hackclub.slack.com/archives/C03TS0VKFPZ' // #hackathon-grants
+  let open = true; // applications are open
+  let channel = "https://hackclub.slack.com/archives/C03TS0VKFPZ"; // #hackathon-grants
 
   return (
     <>
@@ -76,38 +76,38 @@ const HackathonGrant = () => {
           sx={{
             pt: [5, null, null, null, 6],
             pb: [3, 4, 5, null, 6],
-            minHeight: ['70vh', 'none'],
-            textAlign: 'center',
+            minHeight: ["70vh", "none"],
+            textAlign: "center",
             backgroundImage:
               "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://cloud-gxxp8xcyl-hack-club-bot.vercel.app/0fzfm1e-ueaef1qw.jpeg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
+            backgroundSize: "cover",
+            backgroundPosition: "center center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
           <Box
             sx={{
-              width: '100%',
-              maxWidth: 'calc(56rem + 32px)',
-              mx: 'auto',
-              px: '16px',
-              backdropFilter: 'blur(1.5px)'
+              width: "100%",
+              maxWidth: "calc(56rem + 32px)",
+              mx: "auto",
+              px: "16px",
+              backdropFilter: "blur(1.5px)",
             }}
           >
             <Heading
               sx={{
-                textAlign: 'center',
+                textAlign: "center",
                 mt: [2, 4],
-                textShadow: '0 0 16px rgba(0, 0, 0, 1)',
-                fontSize: [5, null, 6, 7]
+                textShadow: "0 0 16px rgba(0, 0, 0, 1)",
+                fontSize: [5, null, 6, 7],
               }}
               as="h1"
               variant="title"
             >
               <Flex
-                sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
+                sx={{ justifyContent: "center", alignItems: "center", mb: 2 }}
               >
                 <NextLink href="https://hackclub.com" passHref>
                   <Box
@@ -119,36 +119,36 @@ const HackathonGrant = () => {
                       height: 72,
                       backgroundImage:
                         "url('https://assets.hackclub.com/icon-square.svg')",
-                      backgroundSize: 'contain',
-                      backgroundPosition: 'center center',
-                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: "contain",
+                      backgroundPosition: "center center",
+                      backgroundRepeat: "no-repeat",
                       mr: 3,
-                      borderRadius: 8
+                      borderRadius: 8,
                     }}
                     target="_blank"
                   ></Box>
                 </NextLink>
               </Flex>
-              A <MSparkles>$500</MSparkles> grant for your{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>in-person</a> hackathon.
+              A <MSparkles>$500</MSparkles> grant for your{" "}
+              <a sx={{ whiteSpace: "nowrap" }}>in-person</a> hackathon.
             </Heading>
             <Box
               sx={{
                 fontSize: [2, 3, 3],
-                textAlign: 'center',
-                my: 4
+                textAlign: "center",
+                my: 4,
               }}
             >
-              Hack Club is providing $500 grants (and waiving{' '}
+              Hack Club is providing $500 grants (and waiving{" "}
               <Link href="/hcb" target="_blank">
                 HCB
-              </Link>{' '}
-              fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons until
+              </Link>{" "}
+              fees) to <a sx={{ whiteSpace: "nowrap" }}>in-person</a>{" "}
+              <a sx={{ whiteSpace: "nowrap" }}>high school</a> hackathons until
               December 31st, 2023.
             </Box>
             <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
-              {open ? 'Apply Now' : 'Coming Soon'}
+              {open ? "Apply Now" : "Coming Soon"}
             </Button>
             <Button
               variant="ctaLg"
@@ -157,12 +157,12 @@ const HackathonGrant = () => {
               sx={{
                 ml: [0, 3],
                 mt: 2,
-                backgroundImage: t => t.util.gx('green', 'blue')
+                backgroundImage: (t) => t.util.gx("green", "blue"),
               }}
             >
               <Text>
-                Find hackathons{' '}
-                <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
+                Find hackathons{" "}
+                <Text sx={{ display: ["none", "inline"] }}>near you</Text>
               </Text>
             </Button>
           </Box>
@@ -173,17 +173,17 @@ const HackathonGrant = () => {
             variant="heading"
             mt={4}
             mb={3}
-            sx={{ fontSize: [28, 30, 40], textAlign: 'center' }}
+            sx={{ fontSize: [28, 30, 40], textAlign: "center" }}
           >
             Check if your hackathon qualifies
           </Text>
           <Text
             as="p"
             sx={{
-              textAlign: 'center',
+              textAlign: "center",
               my: 3,
-              color: 'white',
-              fontSize: [1, 2, 2]
+              color: "white",
+              fontSize: [1, 2, 2],
             }}
           >
             Your hackathon should be <Text as="b">free</Text> for all attendees
@@ -204,8 +204,8 @@ const HackathonGrant = () => {
               <br />
               <Text
                 sx={{
-                  fontSize: ['14px', 1, 1],
-                  color: 'muted'
+                  fontSize: ["14px", 1, 1],
+                  color: "muted",
                 }}
               >
                 This is not an annual program and has only been renewed until
@@ -215,8 +215,8 @@ const HackathonGrant = () => {
             <Requirement
               title={
                 <>
-                  By <a sx={{ whiteSpace: 'nowrap' }}>high schoolers</a>, for{' '}
-                  <a sx={{ whiteSpace: 'nowrap' }}>high schoolers</a>
+                  By <a sx={{ whiteSpace: "nowrap" }}>high schoolers</a>, for{" "}
+                  <a sx={{ whiteSpace: "nowrap" }}>high schoolers</a>
                 </>
               }
               checkmark="profile-fill"
@@ -231,8 +231,8 @@ const HackathonGrant = () => {
               <br />
               <Text
                 sx={{
-                  fontSize: ['14px', 1, 1],
-                  color: 'muted'
+                  fontSize: ["14px", 1, 1],
+                  color: "muted",
                 }}
               >
                 Maximum of 1 college student is allowed on your organizing team.
@@ -252,8 +252,8 @@ const HackathonGrant = () => {
               <br />
               <Text
                 sx={{
-                  color: 'muted',
-                  fontSize: ['14px', 1, 1]
+                  color: "muted",
+                  fontSize: ["14px", 1, 1],
                 }}
               >
                 Your event must be at least 8 consecutive hours long to qualify
@@ -265,13 +265,13 @@ const HackathonGrant = () => {
               checkmark="pin-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:pin.svg"
             >
-              You will need to provide a scan of an email, contract, or an{' '}
+              You will need to provide a scan of an email, contract, or an{" "}
               <Link
                 href="https://www.investopedia.com/terms/m/mou.asp"
                 target="_blank"
               >
                 MOU
-              </Link>{' '}
+              </Link>{" "}
               with your venue. Your scan should have the date of your hackathon
               and address, contact details, and the specific commitment of your
               venue.
@@ -279,8 +279,8 @@ const HackathonGrant = () => {
               <br />
               <Text
                 sx={{
-                  color: 'muted',
-                  fontSize: ['14px', 1, 1]
+                  color: "muted",
+                  fontSize: ["14px", 1, 1],
                 }}
               >
                 If your venue is a school, attendance must not be limited to a
@@ -301,31 +301,31 @@ const HackathonGrant = () => {
               <br />
               <Text
                 sx={{
-                  fontSize: ['14px', 1, 1],
-                  color: 'muted'
+                  fontSize: ["14px", 1, 1],
+                  color: "muted",
                 }}
               >
                 You will need to share a link to your website. Don't have a
-                domain? HCB provides a free domain. Check out this{' '}
+                domain? HCB provides a free domain. Check out this{" "}
                 <Link
                   href="https://notebook.lachlanjc.com/2019-09-06_making_a_hackathon_site"
                   target="_blank"
                   sx={{
-                    color: 'muted'
+                    color: "muted",
                   }}
                 >
                   guide on building hackathon websites
-                </Link>{' '}
-                or ask in{' '}
+                </Link>{" "}
+                or ask in{" "}
                 <Link
                   href="/slack"
                   target="_blank"
                   sx={{
-                    color: 'muted'
+                    color: "muted",
                   }}
                 >
                   Slack
-                </Link>{' '}
+                </Link>{" "}
                 if you need help.
               </Text>
             </Requirement>
@@ -336,24 +336,24 @@ const HackathonGrant = () => {
               size="28"
             >
               You'll receive your grant through HCB, our financial platform for
-              hackathons, and spend it in the open with{' '}
+              hackathons, and spend it in the open with{" "}
               <Link
                 href="https://changelog.hcb.hackclub.com/transparent-finances-(optional-feature)-151427"
                 target="_blank"
               >
                 Transparency Mode
               </Link>
-              . Sign up for{' '}
+              . Sign up for{" "}
               <Link href="/hcb" target="_blank">
                 HCB
-              </Link>{' '}
+              </Link>{" "}
               before applying.
               <br />
               <br />
               <Text
                 sx={{
-                  fontSize: ['14px', 1, 1],
-                  color: 'muted'
+                  fontSize: ["14px", 1, 1],
+                  color: "muted",
                 }}
               >
                 If you're unable to use HCB, we're unfortunately unable to
@@ -364,17 +364,17 @@ const HackathonGrant = () => {
           <Text
             as="p"
             sx={{
-              textAlign: 'center',
+              textAlign: "center",
               mt: 3,
-              color: 'muted'
+              color: "muted",
             }}
           >
             If you'd like to list us on your site (optional), you can use the
-            logos found on the respective brand guides for{' '}
+            logos found on the respective brand guides for{" "}
             <Link href="/brand" target="_blank">
               Hack Club
-            </Link>{' '}
-            and{' '}
+            </Link>{" "}
+            and{" "}
             <Link href="https://www.firstinspires.org/brand" target="_blank">
               <i>FIRST®</i>
             </Link>
@@ -388,7 +388,7 @@ const HackathonGrant = () => {
           ) : (
             <>
               <Heading
-                sx={{ textAlign: 'center', mb: 3, fontSize: 5 }}
+                sx={{ textAlign: "center", mb: 3, fontSize: 5 }}
                 id="apply"
               >
                 Applications opening soon.
@@ -405,18 +405,18 @@ const HackathonGrant = () => {
           variant="interactive"
           href="mailto:hcb@hackclub.com"
           sx={{
-            mx: 'auto',
-            maxWidth: '52rem',
-            width: '90%',
-            textAlign: 'left',
-            textDecoration: 'none',
-            lineHeight: 'caption',
-            display: 'flex',
-            alignItems: 'center',
+            mx: "auto",
+            maxWidth: "52rem",
+            width: "90%",
+            textAlign: "left",
+            textDecoration: "none",
+            lineHeight: "caption",
+            display: "flex",
+            alignItems: "center",
             fontSize: [1, 2, 2],
             mb: [3, 4],
-            p: '16px !important',
-            svg: { flexShrink: 'none' }
+            p: "16px !important",
+            svg: { flexShrink: "none" },
           }}
         >
           <Icon
@@ -425,16 +425,16 @@ const HackathonGrant = () => {
             sx={{
               mr: [2, 3],
               ml: 2,
-              display: ['none', 'block'],
+              display: ["none", "block"],
               width: 56,
-              height: 'auto'
+              height: "auto",
             }}
           />
           <Text
             as="p"
             sx={{
-              flex: '1 1 auto',
-              strong: { display: ['inline', 'block'], pl: 3 }
+              flex: "1 1 auto",
+              strong: { display: ["inline", "block"], pl: 3 },
             }}
           >
             <strong>Questions?</strong>
@@ -446,7 +446,7 @@ const HackathonGrant = () => {
       </Zoom>
       <Footer dark key="footer" />
     </>
-  )
-}
+  );
+};
 
-export default HackathonGrant
+export default HackathonGrant;

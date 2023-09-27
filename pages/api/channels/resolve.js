@@ -4,21 +4,21 @@ export default async function handler(req, res) {
     `https://slack.com/api/conversations.info?channel=${req.query.id}`,
     {
       headers: {
-        Authorization: `Bearer ${process.env.SLACK_BOT_TOKEN}`
-      }
-    }
-  )
+        Authorization: `Bearer ${process.env.SLACK_BOT_TOKEN}`,
+      },
+    },
+  );
 
   if (!channelDataReq.ok) {
-    console.warn(await channelDataReq.text())
-    return res.status(503).end()
+    console.warn(await channelDataReq.text());
+    return res.status(503).end();
   }
 
-  const channelData = await channelDataReq.json()
+  const channelData = await channelDataReq.json();
   if (!channelData.ok) {
-    console.warn(channelData)
-    return res.status(400).end()
+    console.warn(channelData);
+    return res.status(400).end();
   }
 
-  res.status(200).send({ name: channelData.channel.name })
+  res.status(200).send({ name: channelData.channel.name });
 }

@@ -1,21 +1,21 @@
-import { Box, Container, Heading, Card, Text, Grid } from 'theme-ui'
-import Head from 'next/head'
-import Meta from '@hackclub/meta'
-import ForceTheme from '/components/force-theme'
-import Nav from '../../components/nav'
-import Footer from '../../components/footer'
-import Link from 'next/link'
-import Icon from '../../components/icon'
-import Image from 'next/image'
-import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
-import { compact } from 'lodash'
+import { Box, Container, Heading, Card, Text, Grid } from "theme-ui";
+import Head from "next/head";
+import Meta from "@hackclub/meta";
+import ForceTheme from "/components/force-theme";
+import Nav from "../../components/nav";
+import Footer from "../../components/footer";
+import Link from "next/link";
+import Icon from "../../components/icon";
+import Image from "next/image";
+import zephyrPic from "../../public/jobs/zephyr-group-pic.jpg";
+import { compact } from "lodash";
 
 const JobListing = ({
   positionName,
   positionDesc,
   positionLink,
   positionLocation,
-  positionType
+  positionType,
 }) => (
   <Link href={positionLink} passHref>
     <Card
@@ -23,26 +23,26 @@ const JobListing = ({
       as="a"
       target="_blank"
       sx={{
-        width: '100%',
-        textDecoration: 'none',
-        'span > svg': {
-          opacity: '0',
-          transition: '0.3s ease-in-out'
+        width: "100%",
+        textDecoration: "none",
+        "span > svg": {
+          opacity: "0",
+          transition: "0.3s ease-in-out",
         },
-        '&:hover span > svg': {
-          opacity: '1'
-        }
+        "&:hover span > svg": {
+          opacity: "1",
+        },
       }}
     >
       <Box
         as="span"
-        sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}
+        sx={{ display: "flex", justifyContent: "space-between", width: "100%" }}
       >
         <Heading
           variant="headline"
           sx={{
-            color: 'black',
-            m: 0
+            color: "black",
+            m: 0,
           }}
         >
           {positionName}
@@ -54,15 +54,15 @@ const JobListing = ({
         variant="caption"
         sx={{
           mt: 1,
-          display: 'block',
-          textAlign: 'left'
+          display: "block",
+          textAlign: "left",
         }}
       >
-        {compact([positionDesc, positionLocation, positionType]).join(' • ')}
+        {compact([positionDesc, positionLocation, positionType]).join(" • ")}
       </Text>
     </Card>
   </Link>
-)
+);
 
 const Page = ({ jobs }) => (
   <>
@@ -77,28 +77,28 @@ const Page = ({ jobs }) => (
       as="main"
       key="main"
       sx={{
-        color: 'black'
+        color: "black",
       }}
     >
       <Box
         sx={{
           py: [5, 6],
           background:
-            'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          textAlign: 'center',
-          position: 'relative'
+            "linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          textAlign: "center",
+          position: "relative",
         }}
       >
         <Box
           sx={{
-            position: 'absolute',
+            position: "absolute",
             top: 0,
             left: 0,
             bottom: 0,
             right: 0,
-            zIndex: -1
+            zIndex: -1,
           }}
         >
           <Image
@@ -112,33 +112,33 @@ const Page = ({ jobs }) => (
           <Heading
             as="h1"
             sx={{
-              fontSize: ['48px', '48px', '72px'],
-              color: 'white'
+              fontSize: ["48px", "48px", "72px"],
+              color: "white",
             }}
           >
             Join the Hack Club Team
           </Heading>
           <Heading
             sx={{
-              color: 'smoke',
+              color: "smoke",
               mt: 3,
-              fontSize: ['18px', '24px'],
-              lineHeight: ['1.5', '1.125']
+              fontSize: ["18px", "24px"],
+              lineHeight: ["1.5", "1.125"],
             }}
           >
             <Text
               sx={{
-                bg: 'dark',
-                color: 'green',
-                width: 'fit-content',
+                bg: "dark",
+                color: "green",
+                width: "fit-content",
                 px: 3,
                 py: [1, 2],
                 borderRadius: 6,
-                mr: 1
+                mr: 1,
               }}
             >
               $ ssh jobs.hackclub.com
-            </Text>{' '}
+            </Text>{" "}
             or scroll down to learn more...
           </Heading>
         </Container>
@@ -146,14 +146,14 @@ const Page = ({ jobs }) => (
       <Container sx={{ py: [3, 4], px: [2, 2, 0] }}>
         <Grid
           sx={{
-            maxWidth: '64rem',
-            mx: 'auto'
+            maxWidth: "64rem",
+            mx: "auto",
           }}
           align="left"
-          columns={['1fr', '1fr 1fr']}
+          columns={["1fr", "1fr 1fr"]}
         >
           {jobs.items.length > 0 ? (
-            jobs.items.map(job => (
+            jobs.items.map((job) => (
               <JobListing
                 key={job.id}
                 positionName={job.title}
@@ -167,10 +167,10 @@ const Page = ({ jobs }) => (
             <Text
               variant="headline"
               sx={{
-                color: 'muted',
-                textAlign: 'center',
-                mx: 'auto',
-                gridColumn: '1 / -1'
+                color: "muted",
+                textAlign: "center",
+                mx: "auto",
+                gridColumn: "1 / -1",
               }}
             >
               No open roles at this time. Check back later!
@@ -182,19 +182,19 @@ const Page = ({ jobs }) => (
 
     <Footer key="footer" />
   </>
-)
+);
 
-export default Page
+export default Page;
 
 export async function getStaticProps() {
   const data = await fetch(
-    'https://api.polymer.co/v1/hire/organizations/hackclub/jobs'
-  )
-  const jobs = await data.json()
+    "https://api.polymer.co/v1/hire/organizations/hackclub/jobs",
+  );
+  const jobs = await data.json();
   return {
     props: {
-      jobs
+      jobs,
     },
-    revalidate: 60
-  }
+    revalidate: 60,
+  };
 }
