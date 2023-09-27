@@ -8,25 +8,25 @@ import {
   Image,
   Badge,
   Link,
-  Text
-} from 'theme-ui'
-import styled from '@emotion/styled'
-import Head from 'next/head'
-import NextLink from 'next/link'
-import Meta from '@hackclub/meta'
-import Nav from '../components/nav'
-import Icon from '../components/icon'
-import BGImg from '../components/background-image'
-import ForceTheme from '../components/force-theme'
-import SlideDown from '../components/slide-down'
-import FadeIn from '../components/fade-in'
-import Photo from '../components/photo'
-import Footer from '../components/footer'
-import FooterImgFile from '../public/home/footer.png'
-import AssembleImgFile from '../public/home/assemble.jpg'
-import Slack from '../components/slack'
-import Announcement from '../components/announcement'
-import Stage from '../components/stage'
+  Text,
+} from "theme-ui";
+import styled from "@emotion/styled";
+import Head from "next/head";
+import NextLink from "next/link";
+import Meta from "@hackclub/meta";
+import Nav from "../components/nav";
+import Icon from "../components/icon";
+import BGImg from "../components/background-image";
+import ForceTheme from "../components/force-theme";
+import SlideDown from "../components/slide-down";
+import FadeIn from "../components/fade-in";
+import Photo from "../components/photo";
+import Footer from "../components/footer";
+import FooterImgFile from "../public/home/footer.png";
+import AssembleImgFile from "../public/home/assemble.jpg";
+import Slack from "../components/slack";
+import Announcement from "../components/announcement";
+import Stage from "../components/stage";
 
 let Highlight = styled(Text)`
   color: inherit;
@@ -37,41 +37,41 @@ let Highlight = styled(Text)`
     rgba(250, 247, 133, 0.66) 95%,
     rgba(250, 247, 133, 0.1)
   );
-`
-Highlight = Highlight.withComponent('mark')
+`;
+Highlight = Highlight.withComponent("mark");
 
 const Feature = ({ icon, color, name, desc, children, sx, ...props }) => (
   <Box
     sx={{
-      display: 'grid',
+      display: "grid",
       gridGap: [0, 4],
-      gridTemplateColumns: [null, 'auto 1fr'],
-      alignItems: 'start',
-      justifyContent: 'start',
-      bg: 'rgba(224, 230, 237, 0.25)',
+      gridTemplateColumns: [null, "auto 1fr"],
+      alignItems: "start",
+      justifyContent: "start",
+      bg: "rgba(224, 230, 237, 0.25)",
       p: [3, 4],
       mt: [1, 1],
-      borderRadius: 'extra',
-      span: { transform: 'none', width: 'min-intrinsic' },
-      svg: { color: 'white' },
-      ...sx
+      borderRadius: "extra",
+      span: { transform: "none", width: "min-intrinsic" },
+      svg: { color: "white" },
+      ...sx,
     }}
   >
     {children || (
       <Box
         as="span"
         sx={{
-          width: 'fit-content',
+          width: "fit-content",
           bg: color,
           borderRadius: 18,
           lineHeight: 0,
           p: 2,
           mb: 1,
-          display: 'inline-block',
-          transform: ['scale(0.75)', 'none'],
-          transformOrigin: 'bottom left',
+          display: "inline-block",
+          transform: ["scale(0.75)", "none"],
+          transformOrigin: "bottom left",
           boxShadow:
-            'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
+            "inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)",
         }}
       >
         <Icon glyph={icon} size={48} />
@@ -84,13 +84,13 @@ const Feature = ({ icon, color, name, desc, children, sx, ...props }) => (
       <Text
         as="p"
         variant="subtitle"
-        sx={{ mt: 0, pb: 2, a: { variant: 'styles.a', color: 'blue' } }}
+        sx={{ mt: 0, pb: 2, a: { variant: "styles.a", color: "blue" } }}
       >
         {desc}
       </Text>
     </Box>
   </Box>
-)
+);
 
 const Page = () => (
   <>
@@ -112,12 +112,12 @@ const Page = () => (
     <Box
       as="header"
       sx={{
-        bg: 'dark',
+        bg: "dark",
         pt: [5, 6],
         pb: [2, 3],
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden'
+        textAlign: "center",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
       <BGImg
@@ -138,33 +138,33 @@ const Page = () => (
           as="h1"
           variant="ultratitle"
           sx={{
-            color: 'white',
-            textShadow: 'text',
-            filter: 'drop-shadow(0 -2px 4px rgba(0,0,0,0.5))',
-            WebkitFilter: 'drop-shadow(0 -2px 4px rgba(0,0,0,0.5))',
-            maxWidth: [null, 'copyUltra'],
+            color: "white",
+            textShadow: "text",
+            filter: "drop-shadow(0 -2px 4px rgba(0,0,0,0.5))",
+            WebkitFilter: "drop-shadow(0 -2px 4px rgba(0,0,0,0.5))",
+            maxWidth: [null, "copyUltra"],
             my: [3, 4],
-            mx: 'auto',
-            zIndex: 1
+            mx: "auto",
+            zIndex: 1,
           }}
         >
           <Text
             as="span"
             sx={{
               lineHeight: 0.875,
-              display: 'block',
-              pb: 3
+              display: "block",
+              pb: 3,
             }}
           >
             Don’t run your coding&nbsp;club alone.
           </Text>
-          Make it a{' '}
+          Make it a{" "}
           <Text
             as="span"
             sx={{
-              WebkitTextStroke: 'currentColor',
-              WebkitTextStrokeWidth: ['2px', '3px'],
-              WebkitTextFillColor: 'transparent'
+              WebkitTextStroke: "currentColor",
+              WebkitTextStrokeWidth: ["2px", "3px"],
+              WebkitTextFillColor: "transparent",
             }}
           >
             Hack&nbsp;Club
@@ -177,12 +177,12 @@ const Page = () => (
           as="p"
           variant="lead"
           sx={{
-            color: 'white',
-            textShadow: 'text',
+            color: "white",
+            textShadow: "text",
             maxWidth: 620,
             mt: 0,
-            mx: 'auto',
-            mb: [3, 4]
+            mx: "auto",
+            mb: [3, 4],
           }}
         >
           Hack Club is a nonprofit network of high school coding&nbsp;clubs and
@@ -203,9 +203,9 @@ const Page = () => (
             variant="ctaLg"
             href="/slack"
             sx={{
-              backgroundImage: t => t.util.gx('green', 'blue'),
+              backgroundImage: (t) => t.util.gx("green", "blue"),
               ml: [0, 3],
-              mt: [3, 0]
+              mt: [3, 0],
             }}
           >
             Join the Slack
@@ -214,10 +214,10 @@ const Page = () => (
       </FadeIn>
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: ['center', 'center', 'flex-end'],
+          display: "flex",
+          justifyContent: ["center", "center", "flex-end"],
           marginRight: 2,
-          mt: [2, 2, 1]
+          mt: [2, 2, 1],
         }}
       >
         <Badge
@@ -225,14 +225,14 @@ const Page = () => (
           href="https://www.youtube.com/watch?v=PnK4gzO6S3Q"
           variant="pill"
           sx={{
-            zIndex: '1',
-            bg: '#000',
-            color: 'white',
+            zIndex: "1",
+            bg: "#000",
+            color: "white",
             opacity: 0.5,
-            textDecoration: 'none',
-            fontWeight: 'normal',
-            ':hover': { opacity: 1 },
-            transition: '0.3s ease'
+            textDecoration: "none",
+            fontWeight: "normal",
+            ":hover": { opacity: 1 },
+            transition: "0.3s ease",
           }}
           title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
         >
@@ -240,29 +240,29 @@ const Page = () => (
         </Badge>
       </Box>
     </Box>
-    <Box as="section" sx={{ py: [4, 5], color: 'black' }}>
+    <Box as="section" sx={{ py: [4, 5], color: "black" }}>
       <Container>
         <Text as="p" variant="eyebrow">
           The rundown
         </Text>
         <Heading as="h2" variant="title">
-          Clubs discovering the{' '}
+          Clubs discovering the{" "}
           <Text
             as="span"
             sx={{
-              borderRadius: 'default',
+              borderRadius: "default",
               px: 2,
               mx: [-2, 0],
-              whiteSpace: 'nowrap',
-              color: '#5d114c',
-              bg: 'rgb(255, 212, 64)'
+              whiteSpace: "nowrap",
+              color: "#5d114c",
+              bg: "rgb(255, 212, 64)",
             }}
           >
             joy of code
           </Text>
           .
         </Heading>
-        <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus' }}>
+        <Text as="p" variant="lead" sx={{ maxWidth: "copyPlus" }}>
           Hack Clubs typically meet for 1 hour each week in high schools,
           makerspaces, community centers, churches, and any other venue where
           teenagers can gather. As a club leader, you get members (mostly
@@ -270,7 +270,7 @@ const Page = () => (
           their own pace, building websites, apps, & games, and presenting them
           at the end.
         </Text>
-        <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
+        <Grid columns={[null, null, 2, "3fr 2fr"]} gap={[3, 4]} pt={[3, 3]}>
           <Photo
             src="https://cloud-5pdwvchgm-hack-club-bot.vercel.app/05851864a.jpg"
             alt="Summer Creek Hack Club meeting, February 2020"
@@ -286,15 +286,15 @@ const Page = () => (
                 width: 36,
                 height: 36,
                 borderRadius: 24,
-                display: 'inline-block',
+                display: "inline-block",
                 fontSize: 2,
-                lineHeight: '30px',
-                textAlign: 'center',
-                fontWeight: 'bold',
-                border: '3px solid currentColor'
+                lineHeight: "30px",
+                textAlign: "center",
+                fontWeight: "bold",
+                border: "3px solid currentColor",
               },
               p: { my: 0 },
-              strong: { display: 'block' }
+              strong: { display: "block" },
             }}
           >
             <Text as="span" color="green">
@@ -313,10 +313,10 @@ const Page = () => (
             <Text
               as="p"
               variant="subtitle"
-              sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
+              sx={{ mt: 0, a: { variant: "styles.a", color: "blue" } }}
             >
               <strong>Everyone gets hacking, individually.</strong> Not hacking
-              bank accounts, being creative and{' '}
+              bank accounts, being creative and{" "}
               <Link href="/ship">making something awesome</Link>.
             </Text>
             <Text as="span" color="blue">
@@ -330,9 +330,9 @@ const Page = () => (
           </Grid>
         </Grid>
         <Grid
-          columns={[null, '1fr 2fr']}
+          columns={[null, "1fr 2fr"]}
           mt={[3, 5]}
-          sx={{ maxWidth: 'copyUltra', mx: 'auto' }}
+          sx={{ maxWidth: "copyUltra", mx: "auto" }}
         >
           <Heading as="h3" variant="headline" sx={{ fontSize: [4, 5], mb: 0 }}>
             Go beyond club meetings.
@@ -340,22 +340,22 @@ const Page = () => (
           <Text
             as="p"
             variant="lead"
-            sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
+            sx={{ mt: 0, a: { variant: "styles.a", color: "blue" } }}
           >
-            Hack Clubs attend and run{' '}
+            Hack Clubs attend and run{" "}
             <NextLink href="/hackathons" passHref>
               <a>hackathons</a>
-            </NextLink>{' '}
-            like <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a>{' '}
-            &{' '}
+            </NextLink>{" "}
+            like <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a>{" "}
+            &{" "}
             <a href="https://www.sfchronicle.com/bayarea/article/Hack-the-Fog-makes-history-as-San-12729895.php">
               Hack the Fog
             </a>
-            , run summer programs like{' '}
+            , run summer programs like{" "}
             <a href="https://web.archive.org/web/20200808171549/http://thecspn.com/?p=43434">
               Hack Camp
             </a>
-            , and compete in events like the{' '}
+            , and compete in events like the{" "}
             <a href="http://www.congressionalappchallenge.us">
               Congressional App Challenge
             </a>
@@ -368,12 +368,12 @@ const Page = () => (
       as="section"
       sx={{
         py: 6,
-        bg: 'dark',
-        color: 'white',
-        'h2,p': { textShadow: 'text' },
-        textAlign: [null, 'center'],
-        position: 'relative',
-        overflow: 'hidden'
+        bg: "dark",
+        color: "white",
+        "h2,p": { textShadow: "text" },
+        textAlign: [null, "center"],
+        position: "relative",
+        overflow: "hidden",
       }}
     >
       <BGImg
@@ -384,17 +384,17 @@ const Page = () => (
         alt="Hack Clubbers gather at the Elon Musk AMA in 2020"
       />
       <Container>
-        <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
+        <Text as="p" variant="eyebrow" sx={{ color: "white", opacity: 0.75 }}>
           ~ Welcome to Hackerland ~
         </Text>
         <Heading as="h2" variant="title">
           By the students, for the students.
         </Heading>
-        <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
+        <Text as="p" variant="lead" sx={{ maxWidth: "copyPlus", mx: "auto" }}>
           Learning to code is like gaining a superpower — turning you from a
           consumer of technology into a creator. It shouldn’t be taught like a
           class — it should be a creative, inclusive space. To foster this
-          environment,{' '}
+          environment,{" "}
           <Highlight>every&nbsp;Hack&nbsp;Club is student-led</Highlight> &
           members make self-directed projects.
         </Text>
@@ -403,7 +403,7 @@ const Page = () => (
             as="a"
             variant="ctaLg"
             sx={{
-              background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)'
+              background: "linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)",
             }}
           >
             Our philosophy →
@@ -411,29 +411,29 @@ const Page = () => (
         </NextLink>
       </Container>
     </Box>
-    <Box as="section" sx={{ py: [4, 5, 6], color: 'black' }}>
+    <Box as="section" sx={{ py: [4, 5, 6], color: "black" }}>
       <Container
         sx={{
-          maxWidth: [null, 'copyUltra'],
-          svg: { filter: 'drop-shadow(0 2px 3px rgba(0,0,0,.125))' }
+          maxWidth: [null, "copyUltra"],
+          svg: { filter: "drop-shadow(0 2px 3px rgba(0,0,0,.125))" },
         }}
       >
-        <Box as="header" sx={{ textAlign: [null, 'center'], pb: [4, 5] }}>
+        <Box as="header" sx={{ textAlign: [null, "center"], pb: [4, 5] }}>
           <Text as="p" variant="eyebrow">
             Hit the ground running
           </Text>
           <Heading as="h2" variant="title">
-            Get your club{' '}
+            Get your club{" "}
             <Text
               as="span"
               sx={{
-                borderRadius: 'default',
+                borderRadius: "default",
                 px: 2,
                 mx: [-2, 0],
-                bg: 'rgb(91, 255, 205)',
-                color: '#095365',
-                display: 'inline-block',
-                whiteSpace: ['wrap', 'nowrap']
+                bg: "rgb(91, 255, 205)",
+                color: "#095365",
+                display: "inline-block",
+                whiteSpace: ["wrap", "nowrap"],
               }}
             >
               going & growing
@@ -444,7 +444,7 @@ const Page = () => (
         <Grid
           columns={[null, 1]}
           gap={[2, 3]}
-          sx={{ alignItems: 'end', span: { color: 'white' } }}
+          sx={{ alignItems: "end", span: { color: "white" } }}
         >
           <Feature
             icon="slack-fill"
@@ -464,7 +464,7 @@ const Page = () => (
             name="Tools to hack on"
             desc={
               <>
-                We build tools, such as{' '}
+                We build tools, such as{" "}
                 <a href="https://sprig.hackclub.com">Sprig</a>, that your
                 members can use to make projects with in meetings! Built more of
                 them with us in our <Link href="/slack">Slack community</Link>.
@@ -477,7 +477,7 @@ const Page = () => (
             name="Meeting content"
             desc={
               <>
-                Come prepared to every meeting with over 100{' '}
+                Come prepared to every meeting with over 100{" "}
                 <a href="https://workshops.hackclub.com">workshops</a> (3 years’
                 worth!) that guide your club members through making fun,
                 creative projects.
@@ -519,7 +519,7 @@ const Page = () => (
             name="A nonprofit fund"
             desc={
               <>
-                Use our 501(c)(3) status and a restricted fund with{' '}
+                Use our 501(c)(3) status and a restricted fund with{" "}
                 <Link href="/hcb">HCB</Link> to fundraise, accept donations, and
                 buy things!
               </>
@@ -529,9 +529,9 @@ const Page = () => (
             name="Weekly events"
             desc={
               <>
-                From <Link href="/night">Hack Night</Link> to{' '}
+                From <Link href="/night">Hack Night</Link> to{" "}
                 <Link href="/amas">AMAs</Link>
-                {' to '}
+                {" to "}
                 <a href="https://twitter.com/hackclub/status/1300494921997193217?s=21">
                   weirder events
                 </a>
@@ -548,7 +548,7 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                We're always building new tools for leaders, such as{' '}
+                We're always building new tools for leaders, such as{" "}
                 <a href="https://sprig.hackclub.com">Sprig</a>! We've also got
                 free subscriptions to Figma Pro, Postman, and more for running a
                 great club.
@@ -569,7 +569,7 @@ const Page = () => (
           desc={
             <>
               When established CS clubs join, they get all the Hack&nbsp;Club
-              benefits: Zoom&nbsp;Pro, stickers, our Slack community,{' '}
+              benefits: Zoom&nbsp;Pro, stickers, our Slack community,{" "}
               <a href="https://workshops.hackclub.com/">workshops</a>, the
               works. They’re welcome to use the “Hack&nbsp;Club” name or keep
               their existing one.
@@ -577,38 +577,38 @@ const Page = () => (
           }
           as="aside"
           sx={{
-            display: 'grid',
+            display: "grid",
             gridGap: [0, 4],
-            gridTemplateColumns: [null, 'auto 1fr'],
-            alignItems: 'start',
-            justifyContent: 'start',
-            bg: 'rgba(255,88,88,0.125)',
+            gridTemplateColumns: [null, "auto 1fr"],
+            alignItems: "start",
+            justifyContent: "start",
+            bg: "rgba(255,88,88,0.125)",
             p: [3, 4],
             mt: [3, 4],
-            borderRadius: 'extra',
-            span: { transform: 'none', width: 'min-intrinsic' },
-            svg: { color: 'white' }
+            borderRadius: "extra",
+            span: { transform: "none", width: "min-intrinsic" },
+            svg: { color: "white" },
           }}
         />
       </Container>
     </Box>
     <Slack />
     <Box bg="snow" color="black" py={[5, 6]}>
-      <Container sx={{ textAlign: ['left', 'center'] }}>
+      <Container sx={{ textAlign: ["left", "center"] }}>
         <Text as="p" variant="eyebrow">
           Next steps
         </Text>
         <Heading as="h2" variant="title">
-          Apply today to{' '}
+          Apply today to{" "}
           <Text
             as="span"
             sx={{
-              borderRadius: 'default',
+              borderRadius: "default",
               px: 2,
               ml: [-2, 0],
-              whiteSpace: ['wrap', 'nowrap'],
-              color: 'white',
-              bg: '#6f31b7'
+              whiteSpace: ["wrap", "nowrap"],
+              color: "white",
+              bg: "#6f31b7",
             }}
           >
             start your club
@@ -624,18 +624,18 @@ const Page = () => (
           gap={[4, 3, 4]}
           columns={[null, 3]}
           sx={{
-            textAlign: 'left',
-            '> a, > div': {
-              borderRadius: 'extra',
-              boxShadow: 'elevated',
+            textAlign: "left",
+            "> a, > div": {
+              borderRadius: "extra",
+              boxShadow: "elevated",
               px: [3, null, 4],
-              py: [4, null, 5]
+              py: [4, null, 5],
             },
             span: {
               boxShadow:
-                '-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)'
+                "-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)",
             },
-            svg: { fill: 'currentColor' }
+            svg: { fill: "currentColor" },
           }}
         >
           <Card
@@ -644,9 +644,9 @@ const Page = () => (
             variant="interactive"
             sx={{
               background:
-                'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
-              color: 'white',
-              svg: { color: 'rgb(51, 142, 218)' }
+                "linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)",
+              color: "white",
+              svg: { color: "rgb(51, 142, 218)" },
             }}
           >
             <Stage
@@ -659,9 +659,9 @@ const Page = () => (
           <Card
             sx={{
               background:
-                'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
-              color: 'white',
-              svg: { color: 'rgb(236, 55, 80)' }
+                "linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)",
+              color: "white",
+              svg: { color: "rgb(236, 55, 80)" },
             }}
           >
             <Stage
@@ -673,9 +673,9 @@ const Page = () => (
           </Card>
           <Card
             sx={{
-              background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
-              color: 'white',
-              svg: { color: '#fb558e' }
+              background: "linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)",
+              color: "white",
+              svg: { color: "#fb558e" },
             }}
           >
             <Stage
@@ -700,16 +700,16 @@ const Page = () => (
     <Footer
       dark
       sx={{
-        backgroundColor: 'dark',
-        position: 'relative',
-        overflow: 'hidden',
-        textShadow: '0 1px 2px rgba(0,0,0,0.375)',
-        'h2,span,p,a': { color: 'white !important' },
-        '> div img': { objectPosition: ['left', 'center'] },
+        backgroundColor: "dark",
+        position: "relative",
+        overflow: "hidden",
+        textShadow: "0 1px 2px rgba(0,0,0,0.375)",
+        "h2,span,p,a": { color: "white !important" },
+        "> div img": { objectPosition: ["left", "center"] },
         svg: {
-          fill: 'white',
-          filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
-        }
+          fill: "white",
+          filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.25))",
+        },
       }}
     >
       <BGImg
@@ -727,6 +727,6 @@ const Page = () => (
       </style>
     </Footer>
   </>
-)
+);
 
-export default Page
+export default Page;

@@ -7,33 +7,33 @@ import {
   Heading,
   Text,
   Flex,
-  Avatar
-} from 'theme-ui'
-import Icon from '../icon'
-import Tilt from '../tilt'
-import { Zoom } from 'react-reveal'
+  Avatar,
+} from "theme-ui";
+import Icon from "../icon";
+import Tilt from "../tilt";
+import { Zoom } from "react-reveal";
 
 export default function InfoGrid() {
   return (
     <Container py={4}>
       <Grid
         sx={{
-          gridTemplateColumns: ['1fr', '1fr', '1fr 1fr', '1fr 1fr 1fr'],
+          gridTemplateColumns: ["1fr", "1fr", "1fr 1fr", "1fr 1fr 1fr"],
           gap: 3,
-          h: 'fit-content'
+          h: "fit-content",
         }}
       >
         <Zoom delay={100}>
           <Box
             sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              height: ['100%']
+              display: "flex",
+              flexDirection: "column",
+              height: ["100%"],
             }}
           >
             <Card
               variant="translucent"
-              sx={{ borderRadius: 'default', px: 4, py: [2, 3, 5] }}
+              sx={{ borderRadius: "default", px: 4, py: [2, 3, 5] }}
             >
               {/* <Icon glyph="sam" size={64} color="#5BC0DE" /> */}
               <Text variant="lead" as="p">
@@ -51,19 +51,19 @@ export default function InfoGrid() {
         </Zoom>
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100%'
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
           }}
         >
           <Zoom delay={300}>
             <Card
               variant="translucent"
               sx={{
-                borderRadius: 'default',
+                borderRadius: "default",
                 px: 4,
                 py: 3,
-                mb: 3
+                mb: 3,
               }}
             >
               <Heading variant="headline">To qualify:</Heading>
@@ -76,7 +76,7 @@ export default function InfoGrid() {
               {/* <BulletItem iconGlyph="checkmark" iconColor="#5BC0DE">
               Share a plan for what you want to build and how much you need (up to $250)
             </BulletItem> */}
-              <Text sx={{ color: 'muted' }}>
+              <Text sx={{ color: "muted" }}>
                 If you qualify, share your idea! We're giving out as many grants
                 as possible!
               </Text>
@@ -86,12 +86,12 @@ export default function InfoGrid() {
             <Card
               variant="translucent"
               sx={{
-                borderRadius: 'default',
+                borderRadius: "default",
                 px: 4,
                 py: 4,
-                display: 'flex',
-                flexDirection: 'column',
-                height: 'fit-content'
+                display: "flex",
+                flexDirection: "column",
+                height: "fit-content",
               }}
             >
               <Heading variant="headline">
@@ -126,19 +126,19 @@ export default function InfoGrid() {
         </Box>
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100%'
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
           }}
         >
           <Zoom delay={600}>
             <Card
               variant="translucent"
               sx={{
-                borderRadius: 'default',
+                borderRadius: "default",
                 px: 4,
                 py: 3,
-                mb: 3
+                mb: 3,
               }}
             >
               <Heading variant="headline">
@@ -160,14 +160,14 @@ export default function InfoGrid() {
               <Card
                 as="div"
                 sx={{
-                  backgroundColor: 'transparent',
+                  backgroundColor: "transparent",
                   backgroundImage:
                     'url("https://cloud-ehtgzdn7u-hack-club-bot.vercel.app/0card.png")',
-                  height: ['300px', '500px', '100%', '230px'],
-                  backgroundSize: '100%',
-                  backgroundRepeat: 'no-repeat',
-                  boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)',
-                  display: ['block', 'block', 'none', 'block']
+                  height: ["300px", "500px", "100%", "230px"],
+                  backgroundSize: "100%",
+                  backgroundRepeat: "no-repeat",
+                  boxShadow: "0 8px 32px rgba(255, 255, 255, 0.0625)",
+                  display: ["block", "block", "none", "block"],
                 }}
               />
             </Tilt>
@@ -177,43 +177,43 @@ export default function InfoGrid() {
           <Card
             as="div"
             sx={{
-              backgroundColor: 'transparent',
+              backgroundColor: "transparent",
               backgroundImage:
                 'url("https://cloud-ehtgzdn7u-hack-club-bot.vercel.app/0card.png")',
-              height: ['300px', '500px', '100%', '230px'],
-              backgroundSize: '100%',
-              backgroundRepeat: 'no-repeat',
-              boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)',
-              display: ['none', 'none', 'block', 'none']
+              height: ["300px", "500px", "100%", "230px"],
+              backgroundSize: "100%",
+              backgroundRepeat: "no-repeat",
+              boxShadow: "0 8px 32px rgba(255, 255, 255, 0.0625)",
+              display: ["none", "none", "block", "none"],
             }}
           />
         </Tilt>
       </Grid>
     </Container>
-  )
+  );
 }
 
 function BulletItem({ children, iconGlyph, iconColor, iconSize }) {
   return (
     <Flex
       sx={{
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        alignItems: 'center',
-        my: 2
+        flexDirection: "row",
+        alignItems: "flex-start",
+        alignItems: "center",
+        my: 2,
       }}
     >
       <Icon
         glyph={iconGlyph}
         size={iconSize || 36}
-        color={iconColor || 'text'}
+        color={iconColor || "text"}
         sx={{
-          flexShrink: '0'
+          flexShrink: "0",
         }}
       />
       <Text sx={{ ml: 1 }}>{children}</Text>
     </Flex>
-  )
+  );
 }
 
 function UserMention({ user }) {
@@ -221,10 +221,10 @@ function UserMention({ user }) {
     <Box
       as="span"
       sx={{
-        whiteSpace: 'nowrap',
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: 'center'
+        whiteSpace: "nowrap",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <Text as="a" href={`https://github.com/${user}`}>
@@ -234,8 +234,8 @@ function UserMention({ user }) {
         src={`https://github.com/${user}.png`}
         height="24px"
         width="24px"
-        sx={{ backgroundColor: 'white', ml: 2 }}
+        sx={{ backgroundColor: "white", ml: 2 }}
       />
     </Box>
-  )
+  );
 }

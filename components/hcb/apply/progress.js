@@ -1,15 +1,15 @@
-import { useRouter } from 'next/router'
-import { Box, Flex, Text } from 'theme-ui'
-import FlexCol from '../../flex-col'
+import { useRouter } from "next/router";
+import { Box, Flex, Text } from "theme-ui";
+import FlexCol from "../../flex-col";
 
 function StepIcon({ completed, number }) {
-  let strokeColour = completed ? '#33d6a6' : '#8492a6'
-  let fillColour = completed ? '#33d6a6' : 'none'
+  let strokeColour = completed ? "#33d6a6" : "#8492a6";
+  let fillColour = completed ? "#33d6a6" : "none";
 
   return (
-    <Box sx={{ position: 'relative' }}>
+    <Box sx={{ position: "relative" }}>
       <svg
-        style={{ translate: '0 1px' }}
+        style={{ translate: "0 1px" }}
         width="40"
         height="40"
         viewBox="0 0 40 40"
@@ -27,59 +27,59 @@ function StepIcon({ completed, number }) {
       </svg>
       <Flex
         sx={{
-          height: '100%',
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'absolute',
-          inset: '0'
+          height: "100%",
+          alignItems: "center",
+          justifyContent: "center",
+          position: "absolute",
+          inset: "0",
         }}
       >
         <Text
           sx={{
-            color: 'white',
-            fontSize: 2
+            color: "white",
+            fontSize: 2,
           }}
         >
           {number}
         </Text>
       </Flex>
     </Box>
-  )
+  );
 }
 
 function Step({ number, label, completed }) {
   return (
-    <Flex sx={{ lineHeight: '1', alignItems: 'center', gap: '4' }}>
+    <Flex sx={{ lineHeight: "1", alignItems: "center", gap: "4" }}>
       <StepIcon completed={completed} number={number + 1} />
       <Text
         sx={{
-          fontSize: '3',
-          display: ['none', null, null, 'block']
+          fontSize: "3",
+          display: ["none", null, null, "block"],
         }}
       >
         {label}
       </Text>
     </Flex>
-  )
+  );
 }
 
 export default function Progress() {
-  const router = useRouter()
-  const step = parseInt(router.query.step)
+  const router = useRouter();
+  const step = parseInt(router.query.step);
 
-  const labels = ['Intro', 'Organization info', 'Personal info']
+  const labels = ["Intro", "Organization info", "Personal info"];
 
   return (
     <Flex
       sx={{
         gap: 3,
-        translate: [0, null, null, '-1rem 0'],
-        flexDirection: ['row', null, null, 'column']
+        translate: [0, null, null, "-1rem 0"],
+        flexDirection: ["row", null, null, "column"],
       }}
     >
       {labels.map((label, i) => (
         <Step number={i} label={label} completed={step > i} key={i} />
       ))}
     </Flex>
-  )
+  );
 }

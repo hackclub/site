@@ -1,5 +1,5 @@
-import Particles from 'react-tsparticles'
-import React from 'react'
+import Particles from "react-tsparticles";
+import React from "react";
 
 const Particle = React.memo(function Particle() {
   return (
@@ -11,75 +11,75 @@ const Particle = React.memo(function Particle() {
           events: {
             onClick: {
               enable: true,
-              mode: 'push'
+              mode: "push",
             },
             onHover: {
               enable: true,
-              mode: 'repulse'
+              mode: "repulse",
             },
-            resize: true
+            resize: true,
           },
           modes: {
             bubble: {
               distance: 200,
               duration: 2,
               opacity: 0.5,
-              size: 40
+              size: 40,
             },
             push: {
-              quantity: 2
+              quantity: 2,
             },
             repulse: {
               distance: 100,
-              duration: 0.5
-            }
-          }
+              duration: 0.5,
+            },
+          },
         },
         particles: {
           color: {
-            value: '#CDAEFB',
-            opacity: 0.2
+            value: "#CDAEFB",
+            opacity: 0.2,
           },
           links: {
-            color: '#82A9F9',
+            color: "#82A9F9",
             distance: 200,
             enable: true,
             opacity: 0.2,
-            width: 1
+            width: 1,
           },
           collisions: {
-            enable: false
+            enable: false,
           },
           move: {
-            direction: 'none',
+            direction: "none",
             enable: true,
-            outMode: 'bounce',
+            outMode: "bounce",
             random: false,
             speed: 1,
-            straight: false
+            straight: false,
           },
           number: {
             density: {
               enable: true,
-              area: 500
+              area: 500,
             },
-            value: 50
+            value: 50,
           },
           opacity: {
-            value: 0.25
+            value: 0.25,
           },
           shape: {
-            type: 'circle'
+            type: "circle",
           },
           size: {
             random: true,
-            value: 1.5
-          }
+            value: 1.5,
+          },
         },
-        detectRetina: true
+        detectRetina: true,
       }}
     />
-  )
-})
+  );
+});
 
-export default Particle
+export default Particle;

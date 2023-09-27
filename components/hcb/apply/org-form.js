@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react'
-import { Input, Textarea } from 'theme-ui'
-import Checkbox from './checkbox'
-import AddressInput from './address-input'
-import Field from './field'
-import AutofillColourFix from './autofill-colour-fix'
+import { useState, useEffect } from "react";
+import { Input, Textarea } from "theme-ui";
+import Checkbox from "./checkbox";
+import AddressInput from "./address-input";
+import Field from "./field";
+import AutofillColourFix from "./autofill-colour-fix";
 
 export default function OrganizationInfoForm({ requiredFields }) {
-  const [org, setOrg] = useState('organization')
+  const [org, setOrg] = useState("organization");
 
   useEffect(() => {
-    if (navigator.language === 'en-GB') setOrg('organisation')
-  }, [])
+    if (navigator.language === "en-GB") setOrg("organisation");
+  }, []);
 
   return (
     <>
@@ -73,12 +73,12 @@ export default function OrganizationInfoForm({ requiredFields }) {
           id="eventDescription"
           rows={3}
           sx={{
-            resize: 'vertical',
-            width: '100%',
-            ...AutofillColourFix
+            resize: "vertical",
+            width: "100%",
+            ...AutofillColourFix,
           }}
         />
       </Field>
     </>
-  )
+  );
 }
