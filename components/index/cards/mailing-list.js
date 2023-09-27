@@ -2,6 +2,7 @@ import Icon from "@hackclub/icons";
 import { useRef, useState } from "react";
 import {
   Box,
+  Label,
   Input,
   Button,
   Text,
@@ -11,7 +12,7 @@ import {
   Grid,
 } from "theme-ui";
 import BGImg from "../../background-image";
-import FooterImgFile from "../../../public/outernet/hack.jpg";
+import FooterImgFile from "../../../public/home/footer.png";
 import Link from "next/link";
 import MailCard from "../../mail-card";
 
@@ -67,7 +68,7 @@ const MailingList = () => {
     <Box sx={{ position: "relative", py: 6, background: "darker" }}>
       <Card
         sx={{
-          maxWidth: "1050px",
+          maxWidth: "1000px",
           mx: "auto",
           // mt: [3, 4],
           background: "rgb(255,255,255, 0.45)",
@@ -75,7 +76,7 @@ const MailingList = () => {
           zIndex: 2,
           backdropFilter: "blur(8px)",
           display: "flex",
-            gridGap: 5,
+            gridGap: 4,
         }}
       >
         <Flex
@@ -173,32 +174,16 @@ const MailingList = () => {
                 </Alert>
             )}
         </Flex>
-        <Box sx={{
-            display: "grid",
-            gridGap: 4
-        }}>
-            <MailCard subject="Hello, world!" date="26/11/23" body="Reprehenderit quis et culpa anim mollit proident cillum laborum veniam eiusmod. Mollit laborum do magna elit labore et do exercitation duis laboris qui et non enim. Commodo deserunt tempor esse aute aliquip. Cupidatat proident officia consequat et id do dolore labore ad eiusmod labore. Cupidatat nisi tempor duis magna irure duis aliqua nisi occaecat est esse. Ea laboris quis dolore officia voluptate aliqua id aliquip eiusmod irure aliquip ex nisi dolor. Eu tempor pariatur non ipsum culpa ex. Consequat aute aute do laborum Lorem minim adipisicing sint mollit ea."/>
-            <MailCard subject="Hello, again!" date="26/11/23" body="AHHHHH!!"/>
+        <Box>
+            <MailCard/>
         </Box>
       </Card>
-        {/*<Box
-            sx={{
-                position: "absolute",
-                display: "block",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                zIndex: 0,
-                background: "linear-gradient(-180deg, #f1c40f 14%, #ff8c37 82%)",
-            }}
-        />*/}
-       <BGImg
-            src={FooterImgFile}
-            alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            priority
-            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
-        />
+      <BGImg
+        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
+        src={FooterImgFile}
+        placeholder="blur"
+        alt="Globe with hundreds of Hack Clubs"
+      />
     </Box>
   );
 };

@@ -1,144 +1,144 @@
-import { Box, Flex, Grid, Image, Link, Text } from 'theme-ui'
-import { useEffect, useState } from 'react'
-import Buttons from './button'
-import CardModel from './card-model'
+import { Box, Flex, Grid, Image, Link, Text } from "theme-ui";
+import { useEffect, useState } from "react";
+import Buttons from "./button";
+import CardModel from "./card-model";
 
 export default function Epoch() {
   const calculateTimeLeft = () => {
-    const difference = +new Date(`2022-12-30T12:30:00.000Z`) - +new Date()
-    let timeLeft = {}
+    const difference = +new Date(`2022-12-30T12:30:00.000Z`) - +new Date();
+    let timeLeft = {};
 
     if (difference > 0) {
       timeLeft = {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
         min: Math.floor((difference / 1000 / 60) % 60),
-        sec: Math.floor((difference / 1000) % 60)
-      }
+        sec: Math.floor((difference / 1000) % 60),
+      };
     }
 
-    return timeLeft
-  }
+    return timeLeft;
+  };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTimeLeft(calculateTimeLeft())
-    }, 1000)
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
 
-    return () => clearTimeout(timer)
-  })
+    return () => clearTimeout(timer);
+  });
 
-  const timer = []
+  const timer = [];
 
-  Object.keys(timeLeft).forEach(e => {
+  Object.keys(timeLeft).forEach((e) => {
     if (!timeLeft[e]) {
-      if (e === 'days') {
-        return
-      } else if (e === 'hours') {
-        if (!timeLeft['days']) {
-          return
+      if (e === "days") {
+        return;
+      } else if (e === "hours") {
+        if (!timeLeft["days"]) {
+          return;
         }
-      } else if (e === 'min') {
-        if (!timeLeft['days'] && !timeLeft['hours']) {
-          return
+      } else if (e === "min") {
+        if (!timeLeft["days"] && !timeLeft["hours"]) {
+          return;
         }
       } else {
-        if (!timeLeft['days'] && !timeLeft['hours'] && !timeLeft['min']) {
-          return
+        if (!timeLeft["days"] && !timeLeft["hours"] && !timeLeft["min"]) {
+          return;
         }
       }
     }
 
-    var name = ''
+    var name = "";
 
-    if (e === 'days') {
+    if (e === "days") {
       if (timeLeft[e] === 1 || timeLeft[e] === 0) {
-        name = 'day'
+        name = "day";
       } else {
-        name = 'days'
+        name = "days";
       }
-    } else if (e === 'hours') {
+    } else if (e === "hours") {
       if (timeLeft[e] === 1 || timeLeft[e] === 0) {
-        name = 'hour'
+        name = "hour";
       } else {
-        name = 'hours'
+        name = "hours";
       }
-    } else if (e === 'min') {
-      name = 'min'
+    } else if (e === "min") {
+      name = "min";
     } else {
-      name = 'sec'
+      name = "sec";
     }
 
     timer.push(
       <Box
-        sx={theme => ({
-          color: '#FF4794',
-          position: 'relative',
-          width: [null, '85%', '80%'],
-          height: [null, '50%', '85%'],
-          border: 'none',
-          borderColor: '#FF4794',
+        sx={(theme) => ({
+          color: "#FF4794",
+          position: "relative",
+          width: [null, "85%", "80%"],
+          height: [null, "50%", "85%"],
+          border: "none",
+          borderColor: "#FF4794",
           fontSize: [3, 4],
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          opacity: 0.7
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          opacity: 0.7,
         })}
       >
         <Box>
           <Text
             sx={{
-              color: '#FF4794'
+              color: "#FF4794",
             }}
           >
-            {timeLeft[e]}{' '}
+            {timeLeft[e]}{" "}
           </Text>
           <Text
             sx={{
-              color: 'white',
-              position: 'relative',
-              fontSize: [1, '16px', '20px'],
-              display: 'block',
-              pb: '15px'
+              color: "white",
+              position: "relative",
+              fontSize: [1, "16px", "20px"],
+              display: "block",
+              pb: "15px",
             }}
           >
             {name}
           </Text>
         </Box>
-      </Box>
-    )
-  })
+      </Box>,
+    );
+  });
   return (
     <CardModel
       id="epoch"
       color="white"
       sx={{
-        backgroundColor: '#000'
+        backgroundColor: "#000",
       }}
     >
       <Image
         src="/home/epoch-bg.webp"
         sx={{
-          objectFit: 'cover',
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          ml: ['-24px', '-32px', '-32px', '-32px'],
-          mt: ['-24px', '-32px', '-32px', '-32px']
+          objectFit: "cover",
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          ml: ["-24px", "-32px", "-32px", "-32px"],
+          mt: ["-24px", "-32px", "-32px", "-32px"],
         }}
         alt="Hack Club Presents Epoch background"
       />
-      <Grid columns={[1, 1, '1fr 1.5fr']} sx={{ position: 'relative' }}>
+      <Grid columns={[1, 1, "1fr 1.5fr"]} sx={{ position: "relative" }}>
         <Box>
           <Image
             src="https://cloud-jzsq7jfvg-hack-club-bot.vercel.app/0group_9.png"
             sx={{
-              width: ['220px', '220px', '240px', '350px'],
-              position: 'relative',
-              zIndex: 2
+              width: ["220px", "220px", "240px", "350px"],
+              position: "relative",
+              zIndex: 2,
             }}
             alt="Hack Club Presents Epoch header"
           />
@@ -146,7 +146,7 @@ export default function Epoch() {
             {timer.length ? (
               <Grid
                 key="{e}"
-                columns={['1fr 1fr 1fr 1fr']}
+                columns={["1fr 1fr 1fr 1fr"]}
                 sx={{ mr: 2, mt: 2 }}
               >
                 {timer}
@@ -164,27 +164,27 @@ export default function Epoch() {
             thrill of being in-person together.
           </Text>
           <Text as="p" variant="subtitle">
-            In{' '}
+            In{" "}
             <Link
-              sx={{ color: '#FF4794' }}
+              sx={{ color: "#FF4794" }}
               href="https://hackclub.slack.com/archives/C04CGDDLC72"
               target="_blank"
               rel="noopener"
             >
               Austin
             </Link>
-            ,{' '}
+            ,{" "}
             <Link
-              sx={{ color: '#FF4794' }}
+              sx={{ color: "#FF4794" }}
               href="https://epochba.hackclub.com/"
               target="_blank"
               rel="noopener"
             >
               Bay Area
             </Link>
-            , or{' '}
+            , or{" "}
             <Link
-              sx={{ color: '#FF4794' }}
+              sx={{ color: "#FF4794" }}
               href="https://epochvt.hackclub.com/"
               target="_blank"
               rel="noopener"
@@ -195,9 +195,9 @@ export default function Epoch() {
           </Text>
           <Flex
             sx={{
-              flexDirection: 'column',
+              flexDirection: "column",
               mt: [4, 3, 4],
-              position: 'relative'
+              position: "relative",
             }}
           >
             <Buttons
@@ -221,5 +221,5 @@ export default function Epoch() {
         </Box>
       </Grid>
     </CardModel>
-  )
+  );
 }
