@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import styled from '@emotion/styled'
-import { css, keyframes } from '@emotion/react'
-import { Box, Container, Flex, Link, Text } from 'theme-ui'
-import theme from '../lib/theme'
-import Icon from './icon'
-import Flag from './flag'
-import ScrollLock from 'react-scrolllock'
-import NextLink from 'next/link'
+import React, { useEffect, useState } from "react";
+import styled from "@emotion/styled";
+import { css, keyframes } from "@emotion/react";
+import { Box, Container, Flex, Link, Text } from "theme-ui";
+import theme from "../lib/theme";
+import Icon from "./icon";
+import Flag from "./flag";
+import ScrollLock from "react-scrolllock";
+import NextLink from "next/link";
 
 const rgbaBgColor = (props, opacity) =>
   `rgba(
@@ -14,7 +14,7 @@ const rgbaBgColor = (props, opacity) =>
     ${props.bgColor[1]},
     ${props.bgColor[2]},
     ${opacity}
-  )`
+  )`;
 
 // const bg = (props) =>
 //   props.dark
@@ -26,20 +26,20 @@ const rgbaBgColor = (props, opacity) =>
 //         -webkit-backdrop-filter: saturate(180%) blur(20px);
 //         backdrop-filter: saturate(180%) blur(20px);
 //       `
-const fixed = props =>
+const fixed = (props) =>
   (props.scrolled || props.toggled || props.fixed) &&
   css`
     background-color: ${rgbaBgColor(props, 0.96875)};
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       background-color: ${props.transparent
-        ? 'transparent'
+        ? "transparent"
         : rgbaBgColor(props, 0.75)};
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
       /* {bg}; to support dark mode later */
     }
-  `
+  `;
 
 const Root = styled(Box)`
   position: fixed;
@@ -50,7 +50,7 @@ const Root = styled(Box)`
   @media print {
     display: none;
   }
-`
+`;
 
 export const Content = styled(Box)`
   display: flex;
@@ -64,27 +64,27 @@ export const Content = styled(Box)`
   @media (min-width: ${theme.breakpoints[2]}em) {
     padding: 0 ${theme.space[4]}px;
   }
-`
+`;
 
-const hoverColor = name =>
+const hoverColor = (name) =>
   ({
-    white: 'smoke',
-    smoke: 'muted',
-    muted: 'slate',
-    slate: 'black',
-    black: 'slate',
-    primary: 'error'
-  })[name] || 'black'
+    white: "smoke",
+    smoke: "muted",
+    muted: "slate",
+    slate: "black",
+    black: "slate",
+    primary: "error",
+  })[name] || "black";
 
 const slide = keyframes({
-  from: { transform: 'translateY(-25%)', opacity: 0 },
-  to: { transform: 'translateY(0)', opacity: 1 }
-})
+  from: { transform: "translateY(-25%)", opacity: 0 },
+  to: { transform: "translateY(0)", opacity: 1 },
+});
 
-const layout = props =>
+const layout = (props) =>
   props.isMobile
     ? css`
-        display: ${props.toggled ? 'flex' : 'none'};
+        display: ${props.toggled ? "flex" : "none"};
         flex-direction: column;
         overflow-y: auto;
         text-align: left;
@@ -93,7 +93,7 @@ const layout = props =>
           animation: ${slide} 0.25s ease-in;
         }
         a {
-          color: ${theme.colors[props.dark ? 'white' : 'black']} !important;
+          color: ${theme.colors[props.dark ? "white" : "black"]} !important;
           margin: 0 auto;
           height: 64px;
           font-weight: bold;
@@ -120,7 +120,7 @@ const layout = props =>
             color: ${theme.colors[hoverColor(props.color)]};
           }
         }
-      `
+      `;
 const NavBar = styled(Box)`
   display: none;
   ${layout};
@@ -129,12 +129,12 @@ const NavBar = styled(Box)`
     padding: ${theme.space[3]}px;
     text-decoration: none;
     @media (min-width: 56em) {
-      color: ${props => theme.colors[props.color] || props.color};
+      color: ${(props) => theme.colors[props.color] || props.color};
     }
   }
-`
+`;
 
-const Navigation = props => (
+const Navigation = (props) => (
   <NavBar role="navigation" {...props}>
     <NextLink href="/clubs" passHref>
       <Link>Clubs</Link>
@@ -154,7 +154,7 @@ const Navigation = props => (
       <Link>OnBoard</Link>
     </NextLink>
   </NavBar>
-)
+);
 
 const ToggleContainer = styled(Flex)`
   align-items: center;
@@ -167,51 +167,51 @@ const ToggleContainer = styled(Flex)`
   @media (min-width: 56em) {
     display: none;
   }
-`
+`;
 
 function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
-  const [scrolled, setScrolled] = useState(false)
-  const [toggled, setToggled] = useState(false)
-  const [mobile, setMobile] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [toggled, setToggled] = useState(false);
+  const [mobile, setMobile] = useState(false);
 
   const onScroll = () => {
-    const newState = window.scrollY >= 16
+    const newState = window.scrollY >= 16;
 
-    setScrolled(newState)
-  }
+    setScrolled(newState);
+  };
 
   const handleToggleMenu = () => {
-    setToggled(t => !t)
-  }
+    setToggled((t) => !t);
+  };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       if (!unfixed) {
-        window.addEventListener('scroll', onScroll)
+        window.addEventListener("scroll", onScroll);
       }
 
-      const mobileQuery = window.matchMedia('(max-width: 48em)')
-      mobileQuery.addEventListener('change', () => {
-        setMobile(true)
-        setToggled(false)
-      })
+      const mobileQuery = window.matchMedia("(max-width: 48em)");
+      mobileQuery.addEventListener("change", () => {
+        setMobile(true);
+        setToggled(false);
+      });
     }
 
     return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [unfixed])
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [unfixed]);
 
   const baseColor = dark
-    ? color || 'white'
-    : color === 'white' && scrolled
-    ? 'black'
-    : color
+    ? color || "white"
+    : color === "white" && scrolled
+    ? "black"
+    : color;
   const toggleColor = dark
-    ? color || 'snow'
-    : toggled || (color === 'white' && scrolled)
-    ? 'slate'
-    : color
+    ? color || "snow"
+    : toggled || (color === "white" && scrolled)
+    ? "slate"
+    : color;
 
   return (
     <Root
@@ -232,7 +232,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           dark={dark}
         />
         <ToggleContainer color={toggleColor} onClick={handleToggleMenu}>
-          <Icon glyph={toggled ? 'view-close' : 'menu'} />
+          <Icon glyph={toggled ? "view-close" : "menu"} />
         </ToggleContainer>
       </Content>
       <Navigation
@@ -245,11 +245,11 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       />
       {toggled && <ScrollLock />}
     </Root>
-  )
+  );
 }
 
 Header.defaultProps = {
-  color: 'white'
-}
+  color: "white",
+};
 
-export default Header
+export default Header;

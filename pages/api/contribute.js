@@ -1,11 +1,11 @@
-import { graphql } from '@octokit/graphql'
-import { createAppAuth } from '@octokit/auth-app'
+import { graphql } from "@octokit/graphql";
+import { createAppAuth } from "@octokit/auth-app";
 
 const auth = createAppAuth({
   appId: process.env.GITHUB_APP_ID,
   privateKey: process.env.GITHUB_PRIVATE_KEY,
-  installationId: process.env.GITHUB_INSTALLATION_ID
-})
+  installationId: process.env.GITHUB_INSTALLATION_ID,
+});
 
 export default async function handler(req, res) {
   const { organization } = await graphql(
@@ -65,11 +65,11 @@ export default async function handler(req, res) {
       }
     }`,
     {
-      login: 'hackclub',
+      login: "hackclub",
       request: {
-        hook: auth.hook
-      }
-    }
-  )
-  res.status(200).json(organization)
+        hook: auth.hook,
+      },
+    },
+  );
+  res.status(200).json(organization);
 }

@@ -6,21 +6,21 @@ import {
   Flex,
   Grid,
   Heading,
-  Text
-} from 'theme-ui'
-import Head from 'next/head'
-import Meta from '@hackclub/meta'
-import Nav from '../components/nav'
-import ForceTheme from '../components/force-theme'
-import Footer from '../components/footer'
-import PrestonWernerCopy from '../components/announcements/preston-werner.mdx'
-import SlackCTA from '../components/announcements/cta'
-import AnnouncementHolder from '../components/announcements/holder'
+  Text,
+} from "theme-ui";
+import Head from "next/head";
+import Meta from "@hackclub/meta";
+import Nav from "../components/nav";
+import ForceTheme from "../components/force-theme";
+import Footer from "../components/footer";
+import PrestonWernerCopy from "../components/announcements/preston-werner.mdx";
+import SlackCTA from "../components/announcements/cta";
+import AnnouncementHolder from "../components/announcements/holder";
 import {
   PillHolder,
   AuthorPill,
-  DatePill
-} from '../components/announcements/pills'
+  DatePill,
+} from "../components/announcements/pills";
 
 const Page = () => (
   <>
@@ -37,28 +37,28 @@ const Page = () => (
       sx={{
         pt: [5, 6],
         pb: [4, 5],
-        bg: 'rgb(104, 41, 205)',
-        backgroundImage: theme => theme.util.gx('yellow', 'red')
+        bg: "rgb(104, 41, 205)",
+        backgroundImage: (theme) => theme.util.gx("yellow", "red"),
       }}
     >
-      <Container sx={{ textAlign: 'center', color: 'white' }}>
+      <Container sx={{ textAlign: "center", color: "white" }}>
         <Heading
           as="h1"
           variant="title"
           sx={{
             fontSize: [5, 6, null, 7],
             span: {
-              WebkitTextStroke: 'currentColor',
-              WebkitTextStrokeWidth: ['2px', '3px'],
-              WebkitTextFillColor: 'transparent'
-            }
+              WebkitTextStroke: "currentColor",
+              WebkitTextStrokeWidth: ["2px", "3px"],
+              WebkitTextFillColor: "transparent",
+            },
           }}
         >
           “I love that Hack Club is <span>helping me make it possible</span>
-          {''} for more students to have opportunities like I had as a young
+          {""} for more students to have opportunities like I had as a young
           person"
         </Heading>
-        <Text variant="headline" sx={{ display: 'inline-flex' }}>
+        <Text variant="headline" sx={{ display: "inline-flex" }}>
           —
           <Avatar
             src="https://avatars.githubusercontent.com/u/1?s=460&v=4"
@@ -91,6 +91,6 @@ const Page = () => (
     <SlackCTA />
     <Footer />
   </>
-)
+);
 
-export default Page
+export default Page;
