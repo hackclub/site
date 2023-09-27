@@ -1,20 +1,20 @@
-import { Box, Link, Text, Heading, Flex } from 'theme-ui'
-import Timeline from './timeline'
-import Stats from './stats'
-import ApplyButton from './apply-button'
+import { Box, Link, Text, Heading, Flex } from "theme-ui";
+import Timeline from "./timeline";
+import Stats from "./stats";
+import ApplyButton from "./apply-button";
 
 export default function Start({ stats }) {
   return (
     <>
       <Box as="section" id="apply" py={6}>
         <Flex
-          sx={{ flexDirection: 'column', alignItems: 'center', gap: 5, mx: 4 }}
+          sx={{ flexDirection: "column", alignItems: "center", gap: 5, mx: 4 }}
         >
           <Flex
             sx={{
-              flexDirection: 'column',
-              textAlign: 'center',
-              gap: 3
+              flexDirection: "column",
+              textAlign: "center",
+              gap: 3,
             }}
           >
             <Heading variant="ultratitle" color="white">
@@ -28,11 +28,11 @@ export default function Start({ stats }) {
           <Stats stats={stats} />
           <Timeline />
           <Flex
-            sx={{ flexDirection: 'column', textAlign: 'center', gap: 4, mx: 3 }}
+            sx={{ flexDirection: "column", textAlign: "center", gap: 4, mx: 3 }}
           >
             <ApplyButton />
             <Text color="muted" sx={{ fontSize: 18 }}>
-              We run Hack Club HQ on HCB!{' '}
+              We run Hack Club HQ on HCB!{" "}
               <Link href="https://hcb.hackclub.com/hq" color="primary">
                 See&nbsp;our&nbsp;finances.
               </Link>
@@ -41,5 +41,5 @@ export default function Start({ stats }) {
         </Flex>
       </Box>
     </>
-  )
+  );
 }

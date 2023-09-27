@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import Icon from '@hackclub/icons'
+import { jsx } from "theme-ui";
+import Icon from "@hackclub/icons";
 
-const IconComponent = props => <Icon {...props} />
+const IconComponent = (props) => <Icon {...props} />;
 
-export default IconComponent
+export default IconComponent;

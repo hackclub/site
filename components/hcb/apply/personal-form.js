@@ -1,22 +1,22 @@
-import { Input, Flex, Label, Radio } from 'theme-ui'
-import Checkbox from './checkbox'
-import AddressInput from './address-input'
-import Field from './field'
-import AutofillColourFix from './autofill-colour-fix'
-import { useState } from 'react'
+import { Input, Flex, Label, Radio } from "theme-ui";
+import Checkbox from "./checkbox";
+import AddressInput from "./address-input";
+import Field from "./field";
+import AutofillColourFix from "./autofill-colour-fix";
+import { useState } from "react";
 
 export default function PersonalInfoForm({
   setValidationResult,
-  requiredFields
+  requiredFields,
 }) {
-  const [selectedContactOption, setSelectedContactOption] = useState('Email')
+  const [selectedContactOption, setSelectedContactOption] = useState("Email");
   const [email, setEmail] = useState(
-    window.sessionStorage.getItem('bank-signup-userEmail')
-  ) // For display only, is not used for data submission.
+    window.sessionStorage.getItem("bank-signup-userEmail"),
+  ); // For display only, is not used for data submission.
 
   return (
     <>
-      <Flex sx={{ justifyContent: 'space-between', gap: 4 }}>
+      <Flex sx={{ justifyContent: "space-between", gap: 4 }}>
         <Field
           name="firstName"
           label="First name"
@@ -48,7 +48,7 @@ export default function PersonalInfoForm({
           id="userEmail"
           type="email"
           placeholder="fiona@hackclub.com"
-          onInput={e => setEmail(e.target.value)}
+          onInput={(e) => setEmail(e.target.value)}
           sx={{ ...AutofillColourFix }}
         />
       </Field>
@@ -120,33 +120,33 @@ export default function PersonalInfoForm({
         <Flex sx={{ gap: 4 }}>
           <Label
             sx={{
-              display: 'flex',
-              flexDirection: 'row'
+              display: "flex",
+              flexDirection: "row",
             }}
           >
             <Radio
               name="contactOption"
               value="Email"
               defaultChecked={true}
-              onInput={() => setSelectedContactOption('Email')}
+              onInput={() => setSelectedContactOption("Email")}
             />
             Email
           </Label>
           <Label
             sx={{
-              display: 'flex',
-              flexDirection: 'row'
+              display: "flex",
+              flexDirection: "row",
             }}
           >
             <Radio
               name="contactOption"
               value="Slack"
-              onInput={() => setSelectedContactOption('Slack')}
+              onInput={() => setSelectedContactOption("Slack")}
             />
             Slack
           </Label>
         </Flex>
-        {selectedContactOption === 'Slack' ? (
+        {selectedContactOption === "Slack" ? (
           <Field name="slackUsername" requiredFields={requiredFields}>
             <Input
               name="slackUsername"
@@ -155,9 +155,9 @@ export default function PersonalInfoForm({
               sx={{ ...AutofillColourFix }}
             />
           </Field>
-        ) : selectedContactOption === 'Email' ? (
+        ) : selectedContactOption === "Email" ? (
           <div>
-            We'll use {email ?? 'whatever you put for your email above!'}
+            We'll use {email ?? "whatever you put for your email above!"}
           </div>
         ) : null}
       </Field>
@@ -175,5 +175,5 @@ export default function PersonalInfoForm({
         />
       </Field>
     </>
-  )
+  );
 }

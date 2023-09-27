@@ -1,15 +1,15 @@
-import { Box } from 'theme-ui'
-import Meta from '@hackclub/meta'
-import Head from 'next/head'
-import ForceTheme from '../../components/force-theme'
-import Nav from '../../components/nav'
-import Footer from '../../components/footer'
-import Landing from '../../components/hcb/landing'
-import Features from '../../components/hcb/features'
-import Testimonials from '../../components/hcb/testimonials'
-import Everything from '../../components/hcb/everything'
-import Start from '../../components/hcb/start'
-import Nonprofits from '../../components/hcb/nonprofits'
+import { Box } from "theme-ui";
+import Meta from "@hackclub/meta";
+import Head from "next/head";
+import ForceTheme from "../../components/force-theme";
+import Nav from "../../components/nav";
+import Footer from "../../components/footer";
+import Landing from "../../components/hcb/landing";
+import Features from "../../components/hcb/features";
+import Testimonials from "../../components/hcb/testimonials";
+import Everything from "../../components/hcb/everything";
+import Start from "../../components/hcb/start";
+import Nonprofits from "../../components/hcb/nonprofits";
 
 const styles = `
   html {
@@ -23,7 +23,7 @@ const styles = `
   input:-webkit-autofill {
     -webkit-text-fill-color: white;
   }
-`
+`;
 
 export default function Bank({ stats }) {
   return (
@@ -55,17 +55,17 @@ export default function Bank({ stats }) {
       </Box>
       <Footer dark key="footer" />
     </>
-  )
+  );
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`https://hcb.hackclub.com/stats`)
-  const stats = await res.json()
+  const res = await fetch(`https://hcb.hackclub.com/stats`);
+  const stats = await res.json();
 
   return {
     props: {
-      stats
+      stats,
     },
-    revalidate: 10
-  }
+    revalidate: 10,
+  };
 }

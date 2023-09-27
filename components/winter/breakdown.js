@@ -6,10 +6,10 @@ import {
   Grid,
   Text,
   Badge,
-  Link
-} from 'theme-ui'
-import { Fade, Slide } from 'react-reveal'
-import BreakdownBox from './breakdown-box'
+  Link,
+} from "theme-ui";
+import { Fade, Slide } from "react-reveal";
+import BreakdownBox from "./breakdown-box";
 
 function Breakdown() {
   return (
@@ -18,7 +18,7 @@ function Breakdown() {
         sx={{
           pt: 3,
           pb: 5,
-          background: 'linear-gradient(180deg, #579AC9 0%, #338EDA 100%)'
+          background: "linear-gradient(180deg, #579AC9 0%, #338EDA 100%)",
         }}
       >
         <Container>
@@ -26,9 +26,9 @@ function Breakdown() {
             <Heading
               variant="headline"
               sx={{
-                textShadow: '0px 0px 21px #E1F1FF',
-                color: 'white',
-                fontStyle: 'italic'
+                textShadow: "0px 0px 21px #E1F1FF",
+                color: "white",
+                fontStyle: "italic",
               }}
             >
               <Fade>Dear high school hacker, we have a challenge for you:</Fade>
@@ -36,11 +36,11 @@ function Breakdown() {
             <Heading
               variant="headline"
               sx={{
-                textShadow: '0px 0px 21px #E1F1FF',
-                color: 'white',
+                textShadow: "0px 0px 21px #E1F1FF",
+                color: "white",
                 fontSize: [4, 5, 6],
                 pb: 4,
-                mt: 0
+                mt: 0,
               }}
             >
               <Fade>What will you make this winter?</Fade>
@@ -51,12 +51,12 @@ function Breakdown() {
               variant="headline"
               sx={{
                 // textShadow: '0px 0px 21px #E1F1FF',
-                color: '#338eda',
-                background: 'white',
+                color: "#338eda",
+                background: "white",
                 px: 3,
                 py: 2,
-                borderRadius: '10px',
-                width: 'fit-content'
+                borderRadius: "10px",
+                width: "fit-content",
               }}
             >
               Join Hack Clubbers in a winter of making with
@@ -96,7 +96,7 @@ function Breakdown() {
         </Container>
       </Box>
     </>
-  )
+  );
 }
 
-export default Breakdown
+export default Breakdown;
