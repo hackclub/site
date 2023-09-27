@@ -1,79 +1,79 @@
-import { Button, Box, Card, Text, Grid, Avatar, Flex } from 'theme-ui'
-import { formatDate } from '../../lib/dates'
-import { Fragment, memo } from 'react'
-import { last, filter } from 'lodash'
-import Masonry from 'react-masonry-css'
-import Image from 'next/image'
-import Mention from './mention'
-import Emoji from './emoji'
+import { Button, Box, Card, Text, Grid, Avatar, Flex } from "theme-ui";
+import { formatDate } from "../../lib/dates";
+import { Fragment, memo } from "react";
+import { last, filter } from "lodash";
+import Masonry from "react-masonry-css";
+import Image from "next/image";
+import Mention from "./mention";
+import Emoji from "./emoji";
 
 const dataDetector =
-  /(<.+?\|?\S+>)|(@\S+)|(`{3}[\S\s]+`{3})|(`[^`]+`)|(_[^_]+_)|(\*[^\*]+\*)|(:[^ .,;`\u2013~!@#$%^&*(){}=\\:"<>?|A-Z]+:)/
+  /(<.+?\|?\S+>)|(@\S+)|(`{3}[\S\s]+`{3})|(`[^`]+`)|(_[^_]+_)|(\*[^\*]+\*)|(:[^ .,;`\u2013~!@#$%^&*(){}=\\:"<>?|A-Z]+:)/;
 
-export const formatText = text =>
+export const formatText = (text) =>
   text.split(dataDetector).map((chunk, i) => {
-    if (chunk?.startsWith(':') && chunk?.endsWith(':')) {
-      return <Emoji name={chunk} key={i} />
+    if (chunk?.startsWith(":") && chunk?.endsWith(":")) {
+      return <Emoji name={chunk} key={i} />;
     }
-    if (chunk?.startsWith('@') || chunk?.startsWith('<@')) {
-      const punct = /([,!:.'"’”]|’s|'s|\))+$/g
-      const username = chunk.replace(/[@<>]/g, '').replace(punct, '')
+    if (chunk?.startsWith("@") || chunk?.startsWith("<@")) {
+      const punct = /([,!:.'"’”]|’s|'s|\))+$/g;
+      const username = chunk.replace(/[@<>]/g, "").replace(punct, "");
       return (
         <Fragment key={i}>
           <Mention username={username} />
           {chunk.match(punct)}
         </Fragment>
-      )
+      );
     }
-    if (chunk?.startsWith('<')) {
-      const parts = chunk.match(/<(([^\|]+)\|)?([^>]+?)>/)
-      const url = parts?.[2] || last(parts)
+    if (chunk?.startsWith("<")) {
+      const parts = chunk.match(/<(([^\|]+)\|)?([^>]+?)>/);
+      const url = parts?.[2] || last(parts);
       const children = last(parts)
-        ?.replace(/https?:\/\//, '')
-        .replace(/\/$/, '')
+        ?.replace(/https?:\/\//, "")
+        .replace(/\/$/, "");
       return (
         <a href={url} target="_blank" rel="noreferrer" key={i}>
           {children}
         </a>
-      )
+      );
     }
-    if (chunk?.startsWith('```')) {
-      return <pre key={i}>{chunk.replace(/```/g, '')}</pre>
+    if (chunk?.startsWith("```")) {
+      return <pre key={i}>{chunk.replace(/```/g, "")}</pre>;
     }
-    if (chunk?.startsWith('`')) {
-      return <code key={i}>{chunk.replace(/`/g, '')}</code>
+    if (chunk?.startsWith("`")) {
+      return <code key={i}>{chunk.replace(/`/g, "")}</code>;
     }
-    if (chunk?.startsWith('*')) {
-      return <strong key={i}>{chunk.replace(/\*/g, '')}</strong>
+    if (chunk?.startsWith("*")) {
+      return <strong key={i}>{chunk.replace(/\*/g, "")}</strong>;
     }
-    if (chunk?.startsWith('_')) {
-      return <i key={i}>{chunk.replace(/_/g, '')}</i>
+    if (chunk?.startsWith("_")) {
+      return <i key={i}>{chunk.replace(/_/g, "")}</i>;
     }
-    return <Fragment key={i}>{chunk?.replace(/&amp;/g, '&')}</Fragment>
-  })
+    return <Fragment key={i}>{chunk?.replace(/&amp;/g, "&")}</Fragment>;
+  });
 
 const Post = ({
   id = new Date().toISOString(),
   profile = false,
   user = {
-    username: 'abc',
-    avatar: '',
+    username: "abc",
+    avatar: "",
     streakDisplay: false,
-    streakCount: 0
+    streakCount: 0,
   },
   text,
   attachments = [],
-  postedAt
+  postedAt,
 }) => (
-  <Card className="post" sx={{ p: [3, 3], width: '100%', bg: 'elevated' }}>
+  <Card className="post" sx={{ p: [3, 3], width: "100%", bg: "elevated" }}>
     <Flex
       as="a"
       href={`https://scrapbook.hackclub.com/${user.username}`}
       sx={{
-        color: 'inherit',
-        textDecoration: 'none',
-        alignItems: 'center',
-        mb: 2
+        color: "inherit",
+        textDecoration: "none",
+        alignItems: "center",
+        mb: 2,
       }}
     >
       <Avatar loading="lazy" src={user.avatar} alt={user.username} mr={2} />
@@ -91,11 +91,11 @@ const Post = ({
       sx={{
         fontSize: 2,
         a: {
-          color: 'primary',
-          wordBreak: 'break-all',
-          wordWrap: 'break-word'
+          color: "primary",
+          wordBreak: "break-all",
+          wordWrap: "break-word",
         },
-        '> div': { width: 18, height: 18 }
+        "> div": { width: 18, height: 18 },
       }}
     >
       {formatText(text)}
@@ -106,55 +106,55 @@ const Post = ({
           gap={2}
           columns={2}
           sx={{
-            alignItems: 'center',
-            textAlign: 'center',
+            alignItems: "center",
+            textAlign: "center",
             mt: 2,
             div: {
-              maxWidth: '100%',
+              maxWidth: "100%",
               maxHeight: 256,
-              bg: 'sunken',
-              gridColumn: attachments.length === 1 ? 'span 2' : null
+              bg: "sunken",
+              gridColumn: attachments.length === 1 ? "span 2" : null,
             },
-            img: { objectFit: 'cover', width: '100%' }
+            img: { objectFit: "cover", width: "100%" },
           }}
         >
-          {filter(attachments, a =>
-            ['jpg', 'jpeg', 'png'].includes(
-              a.split('.')[a.split('.').length - 1]
-            )
-          ).map(img => (
+          {filter(attachments, (a) =>
+            ["jpg", "jpeg", "png"].includes(
+              a.split(".")[a.split(".").length - 1],
+            ),
+          ).map((img) => (
             <img key={img} alt={img} src={img} />
           ))}
         </Grid>
       </>
     )}
   </Card>
-)
+);
 
 const Posts = ({ data = [] }) => (
-  <Box as="section" sx={{ position: 'relative' }}>
+  <Box as="section" sx={{ position: "relative" }}>
     <Masonry
       breakpointCols={{
         10000: 4,
         1024: 3,
         640: 2,
         480: 1,
-        default: 1
+        default: 1,
       }}
       className="masonry-posts"
       columnClassName="masonry-posts-column"
     >
-      {data.map(post => (
+      {data.map((post) => (
         <Post key={post.id} {...post} />
       ))}
     </Masonry>
     <Box
       sx={{
-        paddingBottom: '30px',
-        textAlign: 'center'
+        paddingBottom: "30px",
+        textAlign: "center",
       }}
     >
-      <Text as="p" variant="headline" sx={{ color: 'white', mb: 3 }}>
+      <Text as="p" variant="headline" sx={{ color: "white", mb: 3 }}>
         These are just a few posts…
       </Text>
       <Button as="a" variant="cta" href="https://scrapbook.hackclub.com/">
@@ -213,6 +213,6 @@ const Posts = ({ data = [] }) => (
 
     `}</style>
   </Box>
-)
+);
 
-export default Posts
+export default Posts;

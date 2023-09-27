@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { Box, Image, Link } from 'theme-ui'
+import React from "react";
+import styled from "@emotion/styled";
+import { Box, Image, Link } from "theme-ui";
 
 const Base = styled(Box)`
   display: grid;
@@ -12,32 +12,32 @@ const Base = styled(Box)`
     margin: auto;
     max-width: 12rem;
   }
-`
+`;
 
 const Sponsor = ({ name, href, img, ...props }) => (
   <Link href={href || `https://${name.toLowerCase()}.com`} target="_blank">
     <Image
-      src={`/inkind_logos/${img || name.toLowerCase() + '.svg'}`}
+      src={`/inkind_logos/${img || name.toLowerCase() + ".svg"}`}
       alt={name}
       {...props}
     />
   </Link>
-)
+);
 
-const Sponsors = props => (
+const Sponsors = (props) => (
   <Base maxWidth={48} {...props}>
     {[
-      'Vercel',
-      'Slack',
-      'Netlify',
-      'FullStory',
-      'BrowserStack',
-      'Stripe',
-      'Segment',
-      'Bugsnag',
-      'Google',
-      'Dialpad'
-    ].map(name => (
+      "Vercel",
+      "Slack",
+      "Netlify",
+      "FullStory",
+      "BrowserStack",
+      "Stripe",
+      "Segment",
+      "Bugsnag",
+      "Google",
+      "Dialpad",
+    ].map((name) => (
       <Sponsor name={name} key={name} />
     ))}
     <Sponsor name="Checkly" href="https://checklyhq.com" img="checkly.svg" />
@@ -47,6 +47,6 @@ const Sponsors = props => (
       img="fastforward.png"
     />
   </Base>
-)
+);
 
-export default Sponsors
+export default Sponsors;
