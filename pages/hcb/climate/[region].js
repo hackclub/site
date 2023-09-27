@@ -1,13 +1,13 @@
 import ClimateDirectory, {
   regions,
-  fetchRawClimateOrganizations
-} from './index'
-import { map, find, kebabCase, startCase } from 'lodash'
+  fetchRawClimateOrganizations,
+} from "./index";
+import { map, find, kebabCase, startCase } from "lodash";
 
-const regionsWithIds = map(regions, region => ({
+const regionsWithIds = map(regions, (region) => ({
   id: kebabCase(region.label),
-  ...region
-}))
+  ...region,
+}));
 
 export default function ClimateRegionalPage({ rawOrganizations, pageRegion }) {
   return (
@@ -15,30 +15,33 @@ export default function ClimateRegionalPage({ rawOrganizations, pageRegion }) {
       rawOrganizations={rawOrganizations}
       pageRegion={pageRegion}
     />
-  )
+  );
 }
 
 export const getStaticPaths = () => {
-  const paths = map(map(regionsWithIds, 'id'), id => ({
-    params: { region: `organizations-in-${id}` }
-  }))
+  const paths = map(map(regionsWithIds, "id"), (id) => ({
+    params: { region: `organizations-in-${id}` },
+  }));
 
-  return { paths, fallback: false }
-}
+  return { paths, fallback: false };
+};
 
 export const getStaticProps = async ({ params }) => {
-  let { region } = params
-  region = find(regionsWithIds, ['id', region.replace('organizations-in-', '')])
+  let { region } = params;
+  region = find(regionsWithIds, [
+    "id",
+    region.replace("organizations-in-", ""),
+  ]);
 
   let orgs = (await fetchRawClimateOrganizations()).filter(
-    org => org.location.continent === region.label
-  )
+    (org) => org.location.continent === region.label,
+  );
 
   return {
     props: {
       rawOrganizations: orgs,
-      pageRegion: region
+      pageRegion: region,
     },
-    revalidate: 60 // seconds
-  }
-}
+    revalidate: 60, // seconds
+  };
+};

@@ -1,5 +1,5 @@
-import { Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
-import Icon from '../icon'
+import { Box, Heading, Link, Text, Container, Grid } from "theme-ui";
+import Icon from "../icon";
 
 export default function Features({ partner = false }) {
   return (
@@ -10,7 +10,7 @@ export default function Features({ partner = false }) {
         </Text>
         <br />
         <br />
-        <Text sx={{ color: 'muted', maxWidth: '48', fontSize: 28 }}>
+        <Text sx={{ color: "muted", maxWidth: "48", fontSize: 28 }}>
           Invoice sponsors, issue debit cards to your team, and view transaction
           history.
           <br />
@@ -44,8 +44,8 @@ export default function Features({ partner = false }) {
             href="https://hcb.hackclub.com/the-innovation-circuit"
             title="See The Innovation Circuit’s finances in public"
             sx={{
-              gridColumn: [null, null, 'span 2'],
-              gridRow: [null, null, 'span 2']
+              gridColumn: [null, null, "span 2"],
+              gridRow: [null, null, "span 2"],
             }}
           />
           <Module
@@ -53,7 +53,7 @@ export default function Features({ partner = false }) {
             name="Debit cards"
             body={
               <>
-                Issue physical debit cards to all your teammates, backed by{' '}
+                Issue physical debit cards to all your teammates, backed by{" "}
                 <Link
                   href="https://stripe.com/issuing"
                   color="smoke"
@@ -114,7 +114,7 @@ export default function Features({ partner = false }) {
             name="Postal"
             body={
               <>
-                Send email newsletters for free using our hosted instance of{' '}
+                Send email newsletters for free using our hosted instance of{" "}
                 <Link
                   href="https://sendy.co/"
                   color="smoke"
@@ -139,7 +139,7 @@ export default function Features({ partner = false }) {
             name="PVSA Awards"
             body={
               <>
-                Issue the{' '}
+                Issue the{" "}
                 <Link
                   href="https://presidentialserviceawards.gov"
                   color="smoke"
@@ -147,7 +147,7 @@ export default function Features({ partner = false }) {
                   target="_blank"
                 >
                   President's Volunteer Service Award
-                </Link>{' '}
+                </Link>{" "}
                 to your volunteers.
               </>
             }
@@ -170,21 +170,21 @@ export default function Features({ partner = false }) {
       <Container
         variant="copy"
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          textAlign: 'center'
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          textAlign: "center",
         }}
       >
         <Text
           variant="lead"
           sx={{
-            color: 'muted',
+            color: "muted",
             fontSize: 3,
-            marginTop: [4, 5]
+            marginTop: [4, 5],
           }}
         >
-          Have more questions? <br /> Check out the{' '}
+          Have more questions? <br /> Check out the{" "}
           <Link
             href="https://hcb.hackclub.com/faq"
             target="_blank"
@@ -197,66 +197,66 @@ export default function Features({ partner = false }) {
         </Text>
       </Container>
     </Box>
-  )
+  );
 }
 
 function Module({ icon, name, body }) {
   return (
-    <Box sx={{ display: 'flex', alignItems: 'start' }}>
+    <Box sx={{ display: "flex", alignItems: "start" }}>
       <Icon
         size={48}
         glyph={icon}
-        sx={{ flexShrink: 0, marginRight: 3, color: 'primary' }}
+        sx={{ flexShrink: 0, marginRight: 3, color: "primary" }}
       />
       <Box>
-        <Heading sx={{ color: 'snow', lineHeight: '1.5' }}>{name}</Heading>
-        <Text sx={{ color: 'muted', lineHeight: '1.375', fontSize: 17 }}>
+        <Heading sx={{ color: "snow", lineHeight: "1.5" }}>{name}</Heading>
+        <Text sx={{ color: "muted", lineHeight: "1.375", fontSize: 17 }}>
           {body}
         </Text>
       </Box>
     </Box>
-  )
+  );
 }
 
 function ModuleDetails({ children }) {
   return (
     <Box
       sx={{
-        bg: '#252429',
-        color: 'smoke',
+        bg: "#252429",
+        color: "smoke",
         mt: 4,
         ml: 0,
         py: 3,
         px: 2,
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.0625)',
-        borderRadius: 'default'
+        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.0625)",
+        borderRadius: "default",
       }}
     >
       {children}
     </Box>
-  )
+  );
 }
 
 function Document({ name, cost }) {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: "flex" }}>
       <Icon
         size={28}
         mr={1}
         glyph="payment"
-        sx={{ flexShrink: 0, color: 'green' }}
+        sx={{ flexShrink: 0, color: "green" }}
       />
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Text fontSize={2}>{name}</Text>
 
         {cost && (
-          <Text fontSize={1} color="muted" style={{ lineHeight: '1.375' }}>
+          <Text fontSize={1} color="muted" style={{ lineHeight: "1.375" }}>
             {cost}
           </Text>
         )}
       </Box>
     </Box>
-  )
+  );
 }
 
 function Laptop({ href, title, sx }) {
@@ -264,16 +264,16 @@ function Laptop({ href, title, sx }) {
     <Link href={href} title={title} sx={sx}>
       <Box
         sx={{
-          display: 'block',
-          width: '100%',
-          height: '100%',
-          minHeight: '16rem',
-          backgroundSize: 'auto 115%',
+          display: "block",
+          width: "100%",
+          height: "100%",
+          minHeight: "16rem",
+          backgroundSize: "auto 115%",
           backgroundImage: "url('/hcb/laptop-dark.png')",
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat'
+          backgroundPosition: "center top",
+          backgroundRepeat: "no-repeat",
         }}
       ></Box>
     </Link>
-  )
+  );
 }

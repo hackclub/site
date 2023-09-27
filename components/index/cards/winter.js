@@ -1,8 +1,8 @@
-import CardModel from './card-model'
-import { Box, Card, Flex, Grid, Heading, Text } from 'theme-ui'
-import Buttons from './button'
-import Icon from '@hackclub/icons'
-import Dot from '../../dot'
+import CardModel from "./card-model";
+import { Box, Card, Flex, Grid, Heading, Text } from "theme-ui";
+import Buttons from "./button";
+import Icon from "@hackclub/icons";
+import Dot from "../../dot";
 /** @jsxImportSource theme-ui */
 
 function BreakdownBox({
@@ -13,27 +13,27 @@ function BreakdownBox({
   delay,
   href,
   color,
-  bg
+  bg,
 }) {
   return (
     <Card
       sx={{
-        color: 'white',
-        background: 'rgba(54,98,166,0.4)',
-        height: '100%',
-        cursor: `${href ? 'pointer' : 'default'}`,
-        display: 'flex',
-        flexDirection: 'column',
+        color: "white",
+        background: "rgba(54,98,166,0.4)",
+        height: "100%",
+        cursor: `${href ? "pointer" : "default"}`,
+        display: "flex",
+        flexDirection: "column",
         zIndex: 2,
-        p: [2, 3, '24px']
+        p: [2, 3, "24px"],
         // justifyContent: 'flex-end'
       }}
     >
-      <Flex sx={{ alignItems: 'center', gap: '10px' }}>
-        <Icon glyph={icon} size={32} color={'white'} />
+      <Flex sx={{ alignItems: "center", gap: "10px" }}>
+        <Icon glyph={icon} size={32} color={"white"} />
         <Heading
           sx={{
-            fontSize: ['16px', '16px', '24px', '26px']
+            fontSize: ["16px", "16px", "24px", "26px"],
           }}
           as="h4"
         >
@@ -43,16 +43,16 @@ function BreakdownBox({
       <Text
         as="p"
         sx={{
-          fontSize: [1, '16px !important', '18px !important'],
+          fontSize: [1, "16px !important", "18px !important"],
           lineHeight: 1.25,
-          display: ['none', 'none', 'block', 'block'],
-          mt: [1, 2, 2]
+          display: ["none", "none", "block", "block"],
+          mt: [1, 2, 2],
         }}
       >
         {description}
       </Text>
     </Card>
-  )
+  );
 }
 
 export default function Winter() {
@@ -60,17 +60,17 @@ export default function Winter() {
     <CardModel
       color="white"
       sx={{
-        backgroundSize: 'cover',
-        backgroundColor: '#3561A4'
+        backgroundSize: "cover",
+        backgroundColor: "#3561A4",
       }}
-      position={[null, 'bottom', 'bottom']}
+      position={[null, "bottom", "bottom"]}
       image="/home/winter-bg.webp"
       badge
     >
-      <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
+      <Text variant="title" as="h3" sx={{ fontSize: ["36px", 4, 5] }}>
         Winter Hardware Wonderland
       </Text>
-      <Text as="p" variant="subtitle" sx={{ maxWidth: '45ch' }}>
+      <Text as="p" variant="subtitle" sx={{ maxWidth: "45ch" }}>
         Get $250 to build your own electronics projects alongside hundreds of
         other teenagers in the Hack&nbsp;Club community!
       </Text>
@@ -108,11 +108,11 @@ export default function Winter() {
           link="https://github.com/hackclub/winter"
           icon="freeze"
           primary="white"
-          sx={{ color: 'blue' }}
+          sx={{ color: "blue" }}
         >
           View The Projects
         </Buttons>
       </Box>
     </CardModel>
-  )
+  );
 }

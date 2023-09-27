@@ -1,4 +1,4 @@
-import { Container, BaseStyles } from 'theme-ui'
+import { Container, BaseStyles } from "theme-ui";
 
 export default function AnnouncementHolder({ children }) {
   return (
@@ -9,14 +9,14 @@ export default function AnnouncementHolder({ children }) {
         py: [4, 5],
         fontSize: [2, 3],
         h1: {
-          textAlign: ['left', 'center'],
-          color: 'cyan',
+          textAlign: ["left", "center"],
+          color: "cyan",
           my: 4,
-          a: { color: 'inherit' }
-        }
+          a: { color: "inherit" },
+        },
       }}
     >
       {children}
     </Container>
-  )
+  );
 }
