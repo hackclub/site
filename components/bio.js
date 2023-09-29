@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Text, Avatar, Card } from 'theme-ui'
+import { Box, Flex, Text, Avatar, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import { useState } from 'react'
 
@@ -22,10 +22,10 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           maxWidth: '600px',
           zIndex: !popup ? 1003 : 5,
           maxHeight: '90vh',
-          overflowY: 'scroll',
+          overflowY: 'hidden',
           overscrollBehavior: 'contain',
           gridColumn: !spanTwo ? null : [null, null, `1 / span 2`],
-          position: 'relative'
+          position: 'relative',
         }}
         as={href && !text ? 'a' : 'div'}
         href={href}
