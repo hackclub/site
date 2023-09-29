@@ -11,7 +11,7 @@ import {
   Grid,
 } from "theme-ui";
 import BGImg from "../../background-image";
-import FooterImgFile from "../../../public/home/footer.png";
+import FooterImgFile from "../../../public/outernet/hack.jpg";
 import Link from "next/link";
 import MailCard from "../../mail-card";
 
@@ -35,7 +35,7 @@ const Loading = () => (
   ></Box>
 );
 
-const MailingList = () => {
+const MailingList = ({ gradient = "linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.5))", }) => {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const formRef = useRef(null);
@@ -181,12 +181,24 @@ const MailingList = () => {
             <MailCard subject="Hello, again!" date="26/11/23" body="AHHHHH!!"/>
         </Box>
       </Card>
-      <BGImg
-        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
-        src={FooterImgFile}
-        placeholder="blur"
-        alt="Globe with hundreds of Hack Clubs"
-      />
+        {/*<Box
+            sx={{
+                position: "absolute",
+                display: "block",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                zIndex: 0,
+                background: "linear-gradient(-180deg, #f1c40f 14%, #ff8c37 82%)",
+            }}
+        />*/}
+       <BGImg
+            src={FooterImgFile}
+            alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
+            priority
+            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
+        />
     </Box>
   );
 };
