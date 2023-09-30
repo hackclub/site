@@ -35,7 +35,7 @@ const Loading = () => (
   ></Box>
 );
 
-const MailingList = ({ gradient = "linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.5))", }) => {
+const MailingList = () => {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const formRef = useRef(null);
