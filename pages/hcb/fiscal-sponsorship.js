@@ -1,72 +1,72 @@
-import { Box, Card, Container, Flex, Link, Text } from "theme-ui";
-import { useEffect, useRef, useState } from "react";
-import { keyframes } from "@emotion/react";
-import FlexCol from "../../components/flex-col";
-import Meta from "@hackclub/meta";
-import Head from "next/head";
-import ForceTheme from "../../components/force-theme";
-import Nav from "../../components/nav";
-import Footer from "../../components/footer";
-import Icon from "../../components/icon";
-import Tilt from "../../components/tilt";
+import { Box, Card, Container, Flex, Link, Text } from 'theme-ui'
+import { useEffect, useRef, useState } from 'react'
+import { keyframes } from '@emotion/react'
+import FlexCol from '../../components/flex-col'
+import Meta from '@hackclub/meta'
+import Head from 'next/head'
+import ForceTheme from '../../components/force-theme'
+import Nav from '../../components/nav'
+import Footer from '../../components/footer'
+import Icon from '../../components/icon'
+import Tilt from '../../components/tilt'
 
 function Bullet({ glow = true, icon, href, children }) {
   let effectColours = [
-    "#ec3750",
-    "#ff8c37",
-    "#f1c40f",
-    "#33d6a6",
-    "#5bc0de",
-    "#338eda",
-    "#a633d6",
-  ];
+    '#ec3750',
+    '#ff8c37',
+    '#f1c40f',
+    '#33d6a6',
+    '#5bc0de',
+    '#338eda',
+    '#a633d6'
+  ]
 
   function keyframeGenerator(spread, blur, colours, opacity = 0.5) {
     let hexOpacity = Math.max(Math.min(Math.round(opacity * 255), 255), 0)
       .toString(16)
-      .padStart(2, "0");
+      .padStart(2, '0')
 
-    let final = {};
+    let final = {}
     for (let i = 0; i <= 100; i++) {
-      let baseX = Math.sin((i * Math.PI) / 50); // 50 keyframes for each pi radians
-      let baseY = -Math.cos((i * Math.PI) / 50);
+      let baseX = Math.sin((i * Math.PI) / 50) // 50 keyframes for each pi radians
+      let baseY = -Math.cos((i * Math.PI) / 50)
 
       // Ensure no scientific notation
-      const roundFactor = 1_000_000;
-      baseX = Math.round(baseX * roundFactor) / roundFactor;
-      baseY = Math.round(baseY * roundFactor) / roundFactor;
+      const roundFactor = 1_000_000
+      baseX = Math.round(baseX * roundFactor) / roundFactor
+      baseY = Math.round(baseY * roundFactor) / roundFactor
 
-      let boxShadow = "";
+      let boxShadow = ''
       for (let c = 0; c < colours.length; c++) {
         // Rotate by 2pi / colours.length * c radians
         let x =
           baseX * Math.cos((2 * Math.PI * c) / colours.length) -
-          baseY * Math.sin((2 * Math.PI * c) / colours.length);
+          baseY * Math.sin((2 * Math.PI * c) / colours.length)
         let y =
           baseX * Math.sin((2 * Math.PI * c) / colours.length) +
-          baseY * Math.cos((2 * Math.PI * c) / colours.length);
+          baseY * Math.cos((2 * Math.PI * c) / colours.length)
 
         boxShadow += `${x * spread}px ${y * spread}px ${blur}px ${
           colours[c]
-        }${hexOpacity},`;
+        }${hexOpacity},`
       }
 
       // Remove trailing comma
-      boxShadow = boxShadow.slice(0, -1);
+      boxShadow = boxShadow.slice(0, -1)
 
-      final[i + "%"] = { boxShadow };
+      final[i + '%'] = { boxShadow }
     }
 
-    return final;
+    return final
   }
 
-  const shadowSpread = glow ? 5 : 0;
-  const shadowBlur = glow ? 10 : 0;
+  const shadowSpread = glow ? 5 : 0
+  const shadowBlur = glow ? 10 : 0
   const animatedBoxShadow = keyframes(
-    keyframeGenerator(shadowSpread, shadowBlur, effectColours),
-  );
+    keyframeGenerator(shadowSpread, shadowBlur, effectColours)
+  )
 
-  const borderWidth = "2px";
+  const borderWidth = '2px'
 
   return (
     <Tilt>
@@ -75,123 +75,123 @@ function Bullet({ glow = true, icon, href, children }) {
         {...(href && { href })}
         target="_blank"
         sx={{
-          display: "flex",
-          alignItems: "center",
+          display: 'flex',
+          alignItems: 'center',
           gap: 2,
 
-          width: "20rem",
+          width: '20rem',
 
           borderWidth,
-          borderRadius: "8px !important",
-          p: "8px !important",
+          borderRadius: '8px !important',
+          p: '8px !important',
 
-          textDecoration: "none",
-          color: "inherit",
+          textDecoration: 'none',
+          color: 'inherit',
 
-          backgroundColor: "var(--theme-ui-colors-darkless)",
+          backgroundColor: 'var(--theme-ui-colors-darkless)',
 
-          "&:hover::after": {
+          '&:hover::after': {
             content: '""',
-            position: "absolute",
+            position: 'absolute',
             inset: 0,
             boxShadow: `linear-gradient(60deg, ${effectColours[0]}, ${effectColours[1]}, ${effectColours[2]}, ${effectColours[3]}, ${effectColours[4]})`,
-            borderRadius: "inherit",
+            borderRadius: 'inherit',
             zIndex: -1,
-            animation: `${animatedBoxShadow} 5s ease infinite`,
-          },
+            animation: `${animatedBoxShadow} 5s ease infinite`
+          }
         }}
       >
-        <Icon glyph={icon} size={42} sx={{ color: "red", flexShrink: 0 }} />
-        <Box sx={{ textAlign: "left" }}>{children}</Box>
+        <Icon glyph={icon} size={42} sx={{ color: 'red', flexShrink: 0 }} />
+        <Box sx={{ textAlign: 'left' }}>{children}</Box>
         {href && (
           <Icon
             glyph="external-fill"
             size={32}
             sx={{
-              position: "absolute",
+              position: 'absolute',
               top: 0,
               right: 0,
-              translate: "50% -50%",
-              color: "muted",
+              translate: '50% -50%',
+              color: 'muted'
             }}
           />
         )}
       </Flex>
     </Tilt>
-  );
+  )
 }
 
-function BulletBox({ padding = "2rem", children }) {
+function BulletBox({ padding = '2rem', children }) {
   return (
     <Box
       as="ul"
       sx={{
-        width: "100%",
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        gridGap: "2rem",
-        padding,
+        width: '100%',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        gridGap: '2rem',
+        padding
       }}
     >
       {children}
     </Box>
-  );
+  )
 }
 
 function Section({ id, children }) {
   return (
-    <Flex as="section" id={id} sx={{ flexDirection: "column", pt: 5 }}>
+    <Flex as="section" id={id} sx={{ flexDirection: 'column', pt: 5 }}>
       {children}
     </Flex>
-  );
+  )
 }
 
 export default function FiscalSponsorship() {
-  const gridRef = useRef();
-  const glowRef = useRef();
+  const gridRef = useRef()
+  const glowRef = useRef()
 
-  const scrollPos = useRef(0);
-  const mousePos = useRef([0, 0]);
+  const scrollPos = useRef(0)
+  const mousePos = useRef([0, 0])
 
   const setGlowMaskPosition = () => {
     const finalPos = [
       -mousePos.current[0],
-      -mousePos.current[1] + scrollPos.current,
-    ];
-    glowRef.current.style.maskPosition = `${finalPos[0]}px ${finalPos[1]}px`;
-    glowRef.current.style.WebkitMaskPosition = `${finalPos[0]}px ${finalPos[1]}px`;
-  };
+      -mousePos.current[1] + scrollPos.current
+    ]
+    glowRef.current.style.maskPosition = `${finalPos[0]}px ${finalPos[1]}px`
+    glowRef.current.style.WebkitMaskPosition = `${finalPos[0]}px ${finalPos[1]}px`
+  }
 
   useEffect(() => {
-    const handleScroll = (e) => {
-      scrollPos.current = -window.scrollY / 10;
+    const handleScroll = e => {
+      scrollPos.current = -window.scrollY / 10
 
-      gridRef.current.style.transform = `translateY(${scrollPos.current}px)`;
+      gridRef.current.style.transform = `translateY(${scrollPos.current}px)`
 
-      setGlowMaskPosition();
-    };
+      setGlowMaskPosition()
+    }
 
-    const handleMouseMove = (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      glowRef.current.style.left = x + "px";
-      glowRef.current.style.top = y + "px";
+    const handleMouseMove = e => {
+      const x = e.clientX
+      const y = e.clientY
+      glowRef.current.style.left = x + 'px'
+      glowRef.current.style.top = y + 'px'
 
-      mousePos.current = [x, y];
-      setGlowMaskPosition();
-    };
+      mousePos.current = [x, y]
+      setGlowMaskPosition()
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('mousemove', handleMouseMove)
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [])
 
   return (
-    <Box as="main" key="main" sx={{ position: "relative" }}>
+    <Box as="main" key="main" sx={{ position: 'relative' }}>
       <style>
         {`* {
             scroll-behavior: smooth;
@@ -204,37 +204,37 @@ export default function FiscalSponsorship() {
       <Box
         ref={gridRef}
         sx={{
-          position: "fixed",
+          position: 'fixed',
           inset: 0,
-          height: "1000%",
+          height: '1000%',
           zIndex: -2,
-          backgroundSize: "20px 20px",
+          backgroundSize: '20px 20px',
           backgroundImage: `linear-gradient(to right,  #23262D 1px, transparent 1px), 
                                       linear-gradient(to bottom, #23262D 1px, transparent 1px) `,
-          backgroundPosition: "top left",
-          maskImage: `linear-gradient(180deg, transparent 0%, white 3%)`,
+          backgroundPosition: 'top left',
+          maskImage: `linear-gradient(180deg, transparent 0%, white 3%)`
         }}
       />
       <Box
         ref={glowRef}
         sx={{
-          pointerEvents: "none",
+          pointerEvents: 'none',
           zIndex: -2,
-          position: "fixed",
-          top: "0",
-          left: "0",
-          width: "20rem",
-          height: "20rem",
-          background: "red",
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          width: '20rem',
+          height: '20rem',
+          background: 'red',
           opacity: 0.2,
-          borderRadius: "50%",
-          filter: "blur(2rem)",
-          translate: "-50% -50%",
+          borderRadius: '50%',
+          filter: 'blur(2rem)',
+          translate: '-50% -50%',
           // Mask it to the grid background
           maskImage: `linear-gradient(to right, #23262D 1px, transparent 1px), 
                                 linear-gradient(to bottom, #23262D 1px, transparent 1px) `,
-          maskSize: "20px 20px, 20px 20px, cover",
-          maskPosition: "0px 0px",
+          maskSize: '20px 20px, 20px 20px, cover',
+          maskPosition: '0px 0px'
         }}
       />
       <Nav dark />
@@ -248,18 +248,18 @@ export default function FiscalSponsorship() {
         <title>Fiscal Sponsorship | HCB</title>
       </Meta>
 
-      <Container sx={{ textAlign: "center", mt: 6 }}>
+      <Container sx={{ textAlign: 'center', mt: 6 }}>
         <FlexCol gap={4} alignItems="center">
           <FlexCol gap={4} alignItems="center">
             <Text variant="ultratitle">Fiscal sponsorship</Text>
             <Text variant="title">
               <Text
                 sx={{
-                  color: "red",
-                  textShadow: "0 0 50px var(--theme-ui-colors-red)",
+                  color: 'red',
+                  textShadow: '0 0 50px var(--theme-ui-colors-red)'
                 }}
               >
-                501(c)(3)&nbsp;nonprofit{" "}
+                501(c)(3)&nbsp;nonprofit{' '}
               </Text>
               status in just 24 hours for your mission
             </Text>
@@ -302,8 +302,8 @@ export default function FiscalSponsorship() {
               <Bullet glow={false} icon="sad">
                 $3,000 in <b>up-front costs</b>, from
                 <Link href="https://www.irs.gov/charities-non-profits/form-1023-and-1023-ez-amount-of-user-fee">
-                  {" "}
-                  forms{" "}
+                  {' '}
+                  forms{' '}
                 </Link>
                 to state fees to support from legal counsel
               </Bullet>
@@ -463,23 +463,23 @@ export default function FiscalSponsorship() {
       </Container>
       <Box
         sx={{
-          height: "100px",
-          position: "relative",
-          width: "100%",
-          overflow: "hidden",
+          height: '100px',
+          position: 'relative',
+          width: '100%',
+          overflow: 'hidden',
 
-          "&::after": {
+          '&::after': {
             content: '""',
-            width: "500%",
-            height: "100%",
+            width: '500%',
+            height: '100%',
 
-            position: "absolute",
-            translate: "-50% 100%",
-            boxShadow: "0 -64px 64px #17171d",
-          },
+            position: 'absolute',
+            translate: '-50% 100%',
+            boxShadow: '0 -64px 64px #17171d'
+          }
         }}
       />
       <Footer dark />
     </Box>
-  );
+  )
 }

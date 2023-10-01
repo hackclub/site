@@ -1,19 +1,10 @@
-import {
-  Link,
-  Box,
-  Container,
-  Heading,
-  Text,
-  Grid,
-  Flex,
-  Card,
-} from "theme-ui";
-import Head from "next/head";
-import Nav from "../../components/nav";
-import Meta from "@hackclub/meta";
-import ForceTheme from "../../components/force-theme";
-import Photo from "../../components/photo";
-import { formatted } from "../../lib/members";
+import { Link, Box, Container, Heading, Text, Grid, Flex, Card } from 'theme-ui'
+import Head from 'next/head'
+import Nav from '../../components/nav'
+import Meta from '@hackclub/meta'
+import ForceTheme from '../../components/force-theme'
+import Photo from '../../components/photo'
+import { formatted } from '../../lib/members'
 
 const Page = () => (
   <>
@@ -31,10 +22,10 @@ const Page = () => (
       sx={{
         pt: [5, 6],
         pb: [4, 5],
-        backgroundImage: (theme) => theme.util.gx("#516395", "#614385"),
+        backgroundImage: theme => theme.util.gx('#516395', '#614385')
       }}
     >
-      <Container sx={{ textAlign: "center", color: "white" }}>
+      <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading as="h1" variant="title" mb={30}>
           Events Designer @&nbsp;Hack&nbsp;Club
         </Heading>
@@ -48,10 +39,10 @@ const Page = () => (
       as="section"
       sx={{
         py: [4, 5],
-        fontSize: [2, 3],
+        fontSize: [2, 3]
       }}
     >
-      <Text sx={{ fontStyle: "italic" }}>
+      <Text sx={{ fontStyle: 'italic' }}>
         This role has been filled as of February 8th, 2022.
       </Text>
       <Heading
@@ -70,41 +61,41 @@ const Page = () => (
         gap={3}
         columns={[null, null, 3]}
         sx={{
-          "> div": {
+          '> div': {
             p: 3,
-            fontSize: 2,
-          },
+            fontSize: 2
+          }
         }}
       >
         <Card variant="sunken">
-          42 Hack Clubbers{" "}
+          42 Hack Clubbers{' '}
           <Link
             href="https://www.youtube.com/watch?v=2BID8_pGuqA"
             target="_blank"
             rel="noopener noreferrer"
           >
             rode a train
-          </Link>{" "}
+          </Link>{' '}
           across America to SpaceX.
         </Card>
         <Card variant="sunken">
-          We hosted{" "}
+          We hosted{' '}
           <Link
             href="https://hackclub.com/amas/"
             target="_blank"
             rel="noopener noreferrer"
           >
             AMAs
-          </Link>{" "}
-          with people like{" "}
+          </Link>{' '}
+          with people like{' '}
           <Link
             href="https://www.youtube.com/watch?v=riru9OzScwk"
             target="_blank"
             rel="noopener noreferrer"
           >
             Elon Musk
-          </Link>{" "}
-          and{" "}
+          </Link>{' '}
+          and{' '}
           <Link
             href="https://www.youtube.com/watch?v=gw3vyFZ4oeU"
             target="_blank"
@@ -115,7 +106,7 @@ const Page = () => (
           .
         </Card>
         <Card variant="sunken">
-          We gave 300 teenagers $50,000 for{" "}
+          We gave 300 teenagers $50,000 for{' '}
           <Link
             href="https://summer.hackclub.com/"
             target="_blank"
@@ -128,7 +119,7 @@ const Page = () => (
       </Grid>
 
       <Text as="p">
-        We're looking for someone <strong>fun, creative, and technical</strong>{" "}
+        We're looking for someone <strong>fun, creative, and technical</strong>{' '}
         to excite and grow the community.
       </Text>
 
@@ -138,21 +129,21 @@ const Page = () => (
 
           <Flex
             sx={{
-              flexDirection: "column",
+              flexDirection: 'column',
               my: 3,
               gap: 3,
               pr: [0, 0, 5],
-              "> div": {
+              '> div': {
                 p: 3,
-                fontSize: 2,
-              },
+                fontSize: 2
+              }
             }}
           >
             <Card
               sx={{
                 background:
-                  "radial-gradient(ellipse farthest-corner at top left, #ff8c37, #ec3750)",
-                color: "white",
+                  'radial-gradient(ellipse farthest-corner at top left, #ff8c37, #ec3750)',
+                color: 'white'
               }}
             >
               You're passionate about building technical projects and find
@@ -161,8 +152,8 @@ const Page = () => (
 
             <Card
               sx={{
-                background: "linear-gradient(-32deg, #6f31b7 14%, #c6479e 82%)",
-                color: "white",
+                background: 'linear-gradient(-32deg, #6f31b7 14%, #c6479e 82%)',
+                color: 'white'
               }}
             >
               You've worked with teenagers and are excited to work 1:1 with them
@@ -171,8 +162,8 @@ const Page = () => (
 
             <Card
               sx={{
-                background: "linear-gradient(120deg, #0e5ea0 0%, #338eda 100%)",
-                color: "white",
+                background: 'linear-gradient(120deg, #0e5ea0 0%, #338eda 100%)',
+                color: 'white'
               }}
             >
               You have event planning or media production experience and want to
@@ -199,14 +190,14 @@ const Page = () => (
 
           <Flex
             sx={{
-              flexDirection: "column",
+              flexDirection: 'column',
               gap: 3,
               my: 3,
               pr: [0, 0, 5],
-              "> div": {
+              '> div': {
                 p: 3,
-                fontSize: 2,
-              },
+                fontSize: 2
+              }
             }}
           >
             <Card variant="sunken">
@@ -214,7 +205,7 @@ const Page = () => (
               months
             </Card>
             <Card variant="sunken">
-              Support Hack Clubbers in creating and executing{" "}
+              Support Hack Clubbers in creating and executing{' '}
               <Link
                 href="https://scrapbook.hackclub.com/"
                 target="_blank"
@@ -224,7 +215,7 @@ const Page = () => (
               </Link>
             </Card>
             <Card variant="sunken">
-              Revive{" "}
+              Revive{' '}
               <Link
                 href="https://hackclub.com/night/"
                 target="_blank"
@@ -258,7 +249,7 @@ const Page = () => (
           src="/home/flagship_4.jpg"
           alt={
             <>
-              Hack Clubbers at{" "}
+              Hack Clubbers at{' '}
               <Link
                 href="https://photos.app.goo.gl/F5JDxq5FzfhofTMD9"
                 target="_blank"
@@ -276,20 +267,20 @@ const Page = () => (
           src="/home/golden-train.png"
           alt={
             <>
-              The{" "}
+              The{' '}
               <Link
                 href="https://zephyr.hackclub.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 world's longest hackathon
-              </Link>{" "}
+              </Link>{' '}
               on land
             </>
           }
           width={500}
           height={326.5}
-          sx={{ display: ["none", "none", "block"] }}
+          sx={{ display: ['none', 'none', 'block'] }}
           showAlt
         />
         <Photo
@@ -297,28 +288,28 @@ const Page = () => (
           alt="One of the workshops run by community members"
           width={500}
           height={326.5}
-          sx={{ display: ["none", "block", "block"] }}
+          sx={{ display: ['none', 'block', 'block'] }}
           showAlt
         />
       </Grid>
 
       <Box sx={{ p: { my: [3, 4] } }}>
         <Text as="p">
-          This is not a normal job. For the last 18 months, a{" "}
+          This is not a normal job. For the last 18 months, a{' '}
           <Link
             href="https://hackclub.com/team/"
             target="_blank"
             rel="noopener noreferrer"
           >
             small team
-          </Link>{" "}
+          </Link>{' '}
           has produced a series of online events, and we're excited to hire an
           incredible, technical person to carry forward and build on these
           ideas. You'd be our 9th or so full-time staff member.
         </Text>
 
         <Text as="p">
-          In the{" "}
+          In the{' '}
           <Link
             href="https://hackclub.com/slack/"
             target="_blank"
@@ -328,7 +319,7 @@ const Page = () => (
           </Link>
           , you'll work with our community to create the best and most inclusive
           place on the internet for technical teenagers. To work at Hack Club,
-          you need to have a background in programming, but{" "}
+          you need to have a background in programming, but{' '}
           <strong>you should be inspired by making things fun.</strong>
         </Text>
 
@@ -348,10 +339,10 @@ const Page = () => (
 
       <Flex
         sx={{
-          flexDirection: ["column", "column", "row"],
+          flexDirection: ['column', 'column', 'row'],
           gap: 4,
           fontSize: 2,
-          my: 5,
+          my: 5
         }}
       >
         <Box sx={{ flex: 1, maxWidth: [null, null, 400] }}>
@@ -374,7 +365,7 @@ const Page = () => (
           </Box>
 
           <Box as="p">
-            Already, Hack Club is the{" "}
+            Already, Hack Club is the{' '}
             <strong>largest network of teen coders in the country</strong>. We
             hope for a world where Hack Club becomes a nationwide cultural
             institution, creating a new generation of young people with the
@@ -385,19 +376,19 @@ const Page = () => (
       </Flex>
 
       <Box as="p" mt={5}>
-        <strong>How to apply:</strong> Email{" "}
+        <strong>How to apply:</strong> Email{' '}
         <Link
           href="mailto:jobs@hackclub.com"
           target="_blank"
           rel="noopener noreferrer"
         >
           jobs@hackclub.com
-        </Link>{" "}
+        </Link>{' '}
         with "golden" in the subject line, 3 bullet points demonstrating why you
         would be exceptional for the role, and your resume.
       </Box>
     </Container>
   </>
-);
+)
 
-export default Page;
+export default Page

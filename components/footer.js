@@ -1,25 +1,27 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { Box, Container, Image, Grid, Heading, Link, Text } from "theme-ui";
-import NextLink from "next/link";
-import theme from "@hackclub/theme";
-import Icon from "./icon";
+import React from 'react'
+import styled from '@emotion/styled'
+import { Box, Container, Image, Grid, Heading, Link, Text } from 'theme-ui'
+import NextLink from 'next/link'
+import theme from '@hackclub/theme'
+import Icon from './icon'
 
 const Base = styled(Box)`
-  background: ${(props) =>
+  background: ${props =>
     props.dark
       ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
       : `${theme.colors.snow} url('/pattern.svg') repeat`};
-  ${(props) =>
+  ${props =>
     props.dark &&
     `
       background-size: ${theme.space[4]}px ${theme.space[4]}px;
     `} @media print {
     display: none;
   }
-`;
+`
 
-const Logo = (props) => (
+
+
+const Logo = props => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="256"
@@ -35,9 +37,9 @@ const Logo = (props) => (
       clipRule="evenodd"
     />
   </svg>
-);
+)
 
-const Service = ({ href, icon, name = "", ...props }) => (
+const Service = ({ href, icon, name = '', ...props }) => (
   <Link
     target="_blank"
     rel="noopener me"
@@ -47,14 +49,14 @@ const Service = ({ href, icon, name = "", ...props }) => (
   >
     <Icon glyph={icon} />
   </Link>
-);
+)
 
 const Footer = ({ dark = false, children, ...props }) => (
   <Base
-    color={dark ? "muted" : "slate"}
+    color={dark ? 'muted' : 'slate'}
     py={[4, 5]}
     dark={dark}
-    sx={{ textAlign: "left" }}
+    sx={{ textAlign: 'left' }}
     as="footer"
     {...props}
   >
@@ -67,18 +69,18 @@ const Footer = ({ dark = false, children, ...props }) => (
         sx={{
           px: 0,
           a: {
-            textDecoration: "none",
-            color: "muted",
-            transition: "0.125s color ease-in-out",
-            ":hover,:focus": { color: "slate", textDecoration: "underline" },
+            textDecoration: 'none',
+            color: 'muted',
+            transition: '0.125s color ease-in-out',
+            ':hover,:focus': { color: 'slate', textDecoration: 'underline' }
           },
-          "> div > a": {
-            display: "block",
-            mb: 2,
+          '> div > a': {
+            display: 'block',
+            mb: 2
           },
-          "h2,p": { color: "muted" },
+          'h2,p': { color: 'muted' },
           h2: { fontSize: 3 },
-          "a,p": { fontSize: 2 },
+          'a,p': { fontSize: 2 }
         }}
       >
         <Box>
@@ -115,24 +117,24 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Link href="https://directory.hackclub.com/">Clubs Directory</Link>
           <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
         </Box>
-        <Box sx={{ gridColumn: ["span 2", "span 1"] }}>
+        <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
           <Logo aria-label="Hack Club logo" width={128} height={45} />
           <Grid
             columns={[8, 4]}
             gap={2}
             sx={{
-              alignItems: "center",
+              alignItems: 'center',
               ml: -1,
               my: 3,
               maxWidth: [null, 192],
-              svg: { fill: "currentColor", width: 32, height: 32 },
+              svg: { fill: 'currentColor', width: 32, height: 32 },
               a: {
                 lineHeight: 0,
                 mb: 0,
                 transition:
-                  "transform .125s ease-in-out, color .125s ease-in-out",
-                ":hover,:focus": { transform: "scale(1.125)" },
-              },
+                  'transform .125s ease-in-out, color .125s ease-in-out',
+                ':hover,:focus': { transform: 'scale(1.125)' }
+              }
             }}
           >
             <Service
@@ -188,6 +190,6 @@ const Footer = ({ dark = false, children, ...props }) => (
       </Text>
     </Container>
   </Base>
-);
+)
 
-export default Footer;
+export default Footer

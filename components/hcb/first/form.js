@@ -1,25 +1,25 @@
-import { Box, Input, Label, Button, Select, Text, Grid } from "theme-ui";
-import { useEffect, useRef, useState } from "react";
-import theme from "@hackclub/theme";
-import Icon from "../../icon";
-import { keyframes } from "@emotion/react";
-import debounce from "lodash/debounce";
+import { Box, Input, Label, Button, Select, Text, Grid } from 'theme-ui'
+import { useEffect, useRef, useState } from 'react'
+import theme from '@hackclub/theme'
+import Icon from '../../icon'
+import { keyframes } from '@emotion/react'
+import debounce from 'lodash/debounce'
 
 const hideAnimation = keyframes({
-  from: { display: "flex" },
-  to: { display: "none", opacity: 0, padding: 0, position: "absolute" },
-});
+  from: { display: 'flex' },
+  to: { display: 'none', opacity: 0, padding: 0, position: 'absolute' }
+})
 
 const spinAnimation = keyframes({
-  from: { transform: "rotate(0deg)" },
-  to: { transform: "rotate(360deg)" },
-});
+  from: { transform: 'rotate(0deg)' },
+  to: { transform: 'rotate(360deg)' }
+})
 
 function Base({ children, action, target, method, onSubmit, id }) {
   return (
     <Box
       as="form"
-      sx={{ display: "grid", gridTemplateColumns: "1fr" }}
+      sx={{ display: 'grid', gridTemplateColumns: '1fr' }}
       id={id}
       action={action}
       target={target}
@@ -28,7 +28,7 @@ function Base({ children, action, target, method, onSubmit, id }) {
     >
       {children}
     </Box>
-  );
+  )
 }
 
 function Field({
@@ -39,26 +39,26 @@ function Field({
   value,
   onChange,
   required = true,
-  loading = false,
+  loading = false
 }) {
   return (
     <Box sx={{ my: 2 }}>
-      <Label htmlFor={name} sx={{ color: "muted", fontSize: 18 }}>
+      <Label htmlFor={name} sx={{ color: 'muted', fontSize: 18 }}>
         {label}
       </Label>
-      <Box sx={{ position: "relative" }}>
+      <Box sx={{ position: 'relative' }}>
         {loading && (
           <Box
             sx={{
-              position: "absolute",
+              position: 'absolute',
               top: 10,
               right: 10,
               width: 20,
               height: 20,
-              border: "1px solid white",
-              borderRightStyle: "none",
+              border: '1px solid white',
+              borderRightStyle: 'none',
               animation: `${spinAnimation} 1s linear infinite`,
-              borderRadius: "50%",
+              borderRadius: '50%'
             }}
           ></Box>
         )}
@@ -68,7 +68,7 @@ function Field({
           name={name}
           type={type}
           sx={{
-            bg: "dark",
+            bg: 'dark'
           }}
           onChange={onChange}
           value={value}
@@ -76,68 +76,68 @@ function Field({
         />
       </Box>
     </Box>
-  );
+  )
 }
 
 export default function Signup() {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false)
 
-  const [eventName, setEventName] = useState("");
-  const [teamType, setTeamType] = useState("");
-  const [teamNumber, setTeamNumber] = useState("");
-  const [userEmail, setUserEmail] = useState("");
+  const [eventName, setEventName] = useState('')
+  const [teamType, setTeamType] = useState('')
+  const [teamNumber, setTeamNumber] = useState('')
+  const [userEmail, setUserEmail] = useState('')
 
-  const [teamNameLoading, setTeamNameLoading] = useState(false);
+  const [teamNameLoading, setTeamNameLoading] = useState(false)
 
   const debouncedTeamNameUpdate = useRef(
-    debounce(async (teamNumber) => {
+    debounce(async teamNumber => {
       try {
         const data = await fetch(
-          `/api/first-team?teamNumber=${teamNumber}`,
-        ).then((res) => res.json());
+          `/api/first-team?teamNumber=${teamNumber}`
+        ).then(res => res.json())
 
-        setTeamNameLoading(false);
+        setTeamNameLoading(false)
 
         if (data.ok !== false) {
-          setEventName(data.nickname);
+          setEventName(data.nickname)
         } else {
-          setEventName("");
+          setEventName('')
         }
       } catch (e) {}
-    }, 200),
-  );
+    }, 200)
+  )
 
   useEffect(() => {
-    if (teamNumber && teamType === "FRC") {
-      setTeamNameLoading(true);
-      debouncedTeamNameUpdate.current(teamNumber);
+    if (teamNumber && teamType === 'FRC') {
+      setTeamNameLoading(true)
+      debouncedTeamNameUpdate.current(teamNumber)
     } else {
-      setEventName("");
+      setEventName('')
     }
-  }, [teamType, teamNumber]);
+  }, [teamType, teamNumber])
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async e => {
+    e.preventDefault()
 
-    await fetch("/api/hcb/demo", {
-      method: "POST",
+    await fetch('/api/hcb/demo', {
+      method: 'POST',
       body: JSON.stringify({
         eventName,
         teamType,
         teamNumber,
         userEmail,
-        eventCategory: "robotics team",
-      }),
-    });
+        eventCategory: 'robotics team'
+      })
+    })
 
-    setSubmitted(true);
+    setSubmitted(true)
 
     // clear form
-    setEventName("");
-    setTeamType("");
-    setTeamNumber("");
-    setUserEmail("");
-  };
+    setEventName('')
+    setTeamType('')
+    setTeamNumber('')
+    setUserEmail('')
+  }
 
   return (
     <>
@@ -147,14 +147,14 @@ export default function Signup() {
         action="/api/hcb/demo"
         onSubmit={handleSubmit}
       >
-        <Grid sx={{ gridTemplateColumns: "1fr 2fr", alignItems: "center" }}>
-          <Label htmlFor="teamType" sx={{ color: "muted", fontSize: 18 }}>
+        <Grid sx={{ gridTemplateColumns: '1fr 2fr', alignItems: 'center' }}>
+          <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
             Level
             <Select
               name="teamType"
               defaultValue="Select"
-              sx={{ bg: "dark", w: "500px !important" }}
-              onChange={(e) => setTeamType(e.target.value)}
+              sx={{ bg: 'dark', w: '500px !important' }}
+              onChange={e => setTeamType(e.target.value)}
             >
               <option value="Select" disabled>
                 Select
@@ -171,7 +171,7 @@ export default function Signup() {
             placeholder="12345"
             value={teamNumber}
             loading={teamNameLoading}
-            onChange={(e) => setTeamNumber(e.target.value)}
+            onChange={e => setTeamNumber(e.target.value)}
             required={false}
           />
         </Grid>
@@ -180,7 +180,7 @@ export default function Signup() {
           name="eventName"
           placeholder="Poseidon Robotics"
           value={eventName}
-          onChange={(e) => setEventName(e.target.value)}
+          onChange={e => setEventName(e.target.value)}
         />
         <Field
           label="Email address"
@@ -188,13 +188,13 @@ export default function Signup() {
           placeholder="fiona@hackclub.com"
           type="email"
           value={userEmail}
-          onChange={(e) => setUserEmail(e.target.value)}
+          onChange={e => setUserEmail(e.target.value)}
         />
         <Button
           sx={{
-            backgroundImage: theme.util.gx("orange", "red"),
+            backgroundImage: theme.util.gx('orange', 'red'),
             mt: [2, 3],
-            py: 2,
+            py: 2
           }}
           type="submit"
         >
@@ -207,14 +207,14 @@ export default function Signup() {
             mt: 2,
             px: 2,
             py: 2,
-            borderRadius: "default",
-            color: "white",
-            bg: "green",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "start",
+            borderRadius: 'default',
+            color: 'white',
+            bg: 'green',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'start',
             animation: `${hideAnimation} 0s ease-in 15s`,
-            animationFillMode: "forwards",
+            animationFillMode: 'forwards'
           }}
         >
           <Icon glyph="send" size={24} />
@@ -222,5 +222,5 @@ export default function Signup() {
         </Box>
       )}
     </>
-  );
+  )
 }

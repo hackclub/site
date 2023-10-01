@@ -1,21 +1,21 @@
-import { Button, Box, Container, Text, Link, Badge } from "theme-ui";
-import NextLink from "next/link";
-import { Fade } from "react-reveal";
-import Icon from "../../icon";
+import { Button, Box, Container, Text, Link, Badge } from 'theme-ui'
+import NextLink from 'next/link'
+import { Fade } from 'react-reveal'
+import Icon from '../../icon'
 
 const Content = () => (
   <>
     <Container
       variant="container"
       sx={{
-        display: "flex",
-        flexDirection: ["column"],
-        width: ["100%", "100%", "100%", "85%"],
-        color: "smoke",
+        display: 'flex',
+        flexDirection: ['column'],
+        width: ['100%', '100%', '100%', '85%'],
+        color: 'smoke',
         px: 4,
         py: [4, 5, 6],
-        borderRadius: "default",
-        position: "relative",
+        borderRadius: 'default',
+        position: 'relative'
       }}
     >
       <Container maxWidth={28} sx={{ mx: 0, pt: 4, pb: 2 }}>
@@ -37,16 +37,16 @@ const Content = () => (
           body={
             <>
               Running on HCB? Get a $500 grant once you have a venue, provided
-              by Hack Club with the help of{" "}
+              by Hack Club with the help of{' '}
               <Link
                 href="https://www.firstinspires.org/"
-                sx={{ fontStyle: "italic", color: "white" }}
+                sx={{ fontStyle: 'italic', color: 'white' }}
               >
                 FIRST
               </Link>
               .
               <NextLink href="/hackathons/grant">
-                <Link sx={{ ml: 2, cursor: "pointer" }}>Learn more &rarr;</Link>
+                <Link sx={{ ml: 2, cursor: 'pointer' }}>Learn more &rarr;</Link>
               </NextLink>
             </>
           }
@@ -70,51 +70,51 @@ const Content = () => (
       <NextLink href="/hcb" passHref>
         <Button as="a" variant="outlineLg" sx={{ width: [null, null, 500] }}>
           Apply&nbsp;
-          <Box as="span" sx={{ display: ["none", "inline", ""] }}>
+          <Box as="span" sx={{ display: ['none', 'inline', ''] }}>
             for HCB
-          </Box>{" "}
+          </Box>{' '}
           →
         </Button>
       </NextLink>
     </Container>
   </>
-);
+)
 
 const List = ({ children }) => (
   <Box sx={{ maxWidth: 800 }}>
-    <ol style={{ listStyle: "none", paddingLeft: 0 }}>{children}</ol>
+    <ol style={{ listStyle: 'none', paddingLeft: 0 }}>{children}</ol>
   </Box>
-);
+)
 
 const ListItem = ({ icon, leadText, body, knew }) => (
   <Fade bottom>
     <li
       style={{
         lineHeight: 1.25,
-        display: "flex",
-        pl: 0,
+        display: 'flex',
+        pl: 0
       }}
     >
       <Icon
         glyph={icon}
         size={45}
         sx={{
-          color: "primary",
-          flexShrink: "none",
+          color: 'primary',
+          flexShrink: 'none',
           flexShrink: 0,
-          mr: 2,
+          mr: 2
         }}
       />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Box
           sx={{
-            display: [null, null, "flex"],
-            alignItems: "center",
+            display: [null, null, 'flex'],
+            alignItems: 'center'
           }}
         >
           <Text
             as="span"
-            sx={{ fontWeight: "bold", fontSize: [24, 32], lineHeight: 1 }}
+            sx={{ fontWeight: 'bold', fontSize: [24, 32], lineHeight: 1 }}
           >
             {leadText}
           </Text>
@@ -123,11 +123,11 @@ const ListItem = ({ icon, leadText, body, knew }) => (
               as="span"
               variant="pill"
               sx={{
-                zIndex: "1",
-                bg: "muted",
-                color: "steel",
-                fontWeight: "normal",
-                ml: 2,
+                zIndex: '1',
+                bg: 'muted',
+                color: 'steel',
+                fontWeight: 'normal',
+                ml: 2
               }}
             >
               New!
@@ -139,42 +139,42 @@ const ListItem = ({ icon, leadText, body, knew }) => (
       </Box>
     </li>
   </Fade>
-);
+)
 
 const Cover = () => (
   <Box
     sx={{
-      position: "absolute",
+      position: 'absolute',
       bottom: 0,
       top: 0,
       left: 0,
       right: 0,
       backgroundImage:
-        "linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.45) 25%,rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.9) 100%)",
+        'linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.45) 25%,rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.9) 100%)',
       opacity: 0.875,
-      zIndex: 0,
+      zIndex: 0
     }}
   />
-);
+)
 
 const Static = () => (
   <Box
     as="section"
     id="slack"
     sx={{
-      position: "relative",
-      overflow: "hidden",
+      position: 'relative',
+      overflow: 'hidden',
       backgroundImage: `url('/hcb/bg.webp')`,
-      backgroundSize: "cover",
+      backgroundSize: 'cover'
     }}
   >
     <Cover />
     <Content />
   </Box>
-);
+)
 
 const Money = () => {
-  return <Static />;
-};
+  return <Static />
+}
 
-export default Money;
+export default Money

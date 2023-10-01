@@ -1,73 +1,73 @@
-import { Text, Box, Flex } from "theme-ui";
-import { useEffect, useState } from "react";
+import { Text, Box, Flex } from 'theme-ui'
+import { useEffect, useState } from 'react'
 
-const easeInOutExpo = (x) =>
+const easeInOutExpo = x =>
   x === 0
     ? 0
     : x === 1
     ? 1
     : x < 0.5
     ? Math.pow(2, 20 * x - 10) / 2
-    : (2 - Math.pow(2, -20 * x + 10)) / 2;
+    : (2 - Math.pow(2, -20 * x + 10)) / 2
 
 function startMoneyAnimation(
   setBalance,
   amount,
   duration = 2_000,
-  moneyFormatter,
+  moneyFormatter
 ) {
-  const startTime = performance.now();
+  const startTime = performance.now()
 
   function animate() {
-    const time = performance.now() - startTime;
-    const progress = time / duration;
-    const easedProgress = easeInOutExpo(progress);
+    const time = performance.now() - startTime
+    const progress = time / duration
+    const easedProgress = easeInOutExpo(progress)
 
-    setBalance(moneyFormatter(amount * easedProgress));
+    setBalance(moneyFormatter(amount * easedProgress))
 
     if (progress < 1) {
-      requestAnimationFrame(animate);
+      requestAnimationFrame(animate)
     } else {
-      setBalance(moneyFormatter(amount));
+      setBalance(moneyFormatter(amount))
     }
   }
 
-  requestAnimationFrame(animate);
+  requestAnimationFrame(animate)
 }
 
 function formatMoney(amount) {
-  const normalisedAmount = amount / 100;
+  const normalisedAmount = amount / 100
   return normalisedAmount
-    .toLocaleString("en-US", { style: "currency", currency: "USD" })
-    .split(".");
+    .toLocaleString('en-US', { style: 'currency', currency: 'USD' })
+    .split('.')
 }
 
 const Stats = ({ stats }) => {
-  const [balance, setBalance] = useState(0); // A formatted balance string, split by decimal
+  const [balance, setBalance] = useState(0) // A formatted balance string, split by decimal
 
   useEffect(() => {
     let observer = new IntersectionObserver(
-      (e) => {
+      e => {
         if (e[0].isIntersecting) {
-          console.info("intersecting");
+          console.info('intersecting')
           startMoneyAnimation(
             setBalance,
             stats.transactions_volume,
             2_500,
-            formatMoney,
-          );
+            formatMoney
+          )
         }
       },
-      { threshold: 1.0 },
-    );
-    observer.observe(document.querySelector("#parent"));
+      { threshold: 1.0 }
+    )
+    observer.observe(document.querySelector('#parent'))
 
-    return () => observer.disconnect();
-  }, [stats.transactions_volume]);
+    return () => observer.disconnect()
+  }, [stats.transactions_volume])
 
   return (
     <Box id="parent">
-      <Flex sx={{ flexDirection: "column", alignItems: "center" }}>
+      <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
         <Text sx={{ fontSize: [3, 4] }}>So far we have enabled</Text>
         {stats ? (
           <>
@@ -75,8 +75,8 @@ const Stats = ({ stats }) => {
               variant="title"
               color="green"
               sx={{
-                color: "green",
-                fontSize: [5, 6],
+                color: 'green',
+                fontSize: [5, 6]
               }}
             >
               {balance[0]}
@@ -88,8 +88,8 @@ const Stats = ({ stats }) => {
             variant="title"
             color="green"
             sx={{
-              color: "green",
-              fontSize: [5, 6],
+              color: 'green',
+              fontSize: [5, 6]
             }}
           >
             ...
@@ -98,18 +98,18 @@ const Stats = ({ stats }) => {
         <Text sx={{ fontSize: [3, 4] }}>in transactions</Text>
       </Flex>
     </Box>
-  );
-};
+  )
+}
 
 export async function getStaticProps(context) {
-  const res = await fetch(`https://hcb.hackclub.com/stats`);
-  const stats = await res.json();
+  const res = await fetch(`https://hcb.hackclub.com/stats`)
+  const stats = await res.json()
 
   return {
     props: {
-      stats,
-    },
-  };
+      stats
+    }
+  }
 }
 
-export default Stats;
+export default Stats
