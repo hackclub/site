@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { keyframes } from "@emotion/react";
-import { Heading, Container, Button, Text, Image } from "theme-ui";
-import NextLink from "next/link";
-import Head from "next/head";
-import Meta from "@hackclub/meta";
-import theme from "../lib/theme";
-import ForceTheme from "../components/force-theme";
-import Nav from "../components/nav";
-import Icon from "../components/icon";
-import Footer from "../components/footer";
+import React from 'react'
+import styled from '@emotion/styled'
+import { keyframes } from '@emotion/react'
+import { Heading, Container, Button, Text, Image } from 'theme-ui'
+import NextLink from 'next/link'
+import Head from 'next/head'
+import Meta from '@hackclub/meta'
+import theme from '../lib/theme'
+import ForceTheme from '../components/force-theme'
+import Nav from '../components/nav'
+import Icon from '../components/icon'
+import Footer from '../components/footer'
 
 // Credit for animation from https://codepen.io/igli/pen/mPMqGz?html-preprocessor=none
 const animation1 = keyframes`
@@ -76,7 +76,7 @@ const animation1 = keyframes`
   100% {
     clip: rect(95px, 9999px, 47px, 0);
   }
-`;
+`
 const animation2 = keyframes`
   0% {
     clip: rect(57px, 9999px, 7px, 0);
@@ -141,7 +141,7 @@ const animation2 = keyframes`
   100% {
     clip: rect(75px, 9999px, 13px, 0);
   }
-`;
+`
 
 const Blinking = styled(Heading)`
   position: relative;
@@ -149,7 +149,7 @@ const Blinking = styled(Heading)`
   line-height: 1;
   &:before,
   &:after {
-    content: "${(props) => props.children}";
+    content: '${props => props.children}';
     position: absolute;
     top: 0;
     color: ${theme.colors.smoke};
@@ -167,7 +167,7 @@ const Blinking = styled(Heading)`
     text-shadow: -2px 0 ${theme.colors.cyan};
     animation: ${animation2} 4s infinite linear alternate-reverse;
   }
-`;
+`
 
 const Spinning = styled(Image)`
   @keyframes spin {
@@ -184,16 +184,16 @@ const Spinning = styled(Image)`
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   aspect-ratio: 1;
-`;
+`
 
 const NotFoundPage = () => (
   <>
     <Meta as={Head} title="404" />
     <ForceTheme theme="dark" />
     <Nav color="primary" dark />
-    <Container variant="narrow" sx={{ py: [5, 6], textAlign: "center" }}>
+    <Container variant="narrow" sx={{ py: [5, 6], textAlign: 'center' }}>
       <Spinning
-        sx={{ fontSize: [128, 256], textAlign: "center", height: "1lh" }}
+        sx={{ fontSize: [128, 256], textAlign: 'center', height: '1lh' }}
         src="/404/dinobox.svg"
       ></Spinning>
       <br />
@@ -205,7 +205,7 @@ const NotFoundPage = () => (
         mb={4}
         color="muted"
         variant="lead"
-        sx={{ display: "block" }}
+        sx={{ display: 'block' }}
       >
         We&nbsp;couldn’t&nbsp;find&nbsp;that&nbsp;page.
       </Text>
@@ -218,6 +218,6 @@ const NotFoundPage = () => (
     </Container>
     <Footer dark />
   </>
-);
+)
 
-export default NotFoundPage;
+export default NotFoundPage

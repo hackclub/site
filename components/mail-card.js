@@ -1,8 +1,8 @@
-import {Box, Card, Text} from "theme-ui";
+import { Box, Card, Text } from "theme-ui";
 import Link from "next/link";
 
 export default function MailCard(mail) {
-    const body = mail.body.length > 250 ? mail.body.substring(0, 100) + "..." : mail.body;
+    const body = mail.body.length > 75 ? mail.body.substring(0, 75) + "..." : mail.body;
     return (
         <Link href={mail.link || "/newsletter"}>
             <Card className="mail-card" sx={{ maxWidth: "1500px", cursor: "pointer" }}>

@@ -1,9 +1,9 @@
-import { Box, Heading, Link, Text, Container, Card, Image } from "theme-ui";
-import Icon from "../../icon";
-import Masonry from "react-masonry-css";
-import NextImage from "next/image";
+import { Box, Heading, Link, Text, Container, Card, Image } from 'theme-ui'
+import Icon from '../../icon'
+import Masonry from 'react-masonry-css'
+import NextImage from 'next/image'
 
-import Fade from "react-reveal/Fade";
+import Fade from 'react-reveal/Fade'
 
 export default function Features() {
   return (
@@ -15,13 +15,13 @@ export default function Features() {
           width={200}
           height={100}
           sx={{
-            position: "absolute",
+            position: 'absolute',
             right: 2,
             mt: -36,
-            display: ["none", "none", "none", "block"],
-            "&:hover": {
-              transform: "scale(1.05)",
-            },
+            display: ['none', 'none', 'none', 'block'],
+            '&:hover': {
+              transform: 'scale(1.05)'
+            }
           }}
         />
       </Box>
@@ -31,7 +31,7 @@ export default function Features() {
         </Text>
         <br />
         <br />
-        <Text sx={{ color: "muted", maxWidth: "48", fontSize: 28 }}>
+        <Text sx={{ color: 'muted', maxWidth: '48', fontSize: 28 }}>
           Organize your team's finances in real time, receive grants, gain
           nonprofit status, & more.
           <br />
@@ -48,7 +48,7 @@ export default function Features() {
             10000: 3,
             640: 2,
             480: 1,
-            default: 1,
+            default: 1
           }}
           className="masonry-posts"
           columnClassName="masonry-posts-column"
@@ -256,11 +256,11 @@ export default function Features() {
         variant="narrow"
         sx={{
           pt: 3,
-          borderColor: "muted",
-          textAlign: "center",
+          borderColor: 'muted',
+          textAlign: 'center'
         }}
       >
-        <Text variant="caption" sx={{ color: "muted" }}>
+        <Text variant="caption" sx={{ color: 'muted' }}>
           Hack Club does not directly provide banking services. Banking services
           are provided by FDIC-certified financial institutions.
         </Text>
@@ -318,7 +318,7 @@ export default function Features() {
 
     `}</style>
     </Box>
-  );
+  )
 }
 
 function Module({ icon, name, body, iconColor }) {
@@ -327,37 +327,37 @@ function Module({ icon, name, body, iconColor }) {
       <Card
         variant="primary"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          p: [4, null, 4],
+          display: 'flex',
+          flexDirection: 'column',
+          p: [4, null, 4]
         }}
         className="post"
       >
         <Box
           as="span"
           sx={{
-            width: "fit-content",
-            background: iconColor || "primary",
-            borderRadius: "default",
+            width: 'fit-content',
+            background: iconColor || 'primary',
+            borderRadius: 'default',
             lineHeight: 0,
             p: 1,
             mb: 1,
-            display: "inline-block",
-            transform: ["scale(0.75)", "none"],
-            transformOrigin: "bottom left",
+            display: 'inline-block',
+            transform: ['scale(0.75)', 'none'],
+            transformOrigin: 'bottom left',
             boxShadow:
-              "inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)",
+              'inset 2px 2px 6px rgba(255,255,255,0.2), inset -2px -2px 6px rgba(0,0,0,0.1), 0 1px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1)'
           }}
         >
           <Icon glyph={icon} size={28} />
         </Box>
         <Box>
-          <Heading sx={{ color: "snow", lineHeight: "1.5" }}>{name}</Heading>
+          <Heading sx={{ color: 'snow', lineHeight: '1.5' }}>{name}</Heading>
           <Text
             sx={{
-              color: "muted",
-              lineHeight: "1.375",
-              fontSize: 17,
+              color: 'muted',
+              lineHeight: '1.375',
+              fontSize: 17
             }}
           >
             {body}
@@ -365,7 +365,7 @@ function Module({ icon, name, body, iconColor }) {
         </Box>
       </Card>
     </Fade>
-  );
+  )
 }
 
 function ModuleDetails({ children }) {
@@ -373,40 +373,40 @@ function ModuleDetails({ children }) {
     <Fade bottom>
       <Box
         sx={{
-          bg: "none",
-          color: "smoke",
-          boxShadow: "0 8px 32px rgba(255, 255, 255, 0.0625)",
-          borderRadius: "default",
+          bg: 'none',
+          color: 'smoke',
+          boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)',
+          borderRadius: 'default',
           p: 0,
-          mb: 3,
+          mb: 3
         }}
       >
         {children}
       </Box>
     </Fade>
-  );
+  )
 }
 
 function Document({ name, cost }) {
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: 'flex' }}>
       <Icon
         size={28}
         mr={1}
         glyph="payment"
-        sx={{ flexShrink: 0, color: "green" }}
+        sx={{ flexShrink: 0, color: 'green' }}
       />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Text fontSize={2}>{name}</Text>
 
         {cost && (
-          <Text fontSize={1} color="muted" style={{ lineHeight: "1.375" }}>
+          <Text fontSize={1} color="muted" style={{ lineHeight: '1.375' }}>
             {cost}
           </Text>
         )}
       </Box>
     </Box>
-  );
+  )
 }
 
 function Laptop({ href, title, sx }) {
@@ -414,17 +414,17 @@ function Laptop({ href, title, sx }) {
     <Link href={href} title={title} sx={sx}>
       <Box
         sx={{
-          display: "block",
-          width: "100%",
-          height: "100%",
-          minHeight: "16rem",
-          backgroundSize: "auto 115%",
+          display: 'block',
+          width: '100%',
+          height: '100%',
+          minHeight: '16rem',
+          backgroundSize: 'auto 115%',
           backgroundImage:
             "url('https://cloud-az94fzpyw-hack-club-bot.vercel.app/1poseidon.png')",
-          backgroundPosition: "center top",
-          backgroundRepeat: "no-repeat",
+          backgroundPosition: 'center top',
+          backgroundRepeat: 'no-repeat'
         }}
       ></Box>
     </Link>
-  );
+  )
 }

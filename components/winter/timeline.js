@@ -1,38 +1,38 @@
-import { Box, Flex, Container, Text, Badge, Link } from "theme-ui";
-import { Slide } from "react-reveal";
-import Icon from "../icon";
+import { Box, Flex, Container, Text, Badge, Link } from 'theme-ui'
+import { Slide } from 'react-reveal'
+import Icon from '../icon'
 
 function TimelineStep({ children }) {
   return (
     <Flex
       sx={{
         paddingY: 4,
-        flexDirection: "row",
-        alignItems: "center",
-        "&:before": {
+        flexDirection: 'row',
+        alignItems: 'center',
+        '&:before': {
           content: '""',
-          background: "snow",
-          height: ["420px", "320px", "320px"],
-          width: "4px",
+          background: 'snow',
+          height: ['420px', '320px', '320px'],
+          width: '4px',
           marginLeft: 36,
-          position: "absolute",
-          zIndex: 0,
+          position: 'absolute',
+          zIndex: 0
         },
-        "&:first-of-type:before": {
-          top: [0, null, "auto"],
+        '&:first-of-type:before': {
+          top: [0, null, 'auto'],
           width: [0, null, 0],
-          left: [0, null, 0],
+          left: [0, null, 0]
         },
-        "&:last-of-type:before": {
-          bottom: [0, null, "auto"],
+        '&:last-of-type:before': {
+          bottom: [0, null, 'auto'],
           left: [0, null, 0],
-          width: [0, null, 0],
-        },
+          width: [0, null, 0]
+        }
       }}
     >
       {children}
     </Flex>
-  );
+  )
 }
 
 function Circle({ children }) {
@@ -40,21 +40,21 @@ function Circle({ children }) {
     <Box
       sx={{
         p: 14,
-        background: "red",
+        background: 'red',
 
-        color: "white",
+        color: 'white',
         backgroundImage:
-          "radial-gradient(ellipse farthest-corner at top left, #5bc0de, #338eda)",
-        borderRadius: "100%",
-        display: "inline-block",
+          'radial-gradient(ellipse farthest-corner at top left, #5bc0de, #338eda)',
+        borderRadius: '100%',
+        display: 'inline-block',
         lineHeight: 0,
-        position: "relative",
-        zIndex: 999,
+        position: 'relative',
+        zIndex: 999
       }}
     >
       {children}
     </Box>
-  );
+  )
 }
 
 function Step({ icon, name, duration, href }) {
@@ -63,7 +63,7 @@ function Step({ icon, name, duration, href }) {
       <Slide left>
         <Circle>
           {href ? (
-            <Link href={href} sx={{ cursor: "pointer", zIndex: 999 }}>
+            <Link href={href} sx={{ cursor: 'pointer', zIndex: 999 }}>
               <Icon glyph={icon} size={48} color="white" />
             </Link>
           ) : (
@@ -73,31 +73,31 @@ function Step({ icon, name, duration, href }) {
         <Container
           sx={{
             mt: 0,
-            display: "flex",
-            justifyContent: "left",
-            flexDirection: "column",
-            textAlign: "left",
+            display: 'flex',
+            justifyContent: 'left',
+            flexDirection: 'column',
+            textAlign: 'left'
           }}
         >
           <Badge
             variant="pill"
             sx={{
-              bg: "smoke",
-              color: "darker",
-              fontWeight: "normal",
-              textTransform: "uppercase",
-              width: "fit-content",
+              bg: 'smoke',
+              color: 'darker',
+              fontWeight: 'normal',
+              textTransform: 'uppercase',
+              width: 'fit-content',
               fontSize: 18,
-              px: 3,
+              px: 3
             }}
           >
             {duration}
           </Badge>
           <Text
             sx={{
-              color: "white",
+              color: 'white',
               fontSize: [2, 3],
-              maxWidth: [300, null, 550],
+              maxWidth: [300, null, 550]
             }}
           >
             {name}
@@ -105,20 +105,20 @@ function Step({ icon, name, duration, href }) {
         </Container>
       </Slide>
     </TimelineStep>
-  );
+  )
 }
 
 export default function RealTimeline() {
   return (
-    <Flex sx={{ flexDirection: "column", justifyContent: "center", pb: 4 }}>
+    <Flex sx={{ flexDirection: 'column', justifyContent: 'center', pb: 4 }}>
       <Step
         icon="post"
         name={
           <>
-            RSVPs are closed. Have a question? Here are the{" "}
+            RSVPs are closed. Have a question? Here are the{' '}
             <Link
               target="_blank"
-              sx={{ color: "inherit" }}
+              sx={{ color: 'inherit' }}
               href="https://github.com/hackclub/winter/blob/main/docs/faq.md"
             >
               FAQs
@@ -139,5 +139,5 @@ export default function RealTimeline() {
         duration="Build"
       />
     </Flex>
-  );
+  )
 }
