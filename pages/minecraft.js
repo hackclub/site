@@ -7,16 +7,16 @@ import {
   Heading,
   Image,
   Link,
-  Text,
-} from "theme-ui";
-import Meta from "@hackclub/meta";
-import Head from "next/head";
-import NextLink from "next/link";
-import Nav from "../components/nav";
-import SlideDown from "../components/slide-down";
-import FadeIn from "../components/fade-in";
-import Icon from "../components/icon";
-import Footer from "../components/footer";
+  Text
+} from 'theme-ui'
+import Meta from '@hackclub/meta'
+import Head from 'next/head'
+import NextLink from 'next/link'
+import Nav from '../components/nav'
+import SlideDown from '../components/slide-down'
+import FadeIn from '../components/fade-in'
+import Icon from '../components/icon'
+import Footer from '../components/footer'
 
 const Page = () => (
   <>
@@ -30,24 +30,24 @@ const Page = () => (
     <Box
       as="main"
       sx={{
-        bg: "dark",
-        color: "white",
+        bg: 'dark',
+        color: 'white',
         backgroundImage:
-          "url(https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/32020-07-16_939yf850qwck1y57zne89qtt2a4g8hrf.png)",
-        backgroundPosition: "top center",
-        backgroundSize: "cover",
-        position: "relative",
+          'url(https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/32020-07-16_939yf850qwck1y57zne89qtt2a4g8hrf.png)',
+        backgroundPosition: 'top center',
+        backgroundSize: 'cover',
+        position: 'relative'
       }}
     >
-      <SlideDown duration={768} sx={{ pt: 6, textAlign: "center" }}>
+      <SlideDown duration={768} sx={{ pt: 6, textAlign: 'center' }}>
         <Image
           src="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/42020-07-16_minecraft-banner.svg"
           alt="Hack Club stylized as Minecraft logo"
           width={256}
           sx={{
-            width: ["100%", 384, 512],
-            transition: "transform .125s ease-in-out",
-            ":hover": { transform: "scale(1.0625)" },
+            width: ['100%', 384, 512],
+            transition: 'transform .125s ease-in-out',
+            ':hover': { transform: 'scale(1.0625)' }
           }}
         />
       </SlideDown>
@@ -60,18 +60,18 @@ const Page = () => (
             pt: 5,
             pb: [6, 7],
             div: {
-              variant: "cards.translucentDark",
-              color: "white",
-              p: [null, 3],
+              variant: 'cards.translucentDark',
+              color: 'white',
+              p: [null, 3]
             },
             h3: { mb: 2 },
-            p: { lineHeight: "caption" },
+            p: { lineHeight: 'caption' }
           }}
         >
           <Card
             sx={{
               gridColumnStart: 1,
-              gridColumnEnd: 3,
+              gridColumnEnd: 3
             }}
           >
             <Heading as="h3" variant="subheadline">
@@ -79,13 +79,13 @@ const Page = () => (
             </Heading>
             <Text as="p">
               Hang out with the tree-punchers of Hack&nbsp;Club playing on the
-              official server, mc.hackclub.com.{" "}
+              official server, mc.hackclub.com.{' '}
               <Link href="http://mc.hackclub.com:2008" color="#759B40">
                 Check out the map »
               </Link>
             </Text>
           </Card>
-          <Card sx={{ display: "none" }}>
+          <Card sx={{ display: 'none' }}>
             <Heading as="h3" variant="subheadline">
               Modded Server
             </Heading>
@@ -94,7 +94,7 @@ const Page = () => (
               Minecraft with us on the official modded server!
             </Text>
           </Card>
-          <Card sx={{ display: "none" }}>
+          <Card sx={{ display: 'none' }}>
             <Heading as="h3" variant="subheadline">
               Compete weekly
             </Heading>
@@ -122,7 +122,7 @@ const Page = () => (
                 as="a"
                 sx={{
                   mt: 2,
-                  backgroundImage: (t) => t.util.gx("#759B40", "#4F6728"),
+                  backgroundImage: t => t.util.gx('#759B40', '#4F6728')
                 }}
               >
                 <Icon glyph="slack-fill" size={24} />
@@ -135,6 +135,6 @@ const Page = () => (
     </Box>
     <Footer dark />
   </>
-);
+)
 
-export default Page;
+export default Page

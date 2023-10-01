@@ -1,4 +1,4 @@
-import Script from "next/script";
+import Script from 'next/script'
 
 const Analytics = () => (
   <Script
@@ -6,6 +6,6 @@ const Analytics = () => (
     data-domain="hackclub.com"
     src="https://plausible.io/js/plausible.js"
   />
-);
+)
 
-export default Analytics;
+export default Analytics

@@ -1,11 +1,11 @@
-import { Flex, Text } from "theme-ui";
-import { isEmpty } from "lodash";
+import { Flex, Text } from 'theme-ui'
+import { isEmpty } from 'lodash'
 
 const Stat = ({
   value,
   label,
-  unit = "",
-  color = "text",
+  unit = '',
+  color = 'text',
   of,
   center = false,
   reversed = false,
@@ -17,17 +17,17 @@ const Stat = ({
   <Flex
     {...props}
     sx={{
-      fontFamily: "heading",
-      flexDirection: reversed ? "column-reverse" : "column",
+      fontFamily: 'heading',
+      flexDirection: reversed ? 'column-reverse' : 'column',
       lineHeight: 1,
-      ...props.sx,
+      ...props.sx
     }}
   >
     <Flex
       sx={{
-        alignItems: "center",
-        justifyContent: center ? "center" : "start",
-        position: "relative",
+        alignItems: 'center',
+        justifyContent: center ? 'center' : 'start',
+        position: 'relative'
       }}
     >
       <Text
@@ -35,22 +35,22 @@ const Stat = ({
         sx={{
           color,
           fontSize: lg ? [5, 6, 7] : sm ? [3, 4] : [4, 5, 6],
-          fontWeight: "heading",
-          letterSpacing: "title",
-          my: 0,
+          fontWeight: 'heading',
+          letterSpacing: 'title',
+          my: 0
         }}
       >
-        {value || "—"}
+        {value || '—'}
       </Text>
       {!isEmpty(unit) && (
         <Text
           as="sup"
           sx={{
             fontSize: lg ? [2, 3] : sm ? [1, 1] : [1, 2],
-            color: color === "text" ? "secondary" : color,
-            ml: [null, unit === "%" ? 1 : null],
+            color: color === 'text' ? 'secondary' : color,
+            ml: [null, unit === '%' ? 1 : null],
             mr: [null, 1],
-            pt: [null, 1],
+            pt: [null, 1]
           }}
         >
           {unit}
@@ -61,12 +61,12 @@ const Stat = ({
           as="sup"
           sx={{
             fontSize: lg ? [2, 3] : [1, 2],
-            color: "muted",
+            color: 'muted',
             ml: [null, 1],
             pt: [null, 1],
-            "::before": {
-              content: '"/"',
-            },
+            '::before': {
+              content: '"/"'
+            }
           }}
         >
           {of}
@@ -79,14 +79,14 @@ const Stat = ({
         variant="caption"
         sx={{
           fontSize: lg ? [1, 2, 3] : [0, 1],
-          letterSpacing: "headline",
-          textTransform: "uppercase",
+          letterSpacing: 'headline',
+          textTransform: 'uppercase'
         }}
       >
         {label}
       </Text>
     )}
   </Flex>
-);
+)
 
-export default Stat;
+export default Stat

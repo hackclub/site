@@ -1,20 +1,20 @@
-import { Box, Heading, Button, Text, Grid, Container } from "theme-ui";
-import Link from "next/link";
-import Icon from "../icon";
+import { Box, Heading, Button, Text, Grid, Container } from 'theme-ui'
+import Link from 'next/link'
+import Icon from '../icon'
 
 export default function KeepExploring() {
   return (
     <>
       <Box
         sx={{
-          backgroundImage: (t) => t.util.gx("orange", "red"),
-          margin: "auto",
-          maxWidth: "90%",
+          backgroundImage: t => t.util.gx('orange', 'red'),
+          margin: 'auto',
+          maxWidth: '90%',
           my: 4,
           borderRadius: 8,
-          color: "white",
-          textAlign: "center",
-          py: 5,
+          color: 'white',
+          textAlign: 'center',
+          py: 5
         }}
       >
         <Heading
@@ -22,26 +22,26 @@ export default function KeepExploring() {
           sx={{
             fontSize: 6,
             mb: 3,
-            display: "flex",
-            justifyContent: "center",
-            alignContent: "center",
+            display: 'flex',
+            justifyContent: 'center',
+            alignContent: 'center'
           }}
         >
-          Keep exploring{" "}
+          Keep exploring{' '}
           <Icon
             glyph="explore"
             size={70}
-            sx={{ display: ["none", "flex", "flex"] }}
+            sx={{ display: ['none', 'flex', 'flex'] }}
           />
         </Heading>
         <Link href="/slack" passHref>
           <Button
             sx={{
-              bg: "white",
-              color: "red",
+              bg: 'white',
+              color: 'red',
               mr: [0, 3],
               mb: [3, 0],
-              fontSize: [2, 3],
+              fontSize: [2, 3]
             }}
             as="a"
           >
@@ -50,7 +50,7 @@ export default function KeepExploring() {
         </Link>
 
         <Link href="https://hackathons.hackclub.com" passHref>
-          <Button sx={{ bg: "white", color: "red", fontSize: [2, 3] }} as="a">
+          <Button sx={{ bg: 'white', color: 'red', fontSize: [2, 3] }} as="a">
             Discover more hackathons
           </Button>
         </Link>
@@ -58,9 +58,9 @@ export default function KeepExploring() {
 
       <Container>
         <Grid
-          columns={[null, "1fr 2fr"]}
+          columns={[null, '1fr 2fr']}
           my={[3, 5]}
-          sx={{ maxWidth: "copyUltra", mx: "auto" }}
+          sx={{ maxWidth: 'copyUltra', mx: 'auto' }}
         >
           <Heading as="h3" variant="headline" sx={{ fontSize: [4, 5], mb: 0 }}>
             Behind the scenes...
@@ -68,17 +68,17 @@ export default function KeepExploring() {
           <Text
             as="p"
             variant="lead"
-            sx={{ mt: 0, a: { variant: "styles.a", color: "blue" } }}
+            sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
           >
-            Teenagers organize hackathons like{" "}
+            Teenagers organize hackathons like{' '}
             <a
               href="https://assemble.hackclub.com"
               target="_blank"
               rel="noreferrer"
             >
               Assemble
-            </a>{" "}
-            &{" "}
+            </a>{' '}
+            &{' '}
             <a href="https://windyhacks.com" target="_blank" rel="noreferrer">
               Windy&nbsp;City&nbsp;Hacks
             </a>
@@ -90,5 +90,5 @@ export default function KeepExploring() {
         </Grid>
       </Container>
     </>
-  );
+  )
 }

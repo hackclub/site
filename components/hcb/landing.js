@@ -6,12 +6,12 @@ import {
   Flex,
   Text,
   Container,
-  Badge,
-} from "theme-ui";
-import Fade from "react-reveal/Fade";
-import ScrollHint from "../scroll-hint";
-import Image from "next/image";
-import hero from "../../public/hcb/bg.webp";
+  Badge
+} from 'theme-ui'
+import Fade from 'react-reveal/Fade'
+import ScrollHint from '../scroll-hint'
+import Image from 'next/image'
+import hero from '../../public/hcb/bg.webp'
 
 export default function Landing({ showButton = true, eventsCount }) {
   return (
@@ -21,42 +21,42 @@ export default function Landing({ showButton = true, eventsCount }) {
 
         <Box
           sx={{
-            position: "absolute",
-            flexDirection: "column",
-            justifyContent: "center",
+            position: 'absolute',
+            flexDirection: 'column',
+            justifyContent: 'center',
             bottom: 5,
-            mx: "auto",
-            width: "100%",
+            mx: 'auto',
+            width: '100%'
           }}
         >
           <Box
             sx={{
-              zIndex: "100",
-              paddingTop: "96px",
+              zIndex: '100',
+              paddingTop: '96px'
             }}
           >
             <Fade duration={625} bottom>
               <Container
                 variant="container"
                 sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  textAlign: "center",
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  textAlign: 'center'
                 }}
               >
                 <Heading
                   variant="ultratitle"
                   sx={{
                     marginBottom: 4,
-                    textShadow: "0 0 16px rgba(0, 0, 0, 1)",
-                    letterSpacing: "-0.02em",
-                    "@media screen and (max-height: 600px)": {
-                      lineHeight: 0.875,
+                    textShadow: '0 0 16px rgba(0, 0, 0, 1)',
+                    letterSpacing: '-0.02em',
+                    '@media screen and (max-height: 600px)': {
+                      lineHeight: 0.875
                     },
-                    "@media screen and (min-height: 610px)": {
-                      lineHeight: 1.125,
-                    },
+                    '@media screen and (min-height: 610px)': {
+                      lineHeight: 1.125
+                    }
                   }}
                   as="h1"
                 >
@@ -65,9 +65,9 @@ export default function Landing({ showButton = true, eventsCount }) {
                 <Flex
                   sx={{
                     gap: 3,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: 4,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: 4
                   }}
                 >
                   <img
@@ -75,7 +75,7 @@ export default function Landing({ showButton = true, eventsCount }) {
                     alt="HCB Icon"
                     height={64}
                     sx={{
-                      margin: "auto",
+                      margin: 'auto'
                     }}
                   />
                   <Text as="h2" sx={{ fontSize: 4 }}>
@@ -91,13 +91,13 @@ export default function Landing({ showButton = true, eventsCount }) {
                   <Text
                     variant="lead"
                     sx={{
-                      textShadow: "0 3px 6px rgba(0, 0, 0, 0.5)",
-                      "@media screen and (max-height: 600px)": {
-                        lineHeight: 1,
-                      },
+                      textShadow: '0 3px 6px rgba(0, 0, 0, 0.5)',
+                      '@media screen and (max-height: 600px)': {
+                        lineHeight: 1
+                      }
                     }}
                   >
-                    The team behind the{" "}
+                    The team behind the{' '}
                     <Link
                       href="https://innovationcircuit.com"
                       target="_blank"
@@ -106,7 +106,7 @@ export default function Landing({ showButton = true, eventsCount }) {
                       hoverline
                     >
                       Innovation Circuit
-                    </Link>{" "}
+                    </Link>{' '}
                     is one of {Math.round((eventsCount - 50) / 100) * 100}+
                     teams who use <strong>HCB</strong> to run world-class
                     organizations, hackathons, and clubs.
@@ -118,9 +118,9 @@ export default function Landing({ showButton = true, eventsCount }) {
           <br />
           <Box
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              marginBottom: 3,
+              display: 'flex',
+              justifyContent: 'center',
+              marginBottom: 3
             }}
           >
             {showButton && (
@@ -129,7 +129,7 @@ export default function Landing({ showButton = true, eventsCount }) {
                   variant="ctaLg"
                   as="a"
                   href="#apply"
-                  style={{ zIndex: "100" }}
+                  style={{ zIndex: '100' }}
                 >
                   Apply Now
                 </Button>
@@ -138,7 +138,7 @@ export default function Landing({ showButton = true, eventsCount }) {
                   as="a"
                   href="https://hcb.hackclub.com"
                   target="_blank"
-                  style={{ zIndex: "100" }}
+                  style={{ zIndex: '100' }}
                   ml={3}
                 >
                   Sign in
@@ -150,19 +150,19 @@ export default function Landing({ showButton = true, eventsCount }) {
         </Box>
         <Box
           sx={{
-            position: "absolute",
+            position: 'absolute',
             bottom: 3,
             right: 2,
-            display: ["none", "block"],
+            display: ['none', 'block']
           }}
         >
           <Badge
             variant="pill"
             sx={{
-              zIndex: "1",
-              bg: "muted",
-              color: "steel",
-              fontWeight: "normal",
+              zIndex: '1',
+              bg: 'muted',
+              color: 'steel',
+              fontWeight: 'normal'
             }}
           >
             Singapore
@@ -170,40 +170,40 @@ export default function Landing({ showButton = true, eventsCount }) {
         </Box>
       </Slide>
     </>
-  );
+  )
 }
 
 function Underline({ children }) {
   return (
     <span
       style={{
-        backgroundImage: "url(/underline-red.svg)",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "100% 1rem",
-        backgroundPosition: "bottom center",
+        backgroundImage: 'url(/underline-red.svg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 1rem',
+        backgroundPosition: 'bottom center'
       }}
     >
       {children}
     </span>
-  );
+  )
 }
 
 function Slide({ children }) {
   return (
     <Box
       style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "end",
-        width: "100vw",
-        backgroundSize: "cover",
-        backgroundColor: "#000000",
-        boxShadow: "inset 0 0 4rem 1rem rgba(0, 0, 0, 0.5)",
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        width: "100%",
-        minHeight: "100vh",
-        position: "relative",
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'end',
+        width: '100vw',
+        backgroundSize: 'cover',
+        backgroundColor: '#000000',
+        boxShadow: 'inset 0 0 4rem 1rem rgba(0, 0, 0, 0.5)',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        width: '100%',
+        minHeight: '100vh',
+        position: 'relative'
       }}
     >
       <Image
@@ -216,7 +216,7 @@ function Slide({ children }) {
       />
       {children}
     </Box>
-  );
+  )
 }
 
 function Vignette() {
@@ -224,13 +224,13 @@ function Vignette() {
     <Box
       style={{
         backgroundImage:
-          "linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.25) 25%,rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.7) 100%)",
-        height: "100vh",
-        left: "0",
-        right: "0",
-        position: "absolute",
-        zIndex: "0",
+          'linear-gradient(to bottom,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.25) 25%,rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.7) 100%)',
+        height: '100vh',
+        left: '0',
+        right: '0',
+        position: 'absolute',
+        zIndex: '0'
       }}
     ></Box>
-  );
+  )
 }

@@ -7,9 +7,9 @@ import {
   Grid,
   Link,
   Avatar,
-  Button,
-} from "theme-ui";
-import { Slide } from "react-reveal";
+  Button
+} from 'theme-ui'
+import { Slide } from 'react-reveal'
 
 export default function Testimonials() {
   return (
@@ -17,10 +17,10 @@ export default function Testimonials() {
       <Container
         variant="copy"
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          textAlign: "center",
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          textAlign: 'center'
         }}
       >
         <Heading variant="title">
@@ -35,7 +35,7 @@ export default function Testimonials() {
         <Grid
           gap={4}
           sx={{
-            gridTemplateColumns: ["100%", null, null, "1fr 1fr"],
+            gridTemplateColumns: ['100%', null, null, '1fr 1fr']
           }}
         >
           <Organization
@@ -72,7 +72,7 @@ export default function Testimonials() {
         </Grid>
       </Container>
     </>
-  );
+  )
 }
 
 function Organization({
@@ -87,16 +87,16 @@ function Organization({
   hackerName,
   hackerAvatarUrl,
   hackerRole,
-  transparency,
+  transparency
 }) {
   return (
     <Slide bottom>
       <Box
         sx={{
-          backgroundColor: "darkless",
-          color: "smoke",
-          borderRadius: "extra",
-          mx: "auto",
+          backgroundColor: 'darkless',
+          color: 'smoke',
+          borderRadius: 'extra',
+          mx: 'auto'
         }}
       >
         <Container sx={{ padding: 0, margin: 0 }}>
@@ -106,27 +106,27 @@ function Organization({
             width={800}
             height={450}
             sx={{
-              borderRadius: "default",
-              objectFit: "cover",
+              borderRadius: 'default',
+              objectFit: 'cover'
             }}
           />
           <Box p={[3, null, 4]}>
             <Box
               sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between'
               }}
             >
-              <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Image
                   src={logo}
                   alt={`${name} logo`}
                   sx={{
-                    height: "4rem",
-                    width: "4rem",
-                    objectFit: "cover",
-                    borderRadius: "default",
+                    height: '4rem',
+                    width: '4rem',
+                    objectFit: 'cover',
+                    borderRadius: 'default'
                   }}
                 />
                 <Box sx={{ ml: 3 }}>
@@ -136,7 +136,7 @@ function Organization({
                     sx={{
                       fontSize: [28, null, 38],
                       lineHeight: 1,
-                      letterSpacing: -0.1,
+                      letterSpacing: -0.1
                     }}
                   >
                     {name}
@@ -145,13 +145,13 @@ function Organization({
                   <Link
                     href={url || `https://${website}`}
                     sx={{
-                      textDecoration: "none",
-                      color: "muted",
-                      "&:hover": { textDecoration: "underline" },
+                      textDecoration: 'none',
+                      color: 'muted',
+                      '&:hover': { textDecoration: 'underline' }
                     }}
                   >
                     {teamNum}
-                  </Link>{" "}
+                  </Link>{' '}
                   • {teamLocation}
                 </Box>
               </Box>
@@ -161,10 +161,10 @@ function Organization({
             <Text
               sx={{
                 fontSize: 2,
-                color: "snow",
-                textIndent: "-.375em",
-                lineHeight: "caption",
-                fontSize: 18,
+                color: 'snow',
+                textIndent: '-.375em',
+                lineHeight: 'caption',
+                fontSize: 18
               }}
             >
               "{quote}"
@@ -172,18 +172,18 @@ function Organization({
 
             <Box
               sx={{
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "wrap",
-                justifyContent: "space-between",
-                marginTop: ["0px", 3],
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'wrap',
+                justifyContent: 'space-between',
+                marginTop: ['0px', 3]
               }}
             >
               <Box
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  mt: ["16px", "0px"],
+                  display: 'flex',
+                  alignItems: 'center',
+                  mt: ['16px', '0px']
                 }}
               >
                 <Avatar
@@ -191,7 +191,7 @@ function Organization({
                   size={48}
                   sx={{
                     mr: 2,
-                    borderRadius: "100%",
+                    borderRadius: '100%'
                   }}
                   alt="Photo of ${hackerName}"
                 />
@@ -199,11 +199,11 @@ function Organization({
                   color="white"
                   sx={{
                     fontSize: 19,
-                    display: "flex",
-                    flexDirection: "column",
+                    display: 'flex',
+                    flexDirection: 'column'
                   }}
                 >
-                  <Text sx={{ fontWeight: "bold", lineHeight: 1.125 }}>
+                  <Text sx={{ fontWeight: 'bold', lineHeight: 1.125 }}>
                     {hackerName}
                   </Text>
                   <Text>{hackerRole}</Text>
@@ -214,12 +214,12 @@ function Organization({
                   href={`https://hcb.hackclub.com/${transparency}`}
                   target="_blank"
                   rel="noreferrer"
-                  sx={{ mt: ["16px", "0px"] }}
+                  sx={{ mt: ['16px', '0px'] }}
                 >
                   <Button
                     mt={[null, null, 4, 0]}
-                    ml={[0, "auto"]}
-                    sx={{ textTransform: "none" }}
+                    ml={[0, 'auto']}
+                    sx={{ textTransform: 'none' }}
                     variant="primary"
                     title="🎶 take a look, it's in our books 🎵"
                   >
@@ -232,5 +232,5 @@ function Organization({
         </Container>
       </Box>
     </Slide>
-  );
+  )
 }

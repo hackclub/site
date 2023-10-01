@@ -1,11 +1,11 @@
-import { BaseStyles, Box, Button, Container, Grid, Heading } from "theme-ui";
-import Meta from "@hackclub/meta";
-import Head from "next/head";
-import Nav from "../components/nav";
-import ForceTheme from "../components/force-theme";
-import Footer from "../components/footer";
-import Press from "../components/press.mdx";
-import { Logo } from "./brand";
+import { BaseStyles, Box, Button, Container, Grid, Heading } from 'theme-ui'
+import Meta from '@hackclub/meta'
+import Head from 'next/head'
+import Nav from '../components/nav'
+import ForceTheme from '../components/force-theme'
+import Footer from '../components/footer'
+import Press from '../components/press.mdx'
+import { Logo } from './brand'
 
 const Page = () => (
   <>
@@ -20,18 +20,18 @@ const Page = () => (
     <Box
       as="header"
       sx={{
-        bg: "sheet",
-        color: "text",
+        bg: 'sheet',
+        color: 'text',
         pt: [5, null, null, null, 6],
         pb: [3, 4, 5, null, 6],
-        textAlign: "center",
+        textAlign: 'center'
       }}
     >
       <Container variant="copy">
-        <Heading as="h1" variant="title" sx={{ color: "primary", mt: [2, 4] }}>
+        <Heading as="h1" variant="title" sx={{ color: 'primary', mt: [2, 4] }}>
           Press
         </Heading>
-        <Heading as="h2" variant="subtitle" sx={{ mt: 3, color: "text" }}>
+        <Heading as="h2" variant="subtitle" sx={{ mt: 3, color: 'text' }}>
           Hack Club’s resources for press.
         </Heading>
       </Container>
@@ -41,8 +41,8 @@ const Page = () => (
       sx={{
         py: [3, 4],
         px: 3,
-        maxWidth: [null, "copyUltra"],
-        h2: { variant: "text.headline" },
+        maxWidth: [null, 'copyUltra'],
+        h2: { variant: 'text.headline' }
       }}
     >
       <Heading id="banners" variant="headline">
@@ -53,8 +53,8 @@ const Page = () => (
         sx={{
           mx: 0,
           fontSize: 2,
-          "> p": { maxWidth: "copy" },
-          h2: { variant: "text.headline", mt: 4 },
+          '> p': { maxWidth: 'copy' },
+          h2: { variant: 'text.headline', mt: 4 }
         }}
       >
         <Press />
@@ -69,17 +69,17 @@ const Page = () => (
         View all →
       </Button>
       <Heading variant="headline">Logos</Heading>
-      <Grid columns={[null, 2, 3]} gap={3} sx={{ input: { display: "none" } }}>
+      <Grid columns={[null, 2, 3]} gap={3} sx={{ input: { display: 'none' } }}>
         {[
-          "flag-standalone",
-          "flag-orpheus-top",
-          "flag-orpheus-left",
-          "flag-standalone-bw",
+          'flag-standalone',
+          'flag-orpheus-top',
+          'flag-orpheus-left',
+          'flag-standalone-bw',
           // 'flag-orpheus-top-bw',
           // 'flag-orpheus-left-bw',
-          "icon-rounded",
-          "icon-square",
-        ].map((key) => (
+          'icon-rounded',
+          'icon-square'
+        ].map(key => (
           <Logo name={key} key={key} />
         ))}
       </Grid>
@@ -94,6 +94,6 @@ const Page = () => (
     </Container>
     <Footer />
   </>
-);
+)
 
-export default Page;
+export default Page
