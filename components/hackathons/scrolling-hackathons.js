@@ -1,4 +1,4 @@
-import Ticker from "react-ticker";
+import Ticker from 'react-ticker'
 import {
   Box,
   Card,
@@ -7,14 +7,14 @@ import {
   Badge,
   Container,
   Image,
-  Link,
-} from "theme-ui";
-import { useState } from "react";
-import { keyframes } from "@emotion/react";
-import Tilt from "../tilt";
-import NextLink from "next/link";
-import PageVisibility from "react-page-visibility";
-import { formatAddress } from "../../lib/helpers";
+  Link
+} from 'theme-ui'
+import { useState } from 'react'
+import { keyframes } from '@emotion/react'
+import Tilt from '../tilt'
+import NextLink from 'next/link'
+import PageVisibility from 'react-page-visibility'
+import { formatAddress } from '../../lib/helpers'
 
 export default function ScrollingHackathons({
   eventData,
@@ -22,10 +22,10 @@ export default function ScrollingHackathons({
   title,
   ...props
 }) {
-  const [pageIsVisible, setPageIsVisible] = useState(true);
-  const handleVisibilityChange = (isVisible) => {
-    setPageIsVisible(isVisible);
-  };
+  const [pageIsVisible, setPageIsVisible] = useState(true)
+  const handleVisibilityChange = isVisible => {
+    setPageIsVisible(isVisible)
+  }
 
   return (
     <>
@@ -34,35 +34,35 @@ export default function ScrollingHackathons({
           <Heading
             sx={{
               fontSize: [36, 64],
-              color: "black",
-              textAlign: "center",
-              maxWidth: ["95vw", "66vw"],
-              margin: "auto",
-              mt: 4,
+              color: 'black',
+              textAlign: 'center',
+              maxWidth: ['95vw', '66vw'],
+              margin: 'auto',
+              mt: 4
             }}
           >
             Join other high-schoolers at an upcoming hackathon.
           </Heading>
           <Box
             sx={{
-              maxWidth: ["95vw", "66vw"],
-              margin: "auto",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              mb: 2,
+              maxWidth: ['95vw', '66vw'],
+              margin: 'auto',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              mb: 2
             }}
           >
-            <Text sx={{ display: ["none", "flex"], alignItems: "center" }}>
+            <Text sx={{ display: ['none', 'flex'], alignItems: 'center' }}>
               <Dot />
             </Text>
             <Text
               variant="lead"
-              sx={{ color: "muted", mr: 2, textAlign: "center" }}
+              sx={{ color: 'muted', mr: 2, textAlign: 'center' }}
             >
-              from{" "}
+              from{' '}
               <NextLink href="https://hackathons.hackclub.com" passHref>
-                <Link sx={{ color: "currentcolor" }}>
+                <Link sx={{ color: 'currentcolor' }}>
                   hackathons.hackclub.com
                 </Link>
               </NextLink>
@@ -75,9 +75,9 @@ export default function ScrollingHackathons({
       )}
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
-          <Ticker mode={mode || "string"} {...props}>
+          <Ticker mode={mode || 'string'} {...props}>
             {() => (
-              <Box as="div" sx={{ display: "flex", py: 3 }}>
+              <Box as="div" sx={{ display: 'flex', py: 3 }}>
                 {eventData.map(({ ...props }) => (
                   <EventCard key={eventData.id} {...props} />
                 ))}
@@ -87,35 +87,35 @@ export default function ScrollingHackathons({
         )}
       </PageVisibility>
     </>
-  );
+  )
 }
 
 const flashing = keyframes({
   from: { opacity: 0 },
-  "50%": { opacity: 1 },
-  to: { opacity: 0 },
-});
+  '50%': { opacity: 1 },
+  to: { opacity: 0 }
+})
 
 function Dot() {
   return (
     <Text
       sx={{
-        bg: "green",
-        color: "white",
-        borderRadius: "circle",
-        display: "inline-block",
+        bg: 'green',
+        color: 'white',
+        borderRadius: 'circle',
+        display: 'inline-block',
         lineHeight: 0,
-        width: ".5em",
-        height: ".5em",
-        marginRight: ".4em",
-        marginBottom: ".12em",
+        width: '.5em',
+        height: '.5em',
+        marginRight: '.4em',
+        marginBottom: '.12em',
         animationName: `${flashing}`,
-        animationDuration: "3s",
-        animationTimingFunction: "ease-in-out",
-        animationIterationCount: "infinite",
+        animationDuration: '3s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite'
       }}
     />
-  );
+  )
 }
 
 function EventCard({
@@ -131,7 +131,7 @@ function EventCard({
   logo,
   virtual,
   hybrid,
-  footer,
+  footer
 }) {
   return (
     <Tilt>
@@ -143,37 +143,37 @@ function EventCard({
         itemScope
         itemType="http://schema.org/Event"
         sx={{
-          display: "flex",
-          flexDirection: "column",
+          display: 'flex',
+          flexDirection: 'column',
           px: 4,
           mx: 4,
-          borderRadius: "extra",
-          width: "400px",
-          height: "200px",
-          textDecoration: "none",
-          color: "white",
+          borderRadius: 'extra',
+          width: '400px',
+          height: '200px',
+          textDecoration: 'none',
+          color: 'white'
         }}
         style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.375) 75%), url('${banner}')`,
-          textAlign: "center",
-          backgroundSize: "cover",
+          textAlign: 'center',
+          backgroundSize: 'cover'
         }}
       >
         <Badge
           as="span"
           itemType="VirtualLocation"
           sx={{
-            position: "absolute",
+            position: 'absolute',
             top: 16,
             right: 16,
-            bg: "snow",
-            color: virtual ? "red" : hybrid ? "orange" : "blue",
-            fontSize: "inherit",
-            textShadow: "none",
-            borderRadius: 5,
+            bg: 'snow',
+            color: virtual ? 'red' : hybrid ? 'orange' : 'blue',
+            fontSize: 'inherit',
+            textShadow: 'none',
+            borderRadius: 5
           }}
         >
-          {virtual ? "Online" : hybrid ? "Hybrid" : "In-Person"}
+          {virtual ? 'Online' : hybrid ? 'Hybrid' : 'In-Person'}
         </Badge>
 
         {logo && (
@@ -184,9 +184,9 @@ function EventCard({
             sx={{
               minWidth: 64,
               height: 64,
-              objectFit: "contain",
-              borderRadius: "default",
-              mt: "auto",
+              objectFit: 'contain',
+              borderRadius: 'default',
+              mt: 'auto'
             }}
           />
         )}
@@ -199,10 +199,10 @@ function EventCard({
             fontSize: [3, 4],
             mt: 2,
             mb: 3,
-            overflowWrap: "anywhere",
-            width: "100%",
-            color: "white",
-            textDecoration: "none",
+            overflowWrap: 'anywhere',
+            width: '100%',
+            color: 'white',
+            textDecoration: 'none'
           }}
         >
           {name}
@@ -210,10 +210,10 @@ function EventCard({
         <Box
           as="footer"
           sx={{
-            mt: "auto",
+            mt: 'auto',
             mb: 0,
-            width: "100%",
-            opacity: 0.875,
+            width: '100%',
+            opacity: 0.875
           }}
         >
           {footer ? (
@@ -235,11 +235,11 @@ function EventCard({
             </>
           )}
         </Box>
-        <Box sx={{ display: "none" }}>
+        <Box sx={{ display: 'none' }}>
           <span itemProp="eventAttendanceMode">
             {virtual
-              ? "https://schema.org/OnlineEventAttendanceMode"
-              : "https://schema.org/OfflineEventAttendanceMode"}
+              ? 'https://schema.org/OnlineEventAttendanceMode'
+              : 'https://schema.org/OfflineEventAttendanceMode'}
           </span>
           <span itemProp="url">{website}</span>
           <span itemProp="startDate" content={start}>
@@ -251,5 +251,5 @@ function EventCard({
         </Box>
       </Card>
     </Tilt>
-  );
+  )
 }

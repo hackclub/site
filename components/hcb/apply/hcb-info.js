@@ -1,6 +1,6 @@
-import { Box, Flex, Link, Text } from "theme-ui";
-import Icon from "../../icon";
-import FlexCol from "../../flex-col";
+import { Box, Flex, Link, Text } from 'theme-ui'
+import Icon from '../../icon'
+import FlexCol from '../../flex-col'
 
 export default function HCBInfo() {
   return (
@@ -12,23 +12,23 @@ export default function HCBInfo() {
           </Text>
           <FlexCol gap={3} ml={3}>
             <FlexCol gap={2}>
-              <Flex sx={{ alignItems: "center", gap: 2 }}>
+              <Flex sx={{ alignItems: 'center', gap: 2 }}>
                 <Link
                   color="white"
                   href="/hcb/fiscal-sponsorship"
                   target="_blank"
                   sx={{
                     fontSize: 3,
-                    display: "inline-flex",
-                    alignItems: "flex-end",
-                    gap: 1,
+                    display: 'inline-flex',
+                    alignItems: 'flex-end',
+                    gap: 1
                   }}
                 >
                   A fiscal sponsor
                   <Icon glyph="external" />
                 </Link>
               </Flex>
-              <Text sx={{ color: "muted" }}>
+              <Text sx={{ color: 'muted' }}>
                 <ul>
                   <li>Nonprofit status.</li>
                   <li>Tax-deductable donations.</li>
@@ -37,7 +37,7 @@ export default function HCBInfo() {
             </FlexCol>
             <FlexCol gap={2}>
               <Text sx={{ fontSize: 3 }}>A financial platform</Text>
-              <Text sx={{ color: "muted" }}>
+              <Text sx={{ color: 'muted' }}>
                 <ul>
                   <li>A donations page and invoicing system.</li>
                   <li>Transfer money electronically.</li>
@@ -54,10 +54,10 @@ export default function HCBInfo() {
           <FlexCol gap={3} ml={3}>
             <FlexCol gap={2}>
               <Text sx={{ fontSize: 3 }}>
-                A bank!{" "}
-                <Text sx={{ color: "muted", fontSize: 2 }}>(we're better)</Text>
+                A bank!{' '}
+                <Text sx={{ color: 'muted', fontSize: 2 }}>(we're better)</Text>
               </Text>
-              <Text sx={{ color: "muted" }}>
+              <Text sx={{ color: 'muted' }}>
                 <ul>
                   <li>
                     Rather than setting up a standard bank account, you'll get a
@@ -69,7 +69,7 @@ export default function HCBInfo() {
             </FlexCol>
             <FlexCol gap={2}>
               <Text sx={{ fontSize: 3 }}>For-profit</Text>
-              <Text sx={{ color: "muted" }}>
+              <Text sx={{ color: 'muted' }}>
                 <ul>
                   <li>
                     If you’re a for-profit entity, then HCB is not for you.
@@ -82,5 +82,5 @@ export default function HCBInfo() {
         </FlexCol>
       </FlexCol>
     </Box>
-  );
+  )
 }

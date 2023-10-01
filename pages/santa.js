@@ -1,6 +1,6 @@
-import Head from "next/head";
-import Meta from "@hackclub/meta";
-import Nav from "../components/nav";
+import Head from 'next/head'
+import Meta from '@hackclub/meta'
+import Nav from '../components/nav'
 import {
   Box,
   Container,
@@ -10,14 +10,14 @@ import {
   Image,
   Input,
   Label,
-  Link,
-} from "theme-ui";
-import styled from "@emotion/styled";
-import Snowfall from "react-snowfall";
-import Footer from "../components/footer";
-import FadeIn from "../components/fade-in";
-import { keyframes } from "@emotion/react";
-import { useState } from "react";
+  Link
+} from 'theme-ui'
+import styled from '@emotion/styled'
+import Snowfall from 'react-snowfall'
+import Footer from '../components/footer'
+import FadeIn from '../components/fade-in'
+import { keyframes } from '@emotion/react'
+import { useState } from 'react'
 
 const Hero = styled(Box)`
   background-image: linear-gradient(
@@ -35,7 +35,7 @@ const Hero = styled(Box)`
     right: 0;
     bottom: 0;
   }
-`;
+`
 
 const Lead = styled(Box)`
   font-size: 24px;
@@ -45,17 +45,17 @@ const Lead = styled(Box)`
   margin-bottom: 18px;
   color: rgb(249, 249, 250);
   max-width: 48rem;
-`;
+`
 
 const Space = styled(Text)`
   white-space: pre;
   transition: 1s;
-`;
+`
 const RemoveSpace = styled(Text)`
   &:hover .space {
     font-size: 0;
   }
-`;
+`
 
 const floating = keyframes`
   from {
@@ -64,10 +64,10 @@ const floating = keyframes`
   to {
     transform: translateY(-20px) rotate(5deg);
   }
-`;
+`
 
 const Page = () => (
-  <Box sx={{ overflowX: "hidden" }}>
+  <Box sx={{ overflowX: 'hidden' }}>
     <Meta
       as={Head}
       title="Secret Santa"
@@ -79,7 +79,7 @@ const Page = () => (
       <Snowfall />
       <Container px={3} py={[3, 4]}>
         <Heading
-          sx={{ py: [3, 5], fontSize: [4, 5], color: "white", opacity: 0.8 }}
+          sx={{ py: [3, 5], fontSize: [4, 5], color: 'white', opacity: 0.8 }}
           bold
           caps
         >
@@ -101,13 +101,13 @@ const Page = () => (
           height={384}
           sx={{
             zIndex: 1,
-            animation: `${floating} cubic-bezier(.55,.03,.43,.98) 8s infinite alternate`,
+            animation: `${floating} cubic-bezier(.55,.03,.43,.98) 8s infinite alternate`
           }}
         />
         <FadeIn delay={3000}>
           <Heading
             as="h1"
-            sx={{ fontSize: [5, 6], color: "white", margin: "auto" }}
+            sx={{ fontSize: [5, 6], color: 'white', margin: 'auto' }}
           >
             Hack Club Secret Santa
           </Heading>
@@ -134,21 +134,21 @@ const Page = () => (
     </Hero>
     <Footer />
   </Box>
-);
-export default Page;
+)
+export default Page
 
 function Base({ children, action, target, method }) {
   return (
     <Box
       as="form"
       sx={{
-        display: "grid",
-        width: ["full", 512],
-        bg: "white",
-        borderRadius: "extra",
-        mx: "auto",
+        display: 'grid',
+        width: ['full', 512],
+        bg: 'white',
+        borderRadius: 'extra',
+        mx: 'auto',
         p: 4,
-        mt: 4,
+        mt: 4
       }}
       action={action}
       target={target}
@@ -156,13 +156,13 @@ function Base({ children, action, target, method }) {
     >
       {children}
     </Box>
-  );
+  )
 }
 
 function Field({ placeholder, label, name, type, value, onChange }) {
   return (
     <Box sx={{ my: 2 }}>
-      <Label htmlFor={name} sx={{ color: "muted", fontSize: 18 }}>
+      <Label htmlFor={name} sx={{ color: 'muted', fontSize: 18 }}>
         {label}
       </Label>
       <Input
@@ -171,8 +171,8 @@ function Field({ placeholder, label, name, type, value, onChange }) {
         name={name}
         type={type}
         sx={{
-          bg: "smoke",
-          color: "black",
+          bg: 'smoke',
+          color: 'black'
         }}
         autofillBackgroundColor="smoke"
         onChange={onChange}
@@ -180,24 +180,24 @@ function Field({ placeholder, label, name, type, value, onChange }) {
         required
       />
     </Box>
-  );
+  )
 }
 
 function Signup() {
-  const [values, setValues] = useState({});
+  const [values, setValues] = useState({})
   return (
     <Base method="get" action="https://airtable.com/shrL7dmiWE6vdlyYf">
-      <Heading sx={{ color: "black", textAlign: "left", mb: 2 }}>
+      <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>
         Register!
       </Heading>
-      <Text sx={{ textAlign: "left", color: "muted" }}>
-        Be sure to check out the{" "}
+      <Text sx={{ textAlign: 'left', color: 'muted' }}>
+        Be sure to check out the{' '}
         <Link
           href="https://hackclub.slack.com/archives/C01D7AHKMPF/p1671483616032169"
-          sx={{ color: "blue" }}
+          sx={{ color: 'blue' }}
         >
           rules
-        </Link>{" "}
+        </Link>{' '}
         before you sign up!
       </Text>
       <Field
@@ -205,7 +205,7 @@ function Signup() {
         name="prefill_Name"
         placeholder="Fiona Hackworth"
         value={values.name}
-        onChange={(e) => setValues({ ...values, name: e.target.value })}
+        onChange={e => setValues({ ...values, name: e.target.value })}
       />
 
       <Field
@@ -214,7 +214,7 @@ function Signup() {
         placeholder="Hardware, plushies, microwaved apples?"
         type="text"
         value={values.likes}
-        onChange={(e) => setValues({ ...values, likes: e.target.value })}
+        onChange={e => setValues({ ...values, likes: e.target.value })}
       />
       <Field
         label="Dislikes"
@@ -222,11 +222,11 @@ function Signup() {
         placeholder="Socks, cheese, coal..."
         type="text"
         value={values.dislikes}
-        onChange={(e) => setValues({ ...values, dislikes: e.target.value })}
+        onChange={e => setValues({ ...values, dislikes: e.target.value })}
       />
-      <Button sx={{ bg: "blue", mt: [2, 3], py: 3 }} type="submit">{`Finish ${
-        7 - Object.values(values).filter((n) => n !== "").length
+      <Button sx={{ bg: 'blue', mt: [2, 3], py: 3 }} type="submit">{`Finish ${
+        7 - Object.values(values).filter(n => n !== '').length
       } fields to sign up`}</Button>
     </Base>
-  );
+  )
 }
