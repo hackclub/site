@@ -5,7 +5,6 @@ import {
   Input,
   Button,
   Text,
-  Alert,
   Card,
   Flex,
   Grid,
@@ -156,22 +155,29 @@ const MailingList = () => {
               />
             </div>
             <Button type="submit" sx={{ mt: [2, 0], fontSize: 2 }}>
-              {submitting ? (
-                <>
-                  <Loading />
-                  &nbsp; Subscribe
-                </>
-              ) : (
-                "Subscribe"
-              )}
+                {submitting ? (
+                    <>
+                        <Loading />
+                        {' '} Subscribe
+                    </>
+                ) : (
+                    submitted ? (
+                        <>
+                            <Icon glyph="send" />
+                            {' '} You're on the list!
+                        </>
+                    ) : (
+                        "Subscribe"
+                    )
+                )}
             </Button>
           </Grid>
-            {submitted && (
+            {/*{submitted && (
                 <Alert variant="primary" sx={{ bg: "green", mt: [2, 3] }}>
                     <Icon glyph="send" />
                     <Text sx={{ ml: 2 }}>You're on the list!</Text>
                 </Alert>
-            )}
+            )}*/}
         </Flex>
         <Box sx={{
             display: "grid",
