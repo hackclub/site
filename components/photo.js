@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
-import { Box, Card, Text, useColorMode } from "theme-ui";
-import Image from "next/image";
-import theme from "../lib/theme";
+import styled from '@emotion/styled'
+import { Box, Card, Text, useColorMode } from 'theme-ui'
+import Image from 'next/image'
+import theme from '../lib/theme'
 
 const Caption = styled(Text)`
   display: block;
@@ -14,7 +14,7 @@ const Caption = styled(Text)`
   width: 100%;
   max-width: 100%;
   z-index: 0;
-`;
+`
 
 const Photo = ({
   src,
@@ -26,22 +26,22 @@ const Photo = ({
   loading,
   ...props
 }) => {
-  const [colorMode] = useColorMode();
-  const showCaption = showAlt && alt;
+  const [colorMode] = useColorMode()
+  const showCaption = showAlt && alt
   return (
     <Card
       {...props}
       as="figure"
       sx={{
         p: [0, 0, 0],
-        boxShadow: "elevated",
-        borderRadius: "extra",
-        position: "relative",
-        maxWidth: "100%",
+        boxShadow: 'elevated',
+        borderRadius: 'extra',
+        position: 'relative',
+        maxWidth: '100%',
         lineHeight: 0,
-        height: "fit-content",
+        height: 'fit-content',
         ...props.sx,
-        img: { objectFit: "cover", objectPosition: "center" },
+        img: { objectFit: 'cover', objectPosition: 'center' }
       }}
     >
       <Image
@@ -50,18 +50,18 @@ const Photo = ({
         width={width}
         height={height}
         layout="responsive"
-        loading={loading || "lazy"}
+        loading={loading || 'lazy'}
       />
       {showCaption && (
         <Caption
           as="figcaption"
-          variant={dark ? "cards.translucentDark" : "cards.translucent"}
+          variant={dark ? 'cards.translucentDark' : 'cards.translucent'}
         >
           {alt}
         </Caption>
       )}
     </Card>
-  );
-};
+  )
+}
 
-export default Photo;
+export default Photo

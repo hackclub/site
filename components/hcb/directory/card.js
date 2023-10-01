@@ -1,8 +1,8 @@
-import { Card, Badge as ThemeBadge, Box, Heading, Text, Image } from "theme-ui";
-import { Organization } from "../../../pages/hcb/climate";
-import Tilt from "../../../components/tilt";
-import Icon from "@hackclub/icons";
-import Tooltip from "../tooltip";
+import { Card, Badge as ThemeBadge, Box, Heading, Text, Image } from 'theme-ui'
+import { Organization } from '../../../pages/hcb/climate'
+import Tilt from '../../../components/tilt'
+import Icon from '@hackclub/icons'
+import Tooltip from '../tooltip'
 
 export const Badge = ({ badge }) =>
   badge.image ? (
@@ -10,49 +10,49 @@ export const Badge = ({ badge }) =>
       as="span"
       sx={{
         backgroundImage: `url("${badge.image}")`,
-        backgroundSize: "contain",
-        backgroundColor: "unset",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        fontSize: "inherit",
-        textShadow: "none",
+        backgroundSize: 'contain',
+        backgroundColor: 'unset',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        fontSize: 'inherit',
+        textShadow: 'none',
         borderRadius: 5,
-        display: "block",
+        display: 'block',
         height: 30,
-        width: 38,
+        width: 38
       }}
     >
-      <span style={{ opacity: "0" }}>.</span>
+      <span style={{ opacity: '0' }}>.</span>
     </ThemeBadge>
   ) : (
     <ThemeBadge
       as="span"
       sx={{
         bg: badge.color,
-        color: "snow",
-        fontSize: "inherit",
-        textShadow: "none",
+        color: 'snow',
+        fontSize: 'inherit',
+        textShadow: 'none',
         borderRadius: 5,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
       }}
     >
       <Icon glyph={badge.icon} size={30} />
     </ThemeBadge>
-  );
+  )
 
 const TagRow = ({ category, type, badgeNames }) => {
   return (
     <>
       {badgeNames
-        .map((name) => badges[name])
+        .map(name => badges[name])
         .map((Badge, i) => (
           <Badge key={i} />
         ))}
     </>
-  );
-};
+  )
+}
 
 /**
  *
@@ -66,7 +66,7 @@ export const OrganizationCard = ({
   openModal,
   badges,
   organization,
-  showTags = false,
+  showTags = false
 }) => (
   <Tilt>
     <Card
@@ -76,38 +76,38 @@ export const OrganizationCard = ({
       itemType="http://schema.org/Event"
       variant="event"
       sx={{
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
         minHeight: 128,
-        color: "white",
-        cursor: "pointer",
-        textShadow: "0 1px 4px rgba(0, 0, 0, 0.375)",
-        textDecoration: "none",
-        backgroundColor: "black",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        borderRadius: "extra",
-        overflow: "hidden",
-        position: "relative",
+        color: 'white',
+        cursor: 'pointer',
+        textShadow: '0 1px 4px rgba(0, 0, 0, 0.375)',
+        textDecoration: 'none',
+        backgroundColor: 'black',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        borderRadius: 'extra',
+        overflow: 'hidden',
+        position: 'relative',
         p: 3,
-        height: "100%",
-        display: "flex",
+        height: '100%',
+        display: 'flex',
         px: 3,
         backgroundImage: `linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0.375) 75%), url('${organization.branding.backgroundImage}')`,
-        textAlign: "center",
-        flexDirection: "column",
+        textAlign: 'center',
+        flexDirection: 'column'
       }}
     >
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "end",
-          alignItems: "center",
-          width: "100%",
+          display: 'flex',
+          justifyContent: 'end',
+          alignItems: 'center',
+          width: '100%',
           gap: 2,
-          flexDirection: "row",
-          mb: 3,
+          flexDirection: 'row',
+          mb: 3
         }}
       >
         {badges.map((badge, i) => (
@@ -127,23 +127,23 @@ export const OrganizationCard = ({
           sx={{
             minWidth: 64,
             height: 64,
-            objectFit: "contain",
-            objectPosition: "left",
-            borderRadius: "default",
-            mt: "auto",
+            objectFit: 'contain',
+            objectPosition: 'left',
+            borderRadius: 'default',
+            mt: 'auto'
           }}
         />
       )}
       <Heading
-        as={"h3"}
+        as={'h3'}
         itemProp="name"
         sx={{
           fontSize: [3, 4],
           mt: 2,
           mb: 3,
-          overflowWrap: "anywhere",
-          width: "100%",
-          display: "block",
+          overflowWrap: 'anywhere',
+          width: '100%',
+          display: 'block'
         }}
       >
         {organization.name}
@@ -151,11 +151,11 @@ export const OrganizationCard = ({
       <Box
         as="footer"
         sx={{
-          mt: "auto",
+          mt: 'auto',
           mb: 0,
-          width: "100%",
+          width: '100%',
           opacity: 0.875,
-          textTransform: "none",
+          textTransform: 'none'
         }}
       >
         <>
@@ -171,11 +171,11 @@ export const OrganizationCard = ({
           </Text>
         </>
       </Box>
-      <Box sx={{ display: "none" }}>
+      <Box sx={{ display: 'none' }}>
         <span itemProp="url">{organization.links.website}</span>
       </Box>
     </Card>
   </Tilt>
-);
+)
 
-export default OrganizationCard;
+export default OrganizationCard

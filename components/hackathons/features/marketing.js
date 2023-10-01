@@ -1,28 +1,28 @@
-import { Button, Box, Container, Heading, Text } from "theme-ui";
-import usePrefersMotion from "../../../lib/use-prefers-motion";
-import useHasMounted from "../../../lib/use-has-mounted";
-import Link from "next/link";
+import { Button, Box, Container, Heading, Text } from 'theme-ui'
+import usePrefersMotion from '../../../lib/use-prefers-motion'
+import useHasMounted from '../../../lib/use-has-mounted'
+import Link from 'next/link'
 
 const Content = () => (
   <Container
     sx={{
-      textAlign: "center",
+      textAlign: 'center',
       zIndex: 999,
       py: 6,
-      color: "white",
-      "h2,p": { textShadow: "text" },
-      textAlign: [null, "center"],
-      position: "relative",
-      overflow: "hidden",
+      color: 'white',
+      'h2,p': { textShadow: 'text' },
+      textAlign: [null, 'center'],
+      position: 'relative',
+      overflow: 'hidden'
     }}
   >
-    <Text as="p" variant="eyebrow" sx={{ color: "white", opacity: 0.75 }}>
+    <Text as="p" variant="eyebrow" sx={{ color: 'white', opacity: 0.75 }}>
       hackathons.hackclub.com
     </Text>
     <Heading as="h2" variant="title">
       Spread the word about your hackathon.
     </Heading>
-    <Text as="p" variant="lead" sx={{ maxWidth: "copyPlus", mx: "auto" }}>
+    <Text as="p" variant="lead" sx={{ maxWidth: 'copyPlus', mx: 'auto' }}>
       Reach hackers worldwide by listing your event on hackathons.hackclub.com,
       the first Google search result for "high school hackathons." Your event
       will also be emailed to a network of high school hackers in your area.
@@ -32,57 +32,57 @@ const Content = () => (
         as="a"
         variant="ctaLg"
         sx={{
-          backgroundImage: (theme) => theme.util.gx("yellow", "red"),
+          backgroundImage: theme => theme.util.gx('yellow', 'red')
         }}
       >
         Add your hackathon →
       </Button>
     </Link>
   </Container>
-);
+)
 
 const Cover = () => (
   <Box
     sx={{
-      position: "absolute",
+      position: 'absolute',
       bottom: 0,
       top: 0,
       left: 0,
       right: 0,
-      backgroundImage: (t) => t.util.gx("slate", "black"),
+      backgroundImage: t => t.util.gx('slate', 'black'),
       opacity: 0.7,
-      zIndex: 1,
+      zIndex: 1
     }}
   />
-);
+)
 
 const Static = ({
-  img = "https://cloud-ateizv565-hack-club-bot.vercel.app/0screen_shot_2022-07-27_at_2.57.41_pm.png",
+  img = 'https://cloud-ateizv565-hack-club-bot.vercel.app/0screen_shot_2022-07-27_at_2.57.41_pm.png'
 }) => (
   <Box
     as="section"
     id="slack"
     sx={{
-      position: "relative",
-      overflow: "hidden",
+      position: 'relative',
+      overflow: 'hidden',
       backgroundImage: `url(${img})`,
-      backgroundSize: "cover",
+      backgroundSize: 'cover'
     }}
   >
     <Cover />
     <Content />
   </Box>
-);
+)
 
 const Marketing = () => {
-  const hasMounted = useHasMounted();
-  const prefersMotion = usePrefersMotion();
+  const hasMounted = useHasMounted()
+  const prefersMotion = usePrefersMotion()
   if (hasMounted && prefersMotion) {
     return (
       <Box
         as="section"
         id="slack"
-        sx={{ overflow: "hidden", position: "relative" }}
+        sx={{ overflow: 'hidden', position: 'relative' }}
       >
         <Box
           as="video"
@@ -93,15 +93,15 @@ const Marketing = () => {
           poster="https://cloud-ateizv565-hack-club-bot.vercel.app/0screen_shot_2022-07-27_at_2.57.41_pm.png"
           duration={2000}
           sx={{
-            position: "absolute",
+            position: 'absolute',
             bottom: 0,
             top: 0,
             left: 0,
             right: 0,
-            height: "100%",
+            height: '100%',
             zIndex: -1,
-            width: "100vw",
-            objectFit: "cover",
+            width: '100vw',
+            objectFit: 'cover'
           }}
         >
           <source
@@ -120,10 +120,10 @@ const Marketing = () => {
         <Cover />
         <Content />
       </Box>
-    );
+    )
   } else {
-    return <Static />;
+    return <Static />
   }
-};
+}
 
-export default Marketing;
+export default Marketing
