@@ -1,4 +1,4 @@
-import CardModel from "./card-model";
+import CardModel from './card-model'
 import {
   Box,
   Button,
@@ -10,12 +10,12 @@ import {
   Image,
   Badge,
   Link,
-  Text,
-} from "theme-ui";
-import Buttons from "./button";
-import Dot from "../../dot";
+  Text
+} from 'theme-ui'
+import Buttons from './button'
+import Dot from '../../dot'
 /** @jsxImportSource theme-ui */
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 export default function Epoch() {
   return (
@@ -23,31 +23,31 @@ export default function Epoch() {
       id="epoch"
       color="white"
       sx={{
-        backgroundColor: "#000",
+        backgroundColor: '#000'
       }}
     >
       <Image
         src="https://cloud-f3vv32ihb-hack-club-bot.vercel.app/0bg_angelhacks.png"
         alt=""
         sx={{
-          objectFit: "cover",
-          position: "absolute",
-          filter: "brightness(0.3)",
-          width: "100%",
-          height: "100%",
-          ml: ["-24px", "-32px", "-32px", "-32px"],
-          mt: ["-24px", "-32px", "-32px", "-32px"],
+          objectFit: 'cover',
+          position: 'absolute',
+          filter: 'brightness(0.3)',
+          width: '100%',
+          height: '100%',
+          ml: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px']
         }}
       />
-      <Grid columns={[1, 1, "1fr 1.5fr"]} sx={{ position: "relative" }}>
+      <Grid columns={[1, 1, '1fr 1.5fr']} sx={{ position: 'relative' }}>
         <Box>
           <img
             alt=""
             src="https://cloud-a2oswmb6u-hack-club-bot.vercel.app/0angelhacks_edgefix.png"
             sx={{
-              width: ["270px", "270px", "290px", "390px"],
-              position: "relative",
-              zIndex: 2,
+              width: ['270px', '270px', '290px', '390px'],
+              position: 'relative',
+              zIndex: 2
             }}
           />
         </Box>
@@ -58,27 +58,27 @@ export default function Epoch() {
             the coolest of games. So, what are you waiting for?
           </Text>
           <Text as="p" variant="subtitle">
-            In{" "}
+            In{' '}
             <Link
-              sx={{ color: "#ffb400" }}
+              sx={{ color: '#ffb400' }}
               href="https://angelhacksba.hackclub.com"
               target="_blank"
               rel="noopener"
             >
               Bay Area
             </Link>
-            ,{" "}
+            ,{' '}
             <Link
-              sx={{ color: "#ffb400" }}
+              sx={{ color: '#ffb400' }}
               href="https://angelhacksto.hackclub.com/"
               target="_blank"
               rel="noopener"
             >
               Toronto
             </Link>
-            , or{" "}
+            , or{' '}
             <Link
-              sx={{ color: "#ffb400" }}
+              sx={{ color: '#ffb400' }}
               href="https://angelhacksla.hackclub.com/"
               target="_blank"
               rel="noopener"
@@ -89,9 +89,9 @@ export default function Epoch() {
           </Text>
           <Flex
             sx={{
-              flexDirection: "column",
+              flexDirection: 'column',
               mt: [4, 3, 4],
-              position: "relative",
+              position: 'relative'
             }}
           >
             <Buttons
@@ -114,5 +114,5 @@ export default function Epoch() {
         </Box>
       </Grid>
     </CardModel>
-  );
+  )
 }

@@ -1,10 +1,10 @@
-import { Box, Flex, Text, Avatar, Card } from "theme-ui";
-import Icon from "@hackclub/icons";
-import { useState } from "react";
+import { Box, Flex, Text, Avatar, Card } from 'theme-ui'
+import Icon from '@hackclub/icons'
+import { useState } from 'react'
 
 export default function Bio({ popup = true, spanTwo = false, ...props }) {
-  let { img, name, teamRole, pronouns, text, subrole, href, video } = props;
-  const [expand, setExpand] = useState(false);
+  let { img, name, teamRole, pronouns, text, subrole, href, video } = props
+  const [expand, setExpand] = useState(false)
   return (
     <>
       <Card
@@ -12,27 +12,27 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
         p={popup ? [2, 2, 2] : [3, 3, 3]}
         py={popup ? [3, 3, 3] : [4, 4, 4]}
         sx={{
-          display: "flex",
-          alignItems: popup ? "center" : "flex-start",
-          transition: "transform 0.125s ease-in-out",
-          "&:hover":
-            (text && popup) || href ? { transform: "scale(1.025)" } : {},
-          cursor: (text && popup) || href ? "pointer" : null,
-          textDecoration: "none",
-          maxWidth: "600px",
+          display: 'flex',
+          alignItems: popup ? 'center' : 'flex-start',
+          transition: 'transform 0.125s ease-in-out',
+          '&:hover':
+            (text && popup) || href ? { transform: 'scale(1.025)' } : {},
+          cursor: (text && popup) || href ? 'pointer' : null,
+          textDecoration: 'none',
+          maxWidth: '600px',
           zIndex: !popup ? 1003 : 5,
-          maxHeight: "90vh",
-          overflowY: "hidden",
-          overscrollBehavior: "contain",
+          maxHeight: '90vh',
+          overflowY: 'hidden',
+          overscrollBehavior: 'contain',
           gridColumn: !spanTwo ? null : [null, null, `1 / span 2`],
-          position: "relative",
+          position: 'relative',
         }}
-        as={href && !text ? "a" : "div"}
+        as={href && !text ? 'a' : 'div'}
         href={href}
         target="_blank"
         onClick={() => {
           if (text && popup) {
-            setExpand(true);
+            setExpand(true)
           }
         }}
       >
@@ -43,17 +43,17 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           mr={3}
           src={
             img ||
-            require(`../public/team/${name.split(" ")[0].toLowerCase()}.jpg`)
+            require(`../public/team/${name.split(' ')[0].toLowerCase()}.jpg`)
           }
           alt={name}
           sx={{
-            overflow: "hidden",
-            objectFit: "cover",
-            transition: "transform 0.125s ease-in-out",
-            "&:hover": { transform: "rotate(-8deg) scale(1.25)" },
+            overflow: 'hidden',
+            objectFit: 'cover',
+            transition: 'transform 0.125s ease-in-out',
+            '&:hover': { transform: 'rotate(-8deg) scale(1.25)' },
             flexShrink: 0,
-            width: "64px",
-            height: "64px",
+            width: '64px',
+            height: '64px'
           }}
         />
         <Box>
@@ -67,9 +67,9 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                 variant="subheadline"
                 fontSize={2}
                 sx={{
-                  mb: ["0px", "0px", "0px"],
-                  fontSize: "1.1em",
-                  width: "fit-content",
+                  mb: ['0px', '0px', '0px'],
+                  fontSize: '1.1em',
+                  width: 'fit-content'
                 }}
               >
                 {teamRole}
@@ -80,10 +80,10 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                   <Text
                     color="#24B5A5"
                     sx={{
-                      mb: ["0px", "0px", "0px"],
+                      mb: ['0px', '0px', '0px'],
                       fontSize: 1,
                       fontWeight: 400,
-                      width: "fit-content",
+                      width: 'fit-content'
                     }}
                   >
                     {subrole}
@@ -107,8 +107,8 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                   sx={{
                     marginTop: 4,
                     marginX: 5,
-                    justifyContent: "center",
-                    aspectRatio: 4 / 3,
+                    justifyContent: 'center',
+                    aspectRatio: 4 / 3
                   }}
                 >
                   <iframe
@@ -124,12 +124,12 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
             </>
           )}
           {!popup && href && (
-            <Flex sx={{ alignItems: "center" }}>
+            <Flex sx={{ alignItems: 'center' }}>
               <Text
                 sx={{
-                  transform: "translateX(-4px) translateY(2px)",
-                  display: "inline-flex",
-                  alignItems: "center",
+                  transform: 'translateX(-4px) translateY(2px)',
+                  display: 'inline-flex',
+                  alignItems: 'center'
                 }}
               >
                 <Icon glyph="external-fill" size={24} />
@@ -138,9 +138,9 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                 mt={1}
                 mb={0}
                 color="black"
-                as={"a"}
+                as={'a'}
                 href={href}
-                sx={{ transform: "translateX(-2px)" }}
+                sx={{ transform: 'translateX(-2px)' }}
               >
                 {href}
               </Text>
@@ -152,30 +152,30 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
         <>
           <Flex
             sx={{
-              position: "fixed",
+              position: 'fixed',
               zIndex: 1004,
               top: 0,
               left: 0,
-              height: "100vh",
-              width: "100vw",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "rgba(0,0,0,0.6)",
-              pb: 4,
+              height: '100vh',
+              width: '100vw',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'rgba(0,0,0,0.6)',
+              pb: 4
             }}
           >
             <Bio {...props} popup={false} />
             <Flex
               sx={{
-                position: "fixed",
+                position: 'fixed',
                 zIndex: 1002,
                 top: 0,
                 left: 0,
-                height: "100vh",
-                width: "100vw",
-                alignItems: "center",
-                justifyContent: "center",
-                pb: 4,
+                height: '100vh',
+                width: '100vw',
+                alignItems: 'center',
+                justifyContent: 'center',
+                pb: 4
               }}
               onClick={() => setExpand(false)}
             ></Flex>
@@ -183,5 +183,5 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
         </>
       )}
     </>
-  );
+  )
 }

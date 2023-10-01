@@ -1,41 +1,41 @@
-import { Button } from "theme-ui";
-import theme from "../lib/theme";
+import { Button } from 'theme-ui'
+import theme from '../lib/theme'
 
 const bg = {
   default: {
-    bg: "blue",
-    backgroundImage: theme.util.gx("cyan", "blue"),
+    bg: 'blue',
+    backgroundImage: theme.util.gx('cyan', 'blue')
   },
   submitting: {
-    bg: "blue",
-    backgroundImage: theme.util.gx("cyan", "blue"),
+    bg: 'blue',
+    backgroundImage: theme.util.gx('cyan', 'blue')
   },
   success: {
-    bg: "green",
-    backgroundImage: theme.util.gx("yellow", "green"),
+    bg: 'green',
+    backgroundImage: theme.util.gx('yellow', 'green')
   },
   error: {
-    bg: "orange",
-    backgroundImage: theme.util.gx("orange", "red"),
-    boxShadow: `0 0 0 1px ${theme.colors.white}, 0 0 0 4px ${theme.colors.primary}`,
-  },
-};
+    bg: 'orange',
+    backgroundImage: theme.util.gx('orange', 'red'),
+    boxShadow: `0 0 0 1px ${theme.colors.white}, 0 0 0 4px ${theme.colors.primary}`
+  }
+}
 
 const submitting = {
   ...bg.default,
   opacity: 0.5,
-  pointerEvents: "none",
-  cursor: "not-allowed",
-};
+  pointerEvents: 'none',
+  cursor: 'not-allowed'
+}
 
 const Submit = ({
   status,
   labels = {
-    default: "Submit",
-    error: "Error!",
-    success: "Check your email!",
+    default: 'Submit',
+    error: 'Error!',
+    success: 'Check your email!'
   },
-  width = "100%",
+  width = '100%',
   sx,
   ...props
 }) => (
@@ -48,14 +48,14 @@ const Submit = ({
       mt: 3,
       fontSize: 2,
       width,
-      ...(status === "submitting" ? submitting : bg[status]),
-      ...sx,
+      ...(status === 'submitting' ? submitting : bg[status]),
+      ...sx
     }}
-    disabled={status === "submitting"}
+    disabled={status === 'submitting'}
     {...props}
   >
-    {status === "submitting" ? "Submitting…" : labels[status]}
+    {status === 'submitting' ? 'Submitting…' : labels[status]}
   </Button>
-);
+)
 
-export default Submit;
+export default Submit

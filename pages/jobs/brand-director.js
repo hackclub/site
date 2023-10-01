@@ -1,9 +1,9 @@
-import { BaseStyles, Box, Container, Heading, Text } from "theme-ui";
-import Head from "next/head";
-import Nav from "../../components/nav";
-import Meta from "@hackclub/meta";
-import JobDescription from "../../components/jobs/brand-director/jd.mdx";
-import ForceTheme from "../../components/force-theme";
+import { BaseStyles, Box, Container, Heading, Text } from 'theme-ui'
+import Head from 'next/head'
+import Nav from '../../components/nav'
+import Meta from '@hackclub/meta'
+import JobDescription from '../../components/jobs/brand-director/jd.mdx'
+import ForceTheme from '../../components/force-theme'
 
 const Page = () => (
   <>
@@ -20,10 +20,10 @@ const Page = () => (
       sx={{
         pt: [5, 6],
         pb: [4, 5],
-        backgroundImage: (theme) => theme.util.gx("blue", "purple"),
+        backgroundImage: theme => theme.util.gx('blue', 'purple')
       }}
     >
-      <Container sx={{ textAlign: "center", color: "white" }}>
+      <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading as="h1" variant="title" mb={30}>
           Hack Club Brand Director
         </Heading>
@@ -38,12 +38,12 @@ const Page = () => (
       sx={{
         pt: [3, 4],
         pb: [4, 5],
-        fontSize: [2, 3],
+        fontSize: [2, 3]
       }}
     >
       <JobDescription />
     </Container>
   </>
-);
+)
 
-export default Page;
+export default Page

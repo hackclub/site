@@ -1,10 +1,10 @@
-import { Text } from "theme-ui";
-import { keyframes } from "@emotion/react";
-import styled from "@emotion/styled";
-import usePrefersMotion from "../lib/use-prefers-motion";
+import { Text } from 'theme-ui'
+import { keyframes } from '@emotion/react'
+import styled from '@emotion/styled'
+import usePrefersMotion from '../lib/use-prefers-motion'
 
 export default function Inspect() {
-  const prefersMotion = usePrefersMotion();
+  const prefersMotion = usePrefersMotion()
 
   const cursor = keyframes` 0% {
     cursor: grabbing
@@ -68,7 +68,7 @@ export default function Inspect() {
   }
   100% {
     cursor: ew-resize
-  }`;
+  }`
 
   const animation1 = keyframes`
   0% {
@@ -134,7 +134,7 @@ export default function Inspect() {
   100% {
     clip: rect(75px, 9999px, 13px, 0);
   }
-  `;
+  `
 
   const animation2 = keyframes`
   0% {
@@ -200,7 +200,7 @@ export default function Inspect() {
   100% {
     clip: rect(95px, 9999px, 47px, 0);
   }
-  `;
+  `
 
   const Glitch = styled(Text)`
     color: #000;
@@ -221,7 +221,7 @@ export default function Inspect() {
     &:before,
     &:after {
       color: #000;
-      content: "Hacker? Inspect 🔍 this page to learn more.";
+      content: 'Hacker? Inspect 🔍 this page to learn more.';
       position: absolute;
       // background: #303039;
       width: fit-content;
@@ -241,17 +241,17 @@ export default function Inspect() {
       text-shadow: -1px 0 green;
       animation: ${animation2} 4s infinite linear alternate-reverse;
     }
-  `;
+  `
 
   return (
     <>
       {prefersMotion ? (
         <Glitch>Hacker? Inspect 🔍 this page to learn more.</Glitch>
       ) : (
-        <Text sx={{ display: "absolute", bottom: "50px", left: 0 }}>
+        <Text sx={{ display: 'absolute', bottom: '50px', left: 0 }}>
           Hacker? Inspect 🔍 this page to learn more
         </Text>
       )}
     </>
-  );
+  )
 }
