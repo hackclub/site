@@ -1,17 +1,17 @@
-import { Box, Container, Heading, Text } from "theme-ui";
+import { Box, Container, Heading, Text } from 'theme-ui'
 import {
   PillHolder,
   AuthorPill,
-  DatePill,
-} from "../components/announcements/pills";
-import Head from "next/head";
-import Meta from "@hackclub/meta";
-import Nav from "../components/nav";
-import ForceTheme from "../components/force-theme";
-import Footer from "../components/footer";
-import ElonCopy from "../components/announcements/elon.mdx";
-import SlackCTA from "../components/announcements/cta";
-import AnnouncementHolder from "../components/announcements/holder";
+  DatePill
+} from '../components/announcements/pills'
+import Head from 'next/head'
+import Meta from '@hackclub/meta'
+import Nav from '../components/nav'
+import ForceTheme from '../components/force-theme'
+import Footer from '../components/footer'
+import ElonCopy from '../components/announcements/elon.mdx'
+import SlackCTA from '../components/announcements/cta'
+import AnnouncementHolder from '../components/announcements/holder'
 
 const ElonPage = () => (
   <>
@@ -28,24 +28,24 @@ const ElonPage = () => (
       sx={{
         pt: [5, 6],
         pb: [4, 5],
-        bg: "rgb(104, 41, 205)",
-        backgroundImage: (theme) => theme.util.gx("yellow", "green"),
+        bg: 'rgb(104, 41, 205)',
+        backgroundImage: theme => theme.util.gx('yellow', 'green')
       }}
     >
-      <Container sx={{ textAlign: "center", color: "white" }}>
+      <Container sx={{ textAlign: 'center', color: 'white' }}>
         <Heading
           as="h1"
           variant="title"
           sx={{
             fontSize: [5, 6, null, 7],
             span: {
-              WebkitTextStroke: "currentColor",
-              WebkitTextStrokeWidth: ["2px", "3px"],
-              WebkitTextFillColor: "transparent",
-            },
+              WebkitTextStroke: 'currentColor',
+              WebkitTextStrokeWidth: ['2px', '3px'],
+              WebkitTextFillColor: 'transparent'
+            }
           }}
         >
-          Hack Club “makes me feel <span>much more optimistic</span>{" "}
+          Hack Club “makes me feel <span>much more optimistic</span>{' '}
           about&nbsp;the future.”
         </Heading>
         <Text variant="headline">—Elon Musk</Text>
@@ -65,6 +65,6 @@ const ElonPage = () => (
     <SlackCTA />
     <Footer />
   </>
-);
+)
 
-export default ElonPage;
+export default ElonPage
