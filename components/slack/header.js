@@ -1,88 +1,88 @@
-import { Box, Heading, Grid } from "theme-ui";
-import SlideUp from "../slide-up";
-import JoinForm from "./join-form";
-import usePrefersMotion from "../../lib/use-prefers-motion";
-import useHasMounted from "../../lib/use-has-mounted";
+import { Box, Heading, Grid } from 'theme-ui'
+import SlideUp from '../slide-up'
+import JoinForm from './join-form'
+import usePrefersMotion from '../../lib/use-prefers-motion'
+import useHasMounted from '../../lib/use-has-mounted'
 
 const Content = () => (
-  <Grid gap={3} pt={[5, "100px"]} pb={[3, 4]}>
+  <Grid gap={3} pt={[5, '100px']} pb={[3, 4]}>
     <Box
       sx={{
-        position: "relative",
+        position: 'relative',
         zIndex: 1,
-        textShadow: "text",
-        textAlign: ["center", "center"],
+        textShadow: 'text',
+        textAlign: ['center', 'center']
       }}
     >
       <Heading
         as="h1"
         variant="title"
         sx={{
-          color: "white",
+          color: 'white',
           fontSize: [5, 6, 7],
-          lineHeight: "limit",
-          mb: [2, 3],
+          lineHeight: 'limit',
+          mb: [2, 3]
         }}
       >
         Hack Club Slack
       </Heading>
     </Box>
-    <SlideUp sx={{ zIndex: 5, display: "flex", alignItems: "center" }}>
+    <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
       <JoinForm
         sx={{
-          variant: "cards.translucent",
-          position: "relative",
+          variant: 'cards.translucent',
+          position: 'relative',
           zIndex: 3,
-          maxWidth: "null",
+          maxWidth: 'null'
         }}
       />
     </SlideUp>
   </Grid>
-);
+)
 
 const Cover = () => (
   <Box
     sx={{
-      position: "absolute",
+      position: 'absolute',
       bottom: 0,
       top: 0,
       left: 0,
       right: 0,
-      backgroundImage: (t) => t.util.gx("cyan", "purple"),
+      backgroundImage: t => t.util.gx('cyan', 'purple'),
       opacity: 0.625,
-      zIndex: 1,
+      zIndex: 1
     }}
   />
-);
+)
 
 const Static = ({
-  img = "https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png",
+  img = 'https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png'
   // img="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/12020-07-25_hn13qhejqrzu4n1jy9yacxxgrgp3wf5u.png"
 }) => (
   <Box
     as="section"
     id="slack"
     sx={{
-      position: "relative",
-      overflow: "hidden",
+      position: 'relative',
+      overflow: 'hidden',
       backgroundImage: `url(${img})`,
-      backgroundSize: "cover",
+      backgroundSize: 'cover'
     }}
   >
     <Cover />
     <Content />
   </Box>
-);
+)
 
 const Slack = () => {
-  const hasMounted = useHasMounted();
-  const prefersMotion = usePrefersMotion();
+  const hasMounted = useHasMounted()
+  const prefersMotion = usePrefersMotion()
   if (hasMounted && prefersMotion) {
     return (
       <Box
         as="section"
         id="slack"
-        sx={{ overflow: "hidden", position: "relative" }}
+        sx={{ overflow: 'hidden', position: 'relative' }}
       >
         <Box
           as="video"
@@ -93,15 +93,15 @@ const Slack = () => {
           poster="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png"
           duration={2000}
           sx={{
-            position: "absolute",
+            position: 'absolute',
             bottom: 0,
             top: 0,
             left: 0,
             right: 0,
-            height: "100%",
+            height: '100%',
             zIndex: -1,
-            width: "100vw",
-            objectFit: "cover",
+            width: '100vw',
+            objectFit: 'cover'
           }}
         >
           <source
@@ -120,10 +120,10 @@ const Slack = () => {
         <Cover />
         <Content />
       </Box>
-    );
+    )
   } else {
-    return <Static />;
+    return <Static />
   }
-};
+}
 
-export default Slack;
+export default Slack

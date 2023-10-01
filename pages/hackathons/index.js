@@ -1,17 +1,17 @@
-import { Box, Container } from "theme-ui";
-import Meta from "@hackclub/meta";
-import Head from "next/head";
-import ForceTheme from "../../components/force-theme";
-import Nav from "../../components/nav";
-import Footer from "../../components/footer";
-import Recap from "../../components/hackathons/recap";
-import Slack from "../../components/hackathons/features/slack";
-import Money from "../../components/hackathons/features/money";
-import Landing from "../../components/hackathons/landing";
-import Marketing from "../../components/hackathons/features/marketing";
-import Overview from "../../components/hackathons/overview";
-import ScrollingHackathons from "../../components/hackathons/scrolling-hackathons";
-import KeepExploring from "../../components/hackathons/keep-exploring";
+import { Box, Container } from 'theme-ui'
+import Meta from '@hackclub/meta'
+import Head from 'next/head'
+import ForceTheme from '../../components/force-theme'
+import Nav from '../../components/nav'
+import Footer from '../../components/footer'
+import Recap from '../../components/hackathons/recap'
+import Slack from '../../components/hackathons/features/slack'
+import Money from '../../components/hackathons/features/money'
+import Landing from '../../components/hackathons/landing'
+import Marketing from '../../components/hackathons/features/marketing'
+import Overview from '../../components/hackathons/overview'
+import ScrollingHackathons from '../../components/hackathons/scrolling-hackathons'
+import KeepExploring from '../../components/hackathons/keep-exploring'
 
 export default function Hackathons({ data }) {
   return (
@@ -27,11 +27,11 @@ export default function Hackathons({ data }) {
         />
         <Box as="main">
           <Landing />
-
+          
           <Overview />
 
           <ScrollingHackathons eventData={data} title={true} />
-
+          
           <KeepExploring />
           <Money />
           <Slack />
@@ -43,27 +43,25 @@ export default function Hackathons({ data }) {
       </Box>
       <Footer key="footer" />
     </>
-  );
+  )
 }
 export async function getStaticProps() {
   let data;
   try {
-    const res = await fetch(
-      "https://hackathons.hackclub.com/api/events/upcoming",
-    );
+    const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming');
     if (res.ok) {
       data = await res.json();
     } else {
-      data = [];
+      data = []; 
     }
   } catch (error) {
-    data = [];
+    data = []; 
   }
 
   return {
     props: {
-      data,
+      data, 
     },
-    revalidate: 10,
+    revalidate: 10
   };
 }

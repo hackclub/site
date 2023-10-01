@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
 
 const addClassNameToChildren = (children, className) =>
-  React.Children.map(children, (child) =>
+  React.Children.map(children, child =>
     React.cloneElement(child, {
-      className: `${child.props.className || ""} ${className}`,
-    }),
-  );
+      className: `${child.props.className || ''} ${className}`
+    })
+  )
 
-const tooltip = (direction) =>
+const tooltip = direction =>
   function Tooltip({ children, text, id }) {
-    const escapedText = text.replace(/'/g, "\\'");
+    const escapedText = text.replace(/'/g, "\\'")
     const directionalStyles = {
       e: `
             left: 100%;
@@ -35,17 +35,17 @@ const tooltip = (direction) =>
             top: 100%;
             margin-top: 0.5rem;
             transform: translateX(50%);
-        `,
-    }[direction || "e"];
+        `
+    }[direction || 'e']
 
     return (
       <>
-        <style>{`.tooltipped${id ? "-" + id : ""} {
+        <style>{`.tooltipped${id ? '-' + id : ''} {
                 position: relative;
             }
             
             @media (min-width: 56em) {
-                .tooltipped${id ? "-" + id : ""}:after {
+                .tooltipped${id ? '-' + id : ''}:after {
                     background-color: rgba(31, 45, 61, 0.875);
                     border-radius: 0.5rem;
                     box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.0625),
@@ -73,29 +73,29 @@ const tooltip = (direction) =>
             
                 }
             
-                .tooltipped${id ? "-" + id : ""}:hover:after,
-                .tooltipped${id ? "-" + id : ""}:active:after,
-                .tooltipped${id ? "-" + id : ""}:focus:after {
+                .tooltipped${id ? '-' + id : ''}:hover:after,
+                .tooltipped${id ? '-' + id : ''}:active:after,
+                .tooltipped${id ? '-' + id : ''}:focus:after {
                     opacity: 1;
                     z-index: 9000000;
                     backdrop-filter: blur(2px);
                 }
             
-                .tooltipped${id ? "-" + id : ""}:after {
+                .tooltipped${id ? '-' + id : ''}:after {
                     ${directionalStyles}
                 }
             }`}</style>
 
         {children}
       </>
-    );
-  };
+    )
+  }
 
-const Tooltip = tooltip();
-Tooltip.N = tooltip("n");
-Tooltip.S = tooltip("s");
-Tooltip.E = tooltip("e");
-Tooltip.W = tooltip("w");
+const Tooltip = tooltip()
+Tooltip.N = tooltip('n')
+Tooltip.S = tooltip('s')
+Tooltip.E = tooltip('e')
+Tooltip.W = tooltip('w')
 
-export { Tooltip };
-export default Tooltip;
+export { Tooltip }
+export default Tooltip

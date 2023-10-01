@@ -1,68 +1,68 @@
-import CardModel from "./card-model";
-import { Box, Flex, Grid, Heading, Image, Link, Text } from "theme-ui";
-import Buttons from "./button";
-import Event from "../events";
-import Dot from "../../dot";
-import Comma from "../../comma";
+import CardModel from './card-model'
+import { Box, Flex, Grid, Heading, Image, Link, Text } from 'theme-ui'
+import Buttons from './button'
+import Event from '../events'
+import Dot from '../../dot'
+import Comma from '../../comma'
 /** @jsxImportSource theme-ui */
 
 const Cover = () => (
   <Box
     sx={{
-      position: "absolute",
+      position: 'absolute',
       bottom: 0,
       top: 0,
       left: 0,
       right: 0,
       backgroundImage:
-        "linear-gradient(to bottom,rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95))",
+        'linear-gradient(to bottom,rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.95))',
       opacity: 0.8,
-      zIndex: 1,
+      zIndex: 1
     }}
   />
-);
+)
 const Stats = ({ data, subheading, nonMobile = false }) => (
-  <Box sx={{ display: nonMobile ? ["none", "block"] : "block" }}>
+  <Box sx={{ display: nonMobile ? ['none', 'block'] : 'block' }}>
     <Heading
       variant="headline"
       as="h4"
-      sx={{ mb: 0, pt: 2, fontSize: ["28px", "36px", "38px"] }}
+      sx={{ mb: 0, pt: 2, fontSize: ['28px', '36px', '38px'] }}
     >
       <Comma>{data}</Comma>
     </Heading>
     <Text
       sx={{
-        color: "muted",
-        fontSize: ["14px", "16px", "18px"],
-        fontWeight: "400",
+        color: 'muted',
+        fontSize: ['14px', '16px', '18px'],
+        fontWeight: '400'
       }}
       as="h5"
     >
       {subheading}
     </Text>
   </Box>
-);
+)
 export default function Slack({ data, slackKey, events }) {
   return (
     <CardModel
       color="white"
       sx={{
-        position: "relative",
-        overflow: "hidden",
-        backgroundImage: (t) => t.util.gx("cyan", "purple"),
-        minHeight: ["500px", "400px"],
-        py: [3, 3, 4],
+        position: 'relative',
+        overflow: 'hidden',
+        backgroundImage: t => t.util.gx('cyan', 'purple'),
+        minHeight: ['500px', '400px'],
+        py: [3, 3, 4]
       }}
     >
       <Image
         src="/home/slack_ama.webp"
         sx={{
-          objectFit: "cover",
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          ml: ["-24px", "-32px", "-32px", "-32px"],
-          mt: ["-24px", "-32px", "-32px", "-32px"],
+          objectFit: 'cover',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          ml: ['-24px', '-32px', '-32px', '-32px'],
+          mt: ['-24px', '-32px', '-32px', '-32px']
         }}
         alt="Slack AMA"
       />
@@ -72,24 +72,24 @@ export default function Slack({ data, slackKey, events }) {
           as="h3"
           variant="title"
           sx={{
-            fontSize: ["36px", 4, 5],
+            fontSize: ['36px', 4, 5],
             zIndex: 2,
-            maxWidth: [null, null, "70%", null],
+            maxWidth: [null, null, '70%', null]
           }}
         >
           Our Online Community
         </Text>
       </Grid>
-      <Grid columns={[1, 1, "1.6fr 1fr", "1.6fr 1fr"]} sx={{ zIndex: 2 }}>
+      <Grid columns={[1, 1, '1.6fr 1fr', '1.6fr 1fr']} sx={{ zIndex: 2 }}>
         <Box
           sx={{
-            zIndex: 2,
+            zIndex: 2
           }}
         >
           <Text
             as="p"
             variant="subtitle"
-            sx={{ fontSize: [1, "16px", "24px"] }}
+            sx={{ fontSize: [1, '16px', '24px'] }}
           >
             Coding doesn’t have to be a solitary activity. At Hack&nbsp;Club, we
             make things together and in our Slack, you’ll find awesome people to
@@ -98,16 +98,16 @@ export default function Slack({ data, slackKey, events }) {
           </Text>
           <Text as="p" variant="subtitle">
             Occasionally we invite someone we really want to speak to (like Sal
-            Khan, George Hotz, and Lady Ada) and host an{" "}
+            Khan, George Hotz, and Lady Ada) and host an{' '}
             <Link
               href="/amas"
               target="_blank"
               rel="noopener"
-              sx={{ color: "inherit" }}
+              sx={{ color: 'inherit' }}
             >
               AMA
-            </Link>{" "}
-            with them.{" "}
+            </Link>{' '}
+            with them.{' '}
           </Text>
           <Event events={events} />
           <Buttons id="13" link="/slack" icon="slack" primary="purple">
@@ -116,31 +116,31 @@ export default function Slack({ data, slackKey, events }) {
           <Grid
             sx={{
               zIndex: 2,
-              display: data?.chats_channels_count_1d > 0 ? "block" : "none",
+              display: data?.chats_channels_count_1d > 0 ? 'block' : 'none'
             }}
           >
             <Box
               sx={{
-                background: "rgb(0,0,0,0.6)",
-                height: ["130px", "170px", "170px", "100%"],
-                position: ["relative", "relative", "absolute"],
+                background: 'rgb(0,0,0,0.6)',
+                height: ['130px', '170px', '170px', '100%'],
+                position: ['relative', 'relative', 'absolute'],
                 zIndex: 3,
-                width: ["120%", "120%", "260px"],
+                width: ['120%', '120%', '260px'],
                 right: 0,
                 top: [null, null, 0],
                 mt: [3, 3, 0],
-                ml: ["-10%", "-10%", "-5%"],
-                mb: ["-10%", "-10%", "-5%"],
+                ml: ['-10%', '-10%', '-5%'],
+                mb: ['-10%', '-10%', '-5%'],
                 p: 4,
-                py: [3, 3, 2],
+                py: [3, 3, 2]
               }}
             >
               <Flex
                 sx={{
-                  flexDirection: ["row", "row", "column"],
-                  justifyContent: "space-between",
-                  flexWrap: "wrap",
-                  textAlign: "center",
+                  flexDirection: ['row', 'row', 'column'],
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  textAlign: 'center'
                 }}
               >
                 <Stats
@@ -166,5 +166,5 @@ export default function Slack({ data, slackKey, events }) {
         </Box>
       </Grid>
     </CardModel>
-  );
+  )
 }
