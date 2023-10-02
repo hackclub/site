@@ -737,16 +737,15 @@ const ShipPage = () => {
             </a>
 
             <a
-              href="https://github.com/hackclub/OnBoard/tree/main/projects/Karmanyaah_Longhorn_LEDs"
+              href="https://jams.hackclub.com/batch/sparkletilt-pcb"
               target="_blank"
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 140 }}>
-                  Karmanyaah's <strong>digital level</strong> in the shape of a
-                  longhorn.
+                  Karmanyaah's <strong>digital level</strong>, SparkleTilt.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  See the designs&nbsp;<span className="arrow">&rarr;</span>
+                  Learn how to make your own&nbsp;<span className="arrow">&rarr;</span>
                 </Text>
                 <Image
                   src="https://cloud-myjum5y6g-hack-club-bot.vercel.app/0longhorn2.png"
