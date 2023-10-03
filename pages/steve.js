@@ -6,9 +6,86 @@ import Footer from '../components/footer'
 import Nav from '../components/nav'
 import Tilt from '../components/tilt'
 import Ticker from 'react-ticker'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const StevePage = () => {
+
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+
+  const [disabledDates, setDisabledDates] = useState([]);
+
+  useEffect(() => {
+    // Fetch the disabled dates from the API endpoint when the component mounts
+    const fetchDisabledDates = async () => {
+      try {
+        const response = await fetch('/api/steve');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const dateStrings = await response.json();
+        const dateObjects = dateStrings.map(dateStr => {
+            const date = new Date(Date.UTC(dateStr.substring(0, 4), dateStr.substring(5, 7) - 1, dateStr.substring(8, 10)));
+            date.setDate(date.getDate() + 1); // Add one day to the date
+            return date;
+        });
+        setDisabledDates(dateObjects);
+      } catch (error) {
+        console.error('Failed fetching disabled dates:', error);
+      }
+    };
+
+    fetchDisabledDates();
+}, []);
+
+
+
+
+
+
+
+
+
+  const isDateDisabled = (date) => {
+      return disabledDates.some(disabledDate => 
+          disabledDate.getTime() === date.getTime());
+  };
+
+const isSelectingDisabledRange = (start, end) => {
+    let currDate = new Date(start);
+    currDate.setHours(0, 0, 0, 0); // Normalize the time component
+
+    let normalizedEnd = new Date(end);
+    normalizedEnd.setHours(0, 0, 0, 0);
+
+    while (currDate <= normalizedEnd) {
+        if (isDateDisabled(currDate)) {
+            return true;
+        }
+        currDate.setDate(currDate.getDate() + 1);
+    }
+    return false;
+};
+
+
+
+const handleStartDateChange = (date) => {
+  if (!endDate || !isSelectingDisabledRange(date, endDate)) {
+      setStartDate(date);
+  } else {
+      setStartDate(date);
+      setEndDate(null); // Reset end date if the new range is invalid
+  }
+};
+
+const handleEndDateChange = (date) => {
+  if (!isSelectingDisabledRange(startDate, date)) {
+      setEndDate(date);
+  } // Do nothing if the range is invalid
+};
     const images = ["https://cloud-p08od8km8-hack-club-bot.vercel.app/0image.png", "https://cloud-eqvtnimxq-hack-club-bot.vercel.app/0image.png", "https://cloud-r8j7lcawc-hack-club-bot.vercel.app/0image.png", "https://cloud-8f162hv3i-hack-club-bot.vercel.app/0image.png", "https://cloud-b7gqg2qpq-hack-club-bot.vercel.app/0image.png", "https://cloud-ik2jpfk0t-hack-club-bot.vercel.app/0mountains.png"]
     const [selectedImage, setSelectedImages] = useState(0);
 
@@ -173,7 +250,7 @@ const StevePage = () => {
   Book Your Stay
 </Heading>
 <p style={{color: "#fff", marginBottom: 0}}>Coming Soon...</p>
-{/* <Box style={{display: "flex", gap: "16px"}}>
+<Box style={{display: "flex", gap: "16px"}}>
 <Box>
       <Box>
         <Text sx={{fontFamily: "billy", color: "#fff", fontSize: 18}}>Name</Text>
@@ -192,11 +269,29 @@ const StevePage = () => {
       </Box>
       <Box>
       <Text sx={{fontFamily: "billy", color: "#fff", fontSize: 18}}>Start Date</Text>
-        <Input type="date" />
+      <DatePicker
+      
+                selected={startDate}
+                onChange={handleStartDateChange}
+                selectsStart
+                startDate={startDate}
+                endDate={endDate}
+                excludeDates={disabledDates}
+            />
+
       </Box>
       <Box>
       <Text sx={{fontFamily: "billy", color: "#fff", fontSize: 18}}>End Date</Text>
-        <Input type="date" />
+      <DatePicker
+      
+                selected={endDate}
+                onChange={handleEndDateChange}
+                selectsEnd
+                startDate={startDate}
+                endDate={endDate}
+                minDate={startDate}
+                excludeDates={disabledDates}
+            />
       </Box>
 
       </Box>
@@ -241,7 +336,7 @@ const StevePage = () => {
         
       </Box>
       </Box>
-      </Box> */}
+      </Box>
 
 {/* 
       <Box>

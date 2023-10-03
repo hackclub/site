@@ -10,7 +10,8 @@ export default function Pizza() {
       color="white"
       sx={{
         backgroundSize: 'cover',
-        backgroundColor: '#95C9E5'
+        backgroundColor: '#95C9E5',
+        border: "1px solid #EC3750"  // Corrected the color value here
       }}
       position={[null, 'bottom', 'bottom']}
       highlight="#271932"
@@ -59,7 +60,9 @@ export default function Pizza() {
             position: "relative"
           }}
         >
-          <Image alt="Group of teenage hackers enjoying GitHub Hack Club Pizza Grant" sx={{borderRadius: "16px", aspectRatio: "16/9", objectFit: "cover"}} src="https://cloud-8tc8qa1ew-hack-club-bot.vercel.app/0img_8975.jpg"/>
+          <Image alt="Group of teenage hackers enjoying GitHub Hack Club Pizza Grant" sx={{borderRadius: "16px",
+                  border: "1px solid #EC3750",
+          aspectRatio: "16/9", objectFit: "cover"}} src="https://cloud-8tc8qa1ew-hack-club-bot.vercel.app/0img_8975.jpg"/>
           <Text sx={{color: "#000", backgroundColor: "#fff", left: "16px", bottom: "16px", padding: "6px 8px", borderRadius: "16px", position: "absolute"}}>Newton South HS Hack Club in Boston</Text>
         </Flex>
         </Box>
