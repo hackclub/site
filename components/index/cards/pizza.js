@@ -59,7 +59,7 @@ export default function Pizza() {
             position: "relative"
           }}
         >
-          <Image sx={{borderRadius: "16px", aspectRatio: "16/9", objectFit: "cover"}} src="https://cloud-8tc8qa1ew-hack-club-bot.vercel.app/0img_8975.jpg"/>
+          <Image alt="Group of teenage hackers enjoying GitHub Hack Club Pizza Grant" sx={{borderRadius: "16px", aspectRatio: "16/9", objectFit: "cover"}} src="https://cloud-8tc8qa1ew-hack-club-bot.vercel.app/0img_8975.jpg"/>
           <Text sx={{color: "#000", backgroundColor: "#fff", left: "16px", bottom: "16px", padding: "6px 8px", borderRadius: "16px", position: "absolute"}}>Newton South HS Hack Club in Boston</Text>
         </Flex>
         </Box>
