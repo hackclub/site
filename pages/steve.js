@@ -143,7 +143,7 @@ const StevePage = () => {
 
 <Box style={{flexDirection: "column", alignItems: "center", width: "142px", padding: "24px 24px 24px 0px", backgroundColor: "#000", justifyContent: "space-between", display: "flex"}}>
         {images.map((image, idx) => 
-        <Image alt="" style={{display: idx == selectedImage ? ("flex") : ("flex"), cursor: "pointer", aspectRatio: "1", objectFit: "cover",opacity: idx != selectedImage ? (0.5) : (1)}} onClick={() => setSelectedImages(idx)} width={"96px"} height={"96px"} src={image}/>
+        <Image key={idx} alt="" style={{display: idx == selectedImage ? ("flex") : ("flex"), cursor: "pointer", aspectRatio: "1", objectFit: "cover",opacity: idx != selectedImage ? (0.5) : (1)}} onClick={() => setSelectedImages(idx)} width={"96px"} height={"96px"} src={image}/>
         )}
 </Box>
     </Box>
