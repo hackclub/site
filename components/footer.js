@@ -19,6 +19,8 @@ const Base = styled(Box)`
   }
 `
 
+
+
 const Logo = props => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -108,6 +110,7 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Heading as="h2" variant="subheadline" mb={3}>
             Resources
           </Heading>
+          <Link href="https://hackclub.com/pizza">Clubs Pizza Grant</Link>
           <Link href="https://events.hackclub.com/">Community Events</Link>
           <Link href="https://jams.hackclub.com/">Jams</Link>
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>

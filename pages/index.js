@@ -11,6 +11,7 @@ import {
 } from 'theme-ui'
 import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import BGImg from '../components/background-image'
@@ -54,7 +55,8 @@ function Page({
   game,
   gameTitle,
   events,
-  carouselCards
+  carouselCards,
+  context
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -63,6 +65,8 @@ function Page({
   let [github, setGithub] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
+
+  const { asPath } = useRouter()
 
   let jsConfetti = useRef()
 
@@ -297,7 +301,7 @@ function Page({
               }}
               title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
             >
-              Hackers at Outernet in VT
+              Hackers at Outernet in Vermont
             </Badge>
           </Box>
         </Box>
@@ -736,6 +740,7 @@ function Page({
                             img={data.userImage}
                             user={data.user}
                             time={data.time}
+                            url={data.url}
                             message={data.message}
                             key={key}
                           />
@@ -840,6 +845,7 @@ function Page({
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
+
               {/* <Events events={events} /> */}
               <HCB data={bankData} />
             </Box>
@@ -1071,6 +1077,76 @@ function Page({
           </Box>
         </Box>
       </Box>
+      {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
+        'z' && (
+        <>
+          <Box
+            sx={{
+              position: 'fixed',
+              top: 0,
+              width: '100%',
+              zIndex: 1000
+            }}
+          >
+            <Box
+              sx={{
+                position: 'relative',
+                margin: 'auto',
+                width: 'fit-content',
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              position: 'fixed',
+              bottom: 0,
+              right: 0,
+              zIndex: 1000,
+              lineHeight: 0
+            }}
+          >
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </Box>
+          <Box
+            sx={{
+              position: 'fixed',
+              bottom: 0,
+              left: 0,
+              zIndex: 1000,
+              lineHeight: 0
+            }}
+          >
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </Box>
+        </>
+      )}
       <MailingList />
       <Footer
         dark
@@ -1144,9 +1220,19 @@ export async function getStaticProps() {
   const consoleCount = await getConsoles()
 
   // Hackathons: get latest hackathons
-  const hackathonsData = await fetch(
-    'https://hackathons.hackclub.com/api/events/upcoming'
-  ).then(res => res.json())
+  let hackathonsData
+  try {
+    const response = await fetch(
+      'https://hackathons.hackclub.com/api/events/upcoming'
+    )
+    if (response.ok) {
+      hackathonsData = await response.json()
+    } else {
+      hackathonsData = [] // or some default value if the fetch fails
+    }
+  } catch (error) {
+    hackathonsData = [] // or some default value if an error occurs
+  }
 
   let events = await fetch(
     'https://events.hackclub.com/api/events/upcoming/'

@@ -106,8 +106,7 @@ export default function Team() {
                   />
                   <Bio
                     img="https://philanthropy.hackclub.com/_next/image?url=/quinn.png&w=1200&q=75"
-                    name="
-              Quinn Slack"
+                    name="Quinn Slack"
                     teamRole={<>Board Member</>}
                     subrole="CEO, Sourcegraph"
                     pronouns="he/him"
@@ -181,8 +180,8 @@ export default function Team() {
                     <Bio
                       name="Hugo Hu"
                       teamRole="Mail Coordinator & Engineering"
-                      text="Hugo is a Hack Clubber from NYC who joined during the summer of 2020 for Summer of Making, and he then went on the Hacker Zephyr in 2021. He's a lover of all things mail and logistics related, and does hardware engineering and procurement work for projects like Sprig and Haxidraw. In his free time, he's building up his courage to pet random dogs, listening to outdated music, and designing fun projects with hardware."
-                      img="https://scrapbook.hackclub.com/hugo.y.hu935.png"
+                      text="Hugo is a Hack Clubber from NYC who joined during the summer of 2020 for Summer of Making, and he then went on the Hacker Zephyr in 2021. He's a lover of all things mail and logistics related, and does hardware engineering and procurement work for projects like Sprig and Blot. In his free time, he's building up his courage to pet random dogs, listening to outdated music, and designing fun projects with hardware."
+                      img="https://ca.slack-edge.com/T0266FRGM-U017EPB6LE9-84f26d2a184c-512"
                       pronouns="he/him"
                     />
                     <Bio
@@ -304,6 +303,7 @@ export default function Team() {
                       text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
                       img="/team/liv.png"
                       pronouns="she/her"
+                      video="https://www.youtube-nocookie.com/embed/MtN1YnoL46Q?si=FJcJN7kMptzBaGn4"
                     />
                     <Bio
                       name="Gary Tou"
@@ -338,6 +338,7 @@ export default function Team() {
                       text={`Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars.`}
                       img="https://ca.slack-edge.com/T0266FRGM-U03DFNYGPCN-d76abb1ba329-512"
                       pronouns="he/him"
+                      video="https://www.youtube-nocookie.com/embed/POv-3yIPSWc?si=25WKed0HkazCZZOz"
                     />
                   </Grid>
                 </Box>
@@ -370,7 +371,7 @@ export default function Team() {
                     <Bio
                       name="Toby Brown"
                       teamRole="Moderation & Events"
-                      img="https://scrapbook.hackclub.com/toby.png"
+                      img="https://ca.slack-edge.com/T0266FRGM-U02C9DQ7ZL2-a57a3718241a-512"
                       pronouns="he/him"
                     />
                     <Bio
@@ -388,7 +389,7 @@ export default function Team() {
                     <Bio
                       name="Maggie Liu"
                       teamRole="Moderation & Events"
-                      img="https://scrapbook.hackclub.com/maggie.png"
+                      img="https://ca.slack-edge.com/T0266FRGM-U026XSMKEDC-a5beea76faa2-512"
                       pronouns="she/her"
                     />
                     <Bio
@@ -400,7 +401,7 @@ export default function Team() {
                     <Bio
                       name="Gaurav Pandey"
                       teamRole="Moderation & Events"
-                      img="https://scrapbook.hackclub.com/yednapg.png"
+                      img="https://ca.slack-edge.com/T0266FRGM-U043Q05KFAA-95e93fd7beff-512"
                       pronouns="he/him"
                     />
                     <Bio
@@ -453,7 +454,7 @@ export default function Team() {
                 name="Ella Xu"
                 teamRole="Clubs Engineering"
                 text="Ella joined the Hack Club community after learning about HCB from a project running on it. Since then, she has contributed to HCB itself in addition to other Hack Club open source projects on GitHub."
-                img="https://scrapbook.hackclub.com/ella.png"
+                img="https://ca.slack-edge.com/T0266FRGM-U01D6FYHLUW-edb3e93ee1fe-512"
                 pronouns="she/her"
               />
               <Bio

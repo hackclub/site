@@ -102,9 +102,9 @@
     "background": "dark",
     "titleColor": "blue",
     "textColor": "white",
-    "title": "Haxidraw (coming soon!)",
+    "title": "Blot (coming soon!)",
     "description": "An open source drawing machine and online editor for generative art",
     "img": "https://emoji.slack-edge.com/T0266FRGM/tw_pencil2/c6afadc2280e571d.png",
-    "link": "https://haxidraw.hackclub.com"
+    "link": "https://blot.hackclub.dev"
   }
 ]

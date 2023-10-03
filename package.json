@@ -12,7 +12,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@apollo/client": "^3.8.2",
+    "@apollo/client": "^3.8.4",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@github/time-elements": "^4.0.0",
@@ -20,7 +20,7 @@
     "@hackclub/meta": "1.1.32",
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
-    "@next/mdx": "^13.4.19",
+    "@next/mdx": "^13.5.2",
     "@octokit/auth-app": "^6.0.0",
     "@octokit/core": "^5.0.0",
     "@octokit/rest": "^20.0.1",
@@ -28,8 +28,8 @@
     "airtable-plus": "^1.0.4",
     "animated-value": "^0.2.4",
     "animejs": "^3.2.1",
-    "axios": "^1.4.0",
-    "cookies-next": "^3.0.0",
+    "axios": "^1.5.0",
+    "cookies-next": "^4.0.0",
     "country-list-js": "^3.1.7",
     "cursor-effects": "^1.0.12",
     "devtools-detect": "^4.0.1",
@@ -40,7 +40,7 @@
     "graphql": "^16.7.1",
     "js-confetti": "^0.11.0",
     "lodash": "^4.17.21",
-    "million": "^2.6.0-beta.12",
+    "million": "^2.6.0",
     "next": "^12.3.1",
     "next-transpile-modules": "^10.0.1",
     "react": "^17.0.2",
@@ -57,10 +57,10 @@
     "react-ticker": "^1.3.2",
     "react-tooltip": "^4.5.1",
     "react-tsparticles": "^2.12.2",
-    "react-use-websocket": "^4.3.1",
+    "react-use-websocket": "^4.4.0",
     "react-wrap-balancer": "^1.1.0",
     "recharts": "2.1.12",
-    "styled-components": "^6.0.7",
+    "styled-components": "^6.0.8",
     "swr": "^2.2.2",
     "theme-ui": "^0.14",
     "tinytime": "^0.2.6",
@@ -69,7 +69,7 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
-    "eslint": "8.47.0",
+    "eslint": "8.50.0",
     "eslint-config-next": "13.4.19",
     "prettier": "^3.0.3"
   }
