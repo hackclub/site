@@ -172,7 +172,8 @@ const StevePage = () => {
 >
   Book Your Stay
 </Heading>
-<Box style={{display: "flex", gap: "16px"}}>
+<p style={{color: "#fff", marginBottom: 0}}>Coming Soon...</p>
+{/* <Box style={{display: "flex", gap: "16px"}}>
 <Box>
       <Box>
         <Text sx={{fontFamily: "billy", color: "#fff", fontSize: 18}}>Name</Text>
@@ -240,9 +241,9 @@ const StevePage = () => {
         
       </Box>
       </Box>
-      </Box>
+      </Box> */}
 
-
+{/* 
       <Box>
         <Text>
           <strong>Frequently Asked Questions</strong>
@@ -256,11 +257,11 @@ const StevePage = () => {
         <Text>Who can stay at Steve?</Text>
         <Text>How many people can stay at Steve?</Text>
         <Text>How long can I stay at Steve?</Text>
-      </Box>
-      <Box>
+      </Box> */}
+      {/* <Box>
         Have additional questions? Send us an email at{' '}
         <Link href="mailto:steve@hackclub.com">steve@hackclub.com</Link>
-      </Box>
+      </Box> */}
       </Container>
       </Box>
             </Box>
