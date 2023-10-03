@@ -47,6 +47,7 @@ const StevePage = () => {
           <br /> you to hack with friends
         </Heading>
         <Image
+        alt="Pixel art of Steve"
           sx={{ width: '100%', marginTop: 48, imageRendering: 'pixelated' }}
           src="https://cloud-85qd0afpz-hack-club-bot.vercel.app/0topheroart.png"
         />
@@ -89,7 +90,7 @@ const StevePage = () => {
           padding: 3, // Adjust padding as needed
         }}
       >
-        <Image style={{width: "104px", height: "104px", imageRendering: "pixelated"}} src="https://cloud-2ccduwqc9-hack-club-bot.vercel.app/0nomoney.png"/>
+        <Image alt="Free" style={{width: "104px", height: "104px", imageRendering: "pixelated"}} src="https://cloud-2ccduwqc9-hack-club-bot.vercel.app/0nomoney.png"/>
         <Text sx={{color: "#fff", fontFamily: "billy", fontSize: 24, fontWeight: 600, textAlign: "center", lineHeight: 1.25}}>Stay At Steve<br/> For Free</Text>
       </Box>
       <Box
@@ -109,7 +110,7 @@ const StevePage = () => {
           padding: 3, // Adjust padding as needed
         }}
       >
-        <Image style={{width: "104px", height: "104px", imageRendering: "pixelated"}} src="https://cloud-2c20hobub-hack-club-bot.vercel.app/05min_walk.png"/>
+        <Image alt="5min walk" style={{width: "104px", height: "104px", imageRendering: "pixelated"}} src="https://cloud-2c20hobub-hack-club-bot.vercel.app/05min_walk.png"/>
         <Text sx={{color: "#fff", fontFamily: "billy", fontSize: 24, fontWeight: 600, textAlign: "center", lineHeight: 1.25}}>Walk to HQ<br/> in 5min</Text>
       </Box>
 
@@ -130,19 +131,19 @@ const StevePage = () => {
           padding: 3, // Adjust padding as needed
         }}
       >
-        <Image style={{width: "104px", height: "104px", imageRendering: "pixelated"}} src="https://cloud-hc1t198xx-hack-club-bot.vercel.app/0wefriends.png"/>
+        <Image alt="friends building together" style={{width: "104px", height: "104px", imageRendering: "pixelated"}} src="https://cloud-hc1t198xx-hack-club-bot.vercel.app/0wefriends.png"/>
         <Text sx={{color: "#fff", fontFamily: "billy", fontSize: 24, fontWeight: 600, textAlign: "center", lineHeight: 1.25}}>Collaborate on<br/> HQ Projects IRL</Text>
       </Box>
 
     </Grid>
     <Box style={{marginTop: 48, display: "flex",  padding: 24, backgroundColor: "#91979C"}} columns={'3fr 1fr'}>
         <Box style={{padding: "16px", backgroundColor: "#000"}}>
-    <Image width={"100%"} style={{height: "100%", aspectRatio: "16/9", objectFit: "cover"}} src={images[selectedImage]}/>
+    <Image alt="Image of Steve" width={"100%"} style={{height: "100%", aspectRatio: "16/9", objectFit: "cover"}} src={images[selectedImage]}/>
     </Box>
 
 <Box style={{flexDirection: "column", alignItems: "center", width: "142px", padding: "24px 24px 24px 0px", backgroundColor: "#000", justifyContent: "space-between", display: "flex"}}>
         {images.map((image, idx) => 
-        <Image style={{display: idx == selectedImage ? ("flex") : ("flex"), cursor: "pointer", aspectRatio: "1", objectFit: "cover",opacity: idx != selectedImage ? (0.5) : (1)}} onClick={() => setSelectedImages(idx)} width={"96px"} height={"96px"} src={image}/>
+        <Image alt="" style={{display: idx == selectedImage ? ("flex") : ("flex"), cursor: "pointer", aspectRatio: "1", objectFit: "cover",opacity: idx != selectedImage ? (0.5) : (1)}} onClick={() => setSelectedImages(idx)} width={"96px"} height={"96px"} src={image}/>
         )}
 </Box>
     </Box>
@@ -153,7 +154,7 @@ const StevePage = () => {
       <Image src="https://cloud-mltm380a0-hack-club-bot.vercel.app/35__1_.gif" /> */}
       </Container>
 
-      <Image sx={{marginBottom: 0}} src="https://cloud-5sry4ilri-hack-club-bot.vercel.app/0dirtrow.png"/>
+      <Image alt="" sx={{marginBottom: 0}} src="https://cloud-5sry4ilri-hack-club-bot.vercel.app/0dirtrow.png"/>
       <Box style={{backgroundColor: "#000", marginTop: -8}}>
       <Container sx={{marginTop: 0}}>
       <Heading
