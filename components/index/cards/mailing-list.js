@@ -76,7 +76,7 @@ const MailingList = () => {
               alignItems: ["left", "left", "center"],
               flexDirection: "column",
               gap: "10px",
-              width: "75%",
+              width: ["100%", "75%"],
             }}
           >
             <Box>
@@ -160,29 +160,26 @@ const MailingList = () => {
                 )}
               </Button>
             </Grid>
-            {/*{submitted && (
-                <Alert variant="primary" sx={{ bg: "green", mt: [2, 3] }}>
-                    <Icon glyph="send" />
-                    <Text sx={{ ml: 2 }}>You're on the list!</Text>
-                </Alert>
-            )}*/}
           </Flex>
           <Box
             sx={{
               display: "grid",
               gridGap: 4,
+              mt: [4, 0],
               width: "100%",
             }}
           >
             <MailCard
-              subject="👁️ What’s up at Hack Club? 👁️"
-              date="July 2022"
-              body="Hey friends! I'm Ishan (@Ishan), I'm 17, and I'm a Hack Clubber emailing you from Vermont! This email is a 5-minute monthly rundown of what your fellow Hack Clubbers have been up to this past month! You're receiving this email because you're in the Hack Club Slack."
+              subject="👀 What’s up at Hack Club this time? 👀"
+              date="August 2022"
+              body="Hey friends! I'm  Ishan, I'm 17, and I'm a Hack Clubber emailing you again! A special thank you to  Belle and  Sam for helping out so much with today's newsletter."
+              link="/newsletter/2022/07"
             />
             <MailCard
               subject="Community Newsletter"
               date="September 2022"
               body={`Hey friends! Sam, Hack Clubber from Singapore, here. The last few weeks have been pretty busy at Hack Club, and this is a rundown of what your fellow Hack Clubbers have been up to lately. To start, last week, we shared 🎬 The Assemble Documentary: a film on Assemble to help answer the question "what is a hackathon?". It showcases the magical experience of attending a hackathon, and our hope is that it can help organisers share what’s in store for attendees at their hackathons.`}
+              link="/newsletter/2022-09-september/"
             />
           </Box>
         </Flex>
