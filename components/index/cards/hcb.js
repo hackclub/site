@@ -64,7 +64,7 @@ export default function Bank({ data }) {
                   textAlign: 'center',
                   '&:before': {
                     content: '""',
-                    backgroundImage: 'url(/home/hcb-mobile.webp)', // image doesn't exist
+                    backgroundImage: 'url(/home/hcb-mobile.webp)',
                     backgroundSize: '100%',
                     backgroundRepeat: 'no-repeat',
                     width: '100%',
