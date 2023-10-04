@@ -29,7 +29,8 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
         }}
         as={href && !text ? 'a' : 'div'}
         href={href}
-        target="_blank"
+        rel='noopener'
+        target='_blank'
         onClick={() => {
           if (text && popup) {
             setExpand(true)

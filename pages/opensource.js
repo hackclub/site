@@ -21,7 +21,8 @@ export const BankProject = ({ name, url }) => (
   <Card
     variant="sunken"
     as="a"
-    target="_blank"
+    target='_blank'
+    rel='noopener'
     href={url}
     sx={{
       p: [2, 2],
@@ -84,7 +85,8 @@ const Page = ({ repos, transparentAccounts }) => (
         <Button
           variant="outline"
           as="a"
-          target="_blank"
+          target='_blank'
+          rel='noopener'
           mt={3}
           href="https://contribute.hackclub.com"
         >
@@ -199,7 +201,7 @@ const Page = ({ repos, transparentAccounts }) => (
             }}
             as="a"
             href={`https://github.com/hackclub/${repo.name}`}
-            target="_blank"
+            targtarget='_blank' rel='noopener'
           >
             <Text
               sx={{

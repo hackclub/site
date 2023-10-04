@@ -137,7 +137,8 @@ const Apply = ({ channel }) => {
                 On{' '}
                 <Link
                   href="https://hackclub.com/slack"
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   sx={{
                     color: 'white'
                   }}
@@ -145,7 +146,7 @@ const Apply = ({ channel }) => {
                   Slack
                 </Link>
                 , send your website to{' '}
-                <Link href={channel} target="_blank">
+                <Link href={channel}  target='_blank' rel='noopener'>
                   #hackathon-grants
                 </Link>
               </>
@@ -183,7 +184,8 @@ const Apply = ({ channel }) => {
       <Slide left>
         <Link
           href="/slack/?reason=Application%20for%20the%20high%20school%20hackathon%20grant"
-          target="_blank"
+          target='_blank'
+          rel='noopener'
           sx={{ textDecoration: 'none' }}
         >
           <Button
@@ -210,7 +212,7 @@ const Apply = ({ channel }) => {
           }}
         >
           Already have an account? Join the{' '}
-          <Link href={channel} target="_blank">
+          <Link href={channel} target='_blank' rel='noopener'>
             #hackathon-grants
           </Link>{' '}
           channel!

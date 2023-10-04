@@ -152,7 +152,8 @@ export default function Hackathons({ data, stars }) {
                   <Link
                     href={data.website}
                     as="a"
-                    target="_blank"
+                    target='_blank'
+                    rel='noopener'
                     sx={{
                       color: 'inherit',
                       textDecoration: 'none',

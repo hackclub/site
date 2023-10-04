@@ -71,8 +71,8 @@ const Page = () => (
           42 Hack Clubbers{' '}
           <Link
             href="https://www.youtube.com/watch?v=2BID8_pGuqA"
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener'
           >
             rode a train
           </Link>{' '}
@@ -82,24 +82,24 @@ const Page = () => (
           We hosted{' '}
           <Link
             href="https://hackclub.com/amas/"
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener'
           >
             AMAs
           </Link>{' '}
           with people like{' '}
           <Link
             href="https://www.youtube.com/watch?v=riru9OzScwk"
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener'
           >
             Elon Musk
           </Link>{' '}
           and{' '}
           <Link
             href="https://www.youtube.com/watch?v=gw3vyFZ4oeU"
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener'
           >
             Grant Sanderson
           </Link>
@@ -109,8 +109,8 @@ const Page = () => (
           We gave 300 teenagers $50,000 for{' '}
           <Link
             href="https://summer.hackclub.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener'
           >
             their hardware projects
           </Link>
@@ -208,8 +208,8 @@ const Page = () => (
               Support Hack Clubbers in creating and executing{' '}
               <Link
                 href="https://scrapbook.hackclub.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+                target='_blank'
+                rel='noopener'
               >
                 their awesome ideas
               </Link>
@@ -218,8 +218,8 @@ const Page = () => (
               Revive{' '}
               <Link
                 href="https://hackclub.com/night/"
-                target="_blank"
-                rel="noopener noreferrer"
+                target='_blank'
+                rel='noopener'
               >
                 Hack Night
               </Link>
@@ -252,8 +252,8 @@ const Page = () => (
               Hack Clubbers at{' '}
               <Link
                 href="https://photos.app.goo.gl/F5JDxq5FzfhofTMD9"
-                target="_blank"
-                rel="noopener noreferrer"
+                target='_blank'
+                rel='noopener'
               >
                 Flagship
               </Link>
@@ -270,8 +270,8 @@ const Page = () => (
               The{' '}
               <Link
                 href="https://zephyr.hackclub.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+                target='_blank'
+                rel='noopener'
               >
                 world's longest hackathon
               </Link>{' '}
@@ -298,8 +298,8 @@ const Page = () => (
           This is not a normal job. For the last 18 months, a{' '}
           <Link
             href="https://hackclub.com/team/"
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener'
           >
             small team
           </Link>{' '}
@@ -312,8 +312,8 @@ const Page = () => (
           In the{' '}
           <Link
             href="https://hackclub.com/slack/"
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener'
           >
             Hack Club Slack
           </Link>
@@ -379,8 +379,8 @@ const Page = () => (
         <strong>How to apply:</strong> Email{' '}
         <Link
           href="mailto:jobs@hackclub.com"
-          target="_blank"
-          rel="noopener noreferrer"
+          target='_blank'
+          rel='noopener'
         >
           jobs@hackclub.com
         </Link>{' '}

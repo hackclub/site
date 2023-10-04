@@ -18,8 +18,8 @@ export default function GitHub({
       bg="snow"
       as="a"
       href={url}
-      target="_blank"
-      rel="noopener"
+      target='_blank'
+      rel='noopener'
       sx={{
         color: 'black',
         textDecoration: 'none',

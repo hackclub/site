@@ -110,7 +110,7 @@ const DonorCard = ({ name, link = false }) => (
 const DonorListing = ({ name, url }) => {
   if (url) {
     return (
-      <A target="_blank" href={url} color="black" underline>
+      <A target='_blank' rel='noopener' href={url} color="black" underline>
         <DonorCard name={name} link />
       </A>
     )
@@ -235,7 +235,8 @@ export default function Donate({ sprig }) {
         <Button
           as="a"
           href="/philanthropy"
-          target="_blank"
+          target='_blank'
+          rel='noopener'
           mb={4}
           sx={{
             fontSize: '1em !important',

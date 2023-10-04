@@ -101,8 +101,8 @@ export default function Slack({ data, slackKey, events }) {
             Khan, George Hotz, and Lady Ada) and host an{' '}
             <Link
               href="/amas"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
               sx={{ color: 'inherit' }}
             >
               AMA

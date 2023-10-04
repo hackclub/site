@@ -207,8 +207,8 @@ function Event({
               {transparency && (
                 <Link
                   href={`https://hcb.hackclub.com/${transparency}`}
-                  target="_blank"
-                  rel="noreferrer"
+                  target='_blank'
+                  rel='noopener'
                   sx={{ mt: ['16px', '0px'] }}
                 >
                   <Button

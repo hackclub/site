@@ -21,7 +21,8 @@ const JobListing = ({
     <Card
       variant="sunken"
       as="a"
-      target="_blank"
+      target='_blank'
+      rel='noopener'
       sx={{
         width: '100%',
         textDecoration: 'none',

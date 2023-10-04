@@ -125,7 +125,8 @@ const HackathonGrant = () => {
                       mr: 3,
                       borderRadius: 8
                     }}
-                    target="_blank"
+                    target='_blank'
+                    rel='noopener'
                   ></Box>
                 </NextLink>
               </Flex>
@@ -140,7 +141,7 @@ const HackathonGrant = () => {
               }}
             >
               Hack Club is providing $500 grants (and waiving{' '}
-              <Link href="/hcb" target="_blank">
+              <Link href="/hcb" target='_blank' rel='noopener'>
                 HCB
               </Link>{' '}
               fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
@@ -268,7 +269,8 @@ const HackathonGrant = () => {
               You will need to provide a scan of an email, contract, or an{' '}
               <Link
                 href="https://www.investopedia.com/terms/m/mou.asp"
-                target="_blank"
+                target='_blank'
+                rel='noopener'
               >
                 MOU
               </Link>{' '}
@@ -309,7 +311,8 @@ const HackathonGrant = () => {
                 domain? HCB provides a free domain. Check out this{' '}
                 <Link
                   href="https://notebook.lachlanjc.com/2019-09-06_making_a_hackathon_site"
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   sx={{
                     color: 'muted'
                   }}
@@ -319,7 +322,8 @@ const HackathonGrant = () => {
                 or ask in{' '}
                 <Link
                   href="/slack"
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   sx={{
                     color: 'muted'
                   }}
@@ -339,12 +343,13 @@ const HackathonGrant = () => {
               hackathons, and spend it in the open with{' '}
               <Link
                 href="https://changelog.hcb.hackclub.com/transparent-finances-(optional-feature)-151427"
-                target="_blank"
+                target='_blank'
+                rel='noopener'
               >
                 Transparency Mode
               </Link>
               . Sign up for{' '}
-              <Link href="/hcb" target="_blank">
+              <Link href="/hcb" target='_blank' rel='noopener'>
                 HCB
               </Link>{' '}
               before applying.
@@ -371,11 +376,11 @@ const HackathonGrant = () => {
           >
             If you'd like to list us on your site (optional), you can use the
             logos found on the respective brand guides for{' '}
-            <Link href="/brand" target="_blank">
+            <Link href="/brand" target='_blank' rel='noopener'>
               Hack Club
             </Link>{' '}
             and{' '}
-            <Link href="https://www.firstinspires.org/brand" target="_blank">
+            <Link href="https://www.firstinspires.org/brand" target='_blank' rel='noopener'>
               <i>FIRST®</i>
             </Link>
             .

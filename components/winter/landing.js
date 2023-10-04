@@ -100,7 +100,8 @@ export default function Landing({ rsvpCount }) {
               together in the{' '}
               <Link
                 href="/slack"
-                target="_blank"
+                target='_blank'
+                rel='noopener'
                 sx={{
                   color: 'blue',
                   textShadow: '2px 2px 10px rgba(255, 255, 255, 1)'

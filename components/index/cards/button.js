@@ -44,8 +44,8 @@ export default function Buttons({
         }}
         as="a"
         href={link || '/'}
-        target="_blank"
-        rel="noreferrer"
+        target='_blank'
+        rel='noopener'
         {...props}
       >
         <Icon

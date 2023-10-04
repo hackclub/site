@@ -62,8 +62,8 @@ export default function Epoch() {
             <Link
               sx={{ color: '#ffb400' }}
               href="https://angelhacksba.hackclub.com"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
             >
               Bay Area
             </Link>
@@ -71,8 +71,8 @@ export default function Epoch() {
             <Link
               sx={{ color: '#ffb400' }}
               href="https://angelhacksto.hackclub.com/"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
             >
               Toronto
             </Link>
@@ -80,8 +80,8 @@ export default function Epoch() {
             <Link
               sx={{ color: '#ffb400' }}
               href="https://angelhacksla.hackclub.com/"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
             >
               Los Angeles
             </Link>

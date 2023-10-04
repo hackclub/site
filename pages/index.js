@@ -285,8 +285,8 @@ function Page({
             <Badge
               as="a"
               href="https://outernet.hackclub.com/"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
               variant="pill"
               sx={{
                 zIndex: '1',
@@ -347,10 +347,10 @@ function Page({
               }}
             >
               Every day, thousands of Hack&nbsp;Clubbers gather online and
-              in-person to make things with code. Whether you’re a beginner
-              programmer or have years of experience, there’s a place for you at
+              in-person to make things with code. Whether you're a beginner
+              programmer or have years of experience, there's a place for you at
               Hack&nbsp;Club. Read about our{' '}
-              <Link href="/philosophy" target="_blank" rel="noopener">
+              <Link href="/philosophy" target='_blank' rel='noopener'>
                 hacker ethic
               </Link>
               .
@@ -517,9 +517,9 @@ function Page({
                     <strong sx={{ mb: 1 }}>
                       Connect with other teenage coders
                     </strong>
-                    Have a coding question? Looking for project feedback? You’ll
+                    Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
-                    <Link href="/slack" target="_blank" rel="noopener">
+                    <Link href="/slack" target='_blank' rel='noopener'>
                       Slack{' '}
                     </Link>
                     (like Discord), active at all hours.
@@ -552,7 +552,7 @@ function Page({
                       Build open source learning tools
                     </strong>
                     We build large open source projects together (
-                    <Link href="https://github.com/hackclub" target="_blank">
+                    <Link href="https://github.com/hackclub" target='_blank' rel='noopener'>
                       3k+&nbsp;PRs a year
                     </Link>
                     ) like this website, a game engine, daily streak system, and
@@ -579,11 +579,11 @@ function Page({
                     <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
                     Meet other Hack&nbsp;Clubbers in your community to build
                     together at one of the 400+{' '}
-                    <Link href="/clubs" target="_blank" rel="noopener">
+                    <Link href="/clubs" target='_blank' rel='noopener'>
                       Hack&nbsp;Clubs
                     </Link>{' '}
                     and{' '}
-                    <Link href="/hackathons" target="_blank" rel="noopener">
+                    <Link href="/hackathons" target='_blank' rel='noopener'>
                       high school hackathons
                     </Link>
                     .
@@ -915,8 +915,8 @@ function Page({
               <Card
                 as="a"
                 href="/slack"
-                target="_blank"
-                rel="noopener"
+                target='_blank'
+                rel='noopener'
                 variant="interactive"
                 sx={{
                   background:
@@ -987,8 +987,8 @@ function Page({
                 as="a"
                 href="https://github.com/hackclub"
                 variant="interactive"
-                target="_blank"
-                rel="noopener"
+                target='_blank'
+                rel='noopener'
               >
                 <Icon
                   glyph="external"
@@ -1041,8 +1041,8 @@ function Page({
                 as="a"
                 href="/clubs"
                 variant="interactive"
-                target="_blank"
-                rel="noopener"
+                target='_blank'
+                rel='noopener'
               >
                 <Icon
                   glyph="external"

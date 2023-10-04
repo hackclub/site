@@ -198,9 +198,9 @@ const PhotoRow = ({ photos }) => (
 const DonorListing = ({ name, url }) => {
   if (url) {
     return (
-      <A target="_blank" href={url} color="black" underline>
+      <a target='_blank' rel='noopener' href={url} color="black" underline>
         <DonorCard name={name} link />
-      </A>
+      </a>
     )
   } else {
     return <DonorCard name={name} />

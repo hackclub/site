@@ -168,8 +168,8 @@ export default function Epoch() {
             <Link
               sx={{ color: '#FF4794' }}
               href="https://hackclub.slack.com/archives/C04CGDDLC72"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
             >
               Austin
             </Link>
@@ -177,8 +177,8 @@ export default function Epoch() {
             <Link
               sx={{ color: '#FF4794' }}
               href="https://epochba.hackclub.com/"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
             >
               Bay Area
             </Link>
@@ -186,8 +186,8 @@ export default function Epoch() {
             <Link
               sx={{ color: '#FF4794' }}
               href="https://epochvt.hackclub.com/"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
             >
               Vermont
             </Link>

@@ -18,8 +18,8 @@ const WorkshopCard = ({
     href={`https://workshops.hackclub.com/${slug}`}
     as="a"
     variant="interactive"
-    target="_blank"
-    rel="noopener"
+    target='_blank'
+    rel='noopener'
     sx={{
       color: 'text',
       textDecoration: 'none',

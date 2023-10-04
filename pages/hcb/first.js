@@ -172,7 +172,8 @@ export default function First({ stats }) {
                 href="/hcb/first/Hack_Club_Bank_for_FIRST_Teams.pdf"
                 // @exu3: to edit this PDF, use this Figma file https://www.figma.com/file/LgadOH1lHUBOejA3vaNGgm/Hack-Club-Bank-for-FIRST-Teams-One-Pager?node-id=0%3A1&t=ZtkN2a3aw2IojFvi-1
                 // message me on Slack if you need edit access
-                target="_blank"
+                target='_blank'
+                rel='noopener'
               >
                 Download this page
               </Button>

@@ -138,8 +138,8 @@ function EventCard({
       <Card
         as="a"
         href={website}
-        target="_blank"
-        rel="noopener noreferrer"
+        target='_blank'
+        rel='noopener'
         itemScope
         itemType="http://schema.org/Event"
         sx={{

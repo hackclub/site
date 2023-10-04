@@ -11,18 +11,19 @@ const Description = () => (
       network of 20k+ technical high schoolers. We believe you learn best by
       building so we're removing barriers to hardware access so any teenager can
       explore. In the past few years, we've{' '}
-      <Link href="https://summer.hackclub.com" target="_blank">
+      <Link href="https://summer.hackclub.com" target='_blank' rel='noopener'>
         partnered with GitHub to give away $50k of hardware
       </Link>
       ,{' '}
       <Link
         href="https://github.com/hackclub/the-hacker-zephyr"
-        target="_blank"
+        target='_blank'
+        rel='noopener'
       >
         hosted the world's longest hackathon on land
       </Link>
       , and{' '}
-      <Link href="https://github.com/hackclub/assemble" target="_blank">
+      <Link href="https://github.com/hackclub/assemble" target='_blank' rel='noopener'>
         brought 183 teenagers to SF for a hackathon
       </Link>
       .

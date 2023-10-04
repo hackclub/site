@@ -73,7 +73,8 @@ function Bullet({ glow = true, icon, href, children }) {
       <Flex
         as="a"
         {...(href && { href })}
-        target="_blank"
+        target='_blank'
+        rel='noopener'
         sx={{
           display: 'flex',
           alignItems: 'center',

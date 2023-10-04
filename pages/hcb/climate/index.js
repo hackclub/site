@@ -748,7 +748,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                     {modalOrganization.links.website && (
                       <Flex
                         as="a"
-                        target="_blank"
+                        target='_blank'
+                        rel='noopener'
                         href={modalOrganization.links.website}
                         sx={{
                           flexDirection: 'row',
@@ -772,7 +773,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                     {modalOrganization.links.financials && (
                       <Flex
                         as="a"
-                        target="_blank"
+                        target='_blank'
+                        rel='noopener'
                         href={modalOrganization.links.financials}
                         sx={{
                           flexDirection: 'row',
@@ -858,7 +860,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   as="a"
                   variant="lg"
                   href={modalOrganization.links.donations}
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   sx={{
                     backgroundImage: t => t.util.gx('green', 'blue'),
                     width: ['100%', 'auto', 'auto']
@@ -1200,7 +1203,8 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               variant="ctaLg"
               as="a"
               href="https://hcb.hackclub.com/donations/start/128-collective-fund"
-              target="_blank"
+              target='_blank'
+              rel='noopener'
               sx={{
                 ml: [0, 3],
                 mt: 2,

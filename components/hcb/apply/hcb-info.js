@@ -16,7 +16,8 @@ export default function HCBInfo() {
                 <Link
                   color="white"
                   href="/hcb/fiscal-sponsorship"
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   sx={{
                     fontSize: 3,
                     display: 'inline-flex',

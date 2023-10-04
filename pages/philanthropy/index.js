@@ -605,7 +605,8 @@ const Philanthropy = ({ posts = [] }) => {
                   <Text
                     as="a"
                     href="https://hcb.hackclub.com/donations/start/hq"
-                    target="_blank"
+                    target='_blank'
+                    rel='noopener'
                     sx={{
                       color: '#ec3750',
                       textDecoration: 'none',
@@ -633,7 +634,8 @@ const Philanthropy = ({ posts = [] }) => {
                 as="a"
                 variant="outline"
                 href="https://cloud-d2t8vvprl-hack-club-bot.vercel.app/0form990package.pdf"
-                target="_blank"
+                target='_blank'
+                rel='noopener'
                 mb={4}
                 sx={{
                   fontSize: '1em !important',
@@ -770,7 +772,7 @@ const Philanthropy = ({ posts = [] }) => {
             <Grid gap={[0, 0, 4]} columns={['1fr 1fr', '1fr 0.5fr 1fr 1fr']}>
               <Link
                 href="https://www.businessinsider.com/zach-lattas-hacker-club-got-him-on-forbes-30-under-30-2016-1"
-                target="_blank"
+                target='_blank' rel='noopener'
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
                 <Image
@@ -782,7 +784,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Link>
               <Link
                 href="https://www.wsj.com/articles/teen-hackers-try-to-convince-parents-they-are-up-to-good-11569922200"
-                target="_blank"
+                target='_blank' rel='noopener'
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
                 <Image
@@ -794,7 +796,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Link>
               <Link
                 href="https://www.forbes.com/sites/fastforward/2021/06/29/from-journalism-to-a-tech-nonprofit-this-coos-big-pivot-to-empower-the-next-generation-of-coders/"
-                target="_blank"
+                target='_blank' rel='noopener'
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
                 <Image
@@ -806,7 +808,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Link>
               <Link
                 href="https://www.philanthropy.com/article/nonprofits-need-to-embrace-transparency-even-if-the-supreme-court-rules-to-protect-donor-privacy"
-                target="_blank"
+                target='_blank' rel='noopener'
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
                 <Image
@@ -1141,7 +1143,7 @@ const Philanthropy = ({ posts = [] }) => {
               <Text
                 as="a"
                 href="/philanthropy/supporters"
-                target="_blank"
+                target='_blank' rel='noopener'
                 sx={{
                   color: 'slate',
                   textDecoration: 'none',

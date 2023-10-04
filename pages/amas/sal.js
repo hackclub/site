@@ -154,7 +154,7 @@ export default function Sal() {
           alignItems: ['flex-start', 'flex-start', 'center']
         }}
       >
-        <Link href="https://hackclub.com" target="_blank" color="inherit">
+        <Link href="https://hackclub.com" target='_blank' rel='noopener' color="inherit">
           <Image
             src={
               'https://cloud-2pnucywiu-hack-club-bot.vercel.app/0group__8_.png'
@@ -294,7 +294,7 @@ export default function Sal() {
           >
             <Text>
               <strong>Teenager? New here? Welcome!</strong>{' '}
-              <Link href="https://hackclub.com" target="_blank" color="inherit">
+              <Link href="https://hackclub.com" target='_blank' rel='noopener' color="inherit">
                 Hack Club
               </Link>{' '}
               is a global community of high school makers & student-led coding

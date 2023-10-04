@@ -62,7 +62,8 @@ export default function Features() {
           <ModuleDetails>
             <Link
               href="https://hcb.hackclub.com/poseidon-robotics"
-              target="_blank"
+              target='_blank'
+              rel='noopener'
             >
               <NextImage
                 src="/hcb/poseidon-dashboard.png"

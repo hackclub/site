@@ -77,8 +77,8 @@ const CardModel = ({
             <Link
               href={github_link}
               sx={{ mr: 2 }}
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
             >
               <Icon
                 glyph="github"

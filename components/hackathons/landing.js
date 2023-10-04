@@ -40,7 +40,8 @@ export default function Landing() {
               >
                 <Button
                   as="a"
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   variant="cta"
                   href="https://hackathons.hackclub.com"
                   sx={{

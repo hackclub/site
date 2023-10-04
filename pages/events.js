@@ -241,8 +241,8 @@ const Page = ({ jobs }) => (
             as="a"
             variant="ctaLg"
             href="https://hackclub.com/slack"
-            target="_blank"
-            rel="noopener"
+            target='_blank'
+            rel='noopener'
             sx={{ mt: 3, background: theme.util.gx('purple', 'blue') }}
           >
             Get ready for the next one!
@@ -281,7 +281,8 @@ const Page = ({ jobs }) => (
             <Link
               href="https://hackathons.hackclub.com"
               sx={{ color: 'white' }}
-              target="_blank"
+              target='_blank'
+              rel='noopener'
             >
               hackathons.hackclub.com
             </Link>
@@ -289,7 +290,8 @@ const Page = ({ jobs }) => (
             <Link
               href="https://daysofservice.hackclub.com/"
               sx={{ color: 'white' }}
-              target="_blank"
+              target='_blank'
+              rel='noopener'
             >
               Day of Service
             </Link>{' '}
@@ -297,7 +299,8 @@ const Page = ({ jobs }) => (
             <Link
               href="https://events.hackclub.com/"
               sx={{ color: 'white' }}
-              target="_blank"
+              target='_blank'
+              rel='noopener'
             >
               frequent virtual events
             </Link>

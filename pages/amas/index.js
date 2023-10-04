@@ -63,7 +63,8 @@ const Page = ({ upcoming, past }) => (
           variant="lg"
           as="a"
           href="/slack"
-          target="_blank"
+          target='_blank'
+          rel='noopener'
           sx={{ mt: [3, 4], mx: [1, 2], color: 'black', bg: 'white' }}
         >
           Join Slack
@@ -72,7 +73,8 @@ const Page = ({ upcoming, past }) => (
           variant="outlineLg"
           as="a"
           href="https://www.youtube.com/watch?v=O1J1pwGPQXY"
-          target="_blank"
+          target='_blank'
+          rel='noopener'
           sx={{ mt: [3, 4], mx: [1, 2], color: 'white', bg: 'rgba(0,0,0,0.5)' }}
         >
           Watch our highlights

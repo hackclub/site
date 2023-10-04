@@ -73,13 +73,14 @@ export function Winter() {
               in{' '}
               <Link
                 href="https://github.com/hackclub/sprig#readme"
-                target="_blank"
+                target='_blank'
+                rel='noopener'
                 sx={{ color: 'inherit' }}
               >
                 Sprig
               </Link>
               . Or come hangout with us in #hardware-party on{' '}
-              <Link target="_blank" href="/slack" sx={{ color: 'inherit' }}>
+              <Link target='_blank' rel='noopener' href="/slack" sx={{ color: 'inherit' }}>
                 Slack
               </Link>
               .

@@ -49,7 +49,8 @@ const Content = () => (
         <Link
           href="https://hackclub.slack.com/archives/C03QSGGCJN7"
           sx={{ textDecoration: 'none', color: 'currentColor' }}
-          target="_blank"
+          target='_blank'
+          rel='noopener'
         >
           #hackathon-organizers
         </Link>

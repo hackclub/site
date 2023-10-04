@@ -41,8 +41,8 @@ const Logo = props => (
 
 const Service = ({ href, icon, name = '', ...props }) => (
   <Link
-    target="_blank"
-    rel="noopener me"
+    target='_blank'
+    rel='noopener'
     href={href}
     title={`Hack Club on ${name ? name : icon}`}
     {...props}

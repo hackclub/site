@@ -37,8 +37,8 @@ export default function CarouselCards({
           '&:hover svg': { opacity: 0.5 }
         }}
         href={link}
-        target="_blank"
-        rel="noopener"
+        target='_blank'
+        rel='noopener'
       >
         <Image
           src={img}

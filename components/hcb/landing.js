@@ -100,7 +100,8 @@ export default function Landing({ showButton = true, eventsCount }) {
                     The team behind the{' '}
                     <Link
                       href="https://innovationcircuit.com"
-                      target="_blank"
+                      target='_blank'
+                      rel='noopener'
                       color="inherit"
                       bold
                       hoverline
@@ -137,7 +138,8 @@ export default function Landing({ showButton = true, eventsCount }) {
                   variant="outlineLg"
                   as="a"
                   href="https://hcb.hackclub.com"
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   style={{ zIndex: '100' }}
                   ml={3}
                 >

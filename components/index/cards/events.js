@@ -30,8 +30,8 @@ export default function Events({ data, stars, events }) {
             Sometimes, we also invite someone we really want to speak to (like{' '}
             <Link
               href="https://www.youtube.com/watch?v=qiLiyQ_2gho"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
               sx={{
                 color: 'inherit',
                 fontStyle: 'italic',
@@ -43,8 +43,8 @@ export default function Events({ data, stars, events }) {
             ,{' '}
             <Link
               href="https://www.youtube.com/watch?v=h3nAdaz5fOg"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
               sx={{
                 color: 'inherit',
                 fontStyle: 'italic',
@@ -56,8 +56,8 @@ export default function Events({ data, stars, events }) {
             , and{' '}
             <Link
               href="https://www.youtube.com/watch?v=IWFtj9cCaB0"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
               sx={{
                 color: 'inherit',
                 fontStyle: 'italic',
@@ -69,8 +69,8 @@ export default function Events({ data, stars, events }) {
             ) and host an{' '}
             <Link
               href="/amas"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
               sx={{ color: 'inherit' }}
             >
               AMA

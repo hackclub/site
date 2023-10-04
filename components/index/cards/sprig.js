@@ -35,8 +35,8 @@ function Game({ game, gameImage, gameImage1, ...props }) {
       <Box
         as="a"
         href={`https://editor.sprig.hackclub.com/?file=https://raw.githubusercontent.com/hackclub/sprig/main/games/${game?.filename}.js`}
-        target="_blank"
-        rel="noopener noreferrer"
+        target='_blank'
+        rel='noopener'
         sx={{
           borderStyle: 'solid',
           borderWidth: '4px',

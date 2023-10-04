@@ -117,7 +117,8 @@ export default function RealTimeline() {
           <>
             RSVPs are closed. Have a question? Here are the{' '}
             <Link
-              target="_blank"
+              target='_blank'
+              rel='noopener'
               sx={{ color: 'inherit' }}
               href="https://github.com/hackclub/winter/blob/main/docs/faq.md"
             >

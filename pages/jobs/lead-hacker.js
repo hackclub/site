@@ -51,7 +51,7 @@ const Page = () => (
 
       <Text as="p" mb={4}>
         Starting a nonprofit is hard, so we built{' '}
-        <Link href="/hcb" target="_blank">
+        <Link href="/hcb" target='_blank' rel='noopener'>
           HCB
         </Link>{' '}
         for our community of {formatted}+ teenage programmers. Within 24 hours
@@ -62,8 +62,8 @@ const Page = () => (
         we're a{' '}
         <Link
           href="https://twitter.com/elonmusk/status/1263275969743216640"
-          target="_blank"
-          rel="noopener noreferrer"
+          target='_blank'
+          rel='noopener'
         >
           "cool group"
         </Link>
@@ -79,8 +79,8 @@ const Page = () => (
         from teenage-run hackathons to{' '}
         <Link
           href="https://vtdigger.org/2021/04/13/frustrated-with-one-local-newspaper-prominent-charlotte-journalists-help-start-another/"
-          target="_blank"
-          rel="noopener noreferrer"
+          target='_blank'
+          rel='noopener'
         >
           small-town newspapers
         </Link>
@@ -97,8 +97,8 @@ const Page = () => (
           only part of Hack Club that isn't{' '}
           <Link
             href="https://github.com/hackclub/"
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener'
           >
             open source
           </Link>
@@ -109,8 +109,8 @@ const Page = () => (
         through our{' '}
         <Link
           href="https://givebutter.com/fiscal-sponsorship"
-          target="_blank"
-          rel="noopener noreferrer"
+          target='_blank'
+          rel='noopener'
         >
           partnership with Givebutter
         </Link>
@@ -191,13 +191,13 @@ const Page = () => (
       <Box sx={{ p: { my: [3, 4] } }}>
         <Text as="p">
           HCB has been maintained by a{' '}
-          <Link href="/team/" target="_blank">
+          <Link href="/team/" target='_blank' rel='noopener'>
             {' '}
             small team
           </Link>{' '}
           of two full-time operations people, and on-and-off contributions by
           engineers and various contractors. The majority of{' '}
-          <Link href="https://changelog.hcb.hackclub.com/" target="_blank">
+          <Link href="https://changelog.hcb.hackclub.com/" target='_blank' rel='noopener'>
             contributions
           </Link>{' '}
           are actually made by teenagers! In this role, you'll take point on
@@ -206,20 +206,21 @@ const Page = () => (
 
         <Text as="p">
           HCB already powers{' '}
-          <Link href="https://hcb.hackclub.com/hq" target="_blank">
+          <Link href="https://hcb.hackclub.com/hq" target='_blank' rel='noopener'>
             our own transparent finances
           </Link>{' '}
           as well as those of{' '}
           <Link
             href="https://hcb.hackclub.com/miami-hack-week/"
-            target="_blank"
+            target='_blank'
+            rel='noopener'
           >
             many
           </Link>{' '}
-          <Link href="https://hcb.hackclub.com/mesto/" target="_blank">
+          <Link href="https://hcb.hackclub.com/mesto/" target='_blank' rel='noopener'>
             other
           </Link>{' '}
-          <Link href="https://hcb.hackclub.com/techshift/" target="_blank">
+          <Link href="https://hcb.hackclub.com/techshift/" target='_blank' rel='noopener'>
             organizations
           </Link>
           . These are just some of the initiatives we support:
@@ -232,8 +233,8 @@ const Page = () => (
               <>
                 <Link
                   href="https://thecharlottebridge.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target='_blank'
+                  rel='noopener'
                 >
                   The Charlotte Bridge
                 </Link>
@@ -250,8 +251,8 @@ const Page = () => (
               <>
                 <Link
                   href="https://www.youtube.com/watch?v=2BID8_pGuqA"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target='_blank'
+                  rel='noopener'
                 >
                   The Hacker Zephyr
                 </Link>
@@ -268,8 +269,8 @@ const Page = () => (
               <>
                 <Link
                   href="https://hackpenn.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target='_blank'
+                  rel='noopener'
                 >
                   Hack Pennsylvania
                 </Link>
@@ -301,8 +302,8 @@ const Page = () => (
           <strong>How to apply:</strong> Email{' '}
           <Link
             href="mailto:jobs@hackclub.com"
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener'
           >
             jobs@hackclub.com
           </Link>{' '}

@@ -48,8 +48,8 @@ export default function Sinerider({ stars }) {
             <Buttons
               icon="view"
               href="https://sinerider.com/"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
               primary="#CAB4D4"
               id="43"
               sx={{ color: '#271932' }}
@@ -59,8 +59,8 @@ export default function Sinerider({ stars }) {
             <Buttons
               icon="rainbow"
               href="https://github.com/hackclub/sinerider/#readme"
-              target="_blank"
-              rel="noopener"
+              target='_blank'
+              rel='noopener'
               id="44"
             >
               Join the development

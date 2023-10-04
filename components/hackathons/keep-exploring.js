@@ -73,13 +73,13 @@ export default function KeepExploring() {
             Teenagers organize hackathons like{' '}
             <a
               href="https://assemble.hackclub.com"
-              target="_blank"
-              rel="noreferrer"
+              target='_blank'
+              rel='noopener'
             >
               Assemble
             </a>{' '}
             &{' '}
-            <a href="https://windyhacks.com" target="_blank" rel="noreferrer">
+            <a href="https://windyhacks.com" target='_blank' rel='noreferrer'>
               Windy&nbsp;City&nbsp;Hacks
             </a>
             . The&nbsp;hack’s the limit.

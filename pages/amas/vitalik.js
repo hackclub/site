@@ -143,7 +143,7 @@ export default function Vitalik() {
           overflow: 'hidden'
         }}
       >
-        <Link href="https://hackclub.com" target="_blank" color="inherit">
+        <Link href="https://hackclub.com" target='_blank' rel='noopener' color="inherit">
           <Image
             src={`/ama/logo-purple.svg`}
             width={150}
@@ -286,7 +286,8 @@ export default function Vitalik() {
                 <strong>Teenager? New here? Welcome!</strong>{' '}
                 <Link
                   href="https://hackclub.com"
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   color="inherit"
                 >
                   Hack Club
@@ -315,7 +316,8 @@ export default function Vitalik() {
                 <strong>Teenager? New here? Welcome!</strong>{' '}
                 <Link
                   href="https://hackclub.com"
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   color="inherit"
                 >
                   Hack Club

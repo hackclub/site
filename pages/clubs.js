@@ -192,8 +192,8 @@ const Page = () => (
           as="a"
           variant="ctaLg"
           href="https://apply.hackclub.com"
-          target="_blank"
-          rel="noopener"
+          target='_blank'
+          rel='noopener'
         >
           Apply now
         </Button>
@@ -689,8 +689,8 @@ const Page = () => (
         <Button
           as="a"
           href="https://apply.hackclub.com"
-          target="_blank"
-          rel="noopener"
+          target='_blank'
+          rel='noopener'
           variant="ctaLg"
         >
           Apply to Hack Club

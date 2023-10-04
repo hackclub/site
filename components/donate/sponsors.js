@@ -15,7 +15,7 @@ const Base = styled(Box)`
 `
 
 const Sponsor = ({ name, href, img, ...props }) => (
-  <Link href={href || `https://${name.toLowerCase()}.com`} target="_blank">
+  <Link href={href || `https://${name.toLowerCase()}.com`} target='_blank' rel='noopener'>
     <Image
       src={`/inkind_logos/${img || name.toLowerCase() + '.svg'}`}
       alt={name}

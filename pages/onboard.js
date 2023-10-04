@@ -464,7 +464,8 @@ const ShipPage = () => {
                   variant="ctaLg"
                   as="a"
                   href="https://hack.af/pcb-jam"
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   sx={{
                     background: t => t.util.gx('#60cc38', '#113b11')
                   }}
@@ -476,7 +477,8 @@ const ShipPage = () => {
                   variant="outlineLg"
                   as="a"
                   href="https://github.com/hackclub/OnBoard/blob/main/README.md"
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                   sx={{
                     borderColor: '#113b11',
                     color: '#60cc38'
@@ -578,12 +580,12 @@ const ShipPage = () => {
           </Heading>
           <Text sx={{ fontSize: 3 }}>
             Learn how to design your own circuit boards from scratch with our{' '}
-            <strong>official tutorials</strong> and jams, like Maggie’s{' '}
-            <Link href="https://hack.af/pcb-jam" target="_blank">
+            <strong>official tutorials</strong> and jams, like Maggie's{' '}
+            <Link href="https://hack.af/pcb-jam" target='_blank' rel='noopener'>
               intro to PCB design jam
             </Link>
             . Ask in the{' '}
-            <Link href={slackLink} target="_blank">
+            <Link href={slackLink}  target='_blank' rel='noopener'>
               Hack Club Slack
             </Link>{' '}
             if you have any questions!
@@ -660,7 +662,8 @@ const ShipPage = () => {
           >
             <a
               href="https://github.com/hackclub/OnBoard/tree/main/projects/E-Fidget%20Lite"
-              target="_blank"
+              target='_blank'
+              rel='noopener'
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 115 }}>
@@ -685,7 +688,8 @@ const ShipPage = () => {
 
             <a
               href="https://github.com/hackclub/sprig-hardware"
-              target="_blank"
+              target='_blank'
+              rel='noopener'
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 100 }}>
@@ -710,7 +714,8 @@ const ShipPage = () => {
 
             <a
               href="https://github.com/Hugoyhu/Hack-Club-Zephyr-USB-Hub"
-              target="_blank"
+              target='_blank'
+              rel='noopener'
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: [100, 100, 100, 0] }}>
@@ -738,7 +743,8 @@ const ShipPage = () => {
 
             <a
               href="https://jams.hackclub.com/batch/sparkletilt-pcb"
-              target="_blank"
+              target='_blank'
+              rel='noopener'
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 140 }}>
@@ -766,7 +772,8 @@ const ShipPage = () => {
             variant="lg"
             as="a"
             href="https://hack.af/pcb-jam"
-            target="_blank"
+            target='_blank'
+            rel='noopener'
           >
             Learn PCB Design Now!
           </Button>
@@ -843,7 +850,8 @@ const ShipPage = () => {
                     <strong>Open source your design</strong> on GitHub and{' '}
                     <Link
                       href="https://github.com/hackclub/OnBoard/blob/main/README.md"
-                      target="_blank"
+                      target='_blank'
+                      rel='noopener'
                     >
                       apply for the grant
                     </Link>
@@ -947,7 +955,8 @@ const ShipPage = () => {
                 variant="outlineLg"
                 as="a"
                 href={slackLink}
-                target="_blank"
+                target='_blank'
+                rel='noopener'
               >
                 Join Slack
               </Button>
@@ -1041,7 +1050,8 @@ const ShipPage = () => {
                 variant="outline"
                 as="a"
                 href="https://github.com/hackclub/OnBoard#requirements"
-                target="_blank"
+                target='_blank' 
+                rel='noopener'
               >
                 Get a Grant
               </Button>
@@ -1058,7 +1068,7 @@ const ShipPage = () => {
                 Read our Hacker Card tutorial to learn how to make a simple
                 circuit board from start to end.
               </Text>
-              <Button as="a" href="https://hack.af/pcb-jam" target="_blank">
+              <Button as="a" href="https://hack.af/pcb-jam" target='_blank' rel='noopener'>
                 Start the Tutorial
               </Button>
             </Flex>
@@ -1069,7 +1079,7 @@ const ShipPage = () => {
                 Share progress with fellow participants and ask for help in the
                 Hack Club Slack.
               </Text>
-              <Button variant="outline" as="a" href={slackLink} target="_blank">
+              <Button variant="outline" as="a" href={slackLink} target='_blank' rel='noopener'>
                 Join Slack
               </Button>
             </Flex>
@@ -1093,7 +1103,8 @@ const ShipPage = () => {
         <Flex
           as="a"
           href="https://airtable.com/shrOOU2ZZFYtffUVz"
-          target="_blank"
+          target='_blank'
+          rel='noopener'
           sx={{
             bg: '#ff0000',
             color: 'rgba(255, 255, 255, 0.7)',

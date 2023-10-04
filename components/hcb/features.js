@@ -58,7 +58,8 @@ export default function Features({ partner = false }) {
                   href="https://stripe.com/issuing"
                   color="smoke"
                   hoverline
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                 >
                   Stripe
                 </Link>
@@ -119,7 +120,8 @@ export default function Features({ partner = false }) {
                   href="https://sendy.co/"
                   color="smoke"
                   hoverline
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                 >
                   Sendy
                 </Link>
@@ -144,7 +146,8 @@ export default function Features({ partner = false }) {
                   href="https://presidentialserviceawards.gov"
                   color="smoke"
                   hoverline
-                  target="_blank"
+                  target='_blank'
+                  rel='noopener'
                 >
                   President's Volunteer Service Award
                 </Link>{' '}
@@ -187,8 +190,8 @@ export default function Features({ partner = false }) {
           Have more questions? <br /> Check out the{' '}
           <Link
             href="https://hcb.hackclub.com/faq"
-            target="_blank"
-            rel="noreferrer"
+            target='_blank'
+            rel='noopener'
             hoverline
           >
             HCB FAQ
