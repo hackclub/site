@@ -2,7 +2,7 @@ import Icon from "@hackclub/icons";
 import { useRef, useState } from "react";
 import { Box, Input, Button, Text, Card, Flex, Grid } from "theme-ui";
 import BGImg from "../../background-image";
-import FooterImgFile from "../../../public/outernet/hack.jpg";
+import FooterImgFile from "../../../public/home/footer.png";
 import Link from "next/link";
 import MailCard from "../../mail-card";
 
@@ -173,7 +173,7 @@ const MailingList = () => {
               subject="👀 What’s up at Hack Club this time? 👀"
               date="August 2022"
               body="Hey friends! I'm  Ishan, I'm 17, and I'm a Hack Clubber emailing you again! A special thank you to  Belle and  Sam for helping out so much with today's newsletter."
-              link="/newsletter/2022/07"
+              link="/newsletter/2022-08-august/"
             />
             <MailCard
               subject="Community Newsletter"
