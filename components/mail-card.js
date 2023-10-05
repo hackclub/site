@@ -25,7 +25,7 @@ export default function MailCard({ body, date, subject, link }) {
           <Text as="h1" sx={{ textTransform: "uppercase" }}>
             {subject}
           </Text>
-          <Text as="p">{date} — To Orpheus, From Hack Club</Text>
+          <Text as="p">{date} — To You, From Hack Club</Text>
           <Text as="h2" sx={{ fontWeight: "normal" }}>
             {body}
           </Text>
