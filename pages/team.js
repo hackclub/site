@@ -331,6 +331,7 @@ export default function Team() {
                     />
                   </Grid>
                 </Box>
+              </Box>
             </Grid>
             <br />
             <Box sx={{ textAlign: 'center', mt: 2, mb: [3, 4] }}>
