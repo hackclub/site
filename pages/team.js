@@ -208,39 +208,6 @@ export default function Team() {
                     />
                   </Grid>
                 </Box>
-                <Box
-                  sx={{
-                    bg: 'rgb(255 142 55 / 40%)',
-                    p: 3,
-                    borderRadius: '20px',
-                    mt: 3
-                  }}
-                >
-                  <Text
-                    variant="headline"
-                    mt={2}
-                    mb={3}
-                    as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
-                  >
-                    Communications & Philanthropy
-                  </Text>
-                  <Grid
-                    columns={[1, null, 2]}
-                    gap={2}
-                    sx={{ height: 'fit-content' }}
-                  >
-                    
-                    
-                    <Bio
-                      name="Mark Allen"
-                      teamRole="AMA Producer"
-                      img="https://ca.slack-edge.com/T0266FRGM-U03Q20XM953-91ae3b0d0243-512"
-                      pronouns="he/him"
-                      spanTwo
-                    />
-                  </Grid>
-                </Box>
               </Box>
               <Box>
                 <Box
@@ -498,6 +465,13 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
                 text="Philippine bred and settled with family in the U.S., Tina shifted her career from marketing and film production to teaching kids in the Clark County School District. At Hack Club, she helped thousands of high school students hack their way to a fabulous future."
                 pronouns="she/her"
               />
+              <Bio
+                  name="Mark Allen"
+                  teamRole="AMA Producer"
+                  img="https://ca.slack-edge.com/T0266FRGM-U03Q20XM953-91ae3b0d0243-512"
+                  pronouns="he/him"
+                  spanTwo
+                />
               <Bio
                 img="/team/dina.jpg"
                 name="Dina Elhanan"
