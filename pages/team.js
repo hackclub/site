@@ -230,20 +230,8 @@ export default function Team() {
                     gap={2}
                     sx={{ height: 'fit-content' }}
                   >
-                    <Bio
-                      name="Belle See"
-                      teamRole="Engineer for Comms"
-                      text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
-                      img="https://github.com/bellesea.png"
-                      pronouns="she/her"
-                    />
-                    <Bio
-                      name="Abby Fischler"
-                      teamRole="Junior Administrative Engineer"
-                      text={`Abby is a high school junior from Los Angeles that loves technology! Since joining the Hack Club community in May 2020, she’s enjoyed learning with friends in the Slack and on board the Hacker Zephyr. She joined Hack Club to support Christina’s work in encouraging more girls to get involved. Abby has hosted events for the community and loves sharing her coding journey on the #ship channel.`}
-                      img="https://github.com/abbyfischler.png"
-                      pronouns="she/her"
-                    />
+                    
+                    
                     <Bio
                       name="Mark Allen"
                       teamRole="AMA Producer"
@@ -339,80 +327,10 @@ export default function Team() {
                       img="https://ca.slack-edge.com/T0266FRGM-U03DFNYGPCN-d76abb1ba329-512"
                       pronouns="he/him"
                       video="https://www.youtube-nocookie.com/embed/POv-3yIPSWc?si=25WKed0HkazCZZOz"
+                      spanTwo
                     />
                   </Grid>
                 </Box>
-
-                <Box
-                  sx={{
-                    bg: 'rgb(166 51 214 / 40%)',
-                    p: 3,
-                    borderRadius: '20px',
-                    mt: 3
-                  }}
-                >
-                  <Text
-                    variant="headline"
-                    mt={2}
-                    mb={3}
-                    as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
-                  >
-                    Community Team
-                  </Text>
-                  <Grid columns={[1, null, 2]} gap={2}>
-                    <Bio
-                      name="Claire Wang"
-                      teamRole="Moderation & Events"
-                      text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
-                      img="/team/claire.png"
-                      pronouns="she/her"
-                    />
-                    <Bio
-                      name="Toby Brown"
-                      teamRole="Moderation & Events"
-                      img="https://ca.slack-edge.com/T0266FRGM-U02C9DQ7ZL2-a57a3718241a-512"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Mutammim"
-                      teamRole="Moderation & Events"
-                      img="https://ca.slack-edge.com/T0266FRGM-U021VLF7880-2bf2660768cc-512"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Faisal Sayed"
-                      teamRole="Moderation & Events"
-                      img="https://github.com/faisalsayed10.png"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Maggie Liu"
-                      teamRole="Moderation & Events"
-                      img="https://ca.slack-edge.com/T0266FRGM-U026XSMKEDC-a5beea76faa2-512"
-                      pronouns="she/her"
-                    />
-                    <Bio
-                      name="Sahiti Dasari"
-                      teamRole="Moderation & Events"
-                      img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
-                      pronouns="she/her"
-                    />
-                    <Bio
-                      name="Gaurav Pandey"
-                      teamRole="Moderation & Events"
-                      img="https://ca.slack-edge.com/T0266FRGM-U043Q05KFAA-95e93fd7beff-512"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Arav Narula"
-                      teamRole="Moderation & Events"
-                      img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
-                      pronouns="he/him"
-                    />
-                  </Grid>
-                </Box>
-              </Box>
             </Grid>
             <br />
             <Box sx={{ textAlign: 'center', mt: 2, mb: [3, 4] }}>
@@ -479,6 +397,7 @@ export default function Team() {
                 text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined Hack Club as the Regional Manager of the Asia-Pacific & Africa team where he actively managed hundreds of clubs. Then, as the APAC Director, Athul lead the APAC HQ team dedicated to supporting all of the clubs in the APAC region."
                 pronouns="he/him"
               />
+              
               <Bio
                 name="Harsh Bajpai"
                 teamRole="APAC Clubs"
@@ -509,10 +428,31 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
                 pronouns="he/him"
               />
               <Bio
+                name="Abby Fischler"
+                teamRole="Junior Administrative Engineer"
+                text={`Abby is a high school junior from Los Angeles that loves technology! Since joining the Hack Club community in May 2020, she’s enjoyed learning with friends in the Slack and on board the Hacker Zephyr. She joined Hack Club to support Christina’s work in encouraging more girls to get involved. Abby has hosted events for the community and loves sharing her coding journey on the #ship channel.`}
+                img="https://github.com/abbyfischler.png"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Jessica Card"
                 teamRole="Education Engineer"
                 text="Jessica is a self taught programmer originally from Alaska. She worked for over a decade as a software engineer at startups like GitHub and Bugsnag in San Francisco. She then left the web development world to learn how to make video games. At Hack Club, Jessica brought her creative energy to an array of projects! Most notably, when she learnt Assembly along with Hack Clubbers to produce Some Assembly Required."
                 img="/team/jessica.jpg"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Belle See"
+                teamRole="Engineer for Comms"
+                text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
+                img="https://github.com/bellesea.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Claire Wang"
+                teamRole="Community"
+                text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
+                img="/team/claire.png"
                 pronouns="she/her"
               />
               <Bio
