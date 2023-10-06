@@ -300,6 +300,68 @@ export default function Team() {
                 </Box>
               </Box>
             </Grid>
+            <Box
+              sx={{
+                bg: 'rgb(166 51 214 / 40%)',
+                p: 3,
+                borderRadius: '20px',
+                mt: 3
+              }}
+            >
+              <Text
+                variant="headline"
+                mt={2}
+                mb={3}
+                as="h3"
+                sx={{ textAlign: 'center', fontSize: 4 }}
+              >
+                Community Team
+              </Text>
+              <Grid columns={[2, null, 4]} gap={2}>
+                <Bio
+                  name="Toby Brown"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U02C9DQ7ZL2-a57a3718241a-512"
+                  pronouns="he/him"
+                />
+                <Bio
+                  name="Mutammim"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U021VLF7880-2bf2660768cc-512"
+                  pronouns="he/him"
+                />
+                <Bio
+                  name="Faisal Sayed"
+                  teamRole="Moderation & Events"
+                  img="https://github.com/faisalsayed10.png"
+                  pronouns="he/him"
+                />
+                <Bio
+                  name="Maggie Liu"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U026XSMKEDC-a5beea76faa2-512"
+                  pronouns="she/her"
+                />
+                <Bio
+                  name="Sahiti Dasari"
+                  teamRole="Moderation & Events"
+                  img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
+                  pronouns="she/her"
+                />
+                <Bio
+                  name="Gaurav Pandey"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U043Q05KFAA-95e93fd7beff-512"
+                  pronouns="he/him"
+                />
+                <Bio
+                  name="Arav Narula"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
+                  pronouns="he/him"
+                />
+              </Grid>
+            </Box>
             <br />
             <Box sx={{ textAlign: 'center', mt: 2, mb: [3, 4] }}>
               <Text
