@@ -7,8 +7,13 @@ export default function MailCard({ body, issue, date, link }) {
     <Card
       variant="interactive"
       sx={{
+        borderRadius: 18,
+        display: "inline-block",
+        overflow: "hidden",
+        bg: "white",
         maxWidth: "1500px",
         cursor: "pointer",
+        padding: "0 !important",
       }}
     >
       <Link href={link || "/newsletter"}>
@@ -16,19 +21,21 @@ export default function MailCard({ body, issue, date, link }) {
           <Box
             sx={{
               width: "100%",
-              height: "20px",
-              backgroundImage:
-                "url('https://cloud-jopr4l3j5-hack-club-bot.vercel.app/0letter-pattern.svg')",
+              height: "10px",
+              backgroundImage: "url('/letter-pattern.svg')",
               backgroundRepeat: "repeat-x",
+              backgroundSize: "100%",
             }}
           />
-          <Text as="h1" sx={{ textTransform: "uppercase" }}>
-            {date}
-          </Text>
-          <Text as="p">Newsletter #{issue} — From Hack Club, To You</Text>
-          <Text as="h2" sx={{ fontWeight: "normal" }}>
-            {body}
-          </Text>
+          <Box sx={{ p: [3, 4] }}>
+            <Text as="h1" sx={{ textTransform: "uppercase" }}>
+              {date}
+            </Text>
+            <Text as="p">Newsletter #{issue} — From Hack Club, To You</Text>
+            <Text as="h2" sx={{ fontWeight: "normal" }}>
+              {body}
+            </Text>
+          </Box>
         </div>
       </Link>
     </Card>
