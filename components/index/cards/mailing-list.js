@@ -5,6 +5,22 @@ import BGImg from "../../background-image";
 import FooterImgFile from "../../../public/home/footer.png";
 import Link from "next/link";
 import MailCard from "../../mail-card";
+import styled from "@emotion/styled";
+import theme from "@hackclub/theme";
+
+/*const Base = styled(Box)`
+  background: ${(props) =>
+    props.dark
+      ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
+      : `${theme.colors.snow} url('/pattern.svg') repeat`};
+  ${(props) =>
+    props.dark &&
+    `
+      background-size: ${theme.space[4]}px ${theme.space[4]}px;
+    `} @media print {
+    display: none;
+  }
+`;*/
 
 const Loading = () => (
   <Box
@@ -185,17 +201,18 @@ const MailingList = () => {
         </Flex>
       </Card>
       {/*<Box
-            sx={{
-                position: "absolute",
-                display: "block",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                zIndex: 0,
-                background: "linear-gradient(-180deg, #f1c40f 14%, #ff8c37 82%)",
-            }}
-        />*/}
+        sx={{
+          position: "absolute",
+          display: "block",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 0,
+          background: "linear-gradient(-180deg, #5bc0de 14%, #338eda 82%)",
+          backgroundImage: `url('/pattern.svg') repeat`,
+        }}
+      />*/}
       <BGImg
         src={FooterImgFile}
         alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
