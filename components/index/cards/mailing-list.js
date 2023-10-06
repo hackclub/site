@@ -1,8 +1,10 @@
 import Icon from "@hackclub/icons";
 import { useRef, useState } from "react";
-import { Box, Input, Button, Text, Card, Flex, Grid } from "theme-ui";
-import Link from "next/link";
+import { Box, Input, Button, Text, Card, Flex, Grid, Link } from "theme-ui";
 import MailCard from "../../mail-card";
+import BGImg from "../../background-image";
+
+import background from "../../../public/home/footer.png";
 
 const Loading = () => (
   <Box
@@ -182,25 +184,14 @@ const MailingList = () => {
           </Box>
         </Flex>
       </Card>
-      <Box
-        sx={{
-          position: "absolute",
-          display: "block",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          zIndex: 0,
-          background: "linear-gradient(-180deg, #33d6a6 20%, #338eda 80%)",
-          backgroundImage: `url('/pattern.svg') repeat`,
-        }}
+      <BGImg
+        width={2544}
+        height={2048}
+        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
+        src={background}
+        placeholder="blur"
+        alt="Globe with hundreds of Hack Clubs"
       />
-      {/*<BGImg
-        src={FooterImgFile}
-        alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
-        priority
-        gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
-      />*/}
     </Box>
   );
 };
