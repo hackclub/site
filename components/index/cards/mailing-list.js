@@ -1,26 +1,8 @@
 import Icon from "@hackclub/icons";
 import { useRef, useState } from "react";
 import { Box, Input, Button, Text, Card, Flex, Grid } from "theme-ui";
-import BGImg from "../../background-image";
-import FooterImgFile from "../../../public/home/footer.png";
 import Link from "next/link";
 import MailCard from "../../mail-card";
-import styled from "@emotion/styled";
-import theme from "@hackclub/theme";
-
-/*const Base = styled(Box)`
-  background: ${(props) =>
-    props.dark
-      ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
-      : `${theme.colors.snow} url('/pattern.svg') repeat`};
-  ${(props) =>
-    props.dark &&
-    `
-      background-size: ${theme.space[4]}px ${theme.space[4]}px;
-    `} @media print {
-    display: none;
-  }
-`;*/
 
 const Loading = () => (
   <Box
@@ -186,21 +168,21 @@ const MailingList = () => {
             }}
           >
             <MailCard
-              subject="👀 What’s up at Hack Club this time? 👀"
               date="August 2022"
+              issue={2}
               body="Hey friends! I'm  Ishan, I'm 17, and I'm a Hack Clubber emailing you again! A special thank you to  Belle and  Sam for helping out so much with today's newsletter."
               link="/newsletter/2022-08-august/"
             />
             <MailCard
-              subject="Community Newsletter"
               date="September 2022"
+              issue={3}
               body={`Hey friends! Sam, Hack Clubber from Singapore, here. The last few weeks have been pretty busy at Hack Club, and this is a rundown of what your fellow Hack Clubbers have been up to lately. To start, last week, we shared 🎬 The Assemble Documentary: a film on Assemble to help answer the question "what is a hackathon?". It showcases the magical experience of attending a hackathon, and our hope is that it can help organisers share what’s in store for attendees at their hackathons.`}
               link="/newsletter/2022-09-september/"
             />
           </Box>
         </Flex>
       </Card>
-      {/*<Box
+      <Box
         sx={{
           position: "absolute",
           display: "block",
@@ -209,16 +191,16 @@ const MailingList = () => {
           right: 0,
           bottom: 0,
           zIndex: 0,
-          background: "linear-gradient(-180deg, #5bc0de 14%, #338eda 82%)",
+          background: "linear-gradient(-180deg, #33d6a6 20%, #338eda 80%)",
           backgroundImage: `url('/pattern.svg') repeat`,
         }}
-      />*/}
-      <BGImg
+      />
+      {/*<BGImg
         src={FooterImgFile}
         alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
         priority
         gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
-      />
+      />*/}
     </Box>
   );
 };

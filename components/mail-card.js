@@ -1,7 +1,7 @@
 import { Box, Card, Text } from "theme-ui";
 import Link from "next/link";
 
-export default function MailCard({ body, date, subject, link }) {
+export default function MailCard({ body, issue, date, link }) {
   body = body.length > 80 ? body.substring(0, 80) + "..." : body;
   return (
     <Card
@@ -23,9 +23,9 @@ export default function MailCard({ body, date, subject, link }) {
             }}
           />
           <Text as="h1" sx={{ textTransform: "uppercase" }}>
-            {subject}
+            {date}
           </Text>
-          <Text as="p">{date} — To You, From Hack Club</Text>
+          <Text as="p">Newsletter #{issue} — From Hack Club, To You</Text>
           <Text as="h2" sx={{ fontWeight: "normal" }}>
             {body}
           </Text>
