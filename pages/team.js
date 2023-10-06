@@ -470,7 +470,6 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
                   teamRole="AMA Producer"
                   img="https://ca.slack-edge.com/T0266FRGM-U03Q20XM953-91ae3b0d0243-512"
                   pronouns="he/him"
-                  spanTwo
                 />
               <Bio
                 img="/team/dina.jpg"
