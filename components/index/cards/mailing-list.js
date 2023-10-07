@@ -100,8 +100,8 @@ const MailingList = () => {
                 as="p"
               >
                 We’ll send you an email no more than once a month, when we work
-                on something cool for you. Check out{" "}
-                <Link href="/newsletter">past issues</Link>.
+                on something cool for you. Check out our{" "}
+                <Link href="/leader-newsletters/">previous issues</Link>.
               </Text>
             </Box>
             <Grid
@@ -170,16 +170,16 @@ const MailingList = () => {
             }}
           >
             <MailCard
-              date="August 2022"
-              issue={2}
-              body="Hey friends! I'm  Ishan, I'm 17, and I'm a Hack Clubber emailing you again! A special thank you to  Belle and  Sam for helping out so much with today's newsletter."
-              link="/newsletter/2022-08-august/"
+              date="August 2023"
+              issue={18}
+              body="Bring your club on an epic adventure in code this semester! Jams are 18 brand new coding workshops created by Hack Clubbers ESPECIALLY for you to use in your meetings, complete with pre-made slide decks and even some videos!"
+              link="/leader-newsletters/2023-08-18"
             />
             <MailCard
-              date="September 2022"
-              issue={3}
-              body={`Hey friends! Sam, Hack Clubber from Singapore, here. The last few weeks have been pretty busy at Hack Club, and this is a rundown of what your fellow Hack Clubbers have been up to lately. To start, last week, we shared 🎬 The Assemble Documentary: a film on Assemble to help answer the question "what is a hackathon?". It showcases the magical experience of attending a hackathon, and our hope is that it can help organisers share what’s in store for attendees at their hackathons.`}
-              link="/newsletter/2022-09-september/"
+              date="September 2023"
+              issue={20}
+              body="📆📣 Leader meeting tomorrow! Join club leaders Sahiti, Zayn and Ronnit tomorrow 8:00am PST/11:00am EST/8:30pm IST. Bring questions and advice to share about maintaining your club after the first meeting!!"
+              link="/leader-newsletters/2023-09-29"
             />
           </Box>
         </Flex>

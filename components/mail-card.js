@@ -21,7 +21,7 @@ export default function MailCard({ body, issue, date, link }) {
           <Box
             sx={{
               width: "100%",
-              height: "10px",
+              height: "12px",
               backgroundImage: "url('/letter-pattern.svg')",
               backgroundRepeat: "repeat-x",
               backgroundSize: "100%",
