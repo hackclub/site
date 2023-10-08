@@ -508,7 +508,7 @@ padding: ["24px", "32px"],
 
 
       </Box>
-      <Text style={{textAlign: "center", width: "100%", fontSize: 18, display: "flex", justifyContent: "center", marginBottom: "32px"}}>Need help getting your Pizza Grant? Email <Link href="mailto:holly@hackclub.com" style={{marginLeft: 6}}>holly@hackclub.com</Link></Text>
+      <Text style={{textAlign: "center", width: "100%", fontSize: 18, display: "flex", justifyContent: "center", marginBottom: "32px"}}>Need help getting your Pizza Grant? Email <Link href="mailto:thomas@hackclub.com" style={{marginLeft: 6}}>thomas@hackclub.com</Link></Text>
 
     </Container>    
     <Footer dark 
