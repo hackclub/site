@@ -30,10 +30,8 @@ const events = [
     location: 'Cabot, Vermont',
     season: 'Summer',
     year: '2023',
+    video: 'https://www.youtube.com/watch?v=O1s5HqSqKi0',
     repo: 'outernet',
-    image:
-      'https://github.com/hackclub/outernet/assets/39828164/368eac86-3c39-4842-be2c-1436a6db6f07',
-    link: 'https://github.com/hackclub/outernet'
   },
   {
     name: 'Epoch',
