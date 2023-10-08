@@ -24,6 +24,18 @@ import theme from '@hackclub/theme'
 
 const events = [
   {
+    name: 'Haunted House',
+    description: `Where Fright Meets Byte: A Haunted House Hackathon Experience in Downtown Chicago.`,
+    logo: 'https://emoji.slack-edge.com/T0266FRGM/hauntedhouse/427353c4bd656767.png',
+    location: 'Chicago, Illinois',
+    season: 'Fall',
+    year: '2023',
+    // repo: 'outernet',
+    image:
+      'https://files.slack.com/files-pri/T0266FRGM-F0602JUFXD2/image.png',
+    link: 'https://haunted.hackclub.com'
+  },
+  {
     name: 'Outernet',
     description: `An out-of-doors, make-it-yours programming and camping adventure in Vermont's Northeast Kingdom.`,
     logo: 'https://emoji.slack-edge.com/T0266FRGM/outernet/522a19d904a627e6.png',
