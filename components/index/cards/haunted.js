@@ -21,7 +21,7 @@ export default function Haunted() {
     >
       <Grid columns={[1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Image
-          src="/haunted/haunted-text.svg"
+          src="/haunted/haunted-text-shadow.svg"
           sx={{
             width: ['200px', '250px', '300px'],
             mt: ['-10px', '-20px', '-20px'],
