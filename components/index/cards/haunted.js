@@ -16,12 +16,12 @@ export default function Haunted() {
       }}
       position={[null, 'bottom', 'bottom']}
       highlight="#271932"
-      image="/haunted/haunted-bg.webp"
+      image="/haunted/bg.webp"
       filter="brightness(0.7)"
     >
       <Grid columns={[1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Image
-          src="/haunted/haunted-text-shadow.svg"
+          src="/haunted/haunted-text.svg"
           sx={{
             width: ['200px', '250px', '300px'],
             mt: ['-10px', '-20px', '-20px'],
