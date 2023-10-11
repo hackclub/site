@@ -1,54 +1,43 @@
-import { Box, Card, Text } from 'theme-ui'
+import { Box, Card, Text } from "theme-ui";
+import Link from "next/link";
 
 export default function MailCard({ body, issue, date, link }) {
-  body = body.length > 80 ? body.substring(0, 80) + '...' : body
+  body = body.length > 80 ? body.substring(0, 80) + "..." : body;
   return (
     <Card
-      variant='interactive'
+      variant="interactive"
       sx={{
-        cursor: 'pointer',
-        padding: '0 !important',
+        borderRadius: 18,
+        display: "inline-block",
+        overflow: "hidden",
+        bg: "white",
+        maxWidth: "1500px",
+        cursor: "pointer",
+        padding: "0 !important",
       }}
     >
-      <Box sx={{ height: '90%' }}>
-        <Box
-          sx={{
-            width: '100%',
-            height: '10px',
-            backgroundRepeat: 'repeat-x',
-            backgroundSize: '100%',
-            backgroundImage: `url('/letter-pattern.svg')`,
-          }}
-        />
-        <Box
-          sx={{
-            placeItems: 'center',
-            display: 'grid',
-            height: '100%',
-          }}
-        >
+      <Link href={link || "/newsletter"}>
+        <div>
           <Box
-            sx={{ px: [3, 4] }}
-          >
-            <Box>
-              <Text as='h1' sx={{ textTransform: 'uppercase' }}>
-                {date}
-              </Text>
-              <Text>Newsletter #{issue} — From Hack Club, To You</Text>
-              <Text as='h2' sx={{ fontWeight: 'normal' }}>
-                {body}
-              </Text>
-            </Box>
+            sx={{
+              width: "100%",
+              height: "12px",
+              backgroundImage: "url('/letter-pattern.svg')",
+              backgroundRepeat: "repeat-x",
+              backgroundSize: "100%",
+            }}
+          />
+          <Box sx={{ p: [3, 4] }}>
+            <Text as="h1" sx={{ textTransform: "uppercase" }}>
+              {date}
+            </Text>
+            <Text as="p">Newsletter #{issue} — From Hack Club, To You</Text>
+            <Text as="h2" sx={{ fontWeight: "normal" }}>
+              {body}
+            </Text>
           </Box>
-        </Box>
-      </Box>
+        </div>
+      </Link>
     </Card>
-  )
+  );
 }
-
-/*
-        <Link href={link || '/newsletter'}>        </Link>
-
-
-
-       */
