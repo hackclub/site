@@ -240,7 +240,7 @@ export default function Team() {
                     />
                     <Bio
                       name="Melanie Smith"
-                      teamRole="Operations Lead"
+                      teamRole="Director of Operations"
                       text="Melanie grew up in northern New England where she obtained a degree in Marine Biology. She then spent several years running a pet store with 20+ employees and recently decided to change career paths. This led her to Hack Club where she is excited about helping students pursue their dreams."
                       img="/team/mel.png"
                       pronouns="she/her"
@@ -254,7 +254,7 @@ export default function Team() {
                     />
                     <Bio
                       name="Liv Cook"
-                      teamRole="Operations Coordinator"
+                      teamRole="Jr Project Manager"
                       text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
                       img="/team/liv.png"
                       pronouns="she/her"
@@ -274,11 +274,33 @@ export default function Team() {
                       pronouns="she/her"
                     />
                     <Bio
+                      name="Ben Dixon"
+                      teamRole="Engineering"
+                      text={`Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars.`}
+                      img="https://ca.slack-edge.com/T0266FRGM-U03DFNYGPCN-d76abb1ba329-512"
+                      pronouns="he/him"
+                      video="https://www.youtube-nocookie.com/embed/POv-3yIPSWc?si=25WKed0HkazCZZOz"
+                    />
+                    <Bio
+                      name="Hunter Goodenough"
+                      teamRole="Operations Associate"
+                      text={`Hunter is a jack of all trades with a particular passion for creating and supporting communities. He is an ardent hobbyist and is always trying out new things. He is a newer hire at HCB (Having previously worked in both the Restaurant and Medical Technology industries) and is excited to join the community and is looking forward to participating in various Hack Club projects and events.`}
+                      img="https://ca.slack-edge.com/T0266FRGM-U05RDPEKGA3-647435768a53-512"
+                      pronouns="he/him"
+                    />
+                    <Bio
                       name="Bence Beres"
                       teamRole="Bookkeeper"
                       text="Bence is responsible for keeping accurate financial books for HQ and every org on HCB (40,000+ transactions in the last year!)."
                       img="/team/bence.png"
                       pronouns="he/him"
+                    />
+                    <Bio
+                      name="Kris Hoadley"
+                      teamRole="Bookkeeper"
+                      text={`Kris is a native Vermonter and accounting nerd with the need to make all of life balance. Numbers? Give her numbers anytime.`}
+                      img="/team/kris.png"
+                      pronouns="she/her"
                     />
                     <Bio
                       name="Arianna Martinelli"
@@ -288,13 +310,11 @@ export default function Team() {
                       pronouns="she/her"
                     />
                     <Bio
-                      name="Ben Dixon"
-                      teamRole="Engineering"
-                      text={`Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars.`}
-                      img="https://ca.slack-edge.com/T0266FRGM-U03DFNYGPCN-d76abb1ba329-512"
+                      name="Shubham Panth"
+                      teamRole="Operations"
+                      text={`Shubham, a self-taught coder from the tranquil terrains of Sweden, has been weaving through C# and Unity3D since 2017. After utilizing HCB to catapult his own developer dreams, he pivoted to help others, ensuring that every young dreamer’s journey through HCB is as seamless and spirited as his own coding adventures.`}
+                      img="https://ca.slack-edge.com/T0266FRGM-U014E8132DB-8b1a8e7a1a41-512"
                       pronouns="he/him"
-                      video="https://www.youtube-nocookie.com/embed/POv-3yIPSWc?si=25WKed0HkazCZZOz"
-                      spanTwo
                     />
                   </Grid>
                 </Box>
@@ -427,7 +447,6 @@ export default function Team() {
                 text="Athul started dozens of the largest Hack Clubs in India. After graduating from high school, he joined Hack Club as the Regional Manager of the Asia-Pacific & Africa team where he actively managed hundreds of clubs. Then, as the APAC Director, Athul lead the APAC HQ team dedicated to supporting all of the clubs in the APAC region."
                 pronouns="he/him"
               />
-              
               <Bio
                 name="Harsh Bajpai"
                 teamRole="APAC Clubs"
