@@ -241,21 +241,21 @@ export default function Team() {
                     <Bio
                       name="Melanie Smith"
                       teamRole="Director of Operations"
-                      text="Melanie grew up in northern New England where she obtained a degree in Marine Biology. She then spent several years running a pet store with 20+ employees and recently decided to change career paths. This led her to Hack Club where she is excited about helping students pursue their dreams."
+                      text="Melanie grew up in northern New England where she obtained a degree in Marine Biology. She then spent several years running a pet store with 20+ employees. In Feb 2021, she joined the HCB team as the Operations Lead. Now as Director of Operations, she is responsible for leading the team in vision and growth."
                       img="/team/mel.png"
                       pronouns="she/her"
                     />
                     <Bio
                       name="Caleb Denio"
                       teamRole="Engineering"
-                      text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. At HCB, he writes code that makes money go 'cha-ching!'"
+                      text="Caleb enjoys the simple things in life: making music, drinking lattes, and programming. At HCB, he engineers features."
                       img="/team/caleb.jpg"
                       pronouns="he/him"
                     />
                     <Bio
                       name="Liv Cook"
                       teamRole="Jr Project Manager"
-                      text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
+                      text="Supporting hackathon organizers and makers worldwide is Liv’s favorite part about being at Hack Club. Being a part of the HCB team for over two years now, Liv also strives to make sure everyone has the best experience possible on the platform and that team projects are on track. She graduated from the University of Vermont with a degree in Healthcare Systems and Policy and enjoys traveling, writing, and jokes. #LivLaughLove Her current favorite song is:"
                       img="/team/liv.png"
                       pronouns="she/her"
                       video="https://www.youtube-nocookie.com/embed/MtN1YnoL46Q?si=FJcJN7kMptzBaGn4"
@@ -270,13 +270,14 @@ export default function Team() {
                     <Bio
                       name="Daisy Reyes"
                       teamRole="Operations Associate"
+                      text="Daisy has a passion for growing and maintaining positive relationships with all of the members of Hack Club and that’s her favorite part about being on the HCB team. Daisy especially loves onboarding and helping FIRST teams navigate HCB so that they can excel in their own goals. She grew up in Vermont on a dairy farm and graduated from The University of Vermont with her bachelors in Animal Science. She loves animals of all types, crocheting, board games, and traveling."
                       img="https://ca.slack-edge.com/T0266FRGM-U046V3EK56W-b9777e33eece-512"
                       pronouns="she/her"
                     />
                     <Bio
                       name="Ben Dixon"
                       teamRole="Engineering"
-                      text={`Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars.`}
+                      text="Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars."
                       img="https://ca.slack-edge.com/T0266FRGM-U03DFNYGPCN-d76abb1ba329-512"
                       pronouns="he/him"
                       video="https://www.youtube-nocookie.com/embed/POv-3yIPSWc?si=25WKed0HkazCZZOz"
@@ -284,35 +285,35 @@ export default function Team() {
                     <Bio
                       name="Hunter Goodenough"
                       teamRole="Operations Associate"
-                      text={`Hunter is a jack of all trades with a particular passion for creating and supporting communities. He is an ardent hobbyist and is always trying out new things. He is a newer hire at HCB (Having previously worked in both the Restaurant and Medical Technology industries) and is excited to join the community and is looking forward to participating in various Hack Club projects and events.`}
+                      text="Hunter is a jack of all trades with a particular passion for creating and supporting communities. He is an ardent hobbyist and is always trying out new things. He is a newer hire at HCB (Having previously worked in both the Restaurant and Medical Technology industries) and is excited to join the community and is looking forward to participating in various Hack Club projects and events."
                       img="https://ca.slack-edge.com/T0266FRGM-U05RDPEKGA3-647435768a53-512"
                       pronouns="he/him"
                     />
                     <Bio
                       name="Bence Beres"
                       teamRole="Bookkeeper"
-                      text="Bence is responsible for keeping accurate financial books for HQ and every org on HCB (40,000+ transactions in the last year!)."
+                      text="Bence is a true bureaucrat who doesn’t leave any documents unturned. Having made a sharp U-turn after college to switch from his burgeoning career in the world of political science towards the thrilling and life altering adventures of the world of Accounting, Bence understands that knowing Excel is a greatly underappreciated life skill."
                       img="/team/bence.png"
                       pronouns="he/him"
                     />
                     <Bio
                       name="Kris Hoadley"
                       teamRole="Bookkeeper"
-                      text={`Kris is a native Vermonter and accounting nerd with the need to make all of life balance. Numbers? Give her numbers anytime.`}
+                      text="Kris is a native Vermonter and accounting nerd with the need to make all of life balance. Numbers? Give her numbers anytime."
                       img="/team/kris.png"
                       pronouns="she/her"
                     />
                     <Bio
                       name="Arianna Martinelli"
                       teamRole="Operations"
-                      text={`Arianna is a Hack Clubber from Kentucky excited about how technology and humans can work together to solve problems. She joined Hack Club in 2020 to start a club at her all-girls high school and to learn from a community of fellow coders, and she joined HCB in 2021 to fiscally sponsor her non-profit Tandem. She loves swimming, trees, videography, film photography, reading Joan Didion, Formula 1, making memes, and crafting cards with puns.`}
+                      text="Arianna (a current freshman at Carnegie-Mellon University and a former Hack Club leader from Kentucky) loves onboarding all our cool organizations and making HCB more accessible. When she’s not learning about how humans and computers can work together, she’s making memes and decorating the world with Hack Club stickers."
                       img="https://cloud-oubklmp6c-hack-club-bot.vercel.app/0arianna_profile_photo.png"
                       pronouns="she/her"
                     />
                     <Bio
                       name="Shubham Panth"
                       teamRole="Operations"
-                      text={`Shubham, a self-taught coder from the tranquil terrains of Sweden, has been weaving through C# and Unity3D since 2017. After utilizing HCB to catapult his own developer dreams, he pivoted to help others, ensuring that every young dreamer’s journey through HCB is as seamless and spirited as his own coding adventures.`}
+                      text="Shubham, a self-taught coder from the tranquil terrains of Sweden, has been weaving through C# and Unity3D since 2017. After utilizing HCB to catapult his own developer dreams, he pivoted to help others, ensuring that every young dreamer’s journey through HCB is as seamless and spirited as his own coding adventures."
                       img="https://ca.slack-edge.com/T0266FRGM-U014E8132DB-8b1a8e7a1a41-512"
                       pronouns="he/him"
                     />
