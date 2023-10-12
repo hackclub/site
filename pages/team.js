@@ -192,6 +192,13 @@ export default function Team() {
                       pronouns="he/him"
                     />
                     <Bio
+                      name="Faisal Sayed"
+                      teamRole="Engineering"
+                      img="https://ca.slack-edge.com/T0266FRGM-U014ND5P1N2-78db6630a13d-512"
+                      text="Faisal Sayed (@fayd) has been associated with Hack Club for 3 years and loves building open-source projects that bring joy. During the first workshop-bounty-program back in 2020, Faisal was heavily involved in creating & reviewing numerous programming workshops. At HQ, He works with Graham on HQ Engineering and infrastructure. Outside of Hack Club, Faisal likes working on his side-projects like Firefiles and tmdr."
+                      pronouns="he/him"
+                    />
+                    <Bio
                       img="/team/chris.jpg"
                       name="Chris Walker"
                       teamRole="Hacker Resources"
@@ -204,7 +211,6 @@ export default function Team() {
                       text={`Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!”`}
                       img="/team/woody.jpg"
                       pronouns="he/him"
-                      spanTwo
                     />
                   </Grid>
                 </Box>
@@ -548,11 +554,11 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
                 pronouns="she/her"
               />
               <Bio
-                  name="Mark Allen"
-                  teamRole="AMA Producer"
-                  img="https://ca.slack-edge.com/T0266FRGM-U03Q20XM953-91ae3b0d0243-512"
-                  pronouns="he/him"
-                />
+                name="Mark Allen"
+                teamRole="AMA Producer"
+                img="https://ca.slack-edge.com/T0266FRGM-U03Q20XM953-91ae3b0d0243-512"
+                pronouns="he/him"
+              />
               <Bio
                 img="/team/dina.jpg"
                 name="Dina Elhanan"
