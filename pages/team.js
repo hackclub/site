@@ -216,7 +216,7 @@ export default function Team() {
                       img="/team/josias.jpg"
                       name="Josias Aurel"
                       teamRole="Engineering"
-                      text="Josias Aurel (@Josias Aurel) has been associated with Hack Club for about 3 years, working on a variety of projects including Sinerider. He has organized events such as the TiC Summit and TiC Hackathon in his local town of Yaoundé, Cameroon.  He is a curiosity-driven coder who likes to take on interesting challenges. He'll be working very closely with Graham over the next year on a variety of projects."
+                      text="Josias Aurel (@Josias Aurel) has been associated with Hack Club for about 3 years, working on a variety of projects including Sinerider. He has organized events such as the TiC Summit and TiC Hackathon in his local town of Yaoundé, Cameroon. He is a curiosity-driven coder who likes to take on interesting challenges and who is interested in machine learning and systems programming. He'll be working very closely with Graham over the next year on a variety of projects. Outside of tech he likes going on hikes with friends and eating vegetables."
                       pronouns="he/him"
                     />
                   </Grid>
