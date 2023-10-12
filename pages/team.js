@@ -192,6 +192,13 @@ export default function Team() {
                       pronouns="he/him"
                     />
                     <Bio
+                      name="Faisal Sayed"
+                      teamRole="HQ Engineer"
+                      img="https://ca.slack-edge.com/T0266FRGM-U014ND5P1N2-78db6630a13d-512"
+                      text="Faisal Sayed (@fayd) has been associated with Hack Club for 3 years and loves building open-source projects that bring joy. During the first workshop-bounty-program back in 2020, Faisal was heavily involved in creating & reviewing numerous programming workshops. At HQ, He works with Graham on HQ Engineering and infrastructure. Outside of Hack Club, Faisal likes working on his side-projects like Firefiles and tmdr."
+                      pronouns="he/him"
+                    />
+                    <Bio
                       img="/team/chris.jpg"
                       name="Chris Walker"
                       teamRole="Hacker Resources"
@@ -548,11 +555,11 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
                 pronouns="she/her"
               />
               <Bio
-                  name="Mark Allen"
-                  teamRole="AMA Producer"
-                  img="https://ca.slack-edge.com/T0266FRGM-U03Q20XM953-91ae3b0d0243-512"
-                  pronouns="he/him"
-                />
+                name="Mark Allen"
+                teamRole="AMA Producer"
+                img="https://ca.slack-edge.com/T0266FRGM-U03Q20XM953-91ae3b0d0243-512"
+                pronouns="he/him"
+              />
               <Bio
                 img="/team/dina.jpg"
                 name="Dina Elhanan"
