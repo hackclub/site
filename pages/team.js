@@ -193,7 +193,7 @@ export default function Team() {
                     />
                     <Bio
                       name="Faisal Sayed"
-                      teamRole="HQ Engineer"
+                      teamRole="Engineering"
                       img="https://ca.slack-edge.com/T0266FRGM-U014ND5P1N2-78db6630a13d-512"
                       text="Faisal Sayed (@fayd) has been associated with Hack Club for 3 years and loves building open-source projects that bring joy. During the first workshop-bounty-program back in 2020, Faisal was heavily involved in creating & reviewing numerous programming workshops. At HQ, He works with Graham on HQ Engineering and infrastructure. Outside of Hack Club, Faisal likes working on his side-projects like Firefiles and tmdr."
                       pronouns="he/him"
