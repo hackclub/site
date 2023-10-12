@@ -8,3 +8,4 @@ public/sitemap.xml
 .vscode
 yarn-error.log
 bun.lockb
+.idea

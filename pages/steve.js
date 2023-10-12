@@ -1,4 +1,4 @@
-import { Box, Link, Grid, Image, Container, Button, Heading, Text, Input, Checkbox } from 'theme-ui'
+import { Box, Textarea, Link, Grid, Image, Container, Button, Heading, Text, Input, Checkbox } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../components/force-theme'
@@ -231,7 +231,7 @@ const handleEndDateChange = (date) => {
       <Image src="https://cloud-mltm380a0-hack-club-bot.vercel.app/35__1_.gif" /> */}
       </Container>
 
-      <Image alt="" sx={{marginBottom: 0}} src="https://cloud-5sry4ilri-hack-club-bot.vercel.app/0dirtrow.png"/>
+      <Image alt="" sx={{marginBottom: 0, width: "100vw"}} src="https://cloud-5sry4ilri-hack-club-bot.vercel.app/0dirtrow.png"/>
       <Box style={{backgroundColor: "#000", marginTop: -8}}>
       <Container sx={{marginTop: 0}}>
       <Heading
@@ -249,38 +249,59 @@ const handleEndDateChange = (date) => {
 >
   Book Your Stay
 </Heading>
-<p style={{color: "#fff", marginBottom: 0}}>Coming Soon...</p>
-<Box style={{display: "flex", gap: "16px"}}>
-<Box>
+<Box sx={{display: "flex", paddingBottom: 96, gap: "16px", justifyContent: "space-between"}}>
+<Box sx={{width: "100%"}}>
       <Box>
-        <Text sx={{fontFamily: "billy", color: "#fff", fontSize: 18}}>Name</Text>
+        <Text sx={{fontFamily: "billy", fontSize: 24, color: "#fff"}}>Name</Text>
         <Input placeholder={"Marsha Mellow"} sx={{
           backgroundColor: "#fff",
-          color: "#000"
+          color: "#000",
+          fontSize: 28,
+          padding: 16,
+          lineHeight: 1,
+          borderRadius: 0,
+          marginTop: "4px",
+          border: "4px solid #495057"
           }} />
       </Box>
-      <Box>
-      <Text sx={{fontFamily: "billy", color: "#fff", fontSize: 18}}>What do you plan to work on?</Text>
-        <Input placeholder={"Marsha Mellow"} sx={{
-          backgroundColor: "#fff",
-          color: "#000"
-          }} />
-
+      <Box sx={{marginTop: "16px"}}>
+        <Text sx={{fontFamily: "billy", fontSize: 24, color: "#fff"}}>What Do You Plan To Work On?</Text>
+        <Textarea
+    placeholder="I wanna try building a dock for Sprig"
+    sx={{
+      backgroundColor: "#fff",
+      color: "#000",
+      fontSize: 28,
+      marginTop: "4px",
+      padding: 16,
+      lineHeight: 1,
+      borderRadius: 0,
+      border: "4px solid #495057",
+    }}
+    multiline={true} // Set the multiline property to true
+  />
       </Box>
-      <Box>
-      <Text sx={{fontFamily: "billy", color: "#fff", fontSize: 18}}>Start Date</Text>
-      <DatePicker
-      
-                selected={startDate}
-                onChange={handleStartDateChange}
-                selectsStart
-                startDate={startDate}
-                endDate={endDate}
-                excludeDates={disabledDates}
-            />
-
-      </Box>
-      <Box>
+      <Box sx={{display: "flex"}}>
+  <Box sx={{ display: "flex", flex: 1, flexDirection: "column" }}>
+    <Text sx={{ fontFamily: "billy", color: "#fff", fontSize: 18 }}>Start Date</Text>
+    <DatePicker
+      selected={startDate}
+      style={{
+        width: "100%", // Set the width to 100%
+        boxSizing: "border-box", // Include padding and border in the total width
+      }}
+      onChange={handleStartDateChange}
+      selectsStart
+      startDate={startDate}
+      endDate={endDate}
+      excludeDates={disabledDates}
+      sx={{
+        width: "100%", // Set the width to 100%
+        boxSizing: "border-box", // Include padding and border in the total width
+      }}
+    />
+  </Box>
+      <Box sx={{display: "flex", flex: 1, flexDirection: "column"}}>
       <Text sx={{fontFamily: "billy", color: "#fff", fontSize: 18}}>End Date</Text>
       <DatePicker
       
@@ -293,9 +314,9 @@ const handleEndDateChange = (date) => {
                 excludeDates={disabledDates}
             />
       </Box>
-
       </Box>
-<Box>
+      </Box>
+<Box sx={{width: "100%"}}>
   <Box>
   <Text sx={{fontFamily: "billy", color: "#fff", fontSize: 18}}>Email</Text>
         <Input placeholder={"Marsha Mellow"} sx={{
