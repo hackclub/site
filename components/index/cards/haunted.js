@@ -36,8 +36,7 @@ export default function Haunted() {
 
         <Text as="p" variant="subtitle" sx={{ color: 'white' }}>
        Haunted House is a Chicago-based event full of sites and frights! Join us from October 28-29 
-       for a weekend of coding pushing the bounds of creativity, where fright meets byte, and check out 
-       the website at <a href='https://haunted.hackclub.com'>haunted.hackclub.com</a>!
+        for a weekend of coding pushing the bounds of creativity, where fright meets byte!
         </Text>
         <Flex
           sx={{
@@ -47,6 +46,9 @@ export default function Haunted() {
             justifyContent: 'flex-end'
           }}
         ></Flex>
+          <Buttons id="14" link="https://haunted.hackclub.com" icon="welcome" primary="#EB6424">
+            Sign Up
+          </Buttons>
       </Grid>
     </CardModel>
   )
