@@ -170,6 +170,20 @@ export default function Team() {
                       img="https://media.kognise.dev/other-avatars/bean-man.jpg"
                       pronouns="she/her"
                     />
+					<Bio
+                      name="Shawn Malluwa-Wadu"
+                      img="https://cloud-8u876lgxi-hack-club-bot.vercel.app/0shawn.png"
+                      teamRole="Local Cowboy"
+                      text="Shawn Malluwa (@Shawn M.) is a Hack clubber from Maryland who joined in 2022 around the launch of Sprig and is now heavily involved in refining hardware designs for various HQ projects! He’s also the face and voice of a bunch of our social media videos, and works to share the process of making with the world. In his free time, Shawn loves to create Art across various mediums, particularly comics and animation."
+                      pronouns="he/him"
+                    />
+					<Bio
+                      name="Faisal Sayed"
+                      teamRole="Engineering"
+                      img="https://ca.slack-edge.com/T0266FRGM-U014ND5P1N2-78db6630a13d-512"
+                      text="Faisal Sayed (@fayd) has been associated with Hack Club for 3 years and loves building open-source projects that bring joy. During the first workshop-bounty-program back in 2020, Faisal was heavily involved in creating & reviewing numerous programming workshops. At HQ, He works with Graham on HQ Engineering and infrastructure. Outside of Hack Club, Faisal likes working on his side-projects like Firefiles and tmdr."
+                      pronouns="he/him"
+                    />
                     <Bio
                       name="Deven Jadhav"
                       teamRole="Events"
@@ -189,13 +203,6 @@ export default function Team() {
                       teamRole="Creative Technologist"
                       text="Originally from Vermont, Graham has worked as a full-stack software engineer in Silicon Valley for over 20 years, most recently at Uber where he worked on their core routing services and map data platform.  He recently moved back east, and currently resides in Shelburne VT.  Graham's hobbies include gaming, gamedev, cooking with his wife, and playing joyfully with his three year old daughter."
                       img="/team/graham.jpg"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Faisal Sayed"
-                      teamRole="Engineering"
-                      img="https://ca.slack-edge.com/T0266FRGM-U014ND5P1N2-78db6630a13d-512"
-                      text="Faisal Sayed (@fayd) has been associated with Hack Club for 3 years and loves building open-source projects that bring joy. During the first workshop-bounty-program back in 2020, Faisal was heavily involved in creating & reviewing numerous programming workshops. At HQ, He works with Graham on HQ Engineering and infrastructure. Outside of Hack Club, Faisal likes working on his side-projects like Firefiles and tmdr."
                       pronouns="he/him"
                     />
                     <Bio
