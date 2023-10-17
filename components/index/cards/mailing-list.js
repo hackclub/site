@@ -1,10 +1,10 @@
-import Icon from '@hackclub/icons'
-import {useRef, useState} from 'react'
-import { Box, Input, Button, Text, Card, Flex, Grid, Link } from 'theme-ui'
-import MailCard from '../../mail-card'
-import BGImg from '../../background-image'
+import Icon from "@hackclub/icons";
+import { useEffect, useRef, useState } from "react";
+import { Box, Button, Card, Flex, Grid, Input, Link, Text } from "theme-ui";
+import MailCard from "../../mail-card";
+import BGImg from "../../background-image";
 
-import background from '../../../public/home/footer.png'
+import background from "../../../public/home/footer.png";
 
 const Loading = () => (
   <Box
@@ -30,7 +30,7 @@ const Loading = () => (
 const MailingList = () => {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-    const [letters, setLetters] = useState([])
+  const [data, setData] = useState([])
   const formRef = useRef(null)
 
   const handleSubmit = async (e) => {
@@ -56,21 +56,11 @@ const MailingList = () => {
     setSubmitting(false)
   }
 
- /* useEffect(() => {
-      const newsletters = async () => {
-          const res = await fetch('https://api.github.com/repositories/313119644/contents/updates', {
-              headers: {
-                  'Content-Type': 'application/json',
-              }
-          })
-
-            const data = await res.json()
-            setLetters(data)
-      }
-
-      newsletters()
-  }, [])*/
-
+  useEffect(() => {
+    fetch('https://api.github.com/repositories/313119644/contents/updates')
+      .then(response => response.json())
+      .then(data => setData(data.slice(0, 2)));
+  }, []);
 
   return (
     <Box sx={{ position: 'relative', py: 6, background: 'darker' }}>
@@ -186,19 +176,17 @@ const MailingList = () => {
               width: '100%',
             }}
           >
-            <MailCard
-              date='August 2023'
-              issue={18}
-              body='Bring your club on an epic adventure in code this semester! Jams are 18 brand new coding workshops created by Hack Clubbers ESPECIALLY for you to use in your meetings, complete with pre-made slide decks and even some videos!'
-              link='/leader-newsletters/2023-08-18'
-            />
-            <MailCard
-              date='September 2023'
-              issue={20}
-              body='📆📣 Leader meeting tomorrow! Join club leaders Sahiti, Zayn and Ronnit tomorrow 8:00am PST/11:00am EST/8:30pm IST. Bring questions and advice to share about maintaining your club after the first meeting!!'
-              link='/leader-newsletters/2023-09-29'
-            />
-              {/*<Link href='/leader-newsletters/' sx={{ justifySelf: 'center', cursor: 'pointer',  }} as='h3'>
+            {data.map((item, index) => (
+              <MailCard
+                date={item.name}
+                issue={18}
+                body={`${item.name} hello world!`}
+                link='/leader-newsletters/2023-08-18'
+                key={index}
+              />
+            ))}
+
+          {/*<Link href='/leader-newsletters/' sx={{ justifySelf: 'center', cursor: 'pointer',  }} as='h3'>
                   Read more
               </Link>*/}
           </Box>
