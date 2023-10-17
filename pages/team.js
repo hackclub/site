@@ -1,10 +1,10 @@
-import { Box, Container, Text, Grid, Flex } from 'theme-ui'
-import Meta from '@hackclub/meta'
-import Head from 'next/head'
-import Nav from '../components/nav'
-import Footer from '../components/footer'
-import Bio from '../components/bio'
-import ForceTheme from '../components/force-theme'
+import { Box, Container, Flex, Grid, Text } from "theme-ui";
+import Meta from "@hackclub/meta";
+import Head from "next/head";
+import Nav from "../components/nav";
+import Footer from "../components/footer";
+import Bio from "../components/bio";
+import ForceTheme from "../components/force-theme";
 
 export default function Team() {
   return (
@@ -23,9 +23,9 @@ export default function Team() {
           px={[2, 4]}
           sx={{
             backgroundImage:
-              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: '75%'
+              "radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "75%",
           }}
         >
           <Container>
@@ -38,7 +38,7 @@ export default function Team() {
               as="div"
               variant="lead"
               color="smoke"
-              sx={{ maxWidth: '650px' }}
+              sx={{ maxWidth: "650px" }}
             >
               We believe in a world where every young person is empowered to be
               the change they want to see around them. At Hack Club, we’re
@@ -50,12 +50,12 @@ export default function Team() {
           <Container>
             <Flex
               sx={{
-                bg: 'rgb(51 142 218 / 40%)',
+                bg: "rgb(51 142 218 / 40%)",
                 p: 3,
-                borderRadius: '20px',
+                borderRadius: "20px",
                 mb: 3,
                 gap: 3,
-                flexWrap: ['wrap', null, null, 'nowrap']
+                flexWrap: ["wrap", null, null, "nowrap"],
               }}
             >
               <Text
@@ -63,18 +63,18 @@ export default function Team() {
                 my={[0, 0, 3]}
                 as="h3"
                 sx={{
-                  textAlign: 'center',
+                  textAlign: "center",
                   fontSize: 4,
-                  writingMode: [null, null, null, 'vertical-rl'],
+                  writingMode: [null, null, null, "vertical-rl"],
                   mr: [0, 0, 0, 2],
-                  transform: [null, null, null, 'rotate(180deg)'],
-                  width: ['100%', null, null, 'fit-content'],
+                  transform: [null, null, null, "rotate(180deg)"],
+                  width: ["100%", null, null, "fit-content"],
                   marginBottom: [
-                    '0px!important',
-                    '0px!important',
-                    '0px!important',
-                    3
-                  ]
+                    "0px!important",
+                    "0px!important",
+                    "0px!important",
+                    3,
+                  ],
                 }}
               >
                 Our Board
@@ -127,9 +127,9 @@ export default function Team() {
               <Box>
                 <Box
                   sx={{
-                    bg: 'rgb(51 214 166 / 40%)',
+                    bg: "rgb(51 214 166 / 40%)",
                     p: 3,
-                    borderRadius: '20px'
+                    borderRadius: "20px",
                   }}
                 >
                   <Text
@@ -137,7 +137,7 @@ export default function Team() {
                     mt={2}
                     mb={3}
                     as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
+                    sx={{ textAlign: "center", fontSize: 4 }}
                   >
                     Hacker Resources Team
                   </Text>
@@ -169,6 +169,20 @@ export default function Team() {
                       text="Always driven by curiosity for how things work, Lexi fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. She spends her time programming, making music, and studying for her private pilot license; at Hack Club, she spends her time working on whatever fantastic project is happening in the present moment."
                       img="https://media.kognise.dev/other-avatars/bean-man.jpg"
                       pronouns="she/her"
+                    />
+                    <Bio
+                      name="Shawn Malluwa-Wadu"
+                      img="https://cloud-8u876lgxi-hack-club-bot.vercel.app/0shawn.png"
+                      teamRole="Local Cowboy"
+                      text="Shawn Malluwa (@Shawn M.) is a Hack clubber from Maryland who joined in 2022 around the launch of Sprig and is now heavily involved in refining hardware designs for various HQ projects! He’s also the face and voice of a bunch of our social media videos, and works to share the process of making with the world. In his free time, Shawn loves to create Art across various mediums, particularly comics and animation."
+                      pronouns="he/him"
+                    />
+                    <Bio
+                      name="Faisal Sayed"
+                      teamRole="Engineering"
+                      img="https://ca.slack-edge.com/T0266FRGM-U014ND5P1N2-78db6630a13d-512"
+                      text="Faisal Sayed (@fayd) has been associated with Hack Club for 3 years and loves building open-source projects that bring joy. During the first workshop-bounty-program back in 2020, Faisal was heavily involved in creating & reviewing numerous programming workshops. At HQ, He works with Graham on HQ Engineering and infrastructure. Outside of Hack Club, Faisal likes working on his side-projects like Firefiles and tmdr."
+                      pronouns="he/him"
                     />
                     <Bio
                       name="Deven Jadhav"
@@ -204,52 +218,13 @@ export default function Team() {
                       text={`Woody is a film actor, musician, comedian, band leader, event producer, and convener of fun. He founded Vermont’s Festival of Fools, The Feast of Fools, The Hawaiian Vaudeville Festival, and the artist retreat & concert venue known as Mt. Foolery. For Woody, “putting on events has always been one of my great pleasures. I’ve also had the privilege of sharing my time with the elderly as well as mentoring middle & high schools students in Vermont. Being part of the Hack Club community has opened my eyes & heart to so much that is possible. It’s a great adventure we’re all on, and we’re here to light the way for each other. Shine on!”`}
                       img="/team/woody.jpg"
                       pronouns="he/him"
-                      spanTwo
-                    />
-                  </Grid>
-                </Box>
-                <Box
-                  sx={{
-                    bg: 'rgb(255 142 55 / 40%)',
-                    p: 3,
-                    borderRadius: '20px',
-                    mt: 3
-                  }}
-                >
-                  <Text
-                    variant="headline"
-                    mt={2}
-                    mb={3}
-                    as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
-                  >
-                    Communications & Philanthropy
-                  </Text>
-                  <Grid
-                    columns={[1, null, 2]}
-                    gap={2}
-                    sx={{ height: 'fit-content' }}
-                  >
-                    <Bio
-                      name="Belle See"
-                      teamRole="Engineer for Comms"
-                      text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
-                      img="https://github.com/bellesea.png"
-                      pronouns="she/her"
                     />
                     <Bio
-                      name="Abby Fischler"
-                      teamRole="Junior Administrative Engineer"
-                      text={`Abby is a high school junior from Los Angeles that loves technology! Since joining the Hack Club community in May 2020, she’s enjoyed learning with friends in the Slack and on board the Hacker Zephyr. She joined Hack Club to support Christina’s work in encouraging more girls to get involved. Abby has hosted events for the community and loves sharing her coding journey on the #ship channel.`}
-                      img="https://github.com/abbyfischler.png"
-                      pronouns="she/her"
-                    />
-                    <Bio
-                      name="Mark Allen"
-                      teamRole="AMA Producer"
-                      img="https://ca.slack-edge.com/T0266FRGM-U03Q20XM953-91ae3b0d0243-512"
+                      img="/team/josias.jpg"
+                      name="Josias Aurel"
+                      teamRole="Engineering"
+                      text="Josias Aurel (@Josias Aurel) has been associated with Hack Club for about 3 years, working on a variety of projects including Sinerider. He has organized events such as the TiC Summit and TiC Hackathon in his local town of Yaoundé, Cameroon. He is a curiosity-driven coder who likes to take on interesting challenges and who is interested in machine learning and systems programming. He'll be working very closely with Graham over the next year on a variety of projects. Outside of tech he likes going on hikes with friends and eating vegetables."
                       pronouns="he/him"
-                      spanTwo
                     />
                   </Grid>
                 </Box>
@@ -257,9 +232,9 @@ export default function Team() {
               <Box>
                 <Box
                   sx={{
-                    bg: 'rgb(236 55 80 / 40%)',
+                    bg: "rgb(236 55 80 / 40%)",
                     p: 3,
-                    borderRadius: '20px'
+                    borderRadius: "20px",
                   }}
                 >
                   <Text
@@ -267,14 +242,14 @@ export default function Team() {
                     mt={2}
                     mb={3}
                     as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
+                    sx={{ textAlign: "center", fontSize: 4 }}
                   >
                     HCB Team
                   </Text>
                   <Grid
                     columns={[1, null, 2]}
                     gap={2}
-                    sx={{ height: 'fit-content' }}
+                    sx={{ height: "fit-content" }}
                   >
                     <Bio
                       img="/team/max.jpg"
@@ -285,22 +260,22 @@ export default function Team() {
                     />
                     <Bio
                       name="Melanie Smith"
-                      teamRole="Operations Lead"
-                      text="Melanie grew up in northern New England where she obtained a degree in Marine Biology. She then spent several years running a pet store with 20+ employees and recently decided to change career paths. This led her to Hack Club where she is excited about helping students pursue their dreams."
+                      teamRole="Director of Operations"
+                      text="Melanie grew up in northern New England where she obtained a degree in Marine Biology. She then spent several years running a pet store with 20+ employees. In Feb 2021, she joined the HCB team as the Operations Lead. Now as Director of Operations, she is responsible for leading the team in vision and growth."
                       img="/team/mel.png"
                       pronouns="she/her"
                     />
                     <Bio
                       name="Caleb Denio"
                       teamRole="Engineering"
-                      text="Caleb is a New Hampshire-born coder with a passion for music and homemade food. He enjoys building wacky, creative projects, configuring linters, and hanging out in the Hack Club community. At HCB, he writes code that makes money go 'cha-ching!'"
+                      text="Caleb enjoys the simple things in life: making music, drinking lattes, and programming. At HCB, he engineers features."
                       img="/team/caleb.jpg"
                       pronouns="he/him"
                     />
                     <Bio
                       name="Liv Cook"
-                      teamRole="Operations Coordinator"
-                      text="Liv recently graduated from the University of Vermont, where she studied health policy and gained experience as a writing fellow and business assistant. Originally from New York City, she is always eager to be one in a fast-paced community of diverse thinking and grand ideas. Supporting projects and makers with incredible goals is her favorite part about being at Hack Club."
+                      teamRole="Jr Project Manager"
+                      text="Supporting hackathon organizers and makers worldwide is Liv’s favorite part about being at Hack Club. Being a part of the HCB team for over two years now, Liv also strives to make sure everyone has the best experience possible on the platform and that team projects are on track. She graduated from the University of Vermont with a degree in Healthcare Systems and Policy and enjoys traveling, writing, and jokes. #LivLaughLove Her current favorite song is:"
                       img="/team/liv.png"
                       pronouns="she/her"
                       video="https://www.youtube-nocookie.com/embed/MtN1YnoL46Q?si=FJcJN7kMptzBaGn4"
@@ -315,111 +290,125 @@ export default function Team() {
                     <Bio
                       name="Daisy Reyes"
                       teamRole="Operations Associate"
+                      text="Daisy has a passion for growing and maintaining positive relationships with all of the members of Hack Club and that’s her favorite part about being on the HCB team. Daisy especially loves onboarding and helping FIRST teams navigate HCB so that they can excel in their own goals. She grew up in Vermont on a dairy farm and graduated from The University of Vermont with her bachelors in Animal Science. She loves animals of all types, crocheting, board games, and traveling."
                       img="https://ca.slack-edge.com/T0266FRGM-U046V3EK56W-b9777e33eece-512"
-                      pronouns="she/her"
-                    />
-                    <Bio
-                      name="Bence Beres"
-                      teamRole="Bookkeeper"
-                      text="Bence is responsible for keeping accurate financial books for HQ and every org on HCB (40,000+ transactions in the last year!)."
-                      img="/team/bence.png"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Arianna Martinelli"
-                      teamRole="Operations"
-                      text={`Arianna is a Hack Clubber from Kentucky excited about how technology and humans can work together to solve problems. She joined Hack Club in 2020 to start a club at her all-girls high school and to learn from a community of fellow coders, and she joined HCB in 2021 to fiscally sponsor her non-profit Tandem. She loves swimming, trees, videography, film photography, reading Joan Didion, Formula 1, making memes, and crafting cards with puns.`}
-                      img="https://cloud-oubklmp6c-hack-club-bot.vercel.app/0arianna_profile_photo.png"
                       pronouns="she/her"
                     />
                     <Bio
                       name="Ben Dixon"
                       teamRole="Engineering"
-                      text={`Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars.`}
+                      text="Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars."
                       img="https://ca.slack-edge.com/T0266FRGM-U03DFNYGPCN-d76abb1ba329-512"
                       pronouns="he/him"
                       video="https://www.youtube-nocookie.com/embed/POv-3yIPSWc?si=25WKed0HkazCZZOz"
                     />
-                  </Grid>
-                </Box>
-
-                <Box
-                  sx={{
-                    bg: 'rgb(166 51 214 / 40%)',
-                    p: 3,
-                    borderRadius: '20px',
-                    mt: 3
-                  }}
-                >
-                  <Text
-                    variant="headline"
-                    mt={2}
-                    mb={3}
-                    as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
-                  >
-                    Community Team
-                  </Text>
-                  <Grid columns={[1, null, 2]} gap={2}>
                     <Bio
-                      name="Claire Wang"
-                      teamRole="Moderation & Events"
-                      text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
-                      img="/team/claire.png"
+                      name="Hunter Goodenough"
+                      teamRole="Operations Associate"
+                      text="Hunter is a jack of all trades with a particular passion for creating and supporting communities. He is an ardent hobbyist and is always trying out new things. He is a newer hire at HCB (Having previously worked in both the Restaurant and Medical Technology industries) and is excited to join the community and is looking forward to participating in various Hack Club projects and events."
+                      img="https://ca.slack-edge.com/T0266FRGM-U05RDPEKGA3-647435768a53-512"
+                      pronouns="he/him"
+                    />
+                    <Bio
+                      name="Bence Beres"
+                      teamRole="Bookkeeper"
+                      text="Bence is a true bureaucrat who doesn’t leave any documents unturned. Having made a sharp U-turn after college to switch from his burgeoning career in the world of political science towards the thrilling and life altering adventures of the world of Accounting, Bence understands that knowing Excel is a greatly underappreciated life skill."
+                      img="/team/bence.png"
+                      pronouns="he/him"
+                    />
+                    <Bio
+                      name="Kris Hoadley"
+                      teamRole="Bookkeeper"
+                      text="Kris is a native Vermonter and accounting nerd with the need to make all of life balance. Numbers? Give her numbers anytime."
+                      img="/team/kris.png"
                       pronouns="she/her"
                     />
                     <Bio
-                      name="Toby Brown"
-                      teamRole="Moderation & Events"
-                      img="https://ca.slack-edge.com/T0266FRGM-U02C9DQ7ZL2-a57a3718241a-512"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Mutammim"
-                      teamRole="Moderation & Events"
-                      img="https://ca.slack-edge.com/T0266FRGM-U021VLF7880-2bf2660768cc-512"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Faisal Sayed"
-                      teamRole="Moderation & Events"
-                      img="https://github.com/faisalsayed10.png"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Maggie Liu"
-                      teamRole="Moderation & Events"
-                      img="https://ca.slack-edge.com/T0266FRGM-U026XSMKEDC-a5beea76faa2-512"
+                      name="Arianna Martinelli"
+                      teamRole="Operations"
+                      text="Arianna (a current freshman at Carnegie-Mellon University and a former Hack Club leader from Kentucky) loves onboarding all our cool organizations and making HCB more accessible. When she’s not learning about how humans and computers can work together, she’s making memes and decorating the world with Hack Club stickers."
+                      img="https://cloud-oubklmp6c-hack-club-bot.vercel.app/0arianna_profile_photo.png"
                       pronouns="she/her"
                     />
                     <Bio
-                      name="Sahiti Dasari"
-                      teamRole="Moderation & Events"
-                      img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
-                      pronouns="she/her"
-                    />
-                    <Bio
-                      name="Gaurav Pandey"
-                      teamRole="Moderation & Events"
-                      img="https://ca.slack-edge.com/T0266FRGM-U043Q05KFAA-95e93fd7beff-512"
-                      pronouns="he/him"
-                    />
-                    <Bio
-                      name="Arav Narula"
-                      teamRole="Moderation & Events"
-                      img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
+                      name="Shubham Panth"
+                      teamRole="Operations"
+                      text="Shubham, a self-taught coder from the tranquil terrains of Sweden, has been weaving through C# and Unity3D since 2017. After utilizing HCB to catapult his own developer dreams, he pivoted to help others, ensuring that every young dreamer’s journey through HCB is as seamless and spirited as his own coding adventures."
+                      img="https://ca.slack-edge.com/T0266FRGM-U014E8132DB-8b1a8e7a1a41-512"
                       pronouns="he/him"
                     />
                   </Grid>
                 </Box>
               </Box>
             </Grid>
+            <Box
+              sx={{
+                bg: "rgb(166 51 214 / 40%)",
+                p: 3,
+                borderRadius: "20px",
+                mt: 3,
+              }}
+            >
+              <Text
+                variant="headline"
+                mt={2}
+                mb={3}
+                as="h3"
+                sx={{ textAlign: "center", fontSize: 4 }}
+              >
+                Community Team
+              </Text>
+              <Grid columns={[1, 2, null, 4]} gap={2}>
+                <Bio
+                  name="Toby Brown"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U02C9DQ7ZL2-a57a3718241a-512"
+                  pronouns="he/him"
+                />
+                <Bio
+                  name="Mutammim"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U021VLF7880-2bf2660768cc-512"
+                  pronouns="he/him"
+                />
+                <Bio
+                  name="Faisal Sayed"
+                  teamRole="Moderation & Events"
+                  img="https://github.com/faisalsayed10.png"
+                  pronouns="he/him"
+                />
+                <Bio
+                  name="Maggie Liu"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U026XSMKEDC-a5beea76faa2-512"
+                  pronouns="she/her"
+                />
+                <Bio
+                  name="Sahiti Dasari"
+                  teamRole="Moderation & Events"
+                  img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
+                  pronouns="she/her"
+                />
+                <Bio
+                  name="Gaurav Pandey"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U043Q05KFAA-95e93fd7beff-512"
+                  pronouns="he/him"
+                />
+                <Bio
+                  name="Arav Narula"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
+                  pronouns="he/him"
+                />
+              </Grid>
+            </Box>
             <br />
-            <Box sx={{ textAlign: 'center', mt: 2, mb: [3, 4] }}>
+            <Box sx={{ textAlign: "center", mt: 2, mb: [3, 4] }}>
               <Text
                 variant="title"
                 color="orange"
-                sx={{ lineHeight: '1em', fontSize: [4, 5, 6] }}
+                sx={{ lineHeight: "1em", fontSize: [4, 5, 6] }}
                 as="h2"
               >
                 Acknowledgements
@@ -428,13 +417,13 @@ export default function Team() {
                 variant="title"
                 color="text"
                 sx={{
-                  lineHeight: '1.2',
+                  lineHeight: "1.2",
                   fontSize: [1, 3, 4],
                   my: [3, 0, 0],
                   fontWeight: 400,
-                  maxWidth: '600px',
-                  width: '100%',
-                  margin: 'auto'
+                  maxWidth: "600px",
+                  width: "100%",
+                  margin: "auto",
                 }}
                 as="h2"
               >
@@ -509,10 +498,31 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
                 pronouns="he/him"
               />
               <Bio
+                name="Abby Fischler"
+                teamRole="Junior Administrative Engineer"
+                text={`Abby is a high school junior from Los Angeles that loves technology! Since joining the Hack Club community in May 2020, she’s enjoyed learning with friends in the Slack and on board the Hacker Zephyr. She joined Hack Club to support Christina’s work in encouraging more girls to get involved. Abby has hosted events for the community and loves sharing her coding journey on the #ship channel.`}
+                img="https://github.com/abbyfischler.png"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Jessica Card"
                 teamRole="Education Engineer"
                 text="Jessica is a self taught programmer originally from Alaska. She worked for over a decade as a software engineer at startups like GitHub and Bugsnag in San Francisco. She then left the web development world to learn how to make video games. At Hack Club, Jessica brought her creative energy to an array of projects! Most notably, when she learnt Assembly along with Hack Clubbers to produce Some Assembly Required."
                 img="/team/jessica.jpg"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Belle See"
+                teamRole="Engineer for Comms"
+                text="Belle enjoys building for her community, whether that be through developing websites or planning programs and events. She is excited to make Hack Club a better place for students around the world and looks forward to learning from the team at Hack Club!"
+                img="https://github.com/bellesea.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Claire Wang"
+                teamRole="Community"
+                text="Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists."
+                img="/team/claire.png"
                 pronouns="she/her"
               />
               <Bio
@@ -556,6 +566,12 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
                 teamRole="Exec. Assistant"
                 text="Philippine bred and settled with family in the U.S., Tina shifted her career from marketing and film production to teaching kids in the Clark County School District. At Hack Club, she helped thousands of high school students hack their way to a fabulous future."
                 pronouns="she/her"
+              />
+              <Bio
+                name="Mark Allen"
+                teamRole="AMA Producer"
+                img="https://ca.slack-edge.com/T0266FRGM-U03Q20XM953-91ae3b0d0243-512"
+                pronouns="he/him"
               />
               <Bio
                 img="/team/dina.jpg"
@@ -612,5 +628,5 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
       </Box>
       <Footer light key="footer" />
     </>
-  )
+  );
 }

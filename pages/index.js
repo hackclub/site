@@ -19,7 +19,7 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Outernet from '../components/index/cards/outernet'
+import Pizza from '../components/index/cards/pizza'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -39,6 +39,7 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
+import Haunted from '../components/index/cards/haunted'
 
 /** @jsxImportSource theme-ui */
 
@@ -640,7 +641,8 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Outernet />
+            <Haunted />
+            <Pizza />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
