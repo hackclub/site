@@ -63,7 +63,7 @@ export default function HCBInfo() {
                     Rather than setting up a standard bank account, you'll get a
                     restricted fund within Hack Club accounts.
                   </li>
-                  <li>You can't deposit or withdraw money.</li>
+                  <li>You can't deposit or withdraw cash. But you can receive any kind of electronic payment!</li>
                 </ul>
               </Text>
             </FlexCol>
