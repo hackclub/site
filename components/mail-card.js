@@ -1,4 +1,4 @@
-import { Box, Card, Text } from 'theme-ui'
+import { Box, Card, Text } from "theme-ui";
 
 export default function MailCard({ body, issue, date, link }) {
   body = body.length > 80 ? body.substring(0, 80) + '...' : body
@@ -45,10 +45,3 @@ export default function MailCard({ body, issue, date, link }) {
     </Card>
   )
 }
-
-/*
-        <Link href={link || '/newsletter'}>        </Link>
-
-
-
-       */
