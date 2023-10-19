@@ -1,9 +1,8 @@
 import Icon from "@hackclub/icons";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box, Button, Card, Flex, Grid, Input, Link, Text } from "theme-ui";
 import BGImg from "../../background-image";
 import background from "../../../public/home/footer.png";
-import { useEffect } from "react";
 import MailCard from "../../mail-card";
 
 const markdownToHtml = require('@hackclub/markdown')
@@ -58,15 +57,17 @@ const MailingList = ({ html }) => {
     setSubmitting(false)
   }
   
+  // This lovely concoction of JavaScript basically fetches the last two newsletters from the GitHub repo,
+  // converts them to HTML, gets rid of those HTML tags, the sets all of that as the state of the component.
     useEffect(() => {
       fetch('https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates')
         .then(response => response.json())
-        .then(data.slice(0.2))
+        .then(data => data.slice(0, 2))
         .then(data => Promise.all(data.map(item => fetch(item.download_url))))
         .then(responses => Promise.all(responses.map(response => response.text())))
-        .then(markdowns => Promise.all(markdowns.map(markdown => markdownToHtml(markdown))))
-        .then(htmls => htmls.map(html => html.replace(/<img[^>]*>/g, ""))) // Remove images
-        .then(cleanHtmls => cleanHtmls.map(cleanHtml => cleanHtml.substring(0, 200))) // Limit to first 200 characters
+        .then(markdowns => Promise.all(markdowns.map(markdown => markdownToHtml(markdown)))) // I didn't have to covert it to html; may change later.
+        .then(htmls => htmls.map(html => html.replace(/<img[^>]*>/g, ""))) // Gets rid of all images
+        .then(htmls => htmls.map(html => html.replace(/<[^>]*>/g, "").replace(/The Hackening/g, ""))) // Chucks out all html tags + "The Hackening"
         .then(finalHtmls => setData(finalHtmls));
     }, []);
 
@@ -116,7 +117,7 @@ const MailingList = ({ html }) => {
               >
                 We&apos;ll send you an email no more than once a month, when we work
                 on something cool for you. Check out our{' '}
-                <Link href='/leader-newsletters/'>previous issues</Link>.
+                <Link href='https://workshops.hackclub.com/leader-newsletters/'>previous issues</Link>.
               </Text>
             </Box>
             <Grid
@@ -184,6 +185,7 @@ const MailingList = ({ html }) => {
               width: '100%',
             }}
           >
+            {/*TODO: fix titles, and issue numbers.*/}
             {data.map((item, index) => (
               <MailCard
                 date={item.name}
@@ -210,17 +212,6 @@ const MailingList = ({ html }) => {
       />
     </Box>
   )
-}
-
-export const getStaticProps = async ({ params }) => {
-  const {
-    getLeaderNewsletterData,
-    getLeaderNewsletterFile
-  } = require('../../../lib/get-newsletters')
-  const { slug } = params
-  const md = await getLeaderNewsletterFile(`updates/${slug}`)
-  const { data, html } = await getLeaderNewsletterData(slug, md)
-  return { props: { slug, data, html }, revalidate: 30 }
 }
 
 export default MailingList
