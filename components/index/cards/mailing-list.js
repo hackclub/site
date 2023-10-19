@@ -1,10 +1,12 @@
 import Icon from "@hackclub/icons";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Box, Button, Card, Flex, Grid, Input, Link, Text } from "theme-ui";
-import MailCard from "../../mail-card";
 import BGImg from "../../background-image";
-
 import background from "../../../public/home/footer.png";
+import { useEffect } from "react";
+import MailCard from "../../mail-card";
+
+const markdownToHtml = require('@hackclub/markdown')
 
 const Loading = () => (
   <Box
@@ -27,7 +29,7 @@ const Loading = () => (
   ></Box>
 )
 
-const MailingList = () => {
+const MailingList = ({ html }) => {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [data, setData] = useState([])
@@ -55,12 +57,18 @@ const MailingList = () => {
     }
     setSubmitting(false)
   }
-
-  useEffect(() => {
-    fetch('https://api.github.com/repositories/313119644/contents/updates')
-      .then(response => response.json())
-      .then(data => setData(data.slice(0, 2)));
-  }, []);
+  
+    useEffect(() => {
+      fetch('https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates')
+        .then(response => response.json())
+        .then(data.slice(0.2))
+        .then(data => Promise.all(data.map(item => fetch(item.download_url))))
+        .then(responses => Promise.all(responses.map(response => response.text())))
+        .then(markdowns => Promise.all(markdowns.map(markdown => markdownToHtml(markdown))))
+        .then(htmls => htmls.map(html => html.replace(/<img[^>]*>/g, ""))) // Remove images
+        .then(cleanHtmls => cleanHtmls.map(cleanHtml => cleanHtml.substring(0, 200))) // Limit to first 200 characters
+        .then(finalHtmls => setData(finalHtmls));
+    }, []);
 
   return (
     <Box sx={{ position: 'relative', py: 6, background: 'darker' }}>
@@ -179,8 +187,8 @@ const MailingList = () => {
             {data.map((item, index) => (
               <MailCard
                 date={item.name}
-                issue={18}
-                body={`${item.name} hello world!`}
+                issue={index + 1}
+                body={item}
                 link='/leader-newsletters/2023-08-18'
                 key={index}
               />
@@ -202,6 +210,17 @@ const MailingList = () => {
       />
     </Box>
   )
+}
+
+export const getStaticProps = async ({ params }) => {
+  const {
+    getLeaderNewsletterData,
+    getLeaderNewsletterFile
+  } = require('../../../lib/get-newsletters')
+  const { slug } = params
+  const md = await getLeaderNewsletterFile(`updates/${slug}`)
+  const { data, html } = await getLeaderNewsletterData(slug, md)
+  return { props: { slug, data, html }, revalidate: 30 }
 }
 
 export default MailingList
