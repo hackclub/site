@@ -44,8 +44,8 @@ export default function MailCard({ body, issue, date, link }) {
             <Box sx={{ px: [3, 4] }}>
               <Box>
                 <Text>
-                  Newsletter #{issue}
-                  <Text sx={{ color: "#8492a6" }}>— {date}</Text>
+                  {date}
+                  <Text sx={{ color: "#8492a6" }}>— From Hack Club, to You</Text>
                 </Text>
                 <Text as="h2" sx={{ fontWeight: "normal" }}>
                   {body}

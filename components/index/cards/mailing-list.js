@@ -4,6 +4,7 @@ import { Box, Button, Card, Flex, Grid, Input, Link, Text } from "theme-ui";
 import BGImg from "../../background-image";
 import background from "../../../public/home/footer.png";
 import MailCard from "../../mail-card";
+import { format } from "date-fns";
 
 const markdownToHtml = require("@hackclub/markdown");
 
@@ -128,7 +129,13 @@ const MailingList = ({ html }) => {
               >
                 We&apos;ll send you an email no more than once a month, when we work
                 on something cool for you. Check out our{' '}
-                <Link href='https://workshops.hackclub.com/leader-newsletters/'>previous issues</Link>.
+                <Link
+                  href='https://workshops.hackclub.com/leader-newsletters/'
+                  target='_blank'
+                  rel='noopener norefferer'
+                >
+                  previous issues
+                </Link>.
               </Text>
             </Box>
             <Grid
@@ -196,11 +203,11 @@ const MailingList = ({ html }) => {
               width: '100%',
             }}
           >
-            {data.finalHtml.map((html, index) => (
+            {data.finalHtml.slice().reverse().map((html, index) => (
               <MailCard
                 issue={index + 1}
                 body={html}
-                date={data.names[index].split('-').join('/')}
+                date={format(new Date(data.names[index].split('-').join(', ')), "MMMM d, yyyy")}
                 link={data.names[index]}
                 key={index}
               />
