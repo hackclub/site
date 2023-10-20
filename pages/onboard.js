@@ -1,14 +1,14 @@
-import { Box, Button, Grid, Heading, Image, Text, Flex, Link } from 'theme-ui'
-import Balancer from 'react-wrap-balancer'
-import Head from 'next/head'
-import Meta from '@hackclub/meta'
-import Nav from '../components/nav'
-import Footer from '../components/footer'
-import FadeIn from '../components/fade-in'
-import Sparkles from '../components/sparkles'
-import Tilt from '../components/tilt'
-import usePrefersReducedMotion from '../lib/use-prefers-reduced-motion'
-import { useRef, useEffect, useState } from 'react'
+import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from "theme-ui";
+import Balancer from "react-wrap-balancer";
+import Head from "next/head";
+import Meta from "@hackclub/meta";
+import Nav from "../components/nav";
+import Footer from "../components/footer";
+import FadeIn from "../components/fade-in";
+import Sparkles from "../components/sparkles";
+import Tilt from "../components/tilt";
+import usePrefersReducedMotion from "../lib/use-prefers-reduced-motion";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * @type {import('theme-ui').ThemeUIStyleObject}
@@ -459,7 +459,7 @@ const ShipPage = () => {
                 </Balancer>
               </Heading>
 
-              <Flex sx={{ mt: 16, gap: 10 }}>
+              <Flex sx={{ mt: 16, gap: 10, flexDirection: ["column", "row"] }}>
                 <Button
                   variant="ctaLg"
                   as="a"
