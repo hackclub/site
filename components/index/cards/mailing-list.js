@@ -5,7 +5,7 @@ import BGImg from "../../background-image";
 import background from "../../../public/home/footer.png";
 import MailCard from "../../mail-card";
 
-const markdownToHtml = require('@hackclub/markdown')
+const markdownToHtml = require("@hackclub/markdown");
 
 const Loading = () => (
   <Box
@@ -31,7 +31,7 @@ const Loading = () => (
 const MailingList = ({ html }) => {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const [data, setData] = useState([])
+  const [data, setData] = useState({ finalHtml: [], names: [] })
   const formRef = useRef(null)
 
   const handleSubmit = async (e) => {
@@ -56,19 +56,30 @@ const MailingList = ({ html }) => {
     }
     setSubmitting(false)
   }
-  
+
   // This lovely concoction of JavaScript basically fetches the last two newsletters from the GitHub repo,
   // converts them to HTML, gets rid of those HTML tags, the sets all of that as the state of the component.
-    useEffect(() => {
+  // Then, It makes a second fetch request to get the filename, so that can be used to determine the link.
+  // After that, it removes the file extension, so we can use that as the date.
+  // Finally, it sets the state of data to the final HTML and the names of the files, so we can map that later on!
+
+  useEffect(() => {
+    Promise.all([
       fetch('https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates')
         .then(response => response.json())
+        .then(data => data.sort((a, b) => b.name.localeCompare(a.name))) // Makes sure we only get the latest two newsletters
         .then(data => data.slice(0, 2))
-        .then(data => Promise.all(data.map(item => fetch(item.download_url))))
+        .then(data => Promise.all(data.map(item => fetch(item.download_url)))) // Makes a separate fetch request for the content of each newsletter
         .then(responses => Promise.all(responses.map(response => response.text())))
-        .then(markdowns => Promise.all(markdowns.map(markdown => markdownToHtml(markdown)))) // I didn't have to covert it to html; may change later.
-        .then(htmls => htmls.map(html => html.replace(/<img[^>]*>/g, ""))) // Gets rid of all images
-        .then(htmls => htmls.map(html => html.replace(/<[^>]*>/g, "").replace(/The Hackening/g, ""))) // Chucks out all html tags + "The Hackening"
-        .then(finalHtmls => setData(finalHtmls));
+        .then(markdown => Promise.all(markdown.map(markdown => markdownToHtml(markdown))))
+        .then(html => html.map(html => html.replace(/<[^>]*>/g, "").replace(/The Hackening/g, ""))), // Chucks out all html tags + "The Hackening"
+  
+      fetch('https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates')
+        .then(response => response.json())
+        .then(data => data.sort((a, b) => b.name.localeCompare(a.name)))
+        .then(data => data.map(item => item.name.split('.')[0])) // Grabs the name and gets rid of the file extension
+    ])
+    .then(([finalHtml, names]) => setData({ finalHtml, names }));
     }, []);
 
   return (
@@ -185,20 +196,15 @@ const MailingList = ({ html }) => {
               width: '100%',
             }}
           >
-            {/*TODO: fix titles, and issue numbers.*/}
-            {data.map((item, index) => (
+            {data.finalHtml.map((html, index) => (
               <MailCard
-                date={item.name}
                 issue={index + 1}
-                body={item}
-                link='/leader-newsletters/2023-08-18'
+                body={html}
+                date={data.names[index].split('-').join('/')}
+                link={data.names[index]}
                 key={index}
               />
             ))}
-
-          {/*<Link href='/leader-newsletters/' sx={{ justifySelf: 'center', cursor: 'pointer',  }} as='h3'>
-                  Read more
-              </Link>*/}
           </Box>
         </Flex>
       </Card>
