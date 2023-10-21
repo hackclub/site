@@ -197,9 +197,11 @@ const NotFoundPage = () => (
         src="/404/dinobox.svg"
       ></Spinning>
       <br />
-      <Blinking as="h1" variant="title" sx={{ fontSize: [64, 128] }}>
-        404!
-      </Blinking>
+      <NextLink href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <Blinking as="h1" variant="title" sx={{ fontSize: [64, 128] }}>
+          404!
+        </Blinking>
+      </NextLink>
       <Text
         mt={2}
         mb={4}
