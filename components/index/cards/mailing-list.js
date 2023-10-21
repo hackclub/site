@@ -29,7 +29,7 @@ const Loading = () => (
   ></Box>
 )
 
-const MailingList = ({ html }) => {
+const MailingList = () => {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [data, setData] = useState({ finalHtml: [], names: [] })
@@ -211,7 +211,7 @@ const MailingList = ({ html }) => {
                 link={data.names[index]}
                 key={index}
               />
-            ))}
+            )).reverse()}
           </Box>
         </Flex>
       </Card>
