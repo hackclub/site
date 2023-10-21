@@ -203,7 +203,7 @@ const MailingList = ({ html }) => {
               width: '100%',
             }}
           >
-            {data.finalHtml.slice().reverse().map((html, index) => (
+            {data.finalHtml.map((html, index) => (
               <MailCard
                 issue={index + 1}
                 body={html}
