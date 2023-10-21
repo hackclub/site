@@ -2,8 +2,8 @@ import { Box, Card, Link, Text } from "theme-ui";
 
 // todo: increase padding on mobile
 
-export default function MailCard({ body, issue, date, link }) {
-  body = body.length > 120 ? body.substring(0, 120) + "..." : body;
+export default function MailCard({ body, date, link }) {
+  body = body.length > 130 ? body.substring(0, 130) + "..." : body;
   return (
     <Card
       variant="interactive"
@@ -39,6 +39,7 @@ export default function MailCard({ body, issue, date, link }) {
               placeItems: "center",
               display: "grid",
               height: "100%",
+              paddingY: [3, 4, 0],
             }}
           >
             <Box sx={{ px: [3, 4] }}>
