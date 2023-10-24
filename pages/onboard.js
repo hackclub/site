@@ -463,7 +463,7 @@ const ShipPage = () => {
                 <Button
                   variant="ctaLg"
                   as="a"
-                  href="https://hack.af/pcb-jam"
+                  href="https://jams.hackclub.com/tag/pcb"
                   target="_blank"
                   sx={{
                     background: t => t.util.gx('#60cc38', '#113b11')
@@ -765,7 +765,7 @@ const ShipPage = () => {
           <Button
             variant="lg"
             as="a"
-            href="https://hack.af/pcb-jam"
+            href="https://jams.hackclub.com/tag/pcb"
             target="_blank"
           >
             Learn PCB Design Now!
@@ -1055,10 +1055,10 @@ const ShipPage = () => {
             >
               <Text as="h3">Learn to PCB</Text>
               <Text as="p">
-                Read our Hacker Card tutorial to learn how to make a simple
-                circuit board from start to end.
+                Read our tutorials to learn how to make a simple
+                circuit boards from start to end.
               </Text>
-              <Button as="a" href="https://hack.af/pcb-jam" target="_blank">
+              <Button as="a" href="https://jams.hackclub.com/tag/pcb" target="_blank">
                 Start the Tutorial
               </Button>
             </Flex>
