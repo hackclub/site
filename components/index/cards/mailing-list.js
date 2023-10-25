@@ -1,12 +1,12 @@
 import Icon from "@hackclub/icons";
 import { useEffect, useRef, useState } from "react";
 import { Box, Button, Card, Flex, Grid, Input, Link, Text } from "theme-ui";
+import { format } from "date-fns";
 import BGImg from "../../background-image";
 import background from "../../../public/home/footer.png";
 import MailCard from "../../mail-card";
-import { format } from "date-fns";
 
-const markdownToHtml = require("@hackclub/markdown");
+const markdownToHtml = require('@hackclub/markdown')
 
 const Loading = () => (
   <Box
@@ -73,15 +73,15 @@ const MailingList = () => {
         .then(data => Promise.all(data.map(item => fetch(item.download_url)))) // Makes a separate fetch request for the content of each newsletter
         .then(responses => Promise.all(responses.map(response => response.text())))
         .then(markdown => Promise.all(markdown.map(markdown => markdownToHtml(markdown))))
-        .then(html => html.map(html => html.replace(/<[^>]*>/g, "").replace(/The Hackening/g, ""))), // Chucks out all html tags + "The Hackening"
+        .then(html => html.map(html => html.replace(/<[^>]*>/g, '').replace(/The Hackening/g, ''))), // Chucks out all html tags + 'The Hackening'
   
       fetch('https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates')
         .then(response => response.json())
         .then(data => data.sort((a, b) => b.name.localeCompare(a.name)))
         .then(data => data.map(item => item.name.split('.')[0])) // Grabs the name and gets rid of the file extension
     ])
-    .then(([finalHtml, names]) => setData({ finalHtml, names }));
-    }, []);
+    .then(([finalHtml, names]) => setData({ finalHtml, names }))
+    }, [])
 
   return (
     <Box sx={{ position: 'relative', py: 6, background: 'darker' }}>
@@ -127,7 +127,7 @@ const MailingList = () => {
                 }}
                 as='p'
               >
-                We&apos;ll send you an email no more than once a month, when we work
+                We&aposll send you an email no more than once a month, when we work
                 on something cool for you. Check out our{' '}
                 <Link
                   href='https://workshops.hackclub.com/leader-newsletters/'
@@ -207,7 +207,7 @@ const MailingList = () => {
               <MailCard
                 issue={index + 1}
                 body={html}
-                date={format(new Date(data.names[index].split('-').join(', ')), "MMMM d, yyyy")}
+                date={format(new Date(data.names[index].split('-').join(', ')), 'MMMM d, yyyy')}
                 link={data.names[index]}
                 key={index}
               />
