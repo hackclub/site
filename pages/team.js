@@ -226,6 +226,13 @@ export default function Team() {
                       text="Josias Aurel (@Josias Aurel) has been associated with Hack Club for about 3 years, working on a variety of projects including Sinerider. He has organized events such as the TiC Summit and TiC Hackathon in his local town of Yaoundé, Cameroon. He is a curiosity-driven coder who likes to take on interesting challenges and who is interested in machine learning and systems programming. He'll be working very closely with Graham over the next year on a variety of projects. Outside of tech he likes going on hikes with friends and eating vegetables."
                       pronouns="he/him"
                     />
+                    <Bio
+                      img="https://cloud-p623dki6o-hack-club-bot.vercel.app/0img_2668.jpg"
+                      name="Nila Palmo Ram"
+                      teamRole="Engineering Assistant"
+                      text="Nila absolutely loves coding and is all about making tech awesome while experimenting on how to keep it ethical and humanistic. Over at Hack Club, she's on a mission to empower more girl Hack Clubbers by guiding them in organizing Hackathons, collaborating on special projects, and fostering connections amongst them. Alongside Christina, she's also busy drumming up funds for Hack Club, always on the lookout for new donors. When she's not in front of the screen, you'll find her out by the water, diving into all sorts of aquatic adventures."
+                      pronouns="she/her"
+                    />
                   </Grid>
                 </Box>
               </Box>
