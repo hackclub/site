@@ -1,10 +1,10 @@
-import Icon from "@hackclub/icons";
-import { useEffect, useRef, useState } from "react";
-import { Box, Button, Card, Flex, Grid, Input, Link, Text } from "theme-ui";
-import { format } from "date-fns";
-import BGImg from "../../background-image";
-import background from "../../../public/home/footer.png";
-import MailCard from "../../mail-card";
+import Icon from '@hackclub/icons'
+import { useEffect, useRef, useState } from 'react'
+import { Box, Button, Card, Flex, Grid, Input, Link, Text } from 'theme-ui'
+import { format } from 'date-fns'
+import BGImg from '../../background-image'
+import background from '../../../public/home/footer.png'
+import MailCard from '../../mail-card'
 
 const markdownToHtml = require('@hackclub/markdown')
 
@@ -127,7 +127,7 @@ const MailingList = () => {
                 }}
                 as='p'
               >
-                We&aposll send you an email no more than once a month, when we work
+                We&apos;ll send you an email no more than once a month, when we work
                 on something cool for you. Check out our{' '}
                 <Link
                   href='https://workshops.hackclub.com/leader-newsletters/'
