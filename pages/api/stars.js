@@ -18,6 +18,9 @@ export async function fetchStars() {
     `
       {
         organization(login: "hackclub") {
+            blot: repository(name: "blot") {
+                stargazerCount
+            }
           sinerider: repository(name: "sinerider") {
             stargazerCount
           }
@@ -33,9 +36,6 @@ export async function fetchStars() {
           sprigHardware: repository(name: "sprig-hardware") {
             stargazerCount
           }
-            blot: repository(name: "blot") {
-                stargazerCount
-            }
         }
       }
     `,
