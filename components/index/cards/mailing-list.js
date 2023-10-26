@@ -1,7 +1,7 @@
 import Icon from '@hackclub/icons'
 import { useEffect, useRef, useState } from 'react'
 import { Box, Button, Card, Flex, Grid, Input, Link, Text } from 'theme-ui'
-import { format } from 'date-fns'
+import { format, parse } from 'date-fns'
 import BGImg from '../../background-image'
 import background from '../../../public/home/footer.png'
 import MailCard from '../../mail-card'
@@ -207,7 +207,7 @@ const MailingList = () => {
               <MailCard
                 issue={index + 1}
                 body={html}
-                date={format(new Date(data.names[index].split('-').join(', ')), 'MMMM d, yyyy')}
+                date={format(parse('', '', new Date(data.names[index])), 'MMMM d, yyyy')}
                 link={data.names[index]}
                 key={index}
               />
