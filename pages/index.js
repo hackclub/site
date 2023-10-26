@@ -1,14 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  Grid,
-  Heading,
-  Flex,
-  Badge,
-  Link,
-  Text
-} from 'theme-ui'
+import { Badge, Box, Button, Card, Flex, Grid, Heading, Link, Text } from 'theme-ui'
 import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -758,7 +748,7 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Haxidraw />
+              <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
