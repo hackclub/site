@@ -563,7 +563,10 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               borderRadius: '10px',
               position: 'relative',
               display: 'flex',
-              flexDirection: 'column'
+              boxSizing: 'border-box',
+              flexDirection: 'column',
+              maxHeight: '90vh',
+              overflow: 'scroll'
             }}
             onClick={e => {
               e.stopPropagation()
