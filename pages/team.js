@@ -233,6 +233,13 @@ export default function Team() {
                       text="Nila absolutely loves coding and is all about making tech awesome while experimenting on how to keep it ethical and humanistic. Over at Hack Club, she's on a mission to empower more girl Hack Clubbers by guiding them in organizing Hackathons, collaborating on special projects, and fostering connections amongst them. Alongside Christina, she's also busy drumming up funds for Hack Club, always on the lookout for new donors. When she's not in front of the screen, you'll find her out by the water, diving into all sorts of aquatic adventures."
                       pronouns="she/her"
                     />
+                     <Bio
+                      img="https://cloud-diex6x51t-hack-club-bot.vercel.app/01671553183325__1_.jpeg"
+                      name="Arpan Pandey"
+                      teamRole="Clubs Operations And Engineering"
+                      text="Arpan Pandey (@A) is a Hack Clubber from India who joined Hack Club about 1.5 years ago. He is a passionate programmer and loves to build things, especially for clubs. He has created and maintained Jams API, Clubs Directory and many other projects for clubs. He also onboards and supports clubs through their Hack Club Journey. He is also the person to send out mails to Hack Clubbers in India. He loves Harry Potter and is a proud Gryffindor. You'll also find him playing around with electronics and hardware, and he is also a licensed HAM (KC1TPD). He is very much interested in having deep conversations with people and loves to make new friends. Here is his favorite quote: “It does not do to dwell on dreams and forget to live.”"
+                      pronouns="he/him"
+                    />
                   </Grid>
                 </Box>
               </Box>
@@ -406,6 +413,12 @@ export default function Team() {
                   name="Arav Narula"
                   teamRole="Moderation & Events"
                   img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
+                  pronouns="he/him"
+                />
+                <Bio
+                  name="Arpan Pandey"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U0409FSKU82-e912a98d0ead-512"
                   pronouns="he/him"
                 />
               </Grid>
