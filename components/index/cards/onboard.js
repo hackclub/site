@@ -1,12 +1,14 @@
 import CardModel from './card-model'
-import { Box, Flex, Text } from 'theme-ui'
+import { Box, Flex, Grid, Image, Text } from 'theme-ui'
 import Buttons from './button'
 
 // todo:
 // - get magic dino to work
 // - come up with a copy
-// - better buttons!
+// - better buttons! ✅
 // - make project count live
+// - buttons show a tooltip for some reason. fix that!
+// - could have a better icon for the learn pcb design button
 
 export default function Onboard({ projects }) {
   return (
@@ -16,8 +18,9 @@ export default function Onboard({ projects }) {
         backgroundImage: `url('https://cloud-fyrwj5rn5-hack-club-bot.vercel.app/0pcb.svg')`,
         backgroundSize: "cover",
       }}
+      color="white"
     >
-      <Flex>
+      <Grid columns={[1, 2]}>
         <Box>
           <Text
             variant="title"
@@ -39,9 +42,9 @@ export default function Onboard({ projects }) {
               py: 1,
               width: "fit-content",
               borderRadius: "extra",
-              color: "white",
               border: "rgba(255,255,255,0.2) dashed 1px",
               zIndex: 2,
+                color: "white",
               position: ["absolute", "relative", "relative"],
               top: ["24px", 0, "5px"],
             }}
@@ -52,28 +55,26 @@ export default function Onboard({ projects }) {
             Id occaecat dolor consequat. Deserunt ut velit et amet Lorem dolore
             laborum consectetur quis veniam magna tempor cupidatat.
           </Text>
-
           <Flex sx={{ flexDirection: "column", mt: [3, 3, 4] }}>
             <Buttons
-                icon="plus"
+                icon="emoji"
                 link="https://github.com/hackclub/OnBoard/blob/main/README.md"
                 primary="#87ffa1"
-                id="6"
-                sx={{ color: 'black' }}
+                color="black"
             >
                 Get a grant
             </Buttons>
-            <Buttons icon="plus" link="https://jams.hackclub.com/tag/pcb">Learn PCB design now</Buttons>
+            <Buttons icon="docs" link="https://jams.hackclub.com/tag/pcb">Learn PCB design now</Buttons>
           </Flex>
         </Box>
-        {/*<Image
+        <Image
           src="https://cloud-8lszi55ph-hack-club-bot.vercel.app/00frame_1.png"
           alt="A circuit board of a dino wizard with a light up wand."
           sx={{
             width: ["90%", "320px", "450px", "500px"],
           }}
-        />*/}
-      </Flex>
+        />
+      </Grid>
     </CardModel>
   );
 }
