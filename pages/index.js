@@ -29,7 +29,6 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
-import Haunted from '../components/index/cards/haunted'
 
 /** @jsxImportSource theme-ui */
 
@@ -631,7 +630,6 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Haunted />
             <Pizza />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
