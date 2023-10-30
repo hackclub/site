@@ -1,20 +1,29 @@
+import { useEffect, useState } from 'react'
+import { Box, Flex, Grid, Text } from 'theme-ui'
 import CardModel from './card-model'
-import { Box, Flex, Grid, Image, Text } from 'theme-ui'
 import Buttons from './button'
 
 // todo:
 // - get magic dino to work
 // - come up with a copy
 // - better buttons! ✅
-// - make project count live
+// - make project count live ✅
 // - buttons show a tooltip for some reason. fix that!
 // - could have a better icon for the learn pcb design button
 
-export default function Onboard({ projects }) {
+export default function Onboard() {
+  const [projects, setProjects] = useState(0)
+
+  useEffect(() => {
+    fetch('https://api.github.com/search/issues?q=repo:hackclub/onboard+is:pr+is:merged+label:Submission')
+      .then(response => response.json())
+      .then(data => setProjects(data.total_count))
+  }, [])
+
   return (
     <CardModel
       sx={{
-        backgroundColor: "#000",
+        backgroundColor: "rgba(0,0,0)",
         backgroundImage: `url('https://cloud-fyrwj5rn5-hack-club-bot.vercel.app/0pcb.svg')`,
         backgroundSize: "cover",
       }}
@@ -49,7 +58,7 @@ export default function Onboard({ projects }) {
               top: ["24px", 0, "5px"],
             }}
           >
-            {345} projects built
+            {projects} projects built
           </Text>
           <Text as="p" variant="subtitle" sx={{ color: "white", maxWidth: "" }}>
             Id occaecat dolor consequat. Deserunt ut velit et amet Lorem dolore
@@ -67,13 +76,7 @@ export default function Onboard({ projects }) {
             <Buttons icon="docs" link="https://jams.hackclub.com/tag/pcb">Learn PCB design now</Buttons>
           </Flex>
         </Box>
-        <Image
-          src="https://cloud-8lszi55ph-hack-club-bot.vercel.app/00frame_1.png"
-          alt="A circuit board of a dino wizard with a light up wand."
-          sx={{
-            width: ["90%", "320px", "450px", "500px"],
-          }}
-        />
+
       </Grid>
     </CardModel>
   );
