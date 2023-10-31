@@ -4,12 +4,20 @@ import CardModel from './card-model'
 import Buttons from './button'
 
 // todo:
-// - get magic dino to work
 // - come up with a copy
 // - better buttons! ✅
 // - make project count live ✅
 // - buttons show a tooltip for some reason. fix that!
 // - could have a better icon for the learn pcb design button
+
+function Project() {
+  // 💁 pass in props to make this component reusable, and adjust design. this is just a placeholder for now!
+  return (
+    <Box sx={{ borderRadius: '8px', padding: 4, background: 'black' }}>
+      <Text sx={{ color: 'white', fontWeight: 'normal' }} as="h3">A <b>fidget spinner</b> without any moving parts</Text>
+    </Box>
+  )
+}
 
 export default function Onboard() {
   const [projects, setProjects] = useState(0)
@@ -76,7 +84,12 @@ export default function Onboard() {
             <Buttons icon="docs" link="https://jams.hackclub.com/tag/pcb">Learn PCB design now</Buttons>
           </Flex>
         </Box>
-
+        <Grid columns={2}>
+          <Project/>
+          <Project/>
+          <Project/>
+          <Project/>
+        </Grid>
       </Grid>
     </CardModel>
   );
