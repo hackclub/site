@@ -1401,7 +1401,7 @@ const Philanthropy = ({ posts = [] }) => {
           <Fade bottom>
             <Button
               as="a"
-              href="/philanthropy/hackclub.pdf"
+              href="/philanthropy/hackclub_philanthropy.pdf"
               download="HackClub"
               mb={4}
               sx={{ fontSize: '1em !important' }}
