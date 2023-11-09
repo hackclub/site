@@ -2,12 +2,12 @@ import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from "theme-ui";
 import Balancer from "react-wrap-balancer";
 import Head from "next/head";
 import Meta from "@hackclub/meta";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
-import FadeIn from "../components/fade-in";
-import Sparkles from "../components/sparkles";
-import Tilt from "../components/tilt";
-import usePrefersReducedMotion from "../lib/use-prefers-reduced-motion";
+import Nav from "../../components/nav";
+import Footer from "../../components/footer";
+import FadeIn from "../../components/fade-in";
+import Sparkles from "../../components/sparkles";
+import Tilt from "../../components/tilt";
+import usePrefersReducedMotion from "../../lib/use-prefers-reduced-motion";
 import { useEffect, useRef, useState } from "react";
 
 /**
@@ -798,7 +798,7 @@ const ShipPage = () => {
             as="h2"
             sx={{ fontSize: 5, fontWeight: 500, textAlign: 'center' }}
           >
-            How to Qualify
+            How to Get a Free Circuit Board
           </Heading>
 
           <Flex>
