@@ -3622,10 +3622,10 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-country-list-js@^3.1.7:
-  version "3.1.7"
-  resolved "https://registry.npmjs.org/country-list-js/-/country-list-js-3.1.7.tgz"
-  integrity sha512-/P+5kntwSWOX3qzGn+IYrRPlq7PyM8MJbO8nDX23NMeEAyfovheiFrMDMKcfc5LU2oJZ/R942ZltiPuOLHmkCw==
+country-list-js@^3.1.8:
+  version "3.1.8"
+  resolved "https://registry.yarnpkg.com/country-list-js/-/country-list-js-3.1.8.tgz#a425eaf758af912b01485e32445069dc8da37e82"
+  integrity sha512-IMlhr9dRoGNnNDR072teYBk7YztQ/rOTahJPTRF3vkxdyhxdbKEi7ZDBjHW0Yy3mKtxr5clbdCLsEaLlyZsAHg==
   dependencies:
     micro "^9.3.3"
 
