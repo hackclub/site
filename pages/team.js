@@ -330,7 +330,14 @@ export default function Team() {
                       img="/team/kris.png"
                       pronouns="she/her"
                     />
-                    <Bio
+					<Bio
+						name="Paul Spitler"
+						teamRole="Partnerships Lead"
+						text="Before joining Hack Club Paul (a native Shelburnite) was working in the e-commerce space in NYC but has moved back to his homeland a few years ago. His role at Hack Club will be building out new partnerships and although he has no idea how to code, he’s hoping to learn over his career. Paul enjoys playing hockey, being outdoors with his wife and dog and any kind of boards sports."
+				  		img="/team/paul.png"
+						pronouns="he/him"
+					/>
+					<Bio
                       name="Arianna Martinelli"
                       teamRole="Operations"
                       text="Arianna (a current freshman at Carnegie-Mellon University and a former Hack Club leader from Kentucky) loves onboarding all our cool organizations and making HCB more accessible. When she’s not learning about how humans and computers can work together, she’s making memes and decorating the world with Hack Club stickers."
