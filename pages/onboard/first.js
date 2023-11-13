@@ -605,7 +605,7 @@ const ShipPage = () => {
       >
         <Text
           as="a"
-          href="https://github.com/hackclub/OnBoard/tree/main/projects/E-Fidget%20Lite"
+          href="https://github.com/hackclub/OnBoard/pull/248/files"
           target="_blank"
           sx={{
             display: 'flex',
@@ -625,11 +625,11 @@ const ShipPage = () => {
           }}
         >
           <Text as="p" sx={{ color: '#000000', flex: '1', maxWidth: 400 }}>
-            FRC team #4272 "Maverick Robotics" made this <strong>flibbertigibbet glorble</strong> for their robot that's 10x blobbier than the GHC 10mCBC and decreases the dingle dongle rotation factor by 3".
+            FRC team #4272 "Maverick Robotics" made this <strong>swerve-drive encoder</strong> for their robot drive train that's cheaper than stock sensors and saves ports on their CAN.
           </Text>
           <Image
-            src="https://cloud-r2xrlpq9q-hack-club-bot.vercel.app/0spinner.png"
-            alt="A red circular circuit board with a graphic of white fidget spinner on it."
+            src="https://cloud-2oet5soft-hack-club-bot.vercel.app/0test.png"
+            alt="A purple arrow-shaped circuit board with the words 'maverick robotics' on it."
             sx={{
               width: '100%',
               maxWidth: 180
