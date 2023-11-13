@@ -161,9 +161,9 @@ const stickerButtonFontStylesheet = `https://fonts.googleapis.com/css2?family=${
 )}&display=swap&text=${encodeURIComponent(stickerButtonText)}`
 
 const wandImgTraced =
-  'https://cloud-gcy8oasci-hack-club-bot.vercel.app/0back.svg'
+  'https://cloud-mmhtcl463-hack-club-bot.vercel.app/1trace.png'
 const wandImgRendered =
-  'https://cloud-kg2rvjz19-hack-club-bot.vercel.app/0front.svg'
+  'https://cloud-mmhtcl463-hack-club-bot.vercel.app/0transparent_pcb.png'
 
 const ShipPage = () => {
   const prefersReducedMotion = usePrefersReducedMotion()
@@ -487,7 +487,7 @@ const ShipPage = () => {
               </Flex>
             </Flex>
 
-            <Box sx={{ flex: 1, maxWidth: 230 }}>
+            <Box sx={{ flex: 1, maxWidth: 330, ml: [0, -100] }}>
               <FadeIn duration={800} delay={100}>
                 <Image
                   src={wandImg}
