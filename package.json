@@ -21,7 +21,7 @@
     "@hackclub/meta": "1.1.32",
     "@hackclub/theme": "^0.3.3",
     "@mdx-js/loader": "^1.6.22",
-    "@next/mdx": "^14.0.1",
+    "@next/mdx": "^14.0.2",
     "@octokit/auth-app": "^6.0.1",
     "@octokit/core": "^5.0.1",
     "@octokit/rest": "^20.0.2",
