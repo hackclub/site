@@ -613,26 +613,25 @@ const ShipPage = () => {
             width: '100%',
             border: `4px solid ${dimBg}`,
             borderRadius: 'default',
-            px: 4,
-            py: 4,
             fontSize: 22,
             color: 'inherit',
             textDecoration: 'inherit',
-            flexDirection: 'row',
-            alignItems: 'flex-start',
+            flexDirection: ['column', null, 'row', null],
+            alignItems: 'center',
             justifyContent: 'space-between',
             maxWidth: 'copyPlus'
           }}
         >
-          <Text as="p" sx={{ color: '#000000', flex: '1', maxWidth: 400 }}>
+          <Text as="p" sx={{ color: '#000000', flex: '1', maxWidth: 400, p: 4 }}>
             FRC team #4272 "Maverick Robotics" made this <strong>swerve-drive encoder</strong> for their robot drive train that's cheaper than stock sensors and saves ports on their CAN.
           </Text>
           <Image
-            src="https://cloud-2oet5soft-hack-club-bot.vercel.app/0test.png"
+            src="https://cloud-of94ar9fg-hack-club-bot.vercel.app/0purple.png"
             alt="A purple arrow-shaped circuit board with the words 'maverick robotics' on it."
             sx={{
+              pr: [0, null, 4, null],
               width: '100%',
-              maxWidth: 180
+              maxWidth: 300
             }}
           />
         </Text>
