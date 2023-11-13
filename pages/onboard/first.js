@@ -487,7 +487,7 @@ const ShipPage = () => {
               </Flex>
             </Flex>
 
-            <Box sx={{ flex: 1, maxWidth: 330, ml: [0, -100] }}>
+            <Box sx={{ flex: 1, maxWidth: 330, ml: [0, null, -100] }}>
               <FadeIn duration={800} delay={100}>
                 <Image
                   src={wandImg}
