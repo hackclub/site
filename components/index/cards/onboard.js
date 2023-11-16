@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Box, Flex, Grid, Text } from 'theme-ui'
+import { Box, Card, Flex, Grid, Text } from 'theme-ui'
 import CardModel from './card-model'
 import Buttons from './button'
 
@@ -10,12 +10,12 @@ import Buttons from './button'
 // - buttons show a tooltip for some reason. fix that!
 // - could have a better icon for the learn pcb design button
 
-function Project() {
+function Project({ description }) {
   // 💁 pass in props to make this component reusable, and adjust design. this is just a placeholder for now!
   return (
-    <Box sx={{ borderRadius: '8px', padding: 4, background: 'black' }}>
-      <Text sx={{ color: 'white', fontWeight: 'normal' }} as="h3">A <b>fidget spinner</b> without any moving parts</Text>
-    </Box>
+    <Card sx={{ background: 'black', placeItems: 'center', display: 'grid' }}>
+      <Text sx={{ color: 'white', fontWeight: 'normal' }} as="h3">{description}</Text>
+    </Card>
   )
 }
 
@@ -85,10 +85,10 @@ export default function Onboard() {
           </Flex>
         </Box>
         <Grid columns={2}>
-          <Project/>
-          <Project/>
-          <Project/>
-          <Project/>
+          <Project description="A fidget spinner without any moving parts"/>
+          <Project description="A movement sensor add-on to an open source game console."/>
+          <Project description="Hugo's USB-C hub for the best hackathon swag ever."/>
+          <Project description="Karmanyaah's digital level, SparkleTilt."/>
         </Grid>
       </Grid>
     </CardModel>
