@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Box, Card, Flex, Grid, Text } from 'theme-ui'
+import { Box, Flex, Grid, Text } from 'theme-ui'
 import CardModel from './card-model'
 import Buttons from './button'
 
@@ -10,14 +10,14 @@ import Buttons from './button'
 // - buttons show a tooltip for some reason. fix that!
 // - could have a better icon for the learn pcb design button
 
-function Project({ description }) {
+/*function Project({ description }) {
   // 💁 pass in props to make this component reusable, and adjust design. this is just a placeholder for now!
   return (
     <Card sx={{ background: 'black', placeItems: 'center', display: 'grid' }}>
       <Text sx={{ color: 'white', fontWeight: 'normal' }} as="h3">{description}</Text>
     </Card>
   )
-}
+}*/
 
 export default function Onboard() {
   const [projects, setProjects] = useState(0)
@@ -72,24 +72,18 @@ export default function Onboard() {
             Id occaecat dolor consequat. Deserunt ut velit et amet Lorem dolore
             laborum consectetur quis veniam magna tempor cupidatat.
           </Text>
-          <Flex sx={{ flexDirection: "column", mt: [3, 3, 4] }}>
-            <Buttons
-                icon="emoji"
-                link="https://github.com/hackclub/OnBoard/blob/main/README.md"
-                primary="#87ffa1"
-                color="black"
-            >
-                Get a grant
-            </Buttons>
-            <Buttons icon="docs" link="https://jams.hackclub.com/tag/pcb">Learn PCB design now</Buttons>
-          </Flex>
         </Box>
-        <Grid columns={2}>
-          <Project description="A fidget spinner without any moving parts"/>
-          <Project description="A movement sensor add-on to an open source game console."/>
-          <Project description="Hugo's USB-C hub for the best hackathon swag ever."/>
-          <Project description="Karmanyaah's digital level, SparkleTilt."/>
-        </Grid>
+        <Flex sx={{ flexDirection: "column", mt: [3, 3, 4], placeSelf: "end" }}>
+          <Buttons
+            icon="emoji"
+            link="https://github.com/hackclub/OnBoard/blob/main/README.md"
+            primary="#87ffa1"
+            color="black"
+          >
+            Get a grant
+          </Buttons>
+          <Buttons icon="docs" link="https://jams.hackclub.com/tag/pcb">Learn PCB design now</Buttons>
+        </Flex>
       </Grid>
     </CardModel>
   );
