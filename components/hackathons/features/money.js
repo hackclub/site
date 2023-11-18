@@ -31,20 +31,13 @@ const Content = () => (
           icon="payment"
           leadText={
             <>
-              $500 grants (in partnership with <i>FIRST®</i>).
+              $500 grants.
             </>
           }
           body={
             <>
               Running on HCB? Get a $500 grant once you have a venue, provided
-              by Hack Club with the help of{' '}
-              <Link
-                href="https://www.firstinspires.org/"
-                sx={{ fontStyle: 'italic', color: 'white' }}
-              >
-                FIRST
-              </Link>
-              .
+              by Hack Club.
               <NextLink href="/hackathons/grant">
                 <Link sx={{ ml: 2, cursor: 'pointer' }}>Learn more &rarr;</Link>
               </NextLink>
