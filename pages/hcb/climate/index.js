@@ -1068,7 +1068,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               />
             </Box>
           </Container>
-          <Container pt={4}>
+          <Container py={4}>
             <Flex>
               <Box sx={{ flexGrow: 1, pr: [0, 3], mb: 3 }}>
                 <Input
@@ -1125,7 +1125,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                 </Box>
               </Box>
             )}
-            <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: 3 }}>
+            <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ my: 3 }}>
               {organizations
                 .map(org => new Organization(org))
                 .filter(organization => {
