@@ -456,6 +456,8 @@ const ShipPage = () => {
                     <Text sx={{ fontWeight: 400 }}>magical</Text>
                   </Sparkles>
                   . You design one, we'll print it!
+                  <br /><br />
+                  Plus! FIRST team members get a limited edition PCB badge designed with Dean Kamen.
                 </Balancer>
               </Heading>
 
