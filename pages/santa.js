@@ -19,6 +19,10 @@ import FadeIn from '../components/fade-in'
 import { keyframes } from '@emotion/react'
 import { useState } from 'react'
 
+const year = 2023;
+const announcementMessage = "https://hackclub.slack.com/archives/C01D7AHKMPF/p1671483616032169";
+const signupsOpen = true;
+
 const Hero = styled(Box)`
   background-image: linear-gradient(
     to right bottom,
@@ -84,7 +88,7 @@ const Page = () => (
           caps
         >
           <FadeIn delay={300} duration={600}>
-            It's 2022,
+            It's 2023,
           </FadeIn>
           <FadeIn delay={1200} duration={600}>
             the holidays have come,
@@ -104,7 +108,7 @@ const Page = () => (
             animation: `${floating} cubic-bezier(.55,.03,.43,.98) 8s infinite alternate`
           }}
         />
-        <FadeIn delay={3000}>
+        <FadeIn delay={3300}>
           <Heading
             as="h1"
             sx={{ fontSize: [5, 6], color: 'white', margin: 'auto' }}
@@ -125,10 +129,13 @@ const Page = () => (
             just in time for the holidays!
           </Lead>
           {/* Signup form */}
-          <Signup />
-          {/* <Button disabled sx={{ bg: 'primary', mb: 4 }}>
-            Signups closed. Check back next year!
-          </Button> */}
+          {signupsOpen ? (
+            <Signup />
+          ) : (
+            <Button disabled sx={{ bg: 'primary', mb: 4 }}>
+              Signups closed. Check back next year!
+            </Button>
+          )}
         </FadeIn>
       </Container>
     </Hero>
@@ -186,14 +193,14 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 function Signup() {
   const [values, setValues] = useState({})
   return (
-    <Base method="get" action="https://airtable.com/shrL7dmiWE6vdlyYf">
+    <Base method="get" action="https://forms.hackclub.com/2023-secret-santa-form">
       <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>
         Register!
       </Heading>
       <Text sx={{ textAlign: 'left', color: 'muted' }}>
         Be sure to check out the{' '}
         <Link
-          href="https://hackclub.slack.com/archives/C01D7AHKMPF/p1671483616032169"
+          href={announcementMessage}
           sx={{ color: 'blue' }}
         >
           rules
@@ -202,7 +209,7 @@ function Signup() {
       </Text>
       <Field
         label="Your Name"
-        name="prefill_Name"
+        name="name"
         placeholder="Fiona Hackworth"
         value={values.name}
         onChange={e => setValues({ ...values, name: e.target.value })}
@@ -210,7 +217,7 @@ function Signup() {
 
       <Field
         label="Likes"
-        name="prefill_What do you like?"
+        name="likes"
         placeholder="Hardware, plushies, microwaved apples?"
         type="text"
         value={values.likes}
@@ -218,7 +225,7 @@ function Signup() {
       />
       <Field
         label="Dislikes"
-        name="prefill_What do you absolutely NOT like?"
+        name="dislikes"
         placeholder="Socks, cheese, coal..."
         type="text"
         value={values.dislikes}
