@@ -1,26 +1,27 @@
-import { graphql } from '@octokit/graphql'
+import { graphql } from "@octokit/graphql";
 
 export async function fetchStars() {
   if (!process.env.GITHUB_TOKEN) {
     console.warn(
-      'Note - GITHUB_TOKEN not defined, stars will not be fetched from github'
-    )
+      "Note - GITHUB_TOKEN not defined, stars will not be fetched from github",
+    );
     return {
-      sprig: '?',
-      sinerider: '?',
-      sprigHardware: '?',
-      hackclub: '?',
-      hackathons: '?',
-      blot: '?'
-    }
+      sprig: "?",
+      sinerider: "?",
+      sprigHardware: "?",
+      hackclub: "?",
+      hackathons: "?",
+      blot: "?",
+      onboard: "?",
+    };
   }
   const { organization } = await graphql(
     `
       {
         organization(login: "hackclub") {
-            blot: repository(name: "blot") {
-                stargazerCount
-            }
+          blot: repository(name: "blot") {
+            stargazerCount
+          }
           sinerider: repository(name: "sinerider") {
             stargazerCount
           }
@@ -36,16 +37,19 @@ export async function fetchStars() {
           sprigHardware: repository(name: "sprig-hardware") {
             stargazerCount
           }
+          onboard: repository(name: "onboard") {
+            stargazerCount
+          }
         }
       }
     `,
     {
       headers: {
-        authorization: `token ${process.env.GITHUB_TOKEN}`
-      }
-    }
-  )
-  return organization
+        authorization: `token ${process.env.GITHUB_TOKEN}`,
+      },
+    },
+  );
+  return organization;
 }
 
 export default async function Stars(req, res) {

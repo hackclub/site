@@ -37,7 +37,7 @@ export default function Onboard({ stars }) {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      github_link="https://github.com/hackclub/onboard"
+      github_link="https://github.com/hackclub/onboard/"
       color="white"
       highlight="#87ffa1"
       stars={stars}
@@ -52,7 +52,7 @@ export default function Onboard({ stars }) {
           color: "#87ffa1",
         }}
       >
-        Onboard
+        OnBoard
       </Text>
       <Grid columns={[1, 2]}>
         <Box>
@@ -74,8 +74,8 @@ export default function Onboard({ stars }) {
           >
             {projects} projects built
           </Text>
-          <Text as="p" variant="subtitle" sx={{ color: "white", maxWidth: "" }}>
-            Ever wanted to build your own USB hub or ? You can with OnBoard! Circuit boards are magical. You design one, we'll print it. Completely free!
+          <Text as="p" variant="subtitle" sx={{ color: "white" }}>
+            Circuit boards are magical. You design one, we'll print it. Completely free! Get a $100 grant to fuel the creation of your dream project with OnBoard.
           </Text>
         </Box>
         <Flex sx={{ flexDirection: "column", mt: [3, 3, 4], placeSelf: "start" }}>
