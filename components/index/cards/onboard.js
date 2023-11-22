@@ -19,7 +19,7 @@ import Buttons from './button'
   )
 }*/
 
-export default function Onboard() {
+export default function Onboard({ stars }) {
   const [projects, setProjects] = useState(0)
 
   useEffect(() => {
@@ -32,25 +32,31 @@ export default function Onboard() {
     <CardModel
       sx={{
         backgroundColor: "rgba(0,0,0)",
-        backgroundImage: `url('https://cloud-fyrwj5rn5-hack-club-bot.vercel.app/0pcb.svg')`,
+        backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.4) 50%), url('https://cloud-fyrwj5rn5-hack-club-bot.vercel.app/0pcb.svg')`,
         backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
+      github_link="https://github.com/hackclub/onboard"
       color="white"
+      highlight="#87ffa1"
+      stars={stars}
     >
+      <Text
+        variant="title"
+        as="h3"
+        sx={{
+          fontSize: ["36px", 4, 5],
+          maxWidth: "copyPlus",
+          textShadow: "0 0 30px rgba(42, 252, 88, 0.6)",
+          color: "#87ffa1",
+        }}
+      >
+        Onboard
+      </Text>
       <Grid columns={[1, 2]}>
         <Box>
-          <Text
-            variant="title"
-            as="h3"
-            sx={{
-              fontSize: ["36px", 4, 5],
-              maxWidth: "copyPlus",
-              textShadow: "0 0 30px rgba(42, 252, 88, 0.6)",
-              color: "#87ffa1",
-            }}
-          >
-            Onboard
-          </Text>
+
           <Text
             as="p"
             variant="subheadline"
@@ -69,11 +75,10 @@ export default function Onboard() {
             {projects} projects built
           </Text>
           <Text as="p" variant="subtitle" sx={{ color: "white", maxWidth: "" }}>
-            Id occaecat dolor consequat. Deserunt ut velit et amet Lorem dolore
-            laborum consectetur quis veniam magna tempor cupidatat.
+            Ever wanted to build your own USB hub or ? You can with OnBoard! Circuit boards are magical. You design one, we'll print it. Completely free!
           </Text>
         </Box>
-        <Flex sx={{ flexDirection: "column", mt: [3, 3, 4], placeSelf: "end" }}>
+        <Flex sx={{ flexDirection: "column", mt: [3, 3, 4], placeSelf: "start" }}>
           <Buttons
             icon="emoji"
             link="https://github.com/hackclub/OnBoard/blob/main/README.md"
@@ -83,6 +88,7 @@ export default function Onboard() {
             Get a grant
           </Buttons>
           <Buttons icon="docs" link="https://jams.hackclub.com/tag/pcb">Learn PCB design now</Buttons>
+          <Buttons icon="friend" link="/slack?event=onboard">See what other hackers have built</Buttons>
         </Flex>
       </Grid>
     </CardModel>
