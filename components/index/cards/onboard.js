@@ -3,6 +3,8 @@ import { Box, Flex, Grid, Text } from 'theme-ui'
 import CardModel from './card-model'
 import Buttons from './button'
 
+/** @jsxImportSource theme-ui */
+
 export default function Onboard({ stars }) {
   const [projects, setProjects] = useState(0)
 
@@ -59,9 +61,9 @@ export default function Onboard({ stars }) {
           >
             {projects} projects built
           </Text>
-          <Text as='p' variant='subtitle' sx={{ color: 'white' }}>
+          <Text as='p' variant='subtitle'>
             Circuit boards are magical. You design one, we'll print it.
-            Completely free! Get a $100 grant to fuel the creation of your dream
+            Completely for free! Get a $100 grant to fuel the creation of your dream
             project with OnBoard.
           </Text>
         </Box>
@@ -69,6 +71,7 @@ export default function Onboard({ stars }) {
           sx={{ flexDirection: 'column', mt: [3, 3, 4], placeSelf: 'start' }}
         >
           <Buttons
+            id='59'
             icon='emoji'
             link='https://github.com/hackclub/OnBoard/blob/main/README.md'
             primary='#87ffa1'
@@ -76,10 +79,10 @@ export default function Onboard({ stars }) {
           >
             Get a grant
           </Buttons>
-          <Buttons icon='docs' link='https://jams.hackclub.com/tag/pcb'>
+          <Buttons icon='docs' link='https://jams.hackclub.com/tag/pcb' id='60'>
             Learn how to design a PCB
           </Buttons>
-          <Buttons icon='friend' link='/slack?event=onboard'>
+          <Buttons icon='friend' link='/slack?event=onboard' id='61'>
             See what other hackers have built
           </Buttons>
         </Flex>
