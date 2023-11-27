@@ -1,43 +1,43 @@
-import { graphql } from "@octokit/graphql";
+import { graphql } from '@octokit/graphql'
 
 export async function fetchStars() {
   if (!process.env.GITHUB_TOKEN) {
     console.warn(
-      "Note - GITHUB_TOKEN not defined, stars will not be fetched from github",
-    );
+      'Note - GITHUB_TOKEN not defined, stars will not be fetched from github'
+    )
     return {
-      sprig: "?",
-      sinerider: "?",
-      sprigHardware: "?",
-      hackclub: "?",
-      hackathons: "?",
-      blot: "?",
-      onboard: "?",
-    };
+      sprig: '?',
+      sinerider: '?',
+      sprigHardware: '?',
+      hackclub: '?',
+      hackathons: '?',
+      blot: '?',
+      onboard: '?'
+    }
   }
   const { organization } = await graphql(
     `
       {
-        organization(login: "hackclub") {
-          blot: repository(name: "blot") {
+        organization(login: 'hackclub') {
+          blot: repository(name: 'blot') {
             stargazerCount
           }
-          sinerider: repository(name: "sinerider") {
+          sinerider: repository(name: 'sinerider') {
             stargazerCount
           }
-          sprig: repository(name: "sprig") {
+          sprig: repository(name: 'sprig') {
             stargazerCount
           }
-          hackclub: repository(name: "hackclub") {
+          hackclub: repository(name: 'hackclub') {
             stargazerCount
           }
-          hackathons: repository(name: "hackathons") {
+          hackathons: repository(name: 'hackathons') {
             stargazerCount
           }
-          sprigHardware: repository(name: "sprig-hardware") {
+          sprigHardware: repository(name: 'sprig-hardware') {
             stargazerCount
           }
-          onboard: repository(name: "onboard") {
+          onboard: repository(name: 'onboard') {
             stargazerCount
           }
         }
@@ -45,11 +45,11 @@ export async function fetchStars() {
     `,
     {
       headers: {
-        authorization: `token ${process.env.GITHUB_TOKEN}`,
-      },
-    },
-  );
-  return organization;
+        authorization: `token ${process.env.GITHUB_TOKEN}`
+      }
+    }
+  )
+  return organization
 }
 
 export default async function Stars(req, res) {
