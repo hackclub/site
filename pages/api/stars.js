@@ -18,26 +18,26 @@ export async function fetchStars() {
   const { organization } = await graphql(
     `
       {
-        organization(login: 'hackclub') {
-          blot: repository(name: 'blot') {
+        organization(login: "hackclub") {
+          blot: repository(name: "blot") {
             stargazerCount
           }
-          sinerider: repository(name: 'sinerider') {
+          sinerider: repository(name: "sinerider") {
             stargazerCount
           }
-          sprig: repository(name: 'sprig') {
+          sprig: repository(name: "sprig") {
             stargazerCount
           }
-          hackclub: repository(name: 'hackclub') {
+          hackclub: repository(name: "hackclub") {
             stargazerCount
           }
-          hackathons: repository(name: 'hackathons') {
+          hackathons: repository(name: "hackathons") {
             stargazerCount
           }
-          sprigHardware: repository(name: 'sprig-hardware') {
+          sprigHardware: repository(name: "sprig-hardware") {
             stargazerCount
           }
-          onboard: repository(name: 'onboard') {
+          onboard: repository(name: "onboard") {
             stargazerCount
           }
         }
