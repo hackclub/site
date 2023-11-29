@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { Box, Flex, Grid, Text } from 'theme-ui'
+import {useEffect, useState} from 'react'
+import {Box, Flex, Grid, Text} from 'theme-ui'
 import CardModel from './card-model'
 import Buttons from './button'
 
@@ -38,6 +38,8 @@ export default function Onboard({ stars }) {
           maxWidth: 'copyPlus',
           textShadow: '0 0 30px rgba(42, 252, 88, 0.6)',
           color: '#87ffa1',
+          mt: ['38px', 0, 0],
+          position: 'relative',
         }}
       >
         OnBoard
@@ -56,7 +58,7 @@ export default function Onboard({ stars }) {
               zIndex: 2,
               color: 'white',
               position: ['absolute', 'relative', 'relative'],
-              top: ['24px', 0, '5px'],
+              top: ['24px', 0, '5px']
             }}
           >
             {projects} projects built
