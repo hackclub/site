@@ -5,7 +5,7 @@ import Tilt from '../../tilt'
 
 /** @jsxImportSource theme-ui */
 
-export default function SprigConsole({ stars, consoleCount }) {
+export default function SprigConsole({ stars }) {
   return (
     <Box sx={{ position: 'relative' }}>
       <CardModel
@@ -47,23 +47,6 @@ export default function SprigConsole({ stars, consoleCount }) {
           }}
           alt="Sprig console"
         />
-        <Text
-          as="p"
-          variant="subheadline"
-          sx={{
-            px: 2,
-            py: 1,
-            width: 'fit-content',
-            borderRadius: 'extra',
-            color: 'white',
-            border: 'rgba(255,255,255,0.2) dashed 1px',
-            zIndex: 2,
-            position: ['absolute', 'relative', 'relative'],
-            top: ['24px', 0, '5px']
-          }}
-        >
-          {420 - consoleCount} consoles left
-        </Text>
         <Grid
           columns={[1, 1, '1.2fr 1fr', '1.2fr 1fr']}
           sx={{ zIndex: 2, position: 'relative' }}

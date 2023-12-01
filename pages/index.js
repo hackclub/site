@@ -38,7 +38,6 @@ function Page({
   slackData,
   gitHubData,
   gitHubDataLength,
-  consoleCount,
   stars,
   // githubData2,
   dataPieces,
@@ -752,7 +751,6 @@ function Page({
                 <SprigConsole
                   delay={300}
                   stars={stars.sprigHardware.stargazerCount}
-                  consoleCount={consoleCount}
                 />
               </Box>
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
@@ -1205,9 +1203,6 @@ export async function getStaticProps() {
 
   gameTitle = game.map(r => r.title)
 
-  // Sprig: get console count
-  const { getConsoles } = require('./api/sprig-console')
-  const consoleCount = await getConsoles()
 
   // Hackathons: get latest hackathons
   let hackathonsData
@@ -1233,7 +1228,6 @@ export async function getStaticProps() {
       game,
       gameTitle,
       gitHubData,
-      consoleCount,
       hackathonsData,
       bankData,
       slackData,
