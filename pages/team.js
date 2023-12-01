@@ -229,9 +229,18 @@ export default function Team() {
                      <Bio
                       img="https://cloud-diex6x51t-hack-club-bot.vercel.app/01671553183325__1_.jpeg"
                       name="Arpan Pandey"
-                      teamRole="Clubs Operations And Engineering"
+                      teamRole="Clubs Operations & Engineering"
                       text="Arpan Pandey (@A) is a Hack Clubber from India who joined Hack Club about 1.5 years ago. He is a passionate programmer and loves to build things, especially for clubs. He has created and maintained Jams API, Clubs Directory and many other projects for clubs. He also onboards and supports clubs through their Hack Club Journey. He is also the person to send out mails to Hack Clubbers in India. He loves Harry Potter and is a proud Gryffindor. You'll also find him playing around with electronics and hardware, and he is also a licensed HAM (KC1TPD). He is very much interested in having deep conversations with people and loves to make new friends. Here is his favorite quote: “It does not do to dwell on dreams and forget to live.”"
                       pronouns="he/him"
+                    />
+                     <Bio
+                      img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
+                      name="Sahiti Dasari"
+                      teamRole="Clubs Operations & Engineering"
+                      text="Sahiti's Hack Club journey kicked off when she stumbled upon resources to start her own high school coding club, which later led to her running a county-wide hackathon. These days, she's an active member of the Clubs Operations & Engineering team and has previously interned with Hack Club for philanthropy and communications. She strives to create technology tools and resources for clubs, such as the Hack Club Jams initiative and Club Leader onboarding. Beyond programming, Sahiti loves all things finance, business, and literature. Her mission is to make an impact by spreading opportunities.
+                      <br></br>
+                      ... .... . .----. ... / .- .-.. ... --- / ..-. .-.. ..- . -. - / .. -. / -- --- .-. ... . / -.-. --- -.. . -.-.--"
+                      pronouns="she/her"
                     />
                   </Grid>
                 </Box>
@@ -394,7 +403,7 @@ export default function Team() {
                 <Bio
                   name="Sahiti Dasari"
                   teamRole="Moderation & Events"
-                  img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
+                  img="https://cloud-hmya58lt9-hack-club-bot.vercel.app/0img_3143.jpg"
                   pronouns="she/her"
                 />
                 <Bio
