@@ -96,7 +96,7 @@ const Page = () => (
   <>
     <Meta
       as={Head}
-      title="Clubs – Hack Club"
+      title="Clubs"
       description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
       image="https://cloud-epiki4yvg.vercel.app/2020-09-09_drbp62kayjuyyy0ek89mf9fwcp5t4kuz.jpeg"
     />
