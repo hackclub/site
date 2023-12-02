@@ -229,7 +229,7 @@ const Page = () => (
           }}
           title="📸 Photo by Kunal Botla, Hack Clubber in MA!"
         >
-          Hackers at Outernet in VT
+          Hackers at Assemble in SF
         </Badge>
       </Box>
     </Box>
