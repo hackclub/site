@@ -339,7 +339,7 @@ const Page = () => (
             <NextLink href="/hackathons" passHref>
               <a>hackathons</a>
             </NextLink>{' '}
-            like <a href="https://lelandhacks.com">Leland Hacks</a> &{' '}
+            like <a href="https://lioncityhacks.com">Lion City Hacks</a> &{' '}
             <a href="https://www.youtube.com/watch?v=Hs-hMMeHXaY">HackOC</a>, take part in year long
             programs like <NextLink href="/onboard">OnBoard</NextLink>, and compete in events
             like the{' '}
