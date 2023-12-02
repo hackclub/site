@@ -712,14 +712,6 @@ const Page = () => (
         }
       }}
     >
-      <BGImg
-        width={2544}
-        height={2048}
-        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
-        src={FooterImgFile}
-        placeholder="blur"
-        alt="Globe with hundreds of Hack Clubs"
-      />
       <style>
         {`a{
           color: #338eda
