@@ -238,7 +238,6 @@ export default function Team() {
                       name="Sahiti Dasari"
                       teamRole="Clubs Operations & Engineering"
                       text="Sahiti's Hack Club journey kicked off when she stumbled upon resources to start her own high school coding club, which later led to her running a county-wide hackathon. These days, she's an active member of the Clubs Operations & Engineering team and has previously interned with Hack Club for philanthropy and communications. She strives to create technology tools and resources for clubs, such as the Hack Club Jams initiative and Club Leader onboarding. Beyond programming, Sahiti loves all things finance, business, and literature. Her mission is to make an impact by spreading opportunities.
-                      <br></br>
                       ... .... . .----. ... / .- .-.. ... --- / ..-. .-.. ..- . -. - / .. -. / -- --- .-. ... . / -.-. --- -.. . -.-.--"
                       pronouns="she/her"
                     />
