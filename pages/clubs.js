@@ -27,7 +27,6 @@ import AssembleImgFile from '../public/home/assemble.jpg'
 import Slack from '../components/slack'
 import Announcement from '../components/announcement'
 import Stage from '../components/stage'
-import OuternetImgFile from '../public/home/outernet-110.jpg'
 
 let Highlight = styled(Text)`
   color: inherit;
