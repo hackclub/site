@@ -361,7 +361,7 @@ const ShipPage = () => {
       <Meta
         as={Head}
         name="OnBoard"
-        description={`We'll pay manufacturing costs for any high schooler who designs a circuit board.`}
+        description={`We'll pay manufacturing costs for any high schooler (or younger!) who designs a circuit board.`}
         image="https://cloud-ji9c1qxfx-hack-club-bot.vercel.app/03_card.png"
       />
 
@@ -847,7 +847,7 @@ const ShipPage = () => {
                     >
                       apply for the grant
                     </Link>
-                    ! You must be a teenager in high school to apply.
+                    ! You must be a teenager in high school or younger to apply.
                   </>
                 ].map((text, i) => (
                   <Text
