@@ -43,7 +43,7 @@
     "js-confetti": "^0.11.0",
     "lodash": "^4.17.21",
     "million": "^2.6.4",
-    "next": "^12.3.1",
+    "next": "^13.5.1",
     "next-transpile-modules": "^10.0.1",
     "react": "^17.0.2",
     "react-before-after-slider-component": "^1.1.8",
