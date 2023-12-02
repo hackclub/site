@@ -121,10 +121,9 @@ const Page = () => (
       }}
     >
       <BGImg
-        src={OuternetImgFile}
-        alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
+        src={AssembleImgFile}
+        alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
         priority
-        gradient="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5))"
       />
 
       <SlideDown duration={768}>
