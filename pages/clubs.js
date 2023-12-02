@@ -113,7 +113,7 @@ const Page = () => (
       as="header"
       sx={{
         bg: 'dark',
-        pt: [5, 5],
+        pt: [5, 6],
         pb: [2, 3],
         textAlign: 'center',
         position: 'relative',
