@@ -62,7 +62,7 @@ export default function SprigConsole({ stars, consoleCount }) {
             top: ['24px', 0, '5px']
           }}
         >
-          {consoleCount} consoles claimed!
+          Join the other {consoleCount} teenagers who have sprigs!
         </Text>
         <Grid
           columns={[1, 1, '1.2fr 1fr', '1.2fr 1fr']}
