@@ -44,7 +44,7 @@ const fixed = props =>
 const Root = styled(Box)`
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 1000;
   ${fixed};
   @media print {
@@ -98,7 +98,7 @@ const layout = props =>
           height: 64px;
           font-weight: bold;
           font-size: ${theme.fontSizes[2]}px;
-          width: 100%;
+          width: 100vw;
           max-width: 18rem;
           &:not(:last-child) {
             border-bottom: 1px solid rgba(48, 48, 48, 0.125);
