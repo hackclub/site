@@ -683,7 +683,7 @@ const ShipPage = () => {
               </Flex>
             </a>
 
-            <a
+            {/* <a
               href="https://github.com/hackclub/OnBoard/tree/main/projects/proto2040"
               target="_blank"
             >
@@ -705,7 +705,7 @@ const ShipPage = () => {
                   }}
                 />
               </Flex>
-            </a>
+            </a> */}
 
             <a
               href="https://github.com/Hugoyhu/Hack-Club-Zephyr-USB-Hub"
