@@ -1,4 +1,4 @@
-import { Box, Grid, Image, Text } from 'theme-ui'
+import {Box, Grid, Image, Text} from 'theme-ui'
 import Buttons from './button'
 import CardModel from './card-model'
 import Tilt from '../../tilt'
@@ -53,16 +53,16 @@ export default function SprigConsole({ stars, consoleCount }) {
           sx={{
             px: 2,
             py: 1,
+            mt: 2,
             width: 'fit-content',
             borderRadius: 'extra',
             color: 'white',
             border: 'rgba(255,255,255,0.2) dashed 1px',
             zIndex: 2,
-            position: ['absolute', 'relative', 'relative'],
             top: ['24px', 0, '5px']
           }}
         >
-          Join the other {consoleCount} teenagers who have sprigs!
+          Join the other {consoleCount} teenagers with Sprigs!
         </Text>
         <Grid
           columns={[1, 1, '1.2fr 1fr', '1.2fr 1fr']}
