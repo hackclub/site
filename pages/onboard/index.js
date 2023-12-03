@@ -683,33 +683,32 @@ const ShipPage = () => {
               </Flex>
             </a>
 
-            <a
-              href="https://github.com/hackclub/sprig-hardware"
+            {/* <a
+              href="https://github.com/hackclub/OnBoard/tree/main/projects/proto2040"
               target="_blank"
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 100 }}>
-                  A <strong>movement sensor</strong> add-on to an open source{' '}
-                  <strong>game console</strong>.
+                  The cutest, tiniest raspberry pi-base developer board.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  Read the source&nbsp;<span className="arrow">&rarr;</span>
+                  Read Paolo's work&nbsp;<span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-6exi6bz1i-hack-club-bot.vercel.app/0rotatesprig.png"
+                  src="https://cloud-6a1wip38p-hack-club-bot.vercel.app/02023-07-21t14_56_26.548z-img_20230720_175244.png"
                   alt="A black circuit board for a game console with copper wiring."
                   sx={{
-                    maxWidth: 280,
+                    maxWidth: 180,
                     position: 'absolute',
                     bottom: -40,
                     right: -75
                   }}
                 />
               </Flex>
-            </a>
+            </a> */}
 
             <a
-              href="https://github.com/Hugoyhu/Hack-Club-Zephyr-USB-Hub"
+              href="https://jams.hackclub.com/batch/usb-hub"
               target="_blank"
             >
               <Flex as="article">
@@ -750,6 +749,31 @@ const ShipPage = () => {
                 <Image
                   src="https://cloud-myjum5y6g-hack-club-bot.vercel.app/0longhorn2.png"
                   alt="A longhorn-shaped PCB with glowing horns."
+                  sx={{
+                    position: 'absolute',
+                    top: 40,
+                    right: -30,
+                    maxWidth: 230,
+                    transform: 'rotate(20deg)'
+                  }}
+                />
+              </Flex>
+            </a>
+
+            <a
+              href="https://github.com/hackclub/OnBoard/tree/main/projects/TOTKey"
+              target="_blank"
+            >
+              <Flex as="article">
+                <Text as="p" sx={{ pr: 140 }}>
+                  Build your own <strong>hardware key</strong>.
+                </Text>
+                <Text as="p" sx={{ pr: 140, color: 'gray' }}>
+                  Learn how to make your own&nbsp;<span className="arrow">&rarr;</span>
+                </Text>
+                <Image
+                  src="https://cloud-6a1wip38p-hack-club-bot.vercel.app/1totk_key.png"
+                  alt="A long PCB with a pixelated screen."
                   sx={{
                     position: 'absolute',
                     top: 40,
