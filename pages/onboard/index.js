@@ -708,7 +708,7 @@ const ShipPage = () => {
             </a> */}
 
             <a
-              href="https://github.com/Hugoyhu/Hack-Club-Zephyr-USB-Hub"
+              href="https://jams.hackclub.com/batch/usb-hub"
               target="_blank"
             >
               <Flex as="article">
