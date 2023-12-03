@@ -1,12 +1,10 @@
 import CardModel from './card-model'
-import { Box, Flex, Grid, Image, Link, Text } from 'theme-ui'
+import { Box, Flex, Grid, Text } from 'theme-ui'
 import Buttons from './button'
-import styled from '@emotion/styled'
-import RelativeTime from 'react-relative-time'
 
 /** @jsxImportSource theme-ui */
 
-export default function Haxidraw() {
+export default function Haxidraw({ stars }) {
   return (
     <CardModel
       github_link="https://github.com/hackclub/blot/"
@@ -19,6 +17,7 @@ export default function Haxidraw() {
       position={[null, 'bottom', 'bottom']}
       highlight="#271932"
       filter="brightness(0.8)"
+      stars={stars}
     >
       <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
         Blot

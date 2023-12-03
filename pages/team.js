@@ -1,10 +1,10 @@
-import { Box, Container, Flex, Grid, Text } from "theme-ui";
-import Meta from "@hackclub/meta";
-import Head from "next/head";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
-import Bio from "../components/bio";
-import ForceTheme from "../components/force-theme";
+import { Box, Container, Flex, Grid, Text } from 'theme-ui'
+import Meta from '@hackclub/meta'
+import Head from 'next/head'
+import Nav from '../components/nav'
+import Footer from '../components/footer'
+import Bio from '../components/bio'
+import ForceTheme from '../components/force-theme'
 
 export default function Team() {
   return (
@@ -23,9 +23,9 @@ export default function Team() {
           px={[2, 4]}
           sx={{
             backgroundImage:
-              "radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "75%",
+              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: '75%'
           }}
         >
           <Container>
@@ -38,7 +38,7 @@ export default function Team() {
               as="div"
               variant="lead"
               color="smoke"
-              sx={{ maxWidth: "650px" }}
+              sx={{ maxWidth: '650px' }}
             >
               We believe in a world where every young person is empowered to be
               the change they want to see around them. At Hack Club, we’re
@@ -50,12 +50,12 @@ export default function Team() {
           <Container>
             <Flex
               sx={{
-                bg: "rgb(51 142 218 / 40%)",
+                bg: 'rgb(51 142 218 / 40%)',
                 p: 3,
-                borderRadius: "20px",
+                borderRadius: '20px',
                 mb: 3,
                 gap: 3,
-                flexWrap: ["wrap", null, null, "nowrap"],
+                flexWrap: ['wrap', null, null, 'nowrap']
               }}
             >
               <Text
@@ -63,18 +63,18 @@ export default function Team() {
                 my={[0, 0, 3]}
                 as="h3"
                 sx={{
-                  textAlign: "center",
+                  textAlign: 'center',
                   fontSize: 4,
-                  writingMode: [null, null, null, "vertical-rl"],
+                  writingMode: [null, null, null, 'vertical-rl'],
                   mr: [0, 0, 0, 2],
-                  transform: [null, null, null, "rotate(180deg)"],
-                  width: ["100%", null, null, "fit-content"],
+                  transform: [null, null, null, 'rotate(180deg)'],
+                  width: ['100%', null, null, 'fit-content'],
                   marginBottom: [
-                    "0px!important",
-                    "0px!important",
-                    "0px!important",
-                    3,
-                  ],
+                    '0px!important',
+                    '0px!important',
+                    '0px!important',
+                    3
+                  ]
                 }}
               >
                 Our Board
@@ -127,9 +127,9 @@ export default function Team() {
               <Box>
                 <Box
                   sx={{
-                    bg: "rgb(51 214 166 / 40%)",
+                    bg: 'rgb(51 214 166 / 40%)',
                     p: 3,
-                    borderRadius: "20px",
+                    borderRadius: '20px'
                   }}
                 >
                   <Text
@@ -137,7 +137,7 @@ export default function Team() {
                     mt={2}
                     mb={3}
                     as="h3"
-                    sx={{ textAlign: "center", fontSize: 4 }}
+                    sx={{ textAlign: 'center', fontSize: 4 }}
                   >
                     Hacker Resources Team
                   </Text>
@@ -155,13 +155,6 @@ export default function Team() {
                       text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
                       img="/team/leo.png"
                       pronouns="he/him"
-                    />
-                    <Bio
-                      name="Holly Delisle"
-                      teamRole="Clubs Operations Lead"
-                      text="Holly comes to Hack Club with 10 years of operations management in the banking industry, bringing people together and simplifying processes. She's lived in Maine and Vermont in intervals all her life and loves the outdoors in every season. Now, Holly meets and works with amazing, inspiring technical teenagers every day from around the world. She's got two sons, two dogs and two cats, the latter of which are all named after characters in some of her favorite books."
-                      img="/team/holly.jpeg"
-                      pronouns="she/her"
                     />
                     <Bio
                       name="Lexi Mattick"
@@ -226,15 +219,37 @@ export default function Team() {
                       text="Josias Aurel (@Josias Aurel) has been associated with Hack Club for about 3 years, working on a variety of projects including Sinerider. He has organized events such as the TiC Summit and TiC Hackathon in his local town of Yaoundé, Cameroon. He is a curiosity-driven coder who likes to take on interesting challenges and who is interested in machine learning and systems programming. He'll be working very closely with Graham over the next year on a variety of projects. Outside of tech he likes going on hikes with friends and eating vegetables."
                       pronouns="he/him"
                     />
+                    <Bio
+                      img="https://cloud-p623dki6o-hack-club-bot.vercel.app/0img_2668.jpg"
+                      name="Nila Palmo Ram"
+                      teamRole="Engineering Assistant"
+                      text="Nila absolutely loves coding and is all about making tech awesome while experimenting on how to keep it ethical and humanistic. Over at Hack Club, she's on a mission to empower more girl Hack Clubbers by guiding them in organizing Hackathons, collaborating on special projects, and fostering connections amongst them. Alongside Christina, she's also busy drumming up funds for Hack Club, always on the lookout for new donors. When she's not in front of the screen, you'll find her out by the water, diving into all sorts of aquatic adventures."
+                      pronouns="she/her"
+                    />
+                     <Bio
+                      img="https://cloud-diex6x51t-hack-club-bot.vercel.app/01671553183325__1_.jpeg"
+                      name="Arpan Pandey"
+                      teamRole="Clubs Operations & Engineering"
+                      text="Arpan Pandey (@A) is a Hack Clubber from India who joined Hack Club about 1.5 years ago. He is a passionate programmer and loves to build things, especially for clubs. He has created and maintained Jams API, Clubs Directory and many other projects for clubs. He also onboards and supports clubs through their Hack Club Journey. He is also the person to send out mails to Hack Clubbers in India. He loves Harry Potter and is a proud Gryffindor. You'll also find him playing around with electronics and hardware, and he is also a licensed HAM (KC1TPD). He is very much interested in having deep conversations with people and loves to make new friends. Here is his favorite quote: “It does not do to dwell on dreams and forget to live.”"
+                      pronouns="he/him"
+                    />
+                     <Bio
+                      img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
+                      name="Sahiti Dasari"
+                      teamRole="Clubs Operations & Engineering"
+                      text="Sahiti's Hack Club journey kicked off when she stumbled upon resources to start her own high school coding club, which later led to her running a county-wide hackathon. These days, she's an active member of the Clubs Operations & Engineering team and has previously interned with Hack Club for philanthropy and communications. She strives to create technology tools and resources for clubs, such as the Hack Club Jams initiative and Club Leader onboarding. Beyond programming, Sahiti loves all things finance, business, and literature. Her mission is to make an impact by spreading opportunities.
+                      ... .... . .----. ... / .- .-.. ... --- / ..-. .-.. ..- . -. - / .. -. / -- --- .-. ... . / -.-. --- -.. . -.-.--"
+                      pronouns="she/her"
+                    />
                   </Grid>
                 </Box>
               </Box>
               <Box>
                 <Box
                   sx={{
-                    bg: "rgb(236 55 80 / 40%)",
+                    bg: 'rgb(236 55 80 / 40%)',
                     p: 3,
-                    borderRadius: "20px",
+                    borderRadius: '20px'
                   }}
                 >
                   <Text
@@ -242,14 +257,14 @@ export default function Team() {
                     mt={2}
                     mb={3}
                     as="h3"
-                    sx={{ textAlign: "center", fontSize: 4 }}
+                    sx={{ textAlign: 'center', fontSize: 4 }}
                   >
                     HCB Team
                   </Text>
                   <Grid
                     columns={[1, null, 2]}
                     gap={2}
-                    sx={{ height: "fit-content" }}
+                    sx={{ height: 'fit-content' }}
                   >
                     <Bio
                       img="/team/max.jpg"
@@ -323,7 +338,14 @@ export default function Team() {
                       img="/team/kris.png"
                       pronouns="she/her"
                     />
-                    <Bio
+					<Bio
+						name="Paul Spitler"
+						teamRole="Partnerships Lead"
+						text="Before joining Hack Club Paul (a native Shelburnite) was working in the e-commerce space in NYC but has moved back to his homeland a few years ago. His role at Hack Club will be building out new partnerships and although he has no idea how to code, he’s hoping to learn over his career. Paul enjoys playing hockey, being outdoors with his wife and dog and any kind of boards sports."
+				  		img="/team/paul.png"
+						pronouns="he/him"
+					/>
+					<Bio
                       name="Arianna Martinelli"
                       teamRole="Operations"
                       text="Arianna (a current freshman at Carnegie-Mellon University and a former Hack Club leader from Kentucky) loves onboarding all our cool organizations and making HCB more accessible. When she’s not learning about how humans and computers can work together, she’s making memes and decorating the world with Hack Club stickers."
@@ -343,10 +365,10 @@ export default function Team() {
             </Grid>
             <Box
               sx={{
-                bg: "rgb(166 51 214 / 40%)",
+                bg: 'rgb(166 51 214 / 40%)',
                 p: 3,
-                borderRadius: "20px",
-                mt: 3,
+                borderRadius: '20px',
+                mt: 3
               }}
             >
               <Text
@@ -354,7 +376,7 @@ export default function Team() {
                 mt={2}
                 mb={3}
                 as="h3"
-                sx={{ textAlign: "center", fontSize: 4 }}
+                sx={{ textAlign: 'center', fontSize: 4 }}
               >
                 Community Team
               </Text>
@@ -378,15 +400,9 @@ export default function Team() {
                   pronouns="he/him"
                 />
                 <Bio
-                  name="Maggie Liu"
-                  teamRole="Moderation & Events"
-                  img="https://ca.slack-edge.com/T0266FRGM-U026XSMKEDC-a5beea76faa2-512"
-                  pronouns="she/her"
-                />
-                <Bio
                   name="Sahiti Dasari"
                   teamRole="Moderation & Events"
-                  img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
+                  img="https://cloud-hmya58lt9-hack-club-bot.vercel.app/0img_3143.jpg"
                   pronouns="she/her"
                 />
                 <Bio
@@ -401,14 +417,20 @@ export default function Team() {
                   img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
                   pronouns="he/him"
                 />
+                <Bio
+                  name="Arpan Pandey"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U0409FSKU82-e912a98d0ead-512"
+                  pronouns="he/him"
+                />
               </Grid>
             </Box>
             <br />
-            <Box sx={{ textAlign: "center", mt: 2, mb: [3, 4] }}>
+            <Box sx={{ textAlign: 'center', mt: 2, mb: [3, 4] }}>
               <Text
                 variant="title"
                 color="orange"
-                sx={{ lineHeight: "1em", fontSize: [4, 5, 6] }}
+                sx={{ lineHeight: '1em', fontSize: [4, 5, 6] }}
                 as="h2"
               >
                 Acknowledgements
@@ -417,13 +439,13 @@ export default function Team() {
                 variant="title"
                 color="text"
                 sx={{
-                  lineHeight: "1.2",
+                  lineHeight: '1.2',
                   fontSize: [1, 3, 4],
                   my: [3, 0, 0],
                   fontWeight: 400,
-                  maxWidth: "600px",
-                  width: "100%",
-                  margin: "auto",
+                  maxWidth: '600px',
+                  width: '100%',
+                  margin: 'auto'
                 }}
                 as="h2"
               >
@@ -432,6 +454,13 @@ export default function Team() {
               </Text>
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
+              <Bio
+                name="Holly Delisle"
+                teamRole="Clubs Operations Lead"
+                text="Holly comes to Hack Club with 10 years of operations management in the banking industry, bringing people together and simplifying processes. She's lived in Maine and Vermont in intervals all her life and loves the outdoors in every season. Now, Holly meets and works with amazing, inspiring technical teenagers every day from around the world. She's got two sons, two dogs and two cats, the latter of which are all named after characters in some of her favorite books."
+                img="/team/holly.jpeg"
+                pronouns="she/her"
+              />
               <Bio
                 name="Kunal Botla"
                 teamRole="Operations"
@@ -461,6 +490,12 @@ export default function Team() {
                 pronouns="he/him"
                 href="https://github.com/sampoder"
               />
+              <Bio
+                  name="Maggie Liu"
+                  teamRole="Moderation & Events"
+                  img="https://ca.slack-edge.com/T0266FRGM-U026XSMKEDC-a5beea76faa2-512"
+                  pronouns="she/her"
+                />
               <Bio
                 img="/team/athul.jpg"
                 name="Athul Blesson"
@@ -628,5 +663,5 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
       </Box>
       <Footer light key="footer" />
     </>
-  );
+  )
 }

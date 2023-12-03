@@ -2,12 +2,12 @@ import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from "theme-ui";
 import Balancer from "react-wrap-balancer";
 import Head from "next/head";
 import Meta from "@hackclub/meta";
-import Nav from "../components/nav";
-import Footer from "../components/footer";
-import FadeIn from "../components/fade-in";
-import Sparkles from "../components/sparkles";
-import Tilt from "../components/tilt";
-import usePrefersReducedMotion from "../lib/use-prefers-reduced-motion";
+import Nav from "../../components/nav";
+import Footer from "../../components/footer";
+import FadeIn from "../../components/fade-in";
+import Sparkles from "../../components/sparkles";
+import Tilt from "../../components/tilt";
+import usePrefersReducedMotion from "../../lib/use-prefers-reduced-motion";
 import { useEffect, useRef, useState } from "react";
 
 /**
@@ -161,9 +161,9 @@ const stickerButtonFontStylesheet = `https://fonts.googleapis.com/css2?family=${
 )}&display=swap&text=${encodeURIComponent(stickerButtonText)}`
 
 const wandImgTraced =
-  'https://cloud-8lszi55ph-hack-club-bot.vercel.app/10frame_2.png'
+  'https://cloud-mmhtcl463-hack-club-bot.vercel.app/1trace.png'
 const wandImgRendered =
-  'https://cloud-8lszi55ph-hack-club-bot.vercel.app/00frame_1.png'
+  'https://cloud-mmhtcl463-hack-club-bot.vercel.app/0transparent_pcb.png'
 
 const ShipPage = () => {
   const prefersReducedMotion = usePrefersReducedMotion()
@@ -443,7 +443,7 @@ const ShipPage = () => {
                   color: '#87ffa1'
                 }}
               >
-                <Balancer ratio={0.3}>OnBoard</Balancer>
+                <Balancer ratio={0.3}>OnBoard with <i>FIRST&reg;</i></Balancer>
               </Heading>
 
               <Heading
@@ -456,6 +456,8 @@ const ShipPage = () => {
                     <Text sx={{ fontWeight: 400 }}>magical</Text>
                   </Sparkles>
                   . You design one, we'll print it!
+                  <br /><br />
+                  Plus! FIRST team members get a limited edition PCB badge designed with Dean Kamen.
                 </Balancer>
               </Heading>
 
@@ -463,31 +465,31 @@ const ShipPage = () => {
                 <Button
                   variant="ctaLg"
                   as="a"
-                  href="https://hack.af/pcb-jam"
+                  href="https://hackclub.com/onboard/first_and_hack_club.pdf"
                   target="_blank"
                   sx={{
                     background: t => t.util.gx('#60cc38', '#113b11')
                   }}
                 >
-                  Learn PCB Design Now!
+                  Download the PDF
                 </Button>
 
                 <Button
                   variant="outlineLg"
                   as="a"
-                  href="https://github.com/hackclub/OnBoard/blob/main/README.md"
+                  href="https://jams.hackclub.com/tag/pcb"
                   target="_blank"
                   sx={{
                     borderColor: '#113b11',
                     color: '#60cc38'
                   }}
                 >
-                  Get a Grant
+                  Learn PCB Design!
                 </Button>
               </Flex>
             </Flex>
 
-            <Box sx={{ flex: 1, maxWidth: 230 }}>
+            <Box sx={{ flex: 1, maxWidth: 330, ml: [0, null, -100] }}>
               <FadeIn duration={800} delay={100}>
                 <Image
                   src={wandImg}
@@ -548,7 +550,7 @@ const ShipPage = () => {
         sx={{
           px: 4,
           pt: 6,
-          pb: 4,
+          pb: 150,
           bg: dimBg,
           color: '#ffffff',
           justifyContent: 'center'
@@ -592,6 +594,52 @@ const ShipPage = () => {
       </Flex>
 
       <Flex
+        as="section"
+        sx={{
+          position: 'relative',
+          top: -100,
+          px: 4,
+          mb: -100,
+          bg: 'transparent',
+          color: '#ffffff',
+          justifyContent: 'center'
+        }}
+      >
+        <Text
+          as="a"
+          href="https://github.com/hackclub/OnBoard/pull/248/files"
+          target="_blank"
+          sx={{
+            display: 'flex',
+            bg: '#ffffff',
+            width: '100%',
+            border: `4px solid ${dimBg}`,
+            borderRadius: 'default',
+            fontSize: 22,
+            color: 'inherit',
+            textDecoration: 'inherit',
+            flexDirection: ['column', null, 'row', null],
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            maxWidth: 'copyPlus'
+          }}
+        >
+          <Text as="p" sx={{ color: '#000000', flex: '1', maxWidth: 400, p: 4 }}>
+            FRC team #4272 "Maverick Robotics" made this <strong>swerve-drive encoder</strong> for their robot drive train that's cheaper than stock sensors and saves ports on their CAN.
+          </Text>
+          <Image
+            src="https://cloud-of94ar9fg-hack-club-bot.vercel.app/0purple.png"
+            alt="A purple arrow-shaped circuit board with the words 'maverick robotics' on it."
+            sx={{
+              pr: [0, null, 4, null],
+              width: '100%',
+              maxWidth: 300
+            }}
+          />
+        </Text>
+      </Flex>
+
+      {/* <Flex
         as="section"
         sx={{
           overflowX: 'hidden',
@@ -684,21 +732,22 @@ const ShipPage = () => {
             </a>
 
             <a
-              href="https://github.com/hackclub/OnBoard/tree/main/projects/proto2040"
+              href="https://github.com/hackclub/sprig-hardware"
               target="_blank"
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 100 }}>
-                  The cutest, tiniest raspberry pi-base developer board.
+                  A <strong>movement sensor</strong> add-on to an open source{' '}
+                  <strong>game console</strong>.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  Read Paolo's work&nbsp;<span className="arrow">&rarr;</span>
+                  Read the source&nbsp;<span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-6a1wip38p-hack-club-bot.vercel.app/02023-07-21t14_56_26.548z-img_20230720_175244.png"
+                  src="https://cloud-6exi6bz1i-hack-club-bot.vercel.app/0rotatesprig.png"
                   alt="A black circuit board for a game console with copper wiring."
                   sx={{
-                    maxWidth: 180,
+                    maxWidth: 280,
                     position: 'absolute',
                     bottom: -40,
                     right: -75
@@ -759,43 +808,18 @@ const ShipPage = () => {
                 />
               </Flex>
             </a>
-
-            <a
-              href="https://github.com/hackclub/OnBoard/tree/main/projects/TOTKey"
-              target="_blank"
-            >
-              <Flex as="article">
-                <Text as="p" sx={{ pr: 140 }}>
-                  Build your own <strong>hardware key</strong>.
-                </Text>
-                <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  Learn how to make your own&nbsp;<span className="arrow">&rarr;</span>
-                </Text>
-                <Image
-                  src="https://cloud-6a1wip38p-hack-club-bot.vercel.app/1totk_key.png"
-                  alt="A long PCB with a pixelated screen."
-                  sx={{
-                    position: 'absolute',
-                    top: 40,
-                    right: -30,
-                    maxWidth: 230,
-                    transform: 'rotate(20deg)'
-                  }}
-                />
-              </Flex>
-            </a>
           </Grid>
 
           <Button
             variant="lg"
             as="a"
-            href="https://hack.af/pcb-jam"
+            href="https://jams.hackclub.com/tag/pcb"
             target="_blank"
           >
             Learn PCB Design Now!
           </Button>
         </Flex>
-      </Flex>
+      </Flex> */}
 
       <Flex
         as="section"
@@ -822,7 +846,7 @@ const ShipPage = () => {
             as="h2"
             sx={{ fontSize: 5, fontWeight: 500, textAlign: 'center' }}
           >
-            How to Qualify
+            How to Get a Grant
           </Heading>
 
           <Flex>
@@ -1064,10 +1088,10 @@ const ShipPage = () => {
               <Button
                 variant="outline"
                 as="a"
-                href="https://github.com/hackclub/OnBoard#requirements"
+                href="https://hackclub.com/onboard/first_and_hack_club.pdf"
                 target="_blank"
               >
-                Get a Grant
+                Download the PDF
               </Button>
             </Flex>
 
@@ -1079,10 +1103,10 @@ const ShipPage = () => {
             >
               <Text as="h3">Learn to PCB</Text>
               <Text as="p">
-                Read our Hacker Card tutorial to learn how to make a simple
-                circuit board from start to end.
+                Read our tutorials to learn how to make a simple
+                circuit boards from start to end.
               </Text>
-              <Button as="a" href="https://hack.af/pcb-jam" target="_blank">
+              <Button as="a" href="https://jams.hackclub.com/tag/pcb" target="_blank">
                 Start the Tutorial
               </Button>
             </Flex>

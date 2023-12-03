@@ -1,14 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  Grid,
-  Heading,
-  Flex,
-  Badge,
-  Link,
-  Text
-} from 'theme-ui'
+import { Badge, Box, Button, Card, Flex, Grid, Heading, Link, Text } from 'theme-ui'
 import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -39,7 +29,7 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
-import Haunted from '../components/index/cards/haunted'
+import Onboard from '../components/index/cards/onboard'
 
 /** @jsxImportSource theme-ui */
 
@@ -641,7 +631,6 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Haunted />
             <Pizza />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
@@ -758,7 +747,8 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Haxidraw />
+              <Onboard stars={stars.onboard.stargazerCount} delay={100} />
+              <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
