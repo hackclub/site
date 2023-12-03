@@ -1,7 +1,7 @@
-import { Badge, Box, Button, Card, Flex, Grid, Heading, Link, Text } from 'theme-ui'
-import React, { useEffect, useRef, useState } from 'react'
+import {Badge, Box, Button, Card, Flex, Grid, Heading, Link, Text} from 'theme-ui'
+import React, {useEffect, useRef, useState} from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import {useRouter} from 'next/router'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import BGImg from '../components/background-image'
@@ -1225,6 +1225,7 @@ export async function getStaticProps() {
   } catch (error) {
     hackathonsData = [] // or some default value if an error occurs
   }
+  hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start));
 
   let events = await fetch(
     'https://events.hackclub.com/api/events/upcoming/'
