@@ -61,7 +61,7 @@ export default function Recap() {
             icon="slack"
             color="white"
             name="Slack community"
-            desc="Join Slack for support with organizing your hackathon, from finding a venue to marketing your event."
+            desc="Chat in Slack for support with organizing your hackathon, from finding a venue to marketing your event."
           />
         </Card>
         <Card
@@ -81,7 +81,7 @@ export default function Recap() {
             name="$500 grants"
             desc={
               <>
-                Get a $500 grant for your hackathon and a suite of financial tools when you register for HCB.
+                Join HCB to receive a $500 grant for your hackathon and a suite of financial tools.
               </>
             }
           />
@@ -101,7 +101,7 @@ export default function Recap() {
             icon="event-check"
             color="white"
             name="Marketing"
-            desc="List your event on the first page of Google and emailed to high school hackers in your area."
+            desc="Get your event listed on Google's front page, emailed to nearby teens, and seen by our hackathon calendar's 3K+ monthly users."
           />
         </Card>
       </Grid>
