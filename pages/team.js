@@ -93,7 +93,7 @@ export default function Team() {
                     name="Christina Asquith"
                     teamRole="Co-founder and COO"
                     text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
-		    pronouns="she/her"
+                    pronouns="she/her"
                   />
                 </Grid>
                 <Grid columns={[1, null, 3]} gap={2}>
@@ -227,14 +227,14 @@ export default function Team() {
                       text="Nila absolutely loves coding and is all about making tech awesome while experimenting on how to keep it ethical and humanistic. Over at Hack Club, she's on a mission to empower more girl Hack Clubbers by guiding them in organizing Hackathons, collaborating on special projects, and fostering connections amongst them. Alongside Christina, she's also busy drumming up funds for Hack Club, always on the lookout for new donors. When she's not in front of the screen, you'll find her out by the water, diving into all sorts of aquatic adventures."
                       pronouns="she/her"
                     />
-                     <Bio
+                    <Bio
                       img="https://cloud-diex6x51t-hack-club-bot.vercel.app/01671553183325__1_.jpeg"
                       name="Arpan Pandey"
                       teamRole="Clubs Operations & Engineering"
                       text="Arpan Pandey (@A) is a Hack Clubber from India who joined Hack Club about 1.5 years ago. He is a passionate programmer and loves to build things, especially for clubs. He has created and maintained Jams API, Clubs Directory and many other projects for clubs. He also onboards and supports clubs through their Hack Club Journey. He is also the person to send out mails to Hack Clubbers in India. He loves Harry Potter and is a proud Gryffindor. You'll also find him playing around with electronics and hardware, and he is also a licensed HAM (KC1TPD). He is very much interested in having deep conversations with people and loves to make new friends. Here is his favorite quote: “It does not do to dwell on dreams and forget to live.”"
                       pronouns="he/him"
                     />
-                     <Bio
+                    <Bio
                       img="https://cloud-rb1s4ys4w-hack-club-bot.vercel.app/0pfp.jpg"
                       name="Sahiti Dasari"
                       teamRole="Clubs Operations & Engineering"
@@ -339,14 +339,14 @@ export default function Team() {
                       img="/team/kris.png"
                       pronouns="she/her"
                     />
-					<Bio
-						name="Paul Spitler"
-						teamRole="Partnerships Lead"
-						text="Before joining Hack Club Paul (a native Shelburnite) was working in the e-commerce space in NYC but has moved back to his homeland a few years ago. His role at Hack Club will be building out new partnerships and although he has no idea how to code, he’s hoping to learn over his career. Paul enjoys playing hockey, being outdoors with his wife and dog and any kind of boards sports."
-				  		img="/team/paul.png"
-						pronouns="he/him"
-					/>
-					<Bio
+                    <Bio
+                      name="Paul Spitler"
+                      teamRole="Partnerships Lead"
+                      text="Before joining Hack Club Paul (a native Shelburnite) was working in the e-commerce space in NYC but has moved back to his homeland a few years ago. His role at Hack Club will be building out new partnerships and although he has no idea how to code, he’s hoping to learn over his career. Paul enjoys playing hockey, being outdoors with his wife and dog and any kind of boards sports."
+                      img="/team/paul.png"
+                      pronouns="he/him"
+                    />
+                    <Bio
                       name="Arianna Martinelli"
                       teamRole="Operations"
                       text="Arianna (a current freshman at Carnegie-Mellon University and a former Hack Club leader from Kentucky) loves onboarding all our cool organizations and making HCB more accessible. When she’s not learning about how humans and computers can work together, she’s making memes and decorating the world with Hack Club stickers."
@@ -384,8 +384,10 @@ export default function Team() {
               <Grid columns={[1, 2, null, 4]} gap={2}>
                 <Bio
                   name="Toby Brown"
-                  teamRole="Moderation & Events"
+                  teamRole="Storytelling"
+                  text={`From a young age, Toby had a fascination with anything electronic. As a toddler, he would show far more interest in the 20-year-old air conditioning unit in the corner of the room than in anyone trying to talk to him. This fascination eventually led him to coding; and at the age of 6, Toby built his first website. While most sane people would probably describe this website as "atrocious", 6-year-old Toby was completely hooked. Nowadays, Toby does Storytelling at Hack Club, and is a self-proclaimed pizza eating expert.`}
                   img="https://ca.slack-edge.com/T0266FRGM-U02C9DQ7ZL2-a57a3718241a-512"
+                  href="https://tobyb.dev"
                   pronouns="he/him"
                 />
                 <Bio
@@ -492,11 +494,11 @@ export default function Team() {
                 href="https://github.com/sampoder"
               />
               <Bio
-                  name="Maggie Liu"
-                  teamRole="Moderation & Events"
-                  img="https://ca.slack-edge.com/T0266FRGM-U026XSMKEDC-a5beea76faa2-512"
-                  pronouns="she/her"
-                />
+                name="Maggie Liu"
+                teamRole="Moderation & Events"
+                img="https://ca.slack-edge.com/T0266FRGM-U026XSMKEDC-a5beea76faa2-512"
+                pronouns="she/her"
+              />
               <Bio
                 img="/team/athul.jpg"
                 name="Athul Blesson"
