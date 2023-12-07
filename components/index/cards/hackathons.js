@@ -1,10 +1,8 @@
 import CardModel from './card-model'
-import { Box, Flex, Grid, Image, Link, Text } from 'theme-ui'
-import { useState, useEffect } from 'react'
+import {Box, Flex, Grid, Image, Link, Text} from 'theme-ui'
 import Buttons from './button'
-import ScrollingHackathons from '../../hackathons/scrolling-hackathons'
 import Dot from '../../dot'
-import { formatDate } from '../../../lib/dates'
+import {formatDate} from '../../../lib/dates'
 
 /** @jsxImportSource theme-ui */
 const Cover = () => (
