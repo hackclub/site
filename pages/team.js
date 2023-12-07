@@ -386,8 +386,8 @@ export default function Team() {
                   name="Toby Brown"
                   teamRole="Storytelling"
                   text={`From a young age, Toby had a fascination with anything electronic. As a toddler, he would show far more interest in the 20-year-old air conditioning unit in the corner of the room than in anyone trying to talk to him. This fascination eventually led him to coding; and at the age of 6, Toby built his first website. While most sane people would probably describe this website as "atrocious", 6-year-old Toby was completely hooked. Nowadays, Toby does Storytelling at Hack Club, and is a self-proclaimed pizza eating expert.`}
-                  img="https://ca.slack-edge.com/T0266FRGM-U02C9DQ7ZL2-a57a3718241a-512"
                   href="https://tobyb.dev"
+                  img="https://ca.slack-edge.com/T0266FRGM-U02C9DQ7ZL2-a57a3718241a-512"
                   pronouns="he/him"
                 />
                 <Bio
