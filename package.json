@@ -69,7 +69,7 @@
     "tinytime": "^0.2.6",
     "turndown": "^7.1.2",
     "vanilla-tilt": "^1.8.1",
-    "yarn": "^1.22.19"
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
     "eslint": "8.55.0",
