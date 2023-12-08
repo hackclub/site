@@ -298,10 +298,11 @@ export default function Team() {
                     />
                     <Bio
                       name="Gary Tou"
-                      teamRole="Engineering"
+                      teamRole="Engineering Manager"
                       text="Gary is a software engineer from Seattle and loves photography! After using HCB to launch a nonprofit organization, Gary joined Hack Club to make the product that enabled him to do great things even greater for others."
                       img="https://assets.garytou.com/profile/GaryTou.jpg"
                       pronouns="he/him"
+                      href="https://garytou.com"
                     />
                     <Bio
                       name="Daisy Reyes"
