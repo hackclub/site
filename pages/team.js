@@ -206,6 +206,13 @@ export default function Team() {
                       text="Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He worked on Hack Club’s learning resources & clubs program for two years."
                       pronouns="he/him"
                     />
+                     <Bio
+                      name="Dieter Schoening"
+                      teamRole="Media Creation"
+                      text="Dieter grew up in South Carolina where he started the adventure of content creation. Now he is helping with our social media and projects to get more teens interested in Hack Club. Fun facts: He likes virtual reality development, boba, hiking, entrepreneurship"
+                      img="/team/deet.jpg"
+                      pronouns="He/Him"
+                    />
                     <Bio
                       name="Woody Keppel"
                       teamRole="Event Alchemist"
