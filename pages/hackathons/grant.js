@@ -192,14 +192,14 @@ const HackathonGrant = () => {
 
           <Grid columns={[1, 1, 2, 2]} gap={4}>
             <Requirement
-              title="Running this year"
+              title="Running through next year"
               checkmark="clock-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
               size="36"
             >
               We want to bring back high schooler-led events around the world,
               so we're only offering this grant for high school hackathons that
-              take place this year (until December 31st).
+              take place throughout 2024 (until December 31st).
               <br />
               <br />
               <Text
@@ -209,7 +209,7 @@ const HackathonGrant = () => {
                 }}
               >
                 This is not an annual program and has only been renewed until
-                the end of this year.
+                the end of 2024.
               </Text>
             </Requirement>
             <Requirement
