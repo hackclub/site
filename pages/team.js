@@ -245,7 +245,7 @@ export default function Team() {
                       img="https://cloud-cwim853sk-hack-club-bot.vercel.app/0screenshot_2023-12-12_at_4.15.57_pm.png"
                       name="Thomas Stubblefield"
                       teamsRole="Software Engineer & Clubs Lead" 
-                      text="Thomas is a Hack Clubber from South Carolina who led a Hack Club at his high school and is now building software to make the experience of being a part of and leading a club better. He currently leads the clubs program. He loves to build side projects, make tea, and hike. Thomas lives his life by three sayings: "time will tell", "in life we are always learning," and "bum bum bummm" (a friendly melody he hums daily)."
+                      text="Thomas is a Hack Clubber from South Carolina who led a Hack Club at his high school and is now building software to make the experience of being a part of and leading a club better. He currently leads the clubs program. He loves to build side projects, make tea, and hike. Thomas lives his life by three sayings: time will tell, in life we are always learning, and bum bum bummm (a friendly melody he hums daily)."
                       pronouns="he/him"
                     />
                     <Bio
