@@ -15,7 +15,7 @@ export default function Haxidraw({ stars }) {
         backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.4) 70%), url('https://cloud-1tnl6uqvw-hack-club-bot.vercel.app/0image.png')`
       }}
       position={[null, 'bottom', 'bottom']}
-      highlight="#271932"
+      highlight="#2b27f8d9"
       filter="brightness(0.8)"
       stars={stars}
     >
@@ -29,7 +29,7 @@ export default function Haxidraw({ stars }) {
             variant="subtitle"
             sx={{ zIndex: 2, position: 'relative' }}
           >
-            Blot is a W.I.P. open source drawing machine and online editor,
+            Blot is an open source drawing machine and online editor,
             designed to be a fun and beginner friendly introduction to digital
             fabrication and generative art.
           </Text>
