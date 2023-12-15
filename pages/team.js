@@ -432,7 +432,7 @@ export default function Team() {
                 <Bio
                   name="Arav Narula"
                   teamRole="Engineering, Moderation & Events"  
-                    text={`Arav is a high schooler who loves programming, and the social sciences. Instrested in Tech since he was 5, they love tinkering around and learning new things. They love building projects that help connect people together and are wacky, like Toriel - Hack Club's onboarding bot. At Hack Club, Arav works on Toriel, and helps keeps the community safe and activte`}
+                    text={`Arav is a high schooler from the land of Polar bears who loves everything from programming, arts, to the social sciences. They first joined Hack Club in 2020,after being tired of other communties online mostly directed at adults. Immediately,  Hack Club inspired them and provided them with a spacwhere they connect with other high schoolers just like them and learn new things. Now, Arav works at Hack Club working on  engineering projects like Toriel, the onboardingbot for Hack Club, and helps keep the community a fun, safe, and active place for techinal teenagers`}
                   img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
                   pronouns="he/him"
                 />
