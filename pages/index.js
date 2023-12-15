@@ -753,7 +753,7 @@ function Page({
               <Box as="section" id="sprig">
                 <SprigConsole
                   delay={300}
-                  stars={stars.sprigHardware.stargazerCount}
+                  stars={stars.sprig.stargazerCount}
                   consoleCount={consoleCount}
                 />
               </Box>

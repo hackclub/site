@@ -19,30 +19,12 @@
   },
   {
     "background": "#000",
-    "titleColor": "yellow",
+    "titleColor": "green",
     "descriptionColor": "white",
     "title": "Sprig",
     "description": "Join hundreds of teenagers making tile-based JavaScript games",
     "img": "https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png",
     "link": "https://sprig.hackclub.com"
-  },
-  {
-    "background": "blue",
-    "titleColor": "white",
-    "textColor": "white",
-    "title": "Clubs network",
-    "description": "Join one of 400+ coding clubs around the world",
-    "img": "https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f5fa-fe0f@2x.png",
-    "link": "/clubs"
-  },
-  {
-    "background": "dark",
-    "titleColor": "red",
-    "textColor": "white",
-    "title": "HCB",
-    "description": "No. 1 fiscal sponsor for teenagers (we crossed $10 million in transactions)",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/bank-hackclub-dark/8c6f85f387365072.png",
-    "link": "/hcb"
   },
   {
     "background": "snow",
@@ -63,37 +45,10 @@
     "link": "https://sinerider.com"
   },
   {
-    "background": "#2f070c",
-    "titleColor": "#ec3750",
-    "textColor": "white",
-    "title": "The Orpheus Show",
-    "description": "The podcast about Hack Club and its community",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/tos-icon/a4b81adea576bceb.png",
-    "link": "https://podcast.hackclub.com"
-  },
-  {
-    "background": "black",
-    "titleColor": "yellow",
-    "textColor": "white",
-    "title": "High school hackathons",
-    "description": "🔍 A curated list of high school hackathons with hundreds of events",
-    "img": "https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f469-200d-1f4bb@2x.png",
-    "link": "/hackathons"
-  },
-  {
-    "background": "snow",
-    "titleColor": "dark",
-    "descriptionColor": "black",
-    "title": "Workshops",
-    "description": "100+ coding workshops to build a project in under an hour",
-    "img": "https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f4bb@2x.png",
-    "link": "https://workshops.hackclub.com"
-  },
-  {
     "background": "dark",
     "titleColor": "green",
     "descriptionColor": "white",
-    "title": "Circuit boards",
+    "title": "OnBoard",
     "description": "Join 1k teens designing PCBs, learning hardware, and building electronics",
     "img": "https://cloud-jrox24mrn.vercel.app/orpheus_leap_micro_final.png",
     "link": "/onboard"
@@ -102,7 +57,7 @@
     "background": "dark",
     "titleColor": "blue",
     "textColor": "white",
-    "title": "Blot (coming soon!)",
+    "title": "Blot",
     "description": "An open source drawing machine and online editor for generative art",
     "img": "https://emoji.slack-edge.com/T0266FRGM/tw_pencil2/c6afadc2280e571d.png",
     "link": "https://blot.hackclub.dev"
