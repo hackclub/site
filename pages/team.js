@@ -431,7 +431,8 @@ export default function Team() {
                 />
                 <Bio
                   name="Arav Narula"
-                  teamRole="Engineering, Moderation & Events"
+                  teamRole="Engineering, Moderation & Events"  
+                    text={`Arav is a high schooler who loves programming, and the social sciences. Instrested in Tech since he was 5, they love tinkering around and learning new things. They love building projects that help connect people together and are wacky, like Toriel - Hack Club's onboarding bot. At Hack Club, Arav works on Toriel, and helps keeps the community safe and activte`}
                   img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
                   pronouns="he/him"
                 />
