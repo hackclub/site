@@ -432,10 +432,11 @@ export default function Team() {
                 <Bio
                   name="Arav Narula"
                   teamRole="Community Engineering & Moderation"  
-                    text={`Arav is a high schooler from the land of Polar bears who loves everything from programming, arts, to the social sciences. They first joined Hack Club in 2020,after being tired of other communties online mostly directed at adults. Immediately,  Hack Club inspired them and provided them with a spacwhere they connect with other high schoolers just like them and learn new things. Now, Arav works at Hack Club working on  engineering projects like Toriel, the onboardingbot for Hack Club, and helps keep the community a fun, safe, and active place for techinal teenagers`}
-                  img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
-                  pronouns="he/him"
-                />
+                    text={`Arav is a high schooler from the land of Polar bears who loves everything from programming, arts, to the social sciences. They first joined Hack Club in 2020, after being tired of other communties online mostly directed at adults. Immediately, Hack Club inspired them and provided them with a spacwhere they connect with other high schoolers just like them and learn new things. Now, Arav works at Hack Club working on engineering projects like Toriel, the onboardingbot for Hack Club, and helps keep the community a fun, safe, and active place for techinal teenagers`}
+                    img="https://ca.slack-edge.com/T0266FRGM-U01MPHKFZ7S-7b67dc7c40fb-512"
+                    pronouns="he/him"
+                href="https://github.com/tregsthedev"
+/>
                 <Bio
                   name="Arpan Pandey"
                   teamRole="Moderation & Events"
