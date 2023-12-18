@@ -2,7 +2,7 @@ import { sample, take } from 'lodash'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Slide } from 'react-reveal'
 import useWebSocket from 'react-use-websocket'
-import { Box, Text } from 'theme-ui'
+import { Flex, Text } from 'theme-ui'
 
 const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', '#8067c3']
 
@@ -78,7 +78,7 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
   })
 
   return (
-    <Box
+    <Flex
       as="ol"
       sx={{
         height: '100%',
@@ -113,17 +113,17 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
       {...props}
     >
       {take(events, 7).map(({ type, channel, color }) => (
-        <Slide top duration={256} key={type + channel + color}>
+        <Slide top duration={99990000} key={type + channel + color}>
           <>
             {type === 'message' && (
-              <>
+              <Text sx={{ marginX: "5px" }}>
                 Message in <Channel channel={channel} color={color} />
-              </>
+              </Text>
             )}
           </>
         </Slide>
       ))}
-    </Box>
+    </Flex>
   )
 }
 

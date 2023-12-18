@@ -1,4 +1,4 @@
-import { Box, Heading, Grid } from 'theme-ui'
+import { Box, Grid, Heading } from 'theme-ui'
 import SlideUp from '../slide-up'
 import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
@@ -24,7 +24,7 @@ const Content = () => (
           mb: [2, 3]
         }}
       >
-        Hack Club Slack
+        The door is open...
       </Heading>
     </Box>
     <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
