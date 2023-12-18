@@ -3,7 +3,16 @@ import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import NextLink from 'next/link'
 import useSWR from 'swr'
-import { Badge, Card, Container, Flex, Grid, Heading, Text } from 'theme-ui'
+import {
+  Badge,
+  Box,
+  Card,
+  Container,
+  Flex,
+  Grid,
+  Heading,
+  Text
+} from 'theme-ui'
 import Footer from '../components/footer'
 import ForceTheme from '../components/force-theme'
 import Icon from '../components/icon'
@@ -39,7 +48,6 @@ const SlackPage = () => {
       <Nav />
       <Header />
       <Container sx={{ py: [4, 5] }}>
-        
         <Heading
           as="h2"
           variant="title"
@@ -56,10 +64,11 @@ const SlackPage = () => {
         </Text>
         <Grid
           columns={[2, 9, 12]}
-          gap={3}
+          gap={4}
           sx={{
-            w: '100%',
+            bg: 'red',
             py: [3, 4],
+            maxHeight: '100%',
             h3: { my: 0 },
             '> div': {
               px: [2, 3],
@@ -211,7 +220,23 @@ const SlackPage = () => {
           </Heading>
           <SlackEvents />
         </Flex>
+        <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3 }}>Where the makers hang out...</Text>
       </Container>
+      <Box>
+        <Box sx={{
+          backgroundImage: t => t.util.gx('red', '#F58695'),
+          position: 'relative',
+          zIndex: -1,
+          width: '100vw',
+          height: '100vh',
+          objectFit: 'cover',
+          justifyContent: 'center',
+          placeSelf: 'center',
+          display: 'grid',
+        }}>
+          <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3, color: 'white' }}>Where the makers hang out...</Text>
+        </Box>
+      </Box>
       <Footer />
     </>
   )
