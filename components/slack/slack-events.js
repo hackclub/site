@@ -123,6 +123,15 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
           </>
         </Slide>
       ))}
+      <Text sx={{ marginX: "5px" }}>
+        <Channel channel="test!!" color="#FFFF00" />
+      </Text>
+      <Text sx={{ marginX: "5px" }}>
+        <Channel channel="test!!" color="#FFFF00" />
+      </Text>
+      <Text sx={{ marginX: "5px" }}>
+        <Channel channel="test!!" color="#FFFF00" />
+      </Text>
     </Flex>
   )
 }

@@ -55,9 +55,10 @@ const SlackPage = () => {
           Across 2,000 public channels, find the community for your favorite programming language, ask for advice, or just hang out. Find the worlds that suit you.
         </Text>
         <Grid
-          columns={[2, 9, 15]}
+          columns={[2, 9, 12]}
           gap={3}
           sx={{
+            w: '100%',
             py: [3, 4],
             h3: { my: 0 },
             '> div': {
@@ -66,7 +67,7 @@ const SlackPage = () => {
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'center',
-              gridColumn: ['span 1', 'span 3']
+              gridColumn: ['span 2', 'span 3']
             },
             a: {
               position: 'relative',
@@ -154,14 +155,11 @@ const SlackPage = () => {
               !
             </Text>
           </Card>
-          <Card bg="cyan">
-            <h3>#lounge</h3>
-          </Card>
           <Card
             sx={{
               backgroundImage:
                 'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/12020-07-25_fqxym71bmqjr1d35btawn5q6ph1zt0mk.png)',
-              backgroundColor: '#FEC62E',
+              backgroundColor: 'yellow',
               backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: '100% auto',
@@ -178,51 +176,25 @@ const SlackPage = () => {
             <h3>#code</h3>
           </Card>
           <Card
-            bg="yellow"
+            bg="purple"
             sx={{
-              backgroundImage:
-                'url(https://assets.hackclub.com/log/2020-06-29_dog.jpg)',
               backgroundSize: '100%',
               backgroundPosition: 'center',
               textShadow: 'text',
-              gridColumn: ['span 2', 'span 3 !important']
+              gridColumn: ['span 2', 'span 3 !important'],
+              backgroundImage: t => t.util.gx('purple', '#C153EE')
             }}
           >
-            <h3>#dogs</h3>
-          </Card>
-          <Card bg="purple">
             <h3>#music</h3>
-          </Card>
-          <Card
-            bg="red"
-            sx={{
-              backgroundImage: ({ colors }) =>
-                `linear-gradient(-184deg, ${colors.red} 0%, ${colors.red} 16.6666%, ${colors.orange} 16.6666%, ${colors.orange} 33.333%, ${colors.yellow} 33.333%, ${colors.yellow} 50%, ${colors.green} 50%, ${colors.green} 66.6666%, ${colors.blue} 66.6666%, ${colors.blue} 83.3333%, ${colors.purple} 83.3333%, ${colors.purple} 100%)`
-            }}
-          >
-            <h3>#lgbtq</h3>
-          </Card>
-          <Card
-            sx={{
-              bg: 'dark',
-              backgroundImage:
-                'url(https://cloud-jnfb0t781-hack-club-bot.vercel.app/02020-07-25_r6thfxwv1u0c71uw0qk94juv6fxxjygf.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              textShadow: 'text',
-              gridColumn: ['span 2 !important', 'span 4 !important']
-            }}
-          >
-            <h3>#photography</h3>
           </Card>
         </Grid>
         <Flex
-            as="aside"
             sx={{
               gridRow: [null, 'span 2'],
               gridColumn: ['span 2', 'span 3'],
               maxHeight: '100%',
-              overflow: 'hidden'
+              overflow: 'hidden',
+              bg: 'cyan',
             }}
         >
           <Heading
@@ -235,9 +207,9 @@ const SlackPage = () => {
                 letterSpacing: 'headline'
               }}
           >
-            Live from our&nbsp;Slack <br />
+            Live from our&nbsp;Slack
           </Heading>
-        <SlackEvents />
+          <SlackEvents />
         </Flex>
       </Container>
       <Footer />
