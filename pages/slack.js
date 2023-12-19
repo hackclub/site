@@ -21,9 +21,9 @@ import Header from '../components/slack/header'
 import fetcher from '../lib/fetcher'
 import { thousands } from '../lib/members'
 import SlackEvents from '../components/slack/slack-events'
+import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import { useLayoutEffect, useRef } from 'react'
 
 const zoomSlide = keyframes({
   from: { backgroundPosition: '-32px bottom' },
@@ -38,27 +38,44 @@ const SlackPage = () => {
     fetcher,
     { refreshInterval: 10_000 }
   )
-  
-  gsap.registerPlugin(ScrollTrigger)
 
-  const ref = useRef(null);
-  const horizontal = useRef(null);
+  const projectRef = useRef(null);
+  const triggerRef = useRef(null);
 
-  
-  let timeline = gsap.timeline();
+  gsap.registerPlugin(ScrollTrigger);
 
-  useLayoutEffect(() => {
-    timeline.to(".oblong", {
-      scrollTrigger: {
-        trigger: ".onboard",
-        start: 'top top',
-        end: `+=500`, // todo: change this
-        scrub: true,
-        pin: 1,
-      },
-      ease: 'none'
-    })
-  },[])
+  useEffect(() => {
+    const projects = gsap.fromTo(
+        projectRef.current,
+        {
+          translateX: 0
+        },
+        {
+          translateX: "-300vw",
+          ease: "none",
+          duration: 1,
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: "top top",
+            end: "2000 top",
+            scrub: 0.6,
+            pin: true,
+          },
+          /*opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: "top 80%",
+          },*/
+        }
+    )
+    return () => {
+      projects.kill();
+    }
+  }, []);
   
   return (
     <>
@@ -253,16 +270,22 @@ const SlackPage = () => {
           justifyItems: 'center',
           alignItems: 'center',
           display: 'grid',
-        }}>
-          <Box>
-            <Text as="p" variant="" sx={{ fontSize: [2, 3], mt: 3, color: 'white' }}>Hack Clubbers</Text>
+        }}
+              ref={triggerRef}
+      >
+          <Box ref={projectRef}>
+            <Text
+                as="p"
+                variant="title"
+                sx={{ fontSize: [2, 3], mt: 3, color: 'white' }}
+                id="start"
+            >
+              Hack Clubbers
+            </Text>
             <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Have built some pretty cool things on the Slack...</Text>
-          </Box>
-          <Box id="onboard">
-            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Thing number two</Text>
-          </Box>
-          <Box id="oblong">
-            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Thing number two</Text>
+            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Oblong</Text>
+            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Burrow</Text>
+            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Nest</Text>
           </Box>
         </Grid>
       <Footer />
