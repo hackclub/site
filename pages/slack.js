@@ -21,6 +21,9 @@ import Header from '../components/slack/header'
 import fetcher from '../lib/fetcher'
 import { thousands } from '../lib/members'
 import SlackEvents from '../components/slack/slack-events'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { useLayoutEffect, useRef } from 'react'
 
 const zoomSlide = keyframes({
   from: { backgroundPosition: '-32px bottom' },
@@ -35,7 +38,28 @@ const SlackPage = () => {
     fetcher,
     { refreshInterval: 10_000 }
   )
+  
+  gsap.registerPlugin(ScrollTrigger)
 
+  const ref = useRef(null);
+  const horizontal = useRef(null);
+
+  
+  let timeline = gsap.timeline();
+
+  useLayoutEffect(() => {
+    timeline.to(".oblong", {
+      scrollTrigger: {
+        trigger: ".onboard",
+        start: 'top top',
+        end: `+=500`, // todo: change this
+        scrub: true,
+        pin: 1,
+      },
+      ease: 'none'
+    })
+  },[])
+  
   return (
     <>
       <Meta
@@ -222,21 +246,25 @@ const SlackPage = () => {
         </Flex>
         <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3 }}>Where the makers hang out...</Text>
       </Container>
-      <Box>
-        <Box sx={{
-          backgroundImage: t => t.util.gx('red', '#F58695'),
-          position: 'relative',
-          zIndex: -1,
+        <Grid sx={{
+          backgroundImage: t => t.util.gx('yellow', '#F58695'),
           width: '100vw',
           height: '100vh',
-          objectFit: 'cover',
-          justifyContent: 'center',
-          placeSelf: 'center',
+          justifyItems: 'center',
+          alignItems: 'center',
           display: 'grid',
         }}>
-          <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3, color: 'white' }}>Where the makers hang out...</Text>
-        </Box>
-      </Box>
+          <Box>
+            <Text as="p" variant="" sx={{ fontSize: [2, 3], mt: 3, color: 'white' }}>Hack Clubbers</Text>
+            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Have built some pretty cool things on the Slack...</Text>
+          </Box>
+          <Box id="onboard">
+            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Thing number two</Text>
+          </Box>
+          <Box id="oblong">
+            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Thing number two</Text>
+          </Box>
+        </Grid>
       <Footer />
     </>
   )
