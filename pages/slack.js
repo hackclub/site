@@ -21,7 +21,7 @@ import Header from '../components/slack/header'
 import fetcher from '../lib/fetcher'
 import { thousands } from '../lib/members'
 import SlackEvents from '../components/slack/slack-events'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
@@ -38,8 +38,7 @@ const SlackPage = () => {
     fetcher,
     { refreshInterval: 10_000 }
   )
-
-  const projectRef = useRef(null);
+  const [color, setColors] = useState(['red', '#F58695'])
   const triggerRef = useRef(null);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -61,6 +60,18 @@ const SlackPage = () => {
             anticipatePin: 1,
             invalidateOnRefresh: true,
           },
+          onUpdate: function() {
+            const progress = this.progress();
+            if (progress < 0.25) {
+              setColors(['red', '#F58695']);
+            } else if (progress < 0.5) {
+              setColors(['orange', '#F2A510']);
+            } else if (progress < 0.75) {
+              setColors(['yellow', '#FAE078']);
+            } else {
+              setColors(['green', '#51F5C5']);
+            }
+          }
           /*opacity: 1,
           y: 0,
           duration: 1,
@@ -262,7 +273,7 @@ const SlackPage = () => {
         <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3 }}>Where the makers hang out...</Text>
       </Container>
         <Grid sx={{
-          backgroundImage: t => t.util.gx('red', '#F58695'),
+          backgroundImage: t => t.util.gx(color[0], color[1]),
           width: '400%',
           height: '100vh',
           justifyItems: 'center',
