@@ -45,21 +45,21 @@ const SlackPage = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    const projects = gsap.fromTo(
-        projectRef.current,
+    const sections = gsap.utils.toArray(".project");
+    
+    const projects = gsap.to(sections,
         {
-          translateX: 0
-        },
-        {
-          translateX: "-300vw",
+          xPercent: -100 * (sections.length - 1),
           ease: "none",
           duration: 1,
           scrollTrigger: {
             trigger: triggerRef.current,
             start: "top top",
-            end: "2000 top",
-            scrub: 0.6,
+            end: () => "+=" + document.querySelector(".container").offsetWidth,
+            scrub: 1.25,
             pin: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
           },
           /*opacity: 1,
           y: 0,
@@ -107,7 +107,6 @@ const SlackPage = () => {
           columns={[2, 9, 12]}
           gap={4}
           sx={{
-            bg: 'red',
             py: [3, 4],
             maxHeight: '100%',
             h3: { my: 0 },
@@ -244,7 +243,6 @@ const SlackPage = () => {
               gridColumn: ['span 2', 'span 3'],
               maxHeight: '100%',
               overflow: 'hidden',
-              bg: 'cyan',
             }}
         >
           <Heading
@@ -264,32 +262,50 @@ const SlackPage = () => {
         <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3 }}>Where the makers hang out...</Text>
       </Container>
         <Grid sx={{
-          backgroundImage: t => t.util.gx('yellow', '#F58695'),
-          width: '100vw',
+          backgroundImage: t => t.util.gx('red', '#F58695'),
+          width: '400%',
           height: '100vh',
           justifyItems: 'center',
           alignItems: 'center',
-          display: 'grid',
+          display: 'flex',
+          flexWrap: 'nowrap'
         }}
+              className="container"
               ref={triggerRef}
       >
-          <Box ref={projectRef}>
-            <Text
-                as="p"
-                variant="title"
-                sx={{ fontSize: [2, 3], mt: 3, color: 'white' }}
-                id="start"
-            >
-              Hack Clubbers
-            </Text>
-            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Have built some pretty cool things on the Slack...</Text>
-            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Oblong</Text>
-            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Burrow</Text>
-            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Nest</Text>
-          </Box>
+            <Project>
+              <Box>
+              <Text
+                  as="p"
+                  variant="title"
+                  sx={{ fontSize: [2, 3], mt: 3, color: 'white' }}
+                  id="start"
+              >
+                Hack Clubbers
+              </Text>
+              <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Have built some pretty cool things on the Slack...</Text>
+              </Box>
+            </Project>
+          <Project>
+            <Text as="h1" variant="title">Oblong</Text>
+          </Project>
+          <Project>
+            <Text as="h1" variant="title">Burrow</Text>
+          </Project>
+          <Project>
+            <Text as="h1" variant="title">Nest</Text>
+          </Project>
         </Grid>
       <Footer />
     </>
+  )
+}
+
+function Project({ children, sx }) {
+  return (
+      <Box sx={{ color: 'white', width: '100vw', height: '100vh', display: 'grid', alignItems: 'center', justifyContent: 'center', sx }} className="project">
+        {children}
+      </Box>
   )
 }
 
