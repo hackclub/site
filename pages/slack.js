@@ -1,4 +1,3 @@
-import { keyframes } from '@emotion/react'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import NextLink from 'next/link'
@@ -11,6 +10,8 @@ import {
   Flex,
   Grid,
   Heading,
+  Image,
+  Link,
   Text
 } from 'theme-ui'
 import Footer from '../components/footer'
@@ -25,11 +26,6 @@ import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
-const zoomSlide = keyframes({
-  from: { backgroundPosition: '-32px bottom' },
-  to: { backgroundPosition: '32px bottom' }
-})
-
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 const SlackPage = () => {
@@ -39,6 +35,8 @@ const SlackPage = () => {
     { refreshInterval: 10_000 }
   )
   const [color, setColors] = useState(['red', '#F58695'])
+  const [totalMessagesOblong, setTotalMessagesOblong] = useState(0)
+
   const triggerRef = useRef(null);
 
   gsap.registerPlugin(ScrollTrigger);
@@ -112,7 +110,9 @@ const SlackPage = () => {
           variant="subtitle"
           sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3 }}
         >
-          Across 2,000 public channels, find the community for your favorite programming language, ask for advice, or just hang out. Find the worlds that suit you.
+          Across 2,000 public channels, find the community for your favorite
+          programming language, ask for advice, or just hang out. Find the
+          worlds that suit you.
         </Text>
         <Grid
           columns={[2, 9, 12]}
@@ -249,64 +249,122 @@ const SlackPage = () => {
           </Card>
         </Grid>
         <Flex
-            sx={{
-              gridRow: [null, 'span 2'],
-              gridColumn: ['span 2', 'span 3'],
-              maxHeight: '100%',
-              overflow: 'hidden',
-            }}
+          sx={{
+            gridRow: [null, 'span 2'],
+            gridColumn: ['span 2', 'span 3'],
+            maxHeight: '100%',
+            overflow: 'hidden'
+          }}
         >
           <Heading
-              as="h2"
-              variant="subheadline"
-              sx={{
-                mt: 0,
-                mb: 0,
-                textTransform: 'uppercase',
-                letterSpacing: 'headline'
-              }}
+            as="h2"
+            variant="subheadline"
+            sx={{
+              mt: 0,
+              mb: 0,
+              textTransform: 'uppercase',
+              letterSpacing: 'headline'
+            }}
           >
             Live from our&nbsp;Slack
           </Heading>
           <SlackEvents />
         </Flex>
-        <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3 }}>Where the makers hang out...</Text>
+        <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3 }}>
+          Where the makers hang out...
+        </Text>
       </Container>
-        <Grid sx={{
+      <Grid
+        sx={{
           backgroundImage: t => t.util.gx(color[0], color[1]),
           width: '400%',
           height: '100vh',
           justifyItems: 'center',
           alignItems: 'center',
           display: 'flex',
-          flexWrap: 'nowrap'
+          flexWrap: 'nowrap',
+          overflowX: 'hidden',
         }}
-              className="container"
-              ref={triggerRef}
+        className="container"
+        ref={triggerRef}
       >
-            <Project>
-              <Box>
-              <Text
-                  as="p"
-                  variant="title"
-                  sx={{ fontSize: [2, 3], mt: 3, color: 'white' }}
-                  id="start"
-              >
-                Hack Clubbers
-              </Text>
-              <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>Have built some pretty cool things on the Slack...</Text>
-              </Box>
-            </Project>
-          <Project>
-            <Text as="h1" variant="title">Oblong</Text>
-          </Project>
-          <Project>
-            <Text as="h1" variant="title">Burrow</Text>
-          </Project>
-          <Project>
-            <Text as="h1" variant="title">Nest</Text>
-          </Project>
-        </Grid>
+        <Project>
+          <Box>
+            <Text
+              as="p"
+              variant="title"
+              sx={{ fontSize: [2, 3], mt: 3, color: 'white' }}
+              id="start"
+            >
+              Hack Clubbers
+            </Text>
+            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>
+              Have built some pretty cool things on the Slack...
+            </Text>
+          </Box>
+        </Project>
+        <Project>
+          <Box>
+            <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
+              A free domain service, created by teen hackers on the Hack Club
+              Slack.
+            </Text>
+            <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
+              Obl.ong’s team organizes in #oblong Velit voluptate deserunt
+              consequat. Velit voluptate deserunt consequat.Velit voluptate
+              deserunt consequat.
+            </Text>
+          </Box>
+        </Project>
+        <Project>
+          <Text as="h1" variant="title">
+            Burrow
+          </Text>
+        </Project>
+        <Project>
+          <Text as="h1" variant="title">
+            Nest
+          </Text>
+        </Project>
+      </Grid>
+      <Container sx={{ py: [4, 5] }}>
+        <Flex sx={{ gap: '2rem' }}>
+          <Quote
+            text="I knew it's where I wanted to be"
+            person="Shawn"
+            age={18}
+            location="VT"
+          />
+          <Quote
+              text="I felt so free- there were no expectations"
+              person="JC"
+              age={17}
+              location="VT"
+          />
+          <Quote
+              text="Finally, I found my people!"
+              person="Cheru"
+              age={16}
+              location="VT"
+          />
+        </Flex>
+        <Box sx={{ boxShadow: 'none', backgroundColor: '#F9FAFC', mt: '2rem', display: 'flex', borderRadius: 12, overflowX: 'hidden', height: '40rem' }}>
+          <Box sx={{ width: '50%', paddingX: '24px', placeItems: 'center', justifyContent: 'center', display: 'grid' }}>
+            <Box>
+            <Text as="h1" variant="title" sx={{ mb: 3 }}>
+              There’s a whole new world for you to discover.
+            </Text>
+            <Link href="#" sx={{ mt: [4, 5], mb: 3, cursor: 'pointer', textDecoration: 'none', fontSize: '24px', fontWeight: 500, placeItems: 'center' }}>
+              I&apos;m ready to join <Icon glyph='view-forward' size={24} />
+            </Link>
+            </Box>
+          </Box>
+          <Image
+              src="https://s3-alpha-sig.figma.com/img/467f/75b6/52e44d8d65abfb34731cfb11e39d72a8?Expires=1704067200&Signature=QDtskHIwqRO3u38E8xYWm-vXEYxkZGjImaFADUintP4fOYAgeJfypzYXcgJtxrYmzYqA4MXXQ7wO9k4o86ikFUT~hpcATC3YkznSYY6fQ8w~3ZkwLLfJs5oAhmXmFGAovYOzeVdKhCKpOFOF2CEhYpwWW6I-96S1NW1yTZds6tpTlEJIqJ-oTbLf-kUJdgghvs5I9GP4JclHk9LadD-t4Qidzr5hl81NZ76~u2F2PV~W~GFdDfwMA04MOlz7vPAqIURqxAuVWAmE6Vz0lsOb2h~KvNTitRc5JLsxvduCWAjo~QsBd0bSnuloYn~RMJeiDAtmvqrsuG9B5XXEHu8jLA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              sx={{ width: '50%', height: '40rem', objectFit: 'cover' }}
+          />
+        </Box>
+      </Container>
       <Footer />
     </>
   )
@@ -316,6 +374,15 @@ function Project({ children, sx }) {
   return (
       <Box sx={{ color: 'white', width: '100vw', height: '100vh', display: 'grid', alignItems: 'center', justifyContent: 'center', sx }} className="project">
         {children}
+      </Box>
+  )
+}
+
+function Quote({ text, person, age, location }) {
+  return (
+      <Box sx={{ p: '24px', borderRadius: 12, backgroundColor: '#F9FAFC', width: 'full' }}>
+        <Text as="h3" variant="title" sx={{ mb: 3, fontSize: ['36px', 4, 5] }}>"{text}"</Text>
+        <Text as="p" variant="paragraph">{person}, {age} from {location}</Text>
       </Box>
   )
 }
