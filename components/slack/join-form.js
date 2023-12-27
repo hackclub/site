@@ -1,13 +1,13 @@
 import {
+  Box,
   Card,
-  Label,
-  Input,
-  Textarea,
-  Select,
   Grid,
-  Text,
+  Input,
+  Label,
   Link,
-  Box
+  Select,
+  Text,
+  Textarea
 } from 'theme-ui'
 import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
@@ -65,6 +65,7 @@ const JoinForm = ({ sx = {} }) => {
               {...useField('name')}
               placeholder="Fiona Hackworth"
               required
+              id="joiner_full_name"
             />
           </Label>
           <Label>

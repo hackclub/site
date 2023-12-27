@@ -38,6 +38,7 @@ const SlackPage = () => {
   const [totalMessagesOblong, setTotalMessagesOblong] = useState(0)
 
   const triggerRef = useRef(null);
+  const nameInputRef = useRef(null)
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -57,6 +58,7 @@ const SlackPage = () => {
             pin: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
+            snap: 0.5 * (1 / (sections.length - 1))
           },
           onUpdate: function() {
             const progress = this.progress();
@@ -96,7 +98,7 @@ const SlackPage = () => {
       />
       <ForceTheme theme="light" />
       <Nav />
-      <Header />
+      <Header nameInputRef={nameInputRef} />
       <Container sx={{ py: [4, 5] }}>
         <Heading
           as="h2"
@@ -120,7 +122,6 @@ const SlackPage = () => {
           sx={{
             py: [3, 4],
             maxHeight: '100%',
-            h3: { my: 0 },
             '> div': {
               px: [2, 3],
               py: 4,
@@ -274,6 +275,7 @@ const SlackPage = () => {
           Where the makers hang out...
         </Text>
       </Container>
+      <Box sx={{ msOverflowX: 'hidden', overflowX: 'hidden' }}>
       <Grid
         sx={{
           backgroundImage: t => t.util.gx(color[0], color[1]),
@@ -283,7 +285,6 @@ const SlackPage = () => {
           alignItems: 'center',
           display: 'flex',
           flexWrap: 'nowrap',
-          overflowX: 'hidden',
         }}
         className="container"
         ref={triggerRef}
@@ -298,7 +299,7 @@ const SlackPage = () => {
             >
               Hack Clubbers
             </Text>
-            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white' }}>
+            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white', width: 'copyUltra' }}>
               Have built some pretty cool things on the Slack...
             </Text>
           </Box>
@@ -317,16 +318,31 @@ const SlackPage = () => {
           </Box>
         </Project>
         <Project>
-          <Text as="h1" variant="title">
-            Burrow
-          </Text>
+          <Box>
+            <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
+              An open source VPN, to help Hack Clubbers connect to the internet and each other.
+            </Text>
+            <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
+              Burrow&apos;s team organizes in #burrow Velit voluptate deserunt consequat. Velit
+              voluptate deserunt consequat.Velit voluptate
+              deserunt consequat.
+            </Text>
+          </Box>
         </Project>
         <Project>
-          <Text as="h1" variant="title">
-            Nest
-          </Text>
+          <Box>
+            <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
+              Free, powerful, and versatile compute infrastructure for all high school hackers.
+            </Text>
+            <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
+              Nest&apos;s team organizes in #nest Velit voluptate deserunt consequat. Velit
+              voluptate deserunt consequat.Velit voluptate
+              deserunt consequat.
+            </Text>
+          </Box>
         </Project>
       </Grid>
+      </Box>
       <Container sx={{ py: [4, 5] }}>
         <Flex sx={{ gap: '2rem' }}>
           <Quote
@@ -348,8 +364,8 @@ const SlackPage = () => {
               location="VT"
           />
         </Flex>
-        <Box sx={{ boxShadow: 'none', backgroundColor: '#F9FAFC', mt: '2rem', display: 'flex', borderRadius: 12, overflowX: 'hidden', height: '40rem' }}>
-          <Box sx={{ width: '50%', paddingX: '24px', placeItems: 'center', justifyContent: 'center', display: 'grid' }}>
+        <Flex sx={{ backgroundColor: '#F9FAFC', mt: '2rem', borderRadius: 12, overflowX: 'hidden', height: '40rem' }}>
+          <Box sx={{ width: '50%', paddingX: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <Box>
             <Text as="h1" variant="title" sx={{ mb: 3 }}>
               There’s a whole new world for you to discover.
@@ -363,7 +379,7 @@ const SlackPage = () => {
               src="https://s3-alpha-sig.figma.com/img/467f/75b6/52e44d8d65abfb34731cfb11e39d72a8?Expires=1704067200&Signature=QDtskHIwqRO3u38E8xYWm-vXEYxkZGjImaFADUintP4fOYAgeJfypzYXcgJtxrYmzYqA4MXXQ7wO9k4o86ikFUT~hpcATC3YkznSYY6fQ8w~3ZkwLLfJs5oAhmXmFGAovYOzeVdKhCKpOFOF2CEhYpwWW6I-96S1NW1yTZds6tpTlEJIqJ-oTbLf-kUJdgghvs5I9GP4JclHk9LadD-t4Qidzr5hl81NZ76~u2F2PV~W~GFdDfwMA04MOlz7vPAqIURqxAuVWAmE6Vz0lsOb2h~KvNTitRc5JLsxvduCWAjo~QsBd0bSnuloYn~RMJeiDAtmvqrsuG9B5XXEHu8jLA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
               sx={{ width: '50%', height: '40rem', objectFit: 'cover' }}
           />
-        </Box>
+        </Flex>
       </Container>
       <Footer />
     </>
@@ -380,7 +396,7 @@ function Project({ children, sx }) {
 
 function Quote({ text, person, age, location }) {
   return (
-      <Box sx={{ p: '24px', borderRadius: 12, backgroundColor: '#F9FAFC', width: 'full' }}>
+      <Box sx={{ p: '32px', borderRadius: 12, backgroundColor: '#F9FAFC', width: 'full' }}>
         <Text as="h3" variant="title" sx={{ mb: 3, fontSize: ['36px', 4, 5] }}>"{text}"</Text>
         <Text as="p" variant="paragraph">{person}, {age} from {location}</Text>
       </Box>

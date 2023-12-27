@@ -118,7 +118,7 @@ const Slack = () => {
           />
         </Box>
         <Cover />
-        <Content />
+        <Content nameInputRef />
       </Box>
     )
   } else {
