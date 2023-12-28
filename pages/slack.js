@@ -72,22 +72,13 @@ const SlackPage = () => {
               setColors(['green', '#51F5C5']);
             }
           }
-          /*opacity: 1,
-          y: 0,
-          duration: 1,
-          stagger: 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: triggerRef.current,
-            start: "top 80%",
-          },*/
         }
     )
     return () => {
       projects.kill();
     }
   }, []);
-  
+
   return (
     <>
       <Meta

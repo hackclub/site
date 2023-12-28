@@ -1,8 +1,8 @@
 import { sample, take } from 'lodash'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { Slide } from 'react-reveal'
 import useWebSocket from 'react-use-websocket'
-import { Flex, Text } from 'theme-ui'
+import { Box, Flex, Text } from 'theme-ui'
+import { sql } from '@vercel/postgres'
 
 const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', '#8067c3']
 
@@ -34,6 +34,46 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
     'wss://joebunyan.haas.hackclub.com/stream',
     STATIC_OPTIONS
   )
+
+  useEffect(() => {
+    try {
+      async function resolveEvent() {
+        if (
+            !lastJsonMessage ||
+            !lastJsonMessage.channel
+        ) {
+          return false
+        }
+
+        const { name } = await fetch(
+            `/api/channels/resolve/?id=${lastJsonMessage.channel}`
+        )
+            .then(r => r.json())
+            .catch(err => console.error(err))
+
+        if (whitelistedChannels.has(name)) {
+          setEvents(prev => [
+            {
+              type: lastJsonMessage.type,
+              channel: `#${name}`,
+              color: sample(colors)
+            },
+            ...prev
+          ])
+
+          await sql`
+          INSERT INTO channels (name)
+          VALUES (${name})
+          ON CONFLICT (name) DO NOTHING;
+        `;
+        }
+      }
+
+      resolveEvent()
+    } catch (err) {
+      true
+    }
+  }, [lastJsonMessage])
 
   useEffect(() => {
     try {
@@ -112,25 +152,24 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
       aria-hidden="true"
       {...props}
     >
+      <Box sx={{ padding: 8 }}/>
       {take(events, 7).map(({ type, channel, color }) => (
-        <Slide top duration={99990000} key={type + channel + color}>
           <>
             {type === 'message' && (
               <Text sx={{ marginX: "5px" }}>
-                Message in <Channel channel={channel} color={color} />
+                <Channel channel={channel} color={color} />
               </Text>
             )}
           </>
-        </Slide>
       ))}
       <Text sx={{ marginX: "5px" }}>
-        <Channel channel="test!!" color="#FFFF00" />
+        <Channel channel="#lounge" color="red" />
       </Text>
       <Text sx={{ marginX: "5px" }}>
-        <Channel channel="test!!" color="#FFFF00" />
+        <Channel channel="#scrapbook" color="blue" />
       </Text>
       <Text sx={{ marginX: "5px" }}>
-        <Channel channel="test!!" color="#FFFF00" />
+        <Channel channel="#code" color="green" />
       </Text>
     </Flex>
   )
