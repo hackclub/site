@@ -119,29 +119,26 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
 
   return (
     <Flex
-      as="ol"
       sx={{
-        height: '100%',
         minHeight: '4em',
         maxHeight: [128, 256],
         overflow: 'hidden',
         listStyle: 'none',
         lineHeight: 'heading',
         pl: 0,
-        color: textColor || 'black',
+        color: textColor || 'red',
         fontSize: 2,
         overflowY: 'hidden',
         position: 'relative',
         ':after': {
           content: '""',
           position: 'absolute',
-          bottom: 0,
           left: 0,
           right: 0,
           display: 'block',
           height: '2em',
           backgroundImage: theme =>
-            `linear-gradient(rgba(255,255,255,0), ${
+            `linear-gradient(to left,rgba(255,255,255,0), ${
               color || theme.colors.white
             })`
         },
@@ -162,15 +159,7 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
             )}
           </>
       ))}
-      <Text sx={{ marginX: "5px" }}>
-        <Channel channel="#lounge" color="red" />
-      </Text>
-      <Text sx={{ marginX: "5px" }}>
-        <Channel channel="#scrapbook" color="blue" />
-      </Text>
-      <Text sx={{ marginX: "5px" }}>
-        <Channel channel="#code" color="green" />
-      </Text>
+      <Channel channel="#lounge" color="red"/>
     </Flex>
   )
 }

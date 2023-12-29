@@ -62,14 +62,18 @@ const SlackPage = () => {
           },
           onUpdate: function() {
             const progress = this.progress();
-            if (progress < 0.25) {
+            if (progress < 1/6) {
               setColors(['red', '#F58695']);
-            } else if (progress < 0.5) {
+            } else if (progress < 2/6) {
               setColors(['orange', '#F2A510']);
-            } else if (progress < 0.75) {
+            } else if (progress < 3/6) {
               setColors(['yellow', '#FAE078']);
-            } else {
+            } else if (progress < 4/6) {
               setColors(['green', '#51F5C5']);
+            } else if (progress < 5/6) {
+              setColors(['blue', 'cyan']);
+            } else {
+              setColors(['purple', '#b46ed5']);
             }
           }
         }
@@ -252,13 +256,12 @@ const SlackPage = () => {
             as="h2"
             variant="subheadline"
             sx={{
-              mt: 0,
-              mb: 0,
               textTransform: 'uppercase',
-              letterSpacing: 'headline'
+              letterSpacing: 'headline',
+              width: '400px',
             }}
           >
-            Live from our&nbsp;Slack
+            Live from our&nbsp;Slack...
           </Heading>
           <SlackEvents />
         </Flex>
@@ -270,7 +273,7 @@ const SlackPage = () => {
       <Grid
         sx={{
           backgroundImage: t => t.util.gx(color[0], color[1]),
-          width: '400%',
+          width: '600%',
           height: '100vh',
           justifyItems: 'center',
           alignItems: 'center',
@@ -324,6 +327,30 @@ const SlackPage = () => {
           <Box>
             <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
               Free, powerful, and versatile compute infrastructure for all high school hackers.
+            </Text>
+            <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
+              Nest&apos;s team organizes in #nest Velit voluptate deserunt consequat. Velit
+              voluptate deserunt consequat.Velit voluptate
+              deserunt consequat.
+            </Text>
+          </Box>
+        </Project>
+        <Project>
+          <Box>
+            <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
+              BCI
+            </Text>
+            <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
+              Nest&apos;s team organizes in #nest Velit voluptate deserunt consequat. Velit
+              voluptate deserunt consequat.Velit voluptate
+              deserunt consequat.
+            </Text>
+          </Box>
+        </Project>
+        <Project>
+          <Box>
+            <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
+              Purple Bubble
             </Text>
             <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
               Nest&apos;s team organizes in #nest Velit voluptate deserunt consequat. Velit

@@ -36,6 +36,7 @@ export default async function handler(req, res) {
         error: '*PUT that request away!* (Method not allowed, use POST)'
       })
     case 'POST':
+      console.log("POST request received. WOO!")
       break
     default:
       return res.status(405).json({ error: 'Method not allowed, use POST' })
@@ -93,6 +94,7 @@ export default async function handler(req, res) {
       res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
     )
     .catch(error => {
+      console.error(error)
       res.status(500).json({ error })
     })
 }
