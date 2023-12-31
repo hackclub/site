@@ -1,8 +1,8 @@
 import { sample, take } from 'lodash'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import useWebSocket from 'react-use-websocket'
-import { Box, Flex, Text } from 'theme-ui'
-import { sql } from '@vercel/postgres'
+import { Box, Grid, Text } from 'theme-ui'
+import { kv } from '@vercel/kv'
 
 const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', '#8067c3']
 
@@ -61,11 +61,8 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
             ...prev
           ])
 
-          await sql`
-          INSERT INTO channels (name)
-          VALUES (${name})
-          ON CONFLICT (name) DO NOTHING;
-        `;
+          await kv.set("channels", "#name");
+          console.log("Added channel" + name + "to KV!")
         }
       }
 
@@ -118,7 +115,7 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
   })
 
   return (
-    <Flex
+    <Grid
       sx={{
         minHeight: '4em',
         maxHeight: [128, 256],
@@ -160,7 +157,7 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
           </>
       ))}
       <Channel channel="#lounge" color="red"/>
-    </Flex>
+    </Grid>
   )
 }
 

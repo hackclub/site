@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
-import { Box, Container, Flex, Link, Text } from 'theme-ui'
+import { Box, Flex, Link } from 'theme-ui'
 import theme from '../lib/theme'
 import Icon from './icon'
 import Flag from './flag'
@@ -42,7 +42,7 @@ const fixed = props =>
   `
 
 const Root = styled(Box)`
-  position: fixed;
+  position: ${props => (props.slack ? 'absolute' : 'fixed')};
   top: 0;
   width: 100vw;
   z-index: 1000;
