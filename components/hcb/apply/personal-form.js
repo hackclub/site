@@ -163,8 +163,8 @@ export default function PersonalInfoForm({
       </Field>
       <Field
         name="accommodations"
-        label="Accessability needs"
-        description="Please specify any accommodations or accessability needs you have so we can support you during onboarding and while using HCB"
+        label="Accessibility needs"
+        description="Please specify any accommodations or accessibility needs you have so we can support you during onboarding and while using HCB"
         requiredFields={requiredFields}
       >
         <Input
