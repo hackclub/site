@@ -42,7 +42,7 @@ const fixed = props =>
   `
 
 const Root = styled(Box)`
-  position: ${props => (props.slack ? 'absolute' : 'fixed')};
+  position: fixed;
   top: 0;
   width: 100vw;
   z-index: 1000;

@@ -2,7 +2,6 @@ import { sample, take } from 'lodash'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import useWebSocket from 'react-use-websocket'
 import { Box, Grid, Text } from 'theme-ui'
-import { kv } from '@vercel/kv'
 
 const colors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', '#8067c3']
 
@@ -34,44 +33,7 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
     'wss://joebunyan.haas.hackclub.com/stream',
     STATIC_OPTIONS
   )
-
-  useEffect(() => {
-    try {
-      async function resolveEvent() {
-        if (
-            !lastJsonMessage ||
-            !lastJsonMessage.channel
-        ) {
-          return false
-        }
-
-        const { name } = await fetch(
-            `/api/channels/resolve/?id=${lastJsonMessage.channel}`
-        )
-            .then(r => r.json())
-            .catch(err => console.error(err))
-
-        if (whitelistedChannels.has(name)) {
-          setEvents(prev => [
-            {
-              type: lastJsonMessage.type,
-              channel: `#${name}`,
-              color: sample(colors)
-            },
-            ...prev
-          ])
-
-          await kv.set("channels", "#name");
-          console.log("Added channel" + name + "to KV!")
-        }
-      }
-
-      resolveEvent()
-    } catch (err) {
-      true
-    }
-  }, [lastJsonMessage])
-
+  
   useEffect(() => {
     try {
       async function resolveEvent() {
@@ -90,7 +52,7 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
           .catch(err => console.error(err))
 
         if (whitelistedChannels.has(name)) {
-          //this check should happen before the web req, to save on net resources
+          // this check should happen before the web req, to save on net resources
           setEvents(prev => [
             {
               type: lastJsonMessage.type,
@@ -156,6 +118,8 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
             )}
           </>
       ))}
+      <Channel channel="#lounge" color="red"/>
+      <Channel channel="#lounge" color="red"/>
       <Channel channel="#lounge" color="red"/>
     </Grid>
   )

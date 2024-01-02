@@ -37,51 +37,65 @@ const SlackPage = () => {
   const [color, setColors] = useState(['red', '#F58695'])
   const [totalMessagesOblong, setTotalMessagesOblong] = useState(0)
 
-  const triggerRef = useRef(null);
+  const triggerRef = useRef(null)
   const nameInputRef = useRef(null)
 
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger)
 
   useEffect(() => {
-    const sections = gsap.utils.toArray(".project");
-    
-    const projects = gsap.to(sections,
-        {
-          xPercent: -100 * (sections.length - 1),
-          ease: "none",
-          duration: 1,
-          scrollTrigger: {
-            trigger: triggerRef.current,
-            start: "top top",
-            end: () => "+=" + document.querySelector(".container").offsetWidth,
-            scrub: 1.25,
-            pin: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-            snap: 0.5 * (1 / (sections.length - 1))
-          },
-          onUpdate: function() {
-            const progress = this.progress();
-            if (progress < 1/6) {
-              setColors(['red', '#F58695']);
-            } else if (progress < 2/6) {
-              setColors(['orange', '#F2A510']);
-            } else if (progress < 3/6) {
-              setColors(['yellow', '#FAE078']);
-            } else if (progress < 4/6) {
-              setColors(['green', '#51F5C5']);
-            } else if (progress < 5/6) {
-              setColors(['cyan', '#88e5f8']);
-            } else {
-              setColors(['purple', '#d786ff']);
-            }
-          }
-        }
-    )
-    return () => {
-      projects.kill();
+    async function getChannel() {
+      const res = await fetch('https://slack.com/api/conversations.history', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${process.env.SLACK_BOT_TOKEN}`
+        },
+        body: JSON.stringify({ channel: "C01B4PVGL2K" })
+      });
+      console.log(res)
     }
+    getChannel()
+    
   }, []);
+
+  useEffect(() => {
+    const sections = gsap.utils.toArray('.project')
+
+    const projects = gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: 'none',
+      duration: 1,
+      scrollTrigger: {
+        trigger: triggerRef.current,
+        start: 'top top',
+        end: () => '+=' + document.querySelector('.container').offsetWidth,
+        scrub: 1.25,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        snap: 0.5 * (1 / (sections.length - 1))
+      },
+      onUpdate: function () {
+        const progress = this.progress()
+        if (progress < 1 / 6) {
+          setColors(['red', '#F58695'])
+        } else if (progress < 2 / 6) {
+          setColors(['orange', '#F2A510'])
+        } else if (progress < 3 / 6) {
+          setColors(['yellow', '#FAE078'])
+        } else if (progress < 4 / 6) {
+          setColors(['green', '#51F5C5'])
+        } else if (progress < 5 / 6) {
+          setColors(['cyan', '#88e5f8'])
+        } else {
+          setColors(['purple', '#d786ff'])
+        }
+      }
+    })
+    return () => {
+      projects.kill()
+    }
+  }, [])
 
   return (
     <>
@@ -93,6 +107,9 @@ const SlackPage = () => {
       />
       <ForceTheme theme="light" />
       <Nav slack={true} />
+     {/* <Box sx={{ position: 'fixed', mt: 5, maxWidth: '1024px', backgroundColor: 'red', zIndex: 100 }}>
+        <Text>Hack Club Slack</Text>
+      </Box>*/}
       <Header nameInputRef={nameInputRef} />
       <Container sx={{ py: [4, 5] }}>
         <Heading
@@ -112,61 +129,60 @@ const SlackPage = () => {
           worlds that suit you.
         </Text>
         <Grid
-            columns={[2, 9, 13]}
-            gap={3}
-            sx={{
-              py: [3, 4],
-              h3: { my: 0 },
-              '> div': {
-                px: [2, 3],
-                py: 4,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                gridColumn: ['span 1', 'span 3']
-              },
-              a: {
-                position: 'relative',
-                ':hover,:focus': {
-                  svg: {
-                    transform: 'translateX(28px) translateY(-28px)',
-                    opacity: 0
-                  }
-                }
-              },
-              svg: {
-                position: 'absolute',
-                top: 2,
-                right: 2,
-                fill: 'white',
-                transition:
-                    'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
-              },
-              h3: {
-                variant: 'text.headline',
-                color: 'white',
-                lineHeight: 'title',
-                m: 0,
-                '+ p': {
-                  mt: 2,
-                  color: 'white',
-                  opacity: 0.75,
-                  fontSize: 2,
-                  lineHeight: 'caption'
+          columns={[2, 9, 13]}
+          gap={3}
+          sx={{
+            py: [3, 4],
+            h3: { my: 0 },
+            '> div': {
+              px: [2, 3],
+              py: 4,
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              gridColumn: ['span 1', 'span 3']
+            },
+            a: {
+              position: 'relative',
+              ':hover,:focus': {
+                svg: {
+                  transform: 'translateX(28px) translateY(-28px)',
+                  opacity: 0
                 }
               }
-            }}
+            },
+            svg: {
+              position: 'absolute',
+              top: 2,
+              right: 2,
+              fill: 'white',
+              transition:
+                'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+            },
+            h3: {
+              variant: 'text.headline',
+              color: 'white',
+              lineHeight: 'title',
+              m: 0,
+              '+ p': {
+                mt: 2,
+                color: 'white',
+                opacity: 0.75,
+                fontSize: 2,
+                lineHeight: 'caption'
+              }
+            }
+          }}
         >
-         
           <NextLink href="/ship" passHref>
             <Card
-                as="a"
-                variant="interactive"
-                sx={{
-                  gridColumn: ['span 2', 'span 5'],
-                  bg: 'blue',
-                  backgroundImage: t => t.util.gx('cyan', 'blue')
-                }}
+              as="a"
+              variant="interactive"
+              sx={{
+                gridColumn: ['span 2', 'span 5'],
+                bg: 'blue',
+                backgroundImage: t => t.util.gx('cyan', 'blue')
+              }}
             >
               <Icon glyph="external" size={24} />
               <Heading as="h3" variant="headline">
@@ -176,14 +192,14 @@ const SlackPage = () => {
             </Card>
           </NextLink>
           <Card
-              as="a"
-              href="https://scrapbook.hackclub.com/"
-              variant="interactive"
-              sx={{
-                gridColumn: ['span 2', 'span 5'],
-                bg: 'dark',
-                backgroundImage: t => t.util.gx('yellow', 'orange')
-              }}
+            as="a"
+            href="https://scrapbook.hackclub.com/"
+            variant="interactive"
+            sx={{
+              gridColumn: ['span 2', 'span 5'],
+              bg: 'dark',
+              backgroundImage: t => t.util.gx('yellow', 'orange')
+            }}
           >
             <Icon glyph="external" size={24} />
             <Heading as="h3" variant="headline">
@@ -192,20 +208,20 @@ const SlackPage = () => {
             <Text as="p">A daily diary of project updates</Text>
           </Card>
           <Card
-              bg="red"
-              sx={{
-                gridColumn: ['span 2 !important', 'span 2 !important'],
-                gridRow: ['span 1 !important', 'span 3 !important'],
-                writingMode: ['lr-tb', 'tb-rl']
-              }}
+            bg="red"
+            sx={{
+              gridColumn: ['span 2 !important', 'span 2 !important'],
+              gridRow: ['span 1 !important', 'span 3 !important'],
+              writingMode: ['lr-tb', 'tb-rl']
+            }}
           >
             <Heading as="h3">#counttoamillion</Heading>
             <Text as="p" sx={{ display: 'flex', alignItems: 'baseline' }}>
               We’re at{' '}
               <Badge
-                  variant="outline"
-                  as="span"
-                  sx={{ ml: [2, 0], mt: [0, 2], px: [2, 0], py: [0, 2] }}
+                variant="outline"
+                as="span"
+                sx={{ ml: [2, 0], mt: [0, 2], px: [2, 0], py: [0, 2] }}
               >
                 {millionCount ? withCommas(millionCount.number) : '???'}
               </Badge>
@@ -216,35 +232,35 @@ const SlackPage = () => {
             <h3 sx={{ color: 'black' }}>#gamedev</h3>
           </Card>
           <Card
-              sx={{
-                backgroundImage:
-                    'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/12020-07-25_fqxym71bmqjr1d35btawn5q6ph1zt0mk.png)',
-                backgroundColor: '#FEC62E',
-                backgroundPosition: 'center center',
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: '100% auto',
-                gridColumn: ['span 2', 'span 3 !important', 'span 4 !important'],
-                h3: { opacity: 0 }
-              }}
+            sx={{
+              backgroundImage:
+                'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/12020-07-25_fqxym71bmqjr1d35btawn5q6ph1zt0mk.png)',
+              backgroundColor: '#FEC62E',
+              backgroundPosition: 'center center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '100% auto',
+              gridColumn: ['span 2', 'span 3 !important', 'span 4 !important'],
+              h3: { opacity: 0 }
+            }}
           >
             <h3>#design</h3>
           </Card>
           <Card
-              bg="dark"
-              sx={{ h3: { color: 'green', textShadow: '0 0 4px currentColor' } }}
+            bg="dark"
+            sx={{ h3: { color: 'green', textShadow: '0 0 4px currentColor' } }}
           >
             <h3>#code</h3>
           </Card>
           <Card
-              sx={{
-                bg: 'dark',
-                backgroundImage:
-                    'url(https://cloud-jnfb0t781-hack-club-bot.vercel.app/02020-07-25_r6thfxwv1u0c71uw0qk94juv6fxxjygf.png)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                textShadow: 'text',
-                gridColumn: ['span 2 !important', 'span 4 !important']
-              }}
+            sx={{
+              bg: 'dark',
+              backgroundImage:
+                'url(https://cloud-jnfb0t781-hack-club-bot.vercel.app/02020-07-25_r6thfxwv1u0c71uw0qk94juv6fxxjygf.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              textShadow: 'text',
+              gridColumn: ['span 2 !important', 'span 4 !important']
+            }}
           >
             <h3>#photography</h3>
           </Card>
@@ -252,22 +268,21 @@ const SlackPage = () => {
             <Flex>
               <h3>#music</h3>
               <Image
-                  src="https://cloud-jd45ga0mv-hack-club-bot.vercel.app/0music.svg"
-                  alt="Music notes"
-                  sx={{ height: '50px', width: '50px' }}
+                src="https://cloud-jd45ga0mv-hack-club-bot.vercel.app/0music.svg"
+                alt="Music notes"
+                sx={{ height: '50px', width: '50px' }}
               />
             </Flex>
           </Card>
           <Card
-              bg="red"
-              sx={{
-                backgroundImage: ({ colors }) =>
-                    `linear-gradient(-184deg, ${colors.red} 0%, ${colors.red} 16.6666%, ${colors.orange} 16.6666%, ${colors.orange} 33.333%, ${colors.yellow} 33.333%, ${colors.yellow} 50%, ${colors.green} 50%, ${colors.green} 66.6666%, ${colors.blue} 66.6666%, ${colors.blue} 83.3333%, ${colors.purple} 83.3333%, ${colors.purple} 100%)`
-              }}
+            bg="red"
+            sx={{
+              backgroundImage: ({ colors }) =>
+                `linear-gradient(-184deg, ${colors.red} 0%, ${colors.red} 16.6666%, ${colors.orange} 16.6666%, ${colors.orange} 33.333%, ${colors.yellow} 33.333%, ${colors.yellow} 50%, ${colors.green} 50%, ${colors.green} 66.6666%, ${colors.blue} 66.6666%, ${colors.blue} 83.3333%, ${colors.purple} 83.3333%, ${colors.purple} 100%)`
+            }}
           >
             <h3>#lgbtq</h3>
           </Card>
-
         </Grid>
         <Flex
           sx={{
@@ -283,7 +298,7 @@ const SlackPage = () => {
             sx={{
               textTransform: 'uppercase',
               letterSpacing: 'headline',
-              width: '400px',
+              width: '400px'
             }}
           >
             Live from our&nbsp;Slack...
@@ -295,96 +310,103 @@ const SlackPage = () => {
         </Text>
       </Container>
       <Box sx={{ msOverflowX: 'hidden', overflowX: 'hidden' }}>
-      <Grid
-        sx={{
-          backgroundImage: t => t.util.gx(color[0], color[1]),
-          width: '600%',
-          height: '100vh',
-          justifyItems: 'center',
-          alignItems: 'center',
-          display: 'flex',
-          flexWrap: 'nowrap',
-        }}
-        className="container"
-        ref={triggerRef}
-      >
-        <Project>
-          <Box>
-            <Text
-              as="p"
-              variant="title"
-              sx={{ fontSize: [2, 3], mt: 3, color: 'white' }}
-              id="start"
-            >
-              Hack Clubbers
-            </Text>
-            <Text as="h1" variant="title" sx={{ mb: 3, color: 'white', width: 'copyUltra' }}>
-              Have built some pretty cool things on the Slack...
-            </Text>
-          </Box>
-        </Project>
-        <Project>
-          <Box>
-            <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
-              A free domain service, created by teen hackers on the Hack Club
-              Slack.
-            </Text>
-            <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
-              Obl.ong’s team organizes in #oblong Velit voluptate deserunt
-              consequat. Velit voluptate deserunt consequat.Velit voluptate
-              deserunt consequat.
-            </Text>
-          </Box>
-        </Project>
-        <Project>
-          <Box>
-            <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
-              An open source VPN, to help Hack Clubbers connect to the internet and each other.
-            </Text>
-            <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
-              Burrow&apos;s team organizes in #burrow Velit voluptate deserunt consequat. Velit
-              voluptate deserunt consequat.Velit voluptate
-              deserunt consequat.
-            </Text>
-          </Box>
-        </Project>
-        <Project>
-          <Box>
-            <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
-              Free, powerful, and versatile compute infrastructure for all high school hackers.
-            </Text>
-            <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
-              Nest&apos;s team organizes in #nest Velit voluptate deserunt consequat. Velit
-              voluptate deserunt consequat.Velit voluptate
-              deserunt consequat.
-            </Text>
-          </Box>
-        </Project>
-        <Project>
-          <Box>
-            <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
-              a brainwave reading device to interact with computers using thoughts.
-            </Text>
-            <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
-              Nest&apos;s team organizes in #nest Velit voluptate deserunt consequat. Velit
-              voluptate deserunt consequat.Velit voluptate
-              deserunt consequat.
-            </Text>
-          </Box>
-        </Project>
-        <Project>
-          <Box>
-            <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
-              Purple Bubble
-            </Text>
-            <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
-              Nest&apos;s team organizes in #nest Velit voluptate deserunt consequat. Velit
-              voluptate deserunt consequat.Velit voluptate
-              deserunt consequat.
-            </Text>
-          </Box>
-        </Project>
-      </Grid>
+        <Grid
+          sx={{
+            backgroundImage: t => t.util.gx(color[0], color[1]),
+            width: '600%',
+            height: '100vh',
+            justifyItems: 'center',
+            alignItems: 'center',
+            display: 'flex',
+            flexWrap: 'nowrap'
+          }}
+          className="container"
+          ref={triggerRef}
+        >
+          <Project>
+            <Box>
+              <Text
+                as="p"
+                variant="title"
+                sx={{ fontSize: [2, 3], mt: 3, color: 'white' }}
+                id="start"
+              >
+                Hack Clubbers
+              </Text>
+              <Text
+                as="h1"
+                variant="title"
+                sx={{ mb: 3, color: 'white', width: 'copyUltra' }}
+              >
+                Have built some pretty cool things on the Slack...
+              </Text>
+            </Box>
+          </Project>
+          <Project>
+            <Box>
+              <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
+                A free domain service, created by teen hackers on the Hack Club
+                Slack.
+              </Text>
+              <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
+                Obl.ong’s team organizes in #oblong Velit voluptate deserunt
+                consequat. Velit voluptate deserunt consequat.Velit voluptate
+                deserunt consequat.
+              </Text>
+            </Box>
+          </Project>
+          <Project>
+            <Box>
+              <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
+                An open source VPN, to help Hack Clubbers connect to the
+                internet and each other.
+              </Text>
+              <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
+                Burrow&apos;s team organizes in #burrow Velit voluptate deserunt
+                consequat. Velit voluptate deserunt consequat.Velit voluptate
+                deserunt consequat.
+              </Text>
+            </Box>
+          </Project>
+          <Project>
+            <Box>
+              <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
+                Free, powerful, and versatile compute infrastructure for all
+                high school hackers.
+              </Text>
+              <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
+                Nest&apos;s team organizes in #nest Velit voluptate deserunt
+                consequat. Velit voluptate deserunt consequat.Velit voluptate
+                deserunt consequat.
+              </Text>
+            </Box>
+          </Project>
+          <Project>
+            <Box>
+              <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
+                A brainwave reading device to interact with computers using
+                thoughts.
+              </Text>
+              <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
+                Nest&apos;s team organizes in #nest Velit voluptate deserunt
+                consequat. Velit voluptate deserunt consequat.Velit voluptate
+                deserunt consequat.
+              </Text>
+            </Box>
+          </Project>
+          <Project>
+            <Box>
+              <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
+                A chat app and cell phone carrier focused privacy and security
+              </Text>
+              <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
+                Nest&apos;s team organizes in #nest Velit voluptate deserunt
+                consequat. Velit voluptate deserunt consequat.Velit voluptate
+                deserunt consequat.
+              </Text>
+            </Box>
+          </Project>
+        </Grid>
       </Box>
       <Container sx={{ py: [4, 5] }}>
         <Flex sx={{ gap: '2rem' }}>
@@ -395,32 +417,59 @@ const SlackPage = () => {
             location="VT"
           />
           <Quote
-              text="I felt so free- there were no expectations"
-              person="JC"
-              age={17}
-              location="VT"
+            text="I felt so free- there were no expectations"
+            person="JC"
+            age={17}
+            location="VT"
           />
           <Quote
-              text="Finally, I found my people!"
-              person="Cheru"
-              age={16}
-              location="VT"
+            text="Finally, I found my people!"
+            person="Cheru"
+            age={16}
+            location="VT"
           />
         </Flex>
-        <Flex sx={{ backgroundColor: '#F9FAFC', mt: '2rem', borderRadius: 12, overflowX: 'hidden', height: '40rem' }}>
-          <Box sx={{ width: '50%', paddingX: '32px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Flex
+          sx={{
+            backgroundColor: '#F9FAFC',
+            mt: '2rem',
+            borderRadius: 12,
+            overflowX: 'hidden',
+            height: '40rem'
+          }}
+        >
+          <Box
+            sx={{
+              width: '50%',
+              paddingX: '32px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <Box>
-            <Text as="h1" variant="title" sx={{ mb: 3 }}>
-              There’s a whole new world for you to discover.
-            </Text>
-            <Link href="#" sx={{ mt: [4, 5], mb: 3, cursor: 'pointer', textDecoration: 'none', fontSize: '24px', fontWeight: 500, placeItems: 'center' }}>
-              I&apos;m ready to join <Icon glyph='view-forward' size={24} />
-            </Link>
+              <Text as="h1" variant="title" sx={{ mb: 3 }}>
+                There’s a whole new world for you to discover.
+              </Text>
+              <Link
+                href="#"
+                sx={{
+                  mt: [4, 5],
+                  mb: 3,
+                  cursor: 'pointer',
+                  textDecoration: 'none',
+                  fontSize: '24px',
+                  fontWeight: 500,
+                  placeItems: 'center'
+                }}
+              >
+                I&apos;m ready to join <Icon glyph="view-forward" size={24} />
+              </Link>
             </Box>
           </Box>
           <Image
-              src="https://s3-alpha-sig.figma.com/img/467f/75b6/52e44d8d65abfb34731cfb11e39d72a8?Expires=1704067200&Signature=QDtskHIwqRO3u38E8xYWm-vXEYxkZGjImaFADUintP4fOYAgeJfypzYXcgJtxrYmzYqA4MXXQ7wO9k4o86ikFUT~hpcATC3YkznSYY6fQ8w~3ZkwLLfJs5oAhmXmFGAovYOzeVdKhCKpOFOF2CEhYpwWW6I-96S1NW1yTZds6tpTlEJIqJ-oTbLf-kUJdgghvs5I9GP4JclHk9LadD-t4Qidzr5hl81NZ76~u2F2PV~W~GFdDfwMA04MOlz7vPAqIURqxAuVWAmE6Vz0lsOb2h~KvNTitRc5JLsxvduCWAjo~QsBd0bSnuloYn~RMJeiDAtmvqrsuG9B5XXEHu8jLA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
-              sx={{ width: '50%', height: '40rem', objectFit: 'cover' }}
+            src="https://cloud-j0p07nviw-hack-club-bot.vercel.app/0image.png"
+            sx={{ width: '50%', height: '40rem', objectFit: 'cover' }}
           />
         </Flex>
       </Container>
@@ -431,9 +480,20 @@ const SlackPage = () => {
 
 function Project({ children, sx }) {
   return (
-      <Box sx={{ color: 'white', width: '100vw', height: '100vh', display: 'grid', alignItems: 'center', justifyContent: 'center', sx }} className="project">
-        {children}
-      </Box>
+    <Box
+      sx={{
+        color: 'white',
+        width: '100vw',
+        height: '100vh',
+        display: 'grid',
+        alignItems: 'center',
+        justifyContent: 'center',
+        sx
+      }}
+      className="project"
+    >
+      {children}
+    </Box>
   )
 }
 
