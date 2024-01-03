@@ -22,7 +22,7 @@ import Header from '../components/slack/header'
 import fetcher from '../lib/fetcher'
 import { thousands } from '../lib/members'
 import SlackEvents from '../components/slack/slack-events'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
@@ -42,23 +42,7 @@ const SlackPage = () => {
 
   gsap.registerPlugin(ScrollTrigger)
 
-  useEffect(() => {
-    async function getChannel() {
-      const res = await fetch('https://slack.com/api/conversations.history', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${process.env.SLACK_BOT_TOKEN}`
-        },
-        body: JSON.stringify({ channel: "C01B4PVGL2K" })
-      });
-      console.log(res)
-    }
-    getChannel()
-    
-  }, []);
-
-  useEffect(() => {
+  /*useEffect(() => {
     const sections = gsap.utils.toArray('.project')
 
     const projects = gsap.to(sections, {
@@ -95,7 +79,7 @@ const SlackPage = () => {
     return () => {
       projects.kill()
     }
-  }, [])
+  }, [])*/
 
   return (
     <>
@@ -309,105 +293,53 @@ const SlackPage = () => {
           Where the makers hang out...
         </Text>
       </Container>
-      <Box sx={{ msOverflowX: 'hidden', overflowX: 'hidden' }}>
         <Grid
           sx={{
-            backgroundImage: t => t.util.gx(color[0], color[1]),
-            width: '600%',
-            height: '100vh',
+            backgroundColor: '#f9fafc',
             justifyItems: 'center',
             alignItems: 'center',
-            display: 'flex',
-            flexWrap: 'nowrap'
           }}
           className="container"
           ref={triggerRef}
         >
-          <Project>
-            <Box>
-              <Text
-                as="p"
-                variant="title"
-                sx={{ fontSize: [2, 3], mt: 3, color: 'white' }}
-                id="start"
-              >
-                Hack Clubbers
-              </Text>
-              <Text
-                as="h1"
-                variant="title"
-                sx={{ mb: 3, color: 'white', width: 'copyUltra' }}
-              >
-                Have built some pretty cool things on the Slack...
-              </Text>
-            </Box>
-          </Project>
-          <Project>
-            <Box>
-              <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
-                A free domain service, created by teen hackers on the Hack Club
-                Slack.
-              </Text>
-              <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
-                Obl.ong’s team organizes in #oblong Velit voluptate deserunt
-                consequat. Velit voluptate deserunt consequat.Velit voluptate
-                deserunt consequat.
-              </Text>
-            </Box>
-          </Project>
-          <Project>
-            <Box>
-              <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
-                An open source VPN, to help Hack Clubbers connect to the
-                internet and each other.
-              </Text>
-              <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
-                Burrow&apos;s team organizes in #burrow Velit voluptate deserunt
-                consequat. Velit voluptate deserunt consequat.Velit voluptate
-                deserunt consequat.
-              </Text>
-            </Box>
-          </Project>
-          <Project>
-            <Box>
-              <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
-                Free, powerful, and versatile compute infrastructure for all
-                high school hackers.
-              </Text>
-              <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
-                Nest&apos;s team organizes in #nest Velit voluptate deserunt
-                consequat. Velit voluptate deserunt consequat.Velit voluptate
-                deserunt consequat.
-              </Text>
-            </Box>
-          </Project>
-          <Project>
-            <Box>
-              <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
-                A brainwave reading device to interact with computers using
-                thoughts.
-              </Text>
-              <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
-                Nest&apos;s team organizes in #nest Velit voluptate deserunt
-                consequat. Velit voluptate deserunt consequat.Velit voluptate
-                deserunt consequat.
-              </Text>
-            </Box>
-          </Project>
-          <Project>
-            <Box>
-              <Text as="h1" variant="title" sx={{ width: 'copyUltra' }}>
-                A chat app and cell phone carrier focused privacy and security
-              </Text>
-              <Text as="p" variant="subtitle" sx={{ width: 'copyPlus' }}>
-                Nest&apos;s team organizes in #nest Velit voluptate deserunt
-                consequat. Velit voluptate deserunt consequat.Velit voluptate
-                deserunt consequat.
-              </Text>
-            </Box>
-          </Project>
+          <Container>
+            <Project
+                title="A free domain service, created by teen hackers on the Hack Club Slack."
+                description="Obl.ong’s team organizes in #oblong Velit voluptate deserunt
+                  consequat. Velit voluptate deserunt consequat.Velit voluptate
+                  deserunt consequat."
+                color={['red', '#F58695']}
+            />
+            <Project
+                title="An open source VPN, to help Hack Clubbers connect to the internet and each other."
+                description="Burrow&apos;s team organizes in #burrow Velit voluptate deserunt
+                  consequat. Velit voluptate deserunt consequat.Velit voluptate
+                  deserunt consequat."
+                color={['orange', '#F2A510']}
+            />
+            <Project
+                title="Free, powerful, and versatile compute infrastructure for all high school hackers."
+                description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
+                  consequat. Velit voluptate deserunt consequat.Velit voluptate
+                  deserunt consequat."
+                color={['yellow', '#FAE078']}
+            />
+            <Project
+                title="A brainwave reading device to interact with computers using thoughts."
+                description="BCI&apos;s team organizes in #nest Velit voluptate deserunt
+                  consequat. Velit voluptate deserunt consequat.Velit voluptate
+                  deserunt consequat."
+                color={['green', '#51F5C5']}
+            />
+            <Project
+                title="A chat app and cell phone carrier focused privacy and security"
+                description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
+                  consequat. Velit voluptate deserunt consequat.Velit voluptate
+                  deserunt consequat."
+                color={['cyan', '#88e5f8']}
+            />
+          </Container>
         </Grid>
-      </Box>
       <Container sx={{ py: [4, 5] }}>
         <Flex sx={{ gap: '2rem' }}>
           <Quote
@@ -442,7 +374,7 @@ const SlackPage = () => {
             sx={{
               width: '50%',
               paddingX: '32px',
-              display: 'flex',
+              display: ['grid', 'flex'],
               alignItems: 'center',
               justifyContent: 'center'
             }}
@@ -478,21 +410,34 @@ const SlackPage = () => {
   )
 }
 
-function Project({ children, sx }) {
+function Project({ title, description, sx, color }) {
   return (
     <Box
       sx={{
-        color: 'white',
-        width: '100vw',
-        height: '100vh',
         display: 'grid',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: 'white',
+        rounded: 'lg',
+        height: '40vh',
+        width: 'full',
+        borderRadius: 12,
+        padding: '32px',
+        my: '2rem',
+        backgroundImage: t => t.util.gx(color[0], color[1]),
+        color: 'white',
         sx
       }}
       className="project"
     >
-      {children}
+      <Box>
+      <Text as="h1" variant="title" sx={{ width: 'copyUltra', }}>
+        {title}
+      </Text>
+      <Text as="p" variant="subtitle" sx={{ width: 'copyPlus', opacity: '75%' }}>
+        {description}
+      </Text>
+      </Box>
     </Box>
   )
 }
