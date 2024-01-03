@@ -12,4 +12,11 @@ export function middleware(request) {
     response.cookies.set('continent', continent || '')
     return response
   }
+
+  if (request.nextUrl.pathname === '/donate/') {
+    return NextResponse.redirect('https://hackclub.com/philanthropy/');
+  }
+
+  return NextResponse.next();
+
 }
