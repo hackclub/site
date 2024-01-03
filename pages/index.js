@@ -40,7 +40,6 @@ import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
-import Snow from '../components/snowflakes'
 
 /** @jsxImportSource theme-ui */
 
@@ -133,12 +132,6 @@ function Page({
 
   return (
     <>
-      {
-        //if the month of the year is between winter seasons, render Snow component
-        new Date().getMonth() >= 10 || new Date().getMonth() <= 3 ? (
-          <Snow />
-        ) : null
-      }
       <Meta
         as={Head}
         title="A Home for High School Hackers"
