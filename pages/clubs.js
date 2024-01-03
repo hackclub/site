@@ -466,7 +466,7 @@ const Page = () => (
               <>
                 Come prepared to every meeting with over 100{' '}
                 <a href="https://workshops.hackclub.com">workshops</a> (3 years’
-                worth!) and 18 <a href="https://jams.hackclub.com">Jams</a>{' '}
+                worth!) and 19 <a href="https://jams.hackclub.com">Jams</a>{' '}
                 that guide your club members through making fun, creative
                 projects.
               </>
