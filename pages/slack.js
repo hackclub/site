@@ -113,7 +113,7 @@ const SlackPage = () => {
           worlds that suit you.
         </Text>
         <Grid
-          columns={[2, 9, 13]}
+          columns={[2, 9, 12]}
           gap={3}
           sx={{
             py: [3, 4],
@@ -304,35 +304,36 @@ const SlackPage = () => {
         >
           <Container>
             <Project
-                title="A free domain service, created by teen hackers on the Hack Club Slack."
-                description="Obl.ong’s team organizes in #oblong Velit voluptate deserunt
+                title="A brainwave reading device to interact with computers using thoughts."
+                description="BCI&apos;s team organizes in #nest Velit voluptate deserunt
                   consequat. Velit voluptate deserunt consequat.Velit voluptate
                   deserunt consequat."
                 color={['red', '#F58695']}
+
             />
             <Project
-                title="An open source VPN, to help Hack Clubbers connect to the internet and each other."
-                description="Burrow&apos;s team organizes in #burrow Velit voluptate deserunt
+                title="A free domain service."
+                description="Obl.ong’s team organizes in #oblong Velit voluptate deserunt
                   consequat. Velit voluptate deserunt consequat.Velit voluptate
                   deserunt consequat."
                 color={['orange', '#F2A510']}
             />
             <Project
-                title="Free, powerful, and versatile compute infrastructure for all high school hackers."
-                description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
+                title="An open source VPN."
+                description="Burrow&apos;s team organizes in #burrow Velit voluptate deserunt
                   consequat. Velit voluptate deserunt consequat.Velit voluptate
                   deserunt consequat."
                 color={['yellow', '#FAE078']}
             />
             <Project
-                title="A brainwave reading device to interact with computers using thoughts."
-                description="BCI&apos;s team organizes in #nest Velit voluptate deserunt
+                title="Free compute infrastructure."
+                description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
                   consequat. Velit voluptate deserunt consequat.Velit voluptate
                   deserunt consequat."
                 color={['green', '#51F5C5']}
             />
             <Project
-                title="A chat app and cell phone carrier focused privacy and security"
+                title="A chat app and cell phone carrier"
                 description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
                   consequat. Velit voluptate deserunt consequat.Velit voluptate
                   deserunt consequat."
