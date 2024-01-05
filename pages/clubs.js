@@ -453,7 +453,7 @@ const Page = () => (
               <>
                 We build tools, such as{' '}
                 <a href="https://sprig.hackclub.com">Sprig</a>, that your
-                members can use to make projects with in meetings! Built more of
+                members can use to make projects with in meetings! Build more of
                 them with us in our <Link href="/slack">Slack community</Link>.
               </>
             }
@@ -466,7 +466,7 @@ const Page = () => (
               <>
                 Come prepared to every meeting with over 100{' '}
                 <a href="https://workshops.hackclub.com">workshops</a> (3 years’
-                worth!) and 18 <a href="https://jams.hackclub.com">Jams</a>{' '}
+                worth!) and 19 <a href="https://jams.hackclub.com">Jams</a>{' '}
                 that guide your club members through making fun, creative
                 projects.
               </>
