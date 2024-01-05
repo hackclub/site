@@ -82,11 +82,12 @@ const PhotoRow = ({ photos }) => (
 )
 
 const data = [
-  { name: '3452 Members', Teenagers: 3452, year: '2018' },
-  { name: '6932 Members', Teenagers: 6932, year: '2019' },
-  { name: '13530 Members', Teenagers: 13530, year: '2020' },
-  { name: '18347 Members', Teenagers: 18347, year: '2021' },
-  { name: '21790 Members', Teenagers: 21790, year: '2022' }
+  { name: '3452 Teenagers', Teenagers: 3452, year: '2018' },
+  { name: '6932 Teenagers', Teenagers: 6932, year: '2019' },
+  { name: '13530 Teenagers', Teenagers: 13530, year: '2020' },
+  { name: '18347 Teenagers', Teenagers: 18347, year: '2021' },
+  { name: '21790 Teenagers', Teenagers: 21790, year: '2022' },
+  { name: '28720 Teenagers', Teenagers: 28720, year: '2023' }
 ]
 
 const Sheet = styled(Card)`
@@ -179,7 +180,7 @@ const Highlight = ({ children }) => {
 }
 const Line = () => {
   return (
-    <Fade bottom>
+    <Fade>
       <Box
         sx={{
           borderBottom: '1px solid #e0e6ed',
@@ -283,7 +284,7 @@ const delimiterIconStyles = {
 }
 const Map = () => {
   return (
-    <Fade bottom>
+    <Fade>
       <Box
         sx={{
           position: 'relative',
@@ -345,7 +346,7 @@ const Philanthropy = ({ posts = [] }) => {
             >
               Investing in the future
             </Text>
-            <Fade bottom delay={90}>
+            <Fade delay={90}>
               <Button
                 variant="ctaLg"
                 my={3}
@@ -373,7 +374,7 @@ const Philanthropy = ({ posts = [] }) => {
         <Header sx={{ position: 'relative' }}>
           <Box
             sx={{
-              background: 'rgba(0,0,0, 0.8)',
+              background: 'rgba(0,0,0, 0.7)',
               zIndex: 1,
               position: 'relative',
               color: 'white!important',
@@ -476,7 +477,7 @@ const Philanthropy = ({ posts = [] }) => {
             }
           }}
         >
-          <Fade bottom delay={60}>
+          <Fade delay={60}>
             <Box
               sx={{
                 mt: 4,
@@ -491,7 +492,7 @@ const Philanthropy = ({ posts = [] }) => {
             </Box>
           </Fade>
           <Line />
-          <Fade bottom>
+          <Fade>
             <Text as="h1" mb={2} mt={4}>
               In the next ten years, Hack Club will discover, foster and inspire
               thousands more teenagers to use technical skills to solve
@@ -499,7 +500,7 @@ const Philanthropy = ({ posts = [] }) => {
             </Text>
           </Fade>
           <br />
-          <Fade bottom>
+          <Fade>
             <Text as="p">
               Led by young engineers, with early backing from the 21st century’s
               most iconic creators, Hack Club already reaches tens of thousands
@@ -511,7 +512,7 @@ const Philanthropy = ({ posts = [] }) => {
             </Text>
           </Fade>
           <br />
-          <Fade bottom>
+          <Fade>
             <Text as="p">
               Hack Club is always free for teenagers and with your support, Hack
               Club can grow to hundreds of thousands of teen hackers, bringing
@@ -520,7 +521,7 @@ const Philanthropy = ({ posts = [] }) => {
               from, how they identify, or what their parents do.
             </Text>
           </Fade>
-          <Fade bottom>
+          <Fade>
             <br />
             <Text as="p">
               Over time, Hack Clubbers will reshape societies as entrepreneurs,
@@ -534,35 +535,35 @@ const Philanthropy = ({ posts = [] }) => {
             </Text>
           </Fade>
           <Grid gap={2} columns={[1, 2, 3, 5]} mt={4}>
-            <Fade bottom delay={30}>
+            <Fade delay={30}>
               <HackClubber
                 photo="arianna.png"
                 quote="Always inspiring interesting new projects"
                 info="Arianna, 16, Kentucky"
               />
             </Fade>
-            <Fade bottom delay={60}>
+            <Fade delay={60}>
               <HackClubber
                 photo="jason.png"
                 quote="I’ve met some of the best people"
                 info="Jason, 16, Texas"
               />
             </Fade>
-            <Fade bottom delay={90}>
+            <Fade delay={90}>
               <HackClubber
                 photo="sam.png"
                 quote="In Hack Club I’ve found a home"
                 info="Sam, 17, Singapore"
               />
             </Fade>
-            <Fade bottom delay={120}>
+            <Fade delay={120}>
               <HackClubber
                 photo="abby.png"
                 quote="Helped build me a strong coding foundation"
                 info="Abby, 15, Los Angeles"
               />
             </Fade>
-            <Fade bottom delay={150}>
+            <Fade delay={150}>
               <HackClubber
                 photo="adriano.png"
                 quote="Totally different from the coding classes at school"
@@ -570,12 +571,12 @@ const Philanthropy = ({ posts = [] }) => {
               />
             </Fade>
           </Grid>
-          <Fade bottom>
+          <Fade>
             <Text as="h2" mt={5}>
               To discuss a gift:
             </Text>
           </Fade>
-          <Fade bottom>
+          <Fade>
             <Grid gap={[4, 2, 2]} columns={[1, '1r 1fr', '1fr 1fr']} mt={2}>
               <Box>
                 <Text as="h3">Reach out to</Text>
@@ -623,34 +624,52 @@ const Philanthropy = ({ posts = [] }) => {
             </Grid>
           </Fade>
           <Line />
-          <Fade bottom delay={100}>
+          <Fade delay={100}>
             <Flex sx={{ justifyContent: 'space-between' }} mt={[3, 4]}>
               <Box>
-                <Text as="h2">View Hack Club's 2020 IRS Form 990</Text>
-                <Text as="p">2021 Form will soon be ready and shared.</Text>
+                <Text as="h2">View Hack Club's IRS Form 990s</Text>
+                <Text as="p">2022 Form will soon be ready and shared.</Text>
               </Box>
-              <Button
-                as="a"
-                variant="outline"
-                href="https://cloud-d2t8vvprl-hack-club-bot.vercel.app/0form990package.pdf"
-                target="_blank"
-                mb={4}
-                sx={{
-                  fontSize: '1em !important',
-                  width: 'fit-content',
-                  float: 'right',
-                  mt: 2
-                }}
-              >
-                Form 990
-              </Button>
+              <Box>
+                <Button
+                  as="a"
+                  variant="outline"
+                  href="https://cloud-f23epej2p-hack-club-bot.vercel.app/0hack_foundation_2021_990_-_public__1_.pdf"
+                  target="_blank"
+                  mb={4}
+                  sx={{
+                    fontSize: '1em !important',
+                    width: 'fit-content',
+                    float: 'right',
+                    mt: 2
+                  }}
+                >
+                  2021
+                </Button>
+                <Button
+                  as="a"
+                  variant="outline"
+                  href="https://cloud-d2t8vvprl-hack-club-bot.vercel.app/0form990package.pdf"
+                  target="_blank"
+                  mb={4}
+                  sx={{
+                    fontSize: '1em !important',
+                    width: 'fit-content',
+                    float: 'right',
+                    mt: 2,
+                    mr: 2
+                  }}
+                >
+                  2020
+                </Button>
+              </Box>
             </Flex>
             <span>
               Starting in 2021, Hack Club has engaged with an external auditing
               firm and has audited financials through the current fiscal year.
             </span>
           </Fade>
-          {/* <Fade bottom delay={300}>
+          {/* <Fade delay={300}>
             <Text
               as="a"
               mt={2}
@@ -677,13 +696,18 @@ const Philanthropy = ({ posts = [] }) => {
           }}
         >
           <Container sx={{ textAlign: 'center' }}>
-            <Fade bottom>
+            <Fade>
               <Text as="h1" sx={{ fontSize: ['28px', '28px', '36px'] }}>
                 Hack Club is already making a difference!
               </Text>
             </Fade>
-            <Grid my="4" gap={2} columns={[1, 1, 1, 2]}>
-              <Fade bottom delay={30}>
+            <Grid
+              my="4"
+              gap={2}
+              columns={[1, 1, 1, 2]}
+              sx={{ alignItems: 'center' }}
+            >
+              <Fade delay={30}>
                 <Graph />
               </Fade>
               <Box
@@ -692,38 +716,38 @@ const Philanthropy = ({ posts = [] }) => {
                   margin: 'auto'
                 }}
               >
-                <Fade bottom delay={90}>
+                <Fade delay={90}>
                   <Stat
                     num="11 million"
                     words="messages sent"
                     background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:slack.svg"
                   />
                 </Fade>
-                <Fade bottom delay={120}>
+                <Fade delay={120}>
                   <Stat
-                    num="400"
-                    words="Hack Clubs around the world"
+                    num="450+"
+                    words="coding clubs"
                     background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:event-code.svg"
                   />
                 </Fade>
-                <Fade bottom delay={150}>
+                <Fade delay={180}>
                   <Stat
-                    num="500"
-                    words="nonprofits supported"
-                    background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:member-add.svg"
-                  />
-                </Fade>
-                <Fade bottom delay={180}>
-                  <Stat
-                    num="100+"
-                    words="global events"
+                    num="180+"
+                    words="global events supported"
                     background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:profile.svg"
                   />
                 </Fade>
-                <Fade bottom delay={180}>
+                <Fade delay={150}>
                   <Stat
-                    num="4"
-                    words="life changing summers"
+                    num="1800+"
+                    words="nonprofits & clubs sponsored"
+                    background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:member-add.svg"
+                  />
+                </Fade>
+                <Fade delay={180}>
+                  <Stat
+                    num="$14 million"
+                    words="transacted on HCB"
                     background="https://icons.hackclub.com/api/icons/0xFAFAFA/glyph:photo.svg"
                   />
                 </Fade>
@@ -762,7 +786,7 @@ const Philanthropy = ({ posts = [] }) => {
             }
           }}
         >
-          <Fade bottom>
+          <Fade>
             <Text as="h1" my={4}>
               As the largest network of technical teenagers, we are featured in
               the news:
@@ -819,12 +843,12 @@ const Philanthropy = ({ posts = [] }) => {
             </Grid>
           </Fade>
           <Line />
-          <Fade bottom>
+          <Fade>
             <Text as="h1">Board of Directors</Text>
           </Fade>
           <Grid gap={4} columns={[1, '1fr 2fr', '1fr 2fr']} mt={2}>
             <Box>
-              <Fade bottom>
+              <Fade>
                 <Box>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Box
@@ -855,7 +879,7 @@ const Philanthropy = ({ posts = [] }) => {
                   </Box>
                 </Box>
               </Fade>
-              <Fade bottom delay={200}>
+              <Fade delay={200}>
                 <br />
                 <Box>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -883,7 +907,7 @@ const Philanthropy = ({ posts = [] }) => {
                   </Box>
                 </Box>
               </Fade>
-              <Fade bottom delay={400}>
+              <Fade delay={400}>
                 <br />
                 <Box>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -911,7 +935,7 @@ const Philanthropy = ({ posts = [] }) => {
                   </Box>
                 </Box>
               </Fade>
-              <Fade bottom delay={600}>
+              <Fade delay={600}>
                 <br />
                 <Box>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -939,15 +963,15 @@ const Philanthropy = ({ posts = [] }) => {
                   </Box>
                 </Box>
               </Fade>
-              <Fade bottom delay={800}>
+              <Fade delay={800}>
                 <br />
                 <Text sx={{ color: 'muted', fontSize: '90%' }}>
                   Board advisor: John Abele (Founder, Boston Scientific)
                 </Text>
               </Fade>
             </Box>
-            <Fade bottom delay={900}>
-              <Box sx={{ color: 'muted' }}>
+            <Fade delay={900}>
+              <Box sx={{ color: 'slate' }}>
                 <Text as="p">
                   <Quote>“</Quote>Hack Club is the organization I wish I had
                   when I was a teenager.
@@ -978,166 +1002,196 @@ const Philanthropy = ({ posts = [] }) => {
           </Grid>
           <Line />
           <Box>
-            <Fade bottom>
+            <Fade>
               <Text as="h1">Join our community of generous donors</Text>
             </Fade>
             <Grid gap={2} columns={[2, 4, 4]} mt={2}>
               <Box>
-                <Fade bottom delay={50}>
-                  <Text as="h3">$2 Million</Text>
+                <Fade delay={50}>
+                  <Text as="h3">Above $5M </Text>
                 </Fade>
-                <Fade bottom delay={80}>
+                <Fade delay={70}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Tom Preston-Werner
+                    Musk Foundation (4x)
                   </Text>
                 </Fade>
-                <Fade bottom delay={110}>
+                <br></br>
+                <Fade delay={90}>
+                  <Text as="h3"> $1M - $5M </Text>
+                </Fade>
+                <Fade delay={110}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Musk Foundation
+                    Tom Preston-Werner (7x)
                   </Text>
                 </Fade>
-              </Box>
-              <Box>
-                <Fade bottom delay={140}>
-                  <Text as="h3">$500k - $1M</Text>
-                </Fade>
-                <Fade bottom delay={170}>
+                <Fade delay={120}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Joe Liemandt
+                    Tobi Lutke
                   </Text>
                 </Fade>
-                <Fade bottom delay={200}>
+                <Fade delay={130}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     The Libermans
                   </Text>
                 </Fade>
-                <Fade bottom delay={230}>
+              </Box>
+              <Box>
+                <Fade delay={140}>
+                  <Text as="h3">$500k - $1M</Text>
+                </Fade>
+                <Fade delay={180}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Lizzy Danhakl/Andrew Reed
+                    Lizzy Danhakl/Andrew Reed (3x)
+                  </Text>
+                </Fade>
+                <Fade delay={210}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Craig Newmark (4x)
+                  </Text>
+                </Fade>
+                <Fade delay={230}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Endless Network (2x)
+                  </Text>
+                </Fade>
+                <Fade delay={250}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Joe Liemandt
                   </Text>
                 </Fade>
               </Box>
               <Box>
-                <Fade bottom delay={260}>
+                <Fade delay={260}>
                   <Text as="h3">$200k - $500k</Text>
                 </Fade>
-                <Fade bottom delay={290}>
+                <Fade delay={290}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Vitalik Buterin
+                    Gwynne Shotwell
                   </Text>
                 </Fade>
-                <Fade bottom delay={300}>
+                <Fade delay={300}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Jack Dorsey
                   </Text>
                 </Fade>
-                <Fade bottom delay={320}>
+                <Fade delay={330}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Craig Newmark
+                    Vitalik Buterin
                   </Text>
                 </Fade>
-                <Fade bottom delay={350}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Ron Conway
-                  </Text>
-                </Fade>
-                <Fade bottom delay={380}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Endless Network
-                  </Text>
-                </Fade>
-                <Fade bottom delay={410}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Argosy Foundation
-                  </Text>
-                </Fade>
-                <Fade bottom delay={440}>
+                <Fade delay={345}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Ron Baron
                   </Text>
                 </Fade>
-              </Box>
-              <Box>
-                <Fade bottom delay={470}>
-                  <Text as="h3">$100k- $200k</Text>
-                </Fade>
-                <Fade bottom delay={5000}>
+                <Fade delay={360}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Quinn Slack
+                    Ron Conway (4x)
                   </Text>
                 </Fade>
-                <Fade bottom delay={530}>
+                <Fade delay={410}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Adam Ross
+                    Argosy Foundation (3x)
+                  </Text>
+                </Fade>
+              </Box>
+              <Box>
+                <Fade delay={470}>
+                  <Text as="h3">$100k- $200k</Text>
+                </Fade>
+                <Fade delay={500}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Quinn Slack (3x)
+                  </Text>
+                </Fade>
+                <Fade delay={530}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Adam Ross (3x)
+                  </Text>
+                </Fade>
+                <Fade delay={560}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Peter Levine
+                  </Text>
+                </Fade>
+                <Fade delay={590}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    FUTO
                   </Text>
                 </Fade>
               </Box>
             </Grid>
+            <Fade delay={800}>
+              <br />
+              <Text sx={{ color: 'muted', fontSize: '90%' }}>
+                * The numbers in bracket indicates repeated gifts
+              </Text>
+            </Fade>
           </Box>
-          <Fade bottom>
+          <Fade>
             <Text as="h2" mt={4} mb={2}>
               A few others who support Hack Club
             </Text>
           </Fade>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }} mb={5}>
-            <Fade bottom delay={30}>
+            <Fade delay={30}>
               <Pill
                 logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/0figma.png"
                 name="Dylan Field, Founder, Figma"
               />
             </Fade>
-            <Fade bottom delay={60}>
+            <Fade delay={60}>
               <Pill
                 logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/1vercel.png"
                 name="Guillermo Rauch, Founder, Vercel"
               />
             </Fade>
-            <Fade bottom delay={90}>
+            <Fade delay={90}>
               <Pill
                 logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/7laravel.png"
                 name="Taylor Otwell, Creator of Laravel"
               />
             </Fade>
-            <Fade bottom delay={120}>
+            <Fade delay={120}>
               <Pill
                 logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/5sequoia.png"
                 name="Andrew Reed, Partner, Sequoia"
               />
             </Fade>
-            <Fade bottom delay={150}>
+            <Fade delay={150}>
               <Pill
                 logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/6replit.png"
                 name="Amjad Masad, Co-founder, Replit"
               />
             </Fade>
-            <Fade bottom delay={180}>
+            <Fade delay={180}>
               <Pill
                 logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/2workflow.png"
                 name="Conrad Kramer, Co-founder, Workflow"
               />
             </Fade>
-            <Fade bottom delay={210}>
+            <Fade delay={210}>
               <Pill
                 logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/3github.png"
                 name="Tim Clem, Senior Engineer, GitHub"
               />
             </Fade>
-            <Fade bottom delay={240}>
+            <Fade delay={240}>
               <Pill
                 logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/4sentry.png"
                 name="David Cramer, Co-founder, Sentry"
               />
             </Fade>
-            <Fade bottom delay={270}>
+            <Fade delay={270}>
               <Pill
                 logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/8vgs.png"
                 name="Mahmoud Abdelkader, CEO, Very Good Security"
               />
             </Fade>
-            <Fade bottom delay={270}>
+            <Fade delay={270}>
               <Pill name="Blake Lieberman, Partner, Rief Ventures" />
             </Fade>
-            <Fade bottom delay={300}>
+            <Fade delay={300}>
               <Text
                 as="a"
                 href="/philanthropy/supporters"
@@ -1152,6 +1206,7 @@ const Philanthropy = ({ posts = [] }) => {
                   display: 'flex',
                   alignItems: 'center',
                   transition: '0.5s ease',
+                  border: '1px solid #1f2d3d',
                   ':hover': {
                     backgroundColor: '#e0e6ed'
                   }
@@ -1161,14 +1216,14 @@ const Philanthropy = ({ posts = [] }) => {
               </Text>
             </Fade>
           </Box>
-          <Fade bottom>
+          <Fade>
             <Text as="h2" my={3}>
               Only through their support are we able to empower students like
               Obrey and Maggie
             </Text>
           </Fade>
           <Grid gap={3} columns={[1, 1, 1, 2]} mt={2} mb={4}>
-            <Fade bottom delay={100}>
+            <Fade delay={100}>
               <Q>
                 <Heading mb={3} sx={{ fontWeight: 'normal', fontSize: '18px' }}>
                   Obrey Muchena started a Hack Club in his senior year of high
@@ -1200,7 +1255,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Flex>
               </Q>
             </Fade>
-            <Fade bottom delay={200}>
+            <Fade delay={200}>
               <Q>
                 <Heading mb={3} sx={{ fontWeight: 'normal', fontSize: '18px' }}>
                   In 2021, Maggie joined the Hack Club community; she has since
@@ -1235,7 +1290,7 @@ const Philanthropy = ({ posts = [] }) => {
             </Fade>
           </Grid>
           <Line />
-          <Fade bottom>
+          <Fade>
             <Text as="h1" sx={{ textAlign: 'center' }} mb={[4, 5]}>
               Hack Club invites the 21st century’s leading thinkers, builders
               and disrupters to join our small, core network of donors with a
@@ -1243,7 +1298,7 @@ const Philanthropy = ({ posts = [] }) => {
             </Text>
           </Fade>
           <Grid columns={['1fr', '1fr', '1fr', '0.8fr 1.2fr']}>
-            <Fade bottom>
+            <Fade>
               <Box>
                 <Text as="p">
                   We envision thousands of diverse Hack Club leaders in towns
@@ -1262,66 +1317,66 @@ const Philanthropy = ({ posts = [] }) => {
             </Fade>
             <Map />
           </Grid>
-          <Fade bottom>
+          <Fade>
             <Text as="p" mt={4}>
               Your gift will:
             </Text>
           </Fade>
           <ul>
-            <Fade bottom>
+            <Fade>
               <li>
                 Increase support to serve thousands more teenagers, with a
                 strong focus on serving those who face additional barriers to
                 contributing their talents to the world
               </li>
             </Fade>
-            <Fade bottom delay={30}>
+            <Fade delay={30}>
               <li>
                 Create hundreds more Hack Clubs in high schools and communities
                 across the country and world
               </li>
             </Fade>
-            <Fade bottom delay={60}>
+            <Fade delay={60}>
               <li>
                 Inspire a problem-solving mindset and a hacker identity, where
                 teenagers are empowered to build what they want to see in the
                 world
               </li>
             </Fade>
-            <Fade bottom delay={90}>
+            <Fade delay={90}>
               <li>
                 Make Hack Club the best place to be a teenager on the internet,
                 incentivizing a shift among teenagers from consumers to creators
                 of technology
               </li>
             </Fade>
-            <Fade bottom delay={120}>
+            <Fade delay={120}>
               <li>
                 Launch special projects, in which Hack Clubbers collaborate with
                 SpaceX, Vercel, Cloudflare, Replit, Dogecoin and others
               </li>
             </Fade>
-            <Fade bottom delay={150}>
+            <Fade delay={150}>
               <li>
                 Popularize transparent accounting, open source building, and
                 high-integrity leadership
               </li>
             </Fade>
-            <Fade bottom delay={180}>
+            <Fade delay={180}>
               <li>Grow the team, mostly engineers</li>
             </Fade>
-            <Fade bottom delay={210}>
+            <Fade delay={210}>
               <li>
                 Host dozens of in-person events, including our summer adventure
               </li>
             </Fade>
-            <Fade bottom delay={240}>
+            <Fade delay={240}>
               <li>
                 Extend mini-grants of hardware and internet access to hundreds
                 of teenagers
               </li>
             </Fade>
-            <Fade bottom delay={270}>
+            <Fade delay={270}>
               <li>
                 Bring computer science and engineering skills to thousands more
                 teenagers
@@ -1329,18 +1384,18 @@ const Philanthropy = ({ posts = [] }) => {
             </Fade>
           </ul>
           <Box my={4}>
-            <Fade bottom delay={350}>
+            <Fade delay={350}>
               <Text as="h2" sx={{ mb: 0, pb: 0, mt: 2 }}>
                 Thank you for your consideration!
               </Text>
             </Fade>
-            <Fade bottom delay={380}>
+            <Fade delay={380}>
               <Text as="h2" sx={{ mt: 0 }}>
                 Sincerely,
               </Text>
             </Fade>
             <Flex mb={4}>
-              <Fade bottom delay={410}>
+              <Fade delay={410}>
                 <Box sx={{ marginRight: 3 }}>
                   <Image
                     src="/philanthropy/christina-s.png"
@@ -1351,7 +1406,7 @@ const Philanthropy = ({ posts = [] }) => {
                   <Text as="p">Christina Asquith, Co-founder and COO</Text>
                 </Box>
               </Fade>
-              <Fade bottom delay={440}>
+              <Fade delay={440}>
                 <Box>
                   <Image
                     src="/philanthropy/zach-s.png"
@@ -1364,7 +1419,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Fade>
             </Flex>
           </Box>
-          <Fade bottom delay={200}>
+          <Fade delay={200}>
             <Grid
               gap={4}
               columns={[1, '2fr 1fr', '2fr 1fr']}
@@ -1398,7 +1453,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Grid>
           </Fade>
-          <Fade bottom>
+          <Fade>
             <Button
               as="a"
               href="/philanthropy/hackclub_philanthropy.pdf"
@@ -1409,7 +1464,7 @@ const Philanthropy = ({ posts = [] }) => {
               Download as PDF
             </Button>
           </Fade>
-          <Fade bottom>
+          <Fade>
             <Text
               as="p"
               sx={{ fontSize: '90% !important', color: 'muted', pb: 2 }}
