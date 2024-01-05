@@ -133,11 +133,10 @@ function Page({
   // Spotlight effect
   const spotlightRef = useRef()
   useEffect(() => {
-
     const handler = event => {
-      var rect = document.getElementById('spotlight').getBoundingClientRect();
-    var x = event.clientX - rect.left; //x position within the element.
-    var y = event.clientY - rect.top; 
+      var rect = document.getElementById('spotlight').getBoundingClientRect()
+      var x = event.clientX - rect.left //x position within the element.
+      var y = event.clientY - rect.top //y position within the element.
 
       spotlightRef.current.style.background = `radial-gradient(
 				circle at ${x}px ${y}px,
@@ -635,7 +634,6 @@ function Page({
               left: 0,
               right: 0,
               bottom: 0,
-              bg: '#000000',
               pointerEvents: 'none'
             }}
           />
@@ -1113,78 +1111,78 @@ function Page({
             </Grid>
           </Box>
         </Box>
-      
-      {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
-        'z' && (
-        <>
-          <Box
-            sx={{
-              position: 'fixed',
-              top: 0,
-              width: '100%',
-              zIndex: 1000
-            }}
-          >
+
+        {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
+          'z' && (
+          <>
             <Box
               sx={{
-                position: 'relative',
-                margin: 'auto',
-                width: 'fit-content',
+                position: 'fixed',
+                top: 0,
+                width: '100%',
+                zIndex: 1000
+              }}
+            >
+              <Box
+                sx={{
+                  position: 'relative',
+                  margin: 'auto',
+                  width: 'fit-content',
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                right: 0,
+                zIndex: 1000,
                 lineHeight: 0
               }}
             >
               <iframe
                 width="560"
                 height="315"
-                src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
               ></iframe>
             </Box>
-          </Box>
-          <Box
-            sx={{
-              position: 'fixed',
-              bottom: 0,
-              right: 0,
-              zIndex: 1000,
-              lineHeight: 0
-            }}
-          >
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </Box>
-          <Box
-            sx={{
-              position: 'fixed',
-              bottom: 0,
-              left: 0,
-              zIndex: 1000,
-              lineHeight: 0
-            }}
-          >
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </Box>
-        </>
-      )}
-      <MailingList />
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                zIndex: 1000,
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </Box>
+          </>
+        )}
+        <MailingList />
       </Box>
       <Footer
         dark
