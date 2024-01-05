@@ -21,7 +21,6 @@ import Nav from '../components/nav'
 import Header from '../components/slack/header'
 import fetcher from '../lib/fetcher'
 import { thousands } from '../lib/members'
-import SlackEvents from '../components/slack/slack-events'
 import { useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -276,7 +275,7 @@ const SlackPage = () => {
             overflow: 'hidden'
           }}
         >
-          <Heading
+          {/*<Heading
             as="h2"
             variant="subheadline"
             sx={{
@@ -287,7 +286,7 @@ const SlackPage = () => {
           >
             Live from our&nbsp;Slack...
           </Heading>
-          <SlackEvents />
+          <SlackEvents />*/}
         </Flex>
         <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3 }}>
           Where the makers hang out...
@@ -304,7 +303,7 @@ const SlackPage = () => {
         >
           <Container>
             <Project
-                title="A brainwave reading device to interact with computers using thoughts."
+                title="Brainwave device for thought-based computer interaction."
                 description="BCI&apos;s team organizes in #nest Velit voluptate deserunt
                   consequat. Velit voluptate deserunt consequat.Velit voluptate
                   deserunt consequat."
@@ -333,7 +332,7 @@ const SlackPage = () => {
                 color={['green', '#51F5C5']}
             />
             <Project
-                title="A chat app and cell phone carrier"
+                title="A chat app and cell phone carrier."
                 description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
                   consequat. Velit voluptate deserunt consequat.Velit voluptate
                   deserunt consequat."
@@ -375,13 +374,13 @@ const SlackPage = () => {
             sx={{
               width: '50%',
               paddingX: '32px',
-              display: ['grid', 'flex'],
+              display: ['flex'],
               alignItems: 'center',
               justifyContent: 'center'
             }}
           >
             <Box>
-              <Text as="h1" variant="title" sx={{ mb: 3 }}>
+              <Text as="h1" variant="title" sx={{ mb: 3, fontSize: ['36px', '48px', '56px'] }}>
                 There’s a whole new world for you to discover.
               </Text>
               <Link
@@ -402,7 +401,7 @@ const SlackPage = () => {
           </Box>
           <Image
             src="https://cloud-j0p07nviw-hack-club-bot.vercel.app/0image.png"
-            sx={{ width: '50%', height: '40rem', objectFit: 'cover' }}
+            sx={{ width: [0, '50%'], height: '40rem', objectFit: 'cover' }}
           />
         </Flex>
       </Container>
