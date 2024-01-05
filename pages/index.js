@@ -1,7 +1,17 @@
-import {Badge, Box, Button, Card, Flex, Grid, Heading, Link, Text} from 'theme-ui'
-import React, {useEffect, useRef, useState} from 'react'
+import {
+  Badge,
+  Box,
+  Button,
+  Card,
+  Flex,
+  Grid,
+  Heading,
+  Link,
+  Text
+} from 'theme-ui'
+import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import BGImg from '../components/background-image'
@@ -120,6 +130,25 @@ function Page({
     }
   }, [count, images.length])
 
+  // Spotlight effect
+  const spotlightRef = useRef()
+  useEffect(() => {
+
+    const handler = event => {
+      var rect = document.getElementById('spotlight').getBoundingClientRect();
+    var x = event.clientX - rect.left; //x position within the element.
+    var y = event.clientY - rect.top; 
+
+      spotlightRef.current.style.background = `radial-gradient(
+				circle at ${x}px ${y}px,
+				rgba(132, 146, 166, 0) 10px,
+				rgba(249, 250, 252, 0.9) 80px
+			)`
+    }
+    window.addEventListener('mousemove', handler)
+    return () => window.removeEventListener('mousemove', handler)
+  }, [])
+
   return (
     <>
       <Meta
@@ -148,15 +177,15 @@ function Page({
           reveal={reveal}
           onMouseEnter={() => {
             setHover(true)
+            console.log(hover)
           }}
           onMouseOut={() => {
-            setHover(false)
+            setReveal(false)
           }}
         />
         <Konami action={easterEgg}>
           {"Hey, I'm an Easter Egg! Look at me!"}
         </Konami>
-
         <Box
           as="header"
           sx={{
@@ -228,7 +257,6 @@ function Page({
                 >
                   <Text
                     onClick={() => {
-                      setHover(false)
                       !reveal ? setReveal(true) : setReveal(false)
                     }}
                     sx={{
@@ -586,21 +614,38 @@ function Page({
         </Box>
         <Carousel cards={carouselCards} />
         <Box
+          id="spotlight"
           as="section"
           sx={{
-            background: 'snow',
-            backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
+            backgroundImage: `
+              linear-gradient(rgba(249, 250, 252, 0.7), rgba(249, 250, 252, 0.7)),
+              url('https://icons.hackclub.com/api/icons/0x8492a6/glyph:rep.svg')
+            `,
             backgroundSize: '40px 40px',
             backgroundRepeat: 'repeat',
-            backgroundPosition: '10% 10%'
+            position: 'relative'
           }}
         >
+          <Box
+            ref={spotlightRef}
+            sx={{
+              position: 'absolute',
+              zIndex: 2,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              bg: '#000000',
+              pointerEvents: 'none'
+            }}
+          />
           <Box
             sx={{
               position: 'relative',
               width: '90vw',
               maxWidth: 'layout',
-              margin: 'auto'
+              margin: 'auto',
+              zIndex: 5
             }}
             py={[4, 4, 5]}
           >
@@ -1068,7 +1113,7 @@ function Page({
             </Grid>
           </Box>
         </Box>
-      </Box>
+      
       {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
         'z' && (
         <>
@@ -1140,6 +1185,7 @@ function Page({
         </>
       )}
       <MailingList />
+      </Box>
       <Footer
         dark
         sx={{
@@ -1225,7 +1271,7 @@ export async function getStaticProps() {
   } catch (error) {
     hackathonsData = [] // or some default value if an error occurs
   }
-  hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start));
+  hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
   let events = await fetch(
     'https://events.hackclub.com/api/events/upcoming/'
