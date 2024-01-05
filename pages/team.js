@@ -256,6 +256,15 @@ export default function Team() {
                       ... .... . .----. ... / .- .-.. ... --- / ..-. .-.. ..- . -. - / .. -. / -- --- .-. ... . / -.-. --- -.. . -.-.--"
                       pronouns="she/her"
                     />
+                    <Bio
+                      img="https://assets.devlucas.page/images/profile.jpg"
+                      name="Lucas Honda"
+                      teamRole="Engineering"
+                      text="Lucas is a 14 year old Hack Clubber from Sao Paulo, Brazil. Since joining the Hack Club, he has been fascinated by Sprig and is currently leading Sprig App Review Team, and working to make it the best it possibly can be. He loves all aspects of aviation, and scours the internet/skies looking for and investigating flying machines. He spends a good portion of his time with his dog, a happy and playful dog."
+                      pronouns="he/him"
+                      href="https://page.devlucas.page"
+                      video="https://www.youtube.com/embed/vuLtlzMMW6o?si=v-Dbn2fSGvTyXlbY"
+                    />
                   </Grid>
                 </Box>
               </Box>
