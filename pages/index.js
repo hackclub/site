@@ -40,6 +40,7 @@ import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
+import Wonderland from '../components/index/cards/wonderland'
 
 /** @jsxImportSource theme-ui */
 
@@ -675,6 +676,7 @@ function Page({
                 and make things together!
               </Text>
             </Box>
+            <Wonderland />
             <Pizza />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
