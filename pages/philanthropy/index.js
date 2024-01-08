@@ -860,7 +860,7 @@ const Philanthropy = ({ posts = [] }) => {
           </Fade>
           <Line />
           <Fade>
-            <Text as="h1">Board of Directors</Text>
+            <Text as="h1" sx={{marginBottom: '20px'}}>Board of Directors</Text>
           </Fade>
           <Grid gap={4} columns={[1, '1fr 2fr', '1fr 2fr']} mt={2}>
             <Box>
@@ -1019,12 +1019,12 @@ const Philanthropy = ({ posts = [] }) => {
           <Line />
           <Box>
             <Fade>
-              <Text as="h1">Join our community of generous donors</Text>
+              <Text as="h1" sx={{marginBottom: '20px'}}>Join our community of generous donors</Text>
             </Fade>
             <Grid gap={2} columns={[2, 4, 4]} mt={2}>
               <Box>
                 <Fade delay={50}>
-                  <Text as="h3">Above $5M </Text>
+                  <Text as="h3" sx={{marginBottom: '8px'}}>Above $5M </Text>
                 </Fade>
                 <Fade delay={70}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
@@ -1033,7 +1033,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <br></br>
                 <Fade delay={90}>
-                  <Text as="h3"> $1M - $5M </Text>
+                  <Text as="h3" sx={{marginBottom: '8px'}}> $1M - $5M </Text>
                 </Fade>
                 <Fade delay={110}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
@@ -1053,7 +1053,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
               <Box>
                 <Fade delay={140}>
-                  <Text as="h3">$500k - $1M</Text>
+                  <Text as="h3" sx={{marginBottom: '8px'}}>$500k - $1M</Text>
                 </Fade>
                 <Fade delay={180}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
@@ -1078,7 +1078,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
               <Box>
                 <Fade delay={260}>
-                  <Text as="h3">$200k - $500k</Text>
+                  <Text as="h3" sx={{marginBottom: '8px'}}>$200k - $500k</Text>
                 </Fade>
                 <Fade delay={290}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
@@ -1113,7 +1113,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
               <Box>
                 <Fade delay={470}>
-                  <Text as="h3">$100k- $200k</Text>
+                  <Text as="h3" sx={{marginBottom: '8px'}}>$100k- $200k</Text>
                 </Fade>
                 <Fade delay={500}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
