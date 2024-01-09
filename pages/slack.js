@@ -24,6 +24,7 @@ import { thousands } from '../lib/members'
 import { useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
@@ -292,54 +293,56 @@ const SlackPage = () => {
           Where the makers hang out...
         </Text>
       </Container>
-        <Grid
+        <Flex
           sx={{
             backgroundColor: '#f9fafc',
             justifyItems: 'center',
             alignItems: 'center',
           }}
           className="container"
-          ref={triggerRef}
         >
-          <Container>
+          <Carousel>
+            <Container>
             <Project
-                title="Brainwave device for thought-based computer interaction."
-                description="BCI&apos;s team organizes in #nest Velit voluptate deserunt
+              title="Brainwave device for thought-based computer interaction."
+              description="BCI&apos;s team organizes in #nest Velit voluptate deserunt
                   consequat. Velit voluptate deserunt consequat.Velit voluptate
                   deserunt consequat."
-                color={['red', '#F58695']}
-
+              color={['#ec3750', '#F58695']}
             />
-            <Project
-                title="A free domain service."
-                description="Obl.ong’s team organizes in #oblong Velit voluptate deserunt
-                  consequat. Velit voluptate deserunt consequat.Velit voluptate
-                  deserunt consequat."
-                color={['orange', '#F2A510']}
-            />
-            <Project
-                title="An open source VPN."
-                description="Burrow&apos;s team organizes in #burrow Velit voluptate deserunt
-                  consequat. Velit voluptate deserunt consequat.Velit voluptate
-                  deserunt consequat."
-                color={['yellow', '#FAE078']}
-            />
-            <Project
-                title="Free compute infrastructure."
-                description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
-                  consequat. Velit voluptate deserunt consequat.Velit voluptate
-                  deserunt consequat."
-                color={['green', '#51F5C5']}
-            />
-            <Project
-                title="A chat app and cell phone carrier."
-                description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
-                  consequat. Velit voluptate deserunt consequat.Velit voluptate
-                  deserunt consequat."
-                color={['cyan', '#88e5f8']}
-            />
-          </Container>
-        </Grid>
+              <Project
+                  title="A free domain service."
+                  description="Obl.ong’s team organizes in #oblong Velit voluptate deserunt
+                    consequat. Velit voluptate deserunt consequat.Velit voluptate
+                    deserunt consequat."
+                  color={['#ff8c37', '#F2A510']}
+              />
+              <Project
+                  title="An open source VPN."
+                  description="Burrow&apos;s team organizes in #burrow Velit voluptate deserunt
+                    consequat. Velit voluptate deserunt consequat.Velit voluptate
+                    deserunt consequat."
+                  color={['#f1c40f', '#FAE078']}
+              />
+              <Project
+                  title="Free compute infrastructure."
+                  description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
+                    consequat. Velit voluptate deserunt consequat.Velit voluptate
+                    deserunt consequat."
+                    img="nest"
+                  color={['#33d6a6', '#51F5C5']}
+              />
+              <Project
+                  title="A chat app and cell phone carrier."
+                  description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
+                    consequat. Velit voluptate deserunt consequat.Velit voluptate
+                    deserunt consequat."
+                    img="purplebubble"
+                  color={['#5bc0de', '#88e5f8']}
+              />
+              </Container>
+            </Carousel>
+        </Flex>
       <Container sx={{ py: [4, 5] }}>
         <Flex sx={{ gap: '2rem' }}>
           <Quote
@@ -381,7 +384,7 @@ const SlackPage = () => {
           >
             <Box>
               <Text as="h1" variant="title" sx={{ mb: 3, fontSize: ['36px', '48px', '56px'] }}>
-                There’s a whole new world for you to discover.
+                There&apos;s a whole new world for you to discover.
               </Text>
               <Link
                 href="#"
@@ -410,7 +413,7 @@ const SlackPage = () => {
   )
 }
 
-function Project({ title, description, sx, color }) {
+function Project({ title, description, sx, color, img }) {
   return (
     <Box
       sx={{
@@ -419,25 +422,28 @@ function Project({ title, description, sx, color }) {
         justifyContent: 'center',
         backgroundColor: 'white',
         rounded: 'lg',
-        height: '40vh',
-        width: 'full',
         borderRadius: 12,
-        padding: '32px',
         my: '2rem',
-        backgroundImage: t => t.util.gx(color[0], color[1]),
+        backgroundImage: t => `linear-gradient(to bottom, ${color[0]}, ${color[1]})`,
         color: 'white',
+        textAlign: 'left',
+        width: 'full',
         sx
       }}
-      className="project"
+      className='embla__slide'
     >
-      <Box>
-      <Text as="h1" variant="title" sx={{ width: 'copyUltra', }}>
-        {title}
-      </Text>
-      <Text as="p" variant="subtitle" sx={{ width: 'copyPlus', opacity: '75%' }}>
-        {description}
-      </Text>
+      <Box sx={{ paddingX: '32px', paddingTop: '10rem', paddingBottom: '2rem' }}>
+        <Text as="h1" variant="title" sx={{ width: 'copyUltra', }}>
+          {title}
+        </Text>
+        <Text as="p" variant="subtitle" sx={{ width: 'copyPlus', opacity: '75%' }}>
+          {description}
+        </Text>
       </Box>
+      <Image
+        src={`/slack/${img}.png`}
+        sx={{ position: 'relative', bottom: 0 }}
+        />
     </Box>
   )
 }
@@ -448,6 +454,14 @@ function Quote({ text, person, age, location }) {
         <Text as="h3" variant="title" sx={{ mb: 3, fontSize: ['36px', 4, 5] }}>"{text}"</Text>
         <Text as="p" variant="paragraph">{person}, {age} from {location}</Text>
       </Box>
+  )
+}
+
+function Carousel({ children }) {
+  return (
+    <Flex sx={{ overscrollBehaviorX: 'auto' }}>
+      {children}
+    </Flex>
   )
 }
 
