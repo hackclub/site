@@ -778,6 +778,7 @@ function Page({
                             url={data.url}
                             message={data.message}
                             key={key}
+                            opacity={1 / (key/2 + 1)}
                           />
                         )
                       })}
