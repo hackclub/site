@@ -25,7 +25,7 @@ export default function Team() {
             backgroundImage:
               'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)',
             backgroundSize: 'cover',
-            backgroundPosition: '75%'
+            backgroundPosition: '25% 15%' 
           }}
         >
           <Container>
@@ -255,6 +255,15 @@ export default function Team() {
                       text="Sahiti's Hack Club journey kicked off when she stumbled upon resources to start her own high school coding club, which later led to her running a county-wide hackathon. These days, she's an active member of the Clubs Operations & Engineering team and has previously interned with Hack Club for philanthropy and communications. She strives to create technology tools and resources for clubs, such as the Hack Club Jams initiative and Club Leader onboarding. Beyond programming, Sahiti loves all things finance, business, and literature. Her mission is to make an impact by spreading opportunities.
                       ... .... . .----. ... / .- .-.. ... --- / ..-. .-.. ..- . -. - / .. -. / -- --- .-. ... . / -.-. --- -.. . -.-.--"
                       pronouns="she/her"
+                    />
+                    <Bio
+                      img="https://assets.devlucas.page/images/profile.jpg"
+                      name="Lucas Honda"
+                      teamRole="Engineering"
+                      text="Lucas is a 14 year old Hack Clubber from Sao Paulo, Brazil. Since joining the Hack Club, he has been fascinated by Sprig and is currently leading Sprig App Review Team, and working to make it the best it possibly can be. He loves all aspects of aviation, and scours the internet/skies looking for and investigating flying machines. He spends a good portion of his time with his dog, a happy and playful dog."
+                      pronouns="he/him"
+                      href="https://page.devlucas.page"
+                      video="https://www.youtube.com/embed/vuLtlzMMW6o?si=v-Dbn2fSGvTyXlbY"
                     />
                   </Grid>
                 </Box>
