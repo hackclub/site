@@ -40,6 +40,7 @@ import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
+import Snow from '../components/snow'
 
 /** @jsxImportSource theme-ui */
 
@@ -104,6 +105,12 @@ function Page({
   }, [reveal, hover])
 
   const [count, setCount] = useState(0)
+
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth() + 1;
+
+  const shouldRenderSnow = currentMonth >= 11 || currentMonth <= 2;
+
 
   let images = [
     { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
@@ -185,6 +192,7 @@ function Page({
         <Konami action={easterEgg}>
           {"Hey, I'm an Easter Egg! Look at me!"}
         </Konami>
+        {shouldRenderSnow && <Snow />}
         <Box
           as="header"
           sx={{
