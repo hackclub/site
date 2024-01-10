@@ -24,7 +24,7 @@ import { thousands } from '../lib/members'
 import { useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import Slider from "react-slick";
 
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
@@ -293,7 +293,7 @@ const SlackPage = () => {
           Where the makers hang out...
         </Text>
       </Container>
-        <Flex
+        <Grid
           sx={{
             backgroundColor: '#f9fafc',
             justifyItems: 'center',
@@ -301,13 +301,13 @@ const SlackPage = () => {
           }}
           className="container"
         >
-          <Carousel>
-            <Container>
+          <Container>
             <Project
               title="Brainwave device for thought-based computer interaction."
               description="BCI&apos;s team organizes in #nest Velit voluptate deserunt
                   consequat. Velit voluptate deserunt consequat.Velit voluptate
                   deserunt consequat."
+              img="bci"
               color={['#ec3750', '#F58695']}
             />
               <Project
@@ -315,6 +315,7 @@ const SlackPage = () => {
                   description="Obl.ong’s team organizes in #oblong Velit voluptate deserunt
                     consequat. Velit voluptate deserunt consequat.Velit voluptate
                     deserunt consequat."
+                  img="oblong"
                   color={['#ff8c37', '#F2A510']}
               />
               <Project
@@ -322,6 +323,7 @@ const SlackPage = () => {
                   description="Burrow&apos;s team organizes in #burrow Velit voluptate deserunt
                     consequat. Velit voluptate deserunt consequat.Velit voluptate
                     deserunt consequat."
+                  img="nest"
                   color={['#f1c40f', '#FAE078']}
               />
               <Project
@@ -329,7 +331,7 @@ const SlackPage = () => {
                   description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
                     consequat. Velit voluptate deserunt consequat.Velit voluptate
                     deserunt consequat."
-                    img="nest"
+                  img="nest"
                   color={['#33d6a6', '#51F5C5']}
               />
               <Project
@@ -337,12 +339,11 @@ const SlackPage = () => {
                   description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
                     consequat. Velit voluptate deserunt consequat.Velit voluptate
                     deserunt consequat."
-                    img="purplebubble"
+                  img="purplebubble"
                   color={['#5bc0de', '#88e5f8']}
               />
-              </Container>
-            </Carousel>
-        </Flex>
+          </Container>
+        </Grid>
       <Container sx={{ py: [4, 5] }}>
         <Flex sx={{ gap: '2rem' }}>
           <Quote
@@ -418,9 +419,9 @@ function Project({ title, description, sx, color, img }) {
     <Box
       sx={{
         display: 'grid',
+        gridTemplateRows: '1fr auto',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'white',
         rounded: 'lg',
         borderRadius: 12,
         my: '2rem',
@@ -428,15 +429,15 @@ function Project({ title, description, sx, color, img }) {
         color: 'white',
         textAlign: 'left',
         width: 'full',
+        overflow: 'clip',
         sx
       }}
-      className='embla__slide'
     >
-      <Box sx={{ paddingX: '32px', paddingTop: '10rem', paddingBottom: '2rem' }}>
-        <Text as="h1" variant="title" sx={{ width: 'copyUltra', }}>
+      <Box sx={{ paddingX: '32px', marginTop: '12.5rem', marginBottom: '', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+        <Text as="h1" variant="title" sx={{ width: 'copyUltra', textAlign: 'center' }}>
           {title}
         </Text>
-        <Text as="p" variant="subtitle" sx={{ width: 'copyPlus', opacity: '75%' }}>
+        <Text as="p" variant="subtitle" sx={{ width: 'copyPlus', opacity: '75%', textAlign: 'center' }}>
           {description}
         </Text>
       </Box>
@@ -457,11 +458,21 @@ function Quote({ text, person, age, location }) {
   )
 }
 
-function Carousel({ children }) {
+function CarouselComponent({ children }) {
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    focusOnSelect: true
+  }
+
   return (
-    <Flex sx={{ overscrollBehaviorX: 'auto' }}>
+    <Slider {...settings}>
       {children}
-    </Flex>
+    </Slider>
   )
 }
 
