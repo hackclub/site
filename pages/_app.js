@@ -8,7 +8,6 @@ import '@hackclub/theme/fonts/reg-bold.css'
 import theme from '../lib/theme'
 import { ThemeProvider } from 'theme-ui'
 import { Provider as BalancerProvider } from 'react-wrap-balancer'
-import Snow from '../components/snowflakes'
 
 const App = ({ Component, pageProps }) => (
   <ThemeProvider theme={theme}>
@@ -19,12 +18,6 @@ const App = ({ Component, pageProps }) => (
       />
     </Meta>
     <BalancerProvider>
-      {
-        //if the month of the year is between winter seasons, render Snow component
-        new Date().getMonth() >= 10 || new Date().getMonth() <= 3 ? (
-          <Snow />
-        ) : null
-        }
       <Component {...pageProps} />
     </BalancerProvider>
     <Analytics />
