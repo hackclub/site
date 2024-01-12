@@ -17,7 +17,7 @@ import { getCookie, hasCookie } from 'cookies-next'
 const JoinForm = ({ sx = {} }) => {
   const router = useRouter()
   const { status, formProps, useField } = useForm('/api/join/', null, {
-    clearOnSubmit: 5000,
+    clearOnSubmit: 60000,
     method: 'POST',
     initData: hasCookie('continent')
       ? {
@@ -150,6 +150,7 @@ const JoinForm = ({ sx = {} }) => {
                   ? "We'll be in touch soon!"
                   : 'Check your email for invite!'
               }}
+              disabled={status === 'loading' || status === 'success'}
             />
             {status === 'success' && (
               <Text
