@@ -106,7 +106,7 @@ const SlackPage = () => {
         <Text
           as="p"
           variant="subtitle"
-          sx={{ maxWidth: 'copy', fontSize: [2, 3], mt: 3 }}
+          sx={{ fontSize: [2, 3], mt: 3 }}
         >
           Across 2,000 public channels, find the community for your favorite
           programming language, ask for advice, or just hang out. Find the
@@ -323,7 +323,7 @@ const SlackPage = () => {
                   description="Burrow&apos;s team organizes in #burrow Velit voluptate deserunt
                     consequat. Velit voluptate deserunt consequat.Velit voluptate
                     deserunt consequat."
-                  img="nest"
+                  img="burrow"
                   color={['#f1c40f', '#FAE078']}
               />
               <Project
@@ -345,7 +345,7 @@ const SlackPage = () => {
           </Container>
         </Grid>
       <Container sx={{ py: [4, 5] }}>
-        <Flex sx={{ gap: '2rem' }}>
+        <Box sx={{ gap: '2rem', display: ['grid', 'flex'] }}>
           <Quote
             text="I knew it's where I wanted to be"
             person="Shawn"
@@ -364,19 +364,21 @@ const SlackPage = () => {
             age={16}
             location="VT"
           />
-        </Flex>
-        <Flex
+        </Box>
+        <Box
           sx={{
             backgroundColor: '#F9FAFC',
             mt: '2rem',
             borderRadius: 12,
             overflowX: 'hidden',
-            height: '40rem'
+            height: ['', '40rem'],
+            paddingTop: ['2rem', 0],
+            display: ['grid', 'flex']
           }}
         >
           <Box
             sx={{
-              width: '50%',
+              width: ['100%', '50%'],
               paddingX: '32px',
               display: ['flex'],
               alignItems: 'center',
@@ -390,13 +392,13 @@ const SlackPage = () => {
               <Link
                 href="#"
                 sx={{
-                  mt: [4, 5],
                   mb: 3,
                   cursor: 'pointer',
                   textDecoration: 'none',
                   fontSize: '24px',
                   fontWeight: 500,
-                  placeItems: 'center'
+                  placeItems: 'center',
+                  display: 'flex',
                 }}
               >
                 I&apos;m ready to join <Icon glyph="view-forward" size={24} />
@@ -405,9 +407,9 @@ const SlackPage = () => {
           </Box>
           <Image
             src="https://cloud-j0p07nviw-hack-club-bot.vercel.app/0image.png"
-            sx={{ width: [0, '50%'], height: '40rem', objectFit: 'cover' }}
+            sx={{ width: ['100%', '50%'], height: ['100%', '40rem'], objectFit: 'cover', position: 'relative', top: 0 }}
           />
-        </Flex>
+        </Box>
       </Container>
       <Footer />
     </>
