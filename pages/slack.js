@@ -24,7 +24,7 @@ import { thousands } from '../lib/members'
 import { useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
-import Slider from "react-slick";
+import Slider from 'react-slick'
 
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
@@ -91,7 +91,7 @@ const SlackPage = () => {
       />
       <ForceTheme theme="light" />
       <Nav slack={true} />
-     {/* <Box sx={{ position: 'fixed', mt: 5, maxWidth: '1024px', backgroundColor: 'red', zIndex: 100 }}>
+      {/* <Box sx={{ position: 'fixed', mt: 5, maxWidth: '1024px', backgroundColor: 'red', zIndex: 100 }}>
         <Text>Hack Club Slack</Text>
       </Box>*/}
       <Header nameInputRef={nameInputRef} />
@@ -103,11 +103,7 @@ const SlackPage = () => {
         >
           No commitments, just exploration...
         </Heading>
-        <Text
-          as="p"
-          variant="subtitle"
-          sx={{ fontSize: [2, 3], mt: 3 }}
-        >
+        <Text as="p" variant="subtitle" sx={{ fontSize: [2, 3], mt: 3 }}>
           Across 2,000 public channels, find the community for your favorite
           programming language, ask for advice, or just hang out. Find the
           worlds that suit you.
@@ -250,11 +246,13 @@ const SlackPage = () => {
           </Card>
           <Card bg="purple">
             <Flex>
-              <h3>#music</h3>
+              <Text as="h3" sx={{ placeSelf: 'center' }}>
+                #music
+              </Text>
               <Image
                 src="https://cloud-jd45ga0mv-hack-club-bot.vercel.app/0music.svg"
                 alt="Music notes"
-                sx={{ height: '50px', width: '50px' }}
+                sx={{ height: '50px', width: '50px', ml: 2 }}
               />
             </Flex>
           </Card>
@@ -292,71 +290,74 @@ const SlackPage = () => {
         <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3 }}>
           Where the makers hang out...
         </Text>
+        <Text as="p" variant="subtitle" sx={{ fontSize: [2, 3], mt: 3 }}>
+          Everything here was built by Hack Clubbers.
+        </Text>
       </Container>
-        <Grid
-          sx={{
-            backgroundColor: '#f9fafc',
-            justifyItems: 'center',
-            alignItems: 'center',
-          }}
-          className="container"
-        >
-          <Container>
-            <Project
-              title="Brainwave device for thought-based computer interaction."
-              description="BCI&apos;s team organizes in #nest Velit voluptate deserunt
+      <Grid
+        sx={{
+          backgroundColor: '#f9fafc',
+          justifyItems: 'center',
+          alignItems: 'center'
+        }}
+        className="container"
+      >
+        <Container>
+          <Project
+            title="Brainwave device for thought-based computer interaction."
+            description="BCI's team organizes in #nest Velit voluptate deserunt
                   consequat. Velit voluptate deserunt consequat.Velit voluptate
                   deserunt consequat."
-              img="bci"
-              color={['#ec3750', '#F58695']}
-            />
-              <Project
-                  title="A free domain service."
-                  description="Obl.ong’s team organizes in #oblong Velit voluptate deserunt
+            img="bci"
+            color={['#ec3750', '#F58695']}
+          />
+          <Project
+            title="A free domain service."
+            description="Obl.ong’s team organizes in #oblong Velit voluptate deserunt
                     consequat. Velit voluptate deserunt consequat.Velit voluptate
                     deserunt consequat."
-                  img="oblong"
-                  color={['#ff8c37', '#F2A510']}
-              />
-              <Project
-                  title="An open source VPN."
-                  description="Burrow&apos;s team organizes in #burrow Velit voluptate deserunt
+            img="oblong"
+            color={['#ff8c37', '#F2A510']}
+          />
+          <Project
+            title="An open source VPN."
+            description="Burrow's team organizes in #burrow Velit voluptate deserunt
                     consequat. Velit voluptate deserunt consequat.Velit voluptate
                     deserunt consequat."
-                  img="burrow"
-                  color={['#f1c40f', '#FAE078']}
-              />
-              <Project
-                  title="Free compute infrastructure."
-                  description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
+            img="burrow"
+            color={['#f1c40f', '#FAE078']}
+          />
+          <Project
+            title="Free compute infrastructure."
+            description="Nest's team organizes in #nest Velit voluptate deserunt
                     consequat. Velit voluptate deserunt consequat.Velit voluptate
                     deserunt consequat."
-                  img="nest"
-                  color={['#33d6a6', '#51F5C5']}
-              />
-              <Project
-                  title="A chat app and cell phone carrier."
-                  description="Nest&apos;s team organizes in #nest Velit voluptate deserunt
+            img="nest"
+            color={['#33d6a6', '#51F5C5']}
+          />
+          <Project
+            title="A chat app and cell phone carrier."
+            description="Nest's team organizes in #nest Velit voluptate deserunt
                     consequat. Velit voluptate deserunt consequat.Velit voluptate
                     deserunt consequat."
-                  img="purplebubble"
-                  color={['#5bc0de', '#88e5f8']}
-              />
-          </Container>
-        </Grid>
+            img="purplebubble"
+            color={['#5bc0de', '#88e5f8']}
+          />
+        </Container>
+      </Grid>
       <Container sx={{ py: [4, 5] }}>
         <Box sx={{ gap: '2rem', display: ['grid', 'flex'] }}>
           <Quote
             text="I knew it's where I wanted to be"
             person="Shawn"
             age={18}
-            location="VT"
+            location="MD"
           />
           <Quote
             text="I felt so free- there were no expectations"
             person="JC"
             age={17}
-            location="VT"
+            location="CT"
           />
           <Quote
             text="Finally, I found my people!"
@@ -386,7 +387,11 @@ const SlackPage = () => {
             }}
           >
             <Box>
-              <Text as="h1" variant="title" sx={{ mb: 3, fontSize: ['36px', '48px', '56px'] }}>
+              <Text
+                as="h1"
+                variant="title"
+                sx={{ mb: 3, fontSize: ['36px', '48px', '56px'] }}
+              >
                 There&apos;s a whole new world for you to discover.
               </Text>
               <Link
@@ -398,7 +403,7 @@ const SlackPage = () => {
                   fontSize: '24px',
                   fontWeight: 500,
                   placeItems: 'center',
-                  display: 'flex',
+                  display: 'flex'
                 }}
               >
                 I&apos;m ready to join <Icon glyph="view-forward" size={24} />
@@ -407,7 +412,13 @@ const SlackPage = () => {
           </Box>
           <Image
             src="https://cloud-j0p07nviw-hack-club-bot.vercel.app/0image.png"
-            sx={{ width: ['100%', '50%'], height: ['100%', '40rem'], objectFit: 'cover', position: 'relative', top: 0 }}
+            sx={{
+              width: ['100%', '50%'],
+              height: ['100%', '40rem'],
+              objectFit: 'cover',
+              position: 'relative',
+              top: 0
+            }}
           />
         </Box>
       </Container>
@@ -421,42 +432,61 @@ function Project({ title, description, sx, color, img }) {
     <Box
       sx={{
         display: 'grid',
-        gridTemplateRows: '1fr auto',
-        alignItems: 'center',
-        justifyContent: 'center',
-        rounded: 'lg',
         borderRadius: 12,
         my: '2rem',
-        backgroundImage: t => `linear-gradient(to bottom, ${color[0]}, ${color[1]})`,
+        backgroundImage: t =>
+          `linear-gradient(to bottom, ${color[0]}, ${color[1]})`,
         color: 'white',
-        textAlign: 'left',
-        width: 'full',
         overflow: 'clip',
         sx
       }}
     >
-      <Box sx={{ paddingX: '32px', marginTop: '12.5rem', marginBottom: '', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <Text as="h1" variant="title" sx={{ width: 'copyUltra', textAlign: 'center' }}>
+      <Box
+        sx={{
+          paddingX: '16px',
+          marginTop: ['6.25rem', '12.5rem'],
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}
+      >
+        <Text
+          as="h1"
+          variant="title"
+          sx={{ width: ['full', 'copyUltra'], textAlign: 'center' }}
+        >
           {title}
         </Text>
-        <Text as="p" variant="subtitle" sx={{ width: 'copyPlus', opacity: '75%', textAlign: 'center' }}>
+        <Text
+          as="p"
+          variant="subtitle"
+          sx={{ width: ['full', 'copyPlus'], opacity: '75%', textAlign: 'center' }}
+        >
           {description}
         </Text>
       </Box>
-      <Image
-        src={`/slack/${img}.png`}
-        sx={{ position: 'relative', bottom: 0 }}
-        />
+      <Image src={`/slack/${img}.png`} sx={{ visibility: ['hidden', 'visible'] }} />
     </Box>
   )
 }
 
 function Quote({ text, person, age, location }) {
   return (
-      <Box sx={{ p: '32px', borderRadius: 12, backgroundColor: '#F9FAFC', width: 'full' }}>
-        <Text as="h3" variant="title" sx={{ mb: 3, fontSize: ['36px', 4, 5] }}>"{text}"</Text>
-        <Text as="p" variant="paragraph">{person}, {age} from {location}</Text>
-      </Box>
+    <Box
+      sx={{
+        p: '32px',
+        borderRadius: 12,
+        backgroundColor: '#F9FAFC',
+        width: 'full'
+      }}
+    >
+      <Text as="h3" variant="title" sx={{ mb: 3, fontSize: ['36px', 4, 5] }}>
+        "{text}"
+      </Text>
+      <Text as="p" variant="paragraph">
+        {person}, {age} from {location}
+      </Text>
+    </Box>
   )
 }
 
@@ -471,11 +501,7 @@ function CarouselComponent({ children }) {
     focusOnSelect: true
   }
 
-  return (
-    <Slider {...settings}>
-      {children}
-    </Slider>
-  )
+  return <Slider {...settings}>{children}</Slider>
 }
 
 export default SlackPage
