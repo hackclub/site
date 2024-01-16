@@ -350,18 +350,21 @@ const SlackPage = () => {
           <Quote
             text="I knew it's where I wanted to be"
             person="Shawn"
+            img="https://cloud-8u876lgxi-hack-club-bot.vercel.app/0shawn.png"
             age={18}
             location="MD"
           />
           <Quote
             text="I felt so free- there were no expectations"
             person="JC"
+            img="https://ca.slack-edge.com/T0266FRGM-U03MNFDRSGJ-e6fb939acfd8-512"
             age={17}
             location="CT"
           />
           <Quote
             text="Finally, I found my people!"
             person="Cheru"
+            img="https://ca.slack-edge.com/T0266FRGM-U02UYFZQ0G0-eb4e3c7fb0cf-512"
             age={16}
             location="VT"
           />
@@ -381,7 +384,7 @@ const SlackPage = () => {
             sx={{
               width: ['100%', '50%'],
               paddingX: '32px',
-              display: ['flex'],
+              display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
             }}
@@ -460,17 +463,24 @@ function Project({ title, description, sx, color, img }) {
         <Text
           as="p"
           variant="subtitle"
-          sx={{ width: ['full', 'copyPlus'], opacity: '75%', textAlign: 'center' }}
+          sx={{
+            width: ['full', 'copyPlus'],
+            opacity: '75%',
+            textAlign: 'center'
+          }}
         >
           {description}
         </Text>
       </Box>
-      <Image src={`/slack/${img}.png`} sx={{ visibility: ['hidden', 'visible'] }} />
+      <Image
+        src={`/slack/${img}.png`}
+        sx={{ visibility: ['hidden', 'visible'] }}
+      />
     </Box>
   )
 }
 
-function Quote({ text, person, age, location }) {
+function Quote({ text, person, age, location, img }) {
   return (
     <Box
       sx={{
@@ -483,9 +493,12 @@ function Quote({ text, person, age, location }) {
       <Text as="h3" variant="title" sx={{ mb: 3, fontSize: ['36px', 4, 5] }}>
         "{text}"
       </Text>
-      <Text as="p" variant="paragraph">
-        {person}, {age} from {location}
-      </Text>
+      <Flex sx={{ gap: '8px' }}>
+        <Image src={img} sx={{ height: 24, width: 24, borderRadius: 100 }} />
+        <Text as="p" variant="paragraph">
+          {person}, {age} from {location}
+        </Text>
+      </Flex>
     </Box>
   )
 }
