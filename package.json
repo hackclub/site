@@ -53,6 +53,7 @@
     "react-before-after-slider-component": "^1.1.8",
     "react-datepicker": "^4.24.0",
     "react-dom": "^17.0.2",
+    "react-horizontal-scrolling-menu": "^4.1.2",
     "react-konami-code": "^2.3.0",
     "react-marquee-slider": "^1.1.5",
     "react-masonry-css": "^1.0.16",

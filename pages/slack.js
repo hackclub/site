@@ -21,12 +21,52 @@ import Nav from '../components/nav'
 import Header from '../components/slack/header'
 import fetcher from '../lib/fetcher'
 import { thousands } from '../lib/members'
-import { useRef, useState } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import { useRef, useState, useContext } from 'react'
 import Slider from 'react-slick'
 
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
+import 'react-horizontal-scrolling-menu/dist/styles.css'
+
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
+const projects = [
+  {
+    title: 'Brainwave device for thought-based computer interaction.',
+    description:
+      "BCI's team organizes in #nest Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
+    img: 'bci',
+    color: ['#ec3750', '#F58695'],
+    itemId: 1
+  },
+  {
+    title: 'A free domain service.',
+    description:
+      'Obl.ong’s team organizes in #oblong Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.',
+    img: 'oblong',
+    color: ['#ff8c37', '#F2A510']
+  },
+  {
+    title: 'An open source VPN.',
+    description:
+      "Burrow's team organizes in #burrow Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
+    img: 'burrow',
+    color: ['#f1c40f', '#FAE078']
+  },
+  {
+    title: 'Free compute infrastructure.',
+    description:
+      "Nest's team organizes in #nest Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
+    img: 'nest',
+    color: ['#33d6a6', '#51F5C5']
+  },
+  {
+    title: 'A chat app and cell phone carrier.',
+    description:
+      "Nest's team organizes in #nest Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
+    img: 'purplebubble',
+    color: ['#5bc0de', '#88e5f8']
+  }
+]
 
 const SlackPage = () => {
   const { data: millionCount } = useSWR(
@@ -34,52 +74,29 @@ const SlackPage = () => {
     fetcher,
     { refreshInterval: 10_000 }
   )
-  const [color, setColors] = useState(['red', '#F58695'])
-  const [totalMessagesOblong, setTotalMessagesOblong] = useState(0)
 
-  const triggerRef = useRef(null)
   const nameInputRef = useRef(null)
 
-  gsap.registerPlugin(ScrollTrigger)
+  const [items, setItems] = useState(projects)
+  const [selected, setSelected] = useState([])
+  const [position, setPosition] = useState(0)
 
-  /*useEffect(() => {
-    const sections = gsap.utils.toArray('.project')
+  const { isLastItemVisible, scrollNext } = useContext(VisibilityContext)
+  const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext)
 
-    const projects = gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
-      ease: 'none',
-      duration: 1,
-      scrollTrigger: {
-        trigger: triggerRef.current,
-        start: 'top top',
-        end: () => '+=' + document.querySelector('.container').offsetWidth,
-        scrub: 1.25,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        snap: 0.5 * (1 / (sections.length - 1))
-      },
-      onUpdate: function () {
-        const progress = this.progress()
-        if (progress < 1 / 6) {
-          setColors(['red', '#F58695'])
-        } else if (progress < 2 / 6) {
-          setColors(['orange', '#F2A510'])
-        } else if (progress < 3 / 6) {
-          setColors(['yellow', '#FAE078'])
-        } else if (progress < 4 / 6) {
-          setColors(['green', '#51F5C5'])
-        } else if (progress < 5 / 6) {
-          setColors(['cyan', '#88e5f8'])
-        } else {
-          setColors(['purple', '#d786ff'])
-        }
-      }
-    })
-    return () => {
-      projects.kill()
+  const isItemSelected = id => !!selected.find(el => el === id)
+
+  const handleClick =
+    id =>
+    ({ getItemById, scrollToItem }) => {
+      const itemSelected = isItemSelected(id)
+
+      setSelected(currentSelected =>
+        itemSelected
+          ? currentSelected.filter(el => el !== id)
+          : currentSelected.concat(id)
+      )
     }
-  }, [])*/
 
   return (
     <>
@@ -298,53 +315,33 @@ const SlackPage = () => {
         sx={{
           backgroundColor: '#f9fafc',
           justifyItems: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+          width: 'fit-content',
+          position: 'relative',
+          display: 'grid',
+          paddingLeft: '25vw'
         }}
         className="container"
       >
-        <Container>
-          <Project
-            title="Brainwave device for thought-based computer interaction."
-            description="BCI's team organizes in #nest Velit voluptate deserunt
-                  consequat. Velit voluptate deserunt consequat.Velit voluptate
-                  deserunt consequat."
-            img="bci"
-            color={['#ec3750', '#F58695']}
-          />
-          <Project
-            title="A free domain service."
-            description="Obl.ong’s team organizes in #oblong Velit voluptate deserunt
-                    consequat. Velit voluptate deserunt consequat.Velit voluptate
-                    deserunt consequat."
-            img="oblong"
-            color={['#ff8c37', '#F2A510']}
-          />
-          <Project
-            title="An open source VPN."
-            description="Burrow's team organizes in #burrow Velit voluptate deserunt
-                    consequat. Velit voluptate deserunt consequat.Velit voluptate
-                    deserunt consequat."
-            img="burrow"
-            color={['#f1c40f', '#FAE078']}
-          />
-          <Project
-            title="Free compute infrastructure."
-            description="Nest's team organizes in #nest Velit voluptate deserunt
-                    consequat. Velit voluptate deserunt consequat.Velit voluptate
-                    deserunt consequat."
-            img="nest"
-            color={['#33d6a6', '#51F5C5']}
-          />
-          <Project
-            title="A chat app and cell phone carrier."
-            description="Nest's team organizes in #nest Velit voluptate deserunt
-                    consequat. Velit voluptate deserunt consequat.Velit voluptate
-                    deserunt consequat."
-            img="purplebubble"
-            color={['#5bc0de', '#88e5f8']}
-          />
-        </Container>
+        <ScrollMenu>
+          {projects.map((project, index) => (
+            <Project
+              title={project.title}
+              description={project.description}
+              img={project.img}
+              color={project.color}
+              itemId={project.itemId}
+              handleClick={handleClick}
+              isItemSelected={isItemSelected}
+              id={index}
+            />
+          ))}
+        </ScrollMenu>
       </Grid>
+      <a disabled={isFirstItemVisible} onClick={() => scrollPrev()}>Left</a>
+      <a disabled={isLastItemVisible} onClick={() => scrollNext()}>
+        Right
+      </a>
       <Container sx={{ py: [4, 5] }}>
         <Box sx={{ gap: '2rem', display: ['grid', 'flex'] }}>
           <Quote
@@ -430,7 +427,17 @@ const SlackPage = () => {
   )
 }
 
-function Project({ title, description, sx, color, img }) {
+function Project({
+  title,
+  description,
+  sx,
+  color,
+  img,
+  itemId,
+  handleClick,
+  isItemSelected,
+  id
+}) {
   return (
     <Box
       sx={{
@@ -443,6 +450,9 @@ function Project({ title, description, sx, color, img }) {
         overflow: 'clip',
         sx
       }}
+      itemId={itemId}
+      onClick={handleClick(id)}
+      selected={isItemSelected(id)}
     >
       <Box
         sx={{
@@ -503,18 +513,47 @@ function Quote({ text, person, age, location, img }) {
   )
 }
 
-function CarouselComponent({ children }) {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    centerMode: true,
-    focusOnSelect: true
-  }
-
-  return <Slider {...settings}>{children}</Slider>
-}
-
 export default SlackPage
+
+/*
+Here lies the horizontal scroll menu. It's not currently in use, but it's here if anyone every wants it! - Toby
+    const triggerRef = useRef(null)
+    gsap.registerPlugin(ScrollTrigger)
+  useEffect(() => {
+    const sections = gsap.utils.toArray('.project')
+
+    const projects = gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: 'none',
+      duration: 1,
+      scrollTrigger: {
+        trigger: triggerRef.current,
+        start: 'top top',
+        end: () => '+=' + document.querySelector('.container').offsetWidth,
+        scrub: 1.25,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        snap: 0.5 * (1 / (sections.length - 1))
+      },
+      onUpdate: function () {
+        const progress = this.progress()
+        if (progress < 1 / 6) {
+          setColors(['red', '#F58695'])
+        } else if (progress < 2 / 6) {
+          setColors(['orange', '#F2A510'])
+        } else if (progress < 3 / 6) {
+          setColors(['yellow', '#FAE078'])
+        } else if (progress < 4 / 6) {
+          setColors(['green', '#51F5C5'])
+        } else if (progress < 5 / 6) {
+          setColors(['cyan', '#88e5f8'])
+        } else {
+          setColors(['purple', '#d786ff'])
+        }
+      }
+    })
+    return () => {
+      projects.kill()
+    }
+  }, [])*/
