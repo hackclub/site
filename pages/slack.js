@@ -1,21 +1,22 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import { Box, Container, Flex, Grid, Heading, Text } from 'theme-ui'
+import { Box, Container, Flex, Heading, Text } from 'theme-ui'
+import { useRef, useState } from 'react'
+import { ScrollMenu } from 'react-horizontal-scrolling-menu'
+import 'react-horizontal-scrolling-menu/dist/styles.css'
+
+import { thousands } from '../lib/members'
+import projects from '../components/slack/projects'
+import Channels from '../components/slack/channels'
+import Join from '../components/slack/catchall'
+import SlackEvents from '../components/slack/slack-events'
 import Footer from '../components/footer'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Header from '../components/slack/header'
-import { thousands } from '../lib/members'
-import { useRef, useState } from 'react'
 import Project from '../components/slack/project'
 import Quote from '../components/slack/quote'
-import { ScrollMenu } from 'react-horizontal-scrolling-menu'
-import 'react-horizontal-scrolling-menu/dist/styles.css'
-import Channels from '../components/slack/channels'
-import projects from '../components/slack/projects'
-import Join from '../components/slack/catchall'
-import SlackEvents from '../components/slack/slack-events'
-import { LeftArrow, RightArrow } from '../components/slack/arrows'
+import Arrows from '../components/slack/arrows'
 
 const SlackPage = () => {
   const nameInputRef = useRef(null)
@@ -33,6 +34,10 @@ const SlackPage = () => {
       setCurrentIndex(currentIndex + 1)
     }
   }
+
+  const [containerWidth, setContainerWidth] = useState(0)
+  const containerRef = useRef()
+  const itemWidth = containerWidth / 2 || 160
 
   return (
     <>
@@ -90,33 +95,20 @@ const SlackPage = () => {
           Everything here was built by Hack Clubbers.
         </Text>
       </Container>
-      <Grid
-        sx={{
-          backgroundColor: '#f9fafc',
-          justifyItems: 'center',
-          alignItems: 'center',
-          width: 'fit-content',
-          position: 'relative',
-          display: 'grid',
-          paddingLeft: '25vw',
-          overflowX: 'hidden'
-        }}
-        className="container"
-      >
-        <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-          {projects.map((project, index) => (
-            <Project
-              title={project.title}
-              description={project.description}
-              img={project.img}
-              color={project.color}
-              itemId={project.itemId}
-              selected={index === currentIndex}
-              key={index}
-            />
-          ))}
-        </ScrollMenu>
-      </Grid>
+      <ScrollMenu Footer={Arrows} onWheel={onWheel}>
+        {projects.map((project, index, id) => (
+          <Project
+            title={project.title}
+            description={project.description}
+            img={project.img}
+            color={project.color}
+            itemId={id}
+            selected={id === currentIndex}
+            width={itemWidth + 'px'}
+            key={id}
+          />
+        ))}
+      </ScrollMenu>
       <Container sx={{ py: [4, 5] }}>
         <Box sx={{ gap: '2rem', display: ['grid', 'flex'] }}>
           <Quote
@@ -146,6 +138,21 @@ const SlackPage = () => {
       <Footer />
     </>
   )
+}
+
+function onWheel(apiObj, ev) {
+  const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15
+
+  if (isThouchpad) {
+    ev.stopPropagation()
+    return
+  }
+
+  if (ev.deltaY < 0) {
+    apiObj.scrollNext()
+  } else if (ev.deltaY > 0) {
+    apiObj.scrollPrev()
+  }
 }
 
 export default SlackPage

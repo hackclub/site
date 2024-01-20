@@ -5,35 +5,39 @@ const projects = [
       "BCI's team organizes in #nest Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
     img: 'bci',
     color: ['#ec3750', '#F58695'],
-    itemId: 1
+    itemId: 0
   },
   {
     title: 'A free domain service.',
     description:
       'Obl.ong’s team organizes in #oblong Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.',
     img: 'oblong',
-    color: ['#ff8c37', '#F2A510']
+    color: ['#ff8c37', '#F2A510'],
+    itemId: 1
   },
   {
     title: 'An open source VPN.',
     description:
       "Burrow's team organizes in #burrow Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
     img: 'burrow',
-    color: ['#f1c40f', '#FAE078']
+    color: ['#f1c40f', '#FAE078'],
+    itemId: 2
   },
   {
     title: 'Free compute infrastructure.',
     description:
       "Nest's team organizes in #nest Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
     img: 'nest',
-    color: ['#33d6a6', '#51F5C5']
+    color: ['#33d6a6', '#51F5C5'],
+    itemId: 3
   },
   {
     title: 'A chat app and cell phone carrier.',
     description:
       "Nest's team organizes in #nest Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
     img: 'purplebubble',
-    color: ['#5bc0de', '#88e5f8']
+    color: ['#5bc0de', '#88e5f8'],
+    itemId: 4
   }
 ]
 
