@@ -1,6 +1,6 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import { Box, Container, Flex, Heading, Text } from 'theme-ui'
+import { Box, Container, Heading, Text } from 'theme-ui'
 import { useRef } from 'react'
 import { ScrollMenu } from 'react-horizontal-scrolling-menu'
 import 'react-horizontal-scrolling-menu/dist/styles.css'
@@ -9,7 +9,6 @@ import { thousands } from '../lib/members'
 import projects from '../components/slack/projects'
 import Channels from '../components/slack/channels'
 import Join from '../components/slack/catchall'
-import SlackEvents from '../components/slack/slack-events'
 import Footer from '../components/footer'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
@@ -49,7 +48,7 @@ const SlackPage = () => {
           worlds that suit you.
         </Text>
         <Channels />
-        <Flex
+        {/*<Flex
           sx={{
             gridRow: [null, 'span 2'],
             gridColumn: ['span 2', 'span 3'],
@@ -69,7 +68,7 @@ const SlackPage = () => {
             Live from our&nbsp;Slack...
           </Heading>
           <SlackEvents />
-        </Flex>
+        </Flex>*/}
         <Text as="h1" variant="title" sx={{ mt: [4, 5], mb: 3 }}>
           Where the makers hang out...
         </Text>
@@ -78,18 +77,25 @@ const SlackPage = () => {
           Hack Club Slack.
         </Text>
       </Container>
-      <ScrollMenu Footer={Arrows} onWheel={onWheel}>
-        {projects.map(project => (
-          <Project
-            title={project.title}
-            description={project.description}
-            img={project.img}
-            color={project.color}
-            itemId={project.itemId}
-            key={project.itemId}
-          />
-        ))}
-      </ScrollMenu>
+      <Box
+        sx={{
+          backgroundColor: '#F9FAFC',
+          paddingY: '1rem'
+        }}
+      >
+        <ScrollMenu Footer={Arrows} onWheel={onWheel}>
+          {projects.map(project => (
+            <Project
+              title={project.title}
+              description={project.description}
+              img={project.img}
+              color={project.color}
+              itemId={project.itemId}
+              key={project.itemId}
+            />
+          ))}
+        </ScrollMenu>
+      </Box>
       <Container sx={{ py: [4, 5] }}>
         <Box sx={{ gap: '2rem', display: ['grid', 'flex'] }}>
           <Quote

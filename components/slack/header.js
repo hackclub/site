@@ -24,7 +24,7 @@ const Content = () => (
           mb: [2, 3]
         }}
       >
-        The door is open...
+        Hack Club Slack
       </Heading>
     </Box>
     <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>

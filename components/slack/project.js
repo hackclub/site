@@ -2,14 +2,7 @@ import { Box, Image, Text } from 'theme-ui'
 import { VisibilityContext } from 'react-horizontal-scrolling-menu'
 import { useContext } from 'react'
 
-export default function Project({
-  title,
-  description,
-  sx,
-  color,
-  img,
-  itemId
-}) {
+export default function Project({ title, description, color, img, itemId }) {
   const visible = useContext(VisibilityContext)
   const isVisible = visible.isItemVisible(itemId)
 
@@ -31,7 +24,7 @@ export default function Project({
         transformOrigin: 'center',
         opacity: isVisible ? 1 : 0.25,
         mx: 16,
-        sx
+        ml: `${itemId === 0 ? '26vw' : '0'}`
       }}
       itemId={itemId}
     >
