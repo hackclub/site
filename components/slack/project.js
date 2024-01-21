@@ -8,8 +8,7 @@ export default function Project({
   sx,
   color,
   img,
-  itemId,
-  width
+  itemId
 }) {
   const visible = useContext(VisibilityContext)
   const isVisible = visible.isItemVisible(itemId)
@@ -28,10 +27,10 @@ export default function Project({
         overflow: 'clip',
         width: '70rem',
         height: '100%',
-        overflowX: 'auto',
         transition: '700ms cubic-bezier(0.075, 0.02, 0.165, 1)',
         transformOrigin: 'center',
         opacity: isVisible ? 1 : 0.25,
+        mx: 16,
         sx
       }}
       itemId={itemId}

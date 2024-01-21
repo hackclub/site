@@ -1,7 +1,7 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import { Box, Container, Flex, Heading, Text } from 'theme-ui'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { ScrollMenu } from 'react-horizontal-scrolling-menu'
 import 'react-horizontal-scrolling-menu/dist/styles.css'
 
@@ -20,24 +20,6 @@ import Arrows from '../components/slack/arrows'
 
 const SlackPage = () => {
   const nameInputRef = useRef(null)
-
-  const [currentIndex, setCurrentIndex] = useState(0)
-
-  const handleLeftClick = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1)
-    }
-  }
-
-  const handleRightClick = () => {
-    if (currentIndex < projects.length - 1) {
-      setCurrentIndex(currentIndex + 1)
-    }
-  }
-
-  const [containerWidth, setContainerWidth] = useState(0)
-  const containerRef = useRef()
-  const itemWidth = containerWidth / 2 || 160
 
   return (
     <>
@@ -92,20 +74,19 @@ const SlackPage = () => {
           Where the makers hang out...
         </Text>
         <Text as="p" variant="subtitle" sx={{ fontSize: [2, 3], mt: 3 }}>
-          Everything here was built by Hack Clubbers.
+          These projects were built by Hack Clubbers all around the world on the
+          Hack Club Slack.
         </Text>
       </Container>
       <ScrollMenu Footer={Arrows} onWheel={onWheel}>
-        {projects.map((project, index, id) => (
+        {projects.map(project => (
           <Project
             title={project.title}
             description={project.description}
             img={project.img}
             color={project.color}
-            itemId={id}
-            selected={id === currentIndex}
-            width={itemWidth + 'px'}
-            key={id}
+            itemId={project.itemId}
+            key={project.itemId}
           />
         ))}
       </ScrollMenu>
