@@ -164,7 +164,7 @@ const JoinForm = ({ sx = {} }) => {
                   mt: 3
                 }}
               >
-                Check your spam folder too! Not there?{' '}
+                Search for "Slack" in your mailbox! Not there?{' '}
                 <Link href="mailto:slack@hackclub.com" sx={{ ml: 1 }}>
                   Send us an email
                 </Link>
