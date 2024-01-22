@@ -16,9 +16,11 @@ import Header from '../components/slack/header'
 import Project from '../components/slack/project'
 import Quote from '../components/slack/quote'
 import Arrows from '../components/slack/arrows'
+import usePreventScroll from '../components/slack/preventScroll'
 
 const SlackPage = () => {
   const nameInputRef = useRef(null)
+  const { disableScroll, enableScroll } = usePreventScroll()
 
   return (
     <>
@@ -80,8 +82,10 @@ const SlackPage = () => {
       <Box
         sx={{
           backgroundColor: '#F9FAFC',
-          paddingY: '1rem'
+          paddingT: '1rem'
         }}
+        onMouseEnter={disableScroll}
+        onMouseLeave={enableScroll}
       >
         <ScrollMenu Footer={Arrows} onWheel={onWheel}>
           {projects.map(project => (

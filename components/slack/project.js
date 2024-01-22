@@ -22,7 +22,6 @@ export default function Project({ title, description, color, img, itemId }) {
         height: '100%',
         transition: '700ms cubic-bezier(0.075, 0.02, 0.165, 1)',
         transformOrigin: 'center',
-        opacity: isVisible ? 1 : 0.25,
         mx: 16,
         ml: `${itemId === 0 ? '26vw' : '0'}`
       }}

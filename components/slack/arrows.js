@@ -1,21 +1,58 @@
 import { VisibilityContext } from 'react-horizontal-scrolling-menu'
 import { useContext } from 'react'
+import Icon from '@hackclub/icons'
+import { Link } from 'theme-ui'
 
 export function LeftArrow() {
   const { scrollPrev } = useContext(VisibilityContext)
-  return <button onClick={() => scrollPrev()}>Left</button>
+  return (
+    <Link
+      onClick={() => scrollPrev()}
+      sx={{
+        borderRadius: 100,
+        boxShadow: 'none',
+        backgroundColor: 'black',
+        padding: '8px',
+        cursor: 'pointer',
+        placeItems: 'center',
+        display: 'flex',
+        mr: 2
+      }}
+    >
+      <Icon glyph="view-back" size={32} color="white" />
+    </Link>
+  )
 }
 
 export function RightArrow() {
   const { scrollNext } = useContext(VisibilityContext)
-  return <button onClick={() => scrollNext()}>Right</button>
+  return (
+    <Link
+      onClick={() => scrollNext()}
+      sx={{
+        borderRadius: 100,
+        boxShadow: 'none',
+        backgroundColor: 'black',
+        padding: '8px',
+        cursor: 'pointer',
+        placeItems: 'center',
+        display: 'flex'
+      }}
+    >
+      <Icon glyph="view-forward" size={32} color="white" />
+    </Link>
+  )
 }
 
 export default function Arrows() {
   return (
     <div
       style={{
-        display: 'flex'
+        display: 'flex',
+        marginTop: 32,
+        marginBottom: 32,
+        position: 'relative',
+        left: 'calc(26vw + 63rem)'
       }}
     >
       <div style={{ display: 'flex' }}>
