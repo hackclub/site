@@ -18,12 +18,11 @@ export default function Project({ title, description, color, img, itemId }) {
           `linear-gradient(to bottom, ${color[0]}, ${color[1]})`,
         color: 'white',
         overflow: 'clip',
-        width: '70rem',
+        width: ['100vw', '50rem', '70rem'],
         height: '100%',
         transition: '700ms cubic-bezier(0.075, 0.02, 0.165, 1)',
         transformOrigin: 'center',
-        mx: 16,
-        ml: `${itemId === 0 ? '26vw' : '0'}`
+        mx: 16
       }}
       itemId={itemId}
     >

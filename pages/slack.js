@@ -87,18 +87,20 @@ const SlackPage = () => {
         onMouseEnter={disableScroll}
         onMouseLeave={enableScroll}
       >
-        <ScrollMenu Footer={Arrows} onWheel={onWheel}>
-          {projects.map(project => (
-            <Project
-              title={project.title}
-              description={project.description}
-              img={project.img}
-              color={project.color}
-              itemId={project.itemId}
-              key={project.itemId}
-            />
-          ))}
-        </ScrollMenu>
+        <Box sx={{ ml: ['2vw', '25vw'] }}>
+          <ScrollMenu Footer={Arrows} onWheel={onWheel}>
+            {projects.map(project => (
+              <Project
+                title={project.title}
+                description={project.description}
+                img={project.img}
+                color={project.color}
+                itemId={project.itemId}
+                key={project.itemId}
+              />
+            ))}
+          </ScrollMenu>
+        </Box>
       </Box>
       <Container sx={{ py: [4, 5] }}>
         <Box sx={{ gap: '2rem', display: ['grid', 'flex'] }}>

@@ -51,8 +51,7 @@ export default function Arrows() {
         display: 'flex',
         marginTop: 32,
         marginBottom: 32,
-        position: 'relative',
-        left: 'calc(26vw + 63rem)'
+        position: 'relative'
       }}
     >
       <div style={{ display: 'flex' }}>
