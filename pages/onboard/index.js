@@ -1,14 +1,14 @@
-import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from "theme-ui";
-import Balancer from "react-wrap-balancer";
-import Head from "next/head";
-import Meta from "@hackclub/meta";
-import Nav from "../../components/nav";
-import Footer from "../../components/footer";
-import FadeIn from "../../components/fade-in";
-import Sparkles from "../../components/sparkles";
-import Tilt from "../../components/tilt";
-import usePrefersReducedMotion from "../../lib/use-prefers-reduced-motion";
-import { useEffect, useRef, useState } from "react";
+import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from 'theme-ui'
+import Balancer from 'react-wrap-balancer'
+import Head from 'next/head'
+import Meta from '@hackclub/meta'
+import Nav from '../../components/nav'
+import Footer from '../../components/footer'
+import FadeIn from '../../components/fade-in'
+import Sparkles from '../../components/sparkles'
+import Tilt from '../../components/tilt'
+import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
+import { useEffect, useRef, useState } from 'react'
 
 /**
  * @type {import('theme-ui').ThemeUIStyleObject}
@@ -459,7 +459,7 @@ const ShipPage = () => {
                 </Balancer>
               </Heading>
 
-              <Flex sx={{ mt: 16, gap: 10, flexDirection: ["column", "row"] }}>
+              <Flex sx={{ mt: 16, gap: 10, flexDirection: ['column', 'row'] }}>
                 <Button
                   variant="ctaLg"
                   as="a"
@@ -707,10 +707,7 @@ const ShipPage = () => {
               </Flex>
             </a> */}
 
-            <a
-              href="https://jams.hackclub.com/batch/usb-hub"
-              target="_blank"
-            >
+            <a href="https://jams.hackclub.com/batch/usb-hub" target="_blank">
               <Flex as="article">
                 <Text as="p" sx={{ pr: [100, 100, 100, 0] }}>
                   Hugo's <strong>USB-C hub</strong> for the best{' '}
@@ -744,7 +741,8 @@ const ShipPage = () => {
                   Karmanyaah's <strong>digital level</strong>, SparkleTilt.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  Learn how to make your own&nbsp;<span className="arrow">&rarr;</span>
+                  Learn how to make your own&nbsp;
+                  <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
                   src="https://cloud-myjum5y6g-hack-club-bot.vercel.app/0longhorn2.png"
@@ -769,7 +767,8 @@ const ShipPage = () => {
                   Build your own <strong>hardware key</strong>.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  Learn how to make your own&nbsp;<span className="arrow">&rarr;</span>
+                  Learn how to make your own&nbsp;
+                  <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
                   src="https://cloud-6a1wip38p-hack-club-bot.vercel.app/1totk_key.png"
@@ -1079,10 +1078,14 @@ const ShipPage = () => {
             >
               <Text as="h3">Learn to PCB</Text>
               <Text as="p">
-                Read our tutorials to learn how to make a simple
-                circuit boards from start to end.
+                Read our tutorials to learn how to make a simple circuit boards
+                from start to end.
               </Text>
-              <Button as="a" href="https://jams.hackclub.com/tag/pcb" target="_blank">
+              <Button
+                as="a"
+                href="https://jams.hackclub.com/tag/pcb"
+                target="_blank"
+              >
                 Start the Tutorial
               </Button>
             </Flex>

@@ -19,8 +19,6 @@ const Base = styled(Box)`
   }
 `
 
-
-
 const Logo = props => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +49,12 @@ const Service = ({ href, icon, name = '', ...props }) => (
   </Link>
 )
 
-const Footer = ({ dark = false, email = "team@hackclub.com", children, ...props }) => (
+const Footer = ({
+  dark = false,
+  email = 'team@hackclub.com',
+  children,
+  ...props
+}) => (
   <Base
     color={dark ? 'muted' : 'slate'}
     py={[4, 5]}

@@ -25,7 +25,7 @@ export default function Team() {
             backgroundImage:
               'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)',
             backgroundSize: 'cover',
-            backgroundPosition: '25% 15%' 
+            backgroundPosition: '25% 15%'
           }}
         >
           <Container>
@@ -206,7 +206,7 @@ export default function Team() {
                       text="Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He worked on Hack Club’s learning resources & clubs program for two years."
                       pronouns="he/him"
                     />
-                     <Bio
+                    <Bio
                       name="Dieter Schoening"
                       teamRole="Media Creation"
                       text="Dieter grew up in South Carolina where he started the adventure of content creation. Now he is helping with our social media and projects to get more teens interested in Hack Club. Fun facts: He likes virtual reality development, boba, hiking, entrepreneurship"
@@ -241,10 +241,10 @@ export default function Team() {
                       text="Arpan Pandey (@A) is a Hack Clubber from India who joined Hack Club about 1.5 years ago. He is a passionate programmer and loves to build things, especially for clubs. He has created and maintained Jams API, Clubs Directory and many other projects for clubs. He also onboards and supports clubs through their Hack Club Journey. He is also the person to send out mails to Hack Clubbers in India. He loves Harry Potter and is a proud Gryffindor. You'll also find him playing around with electronics and hardware, and he is also a licensed HAM (KC1TPD). He is very much interested in having deep conversations with people and loves to make new friends. Here is his favorite quote: “It does not do to dwell on dreams and forget to live.”"
                       pronouns="he/him"
                     />
-                   <Bio
+                    <Bio
                       img="https://cloud-cwim853sk-hack-club-bot.vercel.app/0screenshot_2023-12-12_at_4.15.57_pm.png"
                       name="Thomas Stubblefield"
-                      teamsRole="Software Engineer & Clubs Lead" 
+                      teamsRole="Software Engineer & Clubs Lead"
                       text="Thomas is a Hack Clubber from South Carolina who led a Hack Club at his high school and is now building software to make the experience of being a part of and leading a club better. He currently leads the clubs program. He loves to build side projects, make tea, and hike. Thomas lives his life by three sayings: time will tell, in life we are always learning, and bum bum bummm (a friendly melody he hums daily)."
                       pronouns="he/him"
                     />
