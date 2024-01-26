@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { Box, Flex, Input, Text } from 'theme-ui'
 import FlexCol from '../../flex-col'
 import AutofillColourFix from './autofill-colour-fix'
@@ -31,13 +31,13 @@ const approvedCountries = [
 
 export default function AutoComplete({ name, isPersonalAddressInput }) {
   const input = useRef()
-  const base = useRef()
   const [predictions, setPredictions] = useState(null)
   const [countryCode, setCountryCode] = useState(null)
 
   const optionClicked = async prediction => {
     input.current.value = prediction.name
-    await onInput(prediction.name)
+    // Needs to match the shape of the event object because onInput takes an event object.
+    await onInput({ target: { value: prediction.name } })
     setPredictions(null)
   }
   const clickOutside = e => {
@@ -46,26 +46,28 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
     }
   }
 
-  const onInput = async value => {
-    setPredictions(value ? (await search(value)).results : null)
+  const onInput = useCallback(
+    async e => {
+      if (!e.target.value) return
+      const value = e.target.value
 
-    if (isPersonalAddressInput) return
-    geocode(value)
-      .then(res => {
-        const country = res?.results[0]?.country
-        const countryCode = res?.results[0]?.countryCode
+      setPredictions(value ? (await search(value)).results : null)
 
-        setCountryCode(countryCode)
+      if (isPersonalAddressInput) return
+      geocode(value)
+        .then(res => {
+          const country = res?.results[0]?.country
+          const countryCode = res?.results[0]?.countryCode
 
-        sessionStorage.setItem('bank-signup-eventCountry', country)
-        sessionStorage.setItem('bank-signup-eventCountryCode', countryCode)
-      })
-      .catch(err => console.error(err))
-  }
+          setCountryCode(countryCode)
 
-  const onInputWrapper = async e => {
-    if (e.target.value) await onInput(e.target.value)
-  }
+          sessionStorage.setItem('bank-signup-eventCountry', country)
+          sessionStorage.setItem('bank-signup-eventCountryCode', countryCode)
+        })
+        .catch(err => console.error(err))
+    },
+    [isPersonalAddressInput]
+  )
 
   //TODO: Close suggestions view when focus is lost via tabbing.
   //TODO: Navigate suggestions with arrow keys.
@@ -75,15 +77,15 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
     if (!inputEl) return
 
     document.addEventListener('click', clickOutside)
-    inputEl.addEventListener('input', onInputWrapper)
-    inputEl.addEventListener('focus', onInputWrapper)
+    inputEl.addEventListener('input', onInput)
+    inputEl.addEventListener('focus', onInput)
 
     return () => {
       document.removeEventListener('click', clickOutside)
-      inputEl.removeEventListener('input', onInputWrapper)
-      inputEl.removeEventListener('focus', onInputWrapper)
+      inputEl.removeEventListener('input', onInput)
+      inputEl.removeEventListener('focus', onInput)
     }
-  }, [])
+  }, [onInput])
 
   return (
     <Box sx={{ position: 'relative', width: '100%' }}>
