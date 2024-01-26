@@ -170,7 +170,7 @@ export default function PersonalInfoForm({
         <Input
           name="accommodations"
           id="accommodations"
-          placeholder="I use a screen reader / I need increased text size during onboarding"
+          placeholder="I use a screen reader/I need increased text size during onboarding"
           sx={{ ...AutofillColourFix }}
         />
       </Field>
