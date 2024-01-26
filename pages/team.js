@@ -6,8 +6,7 @@ import Footer from '../components/footer'
 import Bio from '../components/bio'
 import ForceTheme from '../components/force-theme'
 
-export default function Team({ team }) {
-	console.log(team.current)
+export default function Team() {
   return (
     <>
       <Box as="main" key="main">
@@ -82,17 +81,7 @@ export default function Team({ team }) {
               </Text>
               <Box sx={{ flexGrow: 1 }}>
                 <Grid columns={[1, null, 2]} gap={2} mb={2}>
-					{team.current.filter(m => m.department === "Board").map(m => (
-						<Bio
-							img={m.avatar}
-							name={m.name}
-							teamRole={m.role}
-							text={m.bio}
-							pronouns={m.pronouns}
-						/>
-					))}
-					<>
-                  {/* <Bio
+                  <Bio
                     img="/team/zach.jpg"
                     name="Zach Latta"
                     teamRole="Founder"
@@ -131,8 +120,7 @@ export default function Team({ team }) {
                     href="https://en.wikipedia.org/wiki/John_Abele"
                     subrole="Founder, Boston Scientific"
                     pronouns="he/him"
-                  /> */}
-				  </>
+                  />
                 </Grid>
               </Box>
             </Flex>
@@ -155,17 +143,7 @@ export default function Team({ team }) {
                     Hacker Resources Team
                   </Text>
                   <Grid columns={[1, null, 2]} gap={2}>
-					{team.current.filter(m => m.department === "HQ").map(m => (
-						<Bio
-							img={m.avatar}
-							name={m.name}
-							teamRole={m.role}
-							text={m.bio}
-							pronouns={m.pronouns}
-						/>
-					))}
-     				{/* <>             
-					<Bio
+                    <Bio
                       name="Kara Massie"
                       teamRole="Production Lead"
                       text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
@@ -287,7 +265,6 @@ export default function Team({ team }) {
                       href="https://page.devlucas.page"
                       video="https://www.youtube.com/embed/vuLtlzMMW6o?si=v-Dbn2fSGvTyXlbY"
                     />
-					</> */}
                   </Grid>
                 </Box>
               </Box>
@@ -714,16 +691,4 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
       <Footer light key="footer" />
     </>
   )
-}
-
-export async function getStaticProps(context) {
-  const res = await fetch(`https://internal.hackclub.com/team`)
-  const team = await res.json()
-
-  return {
-    props: {
-      team
-    },
-    revalidate: 10
-  }
 }
