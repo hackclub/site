@@ -87,7 +87,7 @@ const SlackPage = () => {
         onMouseEnter={disableScroll}
         onMouseLeave={enableScroll}
       >
-        <Box sx={{ ml: ['2vw', '25vw'] }}>
+        <Box>
           <ScrollMenu Footer={Arrows} onWheel={onWheel}>
             {projects.map(project => (
               <Project

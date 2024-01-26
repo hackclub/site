@@ -19,10 +19,11 @@ export default function Project({ title, description, color, img, itemId }) {
         color: 'white',
         overflow: 'clip',
         width: ['100vw', '50rem', '70rem'],
-        height: '100%',
+        height: '50vh',
         transition: '700ms cubic-bezier(0.075, 0.02, 0.165, 1)',
         transformOrigin: 'center',
-        mx: 16
+        mx: 16,
+        ml: `${itemId === 0 && 'calc(50vw - 35rem)'}`
       }}
       itemId={itemId}
     >
