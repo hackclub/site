@@ -327,11 +327,11 @@ const StevePage = () => {
                   key={idx}
                   alt=""
                   style={{
-                    display: idx == selectedImage ? 'flex' : 'flex',
+                    display: idx === selectedImage ? 'flex' : 'flex',
                     cursor: 'pointer',
                     aspectRatio: '1',
                     objectFit: 'cover',
-                    opacity: idx != selectedImage ? 0.5 : 1
+                    opacity: idx !== selectedImage ? 0.5 : 1
                   }}
                   onClick={() => setSelectedImages(idx)}
                   width={'96px'}
