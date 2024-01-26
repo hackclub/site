@@ -42,8 +42,8 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           height={64}
           mr={3}
           src={
-            img ||
-            require(`../public/team/${name.split(' ')[0].toLowerCase()}.jpg`)
+            img
+            // require(`../public/team/${name.split(' ')[0].toLowerCase()}.jpg`)
           }
           alt={name}
           sx={{
