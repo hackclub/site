@@ -50,7 +50,6 @@ export default function Arrows() {
     <div
       style={{
         display: 'flex',
-        marginTop: 32,
         marginBottom: 32,
         position: 'relative'
       }}

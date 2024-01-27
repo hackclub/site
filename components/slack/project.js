@@ -19,7 +19,7 @@ export default function Project({ title, description, color, img, itemId }) {
         color: 'white',
         overflow: 'clip',
         width: ['100vw', '50rem', '70rem'],
-        height: '50vh',
+        height: ['25rem', '40rem'],
         transition: '700ms cubic-bezier(0.075, 0.02, 0.165, 1)',
         transformOrigin: 'center',
         mx: 16,
