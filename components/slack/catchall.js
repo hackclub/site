@@ -9,7 +9,7 @@ export default function Join() {
         mt: '2rem',
         borderRadius: 12,
         overflowX: 'hidden',
-        height: ['', '40rem'],
+        height: ['', '30rem'],
         paddingTop: ['2rem', 0],
         display: ['grid', 'flex']
       }}
@@ -29,7 +29,7 @@ export default function Join() {
             variant="title"
             sx={{ mb: 3, fontSize: ['36px', '48px', '56px'] }}
           >
-            There&apos;s a whole new world for you to discover.
+            Discover the Hack Club Slack
           </Text>
           <Link
             href="#"
@@ -51,7 +51,7 @@ export default function Join() {
         src="https://cloud-j0p07nviw-hack-club-bot.vercel.app/0image.png"
         sx={{
           width: ['100%', '50%'],
-          height: ['100%', '40rem'],
+          height: ['100%', '30rem'],
           objectFit: 'cover',
           position: 'relative',
           top: 0

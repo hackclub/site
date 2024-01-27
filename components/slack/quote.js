@@ -15,7 +15,7 @@ export default function Quote({ text, person, age, location, img }) {
       </Text>
       <Flex sx={{ gap: '8px' }}>
         <Image src={img} sx={{ height: 24, width: 24, borderRadius: 100 }} />
-        <Text as="p" variant="paragraph">
+        <Text as="h3" sx={{ fontWeight: 400 }}>
           {person}, {age} from {location}
         </Text>
       </Flex>
