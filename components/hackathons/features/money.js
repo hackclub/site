@@ -29,11 +29,7 @@ const Content = () => (
         <ListItem
           knew
           icon="payment"
-          leadText={
-            <>
-              $500 grants.
-            </>
-          }
+          leadText={<>$500 grants.</>}
           body={
             <>
               Running on HCB? Get a $500 grant once you have a venue, provided

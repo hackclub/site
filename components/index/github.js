@@ -18,7 +18,7 @@ export default function GitHub({
       variant="pill"
       bg="snow"
       as="a"
-      href={url || "https://github.com/hackclub"}
+      href={url || 'https://github.com/hackclub'}
       target="_blank"
       rel="noopener"
       sx={{
