@@ -1,7 +1,9 @@
 const steveApiHandler = async (req, res) => {
   const calendarId =
     'c_e7c63a427761b0f300ede97f432ba4af24033daad26be86da0551b40b7968f00@group.calendar.google.com'
-  const apiKey = 'AIzaSyD_8dEnTDle3WmaoOTvEW6L1GW540FU_wg' // Replace with your API Key
+
+  //This API key is for google calendar and has only read access to Steve
+  const apiKey = 'AIzaSyD_8dEnTDle3WmaoOTvEW6L1GW540FU_wg' 
 
   let allBusyDays = new Set()
 
