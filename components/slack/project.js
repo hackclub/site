@@ -1,4 +1,4 @@
-import { Box, Image, Text } from 'theme-ui'
+import { Box, Grid, Image, Text } from 'theme-ui'
 import { VisibilityContext } from 'react-horizontal-scrolling-menu'
 import { useContext } from 'react'
 
@@ -6,13 +6,11 @@ export default function Project({ title, description, color, img, itemId }) {
   const visible = useContext(VisibilityContext)
   const isVisible = visible.isItemVisible(itemId)
 
-  console.log(itemId)
-
   return (
-    <Box
+    <Grid
       sx={{
-        display: 'grid',
         borderRadius: 12,
+        gridTemplateColumns: 'auto ',
         my: '2rem',
         backgroundImage: t =>
           `linear-gradient(to bottom, ${color[0]}, ${color[1]})`,
@@ -23,17 +21,19 @@ export default function Project({ title, description, color, img, itemId }) {
         transition: '700ms cubic-bezier(0.075, 0.02, 0.165, 1)',
         transformOrigin: 'center',
         mx: 16,
-        ml: `${itemId === 0 && 'calc(50vw - 35rem)'}`
+        ml: `${itemId === 0 && 'calc(50vw - 36rem)'}`
       }}
       itemId={itemId}
     >
       <Box
         sx={{
           paddingX: '16px',
-          marginTop: ['6.25rem', '12.5rem'],
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center'
+          placeItems: 'center',
+          height: ['12.5rem', '20rem'],
+          placeSelf: 'center',
+          placeContent: 'end',
         }}
       >
         <Text
@@ -60,9 +60,9 @@ export default function Project({ title, description, color, img, itemId }) {
         sx={{
           visibility: ['hidden', 'visible'],
           height: '100%',
-          objectFit: 'cover'
+          objectFit: 'cover',
         }}
       />
-    </Box>
+    </Grid>
   )
 }

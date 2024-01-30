@@ -1,7 +1,7 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import { Box, Container, Heading, Text } from 'theme-ui'
-import { useRef } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 import { ScrollMenu } from 'react-horizontal-scrolling-menu'
 import 'react-horizontal-scrolling-menu/dist/styles.css'
 
@@ -16,11 +16,9 @@ import Header from '../components/slack/header'
 import Project from '../components/slack/project'
 import Quote from '../components/slack/quote'
 import Arrows from '../components/slack/arrows'
-import usePreventScroll from '../components/slack/preventScroll'
 
 const SlackPage = () => {
   const nameInputRef = useRef(null)
-  const { disableScroll, enableScroll } = usePreventScroll()
 
   return (
     <>
@@ -84,11 +82,13 @@ const SlackPage = () => {
           backgroundColor: '#F9FAFC',
           paddingT: '1rem'
         }}
-        onMouseEnter={disableScroll}
-        onMouseLeave={enableScroll}
       >
         <Box>
-          <ScrollMenu Footer={Arrows} onWheel={onWheel}>
+          <ScrollMenu
+            Footer={Arrows}
+            onWheel={onWheel}
+            style={{ scrollbar: 'hidden' }}
+          >
             {projects.map(project => (
               <Project
                 title={project.title}

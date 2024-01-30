@@ -17,7 +17,7 @@ export function LeftArrow() {
         placeItems: 'center',
         display: 'flex',
         mr: 2,
-        ml: 'calc(50vw - 35rem)'
+        ml: 'calc(50vw - 36rem)'
       }}
     >
       <Icon glyph="view-back" size={32} color="white" />
