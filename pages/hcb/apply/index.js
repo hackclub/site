@@ -67,7 +67,7 @@ export default function Apply() {
 
     // Set the query url parameter to 1 if it's not present
     if (!step || step < 1) {
-      router.push(
+      router.replace(
         {
           pathname: router.pathname,
           query: { ...router.query, step: 1 }
@@ -110,9 +110,7 @@ export default function Apply() {
         <Box sx={{ gridArea: 'form', overflowY: 'auto' }}>
           <FormContainer ref={formContainer}>
             {step === 1 && <HCBInfo />}
-            {step === 2 && (
-              <OrganizationInfoForm requiredFields={requiredFields} />
-            )}
+            {step === 2 && <OrganizationInfoForm requiredFields={requiredFields} />}
             {step === 3 && <PersonalInfoForm requiredFields={requiredFields} />}
           </FormContainer>
         </Box>
