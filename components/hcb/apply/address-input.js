@@ -118,7 +118,7 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
                 Currently, we only have first-class support for organizations in
                 select countries.
                 <br />
-                If you're somewhere else, you can still use bank!
+                If you're somewhere else, you can still use HCB!
                 <br />
                 Please contact us at hcb@hackclub.com
               </Text>
