@@ -1054,19 +1054,24 @@ const Philanthropy = ({ posts = [] }) => {
                     Tobi Lutke
                   </Text>
                 </Fade>
-                <Fade delay={130}>
+                <Fade delay={145}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Michael Dell
+                  </Text>
+                </Fade>
+                <Fade delay={150}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     The Libermans
                   </Text>
                 </Fade>
               </Box>
               <Box>
-                <Fade delay={140}>
+                <Fade delay={170}>
                   <Text as="h3" sx={{ marginBottom: '8px' }}>
                     $500k - $1M
                   </Text>
                 </Fade>
-                <Fade delay={180}>
+                <Fade delay={190}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Lizzy Danhakl/Andrew Reed (3x)
                   </Text>
