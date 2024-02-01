@@ -1,7 +1,7 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import { Box, Container, Heading, Text } from 'theme-ui'
-import { useRef, useState, useEffect, useCallback } from 'react'
+import { useRef } from 'react'
 import { ScrollMenu } from 'react-horizontal-scrolling-menu'
 import 'react-horizontal-scrolling-menu/dist/styles.css'
 
@@ -83,12 +83,8 @@ const SlackPage = () => {
           paddingT: '1rem'
         }}
       >
-        <Box>
-          <ScrollMenu
-            Footer={Arrows}
-            onWheel={onWheel}
-            style={{ scrollbar: 'hidden' }}
-          >
+        <Box onMouseEnter={disableScroll} onMouseLeave={enableScroll}>
+          <ScrollMenu Footer={Arrows} style={{ scrollbar: 'hidden' }}>
             {projects.map(project => (
               <Project
                 title={project.title}
@@ -133,19 +129,12 @@ const SlackPage = () => {
   )
 }
 
-function onWheel(apiObj, ev) {
-  const isThouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15
+function disableScroll() {
+  document.body.style.overflowAnchor = 'hidden'
+}
 
-  if (isThouchpad) {
-    ev.stopPropagation()
-    return
-  }
-
-  if (ev.deltaY < 0) {
-    apiObj.scrollNext()
-  } else if (ev.deltaY > 0) {
-    apiObj.scrollPrev()
-  }
+function enableScroll() {
+  document.body.style.overflowAnchor = 'scroll'
 }
 
 export default SlackPage
