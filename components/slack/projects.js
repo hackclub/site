@@ -2,7 +2,7 @@ const projects = [
   {
     title: 'Brainwave device for thought-based computer interaction.',
     description:
-      "BCI's team organizes in #nest Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
+      'The team of teens behind BCI is building both the hardware and software for a brainwave reading device to interact with computers using thoughts',
     img: 'bci',
     color: ['#ec3750', '#F58695'],
     itemId: 0
@@ -10,7 +10,7 @@ const projects = [
   {
     title: 'A free domain service.',
     description:
-      'Obl.ong’s team organizes in #oblong Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.',
+      'The teenage hackers behind Oblong are building a free domain service and non-profit to break down the barriers of entry for building a website.',
     img: 'oblong',
     color: ['#ff8c37', '#F2A510'],
     itemId: 1
@@ -18,7 +18,7 @@ const projects = [
   {
     title: 'An open source VPN.',
     description:
-      "Burrow's team organizes in #burrow Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
+      'Hate school WiFi? The team, lead by an ex-Apple engineer, behind Burrow is building an open source VPN to burrow through school firewalls and keep your data safe.',
     img: 'burrow',
     color: ['#f1c40f', '#FAE078'],
     itemId: 2
@@ -26,7 +26,7 @@ const projects = [
   {
     title: 'Free compute infrastructure.',
     description:
-      "Nest's team organizes in #nest Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
+      "The team behind Nest is building a free compute infrastructure for high schoolers to run their code on. It's like AWS, but free and for students.",
     img: 'nest',
     color: ['#33d6a6', '#51F5C5'],
     itemId: 3
@@ -34,7 +34,7 @@ const projects = [
   {
     title: 'A chat app and cell phone carrier.',
     description:
-      "Nest's team organizes in #nest Velit voluptate deserunt consequat. Velit voluptate deserunt consequat.Velit voluptate deserunt consequat.",
+      'The teenage PurpleBubble team are building a private, secure and open source chat app and cell phone carrier',
     img: 'purplebubble',
     color: ['#5bc0de', '#88e5f8'],
     itemId: 4
