@@ -18,7 +18,7 @@ const projects = [
   {
     title: 'An open source VPN.',
     description:
-      'Hate school WiFi? The team, lead by an ex-Apple engineer, behind Burrow is building an open source VPN to burrow through school firewalls and keep your data safe.',
+      'Lead by an ex-Apple engineer, the team behind Burrow is building an open source VPN to burrow through school firewalls and keep your data safe.',
     img: 'burrow',
     color: ['#f1c40f', '#FAE078'],
     itemId: 2
