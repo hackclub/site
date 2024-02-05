@@ -21,7 +21,7 @@ export default function Project({ title, description, color, img, itemId }) {
         transition: '700ms cubic-bezier(0.075, 0.02, 0.165, 1)',
         transformOrigin: 'center',
         mx: 16,
-        ml: `${itemId === 0 && 'calc(50vw - 36rem)'}`
+        ml: [0, `${itemId === 0 && 'calc(50vw - 36rem)'}`]
       }}
       itemId={itemId}
     >
@@ -33,7 +33,7 @@ export default function Project({ title, description, color, img, itemId }) {
           placeItems: 'center',
           height: ['12.5rem', '20rem'],
           placeSelf: 'center',
-          placeContent: 'end',
+          placeContent: 'end'
         }}
       >
         <Text
@@ -60,7 +60,7 @@ export default function Project({ title, description, color, img, itemId }) {
         sx={{
           visibility: ['hidden', 'visible'],
           height: '100%',
-          objectFit: 'cover',
+          objectFit: 'cover'
         }}
       />
     </Grid>
