@@ -540,6 +540,42 @@ const ShipPage = () => {
               </Text>
             </Flex>
           </Grid>
+
+          <Flex
+            as="div"
+            sx={{
+              flexDirection: 'row',
+              gap: 3,
+              alignItems: 'end',
+              margin: '0 auto'
+            }}
+          >
+            <Image
+              src="https://cloud-iddh16j0r-hack-club-bot.vercel.app/0stevew.png"
+              alt="A picture of Steve Wozniak who is a co-founder of Apple."
+              sx={{
+                width: 50,
+                height: 50
+              }}
+            />
+            <Flex
+              as="div"
+              sx={{ flexDirection: 'column', gap: 1, width: '90%' }}
+            >
+              <Text as="p" sx={{ fontSize: 20 }}>
+                <Balancer>
+                  "I’m so glad young people can create PCBs online. May your
+                  creativity change the world! Mine did.”
+                </Balancer>
+              </Text>
+              <Heading
+                as="h3"
+                sx={{ fontSize: 20, fontWeight: 500, fontStyle: 'italic' }}
+              >
+                <Balancer>-Steve Wozniak</Balancer>
+              </Heading>
+            </Flex>
+          </Flex>
         </Flex>
       </Box>
 
