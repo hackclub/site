@@ -547,7 +547,12 @@ const ShipPage = () => {
               flexDirection: 'row',
               gap: 3,
               alignItems: 'end',
-              margin: '0 auto'
+              justifyContent: 'center',
+              margin: '0 auto',
+              padding: '0.8rem 1rem',
+              borderRadius: 'default',
+              border: '1px dashed white',
+              background: '#000000',
             }}
           >
             <Image
@@ -568,12 +573,14 @@ const ShipPage = () => {
                   creativity change the world! Mine did.”
                 </Balancer>
               </Text>
-              <Heading
-                as="h3"
-                sx={{ fontSize: 20, fontWeight: 500, fontStyle: 'italic' }}
+              <Text
+                as="p"
+                sx={{ fontSize: 20, fontStyle: 'italic' }}
               >
-                <Balancer>-Steve Wozniak</Balancer>
-              </Heading>
+                <Balancer>
+                  -<span style={{ textDecoration: 'underline' }}>Steve Wozniak</span>, Apple co-founder
+                </Balancer>
+              </Text>
             </Flex>
           </Flex>
         </Flex>
