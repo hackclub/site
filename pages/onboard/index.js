@@ -578,7 +578,7 @@ const ShipPage = () => {
                 sx={{ fontSize: 20, fontStyle: 'italic' }}
               >
                 <Balancer>
-                  -<span style={{ textDecoration: 'underline' }}>Steve Wozniak</span>, Apple co-founder
+                  -<span style={{ textDecoration: 'underline' }}>Steve Wozniak "Woz"</span>, Apple co-founder, on Hack Club OnBoard
                 </Balancer>
               </Text>
             </Flex>
