@@ -39,7 +39,11 @@ export default function Project({ title, description, color, img, itemId }) {
         <Text
           as="h1"
           variant="title"
-          sx={{ width: ['full', 'copyUltra'], textAlign: 'center' }}
+          sx={{
+            width: ['full', 'copyUltra'],
+            textAlign: 'center',
+            fontSize: ['36px', 6]
+          }}
         >
           {title}
         </Text>
