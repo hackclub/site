@@ -21,17 +21,17 @@ export default function Project({ title, description, color, img, itemId }) {
         transition: '700ms cubic-bezier(0.075, 0.02, 0.165, 1)',
         transformOrigin: 'center',
         mx: 16,
-        ml: [0, `${itemId === 0 && 'calc(50vw - 36rem)'}`]
+        ml: [3, 3, 3, `${itemId === 0 && 'calc(50vw - 36rem)'}`]
       }}
       itemId={itemId}
     >
       <Box
         sx={{
-          paddingX: '16px',
+          paddingX: '8px',
           display: 'flex',
           flexDirection: 'column',
           placeItems: 'center',
-          height: ['12.5rem', '20rem'],
+          height: ['full', '12.5rem', '20rem'],
           placeSelf: 'center',
           placeContent: 'end'
         }}
@@ -58,8 +58,8 @@ export default function Project({ title, description, color, img, itemId }) {
       <Image
         src={`/slack/${img}.png`}
         sx={{
-          visibility: ['hidden', 'visible'],
-          height: '100%',
+          visibility: ['visible'],
+          height: ['100%'],
           objectFit: 'cover'
         }}
       />

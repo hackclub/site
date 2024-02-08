@@ -11,12 +11,12 @@ export default function Join() {
         overflowX: 'hidden',
         height: ['', '30rem'],
         paddingTop: ['2rem', 0],
-        display: ['grid', 'flex']
+        display: ['grid', 'grid', 'flex']
       }}
     >
       <Box
         sx={{
-          width: ['100%', '50%'],
+          width: ['100%', '100%', '50%'],
           paddingX: '32px',
           display: 'flex',
           alignItems: 'center',
@@ -50,8 +50,8 @@ export default function Join() {
       <Image
         src="https://cloud-j0p07nviw-hack-club-bot.vercel.app/0image.png"
         sx={{
-          width: ['100%', '50%'],
-          height: ['100%', '30rem'],
+          width: ['100%', '100%', '50%'],
+          height: ['100%', '100%', '30rem'],
           objectFit: 'cover',
           position: 'relative',
           top: 0

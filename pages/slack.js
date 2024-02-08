@@ -8,7 +8,7 @@ import 'react-horizontal-scrolling-menu/dist/styles.css'
 import { thousands } from '../lib/members'
 import projects from '../components/slack/projects'
 import Channels from '../components/slack/channels'
-import Join from '../components/slack/catchall'
+import Join from '../components/slack/join'
 import Footer from '../components/footer'
 import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
@@ -99,7 +99,7 @@ const SlackPage = () => {
         </Box>
       </Box>
       <Container sx={{ py: [4, 5] }}>
-        <Box sx={{ gap: '2rem', display: ['grid', 'flex'] }}>
+        <Box sx={{ gap: '2rem', display: ['grid', 'grid', 'flex'] }}>
           <Quote
             text="I knew it's where I wanted to be"
             person="Shawn"
