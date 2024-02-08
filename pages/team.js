@@ -150,6 +150,7 @@ export default function Team({ team }) {
                       teamRole={member.role}
                       text={member.bio}
                       pronouns={member.pronouns}
+					  key={member.name}
                     />
 				   ))}
 				  </Grid>
@@ -180,6 +181,7 @@ export default function Team({ team }) {
                       teamRole={member.role}
                       text={member.bio}
                       pronouns={member.pronouns}
+					  key={member.name}
                     />
 				   ))}
 				  </Grid>
@@ -211,6 +213,7 @@ export default function Team({ team }) {
                       teamRole={member.role}
                       text={member.bio}
                       pronouns={member.pronouns}
+					  key={member.name}
                     />
 				   ))}
 				  </Grid>
