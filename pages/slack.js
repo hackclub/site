@@ -84,7 +84,11 @@ const SlackPage = () => {
         }}
       >
         <Box onMouseEnter={disableScroll} onMouseLeave={enableScroll}>
-          <ScrollMenu Footer={Arrows} style={{ scrollbar: 'hidden' }}>
+          <ScrollMenu
+            Footer={Arrows}
+            transitionDuration={900}
+            style={{ scrollbar: 'hidden' }}
+          >
             {projects.map(project => (
               <Project
                 title={project.title}

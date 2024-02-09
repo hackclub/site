@@ -18,7 +18,6 @@ export default function Project({ title, description, color, img, itemId }) {
         overflow: 'clip',
         width: ['100vw', '40rem', '50rem', '70rem'],
         height: ['25rem', '40rem'],
-        transition: '700ms cubic-bezier(0.075, 0.02, 0.165, 1)',
         transformOrigin: 'center',
         mx: 16,
         ml: [3, 3, 3, `${itemId === 0 && 'calc(50vw - 36rem)'}`]
