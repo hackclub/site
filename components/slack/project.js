@@ -1,11 +1,6 @@
 import { Box, Grid, Image, Text } from 'theme-ui'
-import { VisibilityContext } from 'react-horizontal-scrolling-menu'
-import { useContext } from 'react'
 
 export default function Project({ title, description, color, img, itemId }) {
-  const visible = useContext(VisibilityContext)
-  const isVisible = visible.isItemVisible(itemId)
-
   return (
     <Grid
       sx={{
@@ -19,8 +14,9 @@ export default function Project({ title, description, color, img, itemId }) {
         width: ['100vw', '40rem', '50rem', '70rem'],
         height: ['25rem', '40rem'],
         transformOrigin: 'center',
-        mx: 16,
-        ml: [3, 3, 3, `${itemId === 0 && 'calc(50vw - 36rem)'}`]
+        mr: 16,
+        // this is v janky please ignore, thank you.
+        ml: ['1rem', '1rem', '1rem', `${itemId === 0 && 'calc(50vw - 36.5rem)'}`]
       }}
       itemId={itemId}
     >

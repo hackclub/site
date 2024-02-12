@@ -16,7 +16,6 @@ function Arrow({ direction, disabled, onClick }) {
         placeItems: 'center',
         display: 'flex',
         mr: 2,
-        ml: direction === 'left' && [3, 3, 3, 'calc(50vw - 36rem)'],
         opacity: disabled ? '0.5' : '1',
         pointerEvents: disabled ? 'none' : 'auto',
         transition: 'opacity 0.3s ease'
@@ -69,7 +68,9 @@ export default function Arrows() {
       sx={{
         display: 'flex',
         marginBottom: 32,
-        position: 'relative'
+        position: 'relative',
+        // this is v janky please ignore, thank you.
+        ml: ['1rem', '1rem', '1rem', 'calc(50vw - 36.5rem)']
       }}
     >
       <div style={{ display: 'flex' }}>

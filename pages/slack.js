@@ -80,7 +80,8 @@ const SlackPage = () => {
       <Box
         sx={{
           backgroundColor: '#F9FAFC',
-          paddingT: '1rem'
+          paddingT: '1rem',
+          overflow: 'hidden',
         }}
       >
         <Box onMouseEnter={disableScroll} onMouseLeave={enableScroll}>
@@ -89,7 +90,7 @@ const SlackPage = () => {
             transitionDuration={900}
             style={{ scrollbar: 'hidden' }}
           >
-            {projects.map(project => (
+            {projects.map((project, i) => (
               <Project
                 title={project.title}
                 description={project.description}
@@ -102,6 +103,7 @@ const SlackPage = () => {
           </ScrollMenu>
         </Box>
       </Box>
+
       <Container sx={{ py: [4, 5] }}>
         <Box sx={{ gap: '2rem', display: ['grid', 'grid', 'flex'] }}>
           <Quote
