@@ -373,8 +373,8 @@ const HackathonGrant = () => {
             logos found on the respective brand guides for{' '}
             <Link href="/brand" target="_blank">
               Hack Club
-            </Link>{'.'}
-            .
+            </Link>
+            {'.'}.
           </Text>
 
           {open ? (

@@ -613,7 +613,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                     justifyContent: 'start'
                   }}
                 >
-                  {modalOrganization.branding.logo &&
+                  {modalOrganization.branding.logo && (
                     <img
                       alt={`${modalOrganization.name}'s logo`}
                       src={modalOrganization.branding.logo}
@@ -625,7 +625,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                         boxShadow: '0px 0px 45px 0px rgba(0, 0, 0, 0.72)'
                       }}
                     />
-                  }
+                  )}
                   <Text
                     variant="title"
                     sx={{
@@ -1032,7 +1032,6 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             >
               EXPLORE IMPACT
             </Button>
-
           </Box>
         </Box>
 

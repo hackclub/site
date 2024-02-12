@@ -1,4 +1,4 @@
-import {Box, Grid, Image, Text} from 'theme-ui'
+import { Box, Grid, Image, Text } from 'theme-ui'
 import Buttons from './button'
 import CardModel from './card-model'
 import Tilt from '../../tilt'

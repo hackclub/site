@@ -631,7 +631,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Text as="p">2023 Form will be shared when ready.</Text>
               </Box>
               <Box>
-              <Button
+                <Button
                   as="a"
                   variant="outline"
                   href="https://cloud-q56a8ttty-hack-club-bot.vercel.app/0hack_foundation_2022_form_990.pdf"
@@ -860,7 +860,9 @@ const Philanthropy = ({ posts = [] }) => {
           </Fade>
           <Line />
           <Fade>
-            <Text as="h1" sx={{marginBottom: '20px'}}>Board of Directors</Text>
+            <Text as="h1" sx={{ marginBottom: '20px' }}>
+              Board of Directors
+            </Text>
           </Fade>
           <Grid gap={4} columns={[1, '1fr 2fr', '1fr 2fr']} mt={2}>
             <Box>
@@ -1019,12 +1021,16 @@ const Philanthropy = ({ posts = [] }) => {
           <Line />
           <Box>
             <Fade>
-              <Text as="h1" sx={{marginBottom: '20px'}}>Join our community of generous donors</Text>
+              <Text as="h1" sx={{ marginBottom: '20px' }}>
+                Join our community of generous donors
+              </Text>
             </Fade>
             <Grid gap={2} columns={[2, 4, 4]} mt={2}>
               <Box>
                 <Fade delay={50}>
-                  <Text as="h3" sx={{marginBottom: '8px'}}>Above $5M </Text>
+                  <Text as="h3" sx={{ marginBottom: '8px' }}>
+                    Above $5M{' '}
+                  </Text>
                 </Fade>
                 <Fade delay={70}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
@@ -1033,7 +1039,10 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <br></br>
                 <Fade delay={90}>
-                  <Text as="h3" sx={{marginBottom: '8px'}}> $1M - $5M </Text>
+                  <Text as="h3" sx={{ marginBottom: '8px' }}>
+                    {' '}
+                    $1M - $5M{' '}
+                  </Text>
                 </Fade>
                 <Fade delay={110}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
@@ -1045,17 +1054,24 @@ const Philanthropy = ({ posts = [] }) => {
                     Tobi Lutke
                   </Text>
                 </Fade>
-                <Fade delay={130}>
+                <Fade delay={145}>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Michael Dell
+                  </Text>
+                </Fade>
+                <Fade delay={150}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     The Libermans
                   </Text>
                 </Fade>
               </Box>
               <Box>
-                <Fade delay={140}>
-                  <Text as="h3" sx={{marginBottom: '8px'}}>$500k - $1M</Text>
+                <Fade delay={170}>
+                  <Text as="h3" sx={{ marginBottom: '8px' }}>
+                    $500k - $1M
+                  </Text>
                 </Fade>
-                <Fade delay={180}>
+                <Fade delay={190}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Lizzy Danhakl/Andrew Reed (3x)
                   </Text>
@@ -1078,7 +1094,9 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
               <Box>
                 <Fade delay={260}>
-                  <Text as="h3" sx={{marginBottom: '8px'}}>$200k - $500k</Text>
+                  <Text as="h3" sx={{ marginBottom: '8px' }}>
+                    $200k - $500k
+                  </Text>
                 </Fade>
                 <Fade delay={290}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
@@ -1113,7 +1131,9 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
               <Box>
                 <Fade delay={470}>
-                  <Text as="h3" sx={{marginBottom: '8px'}}>$100k- $200k</Text>
+                  <Text as="h3" sx={{ marginBottom: '8px' }}>
+                    $100k- $200k
+                  </Text>
                 </Fade>
                 <Fade delay={500}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>

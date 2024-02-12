@@ -40,6 +40,7 @@ import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
+import Wonderland from '../components/index/cards/wonderland'
 
 /** @jsxImportSource theme-ui */
 
@@ -410,15 +411,15 @@ function Page({
                         count === images.length - 2
                           ? images[0].src
                           : images.length - 1
-                          ? images[1].src
-                          : images[count + 2].src
+                            ? images[1].src
+                            : images[count + 2].src
                       }
                       alt={
                         count === images.length - 2
                           ? images[0].alt
                           : images.length - 1
-                          ? images[1].alt
-                          : images[count + 2].alt
+                            ? images[1].alt
+                            : images[count + 2].alt
                       }
                       width={3000}
                       height={2550}
@@ -675,6 +676,7 @@ function Page({
                 and make things together!
               </Text>
             </Box>
+            <Wonderland />
             <Pizza />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
@@ -778,7 +780,7 @@ function Page({
                             url={data.url}
                             message={data.message}
                             key={key}
-                            opacity={1 / (key/2 + 1)}
+                            opacity={1 / (key / 2 + 1)}
                           />
                         )
                       })}

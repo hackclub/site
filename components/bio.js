@@ -25,7 +25,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           overflowY: 'hidden',
           overscrollBehavior: 'contain',
           gridColumn: !spanTwo ? null : [null, null, `1 / span 2`],
-          position: 'relative',
+          position: 'relative'
         }}
         as={href && !text ? 'a' : 'div'}
         href={href}
