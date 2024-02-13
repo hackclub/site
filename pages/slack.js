@@ -22,6 +22,21 @@ const SlackPage = () => {
 
   return (
     <>
+      <style css>
+        {/*this hides the horizontal scrollbar in the projects gallery*/}
+        {` 
+        ::-webkit-scrollbar {
+          width:0px;
+        }
+
+          ::-webkit-scrollbar-track {
+          background:transparent;
+        }
+
+          ::-webkit-scrollbar-thumb {
+          background:transparent;
+        }`}
+      </style>
       <Meta
         as={Head}
         name="Join our Slack"
@@ -34,7 +49,7 @@ const SlackPage = () => {
         <Text>Hack Club Slack</Text>
       </Box>*/}
       <Header nameInputRef={nameInputRef} />
-      <Container sx={{ py: [4, 5] }}>
+      <Container sx={{ pt: [4, 5], pb: 4 }}>
         <Heading
           as="h2"
           variant="title"
@@ -81,10 +96,18 @@ const SlackPage = () => {
         sx={{
           backgroundColor: '#F9FAFC',
           paddingT: '1rem',
-          overflow: 'hidden',
+          overflow: 'hidden'
         }}
       >
-        <Box onMouseEnter={disableScroll} onMouseLeave={enableScroll}>
+        <Box
+          onMouseEnter={disableScroll}
+          onMouseLeave={enableScroll}
+          sx={{
+            msScrollbarTrackColor: 'transparent',
+            '::-webkit-scrollbar-track': 'background: transparent',
+            '::-webkit-scrollbar-thumb': 'background: transparent'
+          }}
+        >
           <ScrollMenu
             Footer={Arrows}
             transitionDuration={900}
