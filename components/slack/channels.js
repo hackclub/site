@@ -1,8 +1,9 @@
-import { Badge, Card, Flex, Grid, Heading, Image, Text } from 'theme-ui'
+import { Badge, Box, Card, Flex, Grid, Heading, Image, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import NextLink from 'next/link'
 import useSWR from 'swr'
 import fetcher from '../../lib/fetcher'
+import SlackEvents from './slack-events'
 
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
@@ -14,10 +15,11 @@ export default function Channels() {
   )
   return (
     <Grid
-      columns={[2, 9, 12]}
+      columns={[2, 9, 15]}
       gap={3}
       sx={{
         py: [3, 4],
+        h3: { my: 0 },
         '> div': {
           px: [2, 3],
           py: 4,
@@ -57,6 +59,42 @@ export default function Channels() {
         }
       }}
     >
+      <Box
+        as="aside"
+        sx={{
+          gridRow: [null, 'span 2'],
+          gridColumn: ['span 2', 'span 3'],
+          maxHeight: '100%',
+          overflow: 'hidden'
+        }}
+      >
+        <Heading
+          as="h2"
+          variant="subheadline"
+          sx={{
+            mt: 0,
+            mb: 0,
+            color: 'red',
+            textTransform: 'uppercase',
+            letterSpacing: 'headline'
+          }}
+        >
+          Live from our&nbsp;Slack <br />
+        </Heading>
+        <Text
+          as="p"
+          variant="caption"
+          sx={{
+            fontSize: 1,
+            fontWeight: 300,
+            fontStyle: 'italic',
+            mb: '16px'
+          }}
+        >
+          Waiting for more messages...
+        </Text>
+        <SlackEvents />
+      </Box>
       <NextLink href="/ship" passHref>
         <Card
           as="a"
@@ -111,7 +149,7 @@ export default function Channels() {
           !
         </Text>
       </Card>
-      <Card backgroundColor="orange">
+      <Card backgroundColor="green">
         <h3 sx={{ color: 'black' }}>#gamedev</h3>
       </Card>
       <Card
@@ -157,6 +195,13 @@ export default function Channels() {
             alt="Music notes"
             sx={{ height: '50px', width: '50px', ml: 2 }}
           />
+        </Flex>
+      </Card>
+      <Card bg="orange">
+        <Flex>
+          <Text as="h3" sx={{ placeSelf: 'center' }}>
+            #lounge
+          </Text>
         </Flex>
       </Card>
       <Card
