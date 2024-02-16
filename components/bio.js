@@ -41,10 +41,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           width={64}
           height={64}
           mr={3}
-          src={
-            img ||
-            require(`../public/team/${name.split(' ')[0].toLowerCase()}.jpg`)
-          }
+          src={img}
           alt={name}
           sx={{
             overflow: 'hidden',
