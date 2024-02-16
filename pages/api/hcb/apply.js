@@ -13,7 +13,9 @@ export default async function handler(req, res) {
     await fetch('https://hcb.hackclub.com/api/v1/events/create_demo', {
       body: JSON.stringify({
         email: data.userEmail,
-        name: data.eventName
+        name: data.eventName,
+        transparent: data.transparent
+        // country: data.eventCountryCode,
       }),
       method: 'POST',
       headers: {

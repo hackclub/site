@@ -15,7 +15,7 @@ export default function Secret({ reveal, ...props }) {
         right: 5,
         bottom: 0,
         transform: `${reveal ? 'translateY(0)' : 'translateY(100%)'}`,
-        transition: '1s',
+        transition: '2s',
         zIndex: 3
       }}
       {...props}

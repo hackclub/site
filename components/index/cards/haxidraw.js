@@ -1,12 +1,10 @@
 import CardModel from './card-model'
-import { Box, Flex, Grid, Image, Link, Text } from 'theme-ui'
+import { Box, Flex, Grid, Text } from 'theme-ui'
 import Buttons from './button'
-import styled from '@emotion/styled'
-import RelativeTime from 'react-relative-time'
 
 /** @jsxImportSource theme-ui */
 
-export default function Haxidraw() {
+export default function Haxidraw({ stars }) {
   return (
     <CardModel
       github_link="https://github.com/hackclub/blot/"
@@ -17,8 +15,9 @@ export default function Haxidraw() {
         backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.4) 70%), url('https://cloud-1tnl6uqvw-hack-club-bot.vercel.app/0image.png')`
       }}
       position={[null, 'bottom', 'bottom']}
-      highlight="#271932"
+      highlight="#2b27f8d9"
       filter="brightness(0.8)"
+      stars={stars}
     >
       <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
         Blot
@@ -30,8 +29,8 @@ export default function Haxidraw() {
             variant="subtitle"
             sx={{ zIndex: 2, position: 'relative' }}
           >
-            Blot is a W.I.P. open source drawing machine and online editor,
-            designed to be a fun and beginner friendly introduction to digital
+            Blot is an open source drawing machine and online editor, designed
+            to be a fun and beginner friendly introduction to digital
             fabrication and generative art.
           </Text>
         </Box>
@@ -49,7 +48,7 @@ export default function Haxidraw() {
             <Buttons
               id="52"
               icon="code"
-              link="https://blot.hackclub.dev"
+              link="https://blot.hackclub.dev/editor"
               primary="rgba(255, 255, 255, 0.9)"
               sx={{ color: 'black' }}
             >

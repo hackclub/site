@@ -163,14 +163,14 @@ export default function PersonalInfoForm({
       </Field>
       <Field
         name="accommodations"
-        label="Accessability needs"
-        description="Please specify any accommodations or accessability needs you have so we can support you during onboarding and while using HCB"
+        label="Accessibility needs"
+        description="Please specify any accommodations, accessibility needs, or other important information so we can support you during onboarding and while using HCB"
         requiredFields={requiredFields}
       >
         <Input
           name="accommodations"
           id="accommodations"
-          placeholder="I need a screen reader"
+          placeholder="I use a screen reader/I need increased text size during onboarding"
           sx={{ ...AutofillColourFix }}
         />
       </Field>
