@@ -32,7 +32,7 @@
     "axios": "^1.6.2",
     "cookies-next": "^4.0.0",
     "country-list-js": "^3.1.8",
-    "cursor-effects": "^1.0.12",
+    "cursor-effects": "^1.0.15",
     "date-fns": "^2.30.0",
     "devtools-detect": "^4.0.1",
     "form-data": "^4.0.0",
