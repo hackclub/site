@@ -459,7 +459,7 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
   )
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
 	try {
   const team = await fetch("https://internal.hackclub.com/team").then((res) => res.json())
   return { props: { team } }
