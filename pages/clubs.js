@@ -340,8 +340,9 @@ const Page = () => (
               <a>hackathons</a>
             </NextLink>{' '}
             like <a href="https://lioncityhacks.com">Lion City Hacks</a> &{' '}
-            <a href="https://www.youtube.com/watch?v=Hs-hMMeHXaY">HackOC</a>, take part in year long
-            programs like <NextLink href="/onboard">OnBoard</NextLink>, and compete in events
+            <a href="https://www.youtube.com/watch?v=Hs-hMMeHXaY">HackOC</a>,
+            take part in year long programs like{' '}
+            <NextLink href="/onboard">OnBoard</NextLink>, and compete in events
             like the{' '}
             <a href="http://www.congressionalappchallenge.us">
               Congressional App Challenge
@@ -453,7 +454,7 @@ const Page = () => (
               <>
                 We build tools, such as{' '}
                 <a href="https://sprig.hackclub.com">Sprig</a>, that your
-                members can use to make projects with in meetings! Built more of
+                members can use to make projects with in meetings! Build more of
                 them with us in our <Link href="/slack">Slack community</Link>.
               </>
             }
@@ -466,9 +467,8 @@ const Page = () => (
               <>
                 Come prepared to every meeting with over 100{' '}
                 <a href="https://workshops.hackclub.com">workshops</a> (3 years’
-                worth!) and 18 <a href="https://jams.hackclub.com">Jams</a>{' '}
-                that guide your club members through making fun, creative
-                projects.
+                worth!) and 19 <a href="https://jams.hackclub.com">Jams</a> that
+                guide your club members through making fun, creative projects.
               </>
             }
           ></Feature>
@@ -710,4 +710,3 @@ const Page = () => (
 )
 
 export default Page
-

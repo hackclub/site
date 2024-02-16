@@ -29,8 +29,8 @@ export default function Haxidraw({ stars }) {
             variant="subtitle"
             sx={{ zIndex: 2, position: 'relative' }}
           >
-            Blot is an open source drawing machine and online editor,
-            designed to be a fun and beginner friendly introduction to digital
+            Blot is an open source drawing machine and online editor, designed
+            to be a fun and beginner friendly introduction to digital
             fabrication and generative art.
           </Text>
         </Box>

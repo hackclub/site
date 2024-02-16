@@ -81,7 +81,8 @@ export default function Recap() {
             name="$500 grants"
             desc={
               <>
-                Join HCB to receive a $500 grant for your hackathon and a suite of financial tools.
+                Join HCB to receive a $500 grant for your hackathon and a suite
+                of financial tools.
               </>
             }
           />

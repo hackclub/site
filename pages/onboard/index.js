@@ -1,14 +1,14 @@
-import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from "theme-ui";
-import Balancer from "react-wrap-balancer";
-import Head from "next/head";
-import Meta from "@hackclub/meta";
-import Nav from "../../components/nav";
-import Footer from "../../components/footer";
-import FadeIn from "../../components/fade-in";
-import Sparkles from "../../components/sparkles";
-import Tilt from "../../components/tilt";
-import usePrefersReducedMotion from "../../lib/use-prefers-reduced-motion";
-import { useEffect, useRef, useState } from "react";
+import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from 'theme-ui'
+import Balancer from 'react-wrap-balancer'
+import Head from 'next/head'
+import Meta from '@hackclub/meta'
+import Nav from '../../components/nav'
+import Footer from '../../components/footer'
+import FadeIn from '../../components/fade-in'
+import Sparkles from '../../components/sparkles'
+import Tilt from '../../components/tilt'
+import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
+import { useEffect, useRef, useState } from 'react'
 
 /**
  * @type {import('theme-ui').ThemeUIStyleObject}
@@ -459,7 +459,7 @@ const ShipPage = () => {
                 </Balancer>
               </Heading>
 
-              <Flex sx={{ mt: 16, gap: 10, flexDirection: ["column", "row"] }}>
+              <Flex sx={{ mt: 16, gap: 10, flexDirection: ['column', 'row'] }}>
                 <Button
                   variant="ctaLg"
                   as="a"
@@ -540,6 +540,49 @@ const ShipPage = () => {
               </Text>
             </Flex>
           </Grid>
+
+          <Flex
+            as="div"
+            sx={{
+              flexDirection: 'row',
+              gap: 3,
+              alignItems: 'end',
+              justifyContent: 'center',
+              margin: '0 auto',
+              padding: '0.8rem 1rem',
+              borderRadius: 'default',
+              border: '1px dashed white',
+              background: '#000000',
+            }}
+          >
+            <Image
+              src="https://cloud-iddh16j0r-hack-club-bot.vercel.app/0stevew.png"
+              alt="A picture of Steve Wozniak who is a co-founder of Apple."
+              sx={{
+                width: 50,
+                height: 50
+              }}
+            />
+            <Flex
+              as="div"
+              sx={{ flexDirection: 'column', gap: 1, width: '90%' }}
+            >
+              <Text as="p" sx={{ fontSize: 20 }}>
+                <Balancer>
+                  "I’m so glad young people can create PCBs online. May your
+                  creativity change the world! Mine did.”
+                </Balancer>
+              </Text>
+              <Text
+                as="p"
+                sx={{ fontSize: 20, fontStyle: 'italic' }}
+              >
+                <Balancer>
+                  -<span style={{ textDecoration: 'underline' }}>Steve Wozniak "Woz"</span>, Apple co-founder, on Hack Club OnBoard
+                </Balancer>
+              </Text>
+            </Flex>
+          </Flex>
         </Flex>
       </Box>
 
@@ -707,10 +750,7 @@ const ShipPage = () => {
               </Flex>
             </a> */}
 
-            <a
-              href="https://jams.hackclub.com/batch/usb-hub"
-              target="_blank"
-            >
+            <a href="https://jams.hackclub.com/batch/usb-hub" target="_blank">
               <Flex as="article">
                 <Text as="p" sx={{ pr: [100, 100, 100, 0] }}>
                   Hugo's <strong>USB-C hub</strong> for the best{' '}
@@ -744,7 +784,8 @@ const ShipPage = () => {
                   Karmanyaah's <strong>digital level</strong>, SparkleTilt.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  Learn how to make your own&nbsp;<span className="arrow">&rarr;</span>
+                  Learn how to make your own&nbsp;
+                  <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
                   src="https://cloud-myjum5y6g-hack-club-bot.vercel.app/0longhorn2.png"
@@ -769,7 +810,8 @@ const ShipPage = () => {
                   Build your own <strong>hardware key</strong>.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  Learn how to make your own&nbsp;<span className="arrow">&rarr;</span>
+                  Learn how to make your own&nbsp;
+                  <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
                   src="https://cloud-6a1wip38p-hack-club-bot.vercel.app/1totk_key.png"
@@ -1079,10 +1121,14 @@ const ShipPage = () => {
             >
               <Text as="h3">Learn to PCB</Text>
               <Text as="p">
-                Read our tutorials to learn how to make a simple
-                circuit boards from start to end.
+                Read our tutorials to learn how to make a simple circuit boards
+                from start to end.
               </Text>
-              <Button as="a" href="https://jams.hackclub.com/tag/pcb" target="_blank">
+              <Button
+                as="a"
+                href="https://jams.hackclub.com/tag/pcb"
+                target="_blank"
+              >
                 Start the Tutorial
               </Button>
             </Flex>

@@ -19,9 +19,10 @@ import FadeIn from '../components/fade-in'
 import { keyframes } from '@emotion/react'
 import { useState } from 'react'
 
-const year = 2023;
-const announcementMessage = "https://hackclub.slack.com/archives/C01D7AHKMPF/p1671483616032169";
-const signupsOpen = true;
+const year = 2023
+const announcementMessage =
+  'https://hackclub.slack.com/archives/C01D7AHKMPF/p1671483616032169'
+const signupsOpen = true
 
 const Hero = styled(Box)`
   background-image: linear-gradient(
@@ -193,16 +194,16 @@ function Field({ placeholder, label, name, type, value, onChange }) {
 function Signup() {
   const [values, setValues] = useState({})
   return (
-    <Base method="get" action="https://forms.hackclub.com/2023-secret-santa-form">
+    <Base
+      method="get"
+      action="https://forms.hackclub.com/2023-secret-santa-form"
+    >
       <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>
         Register!
       </Heading>
       <Text sx={{ textAlign: 'left', color: 'muted' }}>
         Be sure to check out the{' '}
-        <Link
-          href={announcementMessage}
-          sx={{ color: 'blue' }}
-        >
+        <Link href={announcementMessage} sx={{ color: 'blue' }}>
           rules
         </Link>{' '}
         before you sign up!

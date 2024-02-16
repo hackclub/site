@@ -1,8 +1,8 @@
 import CardModel from './card-model'
-import {Box, Flex, Grid, Image, Link, Text} from 'theme-ui'
+import { Box, Flex, Grid, Image, Link, Text } from 'theme-ui'
 import Buttons from './button'
 import Dot from '../../dot'
-import {formatDate} from '../../../lib/dates'
+import { formatDate } from '../../../lib/dates'
 
 /** @jsxImportSource theme-ui */
 const Cover = () => (

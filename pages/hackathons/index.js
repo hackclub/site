@@ -27,11 +27,11 @@ export default function Hackathons({ data }) {
         />
         <Box as="main">
           <Landing />
-          
+
           <Overview />
 
           <ScrollingHackathons eventData={data} title={true} />
-          
+
           <KeepExploring />
           <Money />
           <Slack />
@@ -46,22 +46,24 @@ export default function Hackathons({ data }) {
   )
 }
 export async function getStaticProps() {
-  let data;
+  let data
   try {
-    const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming');
+    const res = await fetch(
+      'https://hackathons.hackclub.com/api/events/upcoming'
+    )
     if (res.ok) {
-      data = await res.json();
+      data = await res.json()
     } else {
-      data = []; 
+      data = []
     }
   } catch (error) {
-    data = []; 
+    data = []
   }
 
   return {
     props: {
-      data, 
+      data
     },
     revalidate: 10
-  };
+  }
 }
