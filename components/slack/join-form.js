@@ -13,7 +13,6 @@ import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 import { getCookie, hasCookie } from 'cookies-next'
-import { useEffect } from 'react'
 
 const JoinForm = ({ sx = {} }) => {
   const router = useRouter()
@@ -30,8 +29,6 @@ const JoinForm = ({ sx = {} }) => {
   })
 
   const eventReferrer = useField('event').value
-  const isAdult = useField('educationLevel').value === 'tertiary'
-  const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
   const createNums = (start, end) => {
     let nums = []
@@ -46,19 +43,19 @@ const JoinForm = ({ sx = {} }) => {
   const months = createNums(1, 12)
   const days = createNums(1, 31)
 
-  const month = useField('birthday').value
+  const month = useField('month').value
   const day = useField('day').value
   const year = useField('year').value
 
   const birthday = new Date(year, month - 1, day)
-
   const age = new Date().getFullYear() - birthday.getFullYear()
 
-  const isPersonAdult = age >= 18
+  let isAdult = age >= 18
+  if (month === '' || day === '' || year === '') {
+    isAdult = false
+  }
 
-  useEffect(() => {
-    console.log(isPersonAdult)
-  })
+  const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true' || isAdult
 
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
@@ -170,7 +167,7 @@ const JoinForm = ({ sx = {} }) => {
           />
         </Label>
 
-        {isAdult && (
+        {/*{isAdult && (
           <Text
             variant="caption"
             color="secondary"
@@ -184,7 +181,7 @@ const JoinForm = ({ sx = {} }) => {
             a email at{' '}
             <Link href="mailto:team@hackclub.com">team@hackclub.com</Link>.
           </Text>
-        )}
+        )}*/}
 
         {!isAdult && (
           <Box>
