@@ -13,6 +13,7 @@ import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 import { getCookie, hasCookie } from 'cookies-next'
+import { useEffect } from 'react'
 
 const JoinForm = ({ sx = {} }) => {
   const router = useRouter()
@@ -44,6 +45,20 @@ const JoinForm = ({ sx = {} }) => {
   const years = createNums(1925, new Date().getFullYear())
   const months = createNums(1, 12)
   const days = createNums(1, 31)
+
+  const month = useField('birthday').value
+  const day = useField('day').value
+  const year = useField('year').value
+
+  const birthday = new Date(year, month - 1, day)
+
+  const age = new Date().getFullYear() - birthday.getFullYear()
+
+  const isPersonAdult = age >= 18
+
+  useEffect(() => {
+    console.log(isPersonAdult)
+  })
 
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
@@ -94,7 +109,7 @@ const JoinForm = ({ sx = {} }) => {
           <Label>
             Birthday
             <Select
-              {...useField('continent')}
+              {...useField('month')}
               required
               sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
@@ -111,7 +126,7 @@ const JoinForm = ({ sx = {} }) => {
           <Label>
             &nbsp;
             <Select
-              {...useField('continent')}
+              {...useField('day')}
               required
               sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
@@ -128,7 +143,7 @@ const JoinForm = ({ sx = {} }) => {
           <Label>
             &nbsp;
             <Select
-              {...useField('continent')}
+              {...useField('year')}
               required
               sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
