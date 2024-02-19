@@ -32,6 +32,19 @@ const JoinForm = ({ sx = {} }) => {
   const isAdult = useField('educationLevel').value === 'tertiary'
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
+  const createNums = (start, end) => {
+    let nums = []
+    for (let num = start; num <= end; num++) {
+      nums.push(num)
+    }
+
+    return nums
+  }
+
+  const years = createNums(1925, new Date().getFullYear())
+  const months = createNums(1, 12)
+  const days = createNums(1, 31)
+
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
@@ -68,7 +81,7 @@ const JoinForm = ({ sx = {} }) => {
               id="joiner_full_name"
             />
           </Label>
-          <Label>
+          <Label sx={{ width: '100%' }}>
             Email address
             <Input
               {...useField('email')}
@@ -76,44 +89,63 @@ const JoinForm = ({ sx = {} }) => {
               required
             />
           </Label>
+        </Grid>
+        <Grid columns={[1, 3]} gap={1} sx={{ columnGap: 2 }}>
           <Label>
-            Your home continent
+            Birthday
             <Select
               {...useField('continent')}
               required
               sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
               <option value="" selected disabled hidden>
-                Select a continent...
+                Month
               </option>
-              <option>Africa</option>
-              <option>Asia</option>
-              <option>Europe</option>
-              <option>North America</option>
-              <option value="Australia">Oceania / Australia</option>
-              <option>South America</option>
+              {months.map(month => (
+                <option key={month} value={month}>
+                  {month}
+                </option>
+              ))}
             </Select>
           </Label>
           <Label>
-            Current education level
+            &nbsp;
             <Select
-              {...useField('educationLevel')}
+              {...useField('continent')}
               required
-              sx={{
-                color: useField('educationLevel').value === '' ? 'muted' : ''
-              }}
+              sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
               <option value="" selected disabled hidden>
-                Select a level...
+                Day
               </option>
-              <option value="middle">
-                Middle School (approx. 11 to 14)&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+              {days.map(day => (
+                <option key={day} value={day}>
+                  {day}
+                </option>
+              ))}
+            </Select>
+          </Label>
+          <Label>
+            &nbsp;
+            <Select
+              {...useField('continent')}
+              required
+              sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
+            >
+              <option value="" selected disabled hidden>
+                Year
               </option>
-              <option value="high">High School (approx. 14 to 18)</option>
-              <option value="tertiary">Tertiary Education (18+)</option>
+              {years
+                .map(year => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))
+                .reverse()}
             </Select>
           </Label>
         </Grid>
+
         <Label>
           Why do you want to join the Hack Club Slack?
           <Textarea
