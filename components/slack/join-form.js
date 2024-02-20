@@ -32,30 +32,16 @@ let allMonths = [
 
 const JoinForm = ({ sx = {} }) => {
   const [isAdult, setIsAdult] = useState(false)
-
-  const [month, setMonth] = useState('')
-  const [day, setDay] = useState('')
   const [year, setYear] = useState('')
-
-  console.log(month, day, year)
 
   const router = useRouter()
 
   useEffect(() => {
-    if (month === '' || day === '' || year === '') {
-      setIsAdult(false)
-    }
+    const age = new Date().getFullYear() - new Date(year).getFullYear()
 
-    const birthday = new Date(year, month - 1, day)
-    const age = new Date().getFullYear() - birthday.getFullYear()
-
-    console.log(age, ' years old')
-
-    if (age >= 18) {
-      setIsAdult(true)
-    }
-    console.log(isAdult, 'is adult?')
-  }, [day, month, year])
+    setIsAdult(age >= 18)
+    console.log(isAdult)
+  }, [isAdult, year])
 
   const createNums = (start, end) => {
     let nums = []
@@ -113,7 +99,7 @@ const JoinForm = ({ sx = {} }) => {
             </Text>
           </Box>
         )}
-        <Grid columns={[1, 2]} gap={1} sx={{ columnGap: 2 }}>
+        <Grid columns={[1, 3]} gap={1} sx={{ columnGap: 2 }}>
           <Label>
             Full name
             <Input
@@ -131,8 +117,31 @@ const JoinForm = ({ sx = {} }) => {
               required
             />
           </Label>
+          <Label>
+            Birthday
+            <Select
+              required
+              onChange={e => setYear(e.target.value)}
+              sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
+            >
+              <option value="" selected disabled hidden>
+                Year
+              </option>
+              <option value="middle" disabled hidden>
+                Hi, I'm hidden!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
+              </option>
+              {years
+                .map(year => (
+                  <option key={year} value={year}>
+                    {year}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </option>
+                ))
+                .reverse()}
+            </Select>
+          </Label>
         </Grid>
-        <Grid columns={[1, 3]} gap={1} sx={{ columnGap: 2 }}>
+        {/* <Grid columns={[1, 3]} gap={1} sx={{ columnGap: 2 }}>
           <Label>
             Birthday
             <Select
@@ -190,7 +199,7 @@ const JoinForm = ({ sx = {} }) => {
                 .reverse()}
             </Select>
           </Label>
-        </Grid>
+        </Grid>*/}
         <Label>
           Why do you want to join the Hack Club Slack?
           <Textarea
