@@ -125,14 +125,10 @@ export default function First({ stats }) {
                 </Box>
                 <Box
                   as="span"
-                  sx={{ display: 'flex', flexDirection: 'row', mr: 4 }}
+                  sx={{ display: 'flex', flexDirection: 'row' }}
                 >
                   <Icon glyph="checkmark" size={28} color="#33d6A6" />
                   <Text sx={{ ml: 1 }}>Debit cards</Text>
-                </Box>
-                <Box as="span" sx={{ display: 'flex', flexDirection: 'row' }}>
-                  <Icon glyph="checkmark" size={28} color="#33d6A6" />
-                  <Text sx={{ ml: 1 }}>No start-up costs</Text>
                 </Box>
               </Box>
             </Badge>
