@@ -15,22 +15,46 @@ import Submit from '../submit'
 import { getCookie, hasCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
 
+let allMonths = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+]
+
 const JoinForm = ({ sx = {} }) => {
   const [isAdult, setIsAdult] = useState(false)
 
+  const [month, setMonth] = useState('')
+  const [day, setDay] = useState('')
+  const [year, setYear] = useState('')
+
+  console.log(month, day, year)
+
   const router = useRouter()
 
-  const month = useField('month').value
-  const day = useField('day').value
-  const year = useField('year').value
-
   useEffect(() => {
+    if (month === '' || day === '' || year === '') {
+      setIsAdult(false)
+    }
+
     const birthday = new Date(year, month - 1, day)
     const age = new Date().getFullYear() - birthday.getFullYear()
+
+    console.log(age, ' years old')
 
     if (age >= 18) {
       setIsAdult(true)
     }
+    console.log(isAdult, 'is adult?')
   }, [day, month, year])
 
   const createNums = (start, end) => {
@@ -112,8 +136,8 @@ const JoinForm = ({ sx = {} }) => {
           <Label>
             Birthday
             <Select
-              {...useField('month')}
               required
+              onChange={e => setMonth(e.target.value)}
               sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
               <option value="" selected disabled hidden>
@@ -121,7 +145,7 @@ const JoinForm = ({ sx = {} }) => {
               </option>
               {months.map(month => (
                 <option key={month} value={month}>
-                  {month}
+                  {allMonths[month - 1]}
                 </option>
               ))}
             </Select>
@@ -129,8 +153,8 @@ const JoinForm = ({ sx = {} }) => {
           <Label>
             &nbsp;
             <Select
-              {...useField('day')}
               required
+              onChange={e => setDay(e.target.value)}
               sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
               <option value="" selected disabled hidden>
@@ -146,8 +170,8 @@ const JoinForm = ({ sx = {} }) => {
           <Label>
             &nbsp;
             <Select
-              {...useField('year')}
               required
+              onChange={e => setYear(e.target.value)}
               sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
               <option value="" selected disabled hidden>
