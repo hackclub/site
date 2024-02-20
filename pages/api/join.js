@@ -36,7 +36,7 @@ export default async function handler(req, res) {
         error: '*PUT that request away!* (Method not allowed, use POST)'
       })
     case 'POST':
-      console.log("POST request received. WOO!")
+      console.log('POST request received. WOO!')
       break
     default:
       return res.status(405).json({ error: 'Method not allowed, use POST' })
@@ -45,7 +45,11 @@ export default async function handler(req, res) {
   const data = req.body || {}
   const open = process.env.NEXT_PUBLIC_OPEN === 'true'
   const waitlist = !open
-  const isAdult = data.educationLevel === 'tertiary'
+  const isAdult = data.isAdult
+
+  console.log('data', data)
+
+  console.log('adult? ', isAdult)
 
   const secrets = (process.env.NAUGHTY || '').split(',')
 
@@ -64,7 +68,8 @@ export default async function handler(req, res) {
     Invited: !waitlist,
     Club: data.club ? data.club : '',
     Event: data.event ? data.event : '',
-    IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
+    IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress,
+    Denied: isAdult
   })
 
   if (waitlist) {

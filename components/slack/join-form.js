@@ -13,22 +13,25 @@ import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 import { getCookie, hasCookie } from 'cookies-next'
+import { useEffect, useState } from 'react'
 
 const JoinForm = ({ sx = {} }) => {
-  const router = useRouter()
-  const { status, formProps, useField } = useForm('/api/join/', null, {
-    clearOnSubmit: 60000,
-    method: 'POST',
-    initData: hasCookie('continent')
-      ? {
-          continent: getCookie('continent'),
-          reason: router.query.reason,
-          event: router.query.event
-        }
-      : { reason: router.query.reason, event: router.query.event }
-  })
+  const [isAdult, setIsAdult] = useState(false)
 
-  const eventReferrer = useField('event').value
+  const router = useRouter()
+
+  const month = useField('month').value
+  const day = useField('day').value
+  const year = useField('year').value
+
+  useEffect(() => {
+    const birthday = new Date(year, month - 1, day)
+    const age = new Date().getFullYear() - birthday.getFullYear()
+
+    if (age >= 18) {
+      setIsAdult(true)
+    }
+  }, [day, month, year])
 
   const createNums = (start, end) => {
     let nums = []
@@ -43,19 +46,22 @@ const JoinForm = ({ sx = {} }) => {
   const months = createNums(1, 12)
   const days = createNums(1, 31)
 
-  const month = useField('month').value
-  const day = useField('day').value
-  const year = useField('year').value
+  const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
-  const birthday = new Date(year, month - 1, day)
-  const age = new Date().getFullYear() - birthday.getFullYear()
+  const { status, formProps, useField } = useForm('/api/join/', null, {
+    clearOnSubmit: 60000,
+    method: 'POST',
+    initData: hasCookie('continent')
+      ? {
+          continent: getCookie('continent'),
+          reason: router.query.reason,
+          event: router.query.event,
+          isAdult
+        }
+      : { reason: router.query.reason, event: router.query.event }
+  })
 
-  let isAdult = age >= 18
-  if (month === '' || day === '' || year === '') {
-    isAdult = false
-  }
-
-  const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true' || isAdult
+  const eventReferrer = useField('event').value
 
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
@@ -147,17 +153,20 @@ const JoinForm = ({ sx = {} }) => {
               <option value="" selected disabled hidden>
                 Year
               </option>
+              <option value="middle" disabled hidden>
+                Hi, I'm hidden!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
+              </option>
               {years
                 .map(year => (
                   <option key={year} value={year}>
-                    {year}
+                    {year}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   </option>
                 ))
                 .reverse()}
             </Select>
           </Label>
         </Grid>
-
         <Label>
           Why do you want to join the Hack Club Slack?
           <Textarea
@@ -166,7 +175,6 @@ const JoinForm = ({ sx = {} }) => {
             required
           />
         </Label>
-
         {/*{isAdult && (
           <Text
             variant="caption"
@@ -182,40 +190,37 @@ const JoinForm = ({ sx = {} }) => {
             <Link href="mailto:team@hackclub.com">team@hackclub.com</Link>.
           </Text>
         )}*/}
-
-        {!isAdult && (
-          <Box>
-            <Submit
-              status={status}
-              mt={'0px!important'}
-              labels={{
-                default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
-                error: 'Something went wrong',
-                success: useWaitlist
-                  ? "We'll be in touch soon!"
-                  : 'Check your email for invite!'
+        <Box>
+          <Submit
+            status={status}
+            mt={'0px!important'}
+            labels={{
+              default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
+              error: 'Something went wrong',
+              success: useWaitlist
+                ? "You're on the Waitlist!"
+                : 'Check your email for invite!'
+            }}
+            disabled={status === 'loading' || status === 'success'}
+          />
+          {status === 'success' && !useWaitlist && (
+            <Text
+              variant="caption"
+              color="secondary"
+              as="div"
+              sx={{
+                maxWidth: '600px',
+                textAlign: 'center',
+                mt: 3
               }}
-              disabled={status === 'loading' || status === 'success'}
-            />
-            {status === 'success' && (
-              <Text
-                variant="caption"
-                color="secondary"
-                as="div"
-                sx={{
-                  maxWidth: '600px',
-                  textAlign: 'center',
-                  mt: 3
-                }}
-              >
-                Search for "Slack" in your mailbox! Not there?{' '}
-                <Link href="mailto:slack@hackclub.com" sx={{ ml: 1 }}>
-                  Send us an email
-                </Link>
-              </Text>
-            )}
-          </Box>
-        )}
+            >
+              Search for "Slack" in your mailbox! Not there?{' '}
+              <Link href="mailto:slack@hackclub.com" sx={{ ml: 1 }}>
+                Send us an email
+              </Link>
+            </Text>
+          )}
+        </Box>
       </form>
     </Card>
   )
