@@ -11,6 +11,7 @@ import Recap from '../../components/onboard/recap'
 import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
 import { useEffect, useRef, useState } from 'react'
 import sleep from '../../lib/sleep'
+import Announcement from '../../components/announcement'
 
 /**
  * @type {import('theme-ui').ThemeUIStyleObject}
@@ -198,9 +199,18 @@ const ShipPage = () => {
             position: 'relative'
           }}
         >
+          <Box sx={{ pt: [3, 6]}}>
+            <Announcement
+              copy="Steve Wozniak, Apple co-founder, about OnBoard"
+              caption="I’m so glad young people can create PCBs online."
+              imgSrc="https://cloud-iddh16j0r-hack-club-bot.vercel.app/0stevew.png"
+              imgAlt="A picture of Steve Wozniak who is a co-founder of Apple."
+              color="primary"
+            />
+          </Box>
           <Flex
             sx={{
-              pt: 80,
+              pt: [3,1],
               width: '100%',
               maxWidth: 'layout',
               alignItems: 'center'
