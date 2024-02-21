@@ -44,7 +44,7 @@ const fixed = props =>
 const Root = styled(Box)`
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 1000;
   ${fixed};
   @media print {
@@ -98,7 +98,7 @@ const layout = props =>
           height: 64px;
           font-weight: bold;
           font-size: ${theme.fontSizes[2]}px;
-          width: 100%;
+          width: 100vw;
           max-width: 18rem;
           &:not(:last-child) {
             border-bottom: 1px solid rgba(48, 48, 48, 0.125);
@@ -146,10 +146,10 @@ const Navigation = props => (
       <Link>Hackathons</Link>
     </NextLink>
     <NextLink href="/slack" passHref>
-      <Link>Slack</Link>
+      <Link>Community</Link>
     </NextLink>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
-    <Link href="https://jams.hackclub.com/">Jams</Link>
+    <Link href="https://jams.hackclub.com/">Workshops</Link>
     <NextLink href="/onboard" passHref>
       <Link>OnBoard</Link>
     </NextLink>
@@ -205,13 +205,13 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   const baseColor = dark
     ? color || 'white'
     : color === 'white' && scrolled
-    ? 'black'
-    : color
+      ? 'black'
+      : color
   const toggleColor = dark
     ? color || 'snow'
     : toggled || (color === 'white' && scrolled)
-    ? 'slate'
-    : color
+      ? 'slate'
+      : color
 
   return (
     <Root

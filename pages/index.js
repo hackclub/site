@@ -1,17 +1,18 @@
 import {
+  Badge,
   Box,
   Button,
   Card,
+  Flex,
   Grid,
   Heading,
-  Flex,
-  Badge,
   Link,
   Text,
   Image
 } from 'theme-ui'
 import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import BGImg from '../components/background-image'
@@ -19,7 +20,7 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Outernet from '../components/index/cards/outernet'
+import Pizza from '../components/index/cards/pizza'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -39,6 +40,8 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
+import Onboard from '../components/index/cards/onboard'
+import Wonderland from '../components/index/cards/wonderland'
 
 /** @jsxImportSource theme-ui */
 
@@ -55,7 +58,8 @@ function Page({
   game,
   gameTitle,
   events,
-  carouselCards
+  carouselCards,
+  context
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -64,6 +68,8 @@ function Page({
   let [github, setGithub] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
+
+  const { asPath } = useRouter()
 
   let jsConfetti = useRef()
 
@@ -126,6 +132,24 @@ function Page({
     }
   }, [count, images.length])
 
+  // Spotlight effect
+  const spotlightRef = useRef()
+  useEffect(() => {
+    const handler = event => {
+      var rect = document.getElementById('spotlight').getBoundingClientRect()
+      var x = event.clientX - rect.left //x position within the element.
+      var y = event.clientY - rect.top //y position within the element.
+
+      spotlightRef.current.style.background = `radial-gradient(
+				circle at ${x}px ${y}px,
+				rgba(132, 146, 166, 0) 10px,
+				rgba(249, 250, 252, 0.9) 80px
+			)`
+    }
+    window.addEventListener('mousemove', handler)
+    return () => window.removeEventListener('mousemove', handler)
+  }, [])
+
   return (
     <>
       <Meta
@@ -162,15 +186,15 @@ function Page({
           reveal={reveal}
           onMouseEnter={() => {
             setHover(true)
+            console.log(hover)
           }}
           onMouseOut={() => {
-            setHover(false)
+            setReveal(false)
           }}
         />
         <Konami action={easterEgg}>
           {"Hey, I'm an Easter Egg! Look at me!"}
         </Konami>
-
         <Box
           as="header"
           sx={{
@@ -242,7 +266,6 @@ function Page({
                 >
                   <Text
                     onClick={() => {
-                      setHover(false)
                       !reveal ? setReveal(true) : setReveal(false)
                     }}
                     sx={{
@@ -306,7 +329,7 @@ function Page({
               }}
               title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
             >
-              Hackers at Outernet in VT
+              Hackers at Outernet in Vermont
             </Badge>
           </Box>
         </Box>
@@ -428,15 +451,15 @@ function Page({
                         count === images.length - 2
                           ? images[0].src
                           : images.length - 1
-                          ? images[1].src
-                          : images[count + 2].src
+                            ? images[1].src
+                            : images[count + 2].src
                       }
                       alt={
                         count === images.length - 2
                           ? images[0].alt
                           : images.length - 1
-                          ? images[1].alt
-                          : images[count + 2].alt
+                            ? images[1].alt
+                            : images[count + 2].alt
                       }
                       width={3000}
                       height={2550}
@@ -631,21 +654,38 @@ function Page({
         </Box>
         <Carousel cards={carouselCards} />
         <Box
+          id="spotlight"
           as="section"
           sx={{
-            background: 'snow',
-            backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
+            backgroundImage: `
+              linear-gradient(rgba(249, 250, 252, 0.7), rgba(249, 250, 252, 0.7)),
+              url('https://icons.hackclub.com/api/icons/0x8492a6/glyph:rep.svg')
+            `,
             backgroundSize: '40px 40px',
             backgroundRepeat: 'repeat',
-            backgroundPosition: '10% 10%'
+            position: 'relative'
           }}
         >
+          <Box
+            ref={spotlightRef}
+            sx={{
+              position: 'absolute',
+              zIndex: 2,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              bg: 'snow',
+              pointerEvents: 'none'
+            }}
+          />
           <Box
             sx={{
               position: 'relative',
               width: '90vw',
               maxWidth: 'layout',
-              margin: 'auto'
+              margin: 'auto',
+              zIndex: 5
             }}
             py={[4, 4, 5]}
           >
@@ -676,7 +716,8 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Outernet />
+            <Wonderland />
+            <Pizza />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
@@ -776,8 +817,10 @@ function Page({
                             img={data.userImage}
                             user={data.user}
                             time={data.time}
+                            url={data.url}
                             message={data.message}
                             key={key}
+                            opacity={1 / (key / 2 + 1)}
                           />
                         )
                       })}
@@ -791,12 +834,13 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Haxidraw />
+              <Onboard stars={stars.onboard.stargazerCount} delay={100} />
+              <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
                   delay={300}
-                  stars={stars.sprigHardware.stargazerCount}
+                  stars={stars.sprig.stargazerCount}
                   consoleCount={consoleCount}
                 />
               </Box>
@@ -880,6 +924,7 @@ function Page({
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
+
               {/* <Events events={events} /> */}
               <HCB data={bankData} />
             </Box>
@@ -1110,8 +1155,79 @@ function Page({
             </Grid>
           </Box>
         </Box>
+
+        {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
+          'z' && (
+          <>
+            <Box
+              sx={{
+                position: 'fixed',
+                top: 0,
+                width: '100%',
+                zIndex: 1000
+              }}
+            >
+              <Box
+                sx={{
+                  position: 'relative',
+                  margin: 'auto',
+                  width: 'fit-content',
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                right: 0,
+                zIndex: 1000,
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </Box>
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                zIndex: 1000,
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </Box>
+          </>
+        )}
+        <MailingList />
       </Box>
-      <MailingList />
       <Footer
         dark
         sx={{
@@ -1184,9 +1300,20 @@ export async function getStaticProps() {
   const consoleCount = await getConsoles()
 
   // Hackathons: get latest hackathons
-  const hackathonsData = await fetch(
-    'https://hackathons.hackclub.com/api/events/upcoming'
-  ).then(res => res.json())
+  let hackathonsData
+  try {
+    const response = await fetch(
+      'https://hackathons.hackclub.com/api/events/upcoming'
+    )
+    if (response.ok) {
+      hackathonsData = await response.json()
+    } else {
+      hackathonsData = [] // or some default value if the fetch fails
+    }
+  } catch (error) {
+    hackathonsData = [] // or some default value if an error occurs
+  }
+  hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
   let events = await fetch(
     'https://events.hackclub.com/api/events/upcoming/'

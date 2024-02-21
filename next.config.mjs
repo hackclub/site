@@ -1,7 +1,3 @@
-import million from 'million/compiler';
-
-const millionConfig = { auto: true }
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -287,10 +283,13 @@ const nextConfig = {
   }
 }
 
+import million from 'million/compiler'
 import withMDX from '@next/mdx'
-const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
-
 import withTM from 'next-transpile-modules'
+
+const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
 const withAnimeJS = withTM(['animejs'])
 
-export default million.next(withAnimeJS(withMDXConfig(nextConfig)), millionConfig);
+export default million.next(withAnimeJS(withMDXConfig(nextConfig)), {
+  auto: true
+})

@@ -49,7 +49,12 @@ const Service = ({ href, icon, name = '', ...props }) => (
   </Link>
 )
 
-const Footer = ({ dark = false, children, ...props }) => (
+const Footer = ({
+  dark = false,
+  email = 'team@hackclub.com',
+  children,
+  ...props
+}) => (
   <Base
     color={dark ? 'muted' : 'slate'}
     py={[4, 5]}
@@ -108,6 +113,7 @@ const Footer = ({ dark = false, children, ...props }) => (
           <Heading as="h2" variant="subheadline" mb={3}>
             Resources
           </Heading>
+          <Link href="https://hackclub.com/pizza">Clubs Pizza Grant</Link>
           <Link href="https://events.hackclub.com/">Community Events</Link>
           <Link href="https://jams.hackclub.com/">Jams</Link>
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
@@ -170,7 +176,7 @@ const Footer = ({ dark = false, children, ...props }) => (
               icon="instagram"
               name="Instagram"
             />
-            <Service href="mailto:team@hackclub.com" icon="email-fill" />
+            <Service href={`mailto:${email}`} icon="email-fill" />
           </Grid>
           <Text my={2}>
             <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>

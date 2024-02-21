@@ -1,13 +1,13 @@
 import {
+  Box,
   Card,
-  Label,
-  Input,
-  Textarea,
-  Select,
   Grid,
-  Text,
+  Input,
+  Label,
   Link,
-  Box
+  Select,
+  Text,
+  Textarea
 } from 'theme-ui'
 import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
@@ -17,7 +17,7 @@ import { getCookie, hasCookie } from 'cookies-next'
 const JoinForm = ({ sx = {} }) => {
   const router = useRouter()
   const { status, formProps, useField } = useForm('/api/join/', null, {
-    clearOnSubmit: 5000,
+    clearOnSubmit: 60000,
     method: 'POST',
     initData: hasCookie('continent')
       ? {
@@ -139,17 +139,37 @@ const JoinForm = ({ sx = {} }) => {
         )}
 
         {!isAdult && (
-          <Submit
-            status={status}
-            mt={'0px!important'}
-            labels={{
-              default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
-              error: 'Something went wrong',
-              success: useWaitlist
-                ? "We'll be in touch soon!"
-                : 'Email coming soon!'
-            }}
-          />
+          <Box>
+            <Submit
+              status={status}
+              mt={'0px!important'}
+              labels={{
+                default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
+                error: 'Something went wrong',
+                success: useWaitlist
+                  ? "We'll be in touch soon!"
+                  : 'Check your email for invite!'
+              }}
+              disabled={status === 'loading' || status === 'success'}
+            />
+            {status === 'success' && (
+              <Text
+                variant="caption"
+                color="secondary"
+                as="div"
+                sx={{
+                  maxWidth: '600px',
+                  textAlign: 'center',
+                  mt: 3
+                }}
+              >
+                Search for "Slack" in your mailbox! Not there?{' '}
+                <Link href="mailto:slack@hackclub.com" sx={{ ml: 1 }}>
+                  Send us an email
+                </Link>
+              </Text>
+            )}
+          </Box>
         )}
       </form>
     </Card>

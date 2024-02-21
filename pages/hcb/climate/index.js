@@ -563,7 +563,10 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               borderRadius: '10px',
               position: 'relative',
               display: 'flex',
-              flexDirection: 'column'
+              boxSizing: 'border-box',
+              flexDirection: 'column',
+              maxHeight: '90vh',
+              overflow: 'scroll'
             }}
             onClick={e => {
               e.stopPropagation()
@@ -610,17 +613,19 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                     justifyContent: 'start'
                   }}
                 >
-                  <img
-                    alt={`${modalOrganization.name}'s logo`}
-                    src={modalOrganization.branding.logo}
-                    sx={{
-                      width: '100px',
-                      height: '100px',
-                      borderRadius: '8px',
-                      marginRight: [0, 4, 4],
-                      boxShadow: '0px 0px 45px 0px rgba(0, 0, 0, 0.72)'
-                    }}
-                  />
+                  {modalOrganization.branding.logo && (
+                    <img
+                      alt={`${modalOrganization.name}'s logo`}
+                      src={modalOrganization.branding.logo}
+                      sx={{
+                        width: '100px',
+                        height: '100px',
+                        borderRadius: '8px',
+                        marginRight: [0, 4, 4],
+                        boxShadow: '0px 0px 45px 0px rgba(0, 0, 0, 0.72)'
+                      }}
+                    />
+                  )}
                   <Text
                     variant="title"
                     sx={{
@@ -669,13 +674,15 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   </ThemeBadge>
                 ))}
 
-                {badges.forOrg(modalOrganization).map((badge, i) => (
-                  <Tooltip.N key={i} text={badge.tooltip}>
-                    <span class="tooltipped">
-                      <Badge badge={badge} />
-                    </span>
-                  </Tooltip.N>
-                ))}
+                {badges.forOrg(modalOrganization).map((badge, i) => {
+                  return (
+                    <Tooltip.N key={i} text={badge.tooltip} id={badge.id}>
+                      <span class={`tooltipped-${badge.id}`}>
+                        <Badge badge={badge} />
+                      </span>
+                    </Tooltip.N>
+                  )
+                })}
               </Flex>
 
               <Flex
@@ -1025,23 +1032,6 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             >
               EXPLORE IMPACT
             </Button>
-            <Button
-              variant="outlineLg"
-              as="a"
-              href="#apply"
-              sx={{
-                mt: [3, 2],
-                ml: 2,
-                mb: [4, 0],
-                borderColor: 'green',
-                borderWidth: '2px',
-                boxSizing: 'border-box',
-                color: 'white',
-                height: '56px'
-              }}
-            >
-              LEARN MORE
-            </Button>
           </Box>
         </Box>
 
@@ -1077,7 +1067,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
               />
             </Box>
           </Container>
-          <Container pt={4}>
+          <Container py={4}>
             <Flex>
               <Box sx={{ flexGrow: 1, pr: [0, 3], mb: 3 }}>
                 <Input
@@ -1134,7 +1124,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                 </Box>
               </Box>
             )}
-            <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ mt: 3 }}>
+            <Grid columns={[1, 2, 3]} gap={[3, 4]} sx={{ my: 3 }}>
               {organizations
                 .map(org => new Organization(org))
                 .filter(organization => {

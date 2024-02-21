@@ -96,7 +96,7 @@ const Page = () => (
   <>
     <Meta
       as={Head}
-      title="Clubs – Hack Club"
+      title="Clubs"
       description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
       image="https://cloud-epiki4yvg.vercel.app/2020-09-09_drbp62kayjuyyy0ek89mf9fwcp5t4kuz.jpeg"
     />
@@ -125,13 +125,6 @@ const Page = () => (
         alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
         priority
       />
-      {/* <Announcement
-        copy="Epoch: celebrate the New Year with Hack Club."
-        caption="Join 150+ hackers in Delhi for a magical high-school hackathon!"
-        href="https://epoch.hackclub.com"
-        iconLeft="explore"
-        color="primary"
-      /> */}
 
       <SlideDown duration={768}>
         <Heading
@@ -346,16 +339,11 @@ const Page = () => (
             <NextLink href="/hackathons" passHref>
               <a>hackathons</a>
             </NextLink>{' '}
-            like <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a>{' '}
-            &{' '}
-            <a href="https://www.sfchronicle.com/bayarea/article/Hack-the-Fog-makes-history-as-San-12729895.php">
-              Hack the Fog
-            </a>
-            , run summer programs like{' '}
-            <a href="https://web.archive.org/web/20200808171549/http://thecspn.com/?p=43434">
-              Hack Camp
-            </a>
-            , and compete in events like the{' '}
+            like <a href="https://lioncityhacks.com">Lion City Hacks</a> &{' '}
+            <a href="https://www.youtube.com/watch?v=Hs-hMMeHXaY">HackOC</a>,
+            take part in year long programs like{' '}
+            <NextLink href="/onboard">OnBoard</NextLink>, and compete in events
+            like the{' '}
             <a href="http://www.congressionalappchallenge.us">
               Congressional App Challenge
             </a>
@@ -466,7 +454,7 @@ const Page = () => (
               <>
                 We build tools, such as{' '}
                 <a href="https://sprig.hackclub.com">Sprig</a>, that your
-                members can use to make projects with in meetings! Built more of
+                members can use to make projects with in meetings! Build more of
                 them with us in our <Link href="/slack">Slack community</Link>.
               </>
             }
@@ -479,8 +467,8 @@ const Page = () => (
               <>
                 Come prepared to every meeting with over 100{' '}
                 <a href="https://workshops.hackclub.com">workshops</a> (3 years’
-                worth!) that guide your club members through making fun,
-                creative projects.
+                worth!) and 19 <a href="https://jams.hackclub.com">Jams</a> that
+                guide your club members through making fun, creative projects.
               </>
             }
           ></Feature>
@@ -712,14 +700,6 @@ const Page = () => (
         }
       }}
     >
-      <BGImg
-        width={2544}
-        height={2048}
-        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
-        src={FooterImgFile}
-        placeholder="blur"
-        alt="Globe with hundreds of Hack Clubs"
-      />
       <style>
         {`a{
           color: #338eda

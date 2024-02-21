@@ -45,8 +45,7 @@ export default function Outernet() {
             alignItems: 'end',
             justifyContent: 'flex-end'
           }}
-        >
-        </Flex>
+        ></Flex>
 
         {/* <Box sx={{ mt: ['-40px', '-40px', '-150px'] }}>
           

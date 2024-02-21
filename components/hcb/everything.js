@@ -52,12 +52,12 @@ export default function Everything({ fee, partner = false }) {
                   item.includes('signup')
                     ? 'bolt'
                     : item.includes('card')
-                    ? 'card'
-                    : item.includes('Transparency')
-                    ? 'explore'
-                    : item.includes('Physical')
-                    ? 'email'
-                    : 'enter'
+                      ? 'card'
+                      : item.includes('Transparency')
+                        ? 'explore'
+                        : item.includes('Physical')
+                          ? 'email'
+                          : 'enter'
                 }
               >
                 {item}
@@ -73,8 +73,8 @@ export default function Everything({ fee, partner = false }) {
                       item.startsWith('Instant')
                         ? 'bolt'
                         : item.includes('form')
-                        ? 'link'
-                        : 'enter'
+                          ? 'link'
+                          : 'enter'
                     }
                   >
                     {item}

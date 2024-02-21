@@ -24,21 +24,21 @@ async function postData(url = '', data = {}, headers = {}) {
 }
 
 export default async function handler(req, res) {
-  if (req.method === 'OPTIONS') {
-    return res.status(200).send('YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.')
-  }
-  if (req.method === 'GET') {
-    return res
-      .status(405)
-      .json({ error: '*GET outta here!* (Method not allowed, use POST)' })
-  }
-  if (req.method === 'PUT') {
-    return res.status(405).json({
-      error: '*PUT that request away!* (Method not allowed, use POST)'
-    })
-  }
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed, use POST' })
+  switch (req.method) {
+    case 'OPTIONS':
+      return res.status(200).send('YIPPE YAY. YOU HAVE CLEARANCE TO PROCEED.')
+    case 'GET':
+      return res
+        .status(405)
+        .json({ error: '*GET outta here!* (Method not allowed, use POST)' })
+    case 'PUT':
+      return res.status(405).json({
+        error: '*PUT that request away!* (Method not allowed, use POST)'
+      })
+    case 'POST':
+      break
+    default:
+      return res.status(405).json({ error: 'Method not allowed, use POST' })
   }
 
   const data = req.body || {}
@@ -48,16 +48,14 @@ export default async function handler(req, res) {
 
   const secrets = (process.env.NAUGHTY || '').split(',')
 
-  for (const secret of secrets) {
-    if (secret === req.headers['x-forwarded-for']) {
-      return res.json({
-        status: 'success',
-        message: 'You’ve been invited to Slack!'
-      })
-    }
+  if (secrets.includes(req.headers['x-forwarded-for'])) {
+    return res.json({
+      status: 'success',
+      message: 'You’ve been invited to Slack!'
+    })
   }
 
-  await joinTable.create({
+  const airtablePromise = joinTable.create({
     'Full Name': data.name,
     'Email Address': data.email,
     Student: !isAdult,
@@ -68,26 +66,33 @@ export default async function handler(req, res) {
     IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
   })
 
-  if (!waitlist) {
-    let result = await postData(
-      'https://toriel.hackclub.com/slack-invite',
-      {
-        email: data.email,
-        ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress,
-        continent: data.continent,
-        teen: !isAdult,
-        educationLevel: data.educationLevel,
-        reason: data.reason,
-        event: data.event,
-        userAgent: req.headers['user-agent']
-      },
-      { authorization: `Bearer ${process.env.TORIEL_KEY}` }
-    )
-    res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
-  } else {
-    res.json({
+  if (waitlist) {
+    return res.json({
       status: 'success',
       message: 'Your request will be reviewed soon.'
     })
   }
+
+  const slackPromise = postData(
+    'https://toriel.hackclub.com/slack-invite',
+    {
+      email: data.email,
+      ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress,
+      continent: data.continent,
+      teen: !isAdult,
+      educationLevel: data.educationLevel,
+      reason: data.reason,
+      event: data.event,
+      userAgent: req.headers['user-agent']
+    },
+    { authorization: `Bearer ${process.env.TORIEL_KEY}` }
+  )
+
+  Promise.all([airtablePromise, slackPromise])
+    .then(() =>
+      res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
+    )
+    .catch(error => {
+      res.status(500).json({ error })
+    })
 }

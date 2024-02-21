@@ -18,12 +18,12 @@ export default function Field({
   /* Fill in the field input element with the value from sessionStorage.
     Note: the custom checkbox component does this in its own useEffect hook. */
   useEffect(() => {
-    const value = sessionStorage.getItem('bank-signup-' + name)
+    const value = router.query[name] || sessionStorage.getItem('bank-signup-' + name)
     if (value) {
       const input = document.getElementById(name)
       if (input) input.value = value
     }
-  }, [name])
+  }, [router.query, name])
 
   return (
     <FlexCol gap={2} width={'100%'}>

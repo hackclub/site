@@ -53,7 +53,7 @@ export default function Bank({ stats }) {
           <Start stats={stats} />
         </Box>
       </Box>
-      <Footer dark key="footer" />
+      <Footer dark key="footer" email="hcb@hackclub.com" />
     </>
   )
 }

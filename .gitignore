@@ -7,3 +7,5 @@ public/sitemap.xml
 .vercel
 .vscode
 yarn-error.log
+bun.lockb
+.idea
