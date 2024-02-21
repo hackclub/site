@@ -5325,10 +5325,10 @@ jest-worker@27.0.0-next.5:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-js-confetti@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.npmjs.org/js-confetti/-/js-confetti-0.11.0.tgz"
-  integrity sha512-Hc7I3VI4r4H0nq5q/oQK+JJwGoYRYVHK72fGk8E9Ay1dbh+aiZ9yl0yFp1K4oYeq7YFDQAndYChwqLPA3QWQuA==
+js-confetti@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/js-confetti/-/js-confetti-0.12.0.tgz#5ed74dc6f430c0137115f350b2e3f1f119840157"
+  integrity sha512-1R0Akxn3Zn82pMqW65N1V2NwKkZJ75bvBN/VAb36Ya0YHwbaSiAJZVRr/19HBxH/O8x2x01UFAbYI18VqlDN6g==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
