@@ -45,11 +45,10 @@ export default async function handler(req, res) {
   const data = req.body || {}
   const open = process.env.NEXT_PUBLIC_OPEN === 'true'
   const waitlist = !open
-  const isAdult = data.isAdult
+  const isAdult = data.year ? new Date().getFullYear() - data.year >= 18 : false
 
   console.log('data', data)
-
-  console.log('adult? ', isAdult)
+  console.log('isAdult', isAdult)
 
   const secrets = (process.env.NAUGHTY || '').split(',')
 

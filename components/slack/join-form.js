@@ -13,22 +13,7 @@ import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 import { getCookie, hasCookie } from 'cookies-next'
-import { useEffect, useState } from 'react'
-
-let allMonths = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-]
+import { useReducer, useState } from 'react'
 
 const JoinForm = ({ sx = {} }) => {
   const [isAdult, setIsAdult] = useState(false)
@@ -36,12 +21,16 @@ const JoinForm = ({ sx = {} }) => {
 
   const router = useRouter()
 
-  useEffect(() => {
+  function handleYearChange(e) {
+    const year = e.target.value
+    setYear(year)
+
     const age = new Date().getFullYear() - new Date(year).getFullYear()
 
     setIsAdult(age >= 18)
+
     console.log(isAdult)
-  }, [isAdult, year])
+  }
 
   const createNums = (start, end) => {
     let nums = []
@@ -53,8 +42,6 @@ const JoinForm = ({ sx = {} }) => {
   }
 
   const years = createNums(1925, new Date().getFullYear())
-  const months = createNums(1, 12)
-  const days = createNums(1, 31)
 
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
@@ -65,8 +52,7 @@ const JoinForm = ({ sx = {} }) => {
       ? {
           continent: getCookie('continent'),
           reason: router.query.reason,
-          event: router.query.event,
-          isAdult
+          event: router.query.event
         }
       : { reason: router.query.reason, event: router.query.event }
   })
@@ -120,8 +106,8 @@ const JoinForm = ({ sx = {} }) => {
           <Label>
             Birthday
             <Select
+              {...useField('year')}
               required
-              onChange={e => setYear(e.target.value)}
               sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
               <option value="" selected disabled hidden>
@@ -134,72 +120,13 @@ const JoinForm = ({ sx = {} }) => {
               {years
                 .map(year => (
                   <option key={year} value={year}>
-                    {year}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {year}
                   </option>
                 ))
                 .reverse()}
             </Select>
           </Label>
         </Grid>
-        {/* <Grid columns={[1, 3]} gap={1} sx={{ columnGap: 2 }}>
-          <Label>
-            Birthday
-            <Select
-              required
-              onChange={e => setMonth(e.target.value)}
-              sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
-            >
-              <option value="" selected disabled hidden>
-                Month
-              </option>
-              {months.map(month => (
-                <option key={month} value={month}>
-                  {allMonths[month - 1]}
-                </option>
-              ))}
-            </Select>
-          </Label>
-          <Label>
-            &nbsp;
-            <Select
-              required
-              onChange={e => setDay(e.target.value)}
-              sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
-            >
-              <option value="" selected disabled hidden>
-                Day
-              </option>
-              {days.map(day => (
-                <option key={day} value={day}>
-                  {day}
-                </option>
-              ))}
-            </Select>
-          </Label>
-          <Label>
-            &nbsp;
-            <Select
-              required
-              onChange={e => setYear(e.target.value)}
-              sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
-            >
-              <option value="" selected disabled hidden>
-                Year
-              </option>
-              <option value="middle" disabled hidden>
-                Hi, I'm hidden!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;
-              </option>
-              {years
-                .map(year => (
-                  <option key={year} value={year}>
-                    {year}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  </option>
-                ))
-                .reverse()}
-            </Select>
-          </Label>
-        </Grid>*/}
         <Label>
           Why do you want to join the Hack Club Slack?
           <Textarea
@@ -230,9 +157,10 @@ const JoinForm = ({ sx = {} }) => {
             labels={{
               default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
               error: 'Something went wrong',
-              success: useWaitlist
-                ? "You're on the Waitlist!"
-                : 'Check your email for invite!'
+              success:
+                useWaitlist ?? isAdult
+                  ? "You're on the Waitlist!"
+                  : 'Check your email for invite!'
             }}
             disabled={status === 'loading' || status === 'success'}
           />
@@ -256,6 +184,47 @@ const JoinForm = ({ sx = {} }) => {
         </Box>
       </form>
     </Card>
+  )
+}
+
+function AdultChecker() {
+  const [isAdult, setIsAdult] = useReducer(false)
+  const [year, setYear] = useState('')
+
+  function handleYearChange(e) {
+    const year = e.target.value
+    setYear(year)
+
+    const age = new Date().getFullYear() - new Date(year).getFullYear()
+
+    setIsAdult(age >= 18)
+
+    console.log(isAdult)
+  }
+
+  return (
+    <Label>
+      Birthday
+      <Select
+        required
+        onChange={handleYearChange}
+        sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
+      >
+        <option value="" selected disabled hidden>
+          Year
+        </option>
+        <option value="middle" disabled hidden>
+          Hi, I'm hidden!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+        </option>
+        {years
+          .map(year => (
+            <option key={year} value={year}>
+              {year}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </option>
+          ))
+          .reverse()}
+      </Select>
+    </Label>
   )
 }
 
