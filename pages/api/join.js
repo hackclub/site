@@ -61,14 +61,13 @@ export default async function handler(req, res) {
 
   const airtablePromise = joinTable.create({
     'Full Name': data.name,
-    'Email Address': data.email,
+    'Email Address': !isAdult ? data.email : null,
     Student: !isAdult,
     Reason: data.reason,
     Invited: !waitlist,
     Club: data.club ? data.club : '',
     Event: data.event ? data.event : '',
-    IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress,
-    Denied: isAdult
+    IP: req.headers['x-forwarded-for'] || req.socket.remoteAddress
   })
 
   if (waitlist) {
