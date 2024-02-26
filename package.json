@@ -68,8 +68,7 @@
     "theme-ui": "^0.14",
     "tinytime": "^0.2.6",
     "turndown": "^7.1.2",
-    "vanilla-tilt": "^1.8.1",
-    "yarn": "^1.22.21"
+    "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
     "eslint": "8.55.0",

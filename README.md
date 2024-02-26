@@ -6,15 +6,21 @@ Hack Club's new website. This codebase is what runs on [hackclub.com](https://ha
 
 Download the code to your computer:
 
-    $ git clone https://github.com/hackclub/site && cd site
+```shell
+$ git clone https://github.com/hackclub/site && cd site
+```
 
 Install dependencies:
 
-    $ yarn
+```shell
+$ pnpm i
+```
 
 Start running the website on your computer:
 
-    $ yarn dev
+```shell
+$ pnpm run dev
+```
 
 And then open up your web browser and go to [localhost:3000](http://localhost:3000).
 
