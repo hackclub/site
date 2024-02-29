@@ -128,7 +128,7 @@ export default function Page() {
       <Meta
         as={Head}
         title="Fiscal Sponsorship"
-        description="What is fiscal sponsorship?"
+        description="Start your nonprofit with our fiscal sponsorship: a 501(c)(3) legal entity, bank account, automatic taxes & accounting, and best-in-class app."
         image="/hcb/og-image.png"
       />
       <ForceTheme theme="light" />
@@ -214,9 +214,10 @@ export default function Page() {
           </Heading>
           <Text as="p" variant="lead" sx={{ mt: 4, mb: 4 }}>
             <Balancer>
-              Start your nonprofit with our <strong>fiscal sponsorship</strong>:
-              a 501(c)(3) legal entity, bank account, automatic taxes &
-              accounting, and best-in-class app.
+              Start your nonprofit with{' '}
+              <strong>our fiscal sponsorship program, HCB</strong>: a 501(c)(3)
+              legal entity, bank account, automatic taxes & accounting, and
+              best-in-class app.
             </Balancer>
           </Text>
           <Link href="/hcb/apply" passHref legacyBehavior>
@@ -224,6 +225,7 @@ export default function Page() {
               as="a"
               variant="lg"
               sx={{
+                mt: 3,
                 bg: 'white',
                 color: '#ec555c',
                 textTransform: 'none',
@@ -330,7 +332,7 @@ export default function Page() {
 
       <Box id="fees" as="section" sx={{ position: 'relative', py: 5 }}>
         <Container>
-          <Grid columns={[null, 2]} gap={[4, 5]}>
+          <Grid columns={[null, 2]} gap={5}>
             <div>
               <Text
                 variant="title"
@@ -355,6 +357,8 @@ export default function Page() {
               as="p"
               variant="headline"
               sx={{
+                width: 'fit-content',
+                gridRow: ['1', 'auto'],
                 '@supports (-webkit-background-clip: text)': {
                   backgroundRepeat: 'no-repeat',
                   WebkitBackgroundClip: 'text',
@@ -366,8 +370,7 @@ export default function Page() {
                   {
                     backgroundImage:
                       'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                  },
-                width: 'fit-content'
+                  }
               }}
               style={{ margin: 0 }}
             >
@@ -392,7 +395,11 @@ export default function Page() {
         <Container>
           <Grid columns={[null, 2]} gap={[4, 5]}>
             <div>
-              <Heading variant="headline" as="h2">
+              <Heading
+                variant="headline"
+                as="h2"
+                sx={{ marginBlockStart: [null, 4] }}
+              >
                 <Balancer>
                   The fiscal sponsor of&nbsp;choice for the best funders.
                 </Balancer>

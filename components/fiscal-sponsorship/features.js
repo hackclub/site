@@ -4,14 +4,14 @@ import Balancer from 'react-wrap-balancer'
 
 export default function Features() {
   return (
-    <Box sx={{ pt: 5, pb: 6, bg: 'snow' }}>
+    <Box sx={{ pt: 5, pb: [5, 6], bg: 'snow' }}>
       <Container>
         <Heading as="h2" variant="title" sx={{ mb: 3 }}>
           Financial tools for your nonprofit,
           <br />
           built by a nonprofit.
         </Heading>
-        <Text as="p" variant="lead" sx={{ color: 'muted', maxWidth: '52ch' }}>
+        <Text as="p" variant="lead" sx={{ color: 'slate', maxWidth: '52ch' }}>
           Unlike other fiscal sponsors, we don’t license software from
           for-profit entities. Since day one, we’ve built beautiful, self-serve
           software to empower you to raise and spend money without
