@@ -1,11 +1,9 @@
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { Box, Flex, Text } from 'theme-ui'
+import { Box, Flex, Heading, Grid } from 'theme-ui'
 import ForceTheme from '../../../components/force-theme'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
-import FlexCol from '../../../components/flex-col'
-import Progress from '../../../components/fiscal-sponsorship/apply/progress'
 import NavButton from '../../../components/fiscal-sponsorship/apply/nav-button'
 import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
 import FormContainer from '../../../components/fiscal-sponsorship/apply/form-container'
@@ -15,7 +13,7 @@ import PersonalInfoForm from '../../../components/fiscal-sponsorship/apply/perso
 import AlertModal from '../../../components/fiscal-sponsorship/apply/alert-modal'
 import { geocode } from '../../../lib/fiscal-sponsorship/apply/address-validation'
 
-const valiadateAddress = async step => {
+const validateAddress = async step => {
   // Validate the address
   if (step === 3) {
     // Get the raw personal address input
@@ -55,9 +53,12 @@ export default function Apply() {
   const [formError, setFormError] = useState(null)
 
   const requiredFields = [
-    [],
-    ['eventName', 'eventLocation'],
-    ['firstName', 'lastName', 'userEmail', 'userBirthday', 'contactOption']
+    'eventName',
+    'eventLocation',
+    'firstName',
+    'lastName',
+    'userEmail',
+    'userBirthday'
   ]
 
   useEffect(() => {
@@ -81,59 +82,54 @@ export default function Apply() {
   return (
     <>
       <Meta as={Head} title="Apply for HCB" />
-      <ForceTheme theme="dark" />
+      <ForceTheme theme="light" />
 
-      <Box
+      <Grid
+        columns={[null, null, 2]}
         sx={{
-          display: 'grid',
-          gap: 5,
-          gridTemplateAreas: [
-            '"title" "form" "form" "nav"',
-            null,
-            null,
-            '"title form" "title form" "nav form"'
-          ],
-          height: ['auto', null, null, '100vh'],
-          p: [4, 5]
+          gap: 0,
+          width: '100%',
+          minHeight: '100vh',
+          alignItems: 'start'
         }}
       >
-        <Box sx={{ gridArea: 'title' }}>
-          <FlexCol gap={[4, null, null, '20vh']}>
-            <Text variant="title">
-              Let’s get you
-              <br />
-              set up on HCB.
-            </Text>
-            <Progress />
-          </FlexCol>
-        </Box>
-        <Box sx={{ gridArea: 'form', overflowY: 'auto' }}>
-          <FormContainer ref={formContainer}>
-            {step === 1 && <HCBInfo />}
-            {step === 2 && (
-              <OrganizationInfoForm requiredFields={requiredFields} />
-            )}
-            {step === 3 && <PersonalInfoForm requiredFields={requiredFields} />}
-          </FormContainer>
-        </Box>
         <Flex
           sx={{
-            gridArea: 'nav',
-            alignSelf: 'end',
-            alignItems: 'flex-end',
-            justifyContent: 'space-between'
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            px: [3, 5],
+            py: 5,
+            gap: [3, 5],
+            height: [null, '100dvh'],
+            position: 'sticky',
+            top: 0,
+            overflowY: 'auto'
           }}
         >
-          <NavButton isBack={true} form={formContainer} />
+          <Heading as="h1" variant="title">
+            Let’s get you
+            <br />
+            set up on HCB.
+          </Heading>
+          <HCBInfo />
+        </Flex>
+        <FormContainer ref={formContainer}>
+          <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
+            Your organization
+          </Heading>
+          <OrganizationInfoForm requiredFields={requiredFields} />
+          <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
+            Personal details
+          </Heading>
+          <PersonalInfoForm requiredFields={requiredFields} />
           <NavButton
-            isBack={false}
             form={formContainer}
             setFormError={setFormError}
             requiredFields={requiredFields}
-            clickHandler={() => valiadateAddress(step)}
+            clickHandler={() => validateAddress(step)}
           />
-        </Flex>
-      </Box>
+        </FormContainer>
+      </Grid>
       <AlertModal formError={formError} setFormError={setFormError} />
       <Watermark />
     </>

@@ -1,18 +1,20 @@
-import { Input, Flex, Label, Radio } from 'theme-ui'
+import { Input, Flex, Label, Radio, Box, Grid } from 'theme-ui'
 import Checkbox from './checkbox'
 import AddressInput from './address-input'
 import Field from './field'
 import AutofillColourFix from './autofill-colour-fix'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function PersonalInfoForm({
   setValidationResult,
   requiredFields
 }) {
   const [selectedContactOption, setSelectedContactOption] = useState('Email')
-  const [email, setEmail] = useState(
-    window.sessionStorage.getItem('bank-signup-userEmail')
-  ) // For display only, is not used for data submission.
+  const [email, setEmail] = useState('') // For display only, is not used for data submission.
+
+  useEffect(() => {
+    setEmail(window.sessionStorage.getItem('bank-signup-userEmail'))
+  }, [])
 
   return (
     <>
@@ -78,7 +80,7 @@ export default function PersonalInfoForm({
           sx={{ ...AutofillColourFix }}
         />
       </Field>
-      <Field
+      {/* <Field
         name="referredBy"
         label="Who were you referred by?"
         requiredFields={requiredFields}
@@ -111,13 +113,21 @@ export default function PersonalInfoForm({
         />
       </Field>
 
+      */}
+
       <Field
         name="contactOption"
         label="Preferred contact channel"
-        description="So we know where to message you about your application!"
         requiredFields={requiredFields}
       >
-        <Flex sx={{ gap: 4 }}>
+        <Grid
+          columns={[null, 2]}
+          sx={{
+            rowGap: 2,
+            columnGap: 4,
+            width: '100%'
+          }}
+        >
           <Label
             sx={{
               display: 'flex',
@@ -132,34 +142,45 @@ export default function PersonalInfoForm({
             />
             Email
           </Label>
-          <Label
+          <Grid
             sx={{
-              display: 'flex',
-              flexDirection: 'row'
+              columnGap: 1,
+              rowGap: 2,
+              gridTemplateColumns: 'auto 1fr'
             }}
           >
-            <Radio
-              name="contactOption"
-              value="Slack"
-              onInput={() => setSelectedContactOption('Slack')}
-            />
-            Slack
-          </Label>
-        </Flex>
-        {selectedContactOption === 'Slack' ? (
-          <Field name="slackUsername" requiredFields={requiredFields}>
-            <Input
-              name="slackUsername"
-              id="slackUsername"
-              placeholder="Your name in the Hack Club Slack"
-              sx={{ ...AutofillColourFix }}
-            />
-          </Field>
-        ) : selectedContactOption === 'Email' ? (
-          <div>
-            We'll use {email ?? 'whatever you put for your email above!'}
-          </div>
-        ) : null}
+            <Label
+              sx={{
+                display: 'contents',
+                '~ div > label': { fontSize: 1 }
+              }}
+            >
+              <Radio
+                name="contactOption"
+                value="Slack"
+                onInput={() => setSelectedContactOption('Slack')}
+              />
+              Hack Club Slack
+            </Label>
+            {selectedContactOption === 'Slack' ? (
+              <>
+                <div />
+                <Field
+                  label="Your Hack Club Slack username"
+                  name="slackUsername"
+                  requiredFields={requiredFields}
+                >
+                  <Input
+                    name="slackUsername"
+                    id="slackUsername"
+                    autoFocus
+                    sx={{ ...AutofillColourFix }}
+                  />
+                </Field>
+              </>
+            ) : null}
+          </Grid>
+        </Grid>
       </Field>
       <Field
         name="accommodations"
