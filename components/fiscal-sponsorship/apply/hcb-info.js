@@ -15,7 +15,7 @@ export default function HCBInfo() {
               <Flex sx={{ alignItems: 'center', gap: 2 }}>
                 <Link
                   color="white"
-                  href="/hcb/fiscal-sponsorship"
+                  href="/fiscal-sponsorship/fiscal-sponsorship"
                   target="_blank"
                   sx={{
                     fontSize: 3,

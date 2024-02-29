@@ -129,7 +129,7 @@ export default function Page() {
         as={Head}
         title="Fiscal Sponsorship"
         description="Start your nonprofit with our fiscal sponsorship: a 501(c)(3) legal entity, bank account, automatic taxes & accounting, and best-in-class app."
-        image="/hcb/og-image.png"
+        image="/fiscal-sponsorship/og-image.png"
       />
       <ForceTheme theme="light" />
       <Nav />
@@ -220,7 +220,7 @@ export default function Page() {
               best-in-class app.
             </Balancer>
           </Text>
-          <Link href="/hcb/apply" passHref legacyBehavior>
+          <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
             <Button
               as="a"
               variant="lg"
@@ -517,7 +517,7 @@ export default function Page() {
             gap: 3
           }}
         >
-          <Link href="/hcb/apply" passHref legacyBehavior>
+          <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
             <Button
               as="a"
               variant="lg"

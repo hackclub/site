@@ -11,7 +11,7 @@ import {
 import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
 import Image from 'next/image'
-import hero from '../../public/hcb/bg.webp'
+import hero from '../../public/fiscal-sponsorship/bg.webp'
 
 export default function Landing({ showButton = true, eventsCount }) {
   return (
@@ -71,7 +71,7 @@ export default function Landing({ showButton = true, eventsCount }) {
                   }}
                 >
                   <img
-                    src="/hcb/hcb-icon-icon-dark.png"
+                    src="/fiscal-sponsorship/hcb-icon-icon-dark.png"
                     alt="HCB Icon"
                     height={64}
                     sx={{

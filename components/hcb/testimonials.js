@@ -94,7 +94,7 @@ export default function Testimonials() {
           >
             {events.map(event => {
               const id = kebabCase(event.name)
-              return <Event {...event} img={`/hcb/events/${id}.jpg`} key={id} />
+              return <Event {...event} img={`/fiscal-sponsorship/events/${id}.jpg`} key={id} />
             })}
           </Grid>
         </Container>

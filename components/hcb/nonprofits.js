@@ -5,7 +5,7 @@ import kebabCase from 'lodash/kebabCase'
 
 const orgs = [
   {
-    logo: '/hcb/nonprofits/girlgenius.png',
+    logo: '/fiscal-sponsorship/nonprofits/girlgenius.png',
     name: 'Girl Genius',
     director: 'Chloe Yan',
     role: 'Executive Director',
@@ -15,7 +15,7 @@ const orgs = [
       'Girl Genius Magazine is a fully student-run publication inspiring the next generation of female and non-binary leaders in STEAM. Their journalism and inclusive online community are dedicated to breaking down tech’s lingering gender barriers. Becoming fiscally sponsored allowed them to publish more issues, host over 40 workshops, organize a conference, and reach a global audience of 11k readers (and counting).'
   },
   {
-    logo: '/hcb/nonprofits/techshift.png',
+    logo: '/fiscal-sponsorship/nonprofits/techshift.png',
     transparency: 'techshift',
     name: 'TechShift',
     director: 'Daniel Jin',
@@ -26,7 +26,7 @@ const orgs = [
       'Founded in 2017, TechShift supports a network of 30+ student-run chapters across 3 continents leading initiatives at the intersection of technology and social impact. With the help of HCB, they are bringing about a more equitable technological future through their mentorship programs, community partnerships, microgrants, and the STEM For Social Good Toolkit.'
   },
   {
-    logo: '/hcb/nonprofits/projectboom.jpg',
+    logo: '/fiscal-sponsorship/nonprofits/projectboom.jpg',
     transparency: 'projectboom',
     name: 'Project Boom',
     director: 'Kunal Botla',
@@ -39,7 +39,7 @@ const orgs = [
       'Project Boom is a student-led organization with a simple mission: getting computers to those who need them. Instead of becoming e-waste, old machines are given new life to deserving students worldwide. Joining HCB provided Project Boom with a platform to easily accept and manage donations, helping them to repair and ship more computers than ever before.'
   },
   {
-    logo: '/hcb/nonprofits/executebig.png',
+    logo: '/fiscal-sponsorship/nonprofits/executebig.png',
     name: 'Execute Big',
     director: 'Mingjie Jiang',
     role: 'Co-Executive Director',

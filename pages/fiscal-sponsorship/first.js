@@ -15,12 +15,12 @@ import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Icon from '../../components/icon'
-import Features from '../../components/hcb/first/features'
+import Features from '../../components/fiscal-sponsorship/first/features'
 
-import Form from '../../components/hcb/first/form'
-import Testimonials from '../../components/hcb/first/testimonials'
-import Steps from '../../components/hcb/first/steps'
-import Start from '../../components/hcb/start'
+import Form from '../../components/fiscal-sponsorship/first/form'
+import Testimonials from '../../components/fiscal-sponsorship/first/testimonials'
+import Steps from '../../components/fiscal-sponsorship/first/steps'
+import Start from '../../components/fiscal-sponsorship/start'
 import theme from '@hackclub/theme'
 
 export default function First({ stats }) {
@@ -35,7 +35,7 @@ export default function First({ stats }) {
         as={Head}
         title="Finanical Toolkit for FIRST Teams"
         description="HCB is the ultimate financial tool for FRC, FTC, and FLL teams to receive grants, fundraise, make purchases, and so much more."
-        image="/hcb/first/og-image.png"
+        image="/fiscal-sponsorship/first/og-image.png"
       >
         <title>Financial Toolkit for FIRST Teams | HCB</title>
       </Meta>
@@ -165,7 +165,7 @@ export default function First({ stats }) {
                 }}
                 variant="ctaLg"
                 as="a"
-                href="/hcb/first/Hack_Club_Bank_for_FIRST_Teams.pdf"
+                href="/fiscal-sponsorship/first/Hack_Club_Bank_for_FIRST_Teams.pdf"
                 // @exu3: to edit this PDF, use this Figma file https://www.figma.com/file/LgadOH1lHUBOejA3vaNGgm/Hack-Club-Bank-for-FIRST-Teams-One-Pager?node-id=0%3A1&t=ZtkN2a3aw2IojFvi-1
                 // message me on Slack if you need edit access
                 target="_blank"

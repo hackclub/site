@@ -15,7 +15,7 @@ async function sendApplication() {
 
   // Send the data
   try {
-    const res = await fetch('/api/hcb/apply', {
+    const res = await fetch('/api/fiscal-sponsorship/apply', {
       method: 'POST',
       cors: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
@@ -124,7 +124,7 @@ export default function NavButton({
 
     if (step >= maxStep && !isBack) {
       await sendApplication()
-      await router.push('/hcb/apply/success')
+      await router.push('/fiscal-sponsorship/apply/success')
       return
     } else {
       step += isBack ? -1 : 1

@@ -269,7 +269,7 @@ function Laptop({ href, title, sx }) {
           height: '100%',
           minHeight: '16rem',
           backgroundSize: 'auto 115%',
-          backgroundImage: "url('/hcb/laptop-dark.png')",
+          backgroundImage: "url('/fiscal-sponsorship/laptop-dark.png')",
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat'
         }}

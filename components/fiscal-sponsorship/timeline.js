@@ -13,7 +13,7 @@ function Step({ stepIndex, label }) {
       }}
     >
       <Image
-        src={`/hcb/timeline-steps/step${stepIndex}.svg`}
+        src={`/fiscal-sponsorship/timeline-steps/step${stepIndex}.svg`}
         sx={{ flexShrink: 0 }}
         alt=""
       />

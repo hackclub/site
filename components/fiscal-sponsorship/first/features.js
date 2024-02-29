@@ -10,7 +10,7 @@ export default function Features() {
     <Box sx={{ py: 5 }}>
       <Box as="a" href="#testimonials">
         <Image
-          src="/hcb/meet-teams-using-hcb.svg"
+          src="/fiscal-sponsorship/meet-teams-using-hcb.svg"
           alt="yeah"
           width={200}
           height={100}
@@ -65,7 +65,7 @@ export default function Features() {
               target="_blank"
             >
               <NextImage
-                src="/hcb/poseidon-dashboard.png"
+                src="/fiscal-sponsorship/poseidon-dashboard.png"
                 alt="iPad"
                 width={500}
                 height={300}

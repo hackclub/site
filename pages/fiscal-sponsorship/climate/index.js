@@ -16,7 +16,7 @@ import Footer from '../../../components/footer'
 import MSparkles from '../../../components/sparkles/money'
 import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import OrganizationCard, { Badge } from '../../../components/hcb/directory/card'
+import OrganizationCard, { Badge } from '../../../components/fiscal-sponsorship/directory/card'
 import Zoom from 'react-reveal/Zoom'
 import fuzzysort from 'fuzzysort'
 import ScrollHint from '../../../components/scroll-hint'
@@ -25,7 +25,7 @@ import { useEffect, useState } from 'react'
 import NextLink from 'next/link'
 import { kebabCase, intersection } from 'lodash'
 import theme from '@hackclub/theme'
-import Tooltip from '../../../components/hcb/tooltip'
+import Tooltip from '../../../components/fiscal-sponsorship/tooltip'
 
 const styles = `
   html {
@@ -153,8 +153,8 @@ const FilterPanel = ({ filter, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-                color: 'blue'
-              }
+              color: 'blue'
+            }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -245,7 +245,7 @@ const FilterPanel = ({ filter, mobile }) => {
               textDecoration: 'none',
               color:
                 currentSelections.length === baseData.length ||
-                !currentSelections.includes(item.id)
+                  !currentSelections.includes(item.id)
                   ? 'black'
                   : 'primary',
               transition: 'color 0.2s',
@@ -325,8 +325,8 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-                color: 'blue'
-              }
+              color: 'blue'
+            }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -350,7 +350,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           display: hiddenOnMobile ? 'none' : 'flex'
         }}
       >
-        <NextLink scroll={false} href={'/hcb/climate'}>
+        <NextLink scroll={false} href={'/fiscal-sponsorship/climate'}>
           <Flex
             sx={{
               alignItems: 'center',
@@ -403,7 +403,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           <NextLink
             key={idx}
             scroll={false}
-            href={`/hcb/climate/organizations-in-${kebabCase(item.label)}`}
+            href={`/fiscal-sponsorship/climate/organizations-in-${kebabCase(item.label)}`}
           >
             <Flex
               sx={{
@@ -485,7 +485,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
   const region = pageRegion
 
   // useEffect(() => {
-  //   // history.pushState(null, null, `/hcb/climate/organizations-in-${region.toLowerCase().split(' ').join('-')}`);
+  //   // history.pushState(null, null, `/fiscal-sponsorship/climate/organizations-in-${region.toLowerCase().split(' ').join('-')}`);
   // }, [region]);
   const [modalOrganization, setModalOrganization] = useState(null)
 
@@ -965,7 +965,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   viewBox="0 0 512 512"
                 >
                   <img
-                    src="/hcb/climate/earth-on-hcb.svg"
+                    src="/fiscal-sponsorship/climate/earth-on-hcb.svg"
                     alt=""
                     height="82px"
                   />
@@ -1135,7 +1135,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   return (
                     currentBadges.length === badges.length ||
                     intersection(organizationBadgeIds, currentBadges).length ===
-                      currentBadges.length
+                    currentBadges.length
                   )
                 })
                 .map(organization => (
@@ -1401,7 +1401,7 @@ export async function fetchRawClimateOrganizations() {
   while (lastLength >= 100) {
     const json = await fetch(
       'https://hcb.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
-        page
+      page
     ).then(res => res.json())
     lastLength = json.length
     page++

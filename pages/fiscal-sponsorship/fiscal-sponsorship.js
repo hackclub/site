@@ -46,9 +46,8 @@ function Bullet({ glow = true, icon, href, children }) {
           baseX * Math.sin((2 * Math.PI * c) / colours.length) +
           baseY * Math.cos((2 * Math.PI * c) / colours.length)
 
-        boxShadow += `${x * spread}px ${y * spread}px ${blur}px ${
-          colours[c]
-        }${hexOpacity},`
+        boxShadow += `${x * spread}px ${y * spread}px ${blur}px ${colours[c]
+          }${hexOpacity},`
       }
 
       // Remove trailing comma
@@ -243,7 +242,7 @@ export default function FiscalSponsorship() {
         as={Head}
         title="Fiscal Sponsorship"
         description="What is fiscal sponsorship?"
-        image="/hcb/og-image.png"
+        image="/fiscal-sponsorship/og-image.png"
       >
         <title>Fiscal Sponsorship | HCB</title>
       </Meta>
@@ -447,7 +446,7 @@ export default function FiscalSponsorship() {
               Looking for nonprofit status and not a religious or political
               organization? We’d love to meet you and chat about working
               together. Feel free to apply
-              <Link href="https://hackclub.com/hcb/#apply"> here </Link>or
+              <Link href="https://hackclub.com/fiscal-sponsorship/#apply"> here </Link>or
               <Link href="mailto:hcb@hackclub.com"> email our team </Link>if you
               have more questions about fiscal sponsorship!
             </Text>

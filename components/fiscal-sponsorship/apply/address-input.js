@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, useCallback } from 'react'
 import { Box, Flex, Input, Text } from 'theme-ui'
 import FlexCol from '../../flex-col'
 import AutofillColourFix from './autofill-colour-fix'
-import { geocode, search } from '../../../lib/hcb/apply/address-validation'
+import { geocode, search } from '../../../lib/fiscal-sponsorship/apply/address-validation'
 import Icon from '../../icon'
 
 const approvedCountries = [

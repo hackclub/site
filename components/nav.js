@@ -33,8 +33,8 @@ const fixed = props =>
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       background-color: ${props.transparent
-        ? 'transparent'
-        : rgbaBgColor(props, 0.75)};
+      ? 'transparent'
+      : rgbaBgColor(props, 0.75)};
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
       /* {bg}; to support dark mode later */
@@ -139,7 +139,7 @@ const Navigation = props => (
     <NextLink href="/clubs" passHref>
       <Link>Clubs</Link>
     </NextLink>
-    <NextLink href="/hcb" passHref>
+    <NextLink href="/fiscal-sponsorship" passHref>
       <Link>Fiscal&nbsp;Sponsorship</Link>
     </NextLink>
     <NextLink href="/hackathons" passHref>

@@ -77,7 +77,7 @@ export default function ApplicationSuccess() {
       >
         <FlexCol gap={4} alignItems="center">
           <Image
-            src="/hcb/apply/party-orpheus.svg"
+            src="/fiscal-sponsorship/apply/party-orpheus.svg"
             alt="Dinosaur partying"
             sx={{ width: '40%' }}
           />
