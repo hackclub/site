@@ -100,7 +100,7 @@ export default function Apply() {
         <Box sx={{ gridArea: 'title' }}>
           <FlexCol gap={[4, null, null, '20vh']}>
             <Text variant="title">
-              Let's get you
+              Let’s get you
               <br />
               set up on HCB.
             </Text>
@@ -110,7 +110,9 @@ export default function Apply() {
         <Box sx={{ gridArea: 'form', overflowY: 'auto' }}>
           <FormContainer ref={formContainer}>
             {step === 1 && <HCBInfo />}
-            {step === 2 && <OrganizationInfoForm requiredFields={requiredFields} />}
+            {step === 2 && (
+              <OrganizationInfoForm requiredFields={requiredFields} />
+            )}
             {step === 3 && <PersonalInfoForm requiredFields={requiredFields} />}
           </FormContainer>
         </Box>

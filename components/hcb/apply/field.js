@@ -18,7 +18,8 @@ export default function Field({
   /* Fill in the field input element with the value from sessionStorage.
     Note: the custom checkbox component does this in its own useEffect hook. */
   useEffect(() => {
-    const value = router.query[name] || sessionStorage.getItem('bank-signup-' + name)
+    const value =
+      router.query[name] || sessionStorage.getItem('bank-signup-' + name)
     if (value) {
       const input = document.getElementById(name)
       if (input) input.value = value
@@ -38,7 +39,6 @@ export default function Field({
           <Label
             htmlFor={name}
             sx={{
-              textTransform: 'capitalize',
               fontSize: 3,
               width: 'fit-content'
             }}

@@ -15,7 +15,7 @@ const nextConfig = {
       'scrapbook.hackclub.com',
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
-      ''
+      'hcb.hackclub.com'
     ],
     remotePatterns: [
       {

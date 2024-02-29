@@ -6,10 +6,10 @@ import Field from './field'
 import AutofillColourFix from './autofill-colour-fix'
 
 export default function OrganizationInfoForm({ requiredFields }) {
-  const [org, setOrg] = useState('organization')
+  const [org, setOrg] = useState('Organization')
 
   useEffect(() => {
-    if (navigator.language === 'en-GB') setOrg('organisation')
+    if (navigator.language === 'en-GB') setOrg('Organisation')
   }, [])
 
   return (
@@ -48,7 +48,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
       >
         <AddressInput isPersonalAddressInput={false} name="eventLocation" />
       </Field>
-      <Field
+      {/* <Field
         name="transparent"
         label="Transparency mode"
         col={false}
@@ -61,10 +61,10 @@ export default function OrganizationInfoForm({ requiredFields }) {
         requiredFields={requiredFields}
       >
         <Checkbox defaultChecked={true} name="transparent" />
-      </Field>
+      </Field> */}
       <Field
         name="eventDescription"
-        label={`Tell us about your ${org}!`}
+        label={`Tell us about your ${org.toLowerCase()}!`}
         description="1 or 2 sentences will suffice"
         requiredFields={requiredFields}
       >
