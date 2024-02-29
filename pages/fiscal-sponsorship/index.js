@@ -128,7 +128,7 @@ export default function Page() {
       <Meta
         as={Head}
         title="Fiscal Sponsorship"
-        description="Start your nonprofit with our fiscal sponsorship: a 501(c)(3) legal entity, bank account, automatic taxes & accounting, and best-in-class app."
+        description="Start your nonprofit with our fiscal sponsorship program, HCB: a 501(c)(3) legal entity, bank account, automatic taxes & accounting, and best-in-class app."
         image="/fiscal-sponsorship/og-image.png"
       />
       <ForceTheme theme="light" />
@@ -367,10 +367,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                {
-                  backgroundImage:
-                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                }
+                  {
+                    backgroundImage:
+                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                  }
               }}
               style={{ margin: 0 }}
             >
