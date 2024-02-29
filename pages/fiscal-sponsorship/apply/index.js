@@ -83,7 +83,7 @@ export default function Apply() {
             px: [3, 5],
             py: 5,
             gap: [3, 5],
-            height: [null, '100dvh'],
+            height: [null, '100svh'],
             position: [null, null, 'sticky'],
             top: 0,
             overflowY: [null, null, 'auto']
