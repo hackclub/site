@@ -1,6 +1,6 @@
 import { Card, Badge as ThemeBadge, Box, Heading, Text, Image } from 'theme-ui'
 import { Organization } from '../../../pages/fiscal-sponsorship/climate'
-import Tilt from '../../../components/tilt'
+import Tilt from '../../tilt'
 import Icon from '@hackclub/icons'
 import Tooltip from '../tooltip'
 
