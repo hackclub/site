@@ -254,7 +254,7 @@ export default function FiscalSponsorship() {
         sx={{ mt: 6, display: 'flex', flexDirection: 'column', gap: 3 }}
       >
         <FlexCol gap={4}>
-          <Text variant="title" as="h2" as="h1">
+          <Text variant="title" as="h1">
             Fiscal sponsorship:
             <br />
             <Text
