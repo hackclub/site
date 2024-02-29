@@ -71,7 +71,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
         <Textarea
           name="eventDescription"
           id="eventDescription"
-          rows={2}
+          rows={3}
           sx={{
             resize: 'vertical',
             width: '100%',

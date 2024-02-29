@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { Badge, Box, Flex, Label, Text } from 'theme-ui'
+import { Box, Flex, Label, Text } from 'theme-ui'
 import FlexCol from '../../flex-col'
 
 export default function Field({
@@ -12,7 +12,8 @@ export default function Field({
   children
 }) {
   const router = useRouter()
-  const isRequired = requiredFields.includes(name)
+  const isRequired =
+    requiredFields[parseInt(router.query.step) - 1].includes(name)
 
   /* Fill in the field input element with the value from sessionStorage.
     Note: the custom checkbox component does this in its own useEffect hook. */
@@ -26,47 +27,43 @@ export default function Field({
   }, [router.query, name])
 
   return (
-    <Flex
-      sx={{
-        flexDirection: col ? 'column' : 'row',
-        alignItems: col ? 'flex-start' : 'center',
-        gap: 1,
-        width: '100%',
-        'input, textarea': {
-          border: '1px solid',
-          borderColor: 'smoke',
-          outlineColor: 'blue'
-        }
-      }}
-    >
-      <Label
-        htmlFor={name}
+    <FlexCol gap={2} width={'100%'}>
+      <Flex
         sx={{
-          fontSize: 2,
-          flexDirection: 'row'
+          flexDirection: col ? 'column' : 'row',
+          alignItems: col ? 'flex-start' : 'center',
+          gap: 2
         }}
       >
-        {label}
-        {isRequired && (
-          <Text
-            as="span"
+        <Flex sx={{ alignItems: 'center', gap: 2 }}>
+          <Label
+            htmlFor={name}
             sx={{
-              color: 'red',
-              fontWeight: 'bold',
-              ml: 1
+              fontSize: 3,
+              width: 'fit-content'
             }}
-            title="Required"
           >
-            *
-          </Text>
-        )}
-      </Label>
-      {children}
+            {label}
+          </Label>
+          {isRequired && (
+            <Box
+              sx={{
+                backgroundColor: 'muted',
+                padding: '4px 6px',
+                borderRadius: '999px',
+                lineHeight: '1',
+                fontSize: 14
+              }}
+            >
+              Required
+            </Box>
+          )}
+        </Flex>
+        {children}
+      </Flex>
       {description && (
-        <Text as="p" variant="caption">
-          {description}
-        </Text>
+        <Text sx={{ color: 'muted', fontSize: 1 }}>{description}</Text>
       )}
-    </Flex>
+    </FlexCol>
   )
 }

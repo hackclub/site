@@ -58,7 +58,7 @@ export default function Watermark() {
                 position: 'absolute',
                 width: '100%',
                 height: '100%',
-                backgroundColor: 'snow',
+                backgroundColor: '#1d181f',
                 clipPath: 'url(#my-clip-path)'
               }}
             >

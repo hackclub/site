@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
-import { Box, Card, Flex, Input, Text } from 'theme-ui'
+import { Box, Flex, Input, Text } from 'theme-ui'
 import FlexCol from '../../flex-col'
 import AutofillColourFix from './autofill-colour-fix'
-import {
-  geocode,
-  search
-} from '../../../lib/fiscal-sponsorship/apply/address-validation'
+import { geocode, search } from '../../../lib/fiscal-sponsorship/apply/address-validation'
 import Icon from '../../icon'
 
 const approvedCountries = [
@@ -130,10 +127,13 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
         </Box>
       </FlexCol>
       {predictions && predictions.length > 0 && (
-        <Card
+        <Box
           sx={{
-            p: [3, 3],
+            background: '#47454f',
+            border: '1px solid #696675',
             width: '100%',
+            p: 3,
+            borderRadius: '4px',
             position: 'absolute',
             bottom: 'calc(100% + 0.5em)'
           }}
@@ -148,8 +148,9 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
                     cursor: 'pointer',
                     border: 'none',
                     background: 'none',
+                    color: '#d1cbe7',
                     '&:hover': {
-                      color: 'blue'
+                      color: 'white'
                     },
                     fontFamily: 'inherit',
                     fontSize: 'inherit',
@@ -171,7 +172,7 @@ export default function AutoComplete({ name, isPersonalAddressInput }) {
               </>
             ))}
           </FlexCol>
-        </Card>
+        </Box>
       )}
     </Box>
   )

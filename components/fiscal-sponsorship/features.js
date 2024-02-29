@@ -23,13 +23,6 @@ export default function Features() {
             name="Receive foundation grants"
             body="with tax-deductible 501(c)(3) status."
           />
-          {/* Send money & reimburse via check, ACH, bank wire, PayPal, & more.
-              Operate globally with a US Entity.
-              Issue physical & virtual debit cards to your team.
-              Get 24 hour support on weekdays.
-              Pay team members with built-in payroll.
-              Embed a custom donation form on your website.
-              We file all your taxes automatically, including form 990. " */}
           <Module
             icon="card"
             name="Issue physical & virtual debit cards"
@@ -76,6 +69,7 @@ export default function Features() {
         <Laptop
           href="https://hcb.hackclub.com/reboot"
           title="See Reboot’s finances in public"
+          sx={{}}
         />
       </Container>
     </Box>
@@ -96,6 +90,7 @@ function Module({ icon, name, body }) {
           color: 'slate',
           lineHeight: '1.375',
           fontSize: 20,
+          alignSelf: 'center',
           m: 0
         }}
       >
