@@ -17,11 +17,10 @@ import Footer from '../../components/footer'
 import Icon from '../../components/icon'
 import Features from '../../components/fiscal-sponsorship/first/features'
 
-import Form from '../../components/fiscal-sponsorship/first/form'
 import Testimonials from '../../components/fiscal-sponsorship/first/testimonials'
-import Steps from '../../components/fiscal-sponsorship/first/steps'
 import Start from '../../components/fiscal-sponsorship/first/start'
 import theme from '@hackclub/theme'
+import { Balancer } from 'react-wrap-balancer'
 
 export default function First({ stats }) {
   return (
@@ -58,36 +57,39 @@ export default function First({ stats }) {
             alignItems: 'center'
           }}
         >
-          <Box
+          <Container
             sx={{
               width: '100%',
               mx: 'auto',
-              px: '16px',
+              px: 3,
               backdropFilter: 'blur(1.5px)'
             }}
           >
             <Heading
+              as="h1"
+              variant="ultratitle"
               sx={{
                 textAlign: 'center',
                 mt: [5, null, 6],
-                textShadow: '0 0 16px rgba(0, 0, 0, 1)'
+                textShadow: '0 0 16px rgba(0, 0, 0, 1)',
+                maxWidth: 'container'
               }}
-              as="h1"
-              variant="ultratitle"
             >
-              The ultimate financial tool for{' '}
-              <Text
-                as="span"
-                sx={{
-                  WebkitTextStroke: theme => theme.colors.blue,
-                  WebkitTextStrokeWidth: '1px',
-                  WebkitTextFillColor: theme => theme.colors.white,
-                  textShadow: theme => `0 0 12px ${theme.colors.blue}`
-                }}
-              >
-                FRC, FTC, and FLL teams
-              </Text>
-              .
+              <Balancer>
+                The ultimate financial tool for{' '}
+                <Text
+                  as="span"
+                  sx={{
+                    WebkitTextStroke: theme => theme.colors.blue,
+                    WebkitTextStrokeWidth: '1px',
+                    WebkitTextFillColor: theme => theme.colors.white,
+                    textShadow: theme => `0 0 12px ${theme.colors.blue}`
+                  }}
+                >
+                  FRC, FTC, and FLL teams
+                </Text>
+                .
+              </Balancer>
             </Heading>
             <Badge
               variant="pill"
@@ -130,6 +132,7 @@ export default function First({ stats }) {
               </Box>
             </Badge>
             <Container
+              as="p"
               sx={{
                 fontSize: [2, 3, 3],
                 textAlign: 'center',
@@ -170,7 +173,7 @@ export default function First({ stats }) {
                 Download this page
               </Button>
             </Box>
-          </Box>
+          </Container>
         </Box>
 
         <Features />

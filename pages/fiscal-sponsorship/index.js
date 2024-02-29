@@ -332,7 +332,7 @@ export default function Page() {
 
       <Box id="fees" as="section" sx={{ position: 'relative', py: 5 }}>
         <Container>
-          <Grid columns={[null, 2]} gap={5}>
+          <Grid columns={[null, null, 2]} gap={5}>
             <div>
               <Text
                 variant="title"
@@ -393,7 +393,7 @@ export default function Page() {
       </Box>
       <Box as="section" bg="snow" sx={{ py: 5 }}>
         <Container>
-          <Grid columns={[null, 2]} gap={[4, 5]}>
+          <Grid columns={[null, null, 2]} gap={[4, 5]}>
             <div>
               <Heading
                 variant="headline"
@@ -463,7 +463,7 @@ export default function Page() {
 
       <Container>
         <Grid
-          columns={[null, 2]}
+          columns={[null, null, 2]}
           gap={[4, 5]}
           sx={{ py: 5, p: { fontSize: 2 } }}
         >
@@ -541,6 +541,7 @@ export default function Page() {
                 mixBlendMode: 'screen',
                 color: 'black !important',
                 fontSize: [72, 96],
+                borderRadius: [48, 75],
                 py: 4,
                 px: [4, null, 6],
                 lineHeight: 0.9,
