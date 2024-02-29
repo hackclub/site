@@ -1,5 +1,5 @@
 import { Button, Text, Image, Flex } from 'theme-ui'
-import Icon from '../icon'
+import Icon from '../../icon'
 import Link from 'next/link'
 
 export default function ApplyButton() {

@@ -20,7 +20,7 @@ import Features from '../../components/fiscal-sponsorship/first/features'
 import Form from '../../components/fiscal-sponsorship/first/form'
 import Testimonials from '../../components/fiscal-sponsorship/first/testimonials'
 import Steps from '../../components/fiscal-sponsorship/first/steps'
-import Start from '../../components/fiscal-sponsorship/start'
+import Start from '../../components/fiscal-sponsorship/first/start'
 import theme from '@hackclub/theme'
 
 export default function First({ stats }) {
@@ -123,10 +123,7 @@ export default function First({ stats }) {
                   <Icon glyph="checkmark" size={28} color="#33d6A6" />
                   <Text sx={{ ml: 1 }}>Receive grants</Text>
                 </Box>
-                <Box
-                  as="span"
-                  sx={{ display: 'flex', flexDirection: 'row' }}
-                >
+                <Box as="span" sx={{ display: 'flex', flexDirection: 'row' }}>
                   <Icon glyph="checkmark" size={28} color="#33d6A6" />
                   <Text sx={{ ml: 1 }}>Debit cards</Text>
                 </Box>
