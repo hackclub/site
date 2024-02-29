@@ -13,42 +13,39 @@ import PersonalInfoForm from '../../../components/fiscal-sponsorship/apply/perso
 import AlertModal from '../../../components/fiscal-sponsorship/apply/alert-modal'
 import { geocode } from '../../../lib/fiscal-sponsorship/apply/address-validation'
 
-const validateAddress = async step => {
+const validateAddress = async () => {
   // Validate the address
-  if (step === 3) {
-    // Get the raw personal address input
-    const userAddress = sessionStorage.getItem('bank-signup-userAddress')
+  // Get the raw personal address input
+  const userAddress = sessionStorage.getItem('bank-signup-userAddress')
 
-    if (!userAddress) return
+  if (!userAddress) return
 
-    const result = await geocode(userAddress)
+  const result = await geocode(userAddress)
 
-    const addrComp = type => result.results[0]?.structuredAddress[type] ?? ''
+  const addrComp = type => result.results[0]?.structuredAddress[type] ?? ''
 
-    sessionStorage.setItem(
-      'bank-signup-addressLine1',
-      addrComp('fullThoroughfare')
-    )
-    sessionStorage.setItem('bank-signup-addressCity', addrComp('locality'))
-    sessionStorage.setItem(
-      'bank-signup-addressState',
-      addrComp('administrativeArea')
-    )
-    sessionStorage.setItem('bank-signup-addressZip', addrComp('postCode'))
-    sessionStorage.setItem(
-      'bank-signup-addressCountry',
-      result.results[0]?.country ?? ''
-    )
-    sessionStorage.setItem(
-      'bank-signup-addressCountryCode',
-      result.results[0]?.countryCode ?? ''
-    )
-  }
+  sessionStorage.setItem(
+    'bank-signup-addressLine1',
+    addrComp('fullThoroughfare')
+  )
+  sessionStorage.setItem('bank-signup-addressCity', addrComp('locality'))
+  sessionStorage.setItem(
+    'bank-signup-addressState',
+    addrComp('administrativeArea')
+  )
+  sessionStorage.setItem('bank-signup-addressZip', addrComp('postCode'))
+  sessionStorage.setItem(
+    'bank-signup-addressCountry',
+    result.results[0]?.country ?? ''
+  )
+  sessionStorage.setItem(
+    'bank-signup-addressCountryCode',
+    result.results[0]?.countryCode ?? ''
+  )
 }
 
 export default function Apply() {
   const router = useRouter()
-  const [step, setStep] = useState(1)
   const formContainer = useRef()
   const [formError, setFormError] = useState(null)
 
@@ -63,21 +60,7 @@ export default function Apply() {
 
   useEffect(() => {
     console.error(`Form error: ${formError}`)
-    if (!router.isReady) return
-    setStep(parseInt(router.query.step))
-
-    // Set the query url parameter to 1 if it's not present
-    if (!step || step < 1) {
-      router.replace(
-        {
-          pathname: router.pathname,
-          query: { ...router.query, step: 1 }
-        },
-        undefined,
-        {}
-      )
-    }
-  }, [formError, router, step])
+  }, [formErro])
 
   return (
     <>
@@ -101,9 +84,9 @@ export default function Apply() {
             py: 5,
             gap: [3, 5],
             height: [null, '100dvh'],
-            position: 'sticky',
+            position: [null, null, 'sticky'],
             top: 0,
-            overflowY: 'auto'
+            overflowY: [null, null, 'auto']
           }}
         >
           <Heading as="h1" variant="title">
@@ -126,7 +109,7 @@ export default function Apply() {
             form={formContainer}
             setFormError={setFormError}
             requiredFields={requiredFields}
-            clickHandler={() => validateAddress(step)}
+            clickHandler={validateAddress}
           />
         </FormContainer>
       </Grid>
