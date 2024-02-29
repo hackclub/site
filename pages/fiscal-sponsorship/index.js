@@ -12,16 +12,16 @@ import {
 import { Balancer } from 'react-wrap-balancer'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import ForceTheme from '../components/force-theme'
-import Nav from '../components/nav'
-import Footer from '../components/footer'
-import Tilt from '../components/tilt'
-import Photo from '../components/photo'
+import ForceTheme from '../../components/force-theme'
+import Nav from '../../components/nav'
+import Footer from '../../components/footer'
+import Tilt from '../../components/tilt'
+import Photo from '../../components/photo'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import OuternetImgFile from '../public/home/outernet-110.jpg'
-import Features from '../components/fiscal-sponsorship/features'
+import OuternetImgFile from '../../public/home/outernet-110.jpg'
+import Features from '../../components/fiscal-sponsorship/features'
 
 const organizations = [
   {
@@ -367,10 +367,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                  {
-                    backgroundImage:
-                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                  }
+                {
+                  backgroundImage:
+                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                }
               }}
               style={{ margin: 0 }}
             >
