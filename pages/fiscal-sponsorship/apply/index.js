@@ -60,7 +60,7 @@ export default function Apply() {
 
   useEffect(() => {
     console.error(`Form error: ${formError}`)
-  }, [formErro])
+  }, [formError])
 
   return (
     <>
