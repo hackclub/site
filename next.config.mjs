@@ -35,13 +35,13 @@ const nextConfig = {
         permanent: true
       },
       {
-        source: '/hcb/:path*',
-        destination: '/fiscal-sponsorship/:path*',
+        source: '/hcb/fiscal-sponsorship/',
+        destination: '/fiscal-sponsorship/about/',
         permanent: false
       },
       {
-        source: '/hcb/fiscal-sponsorship/',
-        destination: '/fiscal-sponsorship/about/',
+        source: '/hcb/:path*',
+        destination: '/fiscal-sponsorship/:path*',
         permanent: false
       },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
