@@ -34,7 +34,16 @@ const nextConfig = {
         destination: '/hcb/:path*',
         permanent: true
       },
-      { source: '/hcb/:path*', destination: '/fiscal-sponsorship/:path*', permanent: false },
+      {
+        source: '/hcb/:path*',
+        destination: '/fiscal-sponsorship/:path*',
+        permanent: false
+      },
+      {
+        source: '/hcb/fiscal-sponsorship/',
+        destination: '/fiscal-sponsorship/about/',
+        permanent: false
+      },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
       {
         source: '/sprig/',
