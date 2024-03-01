@@ -1,5 +1,9 @@
 import AirtablePlus from 'airtable-plus'
 
+const sgMail = require('@sendgrid/mail')
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 const joinTable = new AirtablePlus({
   apiKey: process.env.AIRTABLE_API_KEY,
   baseID: 'appaqcJtn33vb59Au',
@@ -49,6 +53,29 @@ export default async function handler(req, res) {
 
   console.log('data', data)
   console.log('isAdult', isAdult)
+
+  if (isAdult) {
+    const mail = {
+      to: data.email,
+      from: 'team@hackclub.com',
+      subject: 'nonon toby!',
+      text: 'Hello world',
+      html: '<strong>wazzup</strong>'
+    }
+
+    sgMail.send(mail).then(
+      () => {},
+      error => {
+        console.log('shit', error)
+
+        if (error.response) {
+          console.log(error.response.body)
+        }
+      }
+    )
+
+    console.log('email sent to', data.email)
+  }
 
   const secrets = (process.env.NAUGHTY || '').split(',')
 

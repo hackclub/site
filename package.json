@@ -25,6 +25,7 @@
     "@octokit/auth-app": "^6.0.1",
     "@octokit/core": "^5.0.1",
     "@octokit/rest": "^20.0.2",
+    "@sendgrid/mail": "^8.1.1",
     "@vercel/kv": "^1.0.1",
     "@vercel/postgres": "^0.5.1",
     "add": "^2.0.6",
