@@ -68,7 +68,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
       </Field> */}
       <Field
         name="eventDescription"
-        label={`Tell us about your ${org.toLowerCase()}!`}
+        label={`Tell us about your ${org.toLowerCase()}.`}
         description="1 or 2 sentences will suffice"
         requiredFields={requiredFields}
       >
