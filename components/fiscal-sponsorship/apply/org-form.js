@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Input, Textarea } from 'theme-ui'
-import Checkbox from './checkbox'
-import AddressInput from './address-input'
+// import Checkbox from './checkbox'
 import Field from './field'
 import AutofillColourFix from './autofill-colour-fix'
 
@@ -23,7 +22,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
           name="eventName"
           id="eventName"
           placeholder="Shelburne School Hackathon"
-          sx={{ ...AutofillColourFix }}
+          sx={AutofillColourFix}
         />
       </Field>
       <Field
@@ -43,10 +42,15 @@ export default function OrganizationInfoForm({ requiredFields }) {
       <Field
         name="eventLocation"
         label={`${org} location`}
-        description="If your organization runs online, put your own address."
+        description="If your organization runs online, put the city, state, & country you live in."
         requiredFields={requiredFields}
       >
-        <AddressInput isPersonalAddressInput={false} name="eventLocation" />
+        <Input
+          name="eventLocation"
+          id="eventLocation"
+          placeholder="Shelburne, Vermont, USA"
+          sx={AutofillColourFix}
+        />
       </Field>
       {/* <Field
         name="transparent"

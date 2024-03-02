@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { Box, Flex, Heading, Grid } from 'theme-ui'
+import { Box, Text, Flex, Heading, Grid } from 'theme-ui'
 import ForceTheme from '../../../components/force-theme'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
@@ -12,6 +12,8 @@ import OrganizationInfoForm from '../../../components/fiscal-sponsorship/apply/o
 import PersonalInfoForm from '../../../components/fiscal-sponsorship/apply/personal-form'
 import AlertModal from '../../../components/fiscal-sponsorship/apply/alert-modal'
 import { geocode } from '../../../lib/fiscal-sponsorship/apply/address-validation'
+import Icon from '@hackclub/icons'
+import Link from 'next/link'
 
 const validateAddress = async () => {
   // Validate the address
@@ -82,18 +84,55 @@ export default function Apply() {
             justifyContent: 'space-between',
             px: [3, 5],
             py: 5,
-            gap: [3, 5],
+            gap: [4, 5],
             height: [null, '100svh'],
             position: [null, null, 'sticky'],
             top: 0,
             overflowY: [null, null, 'auto']
           }}
         >
-          <Heading as="h1" variant="title">
-            Let’s get you
-            <br />
-            set up on HCB.
-          </Heading>
+          <header>
+            <Link href="/fiscal-sponsorship" passHref legacyBehavior>
+              <Text
+                as="a"
+                variant="subheadline"
+                sx={{
+                  mb: 3,
+                  gap: 2,
+                  display: 'flex',
+                  alignItems: 'center',
+                  color: 'muted',
+                  textDecoration: 'none',
+                  ':hover': { color: 'primary' }
+                }}
+              >
+                <Icon
+                  size={24}
+                  glyph="inserter"
+                  style={{ transform: 'rotate(180deg)' }}
+                />
+                Back
+              </Text>
+            </Link>
+            <Heading as="h1" variant="title">
+              Apply to join
+              <br />
+              <Flex sx={{ alignItems: 'center', gap: 3 }}>
+                <img
+                  src="/fiscal-sponsorship/hcb-icon-small.png"
+                  width={48}
+                  height={48}
+                  alt="HCB logo"
+                  style={{
+                    width: '1em',
+                    height: '1em',
+                    verticalAlign: 'baseline'
+                  }}
+                />{' '}
+                HCB
+              </Flex>
+            </Heading>
+          </header>
           <HCBInfo />
         </Flex>
         <FormContainer ref={formContainer}>

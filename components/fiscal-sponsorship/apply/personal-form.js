@@ -1,6 +1,4 @@
 import { Input, Flex, Label, Radio, Box, Grid } from 'theme-ui'
-import Checkbox from './checkbox'
-import AddressInput from './address-input'
 import Field from './field'
 import AutofillColourFix from './autofill-colour-fix'
 import { useEffect, useState } from 'react'
@@ -144,7 +142,7 @@ export default function PersonalInfoForm({
           </Label>
           <Grid
             sx={{
-              columnGap: 1,
+              columnGap: 0,
               rowGap: 2,
               gridTemplateColumns: 'auto 1fr'
             }}

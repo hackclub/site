@@ -1,6 +1,5 @@
-import { Box, Flex, Link, Text, Heading, Grid } from 'theme-ui'
+import { Box, Link, Heading } from 'theme-ui'
 import Icon from '../../icon'
-import FlexCol from '../../flex-col'
 
 export default function HCBInfo() {
   return (
@@ -39,14 +38,14 @@ export default function HCBInfo() {
         <li>Transfer money electronically.</li>
         <li>Order cards for you and your team to make purchases.</li>
       </ul>
-      <Heading variant="subheadline">
-        HCB is not a bank.{' '}
-        <Text sx={{ color: 'muted', fontWeight: 'body' }}>(we’re better)</Text>
-      </Heading>
+      <Heading variant="subheadline">HCB is not a bank.</Heading>
       <ul>
         <li>
-          Rather than setting up a standard bank account, you’ll get a
-          restricted fund within Hack Club accounts.
+          We partner with{' '}
+          <Link href="https://column.com" target="_blank">
+            Column Bank
+          </Link>{' '}
+          to offer a bank account to fiscally-sponsored projects.
         </li>
         <li>
           You can't deposit or withdraw cash. But you can receive any kind of
