@@ -1,50 +1,17 @@
-import { useEffect, useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { Box, Text, Flex, Heading, Grid } from 'theme-ui'
+import { Box, Text, Flex, Heading, Grid, Alert, Button } from 'theme-ui'
 import ForceTheme from '../../../components/force-theme'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
-import NavButton from '../../../components/fiscal-sponsorship/apply/nav-button'
+import { onSubmit } from '../../../components/fiscal-sponsorship/apply/submit'
 import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
 import FormContainer from '../../../components/fiscal-sponsorship/apply/form-container'
 import HCBInfo from '../../../components/fiscal-sponsorship/apply/hcb-info'
 import OrganizationInfoForm from '../../../components/fiscal-sponsorship/apply/org-form'
 import PersonalInfoForm from '../../../components/fiscal-sponsorship/apply/personal-form'
-import AlertModal from '../../../components/fiscal-sponsorship/apply/alert-modal'
-import { geocode } from '../../../lib/fiscal-sponsorship/apply/address-validation'
 import Icon from '@hackclub/icons'
 import Link from 'next/link'
-
-const validateAddress = async () => {
-  // Validate the address
-  // Get the raw personal address input
-  const userAddress = sessionStorage.getItem('bank-signup-userAddress')
-
-  if (!userAddress) return
-
-  const result = await geocode(userAddress)
-
-  const addrComp = type => result.results[0]?.structuredAddress[type] ?? ''
-
-  sessionStorage.setItem(
-    'bank-signup-addressLine1',
-    addrComp('fullThoroughfare')
-  )
-  sessionStorage.setItem('bank-signup-addressCity', addrComp('locality'))
-  sessionStorage.setItem(
-    'bank-signup-addressState',
-    addrComp('administrativeArea')
-  )
-  sessionStorage.setItem('bank-signup-addressZip', addrComp('postCode'))
-  sessionStorage.setItem(
-    'bank-signup-addressCountry',
-    result.results[0]?.country ?? ''
-  )
-  sessionStorage.setItem(
-    'bank-signup-addressCountryCode',
-    result.results[0]?.countryCode ?? ''
-  )
-}
 
 export default function Apply() {
   const router = useRouter()
@@ -60,10 +27,6 @@ export default function Apply() {
     'userEmail',
     'userBirthday'
   ]
-
-  useEffect(() => {
-    console.error(`Form error: ${formError}`)
-  }, [formError])
 
   return (
     <>
@@ -136,7 +99,18 @@ export default function Apply() {
           </header>
           <HCBInfo />
         </Flex>
-        <FormContainer ref={formContainer}>
+        <FormContainer
+          ref={formContainer}
+          onSubmit={event =>
+            onSubmit({
+              event,
+              router,
+              form: formContainer,
+              setFormError,
+              requiredFields
+            })
+          }
+        >
           <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
             Your organization
           </Heading>
@@ -145,15 +119,19 @@ export default function Apply() {
             Personal details
           </Heading>
           <PersonalInfoForm requiredFields={requiredFields} />
-          <NavButton
-            form={formContainer}
-            setFormError={setFormError}
-            requiredFields={requiredFields}
-            clickHandler={validateAddress}
-          />
+          {formError && <Alert bg="primary">{formError}</Alert>}
+          <Button
+            variant="ctaLg"
+            type="submit"
+            sx={{
+              backgroundImage: theme => theme.util.gx('cyan', 'blue'),
+              width: 'fit-content'
+            }}
+          >
+            Submit
+          </Button>
         </FormContainer>
       </Grid>
-      <AlertModal formError={formError} setFormError={setFormError} />
       <Watermark />
     </>
   )

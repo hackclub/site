@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { Badge, Box, Flex, Label, Text } from 'theme-ui'
-import FlexCol from '../../flex-col'
+import { Flex, Label, Text } from 'theme-ui'
 
 export default function Field({
   name,
@@ -32,10 +31,18 @@ export default function Field({
         alignItems: col ? 'flex-start' : 'center',
         gap: 1,
         width: '100%',
-        'input, textarea': {
+        // Wrapper around Select
+        '> div': {
+          width: '100%'
+        },
+        'input, select, textarea': {
           border: '1px solid',
           borderColor: 'smoke',
-          outlineColor: 'blue'
+          outlineColor: 'blue',
+          '&:-webkit-autofill': {
+            boxShadow: '0 0 0 100px white inset !important',
+            WebkitTextFillColor: 'black !important'
+          }
         }
       }}
     >

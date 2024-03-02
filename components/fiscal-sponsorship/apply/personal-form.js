@@ -1,18 +1,9 @@
-import { Input, Flex, Label, Radio, Box, Grid } from 'theme-ui'
+import { Input, Flex, Label, Radio, Grid } from 'theme-ui'
 import Field from './field'
-import AutofillColourFix from './autofill-colour-fix'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
-export default function PersonalInfoForm({
-  setValidationResult,
-  requiredFields
-}) {
+export default function PersonalInfoForm({ requiredFields }) {
   const [selectedContactOption, setSelectedContactOption] = useState('Email')
-  const [email, setEmail] = useState('') // For display only, is not used for data submission.
-
-  useEffect(() => {
-    setEmail(window.sessionStorage.getItem('bank-signup-userEmail'))
-  }, [])
 
   return (
     <>
@@ -22,24 +13,14 @@ export default function PersonalInfoForm({
           label="First name"
           requiredFields={requiredFields}
         >
-          <Input
-            name="firstName"
-            id="firstName"
-            placeholder="Fiona"
-            sx={{ ...AutofillColourFix }}
-          />
+          <Input name="firstName" id="firstName" placeholder="Fiona" />
         </Field>
         <Field
           name="lastName"
           label="Last name"
           requiredFields={requiredFields}
         >
-          <Input
-            name="lastName"
-            id="lastName"
-            placeholder="Hacksworth"
-            sx={{ ...AutofillColourFix }}
-          />
+          <Input name="lastName" id="lastName" placeholder="Hacksworth" />
         </Field>
       </Flex>
       <Field name="userEmail" label="Email" requiredFields={requiredFields}>
@@ -48,8 +29,6 @@ export default function PersonalInfoForm({
           id="userEmail"
           type="email"
           placeholder="fiona@hackclub.com"
-          onInput={e => setEmail(e.target.value)}
-          sx={{ ...AutofillColourFix }}
         />
       </Field>
 
@@ -106,14 +85,9 @@ export default function PersonalInfoForm({
                 <Field
                   label="Your Hack Club Slack username"
                   name="slackUsername"
-                  requiredFields={requiredFields}
+                  requiredFields={[...requiredFields, 'slackUsername']}
                 >
-                  <Input
-                    name="slackUsername"
-                    id="slackUsername"
-                    autoFocus
-                    sx={{ ...AutofillColourFix }}
-                  />
+                  <Input name="slackUsername" id="slackUsername" autoFocus />
                 </Field>
               </>
             ) : null}
@@ -131,7 +105,6 @@ export default function PersonalInfoForm({
           id="userPhone"
           type="tel"
           placeholder="1-855-625-HACK"
-          sx={{ ...AutofillColourFix }}
         />
       </Field>
       <Field
@@ -139,12 +112,7 @@ export default function PersonalInfoForm({
         label="Birthday"
         requiredFields={requiredFields}
       >
-        <Input
-          name="userBirthday"
-          id="userBirthday"
-          type="date"
-          sx={{ ...AutofillColourFix }}
-        />
+        <Input name="userBirthday" id="userBirthday" type="date" />
       </Field>
 
       {/* <Field
@@ -156,7 +124,6 @@ export default function PersonalInfoForm({
           name="referredBy"
           id="referredBy"
           placeholder="Max"
-          sx={{ ...AutofillColourFix }}
         />
       </Field>
       <Field
@@ -191,7 +158,6 @@ export default function PersonalInfoForm({
           name="accommodations"
           id="accommodations"
           placeholder="I use a screen reader/I need increased text size during onboarding"
-          sx={{ ...AutofillColourFix }}
         />
       </Field>
     </>

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 import { Box, Container } from 'theme-ui'
 
-const formContainer = forwardRef(({ children }, ref) => {
+const formContainer = forwardRef(({ children, ...props }, ref) => {
   return (
     <Box
       ref={ref}
@@ -12,6 +12,7 @@ const formContainer = forwardRef(({ children }, ref) => {
         py: 5,
         minHeight: '100dvb'
       }}
+      {...props}
     >
       <Container
         variant="copy"
