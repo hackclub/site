@@ -33,8 +33,8 @@ const fixed = props =>
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       background-color: ${props.transparent
-      ? 'transparent'
-      : rgbaBgColor(props, 0.75)};
+        ? 'transparent'
+        : rgbaBgColor(props, 0.75)};
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
       /* {bg}; to support dark mode later */
@@ -52,18 +52,12 @@ const Root = styled(Box)`
   }
 `
 
-export const Content = styled(Box)`
+export const Content = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1024px;
-  margin: auto;
   position: relative;
   z-index: 2;
-  padding-left: ${theme.space[3]}px;
-  @media (min-width: ${theme.breakpoints[2]}em) {
-    padding: 0 ${theme.space[4]}px;
-  }
 `
 
 const hoverColor = name =>
@@ -74,7 +68,7 @@ const hoverColor = name =>
     slate: 'black',
     black: 'slate',
     primary: 'error'
-  })[name] || 'black'
+  }[name] || 'black')
 
 const slide = keyframes({
   from: { transform: 'translateY(-25%)', opacity: 0 },
@@ -99,7 +93,6 @@ const layout = props =>
           font-weight: bold;
           font-size: ${theme.fontSizes[2]}px;
           width: 100vw;
-          max-width: 18rem;
           &:not(:last-child) {
             border-bottom: 1px solid rgba(48, 48, 48, 0.125);
           }
@@ -114,8 +107,7 @@ const layout = props =>
           justify-content: flex-end;
         }
         a {
-          font-size: ${theme.fontSizes[1]}px;
-          text-transform: uppercase;
+          font-size: 18px;
           &:hover {
             color: ${theme.colors[hoverColor(props.color)]};
           }
@@ -125,7 +117,7 @@ const NavBar = styled(Box)`
   display: none;
   ${layout};
   a {
-    margin-left: ${theme.space[3]}px;
+    margin-left: ${theme.space[1]}px;
     padding: ${theme.space[3]}px;
     text-decoration: none;
     @media (min-width: 56em) {
@@ -135,6 +127,7 @@ const NavBar = styled(Box)`
 `
 
 const Navigation = props => (
+  // REMINDER: This should be no more than 7 links :)
   <NavBar role="navigation" {...props}>
     <NextLink href="/clubs" passHref>
       <Link>Clubs</Link>
@@ -205,13 +198,13 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   const baseColor = dark
     ? color || 'white'
     : color === 'white' && scrolled
-      ? 'black'
-      : color
+    ? 'black'
+    : color
   const toggleColor = dark
     ? color || 'snow'
     : toggled || (color === 'white' && scrolled)
-      ? 'slate'
-      : color
+    ? 'slate'
+    : color
 
   return (
     <Root
