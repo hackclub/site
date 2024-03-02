@@ -50,7 +50,6 @@ const nextConfig = {
         destination: 'https://sprig.hackclub.com',
         permanent: true
       },
-      { source: '/donate/', destination: '/philanthropy/', permanent: false },
       { source: '/start/', destination: '/', permanent: false },
       { source: '/repl/', destination: '/', permanent: true },
       { source: '/c9/', destination: '/deprecated/cloud9/', permanent: true },

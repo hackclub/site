@@ -1,16 +1,21 @@
 import { NextResponse } from 'next/server'
-// This is using the country-list-js package instead of country-list to access continient data.
 import country from 'country-list-js'
+const partners = ['gb_help_desk']
 
 export function middleware(request) {
-  let continent = country.findByIso2(request.geo.country || 'AU').continent
-  if (continent === 'Oceania') {
-    continent = 'Australia'
+  if (request.nextUrl.pathname.startsWith('/slack')) {
+    let continent = country.findByIso2(request.geo.country || 'AU').continent
+    if (continent === 'Oceania') {
+      continent = 'Australia'
+    }
+    const response = NextResponse.next()
+    response.cookies.set('continent', continent || '')
+    return response
   }
-  const response = NextResponse.next()
-  response.cookies.set('continent', continent || '')
-}
 
-export const config = {
-  matchers: ['/slack/']
+  if (request.nextUrl.pathname === '/donate/') {
+    return NextResponse.redirect('https://hackclub.com/philanthropy/')
+  }
+
+  return NextResponse.next()
 }
