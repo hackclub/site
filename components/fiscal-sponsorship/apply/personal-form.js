@@ -91,6 +91,8 @@ export default function PersonalInfoForm({ requiredFields }) {
                     name="slackUsername"
                     id="slackUsername"
                     placeholder="FionaH"
+                    autocomplete="off"
+                    data-1p-ignore
                     autoFocus
                   />
                 </Field>

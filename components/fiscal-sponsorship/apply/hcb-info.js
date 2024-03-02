@@ -54,8 +54,13 @@ export default function HCBInfo() {
       </ul>
       <Heading variant="subheadline">HCB is not for for-profits.</Heading>
       <p>
-        If you’re a for-profit entity, HCB is not for you. Consider setting up a
-        business.
+        If you’re looking to set up a for-profit entity, HCB is not for you.
+        <br />
+        Consider using{' '}
+        <Link href="https://stripe.com/atlas" target="_blank">
+          Stripe Atlas
+        </Link>
+        .
       </p>
     </Box>
   )
