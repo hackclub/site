@@ -435,6 +435,7 @@ export default function Page() {
                     src={`/fiscal-sponsorship/${file}`}
                     width={128}
                     height={128}
+                    loading="lazy"
                     alt={file.split('.')[0].toUpperCase()}
                   />
                 ))}
