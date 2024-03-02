@@ -10,7 +10,10 @@ const formContainer = forwardRef(({ children, ...props }, ref) => {
         bg: 'snow',
         px: [3, 5],
         py: 5,
-        minHeight: '100dvb'
+        minHeight: '100dvb',
+        '&.has-errors div[aria-required="true"] input:placeholder-shown': {
+          borderColor: 'primary'
+        }
       }}
       {...props}
     >

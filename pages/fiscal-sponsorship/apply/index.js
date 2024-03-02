@@ -17,6 +17,7 @@ export default function Apply() {
   const router = useRouter()
   const formContainer = useRef()
   const [formError, setFormError] = useState(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const requiredFields = [
     'eventName',
@@ -25,7 +26,8 @@ export default function Apply() {
     'firstName',
     'lastName',
     'userEmail',
-    'userBirthday'
+    'userBirthday',
+    'slackUsername'
   ]
 
   return (
@@ -101,12 +103,14 @@ export default function Apply() {
         </Flex>
         <FormContainer
           ref={formContainer}
+          className={formError ? 'has-errors' : null}
           onSubmit={event =>
             onSubmit({
               event,
               router,
               form: formContainer,
               setFormError,
+              setIsSubmitting,
               requiredFields
             })
           }
@@ -123,12 +127,18 @@ export default function Apply() {
           <Button
             variant="ctaLg"
             type="submit"
+            disabled={isSubmitting}
             sx={{
               backgroundImage: theme => theme.util.gx('cyan', 'blue'),
+              '&:disabled': {
+                background: 'muted',
+                cursor: 'not-allowed',
+                transform: 'none !important'
+              },
               width: 'fit-content'
             }}
           >
-            Submit
+            {isSubmitting ? 'Submitting…' : 'Submit'}
           </Button>
         </FormContainer>
       </Grid>

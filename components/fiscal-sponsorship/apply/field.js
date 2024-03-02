@@ -26,6 +26,7 @@ export default function Field({
 
   return (
     <Flex
+      aria-required={isRequired}
       sx={{
         flexDirection: col ? 'column' : 'row',
         alignItems: col ? 'flex-start' : 'center',

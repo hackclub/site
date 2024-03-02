@@ -85,9 +85,14 @@ export default function PersonalInfoForm({ requiredFields }) {
                 <Field
                   label="Your Hack Club Slack username"
                   name="slackUsername"
-                  requiredFields={[...requiredFields, 'slackUsername']}
+                  requiredFields={requiredFields}
                 >
-                  <Input name="slackUsername" id="slackUsername" autoFocus />
+                  <Input
+                    name="slackUsername"
+                    id="slackUsername"
+                    placeholder="FionaH"
+                    autoFocus
+                  />
                 </Field>
               </>
             ) : null}

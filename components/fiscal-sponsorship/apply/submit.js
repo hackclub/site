@@ -28,7 +28,8 @@ export function onSubmit({
   form,
   requiredFields,
   formError,
-  setFormError
+  setFormError,
+  setIsSubmitting
 }) {
   event.preventDefault()
   /* Don't return from inside the loop since
@@ -45,15 +46,17 @@ export function onSubmit({
     if (
       ((!value || value.trim() === '') && requiredFields.includes(key)) ||
       (formData.get('contactOption') === 'slack' &&
-        !formData.get('slackUsername')) // I'm so sorry for this
+        (!formData.get('slackUsername') != null ||
+          formData.get('slackUsername') === '')) // I'm so sorry for this
     ) {
-      setFormError('Please fill out all required (with asterisk) fields.')
+      setFormError('Please fill out all required fields.')
       wasError = true
     }
   })
   if (wasError) return
 
   if (!formError) {
+    setIsSubmitting(true)
     sendApplication().then(() => {
       router.push('/fiscal-sponsorship/apply/success')
     })
