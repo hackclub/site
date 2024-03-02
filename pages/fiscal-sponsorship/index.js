@@ -15,6 +15,7 @@ import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
+import Stat from '../../components/stat'
 import Tilt from '../../components/tilt'
 import Photo from '../../components/photo'
 import Image from 'next/image'
@@ -153,9 +154,10 @@ export default function Page() {
             backgroundSize: '48px 48px',
             backgroundImage: `linear-gradient(to right,  #fcc8bf 1px, transparent 1px),
                               linear-gradient(to bottom, #fcc8bf 1px, transparent 1px)`,
-            backgroundPosition: 'top left',
-            maskImage: `linear-gradient(180deg, transparent 0%, white 3%)`,
-            opacity: 0.1
+            backgroundPosition: 'top center',
+            maskImage:
+              'linear-gradient(to bottom, transparent 0%, hsl(0deg 0% 100% / 50%) 10%, white 100%)',
+            opacity: 0.18
           }}
         />
         <Container
@@ -167,8 +169,8 @@ export default function Page() {
               position: 'absolute',
               right: [3, 0],
               bottom: 0,
-              width: [128, 300],
-              height: [128, 300],
+              width: [128, 200, 300],
+              height: [128, 200, 300],
               opacity: 0.5
             }
           }}
@@ -202,6 +204,9 @@ export default function Page() {
             variant="title"
             sx={{
               fontSize: [5, 6, null, 7],
+              // magic number to align with the grid
+              mt: [null, null, -3],
+              lineHeight: [null, null, 1.03],
               span: {
                 WebkitTextStroke: 'currentColor',
                 WebkitTextStrokeWidth: ['2px', '3px'],
@@ -220,32 +225,41 @@ export default function Page() {
               best-in-class app.
             </Balancer>
           </Text>
-          <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
+          <Flex sx={{ mt: [3, 4], gap: [3, 4], alignItems: 'center' }}>
+            <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
+              <Button
+                as="a"
+                variant="lg"
+                sx={{
+                  bg: 'blue',
+                  backgroundImage: theme => theme.util.gx('cyan', 'blue'),
+                  lineHeight: 0.9
+                }}
+              >
+                Apply now
+              </Button>
+            </Link>
             <Button
               as="a"
-              variant="lg"
-              sx={{
-                mt: 3,
-                bg: 'white',
-                color: '#ec555c',
-                textTransform: 'none',
-                fontSize: [3, 4],
-                lineHeight: 0.9
-              }}
+              href="https://hcb.hackclub.com/users/auth"
+              variant="outline"
+              sx={{ color: 'white' }}
             >
-              Apply now
+              Sign in
             </Button>
-          </Link>
+          </Flex>
         </Container>
       </Box>
       <Box id="organizations" as="section" sx={{ py: 5 }}>
         <Container sx={{}}>
-          <Text variant="headline" sx={{ fontWeight: 400 }}>
-            <Balancer>
-              The home of hackathons, mutual aid groups, climate and social
-              justice organizations, and more.
-            </Balancer>
-          </Text>
+          {/* <Text as="p" variant="headline" sx={{ mt: 0 }}>
+            Powering nonprofits at every scale
+          </Text> */}
+          <Flex wrap sx={{ alignItems: 'end', gap: [4, 5], mb: 4 }}>
+            <Stat value="$20M+" label="processed transactions" reversed />
+            <Stat value="1500+" label="projects" reversed />
+            <Stat value="2018" label="serving nonprofits since" reversed />
+          </Flex>
           <Grid columns={[1, 2]} gap={[3, 4]} sx={{ mt: 4 }}>
             {organizations
               // .map(org => new Organization(org))
@@ -264,7 +278,7 @@ export default function Page() {
                       minHeight: 128,
                       color: 'white',
                       cursor: 'pointer',
-                      textShadow: '0 1px 4px rgba(0, 0, 0, 0.375)',
+                      textShadow: '0 1px 4px rgba(0, 0, 0, 0.5)',
                       textDecoration: 'none',
                       backgroundColor: 'black',
                       backgroundSize: 'cover',
@@ -281,7 +295,7 @@ export default function Page() {
                       rowGap: 2
                     }}
                     style={{
-                      backgroundImage: `linear-gradient(rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.5) 75%), url('${organization.background_image}')`
+                      backgroundImage: `linear-gradient(rgba(0,0,0,0.375) 0%, rgba(0,0,0,0.5) 75%), url('${organization.background_image}')`
                     }}
                   >
                     <Image
@@ -297,8 +311,7 @@ export default function Page() {
                     />
                     <div>
                       <Heading
-                        as={'h3'}
-                        itemProp="name"
+                        as="h3"
                         sx={{
                           fontSize: [3, 4],
                           m: 0,
@@ -376,13 +389,13 @@ export default function Page() {
             >
               No legal fees.
               <br />
+              No startup fees.
+              <br />
               No transaction fees.
               <br />
               No card issuing fees.
               <br />
               No subscription fees.
-              <br />
-              No minimum balance.
               <br />
               No check deposit fees.
               <br />
@@ -422,6 +435,7 @@ export default function Page() {
                     src={`/fiscal-sponsorship/${file}`}
                     width={128}
                     height={128}
+                    loading="lazy"
                     alt={file.split('.')[0].toUpperCase()}
                   />
                 ))}
@@ -552,9 +566,7 @@ export default function Page() {
             </Button>
           </Link>
           <Text as="p" variant="lead" sx={{ color: 'white' }}>
-            <Balancer>
-              1,500+ organizations on HCB have processed over $20,000,000.
-            </Balancer>
+            <Balancer>No startup fees, no minimum balance.</Balancer>
           </Text>
         </Flex>
       </Box>

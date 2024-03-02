@@ -1,15 +1,17 @@
-import { Flex, Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
+import { Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
 import Icon from '../icon'
-import Balancer from 'react-wrap-balancer'
+import { Balancer } from 'react-wrap-balancer'
+import Image from 'next/image'
+import imgLaptop from '../../public/fiscal-sponsorship/laptop.png'
 
 export default function Features() {
   return (
     <Box sx={{ pt: 5, pb: [5, 6], bg: 'snow' }}>
       <Container>
-        <Heading as="h2" variant="title" sx={{ mb: 3 }}>
-          Financial tools for your nonprofit,
-          <br />
-          built by a nonprofit.
+        <Heading as="h2" variant="title" sx={{ mb: 3, maxWidth: 'copyUltra' }}>
+          <Balancer>
+            Powerful financial tools built by our nonprofit, for yours.
+          </Balancer>
         </Heading>
         <Text as="p" variant="lead" sx={{ color: 'slate', maxWidth: '52ch' }}>
           Unlike other fiscal sponsors, we don’t license software from
@@ -26,7 +28,7 @@ export default function Features() {
           <Module
             icon="card"
             name="Issue physical & virtual debit cards"
-            body="to all your teammates."
+            body="for your team, with  Pay support."
           />
           <Module
             icon="web"
@@ -44,19 +46,19 @@ export default function Features() {
             body="to your team and optionally, public."
           />
           <Module
-            icon="admin"
-            name="Pay team members"
-            body="with built-in payroll."
-          />
-          <Module
             icon="docs"
             name="We file all your taxes"
             body="automatically, including form 990."
           />
           <Module
+            icon="admin"
+            name="Pay team members"
+            body="with built-in payroll."
+          />
+          <Module
             icon="support"
-            name="Embed a custom donation form"
-            body="on your website."
+            name="Accept donations of any size"
+            body="with a custom, embeddable online form."
           />
           <Module
             icon="leader"
@@ -69,7 +71,6 @@ export default function Features() {
         <Laptop
           href="https://hcb.hackclub.com/reboot"
           title="See Reboot’s finances in public"
-          sx={{}}
         />
       </Container>
     </Box>
@@ -94,10 +95,12 @@ function Module({ icon, name, body }) {
           m: 0
         }}
       >
-        <Text as="strong" color="slate">
-          {name}
-        </Text>{' '}
-        {body}
+        <Balancer>
+          <Text as="strong" color="slate">
+            {name}
+          </Text>{' '}
+          {body}
+        </Balancer>
       </Text>
     </Box>
   )
@@ -105,14 +108,16 @@ function Module({ icon, name, body }) {
 
 function Laptop({ href, title, sx }) {
   return (
-    <Link href={href} title={title} sx={sx}>
-      <img
-        src="/fiscal-sponsorship/laptop.png"
+    <Link href={href} title={title} sx={{ textAlign: 'center' }}>
+      <Image
+        src={imgLaptop}
         alt="Laptop"
-        width={1140}
-        height={691}
         style={{ width: '100%', height: 'auto' }}
+        unoptimized
       />
+      <Text variant="caption" as="p" sx={{ color: 'primary', mt: 2 }}>
+        See <i>Reboot</i>’s finances in Transparency Mode
+      </Text>
     </Link>
   )
 }
