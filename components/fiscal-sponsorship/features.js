@@ -28,7 +28,7 @@ export default function Features() {
           <Module
             icon="card"
             name="Issue physical & virtual debit cards"
-            body="for your team, with  Pay support."
+            body="with receipt tracking & Apple Pay."
           />
           <Module
             icon="web"
@@ -91,7 +91,6 @@ function Module({ icon, name, body }) {
           color: 'slate',
           lineHeight: '1.375',
           fontSize: 20,
-          alignSelf: 'center',
           m: 0
         }}
       >
