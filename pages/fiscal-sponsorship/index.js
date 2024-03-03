@@ -138,7 +138,7 @@ export default function Page() {
         as="header"
         sx={{
           position: 'relative',
-          pt: [5, 6],
+          pt: 6,
           pb: [4, 5],
           bg: 'rgb(104, 41, 205)',
           backgroundImage:
@@ -169,8 +169,8 @@ export default function Page() {
               position: 'absolute',
               right: [3, 0],
               bottom: 0,
-              width: [128, 200, 300],
-              height: [128, 200, 300],
+              width: [114, 200, 300],
+              height: [114, 200, 300],
               opacity: 0.5
             }
           }}
@@ -205,7 +205,7 @@ export default function Page() {
             sx={{
               fontSize: [5, 6, null, 7],
               // magic number to align with the grid
-              mt: [null, null, -3],
+              mt: -3,
               lineHeight: [null, null, 1.03],
               span: {
                 WebkitTextStroke: 'currentColor',
@@ -217,15 +217,22 @@ export default function Page() {
           >
             <span>The foundation</span> of your nonprofit.
           </Heading>
-          <Text as="p" variant="lead" sx={{ mt: 4, mb: 4 }}>
+          <Text as="p" variant="lead" sx={{ my: [3, 4] }}>
             <Balancer>
               Start your nonprofit with{' '}
               <strong>our fiscal sponsorship program, HCB</strong>: a 501(c)(3)
               legal entity, bank account, automatic taxes & accounting, and
-              best-in-class app.
+              best-in-class software.
             </Balancer>
           </Text>
-          <Flex sx={{ mt: [3, 4], gap: [3, 4], alignItems: 'center' }}>
+          <Flex
+            sx={{
+              flexDirection: ['column', 'row'],
+              mt: [3, 4],
+              gap: [3, 4],
+              alignItems: ['start', 'center']
+            }}
+          >
             <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
               <Button
                 as="a"
@@ -250,12 +257,19 @@ export default function Page() {
           </Flex>
         </Container>
       </Box>
-      <Box id="organizations" as="section" sx={{ py: 5 }}>
+      <Box id="organizations" as="section" sx={{ py: [4, 5] }}>
         <Container sx={{}}>
           {/* <Text as="p" variant="headline" sx={{ mt: 0 }}>
             Powering nonprofits at every scale
           </Text> */}
-          <Flex wrap sx={{ alignItems: 'end', gap: [4, 5], mb: 4 }}>
+          <Flex
+            sx={{
+              flexWrap: 'wrap',
+              rowGap: 3,
+              columnGap: [4, 5],
+              mb: 4
+            }}
+          >
             <Stat value="$20M+" label="processed transactions" reversed />
             <Stat value="1500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
@@ -345,7 +359,7 @@ export default function Page() {
 
       <Box id="fees" as="section" sx={{ position: 'relative', py: 5 }}>
         <Container>
-          <Grid columns={[null, null, 2]} gap={5}>
+          <Grid columns={[null, null, 2]} gap={[4, 5]}>
             <div>
               <Text
                 variant="title"
@@ -479,7 +493,7 @@ export default function Page() {
         <Grid
           columns={[null, null, 2]}
           gap={[4, 5]}
-          sx={{ py: 5, p: { fontSize: 2 } }}
+          sx={{ py: 5, p: { fontSize: 2, '&:last-child': { mb: 0 } } }}
         >
           <Link href="https://outernet.hackclub.com/">
             <Photo
@@ -504,9 +518,8 @@ export default function Page() {
             <p>
               We started HCB in 2018 to support our clubs and hackathons. After
               showing it to our educational partners, we knew we had tapped into
-              something much larger. We designed the tool to remove financial
-              and legal barriers for anyone trying to do good in their
-              community.
+              something much larger. We designed HCB to remove financial and
+              legal barriers for anyone trying to do good in their community.
             </p>
           </div>
         </Grid>
@@ -517,7 +530,7 @@ export default function Page() {
         id="apply"
         sx={{
           py: 6,
-          px: 4,
+          px: 3,
           backgroundImage:
             'radial-gradient(ellipse at 5% 5%, #e86494 0%, rgba(232,100,148,0) 75%),radial-gradient(ellipse at 95% 5%, #e86494 0%, rgba(232,100,148,0) 75%),radial-gradient(ellipse at 95% 95%, #baa8d3 0%, rgba(186,168,211,0) 75%),radial-gradient(ellipse at 5% 95%, #fa9f69 0%, rgba(250,159,105,0) 75%)',
           position: 'relative'
@@ -554,8 +567,8 @@ export default function Page() {
                 bg: 'white',
                 mixBlendMode: 'screen',
                 color: 'black !important',
-                fontSize: [72, 96],
-                borderRadius: [48, 75],
+                fontSize: [58, 96],
+                width: ['100%', 'auto'],
                 py: 4,
                 px: [4, null, 6],
                 lineHeight: 0.9,
@@ -566,7 +579,7 @@ export default function Page() {
             </Button>
           </Link>
           <Text as="p" variant="lead" sx={{ color: 'white' }}>
-            <Balancer>No startup fees, no minimum balance.</Balancer>
+            <Balancer>No startup fees, no&nbsp;minimum balance.</Balancer>
           </Text>
         </Flex>
       </Box>
