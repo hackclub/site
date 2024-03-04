@@ -8,7 +8,8 @@ export default function HCBInfo() {
         gridArea: 'info',
         alignItems: 'start',
         mark: { color: '#ec555c', bg: 'inherit' },
-        'ul, p': { pl: 0, color: 'muted', mb: 4 }
+        ul: { pl: [3, 0], color: 'muted', mb: 4 },
+        p: { color: 'muted', mb: 0 }
       }}
     >
       <Heading variant="subheadline">
@@ -54,7 +55,7 @@ export default function HCBInfo() {
       </ul>
       <Heading variant="subheadline">HCB is not for for-profits.</Heading>
       <p>
-        If you are considering setting up a for-profit entity, look at{' '}
+        If you’re looking to set up a for-profit entity, consider{' '}
         <Link href="https://stripe.com/atlas" target="_blank">
           Stripe Atlas
         </Link>
