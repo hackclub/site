@@ -394,10 +394,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                  {
-                    backgroundImage:
-                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                  }
+                {
+                  backgroundImage:
+                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                }
               }}
               style={{ margin: 0 }}
             >
@@ -467,8 +467,7 @@ export default function Page() {
               >
                 “HCB’s Climate fiscal sponsorship program removes funding
                 barriers with a blend of youth-centered, tech-savvy services and
-                a deep commitment to authentic youth empowerment that resonates
-                with 128 Collective’s mission to create a climate safe future.”
+                a deep commitment to authentic youth empowerment.”
               </Text>
               <Text
                 as="p"
