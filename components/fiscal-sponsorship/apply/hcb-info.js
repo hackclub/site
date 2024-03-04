@@ -14,7 +14,7 @@ export default function HCBInfo() {
       <Heading variant="subheadline">
         HCB is a{' '}
         <Link
-          href="/fiscal-sponsorship/about"
+          href="https://en.wikipedia.org/wiki/Fiscal_sponsorship"
           target="_blank"
           sx={{
             display: 'inline-flex',
@@ -23,7 +23,7 @@ export default function HCBInfo() {
           }}
         >
           fiscal sponsor
-          <Icon glyph="external" size={24} />
+          <Icon glyph="external" size={24} aria-hidden />
         </Link>
       </Heading>
       <ul>
@@ -54,9 +54,7 @@ export default function HCBInfo() {
       </ul>
       <Heading variant="subheadline">HCB is not for for-profits.</Heading>
       <p>
-        If you’re looking to set up a for-profit entity, HCB is not for you.
-        <br />
-        Consider using{' '}
+        If you are considering setting up a for-profit entity, look at{' '}
         <Link href="https://stripe.com/atlas" target="_blank">
           Stripe Atlas
         </Link>

@@ -1,4 +1,4 @@
-import { Input, Flex, Label, Radio, Grid } from 'theme-ui'
+import { Input, Flex, Label, Radio, Grid, Select } from 'theme-ui'
 import Field from './field'
 import { useState } from 'react'
 
@@ -116,10 +116,23 @@ export default function PersonalInfoForm({ requiredFields }) {
       </Field>
       <Field
         name="userBirthday"
-        label="Birthday"
+        label="Birth year"
         requiredFields={requiredFields}
       >
-        <Input name="userBirthday" id="userBirthday" type="date" />
+        <Select name="userBirthday" id="userBirthday" defaultValue="">
+          <option value="" disabled>
+            Select a year
+          </option>
+          {/* show a century of years starting from 13 years ago */}
+          {Array.from({ length: 98 }, (_, i) => {
+            const year = new Date().getFullYear() - 13 - i
+            return (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            )
+          })}
+        </Select>
       </Field>
 
       {/* <Field
@@ -158,7 +171,7 @@ export default function PersonalInfoForm({ requiredFields }) {
       <Field
         name="accommodations"
         label="Accessibility needs"
-        description="Please specify any accommodations, accessibility needs, or other important information so we can support you during onboarding and while using HCB"
+        description="Please specify any accommodations, accessibility needs, or other important information so we can support you during onboarding and while using HCB."
         requiredFields={requiredFields}
       >
         <Input

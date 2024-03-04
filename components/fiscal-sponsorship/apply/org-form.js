@@ -71,13 +71,13 @@ export default function OrganizationInfoForm({ requiredFields }) {
       <Field
         name="eventDescription"
         label={`Tell us about your ${org.toLowerCase()}`}
-        description="1 or 2 sentences will suffice"
+        description="2–4 sentences will suffice."
         requiredFields={requiredFields}
       >
         <Textarea
           name="eventDescription"
           id="eventDescription"
-          rows={2}
+          rows={3}
           sx={{
             resize: 'vertical'
           }}

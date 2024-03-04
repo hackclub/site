@@ -57,7 +57,8 @@ export default function Apply() {
             overflowY: [null, null, 'auto']
           }}
         >
-          <header>
+          {/* vertically align h1 to top of form */}
+          <Box as="header" sx={{ mt: [null, null, -24] }}>
             <Link href="/fiscal-sponsorship" passHref legacyBehavior>
               <Text
                 as="a"
@@ -98,7 +99,7 @@ export default function Apply() {
                 HCB
               </Flex>
             </Heading>
-          </header>
+          </Box>
           <HCBInfo />
         </Flex>
         <FormContainer
