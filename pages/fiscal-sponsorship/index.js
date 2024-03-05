@@ -373,11 +373,10 @@ export default function Page() {
                 as="p"
                 variant="caption"
                 color="slate"
-                sx={{ maxWidth: '44ch' }}
+                sx={{ maxWidth: '52ch' }}
               >
-                This fee goes directly to our operations staff and software
-                engineers. This allows us to pay our staff fairly, deliver
-                best-in-class software and support, and grow sustainably.
+                This fee goes directly to Hack Club's operations staff, including teen interns working under mentors. This allows us to deliver
+                best-in-class software and support, grow sustainably, while also providing paid career training for young people from diverse backgrounds.
               </Text>
             </div>
             <Text
