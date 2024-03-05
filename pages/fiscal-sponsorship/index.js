@@ -373,11 +373,10 @@ export default function Page() {
                 as="p"
                 variant="caption"
                 color="slate"
-                sx={{ maxWidth: '44ch' }}
+                sx={{ maxWidth: '52ch' }}
               >
-                This fee goes directly to our operations staff and software
-                engineers. This allows us to pay our staff fairly, deliver
-                best-in-class software and support, and grow sustainably.
+                This fee goes directly to Hack Club's operations staff, including teen interns working under mentors. This allows us to deliver
+                best-in-class software and support, grow sustainably, while also providing paid career training for young people from diverse backgrounds.
               </Text>
             </div>
             <Text
@@ -394,10 +393,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                  {
-                    backgroundImage:
-                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                  }
+                {
+                  backgroundImage:
+                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                }
               }}
               style={{ margin: 0 }}
             >
@@ -467,8 +466,7 @@ export default function Page() {
               >
                 “HCB’s Climate fiscal sponsorship program removes funding
                 barriers with a blend of youth-centered, tech-savvy services and
-                a deep commitment to authentic youth empowerment that resonates
-                with 128 Collective’s mission to create a climate safe future.”
+                a deep commitment to authentic youth empowerment.”
               </Text>
               <Text
                 as="p"
@@ -498,7 +496,7 @@ export default function Page() {
           <Link href="https://outernet.hackclub.com/">
             <Photo
               src={OuternetImgFile}
-              alt="High school hackers at Outernet in Vermont"
+              alt="Each year, 1000s of teenagers attend Hack Club events like this"
               showAlt
             />
           </Link>
@@ -516,10 +514,10 @@ export default function Page() {
               clubs around the world.
             </p>
             <p>
-              We started HCB in 2018 to support our clubs and hackathons. After
+              We started HCB in 2018 to support teen-led clubs and hackathons. After
               showing it to our educational partners, we knew we had tapped into
-              something much larger. We designed HCB to remove financial and
-              legal barriers for anyone trying to do good in their community.
+              something much larger. Today, HCB removes financial and
+              legal barriers for thousands doing good in their community.
             </p>
           </div>
         </Grid>
