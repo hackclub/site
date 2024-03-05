@@ -63,7 +63,7 @@
     "react-tsparticles": "^2.12.2",
     "react-use-websocket": "^4.7.0",
     "react-wrap-balancer": "^1.1.0",
-    "recharts": "2.1.12",
+    "recharts": "2.12.2",
     "styled-components": "^6.1.8",
     "swr": "^2.2.4",
     "theme-ui": "^0.14",
