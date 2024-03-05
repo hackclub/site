@@ -496,7 +496,7 @@ export default function Page() {
           <Link href="https://outernet.hackclub.com/">
             <Photo
               src={OuternetImgFile}
-              alt="High school hackers at Outernet in Vermont"
+              alt="Each year, 1000s of teenagers attend Hack Club events like this"
               showAlt
             />
           </Link>
@@ -514,10 +514,10 @@ export default function Page() {
               clubs around the world.
             </p>
             <p>
-              We started HCB in 2018 to support our clubs and hackathons. After
+              We started HCB in 2018 to support teen-led clubs and hackathons. After
               showing it to our educational partners, we knew we had tapped into
-              something much larger. We designed HCB to remove financial and
-              legal barriers for anyone trying to do good in their community.
+              something much larger. Today, HCB removes financial and
+              legal barriers for thousands doing good in their community.
             </p>
           </div>
         </Grid>
