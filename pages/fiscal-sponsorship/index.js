@@ -248,7 +248,7 @@ export default function Page() {
             </Link>
             <Button
               as="a"
-              href="https://hcb.hackclub.com/users/auth"
+              href="https://hcb.hackclub.com"
               variant="outline"
               sx={{ color: 'white' }}
             >
