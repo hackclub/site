@@ -2133,8 +2133,7 @@ __metadata:
     geopattern: ^1.2.3
     globby: ^11.0.4
     graphql: ^16.8.1
-    gsap: ^3.12.4
-    js-confetti: ^0.11.0
+    js-confetti: ^0.12.0
     lodash: ^4.17.21
     million: ^2.6.4
     next: ^12.3.1
@@ -6419,13 +6418,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gsap@npm:^3.12.4":
-  version: 3.12.4
-  resolution: "gsap@npm:3.12.4"
-  checksum: 7b78fb46b3250c09a1856da32109bae16091be41bd3ec3a17ce2b6dea444fbecd2c57b9c677a09c6b4c022d3024e9ae39d377fab5f63302417a88a6b43231381
-  languageName: node
-  linkType: hard
-
 "har-schema@npm:^2.0.0":
   version: 2.0.0
   resolution: "har-schema@npm:2.0.0"
@@ -7541,10 +7533,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-confetti@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "js-confetti@npm:0.11.0"
-  checksum: 6bd280952842bb9cf0587042fe8f716423bc1e8a652145aeaefb68c70480be4477ae9ff556e569a7fa05763e8e24d0d2700d9cf88e7f210261e83069deb74dbf
+"js-confetti@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "js-confetti@npm:0.12.0"
+  checksum: 0ee29b359b35412c6344b9c029be383b53c9c9bf6f7efc00fd93a4e734b3a4e2b94ef26f7a0a4b09c2f848ee0e4f39ec7623a266c62c5007585bb80f4f37db95
   languageName: node
   linkType: hard
 
