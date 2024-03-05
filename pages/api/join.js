@@ -46,7 +46,7 @@ export default async function handler(req, res) {
       return res.status(405).json({ error: 'Method not allowed, use POST' })
   }
 
-  const data = req.body || {}
+  let data = req.body || {}
   const open = process.env.NEXT_PUBLIC_OPEN === 'true'
   const waitlist = !open
   const isAdult = data.year ? new Date().getFullYear() - data.year >= 18 : false
@@ -57,10 +57,11 @@ export default async function handler(req, res) {
   if (isAdult) {
     const mail = {
       to: data.email,
-      from: 'team@hackclub.com',
-      subject: 'nonon toby!',
+      from: 'Hack Club Slack <team@hackclub.com>',
+      subject: 'Slack Waiting List update',
       text: 'Hello world',
-      html: '<strong>wazzup</strong>'
+      html: "Hey! Thanks for your interest in the Hack Club Slack. <br/> Our online community is for minors, and thus only pre-approved adults are permitted.\nTo find out more about what all we do, check out our Github. If you're a parent or educator & want to talk to a member of our team, send us a email at team@hackclub.com.\n",
+      imageUrl: 'https://assets.hackclub.com/icon-rounded.png'
     }
 
     sgMail.send(mail).then(
@@ -75,6 +76,9 @@ export default async function handler(req, res) {
     )
 
     console.log('email sent to', data.email)
+
+    data.email === null
+    console.log('Nullified email', data.email)
   }
 
   const secrets = (process.env.NAUGHTY || '').split(',')
@@ -107,7 +111,7 @@ export default async function handler(req, res) {
   const slackPromise = postData(
     'https://toriel.hackclub.com/slack-invite',
     {
-      email: data.email,
+      email: !isAdult ? data.email : null,
       ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress,
       continent: data.continent,
       teen: !isAdult,

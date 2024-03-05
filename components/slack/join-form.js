@@ -158,13 +158,13 @@ const JoinForm = ({ sx = {} }) => {
               default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
               error: 'Something went wrong',
               success:
-                useWaitlist ?? isAdult
+                useWaitlist || isAdult
                   ? "You're on the Waitlist!"
                   : 'Check your email for invite!'
             }}
             disabled={status === 'loading' || status === 'success'}
           />
-          {status === 'success' && !useWaitlist && (
+          {status === 'success' && !useWaitlist && !isAdult && (
             <Text
               variant="caption"
               color="secondary"
