@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Input, Textarea } from 'theme-ui'
-import Checkbox from './checkbox'
-import AddressInput from './address-input'
+import { Input, Select, Textarea } from 'theme-ui'
+// import Checkbox from './checkbox'
 import Field from './field'
-import AutofillColourFix from './autofill-colour-fix'
+// This is using country-list instead of country-list-js as it has a smaller bundle size
+import { getNames } from 'country-list'
 
 export default function OrganizationInfoForm({ requiredFields }) {
   const [org, setOrg] = useState('Organization')
@@ -23,7 +23,6 @@ export default function OrganizationInfoForm({ requiredFields }) {
           name="eventName"
           id="eventName"
           placeholder="Shelburne School Hackathon"
-          sx={{ ...AutofillColourFix }}
         />
       </Field>
       <Field
@@ -35,18 +34,25 @@ export default function OrganizationInfoForm({ requiredFields }) {
         <Input
           name="eventWebsite"
           id="eventWebsite"
-          type="url"
+          inputMode="url"
           placeholder="hackclub.com"
-          sx={{ ...AutofillColourFix }}
         />
       </Field>
       <Field
         name="eventLocation"
-        label={`${org} location`}
-        description="If your organization runs online, put your own address."
+        label={`Primary country of operations`}
         requiredFields={requiredFields}
       >
-        <AddressInput isPersonalAddressInput={false} name="eventLocation" />
+        <Select name="eventLocation" id="eventLocation">
+          {getNames()
+            .sort()
+            .sort(item => (item === 'United States of America' ? -1 : 1))
+            .map(country => (
+              <option key={country} value={country}>
+                {country}
+              </option>
+            ))}
+        </Select>
       </Field>
       {/* <Field
         name="transparent"
@@ -64,8 +70,8 @@ export default function OrganizationInfoForm({ requiredFields }) {
       </Field> */}
       <Field
         name="eventDescription"
-        label={`Tell us about your ${org.toLowerCase()}!`}
-        description="1 or 2 sentences will suffice"
+        label={`Tell us about your ${org.toLowerCase()}`}
+        description="2–4 sentences will suffice."
         requiredFields={requiredFields}
       >
         <Textarea
@@ -73,9 +79,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
           id="eventDescription"
           rows={3}
           sx={{
-            resize: 'vertical',
-            width: '100%',
-            ...AutofillColourFix
+            resize: 'vertical'
           }}
         />
       </Field>

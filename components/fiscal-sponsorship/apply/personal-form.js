@@ -1,18 +1,9 @@
-import { Input, Flex, Label, Radio } from 'theme-ui'
-import Checkbox from './checkbox'
-import AddressInput from './address-input'
+import { Input, Flex, Label, Radio, Grid, Select } from 'theme-ui'
 import Field from './field'
-import AutofillColourFix from './autofill-colour-fix'
 import { useState } from 'react'
 
-export default function PersonalInfoForm({
-  setValidationResult,
-  requiredFields
-}) {
+export default function PersonalInfoForm({ requiredFields }) {
   const [selectedContactOption, setSelectedContactOption] = useState('Email')
-  const [email, setEmail] = useState(
-    window.sessionStorage.getItem('bank-signup-userEmail')
-  ) // For display only, is not used for data submission.
 
   return (
     <>
@@ -22,24 +13,14 @@ export default function PersonalInfoForm({
           label="First name"
           requiredFields={requiredFields}
         >
-          <Input
-            name="firstName"
-            id="firstName"
-            placeholder="Fiona"
-            sx={{ ...AutofillColourFix }}
-          />
+          <Input name="firstName" id="firstName" placeholder="Fiona" />
         </Field>
         <Field
           name="lastName"
           label="Last name"
           requiredFields={requiredFields}
         >
-          <Input
-            name="lastName"
-            id="lastName"
-            placeholder="Hacksworth"
-            sx={{ ...AutofillColourFix }}
-          />
+          <Input name="lastName" id="lastName" placeholder="Hacksworth" />
         </Field>
       </Flex>
       <Field name="userEmail" label="Email" requiredFields={requiredFields}>
@@ -48,9 +29,77 @@ export default function PersonalInfoForm({
           id="userEmail"
           type="email"
           placeholder="fiona@hackclub.com"
-          onInput={e => setEmail(e.target.value)}
-          sx={{ ...AutofillColourFix }}
         />
+      </Field>
+
+      <Field
+        name="contactOption"
+        label="Preferred contact channel"
+        requiredFields={requiredFields}
+      >
+        <Grid
+          columns={[null, 2]}
+          sx={{
+            rowGap: 2,
+            columnGap: 4,
+            width: '100%'
+          }}
+        >
+          <Label
+            sx={{
+              display: 'flex',
+              flexDirection: 'row'
+            }}
+          >
+            <Radio
+              name="contactOption"
+              value="Email"
+              defaultChecked={true}
+              onInput={() => setSelectedContactOption('Email')}
+            />
+            Email
+          </Label>
+          <Grid
+            sx={{
+              columnGap: 0,
+              rowGap: 2,
+              gridTemplateColumns: 'auto 1fr'
+            }}
+          >
+            <Label
+              sx={{
+                display: 'contents',
+                '~ div > label': { fontSize: 1 }
+              }}
+            >
+              <Radio
+                name="contactOption"
+                value="Slack"
+                onInput={() => setSelectedContactOption('Slack')}
+              />
+              Hack Club Slack
+            </Label>
+            {selectedContactOption === 'Slack' ? (
+              <>
+                <div />
+                <Field
+                  label="Your Hack Club Slack username"
+                  name="slackUsername"
+                  requiredFields={requiredFields}
+                >
+                  <Input
+                    name="slackUsername"
+                    id="slackUsername"
+                    placeholder="FionaH"
+                    autocomplete="off"
+                    data-1p-ignore
+                    autoFocus
+                  />
+                </Field>
+              </>
+            ) : null}
+          </Grid>
+        </Grid>
       </Field>
       <Field
         name="userPhone"
@@ -62,23 +111,31 @@ export default function PersonalInfoForm({
           name="userPhone"
           id="userPhone"
           type="tel"
-          placeholder="(123) 456-7890"
-          sx={{ ...AutofillColourFix }}
+          placeholder="1-855-625-HACK"
         />
       </Field>
       <Field
         name="userBirthday"
-        label="Birthday"
+        label="Birth year"
         requiredFields={requiredFields}
       >
-        <Input
-          name="userBirthday"
-          id="userBirthday"
-          type="date"
-          sx={{ ...AutofillColourFix }}
-        />
+        <Select name="userBirthday" id="userBirthday" defaultValue="">
+          <option value="" disabled>
+            Select a year
+          </option>
+          {/* show a century of years starting from 13 years ago */}
+          {Array.from({ length: 98 }, (_, i) => {
+            const year = new Date().getFullYear() - 13 - i
+            return (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            )
+          })}
+        </Select>
       </Field>
-      <Field
+
+      {/* <Field
         name="referredBy"
         label="Who were you referred by?"
         requiredFields={requiredFields}
@@ -87,7 +144,6 @@ export default function PersonalInfoForm({
           name="referredBy"
           id="referredBy"
           placeholder="Max"
-          sx={{ ...AutofillColourFix }}
         />
       </Field>
       <Field
@@ -111,67 +167,17 @@ export default function PersonalInfoForm({
         />
       </Field>
 
-      <Field
-        name="contactOption"
-        label="Preferred contact channel"
-        description="So we know where to message you about your application!"
-        requiredFields={requiredFields}
-      >
-        <Flex sx={{ gap: 4 }}>
-          <Label
-            sx={{
-              display: 'flex',
-              flexDirection: 'row'
-            }}
-          >
-            <Radio
-              name="contactOption"
-              value="Email"
-              defaultChecked={true}
-              onInput={() => setSelectedContactOption('Email')}
-            />
-            Email
-          </Label>
-          <Label
-            sx={{
-              display: 'flex',
-              flexDirection: 'row'
-            }}
-          >
-            <Radio
-              name="contactOption"
-              value="Slack"
-              onInput={() => setSelectedContactOption('Slack')}
-            />
-            Slack
-          </Label>
-        </Flex>
-        {selectedContactOption === 'Slack' ? (
-          <Field name="slackUsername" requiredFields={requiredFields}>
-            <Input
-              name="slackUsername"
-              id="slackUsername"
-              placeholder="Your name in the Hack Club Slack"
-              sx={{ ...AutofillColourFix }}
-            />
-          </Field>
-        ) : selectedContactOption === 'Email' ? (
-          <div>
-            We'll use {email ?? 'whatever you put for your email above!'}
-          </div>
-        ) : null}
-      </Field>
+      */}
       <Field
         name="accommodations"
         label="Accessibility needs"
-        description="Please specify any accommodations, accessibility needs, or other important information so we can support you during onboarding and while using HCB"
+        description="Please specify any accommodations, accessibility needs, or other important information so we can support you during onboarding and while using HCB."
         requiredFields={requiredFields}
       >
         <Input
           name="accommodations"
           id="accommodations"
           placeholder="I use a screen reader/I need increased text size during onboarding"
-          sx={{ ...AutofillColourFix }}
         />
       </Field>
     </>

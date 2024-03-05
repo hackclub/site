@@ -1,25 +1,35 @@
 import { forwardRef } from 'react'
-import { Box } from 'theme-ui'
+import { Box, Container } from 'theme-ui'
 
-const formContainer = forwardRef(({ children }, ref) => {
+const formContainer = forwardRef(({ children, ...props }, ref) => {
   return (
     <Box
       ref={ref}
       as="form"
       sx={{
-        height: '100%',
-        width: ['100%', null, null, '50ch'],
-        flex: '1',
-        overflowY: ['none', null, null, 'auto'],
-        pr: [0, null, '2ch'],
-        pl: [0, null, 1],
-        pb: [0, null, 3],
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 4
+        bg: 'snow',
+        px: [3, 5],
+        py: 5,
+        minHeight: '100dvb',
+        '&.has-errors div[aria-required="true"] input:placeholder-shown': {
+          borderColor: 'primary'
+        }
       }}
+      {...props}
     >
-      {children}
+      <Container
+        variant="copy"
+        sx={{
+          ml: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          columnGap: 4,
+          rowGap: 3,
+          px: 0
+        }}
+      >
+        {children}
+      </Container>
     </Box>
   )
 })
