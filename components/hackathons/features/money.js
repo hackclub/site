@@ -56,7 +56,7 @@ const Content = () => (
           debit cards, a domain name, stickers, and more.`}
         />
       </List>
-      <NextLink href="/hcb" passHref>
+      <NextLink href="/fiscal-sponsorship" passHref>
         <Button as="a" variant="outlineLg" sx={{ width: [null, null, 500] }}>
           Apply&nbsp;
           <Box as="span" sx={{ display: ['none', 'inline', ''] }}>
@@ -153,7 +153,7 @@ const Static = () => (
     sx={{
       position: 'relative',
       overflow: 'hidden',
-      backgroundImage: `url('/hcb/bg.webp')`,
+      backgroundImage: `url('/fiscal-sponsorship/bg.webp')`,
       backgroundSize: 'cover'
     }}
   >

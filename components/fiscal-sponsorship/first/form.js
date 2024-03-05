@@ -1,7 +1,7 @@
 import { Box, Input, Label, Button, Select, Text, Grid } from 'theme-ui'
 import { useEffect, useRef, useState } from 'react'
 import theme from '@hackclub/theme'
-import Icon from '../icon'
+import Icon from '../../icon'
 import { keyframes } from '@emotion/react'
 import debounce from 'lodash/debounce'
 
@@ -68,7 +68,7 @@ function Field({
           name={name}
           type={type}
           sx={{
-            bg: 'light'
+            bg: 'dark'
           }}
           onChange={onChange}
           value={value}
@@ -83,7 +83,38 @@ export default function Signup() {
   const [submitted, setSubmitted] = useState(false)
 
   const [eventName, setEventName] = useState('')
+  const [teamType, setTeamType] = useState('')
+  const [teamNumber, setTeamNumber] = useState('')
   const [userEmail, setUserEmail] = useState('')
+
+  const [teamNameLoading, setTeamNameLoading] = useState(false)
+
+  const debouncedTeamNameUpdate = useRef(
+    debounce(async teamNumber => {
+      try {
+        const data = await fetch(
+          `/api/first-team?teamNumber=${teamNumber}`
+        ).then(res => res.json())
+
+        setTeamNameLoading(false)
+
+        if (data.ok !== false) {
+          setEventName(data.nickname)
+        } else {
+          setEventName('')
+        }
+      } catch (e) { }
+    }, 200)
+  )
+
+  useEffect(() => {
+    if (teamNumber && teamType === 'FRC') {
+      setTeamNameLoading(true)
+      debouncedTeamNameUpdate.current(teamNumber)
+    } else {
+      setEventName('')
+    }
+  }, [teamType, teamNumber])
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -92,8 +123,10 @@ export default function Signup() {
       method: 'POST',
       body: JSON.stringify({
         eventName,
+        teamType,
+        teamNumber,
         userEmail,
-        eventCategory: 'hardware grant'
+        eventCategory: 'robotics team'
       })
     })
 
@@ -101,6 +134,8 @@ export default function Signup() {
 
     // clear form
     setEventName('')
+    setTeamType('')
+    setTeamNumber('')
     setUserEmail('')
   }
 
@@ -112,10 +147,38 @@ export default function Signup() {
         action="/api/fiscal-sponsorship/demo"
         onSubmit={handleSubmit}
       >
+        <Grid sx={{ gridTemplateColumns: '1fr 2fr', alignItems: 'center' }}>
+          <Label htmlFor="teamType" sx={{ color: 'muted', fontSize: 18 }}>
+            Level
+            <Select
+              name="teamType"
+              defaultValue="Select"
+              sx={{ bg: 'dark', w: '500px !important' }}
+              onChange={e => setTeamType(e.target.value)}
+            >
+              <option value="Select" disabled>
+                Select
+              </option>
+              <option value="FLL">FLL</option>
+              <option value="FTC">FTC</option>
+              <option value="FRC">FRC</option>
+            </Select>
+          </Label>
+
+          <Field
+            label="Team number (optional)"
+            name="teamNumber"
+            placeholder="12345"
+            value={teamNumber}
+            loading={teamNameLoading}
+            onChange={e => setTeamNumber(e.target.value)}
+            required={false}
+          />
+        </Grid>
         <Field
-          label="Name"
+          label="Team name"
           name="eventName"
-          placeholder="Fiona's Hardware Fund"
+          placeholder="Poseidon Robotics"
           value={eventName}
           onChange={e => setEventName(e.target.value)}
         />
@@ -129,7 +192,7 @@ export default function Signup() {
         />
         <Button
           sx={{
-            backgroundImage: theme.util.gx('green', 'blue'),
+            backgroundImage: theme.util.gx('orange', 'red'),
             mt: [2, 3],
             py: 2
           }}
