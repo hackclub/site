@@ -34,8 +34,8 @@ export default function OrganizationInfoForm({ requiredFields }) {
         <Input
           name="eventWebsite"
           id="eventWebsite"
-          type="url"
-          placeholder="https://hackclub.com"
+          inputMode="url"
+          placeholder="hackclub.com"
         />
       </Field>
       <Field
