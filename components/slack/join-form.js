@@ -13,24 +13,9 @@ import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 import { getCookie, hasCookie } from 'cookies-next'
-import { useReducer, useState } from 'react'
 
 const JoinForm = ({ sx = {} }) => {
-  const [isAdult, setIsAdult] = useState(false)
-  const [year, setYear] = useState('')
-
   const router = useRouter()
-
-  function handleYearChange(e) {
-    const year = e.target.value
-    setYear(year)
-
-    const age = new Date().getFullYear() - new Date(year).getFullYear()
-
-    setIsAdult(age >= 18)
-
-    console.log(isAdult)
-  }
 
   const createNums = (start, end) => {
     let nums = []
@@ -157,14 +142,13 @@ const JoinForm = ({ sx = {} }) => {
             labels={{
               default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
               error: 'Something went wrong',
-              success:
-                useWaitlist || isAdult
-                  ? "You're on the Waitlist!"
-                  : 'Check your email for invite!'
+              success: useWaitlist
+                ? "You're on the Waitlist!"
+                : 'Check your email for invite!'
             }}
             disabled={status === 'loading' || status === 'success'}
           />
-          {status === 'success' && !useWaitlist && !isAdult && (
+          {status === 'success' && !useWaitlist && (
             <Text
               variant="caption"
               color="secondary"
@@ -188,20 +172,6 @@ const JoinForm = ({ sx = {} }) => {
 }
 
 function AdultChecker() {
-  const [isAdult, setIsAdult] = useReducer(false)
-  const [year, setYear] = useState('')
-
-  function handleYearChange(e) {
-    const year = e.target.value
-    setYear(year)
-
-    const age = new Date().getFullYear() - new Date(year).getFullYear()
-
-    setIsAdult(age >= 18)
-
-    console.log(isAdult)
-  }
-
   return (
     <Label>
       Birthday

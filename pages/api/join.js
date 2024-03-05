@@ -51,34 +51,17 @@ export default async function handler(req, res) {
   const waitlist = !open
   const isAdult = data.year ? new Date().getFullYear() - data.year >= 18 : false
 
-  console.log('data', data)
-  console.log('isAdult', isAdult)
-
   if (isAdult) {
     const mail = {
       to: data.email,
       from: 'Hack Club Slack <team@hackclub.com>',
       subject: 'Slack Waiting List update',
       text: 'Hello world',
-      html: "Hey! Thanks for your interest in the Hack Club Slack. <br/> Our online community is for minors, and thus only pre-approved adults are permitted.\nTo find out more about what all we do, check out our Github. If you're a parent or educator & want to talk to a member of our team, send us a email at team@hackclub.com.\n",
+      html: "Hey! Thanks for your interest in the Hack Club Slack. <br/> Our online community is for minors, and thus only pre-approved adults are permitted.\nTo find out more about what all we do, check out our <a href='https://github.com/hackclub'>Github</a>. If you're a parent or educator & want to talk to a member of our team, send us a email at <a href='mailto:team@hackclub.com'>team@hackclub.com</a>.",
       imageUrl: 'https://assets.hackclub.com/icon-rounded.png'
     }
 
-    sgMail.send(mail).then(
-      () => {},
-      error => {
-        console.log('shit', error)
-
-        if (error.response) {
-          console.log(error.response.body)
-        }
-      }
-    )
-
-    console.log('email sent to', data.email)
-
-    data.email === null
-    console.log('Nullified email', data.email)
+    sgMail.send(mail)
   }
 
   const secrets = (process.env.NAUGHTY || '').split(',')
