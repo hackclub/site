@@ -75,7 +75,7 @@ export default async function handler(req, res) {
 
   const airtablePromise = joinTable.create({
     'Full Name': data.name,
-    'Email Address': !isAdult ? data.email : null,
+    'Email Address': data.email,
     Student: !isAdult,
     Reason: data.reason,
     Invited: !waitlist,
