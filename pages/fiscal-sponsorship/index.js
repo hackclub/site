@@ -581,7 +581,7 @@ export default function Page() {
           </Text>
         </Flex>
       </Box>
-      <Footer />
+      <Footer phoneNumber="+1 (844) 237 2290" />
     </>
   )
 }
