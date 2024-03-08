@@ -258,11 +258,12 @@ const Page = () => (
             showAlt
           />*/}
           <iframe
-            width={660}
-            height={515}
+            width="100%"
+            height="500px"
             src="https://www.youtube.com/embed/xXIxwV7bQTw?si=gmhvvHTcUxKTVMjt"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
             style={{ borderRadius: 12, border: 'hidden' }}
           />
           <Grid
