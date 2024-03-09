@@ -1,5 +1,9 @@
 import AirtablePlus from 'airtable-plus'
 
+const sgMail = require('@sendgrid/mail')
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 const joinTable = new AirtablePlus({
   apiKey: process.env.AIRTABLE_API_KEY,
   baseID: 'appaqcJtn33vb59Au',
@@ -36,15 +40,29 @@ export default async function handler(req, res) {
         error: '*PUT that request away!* (Method not allowed, use POST)'
       })
     case 'POST':
+      console.log('POST request received. WOO!')
       break
     default:
       return res.status(405).json({ error: 'Method not allowed, use POST' })
   }
 
-  const data = req.body || {}
+  let data = req.body || {}
   const open = process.env.NEXT_PUBLIC_OPEN === 'true'
   const waitlist = !open
-  const isAdult = data.educationLevel === 'tertiary'
+  const isAdult = data.year ? new Date().getFullYear() - data.year >= 18 : false
+
+  if (isAdult) {
+    const mail = {
+      to: data.email,
+      from: 'Hack Club Slack <team@hackclub.com>',
+      subject: 'Slack Waiting List update',
+      text: 'Hello world',
+      html: "Hey! Thanks for your interest in the Hack Club Slack. <br/> Our online community is for minors, and thus only pre-approved adults are permitted.\nTo find out more about what all we do, check out our <a href='https://github.com/hackclub'>Github</a>. If you're a parent or educator & want to talk to a member of our team, send us a email at <a href='mailto:team@hackclub.com'>team@hackclub.com</a>.",
+      imageUrl: 'https://assets.hackclub.com/icon-rounded.png'
+    }
+
+    sgMail.send(mail)
+  }
 
   const secrets = (process.env.NAUGHTY || '').split(',')
 
@@ -76,7 +94,7 @@ export default async function handler(req, res) {
   const slackPromise = postData(
     'https://toriel.hackclub.com/slack-invite',
     {
-      email: data.email,
+      email: !isAdult ? data.email : null,
       ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress,
       continent: data.continent,
       teen: !isAdult,
@@ -93,6 +111,7 @@ export default async function handler(req, res) {
       res.json({ status: 'success', message: 'You’ve been invited to Slack!' })
     )
     .catch(error => {
+      console.error(error)
       res.status(500).json({ error })
     })
 }
