@@ -10,7 +10,7 @@ Download the code to your computer:
 
 Install dependencies:
 
-    $ yarn
+    $ yar
 
 Start running the website on your computer:
 
