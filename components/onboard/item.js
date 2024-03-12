@@ -1,10 +1,15 @@
 import {Box, Divider, Flex, Heading, Image, Paragraph} from "theme-ui";
+import {Link} from "theme-ui";
+import React, {useContext} from "react";
 
 function trim(str) {
     return str.substring(1, str.length - 1)
 }
 
-const Item = ({ title, author_name, author_slack, image }) => {
+const onboardContext = React.createContext({})
+
+const Item = ({ title, author_name, author_slack, image, project }) => {
+    //const { projectCtx, setProjectCtx } = React.useContext(onboardContext)
     return (
         <Box
             sx={{
@@ -31,15 +36,27 @@ const Item = ({ title, author_name, author_slack, image }) => {
                         borderRadius: 8
                     }}
                 />
-                <Heading
-                    as="h2"
+                <Link
+                    href={`/onboard/board_page?name=${project.project_name}`}
                     sx={{
-                        textAlign: 'center',
-                        mt: 3
+                        textDecoration: 'none',
+                        color: 'black',
+                        ':hover': {
+                            color: 'primary'
+                        }
                     }}
                 >
-                    {title}
-                </Heading>
+                    <Heading
+                        as="h2"
+                        //variant="title"
+                        sx={{
+                            textAlign: 'center',
+                            mt: 3
+                        }}
+                    >
+                        {title}
+                    </Heading>
+                </Link>
                 <Paragraph
                     sx={{
                         textAlign: 'center',
@@ -55,3 +72,4 @@ const Item = ({ title, author_name, author_slack, image }) => {
 }
 
 export default Item;
+export { onboardContext };

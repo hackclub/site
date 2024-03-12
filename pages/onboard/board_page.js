@@ -1,44 +1,17 @@
-import {Box, Button, Flex, Grid, Heading, Text} from 'theme-ui'
+import {Box, Button, Flex, Grid, Heading, Image, Text} from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../../components/nav'
 import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
-import {useEffect, useRef, useState} from 'react'
-import Item from '../../components/onboard/item'
+import {useContext, useEffect, useRef, useState} from 'react'
+import Item, {onboardContext} from '../../components/onboard/item'
+//import { useSearchParams } from 'next/navigation'
 /*import pcbStackup from "pcb-stackup";
 import JSZip     from "jszip";
 import JSZipUtils from "jszip-utils";*/
-
-async function get_fallback_image(project) {
-    /*const fileNamesBlobs = {}
-    // load the zip file
-    const zip = new JSZip();
-    await JSZipUtils.getBinaryContent(project, async (err, data) => {
-        if (err) {
-            console.error(err)
-        }
-        try {
-            const zipData = await zip.loadAsync(data)
-            // get the file names and blobs
-            for (const [fileName, file] of Object.entries(zipData.files)) {
-                fileNamesBlobs[fileName] = await file.async('blob')
-            }
-        } catch (e) {
-            console.error(e)
-        }
-    })
-    const layers = []
-    for (const [fileName, blob] of Object.entries(fileNamesBlobs)) {
-        if (!fileName.includes('.txt')) { // filter out the text files
-            layers.push({
-                fileName,
-                gerber: blob.stream()
-            })
-        }
-    }
-    return (await pcbStackup(layers)).top.svg*/
-    return 'https://cloud-2jz3jz3jz-hack-club-bot.vercel.app/0image.png'
-}
+import { useRouter } from "next/router";
+import { remark } from 'remark';
+import html from 'remark-html';
 
 // example projects
 const curated = [
@@ -52,8 +25,11 @@ const curated = [
     'Connor Ender 3 Bed Leveler',
 ]
 
-const GalleryPage = () => {
+const BoardPage = () => {
     const prefersReducedMotion = usePrefersReducedMotion()
+
+    const router = useRouter()
+    const { name } = router.query
 
     const spotlightRef = useRef()
     useEffect(() => {
@@ -68,57 +44,45 @@ const GalleryPage = () => {
         return () => window.removeEventListener('mousemove', handler)
     }, [])
 
-    // fetch all folders in the https://github.com/hackclub/OnBoard/tree/main/projects directory
-    const [projects, setProjects] = useState([])
+    const [project, setProject] = useState({})
     useEffect(() => {
-        const fetchProjects = async () => {
-            const res = await fetch(
-                'https://api.github.com/repos/hackclub/OnBoard/contents/projects'
-            )
-            const data = (await res.json()).filter(project => curated.includes(project.name))
-            console.log(data)
-            const projectData = data.map(async project => {
-                // inside each project, fetch the README.md file
-                const readme = await fetch(`https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${project.name}/README.md`)
-                const text = await readme.text()
-                // parse YAML frontmatter
-                const lines = text.split('\n')
-                const frontmatter = {}
-                let i = 0
-                for (; i < lines.length; i++) {
-                    if (lines[i].startsWith('---')) {
-                        break
-                    }
+        const fetchProject = async () => {
+            const readme = await fetch(`https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${name}/README.md`)
+            const text = await readme.text()
+            // parse YAML frontmatter
+            const lines = text.split('\n')
+            const frontmatter = {}
+            let i = 0
+            for (; i < lines.length; i++) {
+                if (lines[i].startsWith('---')) {
+                    break
                 }
-                for (i++; i < lines.length; i++) {
-                    if (lines[i].startsWith('---')) {
-                        break
-                    }
-                    const [key, value] = lines[i].split(': ')
-                    frontmatter[key] = value
+            }
+            for (i++; i < lines.length; i++) {
+                if (lines[i].startsWith('---')) {
+                    break
                 }
-                // check for a "thumbnail.png" file in the project directory
-                console.log(`https://github.com/snoglobe/OnBoard/raw/main/projects/${project.name}/thumbnail.png`)
-                const thumbnail = await fetch(`https://github.com/snoglobe/OnBoard/raw/main/projects/${project.name}/thumbnail.png`, {mode: 'no-cors'})
-                console.log(thumbnail)
-                const image = /*thumbnail.ok ?*/ `https://github.com/snoglobe/OnBoard/raw/main/projects/${project.name}/thumbnail.png` /*: await get_fallback_image(`https://github.com/hackclub/OnBoard/raw/main/projects/${project.name}`)*/
-                return {
-                    project_name: project.name,
-                    maker_name: frontmatter.name,
-                    slack_handle: frontmatter.slack_handle,
-                    github_handle: frontmatter.github_handle,
-                    tutorial: frontmatter.tutorial,
-                    description: lines.slice(i + 1).join('\n'),
-                    image: image
-                }
-
+                const [key, value] = lines[i].split(': ')
+                frontmatter[key] = value
+            }
+            // check for a "thumbnail.png" file in the project directory
+            console.log(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`)
+            const thumbnail = await fetch(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`, {mode: 'no-cors'})
+            console.log(thumbnail)
+            const image = /*thumbnail.ok ?*/ `https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png` /*: await get_fallback_image(`https://github.com/hackclub/OnBoard/raw/main/projects/${project.name}`)*/
+            setProject({
+                project_name: name,
+                maker_name: frontmatter.name,
+                slack_handle: frontmatter.slack_handle,
+                github_handle: frontmatter.github_handle,
+                tutorial: frontmatter.tutorial,
+                description: lines.slice(i + 1).join('\n'),
+                image: image
             })
-            let projects = await Promise.all(projectData)
-            //console.log(projects)
-            setProjects(projects)
         }
-        fetchProjects()
-    }, [])
+        fetchProject()
+    }, [name])
+
     return (
         <>
             <Meta
@@ -214,36 +178,58 @@ const GalleryPage = () => {
                 sx={{
                     bg: 'white',
                     py: [4, 5],
-                    textAlign: 'center'
-
+                    textAlign: 'center',
                 }}
             >
-                <Grid
-                    gap={4}
-                    columns={[null, 2]}
+                <Box
                     sx={{
-                        p: 4,
-                        maxWidth: 'copyPlus',
+                        maxWidth: 'copyUltra',
                         mx: 'auto',
-                        mt: 4,
-                        mb: 5,
-                        textAlign: 'center',
+                        px: 3
                     }}
                 >
-                    {projects.map(project => (
-                        <Item
-                            key={project.project_name}
-                            title={project.project_name}
-                            author_name={project.maker_name}
-                            author_slack={project.slack_handle}
-                            image={project.image}
-                            project={project}
+                    {// two-column layout - image on left, title + desc on right
+                    }
+                    <Box
+                        sx={{
+                            display: 'grid',
+                            gap: 4,
+                            gridTemplateColumns: ['1fr', 'repeat(2, 1fr)'],
+                            color: 'black',
+                        }}
+                    >
+                        <Image
+                            src={project.image}
+                            alt={project.project_name}
+                            sx={{
+                                borderRadius: 8,
+                                boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+                            }}
                         />
-                    ))}
-                </Grid>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center'
+                            }}
+                        >
+                            <Heading as="h2" variant="title" sx={{ textAlign: 'center' }}>
+                                {project.project_name}
+                            </Heading>
+                            {/* custom innerHTML */}
+                            <Box
+                                dangerouslySetInnerHTML={{ __html:
+                                        // render with remark to parse markdown
+                                        remark().use(html).processSync(project.description).toString()
+                                            .replaceAll('h4', 'p')
+                                     }}
+                            />
+                        </Box>
+                    </Box>
+                </Box>
             </Box>
         </>
     )
 }
 
-export default GalleryPage
+export default BoardPage;
