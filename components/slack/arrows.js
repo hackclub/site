@@ -1,5 +1,5 @@
 import { VisibilityContext } from 'react-horizontal-scrolling-menu'
-import { useContext, useEffect, useState } from 'react'
+import { useContext } from 'react'
 import Icon from '@hackclub/icons'
 import { Box, Link } from 'theme-ui'
 
@@ -31,34 +31,26 @@ function Arrow({ direction, disabled, onClick }) {
 }
 
 export function LeftArrow() {
-  const { scrollPrev, visibleElements, isFirstItemVisible } =
+  const { scrollPrev } =
     useContext(VisibilityContext)
-  const [disabled, setDisabled] = useState(false)
 
-  useEffect(() => {
-    if (visibleElements.length) {
-      setDisabled(isFirstItemVisible)
-    }
-  }, [isFirstItemVisible, visibleElements])
+  const visibility = useContext(VisibilityContext)
+  const isVisible = visibility.useIsVisible("first", false);
 
   return (
-    <Arrow direction="left" disabled={disabled} onClick={() => scrollPrev()} />
+    <Arrow direction="left" disabled={isVisible} onClick={() => scrollPrev()} />
   )
 }
 
 export function RightArrow() {
-  const { scrollNext, visibleElements, isLastItemVisible } =
+  const { scrollNext } =
     useContext(VisibilityContext)
-  const [disabled, setDisabled] = useState(false)
 
-  useEffect(() => {
-    if (visibleElements.length) {
-      setDisabled(isLastItemVisible)
-    }
-  }, [isLastItemVisible, visibleElements])
+  const visibility = useContext(VisibilityContext)
+  const isVisible = visibility.useIsVisible("last", false);
 
   return (
-    <Arrow direction="right" disabled={disabled} onClick={() => scrollNext()} />
+    <Arrow direction="right" disabled={isVisible} onClick={() => scrollNext()} />
   )
 }
 
