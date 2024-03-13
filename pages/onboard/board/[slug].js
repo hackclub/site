@@ -1,17 +1,12 @@
 import {Box, Button, Flex, Grid, Heading, Image, Text} from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
-import Nav from '../../components/nav'
-import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
-import {useContext, useEffect, useRef, useState} from 'react'
-import Item, {onboardContext} from '../../components/onboard/item'
-//import { useSearchParams } from 'next/navigation'
-/*import pcbStackup from "pcb-stackup";
-import JSZip     from "jszip";
-import JSZipUtils from "jszip-utils";*/
-import { useRouter } from "next/router";
+import Nav from '../../../components/nav'
+import usePrefersReducedMotion from '../../../lib/use-prefers-reduced-motion'
+import {useEffect, useRef, useState} from 'react'
 import { remark } from 'remark';
 import html from 'remark-html';
+import {useRouter} from "next/router";
 
 // example projects
 const curated = [
@@ -25,11 +20,12 @@ const curated = [
     'Connor Ender 3 Bed Leveler',
 ]
 
-const BoardPage = () => {
+const BoardPage = (params) => {
     const prefersReducedMotion = usePrefersReducedMotion()
 
     const router = useRouter()
-    const { name } = router.query
+    // get slug
+    const name = router.query.slug
 
     const spotlightRef = useRef()
     useEffect(() => {
@@ -46,41 +42,11 @@ const BoardPage = () => {
 
     const [project, setProject] = useState({})
     useEffect(() => {
-        const fetchProject = async () => {
-            const readme = await fetch(`https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${name}/README.md`)
-            const text = await readme.text()
-            // parse YAML frontmatter
-            const lines = text.split('\n')
-            const frontmatter = {}
-            let i = 0
-            for (; i < lines.length; i++) {
-                if (lines[i].startsWith('---')) {
-                    break
-                }
-            }
-            for (i++; i < lines.length; i++) {
-                if (lines[i].startsWith('---')) {
-                    break
-                }
-                const [key, value] = lines[i].split(': ')
-                frontmatter[key] = value
-            }
-            // check for a "thumbnail.png" file in the project directory
-            console.log(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`)
-            const thumbnail = await fetch(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`, {mode: 'no-cors'})
-            console.log(thumbnail)
-            const image = /*thumbnail.ok ?*/ `https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png` /*: await get_fallback_image(`https://github.com/hackclub/OnBoard/raw/main/projects/${project.name}`)*/
-            setProject({
-                project_name: name,
-                maker_name: frontmatter.name,
-                slack_handle: frontmatter.slack_handle,
-                github_handle: frontmatter.github_handle,
-                tutorial: frontmatter.tutorial,
-                description: lines.slice(i + 1).join('\n'),
-                image: image
-            })
-        }
-        fetchProject()
+        (async () => {
+            const project = await (await fetch(`/api/board/${name}`)).json()
+            console.log(project)
+            setProject(project)
+        })()
     }, [name])
 
     return (
@@ -219,10 +185,10 @@ const BoardPage = () => {
                             {/* custom innerHTML */}
                             <Box
                                 dangerouslySetInnerHTML={{ __html:
-                                        // render with remark to parse markdown
+                                    // render with remark to parse markdown
                                         remark().use(html).processSync(project.description).toString()
                                             .replaceAll('h4', 'p')
-                                     }}
+                                }}
                             />
                         </Box>
                     </Box>

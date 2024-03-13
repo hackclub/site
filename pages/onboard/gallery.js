@@ -78,40 +78,7 @@ const GalleryPage = () => {
             const data = (await res.json()).filter(project => curated.includes(project.name))
             console.log(data)
             const projectData = data.map(async project => {
-                // inside each project, fetch the README.md file
-                const readme = await fetch(`https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${project.name}/README.md`)
-                const text = await readme.text()
-                // parse YAML frontmatter
-                const lines = text.split('\n')
-                const frontmatter = {}
-                let i = 0
-                for (; i < lines.length; i++) {
-                    if (lines[i].startsWith('---')) {
-                        break
-                    }
-                }
-                for (i++; i < lines.length; i++) {
-                    if (lines[i].startsWith('---')) {
-                        break
-                    }
-                    const [key, value] = lines[i].split(': ')
-                    frontmatter[key] = value
-                }
-                // check for a "thumbnail.png" file in the project directory
-                console.log(`https://github.com/snoglobe/OnBoard/raw/main/projects/${project.name}/thumbnail.png`)
-                const thumbnail = await fetch(`https://github.com/snoglobe/OnBoard/raw/main/projects/${project.name}/thumbnail.png`, {mode: 'no-cors'})
-                console.log(thumbnail)
-                const image = /*thumbnail.ok ?*/ `https://github.com/snoglobe/OnBoard/raw/main/projects/${project.name}/thumbnail.png` /*: await get_fallback_image(`https://github.com/hackclub/OnBoard/raw/main/projects/${project.name}`)*/
-                return {
-                    project_name: project.name,
-                    maker_name: frontmatter.name,
-                    slack_handle: frontmatter.slack_handle,
-                    github_handle: frontmatter.github_handle,
-                    tutorial: frontmatter.tutorial,
-                    description: lines.slice(i + 1).join('\n'),
-                    image: image
-                }
-
+                return await (await fetch(`/api/board/${project.name}`)).json()
             })
             let projects = await Promise.all(projectData)
             //console.log(projects)

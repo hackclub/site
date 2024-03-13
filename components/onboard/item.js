@@ -37,7 +37,7 @@ const Item = ({ title, author_name, author_slack, image, project }) => {
                     }}
                 />
                 <Link
-                    href={`/onboard/board_page?name=${project.project_name}`}
+                    href={`/onboard/board/${project.project_name}`}
                     sx={{
                         textDecoration: 'none',
                         color: 'black',
