@@ -111,7 +111,7 @@ export default function PersonalInfoForm({ requiredFields }) {
           name="userPhone"
           id="userPhone"
           type="tel"
-          placeholder="1-855-625-HACK"
+          placeholder="+1 (844) 237 2290"
         />
       </Field>
       <Field
