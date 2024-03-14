@@ -487,7 +487,12 @@ export default function FiscalSponsorship() {
           }
         }}
       />
-      <Footer dark phoneNumber="+1 (844) 237 2290" phoneNumberUri="+1-844-237-2290"/>
+      <Footer
+        dark
+        phoneNumber="+1 (844) 237 2290"
+        phoneNumberUri="+1-844-237-2290"
+        email="hcb@hackclub.com"
+      />
     </Box>
   )
 }
