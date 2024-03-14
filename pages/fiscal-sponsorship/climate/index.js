@@ -12,7 +12,7 @@ import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../../components/force-theme'
 import Nav from '../../../components/nav'
-import Footer from '../../../components/footer'
+import HcbFooter from '../../../components/fiscal-sponsorship/footer'
 import MSparkles from '../../../components/sparkles/money'
 import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
@@ -1214,13 +1214,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
           </Box>
         </Box>
       </Box>
-      <Footer
-        light
-        key="footer"
-        phoneNumber="+1 (844) 237 2290"
-        phoneNumberUri="+1-844-237-2290"
-        email="hcb@hackclub.com"
-      />
+      <HcbFooter light key="footer" />
     </div>
   )
 }

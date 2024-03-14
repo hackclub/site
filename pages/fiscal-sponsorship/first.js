@@ -13,7 +13,7 @@ import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
-import Footer from '../../components/footer'
+import HcbFooter from '../../components/fiscal-sponsorship/footer'
 import Icon from '../../components/icon'
 import Features from '../../components/fiscal-sponsorship/first/features'
 
@@ -186,13 +186,7 @@ export default function First({ stats }) {
           <Start stats={stats} />
         </Box>
       </Box>
-      <Footer
-        dark
-        key="footer"
-        phoneNumber="+1 (844) 237 2290"
-        phoneNumberUri="+1-844-237-2290"
-        email="hcb@hackclub.com"
-      />
+      <HcbFooter dark key="footer" />
     </>
   )
 }
