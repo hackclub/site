@@ -48,6 +48,7 @@
     "million": "^2.6.4",
     "next": "^12.3.1",
     "next-transpile-modules": "^10.0.1",
+    "nextjs-current-url": "^1.0.3",
     "pcb-stackup": "^4.2.8",
     "react": "^17.0.2",
     "react-before-after-slider-component": "^1.1.8",

@@ -5,6 +5,9 @@ import Nav from '../../components/nav'
 import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
 import {useEffect, useRef, useState} from 'react'
 import Item from '../../components/onboard/item'
+import { getUrl } from 'nextjs-current-url/server';
+import {getURL} from "next/dist/shared/lib/utils";
+
 /*import pcbStackup from "pcb-stackup";
 import JSZip     from "jszip";
 import JSZipUtils from "jszip-utils";*/
@@ -52,7 +55,7 @@ const curated = [
     'Connor Ender 3 Bed Leveler',
 ]
 
-const GalleryPage = () => {
+const GalleryPage = ({ projects }) => {
     const prefersReducedMotion = usePrefersReducedMotion()
 
     const spotlightRef = useRef()
@@ -69,7 +72,7 @@ const GalleryPage = () => {
     }, [])
 
     // fetch all folders in the https://github.com/hackclub/OnBoard/tree/main/projects directory
-    const [projects, setProjects] = useState([])
+    /*const [projects, setProjects] = useState([])
     useEffect(() => {
         const fetchProjects = async () => {
             const res = await fetch(
@@ -85,7 +88,7 @@ const GalleryPage = () => {
             setProjects(projects)
         }
         fetchProjects()
-    }, [])
+    }, [])*/
     return (
         <>
             <Meta
@@ -211,6 +214,25 @@ const GalleryPage = () => {
             </Box>
         </>
     )
+}
+
+export async function getServerSideProps(context) {
+    const res = await fetch(
+        'https://api.github.com/repos/hackclub/OnBoard/contents/projects'
+    )
+    const data = (await res.json())/*.filter(project => curated.includes(project.name))*/
+    console.log(data)
+    const projectData = data.map(async project => {
+        const url = getUrl({ req: context.req })
+        console.log(url)
+        return await (await fetch(encodeURI(`${url.origin}/api/board/${project.name}`))).json()
+    })
+    let projects = await Promise.all(projectData)
+    return {
+        props: {
+            projects
+        }
+    }
 }
 
 export default GalleryPage
