@@ -41,7 +41,7 @@ const Submit = ({
 }) => (
   <Button
     as="button"
-    type="submit"
+    type={'submit' || props.type}
     sx={{
       py: 2,
       px: 3,

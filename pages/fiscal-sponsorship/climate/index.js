@@ -16,7 +16,9 @@ import Footer from '../../../components/footer'
 import MSparkles from '../../../components/sparkles/money'
 import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import OrganizationCard, { Badge } from '../../../components/fiscal-sponsorship/directory/card'
+import OrganizationCard, {
+  Badge
+} from '../../../components/fiscal-sponsorship/directory/card'
 import Zoom from 'react-reveal/Zoom'
 import fuzzysort from 'fuzzysort'
 import ScrollHint from '../../../components/scroll-hint'
@@ -93,8 +95,7 @@ export const regions = [
     icon: 'photo',
     image:
       'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png',
-    ogImage:
-      'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/3northamerica.png'
+    ogImage: '/fiscal-sponsorship/climate/NorthAmerica.png'
   },
   {
     label: 'South America',
@@ -103,8 +104,7 @@ export const regions = [
     icon: 'photo',
     image:
       'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png',
-    ogImage:
-      'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/4southamerica.png'
+    ogImage: '/fiscal-sponsorship/climate/SouthAmerica.png'
   },
   {
     label: 'Africa',
@@ -112,7 +112,7 @@ export const regions = [
     iconColor: 'purple',
     icon: 'explore',
     image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/0africa.png',
-    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/0africa.png'
+    ogImage: '/fiscal-sponsorship/climate/Africa.png'
   },
   {
     label: 'Europe',
@@ -120,7 +120,7 @@ export const regions = [
     iconColor: 'blue',
     icon: 'explore',
     image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/1europe.png',
-    ogImage: 'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/2europe.png'
+    ogImage: '/fiscal-sponsorship/climate/Europe.png'
   },
   {
     label: 'Asia & Oceania',
@@ -129,8 +129,7 @@ export const regions = [
     icon: 'explore',
     image:
       'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png',
-    ogImage:
-      'https://cloud-p9tu92fwx-hack-club-bot.vercel.app/1asia_oceania.png'
+    ogImage: '/fiscal-sponsorship/climate/Asia+Oceania.png'
   }
 ]
 
@@ -153,8 +152,8 @@ const FilterPanel = ({ filter, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-              color: 'blue'
-            }
+                color: 'blue'
+              }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -245,7 +244,7 @@ const FilterPanel = ({ filter, mobile }) => {
               textDecoration: 'none',
               color:
                 currentSelections.length === baseData.length ||
-                  !currentSelections.includes(item.id)
+                !currentSelections.includes(item.id)
                   ? 'black'
                   : 'primary',
               transition: 'color 0.2s',
@@ -325,8 +324,8 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-              color: 'blue'
-            }
+                color: 'blue'
+              }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -403,7 +402,9 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           <NextLink
             key={idx}
             scroll={false}
-            href={`/fiscal-sponsorship/climate/organizations-in-${kebabCase(item.label)}`}
+            href={`/fiscal-sponsorship/climate/organizations-in-${kebabCase(
+              item.label
+            )}`}
           >
             <Flex
               sx={{
@@ -535,8 +536,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
           " with HCB's fiscal sponsorship and financial tools. Explore the climate efforts running on HCB."
         }
         image={
-          region?.ogImage ??
-          'https://cloud-gv8bzwz6z-hack-club-bot.vercel.app/0frame_14__1_.png'
+          region?.ogImage ?? '/fiscal-sponsorship/climate/social-preview.png'
         }
       />
       <style>{styles}</style>
@@ -965,7 +965,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   viewBox="0 0 512 512"
                 >
                   <img
-                    src="/fiscal-sponsorship/climate/earth-on-hcb.svg"
+                    src="/fiscal-sponsorship/climate/earth-on-hcb.png"
                     alt=""
                     height="82px"
                   />
@@ -1135,7 +1135,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   return (
                     currentBadges.length === badges.length ||
                     intersection(organizationBadgeIds, currentBadges).length ===
-                    currentBadges.length
+                      currentBadges.length
                   )
                 })
                 .map(organization => (
@@ -1401,7 +1401,7 @@ export async function fetchRawClimateOrganizations() {
   while (lastLength >= 100) {
     const json = await fetch(
       'https://hcb.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
-      page
+        page
     ).then(res => res.json())
     lastLength = json.length
     page++
