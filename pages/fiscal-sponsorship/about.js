@@ -6,7 +6,7 @@ import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
-import Footer from '../../components/footer'
+import HcbFooter from '../../components/fiscal-sponsorship/footer'
 import Icon from '../../components/icon'
 import Tilt from '../../components/tilt'
 
@@ -487,12 +487,7 @@ export default function FiscalSponsorship() {
           }
         }}
       />
-      <Footer
-        dark
-        phoneNumber="+1 (844) 237 2290"
-        phoneNumberUri="+1-844-237-2290"
-        email="hcb@hackclub.com"
-      />
+      <HcbFooter dark />
     </Box>
   )
 }
