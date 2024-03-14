@@ -1214,7 +1214,13 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
           </Box>
         </Box>
       </Box>
-      <Footer light key="footer" phoneNumber="+1 (844) 237 2290" phoneNumberUri="+1-844-237-2290"/>
+      <Footer
+        light
+        key="footer"
+        phoneNumber="+1 (844) 237 2290"
+        phoneNumberUri="+1-844-237-2290"
+        email="hcb@hackclub.com"
+      />
     </div>
   )
 }

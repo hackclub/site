@@ -581,7 +581,11 @@ export default function Page() {
           </Text>
         </Flex>
       </Box>
-      <Footer phoneNumber="+1 (844) 237 2290" phoneNumberUri="+1-844-237-2290"/>
+      <Footer
+        phoneNumber="+1 (844) 237 2290"
+        phoneNumberUri="+1-844-237-2290"
+        email="hcb@hackclub.com"
+      />
     </>
   )
 }

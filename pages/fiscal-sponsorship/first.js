@@ -186,7 +186,13 @@ export default function First({ stats }) {
           <Start stats={stats} />
         </Box>
       </Box>
-      <Footer dark key="footer" phoneNumber="+1 (844) 237 2290" phoneNumberUri="+1-844-237-2290" />
+      <Footer
+        dark
+        key="footer"
+        phoneNumber="+1 (844) 237 2290"
+        phoneNumberUri="+1-844-237-2290"
+        email="hcb@hackclub.com"
+      />
     </>
   )
 }
