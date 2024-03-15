@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
-import { Box, Container, Text, Link, Flex, Image } from 'theme-ui'
+import { Container, Text, Link, Image } from 'theme-ui'
 import JSConfetti from 'js-confetti'
-import Icon from '../../../components/icon'
 import { Balancer } from 'react-wrap-balancer'
 
 function fireConfetti() {
