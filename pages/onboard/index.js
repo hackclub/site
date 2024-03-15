@@ -12,6 +12,7 @@ import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
 import { useEffect, useRef, useState } from 'react'
 import sleep from '../../lib/sleep'
 import Announcement from '../../components/announcement'
+import YoutubeVideo from '../../components/onboard/youtube-video'
 
 /**
  * @type {import('theme-ui').ThemeUIStyleObject}
@@ -360,6 +361,11 @@ const ShipPage = () => {
               Never made a circuit board before? No problem.
             </Balancer>
           </Heading>
+          <Flex direction={['column']}>
+            <YoutubeVideo youtube-id="LrSKs35nR8k" />
+            <YoutubeVideo youtube-id="lEcN3JnTge4" />
+            <YoutubeVideo youtube-id="qL4d6AFx-9E" />
+          </Flex>
           <Text sx={{ fontSize: 3 }}>
             Learn how to design your own circuit boards from scratch with our{' '}
             <strong>official tutorials</strong> and jams, like Maggie’s{' '}
