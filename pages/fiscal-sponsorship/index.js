@@ -528,14 +528,10 @@ export default function Page() {
               as="footer"
               sx={{
                 alignItems: 'center',
-                // borderColor: 'green',
-                // border: '1px solid',
-                // bg: 'snow',
+                gap: 3,
                 color: 'slate',
                 borderRadius: 'default',
                 lineHeight: 'caption',
-                // p: 3,
-                gap: 3,
                 textWrap: 'balance',
                 svg: { flexShrink: 0, fill: 'blue' }
               }}
