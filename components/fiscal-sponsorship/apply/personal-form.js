@@ -95,6 +95,10 @@ export default function PersonalInfoForm({ requiredFields }) {
                     data-1p-ignore
                     autoFocus
                   />
+                  <Field
+                    description="For teenagers only!"
+                    requiredFields={requiredFields}
+                  ></Field>
                 </Field>
               </>
             ) : null}
