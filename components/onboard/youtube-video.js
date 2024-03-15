@@ -1,10 +1,19 @@
+import { useMemo } from "react"
+
 const YoutubeVideo = ({
-  width=560,
-  height=315,
   'youtube-id': youtubeID = 'dQw4w9WgXcQ',
-  title="YouTube video player",
+  list,
+  title = "YouTube video player",
+  width,
+  height,
 }) => {
-  const src = `https://www.youtube.com/embed/${youtubeID}`
+  const src = useMemo(() => {
+    const url = new URL(`https://www.youtube.com/embed/${youtubeID}`)
+    if (list) {
+      url.searchParams.set('list', list)
+    }
+    return url
+  }, [youtubeID, list])
 
   const allowlist = [
     'accelerometer',
@@ -18,13 +27,13 @@ const YoutubeVideo = ({
   ].join('; ')
 
   return (
-    <iframe width={width}
-            height={height}
-            src={src}
-            title={title}
-            frameborder="0"
-            allow={allowlist}
-            allowfullscreen>
+    <iframe
+      src={src}
+      title={title}
+      {...{ width, height }}
+      frameborder="0"
+      allow={allowlist}
+      allowfullscreen>
     </iframe>
   )
 }
