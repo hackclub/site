@@ -1,10 +1,15 @@
 const YoutubeVideo = ({
-  width=560,
-  height=315,
   'youtube-id': youtubeID = 'dQw4w9WgXcQ',
+  list=null,
   title="YouTube video player",
+  width=null,
+  height=null,
 }) => {
-  const src = `https://www.youtube.com/embed/${youtubeID}`
+  const src = new URL(`https://www.youtube.com/embed/${youtubeID}`)
+
+  if (list) {
+    src.searchParams.set('list', list)
+  }
 
   const allowlist = [
     'accelerometer',
@@ -18,13 +23,13 @@ const YoutubeVideo = ({
   ].join('; ')
 
   return (
-    <iframe width={width}
-            height={height}
-            src={src}
-            title={title}
-            frameborder="0"
-            allow={allowlist}
-            allowfullscreen>
+    <iframe
+      src={src}
+      title={title}
+      {...{ width, height }}
+      frameborder="0"
+      allow={allowlist}
+      allowfullscreen>
     </iframe>
   )
 }
