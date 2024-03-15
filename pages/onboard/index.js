@@ -364,7 +364,7 @@ const ShipPage = () => {
           <Flex direction={['column']}>
             <YoutubeVideo youtube-id="LrSKs35nR8k" />
             <YoutubeVideo youtube-id="lEcN3JnTge4" />
-            <YoutubeVideo youtube-id="qL4d6AFx-9E" />
+            <YoutubeVideo youtube-id="Bh3dm81X_zs" />
           </Flex>
           <Text sx={{ fontSize: 3 }}>
             Learn how to design your own circuit boards from scratch with our{' '}
