@@ -84,6 +84,7 @@ export default function PersonalInfoForm({ requiredFields }) {
                 <div />
                 <Field
                   label="Your Hack Club Slack username"
+                  description="For teenagers only!"
                   name="slackUsername"
                   requiredFields={requiredFields}
                 >
@@ -95,10 +96,6 @@ export default function PersonalInfoForm({ requiredFields }) {
                     data-1p-ignore
                     autoFocus
                   />
-                  <Field
-                    description="For teenagers only!"
-                    requiredFields={requiredFields}
-                  ></Field>
                 </Field>
               </>
             ) : null}
