@@ -1,28 +1,29 @@
+import Meta from '@hackclub/meta'
+import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Balancer } from 'react-wrap-balancer'
 import {
   Box,
+  Button,
   Card,
   Container,
   Flex,
-  Link as UILink,
-  Heading,
-  Text,
   Grid,
-  Button
+  Heading,
+  Link as UILink,
+  Text
 } from 'theme-ui'
-import { Balancer } from 'react-wrap-balancer'
-import Meta from '@hackclub/meta'
-import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
-import HcbFooter from '../../components/fiscal-sponsorship/footer'
+import Footer from '../../components/footer'
+import Photo from '../../components/photo'
 import Stat from '../../components/stat'
 import Tilt from '../../components/tilt'
-import Photo from '../../components/photo'
-import Image from 'next/image'
-import Link from 'next/link'
 
-import OuternetImgFile from '../../public/home/outernet-110.jpg'
+import ContactBanner from '../../components/fiscal-sponsorship/contact'
 import Features from '../../components/fiscal-sponsorship/features'
+import OuternetImgFile from '../../public/home/outernet-110.jpg'
 
 const organizations = [
   {
@@ -375,8 +376,11 @@ export default function Page() {
                 color="slate"
                 sx={{ maxWidth: '52ch' }}
               >
-                This fee goes directly to Hack Club's operations staff, including teen interns working under mentors. This allows us to deliver
-                best-in-class software and support, grow sustainably, while also providing paid career training for young people from diverse backgrounds.
+                This fee goes directly to Hack Club's operations staff,
+                including teen interns working under mentors. This allows us to
+                deliver best-in-class software and support, grow sustainably,
+                while also providing paid career training for young people from
+                diverse backgrounds.
               </Text>
             </div>
             <Text
@@ -393,10 +397,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                {
-                  backgroundImage:
-                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                }
+                  {
+                    backgroundImage:
+                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                  }
               }}
               style={{ margin: 0 }}
             >
@@ -514,10 +518,10 @@ export default function Page() {
               clubs around the world.
             </p>
             <p>
-              We started HCB in 2018 to support teen-led clubs and hackathons. After
-              showing it to our educational partners, we knew we had tapped into
-              something much larger. Today, HCB removes financial and
-              legal barriers for thousands doing good in their community.
+              We started HCB in 2018 to support teen-led clubs and hackathons.
+              After showing it to our educational partners, we knew we had
+              tapped into something much larger. Today, HCB removes financial
+              and legal barriers for thousands doing good in their community.
             </p>
           </div>
         </Grid>
@@ -576,12 +580,13 @@ export default function Page() {
               Apply now
             </Button>
           </Link>
-          <Text as="p" variant="lead" sx={{ color: 'white' }}>
+          <Text as="p" variant="lead" sx={{ color: 'white', mb: [0, 0] }}>
             <Balancer>No startup fees, no&nbsp;minimum balance.</Balancer>
           </Text>
         </Flex>
       </Box>
-      <HcbFooter />
+      <ContactBanner sx={{ justifyContent: 'center' }} />
+      <Footer />
     </>
   )
 }

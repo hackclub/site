@@ -6,8 +6,9 @@ import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import { onSubmit } from '../../../components/fiscal-sponsorship/apply/submit'
 import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
-import FormContainer from '../../../components/fiscal-sponsorship/apply/form-container'
 import HCBInfo from '../../../components/fiscal-sponsorship/apply/hcb-info'
+import ContactBanner from '../../../components/fiscal-sponsorship/contact'
+import FormContainer from '../../../components/fiscal-sponsorship/apply/form-container'
 import OrganizationInfoForm from '../../../components/fiscal-sponsorship/apply/org-form'
 import PersonalInfoForm from '../../../components/fiscal-sponsorship/apply/personal-form'
 import Icon from '@hackclub/icons'
@@ -47,10 +48,9 @@ export default function Apply() {
         <Flex
           sx={{
             flexDirection: 'column',
-            justifyContent: 'space-between',
             px: [3, 5],
-            py: 5,
-            gap: [4, 5],
+            py: 4,
+            gap: 4,
             height: [null, '100svh'],
             position: [null, null, 'sticky'],
             top: 0,
@@ -58,7 +58,7 @@ export default function Apply() {
           }}
         >
           {/* vertically align h1 to top of form */}
-          <Box as="header" sx={{ mt: [null, null, -24] }}>
+          <Box as="header" sx={{ mt: [null, 3], mb: 'auto' }}>
             <Link href="/fiscal-sponsorship" passHref legacyBehavior>
               <Text
                 as="a"
@@ -101,6 +101,7 @@ export default function Apply() {
             </Heading>
           </Box>
           <HCBInfo />
+          <ContactBanner sx={{ borderRadius: 'extra', bg: 'snow' }} />
         </Flex>
         <FormContainer
           ref={formContainer}
