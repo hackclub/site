@@ -769,29 +769,23 @@ const PizzaPage = () => {
             }}
           >
             p.s. if you already lead a club, you can still get pizza! draw a
-            pizza in
-            <Link
-              style={{ marginLeft: '8px' }}
-              href="https://hackclub.slack.com/archives/C05RZ6K7RS5"
-            >
+            pizza in{' '}
+            <Link href="https://hackclub.slack.com/archives/C05RZ6K7RS5">
               #pizza-party
             </Link>
           </Text>
         </Box>
         <Text
+          as="p"
           style={{
             textAlign: 'center',
             width: '100%',
             fontSize: 18,
-            display: 'flex',
-            justifyContent: 'center',
             marginBottom: '32px'
           }}
         >
           Need help getting your Pizza Grant? Email{' '}
-          <Link href="mailto:thomas@hackclub.com" style={{ marginLeft: 6 }}>
-            thomas@hackclub.com
-          </Link>
+          <Link href="mailto:thomas@hackclub.com">thomas@hackclub.com</Link>
         </Text>
       </Container>
       <Footer
