@@ -51,6 +51,8 @@ export default async function handler(req, res) {
   const waitlist = !open
   const isAdult = data.educationLevel === 'tertiary'
 
+  console.log(isAdult, "am adult")
+
 
   if (isAdult) {
     const mail = {
@@ -77,7 +79,7 @@ export default async function handler(req, res) {
   const airtablePromise = joinTable.create({
     'Full Name': data.name,
     'Email Address': data.email,
-    Student: !isAdult,
+    Minor: !isAdult,
     Reason: data.reason,
     Invited: !waitlist,
     Club: data.club ? data.club : '',
