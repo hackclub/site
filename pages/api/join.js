@@ -49,10 +49,7 @@ export default async function handler(req, res) {
   let data = req.body || {}
   const open = process.env.NEXT_PUBLIC_OPEN === 'true'
   const waitlist = !open
-  const isAdult = data.educationLevel === 'tertiary'
-
-  console.log(isAdult, "am adult")
-
+  const isAdult = data.year === 'tertiary'
 
   if (isAdult) {
     const mail = {
