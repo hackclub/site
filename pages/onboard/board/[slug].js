@@ -7,6 +7,7 @@ import {useEffect, useRef, useState} from 'react'
 import { remark } from 'remark';
 import html from 'remark-html';
 import {useRouter} from "next/router";
+import {FetchProject} from "../../api/board/[name]";
 
 // example projects
 const curated = [
@@ -20,12 +21,12 @@ const curated = [
     'Connor Ender 3 Bed Leveler',
 ]
 
-const BoardPage = (params) => {
+const BoardPage = ({ projectObj }) => {
     const prefersReducedMotion = usePrefersReducedMotion()
 
-    const router = useRouter()
+    // const router = useRouter()
     // get slug
-    const name = router.query.slug
+    // const name = router.query.slug
 
     const spotlightRef = useRef()
     useEffect(() => {
@@ -40,14 +41,17 @@ const BoardPage = (params) => {
         return () => window.removeEventListener('mousemove', handler)
     }, [])
 
+    console.log(projectObj)
+
     const [project, setProject] = useState({})
     useEffect(() => {
-        (async () => {
+        /*(async () => {
             const project = await (await fetch(`/api/board/${name}`)).json()
             console.log(project)
             setProject(project)
-        })()
-    }, [name])
+        })()*/
+        setProject(projectObj)
+    }, [projectObj])
 
     return (
         <>
@@ -196,6 +200,34 @@ const BoardPage = (params) => {
             </Box>
         </>
     )
+}
+
+export async function getStaticPaths(context) {
+    const res = await fetch(
+        'https://api.github.com/repos/hackclub/OnBoard/contents/projects'
+    )
+    const data = (await res.json())/*.filter(project => curated.includes(project.name))*/
+    //console.log(data)
+    const projects = data.map(project => project.name)
+    const paths = projects.map(name => ({
+        params: {
+            slug: name
+        }
+    }))
+    return {
+        paths,
+        fallback: 'blocking'
+    }
+}
+
+export async function getStaticProps(context) {
+    let name = context.params.slug
+    let project = await FetchProject(name)
+    return {
+        props: {
+            projectObj: project
+        }
+    }
 }
 
 export default BoardPage;

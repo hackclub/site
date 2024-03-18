@@ -24,13 +24,13 @@ export const FetchProject = async (name) => {
     const image = /*thumbnail.ok ?*/ `https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png` /*: await get_fallback_image(`https://github.com/hackclub/OnBoard/raw/main/projects/${project.name}`)*/
     console.log("done")
     return({
-        project_name: name,
-        maker_name: frontmatter.name,
-        slack_handle: frontmatter.slack_handle,
-        github_handle: frontmatter.github_handle,
-        tutorial: frontmatter.tutorial,
-        description: lines.slice(i + 1).join('\n'),
-        image: image
+        project_name: name ?? null,
+        maker_name: frontmatter.name ?? null,
+        slack_handle: frontmatter.slack_handle ?? null,
+        github_handle: frontmatter.github_handle ?? null,
+        tutorial: frontmatter.tutorial ?? null,
+        description: lines.slice(i + 1).join('\n') ?? null,
+        image: image ?? null
     })
 }
 

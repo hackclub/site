@@ -7,6 +7,7 @@ import {useEffect, useRef, useState} from 'react'
 import Item from '../../components/onboard/item'
 import { getUrl } from 'nextjs-current-url/server';
 import {getURL} from "next/dist/shared/lib/utils";
+import {FetchProject} from '../api/board/[name]'
 
 /*import pcbStackup from "pcb-stackup";
 import JSZip     from "jszip";
@@ -216,16 +217,35 @@ const GalleryPage = ({ projects }) => {
     )
 }
 
-export async function getServerSideProps(context) {
+/*export async function getServerSideProps(context) {
     const res = await fetch(
         'https://api.github.com/repos/hackclub/OnBoard/contents/projects'
     )
-    const data = (await res.json())/*.filter(project => curated.includes(project.name))*/
+    const data = (await res.json())/*.filter(project => curated.includes(project.name))
     console.log(data)
     const projectData = data.map(async project => {
         const url = getUrl({ req: context.req })
         console.log(url)
         return await (await fetch(encodeURI(`${url.origin}/api/board/${project.name}`))).json()
+    })
+    let projects = await Promise.all(projectData)
+    return {
+        props: {
+            projects
+        }
+    }
+}*/
+
+export async function getStaticProps() {
+    const res = await fetch(
+        'https://api.github.com/repos/hackclub/OnBoard/contents/projects'
+    )
+    const data = (await res.json())/*.filter(project => curated.includes(project.name))*/
+    //console.log(data)
+    const projectData = data.map(async project => {
+        /*const url = getUrl({req: context.req})
+        console.log(url)*/
+        return FetchProject(project.name)
     })
     let projects = await Promise.all(projectData)
     return {
