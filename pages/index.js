@@ -204,10 +204,10 @@ function Page({
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
           <Announcement
-            copy="Hop OnBoard and create your first PCB"
-            caption="Join 1,000 others to create your first circuit board."
-            href="https://hackclub.com/onboard/"
-            iconLeft="idea"
+            copy="AMA w/ Apple PCB Engineers"
+            caption="Join 2 of the designers behind the circuit boards in iPhones and Macs to ask them any question you can dream of!"
+            href="https://hack.club/apple-ama-invite"
+            iconLeft="event-add"
             color="primary"
           />
           <Box
