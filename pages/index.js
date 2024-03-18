@@ -205,7 +205,7 @@ function Page({
           />
           <Announcement
             copy="AMA w/ Apple PCB Engineers"
-            caption="Join 2 of the designers behind the circuit boards in iPhones and Macs to ask them any question you can dream of!"
+            caption="Join a call with two of the designers behind the iPhone's PCB!"
             href="https://hack.club/apple-ama-invite"
             iconLeft="event-add"
             color="primary"
