@@ -52,8 +52,6 @@ const Service = ({ href, icon, name = '', ...props }) => (
 const Footer = ({
   dark = false,
   email = 'team@hackclub.com',
-  phoneNumber = '1-855-625-HACK',
-  phoneNumberUri = '1-855-625-HACK',
   children,
   ...props
 }) => (
@@ -181,7 +179,7 @@ const Footer = ({
             <Service href={`mailto:${email}`} icon="email-fill" />
           </Grid>
           <Text my={2}>
-          <Link href={`tel:${phoneNumberUri}`}>{phoneNumber}</Link>
+            <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>
             <br />
             <Text as="span" color="muted">
               (call toll-free)

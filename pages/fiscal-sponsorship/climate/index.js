@@ -5,23 +5,20 @@ import {
   Flex,
   Grid,
   Heading,
-  Input,
-  Select
+  Input
 } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../../components/force-theme'
 import Nav from '../../../components/nav'
-import HcbFooter from '../../../components/fiscal-sponsorship/footer'
+import Footer from '../../../components/footer'
 import MSparkles from '../../../components/sparkles/money'
 import { Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import OrganizationCard, {
   Badge
 } from '../../../components/fiscal-sponsorship/directory/card'
-import Zoom from 'react-reveal/Zoom'
 import fuzzysort from 'fuzzysort'
-import ScrollHint from '../../../components/scroll-hint'
 import { useEffect, useState } from 'react'
 /** @jsxImportSource theme-ui */
 import NextLink from 'next/link'
@@ -1214,7 +1211,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
           </Box>
         </Box>
       </Box>
-      <HcbFooter light key="footer" />
+      <Footer />
     </div>
   )
 }
