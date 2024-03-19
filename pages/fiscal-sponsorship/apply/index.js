@@ -101,7 +101,7 @@ export default function Apply() {
             </Heading>
           </Box>
           <HCBInfo />
-          <ContactBanner sx={{ borderRadius: 'default', bg: 'snow' }} />
+          <ContactBanner sx={{ borderRadius: 'default', bg: 'snow', width: 'fit-content' }} />
         </Flex>
         <FormContainer
           ref={formContainer}
