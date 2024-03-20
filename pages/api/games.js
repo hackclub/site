@@ -1,11 +1,10 @@
 export async function getGames() {
   let games = await fetch(
-    'https://raw.githubusercontent.com/hackclub/sprig/main/games/metadata.json'
+    'https://sprig.hackclub.com/api/gallery?new'
   ).then(res => res.json())
-  games = games
-    .sort((a, b) => new Date(b.addedOn) - new Date(a.addedOn))
-    .slice(-4)
 
+  games.length = 4
+  
   return games
 }
 
