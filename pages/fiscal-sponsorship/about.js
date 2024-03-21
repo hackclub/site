@@ -1,12 +1,12 @@
-import { Box, Card, Container, Flex, Link, Text } from 'theme-ui'
-import { useEffect, useRef, useState } from 'react'
+import { Box, Container, Flex, Link, Text } from 'theme-ui'
+import { useEffect, useRef } from 'react'
 import { keyframes } from '@emotion/react'
 import FlexCol from '../../components/flex-col'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
-import HcbFooter from '../../components/fiscal-sponsorship/footer'
+import Footer from '../../components/footer'
 import Icon from '../../components/icon'
 import Tilt from '../../components/tilt'
 
@@ -487,7 +487,7 @@ export default function FiscalSponsorship() {
           }
         }}
       />
-      <HcbFooter dark />
+      <Footer dark />
     </Box>
   )
 }

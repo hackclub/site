@@ -1,17 +1,18 @@
-import { useState, useRef } from 'react'
 import { useRouter } from 'next/router'
-import { Box, Text, Flex, Heading, Grid, Alert, Button } from 'theme-ui'
-import ForceTheme from '../../../components/force-theme'
+import { useRef, useState } from 'react'
+import { Alert, Box, Button, Flex, Grid, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
+import Link from 'next/link'
+import Icon from '@hackclub/icons'
 import Meta from '@hackclub/meta'
-import { onSubmit } from '../../../components/fiscal-sponsorship/apply/submit'
-import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
+import ForceTheme from '../../../components/force-theme'
 import FormContainer from '../../../components/fiscal-sponsorship/apply/form-container'
 import HCBInfo from '../../../components/fiscal-sponsorship/apply/hcb-info'
 import OrganizationInfoForm from '../../../components/fiscal-sponsorship/apply/org-form'
 import PersonalInfoForm from '../../../components/fiscal-sponsorship/apply/personal-form'
-import Icon from '@hackclub/icons'
-import Link from 'next/link'
+import { onSubmit } from '../../../components/fiscal-sponsorship/apply/submit'
+import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
+import ContactBanner from '../../../components/fiscal-sponsorship/contact'
 
 export default function Apply() {
   const router = useRouter()
@@ -47,10 +48,9 @@ export default function Apply() {
         <Flex
           sx={{
             flexDirection: 'column',
-            justifyContent: 'space-between',
             px: [3, 5],
-            py: 5,
-            gap: [4, 5],
+            py: 4,
+            gap: 4,
             height: [null, '100svh'],
             position: [null, null, 'sticky'],
             top: 0,
@@ -58,7 +58,7 @@ export default function Apply() {
           }}
         >
           {/* vertically align h1 to top of form */}
-          <Box as="header" sx={{ mt: [null, null, -24] }}>
+          <Box as="header" sx={{ mt: [null, 3], mb: 'auto' }}>
             <Link href="/fiscal-sponsorship" passHref legacyBehavior>
               <Text
                 as="a"
@@ -101,6 +101,7 @@ export default function Apply() {
             </Heading>
           </Box>
           <HCBInfo />
+          <ContactBanner sx={{ borderRadius: 'default', bg: 'snow', width: 'fit-content' }} />
         </Flex>
         <FormContainer
           ref={formContainer}
