@@ -203,13 +203,13 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          <Announcement
+	 {*/<Announcement
             copy="AMA w/ Apple PCB Designers"
             caption="Join a call with two of the designers behind the iPhone's PCB!"
             href="https://hack.club/apple-ama-invite"
             iconLeft="event-add"
             color="primary"
-          />
+          /> */}
           <Box
             sx={{
               width: '90vw',
