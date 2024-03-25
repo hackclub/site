@@ -245,6 +245,8 @@ export async function getStaticProps() {
     const projectData = data.map(async project => {
         /*const url = getUrl({req: context.req})
         console.log(url)*/
+        // 100ms delay to avoid rate limiting
+        await new Promise(resolve => setTimeout(resolve, 100))
         return FetchProject(project.name)
     })
     let projects = await Promise.all(projectData)

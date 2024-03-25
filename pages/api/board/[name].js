@@ -1,3 +1,5 @@
+import {GenerateSVG} from "./svg/[file]";
+
 export const FetchProject = async (name) => {
     const readme = await fetch(`https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${name}/README.md`)
     const text = await readme.text()
@@ -18,10 +20,11 @@ export const FetchProject = async (name) => {
         frontmatter[key] = value
     }
     // check for a "thumbnail.png" file in the project directory
-    console.log(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`)
-    /*const thumbnail = await fetch(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`, {mode: 'no-cors'})
-    console.log(thumbnail)*/
-    const image = /*thumbnail.ok ?*/ `https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png` /*: await get_fallback_image(`https://github.com/hackclub/OnBoard/raw/main/projects/${project.name}`)*/
+    //console.log(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`)
+    /*const thumbnail = await fetch(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`, {mode: 'no-cors'})*/
+    /*console.log(thumbnail)*/
+    const image = /*thumbnail.ok ? `https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`
+        :*/ `data:image/svg+xml;utf8,${GenerateSVG(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/gerber.zip`).top}`
     console.log("done")
     return({
         project_name: name ?? null,
