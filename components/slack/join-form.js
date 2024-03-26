@@ -6,18 +6,6 @@ import { getCookie, hasCookie } from 'cookies-next'
 
 const JoinForm = ({ sx = {} }) => {
   const router = useRouter()
-
-  const createNums = (start, end) => {
-    let nums = []
-    for (let num = start; num <= end; num++) {
-      nums.push(num)
-    }
-
-    return nums
-  }
-
-  const years = createNums(1925, new Date().getFullYear())
-
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
   const { status, formProps, useField } = useForm('/api/join/', null, {
@@ -79,26 +67,18 @@ const JoinForm = ({ sx = {} }) => {
             />
           </Label>
           <Label>
-            Birthday
+            Education level
             <Select
               {...useField('year')}
               required
               sx={{ color: useField('continent').value === '' ? 'muted' : '' }}
             >
               <option value="" selected disabled hidden>
-                Year
+                Select a level...
               </option>
-              <option value="middle" disabled hidden>
-                Hi, I'm hidden!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;
-              </option>
-              {years
-                .map(year => (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
-                ))
-                .reverse()}
+              <option value="middle">Middle School</option>
+              <option value="high">High School</option>
+              <option value="tertiary">Tertiary Education (18+)</option>
             </Select>
           </Label>
         </Grid>
