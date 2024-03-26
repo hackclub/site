@@ -59,7 +59,8 @@ export const GenerateSVG = async (zipFile) => {
         });
     } catch (e) {
         console.error(e)
-        fs.rmdirSync('gerber', { recursive: true });
+        if(fs.existsSync('gerber'))
+            fs.rmdirSync('gerber', { recursive: true });
         return {}
     }
 
@@ -70,15 +71,16 @@ export const GenerateSVG = async (zipFile) => {
         readResult = await read(files)
     } catch (e) {
         console.error(e)
-        fs.rmdirSync('gerber', { recursive: true });
+        if(fs.existsSync('gerber'))
+            fs.rmdirSync('gerber', { recursive: true });
         return {}
     }
     const plotResult = plot(readResult)
     const renderLayersResult = renderLayers(plotResult)
     const renderBoardResult = renderBoard(renderLayersResult)
 
-    fs.rmdirSync('gerber', { recursive: true });
-
+    if(fs.existsSync('gerber'))
+        fs.rmdirSync('gerber', { recursive: true });
     return {
         top: stringifySvg(renderBoardResult.top),
         bottom: stringifySvg(renderBoardResult.bottom),
