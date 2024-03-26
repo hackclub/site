@@ -2,9 +2,9 @@ import JSZip from "jszip";
 import {read, plot, renderLayers, renderBoard, stringifySvg} from '@tracespace/core'
 import fs from 'fs'
 
-export const GenerateSVG = async (zipFile) => {
+export const GenerateSVG = async (gerberURL) => {
     const zip = new JSZip();
-    const data = await fetch(zipFile)
+    const data = await fetch(gerberURL)
         .then((res) => res.arrayBuffer());
     let files = [];
     try { await (zip.loadAsync(data).then(function (zip) {
@@ -52,11 +52,6 @@ export const GenerateSVG = async (zipFile) => {
     const renderLayersResult = renderLayers(plotResult)
     const renderBoardResult = renderBoard(renderLayersResult)
 
-    /*for (const file of files) {
-        if(fs.existsSync(file))
-            fs.unlinkSync(file);
-    }*/
-
     return {
         top: stringifySvg(renderBoardResult.top),
         bottom: stringifySvg(renderBoardResult.bottom),
@@ -68,6 +63,9 @@ export default async function handler(req, res) {
     if (!file) {
         return res.status(400).json({ status: 400, error: 'Must provide file' })
     }
-    const svg = await GenerateSVG(file)
+    // ensure valid file url is included
+    const url = new URL(decodeURI(file))
+    const svg = await GenerateSVG(url)
     return res.status(200).json(svg)
 }
+// test me with: curl http://localhost:3000/api/board/svg/https%3A%2F%2Fgithub.com%2Fhackclub%2FOnBoard%2Fraw%2Fmain%2Fprojects%2F2_Switch_Keyboard%2Fgerber.zip
