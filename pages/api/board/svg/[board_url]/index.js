@@ -8,7 +8,12 @@ export const gerberToSvg = async (gerberURL) => {
   const zip = new JSZip();
 
   const zippedData = await new Promise((resolve, _reject) => {
-    zip.loadAsync(data).then(resolve)
+    zip.loadAsync(data).then(resolve, (e) => {
+      console.error(e)
+      resolve({
+        files: {} // TODO: actually handle this error (bad or nonexistent gerber.zip)
+      })
+    })
   })
 
   const allowedExtensions = [
@@ -49,6 +54,11 @@ export const gerberToSvg = async (gerberURL) => {
   const plotResult = plot(readResult)
   const renderLayersResult = renderLayers(plotResult)
   const renderBoardResult = renderBoard(renderLayersResult)
+  for (const file of files) {
+    if(fs.existsSync(file)) {
+      fs.unlinkSync(file)
+    }
+  }
   return {
     top: stringifySvg(renderBoardResult.top),
     bottom: stringifySvg(renderBoardResult.bottom),
@@ -63,12 +73,12 @@ export default async function handler(req, res) {
   }
   // ensure valid file url is included
   const url = new URL(decodeURI(file))
-  const svg = await GenerateSVG(url)
-  if (format == 'top') {
+  const svg = await gerberToSvg(url)
+  if (format === 'top') {
     res.contentType('image/svg');
     return res.status(200).send(svg.top)
   }
-  if (format == 'json') return res.status(200).json(svg)
+  if (format === 'json') return res.status(200).json(svg)
 
   return res.status(200).json(svg)
 }

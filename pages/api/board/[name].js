@@ -1,4 +1,4 @@
-import {GenerateSVG} from "./svg/[file]";
+import {gerberToSvg} from "./svg/[board_url]";
 
 export const FetchProject = async (name) => {
     const readme = await fetch(`https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${name}/README.md`)
@@ -24,7 +24,7 @@ export const FetchProject = async (name) => {
     /*const thumbnail = await fetch(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`, {mode: 'no-cors'})*/
     /*console.log(thumbnail)*/
     const image = /*thumbnail.ok ? `https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/thumbnail.png`
-        :*/ `data:image/svg+xml;base64,${btoa((await GenerateSVG(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/gerber.zip`)).top)}`
+        :*/ `data:image/svg+xml;base64,${btoa((await gerberToSvg(`https://github.com/snoglobe/OnBoard/raw/main/projects/${name}/gerber.zip`)).top)}`
     console.log("done")
     return({
         project_name: name ?? null,
