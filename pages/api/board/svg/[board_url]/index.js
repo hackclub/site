@@ -49,7 +49,6 @@ export const gerberToSvg = async (gerberURL) => {
   const plotResult = plot(readResult)
   const renderLayersResult = renderLayers(plotResult)
   const renderBoardResult = renderBoard(renderLayersResult)
-  console.log({renderLayersResult})
   return {
     top: stringifySvg(renderBoardResult.top),
     bottom: stringifySvg(renderBoardResult.bottom),
