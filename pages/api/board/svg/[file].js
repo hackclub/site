@@ -7,7 +7,7 @@ export const GenerateSVG = async (zipFile) => {
     const data = await fetch(zipFile)
         .then((res) => res.arrayBuffer());
     let files = [];
-    await zip.loadAsync(data).then(function (zip) {
+    try { await (zip.loadAsync(data).then(function (zip) {
         Object.keys(zip.files).forEach(function (filename) {
             zip.files[filename].async('uint8array').then(function (fileData) {
                 filename = filename.replace(/\//g, '_');
@@ -29,23 +29,33 @@ export const GenerateSVG = async (zipFile) => {
                 }
             });
         })
-    })
+    })) } catch (e) {
+        console.error(e)
+        return {}
+    }
 
     // wait for files to be written
     await new Promise((resolve) => {
-        setTimeout(resolve, 100); // very hacky but works!!!!
+        setTimeout(resolve, 1000); // very hacky but works!!!!
     });
 
     console.log(files)
 
-    const readResult = await read(files)
+    let readResult;
+    try {
+        readResult = await read(files)
+    } catch (e) {
+        console.error(e)
+        return {}
+    }
     const plotResult = plot(readResult)
     const renderLayersResult = renderLayers(plotResult)
     const renderBoardResult = renderBoard(renderLayersResult)
 
-    for (const file of files) {
-        fs.unlinkSync(file);
-    }
+    /*for (const file of files) {
+        if(fs.existsSync(file))
+            fs.unlinkSync(file);
+    }*/
 
     return {
         top: stringifySvg(renderBoardResult.top),
