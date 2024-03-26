@@ -288,6 +288,13 @@ const nextConfig = {
           },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type' }
         ]
+      },
+      {
+        source: '/api/board/svg/(.+)',
+        headers: [{
+          key: 'content-type',
+          value: 'image/svg+xml'
+        }]
       }
     ]
   }
