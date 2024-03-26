@@ -1,4 +1,4 @@
-import {Box, Button, Flex, Grid, Heading, Image, Text} from 'theme-ui'
+import {Box, Button, Flex, Grid, Heading, Image, Link, Text} from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../../../components/nav'
@@ -183,11 +183,29 @@ const BoardPage = ({ projectObj }) => {
                                 justifyContent: 'center'
                             }}
                         >
-                            <Heading as="h2" variant="title" sx={{ textAlign: 'center' }}>
+                            <Heading as="h2" variant="title" sx={{ textAlign: 'left' }}>
                                 {project.project_name}
                             </Heading>
+                            <Text as="p" variant="subtitle" sx={{ textAlign: 'left' }}>
+                                {project.maker_name ? `by ${project.maker_name}` : ''} {project.slack_handle ? `(${project.slack_handle})` : ''}
+                            </Text>
+                            <Link
+                                href={`https://github.com/hackclub/OnBoard/blob/main/projects/${project.project_name}/`}
+                                sx={{
+                                    textDecoration: 'none',
+                                    color: 'black',
+                                    ':hover': {
+                                        color: 'primary'
+                                    },
+                                    textAlign: 'left'
+                                }}
+                            >View on GitHub
+                            </Link>
                             {/* custom innerHTML */}
                             <Box
+                                sx={{
+                                    textAlign: 'left',
+                                }}
                                 dangerouslySetInnerHTML={{ __html:
                                     // render with remark to parse markdown
                                         remark().use(html).processSync(project.description).toString()
