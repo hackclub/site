@@ -23,7 +23,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^14.1.0",
     "@octokit/auth-app": "^6.0.1",
-    "@octokit/core": "^5.1.0",
+    "@octokit/core": "^6.0.1",
     "@octokit/rest": "^20.0.2",
     "@sendgrid/mail": "^8.1.1",
     "add": "^2.0.6",
