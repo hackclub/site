@@ -9,7 +9,8 @@ const StaticMention = memo(function StaticMention({ avatar, username, link }) {
         style={{
           display: 'inline-flex',
           alignItems: 'baseline',
-          textDecoration: 'none'
+          textDecoration: 'none',
+          color: 'inherit',
         }}
       >
         {avatar && (
@@ -17,8 +18,10 @@ const StaticMention = memo(function StaticMention({ avatar, username, link }) {
             src={avatar}
             alt={username}
             width={24}
+            height={24}
             className="mention-avatar"
             style={{
+              objectFit: "cover",
               borderRadius: '50%',
               marginRight: '4px',
               alignSelf: 'flex-end'
