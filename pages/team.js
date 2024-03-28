@@ -259,6 +259,14 @@ export default function Team({ team }) {
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
               <Bio
+                name="Hugo Hu"
+                teamRole="Mail Coordinator & Engineering"
+                text="During his time Hack Club, Hugo led Mail Team, significantly improving logistics for Hack Clubbers across the world. He also helped organize Assemble, and designed the PCBs for Sprig and Blot."
+                img="https://ca.slack-edge.com/T0266FRGM-U017EPB6LE9-84f26d2a184c-512"
+                pronouns="he/him"
+                href="https://hugohu.me"
+              />
+              <Bio
                 name="Lexi Mattick"
                 teamRole="Clubs Engineering"
                 text="Always driven by curiosity for how things work, Lexi fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. She spends her time programming, making music, and studying for her private pilot license; at Hack Club, she spends her time working on whatever fantastic project is happening in the present moment."
