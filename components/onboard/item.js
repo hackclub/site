@@ -1,6 +1,7 @@
 import {Box, Divider, Flex, Heading, Image, Paragraph} from "theme-ui";
 import {Link} from "theme-ui";
 import React, {useContext} from "react";
+import {OBJECT} from "swr/_internal";
 
 function trim(str) {
     return str.substring(1, str.length - 1)
@@ -28,14 +29,14 @@ const Item = ({ title, author_name, author_slack, image, project }) => {
                     alignItems: 'center'
                 }}
             >
-                <Image
-                    src={image}
-                    alt={title}
-                    sx={{
+                <object
+                    data={image}
+                    type={'image/svg+xml'}
+                    style={{
                         width: '100%',
-                        borderRadius: 8
+                        borderRadius: '8px'
                     }}
-                />
+                ></object>
                 <Link
                     href={`/onboard/board/${project.project_name}`}
                     sx={{
