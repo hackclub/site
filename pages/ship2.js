@@ -21,6 +21,7 @@ import Footer from '../components/footer'
 import { keyframes } from '@emotion/react'
 import { thousands } from '../lib/members'
 import StaticMention from '../components/mention'
+import { useEffect, useState } from 'react'
 
 const ShipBadge = props => (
   <Badge
@@ -44,7 +45,21 @@ const waves = keyframes({
   '100%': { backgroundPositionX: '-100%' }
 })
 
-const ShipPage = ({ projects = [] }) => (
+const ShipPage = ({ projects = [] }) => {
+
+  const [projectIndex, setProjectIndex] = useState(0)
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const nextProjectIndex = (projectIndex + 1) % 2
+      setProjectIndex(nextProjectIndex)
+    }, 2 * 1000) // rapidly change while developing to see new things
+    return () => clearInterval(intervalId)
+  }, [])
+
+  const project = projects[projectIndex]
+
+  return (
   <>
     <Meta
       as={Head}
@@ -67,14 +82,16 @@ const ShipPage = ({ projects = [] }) => (
       <Container
         sx={{
           maxWidth: [null, null, 'copyPlus', 'copyUltra'],
+          backgroundImage: `url(${project.projectImageURL})`,
+          backgroundSize: 'cover',
           p: { fontSize: [2, 3, 4], maxWidth: 'copy', mx: 'auto' }
         }}
       >
         <Heading as="h1" variant="ultratitle" sx={{ mb: [3, 4] }}>
-          <ShipBadge>Bored?</ShipBadge><br /><Text as="span" sx={{ fontWeight: 'body' }}>{projects[0].action}</Text>
+          <ShipBadge>Bored?</ShipBadge><br /><Text as="span" sx={{ fontWeight: 'body' }}>{project.action}</Text>
         </Heading>
         <Text as="p" variant="subtitle">
-          <StaticMention avatar={projects[0].makerAvatarURL} username={projects[0].makerName} link={projects[0].makerURL} />'s {projects[0].projectName}
+          <StaticMention avatar={project.makerAvatarURL} username={project.makerName} link={project.makerURL} />'s {project.projectName}
         </Text>
       </Container>
       <SlideUp duration={750}>
@@ -148,7 +165,8 @@ const ShipPage = ({ projects = [] }) => (
     </Box>
     <Footer />
   </>
-)
+  )
+}
 
 export default ShipPage
 
@@ -162,6 +180,15 @@ export const getStaticProps = async () => {
       makerURL: "https://scrapbook.hackclub.com/elliot",
       projectName: "3D Printer Breakout Board",
       projectImageURL: "https://cloud-aljm24x4q-hack-club-bot.vercel.app/0pxl_20231207_224240789__1_.jpg",
+    },
+    {
+      projectType: "sprig",
+      action: "Make a game!",
+      makerAvatarURL: "https://cloud-cbz7899cq-hack-club-bot.vercel.app/0110492450.png",
+      makerName: "hatanuk",
+      makerURL: "https://github.com/hackclub/sprig/pull/1534",
+      projectName: "Spriggy Road",
+      projectImageURL: "https://cloud-16a28htla-hack-club-bot.vercel.app/1img_1093.jpg",
     }
   ]
   // const posts = {}
