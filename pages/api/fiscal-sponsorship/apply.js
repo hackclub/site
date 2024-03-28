@@ -1,5 +1,5 @@
 import AirtablePlus from 'airtable-plus'
-const { getCode } = require('country-list');
+import { getCode } from 'country-list'
 
 const applicationsTable = new AirtablePlus({
   baseID: 'apppALh5FEOKkhjLR',
