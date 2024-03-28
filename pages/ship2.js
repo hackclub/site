@@ -22,6 +22,8 @@ import { keyframes } from '@emotion/react'
 import { thousands } from '../lib/members'
 import StaticMention from '../components/mention'
 import { useEffect, useState } from 'react'
+import { shippedProjectData } from './api/ysws'
+import { useRouter } from 'next/router'
 
 const ShipBadge = props => (
   <Badge
@@ -46,13 +48,21 @@ const waves = keyframes({
 })
 
 const ShipPage = ({ projects = [] }) => {
-
   const [projectIndex, setProjectIndex] = useState(0)
+  const router = useRouter()
+  const { t } = router.query
+  useEffect(() => {
+    if (t) {
+      const initialState = projects.findIndex(project => project.projectType === t)
+      setProjectIndex(initialState)
+    }
+
+  }, [router.query])
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setProjectIndex((projectIndex) => (projectIndex + 1) % 2)
-    }, 2 * 1000) // rapidly change while developing to see new things
+    }, 8 * 1000) // rapidly change while developing to see new things
     return () => clearInterval(intervalId)
   }, [])
 
@@ -169,38 +179,19 @@ const ShipPage = ({ projects = [] }) => {
 
 export default ShipPage
 
+export async function generateStaticParams() {
+  const projects = await shippedProjectData()
+
+  const projectTypes = new Set()
+  projects.forEach(project => projectTypes.add(project.projectType))
+
+  return {
+    project: Array.from(projectTypes).map(projectType => ({ t: projectType }))
+  }
+}
+
 export const getStaticProps = async () => {
-  const projects = [
-    {
-      projectType: "onboard",
-      action: "Build a PCB",
-      makerAvatarURL: "https://cloud-aljm24x4q-hack-club-bot.vercel.app/1pxl_20231207_224502865.jpg",
-      makerName: "Elliot",
-      makerURL: "https://scrapbook.hackclub.com/elliot",
-      projectName: "3D Printer Breakout Board",
-      projectImageURL: "https://cloud-aljm24x4q-hack-club-bot.vercel.app/0pxl_20231207_224240789__1_.jpg",
-    },
-    {
-      projectType: "sprig",
-      action: "Make a game!",
-      makerAvatarURL: "https://cloud-cbz7899cq-hack-club-bot.vercel.app/0110492450.png",
-      makerName: "hatanuk",
-      makerURL: "https://github.com/hackclub/sprig/pull/1534",
-      projectName: "Spriggy Road",
-      projectImageURL: "https://cloud-16a28htla-hack-club-bot.vercel.app/1img_1093.jpg",
-    }
-  ]
-  // const posts = {}
-  // const posts = await fetch('https://scrapbook.hackclub.com/api/r/ship')
-  //   .then(r => r.json())
-  //   .then(posts =>
-  //     filter(posts, p =>
-  //       ['jpg', 'jpeg', 'png'].includes(
-  //         p.attachments[0]?.split('.')[p.attachments[0]?.split('.').length - 1]
-  //       )
-  //     )
-  //   )
-  //   .then(posts => orderBy(posts, 'postedAt', 'desc'))
-  //   .then(posts => take(posts, 24))
+  const projects = await shippedProjectData()
+
   return { props: { projects }, revalidate: 2 }
 }
