@@ -25,6 +25,8 @@ import StaticMention from '../components/mention'
 import { useEffect, useState } from 'react'
 import { shippedProjectData } from './api/ysws'
 import { useRouter } from 'next/router'
+import SignupForm from '../components/ship/signup-form'
+import StickerForm from '../components/ship/sticker-form'
 
 const ShipBadge = props => (
   <Badge
@@ -94,7 +96,7 @@ const ShipPage = ({ projects = [] }) => {
           maxWidth: [null, null, 'copyPlus', 'copyUltra'],
           backgroundImage: `url(${project.projectImageURL})`,
           backgroundSize: 'cover',
-          p: { fontSize: [2, 3, 4], maxWidth: 'copy', mx: 'auto' }
+          py: [3, 4],
         }}
       >
         <Heading as="h1" variant="ultratitle" sx={{ mb: [3, 4] }}>
@@ -120,6 +122,9 @@ const ShipPage = ({ projects = [] }) => {
           }}
         >
           <Text variant="title" as="p" sx={{py:1}}>Want to be someone who builds things?</Text>
+          <StickerForm />
+          <SignupForm t={project.projectType} />
+          {false && (
           <Card>
             <Text variant="subtitle" as="p" sx={{py: 2, mt: 0 }}>
               Get inspired by 3 new projects each week, all made by high schoolers. Plus free maker stickers, shipped to wherever you are.
@@ -129,6 +134,7 @@ const ShipPage = ({ projects = [] }) => {
               Let's do it.
             </Button>
           </Card>
+          )}
         </Box>
       </SlideUp>
     </Box>
