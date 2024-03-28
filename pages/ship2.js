@@ -51,8 +51,7 @@ const ShipPage = ({ projects = [] }) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const nextProjectIndex = (projectIndex + 1) % 2
-      setProjectIndex(nextProjectIndex)
+      setProjectIndex((projectIndex) => (projectIndex + 1) % 2)
     }, 2 * 1000) // rapidly change while developing to see new things
     return () => clearInterval(intervalId)
   }, [])
