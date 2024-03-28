@@ -16,6 +16,7 @@ import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import SlideUp from '../components/slide-up'
+import SlideDown from '../components/slide-down'
 import Icon from '../components/icon'
 import Footer from '../components/footer'
 import { keyframes } from '@emotion/react'
@@ -62,7 +63,7 @@ const ShipPage = ({ projects = [] }) => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setProjectIndex((projectIndex) => (projectIndex + 1) % 2)
-    }, 8 * 1000) // rapidly change while developing to see new things
+    }, 2 * 1000) // rapidly change while developing to see new things
     return () => clearInterval(intervalId)
   }, [])
 
@@ -97,7 +98,13 @@ const ShipPage = ({ projects = [] }) => {
         }}
       >
         <Heading as="h1" variant="ultratitle" sx={{ mb: [3, 4] }}>
-          <ShipBadge>Bored?</ShipBadge><br /><Text as="span" sx={{ fontWeight: 'body' }}>{project.action}</Text>
+          <ShipBadge>Bored?</ShipBadge><br />
+          <Text as="span" sx={{ fontWeight: 'body' }}>
+            {((action) => {
+              return <SlideDown key={action}>{action}</SlideDown>
+            })(project.action)}
+          </Text>
+          
         </Heading>
         <Text as="p" variant="subtitle">
           <StaticMention avatar={project.makerAvatarURL} username={project.makerName} link={project.makerURL} />'s {project.projectName}
