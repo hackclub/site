@@ -14,8 +14,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         email: data.userEmail,
         name: data.eventName,
-        transparent: data.transparent
-        // country: data.eventCountryCode,
+        country: data.eventLocation,
       }),
       method: 'POST',
       headers: {
