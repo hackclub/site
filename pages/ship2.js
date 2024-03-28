@@ -21,7 +21,7 @@ import Footer from '../components/footer'
 import { keyframes } from '@emotion/react'
 import { thousands } from '../lib/members'
 import StaticMention from '../components/mention'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 const ShipBadge = props => (
   <Badge
@@ -47,17 +47,17 @@ const waves = keyframes({
 
 const ShipPage = ({ projects = [] }) => {
 
-  const [projectIndex, setProjectIndex] = useState(0)
-
+  const projectIndexRef = useRef(0);
+  const [project, setProject] = useState(projects[projectIndexRef.current]);
+  
   useEffect(() => {
     const intervalId = setInterval(() => {
-      const nextProjectIndex = (projectIndex + 1) % 2
-      setProjectIndex(nextProjectIndex)
-    }, 2 * 1000) // rapidly change while developing to see new things
-    return () => clearInterval(intervalId)
-  }, [])
-
-  const project = projects[projectIndex]
+      const nextProjectIndex = (projectIndexRef.current + 1) % 2;
+      projectIndexRef.current = nextProjectIndex;
+      setProject(projects[projectIndexRef.current])
+    }, 2 * 1000); // rapidly change while developing to see new things
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
   <>
