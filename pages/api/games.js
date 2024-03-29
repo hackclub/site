@@ -3,8 +3,6 @@ export async function getGames() {
     'https://sprig.hackclub.com/api/gallery?new'
   ).then(res => res.json())
 
-  games.length = 4
-  
   return games
 }
 
