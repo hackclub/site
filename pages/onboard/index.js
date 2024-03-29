@@ -12,6 +12,8 @@ import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
 import { useEffect, useRef, useState } from 'react'
 import sleep from '../../lib/sleep'
 import Announcement from '../../components/announcement'
+import YoutubeVideo from '../../components/onboard/youtube-video'
+import Icon from '@hackclub/icons'
 
 /**
  * @type {import('theme-ui').ThemeUIStyleObject}
@@ -360,6 +362,16 @@ const ShipPage = () => {
               Never made a circuit board before? No problem.
             </Balancer>
           </Heading>
+          <Flex sx={{flexDirection:"column"}}>
+            <YoutubeVideo youtube-id="LrSKs35nR8k" list="PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3" height="300px" />
+            <Text sx={{ fontSize: 2, color: 'muted' }}>
+              See the{' '}
+              <Link href="https://www.youtube.com/watch?v=LrSKs35nR8k&list=PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3" target="_blank">
+                full playlist
+              <Icon glyph="external" size={18} />
+              </Link>
+            </Text>
+          </Flex>
           <Text sx={{ fontSize: 3 }}>
             Learn how to design your own circuit boards from scratch with our{' '}
             <strong>official tutorials</strong> and jams, like Maggie’s{' '}

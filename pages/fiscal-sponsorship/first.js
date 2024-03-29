@@ -1,19 +1,10 @@
-import {
-  Box,
-  Heading,
-  Container,
-  Card,
-  Text,
-  Flex,
-  Button,
-  Badge
-} from 'theme-ui'
+import { Box, Heading, Container, Text, Button, Badge } from 'theme-ui'
 
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
-import HcbFooter from '../../components/fiscal-sponsorship/footer'
+import Footer from '../../components/footer'
 import Icon from '../../components/icon'
 import Features from '../../components/fiscal-sponsorship/first/features'
 
@@ -186,7 +177,7 @@ export default function First({ stats }) {
           <Start stats={stats} />
         </Box>
       </Box>
-      <HcbFooter dark key="footer" />
+      <Footer dark />
     </>
   )
 }
