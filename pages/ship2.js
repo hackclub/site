@@ -27,6 +27,9 @@ import { shippedProjectData } from './api/ysws'
 import { useRouter } from 'next/router'
 import SignupForm from '../components/ship/signup-form'
 import StickerForm from '../components/ship/sticker-form'
+import { Slide } from 'react-reveal'
+import ForceTheme from '../components/force-theme'
+import BGImg from '../components/background-image'
 
 const ShipBadge = props => (
   <Badge
@@ -39,6 +42,8 @@ const ShipBadge = props => (
       borderRadius: 'default',
       px: [2, 3],
       py: 1,
+      mb: 3,
+      fontWeight: 'body',
       ...props.sx
     }}
     {...props}
@@ -52,6 +57,7 @@ const waves = keyframes({
 
 const ShipPage = ({ projects = [] }) => {
   const [projectIndex, setProjectIndex] = useState(0)
+  const [subscribed, setSubscribed] = useState(false)
   const router = useRouter()
   const { t } = router.query
   useEffect(() => {
@@ -72,121 +78,92 @@ const ShipPage = ({ projects = [] }) => {
   const project = projects[projectIndex]
 
   return (
-  <>
-    <Meta
-      as={Head}
-      name="Ship"
-      description={`Hack Clubbers ship projects: a real-time list of the projects created by the Hack Club high school community in the last month.`}
-      image="https://assets.hackclub.com/log/2020-05-22-ship.png"
-    />
-    <Nav />
-    <Box
-      as="header"
-      sx={{
-        bg: 'blue',
-        backgroundImage: t =>
-          `linear-gradient(to bottom, ${t.colors.cyan}, ${t.colors.blue})`,
-        color: 'white',
-        textAlign: 'center',
-        py: [5, 6]
-      }}
-    >
-      <Container
+    <>
+      <Meta
+        as={Head}
+        name="Ship"
+        description={`Hack Clubbers ship projects: a real-time list of the projects created by the Hack Club high school community in the last month.`}
+        image="https://assets.hackclub.com/log/2020-05-22-ship.png"
+      />
+      <ForceTheme theme="light" />
+      <Nav />
+      <Box
+        as="header"
         sx={{
-          maxWidth: [null, null, 'copyPlus', 'copyUltra'],
-          backgroundImage: `url(${project.projectImageURL})`,
-          backgroundSize: 'cover',
-          py: [3, 4],
+          bg: 'blue',
+          backgroundImage: 'url(/ship/wave.svg)',
+          backgroundSize: '200% auto',
+          '@media (prefers-reduced-motion: no-preference)': {
+            animation: `${waves} 15s linear forwards infinite`
+          },
+          color: 'white',
+          textAlign: 'center',
+          pb: [5, 6],
         }}
       >
-        <Heading as="h1" variant="ultratitle" sx={{ mb: [3, 4] }}>
-          <ShipBadge>Bored?</ShipBadge><br />
-          <Text as="span" sx={{ fontWeight: 'body' }}>
-            {((action) => {
-              return <SlideDown key={action}>{action}</SlideDown>
-            })(project.action)}
-          </Text>
-          
-        </Heading>
-        <Text as="p" variant="subtitle">
-          <StaticMention avatar={project.makerAvatarURL} username={project.makerName} link={project.makerURL} />'s {project.projectName}
-        </Text>
-      </Container>
-      <SlideUp duration={750}>
         <Box
-          as="section"
-          variant="layout.container"
           sx={{
-            mt: [3, 4, 5],
-            textAlign: 'left',
+            maxWidth: [null, null, '100vw', '100vw'],
+            // backgroundImage: `linear-gradient(5deg, rgba(23,23,29,1) 0%, rgba(23,23,29,0) 100%), url(${project.projectImageURL})`,
+            backgroundSize: 'cover',
+            pt: [5, 6],
+            pb: [4, 5],
+            overflow: 'hidden',
+            position: 'relative',
           }}
         >
-          <Text variant="title" as="p" sx={{py:1}}>Want to be someone who builds things?</Text>
-          <StickerForm />
-          <SignupForm t={project.projectType} />
-          {false && (
-          <Card>
-            <Text variant="subtitle" as="p" sx={{py: 2, mt: 0 }}>
-              Get inspired by 3 new projects each week, all made by high schoolers. Plus free maker stickers, shipped to wherever you are.
+
+          <BGImg
+            src={project.projectImageURL}
+            alt={project.projectName}
+            gradient="linear-gradient(5deg, rgba(23,23,29,1) 0%, rgba(23,23,29,0) 100%)"
+            width={720}
+            height={1080}
+          />
+          <Heading as="h1" variant="ultratitle" sx={{ mb: [3, 4], textShadow: 'elevated' }}>
+            <ShipBadge>Bored?</ShipBadge><br />
+            <Text as="span" sx={{ fontWeight: 'bold' }}>
+              {((action) => {
+                return <SlideDown key={action}>{action}</SlideDown>
+              })(project.action)}
             </Text>
-            <Input placeholder='fiona@hackclub.com' sx={{ border: '1px solid', borderColor: 'muted', my: 1 }} />
-            <Button variant='cta' sx={{ width: '100%', mt: 2 }}>
-              Let's do it.
-            </Button>
-          </Card>
-          )}
+
+          </Heading>
+          <Text as="p" variant="subtitle">
+            <StaticMention avatar={project.makerAvatarURL} username={project.makerName} link={project.makerURL} />'s {project.projectName}
+          </Text>
         </Box>
-      </SlideUp>
-    </Box>
-    <Box
-      as="section"
-      id="projects"
-      sx={{
-        bg: 'blue',
-        color: 'white',
-        py: 4,
-        backgroundImage: 'url(/ship/wave.svg)',
-        backgroundSize: '200% auto',
-        '@media (prefers-reduced-motion: no-preference)': {
-          animation: `${waves} 15s linear forwards infinite`
-        }
-      }}
-    >
-      <Heading
-        as="h2"
-        variant="title"
-        sx={{ px: 3, mb: 4, textAlign: 'center' }}
-      >
-        Recently shipped…
-      </Heading>
-    </Box>
-    <Box
-      as="section"
-      sx={{
-        color: 'black',
-        bg: 'white',
-        py: [4, 5]
-      }}
-    >
-      <Container variant="copy" sx={{ textAlign: 'center' }}>
-        <Icon glyph="message-new" size={72} sx={{ color: 'blue' }} />
-        <Heading as="h2" variant="headline" mt={0}>
-          Want to ship your own projects?
-        </Heading>
-        <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
-          The #ship channel on the Hack&nbsp;Club Slack is where {thousands}k+
-          teenagers from around the world share what they’re working on & help
-          each other.
-        </Text>
-        <NextLink href="/slack" passHref>
-          <Button variant="cta" sx={{ py: 2, px: 3, fontSize: 2 }} as="a">
-            Join our Slack
-          </Button>
-        </NextLink>
-      </Container>
-    </Box>
-    <Footer />
-  </>
+        <SlideUp duration={750}>
+          <Box
+            as="section"
+            variant="layout.container"
+            sx={{
+              mt: [4, 5, 5],
+              textAlign: 'left',
+            }}
+          >
+            <Text variant="title" as="p" sx={{ py: 1, my: 3 }}>Want to be someone who builds things?</Text>
+            <Text variant="headline" as="p" sx={{ fontWeight: 400 }}>
+              Get three projects emailed each week. Then build your own. Also... free stickers!
+            </Text>
+            <SignupForm t={project.projectType} onSuccess={() => { setSubscribed(true) }} sx={{ display: subscribed ? 'none' : 'block' }} />
+            {subscribed && (<SlideUp> <StickerForm /> </SlideUp>)}
+            {false && (
+              <Card>
+                <Text variant="subtitle" as="p" sx={{ py: 2, mt: 0 }}>
+                  Get inspired by 3 new projects each week, all made by high schoolers. Plus free maker stickers, shipped to wherever you are.
+                </Text>
+                <Input placeholder='fiona@hackclub.com' sx={{ border: '1px solid', borderColor: 'muted', my: 1 }} />
+                <Button variant='cta' sx={{ width: '100%', mt: 2 }}>
+                  Let's do it.
+                </Button>
+              </Card>
+            )}
+          </Box>
+        </SlideUp>
+      </Box>
+      <Footer />
+    </>
   )
 }
 

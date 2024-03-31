@@ -12,10 +12,10 @@ export default function StickerForm({ }) {
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 } }}>
       <form {...formProps}>
-        <Text variant="subtitle" as="p">
+        <Text variant="subtitle" as="p" sx={{ mt: 0, fontWeight: 'bold' }}>
           To send you stickers, we need your address.
         </Text>
-        <Text variant="caption" as="p">
+        <Text variant="caption" as="p" sx={{ mb: 2 }}>
           We'll delete it after we ship your package!
         </Text>
         <Label>Name
@@ -24,14 +24,16 @@ export default function StickerForm({ }) {
             autoComplete="name"
             placeholder="Fiona Hackworth"
             required
+            sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
-        <Label>Line 1
+        <Label>Address Line
           <Input
             {...useField('address_line_1')}
             autoComplete="street-address"
             placeholder="15 Falls Rd"
             required
+            sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
         <Label>City
@@ -40,6 +42,7 @@ export default function StickerForm({ }) {
             autoComplete="city"
             placeholder="Shelburne"
             required
+            sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
         <Label>State / Province
@@ -48,6 +51,7 @@ export default function StickerForm({ }) {
             autoComplete="state"
             placeholder="Vermont"
             required
+            sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
         <Label>Country
@@ -56,6 +60,7 @@ export default function StickerForm({ }) {
             autoComplete="country"
             placeholder="United States"
             required
+            sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
         <Label>Zip / Postal Code
@@ -64,6 +69,7 @@ export default function StickerForm({ }) {
             autoComplete="postal-code"
             placeholder="12345"
             required
+            sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
         <Label>Phone Number
@@ -72,10 +78,12 @@ export default function StickerForm({ }) {
             placeholder="+1 802 210 3489"
             autoComplete="tel"
             required
+            sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
         <Submit
           status={status}
+          sx={{ mt: 0 }}
         />
       </form>
     </Card>
