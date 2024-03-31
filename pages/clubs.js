@@ -135,7 +135,7 @@ const Page = () => (
               pb: 3
             }}
           >
-            Don’t run your coding&nbsp;club alone. 
+            Don’t run your coding&nbsp;club alone.{' '}
           </Text>
           Make it a{' '}
           <Text
