@@ -10,7 +10,7 @@ const StaticMention = memo(function StaticMention({ avatar, username, link }) {
           display: 'inline-flex',
           alignItems: 'baseline',
           textDecoration: 'none',
-          color: 'inherit',
+          color: 'inherit'
         }}
       >
         {avatar && (
@@ -21,7 +21,7 @@ const StaticMention = memo(function StaticMention({ avatar, username, link }) {
             height={24}
             className="mention-avatar"
             style={{
-              objectFit: "cover",
+              objectFit: 'cover',
               borderRadius: '50%',
               marginRight: '4px',
               alignSelf: 'flex-end'

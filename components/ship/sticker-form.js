@@ -1,12 +1,12 @@
-import { Card, Input, Label, Text } from "theme-ui"
-import useForm from "../../lib/use-form"
-import Submit from "../submit"
+import { Card, Input, Label, Text } from 'theme-ui'
+import useForm from '../../lib/use-form'
+import Submit from '../submit'
 
-export default function StickerForm({ }) {
+export default function StickerForm({}) {
   const { status, formProps, useField } = useForm('/api/ship/stickers', null, {
     clearOnSubmit: 60000,
     method: 'POST',
-    initData: { }
+    initData: {}
   })
 
   return (
@@ -18,7 +18,8 @@ export default function StickerForm({ }) {
         <Text variant="caption" as="p" sx={{ mb: 2 }}>
           We'll delete it after we ship your package!
         </Text>
-        <Label>Name
+        <Label>
+          Name
           <Input
             {...useField('name', 'text')}
             autoComplete="name"
@@ -27,7 +28,8 @@ export default function StickerForm({ }) {
             sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
-        <Label>Address Line
+        <Label>
+          Address Line
           <Input
             {...useField('address_line_1')}
             autoComplete="street-address"
@@ -36,7 +38,8 @@ export default function StickerForm({ }) {
             sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
-        <Label>City
+        <Label>
+          City
           <Input
             {...useField('address_city')}
             autoComplete="city"
@@ -45,7 +48,8 @@ export default function StickerForm({ }) {
             sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
-        <Label>State / Province
+        <Label>
+          State / Province
           <Input
             {...useField('address_state')}
             autoComplete="state"
@@ -54,7 +58,8 @@ export default function StickerForm({ }) {
             sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
-        <Label>Country
+        <Label>
+          Country
           <Input
             {...useField('address_country')}
             autoComplete="country"
@@ -63,7 +68,8 @@ export default function StickerForm({ }) {
             sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
-        <Label>Zip / Postal Code
+        <Label>
+          Zip / Postal Code
           <Input
             {...useField('address_zip')}
             autoComplete="postal-code"
@@ -72,7 +78,8 @@ export default function StickerForm({ }) {
             sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
-        <Label>Phone Number
+        <Label>
+          Phone Number
           <Input
             {...useField('phone_number', 'tel')}
             placeholder="+1 802 210 3489"
@@ -81,10 +88,7 @@ export default function StickerForm({ }) {
             sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
-        <Submit
-          status={status}
-          sx={{ mt: 0 }}
-        />
+        <Submit status={status} sx={{ mt: 0 }} />
       </form>
     </Card>
   )
