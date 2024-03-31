@@ -88,7 +88,15 @@ export default function StickerForm({}) {
             sx={{ border: '1px solid', borderColor: 'muted' }}
           />
         </Label>
-        <Submit status={status} sx={{ mt: 0 }} />
+        <Submit 
+          status={status} 
+          labels={{
+            default: 'Submit',
+            error: 'Error!',
+            success: 'Stickers & projects inbound!'
+          }} 
+          sx={{ mt: 0 }}
+         />
       </form>
     </Card>
   )

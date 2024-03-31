@@ -52,19 +52,9 @@ const waves = keyframes({
   '100%': { backgroundPositionX: '-100%' }
 })
 
-const ShipPage = ({ projects = [] }) => {
-  const [projectIndex, setProjectIndex] = useState(0)
+const ShipPage = ({ projects = [], projectType = null }) => {
+  const [projectIndex, setProjectIndex] = useState(projectType ? projects.findIndex(project => project.projectType === projectType) : 0)
   const [subscribed, setSubscribed] = useState(false)
-  const router = useRouter()
-  const { t } = router.query
-  useEffect(() => {
-    if (t) {
-      const initialState = projects.findIndex(project => project.projectType === t)
-      setProjectIndex(initialState)
-    }
-
-  }, [router.query])
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       setProjectIndex((projectIndex) => (projectIndex + 1) % 2)
@@ -107,9 +97,9 @@ const ShipPage = ({ projects = [] }) => {
             pb: [4, 5],
             overflow: 'hidden',
             position: 'relative',
+            bg: 'black'
           }}
         >
-
           <BGImg
             src={project.projectImageURL}
             alt={project.projectName}
@@ -130,17 +120,19 @@ const ShipPage = ({ projects = [] }) => {
             <StaticMention avatar={project.makerAvatarURL} username={project.makerName} link={project.makerURL} />'s {project.projectName}
           </Text>
         </Box>
+        <Box>
         <SlideUp duration={750}>
           <Box
             as="section"
             variant="layout.container"
             sx={{
               mt: [4, 5, 5],
-              textAlign: 'left',
+              textAlign: ['left', 'left', 'center'],
+              maxWidth: [null, null, 'copy','copy']
             }}
           >
             <Text variant="title" as="p" sx={{ py: 1, my: 3 }}>Want to be someone who builds things?</Text>
-            <Text variant="headline" as="p" sx={{ fontWeight: 400 }}>
+            <Text variant="headline" as="p" sx={{ fontWeight: 400, mb: 4 }}>
               Get three projects emailed each week. Then build your own. Also... free stickers!
             </Text>
             <SignupForm t={project.projectType} onSuccess={() => { setSubscribed(true) }} sx={{ display: subscribed ? 'none' : 'block' }} />
@@ -158,6 +150,7 @@ const ShipPage = ({ projects = [] }) => {
             )}
           </Box>
         </SlideUp>
+        </Box>
       </Box>
       <Footer />
     </>
@@ -166,19 +159,8 @@ const ShipPage = ({ projects = [] }) => {
 
 export default ShipPage
 
-export async function generateStaticParams() {
+export const getStaticProps = async ({ params }) => {
   const projects = await shippedProjectData()
 
-  const projectTypes = new Set()
-  projects.forEach(project => projectTypes.add(project.projectType))
-
-  return {
-    project: Array.from(projectTypes).map(projectType => ({ t: projectType }))
-  }
-}
-
-export const getStaticProps = async () => {
-  const projects = await shippedProjectData()
-
-  return { props: { projects }, revalidate: 2 }
+  return { props: { projects, projectType: params?.slug || null }, revalidate: 2 }
 }
