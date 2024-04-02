@@ -1,33 +1,14 @@
-import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from 'theme-ui'
+import { Box, Button, Flex, Heading, Image, Link, Text } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../../../components/nav'
-import usePrefersReducedMotion from '../../../lib/use-prefers-reduced-motion'
 import { useEffect, useRef, useState } from 'react'
 import { remark } from 'remark'
 import html from 'remark-html'
-import { useRouter } from 'next/router'
-import { FetchProject } from '../../api/board/[name]'
+import { getOnboardProject } from '../../api/onboard/p/[project]'
+import { getAllOnboardProjects } from '../../api/onboard/p'
 
-// example projects
-const curated = [
-  'Touch Capacitive Piano',
-  'Small Stepper Motor Breakout',
-  'ShawnsMultipurposeMacropad',
-  'Hall-Effect Sensor Plate',
-  'Gas_Smoke_Detector',
-  'GPS Tracker for GOKART',
-  "Ewoud's Desktop Clock PCB",
-  'Connor Ender 3 Bed Leveler'
-]
-
-const BoardPage = ({ projectObj }) => {
-  const prefersReducedMotion = usePrefersReducedMotion()
-
-  // const router = useRouter()
-  // get slug
-  // const name = router.query.slug
-
+const BoardPage = ({ project }) => {
   const spotlightRef = useRef()
   useEffect(() => {
     const handler = event => {
@@ -40,18 +21,6 @@ const BoardPage = ({ projectObj }) => {
     window.addEventListener('mousemove', handler)
     return () => window.removeEventListener('mousemove', handler)
   }, [])
-
-  console.log(projectObj)
-
-  const [project, setProject] = useState({})
-  useEffect(() => {
-    /*(async () => {
-            const project = await (await fetch(`/api/board/${name}`)).json()
-            console.log(project)
-            setProject(project)
-        })()*/
-    setProject(projectObj)
-  }, [projectObj])
 
   return (
     <>
@@ -123,9 +92,11 @@ const BoardPage = ({ projectObj }) => {
               position: 'relative'
             }}
           >
-            <Heading as="h1" variant="title" sx={{ textAlign: 'center' }}>
-              Gallery
-            </Heading>
+            <Link as="a" href="/onboard/gallery" sx={{ color: 'white' }}>
+              <Heading as="h1" variant="title" sx={{ textAlign: 'center' }}>
+                Gallery
+              </Heading>
+            </Link>
             <Text as="p" variant="subtitle" sx={{ textAlign: 'center' }}>
               Check out the latest and greatest from the OnBoard project.
             </Text>
@@ -171,8 +142,8 @@ const BoardPage = ({ projectObj }) => {
             }}
           >
             <Image
-              src={project.image}
-              alt={project.project_name}
+              src={project.imageTop}
+              alt={project.name}
               sx={{
                 borderRadius: 8,
                 boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
@@ -185,15 +156,22 @@ const BoardPage = ({ projectObj }) => {
                 justifyContent: 'center'
               }}
             >
+              {process.env.NODE_ENV !== 'production' && (
+                <>
+                <pre>
+                  {JSON.stringify(project, null, 2)}
+                </pre>
+                </>
+              )}
               <Heading as="h2" variant="title" sx={{ textAlign: 'left' }}>
-                {project.project_name}
+                {project.name}
               </Heading>
               <Text as="p" variant="subtitle" sx={{ textAlign: 'left' }}>
-                {project.maker_name ? `by ${project.maker_name}` : ''}{' '}
-                {project.slack_handle ? `(${project.slack_handle})` : ''}
+                {project?.readmeData?.frontmatter?.github_handle ? `by ${project?.readmeData?.frontmatter?.github_handle}` : ''}
               </Text>
               <Link
-                href={`https://github.com/hackclub/OnBoard/blob/main/projects/${project.project_name}/`}
+                target="_blank"
+                href={`https://github.com/hackclub/OnBoard/blob/main/projects/${project.name}/`}
                 sx={{
                   textDecoration: 'none',
                   color: 'black',
@@ -205,7 +183,6 @@ const BoardPage = ({ projectObj }) => {
               >
                 View on GitHub
               </Link>
-              {/* custom innerHTML */}
               <Box
                 sx={{
                   textAlign: 'left'
@@ -215,7 +192,7 @@ const BoardPage = ({ projectObj }) => {
                     // render with remark to parse markdown
                     remark()
                       .use(html)
-                      .processSync(project.description)
+                      .processSync(project?.readmeData?.description)
                       .toString()
                       .replaceAll('h4', 'p')
                 }}
@@ -228,19 +205,15 @@ const BoardPage = ({ projectObj }) => {
   )
 }
 
-export async function getStaticPaths(context) {
-  const res = await fetch(
-    'https://api.github.com/repos/hackclub/OnBoard/contents/projects'
-  )
-  const data =
-    await res.json() /*.filter(project => curated.includes(project.name))*/
-  //console.log(data)
-  const projects = data.map(project => project.name)
-  const paths = projects.map(name => ({
-    params: {
-      slug: name
-    }
-  }))
+export async function getStaticPaths(_context) {
+  const projects = await getAllOnboardProjects()
+  const paths = projects.map(project => {
+    return ({
+      params: {
+        slug: encodeURIComponent(project.name)
+      }
+    })
+  })
   return {
     paths,
     fallback: 'blocking'
@@ -248,12 +221,13 @@ export async function getStaticPaths(context) {
 }
 
 export async function getStaticProps(context) {
-  let name = context.params.slug
-  let project = await FetchProject(name)
+  const name = context.params.slug
+  const project = await getOnboardProject(name)
   return {
     props: {
-      projectObj: project
-    }
+      project
+    },
+    revalidate: 120
   }
 }
 

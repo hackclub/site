@@ -290,7 +290,7 @@ const nextConfig = {
         ]
       },
       {
-        source: '/api/board/svg/(.+)',
+        source: '/api/onboard/svg/(.+)',
         headers: [
           {
             key: 'content-type',
