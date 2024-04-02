@@ -1,14 +1,20 @@
-import JSZip from "jszip";
-import { read, plot, renderLayers, renderBoard, stringifySvg } from '@tracespace/core'
+import JSZip from 'jszip'
+import {
+  read,
+  plot,
+  renderLayers,
+  renderBoard,
+  stringifySvg
+} from '@tracespace/core'
 import fs from 'fs'
 
-export const gerberToSvg = async (gerberURL) => {
-  const data = await fetch(gerberURL).then((res) => res.arrayBuffer());
-  const files = [];
-  const zip = new JSZip();
+export const gerberToSvg = async gerberURL => {
+  const data = await fetch(gerberURL).then(res => res.arrayBuffer())
+  const files = []
+  const zip = new JSZip()
 
   const zippedData = await new Promise((resolve, _reject) => {
-    zip.loadAsync(data).then(resolve, (e) => {
+    zip.loadAsync(data).then(resolve, e => {
       console.error(e)
       resolve({
         files: {} // TODO: actually handle this error (bad or nonexistent gerber.zip)
@@ -26,25 +32,27 @@ export const gerberToSvg = async (gerberURL) => {
     'gbo', // gerber bottom silk
     'gtl', // gerber top layer
     'gto', // gerber top silk
-    'gts'  // gerber top soldermask
+    'gts' // gerber top soldermask
   ]
-  const unzipJobs = Object.entries(zippedData.files).map(async ([filename, file]) => {
-    const extension = filename.split('.').pop().toLowerCase();
-    if (allowedExtensions.includes(extension)) {
-      const filePath = `/tmp/${filename}`
-      await new Promise((resolve, _reject) => {
-        file.async('uint8array').then(function (fileData) {
-          fs.writeFileSync(filePath, fileData)
-          files.push(filePath)
-          resolve()
-        }
-      )})
+  const unzipJobs = Object.entries(zippedData.files).map(
+    async ([filename, file]) => {
+      const extension = filename.split('.').pop().toLowerCase()
+      if (allowedExtensions.includes(extension)) {
+        const filePath = `/tmp/${filename}`
+        await new Promise((resolve, _reject) => {
+          file.async('uint8array').then(function (fileData) {
+            fs.writeFileSync(filePath, fileData)
+            files.push(filePath)
+            resolve()
+          })
+        })
+      }
     }
-  })
+  )
 
   await Promise.all(unzipJobs)
 
-  let readResult;
+  let readResult
   try {
     readResult = await read(files)
   } catch (e) {
@@ -55,13 +63,13 @@ export const gerberToSvg = async (gerberURL) => {
   const renderLayersResult = renderLayers(plotResult)
   const renderBoardResult = renderBoard(renderLayersResult)
   for (const file of files) {
-    if(fs.existsSync(file)) {
+    if (fs.existsSync(file)) {
       fs.unlinkSync(file)
     }
   }
   return {
     top: stringifySvg(renderBoardResult.top),
-    bottom: stringifySvg(renderBoardResult.bottom),
+    bottom: stringifySvg(renderBoardResult.bottom)
     // all: stringifySvg(renderLayersResult)
   }
 }
@@ -75,7 +83,7 @@ export default async function handler(req, res) {
   const url = new URL(decodeURI(file))
   const svg = await gerberToSvg(url)
   if (format === 'top') {
-    res.contentType('image/svg');
+    res.contentType('image/svg')
     return res.status(200).send(svg.top)
   }
   if (format === 'json') return res.status(200).json(svg)

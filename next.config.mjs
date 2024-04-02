@@ -291,10 +291,12 @@ const nextConfig = {
       },
       {
         source: '/api/board/svg/(.+)',
-        headers: [{
-          key: 'content-type',
-          value: 'image/svg+xml'
-        }]
+        headers: [
+          {
+            key: 'content-type',
+            value: 'image/svg+xml'
+          }
+        ]
       }
     ]
   }
