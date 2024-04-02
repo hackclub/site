@@ -8,6 +8,7 @@ import html from 'remark-html'
 import { getOnboardProject } from '../../api/onboard/p/[project]'
 import { getAllOnboardProjects } from '../../api/onboard/p'
 import Icon from '@hackclub/icons'
+import Tilt from '../../../components/tilt'
 
 const BoardPage = ({ project }) => {
   const spotlightRef = useRef()
@@ -140,14 +141,16 @@ const BoardPage = ({ project }) => {
               color: 'black'
             }}
           >
-            <Image
-              src={project.imageTop}
-              alt={project.name}
-              sx={{
-                borderRadius: 8,
-                boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
-              }}
-            />
+            <Tilt>
+              <Image
+                src={project.imageTop}
+                alt={project.name}
+                sx={{
+                  borderRadius: 8,
+                  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
+                }}
+              />
+            </Tilt>
             <Box
               sx={{
                 display: 'flex',
