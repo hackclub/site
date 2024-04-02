@@ -12,7 +12,7 @@ export default function Index({ projects, itemCount }) {
   )
 }
 
-export async function getStaticProps(_context) {
+export async function getStaticProps() {
   const allProjects = await getAllOnboardProjects()
   const data = allProjects.slice(0, 10)
   const projects = []

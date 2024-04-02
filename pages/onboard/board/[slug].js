@@ -94,11 +94,9 @@ const BoardPage = ({ project }) => {
               position: 'relative'
             }}
           >
-            <Link as="a" href="/onboard/gallery" sx={{ color: 'white' }}>
-              <Heading as="h1" variant="title" sx={{ textAlign: 'center' }}>
-                {project.name}
-              </Heading>
-            </Link>
+            <Heading as="h1" variant="title" sx={{ textAlign: 'center' }}>
+              {project.name}
+            </Heading>
             <Text as="p" variant="subtitle" sx={{ textAlign: 'center' }}>
               by {project?.readmeData?.frontmatter?.github_handle}
             </Text>
@@ -209,11 +207,11 @@ const BoardPage = ({ project }) => {
 }
 
 export async function getStaticPaths(_context) {
-  const projects = await getAllOnboardProjects()
+  const projects = (await getAllOnboardProjects()).slice(0, 5)
   const paths = projects.map(project => {
     return {
       params: {
-        slug: encodeURIComponent(project.name)
+        slug: project.name
       }
     }
   })

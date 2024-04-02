@@ -31,12 +31,17 @@ async function getReadmeData(url) {
 export const getOnboardProject = async name => {
   // this is not performant to call all projects every time, but we're doing it for now while things load quickly enough
   // TODO: Speed this up
-  const project = (await getAllOnboardProjects()).find(p => p.name === name)
-  const readmeData = await getReadmeData(project.readmeURL)
+  try {
+    const project = (await getAllOnboardProjects()).find(p => p.name === name)
+    const readmeData = await getReadmeData(project.readmeURL)
 
-  const result = { ...project, readmeData }
+    const result = { ...project, readmeData }
 
-  return result
+    return result
+  } catch (e) {
+    console.error(e)
+    return null
+  }
 }
 
 export default async function handler(req, res) {
