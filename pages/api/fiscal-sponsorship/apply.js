@@ -35,7 +35,7 @@ export default async function handler(req, res) {
           'Event Name': data.eventName,
           'Event Website': data.eventWebsite,
           'Tell us about your event': data.eventDescription,
-          'Mailing Address': 'This field doesn\'t exist on the form anymore.'
+          'Mailing Address': 'This field doesn\'t exist on the form anymore.',
           'Address Line 1': 'This field doesn\'t exist on the form anymore.',
           City: 'This field doesn\'t exist on the form anymore.',
           State: 'This field doesn\'t exist on the form anymore.',
