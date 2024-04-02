@@ -105,7 +105,7 @@ const BoardPage = ({ project }) => {
             <Flex sx={{ mt: 16, gap: 10, flexDirection: ['column', 'row'] }}>
               <Button
                 as="a"
-                href="https://hackclub.com/onboard/gallery"
+                href="/onboard/gallery"
                 sx={{
                   background: t => t.util.gx('#60cc38', '#113b11')
                 }}
