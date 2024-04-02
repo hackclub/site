@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Input, Select, Textarea } from 'theme-ui'
-// import Checkbox from './checkbox'
+import Checkbox from './checkbox'
 import Field from './field'
 // This is using country-list instead of country-list-js as it has a smaller bundle size
 import { getNames } from 'country-list'
