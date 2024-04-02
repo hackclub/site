@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Input, Select, Textarea } from 'theme-ui'
-// import Checkbox from './checkbox'
+import Checkbox from './checkbox'
 import Field from './field'
 // This is using country-list instead of country-list-js as it has a smaller bundle size
 import { getNames } from 'country-list'
@@ -54,10 +54,10 @@ export default function OrganizationInfoForm({ requiredFields }) {
             ))}
         </Select>
       </Field>
-      {/* <Field
+      <Field
         name="transparent"
         label="Transparency mode"
-        col={false}
+        col={true}
         description={`
                     Transparent accounts’ balances and donations are public.
                     You choose who has access to personal details.
@@ -67,7 +67,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
         requiredFields={requiredFields}
       >
         <Checkbox defaultChecked={true} name="transparent" />
-      </Field> */}
+      </Field>
       <Field
         name="eventDescription"
         label={`Tell us about your ${org.toLowerCase()}`}
