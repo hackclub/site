@@ -7353,15 +7353,10 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-fast-compare@^3.0.1:
+react-fast-compare@^3.0.1, react-fast-compare@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.2.tgz#929a97a532304ce9fee4bcae44234f1ce2c21d49"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
-
-react-fast-compare@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.0.tgz"
-  integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
 react-horizontal-scrolling-menu@^6.0.2:
   version "6.0.2"
@@ -7460,12 +7455,12 @@ react-smooth@^4.0.0:
     prop-types "^15.8.1"
     react-transition-group "^4.4.5"
 
-react-snowfall@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/react-snowfall/-/react-snowfall-1.2.1.tgz"
-  integrity sha512-d2UR3nDq3F0DJGaTfJ0QNbBo76UZHtT9wHFj+ePxAl4FgSxWBhxB/Bjn06f5iDBwhgwiZ7CZmv3lwfNvjo6a+w==
+react-snowfall@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-snowfall/-/react-snowfall-2.1.0.tgz#b8c22c182c4e5cd084025c73169a3f399c3dd147"
+  integrity sha512-5nYWmBTJi/rrRRTmE62QLhxSp3sfX9niPP1Ysrd4dkVZLr0fxHTkcqCLQx7BAkclCEq5MWZ7kgIHrqk5Ugq1PA==
   dependencies:
-    react-fast-compare "^3.2.0"
+    react-fast-compare "^3.2.2"
 
 react-ticker@^1.3.2:
   version "1.3.2"
@@ -8235,6 +8230,7 @@ string-hash@1.1.3:
   integrity sha512-kJUvRUFK49aub+a7T1nNE66EJbZBMnBgoC1UbCZ5n6bsZKBRga4KgBRTMn/pFkeCZSYtNeSyMxPDM0AXWELk2A==
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
