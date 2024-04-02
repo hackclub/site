@@ -54,7 +54,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
             ))}
         </Select>
       </Field>
-      {/* <Field
+      <Field
         name="transparent"
         label="Transparency mode"
         col={false}
@@ -67,7 +67,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
         requiredFields={requiredFields}
       >
         <Checkbox defaultChecked={true} name="transparent" />
-      </Field> */}
+      </Field>
       <Field
         name="eventDescription"
         label={`Tell us about your ${org.toLowerCase()}`}
