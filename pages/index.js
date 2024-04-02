@@ -109,7 +109,7 @@ function Page({
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth() + 1;
 
-  const shouldRenderSnow = currentMonth >= 11 || currentMonth <= 2;
+  const shouldRenderSnow = true;
 
 
   let images = [
