@@ -24,7 +24,7 @@ export const getAllOnboardProjects = async () => {
     const projectData = {
       name: p.name,
       url: `https://github.com/hackclub/OnBoard/tree/main/projects/${p.name}/README.md`,
-      galleryURL: `/onboard/gallery/${p.name}`,
+      galleryURL: `/onboard/board/${p.name}`,
       githubURL: p.html_url,
       readmeURL: `https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${p.name}/README.md`,
       schematicURL: `https://raw.githubusercontent.com/hackclub/OnBoard/main/projects/${p.name}/schematic.pdf`,
