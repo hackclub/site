@@ -38,5 +38,5 @@ export async function getStaticPaths(_context) {
   const paths = Array(pages)
     .fill()
     .map((_, i) => ({ params: { page: (i + 1).toString() } }))
-  return { paths, fallback: false }
+  return { paths, fallback: 'blocking' }
 }
