@@ -35,22 +35,18 @@ export default async function handler(req, res) {
           'Event Name': data.eventName,
           'Event Website': data.eventWebsite,
           'Tell us about your event': data.eventDescription,
-          'Mailing Address': data.userAddress,
-          'Address Line 1': data.addressLine1,
-          City: data.addressCity,
-          State: data.addressState,
-          'Zip Code': data.addressZip,
-          'Address Country': data.addressCountry,
-          'Address Country Code': data.addressCountryCode,
+          'Mailing Address': 'This field doesn't exist on the form anymore.'
+          'Address Line 1': 'This field doesn't exist on the form anymore.',
+          City: 'This field doesn't exist on the form anymore.',
+          State: 'This field doesn't exist on the form anymore.',
+          'Zip Code': 'This field doesn't exist on the form anymore.',
+          'Address Country': 'This field doesn't exist on the form anymore.',
+          'Address Country Code': 'This field doesn't exist on the form anymore.',
           'Event Location': data.eventLocation,
-          'Event Country Code': data.eventCountryCode,
-          'Have you used HCB for any previous events?':
-            data.returningUser === 'true'
-              ? 'Yes, I have used HCB before'
-              : 'No, first time!',
-          'How did you hear about HCB?': data.referredBy,
-          Transparent:
-            data.transparent === 'true' ? 'Yes, please!' : 'No, thanks.',
+          'Event Country Code': getCode(data.eventLocation),
+          'Have you used HCB for any previous events?': 'This field doesn't exist on the form anymore.',
+          'How did you hear about HCB?': 'This field doesn't exist on the form anymore.',
+          Transparent: 'This field doesn't exist on the form anymore. HCB defaults to YES.',
           'HCB account URL': `https://hcb.hackclub.com/${r.slug}`,
           'Contact Option': data.contactOption,
           'Slack Username': data.slackUsername,
