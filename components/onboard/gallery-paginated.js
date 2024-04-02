@@ -5,6 +5,7 @@ import Head from 'next/head'
 import { Box, Button, Flex, Grid, Heading, Text } from 'theme-ui'
 import Item from './item'
 import Nav from '../nav'
+import { Slide } from 'react-reveal'
 
 const perPage = 10
 
@@ -138,7 +139,9 @@ export const GalleryPage = ({ currentPage, itemCount, currentProjects }) => {
           }}
         >
           {currentProjects.map(project => (
-            <Item key={project.name} project={project} />
+            <Slide delay={10} up key={project.name}>
+              <Item key={project.name} project={project} />
+            </Slide>
           ))}
         </Grid>
         <PaginationButtons

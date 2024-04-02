@@ -1,65 +1,29 @@
-import { Box, Flex, Heading, Paragraph } from 'theme-ui'
-import { Link } from 'theme-ui'
+import { Heading, Card } from 'theme-ui'
 
 const Item = ({ project }) => {
   const { name, imageTop, galleryURL } = project
   return (
-    <Box
+    <Card
+      as="a"
+      href={galleryURL}
       sx={{
-        bg: '#ffffff',
-        color: 'black',
-        borderRadius: 8,
-        boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-        p: 4,
-        mt: 4,
-        position: 'relative'
+        cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
       }}
     >
-      <Flex
+      <img src={imageTop} alt={name} />
+      <Heading
+        as="h2"
         sx={{
-          flexDirection: 'column',
-          alignItems: 'center'
+          textAlign: 'center',
+          mt: 3
         }}
       >
-        <object
-          data={imageTop}
-          type={'image/svg+xml'}
-          style={{
-            width: '100%',
-            borderRadius: '8px'
-          }}
-        ></object>
-        <Link
-          href={galleryURL}
-          sx={{
-            textDecoration: 'none',
-            color: 'black',
-            ':hover': {
-              color: 'primary'
-            }
-          }}
-        >
-          <Heading
-            as="h2"
-            sx={{
-              textAlign: 'center',
-              mt: 3
-            }}
-          >
-            {name}
-          </Heading>
-        </Link>
-        <Paragraph
-          sx={{
-            textAlign: 'center',
-            mt: 2,
-            wordBreak: 'break-word'
-          }}
-        >
-          {/* {`${author_name ? `by ${trim(author_name)}` : ""} ${author_slack ? `(${trim(author_slack)})` : ""}`} */}
-        </Paragraph>
-      </Flex>
-    </Box>
+        {name}
+      </Heading>
+    </Card>
   )
 }
 
