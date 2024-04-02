@@ -57,7 +57,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
       <Field
         name="transparent"
         label="Transparency mode"
-        col={false}
+        col={true}
         description={`
                     Transparent accounts’ balances and donations are public.
                     You choose who has access to personal details.
