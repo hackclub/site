@@ -9,12 +9,17 @@ import {
 import fs from 'fs'
 
 export const gerberToSvg = async gerberURL => {
-  const data = await fetch(gerberURL).then(res => res.arrayBuffer())
+  const data = await fetch(gerberURL).then(res => {
+    return { status: res.status, arrayBuffer: res.arrayBuffer()}
+  })
+  if (data.status !== 200) {
+    return { status: data.status, error: 'Failed to fetch gerber file' }
+  }
   const files = []
   const zip = new JSZip()
 
   const zippedData = await new Promise((resolve, _reject) => {
-    zip.loadAsync(data).then(resolve, e => {
+    zip.loadAsync(data.arrayBuffer).then(resolve, e => {
       console.error(e)
       resolve({
         files: {} // TODO: actually handle this error (bad or nonexistent gerber.zip)

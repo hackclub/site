@@ -1,11 +1,11 @@
-import { useMemo } from "react"
+import { useMemo } from 'react'
 
 const YoutubeVideo = ({
   'youtube-id': youtubeID = 'dQw4w9WgXcQ',
   list,
-  title = "YouTube video player",
+  title = 'YouTube video player',
   width,
-  height,
+  height
 }) => {
   const src = useMemo(() => {
     const url = new URL(`https://www.youtube.com/embed/${youtubeID}`)
@@ -33,8 +33,8 @@ const YoutubeVideo = ({
       {...{ width, height }}
       frameborder="0"
       allow={allowlist}
-      allowfullscreen>
-    </iframe>
+      allowfullscreen
+    ></iframe>
   )
 }
 

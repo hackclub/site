@@ -13,5 +13,8 @@ export default async function handler(req, res) {
     return res.status(404).json({ status: 404, error: 'Invalid file' })
   }
   const svg = await gerberToSvg(parsed_url)
+  if (svg.error) {
+    return res.status(svg.status).send(svg.error)
+  }
   return res.status(200).send(svg.top)
 }
