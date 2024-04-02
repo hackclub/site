@@ -2,11 +2,12 @@ import { Box, Button, Flex, Heading, Image, Link, Text } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../../../components/nav'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { remark } from 'remark'
 import html from 'remark-html'
 import { getOnboardProject } from '../../api/onboard/p/[project]'
 import { getAllOnboardProjects } from '../../api/onboard/p'
+import Icon from '@hackclub/icons'
 
 const BoardPage = ({ project }) => {
   const spotlightRef = useRef()
@@ -94,23 +95,21 @@ const BoardPage = ({ project }) => {
           >
             <Link as="a" href="/onboard/gallery" sx={{ color: 'white' }}>
               <Heading as="h1" variant="title" sx={{ textAlign: 'center' }}>
-                Gallery
+                {project.name}
               </Heading>
             </Link>
             <Text as="p" variant="subtitle" sx={{ textAlign: 'center' }}>
-              Check out the latest and greatest from the OnBoard project.
+              by {project?.readmeData?.frontmatter?.github_handle}
             </Text>
             <Flex sx={{ mt: 16, gap: 10, flexDirection: ['column', 'row'] }}>
               <Button
-                variant="ctaLg"
                 as="a"
-                href="https://hackclub.com/onboard"
-                target="_blank"
+                href="https://hackclub.com/onboard/gallery"
                 sx={{
                   background: t => t.util.gx('#60cc38', '#113b11')
                 }}
               >
-                Make your own!
+                See more in the gallery
               </Button>
             </Flex>
           </Flex>
@@ -156,18 +155,13 @@ const BoardPage = ({ project }) => {
                 justifyContent: 'center'
               }}
             >
-              {process.env.NODE_ENV !== 'production' && (
-                <>
-                <pre>
-                  {JSON.stringify(project, null, 2)}
-                </pre>
-                </>
-              )}
               <Heading as="h2" variant="title" sx={{ textAlign: 'left' }}>
                 {project.name}
               </Heading>
               <Text as="p" variant="subtitle" sx={{ textAlign: 'left' }}>
-                {project?.readmeData?.frontmatter?.github_handle ? `by ${project?.readmeData?.frontmatter?.github_handle}` : ''}
+                {project?.readmeData?.frontmatter?.github_handle
+                  ? `by ${project?.readmeData?.frontmatter?.github_handle}`
+                  : ''}
               </Text>
               <Link
                 target="_blank"
@@ -181,6 +175,7 @@ const BoardPage = ({ project }) => {
                   textAlign: 'left'
                 }}
               >
+                <Icon glyph="github" size={18} />
                 View on GitHub
               </Link>
               <Box
@@ -201,6 +196,11 @@ const BoardPage = ({ project }) => {
           </Box>
         </Box>
       </Box>
+      {process.env.NODE_ENV !== 'production' && (
+        <>
+          <pre>{JSON.stringify(project, null, 2)}</pre>
+        </>
+      )}
     </>
   )
 }
@@ -208,11 +208,11 @@ const BoardPage = ({ project }) => {
 export async function getStaticPaths(_context) {
   const projects = await getAllOnboardProjects()
   const paths = projects.map(project => {
-    return ({
+    return {
       params: {
         slug: encodeURIComponent(project.name)
       }
-    })
+    }
   })
   return {
     paths,

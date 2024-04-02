@@ -1,4 +1,4 @@
-import { getAllOnboardProjects } from "."
+import { getAllOnboardProjects } from '.'
 
 export async function onboardProjectCount() {
   const projects = await getAllOnboardProjects()

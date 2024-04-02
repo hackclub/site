@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react"
-import PaginationButtons from "./pagination-buttons"
+import { useEffect, useRef } from 'react'
+import PaginationButtons from './pagination-buttons'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import { Box, Button, Flex, Grid, Heading, Text } from 'theme-ui'
@@ -8,7 +8,7 @@ import Nav from '../nav'
 
 const perPage = 10
 
-export const GalleryPage = ({currentPage, itemCount, currentProjects}) => {
+export const GalleryPage = ({ currentPage, itemCount, currentProjects }) => {
   const spotlightRef = useRef()
   useEffect(() => {
     const handler = event => {
@@ -120,7 +120,11 @@ export const GalleryPage = ({currentPage, itemCount, currentProjects}) => {
           textAlign: 'center'
         }}
       >
-        <PaginationButtons currentPage={currentPage} itemCount={itemCount} perPage={perPage} />
+        <PaginationButtons
+          currentPage={currentPage}
+          itemCount={itemCount}
+          perPage={perPage}
+        />
         <Grid
           gap={4}
           columns={[null, 2]}
@@ -134,13 +138,14 @@ export const GalleryPage = ({currentPage, itemCount, currentProjects}) => {
           }}
         >
           {currentProjects.map(project => (
-            <Item
-              key={project.name}
-              project={project}
-            />
+            <Item key={project.name} project={project} />
           ))}
         </Grid>
-        <PaginationButtons currentPage={currentPage} itemCount={itemCount} perPage={perPage} />
+        <PaginationButtons
+          currentPage={currentPage}
+          itemCount={itemCount}
+          perPage={perPage}
+        />
       </Box>
     </>
   )

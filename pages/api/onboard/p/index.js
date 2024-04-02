@@ -5,7 +5,9 @@ export const getAllOnboardProjects = async () => {
   const fetchOptions = {}
   if (process.env.GITHUB_TOKEN) {
     // this field is optional because we do heavy caching in production, but nice to have for local development
-    fetchOptions.headers = {Authorization: `Bearer ${process.env.GITHUB_TOKEN}`}
+    fetchOptions.headers = {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`
+    }
   }
 
   const res = await fetch(url, fetchOptions).then(r => r.json())
@@ -17,9 +19,15 @@ export const getAllOnboardProjects = async () => {
   const projects = []
 
   res.forEach(p => {
-    if (p.type !== 'dir') { return }
-    if (p.name[0] === '.') { return }
-    if (p.name[0] === '!') { return }
+    if (p.type !== 'dir') {
+      return
+    }
+    if (p.name[0] === '.') {
+      return
+    }
+    if (p.name[0] === '!') {
+      return
+    }
 
     const projectData = {
       name: p.name,

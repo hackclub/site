@@ -131,7 +131,6 @@ const ShipPage = () => {
     return () => observer.disconnect()
   }, [])
 
-
   return (
     <>
       <Meta
@@ -201,7 +200,7 @@ const ShipPage = () => {
             position: 'relative'
           }}
         >
-          <Box sx={{ pt: [3, 6]}}>
+          <Box sx={{ pt: [3, 6] }}>
             <Announcement
               copy="Steve Wozniak, Apple co-founder, about OnBoard"
               caption="I’m so glad young people can create PCBs online. May your creativity change the world! Mine did."
@@ -212,7 +211,7 @@ const ShipPage = () => {
           </Box>
           <Flex
             sx={{
-              pt: [3,1],
+              pt: [3, 1],
               width: '100%',
               maxWidth: 'layout',
               alignItems: 'center'
@@ -325,7 +324,6 @@ const ShipPage = () => {
               </Text>
             </Flex>
           </Grid>
-
         </Flex>
       </Box>
 
@@ -362,13 +360,20 @@ const ShipPage = () => {
               Never made a circuit board before? No problem.
             </Balancer>
           </Heading>
-          <Flex sx={{flexDirection:"column"}}>
-            <YoutubeVideo youtube-id="LrSKs35nR8k" list="PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3" height="300px" />
+          <Flex sx={{ flexDirection: 'column' }}>
+            <YoutubeVideo
+              youtube-id="LrSKs35nR8k"
+              list="PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3"
+              height="300px"
+            />
             <Text sx={{ fontSize: 2, color: 'muted' }}>
               See the{' '}
-              <Link href="https://www.youtube.com/watch?v=LrSKs35nR8k&list=PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3" target="_blank">
+              <Link
+                href="https://www.youtube.com/watch?v=LrSKs35nR8k&list=PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3"
+                target="_blank"
+              >
                 full playlist
-              <Icon glyph="external" size={18} />
+                <Icon glyph="external" size={18} />
               </Link>
             </Text>
           </Flex>
@@ -812,7 +817,7 @@ const ShipPage = () => {
             Let's Recap
           </Heading>
 
-            <Recap />
+          <Recap />
           <Grid
             width={300}
             gap={4}

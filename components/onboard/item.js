@@ -1,11 +1,8 @@
-import { Box, Flex, Heading, Paragraph } from "theme-ui";
-import { Link } from "theme-ui";
-
-// const onboardContext = React.createContext({})
+import { Box, Flex, Heading, Paragraph } from 'theme-ui'
+import { Link } from 'theme-ui'
 
 const Item = ({ project }) => {
   const { name, imageTop, galleryURL } = project
-  // console.log({p: props})
   return (
     <Box
       sx={{
@@ -66,5 +63,4 @@ const Item = ({ project }) => {
   )
 }
 
-export default Item;
-// export { onboardContext };
+export default Item
