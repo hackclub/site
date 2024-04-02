@@ -1,5 +1,5 @@
-import { Box, Card, Container, Flex, Link, Text } from 'theme-ui'
-import { useEffect, useRef, useState } from 'react'
+import { Box, Container, Flex, Link, Text } from 'theme-ui'
+import { useEffect, useRef } from 'react'
 import { keyframes } from '@emotion/react'
 import FlexCol from '../../components/flex-col'
 import Meta from '@hackclub/meta'

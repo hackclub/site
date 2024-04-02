@@ -84,6 +84,7 @@ export default function PersonalInfoForm({ requiredFields }) {
                 <div />
                 <Field
                   label="Your Hack Club Slack username"
+                  description="For teenagers only!"
                   name="slackUsername"
                   requiredFields={requiredFields}
                 >
@@ -111,7 +112,7 @@ export default function PersonalInfoForm({ requiredFields }) {
           name="userPhone"
           id="userPhone"
           type="tel"
-          placeholder="1-855-625-HACK"
+          placeholder="+1 (844) 237 2290"
         />
       </Field>
       <Field

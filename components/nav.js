@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
-import { Box, Container, Flex, Link, Text } from 'theme-ui'
+import { Box, Container, Flex, Link } from 'theme-ui'
 import theme from '../lib/theme'
 import Icon from './icon'
 import Flag from './flag'
@@ -68,7 +68,7 @@ const hoverColor = name =>
     slate: 'black',
     black: 'slate',
     primary: 'error'
-  }[name] || 'black')
+  })[name] || 'black'
 
 const slide = keyframes({
   from: { transform: 'translateY(-25%)', opacity: 0 },
@@ -198,13 +198,13 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   const baseColor = dark
     ? color || 'white'
     : color === 'white' && scrolled
-    ? 'black'
-    : color
+      ? 'black'
+      : color
   const toggleColor = dark
     ? color || 'snow'
     : toggled || (color === 'white' && scrolled)
-    ? 'slate'
-    : color
+      ? 'slate'
+      : color
 
   return (
     <Root

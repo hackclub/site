@@ -1,4 +1,4 @@
-import { Box, Heading, Grid } from 'theme-ui'
+import { Box, Grid, Heading } from 'theme-ui'
 import SlideUp from '../slide-up'
 import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
@@ -118,7 +118,7 @@ const Slack = () => {
           />
         </Box>
         <Cover />
-        <Content />
+        <Content nameInputRef />
       </Box>
     )
   } else {

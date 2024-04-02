@@ -1,13 +1,4 @@
-import {
-  Box,
-  Heading,
-  Container,
-  Card,
-  Text,
-  Flex,
-  Button,
-  Badge
-} from 'theme-ui'
+import { Box, Heading, Container, Text, Button, Badge } from 'theme-ui'
 
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
@@ -186,7 +177,7 @@ export default function First({ stats }) {
           <Start stats={stats} />
         </Box>
       </Box>
-      <Footer dark key="footer" />
+      <Footer dark />
     </>
   )
 }

@@ -12,6 +12,8 @@ import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
 import { useEffect, useRef, useState } from 'react'
 import sleep from '../../lib/sleep'
 import Announcement from '../../components/announcement'
+import YoutubeVideo from '../../components/onboard/youtube-video'
+import Icon from '@hackclub/icons'
 
 /**
  * @type {import('theme-ui').ThemeUIStyleObject}
@@ -202,7 +204,7 @@ const ShipPage = () => {
           <Box sx={{ pt: [3, 6]}}>
             <Announcement
               copy="Steve Wozniak, Apple co-founder, about OnBoard"
-              caption="I’m so glad young people can create PCBs online."
+              caption="I’m so glad young people can create PCBs online. May your creativity change the world! Mine did."
               imgSrc="https://cloud-iddh16j0r-hack-club-bot.vercel.app/0stevew.png"
               imgAlt="A picture of Steve Wozniak who is a co-founder of Apple."
               color="primary"
@@ -324,48 +326,6 @@ const ShipPage = () => {
             </Flex>
           </Grid>
 
-          <Flex
-            as="div"
-            sx={{
-              flexDirection: 'row',
-              gap: 3,
-              alignItems: 'end',
-              justifyContent: 'center',
-              margin: '0 auto',
-              padding: '0.8rem 1rem',
-              borderRadius: 'default',
-              border: '1px dashed white',
-              background: '#000000',
-            }}
-          >
-            <Image
-              src="https://cloud-iddh16j0r-hack-club-bot.vercel.app/0stevew.png"
-              alt="A picture of Steve Wozniak who is a co-founder of Apple."
-              sx={{
-                width: 50,
-                height: 50
-              }}
-            />
-            <Flex
-              as="div"
-              sx={{ flexDirection: 'column', gap: 1, width: '90%' }}
-            >
-              <Text as="p" sx={{ fontSize: 20 }}>
-                <Balancer>
-                  "I’m so glad young people can create PCBs online. May your
-                  creativity change the world! Mine did.”
-                </Balancer>
-              </Text>
-              <Text
-                as="p"
-                sx={{ fontSize: 20, fontStyle: 'italic' }}
-              >
-                <Balancer>
-                  -<span style={{ textDecoration: 'underline' }}>Steve Wozniak "Woz"</span>, Apple co-founder, on Hack Club OnBoard
-                </Balancer>
-              </Text>
-            </Flex>
-          </Flex>
         </Flex>
       </Box>
 
@@ -402,6 +362,16 @@ const ShipPage = () => {
               Never made a circuit board before? No problem.
             </Balancer>
           </Heading>
+          <Flex sx={{flexDirection:"column"}}>
+            <YoutubeVideo youtube-id="LrSKs35nR8k" list="PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3" height="300px" />
+            <Text sx={{ fontSize: 2, color: 'muted' }}>
+              See the{' '}
+              <Link href="https://www.youtube.com/watch?v=LrSKs35nR8k&list=PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3" target="_blank">
+                full playlist
+              <Icon glyph="external" size={18} />
+              </Link>
+            </Text>
+          </Flex>
           <Text sx={{ fontSize: 3 }}>
             Learn how to design your own circuit boards from scratch with our{' '}
             <strong>official tutorials</strong> and jams, like Maggie’s{' '}

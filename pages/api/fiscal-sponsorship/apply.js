@@ -1,4 +1,5 @@
 import AirtablePlus from 'airtable-plus'
+import { getCode } from 'country-list'
 
 const applicationsTable = new AirtablePlus({
   baseID: 'apppALh5FEOKkhjLR',
@@ -14,8 +15,8 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         email: data.userEmail,
         name: data.eventName,
-        transparent: data.transparent
-        // country: data.eventCountryCode,
+        country: getCode(data.eventLocation) || '',
+        transparent: data.transparent,
       }),
       method: 'POST',
       headers: {

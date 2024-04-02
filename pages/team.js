@@ -87,6 +87,7 @@ export default function Team({ team }) {
                     teamRole="Founder"
                     text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
                     pronouns="he/him"
+                    email="zach"
                   />
                   <Bio
                     img="/team/christina.jpg"
@@ -94,6 +95,7 @@ export default function Team({ team }) {
                     teamRole="Co-founder and COO"
                     text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
                     pronouns="she/her"
+                    email="christina"
                   />
                 </Grid>
                 <Grid columns={[1, null, 3]} gap={2}>
@@ -142,18 +144,21 @@ export default function Team({ team }) {
                   >
                     Hacker Resources Team
                   </Text>
-				  <Grid columns={[1, null, 2]} gap={2}>
-				   { team.current?.filter(member => member.department === "HQ").map(member => (
-					<Bio
-                      img={member.avatar}
-                      name={member.name}
-                      teamRole={member.role}
-                      text={member.bio}
-                      pronouns={member.pronouns}
-					  key={member.name}
-                    />
-				   ))}
-				  </Grid>
+                  <Grid columns={[1, null, 2]} gap={2}>
+                    {team.current
+                      ?.filter(member => member.department === 'HQ')
+                      .map(member => (
+                        <Bio
+                          img={member.avatar}
+                          name={member.name}
+                          teamRole={member.role}
+                          text={member.bio}
+                          pronouns={member.pronouns}
+                          email={member.email}
+                          key={member.name}
+                        />
+                      ))}
+                  </Grid>
                 </Box>
               </Box>
               <Box>
@@ -174,17 +179,20 @@ export default function Team({ team }) {
                     HCB Team
                   </Text>
                   <Grid columns={[1, null, 2]} gap={2}>
-				   { team.current?.filter(member => member.department === "HCB").map(member => (
-					<Bio
-                      img={member.avatar}
-                      name={member.name}
-                      teamRole={member.role}
-                      text={member.bio}
-                      pronouns={member.pronouns}
-					  key={member.name}
-                    />
-				   ))}
-				  </Grid>
+                    {team.current
+                      ?.filter(member => member.department === 'HCB')
+                      .map(member => (
+                        <Bio
+                          img={member.avatar}
+                          name={member.name}
+                          teamRole={member.role}
+                          text={member.bio}
+                          pronouns={member.pronouns}
+                          email={member.email}
+                          key={member.name}
+                        />
+                      ))}
+                  </Grid>
                 </Box>
               </Box>
             </Grid>
@@ -205,18 +213,21 @@ export default function Team({ team }) {
               >
                 Community Team
               </Text>
-				<Grid columns={[1, 2, null, 4]} gap={2}>
-				   { team.current?.filter(member => member.department === "Community").map(member => (
-					<Bio
+              <Grid columns={[1, 2, null, 4]} gap={2}>
+                {team.current
+                  ?.filter(member => member.department === 'Community')
+                  .map(member => (
+                    <Bio
                       img={member.avatar}
                       name={member.name}
                       teamRole={member.role}
                       text={member.bio}
                       pronouns={member.pronouns}
-					  key={member.name}
+                      email={member.email}
+                      key={member.name}
                     />
-				   ))}
-				  </Grid>
+                  ))}
+              </Grid>
             </Box>
             <br />
             <Box sx={{ textAlign: 'center', mt: 2, mb: [3, 4] }}>
@@ -247,6 +258,13 @@ export default function Team({ team }) {
               </Text>
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
+              <Bio
+                name="Lexi Mattick"
+                teamRole="Clubs Engineering"
+                text="Always driven by curiosity for how things work, Lexi fell in love with Hack Club in 2019 after joining a Hack Night call and discovering like-minded individuals. She spends her time programming, making music, and studying for her private pilot license; at Hack Club, she spends her time working on whatever fantastic project is happening in the present moment."
+                img="/team/bean-man.jpg"
+                pronouns="she/her"
+              />
               <Bio
                 name="Holly Delisle"
                 teamRole="Clubs Operations Lead"
@@ -460,10 +478,12 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
 }
 
 export const getServerSideProps = async () => {
-	try {
-  const team = await fetch("https://internal.hackclub.com/team").then((res) => res.json())
-  return { props: { team } }
-	} catch (e) {
-		return { props: { team: [] }}
-	}
+  try {
+    const team = await fetch('https://internal.hackclub.com/team').then(res =>
+      res.json()
+    )
+    return { props: { team } }
+  } catch (e) {
+    return { props: { team: [] } }
+  }
 }
