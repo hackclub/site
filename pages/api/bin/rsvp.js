@@ -23,7 +23,7 @@ export default async function handler(req, res) {
 
     res.status(200).json({ success: true })
   } else if (req.method == 'GET') {
-    const result = await rsvpsTable.read({ field: 'Status' })
+    const result = await rsvpsTable.read()
 
     res.status(200).json(result.length)
   }
