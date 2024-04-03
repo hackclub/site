@@ -1,20 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import VanillaTilt from 'vanilla-tilt'
-
-function useMedia(query) {
-  const [matches, setMatches] = useState(false)
-
-  useEffect(() => {
-    const onChange = e => setMatches(e.matches)
-    const mq = window.matchMedia(query)
-    setMatches(mq.matches)
-    mq.addEventListener('change', onChange)
-
-    return () => mq.removeEventListener('change', onChange)
-  }, [query])
-
-  return { matches }
-}
+import useMedia from '../lib/use-media'
 
 // NOTE(@lachlanjc): only pass one child!
 const Tilt = ({ options = {}, children, ...props }) => {
