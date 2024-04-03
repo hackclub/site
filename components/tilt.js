@@ -1,12 +1,26 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import VanillaTilt from 'vanilla-tilt'
-import { useResponsiveValue } from '@theme-ui/match-media'
+
+function useMedia(query) {
+  const [matches, setMatches] = useState(false)
+
+  useEffect(() => {
+    const onChange = e => setMatches(e.matches)
+    const mq = window.matchMedia(query)
+    setMatches(mq.matches)
+    mq.addEventListener('change', onChange)
+
+    return () => mq.removeEventListener('change', onChange)
+  }, [query])
+
+  return { matches }
+}
 
 // NOTE(@lachlanjc): only pass one child!
 const Tilt = ({ options = {}, children, ...props }) => {
   const root = useRef(null)
 
-  const enabled = useResponsiveValue([false, true])
+  const { matches: enabled } = useMedia('(hover: hover)')
 
   useEffect(() => {
     if (enabled) {
