@@ -51,7 +51,7 @@ const Page = () => (
 
       <Text as="p" mb={4}>
         Starting a nonprofit is hard, so we built{' '}
-        <Link href="/hcb" target="_blank">
+        <Link href="/fiscal-sponsorship" target="_blank">
           HCB
         </Link>{' '}
         for our community of {formatted}+ teenage programmers. Within 24 hours
