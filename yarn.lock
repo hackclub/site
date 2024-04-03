@@ -2237,11 +2237,6 @@
   dependencies:
     csstype "^3.0.10"
 
-"@theme-ui/match-media@^0.16.2":
-  version "0.16.2"
-  resolved "https://registry.yarnpkg.com/@theme-ui/match-media/-/match-media-0.16.2.tgz#1c35a66137061557f81ad1e21c1dc5eb73dc6845"
-  integrity sha512-7B7jw56e1srcWh70r61QxePdFampOWAlnC+QPPiioMgXu/d+blBBb8X/J7Byomj/BTcsQAZ/HqwgeZ3Tyrwuyg==
-
 "@theme-ui/mdx@0.14.7":
   version "0.14.7"
   resolved "https://registry.npmjs.org/@theme-ui/mdx/-/mdx-0.14.7.tgz"
