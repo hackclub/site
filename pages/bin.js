@@ -75,8 +75,8 @@ export default function Bin() {
           </Box>
           <Box as="section" sx={{ textAlign: 'center' }}>
             <Card sx={{ p: 3, mt: 4, mx: 'auto', maxWidth: '40ch' }}>
-              <Text as="p">High schoolers can get a kit of electronics parts for free to build their first project.</Text>
-              <Text as="p" sx={{ color: 'muted' }}>RSVP to get notified when applications open.</Text>
+              <Text as="p" sx={{ my: 1 }}>High schoolers can get a kit of electronics parts for free to build their first project.</Text>
+              <Text as="p" sx={{ color: 'muted', mb: 3 }}>RSVP to get notified when applications open.</Text>
               <RsvpForm />
             </Card>
           </Box>
