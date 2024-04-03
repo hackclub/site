@@ -21,6 +21,18 @@ const RsvpCount = () => {
   )
 }
 
+const OnboardCount = () => {
+  const [onboardCount, setOnboardCount] = useState(200)
+
+  useEffect(async () => {
+    const url = '/api/onboard/p/count'
+    const results = await fetch(url).then(r => r.json())
+    setOnboardCount(results.count)
+  }, [])
+
+  return (<Text>{onboardCount}</Text>)
+}
+
 const wobble = keyframes({
   from: { transform: 'rotate(15deg)' },
   to: { transform: 'rotate(20deg)' }
@@ -120,7 +132,7 @@ export default function Bin() {
           network of 20k+ technical high schoolers. We believe you learn best by
           building so we're removing barriers to hardware access so any teenager can
           explore. In the past few years, we've{' '}
-          <Link href="https://summer.hackclub.com" target="_blank">
+          <Link href="https://winter.hackclub.com" target="_blank">
             partnered with GitHub to give away $50k of hardware
           </Link>
           ,{' '}
@@ -131,13 +143,10 @@ export default function Bin() {
             hosted the world's longest hackathon on land
           </Link>
           , and{' '}
-          <Link href="https://github.com/hackclub/assemble" target="_blank">
-            brought 183 teenagers to SF for a hackathon
+          <Link href="https://onboard.hackclub.com" target="_blank">
+            fabricated custom PCBs designed by <OnboardCount /> teenagers
           </Link>
           .
-        </Text>
-        <Text as="p" variant="caption" mb={1}>
-          Illustrations by Ripley.
         </Text>
       </Box>
       <Footer />
