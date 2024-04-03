@@ -140,7 +140,7 @@ const HackathonGrant = () => {
               }}
             >
               Hack Club is providing $500 grants (and waiving{' '}
-              <Link href="/hcb" target="_blank">
+              <Link href="/fiscal-sponsorship" target="_blank">
                 HCB
               </Link>{' '}
               fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
@@ -344,7 +344,7 @@ const HackathonGrant = () => {
                 Transparency Mode
               </Link>
               . Sign up for{' '}
-              <Link href="/hcb" target="_blank">
+              <Link href="/fiscal-sponsorship" target="_blank">
                 HCB
               </Link>{' '}
               before applying.

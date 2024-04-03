@@ -15,7 +15,7 @@ const nextConfig = {
       'scrapbook.hackclub.com',
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
-      ''
+      'hcb.hackclub.com'
     ],
     remotePatterns: [
       {
@@ -33,6 +33,16 @@ const nextConfig = {
         source: '/bank/:path*',
         destination: '/hcb/:path*',
         permanent: true
+      },
+      {
+        source: '/hcb/fiscal-sponsorship/',
+        destination: '/fiscal-sponsorship/about/',
+        permanent: false
+      },
+      {
+        source: '/hcb/:path*',
+        destination: '/fiscal-sponsorship/:path*',
+        permanent: false
       },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
       {
@@ -277,6 +287,15 @@ const nextConfig = {
             value: 'GET, POST, OPTIONS'
           },
           { key: 'Access-Control-Allow-Headers', value: 'Content-Type' }
+        ]
+      },
+      {
+        source: '/api/onboard/svg/(.+)',
+        headers: [
+          {
+            key: 'content-type',
+            value: 'image/svg+xml'
+          }
         ]
       }
     ]

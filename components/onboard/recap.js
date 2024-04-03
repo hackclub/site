@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from 'react'
 import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
 import { Box, Grid } from 'theme-ui'
-import sleep from "../../lib/sleep"
+import sleep from '../../lib/sleep'
 
 const dimBg = '#151515'
 
@@ -242,14 +242,9 @@ const Recap = () => {
       sx={{ width: '100%', maxWidth: 800 }}
     >
       {recapPixels.map((_, i) => (
-        <Box
-          id={`pixel-${i}`}
-          key={i}
-          sx={{ bg: dimBg, paddingTop: '100%' }}
-        />
+        <Box id={`pixel-${i}`} key={i} sx={{ bg: dimBg, paddingTop: '100%' }} />
       ))}
     </Grid>
-
   )
 }
 

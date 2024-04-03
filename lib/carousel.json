@@ -18,15 +18,6 @@
     "link": "https://cpu.land"
   },
   {
-    "background": "linear-gradient(to bottom right, #91C2F4, #FFB6E6, #F3E4C6)",
-    "titleColor": "#000",
-    "descriptionColor": "#000",
-    "title": "Wonderland",
-    "description": "How would you and your friends use a 🥕 carrot or a 🧸 stuffed animal in a hackathon project?",
-    "img": "/wonderland/logo.svg",
-    "link": "https://wonderland.hackclub.com"
-  },
-  {
     "background": "#000",
     "titleColor": "green",
     "descriptionColor": "white",

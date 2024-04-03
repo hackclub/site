@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
-import { Box, Container, Flex, Link, Text } from 'theme-ui'
+import { Box, Container, Flex, Link } from 'theme-ui'
 import theme from '../lib/theme'
 import Icon from './icon'
 import Flag from './flag'
@@ -52,18 +52,12 @@ const Root = styled(Box)`
   }
 `
 
-export const Content = styled(Box)`
+export const Content = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1024px;
-  margin: auto;
   position: relative;
   z-index: 2;
-  padding-left: ${theme.space[3]}px;
-  @media (min-width: ${theme.breakpoints[2]}em) {
-    padding: 0 ${theme.space[4]}px;
-  }
 `
 
 const hoverColor = name =>
@@ -99,7 +93,6 @@ const layout = props =>
           font-weight: bold;
           font-size: ${theme.fontSizes[2]}px;
           width: 100vw;
-          max-width: 18rem;
           &:not(:last-child) {
             border-bottom: 1px solid rgba(48, 48, 48, 0.125);
           }
@@ -114,8 +107,7 @@ const layout = props =>
           justify-content: flex-end;
         }
         a {
-          font-size: ${theme.fontSizes[1]}px;
-          text-transform: uppercase;
+          font-size: 18px;
           &:hover {
             color: ${theme.colors[hoverColor(props.color)]};
           }
@@ -125,7 +117,7 @@ const NavBar = styled(Box)`
   display: none;
   ${layout};
   a {
-    margin-left: ${theme.space[3]}px;
+    margin-left: ${theme.space[1]}px;
     padding: ${theme.space[3]}px;
     text-decoration: none;
     @media (min-width: 56em) {
@@ -135,11 +127,12 @@ const NavBar = styled(Box)`
 `
 
 const Navigation = props => (
+  // REMINDER: This should be no more than 7 links :)
   <NavBar role="navigation" {...props}>
     <NextLink href="/clubs" passHref>
       <Link>Clubs</Link>
     </NextLink>
-    <NextLink href="/hcb" passHref>
+    <NextLink href="/fiscal-sponsorship" passHref>
       <Link>Fiscal&nbsp;Sponsorship</Link>
     </NextLink>
     <NextLink href="/hackathons" passHref>
@@ -149,7 +142,7 @@ const Navigation = props => (
       <Link>Community</Link>
     </NextLink>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
-    <Link href="https://jams.hackclub.com/">Workshops</Link>
+    <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
     <NextLink href="/onboard" passHref>
       <Link>OnBoard</Link>
     </NextLink>

@@ -3,7 +3,8 @@ import Icon from '@hackclub/icons'
 import { useState } from 'react'
 
 export default function Bio({ popup = true, spanTwo = false, ...props }) {
-  let { img, name, teamRole, pronouns, text, subrole, href, video } = props
+  let { img, name, teamRole, pronouns, text, subrole, email, href, video } =
+    props
   const [expand, setExpand] = useState(false)
   return (
     <>
@@ -94,6 +95,13 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
               )}
             </Text>
           </Flex>
+          {!popup && email && (
+            <Text color="muted" as={'a'} href={`mailto:${email}@hackclub.com`}>
+              {email}@hackclub.com
+              <br />
+            </Text>
+          )}
+
           {!popup && (
             <>
               <Text mt={2} mb={0} color="black">
