@@ -1,4 +1,4 @@
-import { Box, Container, Text, Heading, Card, Flex, Image, Link } from "theme-ui";
+import { Box, Container, Text, Heading, Card, Flex, Image, Link, Grid } from "theme-ui";
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
@@ -33,6 +33,18 @@ const OnboardCount = () => {
   return (<Text>{onboardCount}</Text>)
 }
 
+const Electronic = ({imageUrl, name, description}) => {
+  return (
+    <Card sx={{display: 'inline-flex', textAlign: 'center'}}>
+      <Flex sx={{mx: 'auto', flexDirection: "column", display: 'inline-flex'}}>
+      <Image src={imageUrl} width="100"/>
+        <Heading as="span" variant="headline">{name}</Heading>
+        <Text>{description}</Text>
+      </Flex>
+    </Card>
+  )
+}
+
 const wobble = keyframes({
   from: { transform: 'rotate(15deg)' },
   to: { transform: 'rotate(20deg)' }
@@ -46,7 +58,7 @@ export default function Bin() {
         title="The Bin"
         description="Jump in the trash!"
       />
-      <Nav light />
+      <Nav />
       <Box as="main" sx={{ pt: '3em', bg: '#ECE9E0', textAlign: 'center' }}>
         <Container sx={{ position: 'relative' }}>
           <Box as="section" sx={{ textAlign: 'center', pt: '4em' }}>
@@ -56,6 +68,8 @@ export default function Bin() {
               py={3}
               sx={{
                 fontSize: "6em",
+                display: 'inline-block',
+                cursor: 'pointer',
                 '@media (prefers-reduced-motion: no-preference)': {
                   animation: `${wobble} 2.5s ease-in-out infinite alternate`
                 },
@@ -63,6 +77,7 @@ export default function Bin() {
             >
               🗑️
             </Heading>
+            <br />
             <RsvpCount />
             <Heading
               as="h1"
@@ -80,18 +95,27 @@ export default function Bin() {
               <RsvpForm />
             </Card>
           </Box>
-          <Box as="section" sx={{ textAlign: 'center', pt: '4em' }}>
-            <Heading as="h2" variant="headline">Motors & lasers & mics, oh&nbsp;my!</Heading>
+          <Box as="section" sx={{ textAlign: 'left', pt: '4em', maxWidth: 'narrow', mx: 'auto' }}>
+            <Heading as="h2" variant="headline">
+              Motors & lasers & mics, <Text as="span" sx={{fontWeight: 400, fontStyle: 'italic'}}>oh&nbsp;my!</Text>
+            </Heading>
             <Box sx={{ textAlign: 'left' }}>
               <Flex sx={{ my: 4 }}>
                 <Box>
-                  <Text as="p"><b>1. Rummage</b></Text>
+                  <Heading as="p" variant="headline"><b>Rummage</b></Heading>
                   <Text>Dig through the bin to get a randomly generated set of parts (<em>or you can choose your own</em>).</Text>
                 </Box>
                 <Box>
                   <Image src="https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png" />
                 </Box>
               </Flex>
+              <Text>For example...</Text>
+              <Grid columns={[1, 2, 3]} gap={3}>
+
+              <Electronic name="Relay" description="On/Off Switch" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
+              <Electronic name="Mic" description="Records Sounds" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
+              <Electronic name="Humidity" description="Measure moistness" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
+              </Grid>
               <Flex sx={{ my: 4 }}>
                 <Box>
                   <Image src="https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png" />
