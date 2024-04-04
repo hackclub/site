@@ -47,6 +47,46 @@ const stickerImages = [
   'https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png'
 ]
 
+
+const PartPicker = () => {
+  const parts = [
+    {
+      name: "Relay",
+      description: "On/Off Switch",
+      image: "https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"
+    },
+    {
+      name: "Mic",
+      description: "Record Sound",
+      image: "https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"
+    }
+  ]
+
+  const [currentParts, setCurrentParts] = useState(parts)
+
+  function randomizeParts() {
+    const randomParts = []
+    for (let i = 0; i < 3; i++) {
+      randomParts.push(parts[Math.floor(Math.random() * parts.length)])
+    }
+    setCurrentParts(randomParts)
+  }
+  return (
+    <>
+      {currentParts.map((part, index) => (
+        <Electronic
+          key={index}
+          name={part.name}
+          description={part.description}
+          imageUrl={part.imageUrl}
+        />
+      ))}
+      <button onClick={randomizeParts}>Randomize</button>
+    </>
+  )
+}
+
+
 const OnboardCount = () => {
   const [onboardCount, setOnboardCount] = useState(200)
 
@@ -216,22 +256,14 @@ export default function Bin() {
                   </Text>
                 </Box>
               </Flex>
-              <Image
-                src="https://cloud-2wkwrydc4-hack-club-bot.vercel.app/0parts.svg"
-                width="100%"
-              />
-              {/*<Grid columns={[1, 2, 3]} gap={3}>
-                <Slide up>
-                  <Electronic name="Relay" description="On/Off Switch" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
-                </Slide>
-                <Slide up delay="40">
-                <Electronic name="Mic" description="Records Sounds" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
-                </Slide>
-                <Slide up delay="80">
-                <Electronic name="Humidity" description="Measure moistness" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
-                </Slide>
+              <Grid columns={[1, 2, 3]} gap={3}>
+                <Electronic name="Relay" description="On/Off Switch" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png" />
+                <Electronic name="Mic" description="Records Sounds" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png" />
+                <Electronic name="Humidity" description="Measure moistness" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png" />
+
               </Grid>
-              */}
+              <PartPicker />
+              {/* <button onClick={randomizeComponent}>Randomize</button> */}
               <Flex sx={{ my: 4 }}>
                 <Box>
                   <Image src="https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png" />
