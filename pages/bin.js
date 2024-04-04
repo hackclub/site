@@ -18,6 +18,14 @@ import { keyframes } from '@emotion/react'
 import RsvpForm from '../components/bin/rsvp-form'
 import { Slide } from 'react-reveal'
 import ForceTheme from '../components/force-theme'
+import JSConfetti from 'js-confetti'
+
+function fireConfetti() {
+  const jsConfetti = new JSConfetti()
+  jsConfetti.addConfetti({
+    emojis: ['🔌', '⚡️', '💥', '🚨', '🔋', '🤖', '🛞', '🔊', '🎙️', '💿', '🖲️', '⚙️', '🛠️'],
+  })
+}
 
 const RsvpCount = () => {
   const [rsvpCount, setRsvpCount] = useState(0)
@@ -83,6 +91,7 @@ export default function Bin() {
               as="h1"
               variant="ultratitle"
               py={3}
+              onClick={() => fireConfetti()}
               sx={{
                 fontSize: '6em',
                 display: 'inline-block',
