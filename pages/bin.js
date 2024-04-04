@@ -276,7 +276,7 @@ export default function Bin() {
               {/* <button onClick={randomizeComponent}>Randomize</button> */}
               <Flex sx={{ my: 4 }}>
                 <Box>
-                  <Image src="https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png" />
+                  <Image src="https://cloud-h7vwjlwe3-hack-club-bot.vercel.app/0frame_1__50_.png" />
                 </Box>
                 <Box>
                   <Text as="p" variant="headline">
