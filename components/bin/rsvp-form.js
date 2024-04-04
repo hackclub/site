@@ -4,15 +4,11 @@ import Submit from '../submit'
 import { Slide } from 'react-reveal'
 
 export default function RsvpForm() {
-  const { status, formProps, useField } = useForm(
-    '/api/bin/rsvp',
-    null,
-    {
-      clearOnSubmit: 60000,
-      method: 'POST',
-      initData: {}
-    }
-  )
+  const { status, formProps, useField } = useForm('/api/bin/rsvp', null, {
+    clearOnSubmit: 60000,
+    method: 'POST',
+    initData: {}
+  })
 
   return (
     <>
@@ -27,14 +23,17 @@ export default function RsvpForm() {
           />
         </Label>
         <Label variant="labelHoriz" sx={{ fontSize: 1, pt: 1 }}>
-          <Checkbox {...useField('high_schooler', 'checkbox')} defaultChecked={false} />I am a current high
-          school student or younger.
+          <Checkbox
+            {...useField('high_schooler', 'checkbox')}
+            defaultChecked={false}
+          />
+          I am a current high school student or younger.
         </Label>
         <Label variant="labelHoriz" sx={{ fontSize: 1, pt: 1 }}>
-          <Checkbox {...useField('stickers', 'checkbox')} />
-          I want a sticker sheet.
+          <Checkbox {...useField('stickers', 'checkbox')} />I want a sticker
+          sheet.
         </Label>
-        {(useField('stickers', 'checkbox').checked) && (
+        {useField('stickers', 'checkbox').checked && (
           <Slide left delay={20}>
             <Label>
               Address (line 1)

@@ -9,7 +9,8 @@ const rsvpsTable = new AirtablePlus({
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const { email, high_schooler, stickers, address_line_1, address_zip } = req.body
+    const { email, high_schooler, stickers, address_line_1, address_zip } =
+      req.body
 
     const fields = {
       Email: email,
