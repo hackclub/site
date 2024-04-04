@@ -21,6 +21,7 @@ import { Fade } from 'react-reveal'
 import ForceTheme from '../components/force-theme'
 import JSConfetti from 'js-confetti'
 import Sparkles from '../components/sparkles'
+import Icon from "@hackclub/icons"
 
 const RsvpCount = () => {
   const [rsvpCount, setRsvpCount] = useState(0)
@@ -296,7 +297,6 @@ export default function Bin() {
                 <Electronic name="Relay" description="On/Off Switch" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png" />
                 <Electronic name="Mic" description="Records Sounds" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png" />
                 <Electronic name="Humidity" description="Measure moistness" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png" />
-
               </Grid>
               <PartPicker />
               {/* <button onClick={randomizeComponent}>Randomize</button> */}
@@ -328,11 +328,31 @@ export default function Bin() {
                   <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/1prototype.png" />
                 </Box>
               </Flex>
-              <Image src="https://cloud-ghggsmjwa-hack-club-bot.vercel.app/0image.png" sx={{
-                width: ["calc(100% + 32px)", "100%"],
-                maxWidth: ["calc(100% + 32px)", "100%"],
-                margin: ["-16px", "0px"]
-              }} alt="Screenshot" />
+              <Box sx={{
+                boxShadow: 'card', 
+                borderRadius: 8, 
+                overflow: 'hidden', 
+                display: 'flex', 
+                flexDirection: 'column'
+              }}>
+                <Box 
+                  p={2} 
+                  sx={{
+                    bg: 'dark', 
+                    flexGrow: 1, 
+                    textAlign: 'center', 
+                    color: 'white', 
+                    fontWeight: 800, 
+                    borderBottom: '1px solid gray', 
+                    display: 'flex', 
+                    gap: 2
+                }}>
+                  <Icon glyph='private-outline' height={24} />
+                  <Box sx={{ bg: 'darkless', borderRadius: 4, flexGrow: 1}}>wokwi.com</Box>
+                  <Icon glyph='view-reload' height={24} />
+                </Box>
+                <Image src="https://cloud-ghggsmjwa-hack-club-bot.vercel.app/0image.png" alt="Screenshot" />
+              </Box>
               <Flex sx={{ my: 4 }}>
                 <Box>
                   <Text as="p" variant="headline">
