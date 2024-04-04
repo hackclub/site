@@ -13,7 +13,7 @@ import {
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Footer from '../components/footer'
 import { keyframes } from '@emotion/react'
 import RsvpForm from '../components/bin/rsvp-form'
@@ -21,13 +21,6 @@ import { Fade } from 'react-reveal'
 import ForceTheme from '../components/force-theme'
 import JSConfetti from 'js-confetti'
 import Sparkles from '../components/sparkles'
-
-function fireConfetti() {
-  const jsConfetti = new JSConfetti()
-  jsConfetti.addConfetti({
-    emojis: ['🔌', '⚡️', '💥', '🚨', '🔋', '🤖', '🛞', '🔊', '🎙️', '💿', '🖲️', '⚙️', '🛠️'],
-  })
-}
 
 const RsvpCount = () => {
   const [rsvpCount, setRsvpCount] = useState(0)
@@ -150,6 +143,15 @@ function spinIt(el) {
 }
 
 export default function Bin() {
+  const confettiInstance = useRef(null);
+  function fireConfetti() {
+    if(!confettiInstance.current){
+      confettiInstance.current = new JSConfetti()
+    }
+    confettiInstance.current.addConfetti({
+      emojis: ['🔌', '⚡️', '💥', '🚨', '🔋', '🤖', '🛞', '🔊', '🎙️', '💿', '🖲️', '⚙️', '🛠️'],
+    })
+  }
   return (
     <>
       <Meta as={Head}
