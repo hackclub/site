@@ -22,6 +22,12 @@ const RsvpCount = () => {
   )
 }
 
+const stickerImages = [
+  'https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png',
+  'https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/1prototype.png',
+  'https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png'
+]
+
 const OnboardCount = () => {
   const [onboardCount, setOnboardCount] = useState(200)
 
