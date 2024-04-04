@@ -144,6 +144,11 @@ function crunch() {
   audio.play()
 }
 
+function spinIt(el) {
+  el.classList.add("spin");
+  setTimeout(() => el.classList.remove("spin"), 500);
+}
+
 export default function Bin() {
   return (
     <>
@@ -167,12 +172,15 @@ export default function Bin() {
 
                 <Image
                   src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png"
-                  onClick={() => { fireConfetti(); crunch() }}
+                  onClick={(e) => { fireConfetti(); crunch(); spinIt(e.target) }}
                   sx={{
                     cursor: 'pointer',
                     ':active': {
                       animation: `${bounce} 0.125s`
                     },
+                    '&.spin': {
+                      animation: `${spin} 0.25s`
+                    }
                   }}
                 />
                 {/* <Heading
