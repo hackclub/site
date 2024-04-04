@@ -16,9 +16,10 @@ import { useEffect, useState } from 'react'
 import Footer from '../components/footer'
 import { keyframes } from '@emotion/react'
 import RsvpForm from '../components/bin/rsvp-form'
-import { Slide } from 'react-reveal'
+import { Fade } from 'react-reveal'
 import ForceTheme from '../components/force-theme'
 import JSConfetti from 'js-confetti'
+import Sparkles from '../components/sparkles'
 
 function fireConfetti() {
   const jsConfetti = new JSConfetti()
@@ -36,7 +37,7 @@ const RsvpCount = () => {
     setRsvpCount(results)
   }, [])
 
-  return <Text>{100 - rsvpCount} RSVPs until the start of...</Text>
+  return <Text>{200 - rsvpCount} RSVPs until the start of...</Text>
 }
 
 const stickerImages = [
@@ -73,6 +74,10 @@ const Electronic = ({ imageUrl, name, description }) => {
   )
 }
 
+const spin = keyframes({
+  from: { transform: 'rotate(0deg)' },
+  to: { transform: 'rotate(360deg)' }
+})
 const wobble = keyframes({
   from: { transform: 'rotate(15deg)' },
   to: { transform: 'rotate(20deg)' }
@@ -84,6 +89,19 @@ const bounce = keyframes({
   '100%': { transform: 'scaleX(100%) scaleY(100%)' }
 })
 
+function crunch() {
+  const crunchAudioUrls = [
+    'https://cloud-fwf97jf44-hack-club-bot.vercel.app/0crunch_4_audio.mp4',
+    'https://cloud-fwf97jf44-hack-club-bot.vercel.app/1crunch_3_audio.mp4',
+    'https://cloud-fwf97jf44-hack-club-bot.vercel.app/2crunch_2_audio.mp4',
+    'https://cloud-fwf97jf44-hack-club-bot.vercel.app/3crunch_1_audio.mp4',
+  ]
+  const randomCrunch = crunchAudioUrls[Math.floor(Math.random() * crunchAudioUrls.length)]
+
+  const audio = new Audio(randomCrunch)
+  audio.play()
+}
+
 export default function Bin() {
   return (
     <>
@@ -93,14 +111,25 @@ export default function Bin() {
       <Box as="main" sx={{ bg: '#ECE9E0', textAlign: 'center' }}>
         <Box sx={{ background: 'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)', backgroundSize: 'cover', py: '3em' }}>
           <Container sx={{ position: 'relative' }}>
-            <Box as="section" sx={{ textAlign: 'center', pt: '4em' }}>
+            <Box as="section" sx={{ textAlign: 'center', pt: '4em', overflow: 'hidden' }}>
               <Box sx={{
                 '@media (prefers-reduced-motion: no-preference)': {
-                  animation: `${wobble} 2.5s ease-in-out infinite alternate`
-                }
+                  animation: `${wobble} 0.2s ease-in-out infinite alternate`
+                  // animation: `${spin} 2.5s linear infinite`
+                },
               }}>
 
-                <Heading
+                <Image
+                  src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png"
+                  onClick={() => { fireConfetti(); crunch() }}
+                  sx={{
+                    cursor: 'pointer',
+                    ':active': {
+                      animation: `${bounce} 0.125s`
+                    },
+                  }}
+                />
+                {/* <Heading
                   as="h1"
                   variant="ultratitle"
                   py={3}
@@ -116,28 +145,37 @@ export default function Bin() {
                   }}
                 >
                   🗑️
-                </Heading>
+                </Heading> */}
               </Box>
               <br />
               <RsvpCount />
-              <Heading as="h1" variant="ultratitle" py={3}>
-                The Bin
-              </Heading>
+              <Box>
+                <Sparkles size={10}>
+                  <Image src="https://cloud-rdlz8he4l-hack-club-bot.vercel.app/0thebin.svg" sx={{ maxWidth: '250px' }} />
+                </Sparkles>
+              </Box>
+              {/* <Heading as="h1" variant="ultratitle" py={3}>
+                <Sparkles size={10}>
+                  The Bin
+                </Sparkles>
+              </Heading> */}
               <Text sx={{ fontWeight: 'bold' }}>
                 An electronics starter kit, customized for <em>your</em> project
               </Text>
             </Box>
             <Box as="section" sx={{ textAlign: 'center' }}>
-              <Card sx={{ p: 3, mt: 4, mx: 'auto', maxWidth: '50ch' }}>
-                <Text as="p" sx={{ mb: 1, mt: 0, textWrap: 'balance', fontSize: 2 }}>
-                  High schoolers can get a kit of electronics parts for free to
-                  build their first project.
-                </Text>
-                <Text as="p" sx={{ color: 'muted', mb: 2, fontSize: 2, fontWeight: 800 }}>
-                  RSVP to get notified when applications open.
-                </Text>
-                <RsvpForm />
-              </Card>
+              <Fade up delay={100}>
+                <Card sx={{ p: 3, mt: 4, mx: 'auto', maxWidth: '50ch' }}>
+                  <Text as="p" sx={{ mb: 1, mt: 0, textWrap: 'balance', fontSize: 2 }}>
+                    High schoolers can get a kit of electronics parts for free to
+                    build their first project.
+                  </Text>
+                  <Text as="p" sx={{ color: 'muted', mb: 2, fontSize: 2, fontWeight: 800 }}>
+                    RSVP to get notified when applications open.
+                  </Text>
+                  <RsvpForm />
+                </Card>
+              </Fade>
             </Box>
           </Container>
         </Box>
@@ -194,19 +232,18 @@ export default function Bin() {
                 </Box>
                 <Box>
                   <Text as="p" variant="headline">
-                    <b>Ideas</b>
+                    <b>Think!</b>
                   </Text>
                   <Text>
-                    With your parts picked out, <b>what will you make?</b> A
-                    voice activated laser? A portable disco party? A flashlight
+                    With your parts picked out, <b>what will you make?</b> A portable disco party? A flashlight
                     that only turns on in the daytime?
                   </Text>
                 </Box>
               </Flex>
               <Flex sx={{ my: 4 }}>
                 <Box>
-                  <Text as="p">
-                    <b>3. Prototype</b>
+                  <Text as="p" variant="headline">
+                    <b>Prototype</b>
                   </Text>
                   <Text>
                     Turn your idea into something almost real: simulate your
@@ -214,20 +251,18 @@ export default function Bin() {
                   </Text>
                 </Box>
                 <Box>
-                  <Image src="https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png" />
+                  <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/1prototype.png" />
                 </Box>
               </Flex>
+              <Image src="https://cloud-ghggsmjwa-hack-club-bot.vercel.app/0image.png" width="100%" />
               <Flex sx={{ my: 4 }}>
                 <Box>
-                  <Image src="https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png" />
-                </Box>
-                <Box>
-                  <Text as="p">
-                    <b>4. Show off & ship it!</b>
+                  <Text as="p" variant="headline">
+                    <b>Build it!</b>
                   </Text>
                   <Text>
-                    Show off your circuit! If it works in simulation,{' '}
-                    <b>we’ll send you the parts to build it in real life.</b>
+                    If it works in simulation, <b>we’ll send you the parts to
+                    build it in real life.</b>
                   </Text>
                 </Box>
               </Flex>
@@ -253,9 +288,9 @@ export default function Bin() {
             Hack Club is a registered 501(c)3 nonprofit organization that
             supports a network of 20k+ technical high schoolers. We believe you
             learn best by building so we're removing barriers to hardware access
-            so any teenager can explore. In the past few years, we've{' '}
-            <Link href="https://winter.hackclub.com" target="_blank">
-              partnered with GitHub to give away $50k of hardware
+            so any teenager can explore. In the past few years, we{' '}
+            <Link href="https://onboard.hackclub.com" target="_blank">
+              fabricated custom PCBs designed by <OnboardCount /> teenagers
             </Link>
             ,{' '}
             <Link
@@ -265,8 +300,8 @@ export default function Bin() {
               hosted the world's longest hackathon on land
             </Link>
             , and{' '}
-            <Link href="https://onboard.hackclub.com" target="_blank">
-              fabricated custom PCBs designed by <OnboardCount /> teenagers
+            <Link href="https://hackclub.com/winter" target="_blank">
+              gave away $75k of hardware
             </Link>
             .
           </Text>
