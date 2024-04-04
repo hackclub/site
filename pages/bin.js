@@ -7,7 +7,8 @@ import {
   Flex,
   Image,
   Link,
-  Grid
+  Grid,
+  Button
 } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
@@ -79,8 +80,9 @@ const spin = keyframes({
   to: { transform: 'rotate(360deg)' }
 })
 const wobble = keyframes({
-  from: { transform: 'rotate(15deg)' },
-  to: { transform: 'rotate(20deg)' }
+  '0%': { transform: 'rotate(15deg)' },
+  '50%': { transform: 'scale(1.1)' },
+  '100%': { transform: 'rotate(20deg)' }
 })
 
 const bounce = keyframes({
@@ -114,7 +116,7 @@ export default function Bin() {
             <Box as="section" sx={{ textAlign: 'center', pt: '4em', overflow: 'hidden' }}>
               <Box sx={{
                 '@media (prefers-reduced-motion: no-preference)': {
-                  animation: `${wobble} 0.2s ease-in-out infinite alternate`
+                  animation: `${wobble} 0.5s ease-in-out infinite alternate`
                   // animation: `${spin} 2.5s linear infinite`
                 },
               }}>
@@ -150,7 +152,7 @@ export default function Bin() {
               <br />
               <RsvpCount />
               <Box>
-                <Sparkles size={10}>
+                <Sparkles size="100px">
                   <Image src="https://cloud-rdlz8he4l-hack-club-bot.vercel.app/0thebin.svg" sx={{ maxWidth: '250px' }} />
                 </Sparkles>
               </Box>
@@ -160,7 +162,7 @@ export default function Bin() {
                 </Sparkles>
               </Heading> */}
               <Text sx={{ fontWeight: 'bold' }}>
-                An electronics starter kit, customized for <em>your</em> project
+                An electronics starter kit, customized for <em>your</em>&nbsp;project
               </Text>
             </Box>
             <Box as="section" sx={{ textAlign: 'center' }}>
@@ -262,7 +264,7 @@ export default function Bin() {
                   </Text>
                   <Text>
                     If it works in simulation, <b>we’ll send you the parts to
-                    build it in real life.</b>
+                      build it in real life.</b>
                   </Text>
                 </Box>
               </Flex>
