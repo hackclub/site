@@ -78,6 +78,12 @@ const wobble = keyframes({
   to: { transform: 'rotate(20deg)' }
 })
 
+const bounce = keyframes({
+  '0%': { transform: 'scaleX(100%) scaleY(100%)' },
+  '50%': { transform: 'scaleX(115%) scaleY(90%)' },
+  '100%': { transform: 'scaleX(100%) scaleY(100%)' }
+})
+
 export default function Bin() {
   return (
     <>
@@ -85,25 +91,33 @@ export default function Bin() {
       <Nav color="text" />
       <ForceTheme theme="light" />
       <Box as="main" sx={{ bg: '#ECE9E0', textAlign: 'center' }}>
-        <Box sx={{background: 'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)', backgroundSize: 'cover', py: '3em'}}>
+        <Box sx={{ background: 'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)', backgroundSize: 'cover', py: '3em' }}>
           <Container sx={{ position: 'relative' }}>
             <Box as="section" sx={{ textAlign: 'center', pt: '4em' }}>
-              <Heading
-                as="h1"
-                variant="ultratitle"
-                py={3}
-                onClick={() => fireConfetti()}
-                sx={{
-                  fontSize: '6em',
-                  display: 'inline-block',
-                  cursor: 'pointer',
-                  '@media (prefers-reduced-motion: no-preference)': {
-                    animation: `${wobble} 2.5s ease-in-out infinite alternate`
-                  }
-                }}
-              >
-                🗑️
-              </Heading>
+              <Box sx={{
+                '@media (prefers-reduced-motion: no-preference)': {
+                  animation: `${wobble} 2.5s ease-in-out infinite alternate`
+                }
+              }}>
+
+                <Heading
+                  as="h1"
+                  variant="ultratitle"
+                  py={3}
+                  onClick={() => fireConfetti()}
+                  sx={{
+                    fontSize: '6em',
+                    display: 'inline-block',
+                    cursor: 'pointer',
+                    ':active': {
+                      animation: `${bounce} 0.125s`
+                    },
+
+                  }}
+                >
+                  🗑️
+                </Heading>
+              </Box>
               <br />
               <RsvpCount />
               <Heading as="h1" variant="ultratitle" py={3}>
