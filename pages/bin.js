@@ -293,13 +293,7 @@ export default function Bin() {
                   </Text>
                 </Box>
               </Flex>
-              <Grid columns={[1, 2, 3]} gap={3}>
-                <Electronic name="Relay" description="On/Off Switch" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png" />
-                <Electronic name="Mic" description="Records Sounds" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png" />
-                <Electronic name="Humidity" description="Measure moistness" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png" />
-              </Grid>
-              <PartPicker />
-              {/* <button onClick={randomizeComponent}>Randomize</button> */}
+              <Image src="https://cloud-2wkwrydc4-hack-club-bot.vercel.app/0parts.svg" sx={{width: '100%'}} />
               <Flex sx={{ my: 4 }}>
                 <Box>
                   <Image src="https://cloud-h7vwjlwe3-hack-club-bot.vercel.app/0frame_1__50_.png" />
