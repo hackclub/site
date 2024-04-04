@@ -124,6 +124,16 @@ const bounce = keyframes({
   '100%': { transform: 'scaleX(100%) scaleY(100%)' }
 })
 
+const slideIn = keyframes({
+  '0%': { transform: 'translateX(-100%)', opacity: 0 },
+  '100%': { transform: 'translateX(0);', opacity: 1 }
+})
+
+const slideOut = keyframes({
+  '100%': { transform: 'translateX(-100%)', opacity: 0 },
+  '0%': { transform: 'translateX(0);', opacity: 1 }
+})
+
 function crunch() {
   const crunchAudioUrls = [
     'https://cloud-fwf97jf44-hack-club-bot.vercel.app/0crunch_4_audio.mp4',
@@ -245,9 +255,25 @@ export default function Bin() {
               mx: 'auto'
             }}
           >
-            <Heading as="h2" variant="title">
+            <Heading as="h2" variant="title" sx={{ 
+                '> .hidden': {
+                  opacity: 0,
+                  animation: `${slideOut} 0.25s ease-in-out`,
+                }, 
+                ":hover": {
+                  '> .hidden': {
+                    display: 'inline-block', 
+                    animation: `${slideIn} 0.25s ease-in-out`,
+                    opacity: 1
+                  }
+                }
+              }
+            }>
               Motors & lasers & mics,{' '}
               <Text as="span" sx={{ fontWeight: 400, fontStyle: 'italic' }}>
+                oh&nbsp;my!
+              </Text>
+              <Text as="span" className="hidden" sx={{ fontWeight: 400, fontStyle: 'italic', ml: 2 }}>
                 oh&nbsp;my!
               </Text>
             </Heading>
@@ -365,6 +391,15 @@ export default function Bin() {
           </Text>
         </Box>
       </Footer>
+      <style>
+        {
+          `
+          html {
+            scroll-behavior: smooth;
+          }
+          `
+        }
+      </style>
     </>
   )
 }
