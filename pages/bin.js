@@ -113,11 +113,11 @@ export default function Bin() {
                 </Box>
                 <Box>
                   <Heading as="p" variant="headline"><b>Rummage</b></Heading>
-                  <Text>Dig through the bin to get a randomly generated set of parts (<em>or you can choose your own</em>).</Text>
+                  <Text>Dig through the bin to get a randomly generated set of parts (<em>or you can choose your own</em>). For example...</Text>
                 </Box>
               </Flex>
-              <Text variant="subheadline">For example...</Text>
-              <Grid columns={[1, 2, 3]} gap={3}>
+              <Image src="https://cloud-2wkwrydc4-hack-club-bot.vercel.app/0parts.svg" width="100%" />
+              {/*<Grid columns={[1, 2, 3]} gap={3}>
                 <Slide up>
                   <Electronic name="Relay" description="On/Off Switch" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
                 </Slide>
@@ -128,12 +128,13 @@ export default function Bin() {
                 <Electronic name="Humidity" description="Measure moistness" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
                 </Slide>
               </Grid>
+              */}
               <Flex sx={{ my: 4 }}>
                 <Box>
                   <Image src="https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png" />
                 </Box>
                 <Box>
-                  <Text as="p"><b>2. Ideas</b></Text>
+                  <Text as="p" variant="headline"><b>Ideas</b></Text>
                   <Text>With your parts picked out, <b>what will you make?</b> A voice activated laser? A portable disco party? A flashlight that only turns on in the daytime?</Text>
                 </Box>
               </Flex>
@@ -155,6 +156,7 @@ export default function Bin() {
                   <Text>Show off your circuit! If it works in simulation, <b>we’ll send you the parts to build it in real life.</b></Text>
                 </Box>
               </Flex>
+              <Image src="https://cloud-ge8yutn2q-hack-club-bot.vercel.app/0image.png" width="100%" />
             </Box>
           </Box>
         </Container>
