@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Footer from "../components/footer";
 import { keyframes } from "@emotion/react";
 import RsvpForm from "../components/bin/rsvp-form";
+import { Slide } from "react-reveal";
 
 const RsvpCount = () => {
   const [rsvpCount, setRsvpCount] = useState(0)
@@ -35,11 +36,11 @@ const OnboardCount = () => {
 
 const Electronic = ({imageUrl, name, description}) => {
   return (
-    <Card sx={{display: 'inline-flex', textAlign: 'center'}}>
+    <Card sx={{display: 'inline-flex', textAlign: 'center', my: 'auto'}}>
       <Flex sx={{mx: 'auto', flexDirection: "column", display: 'inline-flex'}}>
       <Image src={imageUrl} width="100"/>
         <Heading as="span" variant="headline">{name}</Heading>
-        <Text>{description}</Text>
+        <Text sx={{whiteSpace: 'nowrap'}}>{description}</Text>
       </Flex>
     </Card>
   )
@@ -96,25 +97,30 @@ export default function Bin() {
             </Card>
           </Box>
           <Box as="section" sx={{ textAlign: 'left', pt: '4em', maxWidth: 'narrow', mx: 'auto' }}>
-            <Heading as="h2" variant="headline">
+            <Heading as="h2" variant="title">
               Motors & lasers & mics, <Text as="span" sx={{fontWeight: 400, fontStyle: 'italic'}}>oh&nbsp;my!</Text>
             </Heading>
             <Box sx={{ textAlign: 'left' }}>
               <Flex sx={{ my: 4 }}>
                 <Box>
+                  <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png" />
+                </Box>
+                <Box>
                   <Heading as="p" variant="headline"><b>Rummage</b></Heading>
                   <Text>Dig through the bin to get a randomly generated set of parts (<em>or you can choose your own</em>).</Text>
                 </Box>
-                <Box>
-                  <Image src="https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png" />
-                </Box>
               </Flex>
-              <Text>For example...</Text>
+              <Text variant="subheadline">For example...</Text>
               <Grid columns={[1, 2, 3]} gap={3}>
-
-              <Electronic name="Relay" description="On/Off Switch" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
-              <Electronic name="Mic" description="Records Sounds" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
-              <Electronic name="Humidity" description="Measure moistness" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
+                <Slide up>
+                  <Electronic name="Relay" description="On/Off Switch" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
+                </Slide>
+                <Slide up delay="40">
+                <Electronic name="Mic" description="Records Sounds" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
+                </Slide>
+                <Slide up delay="80">
+                <Electronic name="Humidity" description="Measure moistness" imageUrl="https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"/>
+                </Slide>
               </Grid>
               <Flex sx={{ my: 4 }}>
                 <Box>
