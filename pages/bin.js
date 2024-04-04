@@ -84,46 +84,50 @@ export default function Bin() {
       <Meta as={Head} title="The Bin" description="Jump in the trash!" />
       <Nav color="text" />
       <ForceTheme theme="light" />
-      <Box as="main" sx={{ pt: '3em', bg: '#ECE9E0', textAlign: 'center' }}>
+      <Box as="main" sx={{ bg: '#ECE9E0', textAlign: 'center' }}>
+        <Box sx={{background: 'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)', backgroundSize: 'cover', py: '3em'}}>
+          <Container sx={{ position: 'relative' }}>
+            <Box as="section" sx={{ textAlign: 'center', pt: '4em' }}>
+              <Heading
+                as="h1"
+                variant="ultratitle"
+                py={3}
+                onClick={() => fireConfetti()}
+                sx={{
+                  fontSize: '6em',
+                  display: 'inline-block',
+                  cursor: 'pointer',
+                  '@media (prefers-reduced-motion: no-preference)': {
+                    animation: `${wobble} 2.5s ease-in-out infinite alternate`
+                  }
+                }}
+              >
+                🗑️
+              </Heading>
+              <br />
+              <RsvpCount />
+              <Heading as="h1" variant="ultratitle" py={3}>
+                The Bin
+              </Heading>
+              <Text sx={{ fontWeight: 'bold' }}>
+                An electronics starter kit, customized for <em>your</em> project
+              </Text>
+            </Box>
+            <Box as="section" sx={{ textAlign: 'center' }}>
+              <Card sx={{ p: 3, mt: 4, mx: 'auto', maxWidth: '50ch' }}>
+                <Text as="p" sx={{ mb: 1, mt: 0, textWrap: 'balance', fontSize: 2 }}>
+                  High schoolers can get a kit of electronics parts for free to
+                  build their first project.
+                </Text>
+                <Text as="p" sx={{ color: 'muted', mb: 2, fontSize: 2, fontWeight: 800 }}>
+                  RSVP to get notified when applications open.
+                </Text>
+                <RsvpForm />
+              </Card>
+            </Box>
+          </Container>
+        </Box>
         <Container sx={{ position: 'relative' }}>
-          <Box as="section" sx={{ textAlign: 'center', pt: '4em' }}>
-            <Heading
-              as="h1"
-              variant="ultratitle"
-              py={3}
-              onClick={() => fireConfetti()}
-              sx={{
-                fontSize: '6em',
-                display: 'inline-block',
-                cursor: 'pointer',
-                '@media (prefers-reduced-motion: no-preference)': {
-                  animation: `${wobble} 2.5s ease-in-out infinite alternate`
-                }
-              }}
-            >
-              🗑️
-            </Heading>
-            <br />
-            <RsvpCount />
-            <Heading as="h1" variant="ultratitle" py={3}>
-              The Bin
-            </Heading>
-            <Text sx={{ fontWeight: 'bold' }}>
-              An electronics starter kit, customized for <em>your</em> project
-            </Text>
-          </Box>
-          <Box as="section" sx={{ textAlign: 'center' }}>
-            <Card sx={{ p: 3, mt: 4, mx: 'auto', maxWidth: '40ch' }}>
-              <Text as="p" sx={{ my: 1 }}>
-                High schoolers can get a kit of electronics parts for free to
-                build their first project.
-              </Text>
-              <Text as="p" sx={{ color: 'muted', mb: 3 }}>
-                RSVP to get notified when applications open.
-              </Text>
-              <RsvpForm />
-            </Card>
-          </Box>
           <Box
             as="section"
             sx={{

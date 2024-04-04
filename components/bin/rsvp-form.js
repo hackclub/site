@@ -19,17 +19,17 @@ export default function RsvpForm() {
             {...useField('email')}
             placeholder="fiona@hackclub.com"
             required
-            sx={{ border: '1px solid', borderColor: 'muted' }}
+            sx={{ border: '1px solid', borderColor: 'muted', mb: 2 }}
           />
         </Label>
-        <Label variant="labelHoriz" sx={{ fontSize: 1, pt: 1 }}>
+        <Label variant="labelHoriz" sx={{ fontSize: 1, pt: 2 }}>
           <Checkbox
             {...useField('high_schooler', 'checkbox')}
             defaultChecked={false}
           />
           I am a current high school student or younger.
         </Label>
-        <Label variant="labelHoriz" sx={{ fontSize: 1, pt: 1 }}>
+        <Label variant="labelHoriz" sx={{ fontSize: 1, pt: 2 }}>
           <Checkbox {...useField('stickers', 'checkbox')} />I want a sticker
           sheet.
         </Label>
