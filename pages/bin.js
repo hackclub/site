@@ -300,7 +300,11 @@ export default function Bin() {
                   <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/1prototype.png" />
                 </Box>
               </Flex>
-              <Image src="https://cloud-ghggsmjwa-hack-club-bot.vercel.app/0image.png" width="100%" />
+              <Image src="https://cloud-ghggsmjwa-hack-club-bot.vercel.app/0image.png" sx={{
+                width: ["calc(100% + 32px)", "100%"],
+                maxWidth: ["calc(100% + 32px)", "100%"],
+                margin: ["-16px", "0px"]
+              }} alt="Screenshot" />
               <Flex sx={{ my: 4 }}>
                 <Box>
                   <Text as="p" variant="headline">
