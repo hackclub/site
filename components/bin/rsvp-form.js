@@ -35,7 +35,7 @@ export default function RsvpForm() {
         </Label>
         {useField('stickers', 'checkbox').checked && (
           <Slide left delay={20}>
-            <Label>
+            <Label mt={2}>
               Address (line 1)
               <Input
                 {...useField('address_line_1')}
@@ -44,7 +44,7 @@ export default function RsvpForm() {
                 sx={{ border: '1px solid', borderColor: 'muted' }}
               />
             </Label>
-            <Label>
+            <Label mt={2}>
               Address (zip code)
               <Input
                 {...useField('address_zip')}
