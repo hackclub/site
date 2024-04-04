@@ -151,7 +151,7 @@ export default function Bin() {
               </Box>
               <br />
               <RsvpCount />
-              <Box>
+              <Box id="rsvp">
                 <Sparkles size="100px">
                   <Image src="https://cloud-rdlz8he4l-hack-club-bot.vercel.app/0thebin.svg" sx={{ maxWidth: '250px' }} />
                 </Sparkles>
@@ -274,6 +274,12 @@ export default function Bin() {
               />
             </Box>
           </Box>
+        </Container>
+        <Container>
+          <Text as="h3">Turn some trash into your treasure.</Text>
+          <br></br>
+          <Button variant="ctaLg" as="a" href="#rsvp" >
+            RSVP</Button><br></br><br></br>
         </Container>
       </Box>
       <Footer>
