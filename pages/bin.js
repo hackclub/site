@@ -24,6 +24,7 @@ import Sparkles from '../components/sparkles'
 import Icon from "@hackclub/icons"
 
 const RsvpCount = () => {
+  const targetRSVPs = 200
   const [rsvpCount, setRsvpCount] = useState(0)
   useEffect(async () => {
     // const url = 'https://api2.hackclub.com/v0.1/The Bin/rsvp'  <- switch to this once we have api2 back up and running
@@ -32,7 +33,11 @@ const RsvpCount = () => {
     setRsvpCount(results)
   }, [])
 
-  return <Text>{200 - rsvpCount} RSVPs until the start of...</Text>
+  if (rsvpCount < targetRSVPs) {
+    return <Text>{targetRSVPs - rsvpCount} RSVPs until the start of...</Text>
+  } else {
+    return <Text>{rsvpCount} have already RSVP'd to...</Text>
+  }
 }
 
 const stickerImages = [
