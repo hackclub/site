@@ -107,7 +107,11 @@ function crunch() {
 export default function Bin() {
   return (
     <>
-      <Meta as={Head} title="The Bin" description="Jump in the trash!" />
+      <Meta as={Head}
+        title="The Bin"
+        description="Rummage around in The Bin to get a free electronics starter kit!"
+        image="https://cloud-6902szs7o-hack-club-bot.vercel.app/0og_image.png"
+      />
       <Nav color="text" />
       <ForceTheme theme="light" />
       <Box as="main" sx={{ bg: '#ECE9E0', textAlign: 'center' }}>
