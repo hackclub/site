@@ -17,6 +17,7 @@ import Footer from '../components/footer'
 import { keyframes } from '@emotion/react'
 import RsvpForm from '../components/bin/rsvp-form'
 import { Slide } from 'react-reveal'
+import ForceTheme from '../components/force-theme'
 
 const RsvpCount = () => {
   const [rsvpCount, setRsvpCount] = useState(0)
@@ -73,7 +74,8 @@ export default function Bin() {
   return (
     <>
       <Meta as={Head} title="The Bin" description="Jump in the trash!" />
-      <Nav />
+      <Nav color="text" />
+      <ForceTheme theme="light" />
       <Box as="main" sx={{ pt: '3em', bg: '#ECE9E0', textAlign: 'center' }}>
         <Container sx={{ position: 'relative' }}>
           <Box as="section" sx={{ textAlign: 'center', pt: '4em' }}>
