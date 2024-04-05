@@ -162,7 +162,7 @@ function spinIt(el) {
 export default function Bin() {
   const confettiInstance = useRef(null);
   function fireConfetti() {
-    if(!confettiInstance.current){
+    if (!confettiInstance.current) {
       confettiInstance.current = new JSConfetti()
     }
     confettiInstance.current.addConfetti({
@@ -182,13 +182,13 @@ export default function Bin() {
         <Box sx={{ background: 'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)', backgroundSize: 'cover', py: '3em' }}>
           <Container sx={{ position: 'relative' }}>
             <Box as="section" sx={{ textAlign: 'center', pt: '4em', overflow: 'hidden' }}>
-              <Box sx={{mt: 3}}>
+              <Box sx={{ mt: 3 }}>
 
-            <Announcement
-              copy="Please pardon our dust!"
-              caption="You found us a little early! We're still building this page, but you can RSVP early."
-              iconLeft="welcome"
-            />
+                <Announcement
+                  copy="Please pardon our dust!"
+                  caption="You found us a little early! We're still building this page, but you can RSVP early."
+                  iconLeft="welcome"
+                />
               </Box>
               <Box sx={{
                 '@media (prefers-reduced-motion: no-preference)': {
@@ -270,19 +270,19 @@ export default function Bin() {
               mx: 'auto'
             }}
           >
-            <Heading as="h2" variant="title" sx={{ 
+            <Heading as="h2" variant="title" sx={{
+              '> .hidden': {
+                opacity: 0,
+                animation: `${slideOut} 0.25s ease-in-out`,
+              },
+              ":hover": {
                 '> .hidden': {
-                  opacity: 0,
-                  animation: `${slideOut} 0.25s ease-in-out`,
-                }, 
-                ":hover": {
-                  '> .hidden': {
-                    display: 'inline-block', 
-                    animation: `${slideIn} 0.25s ease-in-out`,
-                    opacity: 1
-                  }
+                  display: 'inline-block',
+                  animation: `${slideIn} 0.25s ease-in-out`,
+                  opacity: 1
                 }
               }
+            }
             }>
               Motors & lasers & mics,{' '}
               <Text as="span" sx={{ fontWeight: 400, fontStyle: 'italic' }}>
@@ -307,7 +307,7 @@ export default function Bin() {
                   </Text>
                 </Box>
               </Flex>
-              <Image src="https://cloud-2wkwrydc4-hack-club-bot.vercel.app/0parts.svg" sx={{width: '100%'}} />
+              <Image src="https://cloud-2wkwrydc4-hack-club-bot.vercel.app/0parts.svg" sx={{ width: '100%' }} />
               <Flex sx={{ my: 4 }}>
                 <Box>
                   <Image src="https://cloud-h7vwjlwe3-hack-club-bot.vercel.app/0frame_1__50_.png" />
@@ -337,26 +337,26 @@ export default function Bin() {
                 </Box>
               </Flex>
               <Box sx={{
-                boxShadow: 'card', 
-                borderRadius: 8, 
-                overflow: 'hidden', 
-                display: 'flex', 
+                boxShadow: 'card',
+                borderRadius: 8,
+                overflow: 'hidden',
+                display: 'flex',
                 flexDirection: 'column'
               }}>
-                <Box 
-                  p={2} 
+                <Box
+                  p={2}
                   sx={{
-                    bg: 'dark', 
-                    flexGrow: 1, 
-                    textAlign: 'center', 
-                    color: 'white', 
-                    fontWeight: 800, 
-                    borderBottom: '1px solid gray', 
-                    display: 'flex', 
+                    bg: 'dark',
+                    flexGrow: 1,
+                    textAlign: 'center',
+                    color: 'white',
+                    fontWeight: 800,
+                    borderBottom: '1px solid gray',
+                    display: 'flex',
                     gap: 2
-                }}>
+                  }}>
                   <Icon glyph='private-outline' height={24} />
-                  <Box sx={{ bg: 'darkless', borderRadius: 4, flexGrow: 1}}>wokwi.com</Box>
+                  <Box sx={{ bg: 'darkless', borderRadius: 4, flexGrow: 1 }}>wokwi.com</Box>
                   <Icon glyph='view-reload' height={24} />
                 </Box>
                 <Image src="https://cloud-ghggsmjwa-hack-club-bot.vercel.app/0image.png" alt="Screenshot" />
