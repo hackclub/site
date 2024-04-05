@@ -10,7 +10,7 @@ import fs from 'fs'
 
 export const gerberToSvg = async gerberURL => {
   const data = await fetch(gerberURL).then(res => {
-    return { status: res.status, arrayBuffer: res.arrayBuffer()}
+    return { status: res.status, arrayBuffer: res.arrayBuffer() }
   })
   if (data.status !== 200) {
     return { status: data.status, error: 'Failed to fetch gerber file' }

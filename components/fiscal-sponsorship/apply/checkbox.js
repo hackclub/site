@@ -11,7 +11,8 @@ export default function Checkbox({ name, defaultChecked = false, size = 38 }) {
     For other input elements, the value is set in the Field component,
     but these checkboxes hold their state in useState rather than in the DOM. */
   useEffect(() => {
-    const value = router.query[name] || sessionStorage.getItem('bank-signup-' + name)
+    const value =
+      router.query[name] || sessionStorage.getItem('bank-signup-' + name)
     if (value) {
       const input = document.getElementById(name)
       input && setChecked(!!value)

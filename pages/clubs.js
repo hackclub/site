@@ -1,4 +1,14 @@
-import { Badge, Box, Button, Card, Container, Grid, Heading, Link, Text } from 'theme-ui'
+import {
+  Badge,
+  Box,
+  Button,
+  Card,
+  Container,
+  Grid,
+  Heading,
+  Link,
+  Text
+} from 'theme-ui'
 import styled from '@emotion/styled'
 import Head from 'next/head'
 import NextLink from 'next/link'
@@ -503,8 +513,8 @@ const Page = () => (
             desc={
               <>
                 Use our 501(c)(3) status and a restricted fund with{' '}
-                <Link href="/fiscal-sponsorship">HCB</Link> to fundraise, accept donations, and
-                buy things!
+                <Link href="/fiscal-sponsorship">HCB</Link> to fundraise, accept
+                donations, and buy things!
               </>
             }
           />

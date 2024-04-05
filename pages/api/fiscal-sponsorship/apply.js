@@ -16,7 +16,7 @@ export default async function handler(req, res) {
         email: data.userEmail,
         name: data.eventName,
         country: getCode(data.eventLocation) || '',
-        transparent: data.transparent,
+        transparent: data.transparent
       }),
       method: 'POST',
       headers: {

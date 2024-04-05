@@ -55,13 +55,14 @@ export default function RsvpForm() {
             </Label>
           </Slide>
         )}
-        <Submit status={status}
-            labels={{
-              default: 'Submit',
-              error: 'Something went wrong',
-              success: "Success!"
-            }}
-/>
+        <Submit
+          status={status}
+          labels={{
+            default: 'Submit',
+            error: 'Something went wrong',
+            success: 'Success!'
+          }}
+        />
       </form>
     </>
   )

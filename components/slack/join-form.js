@@ -1,4 +1,14 @@
-import { Box, Card, Grid, Input, Label, Link, Select, Text, Textarea } from 'theme-ui'
+import {
+  Box,
+  Card,
+  Grid,
+  Input,
+  Label,
+  Link,
+  Select,
+  Text,
+  Textarea
+} from 'theme-ui'
 import { useRouter } from 'next/router'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
@@ -13,10 +23,10 @@ const JoinForm = ({ sx = {} }) => {
     method: 'POST',
     initData: hasCookie('continent')
       ? {
-        continent: getCookie('continent'),
-        reason: router.query.reason,
-        event: router.query.event
-      }
+          continent: getCookie('continent'),
+          reason: router.query.reason,
+          event: router.query.event
+        }
       : { reason: router.query.reason, event: router.query.event }
   })
 

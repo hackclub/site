@@ -31,11 +31,10 @@ function Arrow({ direction, disabled, onClick }) {
 }
 
 export function LeftArrow() {
-  const { scrollPrev } =
-    useContext(VisibilityContext)
+  const { scrollPrev } = useContext(VisibilityContext)
 
   const visibility = useContext(VisibilityContext)
-  const isVisible = visibility.useIsVisible("first", false);
+  const isVisible = visibility.useIsVisible('first', false)
 
   return (
     <Arrow direction="left" disabled={isVisible} onClick={() => scrollPrev()} />
@@ -43,14 +42,17 @@ export function LeftArrow() {
 }
 
 export function RightArrow() {
-  const { scrollNext } =
-    useContext(VisibilityContext)
+  const { scrollNext } = useContext(VisibilityContext)
 
   const visibility = useContext(VisibilityContext)
-  const isVisible = visibility.useIsVisible("last", false);
+  const isVisible = visibility.useIsVisible('last', false)
 
   return (
-    <Arrow direction="right" disabled={isVisible} onClick={() => scrollNext()} />
+    <Arrow
+      direction="right"
+      disabled={isVisible}
+      onClick={() => scrollNext()}
+    />
   )
 }
 

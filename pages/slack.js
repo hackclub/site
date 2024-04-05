@@ -19,7 +19,7 @@ import Arrows from '../components/slack/arrows'
 
 const SlackPage = () => {
   const nameInputRef = useRef(null)
-  
+
   return (
     <>
       <style css>

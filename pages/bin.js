@@ -21,7 +21,7 @@ import { Fade } from 'react-reveal'
 import ForceTheme from '../components/force-theme'
 import JSConfetti from 'js-confetti'
 import Sparkles from '../components/sparkles'
-import Icon from "@hackclub/icons"
+import Icon from '@hackclub/icons'
 import Announcement from '../components/announcement'
 
 const RsvpCount = () => {
@@ -47,18 +47,19 @@ const stickerImages = [
   'https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png'
 ]
 
-
 const PartPicker = () => {
   const parts = [
     {
-      name: "Relay",
-      description: "On/Off Switch",
-      image: "https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"
+      name: 'Relay',
+      description: 'On/Off Switch',
+      image:
+        'https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png'
     },
     {
-      name: "Mic",
-      description: "Record Sound",
-      image: "https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"
+      name: 'Mic',
+      description: 'Record Sound',
+      image:
+        'https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png'
     }
   ]
 
@@ -85,7 +86,6 @@ const PartPicker = () => {
     </>
   )
 }
-
 
 const OnboardCount = () => {
   const [onboardCount, setOnboardCount] = useState(200)
@@ -146,60 +146,97 @@ function crunch() {
     'https://cloud-fwf97jf44-hack-club-bot.vercel.app/0crunch_4_audio.mp4',
     'https://cloud-fwf97jf44-hack-club-bot.vercel.app/1crunch_3_audio.mp4',
     'https://cloud-fwf97jf44-hack-club-bot.vercel.app/2crunch_2_audio.mp4',
-    'https://cloud-fwf97jf44-hack-club-bot.vercel.app/3crunch_1_audio.mp4',
+    'https://cloud-fwf97jf44-hack-club-bot.vercel.app/3crunch_1_audio.mp4'
   ]
-  const randomCrunch = crunchAudioUrls[Math.floor(Math.random() * crunchAudioUrls.length)]
+  const randomCrunch =
+    crunchAudioUrls[Math.floor(Math.random() * crunchAudioUrls.length)]
 
   const audio = new Audio(randomCrunch)
   audio.play()
 }
 
 function spinIt(el) {
-  el.classList.add("spin");
-  setTimeout(() => el.classList.remove("spin"), 500);
+  el.classList.add('spin')
+  setTimeout(() => el.classList.remove('spin'), 500)
 }
 
 export default function Bin() {
-  const confettiInstance = useRef(null);
+  const confettiInstance = useRef(null)
   function fireConfetti() {
     if (!confettiInstance.current) {
       confettiInstance.current = new JSConfetti()
     }
     confettiInstance.current.addConfetti({
-      emojis: ['🔌', '⚡️', '💥', '🚨', '🔋', '🤖', '🛞', '🔊', '🎙️', '💿', '🖲️', '⚙️', '🛠️'],
+      emojis: [
+        '🔌',
+        '⚡️',
+        '💥',
+        '🚨',
+        '🔋',
+        '🤖',
+        '🛞',
+        '🔊',
+        '🎙️',
+        '💿',
+        '🖲️',
+        '⚙️',
+        '🛠️'
+      ]
     })
   }
   return (
     <>
-      <Meta as={Head}
+      <Meta
+        as={Head}
         title="The Bin"
         description="Rummage around in The Bin to get a free electronics starter kit!"
         image="https://cloud-6902szs7o-hack-club-bot.vercel.app/0og_image.png"
       />
       <Nav color="text" />
       <ForceTheme theme="light" />
-      <Box as="main" sx={{ bg: '#ECE9E0', textAlign: 'center', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")` }}>
-        <Box sx={{ background: 'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)', backgroundSize: 'cover', py: '3em' }}>
+      <Box
+        as="main"
+        sx={{
+          bg: '#ECE9E0',
+          textAlign: 'center',
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")`
+        }}
+      >
+        <Box
+          sx={{
+            background:
+              'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)',
+            backgroundSize: 'cover',
+            py: '3em'
+          }}
+        >
           <Container sx={{ position: 'relative' }}>
-            <Box as="section" sx={{ textAlign: 'center', pt: '4em', overflow: 'hidden' }}>
+            <Box
+              as="section"
+              sx={{ textAlign: 'center', pt: '4em', overflow: 'hidden' }}
+            >
               <Box sx={{ mt: 3 }}>
-
                 <Announcement
                   copy="Please pardon our dust!"
                   caption="You found us a little early! We're still building this page, but you can RSVP early."
                   iconLeft="welcome"
                 />
               </Box>
-              <Box sx={{
-                '@media (prefers-reduced-motion: no-preference)': {
-                  animation: `${wobble} 0.5s ease-in-out infinite alternate`
-                  // animation: `${spin} 2.5s linear infinite`
-                },
-              }}>
-
+              <Box
+                sx={{
+                  '@media (prefers-reduced-motion: no-preference)': {
+                    animation: `${wobble} 0.5s ease-in-out infinite alternate`
+                    // animation: `${spin} 2.5s linear infinite`
+                  }
+                }}
+              >
                 <Image
                   src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png"
-                  onClick={(e) => { fireConfetti(); crunch(); spinIt(e.target) }}
+                  onClick={e => {
+                    fireConfetti()
+                    crunch()
+                    spinIt(e.target)
+                  }}
                   sx={{
                     cursor: 'pointer',
                     ':active': {
@@ -232,7 +269,10 @@ export default function Bin() {
               <RsvpCount />
               <Box id="rsvp">
                 <Sparkles size="100px">
-                  <Image src="https://cloud-rdlz8he4l-hack-club-bot.vercel.app/0thebin.svg" sx={{ maxWidth: '250px' }} />
+                  <Image
+                    src="https://cloud-rdlz8he4l-hack-club-bot.vercel.app/0thebin.svg"
+                    sx={{ maxWidth: '250px' }}
+                  />
                 </Sparkles>
               </Box>
               {/* <Heading as="h1" variant="ultratitle" py={3}>
@@ -241,17 +281,24 @@ export default function Bin() {
                 </Sparkles>
               </Heading> */}
               <Text sx={{ fontWeight: 'bold' }}>
-                An electronics starter kit, customized for <em>your</em>&nbsp;project
+                An electronics starter kit, customized for <em>your</em>
+                &nbsp;project
               </Text>
             </Box>
             <Box as="section" sx={{ textAlign: 'center' }}>
               <Fade up delay={100}>
                 <Card sx={{ p: 3, mt: 4, mx: 'auto', maxWidth: '50ch' }}>
-                  <Text as="p" sx={{ mb: 1, mt: 0, textWrap: 'balance', fontSize: 2 }}>
-                    High schoolers can get a kit of electronics parts for free to
-                    build their first project.
+                  <Text
+                    as="p"
+                    sx={{ mb: 1, mt: 0, textWrap: 'balance', fontSize: 2 }}
+                  >
+                    High schoolers can get a kit of electronics parts for free
+                    to build their first project.
                   </Text>
-                  <Text as="p" sx={{ color: 'muted', mb: 2, fontSize: 2, fontWeight: 800 }}>
+                  <Text
+                    as="p"
+                    sx={{ color: 'muted', mb: 2, fontSize: 2, fontWeight: 800 }}
+                  >
                     RSVP to get notified when applications open.
                   </Text>
                   <RsvpForm />
@@ -270,25 +317,32 @@ export default function Bin() {
               mx: 'auto'
             }}
           >
-            <Heading as="h2" variant="title" sx={{
-              '> .hidden': {
-                opacity: 0,
-                animation: `${slideOut} 0.25s ease-in-out`,
-              },
-              ":hover": {
+            <Heading
+              as="h2"
+              variant="title"
+              sx={{
                 '> .hidden': {
-                  display: 'inline-block',
-                  animation: `${slideIn} 0.25s ease-in-out`,
-                  opacity: 1
+                  opacity: 0,
+                  animation: `${slideOut} 0.25s ease-in-out`
+                },
+                ':hover': {
+                  '> .hidden': {
+                    display: 'inline-block',
+                    animation: `${slideIn} 0.25s ease-in-out`,
+                    opacity: 1
+                  }
                 }
-              }
-            }
-            }>
+              }}
+            >
               Motors & lasers & mics,{' '}
               <Text as="span" sx={{ fontWeight: 400, fontStyle: 'italic' }}>
                 oh&nbsp;my!
               </Text>
-              <Text as="span" className="hidden" sx={{ fontWeight: 400, fontStyle: 'italic', ml: 2 }}>
+              <Text
+                as="span"
+                className="hidden"
+                sx={{ fontWeight: 400, fontStyle: 'italic', ml: 2 }}
+              >
                 oh&nbsp;my!
               </Text>
             </Heading>
@@ -307,7 +361,10 @@ export default function Bin() {
                   </Text>
                 </Box>
               </Flex>
-              <Image src="https://cloud-2wkwrydc4-hack-club-bot.vercel.app/0parts.svg" sx={{ width: '100%' }} />
+              <Image
+                src="https://cloud-2wkwrydc4-hack-club-bot.vercel.app/0parts.svg"
+                sx={{ width: '100%' }}
+              />
               <Flex sx={{ my: 4 }}>
                 <Box>
                   <Image src="https://cloud-h7vwjlwe3-hack-club-bot.vercel.app/0frame_1__50_.png" />
@@ -317,8 +374,9 @@ export default function Bin() {
                     <b>Think!</b>
                   </Text>
                   <Text>
-                    With your parts picked out, <b>what will you make?</b> A portable disco party? A flashlight
-                    that only turns on in the daytime?
+                    With your parts picked out, <b>what will you make?</b> A
+                    portable disco party? A flashlight that only turns on in the
+                    daytime?
                   </Text>
                 </Box>
               </Flex>
@@ -336,13 +394,15 @@ export default function Bin() {
                   <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/1prototype.png" />
                 </Box>
               </Flex>
-              <Box sx={{
-                boxShadow: 'card',
-                borderRadius: 8,
-                overflow: 'hidden',
-                display: 'flex',
-                flexDirection: 'column'
-              }}>
+              <Box
+                sx={{
+                  boxShadow: 'card',
+                  borderRadius: 8,
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+              >
                 <Box
                   p={2}
                   sx={{
@@ -354,12 +414,18 @@ export default function Bin() {
                     borderBottom: '1px solid gray',
                     display: 'flex',
                     gap: 2
-                  }}>
-                  <Icon glyph='private-outline' height={24} />
-                  <Box sx={{ bg: 'darkless', borderRadius: 4, flexGrow: 1 }}>wokwi.com</Box>
-                  <Icon glyph='view-reload' height={24} />
+                  }}
+                >
+                  <Icon glyph="private-outline" height={24} />
+                  <Box sx={{ bg: 'darkless', borderRadius: 4, flexGrow: 1 }}>
+                    wokwi.com
+                  </Box>
+                  <Icon glyph="view-reload" height={24} />
                 </Box>
-                <Image src="https://cloud-ghggsmjwa-hack-club-bot.vercel.app/0image.png" alt="Screenshot" />
+                <Image
+                  src="https://cloud-ghggsmjwa-hack-club-bot.vercel.app/0image.png"
+                  alt="Screenshot"
+                />
               </Box>
               <Flex sx={{ my: 4 }}>
                 <Box>
@@ -367,8 +433,8 @@ export default function Bin() {
                     <b>Build it!</b>
                   </Text>
                   <Text>
-                    If it works in simulation, <b>we’ll send you the parts to
-                      build it in real life.</b>
+                    If it works in simulation,{' '}
+                    <b>we’ll send you the parts to build it in real life.</b>
                   </Text>
                 </Box>
               </Flex>
@@ -382,8 +448,11 @@ export default function Bin() {
         <Container>
           <Text as="h3">Turn some trash into your treasure.</Text>
           <br></br>
-          <Button variant="ctaLg" as="a" href="#rsvp" >
-            RSVP</Button><br></br><br></br>
+          <Button variant="ctaLg" as="a" href="#rsvp">
+            RSVP
+          </Button>
+          <br></br>
+          <br></br>
         </Container>
       </Box>
       <Footer>
@@ -420,13 +489,11 @@ export default function Bin() {
         </Box>
       </Footer>
       <style>
-        {
-          `
+        {`
           html {
             scroll-behavior: smooth;
           }
-          `
-        }
+          `}
       </style>
     </>
   )

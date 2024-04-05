@@ -103,7 +103,7 @@ export default function Signup() {
         } else {
           setEventName('')
         }
-      } catch (e) { }
+      } catch (e) {}
     }, 200)
   )
 
