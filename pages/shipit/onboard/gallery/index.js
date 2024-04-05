@@ -1,6 +1,6 @@
-import { GalleryPage } from '../../../components/onboard/gallery-paginated'
-import { getAllOnboardProjects } from '../../api/onboard/p'
-import { getOnboardProject } from '../../api/onboard/p/[project]'
+import { GalleryPage } from '../../../../components/onboard/gallery-paginated'
+import { getAllOnboardProjects } from '../../../api/onboard/p'
+import { getOnboardProject } from '../../../api/onboard/p/[project]'
 
 export default function Index({ projects, itemCount }) {
   return (

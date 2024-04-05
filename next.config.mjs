@@ -35,6 +35,21 @@ const nextConfig = {
         permanent: true
       },
       {
+        source: '/onboard/:path*',
+        destination: '/shipit/onboard/:path*',
+        permanent: false
+      },
+      {
+        source: '/bin/:path*',
+        destination: '/shipit/the-bin/:path*',
+        permanent: false
+      },
+      {
+        source: '/shipit/bin/:path*',
+        destination: '/shipit/the-bin/:path*',
+        permanent: false
+      },
+      {
         source: '/hcb/fiscal-sponsorship/',
         destination: '/fiscal-sponsorship/about/',
         permanent: false

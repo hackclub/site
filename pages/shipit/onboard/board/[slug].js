@@ -1,14 +1,14 @@
 import { Box, Button, Flex, Heading, Image, Link, Text } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
-import Nav from '../../../components/nav'
+import Nav from '../../../../components/nav'
 import { useEffect, useRef } from 'react'
 import { remark } from 'remark'
 import html from 'remark-html'
-import { getOnboardProject } from '../../api/onboard/p/[project]'
-import { getAllOnboardProjects } from '../../api/onboard/p'
+import { getOnboardProject } from '../../../api/onboard/p/[project]'
+import { getAllOnboardProjects } from '../../../api/onboard/p'
 import Icon from '@hackclub/icons'
-import Tilt from '../../../components/tilt'
+import Tilt from '../../../../components/tilt'
 
 const BoardPage = ({ project }) => {
   const spotlightRef = useRef()

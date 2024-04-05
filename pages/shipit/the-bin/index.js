@@ -12,17 +12,17 @@ import {
 } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
-import Nav from '../components/nav'
+import Nav from '../../../components/nav'
 import { useEffect, useState, useRef } from 'react'
-import Footer from '../components/footer'
+import Footer from '../../../components/footer'
 import { keyframes } from '@emotion/react'
-import RsvpForm from '../components/bin/rsvp-form'
+import RsvpForm from '../../../components/bin/rsvp-form'
 import { Fade } from 'react-reveal'
-import ForceTheme from '../components/force-theme'
+import ForceTheme from '../../../components/force-theme'
 import JSConfetti from 'js-confetti'
-import Sparkles from '../components/sparkles'
+import Sparkles from '../../../components/sparkles'
 import Icon from "@hackclub/icons"
-import Announcement from '../components/announcement'
+import Announcement from '../../../components/announcement'
 
 const RsvpCount = () => {
   const targetRSVPs = 200
