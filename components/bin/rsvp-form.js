@@ -1,4 +1,4 @@
-import { Checkbox, Input, Label, Text } from 'theme-ui'
+import { Checkbox, Input, Label, Text, Box } from 'theme-ui'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 import { Slide } from 'react-reveal'
@@ -33,7 +33,7 @@ export default function RsvpForm() {
           <Checkbox {...useField('stickers', 'checkbox')} />I want a sticker
           sheet.
         </Label>
-        {useField('stickers', 'checkbox').checked && (
+        <Box sx={{ display: useField('stickers', 'checkbox').checked ? 'block' : 'none' }}>
           <Slide left delay={20}>
             <Label mt={2}>
               Address (line 1)
@@ -54,14 +54,15 @@ export default function RsvpForm() {
               />
             </Label>
           </Slide>
-        )}
-        <Submit status={status}
-            labels={{
-              default: 'Submit',
-              error: 'Something went wrong',
-              success: "Success!"
-            }}
-/>
+        </Box>
+        <Submit
+          status={status}
+          labels={{
+            default: 'Submit',
+            error: 'Something went wrong',
+            success: 'Success!'
+          }}
+        />
       </form>
     </>
   )
