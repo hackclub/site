@@ -137,7 +137,7 @@ const ShipPage = () => {
         as={Head}
         name="OnBoard"
         description={`We'll pay manufacturing costs for any high schooler (or younger!) who designs a circuit board.`}
-        image="https://cloud-2x7lcsf1p-hack-club-bot.vercel.app/0onboard-og-card-2024feb19-075x.png"
+        image="https://cloud-n2wfd6ra6-hack-club-bot.vercel.app/0onboard-twitter.png"
       />
 
       <style>{`
