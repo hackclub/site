@@ -22,6 +22,7 @@ import ForceTheme from '../components/force-theme'
 import JSConfetti from 'js-confetti'
 import Sparkles from '../components/sparkles'
 import Icon from "@hackclub/icons"
+import Announcement from '../components/announcement'
 
 const RsvpCount = () => {
   const targetRSVPs = 200
@@ -181,6 +182,14 @@ export default function Bin() {
         <Box sx={{ background: 'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)', backgroundSize: 'cover', py: '3em' }}>
           <Container sx={{ position: 'relative' }}>
             <Box as="section" sx={{ textAlign: 'center', pt: '4em', overflow: 'hidden' }}>
+              <Box sx={{mt: 3}}>
+
+            <Announcement
+              copy="Please pardon our dust!"
+              caption="You found us a little early! We're still building this page, but you can RSVP early."
+              iconLeft="welcome"
+            />
+              </Box>
               <Box sx={{
                 '@media (prefers-reduced-motion: no-preference)': {
                   animation: `${wobble} 0.5s ease-in-out infinite alternate`
