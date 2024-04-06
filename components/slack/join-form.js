@@ -1,11 +1,21 @@
-import { Box, Card, Grid, Input, Label, Link, Select, Text, Textarea } from 'theme-ui'
-import { useRouter } from 'next/router'
+import {
+  Box,
+  Card,
+  Grid,
+  Input,
+  Label,
+  Link,
+  Select,
+  Text,
+  Textarea
+} from 'theme-ui'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
 import { getCookie, hasCookie } from 'cookies-next'
 
-const JoinForm = ({ sx = {} }) => {
-  const router = useRouter()
+import { withRouter } from 'next/router'
+
+const JoinForm = ({ sx = {}, router }) => {
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'
 
   const { status, formProps, useField } = useForm('/api/join/', null, {
@@ -13,10 +23,10 @@ const JoinForm = ({ sx = {} }) => {
     method: 'POST',
     initData: hasCookie('continent')
       ? {
-        continent: getCookie('continent'),
-        reason: router.query.reason,
-        event: router.query.event
-      }
+          continent: getCookie('continent'),
+          reason: router.query.reason,
+          event: router.query.event
+        }
       : { reason: router.query.reason, event: router.query.event }
   })
 
@@ -168,4 +178,4 @@ function AdultChecker() {
   )
 }
 
-export default JoinForm
+export default withRouter(JoinForm)
