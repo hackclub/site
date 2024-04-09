@@ -10,5 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - run: yarn install
-      - run: yarn lint
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - run: pnpm i
+      - run: pnpm run lint
