@@ -10,11 +10,18 @@ export const getAllOnboardProjects = async () => {
     }
   }
 
-  const res = await fetch(url, fetchOptions).then(r => r.json())
+  let res;
+  try { res = await fetch(url, fetchOptions).then(r => r.json()) }
+  catch (e) {
+    console.error('Failed to fetch projects from GitHub', e)
+    return []
+  }
 
   if (res.message && res.message.startsWith('API rate limit exceeded')) {
     console.error('GitHub API rate limit exceeded')
+    return []
   }
+  if(!res) return []
 
   const projects = []
 
