@@ -23,9 +23,10 @@ import JSConfetti from 'js-confetti'
 import Sparkles from '../components/sparkles'
 import Icon from "@hackclub/icons"
 import Announcement from '../components/announcement'
+import { TypeAnimation } from 'react-type-animation'
 
 const RsvpCount = () => {
-  const targetRSVPs = 200
+  const targetRSVPs = 500
   const [rsvpCount, setRsvpCount] = useState(0)
   useEffect(async () => {
     // const url = 'https://api2.hackclub.com/v0.1/The Bin/rsvp'  <- switch to this once we have api2 back up and running
@@ -167,7 +168,6 @@ function spinIt(el) {
   el.classList.add("spin");
   setTimeout(() => el.classList.remove("spin"), 500);
 }
-
 export default function Bin() {
   const confettiInstance = useRef(null);
   function fireConfetti() {
@@ -203,10 +203,8 @@ export default function Bin() {
               <Box sx={{
                 '@media (prefers-reduced-motion: no-preference)': {
                   animation: `${wobble} 0.5s ease-in-out infinite alternate`
-                  // animation: `${spin} 2.5s linear infinite`
                 },
               }}>
-
                 <Image
                   src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png"
                   onClick={(e) => { fireConfetti(); crunch(); spinIt(e.target) }}
@@ -220,23 +218,6 @@ export default function Bin() {
                     }
                   }}
                 />
-                {/* <Heading
-                  as="h1"
-                  variant="ultratitle"
-                  py={3}
-                  onClick={() => fireConfetti()}
-                  sx={{
-                    fontSize: '6em',
-                    display: 'inline-block',
-                    cursor: 'pointer',
-                    ':active': {
-                      animation: `${bounce} 0.125s`
-                    },
-
-                  }}
-                >
-                  🗑️
-                </Heading> */}
               </Box>
               <br />
               <RsvpCount />
@@ -245,13 +226,25 @@ export default function Bin() {
                   <Image src="https://cloud-rdlz8he4l-hack-club-bot.vercel.app/0thebin.svg" sx={{ maxWidth: '250px' }} />
                 </Sparkles>
               </Box>
-              {/* <Heading as="h1" variant="ultratitle" py={3}>
-                <Sparkles size={10}>
-                  The Bin
-                </Sparkles>
-              </Heading> */}
               <Text sx={{ fontWeight: 'bold' }}>
-                An electronics starter kit, customized for <em>your</em>&nbsp;project
+              Build{' '}
+                <TypeAnimation
+                cursor={false}
+                sequence={[
+                  // Same substring at the start will only be typed out once, initially
+                  'an RC car',
+                  1000, // wait 1s before replacing "Mice" with "Hamsters"
+                  'a clap activated lamp',
+                  1000,
+                  'a keyboard',
+                  1000,
+                  'an alarm clock',
+                  1000
+                ]}
+                />,
+                <br />
+                with all the parts bought for you
+                {/* An electronics starter kit, customized for <em>your</em>&nbsp;project */}
               </Text>
             </Box>
             <Box as="section" sx={{ textAlign: 'center' }}>
