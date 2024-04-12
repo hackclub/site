@@ -51,24 +51,11 @@ export default function ApplicationSuccess() {
         </Text>
         <Text as="p" variant="lead">
           <Balancer>
-            We’ll review your application and get back to you within two
-            business days.
+	    As of April 12 2024, are waitlisting all new HCB applications, due to operational capacity.
+	    We'll review your application and get back to you in approximately 2 weeks.
           </Balancer>
         </Text>
       </header>
-
-      <footer>
-        <Text as="h2" variant="subheadline">
-          Questions about your application?
-        </Text>
-        <Text as="p" fontSize={2} color="muted">
-          You can always email us at{' '}
-          <Link href="mailto:hcb@hackclub.com" color="blue">
-            hcb@hackclub.com
-          </Link>
-          .
-        </Text>
-      </footer>
     </Container>
   )
 }
