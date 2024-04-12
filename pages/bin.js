@@ -154,6 +154,15 @@ function crunch() {
   audio.play()
 }
 
+const ExpiresAt = ({ children, expirationDate = new Date() - 1 }) => {
+  console.log(expirationDate, new Date())
+  if (expirationDate > new Date()) {
+    return children
+  } else {
+    return null
+  }
+}
+
 function spinIt(el) {
   el.classList.add("spin");
   setTimeout(() => el.classList.remove("spin"), 500);
@@ -182,14 +191,15 @@ export default function Bin() {
         <Box sx={{ background: 'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)', backgroundSize: 'cover', py: '3em' }}>
           <Container sx={{ position: 'relative' }}>
             <Box as="section" sx={{ textAlign: 'center', pt: '4em', overflow: 'hidden' }}>
+              <ExpiresAt expirationDate={new Date(2024, 3, 13)}>
               <Box sx={{ mt: 3 }}>
-
                 <Announcement
                   copy="Please pardon our dust!"
                   caption="You found us a little early! We're still building this page, but you can RSVP early."
                   iconLeft="welcome"
                 />
               </Box>
+              </ExpiresAt>
               <Box sx={{
                 '@media (prefers-reduced-motion: no-preference)': {
                   animation: `${wobble} 0.5s ease-in-out infinite alternate`
