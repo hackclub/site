@@ -51,8 +51,8 @@ export default function ApplicationSuccess() {
         </Text>
         <Text as="p" variant="lead">
           <Balancer>
-	    As of April 12 2024, are waitlisting all new HCB applications, due to operational capacity.
-	    We'll review your application and get back to you in approximately 2 weeks.
+            As of April 12 2024, are waitlisting all new HCB applications, due to operational capacity.
+            We'll review your application and get back to you in approximately 2 weeks.
           </Balancer>
         </Text>
       </header>
