@@ -228,6 +228,8 @@ export default function Bin() {
               </Box>
               <Text sx={{ fontWeight: 'bold' }}>
               Build{' '}
+              <em>
+
                 <TypeAnimation
                 cursor={false}
                 sequence={[
@@ -241,21 +243,28 @@ export default function Bin() {
                   'an alarm clock',
                   1000
                 ]}
-                />,
+                repeat={Infinity}
+                />
+              </em>
+                {' '}
+                with parts you pick out.
                 <br />
-                with all the parts bought for you
+                Free for high schoolers.
+                {/* with all the parts bought for you */}
                 {/* An electronics starter kit, customized for <em>your</em>&nbsp;project */}
               </Text>
             </Box>
             <Box as="section" sx={{ textAlign: 'center' }}>
               <Fade up delay={100}>
                 <Card sx={{ p: 3, mt: 4, mx: 'auto', maxWidth: '50ch' }}>
-                  <Text as="p" sx={{ mb: 1, mt: 0, textWrap: 'balance', fontSize: 2 }}>
-                    High schoolers can get a kit of electronics parts for free to
-                    build their first project.
+                  <Text as="p" sx={{ mb: 1, mt: 0, textWrap: 'pretty', fontSize: 2 }}>
+                    Running for only 2 months.
+                    {/* High schoolers can RSVP now! */}
+                    {/* High schoolers can get a kit of electronics parts for free to
+                    build their first project. */}
                   </Text>
                   <Text as="p" sx={{ color: 'muted', mb: 2, fontSize: 2, fontWeight: 800 }}>
-                    RSVP to get notified when applications open.
+                    RSVP to get notified when orders&nbsp;open.
                   </Text>
                   <RsvpForm />
                 </Card>
