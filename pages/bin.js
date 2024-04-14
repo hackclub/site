@@ -234,13 +234,15 @@ export default function Bin() {
                 cursor={false}
                 sequence={[
                   // Same substring at the start will only be typed out once, initially
-                  'an RC car',
+                  'a laser guided nerf gun',
                   1000, // wait 1s before replacing "Mice" with "Hamsters"
                   'a clap activated lamp',
                   1000,
-                  'a keyboard',
+                  'a temperature activated Febreze can',
                   1000,
-                  'an alarm clock',
+                  'a flame actuated speaker',
+                  1000,
+                  'a light dependant door',
                   1000
                 ]}
                 repeat={Infinity}
