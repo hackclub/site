@@ -302,6 +302,13 @@ export default function Team({ team }) {
                 pronouns="he/him"
               />
               <Bio
+                name="Kara Massie"
+                teamRole="Production Lead"
+                text="Before joining Hack Club, Kara was a lead producer at Activision, shipping Crash Bandicoot N. Sane Trilogy and Bungie's Destiny 2 expansions. She’s deeply committed to inclusivity in gaming and tech spaces, and is beyond thrilled to be part of an org with kindness at its core. She has lived in 3 countries and names her pets after vegetables."
+                img="/team/kara.png"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Sam Poder"
                 teamRole="Engineering & Operations"
                 text={`Originally from Australia, Sam's family moved to Singapore when he was young. In Singapore, he ran a Hack Club at his school and multiple hackathons with his friends. During his time in Hack Club, he worked on everything from events to engineering. The wildest things from his time at Hack Club include 4am rickshaw rides in New Delhi, attempting to oversee several raves, rickrolling the Slack twice, losing his voice waking up hundreds of sleeping hackers and heartstopping late-night launches. Now at university, Sam will never forget the crazy times at Hack Club and will always have his friends from Hack Club.`}
