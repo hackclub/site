@@ -238,7 +238,7 @@ export default function Bin() {
                   1000, // wait 1s before replacing "Mice" with "Hamsters"
                   'a clap activated lamp',
                   1000,
-                  'a temperature activated Febreeze can',
+                  'a temperature activated Febreze can',
                   1000,
                   'a flame actuated speaker',
                   1000,
