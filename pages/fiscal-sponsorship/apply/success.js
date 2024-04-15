@@ -51,8 +51,10 @@ export default function ApplicationSuccess() {
         </Text>
         <Text as="p" variant="lead">
           <Balancer>
-            We’ll review your application and get back to you within two
-            business days.
+            We are prioritizing organizations ran by Hack Clubbers, teens, FIRST
+            teams, as well as groups with an annual budget greater than $50k. If
+            you fall outside of these categories, you will hear back from us by
+            May 1st, 2024.
           </Balancer>
         </Text>
       </header>

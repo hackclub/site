@@ -241,10 +241,11 @@ export default function Page() {
                 sx={{
                   bg: 'blue',
                   backgroundImage: theme => theme.util.gx('cyan', 'blue'),
+                  fontSize: [16, 16, 32],
                   lineHeight: 0.9
                 }}
               >
-                Apply now
+                Join the waitlist
               </Button>
             </Link>
             <Button
@@ -603,15 +604,15 @@ export default function Page() {
                 bg: 'white',
                 mixBlendMode: 'screen',
                 color: 'black !important',
-                fontSize: [58, 96],
+                fontSize: [36, 64],
                 width: ['100%', 'auto'],
                 py: 4,
-                px: [4, null, 6],
+                px: [4, null, 5],
                 lineHeight: 0.9,
                 textTransform: 'none'
               }}
             >
-              Apply now
+              Join the waitlist
             </Button>
           </Link>
           <Text as="p" variant="lead" sx={{ color: 'white', mb: [0, 0] }}>
