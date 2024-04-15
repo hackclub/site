@@ -36,23 +36,6 @@ export default function Apply() {
       <Meta as={Head} title="Apply for HCB" />
       <ForceTheme theme="light" />
 
-      <Box
-        sx={{
-	  width: "100%",
-	  height: "fit-content",
-	  backgroundColor: "red",
-          display: "flex",
-	  alignItems: "center",
-          justifyContent: "center",
-	  borderRadius: "0 0 1rem 1rem",
-	}}
-      >
-        <Text sx={{ color: "white", fontSize: [1, 2], textAlign: "center", margin: 1, textWrap: "balance" }}>
-          We're excited to take on more organizations, however, our applications are currently backlogged.
-	  By joining our waitlist, we will contact you in the future. HCB is currently prioritizing Hack Clubbers-ran initiatives and FIRST teams.
-	</Text> 
-      </Box>
-
       <Grid
         columns={[null, null, 2]}
         sx={{
@@ -134,6 +117,31 @@ export default function Apply() {
             })
           }
         >
+          <Box
+            sx={{
+              borderLeft: '3px solid',
+              borderLeftColor: 'blue',
+              paddingLeft: 2,
+              color: 'blue',
+              fontSize: [1, 2],
+              textWrap: 'pretty',
+              lineHeight: 1.375
+            }}
+          >
+            <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold' }}>
+              Join our waitlist
+            </Text>
+            <Text as="p" sx={{ mt: 1, textWrap: 'balance' }}>
+              HCB has onboarded 116 organizations over the past month. We are
+              prioritizing organizations ran by Hack Clubers, teens, FIRST
+              teams, as well as groups with an annual budget greater than $50k.
+            </Text>
+            <Text as="p" sx={{ mt: 1, textWrap: 'balance' }}>
+              We are currently do not work with new organizations outside of
+              STEM, Education, and Climate.
+            </Text>
+          </Box>
+
           <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
             Your organization
           </Heading>

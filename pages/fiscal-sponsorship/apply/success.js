@@ -51,9 +51,10 @@ export default function ApplicationSuccess() {
         </Text>
         <Text as="p" variant="lead">
           <Balancer>
-	    As of April 12 2024, are waitlisting all new HCB applications. 
-	    We'll review your application and get back to you in the future!
-	    HCB is currently prioritizing Hack Clubbers-ran initiatives and FIRST teams.
+            We are prioritizing organizations ran by Hack Clubers, teens, FIRST
+            teams, as well as groups with an annual budget greater than $50k.
+            If you fall outside of these categories, you will hear back from us
+            in a few weeks.
           </Balancer>
         </Text>
       </header>

@@ -245,7 +245,7 @@ export default function Page() {
                   lineHeight: 0.9
                 }}
               >
-                Sign up for the waitlist
+                Join the waitlist
               </Button>
             </Link>
             <Button
@@ -612,7 +612,7 @@ export default function Page() {
                 textTransform: 'none'
               }}
             >
-              Sign up for the waitlist
+              Join the waitlist
             </Button>
           </Link>
           <Text as="p" variant="lead" sx={{ color: 'white', mb: [0, 0] }}>
