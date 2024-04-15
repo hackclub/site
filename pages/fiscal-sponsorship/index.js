@@ -604,10 +604,10 @@ export default function Page() {
                 bg: 'white',
                 mixBlendMode: 'screen',
                 color: 'black !important',
-                fontSize: [58 * 0.5, 96 * 0.5],
+                fontSize: [36, 64],
                 width: ['100%', 'auto'],
                 py: 4,
-                px: [4, null, 6],
+                px: [4, null, 5],
                 lineHeight: 0.9,
                 textTransform: 'none'
               }}
