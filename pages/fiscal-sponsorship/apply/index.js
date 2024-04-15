@@ -132,9 +132,11 @@ export default function Apply() {
               Join our waitlist
             </Text>
             <Text as="p" sx={{ mt: 1, textWrap: 'balance' }}>
-              HCB has onboarded 116 organizations over the past month. We are
-              prioritizing organizations ran by Hack Clubers, teens, FIRST
-              teams, as well as groups with an annual budget greater than $50k.
+              HCB has been experiencing some exciting growth and subsequent
+              capacity constaints. We are prioritizing organizations ran by Hack
+              Clubbers, teens, FIRST teams, as well as groups with an annual
+              budget greater than $50k. Please expect to hear back by May 1st,
+              2024.
             </Text>
             <Text as="p" sx={{ mt: 1, textWrap: 'balance' }}>
               We are currently do not work with new organizations outside of
