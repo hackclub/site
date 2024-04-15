@@ -23,9 +23,10 @@ import JSConfetti from 'js-confetti'
 import Sparkles from '../components/sparkles'
 import Icon from "@hackclub/icons"
 import Announcement from '../components/announcement'
+import { TypeAnimation } from 'react-type-animation'
 
 const RsvpCount = () => {
-  const targetRSVPs = 200
+  const targetRSVPs = 500
   const [rsvpCount, setRsvpCount] = useState(0)
   useEffect(async () => {
     // const url = 'https://api2.hackclub.com/v0.1/The Bin/rsvp'  <- switch to this once we have api2 back up and running
@@ -154,11 +155,19 @@ function crunch() {
   audio.play()
 }
 
+const ExpiresAt = ({ children, expirationDate = new Date() - 1 }) => {
+  console.log(expirationDate, new Date())
+  if (expirationDate > new Date()) {
+    return children
+  } else {
+    return null
+  }
+}
+
 function spinIt(el) {
   el.classList.add("spin");
   setTimeout(() => el.classList.remove("spin"), 500);
 }
-
 export default function Bin() {
   const confettiInstance = useRef(null);
   function fireConfetti() {
@@ -182,21 +191,20 @@ export default function Bin() {
         <Box sx={{ background: 'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)', backgroundSize: 'cover', py: '3em' }}>
           <Container sx={{ position: 'relative' }}>
             <Box as="section" sx={{ textAlign: 'center', pt: '4em', overflow: 'hidden' }}>
+              <ExpiresAt expirationDate={new Date(2024, 3, 13)}>
               <Box sx={{ mt: 3 }}>
-
                 <Announcement
                   copy="Please pardon our dust!"
                   caption="You found us a little early! We're still building this page, but you can RSVP early."
                   iconLeft="welcome"
                 />
               </Box>
+              </ExpiresAt>
               <Box sx={{
                 '@media (prefers-reduced-motion: no-preference)': {
                   animation: `${wobble} 0.5s ease-in-out infinite alternate`
-                  // animation: `${spin} 2.5s linear infinite`
                 },
               }}>
-
                 <Image
                   src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png"
                   onClick={(e) => { fireConfetti(); crunch(); spinIt(e.target) }}
@@ -210,23 +218,6 @@ export default function Bin() {
                     }
                   }}
                 />
-                {/* <Heading
-                  as="h1"
-                  variant="ultratitle"
-                  py={3}
-                  onClick={() => fireConfetti()}
-                  sx={{
-                    fontSize: '6em',
-                    display: 'inline-block',
-                    cursor: 'pointer',
-                    ':active': {
-                      animation: `${bounce} 0.125s`
-                    },
-
-                  }}
-                >
-                  🗑️
-                </Heading> */}
               </Box>
               <br />
               <RsvpCount />
@@ -235,24 +226,47 @@ export default function Bin() {
                   <Image src="https://cloud-rdlz8he4l-hack-club-bot.vercel.app/0thebin.svg" sx={{ maxWidth: '250px' }} />
                 </Sparkles>
               </Box>
-              {/* <Heading as="h1" variant="ultratitle" py={3}>
-                <Sparkles size={10}>
-                  The Bin
-                </Sparkles>
-              </Heading> */}
               <Text sx={{ fontWeight: 'bold' }}>
-                An electronics starter kit, customized for <em>your</em>&nbsp;project
+              Build{' '}
+              <em>
+
+                <TypeAnimation
+                cursor={false}
+                sequence={[
+                  // Same substring at the start will only be typed out once, initially
+                  'a laser guided nerf gun',
+                  1000, // wait 1s before replacing "Mice" with "Hamsters"
+                  'a clap activated lamp',
+                  1000,
+                  'a temperature activated Febreze can',
+                  1000,
+                  'a flame actuated speaker',
+                  1000,
+                  'a light dependant door',
+                  1000
+                ]}
+                repeat={Infinity}
+                />
+              </em>
+                {' '}
+                with parts you pick out.
+                <br />
+                Free for high schoolers.
+                {/* with all the parts bought for you */}
+                {/* An electronics starter kit, customized for <em>your</em>&nbsp;project */}
               </Text>
             </Box>
             <Box as="section" sx={{ textAlign: 'center' }}>
               <Fade up delay={100}>
                 <Card sx={{ p: 3, mt: 4, mx: 'auto', maxWidth: '50ch' }}>
-                  <Text as="p" sx={{ mb: 1, mt: 0, textWrap: 'balance', fontSize: 2 }}>
-                    High schoolers can get a kit of electronics parts for free to
-                    build their first project.
+                  <Text as="p" sx={{ mb: 1, mt: 0, textWrap: 'pretty', fontSize: 2 }}>
+                    Running for only 2 months.
+                    {/* High schoolers can RSVP now! */}
+                    {/* High schoolers can get a kit of electronics parts for free to
+                    build their first project. */}
                   </Text>
                   <Text as="p" sx={{ color: 'muted', mb: 2, fontSize: 2, fontWeight: 800 }}>
-                    RSVP to get notified when applications open.
+                    RSVP to get notified when orders&nbsp;open.
                   </Text>
                   <RsvpForm />
                 </Card>

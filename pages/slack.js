@@ -141,7 +141,7 @@ const SlackPage = () => {
             person="JC"
             img="https://ca.slack-edge.com/T0266FRGM-U03MNFDRSGJ-e6fb939acfd8-512"
             age={17}
-            location="CT"
+            location="MA"
           />
           <Quote
             text="Finally, I found my people!"
