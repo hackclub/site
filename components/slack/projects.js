@@ -2,7 +2,7 @@ const projects = [
   {
     title: 'Brainwave device for thought-based computer interaction.',
     description:
-      'The team of teens behind BCI is building both the hardware and software for a brainwave reading device to interact with computers using thoughts',
+      'The team of teens behind Monolith BCI is building both the hardware and software for a brainwave reading device to interact with computers using thoughts',
     img: 'bci',
     color: ['#ec3750', '#F58695'],
     itemId: 0
