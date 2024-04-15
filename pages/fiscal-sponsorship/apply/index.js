@@ -36,6 +36,23 @@ export default function Apply() {
       <Meta as={Head} title="Apply for HCB" />
       <ForceTheme theme="light" />
 
+      <Box
+        sx={{
+	  width: "100%",
+	  height: "fit-content",
+	  backgroundColor: "red",
+          display: "flex",
+	  alignItems: "center",
+          justifyContent: "center",
+	  borderRadius: "0 0 1rem 1rem",
+	}}
+      >
+        <Text sx={{ color: "white", fontSize: [1, 2], textAlign: "center", margin: 1, textWrap: "balance" }}>
+          We're excited to take on more organizations, however, our applications are currently backlogged.
+	  By joining our waitlist, we will contact you in the future. HCB is currently prioritizing Hack Clubbers-ran initiatives and FIRST teams.
+	</Text> 
+      </Box>
+
       <Grid
         columns={[null, null, 2]}
         sx={{
