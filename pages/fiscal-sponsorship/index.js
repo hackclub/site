@@ -241,7 +241,7 @@ export default function Page() {
                 sx={{
                   bg: 'blue',
                   backgroundImage: theme => theme.util.gx('cyan', 'blue'),
-		  fontSize: [16, 16, 32],
+                  fontSize: [16, 16, 32],
                   lineHeight: 0.9
                 }}
               >
