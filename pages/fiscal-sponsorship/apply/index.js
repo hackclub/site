@@ -139,8 +139,8 @@ export default function Apply() {
               2024.
             </Text>
             <Text as="p" sx={{ mt: 1, textWrap: 'balance' }}>
-              We are currently do not work with new organizations outside of
-              STEM, Education, and Climate.
+              We currently do not work with new organizations outside of STEM,
+              Education, and Climate.
             </Text>
           </Box>
 
