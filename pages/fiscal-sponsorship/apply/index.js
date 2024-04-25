@@ -133,7 +133,7 @@ export default function Apply() {
             </Text>
             <Text as="p" sx={{ mt: 1, textWrap: 'balance' }}>
               HCB has been experiencing some exciting growth and subsequent
-              capacity constaints. We are prioritizing organizations ran by Hack
+              capacity constraints. We are prioritizing organizations ran by Hack
               Clubbers, teens, FIRST teams, as well as groups with an annual
               budget greater than $50k. Please expect to hear back by May 1st,
               2024.
