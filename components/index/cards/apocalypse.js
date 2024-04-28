@@ -22,28 +22,33 @@ export default function Apocalypse() {
             justifyContent: 'space-between'
           }}
         >
-          <Box>
-            <Image
-              src="https://cloud-lvxa0tab7-hack-club-bot.vercel.app/0apotitle_cropped.png"
-              sx={{
-                width: ['250px', '300px', '350px'],
-                mt: ['-10px', '-10px', '-10px'],
-                mb: ['30px', '30px', '30px'],
-                position: 'relative',
-                zIndex: 2,
-                fontSize: ['36px', 4, 5],
-                color: 'white'
-              }}
-              alt="Apocalypse"
-            />
+          <Image
+            src="https://cloud-lvxa0tab7-hack-club-bot.vercel.app/0apotitle_cropped.png"
+            sx={{
+              width: ['200px', '250px', '300px'],
+              mt: ['-5px', '-5px', '-5px'],
+              mb: ['30px', '30px', '30px'],
+              position: 'relative',
+              zIndex: 2,
+              fontSize: ['36px', 4, 5],
+              color: 'white'
+            }}
+            alt="Apocalypse"
+          />
 
+          <Flex
+            sx={{
+              flexDirection: ['row', 'row', 'column'],
+              justifyContent: 'space-between'
+            }}
+          >
             <Text
               as="p"
               variant="subheadline"
               sx={{
-                ml: '10px',
-                mt: '-10px',
-                mb: '10px',
+                ml: ['0px', '0px', '10px'],
+                mt: ['0px', '0px', '-10px'],
+                mb: ['0px', '0px', '20px'],
                 zIndex: 2,
                 color: 'white',
                 fontSize: ['24px !important'],
@@ -55,19 +60,19 @@ export default function Apocalypse() {
               <br />
               May 17–19
             </Text>
-          </Box>
 
-          <Buttons
-            icon="flag-fill"
-            href="https://apocalypse.hackclub.com/"
-            target="_blank"
-            rel="noopener"
-            primary="#FE5CA8"
-            id="43"
-            sx={{ color: '#fff' }}
-          >
-            Join Us
-          </Buttons>
+            <Buttons
+              icon="flag-fill"
+              href="https://apocalypse.hackclub.com/"
+              target="_blank"
+              rel="noopener"
+              primary="#FE5CA8"
+              id="43"
+              sx={{ color: '#fff' }}
+            >
+              Join Us
+            </Buttons>
+          </Flex>
         </Flex>
         <Box>
           <Text
