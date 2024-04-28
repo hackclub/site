@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Lexend;
+    src: url("./Lexend.ttf");
+}
+
+body {
+    background-color: #EBECE0;
+    margin: 0;
+}
+
+* {
+    font-family: Lexend;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+}
