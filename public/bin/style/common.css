@@ -1,15 +1,35 @@
 @font-face {
-    font-family: Lexend;
+    font-family: "Lexend";
     src: url("./Lexend.ttf");
+}
+
+@font-face {
+    font-family: "Phantom Sans";
+    src: url("./PhantomSans_Regular.otf");
+}
+
+@font-face {
+    font-family: "Phantom Sans";
+    src: url("./PhantomSans_Bold.otf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Phantom Sans";
+    src: url("./PhantomSans_Italic.otf");
+    font-style: italic;
 }
 
 body {
     background-color: #EBECE0;
+    background-image: url(../icons/grid.svg);
+    background-size: 3px;
+    background-repeat: repeat;
     margin: 0;
 }
 
 * {
-    font-family: Lexend;
+    font-family: "Phantom Sans";
 }
 
 h1,
@@ -17,5 +37,10 @@ h2,
 h3,
 h4,
 h5 {
+    margin: 0;
+    font-weight: bolder;
+}
+
+p {
     margin: 0;
 }

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bin</title>
+    <link rel="stylesheet" href="../style/common.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://assets.hackclub.com/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://assets.hackclub.com/favicons/favicon-16x16.png">
+    <script src="https://awdev.codes/utils/smoothScroll.js"></script>
+    <script src="https://awdev.codes/utils/hackclub/orph.js"></script>
+    <script src="./script.js"></script>
+</head>
+
+<body>
+    <section class="landing-section section">
+        <div class="landing-header">
+            <img src="../icons/icon.svg" class="landing-logo">
+            <span class="landing-tagline">Helping high schoolers hack hardware</span>
+            <img src="../parts/pico.png" class="landing-main-image">
+        </div>
+        <img id="floaty" src="../parts/relay.png" style="top: 20%; left: 7%;">
+        <img id="floaty" src="../parts/mic.png" style="top: 80%; left: 20%;animation-delay: -2500ms;">
+        <img id="floaty-left" src="../parts/humidity.png"
+            style="top: 80%; right:10%;animation-delay: -1000ms;"><!---animation-delay: -2s;-->
+        <img id="floaty-left" src="../parts/laser.png"
+            style="top: 30%; right:10%;animation-delay: -1500ms;"><!---animation-delay: -2s;-->
+        <img src="../icons/scrolldown.svg" class="scroll-prompt" onclick="smoothScroll('.gambling-section')">
+        <img src="../images/idea.png" class="huh floaty" style="animation-delay: -3000ms;">
+        <img src="../icons/menu.svg" class="menu-button">
+    </section>
+    <section class="gambling-section section">
+        <div class="gambling-header">
+            <div class="gambling-header-text">
+                <h1 class="gambling-title">Rummage!</h1>
+                <h2 class="gambling-subheader">Let's get you your parts!</h2>
+            </div>
+            <img src="./rummaging.png" class="gambling-header-rummage">
+        </div>
+        <div class="gambling-ui">
+            <div class="gambling-spinner">
+                <div class="spinner-item">
+                    <img src="../parts/relay.png" class="spinner-item-image">
+                    <h1 class="spinner-item-name">Relay</h1>
+                    <p class="spinner-item-description">High current on/off switch</p>
+                </div>
+            </div>
+            <div class="spinner-separator">+</div>
+            <div class="gambling-spinner">
+                <div class="spinner-item">
+                    <img src="../parts/mic.png" class="spinner-item-image">
+                    <h1 class="spinner-item-name">Microphone</h1>
+                    <p class="spinner-item-description">Record sounds around you</p>
+                </div>
+                <div class="spinner-item">
+                    <img src="../parts/mic.png" class="spinner-item-image">
+                    <h1 class="spinner-item-name">Microphone</h1>
+                    <p class="spinner-item-description">Record sounds around you</p>
+                </div>
+                <div class="spinner-item">
+                    <img src="../parts/mic.png" class="spinner-item-image">
+                    <h1 class="spinner-item-name">Microphone</h1>
+                    <p class="spinner-item-description">Record sounds around you</p>
+                </div>
+                <div class="spinner-item">
+                    <img src="../parts/mic.png" class="spinner-item-image">
+                    <h1 class="spinner-item-name">Microphone</h1>
+                    <p class="spinner-item-description">Record sounds around you</p>
+                </div>
+                <div class="spinner-item">
+                    <img src="../parts/mic.png" class="spinner-item-image">
+                    <h1 class="spinner-item-name">Microphone</h1>
+                    <p class="spinner-item-description">Record sounds around you</p>
+                </div>
+                <div class="spinner-item">
+                    <img src="../parts/mic.png" class="spinner-item-image">
+                    <h1 class="spinner-item-name">Microphone</h1>
+                    <p class="spinner-item-description">Record sounds around you</p>
+                </div>
+            </div>
+            <div class="spinner-separator">+</div>
+            <div class="gambling-spinner">
+                <div class="spinner-item">
+                    <img src="../parts/humidity.png" class="spinner-item-image">
+                    <h1 class="spinner-item-name">Dank Detector</h1>
+                    <p class="spinner-item-description">Detect humidity in the air</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
