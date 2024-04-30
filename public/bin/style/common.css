@@ -5,19 +5,13 @@
 
 @font-face {
     font-family: "Phantom Sans";
-    src: url("./PhantomSans_Regular.otf");
+    src: url("./PhantomSans_Regular.woff");
 }
 
 @font-face {
     font-family: "Phantom Sans";
-    src: url("./PhantomSans_Bold.otf");
+    src: url("./PhantomSans_Bold.woff");
     font-weight: bold;
-}
-
-@font-face {
-    font-family: "Phantom Sans";
-    src: url("./PhantomSans_Italic.otf");
-    font-style: italic;
 }
 
 body {
