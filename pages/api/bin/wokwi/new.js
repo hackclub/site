@@ -29,11 +29,21 @@ const createProject = async (partsList=[]) => {
     name: "The Bin!",
     unlisted: false,
     files: [{
-      name: "help.txt",
-      content: `
-# Welcome to The Bin!
+      name: "help.md",
+      content: `# Welcome to The Bin! 🦝
 
-Build 
+Now that you've thrown some parts into The Bin, it's time to turn that trash into treasure! 🗑️➡️💎
+
+Wire up your parts and write some code to make them work together.
+
+If you'd like a tutorial, check out some sample projects:
+https://jams.hackclub.com/tags/the-bin
+
+You can get help by chatting with other high schoolers on the Hack Club Slack in the #electronics channel:
+👉 https://hackclub.com/slack 👈
+
+Once you're ready build your design IRL, click the "Share" button and submit your design:
+https://hackclub.com/bin/submit
     `
     },
     {
