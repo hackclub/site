@@ -185,6 +185,11 @@ const nextConfig = {
         source: '/daysofservice/',
         destination: 'https://daysofservice.hackclub.com',
         permanent: true
+      },
+      {
+        source: '/blot/',
+        destination: 'https://blot.hackclub.com',
+        permanent: false
       }
     ]
   },

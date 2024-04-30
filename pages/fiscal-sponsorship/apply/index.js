@@ -117,6 +117,33 @@ export default function Apply() {
             })
           }
         >
+          <Box
+            sx={{
+              borderLeft: '3px solid',
+              borderLeftColor: 'blue',
+              paddingLeft: 2,
+              color: 'blue',
+              fontSize: [1, 2],
+              textWrap: 'pretty',
+              lineHeight: 1.375
+            }}
+          >
+            <Text as="p" sx={{ fontSize: [2, 3], fontWeight: 'bold' }}>
+              Join our waitlist
+            </Text>
+            <Text as="p" sx={{ mt: 1, textWrap: 'balance' }}>
+              HCB has been experiencing some exciting growth and subsequent
+              capacity constraints. We are prioritizing organizations ran by Hack
+              Clubbers, teens, FIRST teams, as well as groups with an annual
+              budget greater than $50k. Please expect to hear back by May 1st,
+              2024.
+            </Text>
+            <Text as="p" sx={{ mt: 1, textWrap: 'balance' }}>
+              We currently do not work with new organizations outside of STEM,
+              Education, and Climate.
+            </Text>
+          </Box>
+
           <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
             Your organization
           </Heading>

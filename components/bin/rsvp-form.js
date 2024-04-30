@@ -40,7 +40,6 @@ export default function RsvpForm() {
               <Input
                 {...useField('address_line_1')}
                 placeholder="1 Hacker Way"
-                required
                 sx={{ border: '1px solid', borderColor: 'muted' }}
               />
             </Label>
@@ -49,7 +48,6 @@ export default function RsvpForm() {
               <Input
                 {...useField('address_zip')}
                 placeholder="01337"
-                required
                 sx={{ border: '1px solid', borderColor: 'muted' }}
               />
             </Label>
