@@ -23,7 +23,6 @@ export default function Apply() {
   const requiredFields = [
     'eventName',
     'eventLocation',
-    'eventPostalCode',
     'eventDescription',
     'firstName',
     'lastName',
