@@ -60,16 +60,15 @@ export default function Team({ team }) {
             >
               <Text
                 variant="headline"
-                my={[0, 0, 3]}
                 as="h3"
                 sx={{
                   textAlign: 'center',
-                  fontSize: 4,
+                  fontSize: 3,
                   writingMode: [null, null, null, 'vertical-rl'],
                   mr: [0, 0, 0, 2],
                   transform: [null, null, null, 'rotate(180deg)'],
                   width: ['100%', null, null, 'fit-content'],
-                  marginBottom: [
+                  my: [
                     '0px!important',
                     '0px!important',
                     '0px!important',
@@ -77,7 +76,7 @@ export default function Team({ team }) {
                   ]
                 }}
               >
-                Our Board
+                Board & Advisors
               </Text>
               <Box sx={{ flexGrow: 1 }}>
                 <Grid columns={[1, null, 2]} gap={2} mb={2}>
