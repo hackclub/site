@@ -41,7 +41,6 @@ export default async function handler(req, res) {
           'Address Line 1': data.addressLine1,
           City: data.addressCity,
           State: data.addressState,
-          'Zip Code': data.addressZip,
           'Address Country': data.addressCountry,
           'Address Country Code': data.addressCountryCode,
           'Event Location': data.eventLocation,
