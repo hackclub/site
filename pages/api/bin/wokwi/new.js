@@ -36,14 +36,14 @@ Now that you've thrown some parts into The Bin, it's time to turn that trash int
 
 Wire up your parts and write some code to make them work together.
 
-If you'd like a tutorial, check out some sample projects:
-https://jams.hackclub.com/tags/the-bin
+If you'd like a tutorial, check out this short explainer on making a blinking LED:
+https://github.com/hackclub/hackclub/pull/1860/files?short_path=0494126
 
 You can get help by chatting with other high schoolers on the Hack Club Slack in the #electronics channel:
 👉 https://hackclub.com/slack 👈
 
 Once you're ready build your design IRL, click the "Share" button and submit your design:
-https://hackclub.com/bin/submit
+https://forms.hackclub.com/t/adnj7zfgTyus
     `
     },
     {
