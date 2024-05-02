@@ -260,7 +260,7 @@ function rollParts() {
         let partTitle = element.childNodes[2].childNodes[1]
         let flavorText = element.childNodes[2].childNodes[2]
         let result = fetchedParts[randomThingy]
-        spinnerImage.src = (result.imageURL == "" || result.imageURL == undefined) ? "https://imgk.timesnownews.com/story/raccoon_GettyImages-914090712.jpg" : result.imageURL
+        spinnerImage.src = (result.imageURL == "" || result.imageURL == undefined) ? "https://awdev.codes/images/ww.gif" : result.imageURL
         partTitle.innerText = result.name;
         flavorText.innerText = result.flavorText;
         results[counter] = result.wokwiName
