@@ -56,13 +56,14 @@ export default function OrganizationInfoForm({ requiredFields }) {
       </Field>
       <Field
         name="eventPostalCode"
-        label={`${org} Postal Code`}
+        label={`ZIP code / postal code`}
         description="If your organization runs online, please put your own postal code."
         requiredFields={requiredFields}
       >
         <Input
           name="eventPostalCode"
           id="eventPostalCode"
+          placeholder="90069"
         />
       </Field>
       <Field
