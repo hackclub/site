@@ -7,21 +7,34 @@ const createProject = async (partsList=[]) => {
     tableName: 'Supported Parts'
   })
 
+  // adjust these to taste:
+  const PADDING = 30;
+  const MAX_WIDTH = 320; // big question mark on this one
+  const ROW_HEIGHT = 215; // close enough for jazz, keypad is too big for this but ¯\_(ツ)_/¯
+  
   const parts = [
     { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} }
   ]
-
+  let x = 88 + PADDING; // for already included Pico
+  let y = 0;
   await Promise.all(partsList.map(async (part) => {
     const airPart = await airtable.read({
       filterByFormula: `{Wokwi Name}= "${part}"`,
       maxRecords: 1
     })
     return airPart[0].fields['Wokwi Name'].split(',').forEach((name, i) => {
+      const width = airPart[0].fields['Wokwi X-Offset'];
+      if((x + width + PADDING) > MAX_WIDTH) {
+        x = 0;
+        y += ROW_HEIGHT;
+      }
       parts.push({
         type: name,
         id: name + '-' + i,
-        left: i * 100, // this is roughtly the width of most parts
+        left: x,
+        top: y
       })
+      x += width + PADDING;
     })
   }))
 
