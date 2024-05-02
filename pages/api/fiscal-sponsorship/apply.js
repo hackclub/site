@@ -34,6 +34,7 @@ export default async function handler(req, res) {
           'Date of Birth': data.userBirthday,
           'Event Name': data.eventName,
           'Event Website': data.eventWebsite,
+          'Event Postal Code': data.eventPostalCode,
           'Tell us about your event': data.eventDescription,
           'Mailing Address': data.userAddress,
           'Address Line 1': data.addressLine1,
