@@ -65,7 +65,7 @@ export default function Team({ team }) {
                   textAlign: 'center',
                   fontSize: 3,
                   writingMode: [null, null, null, 'vertical-rl'],
-                  mr: [0, 0, 0, 2],
+                  mr: [0, 0, 0, 1],
                   transform: [null, null, null, 'rotate(180deg)'],
                   width: ['100%', null, null, 'fit-content'],
                   my: [
