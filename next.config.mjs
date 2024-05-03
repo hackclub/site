@@ -212,6 +212,10 @@ const nextConfig = {
         destination: '/content/sponsorship/'
       },
       {
+        source: '/bin/beta',
+        destination: '/bin/landing-new/'
+      },
+      {
         source: '/covid19/',
         destination: '/content/covid19/'
       },
