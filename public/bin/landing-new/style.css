@@ -1,0 +1,338 @@
+.section {
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.flex-lb {
+    width: 100%;
+    display: block;
+    height: 0px;
+}
+
+.menu-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transform: rotate(0deg);
+    transition: 500ms transform;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    transform: rotate(90deg);
+}
+
+/*TODO: decide whether to remove this*/
+.huh {
+    position: absolute;
+    display: block;
+    width: 150px;
+    left: 50px;
+    bottom: -60px;
+}
+
+.landing-header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-logo {
+    display: block;
+    width: 100%;
+}
+
+.landing-tagline {
+    font-size: 35px;
+    display: block;
+    font-style: italic;
+    text-wrap: nowrap;
+}
+
+.scroll-prompt {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+}
+
+.landing-main-image {
+    margin-top: 30px;
+    display: block;
+    width: 65%;
+}
+
+#floaty,
+#floaty-left {
+    width: 300px;
+    position: absolute;
+}
+
+#floaty,
+.floaty {
+    animation: float 6s ease-in-out infinite;
+}
+
+#floaty-left,
+.float-left {
+    animation: float-left 6s ease-in-out infinite;
+}
+
+.gambling-section {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 75em;
+    margin: auto;
+}
+
+.gambling-header {
+    display: flex;
+    height: 200px;
+    gap: 40px;
+}
+
+.gambling-header-text {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.gambling-title {
+    font-size: 90px;
+}
+
+.gambling-subheader {
+    font-size: 45px;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.gambling-header-rummage {
+    display: block;
+    height: 100%;
+}
+
+.gambling-ui {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.gambling-spinner {
+    flex-basis: 20vw;
+    aspect-ratio: 1;
+    background-color: #ee9f9f;
+    border-radius: 30px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+
+.gambling-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    transform: translateY(0px);
+    /*animation: gamble 7000ms ease-in-out infinite;*/
+    /*animation: gamble 100ms ease-in-out;*/
+    animation-fill-mode: forwards;
+    height: 100%;
+}
+
+@keyframes gamble {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(calc(-100% + 292px));
+    }
+}
+
+@keyframes gamble-once {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(calc(-200px * 25));
+    }
+}
+
+.spinner-item {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spinner-item-image {
+    height: 67%;
+}
+
+.spinner-separator {
+    font-size: 100px;
+    font-weight: bolder;
+    margin: 20px;
+}
+
+.spinner-item-name {
+    font-size: 35px;
+    text-align: center;
+}
+
+.spinner-item-description {
+    font-size: 25px;
+    text-align: center;
+}
+
+.gambling-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    gap: 10px;
+}
+
+.gambling-controls button {
+    font-weight: bolder;
+    box-sizing: border-box;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    font-size: 40px;
+    border-radius: 30px;
+    height: min-content;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 30px;
+    align-items: center;
+}
+
+.gambling-controls button img {
+    height: 30px;
+}
+
+.gambling-roll {
+    background-color: #ee9f9f;
+    flex-grow: 1;
+    flex-basis: 100%;
+    margin-bottom: -10px;
+}
+
+.gambling-controls:first-child {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.gambling-select {
+    background-color: #7D96EC;
+}
+
+.gambling-build {
+    background-color: #9FEEB5;
+}
+
+.gambling-placeholder {
+    height: 80%;
+    width: 80%;
+    margin: auto;
+}
+
+@keyframes float {
+
+    from,
+    to {
+        transform: translate(0%, -47%) rotate(-2deg);
+    }
+
+    25% {
+        transform: translate(-2%, -50%) rotate(2deg);
+    }
+
+    50% {
+        transform: translate(0%, -53%) rotate(-1deg);
+    }
+
+    75% {
+        transform: translate(-1%, -50%) rotate(-1deg);
+    }
+}
+
+@keyframes float-left {
+
+    from,
+    to {
+        transform: translate(0%, -47%) rotate(-2deg);
+    }
+
+    25% {
+        transform: translate(-2%, -50%) rotate(2deg);
+    }
+
+    50% {
+        transform: translate(-0%, -53%) rotate(-1deg);
+    }
+
+    75% {
+        transform: translate(-1%, -50%) rotate(-1deg);
+    }
+}
+
+@media screen and (aspect-ratio: 4/3) {
+    .landing-header {
+        width: 50%;
+    }
+
+    #floaty,
+    #floaty-left {
+        width: 200px;
+    }
+
+    .gambling-title {
+        font-size: 100px;
+    }
+
+    .gambling-subheader {
+        font-size: 40px;
+    }
+
+    .spinner-separator {
+        font-size: 70px;
+    }
+
+    .spinner-item-name {
+        font-size: 25px;
+    }
+
+    .spinner-item-description {
+        font-size: 20px;
+    }
+}
