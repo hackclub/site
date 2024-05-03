@@ -268,7 +268,33 @@ function rollParts() {
     })
     console.log(results)
 }
+function generateBuildLink(selectedParts) {
+    const payload = {
+        parts: selectedParts
+    };
 
+    fetch('https://hackclub.com/api/bin/wokwi/new', {
+        mode: 'no-cors',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Response:', data);
+        })
+        .catch(error => {
+            console.error('There was a problem with your fetch operation:', error);
+        });
+
+}
 window.addEventListener("load", (e) => {
     fetchParts().then(parts => { fetchedParts = parts });
 })
