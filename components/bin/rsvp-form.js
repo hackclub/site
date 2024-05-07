@@ -5,7 +5,7 @@ import { Slide } from 'react-reveal'
 
 export default function RsvpForm() {
   const { status, formProps, useField } = useForm('/api/bin/rsvp', null, {
-    clearOnSubmit: 60000,
+    clearOnSubmit: 5000,
     method: 'POST',
     initData: {}
   })
