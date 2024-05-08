@@ -184,8 +184,9 @@ window.addEventListener("load", (e) => {
         })
         saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })
     });
+})
 
-    document.querySelector("#generate-project-idea").addEventListener("click", async (e) => {
+document.querySelector("#generate-project-idea").addEventListener("click", async (e) => {
         document.querySelector('#project-idea').innerText = "Thinking..."
         yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play();
         const res = await fetch('/api/bin/openai/', {
@@ -242,3 +243,28 @@ async function yap(text) {
     next_yap();
 }
 
+
+async function generateProjectIdea() {
+    document.querySelector('#project-idea').innerHTML = "<em>" + thinkingWords() + "..." + "</em>"
+    document.querySelector('#generate-project-idea').src = "https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/1thinking_rac.png"
+    const res = await fetch('/api/bin/openai/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ parts: selectedParts })
+    })
+    const json = await res.json()
+    document.querySelector('#project-idea').innerHTML = json.recommendation
+    document.querySelector('#generate-project-idea').src = "https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/0statement_rac.png"
+}
+
+function thinkingWords() {
+    const arr = [
+        "thinking",
+        "single neuron activated",
+        "thinking about trash",
+        "rummaging through my thoughts",
+        "wishing you a garbage day"]
+    return arr[Math.floor(Math.random() * arr.length)]
+}

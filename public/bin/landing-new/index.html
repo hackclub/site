@@ -74,12 +74,16 @@
             <h1>What are we building today?</h1>
             <textarea id="project-name" placeholder="I'm going to build a..."></textarea>
             <h2>💡 Need an idea? Click the raccoon!</h2>
+            <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
             <div style="display: flex;">
                 <div>
-                    <img src="../images/idea.png" style="margin: 0 auto; display: inline; max-width: 10em" id="generate-project-idea">
-                    <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
+                    <img src="../images/idea.png"
+                        class="hoverable"
+                    style="margin: 0 auto; display: inline; max-width: 10em; height: auto;"
+                    id="generate-project-idea"
+                    onclick="generateProjectIdea()">
                 </div>
-                <p id="project-idea">🗑️</p>
+                <p id="project-idea" class="thought">🗑️</p>
             </div>
         </div>
     </section>
