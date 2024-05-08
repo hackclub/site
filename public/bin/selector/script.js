@@ -40,6 +40,7 @@ function recalculateSelected() {
                 item.classList.add("disabled")
             }
         })
+        document.querySelector(".selector-number").classList.add("disabled")
     } else {
         items.forEach(item => {
             let isDisabled = item.className.includes("disabled")
@@ -47,6 +48,7 @@ function recalculateSelected() {
                 item.classList.remove("disabled")
             }
         })
+        document.querySelector(".selector-number").classList.remove("disabled")
     }
     getSelectedItems().forEach(item => {
         selections.push(item.getAttribute("part_name"))
@@ -68,7 +70,7 @@ function addPartToPage(part) {
     selectorItem.className = "selector-item"
 
     let selectorImage = document.createElement("img")
-    selectorImage.src = localStorage.getItem(part.wokwiName)
+    selectorImage.src = part.imageUrl
     selectorImage.className = "selector-image"
     selectorItem.appendChild(selectorImage)
 

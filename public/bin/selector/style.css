@@ -55,11 +55,12 @@
     gap: 5px;
     box-sizing: border-box;
     cursor: pointer;
+    filter: grayscale(0) brightness(1);
     transition: filter 300ms;
 }
 
 .selector-item.disabled {
-    filter: grayscale(1);
+    filter: grayscale(1) brightness(0.7);
 }
 
 .selector-item.selected {
@@ -84,10 +85,18 @@
 .selector-number {
     font-weight: bold;
     font-size: 30px;
-    position: absolute;
+    position: fixed;
     bottom: 30px;
     right: 50px;
-    padding: 10px;
+    padding: 10px 30px;
+    background-color: #867DEC;
+    border-radius: 50px;
+    filter: grayscale(0);
+    transition: filter 300ms;
+}
+
+.selector-number.disabled {
+    filter: grayscale(0.8);
 }
 
 .flex-lb {
