@@ -54,7 +54,7 @@ async function fetchParts() {
     data = removeItemByAttribute(data, "type", "Microprocessor");
     console.log(data)
     return data
-}
+}/*
 async function preloadImage(item) {
     let response = await fetch(item.imageUrl);
     let blob = response.blob();
@@ -64,7 +64,7 @@ async function saveImageToCache(item) {
     const image = await preloadImage(item)
     const blob = URL.createObjectURL(image)
     localStorage.setItem(item.wokwiName, blob);
-}
+}*/
 function removeItemByAttribute(arr, attr, value) {
     return arr.filter(item => item[attr] !== value);
 }
@@ -95,6 +95,9 @@ function addComponentsToPage(data) {
         let spinnerItem = document.createElement("div")
         spinnerItem.className = "spinner-item"
 
+        let spinnerInfo = document.createElement("div")
+        spinnerInfo.className = "spinner-info"
+
         let spinnerImage = document.createElement("img")
         spinnerImage.src = "https://imgk.timesnownews.com/story/raccoon_GettyImages-914090712.jpg"
         spinnerImage.className = "spinner-item-image"
@@ -108,8 +111,9 @@ function addComponentsToPage(data) {
         p.innerText = component.flavorText;
 
         spinnerItem.appendChild(spinnerImage);
-        spinnerItem.appendChild(h1);
-        spinnerItem.appendChild(p);
+        spinnerInfo.appendChild(h1);
+        spinnerInfo.appendChild(p);
+        spinnerItem.appendChild(spinnerInfo);
         element.appendChild(spinnerItem)
     })
 }
@@ -146,10 +150,10 @@ function rollParts() {
         let thisPart = chosenParts[key]
         //console.log(`Hydrating part ${key} with ${thisPart.name}`)
         let spinnerImage = element.childNodes[2].childNodes[0]
-        let partTitle = element.childNodes[2].childNodes[1]
-        let flavorText = element.childNodes[2].childNodes[2]
-        //spinnerImage.src = (thisPart.imageUrl == "" || thisPart.imageUrl == undefined) ? "https://awdev.codes/images/ww.gif" : thisPart.imageUrl
-        spinnerImage.src = (thisPart.imageUrl == "" || thisPart.imageUrl == undefined) ? localStorage.getItem("wokwi-pedro") : localStorage.getItem(thisPart.wokwiName)
+        let partTitle = element.childNodes[2].childNodes[1].childNodes[0]
+        let flavorText = element.childNodes[2].childNodes[1].childNodes[1]
+        spinnerImage.src = (thisPart.imageUrl == "" || thisPart.imageUrl == undefined) ? "https://awdev.codes/images/ww.gif" : thisPart.imageUrl
+        //spinnerImage.src = (thisPart.imageUrl == "" || thisPart.imageUrl == undefined) ? localStorage.getItem("wokwi-pedro") : localStorage.getItem(thisPart.wokwiName)
         partTitle.innerText = thisPart.name;
         flavorText.innerText = thisPart.flavorText;
         chosenPartNames.push(thisPart.wokwiName)
@@ -194,13 +198,13 @@ async function generateBuildLink(e) {
 window.addEventListener("load", (e) => {
     fetchParts().then(parts => {
         fetchedParts = parts;
-        fetchedParts.forEach(part => {
+        /*fetchedParts.forEach(part => {
             if (!(part.imageUrl == undefined)) {
                 console.log(part.wokwiName)
                 saveImageToCache(part);
             }
-        })
-        saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })
+        })*/
+        //saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })
     });
 })
 
