@@ -1,13 +1,11 @@
 .section {
-    height: 100vh;
+    height: fit-content;
     width: 100%;
     box-sizing: border-box;
 }
 
-.container {
-    margin: auto;
-    padding: 0 20px;
-    max-width: 52em;
+.landing-section {
+    height: 100vh;
 }
 
 .hoverable {
@@ -24,18 +22,6 @@
     height: 0px;
 }
 
-.menu-button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    transform: rotate(0deg);
-    transition: 500ms transform;
-    cursor: pointer;
-}
-
-.menu-button:hover {
-    transform: rotate(90deg);
-}
 
 /*TODO: decide whether to remove this*/
 .huh {
@@ -351,6 +337,52 @@
     }
 }
 
+/* CSS from https://codepen.io/quadbaup/details/rKOKQv */
+.thought {
+    display: flex;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 30px;
+    min-width: 40px;
+    max-width: 220px;
+    min-height: 40px;
+    margin: 20px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    /* text-align:center; */
+}
+
+.thought:before,
+.thought:after {
+    content: "";
+    background-color: #fff;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    z-index: -1;
+}
+
+.thought:before {
+    width: 44px;
+    height: 44px;
+    top: -12px;
+    left: 28px;
+    box-shadow: -50px 30px 0 -12px #fff;
+}
+
+.thought:after {
+    bottom: -10px;
+    right: 26px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 40px -34px 0 0 #fff,
+        -28px -6px 0 -2px #fff,
+        -24px 17px 0 -6px #fff,
+        -5px 25px 0 -10px #fff;
+
+}
+
 
 .disabled {
     cursor: not-allowed !important;
@@ -364,45 +396,23 @@
     cursor: pointer;
 }
 
-/* CSS from https://codepen.io/quadbaup/details/rKOKQv */
-.thought {
-    display:flex;
-    background-color:#fff;
-    padding:20px;
-    border-radius:30px;
-    min-width:40px;
-    max-width:220px;
-    min-height:40px;
-    margin:20px;
-    position:relative;
-    align-items:center;
-    justify-content:center;
-    /* text-align:center; */
-  }
-  .thought:before,
-  .thought:after {
-    content:"";
-    background-color:#fff;
-    border-radius:50%;
-    display:block;
-    position:absolute;
-    z-index:-1;
-  }
-  .thought:before {
-    width:44px;
-    height:44px;
-    top:-12px;
-    left:28px;
-    box-shadow:-50px 30px 0 -12px #fff;
-  }
-  .thought:after {
-    bottom:-10px;
-    right:26px;
-    width:30px;
-    height:30px;
-    box-shadow:40px -34px 0 0 #fff,
-               -28px -6px 0 -2px #fff,
-               -24px 17px 0 -6px #fff,
-               -5px 25px 0 -10px #fff;
-    
-  }
+#project-name {
+    resize: none;
+    width: 70%;
+    border: none;
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+}
+
+.project-idea-container {
+    margin: auto;
+    padding: 0 20px;
+    max-width: 52em;
+}
+
+.project-idea-container h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}

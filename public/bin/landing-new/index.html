@@ -12,11 +12,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://assets.hackclub.com/favicons/favicon-16x16.png">
     <script src="https://awdev.codes/utils/smoothScroll.js"></script>
     <script src="https://awdev.codes/utils/hackclub/orph.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.core.min.js" integrity="sha512-d00Brs/+XQUUaO0Y9Uo8Vw63o7kS6ZcLM2P++17kALrI8oihAfL4pl1jQObeRBgv06j7xG0GHOhudAW0BdrycA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.core.min.js"
+        integrity="sha512-d00Brs/+XQUUaO0Y9Uo8Vw63o7kS6ZcLM2P++17kALrI8oihAfL4pl1jQObeRBgv06j7xG0GHOhudAW0BdrycA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./script.js"></script>
 </head>
 
 <body>
+    <img src="https://awdev.codes/images/ww.gif" style="display:none;">
     <section class="landing-section section">
         <div class="landing-header">
             <img src="../icons/icon.svg" class="landing-logo">
@@ -31,7 +34,6 @@
             style="top: 30%; right:10%;animation-delay: -1500ms;"><!---animation-delay: -2s;-->
         <img src="../icons/scrolldown.svg" class="scroll-prompt" onclick="smoothScroll('.gambling-section')">
         <img src="../images/idea.png" class="huh floaty" style="animation-delay: -3000ms;">
-        <img src="../icons/menu.svg" class="menu-button">
     </section>
     <section class="gambling-section section">
         <div class="gambling-header">
@@ -70,18 +72,16 @@
         </div>
     </section>
     <section class="project-idea-section section">
-        <div class="container">
+        <div class="project-idea-container">
             <h1>What are we building today?</h1>
             <textarea id="project-name" placeholder="I'm going to build a..."></textarea>
-            <h2>💡 Need an idea? Click the raccoon!</h2>
+            <h1>💡 Need an idea? Click the raccoon!</h1>
             <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
             <div style="display: flex;">
                 <div>
-                    <img src="../images/idea.png"
-                        class="hoverable"
-                    style="margin: 0 auto; display: inline; max-width: 10em; height: auto;"
-                    id="generate-project-idea"
-                    onclick="generateProjectIdea()">
+                    <img src="../images/idea.png" class="hoverable"
+                        style="margin: 0 auto; display: inline; max-width: 10em; height: auto;"
+                        id="generate-project-idea" onclick="generateProjectIdea()">
                 </div>
                 <p id="project-idea" class="thought">🗑️</p>
             </div>

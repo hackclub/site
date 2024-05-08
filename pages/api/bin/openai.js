@@ -35,6 +35,6 @@ export default async function handler(req, res) {
 
   const recommendation = await generateProjectIdea(parts)
 
-  res.send({recommendation, parts})
+  res.send({ recommendation, parts })
 }
 

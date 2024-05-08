@@ -13,6 +13,7 @@ async function fetchParts() {
 function removeItemByAttribute(arr, attr, value) {
     return arr.filter(item => item[attr] !== value);
 }
+/*
 async function preloadImage(item) {
     let response = await fetch(item.imageUrl);
     let blob = response.blob();
@@ -23,13 +24,14 @@ async function saveImageToCache(item) {
     const blob = URL.createObjectURL(image)
     localStorage.setItem(item.wokwiName, blob);
     addPartToPage(item)
-}
+}*/
 function getSelectedItems() {
     return document.querySelectorAll(".selected")
 }
 function recalculateSelected() {
     let numSelectedItems = getSelectedItems().length
     let selections = []
+    items = document.querySelectorAll(".selector-item")
     items = document.querySelectorAll(".selector-item")
     document.querySelector(".selector-number").innerText = `${3 - numSelectedItems} choices remaining.`
     if (3 - numSelectedItems == 0) {
@@ -39,6 +41,7 @@ function recalculateSelected() {
                 item.classList.add("disabled")
             }
         })
+        document.querySelector(".selector-number").classList.add("disabled")
     } else {
         items.forEach(item => {
             let isDisabled = item.className.includes("disabled")
@@ -46,6 +49,7 @@ function recalculateSelected() {
                 item.classList.remove("disabled")
             }
         })
+        document.querySelector(".selector-number").classList.remove("disabled")
     }
     getSelectedItems().forEach(item => {
         selections.push(item.getAttribute("part_name"))
@@ -67,7 +71,7 @@ function addPartToPage(part) {
     selectorItem.className = "selector-item"
 
     let selectorImage = document.createElement("img")
-    selectorImage.src = localStorage.getItem(part.wokwiName)
+    selectorImage.src = part.imageUrl
     selectorImage.className = "selector-image"
     selectorItem.appendChild(selectorImage)
 
@@ -103,7 +107,8 @@ window.addEventListener("load", (e) => {
         fetchedParts.forEach(part => {
             if (!(part.imageUrl == undefined)) {
                 console.log(part.wokwiName)
-                saveImageToCache(part);
+                //saveImageToCache(part);
+                addPartToPage(part)
             }
         })
         //saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })

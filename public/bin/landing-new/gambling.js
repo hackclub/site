@@ -119,7 +119,7 @@ function rollParts() {
         document.querySelectorAll(".gambling-item-wrapper").forEach((element) => {
             element.removeChild(element.firstElementChild)
         })
-        addComponentsToPage(data)
+        addComponentsToPage(fetchedParts)
     }
     rolled = true
     document.querySelector(".gambling-build").classList.remove("disabled")
