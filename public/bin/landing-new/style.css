@@ -134,7 +134,7 @@
 .gambling-spinner {
     flex-basis: 20vw;
     aspect-ratio: 1;
-    background-color: #ee9f9f;
+    background-color: #c4c4c4;
     border-radius: 30px;
     padding: 20px;
     box-sizing: border-box;
@@ -258,6 +258,12 @@
 
 .gambling-build {
     background-color: #9FEEB5;
+    filter: saturate(1) brightness(1);
+    transition: filter 500ms;
+}
+
+.gambling-build.disabled {
+    filter: saturate(0.4) brightness(0.6);
 }
 
 .gambling-placeholder {
@@ -334,6 +340,103 @@
 
     .spinner-item-description {
         font-size: 20px;
+    }
+}
+
+@media only screen and (hover: none) and (pointer: coarse) {
+
+    #floaty,
+    #floaty-left,
+    .floaty {
+        display: none;
+    }
+
+    .landing-header {
+        width: 80%;
+    }
+
+    .landing-tagline {
+        font-size: 20px;
+    }
+
+
+    .gambling-header {
+        height: fit-content;
+    }
+
+    .gambling-header-text {
+        margin-bottom: 10px;
+    }
+
+    .gambling-header-rummage {
+        display: none;
+    }
+
+    .gambling-section {
+        padding: 30px;
+        gap: 10px;
+    }
+
+    .gambling-title {
+        font-size: 65px;
+    }
+
+    .gambling-subheader {
+        font-size: 25px;
+    }
+
+    .spinner-separator {
+        display: none;
+    }
+
+    .gambling-ui {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .gambling-spinner {
+        aspect-ratio: unset;
+        width: 100%;
+        flex-basis: 40vw;
+        padding: 10px;
+        /*background: conic-gradient(red 51.4deg, orange 102.8deg, yellow 154.2deg,
+                green 205.6deg, blue 257deg, purple 308.4deg, red 360deg);*/
+    }
+
+    .gambling-controls {
+        margin-top: 20px;
+    }
+
+    .gambling-controls button {
+        font-size: 35px;
+    }
+
+    .spinner-item {
+        flex-direction: row;
+        border-radius: 20px;
+        gap: 10px;
+    }
+
+    .spinner-item-name,
+    .spinner-item-description {
+        text-align: left;
+    }
+
+    .spinner-info {
+        text-overflow: ellipsis;
+        text-wrap: wrap;
+        flex-basis: 200px;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    .spinner-item-name {
+        font-size: 30px;
+    }
+
+    .spinner-item-image {
+        height: auto;
+        width: 100px;
     }
 }
 
