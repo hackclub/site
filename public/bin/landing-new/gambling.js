@@ -280,6 +280,14 @@ function thinkingWords() {
     const arr = [
         "thinking",
         "single neuron activated",
+        "2 braincells rubbing together",
+        "processing",
+        "calculating",
+        "pondering",
+        "contemplating",
+        "rackin' my brain",
+        "*raccoon rumination noises*",
+        "raccooninating",
         "thinking about trash",
         "rummaging through my thoughts",
         "wishing you a garbage day"]
