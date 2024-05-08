@@ -218,7 +218,6 @@ document.querySelector("#generate-project-idea").addEventListener("click", async
     document.querySelector('#project-idea').innerText = json.recommendation
     yap(json.recommendation)
 })
-})
 
 async function yap(text) {
     text = text.toLowerCase();
