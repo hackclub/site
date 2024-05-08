@@ -38,6 +38,6 @@ fetchAndLogTextFile('./ascii-art.txt');
 
 window.addEventListener("load", (e) => {
     document.querySelectorAll(".section").forEach(element => {
-        element.style.minHeight = window.innerHeight + "px"
+        element.style.minHeight = element.getBoundingClientRect().height + "px"
     })
 })
