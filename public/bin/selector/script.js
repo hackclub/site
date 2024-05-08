@@ -13,6 +13,7 @@ async function fetchParts() {
 function removeItemByAttribute(arr, attr, value) {
     return arr.filter(item => item[attr] !== value);
 }
+/*
 async function preloadImage(item) {
     let response = await fetch(item.imageUrl);
     let blob = response.blob();
@@ -23,7 +24,7 @@ async function saveImageToCache(item) {
     const blob = URL.createObjectURL(image)
     localStorage.setItem(item.wokwiName, blob);
     addPartToPage(item)
-}
+}*/
 function getSelectedItems() {
     return document.querySelectorAll(".selected")
 }
@@ -103,7 +104,8 @@ window.addEventListener("load", (e) => {
         fetchedParts.forEach(part => {
             if (!(part.imageUrl == undefined)) {
                 console.log(part.wokwiName)
-                saveImageToCache(part);
+                //saveImageToCache(part);
+                addPartToPage(part)
             }
         })
         //saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })

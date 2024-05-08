@@ -9,9 +9,9 @@ async function fetchParts() {
     data = await response.json();
 
     data = removeItemByAttribute(data, "type", "Microprocessor");
-    console.log(data)
     return data
 }
+/*
 async function preloadImage(item) {
     let response = await fetch(item.imageUrl);
     let blob = response.blob();
@@ -21,7 +21,7 @@ async function saveImageToCache(item) {
     const image = await preloadImage(item)
     const blob = URL.createObjectURL(image)
     localStorage.setItem(item.wokwiName, blob);
-}
+}*/
 function removeItemByAttribute(arr, attr, value) {
     return arr.filter(item => item[attr] !== value);
 }
@@ -76,7 +76,7 @@ function rollParts() {
         document.querySelectorAll(".gambling-item-wrapper").forEach((element) => {
             element.removeChild(element.firstElementChild)
         })
-        addComponentsToPage(data)
+        addComponentsToPage(fetchedParts)
     }
     rolled = true
     document.querySelector(".gambling-build").classList.remove("disabled")
@@ -87,8 +87,8 @@ function rollParts() {
         let partTitle = element.childNodes[2].childNodes[1]
         let flavorText = element.childNodes[2].childNodes[2]
         let result = fetchedParts[randomThingy]
-        //spinnerImage.src = (result.imageUrl == "" || result.imageUrl == undefined) ? "https://awdev.codes/images/ww.gif" : result.imageUrl
-        spinnerImage.src = (result.imageUrl == "" || result.imageUrl == undefined) ? localStorage.getItem("wokwi-pedro") : localStorage.getItem(result.wokwiName)
+        spinnerImage.src = (result.imageUrl == "" || result.imageUrl == undefined) ? "https://awdev.codes/images/ww.gif" : result.imageUrl
+        //spinnerImage.src = (result.imageUrl == "" || result.imageUrl == undefined) ? localStorage.getItem("wokwi-pedro") : localStorage.getItem(result.wokwiName)
         partTitle.innerText = result.name;
         flavorText.innerText = result.flavorText;
         results.push(result.wokwiName)
@@ -133,12 +133,13 @@ async function generateBuildLink(e) {
 window.addEventListener("load", (e) => {
     fetchParts().then(parts => {
         fetchedParts = parts;
-        fetchedParts.forEach(part => {
+
+        /*fetchedParts.forEach(part => {
             if (!(part.imageUrl == undefined)) {
                 console.log(part.wokwiName)
-                saveImageToCache(part);
+                //saveImageToCache(part);
             }
-        })
-        saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })
+        })*/
+        //saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })
     });
 })
