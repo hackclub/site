@@ -143,7 +143,7 @@ window.addEventListener("load", (e) => {
     });
 
     document.querySelector("#generate-project-idea").addEventListener("click", async (e) => {
-        document.querySelector('#project-idea').innerText = "Thinking..."
+        document.querySelector('#project-idea').innerText = thinkingWords() + "..."
         const res = await fetch('/api/bin/openai/', {
             method: 'POST',
             headers: {
@@ -155,3 +155,13 @@ window.addEventListener("load", (e) => {
         document.querySelector('#project-idea').innerText = json.recommendation
     })
 })
+
+function thinkingWords() {
+    const arr = [
+        "thinking",
+        "single neuron activated",
+        "quantum computing",
+        "thinking about trash",
+        "wishing you a garbage day"]
+    return arr[Math.floor(Math.random() * arr.length)]
+}
