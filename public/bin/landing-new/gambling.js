@@ -79,6 +79,7 @@ function rollParts() {
         addComponentsToPage(data)
     }
     rolled = true
+    document.querySelector(".gambling-build").classList.remove("disabled")
     let results = []
     document.querySelectorAll(".gambling-item-wrapper").forEach((element) => {
         let randomThingy = getRandomInt(fetchedParts.length - 1)
@@ -96,33 +97,38 @@ function rollParts() {
 }
 
 
-function generateBuildLink() {
+async function generateBuildLink(e) {
+    if (!rolled) {
+        return
+    }
+    e.classList.add("disabled")
+    e.classList.add("loading")
     const payload = {
         parts: selectedParts
     };
 
-    fetch('/api/bin/wokwi/new/', {
-        mode: 'cors',
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
+    try {
+        const response = await fetch('/api/bin/wokwi/new/', {
+            mode: 'cors',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
         })
-        .then(data => {
-            //console.log('Response:', data);
-            location.href = data.shareLink
-        })
-        .catch(error => {
-            console.error('There was a problem with your fetch operation:', error);
-        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const json = await response.json()
+        const shareLink = json.shareLink
 
+        // window.open(shareLink, '_blank').focus()
+    } catch (error) {
+        console.error('Error:', error)
+        // e.classList.add("error")
+    }
+    e.classList.remove("disabled")
+    e.classList.remove("loading")
 }
 window.addEventListener("load", (e) => {
     fetchParts().then(parts => {
