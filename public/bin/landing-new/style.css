@@ -22,18 +22,6 @@
     height: 0px;
 }
 
-.menu-button {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    transform: rotate(0deg);
-    transition: 500ms transform;
-    cursor: pointer;
-}
-
-.menu-button:hover {
-    transform: rotate(90deg);
-}
 
 /*TODO: decide whether to remove this*/
 .huh {
