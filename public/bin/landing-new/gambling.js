@@ -12,35 +12,35 @@ let yap_sounds = {
     ],
     talking: {
         // these sounds and most of the yapping code are adapted from https://github.com/equalo-official/animalese-generator
-        a: new Howl({ src: '/bin/yapping/a.wav' }),
-        b: new Howl({ src: '/bin/yapping/b.wav' }),
-        c: new Howl({ src: '/bin/yapping/c.wav' }),
-        d: new Howl({ src: '/bin/yapping/d.wav' }),
-        e: new Howl({ src: '/bin/yapping/e.wav' }),
-        f: new Howl({ src: '/bin/yapping/f.wav' }),
-        g: new Howl({ src: '/bin/yapping/g.wav' }),
-        h: new Howl({ src: '/bin/yapping/h.wav' }),
-        i: new Howl({ src: '/bin/yapping/i.wav' }),
-        j: new Howl({ src: '/bin/yapping/j.wav' }),
-        k: new Howl({ src: '/bin/yapping/k.wav' }),
-        l: new Howl({ src: '/bin/yapping/l.wav' }),
-        m: new Howl({ src: '/bin/yapping/m.wav' }),
-        n: new Howl({ src: '/bin/yapping/n.wav' }),
-        o: new Howl({ src: '/bin/yapping/o.wav' }),
-        p: new Howl({ src: '/bin/yapping/p.wav' }),
-        q: new Howl({ src: '/bin/yapping/q.wav' }),
-        r: new Howl({ src: '/bin/yapping/r.wav' }),
-        s: new Howl({ src: '/bin/yapping/s.wav' }),
-        t: new Howl({ src: '/bin/yapping/t.wav' }),
-        u: new Howl({ src: '/bin/yapping/u.wav' }),
-        v: new Howl({ src: '/bin/yapping/v.wav' }),
-        w: new Howl({ src: '/bin/yapping/w.wav' }),
-        x: new Howl({ src: '/bin/yapping/x.wav' }),
-        y: new Howl({ src: '/bin/yapping/y.wav' }),
-        z: new Howl({ src: '/bin/yapping/z.wav' }),
-        th: new Howl({ src: '/bin/yapping/th.wav' }),
-        sh: new Howl({ src: '/bin/yapping/sh.wav' }),
-        _: new Howl({ src: '/bin/yapping/_.wav' })
+        a: new Howl({ src: '/bin/yapping/a.wav', volume: 0.16 }),
+        b: new Howl({ src: '/bin/yapping/b.wav', volume: 0.16 }),
+        c: new Howl({ src: '/bin/yapping/c.wav', volume: 0.16 }),
+        d: new Howl({ src: '/bin/yapping/d.wav', volume: 0.16 }),
+        e: new Howl({ src: '/bin/yapping/e.wav', volume: 0.16 }),
+        f: new Howl({ src: '/bin/yapping/f.wav', volume: 0.16 }),
+        g: new Howl({ src: '/bin/yapping/g.wav', volume: 0.16 }),
+        h: new Howl({ src: '/bin/yapping/h.wav', volume: 0.16 }),
+        i: new Howl({ src: '/bin/yapping/i.wav', volume: 0.16 }),
+        j: new Howl({ src: '/bin/yapping/j.wav', volume: 0.16 }),
+        k: new Howl({ src: '/bin/yapping/k.wav', volume: 0.16 }),
+        l: new Howl({ src: '/bin/yapping/l.wav', volume: 0.16 }),
+        m: new Howl({ src: '/bin/yapping/m.wav', volume: 0.16 }),
+        n: new Howl({ src: '/bin/yapping/n.wav', volume: 0.16 }),
+        o: new Howl({ src: '/bin/yapping/o.wav', volume: 0.16 }),
+        p: new Howl({ src: '/bin/yapping/p.wav', volume: 0.16 }),
+        q: new Howl({ src: '/bin/yapping/q.wav', volume: 0.16 }),
+        r: new Howl({ src: '/bin/yapping/r.wav', volume: 0.16 }),
+        s: new Howl({ src: '/bin/yapping/s.wav', volume: 0.16 }),
+        t: new Howl({ src: '/bin/yapping/t.wav', volume: 0.16 }),
+        u: new Howl({ src: '/bin/yapping/u.wav', volume: 0.16 }),
+        v: new Howl({ src: '/bin/yapping/v.wav', volume: 0.16 }),
+        w: new Howl({ src: '/bin/yapping/w.wav', volume: 0.16 }),
+        x: new Howl({ src: '/bin/yapping/x.wav', volume: 0.16 }),
+        y: new Howl({ src: '/bin/yapping/y.wav', volume: 0.16 }),
+        z: new Howl({ src: '/bin/yapping/z.wav', volume: 0.16 }),
+        th: new Howl({ src: '/bin/yapping/th.wav', volume: 0.16  }),
+        sh: new Howl({ src: '/bin/yapping/sh.wav', volume: 0.16  }),
+        _: new Howl({ src: '/bin/yapping/_.wav', volume: 0.16  })
     }
 };
 
@@ -187,7 +187,7 @@ async function generateBuildLink(e) {
         const json = await response.json()
         const shareLink = json.shareLink
 
-        // window.open(shareLink, '_blank').focus()
+        window.open(shareLink, '_blank').focus()
     } catch (error) {
         console.error('Error:', error)
         // e.classList.add("error")
@@ -267,7 +267,7 @@ async function yap(text) {
 
 async function generateProjectIdea() {
     document.querySelector('#project-idea').innerHTML = "<em>" + thinkingWords() + "..." + "</em>"
-    document.querySelector('#generate-project-idea').src = "https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/1thinking_rac.png"
+    document.querySelector('#generate-project-idea').src = "https://cloud-80eg2m8id-hack-club-bot.vercel.app/0thinking_rac.png"
     const res = await fetch('/api/bin/openai/', {
         method: 'POST',
         headers: {
@@ -284,6 +284,14 @@ function thinkingWords() {
     const arr = [
         "thinking",
         "single neuron activated",
+        "2 braincells rubbing together",
+        "processing",
+        "calculating",
+        "pondering",
+        "contemplating",
+        "rackin' my brain",
+        "*raccoon rumination noises*",
+        "raccooninating",
         "thinking about trash",
         "rummaging through my thoughts",
         "wishing you a garbage day"]
