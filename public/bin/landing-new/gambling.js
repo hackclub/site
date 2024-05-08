@@ -183,7 +183,7 @@ async function generateBuildLink(e) {
         const json = await response.json()
         const shareLink = json.shareLink
 
-        // window.open(shareLink, '_blank').focus()
+        window.open(shareLink, '_blank').focus()
     } catch (error) {
         console.error('Error:', error)
         // e.classList.add("error")
