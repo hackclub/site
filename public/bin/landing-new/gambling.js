@@ -141,4 +141,17 @@ window.addEventListener("load", (e) => {
         })
         saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })
     });
+
+    document.querySelector("#generate-project-idea").addEventListener("click", async (e) => {
+        document.querySelector('#project-idea').innerText = "Thinking..."
+        const res = await fetch('/api/bin/openai/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ parts: selectedParts })
+        })
+        const json = await res.json()
+        document.querySelector('#project-idea').innerText = json.recommendation
+    })
 })

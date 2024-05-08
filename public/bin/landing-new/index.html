@@ -62,8 +62,24 @@
         <div class="gambling-controls">
             <button onclick="rollParts()" class="gambling-roll hoverable">Roll!</button>
             <span class="flex-lb"></span>
-            <button onclick="location.href='../selector/index.html'" class="gambling-select hoverable">Manual Selection</button>
-            <button onclick="generateBuildLink(this)" class="gambling-build hoverable disabled">Continue<img src="../icons/arrow.svg"></button>
+            <button onclick="location.href='../selector/index.html'" class="gambling-select hoverable">Manual
+                Selection</button>
+            <button onclick="generateBuildLink(this)" class="gambling-build hoverable disabled">Continue<img
+                    src="../icons/arrow.svg"></button>
+        </div>
+    </section>
+    <section class="project-idea-section section">
+        <div class="container">
+            <h1>What are we building today?</h1>
+            <textarea id="project-name" placeholder="I'm going to build a..."></textarea>
+            <h2>💡 Need an idea? Click the raccoon!</h2>
+            <div style="display: flex;">
+                <div>
+                    <img src="../images/idea.png" style="margin: 0 auto; display: inline; max-width: 10em" id="generate-project-idea">
+                    <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
+                </div>
+                <p id="project-idea">🗑️</p>
+            </div>
         </div>
     </section>
     <footer>
