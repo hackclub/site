@@ -80,20 +80,38 @@ function rollParts() {
     }
     rolled = true
     document.querySelector(".gambling-build").classList.remove("disabled")
-    let results = []
-    document.querySelectorAll(".gambling-item-wrapper").forEach((element) => {
-        let randomThingy = getRandomInt(fetchedParts.length - 1)
+    let chosenParts = []
+    const numPartsNeeded = document.querySelectorAll(".gambling-item-wrapper").length
+    // for the first one, pick an input component
+    const inputParts = fetchedParts.filter((part) => part.type == "Input");
+    const inputPartIndex = Math.floor(Math.random() * inputParts.length)
+    chosenParts.push(inputParts[inputPartIndex])
+    console.log(`For the input part, we picked ${inputParts[inputPartIndex].name}`)
+    // for the second one, pick an output component
+    const outputParts = fetchedParts.filter((part) => part.type == "Output");
+    const outputPartIndex = Math.floor(Math.random() * outputParts.length)
+    chosenParts.push(outputParts[outputPartIndex])
+    console.log(`For the output part, we picked ${outputParts[outputPartIndex].name}`)
+    // for the rest, pick any component
+    for (let i = 2; i < numPartsNeeded; i++) {
+        let partIndex = Math.floor(Math.random() * fetchedParts.length)
+        chosenParts.push(fetchedParts[partIndex])
+        console.log(`For the ${i}th part, we picked ${fetchedParts[partIndex].name}`)
+    }
+    let chosenPartNames = []
+    document.querySelectorAll(".gambling-item-wrapper").forEach((element, key) => {
+        let thisPart = chosenParts[key]
+        //console.log(`Hydrating part ${key} with ${thisPart.name}`)
         let spinnerImage = element.childNodes[2].childNodes[0]
         let partTitle = element.childNodes[2].childNodes[1]
         let flavorText = element.childNodes[2].childNodes[2]
-        let result = fetchedParts[randomThingy]
-        //spinnerImage.src = (result.imageUrl == "" || result.imageUrl == undefined) ? "https://awdev.codes/images/ww.gif" : result.imageUrl
-        spinnerImage.src = (result.imageUrl == "" || result.imageUrl == undefined) ? localStorage.getItem("wokwi-pedro") : localStorage.getItem(result.wokwiName)
-        partTitle.innerText = result.name;
-        flavorText.innerText = result.flavorText;
-        results.push(result.wokwiName)
+        //spinnerImage.src = (thisPart.imageUrl == "" || thisPart.imageUrl == undefined) ? "https://awdev.codes/images/ww.gif" : thisPart.imageUrl
+        spinnerImage.src = (thisPart.imageUrl == "" || thisPart.imageUrl == undefined) ? localStorage.getItem("wokwi-pedro") : localStorage.getItem(thisPart.wokwiName)
+        partTitle.innerText = thisPart.name;
+        flavorText.innerText = thisPart.flavorText;
+        chosenPartNames.push(thisPart.wokwiName)
     })
-    selectedParts = results
+    selectedParts = chosenPartNames
 }
 
 
