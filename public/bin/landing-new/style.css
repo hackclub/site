@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+.container {
+    margin: auto;
+    padding: 0 20px;
+    max-width: 52em;
+}
+
 .hoverable {
     transition: 500ms transform;
 }
@@ -352,4 +358,8 @@
 
 .loading {
     cursor: wait !important;
+}
+
+#generate-project-idea {
+    cursor: pointer;
 }
