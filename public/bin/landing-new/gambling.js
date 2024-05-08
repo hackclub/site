@@ -145,6 +145,7 @@ window.addEventListener("load", (e) => {
 
 async function generateProjectIdea() {
     document.querySelector('#project-idea').innerHTML = "<em>" + thinkingWords() + "..." + "</em>"
+    document.querySelector('#generate-project-idea').src = "https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/1thinking_rac.png"
     const res = await fetch('/api/bin/openai/', {
         method: 'POST',
         headers: {
@@ -154,6 +155,7 @@ async function generateProjectIdea() {
     })
     const json = await res.json()
     document.querySelector('#project-idea').innerHTML = json.recommendation
+    document.querySelector('#generate-project-idea').src = "https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/0statement_rac.png"
 }
 
 function thinkingWords() {
