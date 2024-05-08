@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+.container {
+    margin: auto;
+    padding: 0 20px;
+    max-width: 52em;
+}
+
+.hoverable {
+    transition: 500ms transform;
+}
+
+.hoverable:hover {
+    transform: scale(1.05);
+}
+
 .flex-lb {
     width: 100%;
     display: block;
@@ -335,4 +349,17 @@
     .spinner-item-description {
         font-size: 20px;
     }
+}
+
+
+.disabled {
+    cursor: not-allowed !important;
+}
+
+.loading {
+    cursor: wait !important;
+}
+
+#generate-project-idea {
+    cursor: pointer;
 }
