@@ -8,12 +8,6 @@
     height: 100vh;
 }
 
-.container {
-    margin: auto;
-    padding: 0 20px;
-    max-width: 52em;
-}
-
 .hoverable {
     transition: 500ms transform;
 }
@@ -366,4 +360,25 @@
 
 #generate-project-idea {
     cursor: pointer;
+}
+
+#project-name {
+    resize: none;
+    width: 70%;
+    border: none;
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+}
+
+.project-idea-container {
+    margin: auto;
+    padding: 0 20px;
+    max-width: 52em;
+}
+
+.project-idea-container h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
 }
