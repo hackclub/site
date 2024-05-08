@@ -10,7 +10,7 @@ const generateProjectIdea = async (parts) => {
   })
 
   prompt += `
-  The project should only involve household items like lamps. The project should only use sensors provided, and use those sensors for their intended use. For example, an accelerometer cannot be used to measure humidity or tilt.`
+  The project should only involve household items. The project should only use sensors provided, and use those sensors for their intended use. For example, an accelerometer cannot be used to measure humidity or tilt.`
 
   // expects OPENAI_API_KEY
   const openai = new OpenAI();
