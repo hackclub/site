@@ -82,8 +82,8 @@ const Page = () => (
   <>
     <Meta
       as={Head}
-      title="Clubs"
-      description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
+      title="Coding / Computer Science Clubs"
+      description="Hack Club is a global nonprofit network of high school makers & student-led computer science clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
       image="https://cloud-epiki4yvg.vercel.app/2020-09-09_drbp62kayjuyyy0ek89mf9fwcp5t4kuz.jpeg"
     />
     <Head>
@@ -164,7 +164,7 @@ const Page = () => (
             mb: [3, 4]
           }}
         >
-          Hack Club is a nonprofit network of high school coding&nbsp;clubs and
+          Hack Club is a nonprofit network of high school computer science&nbsp;clubs and
           makers around the world. <strong>Applications are now open.</strong>
         </Text>
         <Button
@@ -534,7 +534,7 @@ const Page = () => (
                 We're always building new tools for leaders, such as{' '}
                 <a href="https://sprig.hackclub.com">Sprig</a>! We've also got
                 free subscriptions to Figma Pro, Postman, and more for running a
-                great club.
+                great computer science club club.
               </>
             }
           />
@@ -551,7 +551,7 @@ const Page = () => (
           name="Existing clubs welcome"
           desc={
             <>
-              When established CS clubs join, they get all the Hack&nbsp;Club
+              When established Computer Science clubs join, they get all the Hack&nbsp;Club
               benefits: Zoom&nbsp;Pro, stickers, our Slack community,{' '}
               <a href="https://workshops.hackclub.com/">workshops</a>, the
               works. They’re welcome to use the “Hack&nbsp;Club” name or keep

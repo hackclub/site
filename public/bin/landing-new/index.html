@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://assets.hackclub.com/favicons/favicon-16x16.png">
     <script src="https://awdev.codes/utils/smoothScroll.js"></script>
     <script src="https://awdev.codes/utils/hackclub/orph.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.core.min.js"
+        integrity="sha512-d00Brs/+XQUUaO0Y9Uo8Vw63o7kS6ZcLM2P++17kALrI8oihAfL4pl1jQObeRBgv06j7xG0GHOhudAW0BdrycA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./script.js"></script>
 </head>
 
@@ -73,13 +76,14 @@
             <h1>What are we building today?</h1>
             <textarea id="project-name" placeholder="I'm going to build a..."></textarea>
             <h1>💡 Need an idea? Click the raccoon!</h1>
+            <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
             <div style="display: flex;">
                 <div>
-                    <img src="../images/idea.png" style="margin: 0 auto; display: inline; max-width: 10em"
-                        id="generate-project-idea">
-                    <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
+                    <img src="../images/idea.png" class="hoverable"
+                        style="margin: 0 auto; display: inline; max-width: 10em; height: auto;"
+                        id="generate-project-idea" onclick="generateProjectIdea()">
                 </div>
-                <p id="project-idea">🗑️</p>
+                <p id="project-idea" class="thought">🗑️</p>
             </div>
         </div>
     </section>

@@ -32,6 +32,7 @@ function recalculateSelected() {
     let numSelectedItems = getSelectedItems().length
     let selections = []
     items = document.querySelectorAll(".selector-item")
+    items = document.querySelectorAll(".selector-item")
     document.querySelector(".selector-number").innerText = `${3 - numSelectedItems} choices remaining.`
     if (3 - numSelectedItems == 0) {
         items.forEach(item => {
