@@ -205,19 +205,18 @@ window.addEventListener("load", (e) => {
 })
 
 document.querySelector("#generate-project-idea").addEventListener("click", async (e) => {
-        document.querySelector('#project-idea').innerText = "Thinking..."
-        yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play();
-        const res = await fetch('/api/bin/openai/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ parts: selectedParts })
-        })
-        const json = await res.json()
-        document.querySelector('#project-idea').innerText = json.recommendation
-        yap(json.recommendation)
+    document.querySelector('#project-idea').innerText = "Thinking..."
+    yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play();
+    const res = await fetch('/api/bin/openai/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ parts: selectedParts })
     })
+    const json = await res.json()
+    document.querySelector('#project-idea').innerText = json.recommendation
+    yap(json.recommendation)
 })
 
 async function yap(text) {
@@ -243,7 +242,7 @@ async function yap(text) {
         } catch (e) {
             // who cares. pick up a foot ball
         }
-        if (!char.match(/[a-zA-Z.]/)) { 
+        if (!char.match(/[a-zA-Z.]/)) {
             continue; // skip characters that are not letters or periods
         }
         yap_queue.push(yap_sounds.talking[char]);
