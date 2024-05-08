@@ -141,27 +141,27 @@ window.addEventListener("load", (e) => {
         })
         saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })
     });
-
-    document.querySelector("#generate-project-idea").addEventListener("click", async (e) => {
-        document.querySelector('#project-idea').innerText = thinkingWords() + "..."
-        const res = await fetch('/api/bin/openai/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ parts: selectedParts })
-        })
-        const json = await res.json()
-        document.querySelector('#project-idea').innerText = json.recommendation
-    })
 })
+
+async function generateProjectIdea() {
+    document.querySelector('#project-idea').innerHTML = "<em>" + thinkingWords() + "..." + "</em>"
+    const res = await fetch('/api/bin/openai/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ parts: selectedParts })
+    })
+    const json = await res.json()
+    document.querySelector('#project-idea').innerHTML = json.recommendation
+}
 
 function thinkingWords() {
     const arr = [
         "thinking",
         "single neuron activated",
-        "quantum computing",
         "thinking about trash",
+        "rummaging through my thoughts",
         "wishing you a garbage day"]
     return arr[Math.floor(Math.random() * arr.length)]
 }
