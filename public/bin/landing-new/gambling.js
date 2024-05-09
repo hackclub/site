@@ -44,17 +44,18 @@ let yap_sounds = {
     }
 };
 
-async function fetchParts() {
-    const response = await fetch('https://hackclub.com/api/bin/wokwi/parts/');
-    if (!response.ok) {
-        throw new Error('Network response was not ok.');
-    }
-    data = await response.json();
+// async function fetchParts() {
+//     const response = await fetch('https://hackclub.com/api/bin/wokwi/parts/');
+//     if (!response.ok) {
+//         throw new Error('Network response was not ok.');
+//     }
+//     data = await response.json();
 
-    data = removeItemByAttribute(data, "type", "Microprocessor");
-    console.log(data)
-    return data
-}/*
+//     data = removeItemByAttribute(data, "type", "Microprocessor");
+//     console.log(data)
+//     return data
+// }
+/*
 async function preloadImage(item) {
     let response = await fetch(item.imageUrl);
     let blob = response.blob();
@@ -118,7 +119,10 @@ function addComponentsToPage(data) {
     })
 }
 
-function rollParts() {
+function rollParts(el) {
+    if (el.classList.contains("disabled")) {
+        return
+    }
     if (!rolled) {
         document.querySelectorAll(".gambling-item-wrapper").forEach((element) => {
             element.removeChild(element.firstElementChild)
@@ -195,17 +199,9 @@ async function generateBuildLink(e) {
     e.classList.remove("disabled")
     e.classList.remove("loading")
 }
-window.addEventListener("load", (e) => {
-    fetchParts().then(parts => {
-        fetchedParts = parts;
-        /*fetchedParts.forEach(part => {
-            if (!(part.imageUrl == undefined)) {
-                console.log(part.wokwiName)
-                saveImageToCache(part);
-            }
-        })*/
-        //saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })
-    });
+window.addEventListener("load", async (e) => {
+    fetchedParts = await partsData()
+    document.querySelector(".gambling-roll").classList.remove("disabled")
 })
 
 async function yap(text) {

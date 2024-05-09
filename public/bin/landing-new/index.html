@@ -16,6 +16,7 @@
         integrity="sha512-d00Brs/+XQUUaO0Y9Uo8Vw63o7kS6ZcLM2P++17kALrI8oihAfL4pl1jQObeRBgv06j7xG0GHOhudAW0BdrycA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./script.js"></script>
+    <script src="./data-loading.js"></script>
 </head>
 
 <body>
@@ -63,7 +64,7 @@
             </div>
         </div>
         <div class="gambling-controls">
-            <button onclick="rollParts()" class="gambling-roll hoverable">Roll!</button>
+            <button onclick="rollParts(this)" class="gambling-roll hoverable disabled">Roll!</button>
             <span class="flex-lb"></span>
             <button onclick="location.href='../selector/index.html'" class="gambling-select hoverable">Manual
                 Selection</button>
