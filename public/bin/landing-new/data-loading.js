@@ -62,3 +62,6 @@ async function partsData() {
     }
     return await partsDataJob
 }
+
+// start loading data as soon as this file loads
+partsData()
