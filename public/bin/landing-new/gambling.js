@@ -208,21 +208,6 @@ window.addEventListener("load", (e) => {
     });
 })
 
-document.querySelector("#generate-project-idea").addEventListener("click", async (e) => {
-    document.querySelector('#project-idea').innerText = "Thinking..."
-    yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play();
-    const res = await fetch('/api/bin/openai/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ parts: selectedParts })
-    })
-    const json = await res.json()
-    document.querySelector('#project-idea').innerText = json.recommendation
-    yap(json.recommendation)
-})
-
 async function yap(text) {
     text = text.toLowerCase();
     const yap_queue = [];
@@ -266,6 +251,10 @@ async function yap(text) {
 
 
 async function generateProjectIdea() {
+    if (document.querySelector('#generate-project-idea').classList.contains('disabled')) { return }
+
+    yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play();
+    document.querySelector('#generate-project-idea').classList.add('disabled')
     document.querySelector('#project-idea').innerHTML = "<em>" + thinkingWords() + "..." + "</em>"
     document.querySelector('#generate-project-idea').src = "https://cloud-80eg2m8id-hack-club-bot.vercel.app/0thinking_rac.png"
     const res = await fetch('/api/bin/openai/', {
@@ -278,6 +267,8 @@ async function generateProjectIdea() {
     const json = await res.json()
     document.querySelector('#project-idea').innerHTML = json.recommendation
     document.querySelector('#generate-project-idea').src = "https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/0statement_rac.png"
+    document.querySelector('#generate-project-idea').classList.remove('disabled')
+    yap(json.recommendation)
 }
 
 function thinkingWords() {
