@@ -57,14 +57,14 @@
                         for some inspiration!</p>
                 </div>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item hoverable">
                 <em class="muted">over 3-4 days...</em>
                 <h2>Design your project</h2>
                 <p>Build a project in the online editor and program it! Get support from <a
                         href="https://hackclub.com/slack" target="_blank">other high schoolers in an online
                         community</a>.</p>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item hoverable">
                 <em class="muted">in 1 week...</em>
                 <h2>Get it IRL</h2>
                 <p><a href="https://hack.club/bin-submit" target="_blank">Submit your design to the gallery</a> of
@@ -80,6 +80,7 @@
             </div>
             <img src="./rummaging.png" class="gambling-header-rummage">
         </div>
+        <button onclick="rollParts(this)" class="gambling-roll hoverable disabled">Roll!</button>
         <div class="gambling-ui">
             <div class="gambling-spinner">
                 <div class="gambling-item-wrapper">
@@ -100,7 +101,6 @@
             </div>
         </div>
         <div class="gambling-controls">
-            <button onclick="rollParts(this)" class="gambling-roll hoverable disabled">Roll!</button>
             <span class="flex-lb"></span>
             <button onclick="location.href='../selector/index.html'" class="gambling-select hoverable">Manual
                 Selection</button>
