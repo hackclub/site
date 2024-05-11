@@ -29,7 +29,7 @@ export default function HCBInfo() {
       </Heading>
       <ul>
         <li>Nonprofit status.</li>
-        <li>Tax-deductable donations.</li>
+        <li>Tax-deductible donations.</li>
       </ul>
       <Heading variant="subheadline">
         HCB provides a financial platform.
