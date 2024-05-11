@@ -292,6 +292,8 @@ button {
     background-color: #9FEEB5;
     filter: saturate(1) brightness(1);
     transition: filter 500ms;
+    display: flex;
+    gap: 20px;
 }
 
 .gambling-build.disabled {
@@ -324,14 +326,14 @@ button {
 
 .project-idea-container {
     margin: auto;
-    padding: 0 20px;
-    max-width: 52em;
+    padding: 50px;
     width: inherit;
     box-sizing: border-box;
 }
 
 .project-idea-container h1 {
-    font-size: 40px;
+    font-size: 50px;
+    margin-bottom: 10px;
 }
 
 .project-idea-images {
@@ -647,15 +649,14 @@ button {
     border-radius: 30px;
 }
 
-.project-idea-container {
-    margin: auto;
-    padding: 0 20px;
-    max-width: 52em;
+
+
+.faq-section {
+    padding: 50px;
 }
 
-.project-idea-container h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
+.faq-section h1 {
+    font-size: 50px;
 }
 
 .faq-grid {
@@ -668,10 +669,14 @@ button {
 
 .faq-item {
     padding: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #EEEDED;
     backdrop-filter: blur(10px);
+    filter: saturate(0.9);
+}
+
+.faq-item a {
+    color: black;
 }
 
 .faq-item p {
@@ -696,6 +701,8 @@ button {
     gap: 20px;
     width: 80%;
 }
+
+
 
 @media only screen and (max-width: 52em) {
     .timeline-list {
