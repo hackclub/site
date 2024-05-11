@@ -696,9 +696,10 @@ button {
 .timeline-list {
     margin: 2em auto;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 300px;
+    grid-template-rows: 200px;
     display: grid;
     gap: 20px;
+    width: 80%;
 }
 
 @media only screen and (max-width: 52em) {
@@ -710,14 +711,33 @@ button {
 
 .timeline-item {
     padding: 10px;
-    background-color: red;
+    background-color: black;
     border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.timeline-item.now {
+    background: linear-gradient(to bottom right, #63CE61, #ADEA00);
+}
+
+.timeline-item.later {
+    background: linear-gradient(to bottom right, #7A97FC, #7AEDFC);
+}
+
+.timeline-item.oneweek {
+    background: linear-gradient(to bottom right, #FC7A7A, #FCA97A);
 }
 
 .timeline-info {
     background-color: #EEEDED;
     height: 100%;
     border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.timeline-info a {
+    color: black;
 }
 
 .muted {

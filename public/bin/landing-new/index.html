@@ -40,7 +40,7 @@
 
         <img src="../images/idea.png" class="huh floaty" style="animation-delay: -3000ms;">
     </section>
-    <section class="section container timeline">
+    <section class="section container timeline" style="max-width:71em;">
         <!-- timeline of project -->
         <h1 class="timeline-header">
             What will you make
@@ -48,7 +48,8 @@
             <em>before summer break?</em>
         </h1>
         <div class="timeline-list">
-            <div class="timeline-item" onclick="smoothScroll('.gambling-section')" style="cursor: pointer;">
+            <div class="timeline-item hoverable now" onclick="smoothScroll('.gambling-section')"
+                style="cursor: pointer;">
                 <div class="timeline-info">
                     <em class="muted">Right now...</em>
                     <h2>Rummage for parts</h2>
@@ -57,18 +58,22 @@
                         for some inspiration!</p>
                 </div>
             </div>
-            <div class="timeline-item hoverable">
-                <em class="muted">over 3-4 days...</em>
-                <h2>Design your project</h2>
-                <p>Build a project in the online editor and program it! Get support from <a
-                        href="https://hackclub.com/slack" target="_blank">other high schoolers in an online
-                        community</a>.</p>
+            <div class="timeline-item hoverable later">
+                <div class="timeline-info">
+                    <em class="muted">over 3-4 days...</em>
+                    <h2>Design your project</h2>
+                    <p>Build a project in the online editor and program it! Get support from <a
+                            href="https://hackclub.com/slack" target="_blank">other high schoolers in an online
+                            community</a>.</p>
+                </div>
             </div>
-            <div class="timeline-item hoverable">
-                <em class="muted">in 1 week...</em>
-                <h2>Get it IRL</h2>
-                <p><a href="https://hack.club/bin-submit" target="_blank">Submit your design to the gallery</a> of
-                    projects so other high schoolers can learn from your project.</p>
+            <div class="timeline-item hoverable oneweek">
+                <div class="timeline-info">
+                    <em class="muted">in 1 week...</em>
+                    <h2>Get it IRL</h2>
+                    <p><a href="https://hack.club/bin-submit" target="_blank">Submit your design to the gallery</a> of
+                        projects so other high schoolers can learn from your project.</p>
+                </div>
             </div>
         </div>
     </section>
