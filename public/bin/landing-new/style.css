@@ -91,7 +91,7 @@
 
 #floaty,
 #floaty-left {
-    width: 300px;
+    width: 17vw;
     position: absolute;
 }
 
@@ -725,7 +725,6 @@ button {
     }
 
     .project-idea-section {
-        height: 100vh;
         padding-top: 20px;
     }
 
@@ -734,9 +733,19 @@ button {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        padding: 30px;
         padding-top: 20px;
         padding-bottom: 10px;
         box-sizing: border-box;
+        align-items: center;
+    }
+
+    .project-idea-buttons {
+        gap: 10px;
+    }
+
+    .project-idea-buttons button {
+        width: 100%;
     }
 
     .project-idea-title {
@@ -776,6 +785,11 @@ button {
 
     .faq-section {
         padding: 30px;
+    }
+
+
+    .hideonmobile {
+        display: none;
     }
 }
 
