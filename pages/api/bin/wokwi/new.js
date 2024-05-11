@@ -1,6 +1,6 @@
 import AirtablePlus from "airtable-plus"
 
-const findOrCreateProject = async (partsList=[]) => {
+const findOrCreateProject = async (partsList = []) => {
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
     baseID: 'appKjALSnOoA0EmPk',
@@ -10,8 +10,8 @@ const findOrCreateProject = async (partsList=[]) => {
   const cacheName = partsList.sort().join(',')
 
   const existingProject = await airtable.read({
-      filterByFormula: `{Name}="${cacheName}"`,
-      maxRecords: 1
+    filterByFormula: `{Name}="${cacheName}"`,
+    maxRecords: 1
   })
 
   if (existingProject.length > 0) {
@@ -30,7 +30,7 @@ const findOrCreateProject = async (partsList=[]) => {
   }
 }
 
-const createProject = async (partsList=[]) => {
+const createProject = async (partsList = []) => {
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
     baseID: 'appKjALSnOoA0EmPk',
@@ -41,7 +41,7 @@ const createProject = async (partsList=[]) => {
   const PADDING = 30;
   const MAX_WIDTH = 320; // big question mark on this one
   const ROW_HEIGHT = 215; // close enough for jazz, keypad is too big for this but ¯\_(ツ)_/¯
-  
+
   const parts = [
     { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} }
   ]
@@ -54,7 +54,7 @@ const createProject = async (partsList=[]) => {
     })
     return airPart[0].fields['Wokwi Name'].split(',').forEach((name, i) => {
       const width = airPart[0].fields['Wokwi X-Offset'];
-      if((x + width + PADDING) > MAX_WIDTH) {
+      if ((x + width + PADDING) > MAX_WIDTH) {
         x = 0;
         y += ROW_HEIGHT;
       }
