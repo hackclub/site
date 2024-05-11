@@ -665,6 +665,10 @@
     backdrop-filter: blur(10px);
 }
 
+.timeline-item h2 {
+    margin: 0.5em auto;
+}
+
 .muted {
     opacity: 0.5;
 }
