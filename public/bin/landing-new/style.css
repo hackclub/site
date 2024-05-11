@@ -64,10 +64,22 @@
 .scroll-prompt {
     cursor: pointer;
     position: absolute;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     left: 50%;
     bottom: 20px;
     transform: translateX(-50%);
+    background: linear-gradient(#63CE61, #ADEA00);
+    height: 50px;
+    width: 50px;
+    padding: 20px;
+    border-radius: 50%;
+    transition: transform 300ms;
+}
+
+.scroll-prompt:hover {
+    transform: translateX(-50%) scale(1.05);
 }
 
 .landing-main-image {
@@ -412,7 +424,11 @@
     }
 }
 
-@media only screen and (hover: none) and (pointer: coarse) {
+@media only screen and (max-width: 900px) {
+    * {
+        overflow-x: hidden;
+    }
+
     body {
         overflow-x: hidden;
     }
@@ -487,6 +503,7 @@
         flex-direction: row;
         border-radius: 20px;
         gap: 10px;
+        overflow: hidden;
     }
 
     .spinner-item-name,
@@ -540,6 +557,13 @@
 
     .project-idea-images {
         display: flex;
+    }
+}
+
+/*who is even using this*/
+@media only screen and (max-width: 300px) {
+    .spinner-item-image {
+        display: none;
     }
 }
 
@@ -643,10 +667,20 @@
     margin-top: 1em;
 }
 
+.timeline-header {
+    font-size: 70px;
+    width: fit-content;
+    margin: auto;
+}
+
+.timeline-header em {
+    font-weight: normal;
+}
+
 .timeline-list {
     margin: 2em auto;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 300px 300px;
+    grid-template-rows: 300px;
     display: grid;
     gap: 10px;
 }
@@ -661,11 +695,15 @@
 }
 
 .timeline-item {
-    padding: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 10px;
+    background-color: red;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+}
+
+.timeline-info {
+    background-color: #EEEDED;
+    height: 100%;
+    border-radius: 15px;
 }
 
 .muted {

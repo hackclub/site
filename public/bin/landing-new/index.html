@@ -34,27 +34,41 @@
             style="top: 80%; right:10%;animation-delay: -1000ms;"><!---animation-delay: -2s;-->
         <img id="floaty-left" src="../parts/laser.png"
             style="top: 30%; right:10%;animation-delay: -1500ms;"><!---animation-delay: -2s;-->
-        <img src="../icons/scrolldown.svg" class="scroll-prompt" onclick="smoothScroll('.timeline')">
+        <div class="scroll-prompt" onclick="smoothScroll('.timeline')">
+            <img src="../icons/scrolldown.svg">
+        </div>
+
         <img src="../images/idea.png" class="huh floaty" style="animation-delay: -3000ms;">
     </section>
     <section class="section container timeline">
         <!-- timeline of project -->
-        <h1>What will you make<br/><em>before summer break?</em></h1>
+        <h1 class="timeline-header">
+            What will you make
+            <br>
+            <em>before summer break?</em>
+        </h1>
         <div class="timeline-list">
             <div class="timeline-item" onclick="smoothScroll('.gambling-section')" style="cursor: pointer;">
-                <em class="muted">Right now...</em>
-                <h2>Rummage for parts</h2>
-                <p>Dig up some parts from our part picker or choose your own! Don't have an idea yet? Ask the raccoon for some inspiration!</p>
+                <div class="timeline-info">
+                    <em class="muted">Right now...</em>
+                    <h2>Rummage for parts</h2>
+                    <p>Dig up some parts from our part picker or choose your own! Don't have an idea yet? Ask the
+                        raccoon
+                        for some inspiration!</p>
+                </div>
             </div>
             <div class="timeline-item">
                 <em class="muted">over 3-4 days...</em>
                 <h2>Design your project</h2>
-                <p>Build a project in the online editor and program it! Get support from <a href="https://hackclub.com/slack" target="_blank">other high schoolers in an online community</a>.</p>
+                <p>Build a project in the online editor and program it! Get support from <a
+                        href="https://hackclub.com/slack" target="_blank">other high schoolers in an online
+                        community</a>.</p>
             </div>
             <div class="timeline-item">
                 <em class="muted">in 1 week...</em>
                 <h2>Get it IRL</h2>
-                <p><a href="https://hack.club/bin-submit" target="_blank">Submit your design to the gallery</a> of projects so other high schoolers can learn from your project.</p>
+                <p><a href="https://hack.club/bin-submit" target="_blank">Submit your design to the gallery</a> of
+                    projects so other high schoolers can learn from your project.</p>
             </div>
         </div>
     </section>
@@ -124,27 +138,35 @@
         <div class="faq-grid">
             <div class="faq-item">
                 <h3>How many projects can I build?</h3>
-                <p>You can submit as many projects as you want! For second submissions, we’ll ship the parts you don’t have– for example, your first project will get a pico included and subsequent projects won’t ship with it.</p>
+                <p>You can submit as many projects as you want! For second submissions, we’ll ship the parts you don’t
+                    have– for example, your first project will get a pico included and subsequent projects won’t ship
+                    with it.</p>
             </div>
             <div class="faq-item">
                 <h3>How much does it cost?</h3>
-                <p>100% free– we’ll also give a breadboard and the jumper wires you need to build your project too! The whole program is funded by <a href="https://hcb.hackclub.com/donations/start/the-bin">donations to a non-profit</a>.</p>
+                <p>100% free– we’ll also give a breadboard and the jumper wires you need to build your project too! The
+                    whole program is funded by <a href="https://hcb.hackclub.com/donations/start/the-bin">donations to a
+                        non-profit</a>.</p>
             </div>
             <div class="faq-item">
                 <h3>Who is eligible?</h3>
-                <p>You need to be a high schooler (or younger) in the United States. Submissions need to be in by June 1st to qualify.</p>
+                <p>You need to be a high schooler (or younger) in the United States. Submissions need to be in by June
+                    1st to qualify.</p>
             </div>
             <div class="faq-item">
                 <h3>What do I need?</h3>
-                <p>Just a browser simulate & computer to upload your code to the pico– we’ll give you all the equipment you need for your circuit.</p>
+                <p>Just a browser simulate & computer to upload your code to the pico– we’ll give you all the equipment
+                    you need for your circuit.</p>
             </div>
             <div class="faq-item">
                 <h3>I need help!</h3>
-                <p>Get it in the #electronics channel of the <a href="https://hackclub.com/slack">Hack&nbsp;Club&nbsp;Slack</a>.</p>
+                <p>Get it in the #electronics channel of the <a
+                        href="https://hackclub.com/slack">Hack&nbsp;Club&nbsp;Slack</a>.</p>
             </div>
             <div class="faq-item">
                 <h3>What designs are allowed?</h3>
-                <p>Check out the <a href="">list of eligible parts</a>! Each design can have up to 8 modules, and need at least 1 module.</p>
+                <p>Check out the <a href="">list of eligible parts</a>! Each design can have up to 8 modules, and need
+                    at least 1 module.</p>
             </div>
         </div>
     </section>
