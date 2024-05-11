@@ -5,7 +5,7 @@
 }
 
 .container {
-    max-width: 52em;
+    max-width: 62em;
     margin: auto;
 }
 
@@ -441,10 +441,6 @@ button {
 }
 
 @media only screen and (max-width: 900px) {
-    * {
-        overflow-x: hidden;
-    }
-
     body {
         overflow-x: hidden;
     }
@@ -696,7 +692,7 @@ button {
 .timeline-list {
     margin: 2em auto;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 200px;
+    height: min-content;
     display: grid;
     gap: 20px;
     width: 80%;
@@ -714,6 +710,7 @@ button {
     background-color: black;
     border-radius: 20px;
     box-sizing: border-box;
+    height: 100%;
 }
 
 .timeline-item.now {
