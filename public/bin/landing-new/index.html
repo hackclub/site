@@ -73,9 +73,13 @@
     </section>
     <section class="project-idea-section section">
         <div class="project-idea-container">
-            <h1>What are we building today?</h1>
-            <textarea id="project-name" placeholder="I'm going to build a..."></textarea>
-            <h1>💡 Need an idea? Click the raccoon!</h1>
+            <h1 class="project-idea-title">What are we building today?</h1>
+            <div class="project-idea-images">
+                <img src="../parts/humidity.png">
+                <img src="../parts/humidity.png">
+                <img src="../parts/humidity.png">
+            </div>
+            <h1>Need an idea?<br>Tap the raccoon!</h1>
             <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
             <div style="display: flex;">
                 <div>
@@ -85,6 +89,11 @@
                 </div>
                 <p id="project-idea" class="thought">🗑️</p>
             </div>
+            <textarea id="project-name" placeholder="I'm going to build a..."></textarea>
+            <button id="project-idea-build" class="hoverable">
+                Let's build!
+                <img src="../icons/arrow.svg">
+            </button>
         </div>
     </section>
     <footer>

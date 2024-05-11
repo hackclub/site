@@ -272,6 +272,70 @@
     margin: auto;
 }
 
+#generate-project-idea {
+    cursor: pointer;
+}
+
+.project-idea-section {
+    margin-bottom: 30px;
+}
+
+#project-name {
+    resize: none;
+    width: 70%;
+    border: none;
+    padding: 20px;
+    font-size: 20px;
+    margin-bottom: 30px;
+    border-radius: 30px;
+}
+
+.project-idea-container {
+    margin: auto;
+    padding: 0 20px;
+    max-width: 52em;
+    width: inherit;
+    box-sizing: border-box;
+}
+
+.project-idea-container h1 {
+    font-size: 40px;
+}
+
+.project-idea-images {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 5px;
+    display: none;
+    height: 90px;
+}
+
+.project-idea-images img {
+    height: 100%;
+    width: auto;
+}
+
+#project-idea-build {
+    font-size: 30px;
+    font-weight: bolder;
+    border: none;
+    background-color: #9FEEB5;
+    padding: 10px 30px;
+    border-radius: 30px;
+    height: min-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#project-idea-build img {
+    height: 25px;
+}
+
 @keyframes float {
 
     from,
@@ -344,6 +408,9 @@
 }
 
 @media only screen and (hover: none) and (pointer: coarse) {
+    body {
+        overflow-x: hidden;
+    }
 
     #floaty,
     #floaty-left,
@@ -438,6 +505,37 @@
         height: auto;
         width: 100px;
     }
+
+    .project-idea-section {
+        height: 100vh;
+        padding-top: 20px;
+    }
+
+    .project-idea-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    .project-idea-title {
+        font-size: 48px !important;
+    }
+
+    #project-name {
+        margin: auto;
+        width: 90%;
+        display: block;
+        border-radius: 20px;
+        flex-grow: 1;
+    }
+
+    .project-idea-images {
+        display: flex;
+    }
 }
 
 /* CSS from https://codepen.io/quadbaup/details/rKOKQv */
@@ -493,29 +591,4 @@
 
 .loading {
     cursor: wait !important;
-}
-
-#generate-project-idea {
-    cursor: pointer;
-}
-
-#project-name {
-    resize: none;
-    width: 70%;
-    border: none;
-    padding: 20px;
-    font-size: 20px;
-    margin-bottom: 30px;
-    border-radius: 30px;
-}
-
-.project-idea-container {
-    margin: auto;
-    padding: 0 20px;
-    max-width: 52em;
-}
-
-.project-idea-container h1 {
-    font-size: 40px;
-    margin-bottom: 10px;
 }
