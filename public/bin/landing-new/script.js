@@ -33,11 +33,12 @@ async function fetchAndLogTextFile(url) {
         console.error('Error fetching the file:', error);
     }
 }
-
-fetchAndLogTextFile('./landing-new/ascii-art.txt');
-
-window.addEventListener("load", (e) => {
+function recalculateSectionHeight() {
     document.querySelectorAll(".section").forEach(element => {
         element.style.minHeight = element.getBoundingClientRect().height + "px"
     })
-})
+}
+fetchAndLogTextFile('./landing-new/ascii-art.txt');
+
+window.addEventListener("load", recalculateSectionHeight())
+window.addEventListener("resize", recalculateSectionHeight())
