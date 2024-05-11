@@ -48,7 +48,7 @@
             <em>before summer break?</em>
         </h1>
         <div class="timeline-list">
-            <div class="timeline-item hoverable now" onclick="smoothScroll('.gambling-section')"
+            <div class="timeline-item hoverable greenbutton" onclick="smoothScroll('.gambling-section')"
                 style="cursor: pointer;">
                 <div class="timeline-info">
                     <em class="muted">Right now...</em>
@@ -58,7 +58,7 @@
                         for some inspiration!</p>
                 </div>
             </div>
-            <div class="timeline-item hoverable later">
+            <div class="timeline-item hoverable bluebutton">
                 <div class="timeline-info">
                     <em class="muted">over 3-4 days...</em>
                     <h2>Design your project</h2>
@@ -67,7 +67,7 @@
                             community</a>.</p>
                 </div>
             </div>
-            <div class="timeline-item hoverable oneweek">
+            <div class="timeline-item hoverable redbutton">
                 <div class="timeline-info">
                     <em class="muted">in 1 week...</em>
                     <h2>Get it IRL</h2>
@@ -85,7 +85,7 @@
             </div>
             <img src="./landing-new/rummaging.png" class="gambling-header-rummage">
         </div>
-        <button onclick="rollParts(this)" class="gambling-roll hoverable disabled">Roll!</button>
+        <button onclick="rollParts(this)" class="gambling-roll hoverable disabled redbutton">Roll!</button>
         <div class="gambling-ui">
             <div class="gambling-spinner">
                 <div class="gambling-item-wrapper">
@@ -107,9 +107,9 @@
         </div>
         <div class="gambling-controls">
             <span class="flex-lb"></span>
-            <button onclick="location.href='./selector/'" class="gambling-select hoverable">Manual
+            <button onclick="location.href='./selector/'" class="gambling-select hoverable bluebutton">Manual
                 Selection</button>
-            <button onclick="generateBuildLink(this)" class="gambling-build hoverable disabled">Continue<img
+            <button onclick="generateBuildLink(this)" class="gambling-build hoverable disabled greenbutton">Continue<img
                     src="./icons/arrow.svg"></button>
         </div>
     </section>

@@ -218,12 +218,12 @@
 }
 
 .spinner-item-name {
-    font-size: 35px;
+    font-size: 1.5em;
     text-align: center;
 }
 
 .spinner-item-description {
-    font-size: 25px;
+    font-size: 1.2em;
     text-align: center;
 }
 
@@ -275,7 +275,6 @@ button {
 
 .gambling-roll {
     background-color: #ee9f9f;
-    background-image: linear-gradient(315deg, #FC7A7A 0%, #FCA97A 74%);
     display: inherit;
     margin: 0 auto;
 }
@@ -296,7 +295,7 @@ button {
 }
 
 .gambling-build.disabled {
-    filter: saturate(0.4) brightness(0.6);
+    filter: saturate(0.5) brightness(0.7);
 }
 
 .gambling-placeholder {
@@ -713,18 +712,6 @@ button {
     height: 100%;
 }
 
-.timeline-item.now {
-    background: linear-gradient(to bottom right, #63CE61, #ADEA00);
-}
-
-.timeline-item.later {
-    background: linear-gradient(to bottom right, #7A97FC, #7AEDFC);
-}
-
-.timeline-item.oneweek {
-    background: linear-gradient(to bottom right, #FC7A7A, #FCA97A);
-}
-
 .timeline-info {
     background-color: #EEEDED;
     height: 100%;
@@ -739,4 +726,17 @@ button {
 
 .muted {
     opacity: 0.5;
+}
+
+
+.greenbutton {
+    background: linear-gradient(to bottom right, #63CE61, #ADEA00);
+}
+
+.bluebutton {
+    background: linear-gradient(to bottom right, #7A97FC, #7AEDFC);
+}
+
+.redbutton {
+    background: linear-gradient(to bottom right, #FC7A7A, #FCA97A);
 }
