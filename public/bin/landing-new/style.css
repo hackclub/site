@@ -542,3 +542,31 @@
 .faq-item p {
     margin-top: 1em;
 }
+
+.timeline-list {
+    margin: 2em auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 300px 300px;
+    display: grid;
+    gap: 10px;
+}
+@media only screen and (max-width: 768px) {
+    .timeline-list {
+      /* display: grid; */
+      grid-template-columns: 1fr;
+      /* padding: 1em; */
+      /* grid-row-gap: 100px; */
+    }
+  }
+
+.timeline-item {
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 20px;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+}
+
+.muted {
+    opacity: 0.5;
+}
