@@ -49,20 +49,23 @@ Now that you've thrown some parts into The Bin, it's time to turn that trash int
 
 Wire up your parts and write some code to make them work together.
 
-If you'd like a tutorial, check out this short explainer on making a blinking LED:
+If you'd like a tutorial, check out this short explainer on making a blinking
+LED:
 https://github.com/hackclub/hackclub/pull/1860/files?short_path=0494126
 
-You can get help by chatting with other high schoolers on the Hack Club Slack in the #electronics channel:
+You can get help by chatting with other high schoolers on the Hack Club Slack in
+the #electronics channel:
 👉 https://hackclub.com/slack 👈
 
-Once you're ready build your design IRL, click the "Share" button and submit your design:
-https://forms.hackclub.com/t/adnj7zfgTyus
+Once you're ready build your design IRL, click the "Share" button and submit
+your design:
+https://hack.club/bin-submit
     `
     },
     {
       name: "sketch.ino",
       content: `// Now turn this trash into treasure!
-// Want some help? You can chat with us on the Hack Club Slack in the #electronics channel
+
 void setup() {
   // put your setup code here, to run once:
   Serial1.begin(115200);
