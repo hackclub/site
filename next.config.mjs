@@ -274,6 +274,14 @@ const nextConfig = {
       {
         source: '/how-to-organize-a-hackathon/style.css',
         destination: 'https://expandables.hackclub.dev/style.css'
+      },
+      {
+        source: '/bin/',
+        destination: '/bin/index.html'
+      },
+      {
+        source: '/bin/:path*',
+        destination: '/bin/:path*'
       }
     ]
   },
