@@ -145,7 +145,7 @@
 .gambling-ui {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 2em;
 }
@@ -728,7 +728,7 @@ button {
 .timeline-info {
     background-color: #EEEDED;
     height: 100%;
-    border-radius: 15px;
+    border-radius: 12px;
     padding: 20px;
     box-sizing: border-box;
 }
