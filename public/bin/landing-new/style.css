@@ -571,6 +571,25 @@ button {
     .project-idea-images {
         display: flex;
     }
+
+    .timeline {
+        padding: 30px;
+    }
+
+    .timeline-list {
+        padding: 0px !important;
+    }
+
+    .timeline-header {
+        font-size: 40px !important;
+        margin: 0 !important;
+    }
+
+    .timeline-subheader {
+        font-size: 30px !important;
+        margin: 0 !important;
+        margin-bottom: 20px !important;
+    }
 }
 
 /*who is even using this*/
@@ -689,17 +708,24 @@ button {
     margin: auto;
 }
 
-.timeline-header em {
+.timeline-subheader {
     font-weight: normal;
+    font-style: italic;
+    margin: auto;
+    width: fit-content;
+    font-size: 50px;
 }
 
 .timeline-list {
-    margin: 2em auto;
+    margin: auto;
     grid-template-columns: 1fr 1fr 1fr;
     height: min-content;
     display: grid;
     gap: 20px;
-    width: 80%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 50px;
+    max-width: 62em;
 }
 
 
@@ -707,7 +733,6 @@ button {
 @media only screen and (max-width: 52em) {
     .timeline-list {
         grid-template-columns: 1fr;
-        max-width: 36em;
     }
 }
 
