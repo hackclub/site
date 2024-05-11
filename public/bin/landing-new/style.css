@@ -647,15 +647,13 @@
     margin: 2em auto;
     grid-template-columns: 1fr 1fr 1fr;
     display: grid;
-    gap: 10px;
+    gap: 20px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 52em) {
     .timeline-list {
-        /* display: grid; */
         grid-template-columns: 1fr;
-        /* padding: 1em; */
-        /* grid-row-gap: 100px; */
+        max-width: 36em;
     }
 }
 
