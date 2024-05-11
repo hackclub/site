@@ -15,6 +15,7 @@
 
 .hoverable {
     transition: 500ms transform;
+    cursor: pointer;
 }
 
 .hoverable:hover {
