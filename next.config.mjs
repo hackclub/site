@@ -282,6 +282,10 @@ const nextConfig = {
       {
         source: '/bin/:path*',
         destination: '/bin/:path*'
+      },
+      {
+        source: '/bin/selector/',
+        destination: '/bin/selector/index.html'
       }
     ]
   },
