@@ -324,6 +324,22 @@ button {
     border-radius: 30px;
 }
 
+.project-idea-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 20px;
+    row-gap: 5px;
+}
+
+.gambling-build {
+    margin: auto !important;
+}
+
+.project-idea-buttons button {
+    margin: 0;
+}
+
 .project-idea-container {
     margin: auto;
     padding: 50px;
@@ -469,6 +485,10 @@ button {
 
 .faq-item p {
     margin-top: 1em;
+}
+
+.faq-item h1 {
+    font-size: 1.5em;
 }
 
 .timeline-header {
