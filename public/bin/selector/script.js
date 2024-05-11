@@ -101,17 +101,13 @@ function addPartToPage(part) {
     })
 }
 
-window.addEventListener("load", (e) => {
+window.addEventListener("load", async (e) => {
     recalculateSelected();
-    fetchParts().then(parts => {
-        fetchedParts = parts;
-        fetchedParts.forEach(part => {
-            if (!(part.imageUrl == undefined)) {
-                console.log(part.wokwiName)
-                //saveImageToCache(part);
-                addPartToPage(part)
-            }
-        })
-        //saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })
-    });
+    const fetchedParts = await partsData()
+    fetchedParts.forEach(part => {
+        if (!(part.imageUrl == undefined)) {
+            console.log(part.wokwiName)
+            addPartToPage(part)
+        }
+    })
 })
