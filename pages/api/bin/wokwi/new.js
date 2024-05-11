@@ -1,5 +1,35 @@
 import AirtablePlus from "airtable-plus"
 
+const findOrCreateProject = async (partsList=[]) => {
+  const airtable = new AirtablePlus({
+    apiKey: process.env.AIRTABLE_API_KEY,
+    baseID: 'appKjALSnOoA0EmPk',
+    tableName: 'Cached Projects'
+  })
+
+  const cacheName = partsList.sort().join(',')
+
+  const existingProject = await airtable.read({
+      filterByFormula: `{Name}="${cacheName}"`,
+      maxRecords: 1
+  })
+
+  if (existingProject.length > 0) {
+    return existingProject[0].fields['Share Link']
+  } else {
+    const shareLink = await createProject(partsList)
+    if (shareLink) {
+      await airtable.create({
+        "Name": cacheName,
+        "Share Link": shareLink
+      })
+      return shareLink
+    } else {
+      return null
+    }
+  }
+}
+
 const createProject = async (partsList=[]) => {
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
@@ -110,7 +140,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { parts } = req.body
 
-    const shareLink = await createProject(parts)
+    const shareLink = await findOrCreateProject(parts)
     if (shareLink) {
       res.status(200).json({ shareLink })
     } else {
