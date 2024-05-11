@@ -34,7 +34,7 @@ async function fetchAndLogTextFile(url) {
     }
 }
 
-fetchAndLogTextFile('./ascii-art.txt');
+fetchAndLogTextFile('./landing-new/ascii-art.txt');
 
 window.addEventListener("load", (e) => {
     document.querySelectorAll(".section").forEach(element => {

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Bin</title>
-    <link rel="stylesheet" href="../style/common.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="./style/common.css">
+    <link rel="stylesheet" href="./landing-new/style.css">
+    <link rel="stylesheet" href="./style/footer.css">
     <link rel="icon" type="image/png" sizes="32x32" href="https://assets.hackclub.com/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://assets.hackclub.com/favicons/favicon-16x16.png">
     <script src="https://awdev.codes/utils/smoothScroll.js"></script>
@@ -15,30 +15,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.core.min.js"
         integrity="sha512-d00Brs/+XQUUaO0Y9Uo8Vw63o7kS6ZcLM2P++17kALrI8oihAfL4pl1jQObeRBgv06j7xG0GHOhudAW0BdrycA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./script.js"></script>
-    <script src="../data-loading.js"></script>
+    <script src="./landing-new/script.js"></script>
+    <script src="./data-loading.js"></script>
 </head>
 
 <body>
     <img src="https://awdev.codes/images/ww.gif" style="display:none;">
     <section class="landing-section section">
         <div class="landing-header">
-            <img src="../icons/icon.svg" class="landing-logo">
+            <img src="./icons/icon.svg" class="landing-logo">
             <span class="landing-tagline">The beginner hardware kit designed just for you</span>
             <span class="landing-tagline">Free for high schoolers</span>
-            <img src="../parts/pico.png" class="landing-main-image">
+            <img src="./parts/pico.png" class="landing-main-image">
         </div>
-        <img id="floaty" src="../parts/relay.png" style="top: 20%; left: 7%;">
-        <img id="floaty" src="../parts/mic.png" style="top: 80%; left: 20%;animation-delay: -2500ms;">
-        <img id="floaty-left" src="../parts/humidity.png"
+        <img id="floaty" src="./parts/relay.png" style="top: 20%; left: 7%;">
+        <img id="floaty" src="./parts/mic.png" style="top: 80%; left: 20%;animation-delay: -2500ms;">
+        <img id="floaty-left" src="./parts/humidity.png"
             style="top: 80%; right:10%;animation-delay: -1000ms;"><!---animation-delay: -2s;-->
-        <img id="floaty-left" src="../parts/laser.png"
+        <img id="floaty-left" src="./parts/laser.png"
             style="top: 30%; right:10%;animation-delay: -1500ms;"><!---animation-delay: -2s;-->
         <div class="scroll-prompt" onclick="smoothScroll('.timeline')">
-            <img src="../icons/scrolldown.svg">
+            <img src="./icons/scrolldown.svg">
         </div>
 
-        <img src="../images/idea.png" class="huh floaty" style="animation-delay: -3000ms;">
+        <img src="./images/idea.png" class="huh floaty" style="animation-delay: -3000ms;">
     </section>
     <section class="section container timeline" style="max-width:71em;">
         <!-- timeline of project -->
@@ -83,49 +83,49 @@
                 <h1 class="gambling-title">Rummage!</h1>
                 <h2 class="gambling-subheader">Let's get you your parts!</h2>
             </div>
-            <img src="./rummaging.png" class="gambling-header-rummage">
+            <img src="./landing-new/rummaging.png" class="gambling-header-rummage">
         </div>
         <button onclick="rollParts(this)" class="gambling-roll hoverable disabled">Roll!</button>
         <div class="gambling-ui">
             <div class="gambling-spinner">
                 <div class="gambling-item-wrapper">
-                    <img class="gambling-placeholder" src="./qmark.svg">
+                    <img class="gambling-placeholder" src="./landing-new/qmark.svg">
                 </div>
             </div>
             <div class="spinner-separator">+</div>
             <div class="gambling-spinner">
                 <div class="gambling-item-wrapper">
-                    <img class="gambling-placeholder" src="./qmark.svg">
+                    <img class="gambling-placeholder" src="./landing-new/qmark.svg">
                 </div>
             </div>
             <div class="spinner-separator">+</div>
             <div class="gambling-spinner">
                 <div class="gambling-item-wrapper">
-                    <img class="gambling-placeholder" src="./qmark.svg">
+                    <img class="gambling-placeholder" src="./landing-new/qmark.svg">
                 </div>
             </div>
         </div>
         <div class="gambling-controls">
             <span class="flex-lb"></span>
-            <button onclick="location.href='../selector/index.html'" class="gambling-select hoverable">Manual
+            <button onclick="location.href='./selector/index.html'" class="gambling-select hoverable">Manual
                 Selection</button>
             <button onclick="generateBuildLink(this)" class="gambling-build hoverable disabled">Continue<img
-                    src="../icons/arrow.svg"></button>
+                    src="./icons/arrow.svg"></button>
         </div>
     </section>
     <section class="project-idea-section section">
         <div class="project-idea-container">
             <h1 class="project-idea-title">What are we building today?</h1>
             <div class="project-idea-images">
-                <img src="../parts/humidity.png">
-                <img src="../parts/humidity.png">
-                <img src="../parts/humidity.png">
+                <img src="./parts/humidity.png">
+                <img src="./parts/humidity.png">
+                <img src="./parts/humidity.png">
             </div>
             <h1>Need an idea?<br>Tap the raccoon!</h1>
             <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
             <div style="display: flex;">
                 <div>
-                    <img src="../images/idea.png" class="hoverable"
+                    <img src="./images/idea.png" class="hoverable"
                         style="margin: 0 auto; display: inline; max-width: 10em; height: auto;"
                         id="generate-project-idea" onclick="generateProjectIdea()">
                 </div>
@@ -134,7 +134,7 @@
             <textarea id="project-name" placeholder="I'm going to build a..."></textarea>
             <button id="project-idea-build" class="hoverable">
                 Let's build!
-                <img src="../icons/arrow.svg">
+                <img src="./icons/arrow.svg">
             </button>
         </div>
     </section>
@@ -346,7 +346,7 @@
             <p class="footer-cr-info">© 2024 Hack&nbsp;Club. 501(c)(3) nonprofit (EIN: 81-2908499)</p>
         </div>
     </footer>
-    <script src="./gambling.js"></script>
+    <script src="./landing-new/gambling.js"></script>
 </body>
 
 </html>
