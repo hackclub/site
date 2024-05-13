@@ -333,7 +333,7 @@ button {
 }
 
 .gambling-build {
-    margin: auto !important;
+    margin: auto;
 }
 
 .project-idea-buttons button {
@@ -803,5 +803,22 @@ button {
 @media only screen and (max-width: 52em) {
     .timeline-list {
         grid-template-columns: 1fr;
+    }
+}
+
+.talking {
+    animation: talking 1s infinite;
+}
+@keyframes talking {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
     }
 }

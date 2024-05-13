@@ -142,18 +142,29 @@
             <h1 class="project-idea-title">
                 What are you waiting for?
             </h1>
-            <div class="project-idea-buttons">
-                <button onclick="location.href='./selector/'" class="gambling-select bluebutton hoverable">
+            <!-- <div class="project-idea-buttons"> -->
+            <!-- <button onclick="location.href='./selector/'" class="gambling-select bluebutton hoverable">
                     Parts list
-                </button>
-                <button class="gambling-select hoverable redbutton">
+                </button> -->
+            <!-- <button class="gambling-select hoverable redbutton">
                     What can I make?
-                </button>
-                <span class="flex-lb hideonmobile"></span>
-                <button onclick="generateBuildLink(this)" class="gambling-build hoverable greenbutton disabled">
-                    Open the editor
-                    <img src="./icons/arrow_white.svg">
-                </button>
+                </button> -->
+            <!-- <span class="flex-lb hideonmobile"></span> -->
+            <button onclick="generateBuildLink(this)" class="gambling-build hoverable greenbutton disabled"
+                style="margin-top: 2em; margin-bottom: 2em">
+                Open the editor
+                <img src="./icons/arrow_white.svg">
+            </button>
+            <!-- </div> -->
+            <div class="hidden" style="text-align: center;">
+                <h3>Get started or click the raccoon for project ideas!</h3>
+                <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
+                <div style="justify-content: center; display: grid;">
+                    <p id="project-idea" class="thought">🗑️</p>
+                    <img src="./images/idea.png" class="hoverable"
+                        style="margin: 0 auto; display: inline; max-width: 10em; height: auto;"
+                        id="generate-project-idea" onclick="generateProjectIdea()">
+                </div>
             </div>
             <!-- <div class="project-idea-images">
                 <img src="./parts/humidity.png">
