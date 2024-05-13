@@ -1,3 +1,4 @@
+const partsLimit = 8
 var fetchedParts;
 async function fetchParts() {
     const response = await fetch('https://hackclub.com/api/bin/wokwi/parts/');
@@ -33,8 +34,8 @@ function recalculateSelected() {
     let selections = []
     items = document.querySelectorAll(".selector-item")
     items = document.querySelectorAll(".selector-item")
-    document.querySelector(".selector-number").innerText = `${3 - numSelectedItems} choices remaining.`
-    if (3 - numSelectedItems == 0) {
+    document.querySelector(".selector-number").innerText = `${partsLimit - numSelectedItems} choices remaining.`
+    if (partsLimit - numSelectedItems == 0) {
         items.forEach(item => {
             let isSelected = item.className.includes("selected")
             if (!isSelected) {
@@ -92,7 +93,7 @@ function addPartToPage(part) {
         if (isSelected) {
             selectorItem.classList.remove("selected")
         } else {
-            if (getSelectedItems().length < 3) {
+            if (getSelectedItems().length < partsLimit) {
                 selectorItem.classList.add("selected")
             }
         }
@@ -100,17 +101,13 @@ function addPartToPage(part) {
     })
 }
 
-window.addEventListener("load", (e) => {
+window.addEventListener("load", async (e) => {
     recalculateSelected();
-    fetchParts().then(parts => {
-        fetchedParts = parts;
-        fetchedParts.forEach(part => {
-            if (!(part.imageUrl == undefined)) {
-                console.log(part.wokwiName)
-                //saveImageToCache(part);
-                addPartToPage(part)
-            }
-        })
-        //saveImageToCache({ wokwiName: "wokwi-pedro", imageUrl: "https://awdev.codes/images/ww.gif" })
-    });
+    const fetchedParts = await partsData()
+    fetchedParts.forEach(part => {
+        if (!(part.imageUrl == undefined)) {
+            console.log(part.wokwiName)
+            addPartToPage(part)
+        }
+    })
 })

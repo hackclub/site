@@ -119,6 +119,10 @@ function addComponentsToPage(data) {
     })
 }
 
+function sample(arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
+}
+
 function rollParts(el) {
     if (el.classList.contains("disabled")) {
         return
@@ -128,27 +132,25 @@ function rollParts(el) {
             element.removeChild(element.firstElementChild)
         })
         addComponentsToPage(fetchedParts)
+        rolled = true
     }
-    rolled = true
     document.querySelector(".gambling-build").classList.remove("disabled")
     let chosenParts = []
-    const numPartsNeeded = document.querySelectorAll(".gambling-item-wrapper").length
     // for the first one, pick an input component
     const inputParts = fetchedParts.filter((part) => part.type == "Input");
-    const inputPartIndex = Math.floor(Math.random() * inputParts.length)
-    chosenParts.push(inputParts[inputPartIndex])
-    console.log(`For the input part, we picked ${inputParts[inputPartIndex].name}`)
+    const inputPart = sample(inputParts)
+    chosenParts.push(inputPart)
+    console.log(`For the input part, we picked ${inputPart.name}`)
     // for the second one, pick an output component
     const outputParts = fetchedParts.filter((part) => part.type == "Output");
-    const outputPartIndex = Math.floor(Math.random() * outputParts.length)
-    chosenParts.push(outputParts[outputPartIndex])
-    console.log(`For the output part, we picked ${outputParts[outputPartIndex].name}`)
+    const outputPart = sample(outputParts)
+    chosenParts.push(outputPart)
+    console.log(`For the output part, we picked ${outputPart.name}`)
     // for the rest, pick any component
-    for (let i = 2; i < numPartsNeeded; i++) {
-        let partIndex = Math.floor(Math.random() * fetchedParts.length)
-        chosenParts.push(fetchedParts[partIndex])
-        console.log(`For the ${i}th part, we picked ${fetchedParts[partIndex].name}`)
-    }
+    const unusedParts = fetchedParts.filter((part) => part.name != inputPart.name && part.name != outputPart.name)
+    const thirdPart = sample(unusedParts)
+    chosenParts.push(thirdPart)
+    console.log(`For the third part, we picked ${thirdPart.name}`)
     let chosenPartNames = []
     document.querySelectorAll(".gambling-item-wrapper").forEach((element, key) => {
         let thisPart = chosenParts[key]
