@@ -77,11 +77,11 @@ const createProject = async (partsList = []) => {
 
 Now that you've thrown some parts into The Bin, it's time to turn that trash into treasure! 🗑️➡️💎
 
-Wire up your parts and write some code to make them work together.
+Wire up your parts and write some code to make them work together. If you need
+help with a part, click the "?" above it.
 
-If you'd like a tutorial, check out this short explainer on making a blinking
-LED:
-https://github.com/hackclub/hackclub/pull/1860/files?short_path=0494126
+If you want to see examples, check here:
+https://hack.club/bin-example
 
 You can get help by chatting with other high schoolers on the Hack Club Slack in
 the #electronics channel:
