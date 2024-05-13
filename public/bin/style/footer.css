@@ -21,7 +21,7 @@ footer {
 }
 
 .footer-information a {
-    color: #338eda;
+    color: inherit;
 }
 
 .footer-information-header {
