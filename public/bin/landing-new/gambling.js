@@ -255,18 +255,24 @@ async function generateProjectIdea() {
     document.querySelector('#generate-project-idea').classList.add('disabled')
     document.querySelector('#project-idea').innerHTML = "<em>" + thinkingWords() + "..." + "</em>"
     document.querySelector('#generate-project-idea').src = "https://cloud-80eg2m8id-hack-club-bot.vercel.app/0thinking_rac.png"
-    const res = await fetch('/api/bin/openai/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ parts: selectedParts })
-    })
-    const json = await res.json()
-    document.querySelector('#project-idea').innerHTML = json.recommendation
+    let text = ""
+    if (selectedParts.length == 0) {
+        text = "You need to rummage for some parts first!"
+    } else {
+        const res = await fetch('/api/bin/openai/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ parts: selectedParts })
+        })
+        const json = await res.json()
+        text = json.recommendation
+    }
+    document.querySelector('#project-idea').innerHTML = text
     document.querySelector('#generate-project-idea').src = "https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/0statement_rac.png"
     document.querySelector('#generate-project-idea').classList.remove('disabled')
-    yap(json.recommendation)
+    yap(text)
 }
 
 function thinkingWords() {
