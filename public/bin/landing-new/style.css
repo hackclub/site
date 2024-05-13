@@ -822,3 +822,7 @@ button {
         transform: translateY(0px);
     }
 }
+
+.project-idea-title {
+    text-align: center;
+}
