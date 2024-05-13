@@ -23,7 +23,7 @@ const messageStarters = [
   "how about a",
   "you could make a",
   "as a raccoon, i'd build a",
-  "i live in the trash and i'd build a",
+  // "i live in the trash and i'd build a",
 ]
 
 const generateProjectIdea = async (parts) => {
