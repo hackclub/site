@@ -174,33 +174,17 @@ async function generateBuildLink(e) {
     }
     e.classList.add("disabled")
     e.classList.add("loading")
-    const payload = {
-        parts: selectedParts
-    };
 
-    try {
-        const response = await fetch('/api/bin/wokwi/new/', {
-            mode: 'cors',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const json = await response.json()
-        const shareLink = json.shareLink
+    const parts = encodeURI(selectedParts.join('|'))
+    const origin = window.location.origin
+    const url = new URL(`${origin}/api/bin/wokwi/new/${parts}`)
 
-        window.open(shareLink, '_blank').focus()
-    } catch (error) {
-        console.error('Error:', error)
-        // e.classList.add("error")
-    }
+    window.open(url, '_blank').focus()
+
     e.classList.remove("disabled")
     e.classList.remove("loading")
 }
+
 window.addEventListener("load", async (e) => {
     fetchedParts = await partsData()
     document.querySelector(".gambling-roll").classList.remove("disabled")

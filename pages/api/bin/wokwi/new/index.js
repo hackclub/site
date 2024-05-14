@@ -1,6 +1,6 @@
 import AirtablePlus from "airtable-plus"
 
-const findOrCreateProject = async (partsList = []) => {
+export const findOrCreateProject = async (partsList = []) => {
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
     baseID: 'appKjALSnOoA0EmPk',
