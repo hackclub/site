@@ -190,7 +190,7 @@ window.addEventListener("load", async (e) => {
     document.querySelector(".gambling-roll").classList.remove("disabled")
 })
 
-async function yap(text) {
+async function yap(text, letterCallback) {
     text = text.toLowerCase();
     const yap_queue = [];
     for (let i = 0; i < text.length; i++) {
@@ -203,28 +203,31 @@ async function yap(text) {
                 yap_queue.push(yap_sounds.talking['th']);
                 continue;
             } else if (char === 'h' && (text[i - 1] === 's' || text[i - 1] === 't')) { // test if previous letter was 's' or 't' and current letter is 'h'
+                yap_queue.push(yap_sounds.talking['_']);
                 continue;
             } else if (char === ',' || char === '?' || char === '.') {
                 yap_queue.push(yap_sounds.talking['_']);
                 continue;
             } else if (char === text[i - 1]) { // skip repeat letters
+                yap_queue.push(yap_sounds.talking['_']);
                 continue;
             }
         } catch (e) {
             // who cares. pick up a foot ball
         }
         if (!char.match(/[a-zA-Z.]/)) {
+            yap_queue.push(yap_sounds.talking['_']);
             continue; // skip characters that are not letters or periods
         }
         yap_queue.push(yap_sounds.talking[char]);
     }
 
     function next_yap() {
+        letterCallback(yap_queue.length)
         if (yap_queue.length === 0) return;
         let noise = yap_queue.shift();
         noise.rate(2 * (Math.random() * .50 + 1.9));
         noise.once('end', next_yap)
-        console.log(noise)
         noise.play();
     }
 
@@ -253,10 +256,12 @@ async function generateProjectIdea() {
         const json = await res.json()
         text = json.recommendation
     }
-    document.querySelector('#project-idea').innerHTML = text
+    document.querySelector('#project-idea').innerHTML = ""
     document.querySelector('#generate-project-idea').src = "https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/0statement_rac.png"
     document.querySelector('#generate-project-idea').classList.remove('disabled')
-    yap(text)
+    yap(text, i => {
+        document.querySelector('#project-idea').innerHTML = text.slice(0, Math.max(text.length - i + 1, 0))
+    })
 }
 
 function thinkingWords() {
