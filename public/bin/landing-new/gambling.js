@@ -186,7 +186,7 @@ async function generateBuildLink(e) {
 }
 
 window.addEventListener("load", async (e) => {
-    fetchedParts = await partsData()
+    fetchedParts = (await partsData()).filter(p => p.rollable)
     document.querySelector(".gambling-roll").classList.remove("disabled")
 })
 
