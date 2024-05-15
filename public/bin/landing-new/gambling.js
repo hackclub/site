@@ -123,18 +123,21 @@ function sample(arr) {
     return arr[Math.floor(Math.random() * arr.length)]
 }
 
-function rollParts(el) {
-    if (el.classList.contains("disabled")) {
-        return
+function rollPartsAnimation(ms = 1000) {
+    for (let i = 0; i < ms; i += 100) {
+        setTimeout(() => {
+            randomizeParts()
+        }, i)
     }
-    if (!rolled) {
-        document.querySelectorAll(".gambling-item-wrapper").forEach((element) => {
-            element.removeChild(element.firstElementChild)
-        })
-        addComponentsToPage(fetchedParts)
-        rolled = true
-    }
-    document.querySelector(".gambling-build").classList.remove("disabled")
+    setTimeout(() => {
+        randomizeParts()
+    }, ms + 200)
+    setTimeout(() => {
+        randomizeParts()
+    }, ms + 500)
+}
+
+function randomizeParts() {
     let chosenParts = []
     // for the first one, pick an input component
     const inputParts = fetchedParts.filter((part) => part.type == "Input");
@@ -165,6 +168,25 @@ function rollParts(el) {
         chosenPartNames.push(thisPart.wokwiName)
     })
     selectedParts = chosenPartNames
+}
+
+const rollSound = new Howl({ src: 'https://cloud-eclxkeatl-hack-club-bot.vercel.app/0mario-kart-item-box-sound-mp3cut_audio.mp4'})
+
+function rollParts(el) {
+    if (el.classList.contains("disabled")) {
+        return
+    }
+    if (!rolled) {
+        document.querySelectorAll(".gambling-item-wrapper").forEach((element) => {
+            element.removeChild(element.firstElementChild)
+        })
+        addComponentsToPage(fetchedParts)
+        rolled = true
+    }
+    document.querySelector(".gambling-build").classList.remove("disabled")
+    rollSound.play()
+    
+    rollPartsAnimation(1200)
 }
 
 
