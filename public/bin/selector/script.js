@@ -33,7 +33,6 @@ function recalculateSelected() {
     let numSelectedItems = getSelectedItems().length
     let selections = []
     items = document.querySelectorAll(".selector-item")
-    items = document.querySelectorAll(".selector-item")
     document.querySelector(".selector-number").innerText = `${partsLimit - numSelectedItems} choices remaining.`
     if (partsLimit - numSelectedItems == 0) {
         items.forEach(item => {
@@ -55,8 +54,7 @@ function recalculateSelected() {
     getSelectedItems().forEach(item => {
         selections.push(item.getAttribute("part_name"))
     })
-    console.log(selections)
-    return numSelectedItems
+    return selections
 }
 
 function addPartToPage(part) {
@@ -106,8 +104,17 @@ window.addEventListener("load", async (e) => {
     const fetchedParts = await partsData()
     fetchedParts.forEach(part => {
         if (!(part.imageUrl == undefined)) {
-            console.log(part.wokwiName)
             addPartToPage(part)
         }
     })
+
+    document.querySelector(".selector-continue").onclick = () => {
+        let selectedItems = getSelectedItems()
+        let selectedItemsArray = []
+        selectedItems.forEach(item => {
+            selectedItemsArray.push(item.getAttribute("part_name"))
+        })
+        const partsList = encodeURI(recalculateSelected().sort().join("|"))
+        window.location.href = `/api/bin/wokwi/new/${partsList}`
+    }
 })
