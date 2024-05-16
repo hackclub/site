@@ -15,6 +15,11 @@ const raccoonMemes = [
     "https://cloud-15w2altd8-hack-club-bot.vercel.app/7my-favorite-raccoon-memes-on-insta-v0-rnfh1ut4kpca1.jpg",
     "https://cloud-15w2altd8-hack-club-bot.vercel.app/6eed531fa624a62ad59ff6a3fdce9a3a7_945977333666952908.webp",
     "https://cloud-15w2altd8-hack-club-bot.vercel.app/57e6914854ab1b45f5c1c0ed49ae2165a.jpg",
+    "https://cloud-b8au5gtkn-hack-club-bot.vercel.app/0raccoon-nocturnaltrashposts-live-like-every-day-is-trash-day.jpg",
+    "https://cloud-b8au5gtkn-hack-club-bot.vercel.app/1raccoon-memes4.jpg",
+    "https://cloud-b8au5gtkn-hack-club-bot.vercel.app/2raccoon-memes-instagram-624ae8c78c21d__700.jpg",
+    "https://cloud-b8au5gtkn-hack-club-bot.vercel.app/371uzrob1zfl._ac_uf1000_1000_ql80_.jpg",
+    "https://cloud-b8au5gtkn-hack-club-bot.vercel.app/42629715d15647a5c70d2cbb9ec43b489.jpg",
 ]
 
 const getMeme = () => {
