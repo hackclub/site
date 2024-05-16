@@ -291,8 +291,6 @@ function thinkingWords() {
         "thinking",
         "single neuron activated",
         "2 braincells rubbing together",
-        "processing",
-        "calculating",
         "pondering",
         "contemplating",
         "rackin' my brain",
