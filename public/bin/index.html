@@ -150,20 +150,6 @@
             <h1 class="project-idea-title">
                 What are you waiting for?
             </h1>
-            <!-- <div class="project-idea-buttons"> -->
-            <!-- <button onclick="location.href='./selector/'" class="gambling-select bluebutton hoverable">
-                    Parts list
-                </button> -->
-            <!-- <button class="gambling-select hoverable redbutton">
-                    What can I make?
-                </button> -->
-            <!-- <span class="flex-lb hideonmobile"></span> -->
-            <button onclick="generateBuildLink(this)" class="gambling-build hoverable greenbutton disabled"
-                style="margin-top: 1em; margin-bottom: 1em">
-                Open the editor
-                <img src="./icons/arrow_white.svg">
-            </button>
-            <!-- </div> -->
             <div class="hidden" style="text-align: center;">
                 <h3>Get started or click the raccoon for project ideas!</h3>
                 <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
@@ -174,6 +160,17 @@
                         id="generate-project-idea" onclick="generateProjectIdea()">
                 </div>
             </div>
+            <div class="cta-container">
+                <button onclick="location.href='./selector/'" class="gambling-select hoverable bluebutton">Manual
+                    Selection
+                </button>
+                <button onclick="generateBuildLink(this)" class="gambling-build hoverable greenbutton disabled"
+                    style="margin-top: 1em; margin-bottom: 1em">
+                    Open the editor
+                    <img src="./icons/arrow_white.svg">
+                </button>
+            </div>
+
             <!-- <div class="project-idea-images">
                 <img src="./parts/humidity.png">
                 <img src="./parts/humidity.png">

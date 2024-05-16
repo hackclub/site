@@ -277,10 +277,10 @@ button {
     margin-left: 0px;
     margin-right: 0px;
 }
-
+/* 
 .gambling-select {
     background-color: #7D96EC;
-}
+} */
 
 .gambling-build {
     background-color: #9FEEB5;
@@ -292,6 +292,16 @@ button {
 
 .gambling-build.disabled {
     filter: saturate(0.5) brightness(0.7);
+}
+
+.cta-container {
+    display: flex;
+}
+
+@media screen and (max-width: 900px) {
+    .cta-container {
+        flex-direction: column-reverse;
+    }
 }
 
 .gambling-placeholder {
