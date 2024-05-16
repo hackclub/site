@@ -89,20 +89,14 @@
     width: 65%;
 }
 
-#floaty,
-#floaty-left {
+.floaty img {
+    width: 100%;
+}
+
+.floaty {
     width: 17vw;
     position: absolute;
-}
-
-#floaty,
-.floaty {
     animation: float 6s ease-in-out infinite;
-}
-
-#floaty-left,
-.float-left {
-    animation: float-left 6s ease-in-out infinite;
 }
 
 .gambling-section {
@@ -573,33 +567,12 @@ button {
     }
 }
 
-@keyframes float-left {
-
-    from,
-    to {
-        transform: translate(0%, -47%) rotate(-2deg);
-    }
-
-    25% {
-        transform: translate(-2%, -50%) rotate(2deg);
-    }
-
-    50% {
-        transform: translate(-0%, -53%) rotate(-1deg);
-    }
-
-    75% {
-        transform: translate(-1%, -50%) rotate(-1deg);
-    }
-}
-
 @media screen and (aspect-ratio: 4/3) {
     .landing-header {
         width: 50%;
     }
 
-    #floaty,
-    #floaty-left {
+    .floaty {
         width: 200px;
     }
 
@@ -629,8 +602,6 @@ button {
         overflow-x: hidden;
     }
 
-    #floaty,
-    #floaty-left,
     .floaty {
         display: none;
     }
