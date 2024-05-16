@@ -70,7 +70,7 @@ const createProject = async (partsList = []) => {
 
   const body = JSON.stringify({
     name: "The Bin!",
-    unlisted: false,
+    unlisted: true,
     files: [{
       name: "help.md",
       content: `# Welcome to The Bin! 🦝
