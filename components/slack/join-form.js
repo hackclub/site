@@ -120,7 +120,7 @@ const JoinForm = ({ sx = {}, router }) => {
             status={status}
             mt={'0px!important'}
             labels={{
-              default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
+              default: useWaitlist ? 'Join Waitlist' : 'Join Now',
               error: 'Something went wrong',
               success: useWaitlist
                 ? "You're on the Waitlist!"
