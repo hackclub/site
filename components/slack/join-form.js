@@ -93,7 +93,7 @@ const JoinForm = ({ sx = {}, router }) => {
           </Label>
         </Grid>
         <Label>
-          How did you hear about us/the slack? What are you most looking forward to?
+          How did you hear about us/the Slack? What are you most looking forward to?
           <Textarea
             {...useField('reason')}
             placeholder="I heard about Hack Club from..."
