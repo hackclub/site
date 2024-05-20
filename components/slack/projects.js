@@ -34,7 +34,7 @@ const projects = [
   {
     title: 'A chat app and cell phone carrier.',
     description:
-      'The teenage PurpleBubble team are building a private, secure and open source chat app and cell phone carrier',
+      'The teenage PurpleBubble team are building a private, secure and open source chat app',
     img: 'purplebubble',
     color: ['#5bc0de', '#88e5f8'],
     itemId: 4
