@@ -204,9 +204,9 @@ function Page({
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
 	  <Announcement
-            copy="Hop OnBoard and create your first PCB"
-            caption="Join 1,000 others to create your first circuit board."
-            href="https://hackclub.com/onboard/"
+            copy="Get a free hardware starter kit!"
+            caption="Join 100s of other high schoolers to create your first electronics project."
+            href="/bin/"
             iconLeft="idea"
           />
           <Box

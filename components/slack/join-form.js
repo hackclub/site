@@ -1,3 +1,4 @@
+import { getCookie, hasCookie } from 'cookies-next'
 import {
   Box,
   Card,
@@ -11,7 +12,6 @@ import {
 } from 'theme-ui'
 import useForm from '../../lib/use-form'
 import Submit from '../submit'
-import { getCookie, hasCookie } from 'cookies-next'
 
 import { withRouter } from 'next/router'
 
@@ -23,10 +23,10 @@ const JoinForm = ({ sx = {}, router }) => {
     method: 'POST',
     initData: hasCookie('continent')
       ? {
-          continent: getCookie('continent'),
-          reason: router.query.reason,
-          event: router.query.event
-        }
+        continent: getCookie('continent'),
+        reason: router.query.reason,
+        event: router.query.event
+      }
       : { reason: router.query.reason, event: router.query.event }
   })
 
@@ -77,7 +77,7 @@ const JoinForm = ({ sx = {}, router }) => {
             />
           </Label>
           <Label>
-            Education level
+            School level
             <Select
               {...useField('year')}
               required
@@ -93,10 +93,10 @@ const JoinForm = ({ sx = {}, router }) => {
           </Label>
         </Grid>
         <Label>
-          Why do you want to join the Hack Club Slack?
+          How did you hear about us/the Slack? What are you most looking forward to?
           <Textarea
             {...useField('reason')}
-            placeholder="Write a few sentences."
+            placeholder="I heard about Hack Club from..."
             required
           />
         </Label>
@@ -120,7 +120,7 @@ const JoinForm = ({ sx = {}, router }) => {
             status={status}
             mt={'0px!important'}
             labels={{
-              default: useWaitlist ? 'Join Waitlist' : 'Get Invite',
+              default: useWaitlist ? 'Join Waitlist' : 'Join Now',
               error: 'Something went wrong',
               success: useWaitlist
                 ? "You're on the Waitlist!"

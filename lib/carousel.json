@@ -18,6 +18,15 @@
     "link": "https://cpu.land"
   },
   {
+    "background": "#e5e6da",
+    "titleColor": "black",
+    "descriptionColor": "black",
+    "title": "The Bin",
+    "description": "A free electronics starter kit for high schoolers, shipped to your door.",
+    "img": "https://cloud-e3pxf7bt9-hack-club-bot.vercel.app/0ezgif.com-resize.gif",
+    "link": "https://hackclub.com/bin"
+  },
+  {
     "background": "#000",
     "titleColor": "green",
     "descriptionColor": "white",

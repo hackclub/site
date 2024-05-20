@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Bin</title>
-    <link rel="stylesheet" href="../style/common.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="../style/footer.css">
+    <link rel="stylesheet" href="./style/common.css">
+    <link rel="stylesheet" href="./landing-new/style.css">
+    <link rel="stylesheet" href="./style/footer.css">
     <link rel="icon" type="image/png" sizes="32x32" href="https://assets.hackclub.com/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://assets.hackclub.com/favicons/favicon-16x16.png">
     <script src="https://awdev.codes/utils/smoothScroll.js"></script>
@@ -15,46 +15,97 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.core.min.js"
         integrity="sha512-d00Brs/+XQUUaO0Y9Uo8Vw63o7kS6ZcLM2P++17kALrI8oihAfL4pl1jQObeRBgv06j7xG0GHOhudAW0BdrycA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./script.js"></script>
+    <script src="./landing-new/script.js"></script>
     <script src="./data-loading.js"></script>
+    <script defer data-domain="hackclub.com" src="https://plausible.io/js/script.js"></script>
+    <script>
+        window['_fs_host'] = 'fullstory.com';
+        window['_fs_script'] = 'edge.fullstory.com/s/fs.js';
+        window['_fs_org'] = 'ARN0J';
+        window['_fs_namespace'] = 'FS';
+        !function(m,n,e,t,l,o,g,y){var s,f,a=function(h){
+        return!(h in m)||(m.console&&m.console.log&&m.console.log('FullStory namespace conflict. Please set window["_fs_namespace"].'),!1)}(e)
+        ;function p(b){var h,d=[];function j(){h&&(d.forEach((function(b){var d;try{d=b[h[0]]&&b[h[0]](h[1])}catch(h){return void(b[3]&&b[3](h))}
+        d&&d.then?d.then(b[2],b[3]):b[2]&&b[2](d)})),d.length=0)}function r(b){return function(d){h||(h=[b,d],j())}}return b(r(0),r(1)),{
+        then:function(b,h){return p((function(r,i){d.push([b,h,r,i]),j()}))}}}a&&(g=m[e]=function(){var b=function(b,d,j,r){function i(i,c){
+        h(b,d,j,i,c,r)}r=r||2;var c,u=/Async$/;return u.test(b)?(b=b.replace(u,""),"function"==typeof Promise?new Promise(i):p(i)):h(b,d,j,c,c,r)}
+        ;function h(h,d,j,r,i,c){return b._api?b._api(h,d,j,r,i,c):(b.q&&b.q.push([h,d,j,r,i,c]),null)}return b.q=[],b}(),y=function(b){function h(h){
+        "function"==typeof h[4]&&h[4](new Error(b))}var d=g.q;if(d){for(var j=0;j<d.length;j++)h(d[j]);d.length=0,d.push=h}},function(){
+        (o=n.createElement(t)).async=!0,o.crossOrigin="anonymous",o.src="https://"+l,o.onerror=function(){y("Error loading "+l)}
+        ;var b=n.getElementsByTagName(t)[0];b&&b.parentNode?b.parentNode.insertBefore(o,b):n.head.appendChild(o)}(),function(){function b(){}
+        function h(b,h,d){g(b,h,d,1)}function d(b,d,j){h("setProperties",{type:b,properties:d},j)}function j(b,h){d("user",b,h)}function r(b,h,d){j({
+        uid:b},d),h&&j(h,d)}g.identify=r,g.setUserVars=j,g.identifyAccount=b,g.clearUserCookie=b,g.setVars=d,g.event=function(b,d,j){h("trackEvent",{
+        name:b,properties:d},j)},g.anonymize=function(){r(!1)},g.shutdown=function(){h("shutdown")},g.restart=function(){h("restart")},
+        g.log=function(b,d){h("log",{level:b,msg:d})},g.consent=function(b){h("setIdentity",{consent:!arguments.length||b})}}(),s="fetch",
+        f="XMLHttpRequest",g._w={},g._w[f]=m[f],g._w[s]=m[s],m[s]&&(m[s]=function(){return g._w[s].apply(this,arguments)}),g._v="2.0.0")
+        }(window,document,window._fs_namespace,"script",window._fs_script);
+        </script>
 </head>
 
 <body>
     <img src="https://awdev.codes/images/ww.gif" style="display:none;">
     <section class="landing-section section">
         <div class="landing-header">
-            <img src="../icons/icon.svg" class="landing-logo">
+            <img src="./icons/icon.svg" class="landing-logo">
             <span class="landing-tagline">The beginner hardware kit designed just for you</span>
             <span class="landing-tagline">Free for high schoolers</span>
-            <img src="../parts/pico.png" class="landing-main-image">
+            <img src="./parts/pico.png" class="landing-main-image">
         </div>
-        <img id="floaty" src="../parts/relay.png" style="top: 20%; left: 7%;">
-        <img id="floaty" src="../parts/mic.png" style="top: 80%; left: 20%;animation-delay: -2500ms;">
-        <img id="floaty-left" src="../parts/humidity.png"
-            style="top: 80%; right:10%;animation-delay: -1000ms;"><!---animation-delay: -2s;-->
-        <img id="floaty-left" src="../parts/laser.png"
-            style="top: 30%; right:10%;animation-delay: -1500ms;"><!---animation-delay: -2s;-->
-        <img src="../icons/scrolldown.svg" class="scroll-prompt" onclick="smoothScroll('.timeline')">
-        <img src="../images/idea.png" class="huh floaty" style="animation-delay: -3000ms;">
+        <a class="floaty" style="top: 20%; left: 7%;" href="https://wokwi.com/projects/398014537125976065" target="_blank">
+            <img src="https://cloud-ofybe0euz-hack-club-bot.vercel.app/00oky3527-max7219-dot-matrix-module-single-3.png">
+        </a>
+        <a class="floaty" style="top: 80%; left: 20%; animation-delay: -2500ms;" href="https://wokwi.com/projects/346178932556431954" target="_blank">
+            <img src="https://cloud-6hdo013ly-hack-club-bot.vercel.app/0buzzer.png">
+        </a>
+        <a class="floaty" style="top: 80%; right:10%;animation-delay: -1000ms;" href="https://wokwi.com/projects/383628008466438145" target="_blank">
+            <img src="./parts/humidity.png">
+        </a>
+        <a class="floaty" style="top: 30%; right:10%;animation-delay: -1500ms;" href="https://wokwi.com/projects/390119173913012225" target="_blank">
+            <img src="./parts/led.png">
+        </a>
+        <div class="scroll-prompt" onclick="smoothScroll('.timeline')">
+            <img src="./icons/scrolldown.svg">
+        </div>
+
+        <a href="" id="meme" target="_blank" class="huh floaty hoverable" style="animation-delay: -3000ms;">
+            <img src="./images/idea.png" width="100%">
+        </a>
     </section>
-    <section class="section container timeline">
+    <section class="section container timeline" style="max-width:71em;">
         <!-- timeline of project -->
-        <h1>What will you make<br/><em>before summer break?</em></h1>
+        <h1 class="timeline-header">
+            What will you make
+        </h1>
+        <h2 class="timeline-subheader">
+            before summer break?
+        </h2>
         <div class="timeline-list">
-            <div class="timeline-item" onclick="smoothScroll('.gambling-section')" style="cursor: pointer;">
-                <em class="muted">Right now...</em>
-                <h2>Rummage for parts</h2>
-                <p>Dig up some parts from our part picker or choose your own! Don't have an idea yet? Ask the raccoon for some inspiration!</p>
+            <div class="timeline-item hoverable greenbutton" onclick="smoothScroll('.gambling-section')"
+                style="cursor: pointer;">
+                <div class="timeline-info">
+                    <em class="muted">Right now...</em>
+                    <h2>Rummage for parts</h2>
+                    <p>Dig up some parts from our part picker or choose your own! Don't have an idea yet? Ask the
+                        raccoon
+                        for some inspiration!</p>
+                </div>
             </div>
-            <div class="timeline-item">
-                <em class="muted">over 3-4 days...</em>
-                <h2>Design your project</h2>
-                <p>Build a project in the online editor and program it! Get support from <a href="https://hackclub.com/slack" target="_blank">other high schoolers in an online community</a>.</p>
+            <div class="timeline-item hoverable bluebutton">
+                <div class="timeline-info">
+                    <em class="muted">over 3-4 days...</em>
+                    <h2>Design your project</h2>
+                    <p>Build a project in the online editor and program it! Get support from <a
+                            href="https://hackclub.com/slack" target="_blank">other high schoolers in an online
+                            community</a>.</p>
+                </div>
             </div>
-            <div class="timeline-item">
-                <em class="muted">in 1 week...</em>
-                <h2>Get it IRL</h2>
-                <p><a href="https://hack.club/bin-submit" target="_blank">Submit your design to the gallery</a> of projects so other high schoolers can learn from your project.</p>
+            <div class="timeline-item hoverable redbutton">
+                <div class="timeline-info">
+                    <em class="muted">in 1 week...</em>
+                    <h2>Get it IRL</h2>
+                    <p><a href="https://hack.club/bin-submit" target="_blank">Submit your design to the gallery</a> of
+                        projects so other high schoolers can learn from your project.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -62,93 +113,140 @@
         <div class="gambling-header">
             <div class="gambling-header-text">
                 <h1 class="gambling-title">Rummage!</h1>
-                <h2 class="gambling-subheader">Let's get you your parts!</h2>
+                <h2 class="gambling-subheader">Let's get those parts!</h2>
             </div>
-            <img src="./rummaging.png" class="gambling-header-rummage">
+            <img src="./landing-new/rummaging.png" class="gambling-header-rummage">
         </div>
+        <button onclick="rollParts(this)" class="gambling-roll hoverable disabled redbutton">Roll!</button>
         <div class="gambling-ui">
             <div class="gambling-spinner">
                 <div class="gambling-item-wrapper">
-                    <img class="gambling-placeholder" src="./qmark.svg">
+                    <img class="gambling-placeholder" src="./landing-new/qmark.svg">
                 </div>
             </div>
             <div class="spinner-separator">+</div>
             <div class="gambling-spinner">
                 <div class="gambling-item-wrapper">
-                    <img class="gambling-placeholder" src="./qmark.svg">
+                    <img class="gambling-placeholder" src="./landing-new/qmark.svg">
                 </div>
             </div>
             <div class="spinner-separator">+</div>
             <div class="gambling-spinner">
                 <div class="gambling-item-wrapper">
-                    <img class="gambling-placeholder" src="./qmark.svg">
+                    <img class="gambling-placeholder" src="./landing-new/qmark.svg">
                 </div>
             </div>
         </div>
         <div class="gambling-controls">
-            <button onclick="rollParts(this)" class="gambling-roll hoverable disabled">Roll!</button>
             <span class="flex-lb"></span>
-            <button onclick="location.href='../selector/index.html'" class="gambling-select hoverable">Manual
+            <!-- <button onclick="location.href='./selector/'" class="gambling-select hoverable bluebutton">Manual
                 Selection</button>
-            <button onclick="generateBuildLink(this)" class="gambling-build hoverable disabled">Continue<img
-                    src="../icons/arrow.svg"></button>
+            <button onclick="generateBuildLink(this)" class="gambling-build hoverable disabled greenbutton">Continue<img
+                    src="./icons/arrow.svg"></button> -->
         </div>
     </section>
-    <section class="project-idea-section section">
+    <section class="project-idea-section section container">
         <div class="project-idea-container">
-            <h1>What are we building today?</h1>
-            <textarea id="project-name" placeholder="I'm going to build a..."></textarea>
-            <h1>💡 Need an idea? Click the raccoon!</h1>
+            <h1 class="project-idea-title">
+                What are you waiting for?
+            </h1>
+            <div class="hidden" style="text-align: center;">
+                <h3>Get started or click the raccoon for project ideas!</h3>
+                <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
+                <div style="justify-content: center; display: grid;">
+                    <p id="project-idea" class="thought">🗑️</p>
+                    <img src="./images/idea.png" class="hoverable"
+                        style="margin: 0 auto; display: inline; max-width: 10em; height: auto;"
+                        id="generate-project-idea" onclick="generateProjectIdea()">
+                </div>
+            </div>
+            <div class="cta-container">
+                <button onclick="location.href='./selector/'" class="gambling-select hoverable bluebutton">Manual
+                    Selection
+                </button>
+                <button onclick="generateBuildLink(this)" class="gambling-build hoverable greenbutton disabled"
+                    style="margin-top: 1em; margin-bottom: 1em">
+                    Open the editor
+                    <img src="./icons/arrow_white.svg">
+                </button>
+            </div>
+
+            <!-- <div class="project-idea-images">
+                <img src="./parts/humidity.png">
+                <img src="./parts/humidity.png">
+                <img src="./parts/humidity.png">
+            </div>
+            <h1>Need an idea?<br>Tap the raccoon!</h1>
             <p><em>(It doesn't know much about electronics, but it'll try its best.)</em></p>
             <div style="display: flex;">
                 <div>
-                    <img src="../images/idea.png" class="hoverable"
+                    <img src="./images/idea.png" class="hoverable"
                         style="margin: 0 auto; display: inline; max-width: 10em; height: auto;"
                         id="generate-project-idea" onclick="generateProjectIdea()">
                 </div>
                 <p id="project-idea" class="thought">🗑️</p>
             </div>
+            <textarea id="project-name" placeholder="I'm going to build a..."></textarea>
+            <button id="project-idea-build" class="hoverable">
+                Let's build!
+                <img src="./icons/arrow.svg">
+            </button> -->
         </div>
     </section>
-    <section class="section container">
-        <h1>Readme</h1>
+    <section class="faq-section section container">
+        <h1>Any questions?</h1>
         <div class="faq-grid">
             <div class="faq-item">
-                <h3>How many projects can I build?</h3>
-                <p>You can submit as many projects as you want! For second submissions, we’ll ship the parts you don’t have– for example, your first project will get a pico included and subsequent projects won’t ship with it.</p>
+                <h1>How many projects can I build?</h1>
+                <p>You can submit <a href="https://cloud-mymt66p99-hack-club-bot.vercel.app/5screenshot_2024-05-16_at_00.17.34.png">as many projects as you make</a>! For second submissions, we’ll ship the parts you don’t
+                    have– for example, your first project will get a pico included and subsequent projects won’t ship
+                    with it.</p>
             </div>
             <div class="faq-item">
-                <h3>How much does it cost?</h3>
-                <p>100% free– we’ll also give a breadboard and the jumper wires you need to build your project too! The whole program is funded by <a href="https://hcb.hackclub.com/donations/start/the-bin">donations to a non-profit</a>.</p>
+                <h1>How much does it cost?</h1>
+                <p>100% free– we’ll also give a breadboard and the jumper wires you need to build your project too! The
+                    whole program is funded by <a href="https://hcb.hackclub.com/donations/start/the-bin">donations to a
+                        non-profit</a>.</p>
             </div>
             <div class="faq-item">
-                <h3>Who is eligible?</h3>
-                <p>You need to be a high schooler (or younger) in the United States. Submissions need to be in by June 1st to qualify.</p>
+                <h1>Who is eligible?</h1>
+                <p>You need to be a high schooler (or younger) in the United States. Submissions need to be in by June
+                    1st to qualify.</p>
             </div>
             <div class="faq-item">
-                <h3>What do I need?</h3>
-                <p>Just a browser simulate & computer to upload your code to the pico– we’ll give you all the equipment you need for your circuit.</p>
+                <h1>What do I need?</h1>
+                <p>Just a browser simulator & computer to upload your code to the pico– we’ll give you all the equipment
+                    you need for your circuit.</p>
             </div>
             <div class="faq-item">
-                <h3>I need help!</h3>
-                <p>Get it in the #electronics channel of the <a href="https://hackclub.com/slack">Hack&nbsp;Club&nbsp;Slack</a>.</p>
+                <h1>I need help!</h1>
+                <p>Get it in the #electronics channel of the <a
+                        href="https://hackclub.com/slack">Hack&nbsp;Club&nbsp;Slack</a>.</p>
             </div>
             <div class="faq-item">
-                <h3>What designs are allowed?</h3>
-                <p>Check out the <a href="">list of eligible parts</a>! Each design can have up to 8 modules, and need at least 1 module.</p>
+                <h1>What designs are allowed?</h1>
+                <p>Check out the <a href="/bin/selector">list of eligible parts</a>! Each design can have up to 8 modules, and need
+                    at least 1 module.</p>
             </div>
         </div>
     </section>
     <footer>
         <div class="footer-wrapper">
             <div class="footer-information">
-                <h3 class="footer-information-header">
+                <p class="footer-information-header">
                     A project by
+                    <a href="https://hackclub.com">Hack Club</a>. Always <a href="https://github.com/hackclub/site">open
+                        source</a>.
+                </p>
+                <p>
+                    <a href="https://hackclub.com/bin/prelaunch">< Prelaunch site</a>
+                    Thank you:
+                    <a href="https://awdev.codes" target="_blank">Aaron Wong</a>,
                     <a href="https://github.com/kvnyng" target="_blank">Kevin Yang</a>,
-                    <a href="https://maxwofford.com" target="_blank">Max Wofford</a>
-                    and
-                    <a href="https://awdev.codes" target="_blank">Aaron Wong</a>.
-                </h3>
+                    Caleb Denio,
+                    Charlie 24c02,
+                    & <a href="https://maxwofford.com" target="_blank">Max Wofford</a>
+                </p>
                 <p>Hack Club is a registered 501(c)3 nonprofit organization that supports a network
                     of 20k+ technical high schoolers. We believe you learn best by building so we're removing barriers
                     to hardware access so any teenager can explore. In the past few years, we
@@ -310,7 +408,8 @@
             <p class="footer-cr-info">© 2024 Hack&nbsp;Club. 501(c)(3) nonprofit (EIN: 81-2908499)</p>
         </div>
     </footer>
-    <script src="./gambling.js"></script>
+    <script src="./landing-new/gambling.js"></script>
+    <script src="./memes.js"></script>
 </body>
 
 </html>

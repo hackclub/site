@@ -119,36 +119,41 @@ function addComponentsToPage(data) {
     })
 }
 
-function rollParts(el) {
-    if (el.classList.contains("disabled")) {
-        return
+function sample(arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
+}
+
+function rollPartsAnimation(ms = 1000) {
+    for (let i = 0; i < ms; i += 100) {
+        setTimeout(() => {
+            randomizeParts()
+        }, i)
     }
-    if (!rolled) {
-        document.querySelectorAll(".gambling-item-wrapper").forEach((element) => {
-            element.removeChild(element.firstElementChild)
-        })
-        addComponentsToPage(fetchedParts)
-    }
-    rolled = true
-    document.querySelector(".gambling-build").classList.remove("disabled")
+    setTimeout(() => {
+        randomizeParts()
+    }, ms + 200)
+    setTimeout(() => {
+        randomizeParts()
+    }, ms + 500)
+}
+
+function randomizeParts() {
     let chosenParts = []
-    const numPartsNeeded = document.querySelectorAll(".gambling-item-wrapper").length
     // for the first one, pick an input component
     const inputParts = fetchedParts.filter((part) => part.type == "Input");
-    const inputPartIndex = Math.floor(Math.random() * inputParts.length)
-    chosenParts.push(inputParts[inputPartIndex])
-    console.log(`For the input part, we picked ${inputParts[inputPartIndex].name}`)
+    const inputPart = sample(inputParts)
+    chosenParts.push(inputPart)
+    console.log(`For the input part, we picked ${inputPart.name}`)
     // for the second one, pick an output component
     const outputParts = fetchedParts.filter((part) => part.type == "Output");
-    const outputPartIndex = Math.floor(Math.random() * outputParts.length)
-    chosenParts.push(outputParts[outputPartIndex])
-    console.log(`For the output part, we picked ${outputParts[outputPartIndex].name}`)
+    const outputPart = sample(outputParts)
+    chosenParts.push(outputPart)
+    console.log(`For the output part, we picked ${outputPart.name}`)
     // for the rest, pick any component
-    for (let i = 2; i < numPartsNeeded; i++) {
-        let partIndex = Math.floor(Math.random() * fetchedParts.length)
-        chosenParts.push(fetchedParts[partIndex])
-        console.log(`For the ${i}th part, we picked ${fetchedParts[partIndex].name}`)
-    }
+    const unusedParts = fetchedParts.filter((part) => part.name != inputPart.name && part.name != outputPart.name)
+    const thirdPart = sample(unusedParts)
+    chosenParts.push(thirdPart)
+    console.log(`For the third part, we picked ${thirdPart.name}`)
     let chosenPartNames = []
     document.querySelectorAll(".gambling-item-wrapper").forEach((element, key) => {
         let thisPart = chosenParts[key]
@@ -165,6 +170,25 @@ function rollParts(el) {
     selectedParts = chosenPartNames
 }
 
+const rollSound = new Howl({ src: 'https://cloud-eclxkeatl-hack-club-bot.vercel.app/0mario-kart-item-box-sound-mp3cut_audio.mp4'})
+
+function rollParts(el) {
+    if (el.classList.contains("disabled")) {
+        return
+    }
+    if (!rolled) {
+        document.querySelectorAll(".gambling-item-wrapper").forEach((element) => {
+            element.removeChild(element.firstElementChild)
+        })
+        addComponentsToPage(fetchedParts)
+        rolled = true
+    }
+    document.querySelector(".gambling-build").classList.remove("disabled")
+    rollSound.play()
+    
+    rollPartsAnimation(1200)
+}
+
 
 async function generateBuildLink(e) {
     if (!rolled) {
@@ -172,39 +196,23 @@ async function generateBuildLink(e) {
     }
     e.classList.add("disabled")
     e.classList.add("loading")
-    const payload = {
-        parts: selectedParts
-    };
 
-    try {
-        const response = await fetch('/api/bin/wokwi/new/', {
-            mode: 'cors',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const json = await response.json()
-        const shareLink = json.shareLink
+    const parts = encodeURI(selectedParts.join('|'))
+    const origin = window.location.origin
+    const url = new URL(`${origin}/api/bin/wokwi/new/${parts}`)
 
-        window.open(shareLink, '_blank').focus()
-    } catch (error) {
-        console.error('Error:', error)
-        // e.classList.add("error")
-    }
+    window.open(url, '_blank').focus()
+
     e.classList.remove("disabled")
     e.classList.remove("loading")
 }
+
 window.addEventListener("load", async (e) => {
-    fetchedParts = await partsData()
+    fetchedParts = (await partsData()).filter(p => p.rollable)
     document.querySelector(".gambling-roll").classList.remove("disabled")
 })
 
-async function yap(text) {
+async function yap(text, letterCallback) {
     text = text.toLowerCase();
     const yap_queue = [];
     for (let i = 0; i < text.length; i++) {
@@ -217,28 +225,31 @@ async function yap(text) {
                 yap_queue.push(yap_sounds.talking['th']);
                 continue;
             } else if (char === 'h' && (text[i - 1] === 's' || text[i - 1] === 't')) { // test if previous letter was 's' or 't' and current letter is 'h'
+                yap_queue.push(yap_sounds.talking['_']);
                 continue;
             } else if (char === ',' || char === '?' || char === '.') {
                 yap_queue.push(yap_sounds.talking['_']);
                 continue;
             } else if (char === text[i - 1]) { // skip repeat letters
+                yap_queue.push(yap_sounds.talking['_']);
                 continue;
             }
         } catch (e) {
             // who cares. pick up a foot ball
         }
         if (!char.match(/[a-zA-Z.]/)) {
+            yap_queue.push(yap_sounds.talking['_']);
             continue; // skip characters that are not letters or periods
         }
         yap_queue.push(yap_sounds.talking[char]);
     }
 
     function next_yap() {
+        letterCallback(yap_queue.length)
         if (yap_queue.length === 0) return;
         let noise = yap_queue.shift();
         noise.rate(2 * (Math.random() * .50 + 1.9));
         noise.once('end', next_yap)
-        console.log(noise)
         noise.play();
     }
 
@@ -253,18 +264,26 @@ async function generateProjectIdea() {
     document.querySelector('#generate-project-idea').classList.add('disabled')
     document.querySelector('#project-idea').innerHTML = "<em>" + thinkingWords() + "..." + "</em>"
     document.querySelector('#generate-project-idea').src = "https://cloud-80eg2m8id-hack-club-bot.vercel.app/0thinking_rac.png"
-    const res = await fetch('/api/bin/openai/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ parts: selectedParts })
-    })
-    const json = await res.json()
-    document.querySelector('#project-idea').innerHTML = json.recommendation
+    let text = ""
+    if (selectedParts.length == 0) {
+        text = "You need to rummage for some parts first!"
+    } else {
+        const res = await fetch('/api/bin/openai/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ parts: selectedParts })
+        })
+        const json = await res.json()
+        text = json.recommendation
+    }
+    document.querySelector('#project-idea').innerHTML = ""
     document.querySelector('#generate-project-idea').src = "https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/0statement_rac.png"
     document.querySelector('#generate-project-idea').classList.remove('disabled')
-    yap(json.recommendation)
+    yap(text, i => {
+        document.querySelector('#project-idea').innerHTML = text.slice(0, Math.max(text.length - i + 1, 0))
+    })
 }
 
 function thinkingWords() {
@@ -272,8 +291,6 @@ function thinkingWords() {
         "thinking",
         "single neuron activated",
         "2 braincells rubbing together",
-        "processing",
-        "calculating",
         "pondering",
         "contemplating",
         "rackin' my brain",

@@ -1,4 +1,18 @@
 import OpenAI from 'openai';
+import AirtablePlus from "airtable-plus"
+
+const saveProject = async (parts = [], idea) => {
+  const airtable = new AirtablePlus({
+    apiKey: process.env.AIRTABLE_API_KEY,
+    baseID: 'appKjALSnOoA0EmPk',
+    tableName: 'Cached Ideas'
+  })
+  const cacheName = parts.sort().join(',')
+  airtable.create({
+    "Name": cacheName,
+    "Recommendation": idea
+  })
+}
 
 const sample = (arr) => arr[Math.floor(Math.random() * arr.length)]
 
@@ -9,7 +23,7 @@ const messageStarters = [
   "how about a",
   "you could make a",
   "as a raccoon, i'd build a",
-  "i live in the trash and i'd build a",
+  // "i live in the trash and i'd build a",
 ]
 
 const generateProjectIdea = async (parts) => {
@@ -47,6 +61,7 @@ export default async function handler(req, res) {
   })
 
   const recommendation = await generateProjectIdea(parts)
+  await saveProject(parts, recommendation)
 
   res.send({ recommendation, parts })
 }
