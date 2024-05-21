@@ -304,9 +304,7 @@ export default function Directory({ rawOrganizations, pageRegion }) {
         description={
           "Teenagers are making an impact with HCB's fiscal sponsorship and financial tools. Explore the nonprofits running on HCB."
         }
-        image={
-          region?.ogImage ?? '/fiscal-sponsorship/climate/social-preview.png'
-        }
+        image="/fiscal-sponsorship/og-image.png"
       />
       <style>{styles}</style>
       {modalOrganization && (
