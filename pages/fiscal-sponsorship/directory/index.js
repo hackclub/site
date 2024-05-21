@@ -49,12 +49,6 @@ badges.__proto__.forOrg = function (org) {
 
 export const tags = [
   {
-    label: 'Climate',
-    id: 'Climate',
-    color: '#1eb36d',
-    match: org => true
-  },
-  {
     label: 'Nonprofit',
     id: 'Nonprofit',
     color: 'blue',
@@ -258,10 +252,6 @@ export default function Directory({ rawOrganizations, pageRegion }) {
   const [offset, setOffset] = useState(0)
   // const [region, setRegion] = useState(pageRegion);
   const region = pageRegion
-
-  // useEffect(() => {
-  //   // history.pushState(null, null, `/fiscal-sponsorship/climate/organizations-in-${region.toLowerCase().split(' ').join('-')}`);
-  // }, [region]);
   const [modalOrganization, setModalOrganization] = useState(null)
 
   useEffect(() => {
