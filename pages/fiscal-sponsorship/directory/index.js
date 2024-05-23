@@ -184,6 +184,7 @@ const FilterPanel = ({ filter, mobile }) => {
       >
         {categories.map(availableCategory => (
           <Flex
+            key={kebabCase(availableCategory.label)}
             sx={{
               alignItems: 'center',
               cursor: 'pointer',
@@ -283,6 +284,7 @@ const FilterPanel = ({ filter, mobile }) => {
       >
         {regions.map(availableRegion => (
           <Flex
+            key={kebabCase(availableRegion.label)}
             sx={{
               alignItems: 'center',
               cursor: 'pointer',
