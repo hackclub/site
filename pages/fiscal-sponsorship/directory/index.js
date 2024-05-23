@@ -138,7 +138,7 @@ tags.__proto__.forOrg = function (org) {
   return this.filter(tag => tag.match?.(org))
 }
 
-const FilterPanel = ({ filter, mobile }) => {
+const FilterPanel = ({ filter, mobile, clearOffset }) => {
   const [regionsHiddenOnMobile, setRegionsHiddenOnMobile] = useState(mobile)
   const [categoriesHiddenOnMobile, setCategoriesHiddenOnMobile] =
     useState(mobile)
@@ -205,13 +205,14 @@ const FilterPanel = ({ filter, mobile }) => {
               },
               width: 'fit-content'
             }}
-            onClick={() =>
+            onClick={() => {
               router.push(
                 availableCategory.index
                   ? `/fiscal-sponsorship/directory/`
                   : `/fiscal-sponsorship/directory/${availableCategory.id}/${region || ''}`
-              )
-            }
+              );
+              clearOffset();
+            }}
           >
             <Flex
               sx={{
@@ -305,11 +306,12 @@ const FilterPanel = ({ filter, mobile }) => {
               },
               width: 'fit-content'
             }}
-            onClick={() =>
+            onClick={() => {
               router.push(
                 `/fiscal-sponsorship/directory/${category || 'organizations'}/${kebabCase(availableRegion.label)}`
-              )
-            }
+              );
+              clearOffset();
+            }}
           >
             <Flex
               sx={{
@@ -352,11 +354,11 @@ const FilterPanel = ({ filter, mobile }) => {
   )
 }
 
-const Filtering = ({ mobile, region, ...props }) => {
+const Filtering = ({ mobile, region, clearOffset, ...props }) => {
   return (
     <>
       {Object.values(props).map((filter, i) => (
-        <FilterPanel key={`filter-${i}`} filter={filter} mobile={mobile} />
+        <FilterPanel key={`filter-${i}`} filter={filter} mobile={mobile} clearOffset={clearOffset} />
       ))}
     </>
   )
@@ -877,6 +879,7 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
               <Filtering
                 badges={[setBadges, currentBadges, 'Badges', badges, false]}
                 region={region}
+                clearOffset={() => setOffset(0)}
               />
             </Box>
           </Container>
