@@ -107,15 +107,15 @@ export const categories = [
     label: 'FIRST Teams',
     id: 'first',
     color: 'blue',
-    description: "FIRST teams are very cool...",
-    match: org => org.category == "robotics_team"
+    description: 'FIRST teams are very cool...',
+    match: org => org.category == 'robotics_team'
   },
   {
-    label: "Hackathons",
+    label: 'Hackathons',
     id: 'hackathons',
     color: 'blue',
-    description: "Hackathons are very cool...",
-    match: org => org.category == "hackathon"
+    description: 'Hackathons are very cool...',
+    match: org => org.category == 'hackathon'
   }
 ]
 
@@ -354,8 +354,9 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
     <div style={modalOrganization ? {} : {}}>
       <Meta
         as={Head}
-        title={`${category ? category.label : "Nonprofits"} ${pageRegion ? `in ${pageRegion.label}` : ""} on HCB`}
-        description={ category?.description ||
+        title={`${category ? category.label : 'Nonprofits'} ${pageRegion ? `in ${pageRegion.label}` : ''} on HCB`}
+        description={
+          category?.description ||
           "Teenagers are making an impact with HCB's fiscal sponsorship and financial tools. Explore the nonprofits running on HCB."
         }
         image="/fiscal-sponsorship/og-image.png"
@@ -761,7 +762,8 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
                   />
                 </MSparkles>
               </Flex>
-              {category ? category.label : "Nonprofits"} {pageRegion && <>in {pageRegion.label}</> } on HCB
+              {category ? category.label : 'Nonprofits'}{' '}
+              {pageRegion && <>in {pageRegion.label}</>} on HCB
             </Heading>
             <Box
               sx={{
@@ -772,7 +774,13 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
                 mx: 'auto'
               }}
             >
-              {category?.description || <>Teenagers are making an impact with HCB's fiscal sponsorship and financial tools. <br /> Explore the nonprofits running on HCB.</>}
+              {category?.description || (
+                <>
+                  Teenagers are making an impact with HCB's fiscal sponsorship
+                  and financial tools. <br /> Explore the nonprofits running on
+                  HCB.
+                </>
+              )}
             </Box>
             <Button
               variant="ctaLg"

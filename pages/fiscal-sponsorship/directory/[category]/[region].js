@@ -1,47 +1,55 @@
 import DirectoryPage, {
-    regions,
-    categories,
-    fetchRawOrganizations
+  regions,
+  categories,
+  fetchRawOrganizations
 } from '../index'
 import { map, find, kebabCase, startCase } from 'lodash'
-  
+
 const regionsWithIds = map(regions, region => ({
-id: kebabCase(region.label),
-...region
+  id: kebabCase(region.label),
+  ...region
 }))
 
-export default function DirectoryRegionalPage({ rawOrganizations, pageRegion, category }) {
-return (
+export default function DirectoryRegionalPage({
+  rawOrganizations,
+  pageRegion,
+  category
+}) {
+  return (
     <DirectoryPage
-    rawOrganizations={rawOrganizations}
-    pageRegion={pageRegion}
-    category={category}
+      rawOrganizations={rawOrganizations}
+      pageRegion={pageRegion}
+      category={category}
     />
-)
+  )
 }
 
 export const getStaticPaths = () => {
-const paths = categories.flatMap(category => map(map(regionsWithIds, 'id'), id => ({
-    params: { region: `organizations-in-${id}`, category: category.id }
-})))
+  const paths = categories.flatMap(category =>
+    map(map(regionsWithIds, 'id'), id => ({
+      params: { region: `organizations-in-${id}`, category: category.id }
+    }))
+  )
 
-return { paths, fallback: false }
+  return { paths, fallback: false }
 }
 
 export const getStaticProps = async ({ params }) => {
-let { region, category } = params
-region = find(regionsWithIds, ['id', region.replace('organizations-in-', '')])
+  let { region, category } = params
+  region = find(regionsWithIds, ['id', region.replace('organizations-in-', '')])
 
-let orgs = (await fetchRawOrganizations()).filter(
-    org => org.location.continent === region.label && find(categories, ['id', category]).match(org)
-)
+  let orgs = (await fetchRawOrganizations()).filter(
+    org =>
+      org.location.continent === region.label &&
+      find(categories, ['id', category]).match(org)
+  )
 
-return {
+  return {
     props: {
-    rawOrganizations: orgs,
-    pageRegion: region,
-    category
+      rawOrganizations: orgs,
+      pageRegion: region,
+      category
     },
     revalidate: 60 // seconds
-}
+  }
 }
