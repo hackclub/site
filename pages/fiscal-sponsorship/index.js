@@ -354,16 +354,16 @@ export default function Page() {
                 </Tilt>
               ))}
           </Grid>
-        <Box sx={{
-                      mt: 4,
-                      width: '100%',
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    
+          <Box
+            sx={{
+              mt: 4,
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
             <Link href="/fiscal-sponsorship/directory" passHref legacyBehavior>
               <Button
                 as="a"
@@ -372,20 +372,15 @@ export default function Page() {
                   bg: 'blue',
                   backgroundImage: theme => theme.util.gx('muted', 'slate'),
                   lineHeight: 0.9,
-                  wordWrap: "none"
+                  wordWrap: 'none'
                 }}
               >
                 See more organizations →
               </Button>
             </Link>
 
-            <Box sx={{ width: "100%", flexGrow: "1" }}></Box>
-
-                
-
-
-                    </Box>
-
+            <Box sx={{ flexGrow: '1' }}></Box>
+          </Box>
         </Container>
       </Box>
       <Features />

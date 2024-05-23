@@ -1,48 +1,47 @@
 import DirectoryPage, {
     regions,
+    categories,
     fetchRawOrganizations
 } from '../index'
 import { map, find, kebabCase, startCase } from 'lodash'
   
-  const regionsWithIds = map(regions, region => ({
-    id: kebabCase(region.label),
-    ...region
-  }))
-  
-  export default function DirectoryRegionalPage({ rawOrganizations, pageRegion }) {
-    return (
-      <DirectoryPage
-        rawOrganizations={rawOrganizations}
-        pageRegion={pageRegion}
-      />
-    )
-  }
-  
-  export const getStaticPaths = () => {
-    const paths = map(map(regionsWithIds, 'id'), id => ({
-      params: { region: `organizations-in-${id}`, category: 'first' }
-    }))
-    console.log("HIIIII")
-    console.log(paths)
-    console.log(regions)
-  
-    return { paths, fallback: false }
-  }
-  
-  export const getStaticProps = async ({ params }) => {
-    let { region } = params
-    region = find(regionsWithIds, ['id', region.replace('organizations-in-', '')])
-  
-    let orgs = (await fetchRawOrganizations()).filter(
-      org => org.location.continent === region.label
-    )
-  
-    return {
-      props: {
-        rawOrganizations: orgs,
-        pageRegion: region
-      },
-      revalidate: 60 // seconds
-    }
-  }
-  
+const regionsWithIds = map(regions, region => ({
+id: kebabCase(region.label),
+...region
+}))
+
+export default function DirectoryRegionalPage({ rawOrganizations, pageRegion, category }) {
+return (
+    <DirectoryPage
+    rawOrganizations={rawOrganizations}
+    pageRegion={pageRegion}
+    category={category}
+    />
+)
+}
+
+export const getStaticPaths = () => {
+const paths = categories.flatMap(category => map(map(regionsWithIds, 'id'), id => ({
+    params: { region: `organizations-in-${id}`, category: category.id }
+})))
+
+return { paths, fallback: false }
+}
+
+export const getStaticProps = async ({ params }) => {
+let { region, category } = params
+region = find(regionsWithIds, ['id', region.replace('organizations-in-', '')])
+
+let orgs = (await fetchRawOrganizations()).filter(
+    org => org.location.continent === region.label && find(categories, ['id', category]).match(org)
+)
+
+return {
+    props: {
+    rawOrganizations: orgs,
+    pageRegion: region,
+    category
+    },
+    revalidate: 60 // seconds
+}
+}

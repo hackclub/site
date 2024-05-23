@@ -21,7 +21,7 @@ import OrganizationCard, {
 import fuzzysort from 'fuzzysort'
 import { useEffect, useState } from 'react'
 /** @jsxImportSource theme-ui */
-import { kebabCase, intersection } from 'lodash'
+import { kebabCase, intersection, find } from 'lodash'
 import theme from '@hackclub/theme'
 import Tooltip from '../../../components/fiscal-sponsorship/tooltip'
 const GeoPattern = require('geopattern')
@@ -99,6 +99,23 @@ export const tags = [
     id: 'Nonprofit',
     color: 'blue',
     match: org => true
+  }
+]
+
+export const categories = [
+  {
+    label: 'FIRST Teams',
+    id: 'first',
+    color: 'blue',
+    description: "FIRST teams are very cool...",
+    match: org => org.category == "robotics_team"
+  },
+  {
+    label: "Hackathons",
+    id: 'hackathons',
+    color: 'blue',
+    description: "Hackathons are very cool...",
+    match: org => org.category == "hackathon"
   }
 ]
 
@@ -293,11 +310,12 @@ const Filtering = ({ mobile, region, ...props }) => {
   )
 }
 
-export default function Directory({ rawOrganizations, pageRegion }) {
+export default function Directory({ rawOrganizations, pageRegion, category }) {
   const [searchValue, setSearchValue] = useState('')
   const [offset, setOffset] = useState(0)
   // const [region, setRegion] = useState(pageRegion);
   const region = pageRegion
+  category = find(categories, ['id', category])
   const [modalOrganization, setModalOrganization] = useState(null)
 
   useEffect(() => {
@@ -336,8 +354,8 @@ export default function Directory({ rawOrganizations, pageRegion }) {
     <div style={modalOrganization ? {} : {}}>
       <Meta
         as={Head}
-        title={'Nonprofits on HCB'}
-        description={
+        title={`${category ? category.label : "Nonprofits"} ${pageRegion ? `in ${pageRegion.label}` : ""} on HCB`}
+        description={ category?.description ||
           "Teenagers are making an impact with HCB's fiscal sponsorship and financial tools. Explore the nonprofits running on HCB."
         }
         image="/fiscal-sponsorship/og-image.png"
@@ -369,7 +387,7 @@ export default function Directory({ rawOrganizations, pageRegion }) {
               boxSizing: 'border-box',
               flexDirection: 'column',
               maxHeight: '90vh',
-              overflow: 'scroll'
+              overflowY: 'scroll'
             }}
             onClick={e => {
               e.stopPropagation()
@@ -726,7 +744,8 @@ export default function Directory({ rawOrganizations, pageRegion }) {
                 textAlign: 'center',
                 mt: [2, 4],
                 textShadow: '0 0 16px rgba(0, 0, 0, 1)',
-                fontSize: [5, null, 6, 7]
+                fontSize: [5, null, 6, 7],
+                textWrap: 'balance'
               }}
               as="h1"
               variant="title"
@@ -742,7 +761,7 @@ export default function Directory({ rawOrganizations, pageRegion }) {
                   />
                 </MSparkles>
               </Flex>
-              Nonprofits on HCB
+              {category ? category.label : "Nonprofits"} {pageRegion && <>in {pageRegion.label}</> } on HCB
             </Heading>
             <Box
               sx={{
@@ -753,8 +772,7 @@ export default function Directory({ rawOrganizations, pageRegion }) {
                 mx: 'auto'
               }}
             >
-              Teenagers are making an impact with HCB's fiscal sponsorship and
-              financial tools. <br /> Explore the nonprofits running on HCB.
+              {category?.description || <>Teenagers are making an impact with HCB's fiscal sponsorship and financial tools. <br /> Explore the nonprofits running on HCB.</>}
             </Box>
             <Button
               variant="ctaLg"
