@@ -21,10 +21,11 @@ import OrganizationCard, {
 import fuzzysort from 'fuzzysort'
 import { useEffect, useState } from 'react'
 /** @jsxImportSource theme-ui */
-import { kebabCase, intersection } from 'lodash'
+import { kebabCase, intersection, find } from 'lodash'
 import theme from '@hackclub/theme'
 import Tooltip from '../../../components/fiscal-sponsorship/tooltip'
 const GeoPattern = require('geopattern')
+import { useRouter } from 'next/router'
 
 const styles = `
   html {
@@ -43,6 +44,53 @@ export const badges = [
   }
 ]
 
+export const regions = [
+  {
+    label: 'North America',
+    color: 'secondary',
+    iconColor: 'red',
+    icon: 'photo',
+    image:
+      'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png',
+    ogImage: '/fiscal-sponsorship/climate/NorthAmerica.png'
+  },
+  {
+    label: 'South America',
+    color: 'secondary',
+    iconColor: 'orange',
+    icon: 'photo',
+    image:
+      'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png',
+    ogImage: '/fiscal-sponsorship/climate/SouthAmerica.png'
+  },
+  {
+    label: 'Africa',
+    color: 'secondary',
+    iconColor: 'purple',
+    icon: 'explore',
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/0africa.png',
+    ogImage: '/fiscal-sponsorship/climate/Africa.png'
+  },
+  {
+    label: 'Europe',
+    color: 'secondary',
+    iconColor: 'blue',
+    icon: 'explore',
+    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/1europe.png',
+    ogImage: '/fiscal-sponsorship/climate/Europe.png'
+  },
+  {
+    label: 'Asia & Oceania',
+    continents: ['Asia', 'Oceania'],
+    color: 'secondary',
+    iconColor: 'green',
+    icon: 'explore',
+    image:
+      'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png',
+    ogImage: '/fiscal-sponsorship/climate/Asia+Oceania.png'
+  }
+]
+
 badges.__proto__.forOrg = function (org) {
   return this.filter(badge => badge.match?.(org))
 }
@@ -56,17 +104,46 @@ export const tags = [
   }
 ]
 
+export const categories = [
+  {
+    label: 'Nonprofits',
+    miniLabel: 'All',
+    id: 'organizations',
+    color: 'purple',
+    description: null,
+    match: org => true,
+    icon: 'list',
+    index: true
+  },
+  {
+    label: 'FIRST Teams',
+    id: 'first',
+    color: 'blue',
+    description:
+      'Everywhere from San Jose to Boston to New York, HCB powers teams of all sizes.',
+    match: org => org.category == 'robotics_team',
+    icon: 'sam'
+  },
+  {
+    label: 'Hackathons',
+    id: 'hackathons',
+    color: 'purple',
+    description: `Hackers are using HCB to run hackathons that'll blow your mind away.`,
+    match: org => org.category == 'hackathon',
+    icon: 'event-code'
+  }
+]
+
 tags.__proto__.forOrg = function (org) {
   return this.filter(tag => tag.match?.(org))
 }
 
 const FilterPanel = ({ filter, mobile }) => {
-  const [hiddenOnMobile, setHiddenOnMobile] = useState(mobile)
-  const setStateVariable = filter[0]
-  const currentSelections = filter[1]
-  const title = filter[2]
-  const baseData = filter[3]
-  if (!baseData?.length) return <></>
+  const [regionsHiddenOnMobile, setRegionsHiddenOnMobile] = useState(mobile)
+  const [categoriesHiddenOnMobile, setCategoriesHiddenOnMobile] =
+    useState(mobile)
+  const router = useRouter()
+  let { category, region } = router.query
   return (
     <>
       <Heading
@@ -75,7 +152,7 @@ const FilterPanel = ({ filter, mobile }) => {
           fontSize: 2,
           textTransform: 'uppercase',
           color: 'muted',
-          mb: hiddenOnMobile ? 1 : 3,
+          mb: categoriesHiddenOnMobile ? 1 : 3,
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
@@ -83,16 +160,17 @@ const FilterPanel = ({ filter, mobile }) => {
               }
             : {}
         }}
-        onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
+        onClick={() => setCategoriesHiddenOnMobile(!categoriesHiddenOnMobile)}
       >
-        {mobile && 'FILTER BY '} {title}{' '}
+        FILTER {mobile && 'BY CATEGORY'}
         <small
           style={{
             transform: 'translateY(-1px)',
-            display: 'inline-block'
+            display: 'inline-block',
+            marginLeft: '6px'
           }}
         >
-          {mobile && (hiddenOnMobile ? '▶︎' : '▼')}
+          {mobile && (categoriesHiddenOnMobile ? '▶︎' : '▼')}
         </small>
       </Heading>
       <Flex
@@ -101,62 +179,12 @@ const FilterPanel = ({ filter, mobile }) => {
           gap: '12px',
           flexWrap: 'wrap',
           mb: 3,
-          display: hiddenOnMobile ? 'none' : 'flex'
+          display: categoriesHiddenOnMobile ? 'none' : 'flex'
         }}
       >
-        <Flex
-          sx={{
-            alignItems: 'center',
-            cursor: 'pointer',
-            gap: 2,
-            py: mobile ? 1 : 0,
-            pl: mobile ? 1 : 0,
-            pr: mobile ? 3 : 0,
-            border: mobile ? '1px solid' : 'none',
-            borderColor: 'sunken',
-            borderRadius: '4px',
-            background: mobile ? 'snow' : 'none',
-            textDecoration: 'none',
-            color: 'secondary',
-            textDecoration: 'none',
-            transition: 'color 0.2s',
-            ':hover': {
-              color: 'blue'
-            },
-            width: 'fit-content'
-          }}
-          onClick={() => setStateVariable([...baseData.map(x => x.id)])}
-        >
+        {categories.map(availableCategory => (
           <Flex
-            sx={{
-              bg: 'smoke',
-              color: 'secondary',
-              p: 1,
-              borderRadius: 6
-            }}
-          >
-            <Icon glyph="list" size={24} />
-          </Flex>
-          <Heading
-            as="h4"
-            sx={{
-              color: 'inherit',
-              fontSize: 3,
-              color:
-                currentSelections.length !== baseData.length
-                  ? 'black'
-                  : 'primary',
-              ':hover': {
-                color: 'blue'
-              }
-            }}
-          >
-            All
-          </Heading>
-        </Flex>
-        {baseData?.map((item, idx) => (
-          <Flex
-            key={idx}
+            key={kebabCase(availableCategory.label)}
             sx={{
               alignItems: 'center',
               cursor: 'pointer',
@@ -169,66 +197,153 @@ const FilterPanel = ({ filter, mobile }) => {
               borderRadius: '4px',
               background: mobile ? 'snow' : 'none',
               textDecoration: 'none',
-              color:
-                currentSelections.length === baseData.length ||
-                !currentSelections.includes(item.id)
-                  ? 'black'
-                  : 'primary',
+              color: 'secondary',
+              textDecoration: 'none',
               transition: 'color 0.2s',
               ':hover': {
                 color: 'blue'
               },
               width: 'fit-content'
             }}
-            onClick={() => {
-              if (currentSelections.length === baseData.length) {
-                setStateVariable([item.id])
-              } else if (currentSelections.includes(item.id)) {
-                let temp = currentSelections
-                temp = temp.filter(selection => selection !== item.id)
-                if (temp.length === 0) {
-                  setStateVariable([...baseData.map(x => x.id)])
-                } else {
-                  setStateVariable(temp)
-                }
-              } else {
-                setStateVariable([...currentSelections, item.id])
-              }
-            }}
+            onClick={() =>
+              router.push(
+                availableCategory.index
+                  ? `/fiscal-sponsorship/directory/`
+                  : `/fiscal-sponsorship/directory/${availableCategory.id}/${region || ''}`
+              )
+            }
           >
-            {item.image ? (
+            <Flex
+              sx={{
+                bg: 'smoke',
+                color: 'secondary',
+                p: 1,
+                borderRadius: 6
+              }}
+            >
+              <Icon glyph={availableCategory.icon || 'list'} size={24} />
+            </Flex>
+            <Heading
+              as="h4"
+              sx={{
+                color: 'inherit',
+                fontSize: 3,
+                color:
+                  category == availableCategory.id ||
+                  (availableCategory.index &&
+                    category == null &&
+                    region == null)
+                    ? 'primary'
+                    : 'null',
+                ':hover': {
+                  color: 'blue'
+                }
+              }}
+            >
+              {availableCategory.miniLabel || availableCategory.label}
+            </Heading>
+          </Flex>
+        ))}
+      </Flex>
+      <Heading
+        as="h3"
+        sx={{
+          fontSize: 2,
+          textTransform: 'uppercase',
+          color: 'muted',
+          mb: regionsHiddenOnMobile ? 1 : 3,
+          mt: 3,
+          cursor: mobile ? 'pointer' : 'default',
+          ':hover': mobile
+            ? {
+                color: 'blue'
+              }
+            : {}
+        }}
+        onClick={() => setRegionsHiddenOnMobile(!regionsHiddenOnMobile)}
+      >
+        {mobile ? 'FILTER BY REGION' : 'REGIONS'}
+        <small
+          style={{
+            transform: 'translateY(-1px)',
+            display: 'inline-block',
+            marginLeft: '6px'
+          }}
+        >
+          {mobile && (regionsHiddenOnMobile ? '▶︎' : '▼')}
+        </small>
+      </Heading>
+      <Flex
+        sx={{
+          flexDirection: mobile ? 'row' : 'column',
+          gap: '12px',
+          flexWrap: 'wrap',
+          mb: 3,
+          display: regionsHiddenOnMobile ? 'none' : 'flex'
+        }}
+      >
+        {regions.map(availableRegion => (
+          <Flex
+            key={kebabCase(availableRegion.label)}
+            sx={{
+              alignItems: 'center',
+              cursor: 'pointer',
+              gap: 2,
+              py: mobile ? 1 : 0,
+              pl: mobile ? 1 : 0,
+              pr: mobile ? 3 : 0,
+              border: mobile ? '1px solid' : 'none',
+              borderColor: 'sunken',
+              borderRadius: '4px',
+              background: mobile ? 'snow' : 'none',
+              textDecoration: 'none',
+              color: 'secondary',
+              textDecoration: 'none',
+              transition: 'color 0.2s',
+              ':hover': {
+                color: 'blue'
+              },
+              width: 'fit-content'
+            }}
+            onClick={() =>
+              router.push(
+                `/fiscal-sponsorship/directory/${category || 'organizations'}/${kebabCase(availableRegion.label)}`
+              )
+            }
+          >
+            <Flex
+              sx={{
+                backgroundImage: `url("${availableRegion.image}")`,
+                backgroundSize: 'contain',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                color: 'white',
+                p: 1,
+                borderRadius: 6
+              }}
+            >
               <Flex
                 sx={{
-                  backgroundImage: `url("${item.image}")`,
-                  backgroundSize: 'contain',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  color: 'white',
-                  p: 1,
-                  borderRadius: 6
+                  width: 24,
+                  height: 24
                 }}
-              >
-                <Flex
-                  sx={{
-                    width: 24,
-                    height: 24
-                  }}
-                />
-              </Flex>
-            ) : (
-              <Flex
-                sx={{
-                  bg: item.color,
-                  color: 'white',
-                  p: 1,
-                  borderRadius: 6
-                }}
-              >
-                <Icon glyph={item.icon} size={24} />
-              </Flex>
-            )}
-            <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>
-              {item.label}
+              />
+            </Flex>
+            <Heading
+              as="h4"
+              sx={{
+                color: 'inherit',
+                fontSize: 3,
+                color:
+                  region == kebabCase(availableRegion.label)
+                    ? 'primary'
+                    : 'null',
+                ':hover': {
+                  color: 'blue'
+                }
+              }}
+            >
+              {availableRegion.miniLabel || availableRegion.label}
             </Heading>
           </Flex>
         ))}
@@ -247,11 +362,11 @@ const Filtering = ({ mobile, region, ...props }) => {
   )
 }
 
-export default function Directory({ rawOrganizations, pageRegion }) {
+export default function Directory({ rawOrganizations, pageRegion, category }) {
   const [searchValue, setSearchValue] = useState('')
   const [offset, setOffset] = useState(0)
-  // const [region, setRegion] = useState(pageRegion);
   const region = pageRegion
+  category = find(categories, ['id', category])
   const [modalOrganization, setModalOrganization] = useState(null)
 
   useEffect(() => {
@@ -290,11 +405,12 @@ export default function Directory({ rawOrganizations, pageRegion }) {
     <div style={modalOrganization ? {} : {}}>
       <Meta
         as={Head}
-        title={'Nonprofits on HCB'}
+        title={`${category ? category.label : 'Nonprofits'} ${pageRegion ? `in ${pageRegion.label}` : ''} on HCB`}
         description={
+          category?.description ||
           "Teenagers are making an impact with HCB's fiscal sponsorship and financial tools. Explore the nonprofits running on HCB."
         }
-        image="/fiscal-sponsorship/og-image.png"
+        image={`https://workshop-cards.hackclub.com/${encodeURIComponent(`${category ? category.label : 'Nonprofits running'} ${pageRegion ? `in ${pageRegion.label}` : ''} on HCB`)}.png?theme=light&md=1&fontSize=250px`}
       />
       <style>{styles}</style>
       {modalOrganization && (
@@ -323,7 +439,7 @@ export default function Directory({ rawOrganizations, pageRegion }) {
               boxSizing: 'border-box',
               flexDirection: 'column',
               maxHeight: '90vh',
-              overflow: 'scroll'
+              overflowY: 'scroll'
             }}
             onClick={e => {
               e.stopPropagation()
@@ -680,7 +796,8 @@ export default function Directory({ rawOrganizations, pageRegion }) {
                 textAlign: 'center',
                 mt: [2, 4],
                 textShadow: '0 0 16px rgba(0, 0, 0, 1)',
-                fontSize: [5, null, 6, 7]
+                fontSize: [5, null, 6, 7],
+                textWrap: 'balance'
               }}
               as="h1"
               variant="title"
@@ -696,7 +813,8 @@ export default function Directory({ rawOrganizations, pageRegion }) {
                   />
                 </MSparkles>
               </Flex>
-              Nonprofits on HCB
+              {category ? category.label : 'Nonprofits'}{' '}
+              {pageRegion && <>in {pageRegion.label}</>} on HCB
             </Heading>
             <Box
               sx={{
@@ -707,9 +825,26 @@ export default function Directory({ rawOrganizations, pageRegion }) {
                 mx: 'auto'
               }}
             >
-              Teenagers are making an impact with HCB's fiscal sponsorship and
-              financial tools. <br /> Explore the nonprofits running on HCB.
+              {category?.description || (
+                <>
+                  Teenagers are making an impact with HCB's fiscal sponsorship
+                  and financial tools. <br /> Explore the nonprofits running on
+                  HCB.
+                </>
+              )}
             </Box>
+            <Button
+              variant="ctaLg"
+              as="a"
+              href="/fiscal-sponsorship"
+              target="_blank"
+              sx={{
+                mt: [0, 2],
+                height: '56px'
+              }}
+            >
+              WHAT'S HCB?
+            </Button>
           </Box>
         </Box>
 
@@ -728,7 +863,7 @@ export default function Directory({ rawOrganizations, pageRegion }) {
               sx={{
                 py: [0, 4],
                 mb: [4, 0],
-                display: 'none', // temporary - @sampoder
+                display: 'block', // temporary - @sampoder
                 marginLeft: 'max(calc(50vw - 900px), 0px)',
                 '@media screen and (max-width: 991.98px)': {
                   display: 'none'
@@ -773,7 +908,6 @@ export default function Directory({ rawOrganizations, pageRegion }) {
                 '@media screen and (min-width: 992px)': {
                   display: 'none'
                 },
-                display: 'none', // temporary - @sampoder
                 my: 2
               }}
             >

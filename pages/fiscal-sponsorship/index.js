@@ -354,6 +354,33 @@ export default function Page() {
                 </Tilt>
               ))}
           </Grid>
+          <Box
+            sx={{
+              mt: 4,
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Link href="/fiscal-sponsorship/directory" passHref legacyBehavior>
+              <Button
+                as="a"
+                variant="lg"
+                sx={{
+                  bg: 'blue',
+                  backgroundImage: theme => theme.util.gx('muted', 'slate'),
+                  lineHeight: 0.9,
+                  wordWrap: 'none'
+                }}
+              >
+                See more organizations →
+              </Button>
+            </Link>
+
+            <Box sx={{ flexGrow: '1' }}></Box>
+          </Box>
         </Container>
       </Box>
       <Features />
