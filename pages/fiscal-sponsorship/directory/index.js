@@ -43,6 +43,52 @@ export const badges = [
   }
 ]
 
+export const regions = [
+  {
+    label: 'North America',
+    color: 'secondary',
+    iconColor: 'red',
+    icon: 'photo',
+    image:
+      'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png',
+    ogImage: '/fiscal-sponsorship/climate/NorthAmerica.png'
+  },
+  {
+    label: 'South America',
+    color: 'secondary',
+    iconColor: 'orange',
+    icon: 'photo',
+    image:
+      'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png',
+    ogImage: '/fiscal-sponsorship/climate/SouthAmerica.png'
+  },
+  {
+    label: 'Africa',
+    color: 'secondary',
+    iconColor: 'purple',
+    icon: 'explore',
+    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/0africa.png',
+    ogImage: '/fiscal-sponsorship/climate/Africa.png'
+  },
+  {
+    label: 'Europe',
+    color: 'secondary',
+    iconColor: 'blue',
+    icon: 'explore',
+    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/1europe.png',
+    ogImage: '/fiscal-sponsorship/climate/Europe.png'
+  },
+  {
+    label: 'Asia & Oceania',
+    color: 'secondary',
+    iconColor: 'green',
+    icon: 'explore',
+    image:
+      'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png',
+    ogImage: '/fiscal-sponsorship/climate/Asia+Oceania.png'
+  }
+]
+
 badges.__proto__.forOrg = function (org) {
   return this.filter(badge => badge.match?.(org))
 }
@@ -710,6 +756,18 @@ export default function Directory({ rawOrganizations, pageRegion }) {
               Teenagers are making an impact with HCB's fiscal sponsorship and
               financial tools. <br /> Explore the nonprofits running on HCB.
             </Box>
+            <Button
+              variant="ctaLg"
+              as="a"
+              href="/fiscal-sponsorship"
+              target="_blank"
+              sx={{
+                mt: [0, 2],
+                height: '56px'
+              }}
+            >
+              WHAT'S HCB?
+            </Button>
           </Box>
         </Box>
 
