@@ -407,7 +407,6 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
         as={Head}
         title={`${category ? category.label : 'Nonprofits'} ${pageRegion ? `in ${pageRegion.label}` : ''} on HCB`}
         description={
-          category?.description ||
           "Teenagers are making an impact with HCB's fiscal sponsorship and financial tools. Explore the nonprofits running on HCB."
         }
         image={`https://workshop-cards.hackclub.com/${encodeURIComponent(`${category ? category.label : 'Nonprofits running'} ${pageRegion ? `in ${pageRegion.label}` : ''} on HCB`)}.png?theme=light&md=1&fontSize=250px`}
@@ -825,7 +824,7 @@ export default function Directory({ rawOrganizations, pageRegion, category }) {
                 mx: 'auto'
               }}
             >
-              {category?.description || (
+              {(
                 <>
                   Teenagers are making an impact with HCB's fiscal sponsorship
                   and financial tools. <br /> Explore the nonprofits running on
