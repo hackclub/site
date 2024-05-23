@@ -3,7 +3,7 @@ import DirectoryPage, {
   categories,
   fetchRawOrganizations
 } from '../index'
-import { map, find, kebabCase, startCase } from 'lodash'
+import { map, find, kebabCase } from 'lodash'
 
 const regionsWithIds = map(regions, region => ({
   id: kebabCase(region.label),
@@ -27,7 +27,7 @@ export default function DirectoryRegionalPage({
 export const getStaticPaths = () => {
   const paths = categories.flatMap(category =>
     map(map(regionsWithIds, 'id'), id => ({
-      params: { region: `organizations-in-${id}`, category: category.id }
+      params: { region: `${id}`, category: category.id }
     }))
   )
 
@@ -40,7 +40,9 @@ export const getStaticProps = async ({ params }) => {
 
   let orgs = (await fetchRawOrganizations()).filter(
     org =>
-      org.location.continent === region.label &&
+      (region.continents
+        ? region.continents.includes(org.location.continent)
+        : org.location.continent === region.label) &&
       find(categories, ['id', category]).match(org)
   )
 

@@ -3,7 +3,7 @@ import DirectoryPage, {
   categories,
   fetchRawOrganizations
 } from '../index'
-import { map, find, kebabCase, startCase } from 'lodash'
+import { find } from 'lodash'
 
 export default function DirectoryRegionalPage({
   rawOrganizations,
