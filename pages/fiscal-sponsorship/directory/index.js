@@ -205,14 +205,14 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
               },
               width: 'fit-content'
             }}
-            onClick={() =>
+            onClick={() => {
               router.push(
                 availableCategory.index
                   ? `/fiscal-sponsorship/directory/`
                   : `/fiscal-sponsorship/directory/${availableCategory.id}/${region || ''}`
               );
-              clearOffset()
-            }
+              clearOffset();
+            }}
           >
             <Flex
               sx={{
@@ -306,12 +306,12 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
               },
               width: 'fit-content'
             }}
-            onClick={() =>
+            onClick={() => {
               router.push(
                 `/fiscal-sponsorship/directory/${category || 'organizations'}/${kebabCase(availableRegion.label)}`
               );
               clearOffset();
-            }
+            }}
           >
             <Flex
               sx={{
