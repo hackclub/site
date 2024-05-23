@@ -1195,7 +1195,7 @@ export async function fetchRawOrganizations() {
     page++
     total = [...total, ...json]
   }
-  return total
+  return [...total.filter((a) => a.logo != null), ...total.filter((a) => a.logo == null)]
 }
 
 export const getStaticProps = async () => {
