@@ -40,7 +40,7 @@ import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
-import Apocalypse from '../components/index/cards/apocalypse'
+import Trail from '../components/index/cards/trail'
 
 /** @jsxImportSource theme-ui */
 
@@ -676,7 +676,7 @@ function Page({
               </Text>
             </Box>
             <Pizza />
-	    <Apocalypse />
+	    <Trail />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
