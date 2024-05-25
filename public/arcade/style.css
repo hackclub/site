@@ -1,6 +1,28 @@
+html {
+  background-color: #453F49;
+  background-image: url('https://cloud-lm4kzw7d7-hack-club-bot.vercel.app/0bkgr.png');
+}
+
+.heading-card {
+  background: #6B5B5B;
+  padding: 0.5em;
+  display: inline-block;
+}
+
+.heading-card span {
+  font-size: 72px;
+  font-weight: bold;
+  color: #FBCE60;
+  background: -webkit-linear-gradient(#FC867D, #FBCE60);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .loading {
-  margin: 0 auto;
-  animation: spin 1s infinite;
+  /* margin: 0 auto; */
+  text-align: center;
+  font-size: 3em;
+  animation: spin 3s linear infinite;
 }
 
 @keyframes spin {
@@ -18,6 +40,12 @@
 
 .item-list img {
   width: 100%;
+}
+
+.item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 10px;
 }
 
 .hours {
