@@ -1,8 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style href="style.css"></style>
+    <!-- <style href="style.css"></style> -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="data-loader.js"></script>
+    <script>
+
+      window.addEventListener("load", async () => {
+        const inventory = await fetchedData()
+        const itemList = document.querySelector('.item-list')
+        console.log("populating page")
+        inventory.forEach((inv, i) => {
+          const el = document.createElement('div')
+          const heading = document.createElement('h3')
+          heading.innerText = inv.name
+          const hours = document.createElement('span')
+          hours.classList.add('hours')
+          hours.innerText = `cost: ⚡️ ${inv.hours}`
+          const img = document.createElement('img')
+          img.src = inv.imageURL
+          el.appendChild(img)
+          el.appendChild(heading)
+          el.appendChild(hours)
+          itemList.appendChild(el)
+        })
+        document.querySelector('.item-list > .loading').classList.add('display-none')
+      })
+    </script>
   </head>
-  <body></body>
+  <body>
+    <div class="item-list">
+      <!-- item container -->
+      <div class="loading">🕹️</div>
+    </div>
+  </body>
 </html>

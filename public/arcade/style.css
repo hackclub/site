@@ -1,0 +1,29 @@
+.loading {
+  margin: 0 auto;
+  animation: spin 1s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.display-none {
+  display: none;
+}
+
+.item-list img {
+  width: 100%;
+}
+
+.hours {
+  background: orange;
+  border-radius: 1em;
+  padding: 1em;
+  font-weight: bold;
+  color: black;
+}
