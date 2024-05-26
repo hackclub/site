@@ -65,7 +65,60 @@ html {
 }
 
 .cell {
-  align-items: center;
-  display: flex;
-  padding: 5px;
+  position: relative;
+  display: inline-block;
 }
+
+.name {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translate(-58%, -50%);
+  color: #453F49;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 0px 0px, 0px 0px, 0.5px 0px;
+}
+
+.itemimg {
+  position: absolute;
+  top: 62%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 20px;
+  height: auto;
+  width: auto;
+  max-height: 120px;
+  max-width: 120px;
+}
+
+.itemnumber {
+  position: absolute;
+  bottom: 5%;
+  right: 3%;
+  color: #453F49;
+  font-weight: 700;
+  font-size: 40px;
+  text-align: right;
+  padding: 5px 5px 5px 5px;
+  margin-left: 300px;
+  line-height: 32px;
+  text-shadow: 0px 1px, 1px 0px, 1px 0px;
+}
+
+.price {
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  transform: translate(-50%, -50%);
+  color: #FC867D;
+  font-weight: 700;
+  font-size: 60px;
+  text-align: center;
+  text-shadow: 0px 0px, 0px 0px, 0.5px 0px;
+  letter-spacing: -22px;
+}
+
+
