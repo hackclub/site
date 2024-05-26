@@ -1,6 +1,7 @@
 html {
   background-color: #453F49;
   background-image: url('https://cloud-lm4kzw7d7-hack-club-bot.vercel.app/0bkgr.png');
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .heading-card {
@@ -54,4 +55,17 @@ html {
   padding: 1em;
   font-weight: bold;
   color: black;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.cell {
+  align-items: center;
+  display: flex;
+  padding: 5px;
 }
