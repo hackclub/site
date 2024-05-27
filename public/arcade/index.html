@@ -12,21 +12,16 @@
         console.log("populating page")
         inventory.forEach((inv, i) => {
           const el = document.createElement('div')
-          el.classList.add('item')
-          const heading = document.createElement('h3')
-          heading.innerText = inv.name
-          el.appendChild(heading)
+          el.classList.add('cell')
+          el.innerHTML = `
+          <img src="https://cloud-clwphtsfp-hack-club-bot.vercel.app/0container.png"/>
+          <div class="name">${inv.name.toUpperCase()}</div>
+          <image src="https://cloud-7v98mwo3w-hack-club-bot.vercel.app/1arduino_uno.png" class="itemimg"></image>
+          <div class="itemnumber">ITEM ${i + 1}</div>
+          <div class="price">⚡${inv.hours}</div>
+          `
 
-          const hours = document.createElement('span')
-          hours.classList.add('hours')
-          hours.innerText = `cost: ⚡️ ${inv.hours}`
-          el.appendChild(hours)
-
-          const img = document.createElement('img')
-          img.src = inv.imageURL
-          el.appendChild(img)
-
-          itemList.appendChild(el)
+          document.querySelector('.container').appendChild(el)
         })
         document.querySelector('.item-list > .loading').classList.add('display-none')
       })
