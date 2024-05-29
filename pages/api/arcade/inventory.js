@@ -32,6 +32,7 @@ export default async function handler(req, res) {
   const result = data.inventory.filter(record => record.fields["Enabled"]).map(record => {
     return {
       name: record.fields['Name'],
+      smallName: record.fields['Name Small Text'],
       hours: record.fields['Hours'],
       imageURL: record.fields['Image URL'],
       flavorText: record?.fields['Flavor text']?.map(recordID => {

@@ -33,9 +33,11 @@
           const el = document.createElement('div')
           el.classList.add('cell')
 
+          const smallNameDiv = inv.smallName ? ' <span class="small-name">' + inv.smallName + '</span>' : ''
+
           el.innerHTML = `
           <image src="${randomContainer()}" class="card"></image>
-          <div class="name">${inv.name.toUpperCase()}</div>
+          <div class="name">${inv.name.toUpperCase()}${smallNameDiv}</div>
           <image src="${inv.imageURL}" class="itemimg"></image>
           <div class="itemnumber">ITEM ${(i + 1).toString().padStart(2, '0')}</div>
           <div class="price">${inv.hours || '-'}</div>
