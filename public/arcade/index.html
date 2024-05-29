@@ -13,6 +13,21 @@
         inventory.forEach((inv, i) => {
           const el = document.createElement('div')
           el.classList.add('cell')
+
+          /*if (i%3===0) {
+            el.innerHTML = `
+            <image src="https://cloud-rfai3ss2b-hack-club-bot.vercel.app/0container1.png" class="card"></image>
+            `
+          } else if (i%3===1) {
+            el.innerHTML = `
+            <image src="https://cloud-rfai3ss2b-hack-club-bot.vercel.app/0container1.png" class="card"></image>
+            `
+          } else {
+            el.innerHTML = `
+            <image src="https://cloud-rfai3ss2b-hack-club-bot.vercel.app/0container1.png" class="card"></image>
+            `
+          }*/
+
           el.innerHTML = `
           <image src="https://cloud-rfai3ss2b-hack-club-bot.vercel.app/0container1.png" class="card"></image>
           <div class="name">${inv.name.toUpperCase()}</div>
@@ -37,6 +52,7 @@
       <div class="loading">🕹️</div>
       
       <div class="container">
+
 
 
       </div>
