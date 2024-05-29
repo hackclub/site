@@ -6,6 +6,13 @@
     <script src="data-loader.js"></script>
     <script>
 
+      const containerImages = [
+        "https://cloud-rfai3ss2b-hack-club-bot.vercel.app/0container1.png",
+      ]
+
+      const sample = (arr) => arr[Math.floor(Math.random() * arr.length)]
+      const randomContainer = () => sample(containerImages)
+
       window.addEventListener("load", async () => {
         const inventory = await fetchedData()
         const itemList = document.querySelector('.item-list')
@@ -14,22 +21,8 @@
           const el = document.createElement('div')
           el.classList.add('cell')
 
-          /*if (i%3===0) {
-            el.innerHTML = `
-            <image src="https://cloud-rfai3ss2b-hack-club-bot.vercel.app/0container1.png" class="card"></image>
-            `
-          } else if (i%3===1) {
-            el.innerHTML = `
-            <image src="https://cloud-rfai3ss2b-hack-club-bot.vercel.app/0container1.png" class="card"></image>
-            `
-          } else {
-            el.innerHTML = `
-            <image src="https://cloud-rfai3ss2b-hack-club-bot.vercel.app/0container1.png" class="card"></image>
-            `
-          }*/
-
           el.innerHTML = `
-          <image src="https://cloud-rfai3ss2b-hack-club-bot.vercel.app/0container1.png" class="card"></image>
+          <image src="${randomContainer()}" class="card"></image>
           <div class="name">${inv.name.toUpperCase()}</div>
           <image src="${inv.imageURL}" class="itemimg"></image>
           <div class="itemnumber">ITEM ${i + 1}</div>
