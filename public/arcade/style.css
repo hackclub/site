@@ -62,8 +62,18 @@ html {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.section {
+  max-width: 24em;
+}
+@media screen and (min-width: 600px) {
+  .section {
+    max-width: 62em;
+  }
 }
 
 .card {
