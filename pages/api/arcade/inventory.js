@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     flavorText().then(d => data.flavor = d),
   ])
 
-  const result = data.inventory.map(record => {
+  const result = data.inventory.filter(record => record.fields["Enabled"]).map(record => {
     return {
       name: record.fields['Name'],
       hours: record.fields['Hours'],
