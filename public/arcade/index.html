@@ -17,6 +17,18 @@
         const inventory = await fetchedData()
         const itemList = document.querySelector('.item-list')
         console.log("populating page")
+        inventory.sort((a, b) => {
+          // sort by hours, but not everything will have hours set– put the stuff without hours at the end
+          if (a.hours && b.hours) {
+            return a.hours - b.hours
+          } else if (a.hours) {
+            return -1
+          } else if (b.hours) {
+            return 1
+          } else {
+            return 0
+          }
+        })
         inventory.forEach((inv, i) => {
           const el = document.createElement('div')
           el.classList.add('cell')
