@@ -39,6 +39,10 @@ html {
   display: none;
 }
 
+.item-list {
+  text-align: center;
+}
+
 .item-list img {
   width: 100%;
 }
