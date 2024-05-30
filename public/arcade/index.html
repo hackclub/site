@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- <style href="style.css"></style> -->
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <script src="data-loader.js"></script>
-    <script>
 
-      const containerImages = [
-        "https://cloud-3mgl7gw96-hack-club-bot.vercel.app/0container1.png",
-        "https://cloud-13mfwysva-hack-club-bot.vercel.app/0container2.png",
-        "https://cloud-ly6qgiv93-hack-club-bot.vercel.app/0container3.png",
-      ]
+<head>
+  <!-- <style href="style.css"></style> -->
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="data-loader.js"></script>
+  <script>
 
-      const sample = (arr) => arr[Math.floor(Math.random() * arr.length)]
-      const randomContainer = () => sample(containerImages)
+    const containerImages = [
+      "https://cloud-3mgl7gw96-hack-club-bot.vercel.app/0container1.png",
+      "https://cloud-13mfwysva-hack-club-bot.vercel.app/0container2.png",
+      "https://cloud-ly6qgiv93-hack-club-bot.vercel.app/0container3.png",
+    ]
 
-      window.addEventListener("load", async () => {
-        const inventory = await fetchedData()
-        const itemList = document.querySelector('.item-list')
-        console.log("populating page")
-        inventory.sort((a, b) => {
-          // sort by hours, but not everything will have hours set– put the stuff without hours at the end
-          if (a.hours && b.hours) {
-            return a.hours - b.hours
-          } else if (a.hours) {
-            return -1
-          } else if (b.hours) {
-            return 1
-          } else {
-            return 0
-          }
-        })
-        inventory.forEach((inv, i) => {
-          const el = document.createElement('div')
-          el.classList.add('cell')
+    const sample = (arr) => arr[Math.floor(Math.random() * arr.length)]
+    const randomContainer = () => sample(containerImages)
 
-          const smallNameDiv = inv.smallName ? ' <span class="small-name">' + inv.smallName + '</span>' : ''
+    window.addEventListener("load", async () => {
+      const inventory = await fetchedData()
+      const itemList = document.querySelector('.item-list')
+      console.log("populating page")
+      inventory.sort((a, b) => {
+        // sort by hours, but not everything will have hours set– put the stuff without hours at the end
+        if (a.hours && b.hours) {
+          return a.hours - b.hours
+        } else if (a.hours) {
+          return -1
+        } else if (b.hours) {
+          return 1
+        } else {
+          return 0
+        }
+      })
+      inventory.forEach((inv, i) => {
+        const el = document.createElement('div')
+        el.classList.add('cell')
 
-          el.innerHTML = `
+        const smallNameDiv = inv.smallName ? ' <span class="small-name">' + inv.smallName + '</span>' : ''
+
+        el.innerHTML = `
           <image src="${randomContainer()}" class="card"></image>
           <div class="name">${inv.name.toUpperCase()}${smallNameDiv}</div>
           <image src="${inv.imageURL}" class="itemimg"></image>
@@ -46,50 +47,66 @@
           <image src="https://cloud-7kkn345tx-hack-club-bot.vercel.app/0energy.png" class="energy"></image>
           `
 
-          document.querySelector('.container').appendChild(el)
-        })
-        document.querySelector('.item-list > .loading').classList.add('display-none')
+        document.querySelector('.item-list').appendChild(el)
       })
-    </script>
-  </head>
-  <body>
-    <div class="center">
-      <div class="title">
-        <h1>ARCADE HOURS</h1>
-      </div>
+      document.querySelector('.item-list > .loading').classList.add('display-none')
+    })
+  </script>
+</head>
+
+<body>
+  <div class="section fold">
+    <div>
+      <p class="suptitle">
+        Power Hour
+      </p>
+      <h1 class="title">
+        ARCADE
+      </h1>
+      <p class="subtitle">
+        Every hour, more power!
+      </p>
     </div>
 
-    <div class="item-list">
+    <div class="cta">
+      <button onclick="document.querySelector('.instructions').scrollIntoView({behavior: 'smooth'})">
+        ⚡︎ Power Up
+      </button>
+      <p><em class="muted">(and scroll down)</em></p>
+    </div>
+  </div>
+
+  <div class="section instructions">
+    <div class="heading-card">
+      <span>How to play:</span>
+    </div>
+
+    <h2>Step 1: Work on projects!</h2>
+    <p>Hack on something cool! Produce something- consuming doesn't count. Examples of things that count: making your
+      own PCB, building your own site, creating an app.</p>
+    <h2>Step 2: Bank your hours!</h2>
+    <p>Use /hack in <a href="https://hackclub.slack.com/archives/C06SBHMQU8G">#hack-hour</a> on the <a
+        href="https://hackclub.com/slack/">Hack Club Slack</a> to log your hours! It activates a pomodoro timer for 1
+      hour—the length you'll be working on your project.</p>
+    <p>
+      <b>NOTE: you need to ship your project in order for your hours to count.</b>
+    </p>
+    <h2>Step 3: Redeem your hours for prizes!</h2>
+    <p>We're keeping track of your total hours. Spend them on the prize list below! The number next to the energy is
+      how much each item costs. We'll ship it to you after the event!</p>
+    <h2>Have fun! Open until [date].</h2>
+
+  </div>
+
+  <div class="container section">
       <div class="heading-card">
         <span>What's in stock?</span>
       </div>
+    <div class="item-list">
       <!-- item container -->
       <div class="loading">🕹️</div>
-      
-      <div class="container section">
-
-
-
-      </div>
-
-    <div class="instructions section"> 
-      <div class="heading-card">
-        <span>How to play:</span>
-      </div>
-      
-      <h2>Step 1: Work on projects!</h2>
-      <p>Hack on something cool! Produce something- consuming doesn't count. Examples of things that count: making your own PCB, building your own site, creating an app.</p>
-      <h2>Step 2: Bank your hours!</h2>
-      <p>Use /hack in <a href="https://hackclub.slack.com/archives/C06SBHMQU8G">#hack-hour</a> on the <a href="https://hackclub.com/slack/">Hack Club Slack</a> to log your hours! It activates a pomodoro timer for 1 hour—the length you'll be working on your project.</p>
-      <p>
-        <b>NOTE: you need to ship your project in order for your hours to count.</b>
-      </p>
-      <h2>Step 3: Redeem your hours for prizes!</h2>
-      <p>We're keeping track of your total hours. Spend them on the prize list below! The number next to the energy is how much each item costs. We'll ship it to you after the event!</p>
-      <h2>Have fun! Open until [date].</h2>
-
     </div>
+  </div>
+</body>
 
-    </div>
-  </body>
 </html>

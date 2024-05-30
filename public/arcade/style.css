@@ -4,27 +4,42 @@ html {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.center {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+button {
+  color:#2e2a31;
+  background-image: linear-gradient(#FC867D 0%, #FBCE60 100%);
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
 }
 
+.fold {
+  /* top of the page */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  justify-content: space-around;
+}
+
+.suptitle {
+  margin: 0;
+  font-size: 2.5em;
+}
+.subtitle {
+  margin: 0;
+  font-size: 1em;
+  opacity: 0.7;
+}
 .title {
-  background: #2e2a31;
-  padding-left: 3em;
-  padding-right: 3em;
+  font-weight: bold;
   display: inline-block;
   border-radius: 5px;
-  margin-top: 5px;
-  margin-bottom: 5vw;
-}
+  margin: 0;
+  font-size: 5em;
 
-h1 {
-  font-size: 72px;
-  font-style: italic;
-  font-weight: bold;
-  text-align: center;
   color: #FBCE60;
   background: -webkit-linear-gradient(#FC867D, #FBCE60);
   background-clip: text;
@@ -37,8 +52,10 @@ h1 {
   padding-bottom: 1.5em;
   padding-left: 3em;
   padding-right: 3em;
+  margin-bottom: 3em;
   display: inline-block;
   border-radius: 10px;
+  text-align: center;
 }
 
 .heading-card span {
@@ -170,6 +187,7 @@ h1 {
   line-height: 32px;
   text-shadow: 0px 1px, 1px 0px, 1px 0px;
   opacity: 60%;
+  user-select: none;
 }
 
 .price {
