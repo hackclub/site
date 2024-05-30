@@ -6,10 +6,12 @@ html {
 
 .heading-card {
   background: #2e2a31;
-  padding: 0.5em;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
   padding-left: 3em;
   padding-right: 3em;
   display: inline-block;
+  border-radius: 10px;
 }
 
 .heading-card span {
@@ -19,6 +21,7 @@ html {
   background: -webkit-linear-gradient(#FC867D, #FBCE60);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 90%;
 }
 
 .loading {
