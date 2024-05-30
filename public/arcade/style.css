@@ -140,6 +140,7 @@ button {
 .cell {
   position: relative;
   display: inline-block;
+  margin: 0.5em;
 }
 
 .name {
