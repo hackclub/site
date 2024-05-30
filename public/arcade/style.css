@@ -4,6 +4,33 @@ html {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  background: #2e2a31;
+  padding-left: 3em;
+  padding-right: 3em;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-bottom: 8vw;
+}
+
+h1 {
+  font-size: 72px;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  color: #FBCE60;
+  background: -webkit-linear-gradient(#FC867D, #FBCE60);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .heading-card {
   background: #2e2a31;
   padding-top: 1em;
@@ -15,7 +42,7 @@ html {
 }
 
 .heading-card span {
-  font-size: 72px;
+  font-size: 54px;
   font-weight: bold;
   color: #FBCE60;
   background: -webkit-linear-gradient(#FC867D, #FBCE60);
