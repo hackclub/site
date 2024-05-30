@@ -5,8 +5,10 @@ html {
 }
 
 .heading-card {
-  background: #6B5B5B;
+  background: #2e2a31;
   padding: 0.5em;
+  padding-left: 3em;
+  padding-right: 3em;
   display: inline-block;
 }
 
@@ -168,8 +170,8 @@ html {
   text-align: center;
   margin-top: 5vw;
   padding-bottom: 5vw;
-  margin-left: 15vw;
-  margin-right: 15vw;
+  margin-left: 18vw;
+  margin-right: 18vw;
 }
 
 h2 {
@@ -177,7 +179,7 @@ h2 {
   background: -webkit-linear-gradient(#FC867D, #FBCE60);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding-top: 2vw;
+  padding-top: 1vw;
 }
 
 p {
