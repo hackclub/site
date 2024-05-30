@@ -217,3 +217,17 @@ p {
 }
 
 
+a:link {
+  color: #FC867D;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #FC867D;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FBCE60;
+  background-color: #2e2a31;
+}
