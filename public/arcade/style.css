@@ -70,6 +70,7 @@ html {
   margin-left: auto;
   margin-right: auto;
   margin-top: 3vw;
+  margin-bottom: 3vw;
 }
 
 .section {
@@ -160,6 +161,27 @@ html {
   width: auto;
   max-height: 50px;
   max-width: 25px;
+}
+
+.instructions {
+  position: absolute;
+  text-align: center;
+  margin-top: 5vw;
+  padding-bottom: 5vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
+
+h2 {
+  color: #FBCE60;
+  background: -webkit-linear-gradient(#FC867D, #FBCE60);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-top: 2vw;
+}
+
+p {
+  color: white;
 }
 
 
