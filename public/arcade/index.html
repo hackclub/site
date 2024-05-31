@@ -45,6 +45,9 @@
         }[character] || "https://cloud-6rd1boq71-hack-club-bot.vercel.app/0image.png"
       }
 
+      const raccEl = document.querySelector('#shopkeeper-left')
+      const dinoEl = document.querySelector('#shopkeeper-right')
+
       inventory.forEach((inv, i) => {
         const el = document.createElement('div')
         el.classList.add('cell')
@@ -53,13 +56,20 @@
           let msg = sample(inv.flavorText)
           if (msg) {
             console.log(`${msg.character}:${msg.message}`)
-            document.querySelector('#shopkeeper').src = msg.characterURL || characterImage(msg.character)
             document.querySelector('.shop-dialogue').innerHTML = msg.message
             if (msg.character === 'Dino') {
-              yap(msg.message, {baseRate: 3.9, rateVariance: 1})
+              dinoEl.src = msg.characterURL || characterImage(msg.character)
+              dinoEl.classList.add('talking')
+              yap(msg.message, {baseRate: 3.9, rateVariance: 1, endCallback: () => {
+                dinoEl.classList.remove('talking')
+              }})
             } else {
               // raccoon
-              yap(msg.message, {baseRate: 2.9, rateVariance: 1})
+              raccEl.src = msg.characterURL || characterImage(msg.character)
+              raccEl.classList.add('talking')
+              yap(msg.message, {baseRate: 2.9, rateVariance: 1, endCallback: () => {
+                raccEl.classList.remove('talking')
+              }})
             }
           } else {
             document.querySelector('.shop-dialogue').innerHTML = '...'
@@ -178,8 +188,9 @@
 
     
     
-  <div class="shop-stand" style="position:sticky; bottom:0px;">
-      <img id="shopkeeper" src="" alt="shopkeeper" />
+  <div class="shop-stand">
+      <img id="shopkeeper-left" class="shopkeeper" src="" alt="shopkeeper" />
+      <img id="shopkeeper-right" class="shopkeeper" src="" alt="shopkeeper" />
       <div class="shop-ledge"></div>
       <div class="shop-counter">
         <div class="dialogue-box">

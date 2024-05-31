@@ -1,10 +1,10 @@
 async function yap(text, {
   letterCallback = () => {},
+  endCallback = () => {},
   baseRate = 1.9,
   rateVariance = 0.50,
   volume = 0.50
 }) {
-
   const yap_sounds = {
     // these sounds and most of the yapping code are adapted from https://github.com/equalo-official/animalese-generator
     a: new Howl({ src: '/bin/yapping/a.wav', volume }),
@@ -63,19 +63,22 @@ async function yap(text, {
       // who cares. pick up a foot ball
     }
     if (!char.match(/[a-zA-Z.]/)) {
-      yap_queue.push(yap_sounds['_']);
+      yap_queue.push(yap_sounds['_'])
       continue; // skip characters that are not letters or periods
     }
-    yap_queue.push(yap_sounds[char]);
+    yap_queue.push(yap_sounds[char])
   }
 
   function next_yap() {
     letterCallback(yap_queue.length)
-    if (yap_queue.length === 0) return;
-    let noise = yap_queue.shift();
-    noise.rate(Math.random() * rateVariance + baseRate);
+    if (yap_queue.length === 0) {
+      endCallback()
+      return
+    }
+    let noise = yap_queue.shift()
+    noise.rate(Math.random() * rateVariance + baseRate)
     noise.once('end', next_yap)
-    noise.play();
+    noise.play()
   }
 
   next_yap();
