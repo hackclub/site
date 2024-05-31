@@ -303,21 +303,22 @@ a:hover {
   background: #838C8C;
   padding: 0px;
   margin: 0px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .dialogue-box {
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 50px;
+
   
 }
 
 .dialogue-box-border {
   width: 500px;
-  height: 80px;
+  height: 90px;
   border-radius: 5px;
   border: 5px solid #FBCE60;
   background: #FC867D;
