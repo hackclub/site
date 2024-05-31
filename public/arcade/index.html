@@ -32,9 +32,28 @@
           return 0
         }
       })
+
+      function characterImage(character) {
+        return {
+          "Dino": "https://cloud-6rd1boq71-hack-club-bot.vercel.app/0image.png",
+          "Raccoon": "https://cloud-6rd1boq71-hack-club-bot.vercel.app/1image.png"
+        }[character] || "https://cloud-6rd1boq71-hack-club-bot.vercel.app/0image.png"
+      }
+
       inventory.forEach((inv, i) => {
         const el = document.createElement('div')
         el.classList.add('cell')
+
+        el.addEventListener('click', () => {
+          let msg = sample(inv.flavorText)
+          if (msg) {
+            console.log(`${msg.character}:${msg.message}`)
+            document.querySelector('#shopkeeper').src = characterImage(msg.character)
+            document.querySelector('.shop-dialogue').innerHTML = msg.message
+          } else {
+            document.querySelector('.shop-dialogue').innerHTML = '...'
+          }
+        })
 
         const smallNameDiv = inv.smallName ? ' <span class="small-name">' + inv.smallName + '</span>' : ''
 
@@ -131,6 +150,11 @@
     <div class="item-list">
       <!-- item container -->
       <div class="loading">🕹️</div>
+    </div>
+    <div class="shop-stand">
+      <img id="shopkeeper" src="" alt="shopkeeper" />
+      <div class="shop-dialogue">
+      </div>
     </div>
   </div>
 </body>
