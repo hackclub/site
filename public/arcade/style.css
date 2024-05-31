@@ -257,12 +257,33 @@ a:hover {
   background-color: #2e2a31;
 }
 
+.shop-stand {
+  bottom: 0;
+  margin-top: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  user-select: none;
+  pointer-events: none;
+  /* top: 100; */
+}
+.shop-stand > * {
+  pointer-events: auto;
+  user-select: auto;
+}
 
-
+@keyframes talking {
+  from {
+    transform: scale(1.1, 0.9);
+  } to {
+    transform: scale(0.9, 1.1);
+  }
+}
+.talking {
+  animation: talking 0.2s infinite alternate;
+}
 .shopkeeper {
-  position: absolute;
-  display: inline-block;
-  padding: 10px 20px;
+  animation-transition: 0.2s;
+  user-select: none;
 }
 
 .shop-ledge {
