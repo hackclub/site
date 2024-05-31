@@ -262,7 +262,13 @@ a:hover {
   margin-top: auto;
   position: -webkit-sticky;
   position: sticky;
+  user-select: none;
+  pointer-events: none;
   /* top: 100; */
+}
+.shop-stand > * {
+  pointer-events: auto;
+  user-select: auto;
 }
 
 @keyframes talking {
