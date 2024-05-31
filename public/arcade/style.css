@@ -30,6 +30,7 @@ button:hover {
 }
 
 .suptitle {
+  padding-top: 100px;
   margin: 0;
   font-size: 2.5em;
 }
@@ -283,13 +284,20 @@ a:hover {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 50px;
-  border-radius: 5px;
-  border: #FBCE60;
 }
 
 .shop-dialogue {
-  width: 300px;
-  height: 100px;
+  width: 400px;
+  height: 70px;
+  border-radius: 5px;
+  border: 5px solid #FBCE60;
   background: #FC867D;
-  border: #FBCE60;
+  
+  text-align: left;
+  flex-direction: row;
+  padding-top: 20px;
+  padding-right: 30px;
+  padding-left:30px;
+  color: white;
+  font-size: 20px;
 }
