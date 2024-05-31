@@ -86,11 +86,24 @@
       src: ['https://cloud-akjvxw4d0-hack-club-bot.vercel.app/0indigo_park_ost_-_airplayn___mollie_s_landing_pad____vmy-mxohsuy__audio.mp4'],
       volume: 0.5,
       loop: true,
+      rate: 0.5
     })
 
-    document.querySelector('#open-shop').addEventListener('click', () => {
-      // toggle the music
-      showMusic.playing() ? showMusic.pause() : showMusic.play()
+    let firstPlay = true
+    document.querySelector('#open-shop').addEventListener('click', async () => {
+      if (firstPlay) {
+        // strange fade-in effect where the pitch shifts up like a record player
+        showMusic.fade(0, 1, 1000);
+        showMusic.play()
+        while(showMusic.rate() < 1) {
+          showMusic.rate(showMusic.rate() + 0.05)
+          await new Promise(r => setTimeout(r, 200))
+        }
+      } else {
+        // toggle play/pause
+        showMusic.playing() ? showMusic.pause() : showMusic.play()
+      }
+      firstPlay = false
     })
   })
   </script>
