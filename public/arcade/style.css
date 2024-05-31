@@ -20,7 +20,7 @@ button {
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 90vh;
+  min-height: 95vh;
   justify-content: space-around;
 }
 
@@ -30,7 +30,7 @@ button {
 }
 .subtitle {
   margin: 0;
-  font-size: 1em;
+  font-size: 1.5em;
   opacity: 0.7;
 }
 .title {
@@ -38,7 +38,7 @@ button {
   display: inline-block;
   border-radius: 5px;
   margin: 0;
-  font-size: 5em;
+  font-size: 7em;
 
   color: #FBCE60;
   background: -webkit-linear-gradient(#FC867D, #FBCE60);
@@ -218,6 +218,7 @@ button {
 .instructions {
   text-align: center;
   margin-top: 5vw;
+  padding-top: 2vw;
   padding-bottom: 5vw;
 }
 
