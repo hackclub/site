@@ -276,14 +276,19 @@ a:hover {
 
 @keyframes talking {
   from {
-    transform: scale(1.1, 0.9);
+    transform: scale(1.1, 0.9) translateY(20%);
   } to {
-    transform: scale(0.9, 1.1);
+    transform: scale(0.9, 1.1) translateY(0%);
   }
 }
-.talking {
+#shopkeeper-left.talking {
   animation: talking 0.2s infinite alternate;
 }
+
+#shopkeeper-right.talking {
+  animation: talking 0.19s infinite alternate;
+}
+
 .shopkeeper {
   animation-transition: 0.2s;
   user-select: none;
