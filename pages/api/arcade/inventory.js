@@ -36,10 +36,17 @@ export default async function handler(req, res) {
       hours: record.fields['Hours'],
       imageURL: record.fields['Image URL'],
       flavorText: record?.fields['Flavor text']?.map(recordID => {
-        return {
-          message: data.flavor.find(f => f.id == recordID).fields["Message"],
-          character: data.flavor.find(f => f.id == recordID).fields["Character"]
+        const flavorRecord = data.flavor.find(f => f.id == recordID)
+        const result = {
+          message: flavorRecord.fields["Message"],
+          character: flavorRecord.fields["Character"],
+          imageURL: flavorRecord.fields["Image URL"]
         }
+        if (flavorRecord.fields["Shopkeepers"]) {
+          result.characterURL = flavorRecord.fields["Image Link (from Shopkeepers)"][0]
+          result.character = flavorRecord.fields["Character (from Shopkeepers)"][0]
+        }
+        return result
       })
     }
   })

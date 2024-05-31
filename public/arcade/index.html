@@ -52,7 +52,7 @@
           let msg = sample(inv.flavorText)
           if (msg) {
             console.log(`${msg.character}:${msg.message}`)
-            document.querySelector('#shopkeeper').src = characterImage(msg.character)
+            document.querySelector('#shopkeeper').src = msg.characterURL || characterImage(msg.character)
             document.querySelector('.shop-dialogue').innerHTML = msg.message
           } else {
             document.querySelector('.shop-dialogue').innerHTML = '...'
