@@ -293,20 +293,30 @@ a:hover {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 50px;
+  
 }
 
-.shop-dialogue {
-  width: 400px;
-  height: 70px;
+.dialogue-box-border {
+  width: 500px;
+  height: 80px;
   border-radius: 5px;
   border: 5px solid #FBCE60;
   background: #FC867D;
+}
+
+.shop-dialogue {
   
   text-align: left;
   flex-direction: row;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-right: 30px;
   padding-left:30px;
   color: white;
   font-size: 20px;
+
+  animation: type 2s steps(60, end); 
+}
+
+@keyframes type {
+  from { width: 0; }
 }
