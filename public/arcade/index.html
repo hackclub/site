@@ -68,16 +68,20 @@
             if (msg.character === 'Dino') {
               dinoEl.src = msg.characterURL || characterImage(msg.character)
               dinoEl.classList.add('talking')
-              yap(msg.message, {baseRate: 3.9, rateVariance: 1, endCallback: () => {
-                dinoEl.classList.remove('talking')
-              }})
+              yap(msg.message, {
+                baseRate: 3.9, rateVariance: 1, endCallback: () => {
+                  dinoEl.classList.remove('talking')
+                }
+              })
             } else {
               // raccoon
               raccEl.src = msg.characterURL || characterImage(msg.character)
               raccEl.classList.add('talking')
-              yap(msg.message, {baseRate: 2.9, rateVariance: 1, endCallback: () => {
-                raccEl.classList.remove('talking')
-              }})
+              yap(msg.message, {
+                baseRate: 2.9, rateVariance: 1, endCallback: () => {
+                  raccEl.classList.remove('talking')
+                }
+              })
             }
           } else {
             document.querySelector('.shop-dialogue').innerHTML = '...'
@@ -165,7 +169,8 @@
       own PCB, building your own site, creating an app.</p>
     <h2>Step 2: Bank your hours!</h2>
     <p>Use /hack in <a href="https://hackclub.slack.com/archives/C06SBHMQU8G">#hack-hour</a> on the <a
-        href="https://hackclub.com/slack/">Hack Club Slack</a> to log your hours! It will activate a pomodoro timer for 1
+        href="https://hackclub.com/slack/">Hack Club Slack</a> to log your hours! It will activate a pomodoro timer for
+      1
       hour, which is the length you'll be working on your project.</p>
     <p>
       <b>NOTE: you need to ship your project in order for your hours to count.</b>
@@ -178,37 +183,38 @@
   </div>
 
   <div class="container section" style="position: relative;">
-      <div class="heading-card">
-        <span>What's in stock?</span>
+    <div class="heading-card">
+      <span>What's in stock?</span>
       <button id="open-shop">
         Open the shop
       </button>
-      </div>
+    </div>
     <div class="item-list">
       <!-- item container -->
       <div class="loading">🕹️</div>
     </div>
 
-    
-    
-  <div class="shop-stand">
+
+
+    <div class="shop-stand">
       <img id="shopkeeper-left" class="shopkeeper" src="" alt="shopkeeper" />
-      <img id="shopkeeper-right" class="shopkeeper" src="" alt="shopkeeper" />
-      <div class="shop-ledge"></div>
       <div class="shop-counter">
         <div class="dialogue-box">
           <div class="dialogue-box-border">
-            <div class="shop-dialogue"> 
-            </div> 
+            <div class="shop-dialogue">
+            </div>
           </div>
         </div>
       </div>
-  </div>
+      <img id="shopkeeper-right" class="shopkeeper" src="" alt="shopkeeper" />
+    </div>
   </div>
 
-  
+
 </body>
 <!-- Intentionally loaded last -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.js" integrity="sha512-0eckjEcIDNlyXFNRAL2Kecw71G5Df+nI2kazjvQrH/DZEHYOdy0UnP0gAlQGZMq4ZOOHpc2eYG15N3JZDA6pGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.js"
+  integrity="sha512-0eckjEcIDNlyXFNRAL2Kecw71G5Df+nI2kazjvQrH/DZEHYOdy0UnP0gAlQGZMq4ZOOHpc2eYG15N3JZDA6pGg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </html>
