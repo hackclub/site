@@ -10,7 +10,12 @@
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script src="data-loader.js"></script>
   <script src="/yap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.js"
+    integrity="sha512-7Zgn4mmO9yGGB1j9yP0mZvUPWBVg0fCcUMsYUV6FX7XIKQfb/dhGxsKh794YAzXH2F/+Z3eJL4mrTilrT2ZeFQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
+
+    let firstPlay = true
 
     const containerImages = [
       "https://cloud-3mgl7gw96-hack-club-bot.vercel.app/0container1.png",
@@ -53,6 +58,9 @@
         el.classList.add('cell')
 
         el.addEventListener('click', () => {
+          if (firstPlay) {
+            toggleMusic()
+          }
           let msg = sample(inv.flavorText)
           if (msg) {
             console.log(`${msg.character}:${msg.message}`)
@@ -96,37 +104,32 @@
       })
 
       document.querySelector('.item-list > .loading').classList.add('display-none')
-    })
-  </script>
+      // audio stuff
+      const showMusic = new Howl({
+        src: ['https://cloud-akjvxw4d0-hack-club-bot.vercel.app/0indigo_park_ost_-_airplayn___mollie_s_landing_pad____vmy-mxohsuy__audio.mp4'],
+        volume: 0.5,
+        loop: true,
+        rate: 0.5
+      })
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.js" integrity="sha512-7Zgn4mmO9yGGB1j9yP0mZvUPWBVg0fCcUMsYUV6FX7XIKQfb/dhGxsKh794YAzXH2F/+Z3eJL4mrTilrT2ZeFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script>
-    // audio stuff
-    window.addEventListener("load", async () => {
-    const showMusic = new Howl({
-      src: ['https://cloud-akjvxw4d0-hack-club-bot.vercel.app/0indigo_park_ost_-_airplayn___mollie_s_landing_pad____vmy-mxohsuy__audio.mp4'],
-      volume: 0.5,
-      loop: true,
-      rate: 0.5
-    })
-
-    let firstPlay = true
-    document.querySelector('#open-shop').addEventListener('click', async () => {
-      if (firstPlay) {
-        // strange fade-in effect where the pitch shifts up like a record player
-        showMusic.fade(0, 1, 1000);
-        showMusic.play()
-        while(showMusic.rate() < 1) {
-          showMusic.rate(showMusic.rate() + 0.05)
-          await new Promise(r => setTimeout(r, 200))
+      async function toggleMusic() {
+        if (firstPlay) {
+          // strange fade-in effect where the pitch shifts up like a record player
+          showMusic.fade(0, 1, 1000);
+          showMusic.play()
+          while (showMusic.rate() < 1) {
+            showMusic.rate(showMusic.rate() + 0.05)
+            await new Promise(r => setTimeout(r, 200))
+          }
+        } else {
+          // toggle play/pause
+          showMusic.playing() ? showMusic.pause() : showMusic.play()
         }
-      } else {
-        // toggle play/pause
-        showMusic.playing() ? showMusic.pause() : showMusic.play()
+        firstPlay = false
       }
-      firstPlay = false
+
+      document.querySelector('#open-shop').addEventListener('click', toggleMusic)
     })
-  })
   </script>
 </head>
 
