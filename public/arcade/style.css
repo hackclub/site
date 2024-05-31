@@ -117,11 +117,11 @@ button:hover {
 }
 
 .container {
-  display: flex;
+  /*display: flex;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
+  justify-content: center;*/
   margin-top: 3vw;
   margin-bottom: 3vw;
 }
@@ -257,12 +257,7 @@ a:hover {
   background-color: #2e2a31;
 }
 
-.shop-stand {
-  margin-top: auto;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 100;
-}
+
 
 .shopkeeper {
   position: absolute;
