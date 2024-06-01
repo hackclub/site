@@ -203,11 +203,11 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-	  <Announcement
-            copy="Get a free hardware starter kit!"
-            caption="Join 100s of other high schoolers to create your first electronics project."
-            href="/bin/"
-            iconLeft="idea"
+          <Announcement
+            copy="All Aboard the Boreal Express!"
+            caption="Join 50 Hack Clubbers from July 21-28 for an epic transcontinental hackathon across North America."
+            href="https://boreal.hackclub.com"
+            iconLeft="event-check"
           />
           <Box
             sx={{
@@ -410,15 +410,15 @@ function Page({
                         count === images.length - 2
                           ? images[0].src
                           : images.length - 1
-                            ? images[1].src
-                            : images[count + 2].src
+                          ? images[1].src
+                          : images[count + 2].src
                       }
                       alt={
                         count === images.length - 2
                           ? images[0].alt
                           : images.length - 1
-                            ? images[1].alt
-                            : images[count + 2].alt
+                          ? images[1].alt
+                          : images[count + 2].alt
                       }
                       width={3000}
                       height={2550}
@@ -676,7 +676,7 @@ function Page({
               </Text>
             </Box>
             <Pizza />
-	    <Trail />
+            <Trail />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
