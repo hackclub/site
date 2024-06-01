@@ -24,6 +24,12 @@ button:hover {
   transform: scale(1.1);
 }
 
+.sound-button {
+  margin: 0 auto;
+  cursor: pointer;
+  text-align: center;
+}
+
 .fold {
   /* top of the page */
   text-align: center;
