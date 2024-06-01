@@ -385,3 +385,12 @@ a:hover {
 @keyframes type {
   from { width: 0; }
 }
+
+@media screen and (max-width: 600px) {
+  #shopkeeper-left {
+    display: none;
+  }
+  .shop-counter {
+    width: calc(100% - 150px);
+  }
+}
