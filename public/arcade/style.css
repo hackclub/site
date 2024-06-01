@@ -4,6 +4,10 @@ html {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.force-unicode {
+  font-family: monospace;
+}
+
 button {
   color:#2e2a31;
   background-image: linear-gradient(#FC867D 0%, #FBCE60 100%);
