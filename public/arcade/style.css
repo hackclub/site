@@ -66,6 +66,9 @@ button:hover {
   display: inline-block;
   border-radius: 10px;
   text-align: center;
+  position: relative; 
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .heading-card span {
