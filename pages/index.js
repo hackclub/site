@@ -204,10 +204,10 @@ function Page({
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
 	  <Announcement
-            copy="Get a free hardware starter kit!"
-            caption="Join 100s of other high schoolers to create your first electronics project."
-            href="/bin/"
-            iconLeft="idea"
+            copy="This week, build in public at the Hack Hour Arcade."
+            caption="And earn powerups for your next project from Jun 1 - 7."
+            href="/arcade/"
+            iconLeft="bolt"
           />
           <Box
             sx={{
