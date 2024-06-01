@@ -204,10 +204,10 @@ function Page({
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
 	  <Announcement
-            copy="This week, build in public at the Hack Hour Arcade."
-            caption="And earn powerups for your next project from Jun 1 - 7."
+            copy="Build in public at the Hack Arcade June 1 - 7"
+            caption="Get domains, breadboards & multimeters, and drawing tablets."
             href="/arcade/"
-            iconLeft="bolt"
+            imgSrc="https://cloud-gyu8zgkki-hack-club-bot.vercel.app/0_______.png"
           />
           <Box
             sx={{
