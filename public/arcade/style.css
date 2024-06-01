@@ -63,7 +63,7 @@ button:hover {
   padding-left: 3em;
   padding-right: 3em;
   margin-bottom: 3em;
-  display: inline-block;
+  /*display: inline-block;*/
   border-radius: 10px;
   text-align: center;
   /* position: relative;  */
