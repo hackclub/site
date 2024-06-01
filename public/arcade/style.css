@@ -66,9 +66,9 @@ button:hover {
   display: inline-block;
   border-radius: 10px;
   text-align: center;
-  position: relative; 
-  left: 50%;
-  transform: translateX(-50%);
+  /* position: relative;  */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
 }
 
 .heading-card span {
@@ -123,14 +123,12 @@ button:hover {
   color: black;
 }
 
-.container {
-  /*display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;*/
+.inventory {
   margin-top: 3vw;
-  margin-bottom: 3vw;
+}
+
+.footer {
+  background: #2e2a31;
 }
 
 .section {
