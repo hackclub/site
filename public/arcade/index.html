@@ -64,11 +64,9 @@
         handleClick({ name: "Dino", flavorText: selfClicks["Dino"] })
       })
 
+      document.querySelector('.sound-button').addEventListener('click', toggleMusic)
+
       function handleClick(inv) {
-        console.log(inv)
-        if (firstPlay) {
-          toggleMusic()
-        }
         let msg = sample(inv.flavorText)
         if (msg) {
           console.log(`${msg.character}:${msg.message}`)
@@ -229,6 +227,7 @@
     <div class="heading-card">
       <span>What's in stock?</span>
     </div>
+    <span class="sound-button">Want sound?</span>
     <div style="position: relative;">
       <div class="item-list">
         <!-- item container -->
