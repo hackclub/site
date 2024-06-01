@@ -316,6 +316,16 @@ a:hover {
   animation: idle 2s infinite alternate;
   filter: contrast(60%);
 }
+#shopkeeper-left {
+  position: absolute;
+  left: -10px;
+  bottom: 0;
+}
+#shopkeeper-right {
+  position: absolute;
+  right: -10px;
+  bottom: 0;
+}
 
 .shopkeeper.talking {
   filter: drop-shadow(0px 0px 10px #FC867D);
