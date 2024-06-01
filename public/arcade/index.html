@@ -135,26 +135,22 @@
         muted = !muted
         if (muted) {
           document.querySelector('.sound-button').textContent = 'Want sound?'
+          showMusic.stop()
         } else if (!muted) {
           document.querySelector('.sound-button').textContent = 'Mute sound'
-        }
-          toggleMusic()
-      }
-
-      async function toggleMusic() {
-        if (firstPlay) {
-          // strange fade-in effect where the pitch shifts up like a record player
-          showMusic.fade(0, 1, 1000);
-          showMusic.play()
-          while (showMusic.rate() < 1) {
-            showMusic.rate(showMusic.rate() + 0.05)
-            await new Promise(r => setTimeout(r, 200))
+          if (firstPlay) {
+            // strange fade-in effect where the pitch shifts up like a record player
+            showMusic.fade(0, 1, 1000);
+            showMusic.play()
+            while (showMusic.rate() < 1) {
+              showMusic.rate(showMusic.rate() + 0.05)
+              await new Promise(r => setTimeout(r, 200))
+            }
+          firstPlay = false
+          } else {
+            showMusic.play()
           }
-        } else {
-          // toggle play/pause
-          showMusic.playing() ? showMusic.pause() : showMusic.play()
         }
-        firstPlay = false
       }
 
       // document.querySelector('#open-shop').addEventListener('click', toggleMusic)
