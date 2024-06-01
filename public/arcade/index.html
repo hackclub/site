@@ -6,6 +6,9 @@
   <title>Power Hour: Arcade</title>
   <link rel="icon" type="image/x-icon" href="https://cloud-n6tkrqcbc-hack-club-bot.vercel.app/0favicon.png">
 
+  <script>
+    let muted = true
+  </script>
   <!-- <style href="style.css"></style> -->
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script src="data-loader.js"></script>
@@ -64,7 +67,7 @@
         handleClick({ name: "Dino", flavorText: selfClicks["Dino"] })
       })
 
-      document.querySelector('.sound-button').addEventListener('click', toggleMusic)
+      document.querySelector('.sound-button').addEventListener('click', toggleMute)
 
       function handleClick(inv) {
         let msg = sample(inv.flavorText)
@@ -127,6 +130,16 @@
         loop: true,
         rate: 0.5
       })
+
+      async function toggleMute() {
+        muted = !muted
+        if (muted) {
+          document.querySelector('.sound-button').textContent = 'Want sound?'
+        } else if (!muted) {
+          document.querySelector('.sound-button').textContent = 'Mute sound'
+        }
+          toggleMusic()
+      }
 
       async function toggleMusic() {
         if (firstPlay) {

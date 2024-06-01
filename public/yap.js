@@ -3,8 +3,9 @@ async function yap(text, {
   endCallback = () => {},
   baseRate = 1.9,
   rateVariance = 0.50,
-  volume = 0.50
 }) {
+  let volume = 0.2
+  if (muted) { endCallback(); return }
   const yap_sounds = {
     // these sounds and most of the yapping code are adapted from https://github.com/equalo-official/animalese-generator
     a: new Howl({ src: '/bin/yapping/a.wav', volume }),
