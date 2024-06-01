@@ -53,6 +53,9 @@
       const raccEl = document.querySelector('#shopkeeper-left')
       const dinoEl = document.querySelector('#shopkeeper-right')
 
+      raccEl.src = characterImage("Raccoon")
+      dinoEl.src = characterImage("Dino")
+
       raccEl.addEventListener('click', () => {
         handleClick({name: "Raccoon", flavorText: selfClicks["Raccoon"]})
       })
