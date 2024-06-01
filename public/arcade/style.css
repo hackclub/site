@@ -102,8 +102,24 @@ button:hover {
 }
 
 .item-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); 
   text-align: center;
 }
+
+@media screen and (min-width: 600px) {
+  .item-list {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .item-list {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+
 
 .item-list img {
   width: 100%;
@@ -150,8 +166,9 @@ button:hover {
 
 .cell {
   position: relative;
-  display: inline-block;
-  margin: 0.5em;
+  width: 300px;
+  display: block;
+  margin: 0.5em auto;
   cursor: pointer;
 }
 
