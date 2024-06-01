@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     flavorText().then(d => data.flavor = d),
   ])
 
-  const result = data.inventory.filter(record => record.fields["Enabled"]).map(record => {
+  const inventoryResults = data.inventory.filter(record => record.fields["Enabled"]).map(record => {
     return {
       name: record.fields['Name'],
       smallName: record.fields['Name Small Text'],
@@ -51,5 +51,18 @@ export default async function handler(req, res) {
     }
   })
 
-  res.status(200).json(result)
+  const selfClicks = {}
+  data.flavor.filter(f => f.fields['Self Click']).forEach(record => {
+    const char = record.fields["Character (from Shopkeepers)"][0]
+    const charURL = record.fields["Image Link (from Shopkeepers)"][0]
+    const charMsg = record.fields["Message"]
+    selfClicks[char] = selfClicks[char] || []
+    selfClicks[char].push({
+      message: charMsg,
+      characterURL: charURL,
+      character: char
+    })
+  })
+
+  res.status(200).json({inventory: inventoryResults, selfClicks})
 }

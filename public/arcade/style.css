@@ -292,7 +292,7 @@ a:hover {
 
 .shopkeeper {
   animation: idle 2s infinite alternate;
-  filter: contrast(20%);
+  filter: contrast(60%);
 }
 
 .shopkeeper.talking {

@@ -27,9 +27,8 @@
     const randomContainer = () => sample(containerImages)
 
     window.addEventListener("load", async () => {
-      const inventory = await fetchedData()
+      const { inventory, selfClicks } = await fetchedData()
       const itemList = document.querySelector('.item-list')
-      console.log("populating page")
       inventory.sort((a, b) => {
         // sort by hours, but not everything will have hours set– put the stuff without hours at the end
         if (a.hours && b.hours) {
@@ -45,8 +44,6 @@
 
       function characterImage(character) {
         return {
-          // "Dino": "https://cloud-6rd1boq71-hack-club-bot.vercel.app/0image.png",
-          // "Raccoon": "https://cloud-6rd1boq71-hack-club-bot.vercel.app/1image.png"
           "Dino": "https://cloud-h4wi9l5hg-hack-club-bot.vercel.app/2005.png",
           "Raccoon": "https://cloud-nfmmdwony-hack-club-bot.vercel.app/1001.png"
 
@@ -56,11 +53,16 @@
       const raccEl = document.querySelector('#shopkeeper-left')
       const dinoEl = document.querySelector('#shopkeeper-right')
 
-      inventory.forEach((inv, i) => {
-        const el = document.createElement('div')
-        el.classList.add('cell')
+      raccEl.addEventListener('click', () => {
+        handleClick({name: "Raccoon", flavorText: selfClicks["Raccoon"]})
+      })
 
-        el.addEventListener('click', () => {
+      dinoEl.addEventListener('click', () => {
+        handleClick({name: "Dino", flavorText: selfClicks["Dino"]})
+      })
+
+      function handleClick(inv) {
+        console.log(inv)
           if (firstPlay) {
             toggleMusic()
           }
@@ -89,7 +91,13 @@
           } else {
             document.querySelector('.shop-dialogue').innerHTML = '...'
           }
-        })
+      }
+
+      inventory.forEach((inv, i) => {
+        const el = document.createElement('div')
+        el.classList.add('cell')
+
+        el.addEventListener('click', () => handleClick(inv))
 
         const smallNameDiv = inv.smallName ? ' <span class="small-name">' + inv.smallName + '</span>' : ''
 
@@ -135,7 +143,7 @@
         firstPlay = false
       }
 
-      document.querySelector('#open-shop').addEventListener('click', toggleMusic)
+      // document.querySelector('#open-shop').addEventListener('click', toggleMusic)
     })
   </script>
 </head>
