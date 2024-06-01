@@ -410,3 +410,16 @@ a:hover {
     width: calc(100% - 150px);
   }
 }
+
+.section.footer > p {
+    padding: 0px 24px;
+}
+
+.section.footer {
+    padding-bottom: 16px;
+}
+
+.footer > .heading-card {
+    margin-bottom: 1em;
+    padding-top: 3em;
+}
