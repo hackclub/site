@@ -286,7 +286,11 @@ const nextConfig = {
       {
         source: '/bin/selector/',
         destination: '/bin/selector/index.html'
-      }
+      },
+      {
+        source: '/arcade/',
+        destination: '/arcade/index.html'
+      },
     ]
   },
   async headers() {

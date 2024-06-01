@@ -1,0 +1,370 @@
+html {
+  background-color: #453F49;
+  background-image: url('https://cloud-lm4kzw7d7-hack-club-bot.vercel.app/0bkgr.png');
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.force-unicode {
+  font-family: monospace;
+}
+
+button {
+  color:#2e2a31;
+  background-image: linear-gradient(#FC867D 0%, #FBCE60 100%);
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+  transition: all .1s ease-in-out; 
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+.fold {
+  /* top of the page */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+  justify-content: space-around;
+}
+
+.suptitle {
+  padding-top: 100px;
+  margin: 0;
+  font-size: 2.5em;
+}
+.subtitle {
+  margin: 0;
+  font-size: 1.5em;
+  opacity: 0.7;
+}
+.title {
+  font-weight: bold;
+  display: inline-block;
+  border-radius: 5px;
+  margin: 0;
+  font-size: 7em;
+
+  color: #FBCE60;
+  background: -webkit-linear-gradient(#FC867D, #FBCE60);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heading-card {
+  background: #2e2a31;
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+  padding-left: 3em;
+  padding-right: 3em;
+  margin-bottom: 3em;
+  /*display: inline-block;*/
+  border-radius: 10px;
+  text-align: center;
+  /* position: relative;  */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+}
+
+.heading-card span {
+  font-size: 54px;
+  font-weight: bold;
+  color: #FBCE60;
+  background: -webkit-linear-gradient(#FC867D, #FBCE60);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 90%;
+}
+
+.loading {
+  /* margin: 0 auto; */
+  text-align: center;
+  font-size: 3em;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.display-none {
+  display: none;
+}
+
+.item-list {
+  text-align: center;
+}
+
+.item-list img {
+  width: 100%;
+}
+
+.item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 10px;
+}
+
+.hours {
+  background: orange;
+  border-radius: 1em;
+  padding: 1em;
+  font-weight: bold;
+  color: black;
+}
+
+.inventory {
+  margin-top: 3vw;
+}
+
+.footer {
+  background: #2e2a31;
+}
+
+.section {
+  max-width: 24em;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (min-width: 600px) {
+  .section {
+    max-width: 62em;
+  }
+}
+
+.card {
+  width: 277px;
+  height: 229px;
+}
+
+.cell {
+  position: relative;
+  display: inline-block;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+.name {
+  position: absolute;
+  top: 23.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #453F49;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  text-shadow: 0px 0px, 0px 0px, 0.5px 0px;
+  width: 300px;
+}
+
+.small-name {
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.itemimg {
+  position: absolute;
+  top: 62%;
+  left: 32%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  font-size: 20px;
+  height: auto;
+  width: auto;
+  max-height: 120px;
+  max-width: 120px;
+}
+
+.itemnumber {
+  position: absolute;
+  bottom: 4%;
+  right: 4%;
+  color: #493f49;
+  font-weight: 700;
+  font-size: 38px;
+  text-align: right;
+  padding: 5px 5px 5px 5px;
+  margin-left: 300px;
+  line-height: 32px;
+  text-shadow: 0px 1px, 1px 0px, 1px 0px;
+  opacity: 60%;
+  user-select: none;
+}
+
+.price {
+  position: absolute;
+  top: 45%;
+  left: 83%;
+  transform: translate(-50%, -50%);
+  color: #FC867D;
+  font-weight: 700;
+  font-size: 60px;
+  text-align: left;
+  text-shadow: 0px 0px, 0px 0px, 0.5px 0px;
+  letter-spacing: -2px;
+}
+
+.energy {
+  position: absolute;
+  top: 46%;
+  left: 67%;
+  transform: translate(-50%, -50%);
+  height: auto;
+  width: auto;
+  max-height: 50px;
+  max-width: 25px;
+}
+
+.instructions {
+  text-align: center;
+  margin-top: 5vw;
+  padding-top: 2vw;
+  padding-bottom: 5vw;
+}
+
+h2 {
+  color: #FBCE60;
+  background: -webkit-linear-gradient(#FC867D, #FBCE60);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-top: 1vw;
+}
+
+p {
+  color: white;
+}
+
+
+a:link {
+  color: #FC867D;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #FC867D;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FBCE60;
+  background-color: #2e2a31;
+}
+
+.shop-stand {
+  bottom: 0;
+  margin-top: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  user-select: none;
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+}
+.shop-stand > * {
+  pointer-events: auto;
+  user-select: auto;
+}
+
+@keyframes talking {
+  from {
+    transform: scale(1.01, 0.99) translateY(2%);
+  } to {
+    transform: scale(0.99, 1.01) translateY(0%);
+  }
+}
+
+@keyframes idle {
+  from {
+    transform: translateY(0%);
+  } to {
+    transform: translateY(2%);
+  }
+}
+
+.shopkeeper {
+  animation: idle 2s infinite alternate;
+  filter: contrast(60%);
+}
+
+.shopkeeper.talking {
+  filter: drop-shadow(0px 0px 10px #FC867D);
+}
+
+#shopkeeper-left.talking {
+  animation: talking 0.2s infinite alternate;
+}
+
+#shopkeeper-right.talking {
+  animation: talking 0.19s infinite alternate;
+}
+
+.shopkeeper {
+  animation-transition: 0.2s;
+  user-select: none;
+}
+
+.shop-ledge {
+  width: 100%;
+  height: 15px;
+  background: #BCFFC7;
+  padding: 0px;
+  margin: 0px;
+}
+
+.shop-counter {
+  width: 100%;
+  height: 120px;
+  background: #838C8C;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.dialogue-box {
+  display: flex;
+
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  
+}
+
+.dialogue-box-border {
+  width: 500px;
+  height: 90px;
+  border-radius: 5px;
+  border: 5px solid #FBCE60;
+  background: #FC867D;
+}
+
+.shop-dialogue {
+  
+  text-align: left;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-right: 30px;
+  padding-left:30px;
+  color: white;
+  font-size: 20px;
+
+  animation: type 2s steps(60, end); 
+}
+
+@keyframes type {
+  from { width: 0; }
+}
