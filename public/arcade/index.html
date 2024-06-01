@@ -77,7 +77,7 @@
               dinoEl.src = msg.characterURL || characterImage(msg.character)
               dinoEl.classList.add('talking')
               yap(msg.message, {
-                baseRate: 3.9, rateVariance: 1, endCallback: () => {
+                baseRate: 4.2, rateVariance: 1, endCallback: () => {
                   dinoEl.classList.remove('talking')
                 }
               })
@@ -86,7 +86,7 @@
               raccEl.src = msg.characterURL || characterImage(msg.character)
               raccEl.classList.add('talking')
               yap(msg.message, {
-                baseRate: 2.9, rateVariance: 1, endCallback: () => {
+                baseRate: 3.5, rateVariance: 1, endCallback: () => {
                   raccEl.classList.remove('talking')
                 }
               })
