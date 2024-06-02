@@ -49,6 +49,7 @@
     "geopattern": "^1.2.3",
     "globby": "^11.0.4",
     "graphql": "^16.8.1",
+    "howler": "^2.2.4",
     "js-confetti": "^0.12.0",
     "jszip": "^3.10.1",
     "jszip-utils": "^0.1.0",
