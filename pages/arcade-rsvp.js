@@ -947,7 +947,7 @@ export async function getStaticProps() {
     .readdirSync(stickersDir)
     .filter(sticker => sticker !== 'hero.jpg')
 
-  const res = await fetch('http://localhost:3000/api/arcade/inventory') // Adjust the URL as needed
+  const res = await fetch('https://hackclub.com/api/arcade/inventory')
   const data = await res.json()
   return { props: { stickers, inventory: data.inventory } }
 }
