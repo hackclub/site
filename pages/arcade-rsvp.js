@@ -1,0 +1,953 @@
+import React, { useState } from 'react'
+import Head from 'next/head'
+import Nav from '../components/nav'
+import ForceTheme from '../components/force-theme'
+import Meta from '@hackclub/meta'
+import { Box, Button, Text, Flex, Grid, Card } from 'theme-ui'
+import Image from 'next/image'
+import fs from 'fs'
+import path from 'path'
+import { startCase } from 'lodash'
+import Projects from '../components/arcade/projects'
+import { Howl, Howler } from 'howler'
+import Ticker from 'react-ticker'
+import PageVisibility from 'react-page-visibility'
+import ArcadeFooter from '../components/arcade/footer'
+
+/** @jsxImportSource theme-ui */
+
+const styled = `
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Gaegu&display=swap');
+
+ .emblema {
+    font-family: "Emblema One", system-ui;
+ }
+
+ .gaegu {
+    font-family: "Gaegu", sans-serif;
+ }
+
+ body {
+    background-color: #FAEFD6;
+ }
+  
+ /* CSS from https://codepen.io/quadbaup/details/rKOKQv */
+.thought {
+    display: flex;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 30px;
+    min-width: 40px;
+    max-width: 300px;
+    min-height: 40px;
+    margin: 20px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    /* text-align:center; */
+}
+
+.thought:before,
+.thought:after {
+    content: "";
+    background-color: #fff;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+}
+
+.thought:before {
+    width: 44px;
+    height: 44px;
+    top: -15px;
+    left: -8px;
+    box-shadow: -50px 30px 0 -12px #fff;
+}
+
+.thought:after {
+    bottom: -10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 40px -34px 0 0 #fff,
+        -28px -6px 0 -2px #fff,
+        -24px 17px 0 -6px #fff,
+        -5px 25px 0 -10px #fff;
+
+}
+
+.css-vrrmew-Box {
+  color: #5E3414 !important;
+}
+  `
+
+const RSVP = ({ text, color }) => {
+  return (
+    <Flex
+      as="a"
+      href="https://hack.af/arcade-rsvp"
+      className="emblema"
+      sx={{
+        backgroundColor: color == 'blue' ? '#09AFB4' : '#FF5C00',
+        color: '#FAEFD6',
+        textDecoration: 'none',
+        paddingX: ['8px', '10px', '15px'],
+        paddingY: ['5px', '7px', '10px'],
+        fontSize: ['24px', '27px', '30px'],
+        borderRadius: '5px',
+        marginY: ['2px', '7px', '10px'],
+        width: 'fit-content',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexGrow: 1,
+        margin: 'auto'
+      }}
+    >
+      {text}
+    </Flex>
+  )
+}
+
+const Intro = ({ title, num, text, img }) => {
+  return (
+    <Box
+      sx={{
+        background: '#FAEFD6',
+        padding: '20px',
+        borderRadius: '5px',
+        position: 'relative',
+        color: '#35290F'
+      }}
+    >
+      <Text variant="title" className="gaegu" sx={{ display: 'block' }}>
+        {title}
+      </Text>
+      <Text
+        variant="subtitle"
+        sx={{
+          width: ['calc(100% - 80px)', 'calc(100% - 150px)'],
+          display: 'block'
+        }}
+      >
+        {text}
+      </Text>
+      <Text
+        variant="title"
+        sx={{
+          position: 'absolute',
+          top: '3px',
+          right: '5px',
+          opacity: '0.2'
+        }}
+        className="emblema"
+      >
+        {num}
+      </Text>
+      <img
+        src={img}
+        sx={{
+          width: ['35%', '35%', '35%', '50%'],
+          maxWidth: '210px',
+          position: 'absolute',
+          right: '-20px',
+          bottom: '0'
+        }}
+      />
+    </Box>
+  )
+}
+
+const Tickets = ({ title, num, text, link, ...props }) => {
+  return (
+    <Card
+      variant="interactive"
+      as="a"
+      href={link}
+      sx={{
+        background: '#FAEFD6',
+        padding: '20px',
+        borderRadius: '5px',
+        position: 'relative',
+        color: '#35290F',
+        border: '3px dashed #5E3414'
+      }}
+      {...props}
+    >
+      <Text
+        sx={{
+          background: '#35290F',
+          color: '#FAEFD6',
+          px: '10px',
+          py: '4px',
+          borderRadius: '4px',
+          fontSize: [1, 1, 2],
+          display: 'block',
+          width: 'fit-content'
+        }}
+        className="emblema"
+      >
+        Tickets: {num}
+      </Text>
+      <Text className="gaegu" sx={{ display: 'block', fontSize: [3, 4, 5] }}>
+        {title}
+      </Text>
+      <Text
+        sx={{
+          fontSize: [2, 3, 3],
+          display: 'block'
+        }}
+      >
+        {text}
+      </Text>
+    </Card>
+  )
+}
+
+const Sticker = ({ st }) => {
+  return (
+    <Box sx={{ position: 'absolute', top: '-270px', left: '0px' }}>
+      <Box
+        sx={{
+          background: '#D0BF97',
+          paddingY: '20px',
+          paddingX: '30px',
+          width: 'fit-content',
+          position: 'relative',
+          borderRadius: '5px',
+          transform: 'rotate(3deg)'
+        }}
+      >
+        <Flex
+          key={st}
+          sx={{
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            img: {
+              objectFit: 'contain',
+              width: [128, 160],
+              height: [128, 160],
+              transition: '.25s transform ease-in-out'
+            }
+          }}
+        >
+          <Image
+            src={`/stickers/${st}`}
+            width={128}
+            height={128}
+            alt={st.split('.')[0]}
+          />
+          <Text
+            as="span"
+            variant="caption"
+            sx={{
+              fontSize: 2,
+              mt: [2, 3],
+              textAlign: 'center',
+              color: '#FAEFD6'
+            }}
+          >
+            {startCase(st.replace(/\.(svg|png)/, ''))}
+          </Text>
+        </Flex>
+        <Box
+          sx={{
+            content: '"hi"',
+            position: 'absolute',
+            bottom: '-20px', // Position the triangle at the bottom
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '0',
+            height: '0',
+            borderLeft: '10px solid transparent',
+            borderRight: '10px solid transparent',
+            borderTop: '20px solid #D0BF97' // Same color as the box background
+          }}
+        />
+      </Box>
+    </Box>
+  )
+}
+
+const Item = ({ name, img, cost }) => {
+  return (
+    <Flex
+      sx={{
+        border: '2px solid #FF9900',
+        bg: 'rgb(255, 153, 0, 0.2)',
+        maxHeight: '200px',
+        width: '300px',
+        marginX: '10px',
+        position: 'relative',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: ['-32px', '-32px', '-64px']
+      }}
+    >
+      <Text
+        variant="ultratitle"
+        className="emblema"
+        sx={{
+          position: 'absolute',
+          bottom: '0',
+          left: '0',
+          color: '#FF9900',
+          opacity: 0.2,
+          zIndex: 0
+        }}
+      >
+        {cost}h
+      </Text>
+      <img
+        src={img}
+        sx={{
+          height: '100%',
+          width: 'auto',
+          margin: 'auto',
+          position: 'relative',
+          zIndex: 1
+        }}
+      />
+    </Flex>
+  )
+}
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max)
+}
+
+let yap_sounds = {
+  // ty caleb!
+  thinking: [
+    new Howl({ src: '/bin/yapping/thonk1.wav' }),
+    new Howl({ src: '/bin/yapping/thonk2.wav' }),
+    new Howl({ src: '/bin/yapping/thonk3.wav' })
+  ],
+  talking: {
+    // these sounds and most of the yapping code are adapted from https://github.com/equalo-official/animalese-generator
+    a: new Howl({ src: '/bin/yapping/a.wav', volume: 0.16 }),
+    b: new Howl({ src: '/bin/yapping/b.wav', volume: 0.16 }),
+    c: new Howl({ src: '/bin/yapping/c.wav', volume: 0.16 }),
+    d: new Howl({ src: '/bin/yapping/d.wav', volume: 0.16 }),
+    e: new Howl({ src: '/bin/yapping/e.wav', volume: 0.16 }),
+    f: new Howl({ src: '/bin/yapping/f.wav', volume: 0.16 }),
+    g: new Howl({ src: '/bin/yapping/g.wav', volume: 0.16 }),
+    h: new Howl({ src: '/bin/yapping/h.wav', volume: 0.16 }),
+    i: new Howl({ src: '/bin/yapping/i.wav', volume: 0.16 }),
+    j: new Howl({ src: '/bin/yapping/j.wav', volume: 0.16 }),
+    k: new Howl({ src: '/bin/yapping/k.wav', volume: 0.16 }),
+    l: new Howl({ src: '/bin/yapping/l.wav', volume: 0.16 }),
+    m: new Howl({ src: '/bin/yapping/m.wav', volume: 0.16 }),
+    n: new Howl({ src: '/bin/yapping/n.wav', volume: 0.16 }),
+    o: new Howl({ src: '/bin/yapping/o.wav', volume: 0.16 }),
+    p: new Howl({ src: '/bin/yapping/p.wav', volume: 0.16 }),
+    q: new Howl({ src: '/bin/yapping/q.wav', volume: 0.16 }),
+    r: new Howl({ src: '/bin/yapping/r.wav', volume: 0.16 }),
+    s: new Howl({ src: '/bin/yapping/s.wav', volume: 0.16 }),
+    t: new Howl({ src: '/bin/yapping/t.wav', volume: 0.16 }),
+    u: new Howl({ src: '/bin/yapping/u.wav', volume: 0.16 }),
+    v: new Howl({ src: '/bin/yapping/v.wav', volume: 0.16 }),
+    w: new Howl({ src: '/bin/yapping/w.wav', volume: 0.16 }),
+    x: new Howl({ src: '/bin/yapping/x.wav', volume: 0.16 }),
+    y: new Howl({ src: '/bin/yapping/y.wav', volume: 0.16 }),
+    z: new Howl({ src: '/bin/yapping/z.wav', volume: 0.16 }),
+    th: new Howl({ src: '/bin/yapping/th.wav', volume: 0.16 }),
+    sh: new Howl({ src: '/bin/yapping/sh.wav', volume: 0.16 }),
+    _: new Howl({ src: '/bin/yapping/_.wav', volume: 0.16 })
+  }
+}
+
+async function yap(text, letterCallback) {
+  text = text.toLowerCase()
+  const yap_queue = []
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i]
+    try {
+      if (char === 's' && text[i + 1] === 'h') {
+        // test for 'sh' sound
+        yap_queue.push(yap_sounds.talking['sh'])
+        continue
+      } else if (char === 't' && text[i + 1] === 'h') {
+        // test for 'th' sound
+        yap_queue.push(yap_sounds.talking['th'])
+        continue
+      } else if (char === 'h' && (text[i - 1] === 's' || text[i - 1] === 't')) {
+        // test if previous letter was 's' or 't' and current letter is 'h'
+        yap_queue.push(yap_sounds.talking['_'])
+        continue
+      } else if (char === ',' || char === '?' || char === '.') {
+        yap_queue.push(yap_sounds.talking['_'])
+        continue
+      } else if (char === text[i - 1]) {
+        // skip repeat letters
+        yap_queue.push(yap_sounds.talking['_'])
+        continue
+      }
+    } catch (e) {
+      // who cares. pick up a foot ball
+    }
+    if (!char.match(/[a-zA-Z.]/)) {
+      yap_queue.push(yap_sounds.talking['_'])
+      continue // skip characters that are not letters or periods
+    }
+    yap_queue.push(yap_sounds.talking[char])
+  }
+
+  function next_yap() {
+    letterCallback(yap_queue.length)
+    if (yap_queue.length === 0) return
+    let noise = yap_queue.shift()
+    noise.rate(2 * (Math.random() * 0.5 + 1.9))
+    noise.once('end', next_yap)
+    noise.play()
+  }
+
+  next_yap()
+}
+
+async function generateProjectIdea() {
+  if (
+    document
+      .querySelector('#generate-project-idea')
+      .classList.contains('disabled')
+  ) {
+    return
+  }
+
+  yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play()
+  document.querySelector('#generate-project-idea').classList.add('disabled')
+  document.querySelector('#project-idea').innerHTML =
+    '<em>' + thinkingWords() + '...' + '</em>'
+  document.querySelector('#generate-project-idea').src =
+    'https://cloud-80eg2m8id-hack-club-bot.vercel.app/0thinking_rac.png'
+  let text = ''
+  const res = await fetch('/api/arcade/openai/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify()
+  })
+  const json = await res.json()
+  text = json.recommendation
+  document.querySelector('#project-idea').innerHTML = ''
+  document.querySelector('#generate-project-idea').src =
+    'https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/0statement_rac.png'
+  document.querySelector('#generate-project-idea').classList.remove('disabled')
+  yap(text, i => {
+    document.querySelector('#project-idea').innerHTML = text.slice(
+      0,
+      Math.max(text.length - i + 1, 0)
+    )
+  })
+}
+
+function thinkingWords() {
+  const arr = [
+    'thinking',
+    'single neuron activated',
+    '2 braincells rubbing together',
+    'pondering',
+    'contemplating',
+    "rackin' my brain",
+    '*raccoon rumination noises*',
+    'raccooninating',
+    'thinking about trash',
+    'rummaging through my thoughts',
+    'wishing you a garbage day'
+  ]
+  return arr[Math.floor(Math.random() * arr.length)]
+}
+
+const Arcade = ({ stickers = [], inventory }) => {
+  const [showComponent, setShowComponent] = useState(false)
+  const [showNum, setNum] = useState(false)
+
+  const generateRandomNumber = () => {
+    const newRandomNumber = Math.floor(Math.random() * stickers.length) // Generate a random number between 0 and 99
+    setNum(newRandomNumber)
+  }
+
+  const handleMouseEnter = () => {
+    setShowComponent(true)
+  }
+
+  const handleMouseLeave = () => {
+    setShowComponent(false)
+  }
+
+  const mouseEnter = () => {
+    handleMouseEnter()
+    generateRandomNumber()
+  }
+
+  const [pageIsVisible, setPageIsVisible] = useState(true)
+  const handleVisibilityChange = isVisible => {
+    setPageIsVisible(isVisible)
+  }
+  return (
+    <>
+      <Meta
+        as={Head}
+        title="Arcade: The Ultimate Summer Maker Camp"
+        description="Hack Club is a global nonprofit network of high school makers & student-led computer science clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
+        image="https://cloud-epiki4yvg.vercel.app/2020-09-09_drbp62kayjuyyy0ek89mf9fwcp5t4kuz.jpeg"
+      />
+      <Head>
+        <meta
+          property="og:logo"
+          content="https://assets.hackclub.com/icon-rounded.png"
+          size="512x512"
+        />
+      </Head>
+      <Nav />
+      <Box
+        sx={{
+          width: '90vw',
+          maxWidth: '1200px',
+          margin: 'auto'
+        }}
+      >
+        <Grid
+          sx={{
+            gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
+            width: '100%',
+            paddingBottom: '20vh',
+            paddingTop: '20vh'
+          }}
+        >
+          <Box
+            sx={{
+              color: '#09AFB4',
+              gap: '10px'
+            }}
+          >
+            <Text
+              as="h1"
+              className="emblema"
+              sx={{
+                color: '#FF5C00',
+                textAlign: ['center', 'center', 'center', 'left'],
+
+                fontSize: ['50px', '80px', '90px']
+              }}
+            >
+              ARCADE
+            </Text>
+            <Text
+              sx={{
+                display: 'block',
+                textAlign: ['center', 'center', 'center', 'left'],
+                py: ['10px', '12px', '13px']
+              }}
+              variant="title"
+            >
+              This summer is yours.
+            </Text>
+            <Text
+              sx={{
+                display: 'block',
+                textAlign: ['center', 'center', 'center', 'left'],
+                py: ['10px', '12px', '13px']
+              }}
+              variant="title"
+            >
+              Build something cool.
+            </Text>
+            <Text
+              sx={{
+                display: 'block',
+                textAlign: ['center', 'center', 'center', 'left'],
+                py: ['10px', '12px', '13px']
+              }}
+              variant="title"
+            >
+              Get free hardware.
+            </Text>
+            <Box sx={{width: ['100%', '100%', '100%', 'fit-content']}}>
+              <RSVP text="RSVP for stickers" />
+            </Box>
+          </Box>
+          <Box className="hidden" sx={{ textAlign: 'center', color: '#5E3414' }}>
+            <Box sx={{ justifyContent: 'center', display: 'grid' }}>
+              <Text id="project-idea" className="thought">
+                🕹️
+              </Text>
+              <img
+                src="/bin/images/idea.png"
+                className="hoverable"
+                sx={{
+                  margin: '0 auto',
+                  display: 'inline',
+                  width: '15em',
+                  height: 'auto'
+                }}
+                id="generate-project-idea"
+                onClick={generateProjectIdea}
+              />
+            </Box>
+            <Box as="h3">Click the raccoon for project ideas!</Box>
+            <Text as="p">
+              <em>
+                (It doesn't know much about coding, but it'll try its best.)
+              </em>
+            </Text>
+          </Box>
+        </Grid>
+      </Box>
+      <Box
+        sx={{
+          width: '100vw',
+          margin: 'auto',
+          background:
+            '#09AFB4 url(/arcade/blue_bg.svg) no-repeat center center',
+          backgroundSize: 'cover',
+          position: 'relative',
+          paddingTop: '0',
+          paddingBottom: '5vw',
+          marginTop: '15vh',
+          color: '#FAEFD6'
+        }}
+      >
+        <img
+          src="/arcade/blue_top.svg"
+          sx={{
+            width: '100%',
+            position: 'absolute',
+            top: '-20vw'
+          }}
+        />
+        <Box
+          sx={{
+            width: '90vw',
+            maxWidth: '1200px',
+            margin: 'auto'
+          }}
+        >
+          <Text variant="headline" sx={{ display: 'block' }}>
+            Join{' '}
+            <Text className="emblema" sx={{ color: '#5E3414' }}>
+              ARCADE
+            </Text>
+            . Build with friends.
+          </Text>
+          <Text variant="title" sx={{ display: 'block' }}>
+            What are you waiting for?
+          </Text>
+          <Grid
+            sx={{
+              gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr 1fr'],
+              marginTop: '25px'
+            }}
+          >
+            <Intro
+              title="Work on projects"
+              text="Hack on something cool! Examples: making your own PCB, building your own site, creating an app."
+              num="1"
+              img="/arcade/r3.svg"
+            />
+            <Intro
+              title="Bank your hours"
+              text="Join the Hack Club Slack and use /hack in #hack-hour to log your hours!"
+              num="2"
+              img="/arcade/r2.svg"
+            />
+            <Intro
+              title="Redeem for prizes"
+              text="We’re keeping track of your total hours; spend them to buy prizes, such as Arduino kits, drawing tablets, and more!"
+              num="3"
+              img="/arcade/r1.svg"
+            />
+          </Grid>
+        </Box>
+        <img
+          src="/arcade/blue_bottom.svg"
+          sx={{
+            width: '100%',
+            position: 'absolute',
+            bottom: '-16vw'
+          }}
+        />
+      </Box>
+      <Flex
+        sx={{
+          width: '90vw',
+          maxWidth: '1200px',
+          margin: 'auto',
+          paddingTop: '18vw',
+          paddingBottom: '40px',
+          gap: ['10px', '10px', '2vw', '8vw'],
+          flexWrap: ['wrap', 'wrap', 'nowrap', 'nowrap'], 
+          color: '#5E3414'
+        }}
+      >
+        <Text variant="headline">
+          Get{' '}
+          <Text
+            onMouseEnter={mouseEnter}
+            onMouseLeave={handleMouseLeave}
+            sx={{
+              cursor: 'pointer',
+              position: 'relative',
+              bg: '#09AFB4',
+              transform: 'rotate(-3deg) scale(1.1)',
+              py: '2px',
+              px: '4px',
+              borderRadius: '2px',
+              color: '#FAEFD6',
+              display: 'inline-block',
+              mx: '6px'
+            }}
+          >
+            {showComponent && <Sticker st={stickers[showNum]} />}
+            free stickers
+          </Text>{' '}
+          and be the first to know when{' '}
+          <Text className="emblema" sx={{ color: '#FF5C00' }}>
+            ARCADE
+          </Text>{' '}
+          launches!
+        </Text>
+        <RSVP color="blue" text="RSVP" />
+      </Flex>
+      <Projects />
+      <Box
+        sx={{
+          background: 'linear-gradient(0deg, #A5C47F 0%, #09AFB4 100%)',
+          position: 'relative'
+        }}
+      >
+        <Box
+          sx={{
+            width: '90vw',
+            maxWidth: '1200px',
+            margin: 'auto',
+            py: '50px'
+          }}
+        >
+          <Text
+            variant="headline"
+            sx={{
+              color: '#FAEFD6',
+              textAlign: 'center',
+              display: 'block',
+              fontSize: [2, 4, 5]
+            }}
+          >
+            One hour at a time,
+          </Text>
+          <Text
+            variant="title"
+            sx={{ color: '#FAEFD6', textAlign: 'center', display: 'block' }}
+            className="gaegu"
+          >
+            What will you make this summer?
+          </Text>
+          <Text variant="subtitle" sx={{ display: 'block', textAlign: 'center', color: '#FAEFD6'}}>
+            1 hour spent making = 1 ticket
+          </Text>
+          <Grid
+            sx={{
+              gridTemplateColumns: [
+                '1fr',
+                '1fr 1fr',
+                '1fr 1fr 1fr',
+                '1fr 1fr 1fr 1fr'
+              ],
+              marginTop: '25px',
+              py: '5vh'
+            }}
+          >
+            <Tickets
+              title="Your own project!"
+              text="Anytime you work on your project, start the hack hour timer. You earn a ticket for every hour you spend on your project."
+              num="Infinite"
+              sx={{
+                gridColumn: ['', 'span 2', 'span 2', 'span 2'],
+                gridRow: ['', 'span 2', 'span 2', 'span 2']
+              }}
+            />
+            <Tickets
+              title="Boba drops"
+              text="Build a website, get boba!"
+              num="0.5"
+              link="https://boba.hackclub.com/"
+            />
+            <Tickets
+              title="Wizard Orpheus"
+              text="Build a text-based game with AI"
+              num="0.5"
+            />
+            <Tickets
+              title="The Bin"
+              text="Build an online circuit"
+              num="0.5"
+              link="/bin"
+            />
+            <Tickets
+              title="Sprig"
+              text="Build a JS game"
+              num="2"
+              link="/sprig"
+            />
+            <Tickets
+              title="OnBoard"
+              text="Design a PCB"
+              num="2"
+              link="/onboard"
+            />
+            <Tickets
+              title="Blot"
+              text="Make programatic artwork"
+              num="3"
+              link="https://blot.hackclub.com/"
+            />
+            <Tickets
+              title="Cider"
+              text="Make a mobile app"
+              num="4"
+              link="https://cider.hackclub.com"
+            />
+
+            <Tickets
+              title="Easel"
+              text="Write a programming language"
+              num="5"
+            />
+
+            <img
+              src="/arcade/r5.png"
+              sx={{
+                width: ['35%', '35%', '35%', '50%'],
+                maxWidth: '210px',
+                position: 'absolute',
+                right: '10px',
+                top: '0',
+                transform: 'rotate(180deg)'
+              }}
+            />
+          </Grid>
+        </Box>
+        <img
+          src="/arcade/yellow_bottom.svg"
+          sx={{
+            width: '100%',
+            position: 'absolute',
+            left: 0,
+            bottom: '-10vw'
+          }}
+        />
+      </Box>
+      <Box
+        sx={{
+          background: 'url(/arcade/brown_bg.svg) no-repeat center center',
+          backgroundSize: 'cover',
+          pt: '30vh',
+          pb: '25vh',
+          color: '#5E3414'
+        }}
+      >
+        <Box
+          sx={{
+            width: '90vw',
+            maxWidth: '1200px',
+            margin: 'auto',
+            textAlign: 'center',
+            pb: '50px'
+          }}
+        >
+          <Text variant="title" sx={{ display: 'block' }}>
+            Prizes your project can redeem!
+          </Text>
+        </Box>
+        <PageVisibility onChange={handleVisibilityChange}>
+          {pageIsVisible && (
+            <>
+              <Ticker speed={5} sx={{ overflowX: 'hidden' }}>
+                {() => (
+                  <Box as="div" sx={{ display: 'flex', py: [4, 5, 5] }}>
+                    {inventory
+                      .slice(Math.ceil(inventory.length / 2), inventory.length)
+                      .map(i => (
+                        <Item img={i.imageURL} cost={i.hours} />
+                      ))}
+                  </Box>
+                )}
+              </Ticker>
+
+              <Ticker
+                speed={5}
+                sx={{ overflowX: 'hidden' }}
+                direction="toRight"
+                offset="300"
+              >
+                {() => (
+                  <Box as="div" sx={{ display: 'flex', py: [4, 5, 5] }}>
+                    {inventory.slice(0, Math.ceil(inventory.length / 2)).map(i => (
+                      <Item img={i.imageURL} cost={i.hours} />
+                    ))}
+                  </Box>
+                )}
+              </Ticker>
+            </>
+          )}
+        </PageVisibility>
+        <Flex
+          sx={{
+            width: '90vw',
+            maxWidth: '1200px',
+            margin: 'auto',
+            paddingTop: '50px',
+            marginBottom: '-50px',
+            gap: ['10px', '10px', '2vw', '8vw'],
+            flexWrap: ['wrap', 'wrap', 'nowrap', 'nowrap']
+          }}
+        >
+          <Text variant="headline">
+            Get{' '}
+            <Text
+              onMouseEnter={mouseEnter}
+              onMouseLeave={handleMouseLeave}
+              sx={{
+                cursor: 'pointer',
+                position: 'relative',
+                bg: '#09AFB4',
+                transform: 'rotate(-3deg) scale(1.1)',
+                py: '2px',
+                px: '4px',
+                borderRadius: '2px',
+                color: '#FAEFD6',
+                display: 'inline-block',
+                mx: '6px'
+              }}
+            >
+              {showComponent && <Sticker st={stickers[showNum]} />}
+              free stickers
+            </Text>{' '}
+            and be the first to know when{' '}
+            <Text className="emblema" sx={{ color: '#FF5C00' }}>
+              ARCADE
+            </Text>{' '}
+            launches!
+          </Text>
+          <RSVP color="blue" text="RSVP" />
+        </Flex>
+      </Box>
+      <ArcadeFooter />
+      <style>{styled}</style>
+    </>
+  )
+}
+
+export default Arcade
+
+export async function getStaticProps() {
+  const stickersDir = path.join(process.cwd(), 'public', 'stickers')
+  const stickers = fs
+    .readdirSync(stickersDir)
+    .filter(sticker => sticker !== 'hero.jpg')
+
+  const res = await fetch('http://localhost:3000/api/arcade/inventory') // Adjust the URL as needed
+  const data = await res.json()
+  return { props: { stickers, inventory: data.inventory } }
+}
