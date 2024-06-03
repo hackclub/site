@@ -522,6 +522,17 @@ const Arcade = ({ stickers = [], inventory }) => {
               gap: '10px'
             }}
           >
+            <Box sx={{ textAlign: ['center', 'center', 'center', 'left'] }}>
+              <img
+                alt={'GitHub + Hack Club'}
+                sx={{
+                  width: ['112px', '112px', '212px'],
+                  marginBottom: '16px',
+                  margin: 'auto'
+                }}
+                src="https://cloud-e3wj9s4pe-hack-club-bot.vercel.app/00combo__1_.png"
+              />
+            </Box>
             <Text
               as="h1"
               className="emblema"
@@ -529,7 +540,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 color: '#FF5C00',
                 textAlign: ['center', 'center', 'center', 'left'],
 
-                fontSize: ['50px', '80px', '90px']
+                fontSize: ['50px', '70px', '80px', '85px']
               }}
             >
               ARCADE
@@ -538,7 +549,8 @@ const Arcade = ({ stickers = [], inventory }) => {
               sx={{
                 display: 'block',
                 textAlign: ['center', 'center', 'center', 'left'],
-                py: ['10px', '12px', '13px']
+                py: ['10px', '12px', '13px'],
+                fontSize: ['50px', '60px', '65px']
               }}
               variant="title"
             >
@@ -548,7 +560,8 @@ const Arcade = ({ stickers = [], inventory }) => {
               sx={{
                 display: 'block',
                 textAlign: ['center', 'center', 'center', 'left'],
-                py: ['10px', '12px', '13px']
+                py: ['10px', '12px', '13px'],
+                fontSize: ['50px', '60px', '65px']
               }}
               variant="title"
             >
@@ -558,17 +571,21 @@ const Arcade = ({ stickers = [], inventory }) => {
               sx={{
                 display: 'block',
                 textAlign: ['center', 'center', 'center', 'left'],
-                py: ['10px', '12px', '13px']
+                py: ['10px', '12px', '13px'],
+                fontSize: ['50px', '60px', '65px']
               }}
               variant="title"
             >
               Get free hardware.
             </Text>
-            <Box sx={{width: ['100%', '100%', '100%', 'fit-content']}}>
+            <Box sx={{ width: ['100%', '100%', '100%', 'fit-content'] }}>
               <RSVP text="RSVP for stickers" />
             </Box>
           </Box>
-          <Box className="hidden" sx={{ textAlign: 'center', color: '#5E3414' }}>
+          <Box
+            className="hidden"
+            sx={{ textAlign: 'center', color: '#5E3414' }}
+          >
             <Box sx={{ justifyContent: 'center', display: 'grid' }}>
               <Text id="project-idea" className="thought">
                 🕹️
@@ -677,7 +694,7 @@ const Arcade = ({ stickers = [], inventory }) => {
           paddingTop: '18vw',
           paddingBottom: '40px',
           gap: ['10px', '10px', '2vw', '8vw'],
-          flexWrap: ['wrap', 'wrap', 'nowrap', 'nowrap'], 
+          flexWrap: ['wrap', 'wrap', 'nowrap', 'nowrap'],
           color: '#5E3414'
         }}
       >
@@ -743,7 +760,10 @@ const Arcade = ({ stickers = [], inventory }) => {
           >
             What will you make this summer?
           </Text>
-          <Text variant="subtitle" sx={{ display: 'block', textAlign: 'center', color: '#FAEFD6'}}>
+          <Text
+            variant="subtitle"
+            sx={{ display: 'block', textAlign: 'center', color: '#FAEFD6' }}
+          >
             1 hour spent making = 1 ticket
           </Text>
           <Grid
@@ -883,9 +903,11 @@ const Arcade = ({ stickers = [], inventory }) => {
               >
                 {() => (
                   <Box as="div" sx={{ display: 'flex', py: [4, 5, 5] }}>
-                    {inventory.slice(0, Math.ceil(inventory.length / 2)).map(i => (
-                      <Item img={i.imageURL} cost={i.hours} />
-                    ))}
+                    {inventory
+                      .slice(0, Math.ceil(inventory.length / 2))
+                      .map(i => (
+                        <Item img={i.imageURL} cost={i.hours} />
+                      ))}
                   </Box>
                 )}
               </Ticker>
