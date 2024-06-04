@@ -65,40 +65,15 @@ const styled = `
     /* text-align:center; */
 }
 
-// .thought:before,
-// .thought:after {
-//     content: "";
-//     background-color: #fff;
-//     border-radius: 50%;
-//     display: block;
-//     position: absolute;
-// }
-
-// .thought:before {
-//     width: 44px;
-//     height: 44px;
-//     top: -15px;
-//     left: -8px;
-//     box-shadow: -50px 30px 0 -12px #fff;
-// }
-
-// .thought:after {
-//     bottom: -10px;
-//     right: 10px;
-//     width: 30px;
-//     height: 30px;
-//     box-shadow: 40px -34px 0 0 #fff,
-//         -28px -6px 0 -2px #fff,
-//         -24px 17px 0 -6px #fff,
-//         -5px 25px 0 -10px #fff;
-
-// }
-
 .css-vrrmew-Box {
   color: #5E3414 !important;
 }
 
 .css-cysksd {
+  color: #5E3414 !important;
+}
+
+.css-k3i0c5 {
   color: #5E3414 !important;
 }
   `
