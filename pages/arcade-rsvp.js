@@ -13,6 +13,8 @@ import { Howl, Howler } from 'howler'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../components/arcade/footer'
+import Balancer from 'react-wrap-balancer'
+import { Fade } from 'react-reveal'
 
 /** @jsxImportSource theme-ui */
 
@@ -35,47 +37,48 @@ const styled = `
  /* CSS from https://codepen.io/quadbaup/details/rKOKQv */
 .thought {
     display: flex;
-    background-color: #fff;
+    // background-color: #fff;
     padding: 20px;
     border-radius: 30px;
     min-width: 40px;
     max-width: 300px;
     min-height: 40px;
     margin: 20px;
+    margin-left: -10px;
     position: relative;
     align-items: center;
     justify-content: center;
     /* text-align:center; */
 }
 
-.thought:before,
-.thought:after {
-    content: "";
-    background-color: #fff;
-    border-radius: 50%;
-    display: block;
-    position: absolute;
-}
+// .thought:before,
+// .thought:after {
+//     content: "";
+//     background-color: #fff;
+//     border-radius: 50%;
+//     display: block;
+//     position: absolute;
+// }
 
-.thought:before {
-    width: 44px;
-    height: 44px;
-    top: -15px;
-    left: -8px;
-    box-shadow: -50px 30px 0 -12px #fff;
-}
+// .thought:before {
+//     width: 44px;
+//     height: 44px;
+//     top: -15px;
+//     left: -8px;
+//     box-shadow: -50px 30px 0 -12px #fff;
+// }
 
-.thought:after {
-    bottom: -10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    box-shadow: 40px -34px 0 0 #fff,
-        -28px -6px 0 -2px #fff,
-        -24px 17px 0 -6px #fff,
-        -5px 25px 0 -10px #fff;
+// .thought:after {
+//     bottom: -10px;
+//     right: 10px;
+//     width: 30px;
+//     height: 30px;
+//     box-shadow: 40px -34px 0 0 #fff,
+//         -28px -6px 0 -2px #fff,
+//         -24px 17px 0 -6px #fff,
+//         -5px 25px 0 -10px #fff;
 
-}
+// }
 
 .css-vrrmew-Box {
   color: #5E3414 !important;
@@ -89,27 +92,31 @@ const RSVP = ({ text, color }) => {
       href="https://hack.af/arcade-rsvp"
       className="emblema"
       sx={{
-        backgroundColor: color == 'blue' ? '#09AFB4' : '#FF5C00',
-        color: '#FAEFD6',
-        textDecoration: 'none',
-        paddingX: ['8px', '10px', '15px'],
-        paddingY: ['5px', '7px', '10px'],
-        fontSize: ['24px', '27px', '30px'],
-        borderRadius: '5px',
-        marginY: ['2px', '7px', '10px'],
-        width: 'fit-content',
         justifyContent: 'center',
         alignItems: 'center',
-        flexGrow: 1,
-        margin: 'auto'
+        width: ['100%', '100%', '100%', '30%'],
+        textDecoration: 'none'
       }}
     >
-      {text}
+      <Box
+        sx={{
+          backgroundColor: color == 'blue' ? '#09AFB4' : '#FF5C00',
+          color: '#FAEFD6',
+          width: ['100%', '100%', '', ''],
+          paddingX: ['8px', '10px', '15px'],
+          paddingY: ['5px', '7px', '10px'],
+          fontSize: ['24px', '27px', '30px'],
+          borderRadius: '5px',
+          textAlign: 'center'
+        }}
+      >
+        {text}
+      </Box>
     </Flex>
   )
 }
 
-const Intro = ({ title, num, text, img }) => {
+const Intro = ({ title, num, text, img, ...props }) => {
   return (
     <Box
       sx={{
@@ -119,6 +126,7 @@ const Intro = ({ title, num, text, img }) => {
         position: 'relative',
         color: '#35290F'
       }}
+      {...props}
     >
       <Text variant="title" className="gaegu" sx={{ display: 'block' }}>
         {title}
@@ -126,7 +134,7 @@ const Intro = ({ title, num, text, img }) => {
       <Text
         variant="subtitle"
         sx={{
-          width: ['calc(100% - 80px)', 'calc(100% - 150px)'],
+          width: ['calc(100% - 80px)', 'calc(100% - 80px)','calc(100% - 80px)', 'calc(100% - 150px)'],
           display: 'block'
         }}
       >
@@ -158,7 +166,7 @@ const Intro = ({ title, num, text, img }) => {
   )
 }
 
-const Tickets = ({ title, num, text, link, ...props }) => {
+const Tickets = ({ title, num, text, link, img, ...props }) => {
   return (
     <Card
       variant="interactive"
@@ -200,6 +208,17 @@ const Tickets = ({ title, num, text, link, ...props }) => {
       >
         {text}
       </Text>
+      <img
+        src={img}
+        sx={{
+          width: ['35%', '35%', '35%', '50%'],
+          maxWidth: '210px',
+          position: 'absolute',
+          right: '0',
+          bottom: '0',
+          display: ['none', 'none', 'block', 'block']
+        }}
+      />
     </Card>
   )
 }
@@ -276,13 +295,12 @@ const Item = ({ name, img, cost }) => {
       sx={{
         border: '2px solid #FF9900',
         bg: 'rgb(255, 153, 0, 0.2)',
-        maxHeight: '200px',
+        height: '220px',
         width: '300px',
         marginX: '10px',
         position: 'relative',
         justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: ['-32px', '-32px', '-64px']
+        alignItems: 'center'
       }}
     >
       <Text
@@ -293,7 +311,7 @@ const Item = ({ name, img, cost }) => {
           bottom: '0',
           left: '0',
           color: '#FF9900',
-          opacity: 0.2,
+          opacity: 0.4,
           zIndex: 0
         }}
       >
@@ -489,9 +507,9 @@ const Arcade = ({ stickers = [], inventory }) => {
     <>
       <Meta
         as={Head}
-        title="Arcade: The Ultimate Summer Maker Camp"
-        description="Hack Club is a global nonprofit network of high school makers & student-led computer science clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
-        image="https://cloud-epiki4yvg.vercel.app/2020-09-09_drbp62kayjuyyy0ek89mf9fwcp5t4kuz.jpeg"
+        title="Arcade = Hack Club"
+        description="The ultimate summer hackathon for high schoolers. Make projects. Track your hours. Redeem for powerups."
+        image="https://cloud-b1z2ovuj6-hack-club-bot.vercel.app/0frame_33.png"
       />
       <Head>
         <meta
@@ -522,94 +540,168 @@ const Arcade = ({ stickers = [], inventory }) => {
               gap: '10px'
             }}
           >
-            <Box sx={{ textAlign: ['center', 'center', 'center', 'left'] }}>
-              <img
-                alt={'GitHub + Hack Club'}
+            <Fade delay={150}>
+              <Box sx={{ textAlign: ['center', 'center', 'center', 'left'] }}>
+                <img
+                  alt={'GitHub + Hack Club'}
+                  sx={{
+                    width: ['112px', '112px', '212px'],
+                    marginBottom: '16px',
+                    margin: 'auto'
+                  }}
+                  src="https://cloud-e3wj9s4pe-hack-club-bot.vercel.app/00combo__1_.png"
+                />
+              </Box>
+            </Fade>
+            <Fade delay={250}>
+              <Text
+                as="h1"
+                className="emblema"
                 sx={{
-                  width: ['112px', '112px', '212px'],
-                  marginBottom: '16px',
-                  margin: 'auto'
-                }}
-                src="https://cloud-e3wj9s4pe-hack-club-bot.vercel.app/00combo__1_.png"
-              />
-            </Box>
-            <Text
-              as="h1"
-              className="emblema"
-              sx={{
-                color: '#FF5C00',
-                textAlign: ['center', 'center', 'center', 'left'],
+                  color: '#FF5C00',
+                  textAlign: ['center', 'center', 'center', 'left'],
 
-                fontSize: ['50px', '70px', '80px', '85px']
-              }}
-            >
-              ARCADE
-            </Text>
-            <Text
-              sx={{
-                display: 'block',
-                textAlign: ['center', 'center', 'center', 'left'],
-                py: ['10px', '12px', '13px'],
-                fontSize: ['50px', '60px', '65px']
-              }}
-              variant="title"
-            >
-              This summer is yours.
-            </Text>
-            <Text
-              sx={{
-                display: 'block',
-                textAlign: ['center', 'center', 'center', 'left'],
-                py: ['10px', '12px', '13px'],
-                fontSize: ['50px', '60px', '65px']
-              }}
-              variant="title"
-            >
-              Build something cool.
-            </Text>
-            <Text
-              sx={{
-                display: 'block',
-                textAlign: ['center', 'center', 'center', 'left'],
-                py: ['10px', '12px', '13px'],
-                fontSize: ['50px', '60px', '65px']
-              }}
-              variant="title"
-            >
-              Get free hardware.
-            </Text>
-            <Box sx={{ width: ['100%', '100%', '100%', 'fit-content'] }}>
-              <RSVP text="RSVP for stickers" />
-            </Box>
-          </Box>
-          <Box
-            className="hidden"
-            sx={{ textAlign: 'center', color: '#5E3414' }}
-          >
-            <Box sx={{ justifyContent: 'center', display: 'grid' }}>
-              <Text id="project-idea" className="thought">
-                🕹️
-              </Text>
-              <img
-                src="/bin/images/idea.png"
-                className="hoverable"
-                sx={{
-                  margin: '0 auto',
-                  display: 'inline',
-                  width: '15em',
-                  height: 'auto'
+                  fontSize: ['50px', '70px', '80px', '85px']
                 }}
-                id="generate-project-idea"
-                onClick={generateProjectIdea}
-              />
-            </Box>
-            <Box as="h3">Click the raccoon for project ideas!</Box>
-            <Text as="p">
-              <em>
-                (It doesn't know much about coding, but it'll try its best.)
-              </em>
-            </Text>
+              >
+                ARCADE
+              </Text>
+            </Fade>
+            <Fade delay={350}>
+              <Text
+                sx={{
+                  display: 'block',
+                  textAlign: ['center', 'center', 'center', 'left'],
+                  py: ['10px', '12px', '13px'],
+                  fontSize: ['40px', '55px', '55px']
+                }}
+                variant="title"
+              >
+                This summer is yours.
+              </Text>
+            </Fade>
+            <Fade delay={450}>
+              <Text
+                sx={{
+                  display: 'block',
+                  textAlign: ['center', 'center', 'center', 'left'],
+                  py: ['10px', '12px', '13px'],
+                  fontSize: ['40px', '55px', '55px']
+                }}
+                variant="title"
+              >
+                Build something cool.
+              </Text>
+            </Fade>
+            <Fade delay={550}>
+              <Text
+                sx={{
+                  display: 'block',
+                  textAlign: ['center', 'center', 'center', 'left'],
+                  py: ['10px', '12px', '13px'],
+                  fontSize: ['40px', '55px', '55px']
+                }}
+                variant="title"
+              >
+                Get free hardware.
+              </Text>
+            </Fade>
+            <Fade delay={650}>
+              <Box sx={{ width: ['100%', '100%', '100%', 'fit-content'] }}>
+                <Flex
+                  as="a"
+                  href="https://hack.af/arcade-rsvp"
+                  className="emblema"
+                  sx={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    textDecoration: 'none',
+                    backgroundColor: '#FF5C00',
+                    color: '#FAEFD6',
+                    width: 'fit-content',
+                    paddingX: ['8px', '10px', '15px'],
+                    paddingY: ['5px', '7px', '10px'],
+                    fontSize: ['24px', '27px', '30px'],
+                    borderRadius: '5px',
+                    textAlign: 'center',
+                    mt: 3,
+                    margin: 'auto'
+                  }}
+                >
+                  RSVP for stickers
+                </Flex>
+              </Box>
+            </Fade>
           </Box>
+          <Fade delay={800}>
+            <Box
+              className="hidden"
+              sx={{
+                textAlign: 'center',
+                color: '#5E3414',
+                transform: [
+                  'scale(1)',
+                  'scale(0.8)',
+                  'scale(0.8)',
+                  'scale(0.8)'
+                ],
+                mt: [null, '-40px', '-20px', null]
+              }}
+            >
+              <Box
+                sx={{
+                  justifyContent: 'center',
+                  pt: ['80px', '170px', '170px', '170px'],
+                  pb: ['145px', 7, 7, 7],
+                  mt: [null, null, '50px', '-150px'],
+                  display: 'grid',
+                  background:
+                    'url(/arcade/arcade_bg.png) no-repeat center center',
+                  backgroundSize: 'contain'
+                }}
+              >
+                <Text
+                  id="project-idea"
+                  className="thought"
+                  sx={{
+                    transform: [
+                      'scale(0.7)',
+                      'scale(1)',
+                      'scale(1)',
+                      'scale(1)'
+                    ],
+                    mb: ['-40px !important', '10px !important', '10px !important', '10px !important20px']
+                  }}
+                >
+                  🕹️
+                </Text>
+                <img
+                  src="/arcade/r7.png"
+                  className="hoverable"
+                  sx={{
+                    margin: '0 auto',
+                    display: 'inline',
+                    width: '15em',
+                    height: 'auto',
+                    transform: [
+                      'scale(0.7)',
+                      'scale(1)',
+                      'scale(1)',
+                      'scale(1)'
+                    ]
+                  }}
+                  id="generate-project-idea"
+                  onClick={generateProjectIdea}
+                />
+              </Box>
+              <Box as="h3">Click the raccoon for project ideas!</Box>
+              <Text as="p">
+                <em>
+                  (It doesn't know much about coding, but it'll try its best.)
+                </em>
+              </Text>
+            </Box>
+          </Fade>
         </Grid>
       </Box>
       <Box
@@ -623,7 +715,8 @@ const Arcade = ({ stickers = [], inventory }) => {
           paddingTop: '0',
           paddingBottom: '5vw',
           marginTop: '15vh',
-          color: '#FAEFD6'
+          color: '#FAEFD6',
+          
         }}
       >
         <img
@@ -638,20 +731,110 @@ const Arcade = ({ stickers = [], inventory }) => {
           sx={{
             width: '90vw',
             maxWidth: '1200px',
-            margin: 'auto'
+            margin: 'auto',
+            pt: 1,
           }}
         >
-          <Text variant="headline" sx={{ display: 'block' }}>
+          <Text variant="headline" sx={{ display: 'block', textAlign: 'center' }}>
             Join{' '}
             <Text className="emblema" sx={{ color: '#5E3414' }}>
               ARCADE
             </Text>
             . Build with friends.
           </Text>
-          <Text variant="title" sx={{ display: 'block' }}>
+          <Text variant="title" sx={{ display: 'block', textAlign: 'center', pb: 3 }}>
             What are you waiting for?
           </Text>
-          <Grid
+          <Flex
+            sx={{
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '30px',
+              pb: [3, 3, 6, 6]
+            }}
+          >
+            <Flex
+              sx={{
+                justifyContent: 'center',
+                width: ['100%', '100%', '50%', '50%'],
+                position: 'relative'
+              }}
+            >
+              <Intro
+                title="Work on projects"
+                text="Hack on something cool! Examples: making your own PCB, building your own site, creating an app."
+                num="1"
+                img="/arcade/r3.svg"
+              />
+               <img
+        src="/arcade/a1.png"
+        sx={{
+          width: "100px",
+          position: 'absolute',
+          left: '-110px',
+          bottom: '0',
+          display: ['none', 'none', 'block', 'block']
+        }}
+      />
+      <img
+        src="/arcade/a2.png"
+        sx={{
+          width: "90px",
+          position: 'absolute',
+          right: '-120px',
+          bottom: '0',
+          display: ['none', 'none', 'block', 'block'],
+        }}
+      />
+            </Flex>
+            <Flex
+              sx={{
+                justifyContent: 'space-between',
+                width: '100%',
+                gap: '30px',
+                flexDirection: ['column', 'column', 'row', 'row'],
+                position: 'relative'
+              }}
+            >
+              <Intro
+                title="Bank your hours"
+                text={
+                  <>
+                    Join the{' '}
+                    <a
+                      href="https://hackclub.com/slack"
+                      target="_blank"
+                      sx={{ color: 'inherit' }}
+                    >
+                      Hack Club Slack
+                    </a>{' '}
+                    and use /hack in #hack-hour to log your hours! You earn a
+                    ticket for each hour spent!
+                  </>
+                }
+                num="2"
+                img="/arcade/r2.svg"
+              />
+                            <Intro
+                title="Redeem your powerups"
+                text="Use your tickets to buy powerups for your next project! Such as Arduino kits, drawing tablets, and more!"
+                num="3"
+                img="/arcade/r1.svg"
+              />
+              <img
+        src="/arcade/a3.png"
+        sx={{
+          width: "250px",
+          position: 'absolute',
+          left: '30vw',
+          bottom: '-120px',
+          display: ['none', 'none', 'block', 'block'],
+        }}
+      />
+            </Flex>
+          </Flex>
+          {/* <Grid
             sx={{
               gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr 1fr'],
               marginTop: '25px'
@@ -665,17 +848,30 @@ const Arcade = ({ stickers = [], inventory }) => {
             />
             <Intro
               title="Bank your hours"
-              text="Join the Hack Club Slack and use /hack in #hack-hour to log your hours!"
+              text={
+                <>
+                  Join the{' '}
+                  <a
+                    href="https://hackclub.com/slack"
+                    target="_blank"
+                    sx={{ color: 'inherit' }}
+                  >
+                    Hack Club Slack
+                  </a>{' '}
+                  and use /hack in #hack-hour to log your hours! You earn a
+                  ticket for each hour spent!
+                </>
+              }
               num="2"
               img="/arcade/r2.svg"
             />
             <Intro
-              title="Redeem for prizes"
-              text="We’re keeping track of your total hours; spend them to buy prizes, such as Arduino kits, drawing tablets, and more!"
+              title="Redeem your powerups"
+              text="Use your tickets to buy powerups for your next project! Such as Arduino kits, drawing tablets, and more!"
               num="3"
               img="/arcade/r1.svg"
             />
-          </Grid>
+          </Grid> */}
         </Box>
         <img
           src="/arcade/blue_bottom.svg"
@@ -686,6 +882,7 @@ const Arcade = ({ stickers = [], inventory }) => {
           }}
         />
       </Box>
+
       <Flex
         sx={{
           width: '90vw',
@@ -698,33 +895,35 @@ const Arcade = ({ stickers = [], inventory }) => {
           color: '#5E3414'
         }}
       >
-        <Text variant="headline">
-          Get{' '}
-          <Text
-            onMouseEnter={mouseEnter}
-            onMouseLeave={handleMouseLeave}
-            sx={{
-              cursor: 'pointer',
-              position: 'relative',
-              bg: '#09AFB4',
-              transform: 'rotate(-3deg) scale(1.1)',
-              py: '2px',
-              px: '4px',
-              borderRadius: '2px',
-              color: '#FAEFD6',
-              display: 'inline-block',
-              mx: '6px'
-            }}
-          >
-            {showComponent && <Sticker st={stickers[showNum]} />}
-            free stickers
-          </Text>{' '}
-          and be the first to know when{' '}
-          <Text className="emblema" sx={{ color: '#FF5C00' }}>
-            ARCADE
-          </Text>{' '}
-          launches!
-        </Text>
+        <Balancer>
+          <Text variant="headline" sx={{ lineHeight: '1.5', display: 'block' }}>
+            Get{' '}
+            <Text
+              onMouseEnter={mouseEnter}
+              onMouseLeave={handleMouseLeave}
+              sx={{
+                cursor: 'pointer',
+                position: 'relative',
+                bg: '#09AFB4',
+                transform: 'rotate(-3deg) scale(1.1)',
+                py: '2px',
+                px: '4px',
+                borderRadius: '2px',
+                color: '#FAEFD6',
+                display: 'inline-block',
+                mx: '6px'
+              }}
+            >
+              {showComponent && <Sticker st={stickers[showNum]} />}
+              free stickers
+            </Text>{' '}
+            and be the first to know when{' '}
+            <Text className="emblema" sx={{ color: '#FF5C00' }}>
+              ARCADE
+            </Text>{' '}
+            launches!
+          </Text>
+        </Balancer>
         <RSVP color="blue" text="RSVP" />
       </Flex>
       <Projects />
@@ -760,12 +959,24 @@ const Arcade = ({ stickers = [], inventory }) => {
           >
             What will you make this summer?
           </Text>
-          <Text
-            variant="subtitle"
-            sx={{ display: 'block', textAlign: 'center', color: '#FAEFD6' }}
-          >
-            1 hour spent making = 1 ticket
-          </Text>
+          <Box sx={{ textAlign: 'center', width: '100%' }}>
+            <Text
+              variant="subtitle"
+              sx={{
+                display: 'block',
+                color: '#35290F',
+                bg: '#FAEFD6',
+                width: 'fit-content',
+                px: '3px',
+                py: '5px',
+                borderRadius: '2px',
+                margin: 'auto',
+                mt: 4
+              }}
+            >
+              1 hour spent making = 1 ticket
+            </Text>
+          </Box>
           <Grid
             sx={{
               gridTemplateColumns: [
@@ -780,8 +991,9 @@ const Arcade = ({ stickers = [], inventory }) => {
           >
             <Tickets
               title="Your own project!"
-              text="Anytime you work on your project, start the hack hour timer. You earn a ticket for every hour you spend on your project."
+              text="You could build an AR game, pixel art display, drawing robot, and more! Anytime you work on your project, start the hack hour timer. You earn a ticket for every hour you spend on your project."
               num="Infinite"
+              img="/arcade/r4.png"
               sx={{
                 gridColumn: ['', 'span 2', 'span 2', 'span 2'],
                 gridRow: ['', 'span 2', 'span 2', 'span 2']
@@ -800,38 +1012,38 @@ const Arcade = ({ stickers = [], inventory }) => {
             />
             <Tickets
               title="The Bin"
-              text="Build an online circuit"
+              text="Build an online circuit, get the parts for free!"
               num="0.5"
               link="/bin"
             />
             <Tickets
               title="Sprig"
-              text="Build a JS game"
+              text="Build a JS game, play it on your own console"
               num="2"
               link="/sprig"
             />
             <Tickets
               title="OnBoard"
-              text="Design a PCB"
+              text="Design a PCB, get a $100 grant"
               num="2"
               link="/onboard"
             />
             <Tickets
               title="Blot"
-              text="Make programatic artwork"
+              text="Make programatic artwork, assemble your own drawing machine!"
               num="3"
               link="https://blot.hackclub.com/"
             />
             <Tickets
               title="Cider"
-              text="Make a mobile app"
+              text="Make a mobile app, get an Apple Developer account"
               num="4"
               link="https://cider.hackclub.com"
             />
 
             <Tickets
               title="Easel"
-              text="Write a programming language"
+              text="Write a programming language, receive fudge!"
               num="5"
             />
 
@@ -842,8 +1054,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 maxWidth: '210px',
                 position: 'absolute',
                 right: '10px',
-                top: '0',
-                transform: 'rotate(180deg)'
+                top: '0'
               }}
             />
           </Grid>
@@ -864,7 +1075,8 @@ const Arcade = ({ stickers = [], inventory }) => {
           backgroundSize: 'cover',
           pt: '30vh',
           pb: '25vh',
-          color: '#5E3414'
+          color: '#5E3414',
+          position: 'relative'
         }}
       >
         <Box
@@ -877,34 +1089,20 @@ const Arcade = ({ stickers = [], inventory }) => {
           }}
         >
           <Text variant="title" sx={{ display: 'block' }}>
-            Prizes your project can redeem!
+            Powerups for your next project!
+          </Text>
+          <Text variant="subtitle" className="gaegu">
+            Redeem these with your tickets!
           </Text>
         </Box>
         <PageVisibility onChange={handleVisibilityChange}>
           {pageIsVisible && (
             <>
-              <Ticker speed={5} sx={{ overflowX: 'hidden' }}>
+              <Ticker speed={5}>
                 {() => (
-                  <Box as="div" sx={{ display: 'flex', py: [4, 5, 5] }}>
+                  <Box as="div" sx={{ display: 'flex', height: 'fit-content' }}>
                     {inventory
                       .slice(Math.ceil(inventory.length / 2), inventory.length)
-                      .map(i => (
-                        <Item img={i.imageURL} cost={i.hours} />
-                      ))}
-                  </Box>
-                )}
-              </Ticker>
-
-              <Ticker
-                speed={5}
-                sx={{ overflowX: 'hidden' }}
-                direction="toRight"
-                offset="300"
-              >
-                {() => (
-                  <Box as="div" sx={{ display: 'flex', py: [4, 5, 5] }}>
-                    {inventory
-                      .slice(0, Math.ceil(inventory.length / 2))
                       .map(i => (
                         <Item img={i.imageURL} cost={i.hours} />
                       ))}
@@ -916,44 +1114,59 @@ const Arcade = ({ stickers = [], inventory }) => {
         </PageVisibility>
         <Flex
           sx={{
-            width: '90vw',
+            width: ['70vw', '50vw', '60vw', '70vw'],
             maxWidth: '1200px',
-            margin: 'auto',
+            ml: ['10vw'],
             paddingTop: '50px',
             marginBottom: '-50px',
             gap: ['10px', '10px', '2vw', '8vw'],
-            flexWrap: ['wrap', 'wrap', 'nowrap', 'nowrap']
+            flexWrap: ['wrap', 'wrap', 'wrap', 'nowrap']
           }}
         >
-          <Text variant="headline">
-            Get{' '}
+          <Balancer>
             <Text
-              onMouseEnter={mouseEnter}
-              onMouseLeave={handleMouseLeave}
-              sx={{
-                cursor: 'pointer',
-                position: 'relative',
-                bg: '#09AFB4',
-                transform: 'rotate(-3deg) scale(1.1)',
-                py: '2px',
-                px: '4px',
-                borderRadius: '2px',
-                color: '#FAEFD6',
-                display: 'inline-block',
-                mx: '6px'
-              }}
+              variant="headline"
+              sx={{ lineHeight: '1.5', display: 'block' }}
             >
-              {showComponent && <Sticker st={stickers[showNum]} />}
-              free stickers
-            </Text>{' '}
-            and be the first to know when{' '}
-            <Text className="emblema" sx={{ color: '#FF5C00' }}>
-              ARCADE
-            </Text>{' '}
-            launches!
-          </Text>
+              Get{' '}
+              <Text
+                onMouseEnter={mouseEnter}
+                onMouseLeave={handleMouseLeave}
+                sx={{
+                  cursor: 'pointer',
+                  position: 'relative',
+                  bg: '#09AFB4',
+                  transform: 'rotate(-3deg) scale(1.1)',
+                  px: '4px',
+                  borderRadius: '2px',
+                  color: '#FAEFD6',
+                  display: 'inline-block',
+                  mx: '6px',
+                  lineHeight: '1.3'
+                }}
+              >
+                {showComponent && <Sticker st={stickers[showNum]} />}
+                free stickers
+              </Text>{' '}
+              and be the first to know when{' '}
+              <Text className="emblema" sx={{ color: '#FF5C00' }}>
+                ARCADE
+              </Text>{' '}
+              launches!
+            </Text>
+          </Balancer>
           <RSVP color="blue" text="RSVP" />
         </Flex>
+        <img
+          src="/arcade/r6.png"
+          sx={{
+            width: ['35%', '35%', '35%', '50%'],
+            maxWidth: '210px',
+            position: 'absolute',
+            right: '20px',
+            bottom: '0'
+          }}
+        />
       </Box>
       <ArcadeFooter />
       <style>{styled}</style>
