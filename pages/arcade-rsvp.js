@@ -604,7 +604,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 ARCADE
               </Text>
             </Fade>
-            <Fade delay={350}>
+            {/* <Fade delay={350}>
               <Text
                 sx={{
                   display: 'block',
@@ -616,7 +616,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               >
                 Build something cool.
               </Text>
-            </Fade>
+            </Fade> */}
             <Fade delay={450}>
              
               <Text
@@ -628,7 +628,8 @@ const Arcade = ({ stickers = [], inventory }) => {
                 }}
                 variant="title"
               >
-                Get free hardware.
+                
+                Get free tools to build something cool.
               </Text>
             </Fade>
             <Fade delay={550}>
@@ -663,8 +664,8 @@ const Arcade = ({ stickers = [], inventory }) => {
                     fontSize: ['24px', '27px', '30px'],
                     borderRadius: '5px',
                     textAlign: 'center',
-                    mt: 3,
                     margin: 'auto',
+                    mt: 3,
                     zIndex: 2
                   }}
                 >
