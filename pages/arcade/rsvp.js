@@ -208,18 +208,20 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
       >
         {text}
       </Text>
-      <img
-        src={img}
-        alt="racoon drawing"
-        sx={{
-          width: ['35%', '35%', '35%', '50%'],
-          maxWidth: '210px',
-          position: 'absolute',
-          right: '0',
-          bottom: '0',
-          display: ['none', 'none', 'block', 'block']
-        }}
-      />
+      {img && (
+        <img
+          src={img}
+          alt="racoon drawing"
+          sx={{
+            width: ['35%', '35%', '35%', '50%'],
+            maxWidth: '210px',
+            position: 'absolute',
+            right: '0',
+            bottom: '0',
+            display: ['none', 'none', 'block', 'block']
+          }}
+        />
+      )}
     </Card>
   )
 }
