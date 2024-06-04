@@ -541,13 +541,31 @@ const Arcade = ({ stickers = [], inventory }) => {
       <Nav />
 
       <Box
+        sx={{
+          position: 'relative',
+          zIndex: 1,
+          overflowX: 'hidden',
+          overflowY: 'hidden',
+          paddingBottom: '20vh',
+            paddingTop: '20vh',
+        }}
       >
+        <img
+          src="/arcade/beige_bg.png"
+          sx={{
+            position: 'absolute',
+            width: '110vw',
+            transform: 'rotate(-30deg)',
+            bottom: '-30vw',
+            right: '-35vw',
+            display: ['none', 'none', 'none', 'block']
+          }}
+        />
         <Grid
           sx={{
             gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
             width: '100%',
-            paddingBottom: '20vh',
-            paddingTop: '20vh',
+            
             width: '90vw',
             maxWidth: '1200px',
             margin: 'auto'
@@ -596,23 +614,11 @@ const Arcade = ({ stickers = [], inventory }) => {
                 }}
                 variant="title"
               >
-                This summer is yours.
-              </Text>
-            </Fade>
-            <Fade delay={450}>
-              <Text
-                sx={{
-                  display: 'block',
-                  textAlign: ['center', 'center', 'center', 'left'],
-                  py: ['10px', '12px', '13px'],
-                  fontSize: ['40px', '55px', '55px']
-                }}
-                variant="title"
-              >
                 Build something cool.
               </Text>
             </Fade>
-            <Fade delay={550}>
+            <Fade delay={450}>
+             
               <Text
                 sx={{
                   display: 'block',
@@ -623,6 +629,20 @@ const Arcade = ({ stickers = [], inventory }) => {
                 variant="title"
               >
                 Get free hardware.
+              </Text>
+            </Fade>
+            <Fade delay={550}>
+              
+              <Text
+                sx={{
+                  display: 'block',
+                  textAlign: ['center', 'center', 'center', 'left'],
+                  py: ['10px', '12px', '13px'],
+                  fontSize: ['40px', '55px', '55px']
+                }}
+                variant="title"
+              >
+                This summer is yours.
               </Text>
             </Fade>
             <Fade delay={650}>
@@ -644,7 +664,8 @@ const Arcade = ({ stickers = [], inventory }) => {
                     borderRadius: '5px',
                     textAlign: 'center',
                     mt: 3,
-                    margin: 'auto'
+                    margin: 'auto',
+                    zIndex: 2
                   }}
                 >
                   RSVP for stickers
@@ -673,7 +694,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                   pt: ['80px', '180px', '180px', '180px'],
                   pb: ['145px', 7, 7, 7],
                   mt: [null, null, '50px', '-50px'],
-                 
+
                   display: 'grid',
                   background:
                     'url(/arcade/arcade_bg.png) no-repeat center center',
@@ -740,8 +761,8 @@ const Arcade = ({ stickers = [], inventory }) => {
           position: 'relative',
           paddingTop: '0',
           paddingBottom: '5vw',
-          marginTop: '15vh',
-          color: '#FAEFD6'
+          color: '#FAEFD6',
+          zIndex: 2
         }}
       >
         <img
@@ -781,7 +802,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '30px',
+              gap: '40px',
               pb: [3, 3, 6, 6]
             }}
           >
@@ -818,12 +839,35 @@ const Arcade = ({ stickers = [], inventory }) => {
                   display: ['none', 'none', 'block', 'block']
                 }}
               />
+              {/* <Text
+                sx={{
+                  textAlign: 'center',
+                  fontSize: [2, 4, 5],
+                  width: '100%',
+                  display: 'block',
+                  transform: [
+                    'rotate(0deg)',
+                    'rotate(0deg)',
+                    'rotate(3deg)',
+                    'rotate(3deg)'
+                  ],
+                  position: 'absolute',
+                  left: '0vw',
+                  bottom: '-50px',
+                  zIndex: '3'
+                }}
+                className="gaegu"
+              >
+                <Text sx={{ background: '#5E3414', px: 2, py: 1 }}>
+                  Hack. Rinse. Repeat.
+                </Text>
+              </Text> */}
             </Flex>
             <Flex
               sx={{
                 justifyContent: 'space-between',
                 width: '100%',
-                gap: '30px',
+                gap: '40px',
                 flexDirection: ['column', 'column', 'row', 'row'],
                 position: 'relative'
               }}
@@ -865,13 +909,25 @@ const Arcade = ({ stickers = [], inventory }) => {
               />
             </Flex>
           </Flex>
+          <Intro
+            title="Build your next project!"
+            text="Start your next project with the powerups you redeemed"
+            num="4"
+            img="/arcade/r7.png"
+            sx={{ display: ['block', 'block', 'none', 'none'] }}
+          />
           <Text
             sx={{
               textAlign: 'center',
               fontSize: [2, 4, 5],
               width: '100%',
               display: 'block',
-              transform: ['rotate(0deg)', 'rotate(0deg)', 'rotate(3deg)', 'rotate(3deg)']
+              transform: [
+                'rotate(0deg)',
+                'rotate(0deg)',
+                'rotate(3deg)',
+                'rotate(3deg)'
+              ]
             }}
             className="gaegu"
           >
