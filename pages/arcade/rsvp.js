@@ -97,6 +97,10 @@ const styled = `
 .css-vrrmew-Box {
   color: #5E3414 !important;
 }
+
+.css-cysksd {
+  color: #5E3414 !important;
+}
   `
 
 const RSVP = ({ text, color }) => {
