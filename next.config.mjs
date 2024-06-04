@@ -204,6 +204,10 @@ const nextConfig = {
         destination: 'https://leaders-letters.vercel.app/:path*'
       },
       {
+        source: '/letter/:path*',
+        destination: 'https://leaders-letters.vercel.app/:path*'
+      },
+      {
         source: '/clubs/leaders-letters/_next/:path*',
         destination: 'https://leaders-letters.vercel.app/_next/:path*'
       },
