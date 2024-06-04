@@ -1170,7 +1170,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                     {inventory
                       .slice(Math.ceil(inventory.length / 2), inventory.length)
                       .map(i => (
-                        <Item img={i.imageURL} cost={i.hours} />
+                        <Item img={i.imageURL} cost={i.hours} key={i} />
                       ))}
                   </Box>
                 )}
