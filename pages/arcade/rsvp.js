@@ -104,6 +104,7 @@ const RSVP = ({ text, color }) => {
     <Flex
       as="a"
       href="https://hack.club/arcade-rsvp"
+      target="_blank"
       className="slackey"
       sx={{
         justifyContent: 'center',
@@ -651,6 +652,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 <Flex
                   as="a"
                   href="https://hack.club/arcade-rsvp"
+                  target="_blank"
                   className="slackey"
                   sx={{
                     justifyContent: 'center',
