@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
-import Nav from '../components/nav'
-import ForceTheme from '../components/force-theme'
+import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import { Box, Button, Text, Flex, Grid, Card } from 'theme-ui'
 import Image from 'next/image'
 import fs from 'fs'
 import path from 'path'
 import { startCase } from 'lodash'
-import Projects from '../components/arcade/projects'
+import Projects from '../../components/arcade/projects'
 import { Howl, Howler } from 'howler'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
-import ArcadeFooter from '../components/arcade/footer'
+import ArcadeFooter from '../../components/arcade/footer'
 import Balancer from 'react-wrap-balancer'
 import { Fade } from 'react-reveal'
 
@@ -104,7 +103,7 @@ const RSVP = ({ text, color }) => {
   return (
     <Flex
       as="a"
-      href="https://hack.af/arcade-rsvp"
+      href="https://hack.club/arcade-rsvp"
       className="slackey"
       sx={{
         justifyContent: 'center',
@@ -254,7 +253,8 @@ const Sticker = ({ st }) => {
           width: 'fit-content',
           position: 'relative',
           borderRadius: '5px',
-          transform: 'rotate(3deg)'
+          transform: 'rotate(3deg)',
+          zIndex: 4,
         }}
       >
         <Flex
@@ -650,7 +650,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               <Box sx={{ width: ['100%', '100%', '100%', 'fit-content'] }}>
                 <Flex
                   as="a"
-                  href="https://hack.af/arcade-rsvp"
+                  href="https://hack.club/arcade-rsvp"
                   className="slackey"
                   sx={{
                     justifyContent: 'center',
@@ -956,11 +956,12 @@ const Arcade = ({ stickers = [], inventory }) => {
           paddingBottom: '40px',
           gap: ['10px', '10px', '2vw', '8vw'],
           flexWrap: ['wrap', 'wrap', 'nowrap', 'nowrap'],
-          color: '#5E3414'
+          color: '#5E3414',
+         
         }}
       >
         <Balancer>
-          <Text variant="headline" sx={{ lineHeight: '1.5', display: 'block' }}>
+          <Text variant="headline" sx={{ lineHeight: '1.5', display: 'block', position: 'relative', zIndex: 3 }}>
             Get{' '}
             <Text
               onMouseEnter={mouseEnter}
@@ -1118,7 +1119,8 @@ const Arcade = ({ stickers = [], inventory }) => {
                 maxWidth: '210px',
                 position: 'absolute',
                 right: '10px',
-                top: '0'
+                top: '0',
+                display: ['none', 'none', 'none', 'block']
               }}
             />
           </Grid>
