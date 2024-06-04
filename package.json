@@ -54,7 +54,7 @@
     "jszip-utils": "^0.1.0",
     "lodash": "^4.17.21",
     "million": "^2.6.4",
-    "next": "^12.3.1",
+    "next": "^14.1.1",
     "next-transpile-modules": "^10.0.1",
     "nextjs-current-url": "^1.0.3",
     "openai": "^4.42.0",
