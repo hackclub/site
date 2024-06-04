@@ -196,6 +196,14 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: '/clubs/leaders-letters',
+        destination: 'https://leaders-letters.vercel.app/'
+      },
+      {
+        source: '/clubs/leaders-letters/:path*',
+        destination: 'https://leaders-letters.vercel.app/:path*'
+      },
+      {
         source: '/v3/_next/:path*',
         destination: '/_next/:path*'
       },
