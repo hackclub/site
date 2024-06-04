@@ -174,6 +174,7 @@ const Intro = ({ title, num, text, img, ...props }) => {
       </Text>
       <img
         src={img}
+        alt="Racoon drawing"
         sx={{
           width: ['35%', '35%', '35%', '50%'],
           maxWidth: '210px',
@@ -230,6 +231,7 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
       </Text>
       <img
         src={img}
+        alt="racoon drawing"
         sx={{
           width: ['35%', '35%', '35%', '50%'],
           maxWidth: '210px',
@@ -255,7 +257,7 @@ const Sticker = ({ st }) => {
           position: 'relative',
           borderRadius: '5px',
           transform: 'rotate(3deg)',
-          zIndex: 4,
+          zIndex: 4
         }}
       >
         <Flex
@@ -340,6 +342,7 @@ const Item = ({ name, img, cost }) => {
       </Text>
       <img
         src={img}
+        alt={name}
         sx={{
           height: '100%',
           width: 'auto',
@@ -548,11 +551,12 @@ const Arcade = ({ stickers = [], inventory }) => {
           overflowX: 'hidden',
           overflowY: 'hidden',
           paddingBottom: '20vh',
-            paddingTop: '20vh',
+          paddingTop: '20vh'
         }}
       >
         <img
           src="/arcade/beige_bg.png"
+          alt="beige swirly pattern"
           sx={{
             position: 'absolute',
             width: '110vw',
@@ -566,7 +570,7 @@ const Arcade = ({ stickers = [], inventory }) => {
           sx={{
             gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
             width: '100%',
-            
+
             width: '90vw',
             maxWidth: '1200px',
             margin: 'auto'
@@ -619,7 +623,6 @@ const Arcade = ({ stickers = [], inventory }) => {
               </Text>
             </Fade> */}
             <Fade delay={450}>
-             
               <Text
                 sx={{
                   display: 'block',
@@ -629,12 +632,10 @@ const Arcade = ({ stickers = [], inventory }) => {
                 }}
                 variant="title"
               >
-                
                 Get free tools to build something cool.
               </Text>
             </Fade>
             <Fade delay={550}>
-              
               <Text
                 sx={{
                   display: 'block',
@@ -727,6 +728,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 <img
                   src="/bin/images/idea.png"
                   className="hoverable"
+                  alt="racoon thinking"
                   sx={{
                     margin: '0 auto',
                     display: 'inline',
@@ -770,6 +772,7 @@ const Arcade = ({ stickers = [], inventory }) => {
       >
         <img
           src="/arcade/blue_top.svg"
+          alt="blue scribble pattern"
           sx={{
             width: '100%',
             position: 'absolute',
@@ -834,6 +837,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               />
               <img
                 src="/arcade/a2.png"
+                alt="arrow"
                 sx={{
                   width: '90px',
                   position: 'absolute',
@@ -902,6 +906,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               />
               <img
                 src="/arcade/a3.png"
+                alt="arrow"
                 sx={{
                   width: '250px',
                   position: 'absolute',
@@ -917,7 +922,11 @@ const Arcade = ({ stickers = [], inventory }) => {
             text="What will you build with the powerups you redeemed?"
             num="4"
             img="/arcade/r7.png"
-            sx={{ display: ['block', 'block', 'none', 'none'], mt: '30px', mb: '20px' }}
+            sx={{
+              display: ['block', 'block', 'none', 'none'],
+              mt: '30px',
+              mb: '20px'
+            }}
           />
           <Text
             sx={{
@@ -941,6 +950,7 @@ const Arcade = ({ stickers = [], inventory }) => {
         </Box>
         <img
           src="/arcade/blue_bottom.svg"
+          alt="blue triangle"
           sx={{
             width: '100%',
             position: 'absolute',
@@ -958,12 +968,19 @@ const Arcade = ({ stickers = [], inventory }) => {
           paddingBottom: '40px',
           gap: ['10px', '10px', '2vw', '8vw'],
           flexWrap: ['wrap', 'wrap', 'nowrap', 'nowrap'],
-          color: '#5E3414',
-         
+          color: '#5E3414'
         }}
       >
         <Balancer>
-          <Text variant="headline" sx={{ lineHeight: '1.5', display: 'block', position: 'relative', zIndex: 3 }}>
+          <Text
+            variant="headline"
+            sx={{
+              lineHeight: '1.5',
+              display: 'block',
+              position: 'relative',
+              zIndex: 3
+            }}
+          >
             Get{' '}
             <Text
               onMouseEnter={mouseEnter}
@@ -1129,6 +1146,7 @@ const Arcade = ({ stickers = [], inventory }) => {
         </Box>
         <img
           src="/arcade/yellow_bottom.svg"
+          alt="jig jag yellow design"
           sx={{
             width: '100%',
             position: 'absolute',
@@ -1172,7 +1190,12 @@ const Arcade = ({ stickers = [], inventory }) => {
                     {inventory
                       .slice(Math.ceil(inventory.length / 2), inventory.length)
                       .map(i => (
-                        <Item img={i.imageURL} cost={i.hours} key={i} />
+                        <Item
+                          img={i.imageURL}
+                          cost={i.hours}
+                          key={i}
+                          name={i.name}
+                        />
                       ))}
                   </Box>
                 )}
@@ -1227,6 +1250,7 @@ const Arcade = ({ stickers = [], inventory }) => {
         </Flex>
         <img
           src="/arcade/r6.png"
+          alt="Racoon!"
           sx={{
             width: ['35%', '35%', '35%', '50%'],
             maxWidth: '210px',
