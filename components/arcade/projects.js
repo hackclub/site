@@ -236,7 +236,7 @@ export default function Projects() {
                   flexDirection: 'column',
                   alignItems: 'center',
                   gap: 1,
-                  
+                  fontSize: [2, 4, 5]
                 }}
               >
                 <Text>You could be building a</Text>

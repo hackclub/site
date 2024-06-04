@@ -19,9 +19,23 @@ import { Fade } from 'react-reveal'
 /** @jsxImportSource theme-ui */
 
 const styled = `
-@import url('https://fonts.googleapis.com/css2?family=Emblema+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Emblema+One&family=Gaegu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
 
+.slackey {
+  font-family: "Slackey", sans-serif;
+ }
+
+ .arcade {
+  text-shadow: -4px -4px#FAEFD6,-3px -3px #FAEFD6, -2px -2px #FAEFD6,
+    -2px -2px #FAEFD6, -1px -1px #FAEFD6, -1px -1px #FAEFD6,
+    -1px -1px #FAEFD6, 1px 1px #FAEFD6, 1px 1px #FAEFD6,
+    1px 1px #FAEFD6, 2px 2px #FAEFD6, 4px 4px #FAEFD6,
+    3px 3px #FAEFD6, -8px -8px #09AFB4, -6px -6px #09AFB4,
+    -5px -5px #09AFB4, -4px -4px #09AFB4, -3px -3px #09AFB4,
+    -2px -2px #09AFB4, 2px 2px #09AFB4, 3px 3px #09AFB4,
+    5px 5px #09AFB4, 4px 4px #09AFB4, 7px 7px #09AFB4,
+    6px 6px #09AFB4, 8px 8px #09AFB4, -8px -8px #09AFB4, 9px 9px #09AFB4, -9px -9px #09AFB4, 10px 10px #09AFB4, -10px -10px #09AFB4;
+ }
  .emblema {
     font-family: "Emblema One", system-ui;
  }
@@ -33,6 +47,7 @@ const styled = `
  body {
     background-color: #FAEFD6;
  }
+
   
  /* CSS from https://codepen.io/quadbaup/details/rKOKQv */
 .thought {
@@ -40,9 +55,9 @@ const styled = `
     // background-color: #fff;
     padding: 20px;
     border-radius: 30px;
-    min-width: 40px;
-    max-width: 300px;
-    min-height: 40px;
+    // min-width: 40px;
+    width: 250px;
+    height: 50px;
     margin: 20px;
     margin-left: -10px;
     position: relative;
@@ -90,7 +105,7 @@ const RSVP = ({ text, color }) => {
     <Flex
       as="a"
       href="https://hack.af/arcade-rsvp"
-      className="emblema"
+      className="slackey"
       sx={{
         justifyContent: 'center',
         alignItems: 'center',
@@ -134,7 +149,12 @@ const Intro = ({ title, num, text, img, ...props }) => {
       <Text
         variant="subtitle"
         sx={{
-          width: ['calc(100% - 80px)', 'calc(100% - 80px)','calc(100% - 80px)', 'calc(100% - 150px)'],
+          width: [
+            'calc(100% - 80px)',
+            'calc(100% - 80px)',
+            'calc(100% - 80px)',
+            'calc(100% - 150px)'
+          ],
           display: 'block'
         }}
       >
@@ -148,7 +168,7 @@ const Intro = ({ title, num, text, img, ...props }) => {
           right: '5px',
           opacity: '0.2'
         }}
-        className="emblema"
+        className="slackey"
       >
         {num}
       </Text>
@@ -193,7 +213,7 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
           display: 'block',
           width: 'fit-content'
         }}
-        className="emblema"
+        className="slackey"
       >
         Tickets: {num}
       </Text>
@@ -305,7 +325,7 @@ const Item = ({ name, img, cost }) => {
     >
       <Text
         variant="ultratitle"
-        className="emblema"
+        className="slackey"
         sx={{
           position: 'absolute',
           bottom: '0',
@@ -519,19 +539,18 @@ const Arcade = ({ stickers = [], inventory }) => {
         />
       </Head>
       <Nav />
+
       <Box
-        sx={{
-          width: '90vw',
-          maxWidth: '1200px',
-          margin: 'auto'
-        }}
       >
         <Grid
           sx={{
             gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
             width: '100%',
             paddingBottom: '20vh',
-            paddingTop: '20vh'
+            paddingTop: '20vh',
+            width: '90vw',
+            maxWidth: '1200px',
+            margin: 'auto'
           }}
         >
           <Box
@@ -556,7 +575,7 @@ const Arcade = ({ stickers = [], inventory }) => {
             <Fade delay={250}>
               <Text
                 as="h1"
-                className="emblema"
+                className="slackey arcade"
                 sx={{
                   color: '#FF5C00',
                   textAlign: ['center', 'center', 'center', 'left'],
@@ -611,7 +630,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 <Flex
                   as="a"
                   href="https://hack.af/arcade-rsvp"
-                  className="emblema"
+                  className="slackey"
                   sx={{
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -651,9 +670,10 @@ const Arcade = ({ stickers = [], inventory }) => {
               <Box
                 sx={{
                   justifyContent: 'center',
-                  pt: ['80px', '170px', '170px', '170px'],
+                  pt: ['80px', '180px', '180px', '180px'],
                   pb: ['145px', 7, 7, 7],
-                  mt: [null, null, '50px', '-150px'],
+                  mt: [null, null, '50px', '-50px'],
+                 
                   display: 'grid',
                   background:
                     'url(/arcade/arcade_bg.png) no-repeat center center',
@@ -670,19 +690,25 @@ const Arcade = ({ stickers = [], inventory }) => {
                       'scale(1)',
                       'scale(1)'
                     ],
-                    mb: ['-40px !important', '10px !important', '10px !important', '10px !important20px']
+                    mb: [
+                      '-40px !important',
+                      '10px !important',
+                      '10px !important',
+                      '10px !important20px'
+                    ]
                   }}
                 >
                   🕹️
                 </Text>
                 <img
-                  src="/arcade/r7.png"
+                  src="/bin/images/idea.png"
                   className="hoverable"
                   sx={{
                     margin: '0 auto',
                     display: 'inline',
-                    width: '15em',
-                    height: 'auto',
+                    width: 'auto',
+                    height: '12em',
+                    mb: [null, null, '0px', '-50px'],
                     transform: [
                       'scale(0.7)',
                       'scale(1)',
@@ -694,7 +720,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                   onClick={generateProjectIdea}
                 />
               </Box>
-              <Box as="h3">Click the raccoon for project ideas!</Box>
+              <Box as="h2">Click the raccoon for project ideas!</Box>
               <Text as="p">
                 <em>
                   (It doesn't know much about coding, but it'll try its best.)
@@ -715,8 +741,7 @@ const Arcade = ({ stickers = [], inventory }) => {
           paddingTop: '0',
           paddingBottom: '5vw',
           marginTop: '15vh',
-          color: '#FAEFD6',
-          
+          color: '#FAEFD6'
         }}
       >
         <img
@@ -732,17 +757,23 @@ const Arcade = ({ stickers = [], inventory }) => {
             width: '90vw',
             maxWidth: '1200px',
             margin: 'auto',
-            pt: 1,
+            pt: 1
           }}
         >
-          <Text variant="headline" sx={{ display: 'block', textAlign: 'center' }}>
+          <Text
+            variant="headline"
+            sx={{ display: 'block', textAlign: 'center' }}
+          >
             Join{' '}
-            <Text className="emblema" sx={{ color: '#5E3414' }}>
+            <Text className="slackey" sx={{ color: '#5E3414' }}>
               ARCADE
             </Text>
             . Build with friends.
           </Text>
-          <Text variant="title" sx={{ display: 'block', textAlign: 'center', pb: 3 }}>
+          <Text
+            variant="title"
+            sx={{ display: 'block', textAlign: 'center', pb: 3 }}
+          >
             What are you waiting for?
           </Text>
           <Flex
@@ -767,26 +798,26 @@ const Arcade = ({ stickers = [], inventory }) => {
                 num="1"
                 img="/arcade/r3.svg"
               />
-               <img
-        src="/arcade/a1.png"
-        sx={{
-          width: "100px",
-          position: 'absolute',
-          left: '-110px',
-          bottom: '0',
-          display: ['none', 'none', 'block', 'block']
-        }}
-      />
-      <img
-        src="/arcade/a2.png"
-        sx={{
-          width: "90px",
-          position: 'absolute',
-          right: '-120px',
-          bottom: '0',
-          display: ['none', 'none', 'block', 'block'],
-        }}
-      />
+              <img
+                src="/arcade/a1.png"
+                sx={{
+                  width: '100px',
+                  position: 'absolute',
+                  left: '-110px',
+                  bottom: '0',
+                  display: ['none', 'none', 'block', 'block']
+                }}
+              />
+              <img
+                src="/arcade/a2.png"
+                sx={{
+                  width: '90px',
+                  position: 'absolute',
+                  right: '-120px',
+                  bottom: '0',
+                  display: ['none', 'none', 'block', 'block']
+                }}
+              />
             </Flex>
             <Flex
               sx={{
@@ -816,62 +847,38 @@ const Arcade = ({ stickers = [], inventory }) => {
                 num="2"
                 img="/arcade/r2.svg"
               />
-                            <Intro
+              <Intro
                 title="Redeem your powerups"
                 text="Use your tickets to buy powerups for your next project! Such as Arduino kits, drawing tablets, and more!"
                 num="3"
                 img="/arcade/r1.svg"
               />
               <img
-        src="/arcade/a3.png"
-        sx={{
-          width: "250px",
-          position: 'absolute',
-          left: '30vw',
-          bottom: '-120px',
-          display: ['none', 'none', 'block', 'block'],
-        }}
-      />
+                src="/arcade/a3.png"
+                sx={{
+                  width: '250px',
+                  position: 'absolute',
+                  left: '35vw',
+                  bottom: '-120px',
+                  display: ['none', 'none', 'block', 'block']
+                }}
+              />
             </Flex>
           </Flex>
-          {/* <Grid
+          <Text
             sx={{
-              gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr 1fr'],
-              marginTop: '25px'
+              textAlign: 'center',
+              fontSize: [2, 4, 5],
+              width: '100%',
+              display: 'block',
+              transform: ['rotate(0deg)', 'rotate(0deg)', 'rotate(3deg)', 'rotate(3deg)']
             }}
+            className="gaegu"
           >
-            <Intro
-              title="Work on projects"
-              text="Hack on something cool! Examples: making your own PCB, building your own site, creating an app."
-              num="1"
-              img="/arcade/r3.svg"
-            />
-            <Intro
-              title="Bank your hours"
-              text={
-                <>
-                  Join the{' '}
-                  <a
-                    href="https://hackclub.com/slack"
-                    target="_blank"
-                    sx={{ color: 'inherit' }}
-                  >
-                    Hack Club Slack
-                  </a>{' '}
-                  and use /hack in #hack-hour to log your hours! You earn a
-                  ticket for each hour spent!
-                </>
-              }
-              num="2"
-              img="/arcade/r2.svg"
-            />
-            <Intro
-              title="Redeem your powerups"
-              text="Use your tickets to buy powerups for your next project! Such as Arduino kits, drawing tablets, and more!"
-              num="3"
-              img="/arcade/r1.svg"
-            />
-          </Grid> */}
+            <Text sx={{ background: '#5E3414', px: 2, py: 1 }}>
+              Hack. Rinse. Repeat.
+            </Text>
+          </Text>
         </Box>
         <img
           src="/arcade/blue_bottom.svg"
@@ -918,7 +925,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               free stickers
             </Text>{' '}
             and be the first to know when{' '}
-            <Text className="emblema" sx={{ color: '#FF5C00' }}>
+            <Text className="slackey" sx={{ color: '#FF5C00' }}>
               ARCADE
             </Text>{' '}
             launches!
@@ -1149,7 +1156,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 free stickers
               </Text>{' '}
               and be the first to know when{' '}
-              <Text className="emblema" sx={{ color: '#FF5C00' }}>
+              <Text className="slackey" sx={{ color: '#FF5C00' }}>
                 ARCADE
               </Text>{' '}
               launches!
