@@ -507,7 +507,7 @@ const Arcade = ({ stickers = [], inventory }) => {
     <>
       <Meta
         as={Head}
-        title="Arcade — Hack Club"
+        title="Arcade"
         description="The ultimate summer hackathon for high schoolers. Make projects. Track your hours. Redeem for powerups."
         image="https://cloud-b1z2ovuj6-hack-club-bot.vercel.app/0frame_33.png"
       />
