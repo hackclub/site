@@ -802,7 +802,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '40px',
+              gap: '30px',
               pb: [3, 3, 6, 6]
             }}
           >
@@ -867,7 +867,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               sx={{
                 justifyContent: 'space-between',
                 width: '100%',
-                gap: '40px',
+                gap: '30px',
                 flexDirection: ['column', 'column', 'row', 'row'],
                 position: 'relative'
               }}
@@ -911,10 +911,10 @@ const Arcade = ({ stickers = [], inventory }) => {
           </Flex>
           <Intro
             title="Build your next project!"
-            text="Start your next project with the powerups you redeemed"
+            text="What will you build with the powerups you redeemed?"
             num="4"
             img="/arcade/r7.png"
-            sx={{ display: ['block', 'block', 'none', 'none'] }}
+            sx={{ display: ['block', 'block', 'none', 'none'], mt: '30px', mb: '20px' }}
           />
           <Text
             sx={{
