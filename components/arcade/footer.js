@@ -11,7 +11,7 @@ const Description = () => (
       network of 20k+ technical high schoolers. We believe you learn best by
       building so we're creating community and providing grants so you can make. In the past few years, we've{' '}
       <Link href="https://summer.hackclub.com" target="_blank">
-        partnered with GitHub to give away $50k of hardware
+        given away 100k+ in hardware grants
       </Link>
       ,{' '}
       <Link
