@@ -551,7 +551,7 @@ const Arcade = ({ stickers = [], inventory }) => {
           sx={{
             gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
             width: '100%',
-
+            pb: '10vh',
             width: '90vw',
             maxWidth: '1200px',
             margin: 'auto'
@@ -655,6 +655,9 @@ const Arcade = ({ stickers = [], inventory }) => {
                 >
                   RSVP for stickers
                 </Flex>
+                <Text variant="subtitle" className="gaegu" sx={{textAlign: 'center', width: '100%', display: 'block'}}>
+            For high schoolers (or younger).
+          </Text>
               </Box>
             </Fade>
           </Box>
@@ -772,11 +775,12 @@ const Arcade = ({ stickers = [], inventory }) => {
             variant="headline"
             sx={{ display: 'block', textAlign: 'center' }}
           >
+          Calling high school makers:
             Join{' '}
             <Text className="slackey" sx={{ color: '#5E3414' }}>
               ARCADE
             </Text>
-            . Build with friends.
+            .
           </Text>
           <Text
             variant="title"
@@ -1159,7 +1163,7 @@ const Arcade = ({ stickers = [], inventory }) => {
             Powerups for your next project!
           </Text>
           <Text variant="subtitle" className="gaegu">
-            Redeem these with your tickets!
+            Redeem these with your tickets! For high schoolers (or younger) only.
           </Text>
         </Box>
         <PageVisibility onChange={handleVisibilityChange}>
