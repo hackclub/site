@@ -19,23 +19,20 @@ import Arrows from '../components/slack/arrows'
 
 const SlackPage = () => {
   const nameInputRef = useRef(null)
-  
+
   return (
     <>
       <style css>
         {/*this hides the horizontal scrollbar in the projects gallery*/}
         {` 
-        ::-webkit-scrollbar {
-          width:0px;
+        .react-horizontal-scrolling-menu--scroll-container {
+          scrollbar-width: none;
         }
 
-          ::-webkit-scrollbar-track {
-          background:transparent;
+        .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+          display: none;
         }
-
-          ::-webkit-scrollbar-thumb {
-          background:transparent;
-        }`}
+        `}
       </style>
       <Meta
         as={Head}
@@ -99,20 +96,8 @@ const SlackPage = () => {
           overflow: 'hidden'
         }}
       >
-        <Box
-          onMouseEnter={disableScroll}
-          onMouseLeave={enableScroll}
-          sx={{
-            msScrollbarTrackColor: 'transparent',
-            '::-webkit-scrollbar-track': 'background: transparent',
-            '::-webkit-scrollbar-thumb': 'background: transparent'
-          }}
-        >
-          <ScrollMenu
-            Footer={Arrows}
-            transitionDuration={900}
-            style={{ scrollbar: 'hidden' }}
-          >
+        <Box onMouseEnter={disableScroll} onMouseLeave={enableScroll}>
+          <ScrollMenu Footer={Arrows} transitionDuration={900}>
             {projects.map((project, i) => (
               <Project
                 title={project.title}
