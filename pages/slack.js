@@ -27,6 +27,7 @@ const SlackPage = () => {
         {` 
         .react-horizontal-scrolling-menu--scroll-container {
           scrollbar-width: none;
+          scroll-snap-type: x mandatory;
         }
 
         .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
@@ -97,7 +98,7 @@ const SlackPage = () => {
         }}
       >
         <Box onMouseEnter={disableScroll} onMouseLeave={enableScroll}>
-          <ScrollMenu Footer={Arrows} transitionDuration={900}>
+          <ScrollMenu Footer={Arrows} transitionBehavior="smooth" noPolyfill>
             {projects.map((project, i) => (
               <Project
                 title={project.title}
