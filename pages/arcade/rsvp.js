@@ -522,6 +522,7 @@ const Arcade = ({ stickers = [], inventory }) => {
           content="https://assets.hackclub.com/icon-rounded.png"
           size="512x512"
         />
+        <script defer data-domain="secret.hackclub.com" src="https://plausible.io/js/script.js"></script>
       </Head>
       <Nav />
 
