@@ -522,7 +522,7 @@ const Arcade = ({ stickers = [], inventory }) => {
           content="https://assets.hackclub.com/icon-rounded.png"
           size="512x512"
         />
-      <script defer data-domain="secret.hackclub.dev" src="https://plausible.io/js/script.js"></script>
+        <script defer data-domain="secret.hackclub.dev" src="https://plausible.io/js/script.js"></script>
       </Head>
       <Nav />
 
@@ -614,7 +614,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 }}
                 variant="title"
               >
-                Get free tools to build something cool.
+                Join 1,000 high schoolers spending their summers coding projects.
               </Text>
             </Fade>
             <Fade delay={550}>
@@ -656,9 +656,9 @@ const Arcade = ({ stickers = [], inventory }) => {
                 >
                   RSVP for stickers
                 </Flex>
-                <Text variant="subtitle" className="gaegu" sx={{textAlign: 'center', width: '100%', display: 'block'}}>
-            For high schoolers (or younger).
-          </Text>
+                <Text variant="subtitle" className="gaegu" sx={{ textAlign: 'center', width: '100%', display: 'block' }}>
+                  For high schoolers (or younger).
+                </Text>
               </Box>
             </Fade>
           </Box>
@@ -776,7 +776,7 @@ const Arcade = ({ stickers = [], inventory }) => {
             variant="headline"
             sx={{ display: 'block', textAlign: 'center' }}
           >
-          Calling high school makers:
+            Calling high school makers:
             Join{' '}
             <Text className="slackey" sx={{ color: '#5E3414' }}>
               ARCADE
