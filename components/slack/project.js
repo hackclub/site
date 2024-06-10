@@ -16,7 +16,8 @@ export default function Project({ title, description, color, img, itemId }) {
         transformOrigin: 'center',
         mr: 16,
         // this is v janky please ignore, thank you.
-        ml: ['1rem', '1rem', '1rem', `${itemId === 0 && 'calc(50vw - 36.5rem)'}`]
+        ml: ['1rem', '1rem', '1rem', `${itemId === 0 && 'calc(50vw - 36.5rem)'}`],
+        scrollSnapAlign: 'center'
       }}
       itemId={itemId}
     >
