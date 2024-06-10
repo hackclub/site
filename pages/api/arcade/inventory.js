@@ -11,7 +11,7 @@ const flavorText = async () => {
   return records
 }
 
-const inventoryParts = async () => {
+export const inventoryParts = async () => {
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
     baseID: "app3ODCEuTL5iGjb3",
