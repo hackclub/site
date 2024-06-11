@@ -204,11 +204,11 @@ function Page({
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
 	  <Announcement
-            copy="Build in public at the Hack Arcade June 1 - 7"
-            caption="Get domains, breadboards & multimeters, and drawing tablets."
-            href="/arcade/"
-            imgSrc="https://cloud-gyu8zgkki-hack-club-bot.vercel.app/0_______.png"
-          />
+            copy="All Aboard the Boreal Express!"
+            caption="Join 50 Hack Clubbers from July 21-28 for an epic transcontinental hackathon across North America."
+            href="https://boreal.hackclub.com"
+            iconLeft="event-check"
+	/>
           <Box
             sx={{
               width: '90vw',
