@@ -13,23 +13,28 @@ const ShopPage = ({parts}) => {
             color: 'primary'
           }
         }>Shop</h1>
-        <Box sx={
-              {maxWidth: '800px',
-                mx: 'auto',
-                display: 'flex',
-                flexWrap: 'wrap',
-                flexDirection: 'column',
-                minHeight: '95vh',
-                justifyContent: 'space-around',
-                width: '200px',
 
-              }
-          }>
         <ul>
+
+          <Box sx={
+            {display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+            }
+          }>
           
           {parts.map(part => (
 
-            
+                    <Box sx={
+              {maxWidth: '800px',
+                mx: 'auto',
+                minHeight: '300px',
+                justifyContent: 'space-around',
+                width: '250px',
+
+              }
+          }>
             <li key={part.id}>
               <h2>{part.fields['Name']}</h2>
               <p sx={
@@ -46,9 +51,13 @@ const ShopPage = ({parts}) => {
                 }
               }/>
             </li>
+          </Box>
+
           ))}
+          
+          </Box>
         </ul>
-      </Box>
+      
     </div>
   )
 }
