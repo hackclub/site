@@ -48,6 +48,12 @@
         }
       })
 
+      const urlParams = new URLSearchParams(window.location.search);
+
+      if(urlParams.get("user")) {
+        document.getElementById("shop").scrollIntoView()
+      }
+
       function characterImage(character) {
         return {
           "Dino": "https://cloud-h4wi9l5hg-hack-club-bot.vercel.app/2005.png",
@@ -98,8 +104,7 @@
         } else {
           document.querySelector('.shop-dialogue').innerHTML = '...'
         }
-        console.log(inv)
-        const urlParams = new URLSearchParams(window.location.search);
+
         if(urlParams.get("user")) {
           
           document.getElementById("order_wrapper").innerHTML = `
