@@ -4,6 +4,10 @@ html {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .force-unicode {
   font-family: monospace;
 }
