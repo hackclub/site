@@ -367,6 +367,10 @@ a:hover {
   border-radius: 10px 10px 10px 10px;
 }
 
+#shop-counter.ordering {
+  height: 160px!important;
+}
+
 .dialogue-box {
   display: flex;
 
