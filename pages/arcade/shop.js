@@ -31,7 +31,7 @@ const ShopPage = ({parts}) => {
                 mx: 'auto',
                 minHeight: '300px',
                 justifyContent: 'space-around',
-                width: '250px',
+                width: '230px',
 
               }
           }>
@@ -40,10 +40,16 @@ const ShopPage = ({parts}) => {
               <p sx={
                 {position: 'relative',
                   top: '-1rem',
-                  fontSize: 3,
-                  color: 'secondary'}
+                  fontSize: 2,
+                  color: 'secondary',
+                mt: '0',
+                mb: '-10px',}
               }>{part.fields['Name Small Text']}</p>
-              <p>Hours: {part.fields['Hours']}</p>
+              <p sx={
+                {mt: '0',
+                  fontSize: 1,
+                  color: 'primary',}
+              }>Hours: {part.fields['Hours']}</p>
               <img src={part.fields['Image URL']} alt={part.fields['Name']} sx={
                 {
                   width: 100,
