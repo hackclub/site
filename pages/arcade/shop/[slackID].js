@@ -3,6 +3,8 @@ import { Image, Link } from 'theme-ui'
 import { inventoryParts } from '../../api/arcade/inventory'
 import { useRouter } from 'next/router'
 
+/** @jsxImportSource theme-ui */
+
 
 function orderLink(slackID, url) {
   return url + '&slackID=' + slackID
@@ -15,7 +17,12 @@ const ShopPage = ({parts, ...props}) => {
 
   return (
     <div>
-      <h1>Shop</h1>
+      <h1 sx={
+        {textAlign: 'center',
+          fontSize: 5,
+          color: 'primary'
+        }
+      }>Shop</h1>
       <span>This link is your own! Don't share it with others. Slack ID: {slackID}</span>
       <ul>
         {parts.map(part => (
