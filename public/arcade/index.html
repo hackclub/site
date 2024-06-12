@@ -104,7 +104,7 @@
           
           document.getElementById("order_wrapper").innerHTML = `
           ${items[inv.name].map(subitem => {
-            return `<a href="${subitem.formURL}&user=${urlParams.get("user")}" style="padding: 8px; background: green; color: white; border-radius: 8px;">
+            return `<a href="${subitem.formURL}&user=${urlParams.get("user")}" target="_blank" style="padding: 8px; background: green; color: white; border-radius: 8px;">
               ${items[inv.name].length > 1 ? subitem.name : "ORDER NOW"}
             </div>`
           }).join(" ")}
