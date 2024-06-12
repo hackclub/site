@@ -24,6 +24,7 @@ const ShopPage = ({parts, ...props}) => {
         }
       }>Shop</h1>
       <span>This link is your own! Don't share it with others. Slack ID: {slackID}</span>
+      <span>Click on the part name to order it.</span>
       <ul>
         {parts.map(part => (
           <li key={part.id}>
