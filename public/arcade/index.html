@@ -48,6 +48,8 @@
         }
       })
 
+      const urlParams = new URLSearchParams(window.location.search);
+
       if(urlParams.get("user")) {
         document.getElementById("shop").scrollIntoView()
       }
@@ -102,8 +104,7 @@
         } else {
           document.querySelector('.shop-dialogue').innerHTML = '...'
         }
-        console.log(inv)
-        const urlParams = new URLSearchParams(window.location.search);
+
         if(urlParams.get("user")) {
           
           document.getElementById("order_wrapper").innerHTML = `
