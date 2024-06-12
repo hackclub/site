@@ -20,7 +20,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
 
-    let firstPlay = true
+    let items = {}
 
     const containerImages = [
       "https://cloud-3mgl7gw96-hack-club-bot.vercel.app/0container1.png",
@@ -97,27 +97,56 @@
         } else {
           document.querySelector('.shop-dialogue').innerHTML = '...'
         }
+        console.log(inv)
+        const urlParams = new URLSearchParams(window.location.search);
+        if(urlParams.get("user")) {
+          
+          document.getElementById("order_wrapper").innerHTML = `
+          ${items[inv.name].map(subitem => {
+            return `<a href="${subitem.formURL}&user=${urlParams.get("user")}" style="padding: 8px; background: green; color: white; border-radius: 8px;">
+              ${items[inv.name].length > 1 ? subitem.name : "ORDER NOW"}
+            </div>`
+          }).join(" ")}
+            
+          `
+        } else {
+          document.getElementById("order_wrapper").innerHTML = `
+            <div id="order" style="padding: 8px; background: green; color: white; border-radius: 8px;">
+              VISIT YOUR SHOP TO ORDER
+            </div>
+          `
+        }
+        document.getElementById("shop-counter").classList.add("ordering")
+        
       }
 
       inventory.forEach((inv, i) => {
-        const el = document.createElement('div')
-        el.classList.add('cell')
+        if(Object.keys(items).includes(inv.name)) {
+          items[inv.name].push({ name: inv.smallName, formURL: inv.formURL })
+        } else {
+          const el = document.createElement('div')
+          el.classList.add('cell')
 
-        el.addEventListener('click', () => handleClick(inv))
+          el.addEventListener('click', () => handleClick(inv))
 
-        const smallNameDiv = inv.smallName ? ' <span class="small-name">' + inv.smallName + '</span>' : ''
+          const smallNameDiv = inv.smallName ? ' <span class="small-name">' + inv.smallName + '</span>' : ''
 
-        el.innerHTML = `
-          <image src="${randomContainer()}" class="card"></image>
-          <div class="name">${inv.name.toUpperCase()}${smallNameDiv}</div>
-          <image src="${inv.imageURL}" class="itemimg"></image>
-          <div class="itemnumber">ITEM ${(i + 1).toString().padStart(2, '0')}</div>
-          <div class="price">${inv.hours || '-'}</div>
-          <image src="https://cloud-7kkn345tx-hack-club-bot.vercel.app/0energy.png" class="energy"></image>
-          `
+          el.innerHTML = `
+            <image src="${randomContainer()}" class="card"></image>
+            <div class="name">${inv.name.toUpperCase()}${smallNameDiv}</div>
+            <image src="${inv.imageURL}" class="itemimg"></image>
+            <div class="itemnumber">ITEM ${(i + 1).toString().padStart(2, '0')}</div>
+            <div class="price">${inv.hours || '-'}</div>
+            <image src="https://cloud-7kkn345tx-hack-club-bot.vercel.app/0energy.png" class="energy"></image>
+            `
 
-        document.querySelector('.item-list').appendChild(el)
+          document.querySelector('.item-list').appendChild(el)
+          items[inv.name] = [
+            { name: inv.smallName, formURL: inv.formURL }
+          ]
+        }
       })
+      console.log(items)
       const elements = document.querySelectorAll(".cell");
       VanillaTilt.init(elements, {
         scale: 1.05,
@@ -250,13 +279,18 @@
 
       <div class="shop-stand">
         <img id="shopkeeper-left" class="shopkeeper" src="" alt="shopkeeper" />
-        <div class="shop-counter">
+        <div class="shop-counter" id="shop-counter">
           <div class="dialogue-box">
-            <div class="dialogue-box-border">
-              <div class="shop-dialogue">
+            <div>
+              <div class="dialogue-box-border">
+                <div class="shop-dialogue">
+                </div>
+              </div>
+              <div id="order_wrapper" style="display: flex; gap: 8px; justify-content: center; align-items: center; margin-top: 8px">
               </div>
             </div>
           </div>
+          
         </div>
         <img id="shopkeeper-right" class="shopkeeper" src="" alt="shopkeeper" />
       </div>
