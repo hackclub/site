@@ -6,21 +6,30 @@ import { Box } from 'theme-ui'
 const ShopPage = ({parts}) => {
   return (
     <div>
-      <Box sx={
-        {maxWidth: '800px',
-          mx: 'auto',
-          px: 3,
-          py: 4
-        }
-      }>
+      
         <h1 sx={
           {textAlign: 'center',
             fontSize: 5,
             color: 'primary'
           }
         }>Shop</h1>
+        <Box sx={
+              {maxWidth: '800px',
+                mx: 'auto',
+                display: 'flex',
+                flexWrap: 'wrap',
+                flexDirection: 'column',
+                minHeight: '95vh',
+                justifyContent: 'space-around',
+                width: '200px',
+
+              }
+          }>
         <ul>
+          
           {parts.map(part => (
+
+            
             <li key={part.id}>
               <h2>{part.fields['Name']}</h2>
               <p sx={
