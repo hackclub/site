@@ -1221,7 +1221,8 @@ const Arcade = ({ stickers = [], inventory }) => {
             width: '100%',
             position: 'absolute',
             left: 0,
-            bottom: '-10vw'
+            bottom: '-10vw',
+            zIndex: 3
           }}
         />
       </Box>
@@ -1235,13 +1236,38 @@ const Arcade = ({ stickers = [], inventory }) => {
           position: 'relative'
         }}
       >
+         <img
+              src="/arcade/o5.png"
+              sx={{
+                width: ['45%', '45%', '45%', '60%'],
+                maxWidth: '310px',
+                position: 'absolute',
+                right: '10px',
+                top: '40px',
+                zIndex: 0,
+                display: ['none', 'none', 'none', 'block']
+              }}
+            />
+            <img
+              src="/arcade/o6.png"
+              sx={{
+                width: ['30%', '30%', '30%', '40%'],
+                maxWidth: '210px',
+                position: 'absolute',
+                left: '10px',
+                top: '70px',
+                zIndex: 0,
+                display: ['none', 'none', 'none', 'block']
+              }}
+            />
         <Box
           sx={{
             width: '90vw',
             maxWidth: '1200px',
             margin: 'auto',
             textAlign: 'center',
-            pb: '50px'
+            mt: '-50px'
+            // pb: '50px'
           }}
         >
           <Text variant="title" sx={{ display: 'block' }}>
@@ -1251,6 +1277,11 @@ const Arcade = ({ stickers = [], inventory }) => {
             Redeem these with your tickets! For high schoolers (or younger)
             only.
           </Text>
+          <ul>
+            <Box>
+              <img />
+            </Box>
+          </ul>
         </Box>
         <Flex
           sx={{
