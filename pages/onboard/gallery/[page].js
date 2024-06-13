@@ -20,7 +20,7 @@ export async function getStaticProps(context) {
   const data = allProjects.slice((currentPage - 1) * 10, currentPage * 10)
   const projects = []
   for (const project of data) {
-    projects.push(await getOnboardProject(project.name))
+    projects.push(await getOnboardProject(project.name || ''))
   }
   return {
     props: {

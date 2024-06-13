@@ -1401,13 +1401,14 @@ const Arcade = ({ stickers = [], inventory }) => {
               ticketRotation="-12"
             />
           </Grid>
+          <Text className='gaegu' variant='subtitle' sx={{ mt: '100px', display: 'block'}}>And many many more! New items added over the summer! </Text>
         </Box>
         <Flex
           sx={{
             width: ['70vw', '50vw', '60vw', '70vw'],
             maxWidth: '1200px',
             ml: ['10vw'],
-            mt: '100px',
+           
             paddingTop: '50px',
             marginBottom: '-50px',
             gap: ['10px', '10px', '2vw', '0vw'],
