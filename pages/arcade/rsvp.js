@@ -137,7 +137,15 @@ const RSVP = ({ text, color }) => {
   )
 }
 
-const Powerups = ({ img, text, cost, polaroidRotation, ticketRotation }) => {
+const Powerups = ({
+  img,
+  text,
+  subtext,
+  cost,
+  polaroidRotation,
+  ticketRotation,
+  ...props
+}) => {
   return (
     <Flex
       sx={{
@@ -149,16 +157,29 @@ const Powerups = ({ img, text, cost, polaroidRotation, ticketRotation }) => {
         transform: `rotate(${polaroidRotation}deg)`,
         transitionDuration: '0.5s',
         '&:hover': {
-          transform: 'scale(1.1)',
+          transform: 'scale(1.1)'
         }
       }}
+      {...props}
     >
-      <Flex sx={{ background: '#FFEEC6', height: '250px', justifyContent: 'center', alignItems: 'center' }}>
-        <img src={img} sx={{width: '100%', height: 'auto'}}/>
+      <Flex
+        sx={{
+          background: '#FFEEC6',
+          height: '250px',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+      >
+        <img src={img} sx={{ width: '100%', height: 'auto' }} />
       </Flex>
       <Text className="slackey" variant="headline" sx={{ color: '#FFEEC6' }}>
         {text}
       </Text>
+      <Balancer>
+        <Text variant="caption" sx={{ color: '#FFEEC6' }}>
+          {subtext}
+        </Text>
+      </Balancer>
       <Text
         sx={{
           background: '#FF8C37',
@@ -172,7 +193,7 @@ const Powerups = ({ img, text, cost, polaroidRotation, ticketRotation }) => {
         variant="headline"
         className="gaegu"
       >
-        {cost} tickets
+        {cost} {cost == 1 ? 'ticket' : 'tickets'}
       </Text>
     </Flex>
   )
@@ -222,7 +243,7 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
       {third == 'true' ? (
         <img
           src={img}
-          alt="Racoon drawing"
+          alt="Dino drawing"
           sx={{
             width: ['45%', '250px', '60%', '80%'],
             maxWidth: '300px',
@@ -234,7 +255,7 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
       ) : (
         <img
           src={img}
-          alt="Racoon drawing"
+          alt="Dino drawing"
           sx={{
             width: ['35%', '35%', '35%', '50%'],
             maxWidth: '210px',
@@ -256,7 +277,7 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
       href={link}
       sx={{
         background: '#FAEFD6',
-        padding: '20px',
+        padding: '10px !important',
         borderRadius: '5px',
         position: 'relative',
         color: '#35290F',
@@ -264,30 +285,16 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
       }}
       {...props}
     >
-      {/* <Text
-        sx={{
-          background: '#35290F',
-          color: '#FAEFD6',
-          px: '10px',
-          py: '4px',
-          borderRadius: '4px',
-          fontSize: [1, 1, 2],
-          display: 'block',
-          width: 'fit-content'
-        }}
-        className="slackey"
-      >
-        Tickets: {num}
-      </Text> */}
       <Text
         className="gaegu"
-        sx={{ display: 'block', fontSize: [3, 4, 5], marginTop: '-10px' }}
+        as="h1"
+        sx={{ display: 'block', fontSize: [2, 3, 4], marginTop: '-10px' }}
       >
         {title}
       </Text>
       <Text
         sx={{
-          fontSize: [2, 3, 3],
+          fontSize: [1, 2, 2],
           display: 'block'
         }}
       >
@@ -296,7 +303,7 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
       {img && (
         <img
           src={img}
-          alt="racoon drawing"
+          alt="Dino drawing"
           sx={{
             width: ['35%', '35%', '35%', '50%'],
             maxWidth: '210px',
@@ -418,6 +425,34 @@ const Item = ({ name, img, cost }) => {
         }}
       />
     </Flex>
+  )
+}
+
+const FAQ = ({question, answer }) => {
+  return(
+    <Box
+      sx={{
+        background: '#FAEFD6',
+        padding: '20px',
+        borderRadius: '5px',
+        position: 'relative',
+        color: '#35290F',
+        pt: '5px'
+      }}
+    >
+      <Text variant="headline" className="gaegu" sx={{ display: 'block' }}>
+        {question}
+      </Text>
+      <Text
+        variant="subtitle"
+        sx={{
+          display: 'block',
+          fontSize: [1, 2, 2],
+        }}
+      >
+        {answer}
+      </Text>
+    </Box>
   )
 }
 function getRandomInt(max) {
@@ -572,11 +607,11 @@ const Arcade = ({ stickers = [], inventory }) => {
   const [showNum, setNum] = useState(false)
   const [showForm, setForm] = useState(false)
   const [formSent, setFormSent] = useState(false)
-  const [isRevealed, setIsRevealed] = useState(false);
+  const [isRevealed, setIsRevealed] = useState(false)
 
   const handleButtonClick = () => {
-    setIsRevealed(!isRevealed);
-  };
+    setIsRevealed(!isRevealed)
+  }
 
   const generateRandomNumber = () => {
     const newRandomNumber = Math.floor(Math.random() * stickers.length) // Generate a random number between 0 and 99
@@ -605,7 +640,7 @@ const Arcade = ({ stickers = [], inventory }) => {
       <Meta
         as={Head}
         title="Arcade"
-        description="The ultimate summer hackathon for high schoolers. Make projects. Track your hours. Redeem for powerups."
+        description="The ultimate summer hackathon for high schoolers. Make projects. Track your hours. Redeem for Prizes."
         image="https://cloud-luaw423i2-hack-club-bot.vercel.app/0frame_33__1_.png"
       />
       <Head>
@@ -628,7 +663,6 @@ const Arcade = ({ stickers = [], inventory }) => {
           zIndex: 1,
           overflowX: 'hidden',
           overflowY: 'hidden',
-          paddingBottom: '20vh',
           paddingTop: '20vh'
         }}
       >
@@ -799,12 +833,13 @@ const Arcade = ({ stickers = [], inventory }) => {
                 <img
                   src="/arcade/idea.png"
                   className="hoverable"
-                  alt="racoon thinking"
+                  alt="Dino thinking"
                   sx={{
                     margin: '0 auto',
                     display: 'inline',
                     width: 'auto',
                     height: '12em',
+                    cursor: 'pointer',
                     mb: ['-120px', '-20px', '-30px', '-50px'],
                     transform: [
                       'scale(0.7)',
@@ -817,7 +852,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                   onClick={generateProjectIdea}
                 />
               </Box>
-              <Box as="h2">Click the raccoon for project ideas!</Box>
+              <Box as="h2">Click the dinosaur for project ideas!</Box>
               <Text as="p">
                 <em>
                   (It doesn't know much about coding, but it'll try its best.)
@@ -970,8 +1005,8 @@ const Arcade = ({ stickers = [], inventory }) => {
                 img="/arcade/o1.png"
               />
               <Intro
-                title="Redeem your powerups"
-                text="Use your tickets to buy powerups for your next project! Such as Arduino kits, drawing tablets, and more!"
+                title="Redeem your Prizes"
+                text="Use your tickets to buy prizes for your next project! Such as Arduino kits, drawing tablets, and more!"
                 num="3"
                 img="/arcade/o3.png"
                 third="true"
@@ -991,7 +1026,7 @@ const Arcade = ({ stickers = [], inventory }) => {
           </Flex>
           <Intro
             title="Build your next project!"
-            text="What will you build with the powerups you redeemed?"
+            text="What will you build with the Prizes you redeemed?"
             num="4"
             img="/arcade/r7.png"
             sx={{
@@ -1187,7 +1222,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 '1fr',
                 '1fr 1fr',
                 '1fr 1fr 1fr',
-                '1fr 1fr 1fr 1fr'
+                '1fr 1fr 1fr 1fr 1fr'
               ],
               marginTop: '25px',
               py: '5vh'
@@ -1200,11 +1235,18 @@ const Arcade = ({ stickers = [], inventory }) => {
               img="/arcade/o4.png"
               sx={{
                 gridColumn: ['', 'span 2', 'span 2', 'span 2'],
-                gridRow: ['', 'span 2', 'span 2', 'span 2'],
+                gridRow: ['', 'span 2', 'span 2', 'span 3'],
                 img: {
-                  width: ['35%', '35%', '80%', '120%'],
+                  width: ['35%', '35%', '50%', '120%'],
                   maxWidth: '350px',
                   marginRight: '-60px'
+                },
+                h1: {
+                  fontSize: [3, 4, 5]
+                },
+                span: {
+                  fontSize: [2, 2, 3],
+                  width: ['100%', '100%', '70%', '100%']
                 }
               }}
             />
@@ -1239,7 +1281,7 @@ const Arcade = ({ stickers = [], inventory }) => {
             />
             <Tickets
               title="Blot"
-              text="Make programatic artwork, assemble your own drawing machine!"
+              text="Write code. Make art. Get a drawing machine."
               num="3"
               link="https://blot.hackclub.com/"
             />
@@ -1287,7 +1329,6 @@ const Arcade = ({ stickers = [], inventory }) => {
           background: 'url(/arcade/brown_bg.svg) no-repeat center center',
           backgroundSize: 'cover',
           pt: '30vh',
-          pb: '25vh',
           color: '#5E3414',
           position: 'relative'
         }}
@@ -1316,7 +1357,7 @@ const Arcade = ({ stickers = [], inventory }) => {
             display: ['none', 'none', 'none', 'block']
           }}
         />
-        
+
         <Box
           sx={{
             width: '90vw',
@@ -1327,133 +1368,266 @@ const Arcade = ({ stickers = [], inventory }) => {
             // pb: '50px'
           }}
         >
-          <Text variant="title" sx={{ display: 'block' }}>
-           <Text 
-          //  onClick={handleButtonClick}
-            sx={{
-              background: '#FF8C37',
-              color: '#FFEEC6',
-              py: '1px',
-              px: '10px',
-              pb: '5px',
-              lineHeight: '1.1em',
-              display: 'inline-block',
-              transform: 'rotate(-5deg)',
-              position: 'relative'
-            }}>Powerups</Text> for your next project!
-          </Text>
-          <Text variant="subtitle" className="gaegu">
+          <Balancer>
+            <Text variant="title" sx={{ display: 'block' }}>
+              <Text
+                //  onClick={handleButtonClick}
+                sx={{
+                  background: '#FF8C37',
+                  color: '#FFEEC6',
+                  py: '1px',
+                  px: '10px',
+                  pb: '5px',
+                  lineHeight: '1.1em',
+                  display: 'inline-block',
+                  transform: 'rotate(-5deg)',
+                  position: 'relative'
+                }}
+              >
+                Prizes
+              </Text>{' '}
+              to powerup your next project!
+            </Text>
+          </Balancer>
+          <Text
+            variant="subtitle"
+            className="gaegu"
+            sx={{ mt: 2, display: 'block' }}
+          >
             Redeem these with your tickets! For high schoolers (or younger)
             only.
+          </Text>
+          <Text
+            variant="caption"
+            className="gaegu"
+            sx={{ mt: 2, display: 'block' }}
+          >
+            All physical items only fulfillable where Amazon can be shipped
+            unless otherwise stated.
           </Text>
           <Grid
             sx={{
               pt: '50px',
-              gridTemplateColumns: [
-                '1fr',
-                '1fr 1fr',
-                '1fr 1fr',
-                '1fr 1fr 1fr'
-              ],
+              gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr', '1fr 1fr 1fr'],
               gap: '50px'
             }}
           >
             <Powerups
-              img="/arcade/3dPrinter.png"
-              text="3D Printer"
-              cost="80"
+              img="/arcade/Framework.png"
+              text="Framework Laptop"
+              subtext={
+                <>
+                  13" Model. Only available in{' '}
+                  <a
+                    href="https://knowledgebase.frame.work/what-countries-and-regions-do-you-ship-to-r1899ikiO"
+                    target="_blank"
+                    sx={{ color: 'inherit' }}
+                  >
+                    certain countries
+                  </a>
+                </>
+              }
+              cost="500"
               polaroidRotation="-2"
               ticketRotation="6"
+              sx={{
+                img: {
+                  width: '80%'
+                }
+              }}
             />
             <Powerups
-              img="/arcade/Flipper.png"
-              text="Flipper Zero"
-              cost="60"
+              img="/arcade/Quest.png"
+              text="Quest 3"
+              subtext="128GB Version"
+              cost="350"
               polaroidRotation="4"
               ticketRotation="-6"
             />
             <Powerups
-              img="/arcade/Soldering.png"
-              text="Soldering Iron"
-              cost="12"
+              img="/arcade/Flipper.png"
+              text="Flipper Zero"
+              subtext="Only where Flipper Zero is legal"
+              cost="70"
+              polaroidRotation="-3"
+              ticketRotation="-12"
+            />
+            <Powerups
+              img="/arcade/rp4.png"
+              text="Raspberry Pi 4"
+              subtext="+ SD card!"
+              cost="25"
               polaroidRotation="-2"
               ticketRotation="12"
             />
             <Powerups
-              img="/arcade/Breadboard.png"
-              text="Flipper Zero"
+              img="/arcade/Yubikey.png"
+              text="YubiKey"
+              subtext="5C NFC"
+              cost="20"
+              polaroidRotation="-7"
+              ticketRotation="3"
+              sx={{
+                img: { width: '80%' }
+              }}
+            />
+            <Powerups
+              img="/arcade/Soldering.png"
+              text="Pinecil"
+              subtext="5C NFC"
+              cost="20"
+              polaroidRotation="5"
+              ticketRotation="-14"
+              sx={{
+                img: { width: '80%' }
+              }}
+            />
+            <Powerups
+              img="https://cloud-4bmzydly5-hack-club-bot.vercel.app/0image.png"
+              text="Free domain"
+              subtext="For 2 years!"
+              cost="8"
+              polaroidRotation="-9"
+              ticketRotation="4"
+            />
+            <Powerups
+              img="/arcade/Logic.png"
+              text="Logic Analyzer"
               cost="4"
               polaroidRotation="3"
               ticketRotation="-4"
             />
             <Powerups
-              img="/arcade/3dPrinting.png"
-              text="3D Printing Credits"
-              cost="3"
-              polaroidRotation="-7"
-              ticketRotation="3"
-            />
-            <Powerups
               img="/arcade/Sticker.png"
               text="Stickers (3)"
               cost="2"
-              polaroidRotation="5"
-              ticketRotation="-12"
+              polaroidRotation="-5"
+              ticketRotation="12"
+              one
             />
           </Grid>
-          <Text className='gaegu' variant='subtitle' sx={{ mt: '100px', display: 'block'}}>And many many more! New items added over the summer! </Text>
+          <Text
+            className="gaegu"
+            variant="subtitle"
+            sx={{ mt: '100px', display: 'block', fontWeight: 'bold' }}
+          >
+            This is just a{' '}
+            <Text
+              sx={{
+                background: '#FF8C37',
+                color: '#FFEEC6',
+                py: '1px',
+                px: '10px',
+                pb: '5px',
+                lineHeight: '1.1em',
+                display: 'inline-block',
+                position: 'relative'
+              }}
+            >
+              sneak peek
+            </Text>
+            ...new items added over the summer!{' '}
+          </Text>
         </Box>
-        <Flex
+        <Box
           sx={{
-            width: ['70vw', '50vw', '60vw', '70vw'],
-            maxWidth: '1200px',
-            ml: ['10vw'],
-           
-            paddingTop: '50px',
-            marginBottom: '-50px',
-            gap: ['10px', '10px', '2vw', '0vw'],
-            flexDirection: 'column'
+            position: 'relative',
+            background: '#09AFB4',
+            display: 'block',
+            mt: '100px',
+            pb: '100px'
           }}
         >
-          {/* <Balancer> */}
-          <Text
-            variant="headline"
+          <img
+            src="/arcade/blue_top.png"
+            alt="blue scribble pattern"
             sx={{
-              lineHeight: '1.5',
-              display: 'block',
-              textAlign: ['center', 'center', 'center', 'left'],
-              margin: ['auto', 'auto', 'auto', '0px'],
-              width: '100%'
+              width: '100%',
+              position: 'absolute',
+              top: '-8vw'
+            }}
+          />
+          <Box
+            sx={{
+              width: '90vw',
+              maxWidth: '1200px',
+              margin: 'auto',
+              pt: 1,
+              color: '#FAEFD6'
             }}
           >
-            Join{' '}
-            <Text className="slackey arcade2" sx={{ color: '#FF5C00' }}>
-              ARCADE
+            <Text variant="title" className='slackey' sx={{ textAlign: 'center', width: '100%', display: 'block'}}>
+              F.A.Q.
             </Text>
-            .
-            <br />
-            Build real project. <br /> Share it with friends.
-          </Text>
-          {/* </Balancer> */}
-          <Join
-            showForm={showForm}
-            setForm={setForm}
-            formSent={formSent}
-            setFormSent={setFormSent}
-            last
-          />
-        </Flex>
-        <img
-          src="/arcade/r6.png"
-          alt="Racoon!"
+            <Grid
           sx={{
-            width: ['35%', '35%', '35%', '50%'],
-            maxWidth: '210px',
-            position: 'absolute',
-            right: '20px',
-            bottom: '0'
+            gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
+            width: '100%',
+            width: '90vw',
+            maxWidth: '1200px',
+            margin: 'auto',
+            mt: '50px'
           }}
-        />
+        >
+          <FAQ question="How many projects can I build?" answer="You can submit as many projects as you make. We just count the hours!" />
+          <FAQ question="Who is eligible?" answer="You need to be a high schooler (or younger) in the United States. Submissions need to be in by June 1st to qualify." />
+          <FAQ question="How much does it cost?" answer="100% free– we’ll also give a breadboard and the jumper wires you need to build your project too! The whole program is funded by donations to a non-profit." />
+          <FAQ question="I need help!" answer="Get it in the #arcade channel of the Hack Club Slack." />
+            </Grid>
+          </Box>
+          <Flex
+            sx={{
+              width: ['70vw', '50vw', '60vw', '70vw'],
+              maxWidth: '1200px',
+              ml: ['10vw'],
+
+              paddingTop: '50px',
+              marginBottom: '-50px',
+              gap: ['10px', '10px', '2vw', '0vw'],
+              flexDirection: 'column'
+            }}
+          >
+            {/* <Balancer> */}
+            <Text
+              variant="headline"
+              sx={{
+                lineHeight: '1.5',
+                display: 'block',
+                textAlign: ['center', 'center', 'center', 'left'],
+                margin: ['auto', 'auto', 'auto', '0px'],
+                width: '100%',
+                color: '#FAEFD6'
+              }}
+            >
+              Join{' '}
+              <Text className="slackey arcade2" sx={{ color: '#FF5C00' }}>
+                ARCADE
+              </Text>
+              .
+              <br />
+              Build real project. <br /> Share it with friends.
+            </Text>
+            {/* </Balancer> */}
+            <Join
+              showForm={showForm}
+              setForm={setForm}
+              formSent={formSent}
+              setFormSent={setFormSent}
+              last
+            />
+          </Flex>
+          <img
+            src="/arcade/r6.png"
+            alt="Dino!"
+            sx={{
+              width: ['35%', '35%', '35%', '50%'],
+              maxWidth: '210px',
+              position: 'absolute',
+              right: '20px',
+              bottom: '0'
+            }}
+          />
+        </Box>
       </Box>
       <ArcadeFooter />
       <style>{styled}</style>
