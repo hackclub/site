@@ -137,6 +137,47 @@ const RSVP = ({ text, color }) => {
   )
 }
 
+const Powerups = ({ img, text, cost, polaroidRotation, ticketRotation }) => {
+  return (
+    <Flex
+      sx={{
+        background: '#09AFB4',
+        borderRadius: '10px',
+        flexDirection: 'column',
+        padding: '20px',
+        position: 'relative',
+        transform: `rotate(${polaroidRotation}deg)`,
+        transitionDuration: '0.5s',
+        '&:hover': {
+          transform: 'scale(1.1)',
+        }
+      }}
+    >
+      <Flex sx={{ background: '#FFEEC6', height: '250px', justifyContent: 'center', alignItems: 'center' }}>
+        <img src={img} sx={{width: '100%', height: 'auto'}}/>
+      </Flex>
+      <Text className="slackey" variant="headline" sx={{ color: '#FFEEC6' }}>
+        {text}
+      </Text>
+      <Text
+        sx={{
+          background: '#FF8C37',
+          px: '20px',
+          color: '#FFEEC6',
+          position: 'absolute',
+          top: '-10px',
+          right: '-12px',
+          transform: `rotate(${ticketRotation}deg)`
+        }}
+        variant="headline"
+        className="gaegu"
+      >
+        {cost} tickets
+      </Text>
+    </Flex>
+  )
+}
+
 const Intro = ({ title, num, text, img, third, ...props }) => {
   return (
     <Box
@@ -526,12 +567,16 @@ function thinkingWords() {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-
 const Arcade = ({ stickers = [], inventory }) => {
   const [showComponent, setShowComponent] = useState(false)
   const [showNum, setNum] = useState(false)
   const [showForm, setForm] = useState(false)
   const [formSent, setFormSent] = useState(false)
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsRevealed(!isRevealed);
+  };
 
   const generateRandomNumber = () => {
     const newRandomNumber = Math.floor(Math.random() * stickers.length) // Generate a random number between 0 and 99
@@ -683,7 +728,13 @@ const Arcade = ({ stickers = [], inventory }) => {
               </Text> */}
             </Fade>
             <Fade delay={650}>
-              <Join fold showForm={showForm} setForm={setForm} formSent={formSent} setFormSent={setFormSent} />
+              <Join
+                fold
+                showForm={showForm}
+                setForm={setForm}
+                formSent={formSent}
+                setFormSent={setFormSent}
+              />
               <Text
                 variant="subtitle"
                 className="gaegu"
@@ -1023,41 +1074,46 @@ const Arcade = ({ stickers = [], inventory }) => {
         }}
       >
         {/* <Balancer> */}
+        <Text
+          variant="headline"
+          sx={{
+            lineHeight: '1.5',
+            display: 'block',
+            position: 'relative',
+            textAlign: ['center', 'center', 'center', 'left'],
+            zIndex: 3
+          }}
+        >
+          Get{' '}
           <Text
-            variant="headline"
+            onMouseEnter={mouseEnter}
+            onMouseLeave={handleMouseLeave}
             sx={{
-              lineHeight: '1.5',
-              display: 'block',
+              cursor: 'pointer',
               position: 'relative',
-              textAlign: ['center', 'center', 'center', 'left'],
-              zIndex: 3
+              bg: '#09AFB4',
+              transform: 'rotate(-3deg) scale(1.1)',
+              py: '2px',
+              px: '4px',
+              borderRadius: '2px',
+              color: '#FAEFD6',
+              display: 'inline-block',
+              mx: '6px',
+              justifyContent: 'space-between'
             }}
           >
-            Get{' '}
-            <Text
-              onMouseEnter={mouseEnter}
-              onMouseLeave={handleMouseLeave}
-              sx={{
-                cursor: 'pointer',
-                position: 'relative',
-                bg: '#09AFB4',
-                transform: 'rotate(-3deg) scale(1.1)',
-                py: '2px',
-                px: '4px',
-                borderRadius: '2px',
-                color: '#FAEFD6',
-                display: 'inline-block',
-                mx: '6px',
-                justifyContent: 'space-between'
-              }}
-            >
-              {showComponent && <Sticker st={stickers[showNum]} />}
-              free stickers
-            </Text>{' '}
-            and code with other high schoolers!
-          </Text>
+            {showComponent && <Sticker st={stickers[showNum]} />}
+            free stickers
+          </Text>{' '}
+          and code with other high schoolers!
+        </Text>
         {/* </Balancer> */}
-        <Join  showForm={showForm} setForm={setForm} formSent={formSent} setFormSent={setFormSent}/>
+        <Join
+          showForm={showForm}
+          setForm={setForm}
+          formSent={formSent}
+          setFormSent={setFormSent}
+        />
       </Flex>
       <Projects />
       <Box
@@ -1145,10 +1201,10 @@ const Arcade = ({ stickers = [], inventory }) => {
               sx={{
                 gridColumn: ['', 'span 2', 'span 2', 'span 2'],
                 gridRow: ['', 'span 2', 'span 2', 'span 2'],
-                'img': {
+                img: {
                   width: ['35%', '35%', '80%', '120%'],
-            maxWidth: '350px',
-            marginRight: '-60px'
+                  maxWidth: '350px',
+                  marginRight: '-60px'
                 }
               }}
             />
@@ -1236,34 +1292,35 @@ const Arcade = ({ stickers = [], inventory }) => {
           position: 'relative'
         }}
       >
-         <img
-              src="/arcade/o5.png"
-              sx={{
-                width: ['45%', '45%', '45%', '60%'],
-                maxWidth: '310px',
-                position: 'absolute',
-                right: '10px',
-                top: '40px',
-                zIndex: 0,
-                display: ['none', 'none', 'none', 'block']
-              }}
-            />
-            <img
-              src="/arcade/o6.png"
-              sx={{
-                width: ['30%', '30%', '30%', '40%'],
-                maxWidth: '210px',
-                position: 'absolute',
-                left: '10px',
-                top: '70px',
-                zIndex: 0,
-                display: ['none', 'none', 'none', 'block']
-              }}
-            />
+        <img
+          src="/arcade/o5.png"
+          sx={{
+            width: ['45%', '45%', '45%', '60%'],
+            maxWidth: '310px',
+            position: 'absolute',
+            right: '10px',
+            top: '40px',
+            zIndex: 0,
+            display: ['none', 'none', 'none', 'block']
+          }}
+        />
+        <img
+          src="/arcade/o6.png"
+          sx={{
+            width: ['30%', '30%', '30%', '40%'],
+            maxWidth: '210px',
+            position: 'absolute',
+            left: '10px',
+            top: '70px',
+            zIndex: 0,
+            display: ['none', 'none', 'none', 'block']
+          }}
+        />
+        
         <Box
           sx={{
             width: '90vw',
-            maxWidth: '1200px',
+            maxWidth: '950px',
             margin: 'auto',
             textAlign: 'center',
             mt: '-50px'
@@ -1271,49 +1328,119 @@ const Arcade = ({ stickers = [], inventory }) => {
           }}
         >
           <Text variant="title" sx={{ display: 'block' }}>
-            Powerups for your next project!
+           <Text 
+          //  onClick={handleButtonClick}
+            sx={{
+              background: '#FF8C37',
+              color: '#FFEEC6',
+              py: '1px',
+              px: '10px',
+              pb: '5px',
+              lineHeight: '1.1em',
+              display: 'inline-block',
+              transform: 'rotate(-5deg)',
+              position: 'relative'
+            }}>Powerups</Text> for your next project!
           </Text>
           <Text variant="subtitle" className="gaegu">
             Redeem these with your tickets! For high schoolers (or younger)
             only.
           </Text>
-          <ul>
-            <Box>
-              <img />
-            </Box>
-          </ul>
+          <Grid
+            sx={{
+              pt: '50px',
+              gridTemplateColumns: [
+                '1fr',
+                '1fr 1fr',
+                '1fr 1fr',
+                '1fr 1fr 1fr'
+              ],
+              gap: '50px'
+            }}
+          >
+            <Powerups
+              img="/arcade/3dPrinter.png"
+              text="3D Printer"
+              cost="80"
+              polaroidRotation="-2"
+              ticketRotation="6"
+            />
+            <Powerups
+              img="/arcade/Flipper.png"
+              text="Flipper Zero"
+              cost="60"
+              polaroidRotation="4"
+              ticketRotation="-6"
+            />
+            <Powerups
+              img="/arcade/Soldering.png"
+              text="Soldering Iron"
+              cost="12"
+              polaroidRotation="-2"
+              ticketRotation="12"
+            />
+            <Powerups
+              img="/arcade/Breadboard.png"
+              text="Flipper Zero"
+              cost="4"
+              polaroidRotation="3"
+              ticketRotation="-4"
+            />
+            <Powerups
+              img="/arcade/3dPrinting.png"
+              text="3D Printing Credits"
+              cost="3"
+              polaroidRotation="-7"
+              ticketRotation="3"
+            />
+            <Powerups
+              img="/arcade/Sticker.png"
+              text="Stickers (3)"
+              cost="2"
+              polaroidRotation="5"
+              ticketRotation="-12"
+            />
+          </Grid>
         </Box>
         <Flex
           sx={{
             width: ['70vw', '50vw', '60vw', '70vw'],
             maxWidth: '1200px',
             ml: ['10vw'],
+            mt: '100px',
             paddingTop: '50px',
             marginBottom: '-50px',
             gap: ['10px', '10px', '2vw', '0vw'],
-            flexDirection: 'column',
+            flexDirection: 'column'
           }}
         >
           {/* <Balancer> */}
-            <Text
-              variant="headline"
-              sx={{
-                lineHeight: '1.5',
-                display: 'block',
-                textAlign: ['center', 'center', 'center', 'left'],
-                margin: ['auto', 'auto', 'auto', '0px'],
-                width: '100%'
-              }}
-            >
-              Join{' '}
-              <Text className="slackey arcade2" sx={{ color: '#FF5C00' }}>
-                ARCADE
-              </Text>.
-              <br />
-              Build real project. <br /> Share it with friends.
+          <Text
+            variant="headline"
+            sx={{
+              lineHeight: '1.5',
+              display: 'block',
+              textAlign: ['center', 'center', 'center', 'left'],
+              margin: ['auto', 'auto', 'auto', '0px'],
+              width: '100%'
+            }}
+          >
+            Join{' '}
+            <Text className="slackey arcade2" sx={{ color: '#FF5C00' }}>
+              ARCADE
             </Text>
+            .
+            <br />
+            Build real project. <br /> Share it with friends.
+          </Text>
           {/* </Balancer> */}
-          <Join showForm={showForm} setForm={setForm} formSent={formSent} setFormSent={setFormSent} last />
+          <Join
+            showForm={showForm}
+            setForm={setForm}
+            formSent={formSent}
+            setFormSent={setFormSent}
+            last
+          />
         </Flex>
         <img
           src="/arcade/r6.png"
