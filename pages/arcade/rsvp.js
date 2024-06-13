@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
@@ -14,12 +14,15 @@ import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../../components/arcade/footer'
 import Balancer from 'react-wrap-balancer'
 import { Fade } from 'react-reveal'
-
+import JSConfetti from 'js-confetti'
+import Join from '../../components/arcade/join'
 /** @jsxImportSource theme-ui */
 
 const styled = `
 @import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
-
+body, html {
+  overflow-x: hidden;
+  }
 .slackey {
   font-family: "Slackey", sans-serif;
  }
@@ -34,6 +37,30 @@ const styled = `
     -2px -2px #09AFB4, 2px 2px #09AFB4, 3px 3px #09AFB4,
     5px 5px #09AFB4, 4px 4px #09AFB4, 7px 7px #09AFB4,
     6px 6px #09AFB4, 8px 8px #09AFB4, -8px -8px #09AFB4, 9px 9px #09AFB4, -9px -9px #09AFB4, 10px 10px #09AFB4, -10px -10px #09AFB4;
+ }
+
+ .arcade2 {
+  text-shadow: -4px -4px#FAEFD6,-3px -3px #FAEFD6, -2px -2px #FAEFD6,
+    -2px -2px #FAEFD6, -1px -1px #FAEFD6, -1px -1px #FAEFD6,
+    -1px -1px #FAEFD6, 1px 1px #FAEFD6, 1px 1px #FAEFD6,
+    1px 1px #FAEFD6, 2px 2px #FAEFD6, 4px 4px #FAEFD6,
+    3px 3px #FAEFD6, -8px -8px #09AFB4, -6px -6px #09AFB4,
+    -5px -5px #09AFB4, -4px -4px #09AFB4, -3px -3px #09AFB4,
+    -2px -2px #09AFB4, 2px 2px #09AFB4, 3px 3px #09AFB4,
+    5px 5px #09AFB4, 4px 4px #09AFB4, 7px 7px #09AFB4,
+    6px 6px #09AFB4;
+ }
+
+ .arcade3 {
+  text-shadow: -4px -4px#FAEFD6,-3px -3px #FAEFD6, -2px -2px #FAEFD6,
+    -2px -2px #FAEFD6, -1px -1px #FAEFD6, -1px -1px #FAEFD6,
+    -1px -1px #FAEFD6, 1px 1px #FAEFD6, 1px 1px #FAEFD6,
+    1px 1px #FAEFD6, 2px 2px #FAEFD6, 4px 4px #FAEFD6,
+    3px 3px #FAEFD6, -8px -8px #09AFB4, -6px -6px #09AFB4,
+    -5px -5px #09AFB4, -4px -4px #09AFB4, -3px -3px #09AFB4,
+    -2px -2px #09AFB4, 2px 2px #09AFB4, 3px 3px #09AFB4,
+    5px 5px #09AFB4, 4px 4px #09AFB4, 7px 7px #09AFB4,
+    6px 6px #09AFB4;
  }
  .emblema {
     font-family: "Emblema One", system-ui;
@@ -110,7 +137,7 @@ const RSVP = ({ text, color }) => {
   )
 }
 
-const Intro = ({ title, num, text, img, ...props }) => {
+const Intro = ({ title, num, text, img, third, ...props }) => {
   return (
     <Box
       sx={{
@@ -151,17 +178,31 @@ const Intro = ({ title, num, text, img, ...props }) => {
       >
         {num}
       </Text>
-      <img
-        src={img}
-        alt="Racoon drawing"
-        sx={{
-          width: ['35%', '35%', '35%', '50%'],
-          maxWidth: '210px',
-          position: 'absolute',
-          right: '-20px',
-          bottom: '0'
-        }}
-      />
+      {third == 'true' ? (
+        <img
+          src={img}
+          alt="Racoon drawing"
+          sx={{
+            width: ['45%', '250px', '60%', '80%'],
+            maxWidth: '300px',
+            position: 'absolute',
+            right: ['-40px', '-60px', '-50px', '-50px'],
+            bottom: ['-40px', '-50px', '-50px', '-65px']
+          }}
+        />
+      ) : (
+        <img
+          src={img}
+          alt="Racoon drawing"
+          sx={{
+            width: ['35%', '35%', '35%', '50%'],
+            maxWidth: '210px',
+            position: 'absolute',
+            right: '-20px',
+            bottom: '0'
+          }}
+        />
+      )}
     </Box>
   )
 }
@@ -182,7 +223,7 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
       }}
       {...props}
     >
-      <Text
+      {/* <Text
         sx={{
           background: '#35290F',
           color: '#FAEFD6',
@@ -196,8 +237,11 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
         className="slackey"
       >
         Tickets: {num}
-      </Text>
-      <Text className="gaegu" sx={{ display: 'block', fontSize: [3, 4, 5] }}>
+      </Text> */}
+      <Text
+        className="gaegu"
+        sx={{ display: 'block', fontSize: [3, 4, 5], marginTop: '-10px' }}
+      >
         {title}
       </Text>
       <Text
@@ -297,10 +341,10 @@ const Item = ({ name, img, cost }) => {
   return (
     <Flex
       sx={{
-        border: '2px solid #FF9900',
-        bg: 'rgb(255, 153, 0, 0.2)',
-        height: '220px',
-        width: '300px',
+        border: '2px solid #FAEFD6',
+        bg: 'rgb(255, 239, 214, 0.2)',
+        height: '100px',
+        width: '140px',
         marginX: '10px',
         position: 'relative',
         justifyContent: 'center',
@@ -308,14 +352,14 @@ const Item = ({ name, img, cost }) => {
       }}
     >
       <Text
-        variant="ultratitle"
+        variant="headline"
         className="slackey"
         sx={{
           position: 'absolute',
-          bottom: '0',
-          left: '0',
-          color: '#FF9900',
-          opacity: 0.4,
+          bottom: '-10px',
+          left: '10px',
+          color: '#FAEFD6',
+          opacity: 0.2,
           zIndex: 0
         }}
       >
@@ -442,7 +486,7 @@ async function generateProjectIdea() {
   document.querySelector('#project-idea').innerHTML =
     '<em>' + thinkingWords() + '...' + '</em>'
   document.querySelector('#generate-project-idea').src =
-    'https://cloud-80eg2m8id-hack-club-bot.vercel.app/0thinking_rac.png'
+    'https://cloud-g5g5sistf-hack-club-bot.vercel.app/1untitled_artwork_8_1.png'
   let text = ''
   const res = await fetch('/api/arcade/openai/', {
     method: 'POST',
@@ -455,7 +499,7 @@ async function generateProjectIdea() {
   text = json.recommendation
   document.querySelector('#project-idea').innerHTML = ''
   document.querySelector('#generate-project-idea').src =
-    'https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/0statement_rac.png'
+    'https://cloud-81d1s66l7-hack-club-bot.vercel.app/0untitled_artwork_9_1.png'
   document.querySelector('#generate-project-idea').classList.remove('disabled')
   yap(text, i => {
     document.querySelector('#project-idea').innerHTML = text.slice(
@@ -482,9 +526,12 @@ function thinkingWords() {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
+
 const Arcade = ({ stickers = [], inventory }) => {
   const [showComponent, setShowComponent] = useState(false)
   const [showNum, setNum] = useState(false)
+  const [showForm, setForm] = useState(false)
+  const [formSent, setFormSent] = useState(false)
 
   const generateRandomNumber = () => {
     const newRandomNumber = Math.floor(Math.random() * stickers.length) // Generate a random number between 0 and 99
@@ -522,7 +569,11 @@ const Arcade = ({ stickers = [], inventory }) => {
           content="https://assets.hackclub.com/icon-rounded.png"
           size="512x512"
         />
-        <script defer data-domain="secret.hackclub.dev" src="https://plausible.io/js/script.js"></script>
+        <script
+          defer
+          data-domain="secret.hackclub.dev"
+          src="https://plausible.io/js/script.js"
+        ></script>
       </Head>
       <Nav />
 
@@ -614,11 +665,12 @@ const Arcade = ({ stickers = [], inventory }) => {
                 }}
                 variant="title"
               >
-                Join 1,000 high schoolers spending their summers coding projects.
+                Join 1,000 high schoolers spending their summers coding
+                projects.
               </Text>
             </Fade>
             <Fade delay={550}>
-              <Text
+              {/* <Text
                 sx={{
                   display: 'block',
                   textAlign: ['center', 'center', 'center', 'left'],
@@ -628,38 +680,21 @@ const Arcade = ({ stickers = [], inventory }) => {
                 variant="title"
               >
                 This summer is yours.
-              </Text>
+              </Text> */}
             </Fade>
             <Fade delay={650}>
-              <Box sx={{ width: ['100%', '100%', '100%', 'fit-content'] }}>
-                <Flex
-                  as="a"
-                  href="https://hack.club/arcade-join"
-                  target="_blank"
-                  className="slackey"
-                  sx={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    textDecoration: 'none',
-                    backgroundColor: '#FF5C00',
-                    color: '#FAEFD6',
-                    width: 'fit-content',
-                    paddingX: ['8px', '10px', '15px'],
-                    paddingY: ['5px', '7px', '10px'],
-                    fontSize: ['24px', '27px', '30px'],
-                    borderRadius: '5px',
-                    textAlign: 'center',
-                    margin: 'auto',
-                    mt: 3,
-                    zIndex: 2
-                  }}
-                >
-                  RSVP for stickers
-                </Flex>
-                <Text variant="subtitle" className="gaegu" sx={{ textAlign: 'center', width: '100%', display: 'block' }}>
-                  For high schoolers (or younger).
-                </Text>
-              </Box>
+              <Join fold showForm={showForm} setForm={setForm} formSent={formSent} setFormSent={setFormSent} />
+              <Text
+                variant="subtitle"
+                className="gaegu"
+                sx={{
+                  textAlign: ['center', 'left', 'left', 'left'],
+                  width: '100%',
+                  display: 'block'
+                }}
+              >
+                For high schoolers (or younger).
+              </Text>
             </Fade>
           </Box>
           <Fade delay={800}>
@@ -674,15 +709,15 @@ const Arcade = ({ stickers = [], inventory }) => {
                   'scale(0.8)',
                   'scale(0.8)'
                 ],
-                mt: [null, '-40px', '-20px', null]
+                mt: ['null', '-40px', '-20px', null]
               }}
             >
               <Box
                 sx={{
                   justifyContent: 'center',
-                  pt: ['80px', '180px', '180px', '180px'],
-                  pb: ['145px', 7, 7, 7],
-                  mt: [null, null, '50px', '-50px'],
+                  pt: ['120px', '180px', '180px', '180px'],
+                  pb: [7, 7, 7, 7],
+                  mt: ['40px', '50px', '100px', '-50px'],
 
                   display: 'grid',
                   background:
@@ -711,7 +746,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                   🕹️
                 </Text>
                 <img
-                  src="/bin/images/idea.png"
+                  src="/arcade/idea.png"
                   className="hoverable"
                   alt="racoon thinking"
                   sx={{
@@ -719,7 +754,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                     display: 'inline',
                     width: 'auto',
                     height: '12em',
-                    mb: [null, null, '0px', '-50px'],
+                    mb: ['-120px', '-20px', '-30px', '-50px'],
                     transform: [
                       'scale(0.7)',
                       'scale(1)',
@@ -776,9 +811,8 @@ const Arcade = ({ stickers = [], inventory }) => {
             variant="headline"
             sx={{ display: 'block', textAlign: 'center' }}
           >
-            Calling high school makers:
-            Join{' '}
-            <Text className="slackey" sx={{ color: '#5E3414' }}>
+            Calling high school makers: Join{' '}
+            <Text className="slackey arcade3" sx={{ color: '#5E3414' }}>
               ARCADE
             </Text>
             .
@@ -809,7 +843,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 title="Work on projects"
                 text="Hack on something cool! Examples: making your own PCB, building your own site, creating an app."
                 num="1"
-                img="/arcade/r3.svg"
+                img="/arcade/o2.png"
               />
               <img
                 src="/arcade/a1.png"
@@ -882,13 +916,14 @@ const Arcade = ({ stickers = [], inventory }) => {
                   </>
                 }
                 num="2"
-                img="/arcade/r2.svg"
+                img="/arcade/o1.png"
               />
               <Intro
                 title="Redeem your powerups"
                 text="Use your tickets to buy powerups for your next project! Such as Arduino kits, drawing tablets, and more!"
                 num="3"
-                img="/arcade/r1.svg"
+                img="/arcade/o3.png"
+                third="true"
               />
               <img
                 src="/arcade/a3.png"
@@ -934,6 +969,34 @@ const Arcade = ({ stickers = [], inventory }) => {
             </Text>
           </Text>
         </Box>
+        <PageVisibility onChange={handleVisibilityChange}>
+          {pageIsVisible && (
+            <Box
+              sx={{
+                transform: 'rotate(-7deg) scale(1.1)',
+                zIndex: 10,
+                position: 'relative',
+                marginBottom: ['-380px', '-350px', '-450px', '-500px'],
+                marginTop: ['120px', '120px', '120px', '150px']
+              }}
+            >
+              <Ticker speed={5}>
+                {() => (
+                  <Box as="div" sx={{ display: 'flex', height: 'fit-content' }}>
+                    {inventory.map(i => (
+                      <Item
+                        img={i.imageURL}
+                        cost={i.hours}
+                        key={i}
+                        name={i.name}
+                      />
+                    ))}
+                  </Box>
+                )}
+              </Ticker>
+            </Box>
+          )}
+        </PageVisibility>
         <img
           src="/arcade/blue_bottom.svg"
           alt="blue triangle"
@@ -952,18 +1015,21 @@ const Arcade = ({ stickers = [], inventory }) => {
           margin: 'auto',
           paddingTop: '18vw',
           paddingBottom: '40px',
-          gap: ['10px', '10px', '2vw', '8vw'],
-          flexWrap: ['wrap', 'wrap', 'nowrap', 'nowrap'],
-          color: '#5E3414'
+          gap: ['10px', '10px', '10px', '8vw'],
+          flexWrap: ['wrap', 'wrap', 'wrap', 'nowrap'],
+          color: '#5E3414',
+          zIndex: 12,
+          position: 'relative'
         }}
       >
-        <Balancer>
+        {/* <Balancer> */}
           <Text
             variant="headline"
             sx={{
               lineHeight: '1.5',
               display: 'block',
               position: 'relative',
+              textAlign: ['center', 'center', 'center', 'left'],
               zIndex: 3
             }}
           >
@@ -981,20 +1047,17 @@ const Arcade = ({ stickers = [], inventory }) => {
                 borderRadius: '2px',
                 color: '#FAEFD6',
                 display: 'inline-block',
-                mx: '6px'
+                mx: '6px',
+                justifyContent: 'space-between'
               }}
             >
               {showComponent && <Sticker st={stickers[showNum]} />}
               free stickers
             </Text>{' '}
-            and be the first to know when{' '}
-            <Text className="slackey" sx={{ color: '#FF5C00' }}>
-              ARCADE
-            </Text>{' '}
-            launches!
+            and code with other high schoolers!
           </Text>
-        </Balancer>
-        <RSVP color="blue" text="RSVP" />
+        {/* </Balancer> */}
+        <Join  showForm={showForm} setForm={setForm} formSent={formSent} setFormSent={setFormSent}/>
       </Flex>
       <Projects />
       <Box
@@ -1027,7 +1090,22 @@ const Arcade = ({ stickers = [], inventory }) => {
             sx={{ color: '#FAEFD6', textAlign: 'center', display: 'block' }}
             className="gaegu"
           >
-            What will you make this summer?
+            What will{' '}
+            <Text
+              sx={{
+                background: '#35290F',
+                py: '1px',
+                px: '10px',
+                pb: '5px',
+                lineHeight: '1.1em',
+                display: 'inline-block',
+                transform: 'rotate(20deg)',
+                position: 'relative'
+              }}
+            >
+              you
+            </Text>{' '}
+            make this summer?
           </Text>
           <Box sx={{ textAlign: 'center', width: '100%' }}>
             <Text
@@ -1063,10 +1141,15 @@ const Arcade = ({ stickers = [], inventory }) => {
               title="Your own project!"
               text="You could build an AR game, pixel art display, drawing robot, and more! Anytime you work on your project, start the hack hour timer. You earn a ticket for every hour you spend on your project."
               num="Infinite"
-              img="/arcade/r4.png"
+              img="/arcade/o4.png"
               sx={{
                 gridColumn: ['', 'span 2', 'span 2', 'span 2'],
-                gridRow: ['', 'span 2', 'span 2', 'span 2']
+                gridRow: ['', 'span 2', 'span 2', 'span 2'],
+                'img': {
+                  width: ['35%', '35%', '80%', '120%'],
+            maxWidth: '350px',
+            marginRight: '-60px'
+                }
               }}
             />
             <Tickets
@@ -1115,6 +1198,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               title="Easel"
               text="Write a programming language, receive fudge!"
               num="5"
+              link="https://easel.hackclub.com/orpheus-finds-easel"
             />
 
             <img
@@ -1164,31 +1248,10 @@ const Arcade = ({ stickers = [], inventory }) => {
             Powerups for your next project!
           </Text>
           <Text variant="subtitle" className="gaegu">
-            Redeem these with your tickets! For high schoolers (or younger) only.
+            Redeem these with your tickets! For high schoolers (or younger)
+            only.
           </Text>
         </Box>
-        <PageVisibility onChange={handleVisibilityChange}>
-          {pageIsVisible && (
-            <>
-              <Ticker speed={5}>
-                {() => (
-                  <Box as="div" sx={{ display: 'flex', height: 'fit-content' }}>
-                    {inventory
-                      .slice(Math.ceil(inventory.length / 2), inventory.length)
-                      .map(i => (
-                        <Item
-                          img={i.imageURL}
-                          cost={i.hours}
-                          key={i}
-                          name={i.name}
-                        />
-                      ))}
-                  </Box>
-                )}
-              </Ticker>
-            </>
-          )}
-        </PageVisibility>
         <Flex
           sx={{
             width: ['70vw', '50vw', '60vw', '70vw'],
@@ -1196,43 +1259,30 @@ const Arcade = ({ stickers = [], inventory }) => {
             ml: ['10vw'],
             paddingTop: '50px',
             marginBottom: '-50px',
-            gap: ['10px', '10px', '2vw', '8vw'],
-            flexWrap: ['wrap', 'wrap', 'wrap', 'nowrap']
+            gap: ['10px', '10px', '2vw', '0vw'],
+            flexDirection: 'column',
           }}
         >
-          <Balancer>
+          {/* <Balancer> */}
             <Text
               variant="headline"
-              sx={{ lineHeight: '1.5', display: 'block' }}
+              sx={{
+                lineHeight: '1.5',
+                display: 'block',
+                textAlign: ['center', 'center', 'center', 'left'],
+                margin: ['auto', 'auto', 'auto', '0px'],
+                width: '100%'
+              }}
             >
-              Get{' '}
-              <Text
-                onMouseEnter={mouseEnter}
-                onMouseLeave={handleMouseLeave}
-                sx={{
-                  cursor: 'pointer',
-                  position: 'relative',
-                  bg: '#09AFB4',
-                  transform: 'rotate(-3deg) scale(1.1)',
-                  px: '4px',
-                  borderRadius: '2px',
-                  color: '#FAEFD6',
-                  display: 'inline-block',
-                  mx: '6px',
-                  lineHeight: '1.3'
-                }}
-              >
-                {showComponent && <Sticker st={stickers[showNum]} />}
-                free stickers
-              </Text>{' '}
-              and be the first to know when{' '}
-              <Text className="slackey" sx={{ color: '#FF5C00' }}>
+              Join{' '}
+              <Text className="slackey arcade2" sx={{ color: '#FF5C00' }}>
                 ARCADE
-              </Text>{' '}
-              launches!
+              </Text>.
+              <br />
+              Build real project. <br /> Share it with friends.
             </Text>
-          </Balancer>
-          <RSVP color="blue" text="RSVP" />
+          {/* </Balancer> */}
+          <Join showForm={showForm} setForm={setForm} formSent={formSent} setFormSent={setFormSent} last />
         </Flex>
         <img
           src="/arcade/r6.png"
