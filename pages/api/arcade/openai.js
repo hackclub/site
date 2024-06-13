@@ -8,7 +8,7 @@ const messageStarters = [
   "i'd use these parts to build a",
   "how about a",
   "you could make a",
-  "as a raccoon, i'd build a",
+  "as a diino, i'd build a",
   "since it's  summer, i'd make a",
   "i've been dreaming of creating a",
   "picture this:"

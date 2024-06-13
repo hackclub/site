@@ -189,6 +189,8 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
             alignItems: 'center',
             textDecoration: 'none',
             backgroundColor: '#FF5C00',
+            cursor: 'pointer',
+
             color: '#FAEFD6',
             width: 'fit-content',
             paddingX: ['8px', '10px', '15px'],
@@ -198,7 +200,11 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
             textAlign: 'center',
             // margin: 'auto',
             // mt: 3,
-            zIndex: 2
+            zIndex: 2,
+            transitionDuration: '0.3s',
+            '&:hover': {
+              transform: 'scale(1.05)'
+            }
           }}
         >
           Join ARCADE!
@@ -225,6 +231,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                 fontSize: ['24px', '27px', '30px'],
                 borderRadius: '5px',
                 textAlign: 'center',
+
                 // margin: 'auto',
                 // mt: 3,
                 zIndex: 2
