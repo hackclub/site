@@ -162,7 +162,7 @@ const Cards = ({ avatar, username, description, image }) => {
         sx={{
           position: 'relative',
           width: '100%',
-          height: '200px',
+          height: '160px',
           overflow: 'hidden',
           backgroundImage: `url('${image}')`,
           backgroundSize: '100%',
@@ -274,10 +274,10 @@ export default function Projects() {
                   image="https://scrapbook-into-the-redwoods.s3.amazonaws.com/e75cf24a-46d9-45fa-92d3-b9e5862d0d47-img_2442.jpg"
                 />
                 <Cards
-                  avatar="https://www.gravatar.com/avatar/04484b2178b8fd17c5a529c54614e14c?d=identicon&r=pg"
-                  username="cjmika110"
-                  description="Tired of QWERTY keyboards? Is typing too intuitive for you? Karl the Keyboard is a portable, squishable, fun, easy- to-use binary keyboard! Instead of pressing keys, you move a joystick up and down to represent ones..."
-                  image="https://assemble-images.hackclub.com/a34cbf72-7023-424a-8239-abf4146529e8-Untitled%20drawing%20(1).png"
+                  avatar="https://scrapbook.hackclub.com/_next/image?url=https://secure.gravatar.com/avatar/c2e358d7bf4677cac086556035ce1dbc.jpg?s%3D192%26d%3Dhttps%253A%252F%252Fa.slack-edge.com%252Fdf10d%252Fimg%252Favatars%252Fava_0011-192.png&w=640&q=75"
+                  username="KonstantinosFragkoulis"
+                  description="Well, the drone now should be able to follow the biggest object that it sees with a specific color. I haven't tested it yet though 😞 (I'm too scared to crash it). Here is a clip from earlier today, my genuine reaction to the first takeoff ever (got a bit scared at the end) 👍 "
+                  image="https://cloud-fshng6w8x-hack-club-bot.vercel.app/0videoframe_809.png"
                 />
               </Grid>
               <Button
