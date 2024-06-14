@@ -1516,6 +1516,7 @@ const Arcade = ({ stickers = [], inventory }) => {
             mt: '-50px'
             // pb: '50px'
           }}
+          id="shop"
         >
           <Balancer>
             <Text variant="title" sx={{ display: 'block' }}>
