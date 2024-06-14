@@ -16,13 +16,11 @@ async function inviteToArcadius({ email }) {
 }
 async function inviteToAirtable({ email, ip }) {
   const airtable = new AirtablePlus({
-    baseID: 'apponYMK8arNnHTk5' ,// waitlist
-  //   baseID: 'appaqcJtn33vb59Au', // prod
+    baseID: 'appaqcJtn33vb59Au',
     apiKey: process.env.AIRTABLE_API_KEY,
-  //   tableName: 'Arcade Joins' // prod
-  tableName: 'Main' // waitlist
+    tableName: 'Arcade Joins'
   })
-  return await airtable.create({ email: email, ip: ip, Status: "Waitlist" })
+  return await airtable.create({ 'Email': email, 'IP': ip })
 }
 
 export default async function handler(req, res) {
