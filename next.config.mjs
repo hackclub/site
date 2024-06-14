@@ -310,8 +310,8 @@ const nextConfig = {
         destination: '/bin/selector/index.html'
       },
       {
-        source: '/arcade/',
-        destination: '/arcade/index.html'
+        source: '/arcade/power-hour',
+        destination: '/arcade/power-hour/index.html'
       },
     ]
   },

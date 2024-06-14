@@ -20,7 +20,7 @@ async function pullFromStorage() {
 }
 
 async function fetchData() {
-  return await fetch('/api/arcade/inventory').then(d => d.json())
+  return await fetch('/api/arcade/hack-hour/inventory').then(d => d.json())
 }
 
 async function setToStorage(data) {
