@@ -740,14 +740,11 @@ function thinkingWords() {
     'thinking',
     'single neuron activated',
     '2 braincells rubbing together',
-    'pondering',
-    'contemplating',
-    "rackin' my brain",
-    '*raccoon rumination noises*',
-    'raccooninating',
+    'ponderosourus',
+    'contemplatosaurus',
+    'dinosaur brain activated',
     'thinking about trash',
     'rummaging through my thoughts',
-    'wishing you a garbage day'
   ]
   return arr[Math.floor(Math.random() * arr.length)]
 }
