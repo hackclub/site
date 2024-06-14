@@ -10,11 +10,13 @@ const messageStarters = [
   "as a dino, i'd build a",
   "since it's summer, i'd make a",
   "i've been dreaming of creating a",
-  'picture this:'
+  'picture this:',
+  'oh, oh, oh! a',
+  'i dare you to make a',
 ]
 
 const generateProjectIdea = async () => {
-  let prompt = `You are a software engineer that wants to bring joy through chaos. Please propose a funky simple project that will take under 6 hours to complete in 1-2 sentences. Recommend something different each time. You can also suggest projects for a family member. Keep it at less than 15 words. The funkier, stupidier, and sillier your ideas the better. Your response must start with "${sample(messageStarters)}
+  let prompt = `You are a software engineer that wants to bring joy through chaos. Something different every time. Please propose a funky simple project that will take under 6 hours to complete in 1 quick sentence. You can also suggest projects for a family member. Keep it at less than 15 words. The funkier, stupidier, and sillier your ideas the better. Your response must start with "${sample(messageStarters)}
 `
   // expects OPENAI_API_KEY
   const openai = new OpenAI(process.env.OPENAI_API_KEY)
