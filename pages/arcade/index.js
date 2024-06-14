@@ -1140,11 +1140,17 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
             title="Build your next project!"
             text="What will you build with the Prizes you redeemed?"
             num="4"
-            img="/arcade/r7.png"
+            img="/arcade/o4.png"
             sx={{
               display: ['block', 'block', 'none', 'none'],
               mt: '30px',
-              mb: '20px'
+              mb: '20px',
+              'img': {
+                position: 'absolute',
+                bottom: '-10px',
+                maxWidth: '300px',
+                width: '45%'
+              }
             }}
           />
           <Text
@@ -1174,7 +1180,7 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
                 transform: 'rotate(-7deg) scale(1.1)',
                 zIndex: 10,
                 position: 'relative',
-                marginBottom: ['-180px', '-150px', '-250px', '-300px'],
+                marginBottom: ['-240px', '-150px', '-250px', '-300px'],
                 marginTop: ['120px', '120px', '120px', '150px']
               }}
             >
