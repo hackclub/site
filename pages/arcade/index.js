@@ -949,17 +949,21 @@ const Arcade = ({ stickers = [], inventory }) => {
                 formSent={formSent}
                 setFormSent={setFormSent}
               />
-              <Text
-                variant="subtitle"
-                className="gaegu"
-                sx={{
-                  textAlign: ['center', 'center', 'center', 'left'],
-                  width: '100%',
-                  display: 'block'
-                }}
-              >
-                For high schoolers (or younger).
-              </Text>
+              {showForm ? (
+                <></>
+              ) : (
+                <Text
+                  variant="subtitle"
+                  className="gaegu"
+                  sx={{
+                    textAlign: ['center', 'center', 'center', 'left'],
+                    width: '100%',
+                    display: 'block'
+                  }}
+                >
+                  For high schoolers (or younger).
+                </Text>
+              )}
             </Fade>
           </Box>
           <Flex
@@ -974,7 +978,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               sx={{
                 zIndex: 10,
                 width: ['80%', '70%', '65%', '80%'],
-                mt: ['100px', '150px', '240px', '240px'],
+                mt: ['180px', '220px', '240px', '240px'],
                 mb: ['-100px', '-150px', '-200px', '-100px']
               }}
               className="floaty"
@@ -1788,6 +1792,7 @@ const Arcade = ({ stickers = [], inventory }) => {
               formSent={formSent}
               setFormSent={setFormSent}
               last
+
             />
           </Flex>
           <img

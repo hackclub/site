@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Box, Button, Text, Flex, Grid, Card } from 'theme-ui'
+import { Box, Button, Text, Flex, Grid, Card, Label, Checkbox } from 'theme-ui'
 import JSConfetti from 'js-confetti'
 
 /** @jsxImportSource theme-ui */
 const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
   const [email, setEmail] = useState('')
+  const [highschool, setHighschool] = useState(false)
 
   let jsConfetti = useRef()
 
@@ -55,6 +56,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
         gap: '10px',
         alignItems: ['center', 'center', 'center', 'start'],
         mt: 4,
+        pb: last ? 5 : '0',
         justifyContent: fold ? 'flex-start' : last ? 'flex-start' : 'flex-end'
       }}
     >
@@ -117,8 +119,8 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                 gap: '10px',
                 fontSize: ['20px', '22px', '24px'],
                 flexDirection: [
-                  last ? 'column' : 'row',
-                  last ? 'column' : 'row',
+                  'column',
+                  'column',
                   'row',
                   'row'
                 ]
@@ -136,11 +138,45 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                     position: 'absolute',
                     width: '150%',
                     top: '-30px',
-                    color: '#FF5C00'
+                    color: last ? '#FAEFD6':'#FF5C00'
                   }}
                   className="gaegu"
                 >
                   Get your Slack invite to start.
+                </Text>
+                {/* <Label
+                  variant="labelHoriz"
+                  className="gaegu"
+                  sx={{
+                    m: 0,
+                    fontSize: 1,
+                    pt: 1,
+                    position: 'absolute',
+                    width: last ? '100%' : '150%',
+                    bottom: last? '-50px' : '-30px',
+                    color: last ? '#FAEFD6':'#FF5C00'
+                  }}
+                >
+                  <Checkbox
+                    name="age"
+                    defaultChecked={false}
+                    onClick={() => {setHighschool(!highschool)}}
+                  />
+                  Pinky promise! I am a high schooler (or younger).
+                </Label> */}
+                <Text
+                  as="subtitle"
+                  htmlFor="email"
+                  sx={{
+                    position: 'absolute',
+                    width: ['100%', '100%', '180%', '180%'],
+                    bottom: ['-120px', '-120px', '-40px', '-40px'],
+                    color: '#FF5C00',
+                    opacity: 0.4
+                  }}
+                  className="gaegu"
+                >
+                  Already in Slack? Join #arcade and you're in!
                 </Text>
                 <input
                   type="email"
@@ -169,7 +205,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                   borderRadius: '5px',
                   border: 'none',
                   fontSize: ['24px', '27px', '30px'],
-                  cursor: 'pointer',
+                  // cursor: highschool ? 'pointer': 'not-allowed',
                   transitionDuration: '0.3s',
                   '&:hover': {
                     transform: 'scale(1.05)'
