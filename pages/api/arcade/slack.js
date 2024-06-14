@@ -1,24 +1,26 @@
 import AirtablePlus from 'airtable-plus'
 
-async function inviteToArcadius({ email }) {
-  const response = await fetch('https://arcadius.hackclub.com/slack-invite', {
-    body: JSON.stringify({
-      email
-    }),
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.SLACK_KEY}`
-    }
-  })
+// async function inviteToArcadius({ email }) {
+//   const response = await fetch('https://arcadius.hackclub.com/slack-invite', {
+//     body: JSON.stringify({
+//       email
+//     }),
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       Authorization: `Bearer ${process.env.SLACK_KEY}`
+//     }
+//   })
 
-  return response
-}
+//   return response
+// }
 async function inviteToAirtable({ email, ip }) {
   const airtable = new AirtablePlus({
-    baseID: 'appaqcJtn33vb59Au',
+    baseID: 'apponYMK8arNnHTk5' ,// waitlist
+  //   baseID: 'appaqcJtn33vb59Au', // prod
     apiKey: process.env.AIRTABLE_API_KEY,
-    tableName: 'Arcade Joins'
+  //   tableName: 'Arcade Joins' // prod
+  tableName: 'Main' // waitlist
   })
   return await airtable.create({ Email: email, IP: ip })
 }

@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Box, Button, Text, Flex, Grid, Card, Label, Checkbox } from 'theme-ui'
 import JSConfetti from 'js-confetti'
+import React, { useEffect, useRef, useState } from 'react'
+import { Box, Flex, Text } from 'theme-ui'
 
 /** @jsxImportSource theme-ui */
 const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
@@ -78,7 +78,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                 textAlign: 'center'
               }}
             >
-              Email from Slack <br /> arriving in your inbox!
+              Email from The Arcade <br /> arriving in your inbox soon!
             </Box>
           ) : (
             <Flex
@@ -138,7 +138,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                     position: 'absolute',
                     width: '150%',
                     top: '-30px',
-                    color: last ? '#FAEFD6':'#FF5C00'
+                    color: last ? '#FAEFD6' : '#FF5C00'
                   }}
                   className="gaegu"
                 >
