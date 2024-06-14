@@ -28,6 +28,7 @@ const nextConfig = {
     return config
   },
   async redirects() {
+
     return [
       {
         source: '/bank/:path*',
@@ -189,6 +190,11 @@ const nextConfig = {
       {
         source: '/blot/',
         destination: 'https://blot.hackclub.com',
+        permanent: false
+      },
+      {
+        source: '/slack',
+        destination: '/arcade?param=slack',
         permanent: false
       }
     ]

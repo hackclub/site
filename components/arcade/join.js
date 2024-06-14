@@ -54,7 +54,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
         flexDirection: ['column', 'column', 'column', 'row'],
         gap: '10px',
         alignItems: ['center', 'center', 'center', 'start'],
-        mt: 3,
+        mt: 4,
         justifyContent: fold ? 'flex-start' : last ? 'flex-start' : 'flex-end'
       }}
     >
@@ -71,12 +71,12 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                 color: '#09AFB4',
                 width: 'fit-content',
                 paddingX: ['8px', '10px', '15px'],
-                paddingY: ['5px', '7px', '17px'],
+                paddingY: ['5px', '7px', '7px'],
                 borderRadius: '5px',
                 textAlign: 'center'
               }}
             >
-              Check your email!
+              Email from Slack <br /> arriving in your inbox!
             </Box>
           ) : (
             <Flex
@@ -101,7 +101,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                 zIndex: 2
               }}
             >
-              Get Stickers
+              Free Stickers
             </Flex>
           )
         ) : (
@@ -134,17 +134,18 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                   htmlFor="email"
                   sx={{
                     position: 'absolute',
+                    width: '150%',
                     top: '-30px',
                     color: '#FF5C00'
                   }}
                   className="gaegu"
                 >
-                  Your email:
+                  Get your Slack invite to start.
                 </Text>
                 <input
                   type="email"
                   id="email"
-                  placeholder="fiona@hackclub.com"
+                  placeholder="your email here"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   required
@@ -167,11 +168,16 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                   color: '#FAEFD6',
                   borderRadius: '5px',
                   border: 'none',
-                  fontSize: ['24px', '27px', '30px']
+                  fontSize: ['24px', '27px', '30px'],
+                  cursor: 'pointer',
+                  transitionDuration: '0.3s',
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  }
                 }}
                 className="slackey"
               >
-                Join
+                Join ARCADE
               </button>
             </Flex>
           </form>
@@ -237,7 +243,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                 zIndex: 2
               }}
             >
-              Get Stickers
+              Free Stickers
             </Flex>
           ) : (
             <></>
@@ -265,7 +271,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
               zIndex: 2
             }}
           >
-            Get Stickers
+            Free Stickers
           </Flex>
         )
       ) : (

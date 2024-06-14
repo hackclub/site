@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
@@ -16,6 +17,7 @@ import Balancer from 'react-wrap-balancer'
 import { Fade } from 'react-reveal'
 import JSConfetti from 'js-confetti'
 import Join from '../../components/arcade/join'
+import Announcement from '../../components/announcement'
 /** @jsxImportSource theme-ui */
 
 const styled = `
@@ -78,20 +80,54 @@ body, html {
  /* CSS from https://codepen.io/quadbaup/details/rKOKQv */
 .thought {
     display: flex;
-    // background-color: #fff;
+    background-color: #F8F3F3;
     padding: 20px;
     border-radius: 30px;
-    // min-width: 40px;
-    width: 250px;
-    height: 50px;
+    min-width: 40px;
+    max-width: 180px;
+    opacity: 0;
+    height: 100px;
     margin: 20px;
     margin-left: -10px;
     position: relative;
     align-items: center;
     justify-content: center;
+    font-size: 12px;
     /* text-align:center; */
 }
 
+.thought:before,
+.thought:after {
+    content: "";
+    background-color: #F8F3F3;
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    z-index: -1;
+}
+
+.thought:before {
+    width: 44px;
+    height: 44px;
+    top: -12px;
+    left: 28px;
+    box-shadow: -50px 30px 0 -12px #F8F3F3;
+}
+
+.thought:after {
+    bottom: -10px;
+    right: 26px;
+    width: 30px;
+    height: 30px;
+    box-shadow: 40px -34px 0 0 #F8F3F3,
+        -28px -6px 0 -2px #F8F3F3,
+        -24px 17px 0 -6px #F8F3F3,
+        -5px 25px 0 -10px #F8F3F3;
+}
+
+#generate-project-idea {
+  margin-top: -100px;
+}
 .css-vrrmew-Box {
   color: #5E3414 !important;
 }
@@ -103,39 +139,52 @@ body, html {
 .css-k3i0c5 {
   color: #5E3414 !important;
 }
-  `
 
-const RSVP = ({ text, color }) => {
-  return (
-    <Flex
-      as="a"
-      href="https://hack.club/arcade-join"
-      target="_blank"
-      className="slackey"
-      sx={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: ['100%', '100%', '100%', '30%'],
-        textDecoration: 'none'
-      }}
-    >
-      <Box
-        sx={{
-          backgroundColor: color == 'blue' ? '#09AFB4' : '#FF5C00',
-          color: '#FAEFD6',
-          width: ['100%', '100%', '', ''],
-          paddingX: ['8px', '10px', '15px'],
-          paddingY: ['5px', '7px', '10px'],
-          fontSize: ['24px', '27px', '30px'],
-          borderRadius: '5px',
-          textAlign: 'center'
-        }}
-      >
-        {text}
-      </Box>
-    </Flex>
-  )
+.talking {
+  animation: talking 1s infinite;
 }
+@keyframes talking {
+  0% {
+      transform: translateY(0px);
+  }
+
+  50% {
+      transform: translateY(-10px);
+  }
+
+  100% {
+      transform: translateY(0px);
+  }
+}
+
+.floaty {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  from,
+  to {
+      transform: translate(0%, -37%) rotate(-2deg);
+  }
+
+  25% {
+      transform: translate(-2%, -40%) rotate(2deg);
+  }
+
+  50% {
+      transform: translate(0%, -43%) rotate(-1deg);
+  }
+
+  75% {
+      transform: translate(-1%, -40%) rotate(-1deg);
+  }
+}
+
+a {
+  color: inherit;
+}
+  `
 
 const Powerups = ({
   img,
@@ -277,11 +326,12 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
       href={link}
       sx={{
         background: '#FAEFD6',
-        padding: '10px !important',
+        padding: '20px !important',
         borderRadius: '5px',
         position: 'relative',
         color: '#35290F',
-        border: '3px dashed #5E3414'
+        border: '3px dashed #5E3414',
+        height: '100%'
       }}
       {...props}
     >
@@ -293,6 +343,7 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
         {title}
       </Text>
       <Text
+        as="p"
         sx={{
           fontSize: [1, 2, 2],
           display: 'block'
@@ -301,18 +352,123 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
         {text}
       </Text>
       {img && (
-        <img
-          src={img}
-          alt="Dino drawing"
-          sx={{
-            width: ['35%', '35%', '35%', '50%'],
-            maxWidth: '210px',
-            position: 'absolute',
-            right: '0',
-            bottom: '0',
-            display: ['none', 'none', 'block', 'block']
-          }}
-        />
+        <>
+          <img
+            src={img}
+            alt="Dino drawing"
+            sx={{
+              width: ['50%', '50%', '50%', '120%'],
+              maxWidth: '350px',
+              marginRight: '-60px',
+              position: 'absolute',
+              right: '0',
+              bottom: '0',
+              display: ['none', 'block', 'block', 'block']
+            }}
+          />
+          <Box
+            sx={{
+              position: 'absolute',
+              width: ['90%', '70%', '50%', '360px'],
+              height: '550px',
+              left: ['5%', '-20px', '-20px', '-20px'],
+              bottom: ['-70px', '-60px', '-30px', '-110px'],
+            }}
+          >
+            <Text
+              id="console"
+              variant="caption"
+              sx={{
+                textAlign: 'center',
+                display: 'block',
+                width: '100%',
+                opacity: 0
+              }}
+            >
+              Click me for ideas!
+            </Text>
+            <Text
+              variant="caption"
+              id="console2"
+              sx={{
+                textAlign: 'center',
+                display: 'block',
+                width: '100%',
+              }}
+            >
+              Click me for ideas!
+            </Text>
+            <Box
+              className="hidden"
+              sx={{
+                textAlign: 'center',
+                color: '#5E3414',
+                transform: [
+                  'scale(1)',
+                  'scale(0.8)',
+                  'scale(0.8)',
+                  'scale(0.8)'
+                ],
+                mt: ['null', '-40px', '-20px', null]
+              }}
+            >
+              <Box
+                sx={{
+                  justifyContent: 'center',
+                  pt: ['120px', '180px', '180px', '180px'],
+                  pb: [7, 7, 7, 7],
+                  mt: ['40px', '-20px', '10px', '-50px'],
+                  mb: ['40px', '50px', '100px', '-50px'],
+                  display: 'grid',
+                  background:
+                    'url(/arcade/arcade_bg.png) no-repeat center center',
+                  backgroundSize: 'contain'
+                }}
+              >
+                <Text
+                  id="project-idea"
+                  className="thought"
+                  sx={{
+                    transform: [
+                      'scale(0.7)',
+                      'scale(1)',
+                      'scale(1)',
+                      'scale(1)'
+                    ],
+                    mb: [
+                      '-40px !important',
+                      '10px !important',
+                      '10px !important',
+                      '10px !important'
+                    ]
+                  }}
+                ></Text>
+                <img
+                  src="https://cloud-ocoecqzgs-hack-club-bot.vercel.app/0screenshot_2024-06-13_at_22.01.02.png"
+                  className="hoverable"
+                  alt="Need an idea?"
+                  sx={{
+                    margin: '0 auto',
+                    display: 'inline',
+                    width: 'auto',
+                    height: '8em',
+                    cursor: 'pointer',
+                    mb: ['-120px', '-20px', '-30px', '-30px'],
+                    transform: [
+                      'scale(0.7)',
+                      'scale(1)',
+                      'scale(1)',
+                      'scale(1)'
+                    ]
+                  }}
+                  id="generate-project-idea"
+                  onClick={generateProjectIdea}
+                />
+              </Box>
+              <Box></Box>
+            </Box>
+          </Box>
+        </>
       )}
     </Card>
   )
@@ -428,8 +584,8 @@ const Item = ({ name, img, cost }) => {
   )
 }
 
-const FAQ = ({question, answer }) => {
-  return(
+const FAQ = ({ question, answer }) => {
+  return (
     <Box
       sx={{
         background: '#FAEFD6',
@@ -447,7 +603,7 @@ const FAQ = ({question, answer }) => {
         variant="subtitle"
         sx={{
           display: 'block',
-          fontSize: [1, 2, 2],
+          fontSize: [1, 2, 2]
         }}
       >
         {answer}
@@ -540,7 +696,7 @@ async function yap(text, letterCallback) {
     letterCallback(yap_queue.length)
     if (yap_queue.length === 0) return
     let noise = yap_queue.shift()
-    noise.rate(2 * (Math.random() * 0.5 + 1.9))
+    noise.rate(2 * (Math.random() * 0.5 + 3.5))
     noise.once('end', next_yap)
     noise.play()
   }
@@ -558,6 +714,10 @@ async function generateProjectIdea() {
   }
 
   yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play()
+  document.querySelector('#generate-project-idea').style.marginTop = '0px'
+  document.querySelector('#console').style.marginTop = '-50px'
+  document.querySelector('#console2').style.opacity = '0'
+  document.querySelector('#project-idea').style.opacity = '1'
   document.querySelector('#generate-project-idea').classList.add('disabled')
   document.querySelector('#project-idea').innerHTML =
     '<em>' + thinkingWords() + '...' + '</em>'
@@ -571,12 +731,14 @@ async function generateProjectIdea() {
     },
     body: JSON.stringify()
   })
+
   const json = await res.json()
   text = json.recommendation
   document.querySelector('#project-idea').innerHTML = ''
   document.querySelector('#generate-project-idea').src =
     'https://cloud-81d1s66l7-hack-club-bot.vercel.app/0untitled_artwork_9_1.png'
   document.querySelector('#generate-project-idea').classList.remove('disabled')
+  // document.querySelector('#generate-project-idea').classList.add('talking')
   yap(text, i => {
     document.querySelector('#project-idea').innerHTML = text.slice(
       0,
@@ -612,6 +774,11 @@ const Arcade = ({ stickers = [], inventory }) => {
   const handleButtonClick = () => {
     setIsRevealed(!isRevealed)
   }
+
+  const router = useRouter()
+  const { query } = router
+
+  const slack = query.param
 
   const generateRandomNumber = () => {
     const newRandomNumber = Math.floor(Math.random() * stickers.length) // Generate a random number between 0 and 99
@@ -663,9 +830,21 @@ const Arcade = ({ stickers = [], inventory }) => {
           zIndex: 1,
           overflowX: 'hidden',
           overflowY: 'hidden',
-          paddingTop: '20vh'
+          paddingTop: '20vh',
+          paddingBottom: '20vh'
         }}
       >
+        {slack == 'slack' ? (
+          <Announcement
+            copy="Join our special event this summer!"
+            caption="This is our summer flow for joining the Slack: Joining ARCADE."
+            href="/arcade/"
+            imgSrc="https://cloud-gyu8zgkki-hack-club-bot.vercel.app/0_______.png"
+          />
+        ) : (
+          <></>
+        )}
+
         <img
           src="/arcade/beige_bg.png"
           alt="beige swirly pattern"
@@ -682,7 +861,7 @@ const Arcade = ({ stickers = [], inventory }) => {
           sx={{
             gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
             width: '100%',
-            pb: '10vh',
+            pb: ['0vh', '0vh', '0vh', '20vh'],
             width: '90vw',
             maxWidth: '1200px',
             margin: 'auto'
@@ -744,8 +923,9 @@ const Arcade = ({ stickers = [], inventory }) => {
                 }}
                 variant="title"
               >
-                Join 1,000 high schoolers spending their summers coding
-                projects.
+                Get free tools to build something cool.
+                <br />
+                This summer is yours.
               </Text>
             </Fade>
             <Fade delay={550}>
@@ -773,7 +953,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 variant="subtitle"
                 className="gaegu"
                 sx={{
-                  textAlign: ['center', 'left', 'left', 'left'],
+                  textAlign: ['center', 'center', 'center', 'left'],
                   width: '100%',
                   display: 'block'
                 }}
@@ -782,84 +962,24 @@ const Arcade = ({ stickers = [], inventory }) => {
               </Text>
             </Fade>
           </Box>
-          <Fade delay={800}>
-            <Box
-              className="hidden"
+          <Flex
+            sx={{
+              position: 'relative',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <img
+              src="/arcade/prizes.png"
               sx={{
-                textAlign: 'center',
-                color: '#5E3414',
-                transform: [
-                  'scale(1)',
-                  'scale(0.8)',
-                  'scale(0.8)',
-                  'scale(0.8)'
-                ],
-                mt: ['null', '-40px', '-20px', null]
+                zIndex: 10,
+                width: ['80%', '70%', '65%', '80%'],
+                mt: ['100px', '150px', '240px', '240px'],
+                mb: ['-100px', '-150px', '-200px', '-100px']
               }}
-            >
-              <Box
-                sx={{
-                  justifyContent: 'center',
-                  pt: ['120px', '180px', '180px', '180px'],
-                  pb: [7, 7, 7, 7],
-                  mt: ['40px', '50px', '100px', '-50px'],
-
-                  display: 'grid',
-                  background:
-                    'url(/arcade/arcade_bg.png) no-repeat center center',
-                  backgroundSize: 'contain'
-                }}
-              >
-                <Text
-                  id="project-idea"
-                  className="thought"
-                  sx={{
-                    transform: [
-                      'scale(0.7)',
-                      'scale(1)',
-                      'scale(1)',
-                      'scale(1)'
-                    ],
-                    mb: [
-                      '-40px !important',
-                      '10px !important',
-                      '10px !important',
-                      '10px !important20px'
-                    ]
-                  }}
-                >
-                  🕹️
-                </Text>
-                <img
-                  src="/arcade/idea.png"
-                  className="hoverable"
-                  alt="Dino thinking"
-                  sx={{
-                    margin: '0 auto',
-                    display: 'inline',
-                    width: 'auto',
-                    height: '12em',
-                    cursor: 'pointer',
-                    mb: ['-120px', '-20px', '-30px', '-50px'],
-                    transform: [
-                      'scale(0.7)',
-                      'scale(1)',
-                      'scale(1)',
-                      'scale(1)'
-                    ]
-                  }}
-                  id="generate-project-idea"
-                  onClick={generateProjectIdea}
-                />
-              </Box>
-              <Box as="h2">Click the dinosaur for project ideas!</Box>
-              <Text as="p">
-                <em>
-                  (It doesn't know much about coding, but it'll try its best.)
-                </em>
-              </Text>
-            </Box>
-          </Fade>
+              className="floaty"
+            />
+          </Flex>
         </Grid>
       </Box>
       <Box
@@ -1008,8 +1128,8 @@ const Arcade = ({ stickers = [], inventory }) => {
                 title="Redeem your Prizes"
                 text="Use your tickets to buy prizes for your next project! Such as Arduino kits, drawing tablets, and more!"
                 num="3"
-                img="/arcade/o3.png"
-                third="true"
+                img="/arcade/o7.png"
+                // third="true"
               />
               <img
                 src="/arcade/a3.png"
@@ -1051,7 +1171,7 @@ const Arcade = ({ stickers = [], inventory }) => {
             className="gaegu"
           >
             <Text sx={{ background: '#5E3414', px: 2, py: 1 }}>
-              Hack. Rinse. Repeat.
+              Make stuff. Get stuff. Repeat.
             </Text>
           </Text>
         </Box>
@@ -1221,11 +1341,12 @@ const Arcade = ({ stickers = [], inventory }) => {
               gridTemplateColumns: [
                 '1fr',
                 '1fr 1fr',
-                '1fr 1fr 1fr',
-                '1fr 1fr 1fr 1fr 1fr'
+                '1fr 1fr',
+                '1fr 1fr 1fr '
               ],
               marginTop: '25px',
-              py: '5vh'
+              py: '5vh',
+              alignItems: 'stretch'
             }}
           >
             <Tickets
@@ -1235,69 +1356,107 @@ const Arcade = ({ stickers = [], inventory }) => {
               img="/arcade/o4.png"
               sx={{
                 gridColumn: ['', 'span 2', 'span 2', 'span 2'],
-                gridRow: ['', 'span 2', 'span 2', 'span 3'],
-                img: {
-                  width: ['35%', '35%', '50%', '120%'],
-                  maxWidth: '350px',
-                  marginRight: '-60px'
-                },
                 h1: {
                   fontSize: [3, 4, 5]
                 },
-                span: {
+                p: {
                   fontSize: [2, 2, 3],
-                  width: ['100%', '100%', '70%', '100%']
-                }
+                  display: 'block',
+                  pb: 2
+                },
+                minHeight: ['700px', '700px', '700px', 'auto']
               }}
             />
             <Tickets
+              title="Not sure what to make?"
+              text={
+                <ul>
+                  <li>
+                    <a href="https://boba.hackclub.com/">
+                      Boba drops: Build a website, get boba!
+                    </a>
+                  </li>
+                  <li>Wizard Orpheus: Build a text-based game with AI</li>
+                  <li>
+                    <a href="/bin">
+                      The Bin: Build an online circuit, get the parts for free!
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/sprig">
+                      Sprig: Build a JS game, play it on your own console
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/onboard">
+                      OnBoard: Design a PCB, get a $100 grant
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://blot.hackclub.com/">
+                      Blot: Write code. Make art. Get a drawing machine.
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://cider.hackclub.com">
+                      Cider: Make a mobile app, get an Apple Developer account
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://easel.hackclub.com/orpheus-finds-easel">
+                      Easel: Write a programming language, receive fudge!
+                    </a>
+                  </li>
+                </ul>
+              }
+              sx={{
+                '&ul>li': {
+                  color: 'inherit'
+                },
+                gridColumn: ['span 2', 'span 2', 'span 2', 'span 1'],
+                minHeight: 'auto'
+              }}
+            />
+            {/* <Tickets
               title="Boba drops"
               text="Build a website, get boba!"
-              num="0.5"
               link="https://boba.hackclub.com/"
             />
             <Tickets
               title="Wizard Orpheus"
               text="Build a text-based game with AI"
-              num="0.5"
             />
             <Tickets
               title="The Bin"
               text="Build an online circuit, get the parts for free!"
-              num="0.5"
               link="/bin"
             />
             <Tickets
               title="Sprig"
               text="Build a JS game, play it on your own console"
-              num="2"
               link="/sprig"
             />
             <Tickets
               title="OnBoard"
               text="Design a PCB, get a $100 grant"
-              num="2"
               link="/onboard"
             />
             <Tickets
               title="Blot"
               text="Write code. Make art. Get a drawing machine."
-              num="3"
               link="https://blot.hackclub.com/"
             />
             <Tickets
               title="Cider"
               text="Make a mobile app, get an Apple Developer account"
-              num="4"
               link="https://cider.hackclub.com"
             />
 
             <Tickets
               title="Easel"
               text="Write a programming language, receive fudge!"
-              num="5"
               link="https://easel.hackclub.com/orpheus-finds-easel"
-            />
+            /> */}
 
             <img
               src="/arcade/r5.png"
@@ -1445,18 +1604,17 @@ const Arcade = ({ stickers = [], inventory }) => {
               ticketRotation="-6"
             />
             <Powerups
-              img="/arcade/Flipper.png"
-              text="Flipper Zero"
-              subtext="Only where Flipper Zero is legal"
-              cost="70"
+              img="/arcade/Prusa.png"
+              text="Prusa MINI+"
+              cost="350"
               polaroidRotation="-3"
               ticketRotation="-12"
             />
             <Powerups
-              img="/arcade/rp4.png"
-              text="Raspberry Pi 4"
-              subtext="+ SD card!"
-              cost="25"
+              img="/arcade/Flipper.png"
+              text="Flipper Zero"
+              subtext="Only where Flipper Zero is legal"
+              cost="70"
               polaroidRotation="-2"
               ticketRotation="12"
             />
@@ -1552,27 +1710,43 @@ const Arcade = ({ stickers = [], inventory }) => {
               width: '90vw',
               maxWidth: '1200px',
               margin: 'auto',
-              pt: 1,
+              pt: 2,
               color: '#FAEFD6'
             }}
           >
-            <Text variant="title" className='slackey' sx={{ textAlign: 'center', width: '100%', display: 'block'}}>
+            <Text
+              variant="title"
+              className="slackey"
+              sx={{ textAlign: 'center', width: '100%', display: 'block' }}
+            >
               F.A.Q.
             </Text>
             <Grid
-          sx={{
-            gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
-            width: '100%',
-            width: '90vw',
-            maxWidth: '1200px',
-            margin: 'auto',
-            mt: '50px'
-          }}
-        >
-          <FAQ question="How many projects can I build?" answer="You can submit as many projects as you make. We just count the hours!" />
-          <FAQ question="Who is eligible?" answer="You need to be a high schooler (or younger) in the United States. Submissions need to be in by June 1st to qualify." />
-          <FAQ question="How much does it cost?" answer="100% free– we’ll also give a breadboard and the jumper wires you need to build your project too! The whole program is funded by donations to a non-profit." />
-          <FAQ question="I need help!" answer="Get it in the #arcade channel of the Hack Club Slack." />
+              sx={{
+                gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
+                width: '100%',
+                width: '90vw',
+                maxWidth: '1200px',
+                margin: 'auto',
+                mt: '50px'
+              }}
+            >
+              <FAQ
+                question="How many projects can I build?"
+                answer="You can submit as many projects as you make. We just count the hours!"
+              />
+              <FAQ
+                question="Who is eligible?"
+                answer="You need to be a high schooler (or younger) in the United States."
+              />
+              <FAQ
+                question="How much does it cost?"
+                answer="100% free– we’ll also give a breadboard and the jumper wires you need to build your project too! The whole program is funded by donations to a non-profit."
+              />
+              <FAQ
+                question="I need help!"
+                answer="Get it in the #arcade channel of the Hack Club Slack."
+              />
             </Grid>
           </Box>
           <Flex
