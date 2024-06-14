@@ -1775,7 +1775,7 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [] }) => {
               </Text>
               .
               <br />
-              Build real project. <br /> Share it with friends.
+              Build real projects. <br /> Share it with friends.
             </Text>
             {/* </Balancer> */}
             <Join
