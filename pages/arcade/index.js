@@ -18,6 +18,7 @@ import { Fade } from 'react-reveal'
 import Join from '../../components/arcade/join'
 import Announcement from '../../components/announcement'
 import Link from 'next/link'
+import { shopParts } from '../api/arcade/shop'
 /** @jsxImportSource theme-ui */
 
 const styled = `
@@ -1809,7 +1810,15 @@ export async function getStaticProps() {
     .readdirSync(stickersDir)
     .filter(sticker => sticker !== 'hero.jpg')
 
-  const res = await fetch('https://hackclub.com/api/arcade/inventory')
-  const data = await res.json()
-  return { props: { stickers, inventory: data.inventory } }
+  const items = await shopParts()
+  const carousel = items.filter(item => item['Enabled Carousel']).map(record => ({
+      hours: record['Cost Hours'] || 0,
+      imageURL: record['Image URL'] || '',
+    })).filter(item => item.imageURL !== '')
+
+  return { props: {
+    stickers,
+    inventory: items,
+    carousel
+  } }
 }
