@@ -185,7 +185,7 @@ body, html {
 a {
   color: inherit;
 }
-  `
+`
 
 const Powerups = ({
   img,
@@ -223,6 +223,9 @@ const Powerups = ({
         <img src={img} sx={{ width: '100%', height: 'auto' }} />
       </Flex>
       <Text className="slackey" variant="headline" sx={{ color: '#FFEEC6' }}>
+        {text}
+      </Text>
+      <Text className="" variant="subtitle" sx={{ color: '#FFEEC6' }}>
         {text}
       </Text>
       <Balancer>
@@ -749,7 +752,7 @@ function thinkingWords() {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-const Arcade = ({ stickers = [], inventory = [], carousel = [] }) => {
+const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems = [] }) => {
   const [showComponent, setShowComponent] = useState(false)
   const [showNum, setNum] = useState(false)
   const [showForm, setForm] = useState(false)
@@ -1564,18 +1567,29 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [] }) => {
               gap: '50px'
             }}
           >
-            <Powerups
+            {highlightedItems.map((item, i) => (
+              <Powerups
+                img={item['Image URL']}
+                text={item['Name']}
+                subtext={item['Small Name']}
+                cost={item['Cost Hours']}
+                polaroidRotation={(2 + Math.random() * 4) * (i % 2 === 0 ? 1 : -1)}
+                ticketRotation={(12 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)}
+                key={i}
+                />
+            ))}
+            {/* <Powerups
               img="/arcade/Framework.png"
               text="Framework Laptop"
               subtext={
                 <>
-                  13" Model. Only available in{' '}
+                  13" Model. Available in{' '}
                   <a
                     href="https://knowledgebase.frame.work/what-countries-and-regions-do-you-ship-to-r1899ikiO"
                     target="_blank"
                     sx={{ color: 'inherit' }}
                   >
-                    certain countries
+                    certain countries.
                   </a>
                 </>
               }
@@ -1655,7 +1669,7 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [] }) => {
               polaroidRotation="-5"
               ticketRotation="12"
               one
-            />
+            /> */}
           </Grid>
           <Text
             className="gaegu"
@@ -1817,9 +1831,17 @@ export async function getStaticProps() {
       imageURL: record['Image URL'] || '',
     })).filter(item => item.imageURL !== '')
 
+  const highlightedItems = items.filter(item => [
+    'recj3qt349e2KXW6X', // framework laptop
+    'recuol7Uk5Z2sjViv', // quest 3
+    'recCeMp5iK7tRpqc3', // prusa mini
+    'rec7rzTHzjLa1ZysL' // stickers
+  ].includes(item['Record ID'])).sort((a, b) => b['Cost Hours'] - a['Cost Hours'])
+  
   return { props: {
     stickers,
     inventory: items,
+    highlightedItems, 
     carousel
   } }
 }
