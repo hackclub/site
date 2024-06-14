@@ -1831,12 +1831,7 @@ export async function getStaticProps() {
       imageURL: record['Image URL'] || '',
     })).filter(item => item.imageURL !== '')
 
-  const highlightedItems = items.filter(item => [
-    'recj3qt349e2KXW6X', // framework laptop
-    'recuol7Uk5Z2sjViv', // quest 3
-    'recCeMp5iK7tRpqc3', // prusa mini
-    'rec7rzTHzjLa1ZysL' // stickers
-  ].includes(item['Record ID'])).sort((a, b) => b['Cost Hours'] - a['Cost Hours'])
+  const highlightedItems = items.filter(item => item['Enabled Highlight']).sort((a, b) => b['Cost Hours'] - a['Cost Hours'])
   
   return { props: {
     stickers,
