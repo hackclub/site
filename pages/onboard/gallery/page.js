@@ -33,11 +33,11 @@ export default function Page({ projects, itemCount, currentPage }) {
 //   }
 // }
 
-export async function getStaticPaths(_context) {
-  const projectCount = await onboardProjectCount()
-  const pages = Math.min(5, Math.ceil(projectCount / 10))
-  const paths = Array(pages)
-    .fill()
-    .map((_, i) => ({ params: { page: (i + 1).toString() } }))
-  return { paths, fallback: 'blocking' }
-}
+// export async function getStaticPaths(_context) {
+//   const projectCount = await onboardProjectCount()
+//   const pages = Math.min(5, Math.ceil(projectCount / 10))
+//   const paths = Array(pages)
+//     .fill()
+//     .map((_, i) => ({ params: { page: (i + 1).toString() } }))
+//   return { paths, fallback: 'blocking' }
+// }
