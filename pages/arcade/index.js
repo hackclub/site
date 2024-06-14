@@ -1180,7 +1180,7 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
                 transform: 'rotate(-7deg) scale(1.1)',
                 zIndex: 10,
                 position: 'relative',
-                marginBottom: ['-240px', '-150px', '-250px', '-300px'],
+                marginBottom: ['-280px', '-320px', '-350px', '-390px'],
                 marginTop: ['120px', '120px', '120px', '150px']
               }}
             >
