@@ -560,9 +560,10 @@ const Item = ({ name, img, cost }) => {
         src={img}
         alt={name}
         sx={{
-          height: '100%',
+          maxHeight: '100%',
           width: 'auto',
           margin: 'auto',
+          maxWidth: '100%',
           position: 'relative',
           zIndex: 1
         }}
@@ -1173,7 +1174,7 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [] }) => {
                 transform: 'rotate(-7deg) scale(1.1)',
                 zIndex: 10,
                 position: 'relative',
-                marginBottom: ['-380px', '-350px', '-450px', '-500px'],
+                marginBottom: ['-180px', '-150px', '-250px', '-300px'],
                 marginTop: ['120px', '120px', '120px', '150px']
               }}
             >
