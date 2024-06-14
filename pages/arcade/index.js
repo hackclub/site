@@ -822,8 +822,8 @@ const Arcade = ({ stickers = [], inventory }) => {
       >
         {slack == 'slack' ? (
           <Announcement
-            copy="Join our special event this summer!"
-            caption="This is our summer flow for joining the Slack: Joining ARCADE."
+            copy="You were redirected as we're running a special summer event!"
+            caption="To join our Slack, join ARCADE."
             href="/arcade/"
             imgSrc="https://cloud-gyu8zgkki-hack-club-bot.vercel.app/0_______.png"
           />
