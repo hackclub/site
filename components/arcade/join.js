@@ -115,9 +115,9 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
           >
             <Flex
               sx={{
-                height: '60px',
+                height: '70px',
                 gap: '10px',
-                fontSize: ['20px', '22px', '24px'],
+                fontSize: ['18px', '20px', '22px'],
                 flexDirection: [
                   'column',
                   'column',
@@ -187,11 +187,12 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                   required
                   className="gaegu"
                   sx={{
-                    height: '60px',
+                    height: '70px',
                     pl: '10px',
                     border: '#FF5C00 2px solid',
                     color: '#FF5C00',
                     background: '#FAEFD6',
+                    width: '100%',
                     borderRadius: '5px',
                     fontSize: ['24px', '27px', '30px']
                   }}
@@ -204,7 +205,8 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                   color: '#FAEFD6',
                   borderRadius: '5px',
                   border: 'none',
-                  fontSize: ['24px', '27px', '30px'],
+                  fontSize: ['24px', '27px', '25px'],
+                  px: '20px',
                   // cursor: highschool ? 'pointer': 'not-allowed',
                   transitionDuration: '0.3s',
                   '&:hover': {
