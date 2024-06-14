@@ -751,7 +751,7 @@ function thinkingWords() {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-const Arcade = ({ stickers = [], inventory }) => {
+const Arcade = ({ stickers = [], inventory = [], carousel = [] }) => {
   const [showComponent, setShowComponent] = useState(false)
   const [showNum, setNum] = useState(false)
   const [showForm, setForm] = useState(false)
@@ -1180,13 +1180,16 @@ const Arcade = ({ stickers = [], inventory }) => {
               <Ticker speed={5}>
                 {() => (
                   <Box as="div" sx={{ display: 'flex', height: 'fit-content' }}>
-                    {inventory.map(i => (
+                    {carousel.map((item, i) => (
+                      <>
+                      <span>{console.log(item.fields)}</span>
                       <Item
-                        img={i.imageURL}
-                        cost={i.hours}
+                        img={item.imageURL}
+                        cost={item.hours}
                         key={i}
-                        name={i.name}
+                        name={item.name}
                       />
+                      </>
                     ))}
                   </Box>
                 )}
