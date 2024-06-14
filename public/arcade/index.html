@@ -105,23 +105,12 @@
           document.querySelector('.shop-dialogue').innerHTML = '...'
         }
 
-        if(urlParams.get("user")) {
-          
-          document.getElementById("order_wrapper").innerHTML = `
-          ${items[inv.name].map(subitem => {
-            return `<a href="${subitem.formURL}&user=${urlParams.get("user")}" target="_blank" style="padding: 8px; background: green; color: white; border-radius: 8px;">
-              ${items[inv.name].length > 1 ? subitem.name : "ORDER NOW"}
-            </div>`
-          }).join(" ")}
-            
-          `
-        } else {
-          document.getElementById("order_wrapper").innerHTML = `
-            <div id="order" style="padding: 8px; background: green; color: white; border-radius: 8px;">
-              VISIT YOUR SHOP TO ORDER
-            </div>
-          `
-        }
+        document.getElementById("order_wrapper").innerHTML = `
+          <div id="order" style="padding: 8px; color: white;">
+            COME BACK LATER! SHOP'S DOWN FOR MAINTENANCE
+          </div>
+        `
+
         document.getElementById("shop-counter").classList.add("ordering")
         
       }
