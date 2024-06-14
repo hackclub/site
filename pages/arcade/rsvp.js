@@ -15,9 +15,9 @@ import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../../components/arcade/footer'
 import Balancer from 'react-wrap-balancer'
 import { Fade } from 'react-reveal'
-import JSConfetti from 'js-confetti'
 import Join from '../../components/arcade/join'
 import Announcement from '../../components/announcement'
+import Link from 'next/link'
 /** @jsxImportSource theme-ui */
 
 const styled = `
@@ -372,7 +372,7 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
               width: ['90%', '70%', '50%', '360px'],
               height: '550px',
               left: ['5%', '-20px', '-20px', '-20px'],
-              bottom: ['-70px', '-60px', '-30px', '-110px'],
+              bottom: ['-70px', '-60px', '-30px', '-110px']
             }}
           >
             <Text
@@ -393,7 +393,7 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
               sx={{
                 textAlign: 'center',
                 display: 'block',
-                width: '100%',
+                width: '100%'
               }}
             >
               Click me for ideas!
@@ -1372,25 +1372,25 @@ const Arcade = ({ stickers = [], inventory }) => {
               text={
                 <ul>
                   <li>
-                    <a href="https://boba.hackclub.com/">
+                    <Link href="https://boba.hackclub.com/" target="_blank">
                       Boba drops: Build a website, get boba!
-                    </a>
+                    </Link>
                   </li>
                   <li>Wizard Orpheus: Build a text-based game with AI</li>
                   <li>
-                    <a href="/bin">
+                    <Link href="/bin" target="_blank">
                       The Bin: Build an online circuit, get the parts for free!
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/sprig">
+                    <Link href="/sprig" target="_blank">
                       Sprig: Build a JS game, play it on your own console
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="/onboard">
+                    <Link href="/onboard" target="_blank">
                       OnBoard: Design a PCB, get a $100 grant
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a href="https://blot.hackclub.com/">
