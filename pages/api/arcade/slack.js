@@ -22,7 +22,7 @@ async function inviteToAirtable({ email, ip }) {
   //   tableName: 'Arcade Joins' // prod
   tableName: 'Main' // waitlist
   })
-  return await airtable.create({ Email: email, IP: ip })
+  return await airtable.create({ email: email, ip: ip, Status: "Waitlist" })
 }
 
 export default async function handler(req, res) {
