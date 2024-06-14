@@ -260,7 +260,7 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
       }}
       {...props}
     >
-      <Text variant="title" className="gaegu" sx={{ display: 'block' }}>
+      <Text variant="title" className="gaegu" sx={{ display: 'block', width: third == "true" ? ['100%', '100%', '100%', '70%'] : '100%' }}>
         {title}
       </Text>
       <Text
@@ -289,19 +289,6 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
       >
         {num}
       </Text>
-      {third == 'true' ? (
-        <img
-          src={img}
-          alt="Dino drawing"
-          sx={{
-            width: ['45%', '250px', '60%', '80%'],
-            maxWidth: '300px',
-            position: 'absolute',
-            right: ['-40px', '-60px', '-50px', '-50px'],
-            bottom: ['-40px', '-50px', '-50px', '-65px']
-          }}
-        />
-      ) : (
         <img
           src={img}
           alt="Dino drawing"
@@ -313,7 +300,6 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
             bottom: '0'
           }}
         />
-      )}
     </Box>
   )
 }
@@ -1133,7 +1119,7 @@ const Arcade = ({ stickers = [], inventory }) => {
                 text="Use your tickets to buy prizes for your next project! Such as Arduino kits, drawing tablets, and more!"
                 num="3"
                 img="/arcade/o7.png"
-                // third="true"
+                third="true"
               />
               <img
                 src="/arcade/a3.png"
