@@ -203,6 +203,12 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
+	  <Announcement
+            copy="Build in public this summer!"
+            caption="Get domains, breadboards & multimeters, and drawing tablets."
+            href="/arcade/"
+            imgSrc="https://cloud-gyu8zgkki-hack-club-bot.vercel.app/0_______.png"
+          />
           <Box
             sx={{
               width: '90vw',
