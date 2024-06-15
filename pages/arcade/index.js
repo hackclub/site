@@ -1363,39 +1363,43 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
                 <ul>
                   <li>
                     <Link href="https://boba.hackclub.com/" target="_blank">
-                      Boba drops: Build a website, get boba!
-                    </Link>
+                      Boba drops:
+                    </Link> Build a website, get boba!
                   </li>
-                  <li>Wizard Orpheus: Build a text-based game with AI</li>
+                  <li>
+                    <Link href="https://jams.hackclub.com/jam/wizard-orpheus" target="_blank">
+                      Wizard Orpheus:
+                    </Link> Build a text-based game with AI
+                  </li>
                   <li>
                     <Link href="/bin" target="_blank">
-                      The Bin: Build an online circuit, get the parts for free!
-                    </Link>
+                      The Bin:
+                    </Link> Build an online circuit, get the parts for free!
                   </li>
                   <li>
                     <Link href="/sprig" target="_blank">
-                      Sprig: Build a JS game, play it on your own console
-                    </Link>
+                      Sprig:
+                    </Link> Build a JS game, play it on your own console
                   </li>
                   <li>
                     <Link href="/onboard" target="_blank">
-                      OnBoard: Design a PCB, get a $100 grant
-                    </Link>
+                      OnBoard:
+                    </Link> Design a PCB, get a $100 grant
                   </li>
                   <li>
                     <a href="https://blot.hackclub.com/">
-                      Blot: Write code. Make art. Get a drawing machine.
-                    </a>
+                      Blot:
+                    </a> Write code. Make art. Get a drawing machine.
                   </li>
                   <li>
                     <a href="https://cider.hackclub.com">
-                      Cider: Make a mobile app, get an Apple Developer account
-                    </a>
+                      Cider:
+                    </a> Make a mobile app, get an Apple Developer account
                   </li>
                   <li>
                     <a href="https://easel.hackclub.com/orpheus-finds-easel">
-                      Easel: Write a programming language, receive fudge!
-                    </a>
+                      Easel:
+                    </a> Write a programming language, receive fudge!
                   </li>
                 </ul>
               }
