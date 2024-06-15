@@ -12,7 +12,7 @@ export const shopParts = async () => {
 }
 
 export default async function handler(req, res) {
-  const data = await inventoryParts()
+  const data = await shopParts()
 
   const filteredData = data.filter(record => record["Enabled"]).map(record => {
     return {
