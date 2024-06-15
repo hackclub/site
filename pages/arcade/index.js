@@ -1579,6 +1579,7 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
                 text={item['Name']}
                 subtext={item['Small Name']}
                 cost={item['Cost Hours']}
+                alt={item['Name']}
                 polaroidRotation={(2 + Math.random() * 4) * (i % 2 === 0 ? 1 : -1)}
                 ticketRotation={(12 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)}
                 key={i}
