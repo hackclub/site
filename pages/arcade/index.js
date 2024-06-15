@@ -1,15 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
-import { Box, Button, Text, Flex, Grid, Card } from 'theme-ui'
+import { Box, Text, Flex, Grid, Card, Close, Divider } from 'theme-ui'
 import Image from 'next/image'
 import fs from 'fs'
 import path from 'path'
 import { startCase } from 'lodash'
 import Projects from '../../components/arcade/projects'
-import { Howl, Howler } from 'howler'
+import { Howl } from 'howler'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../../components/arcade/footer'
@@ -76,7 +76,6 @@ body, html {
  body {
     background-color: #FAEFD6;
  }
-
   
  /* CSS from https://codepen.io/quadbaup/details/rKOKQv */
 .thought {
@@ -180,11 +179,19 @@ const Powerups = ({
   img,
   text,
   subtext,
+  fullName,
   cost,
+  description,
+  fulfillmentDescription,
   polaroidRotation,
   ticketRotation,
+  extraTags,
   ...props
 }) => {
+  const parsedFulfillmentDesc = fulfillmentDescription?.replace(
+    /\[(.*?)\]\((.*?)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+  )
   return (
     <Flex
       sx={{
@@ -209,19 +216,33 @@ const Powerups = ({
           alignItems: 'center'
         }}
       >
-        <img src={img} sx={{ width: '100%', height: 'auto' }} />
+        <img src={img} sx={{ width: '100%', height: 'auto' }} alt={text} />
       </Flex>
-      <Text className="slackey" variant="headline" sx={{ color: '#FFEEC6' }}>
-        {text}
-      </Text>
-      <Text className="" variant="subtitle" sx={{ color: '#FFEEC6' }}>
-        {text}
-      </Text>
-      <Balancer>
-        <Text variant="caption" sx={{ color: '#FFEEC6' }}>
+      <Flex
+        sx={{
+          marginTop: '20px',
+          flexDirection: 'column'
+        }}
+      >
+        <Text
+          className="slackey"
+          variant="headline"
+          sx={{ color: '#FFEEC6', zIndex: 500 }}
+        >
+          {text}
+        </Text>
+        <Text
+          variant="subtitle"
+          sx={{
+            color: '#FFEEC6',
+            position: 'absolute',
+            bottom: '15px',
+            right: '25px'
+          }}
+        >
           {subtext}
         </Text>
-      </Balancer>
+      </Flex>
       <Text
         sx={{
           background: '#FF8C37',
@@ -230,6 +251,7 @@ const Powerups = ({
           position: 'absolute',
           top: '-10px',
           right: '-12px',
+          zIndex: 2,
           transform: `rotate(${ticketRotation}deg)`
         }}
         variant="headline"
@@ -237,6 +259,133 @@ const Powerups = ({
       >
         {cost} {cost == 1 ? 'ticket' : 'tickets'}
       </Text>
+      {extraTags?.map((tag, i) => (
+        <>
+          {tag == 'Limited Supply' && (
+            <Text
+              key={tag}
+              sx={{
+                background: '#CC6CE7',
+                px: '20px',
+                color: '#FFEEC6',
+                position: 'absolute',
+                top: '-15px',
+                left: '-12px',
+                zIndex: 1,
+                transform: `rotate(${ticketRotation}deg)`
+              }}
+              variant="headline"
+              className="gaegu"
+            >
+              Limited!
+            </Text>
+          )}
+        </>
+      ))}
+      <Text
+        variant="headline"
+        sx={{
+          position: 'absolute',
+          bottom: '-25px',
+          right: '-10px',
+          color: '#FFEEC6',
+          '&:hover': {
+            cursor: 'pointer'
+          }
+        }}
+        onClick={() => {
+          document.getElementById(`${text}-info`).showModal()
+        }}
+      >
+        📦
+      </Text>
+      <dialog
+        id={`${text}-info`}
+        sx={{
+          background: '#09AFB4',
+          borderRadius: '10px',
+          flexDirection: 'column',
+          padding: '30px',
+
+          border: 'none',
+          scrollbarWidth: 'none',
+          maxWidth: '400px',
+          '@media (max-width: 400px)': {
+            maxWidth: '300px'
+          }
+        }}
+      >
+        <Close
+          sx={{
+            '&:hover': { cursor: 'pointer' },
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            zIndex: 2
+          }}
+          onClick={() => {
+            document.getElementById(`${text}-info`).close()
+          }}
+        />
+        <Flex
+          sx={{
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '10px'
+          }}
+        >
+          <img
+            src={img}
+            sx={{ maxWidth: '360px', maxHeight: '250px' }}
+            alt={text}
+          />
+          <Balancer>
+            <Text
+              className="slackey"
+              variant="headline"
+              sx={{ color: '#FFEEC6' }}
+            >
+              {fullName}
+            </Text>
+          </Balancer>
+          <Balancer></Balancer>
+          <Divider
+            sx={{
+              width: '50%',
+              background: '#FFEEC6',
+              height: '2px',
+              border: 'none',
+              margin: '10px 0'
+            }}
+          />
+          <Balancer>
+            <Text variant="subtitle" sx={{ color: '#FFEEC6' }}>
+              {description}
+            </Text>
+          </Balancer>
+          <Text
+            variant="subtitle"
+            sx={{ color: '#FFEEC6', fontStyle: 'italic' }}
+            dangerouslySetInnerHTML={{ __html: parsedFulfillmentDesc }}
+          ></Text>
+        </Flex>
+        <Text
+          sx={{
+            background: '#FF8C37',
+            px: '20px',
+            color: '#FFEEC6',
+            position: 'absolute',
+            top: '40px',
+            right: '12px',
+            transform: `rotate(${ticketRotation}deg)`
+          }}
+          variant="headline"
+          className="gaegu"
+        >
+          {cost} {cost == 1 ? 'ticket' : 'tickets'}
+        </Text>
+      </dialog>
     </Flex>
   )
 }
@@ -253,7 +402,14 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
       }}
       {...props}
     >
-      <Text variant="title" className="gaegu" sx={{ display: 'block', width: third == "true" ? ['100%', '100%', '100%', '70%'] : '100%' }}>
+      <Text
+        variant="title"
+        className="gaegu"
+        sx={{
+          display: 'block',
+          width: third == 'true' ? ['100%', '100%', '100%', '70%'] : '100%'
+        }}
+      >
         {title}
       </Text>
       <Text
@@ -282,17 +438,17 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
       >
         {num}
       </Text>
-        <img
-          src={img}
-          alt="Dino drawing"
-          sx={{
-            width: ['35%', '35%', '35%', '50%'],
-            maxWidth: '210px',
-            position: 'absolute',
-            right: '-20px',
-            bottom: '0'
-          }}
-        />
+      <img
+        src={img}
+        alt="Dino drawing"
+        sx={{
+          width: ['35%', '35%', '35%', '50%'],
+          maxWidth: '210px',
+          position: 'absolute',
+          right: '-20px',
+          bottom: '0'
+        }}
+      />
     </Box>
   )
 }
@@ -736,12 +892,17 @@ function thinkingWords() {
     'contemplatosaurus',
     'dinosaur brain activated',
     'thinking about trash',
-    'rummaging through my thoughts',
+    'rummaging through my thoughts'
   ]
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems = [] }) => {
+const Arcade = ({
+  stickers = [],
+  inventory = [],
+  carousel = [],
+  highlightedItems = []
+}) => {
   const [showComponent, setShowComponent] = useState(false)
   const [showNum, setNum] = useState(false)
   const [showForm, setForm] = useState(false)
@@ -1134,7 +1295,7 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
               display: ['block', 'block', 'none', 'none'],
               mt: '30px',
               mb: '20px',
-              'img': {
+              img: {
                 position: 'absolute',
                 bottom: '-10px',
                 maxWidth: '300px',
@@ -1178,13 +1339,13 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
                   <Box as="div" sx={{ display: 'flex', height: 'fit-content' }}>
                     {carousel.map((item, i) => (
                       <>
-                      <span>{console.log(item.fields)}</span>
-                      <Item
-                        img={item.imageURL}
-                        cost={item.hours}
-                        key={i}
-                        name={item.name}
-                      />
+                        <span>{console.log(item.fields)}</span>
+                        <Item
+                          img={item.imageURL}
+                          cost={item.hours}
+                          key={i}
+                          name={item.name}
+                        />
                       </>
                     ))}
                   </Box>
@@ -1308,24 +1469,6 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
             </Text>{' '}
             make this summer?
           </Text>
-          <Box sx={{ textAlign: 'center', width: '100%' }}>
-            <Text
-              variant="subtitle"
-              sx={{
-                display: 'block',
-                color: '#35290F',
-                bg: '#FAEFD6',
-                width: 'fit-content',
-                px: '3px',
-                py: '5px',
-                borderRadius: '2px',
-                margin: 'auto',
-                mt: 4
-              }}
-            >
-              1 hour spent making = 1 ticket
-            </Text>
-          </Box>
           <Grid
             sx={{
               gridTemplateColumns: [
@@ -1364,42 +1507,49 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
                   <li>
                     <Link href="https://boba.hackclub.com/" target="_blank">
                       Boba drops:
-                    </Link> Build a website, get boba!
+                    </Link>{' '}
+                    Build a website, get boba!
                   </li>
                   <li>
-                    <Link href="https://jams.hackclub.com/jam/wizard-orpheus" target="_blank">
+                    <Link
+                      href="https://jams.hackclub.com/jam/wizard-orpheus"
+                      target="_blank"
+                    >
                       Wizard Orpheus:
-                    </Link> Build a text-based game with AI
+                    </Link>{' '}
+                    Build a text-based game with AI
                   </li>
                   <li>
                     <Link href="/bin" target="_blank">
                       The Bin:
-                    </Link> Build an online circuit, get the parts for free!
+                    </Link>{' '}
+                    Build an online circuit, get the parts for free!
                   </li>
                   <li>
                     <Link href="/sprig" target="_blank">
                       Sprig:
-                    </Link> Build a JS game, play it on your own console
+                    </Link>{' '}
+                    Build a JS game, play it on your own console
                   </li>
                   <li>
                     <Link href="/onboard" target="_blank">
                       OnBoard:
-                    </Link> Design a PCB, get a $100 grant
+                    </Link>{' '}
+                    Design a PCB, get a $100 grant
                   </li>
                   <li>
-                    <a href="https://blot.hackclub.com/">
-                      Blot:
-                    </a> Write code. Make art. Get a drawing machine.
+                    <a href="https://blot.hackclub.com/">Blot:</a> Write code.
+                    Make art. Get a drawing machine.
                   </li>
                   <li>
-                    <a href="https://cider.hackclub.com">
-                      Cider:
-                    </a> Make a mobile app, get an Apple Developer account
+                    <a href="https://cider.hackclub.com">Cider:</a> Make a
+                    mobile app, get an Apple Developer account
                   </li>
                   <li>
                     <a href="https://easel.hackclub.com/orpheus-finds-easel">
                       Easel:
-                    </a> Write a programming language, receive fudge!
+                    </a>{' '}
+                    Write a programming language, receive fudge!
                   </li>
                 </ul>
               }
@@ -1563,7 +1713,7 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
             sx={{
               pt: '50px',
               gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr', '1fr 1fr 1fr'],
-              gap: '50px',
+              gap: '50px'
             }}
           >
             {highlightedItems.map((item, i) => (
@@ -1571,12 +1721,19 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
                 img={item['Image URL']}
                 text={item['Name']}
                 subtext={item['Small Name']}
+                fullName={item['Full Name']}
                 cost={item['Cost Hours']}
-                alt={item['Name']}
-                polaroidRotation={(2 + Math.random() * 4) * (i % 2 === 0 ? 1 : -1)}
-                ticketRotation={(12 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)}
+                description={item['Description']}
+                fulfillmentDescription={item['Fulfillment Description']}
+                extraTags={item['Extra tags']}
+                polaroidRotation={
+                  (2 + Math.random() * 4) * (i % 2 === 0 ? 1 : -1)
+                }
+                ticketRotation={
+                  (12 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
+                }
                 key={i}
-                />
+              />
             ))}
           </Grid>
           <Text
@@ -1719,7 +1876,6 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
               formSent={formSent}
               setFormSent={setFormSent}
               last
-
             />
           </Flex>
           <img
@@ -1750,17 +1906,24 @@ export async function getStaticProps() {
     .filter(sticker => sticker !== 'hero.jpg')
 
   const items = await shopParts()
-  const carousel = items.filter(item => item['Enabled Carousel']).map(record => ({
+  const carousel = items
+    .filter(item => item['Enabled Carousel'])
+    .map(record => ({
       hours: record['Cost Hours'] || 0,
-      imageURL: record['Image URL'] || '',
-    })).filter(item => item.imageURL !== '')
+      imageURL: record['Image URL'] || ''
+    }))
+    .filter(item => item.imageURL !== '')
 
-  const highlightedItems = items.filter(item => item['Enabled Highlight']).sort((a, b) => Math.random() - 0.5 > 0)
-  
-  return { props: {
-    stickers,
-    inventory: items,
-    highlightedItems, 
-    carousel
-  } }
+  const highlightedItems = items
+    .filter(item => item['Enabled Highlight'])
+    .sort((a, b) => Math.random() - 0.5 > 0)
+
+  return {
+    props: {
+      stickers,
+      inventory: items,
+      highlightedItems,
+      carousel
+    }
+  }
 }
