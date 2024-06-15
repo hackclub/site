@@ -1652,15 +1652,15 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
               />
               <FAQ
                 question="Who is eligible?"
-                answer="You need to be a high schooler (or younger) in the United States."
+                answer="You need to be a high schooler (or younger). You just need a GitHub accound & a Slack account to participate. Different prizes have different country restrictions."
               />
               <FAQ
                 question="How much does it cost?"
-                answer="100% free– we’ll also give a breadboard and the jumper wires you need to build your project too! The whole program is funded by donations to a non-profit."
+                answer="100% free– all the prizes are donated to us or paid for by us! Some shipments may have customs charges that we can't cover depending on your country."
               />
               <FAQ
                 question="I need help!"
-                answer="Get it in the #arcade channel of the Hack Club Slack."
+                answer="Get it in the #arcade channel of the Hack Club Slack. If not in the slack, reach out to arcade@hackclub.com"
               />
             </Grid>
           </Box>
