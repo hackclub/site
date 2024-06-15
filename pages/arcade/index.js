@@ -1647,12 +1647,16 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
               }}
             >
               <FAQ
-                question="How many projects can I build?"
-                answer="You can submit as many projects as you make. We just count the hours!"
-              />
-              <FAQ
                 question="Who is eligible?"
                 answer="You need to be a high schooler (or younger). You just need a GitHub accound & a Slack account to participate. Different prizes have different country restrictions."
+              />
+              <FAQ
+                question="What types of projects count?"
+                answer="Projects need to be open source (ie. linked to a GitHub repo) & have a way for people to experience it (ie. a game, a website, etc). At the end, each 'scrap' of your project will be put together in a timeline, so make sure to document your progress!"
+              />
+              <FAQ
+                question="How many projects can I build?"
+                answer="You can submit as many projects as you make. We just count the hours!"
               />
               <FAQ
                 question="How much does it cost?"
@@ -1661,6 +1665,18 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
               <FAQ
                 question="I need help!"
                 answer="Get it in the #arcade channel of the Hack Club Slack. If not in the slack, reach out to arcade@hackclub.com"
+              />
+              <FAQ
+                question="My hours aren't counted!"
+                answer="We have human review on all your amazing work! Your 'scraps' may take a few days to review, but we'll get to it."
+              />
+              <FAQ
+                question="Does a team project count?"
+                answer="We count the hours of work you put in, so make sure to post 'scraps' of your work & show that it was you doing the work."
+              />
+              <FAQ
+                question="What about school work or a job?"
+                answer="The arcade is about the joy of building for the sake of building. If you're building something for school or work we can't count it."
               />
             </Grid>
           </Box>
