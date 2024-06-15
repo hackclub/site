@@ -1570,7 +1570,7 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
             sx={{
               pt: '50px',
               gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr', '1fr 1fr 1fr'],
-              gap: '50px'
+              gap: '50px',
             }}
           >
             {highlightedItems.map((item, i) => (
@@ -1584,98 +1584,6 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
                 key={i}
                 />
             ))}
-            {/* <Powerups
-              img="/arcade/Framework.png"
-              text="Framework Laptop"
-              subtext={
-                <>
-                  13" Model. Available in{' '}
-                  <a
-                    href="https://knowledgebase.frame.work/what-countries-and-regions-do-you-ship-to-r1899ikiO"
-                    target="_blank"
-                    sx={{ color: 'inherit' }}
-                  >
-                    certain countries.
-                  </a>
-                </>
-              }
-              cost="500"
-              polaroidRotation="-2"
-              ticketRotation="6"
-              sx={{
-                img: {
-                  width: '80%'
-                }
-              }}
-            />
-            <Powerups
-              img="/arcade/Quest.png"
-              text="Quest 3"
-              subtext="128GB Version"
-              cost="350"
-              polaroidRotation="4"
-              ticketRotation="-6"
-            />
-            <Powerups
-              img="/arcade/Prusa.png"
-              text="Prusa MINI+"
-              cost="350"
-              polaroidRotation="-3"
-              ticketRotation="-12"
-            />
-            <Powerups
-              img="/arcade/Flipper.png"
-              text="Flipper Zero"
-              subtext="Only where Flipper Zero is legal"
-              cost="70"
-              polaroidRotation="-2"
-              ticketRotation="12"
-            />
-            <Powerups
-              img="/arcade/Yubikey.png"
-              text="YubiKey"
-              subtext="5C NFC"
-              cost="20"
-              polaroidRotation="-7"
-              ticketRotation="3"
-              sx={{
-                img: { width: '80%' }
-              }}
-            />
-            <Powerups
-              img="/arcade/Soldering.png"
-              text="Pinecil"
-              subtext="5C NFC"
-              cost="20"
-              polaroidRotation="5"
-              ticketRotation="-14"
-              sx={{
-                img: { width: '80%' }
-              }}
-            />
-            <Powerups
-              img="https://cloud-4bmzydly5-hack-club-bot.vercel.app/0image.png"
-              text="Free domain"
-              subtext="For 2 years!"
-              cost="8"
-              polaroidRotation="-9"
-              ticketRotation="4"
-            />
-            <Powerups
-              img="/arcade/Logic.png"
-              text="Logic Analyzer"
-              cost="4"
-              polaroidRotation="3"
-              ticketRotation="-4"
-            />
-            <Powerups
-              img="/arcade/Sticker.png"
-              text="Stickers (3)"
-              cost="2"
-              polaroidRotation="-5"
-              ticketRotation="12"
-              one
-            /> */}
           </Grid>
           <Text
             className="gaegu"
@@ -1837,7 +1745,7 @@ export async function getStaticProps() {
       imageURL: record['Image URL'] || '',
     })).filter(item => item.imageURL !== '')
 
-  const highlightedItems = items.filter(item => item['Enabled Highlight']).sort((a, b) => b['Cost Hours'] - a['Cost Hours'])
+  const highlightedItems = items.filter(item => item['Enabled Highlight']).sort((a, b) => Math.random() - 0.5 > 0)
   
   return { props: {
     stickers,
