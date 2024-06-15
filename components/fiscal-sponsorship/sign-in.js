@@ -9,7 +9,7 @@ export default function SignIn() {
 
   useEffect(() => {
     ;(async () => {
-      const _user = await fetch('http://localhost:3000/api/current_user', {
+      const _user = await fetch('https://hcb.hackclub.com/api/current_user', {
         credentials: 'include'
       })
         .then(r => (r.ok ? r.json() : null))
