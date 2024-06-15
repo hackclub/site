@@ -17,7 +17,7 @@ export default function ShopComponent({ availableItems, userAirtableID = null })
             )}
             <h2>{item['Name']}</h2>
             <p>{item['Description']}</p>
-            <p>{item['Price']} coins</p>
+            <p>{item['Cost Hours']} 🎟️</p>
           </li>
         ))}
       </ul>
