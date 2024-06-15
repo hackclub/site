@@ -129,17 +129,6 @@ body, html {
 #generate-project-idea {
   margin-top: -100px;
 }
-.css-vrrmew-Box {
-  color: #5E3414 !important;
-}
-
-.css-cysksd {
-  color: #5E3414 !important;
-}
-
-.css-k3i0c5 {
-  color: #5E3414 !important;
-}
 
 .talking {
   animation: talking 1s infinite;
