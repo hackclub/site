@@ -1547,14 +1547,14 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
             Redeem these with your tickets! For high schoolers (or younger)
             only.
           </Text>
-          <Text
+          {/* <Text
             variant="caption"
             className="gaegu"
             sx={{ mt: 2, display: 'block' }}
           >
             All physical items only fulfillable where Amazon can be shipped
             unless otherwise stated.
-          </Text>
+          </Text> */}
           <Grid
             sx={{
               pt: '50px',
