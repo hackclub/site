@@ -1594,7 +1594,7 @@ const Arcade = ({ stickers = [], inventory = [], carousel = [], highlightedItems
             >
               sneak peek
             </Text>
-            ...new items added over the summer!{' '}
+            ...new items will be added over the summer!{' '}
           </Text>
         </Box>
         <Box
