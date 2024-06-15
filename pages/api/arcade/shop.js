@@ -8,7 +8,7 @@ export const shopParts = async () => {
   })
 
   const records = await airtable.read()
-  return records.map(record => record.fields)
+  return records.map(record => ({id: record.id, ...record.fields}))
 }
 
 export default async function handler(req, res) {
