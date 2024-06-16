@@ -1,69 +1,67 @@
-import { inventoryParts } from "../api/arcade/inventory"
-import { Box } from 'theme-ui'
+import { inventoryParts } from '../api/arcade/inventory'
+import { Box, Grid } from 'theme-ui'
+import Prizes from '../../components/arcade/prizes'
+const styled = `
+@import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
 
+.slackey {
+  font-family: "Slackey", sans-serif;
+ }
+
+ .gaegu {
+  font-family: "Gaegu", sans-serif;
+}
+
+`
 /** @jsxImportSource theme-ui */
 
-const ShopPage = ({parts}) => {
+const ShopPage = ({ parts }) => {
   return (
-    <div>
-      
-        <h1 sx={
-          {textAlign: 'center',
-            fontSize: 5,
-            color: 'primary'
-          }
-        }>Shop</h1>
+    <div
+      sx={{
+        backgroundColor: '#FAEFD6'
+      }}
+    >
+      <h1
+        sx={{
+          textAlign: 'center',
+          fontSize: 5,
+          color: '#FF8C37',
+          mt: 0,
+          pt: 5
+        }}
+        className="slackey"
+      >
+        Shop
+      </h1>
 
-        <ul>
-
-          <Box sx={
-            {display: 'flex',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-            }
-          }>
-          
-          {parts.map(part => (
-
-                    <Box sx={
-              {maxWidth: '800px',
-                mx: 'auto',
-                minHeight: '300px',
-                justifyContent: 'space-around',
-                width: '230px',
-
+        <Grid
+          sx={{
+            pt: '50px',
+            gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr', '1fr 1fr 1fr'],
+            gap: '50px',
+            maxWidth: '1000px',
+            width: '90vw',
+            margin: 'auto'
+          }}
+        >
+          {parts.map((part, i) => (
+            <Prizes
+              img={part.fields['Image URL']}
+              text={part.fields['Name']}
+              subtext={part.fields['Name Small Text']}
+              cost={part.fields['Hours']}
+              polaroidRotation={
+                (2 + Math.random() * 4) * (i % 2 === 0 ? 1 : -1)
               }
-          }>
-            <li key={part.id}>
-              <h2>{part.fields['Name']}</h2>
-              <p sx={
-                {position: 'relative',
-                  top: '-1rem',
-                  fontSize: 2,
-                  color: 'secondary',
-                mt: '0',
-                mb: '-10px',}
-              }>{part.fields['Name Small Text']}</p>
-              <p sx={
-                {mt: '0',
-                  fontSize: 1,
-                  color: 'primary',}
-              }>Hours: {part.fields['Hours']}</p>
-              <img src={part.fields['Image URL']} alt={part.fields['Name']} sx={
-                {
-                  width: 100,
-                  height: 100,
-                }
-              }/>
-            </li>
-          </Box>
-
+              ticketRotation={
+                (12 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
+              }
+              key={part.id}
+            />
           ))}
-          
-          </Box>
-        </ul>
-      
+        </Grid>
+      <style>{styled}</style>
     </div>
   )
 }
