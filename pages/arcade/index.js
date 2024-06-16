@@ -1804,7 +1804,7 @@ const Arcade = ({
             >
               <FAQ
                 question="Who is eligible?"
-                answer="You need to be a high schooler (or younger). You just need a GitHub accound & a Slack account to participate. Different prizes have different country restrictions."
+                answer="You need to be a high schooler (or younger). You just need a GitHub account & a Slack account to participate. Different prizes have different country restrictions."
               />
               <FAQ
                 question="What types of projects count?"
@@ -1816,7 +1816,7 @@ const Arcade = ({
               />
               <FAQ
                 question="How much does it cost?"
-                answer="100% free– all the prizes are donated to us or paid for by us! Some shipments may have customs charges that we can't cover depending on your country."
+                answer="100% free – all the prizes are donated to us or paid for by us! Some shipments may have customs charges that we can't cover depending on your country."
               />
               <FAQ
                 question="I need help!"
