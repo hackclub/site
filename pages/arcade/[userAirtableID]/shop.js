@@ -28,7 +28,12 @@ export async function getStaticProps({params}) {
 
   await Promise.all([
     shopParts().then(items => {
-      const availableItems = items.filter(item => item['Enabled'])
+      const availableItems = items.filter(item => item['Enabled']).map(item => ({
+        'Name': item['Name'] || null,
+        'Description': item['Description'] || null,
+        'Cost Hours': item['Cost Hours'] || 0,
+        id: item.id
+      }))
       props.availableItems = availableItems
     }),
     getArcadeUser(userAirtableID).then(user => {
