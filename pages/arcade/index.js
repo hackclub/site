@@ -899,7 +899,6 @@ function thinkingWords() {
 
 const Arcade = ({
   stickers = [],
-  inventory = [],
   carousel = [],
   highlightedItems = []
 }) => {
@@ -1906,6 +1905,7 @@ export async function getStaticProps() {
     .filter(sticker => sticker !== 'hero.jpg')
 
   const items = await shopParts()
+
   const carousel = items
     .filter(item => item['Enabled Carousel'])
     .map(record => ({
@@ -1921,7 +1921,6 @@ export async function getStaticProps() {
   return {
     props: {
       stickers,
-      inventory: items,
       highlightedItems,
       carousel
     }
