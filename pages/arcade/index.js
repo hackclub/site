@@ -1905,7 +1905,7 @@ export async function getStaticProps() {
     .filter(sticker => sticker !== 'hero.jpg')
 
   const items = await shopParts()
-
+  
   const carousel = items
     .filter(item => item['Enabled Carousel'])
     .map(record => ({
