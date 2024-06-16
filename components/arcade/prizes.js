@@ -38,7 +38,7 @@ const Prizes = ({
             alignItems: 'center'
           }}
         >
-          <img src={img} sx={{ width: '100%', height: 'auto', maxWidth: '300px' }} />
+          <img src={img} sx={{ height: 'auto', maxWidth: '300px', maxHeight: '250px' }} />
         </Flex>
         <Text className="slackey" variant="headline" sx={{ color: '#FFEEC6' }}>
           {text}
