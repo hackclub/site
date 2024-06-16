@@ -14,7 +14,6 @@ const Prizes = ({
   ...props
 }) => {
   return (
-    <Link href={link ? link : ""} target="_blank" sx={{ textDecoration: 'none' }}>
       <Flex
         sx={{
           background: '#09AFB4',
@@ -38,19 +37,20 @@ const Prizes = ({
             alignItems: 'center'
           }}
         >
-          <img src={img} sx={{ height: 'auto', maxWidth: '300px', maxHeight: '250px' }} alt={text} />
+          <img src={img} sx={{ height: 'auto', maxWidth: '280px', maxHeight: '250px' }} alt={text} />
         </Flex>
         <Text className="slackey" variant="headline" sx={{ color: '#FFEEC6' }}>
           {text}
         </Text>
-        <Text className="" variant="subtitle" sx={{ color: '#FFEEC6' }}>
+        {/* <Text className="" variant="subtitle" sx={{ color: '#FFEEC6' }}>
           {text}
-        </Text>
+        </Text> */}
         <Balancer>
           <Text variant="caption" sx={{ color: '#FFEEC6' }}>
             {subtext}
           </Text>
         </Balancer>
+        {link ? <Button sx={{borderRadius: '10px', color: '#FFEEC6', backgroundColor: '#09878b', width: 'fit-content'}} as='a' href={link} className='gaegu'>Buy</Button>:<></>}
         <Text
           sx={{
             background: '#FF8C37',
@@ -67,7 +67,6 @@ const Prizes = ({
           {cost} {cost == 1 ? 'ticket' : 'tickets'}
         </Text>
       </Flex>
-    </Link>
   )
 }
 

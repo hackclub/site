@@ -37,15 +37,13 @@ export default function ShopComponent({
 
   return (
     <>
-    <Balancer>
       <Text
         sx={{ display: 'block', textAlign: 'center', color: '#35290F', textDecoration: 'underline', width: '90vw', margin: 'auto', color: '#09AFB4' }}
         className="gaegu"
         variant="subtitle"
       >
-        Shop for {userAirtableID}. Click on item to buy!
+        Shop for {userAirtableID}
       </Text>
-      </Balancer>
       {/* {hoursBalance !== null && (
         <span>
           You currently have {hoursBalance} 🎟️ tickets! Click on item to buy!
@@ -73,7 +71,7 @@ export default function ShopComponent({
                 (2 + Math.random() * 4) * (i % 2 === 0 ? 1 : -1)
               }
               ticketRotation={
-                (12 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
+                (5 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
               }
               link={buyLink(item.id)}
               key={item.id}
