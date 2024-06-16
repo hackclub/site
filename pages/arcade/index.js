@@ -1904,16 +1904,27 @@ export async function getStaticProps() {
   const items = await shopParts()
   
   const carousel = items
-    .filter(item => item['Enabled Carousel'])
     .map(record => ({
       hours: record['Cost Hours'] || 0,
-      imageURL: record['Image URL'] || ''
+      imageURL: record['Image URL'] || '',
+      enabledCarousel: record['Enabled Carousel'] || false,
     }))
+    .filter(item => item.enabledCarousel)
     .filter(item => item.imageURL !== '')
 
   const highlightedItems = items
     .filter(item => item['Enabled Highlight'])
-    .sort((a, b) => Math.random() - 0.5 > 0)
+    .sort((_a, _b) => Math.random() - 0.5 > 0)
+    .map(record => ({
+      // id: record['ID'],
+      'Image URL': record['Image URL'] || null,
+      'Name': record['Name'] || null,
+      'Small Name': record['Small Name'] || null,
+      'Cost Hours': record['Cost Hours'] || null,
+      'Description': record['Description'] || null,
+      'Fulfillment Description': record['Fulfillment Description'] || null,
+      'Extra tags': record['Extra tags'] || []
+    }))
 
   return {
     props: {
