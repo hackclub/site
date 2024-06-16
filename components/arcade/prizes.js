@@ -64,7 +64,7 @@ const Prizes = ({
           variant="headline"
           className="gaegu"
         >
-          {cost} {cost == 1 ? 'ticket' : 'tickets'}
+          {cost} {link ? '🎟️' : cost == 1 ? 'ticket' : 'tickets'}
         </Text>
       </Flex>
   )
