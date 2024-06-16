@@ -259,9 +259,9 @@ const Powerups = ({
       >
         {cost} {cost == 1 ? 'ticket' : 'tickets'}
       </Text>
-      {extraTags?.map((tag, i) => (
-        <>
-          {tag == 'Limited Supply' && (
+      {extraTags?.map((tag, i) => {
+        if (tag == 'Limited Supply') {
+          return (
             <Text
               key={tag}
               sx={{
@@ -279,9 +279,9 @@ const Powerups = ({
             >
               Limited!
             </Text>
-          )}
-        </>
-      ))}
+          )
+        }
+      })}
       <Text
         variant="headline"
         sx={{
@@ -1338,15 +1338,12 @@ const Arcade = ({
                 {() => (
                   <Box as="div" sx={{ display: 'flex', height: 'fit-content' }}>
                     {carousel.map((item, i) => (
-                      <>
-                        <span>{console.log(item.fields)}</span>
-                        <Item
-                          img={item.imageURL}
-                          cost={item.hours}
-                          key={i}
-                          name={item.name}
-                        />
-                      </>
+                      <Item
+                        img={item.imageURL}
+                        cost={item.hours}
+                        key={i}
+                        name={item.name}
+                      />
                     ))}
                   </Box>
                 )}
