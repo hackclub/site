@@ -56,10 +56,10 @@ const ShopPage = ({ parts, ...props }) => {
       <Grid
         sx={{
           pt: '50px',
-          gridTemplateColumns: ['1fr', '1fr 1fr', '1fr 1fr', '1fr 1fr 1fr'],
+          gridTemplateColumns: ['1fr', '1fr', '1fr 1fr', '1fr 1fr 1fr'],
           gap: '50px',
           maxWidth: '1000px',
-          width: '90vw',
+          width: '80vw',
           margin: 'auto'
         }}
       >
