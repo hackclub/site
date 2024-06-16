@@ -721,6 +721,10 @@ const Item = ({ name, img, cost }) => {
 }
 
 const FAQ = ({ question, answer }) => {
+  const parsedAnswer = answer?.replace(
+    /\[(.*?)\]\((.*?)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+  )
   return (
     <Box
       sx={{
@@ -741,9 +745,9 @@ const FAQ = ({ question, answer }) => {
           display: 'block',
           fontSize: [1, 2, 2]
         }}
-      >
-        {answer}
-      </Text>
+        dangerouslySetInnerHTML={{ __html: parsedAnswer }}
+      />
+     
     </Box>
   )
 }
@@ -1817,7 +1821,7 @@ const Arcade = ({
               />
               <FAQ
                 question="I need help!"
-                answer="Get it in the #arcade channel of the Hack Club Slack. If not in the slack, reach out to arcade@hackclub.com"
+                answer="Get it in the #arcade channel of the [Hack Club Slack](https://hackclub.com/slack). Alternatively, reach out to [arcade@hackclub.com](mailto:arcade@hackclub.com)"
               />
               <FAQ
                 question="My hours aren't counted!"
