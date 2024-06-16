@@ -1262,7 +1262,7 @@ const Arcade = ({
                     >
                       Hack Club Slack
                     </a>{' '}
-                    and use /hack in #hack-hour to log your hours! You earn a
+                    and use /hack in #arcade to log your hours! You earn a
                     ticket for each hour spent!
                   </>
                 }
