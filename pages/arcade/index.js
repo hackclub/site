@@ -1060,9 +1060,13 @@ const Arcade = ({
                 }}
                 variant="title"
               >
-                Get free tools to build something cool.
+                The summer is yours for the making
+                {/* Get free tools
                 <br />
-                This summer is yours.
+                & build something cool */}
+                {/* Get free tools to build something cool. */}
+                {/* <br /> */}
+                {/* This summer is yours. */}
               </Text>
             </Fade>
             <Fade delay={550}>
@@ -1154,7 +1158,7 @@ const Arcade = ({
             pt: 1
           }}
         >
-          <Text
+          {/* <Text
             variant="headline"
             sx={{ display: 'block', textAlign: 'center' }}
           >
@@ -1163,12 +1167,13 @@ const Arcade = ({
               ARCADE
             </Text>
             .
-          </Text>
+          </Text> */}
           <Text
             variant="title"
             sx={{ display: 'block', textAlign: 'center', pb: 3 }}
           >
-            What are you waiting for?
+            {/* What are you waiting for? */}
+            How to play
           </Text>
           <Flex
             sx={{
