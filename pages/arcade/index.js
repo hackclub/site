@@ -1468,11 +1468,18 @@ const Arcade = ({
             }}
           >
             <Tickets
-              title="Your own project!"
+              title="You can build anything for the Arcade."
               text={
                 <>
-                  <p>You could build an AR game, pixel art display, drawing robot, and more! Anytime you work on your project, start the hack hour timer. You earn a ticket for every hour you spend on your project.</p>
-                  <Heading as="h4" my={0}>Don't know where to start?</Heading>
+                  <p>
+                    Any technical project counts. You could build an AR game,
+                    pixel art display, drawing robot, and more! Anytime you work
+                    on your project, start the hack hour timer. You earn a
+                    ticket for every hour you spend on your project.
+                  </p>
+                  <Heading as="h4" my={0}>
+                    Don't know where to start?
+                  </Heading>
                   <ul>
                     <li>
                       <Link href="https://boba.hackclub.com/" target="_blank">
