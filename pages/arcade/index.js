@@ -1723,7 +1723,8 @@ const Arcade = ({
             sx={{
               width: '100%',
               position: 'absolute',
-              top: '-8vw'
+              top: '-8vw',
+              zIndex: 0
             }}
           />
           <Box
@@ -1738,14 +1739,14 @@ const Arcade = ({
             <Text
               variant="title"
               className="slackey"
-              sx={{ textAlign: 'center', width: '100%', display: 'block' }}
+              sx={{ textAlign: 'center', width: '100%', display: 'block', marginTop: '25px' }}
             >
               F.A.Q.
             </Text>
             <Grid
               sx={{
                 gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
-                width: '100%',
+                // width: '100%',
                 width: '90vw',
                 maxWidth: '1200px',
                 margin: 'auto',
