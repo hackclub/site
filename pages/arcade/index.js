@@ -1770,7 +1770,7 @@ const Arcade = ({
               />
               <FAQ
                 question="I need help!"
-                answer="Get it in the #arcade channel of the [Hack Club Slack](https://hackclub.com/slack). Alternatively, reach out to [arcade@hackclub.com](mailto:arcade@hackclub.com)"
+                answer="Get it in the #arcade-help channel of the [Hack Club Slack](https://hackclub.com/slack). Alternatively, reach out to [arcade@hackclub.com](mailto:arcade@hackclub.com)"
               />
               <FAQ
                 question="My hours aren't counted!"
