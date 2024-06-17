@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
 
       const result = await Promise.all([
-        // inviteToArcadius({ email }),
+        inviteToArcadius({ email }),
         inviteToAirtable({ email, ip })
       ])
 
