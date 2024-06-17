@@ -234,7 +234,6 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
             textDecoration: 'none',
             backgroundColor: '#FF5C00',
             cursor: 'pointer',
-
             color: '#FAEFD6',
             width: 'fit-content',
             paddingX: ['8px', '10px', '15px'],
@@ -271,11 +270,9 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                 color: '#FAEFD6',
                 width: 'fit-content',
                 paddingX: ['8px', '10px', '15px'],
-                paddingY: ['5px', '7px', '10px'],
                 fontSize: ['24px', '27px', '30px'],
                 borderRadius: '5px',
                 textAlign: 'center',
-
                 // margin: 'auto',
                 // mt: 3,
                 zIndex: 2
@@ -300,7 +297,8 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
               color: '#FF5C00',
               width: 'fit-content',
               paddingX: ['8px', '10px', '15px'],
-              paddingY: ['5px', '7px', '10px'],
+              paddingTop: ['5px', '7px', '10px'],
+              paddingBottom: ['5px', '7px', '7px'],
               fontSize: ['24px', '27px', '30px'],
               borderRadius: '5px',
               textAlign: 'center',
