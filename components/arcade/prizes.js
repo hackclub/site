@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { Box, Button, Text, Flex, Grid, Card, Link } from 'theme-ui'
+import { Box, Button, Text, Flex, Grid, Card, Link, Close, Divider } from 'theme-ui'
 import Balancer from 'react-wrap-balancer'
 import Quantity from './quantity'
 /** @jsxImportSource theme-ui */
@@ -7,6 +7,8 @@ const Prizes = ({
   img,
   text,
   subtext,
+  fulfillmentDescription,
+  fullName,
   cost,
   polaroidRotation,
   ticketRotation,
@@ -16,6 +18,10 @@ const Prizes = ({
   index,
   ...props
 }) => {
+  const parsedFulfillmentDesc = fulfillmentDescription?.replace(
+    /\[(.*?)\]\((.*?)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+  )
   return (
     <Flex
       sx={{
@@ -112,6 +118,110 @@ const Prizes = ({
       >
         {cost} {link ? '🎟️' : cost == 1 ? 'ticket' : 'tickets'}
       </Text>
+      <Text
+        variant="headline"
+        sx={{
+          position: 'absolute',
+          bottom: '-25px',
+          right: '-10px',
+          color: '#FFEEC6',
+          '&:hover': {
+            cursor: 'pointer'
+          }
+        }}
+        onClick={() => {
+          document.getElementById(`${text}-info`).showModal()
+        }}
+      >
+        📦
+      </Text>
+      <dialog
+        id={`${text}-info`}
+        sx={{
+          background: '#09AFB4',
+          borderRadius: '10px',
+          flexDirection: 'column',
+          padding: '30px',
+          border: 'none',
+          scrollbarWidth: 'none',
+          textAlign: 'center',
+          maxWidth: '400px',
+          '@media (max-width: 400px)': {
+            maxWidth: '300px'
+          }
+        }}
+      >
+        <Close
+          sx={{
+            '&:hover': { cursor: 'pointer' },
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            zIndex: 2
+          }}
+          onClick={() => {
+            document.getElementById(`${text}-info`).close()
+          }}
+        />
+        <Flex
+          sx={{
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '10px'
+          }}
+        >
+          <img
+            src={img}
+            sx={{ maxWidth: '360px', maxHeight: '250px' }}
+            alt={text}
+          />
+          <Balancer>
+            <Text
+              className="slackey"
+              variant="headline"
+              sx={{ color: '#FFEEC6' }}
+            >
+              {fullName}
+            </Text>
+          </Balancer>
+          <Balancer></Balancer>
+          <Divider
+            sx={{
+              width: '50%',
+              background: '#FFEEC6',
+              height: '2px',
+              border: 'none',
+              margin: '10px 0'
+            }}
+          />
+          <Balancer>
+            <Text variant="subtitle" sx={{ color: '#FFEEC6' }}>
+              {subtext}
+            </Text>
+          </Balancer>
+          <Text
+            variant="subtitle"
+            sx={{ color: '#FFEEC6', fontStyle: 'italic' }}
+            dangerouslySetInnerHTML={{ __html: parsedFulfillmentDesc }}
+          ></Text>
+        </Flex>
+        <Text
+          sx={{
+            background: '#FF8C37',
+            px: '20px',
+            color: '#FFEEC6',
+            position: 'absolute',
+            top: '40px',
+            right: '12px',
+            transform: `rotate(${ticketRotation}deg)`
+          }}
+          variant="headline"
+          className="gaegu"
+        >
+          {cost} {cost == 1 ? 'ticket' : 'tickets'}
+        </Text>
+      </dialog>
     </Flex>
   )
 }
