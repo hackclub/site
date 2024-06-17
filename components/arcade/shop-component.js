@@ -33,7 +33,6 @@ export default function ShopComponent({
   // Function to update quantity for an item
   const handleQuantityChange = (itemID, quantity) => {
     setQuantities({ ...quantities, [itemID]: quantity });
-    console.log(quantity)
   };
 
   function buyLink(itemID) {
@@ -42,11 +41,9 @@ export default function ShopComponent({
   }
 
   const includeBuyLink = userAirtableID !== null;
-  console.log('Quantities:', quantities);
   useEffect(() => {
     setPRotate(2 + Math.random() * 4) * (Math.random() > 0.5 ? 1 : -1)
     setTRotate(5 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
-    console.log("hiii")
   }, []); 
 
   return (
