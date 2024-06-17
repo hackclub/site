@@ -1468,7 +1468,7 @@ const Arcade = ({
             }}
           >
             <Tickets
-              title="You can build anything for the Arcade."
+              title="Build whatever you want!"
               text={
                 <>
                   <p>
