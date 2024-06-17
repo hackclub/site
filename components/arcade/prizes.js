@@ -22,12 +22,16 @@ const Prizes = ({
     /\[(.*?)\]\((.*?)\)/g,
     '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
   )
+  const parsedSubText = subtext?.replace(/\[(.*?)\]\((.*?)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+  
   return (
     <Flex
       sx={{
         background: '#09AFB4',
         borderRadius: '10px',
         flexDirection: 'column',
+        justifyContent: 'space-between',
         padding: '20px',
         position: 'relative',
         transform: `rotate(${polaroidRotation}deg)`,
@@ -38,6 +42,8 @@ const Prizes = ({
       }}
       {...props}
     >
+      <Flex sx={{flexDirection: 'column'}}>
+        
       <Flex
         sx={{
           background: '#FFEEC6',
@@ -67,20 +73,20 @@ const Prizes = ({
           as="p"
           variant="caption"
           sx={{ color: '#FFEEC6', mb: 2, overflowWrap: 'break-word' }}
-        >
-          {subtext}
-        </Text>
+          dangerouslySetInnerHTML={{ __html: parsedSubText }}
+        />
       </Balancer>
 
-      {link ? (
-        <>
+      </Flex>
+      {link && (
+        <Flex sx={{flexDirection: 'column'}}>
           <Balancer>
             <Text
               as="p"
               variant="caption"
               sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
             >
-              You can order {quantity} of these
+              <em>You can order {quantity} of these</em>
             </Text>
           </Balancer>
           <Flex>
@@ -99,9 +105,7 @@ const Prizes = ({
             Buy
           </Button>
           </Flex>
-        </>
-      ) : (
-        <></>
+        </Flex>
       )}
       <Text
         sx={{
@@ -196,9 +200,11 @@ const Prizes = ({
             }}
           />
           <Balancer>
-            <Text variant="subtitle" sx={{ color: '#FFEEC6' }}>
-              {subtext}
-            </Text>
+            <Text
+              variant="subtitle" sx={{ color: '#FFEEC6' }} 
+              dangerouslySetInnerHTML={{ __html: parsedSubText }}
+            />
+            
           </Balancer>
           <Text
             variant="subtitle"
