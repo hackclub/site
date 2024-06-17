@@ -90,6 +90,7 @@ export default function ShopComponent({
               key={item.id}
               id={item.id}
               onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity
+              hoursBalance={hoursBalance}
             />
           ))}
       </Grid>
