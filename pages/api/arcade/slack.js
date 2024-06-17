@@ -10,7 +10,7 @@ async function inviteToArcadius({ email }) {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${process.env.SLACK_KEY}`
     }
-  })
+  }).then(r => r.json())
 
   return response
 }
@@ -23,6 +23,16 @@ async function inviteToAirtable({ email, ip }) {
   return await airtable.create({ 'Email': email, 'IP': ip })
 }
 
+async function markInvitedInAirtable({ recordID }) {
+  const airtable = new AirtablePlus({
+    baseID: 'appaqcJtn33vb59Au',
+    apiKey: process.env.AIRTABLE_API_KEY,
+    tableName: 'Arcade Joins'
+  })
+  const result = await airtable.update(recordID, { 'Invited': true })
+  return result
+}
+
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
@@ -31,15 +41,19 @@ export default async function handler(req, res) {
       const email = data.userEmail
       const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress
 
-      const result = await Promise.all([
-        inviteToArcadius({ email }),
-        inviteToAirtable({ email, ip })
+      const result = {}
+      await Promise.all([
+        inviteToArcadius({ email }).then(r => result.arcadius = r),
+        inviteToAirtable({ email, ip }).then(r => result.airtable = r)
       ])
 
-      if (result[0]?.response?.ok) {
+      if (result.arcadius?.ok) {
+        const recordID = result.airtable.id
+
+        await markInvitedInAirtable({ email, recordID })
         res.json({ status: 200, message: 'Invitation sent!' })
       } else {
-        const errorData = await result[0]?.response?.json()
+        const errorData = await result.arcadius?.response?.json()
         res.json({ status: 400, error: errorData })
       }
     } catch (error) {
