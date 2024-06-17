@@ -52,11 +52,13 @@ export default function ShopComponent({
       <Grid
         sx={{
           pt: '50px',
+          pb: '150px',
           gridTemplateColumns: ['1fr', '1fr', '1fr 1fr', '1fr 1fr 1fr'],
           gap: '50px',
           maxWidth: '1000px',
           width: '80vw',
-          margin: 'auto'
+          margin: 'auto',
+          textDecoration: 'italic'
         }}
       >
         {availableItems
@@ -67,6 +69,7 @@ export default function ShopComponent({
               text={item['Name']}
               subtext={item['Description']}
               cost={item['Cost Hours']}
+              quantity={item['Max Order Quantity']}
               polaroidRotation={
                 (2 + Math.random() * 4) * (i % 2 === 0 ? 1 : -1)
               }

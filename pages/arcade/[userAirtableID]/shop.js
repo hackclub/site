@@ -3,6 +3,9 @@ import { getArcadeUser } from "../../api/arcade/[userAirtableID]"
 import { shopParts } from "../../api/arcade/shop"
 import { Image, Link, Text } from 'theme-ui'
 import { Balancer } from "react-wrap-balancer"
+import Meta from '@hackclub/meta'
+import Head from 'next/head'
+
 /** @jsxImportSource theme-ui */
 
 const styled = `
@@ -26,6 +29,12 @@ export default function Shop({ availableItems, userAirtableID = null, hoursBalan
 
   return (
     <>
+    <Meta
+        as={Head}
+        title="Arcade Shop"
+        description="Redeem prizes at your own Arcade Shop."
+        image="https://cloud-luaw423i2-hack-club-bot.vercel.app/0frame_33__1_.png"
+      />
     <Balancer>
       <h1
         sx={{
@@ -67,7 +76,8 @@ export async function getStaticProps({params}) {
         'Description': item['Description'] || null,
         'Cost Hours': item['Cost Hours'] || 0,
         id: item.id,
-        'Image URL': item['Image URL'] || null
+        'Image URL': item['Image URL'] || null,
+        'Max Order Quantity': item['Max Order Quantity'] || 1
       }))
       props.availableItems = availableItems
     }),
