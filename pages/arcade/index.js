@@ -1547,7 +1547,9 @@ const Arcade = ({
             <Tickets
               title="Not sure what to make?"
               bugEater={true}
-              text={<>Click the dinosaur for ideas!</>}
+              text={
+                <>Click me for ideas!</>
+              }
               sx={{
                 '&ul>li': {
                   color: 'inherit'
