@@ -61,7 +61,7 @@ export default function ShopComponent({
         className="gaegu"
         variant="subtitle"
       >
-        Shop for {userAirtableID}
+        {/* Shop for {userAirtableID} */}
       </Text>
       <Grid
         sx={{
