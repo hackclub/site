@@ -1873,6 +1873,7 @@ export async function getStaticProps() {
       'Image URL': record['Image URL'] || null,
       'Name': record['Name'] || null,
       'Small Name': record['Small Name'] || null,
+      'Full Name': record['Full Name'] || null,
       'Cost Hours': record['Cost Hours'] || null,
       'Description': record['Description'] || null,
       'Fulfillment Description': record['Fulfillment Description'] || null,
