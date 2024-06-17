@@ -959,7 +959,7 @@ const Arcade = ({
           src="https://plausible.io/js/script.js"
         ></script>
       </Head>
-      <Nav />
+      <Nav color="dark" />
 
       <Box
         sx={{
