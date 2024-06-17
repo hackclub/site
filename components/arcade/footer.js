@@ -7,9 +7,6 @@ const Description = () => (
       A project by <a href="https://hackclub.com/">Hack Club</a>.
     </Heading>
     <Text as="p" variant="caption" mb={3} sx={{ width: ['85%', '75%', '60%'] }}>
-      <Link href="/arcade/power-hour">Prelaunch site.</Link>
-    </Text>
-    <Text as="p" variant="caption" mb={3} sx={{ width: ['85%', '75%', '60%'] }}>
       Hack Club is a registered 501(c)3 nonprofit organization that supports a
       network of 20k+ technical high schoolers. We believe you learn best by
       building so we're creating community and providing grants so you can make. In the past few years, we've{' '}
