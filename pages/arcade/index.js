@@ -1515,6 +1515,12 @@ const Arcade = ({
                       Design a PCB, get a $100 grant
                     </li>
                     <li>
+                      <Link href="https://fraps.hackclub.com" target="_blank">
+                        Hackaccino:
+                      </Link>{' '}
+                      Build a 3D Website and get a free frappuccino! ☕
+                    </li>
+                    <li>
                       <a href="https://blot.hackclub.com/">Blot:</a> Write code.
                       Make art. Get a drawing machine.
                     </li>
