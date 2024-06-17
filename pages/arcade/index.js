@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
-import { Box, Text, Flex, Grid, Card, Close, Divider } from 'theme-ui'
+import { Box, Text, Flex, Grid, Card, Close, Divider, Heading } from 'theme-ui'
 import Image from 'next/image'
 import fs from 'fs'
 import path from 'path'
@@ -453,7 +453,7 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
   )
 }
 
-const Tickets = ({ title, num, text, link, img, ...props }) => {
+const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
   return (
     <Card
       variant="interactive"
@@ -473,7 +473,7 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
       <Text
         className="gaegu"
         as="h1"
-        sx={{ display: 'block', fontSize: [2, 3, 4], marginTop: '-10px' }}
+        sx={{ display: 'block', fontSize: [2, 3, 4], marginTop: bugEater ? [null, null, null, '36px'] : '-10px' }}
       >
         {title}
       </Text>
@@ -486,30 +486,9 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
       >
         {text}
       </Text>
-      {img && (
+      {bugEater && (
         <>
-          <img
-            src={img}
-            alt="Dino drawing"
-            sx={{
-              width: ['50%', '50%', '50%', '120%'],
-              maxWidth: '350px',
-              marginRight: '-60px',
-              position: 'absolute',
-              right: '0',
-              bottom: '0',
-              display: ['none', 'block', 'block', 'block']
-            }}
-          />
-          <Box
-            sx={{
-              position: 'absolute',
-              width: ['90%', '70%', '50%', '360px'],
-              height: '550px',
-              left: ['5%', '-20px', '-20px', '-20px'],
-              bottom: ['-70px', '-60px', '-30px', '-110px']
-            }}
-          >
+          <Box>
             <Text
               id="console"
               variant="caption"
@@ -550,7 +529,7 @@ const Tickets = ({ title, num, text, link, img, ...props }) => {
               <Box
                 sx={{
                   justifyContent: 'center',
-                  pt: ['120px', '180px', '180px', '180px'],
+                  pt: ['120px', '140px', '140px', '140px'],
                   pb: [7, 7, 7, 7],
                   mt: ['40px', '-20px', '10px', '-50px'],
                   mb: ['40px', '50px', '100px', '-50px'],
@@ -1056,7 +1035,8 @@ const Arcade = ({
                   display: 'block',
                   textAlign: ['center', 'center', 'center', 'left'],
                   py: ['10px', '12px', '13px'],
-                  fontSize: ['40px', '55px', '55px']
+                  fontSize: ['40px', '55px', '55px'],
+                  textWrap: 'balance'
                 }}
                 variant="title"
               >
@@ -1485,9 +1465,61 @@ const Arcade = ({
           >
             <Tickets
               title="Your own project!"
-              text="You could build an AR game, pixel art display, drawing robot, and more! Anytime you work on your project, start the hack hour timer. You earn a ticket for every hour you spend on your project."
+              text={
+                <>
+                  <p>You could build an AR game, pixel art display, drawing robot, and more! Anytime you work on your project, start the hack hour timer. You earn a ticket for every hour you spend on your project.</p>
+                  <Heading as="h4" my={0}>Don't know where to start?</Heading>
+                  <ul>
+                    <li>
+                      <Link href="https://boba.hackclub.com/" target="_blank">
+                        Boba drops:
+                      </Link>{' '}
+                      Build a website, get boba!
+                    </li>
+                    <li>
+                      <Link
+                        href="https://jams.hackclub.com/jam/wizard-orpheus"
+                        target="_blank"
+                      >
+                        Wizard Orpheus:
+                      </Link>{' '}
+                      Build a text-based game with AI
+                    </li>
+                    <li>
+                      <Link href="/bin" target="_blank">
+                        The Bin:
+                      </Link>{' '}
+                      Build an online circuit, get the parts for free!
+                    </li>
+                    <li>
+                      <Link href="/sprig" target="_blank">
+                        Sprig:
+                      </Link>{' '}
+                      Build a JS game, play it on your own console
+                    </li>
+                    <li>
+                      <Link href="/onboard" target="_blank">
+                        OnBoard:
+                      </Link>{' '}
+                      Design a PCB, get a $100 grant
+                    </li>
+                    <li>
+                      <a href="https://blot.hackclub.com/">Blot:</a> Write code.
+                      Make art. Get a drawing machine.
+                    </li>
+                    <li>
+                      <a href="https://cider.hackclub.com">Cider:</a> Make a
+                      mobile app, get an Apple Developer account
+                    </li>
+                    <li>
+                      <a href="https://easel.hackclub.com/orpheus-finds-easel">
+                        Easel:
+                      </a>{' '}
+                      Write a programming language, receive fudge!
+                    </li>
+                  </ul>
+                </>}
               num="Infinite"
-              img="/arcade/o4.png"
               sx={{
                 gridColumn: ['', 'span 2', 'span 2', 'span 2'],
                 h1: {
@@ -1503,56 +1535,9 @@ const Arcade = ({
             />
             <Tickets
               title="Not sure what to make?"
+              bugEater={true}
               text={
-                <ul>
-                  <li>
-                    <Link href="https://boba.hackclub.com/" target="_blank">
-                      Boba drops:
-                    </Link>{' '}
-                    Build a website, get boba!
-                  </li>
-                  <li>
-                    <Link
-                      href="https://jams.hackclub.com/jam/wizard-orpheus"
-                      target="_blank"
-                    >
-                      Wizard Orpheus:
-                    </Link>{' '}
-                    Build a text-based game with AI
-                  </li>
-                  <li>
-                    <Link href="/bin" target="_blank">
-                      The Bin:
-                    </Link>{' '}
-                    Build an online circuit, get the parts for free!
-                  </li>
-                  <li>
-                    <Link href="/sprig" target="_blank">
-                      Sprig:
-                    </Link>{' '}
-                    Build a JS game, play it on your own console
-                  </li>
-                  <li>
-                    <Link href="/onboard" target="_blank">
-                      OnBoard:
-                    </Link>{' '}
-                    Design a PCB, get a $100 grant
-                  </li>
-                  <li>
-                    <a href="https://blot.hackclub.com/">Blot:</a> Write code.
-                    Make art. Get a drawing machine.
-                  </li>
-                  <li>
-                    <a href="https://cider.hackclub.com">Cider:</a> Make a
-                    mobile app, get an Apple Developer account
-                  </li>
-                  <li>
-                    <a href="https://easel.hackclub.com/orpheus-finds-easel">
-                      Easel:
-                    </a>{' '}
-                    Write a programming language, receive fudge!
-                  </li>
-                </ul>
+                <>Click me for ideas!</>
               }
               sx={{
                 '&ul>li': {
@@ -1562,47 +1547,6 @@ const Arcade = ({
                 minHeight: 'auto'
               }}
             />
-            {/* <Tickets
-              title="Boba drops"
-              text="Build a website, get boba!"
-              link="https://boba.hackclub.com/"
-            />
-            <Tickets
-              title="Wizard Orpheus"
-              text="Build a text-based game with AI"
-            />
-            <Tickets
-              title="The Bin"
-              text="Build an online circuit, get the parts for free!"
-              link="/bin"
-            />
-            <Tickets
-              title="Sprig"
-              text="Build a JS game, play it on your own console"
-              link="/sprig"
-            />
-            <Tickets
-              title="OnBoard"
-              text="Design a PCB, get a $100 grant"
-              link="/onboard"
-            />
-            <Tickets
-              title="Blot"
-              text="Write code. Make art. Get a drawing machine."
-              link="https://blot.hackclub.com/"
-            />
-            <Tickets
-              title="Cider"
-              text="Make a mobile app, get an Apple Developer account"
-              link="https://cider.hackclub.com"
-            />
-
-            <Tickets
-              title="Easel"
-              text="Write a programming language, receive fudge!"
-              link="https://easel.hackclub.com/orpheus-finds-easel"
-            /> */}
-
             <img
               src="/arcade/r5.png"
               sx={{
