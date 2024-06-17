@@ -24,6 +24,7 @@ import Tilt from '../../components/tilt'
 import ContactBanner from '../../components/fiscal-sponsorship/contact'
 import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
+import SignIn from '../../components/fiscal-sponsorship/sign-in'
 
 const organizations = [
   {
@@ -247,14 +248,7 @@ export default function Page() {
                 Apply now
               </Button>
             </Link>
-            <Button
-              as="a"
-              href="https://hcb.hackclub.com"
-              variant="outline"
-              sx={{ color: 'white' }}
-            >
-              Sign in
-            </Button>
+            <SignIn />
           </Flex>
         </Container>
       </Box>
