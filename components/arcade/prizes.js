@@ -122,6 +122,7 @@ const Prizes = ({
       >
         {cost} {link ? '🎟️' : cost == 1 ? 'ticket' : 'tickets'}
       </Text>
+{/*
       <Text
         variant="headline"
         sx={{
@@ -139,6 +140,7 @@ const Prizes = ({
       >
         📦
       </Text>
+      */}
       <dialog
         id={`${text}-info`}
         sx={{
