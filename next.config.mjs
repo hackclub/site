@@ -28,6 +28,7 @@ const nextConfig = {
     return config
   },
   async redirects() {
+
     return [
       {
         source: '/bank/:path*',
@@ -190,6 +191,11 @@ const nextConfig = {
         source: '/blot/',
         destination: 'https://blot.hackclub.com',
         permanent: false
+      },
+      {
+        source: '/slack',
+        destination: '/arcade?param=slack',
+        permanent: false
       }
     ]
   },
@@ -304,8 +310,8 @@ const nextConfig = {
         destination: '/bin/selector/index.html'
       },
       {
-        source: '/arcade/',
-        destination: '/arcade/index.html'
+        source: '/arcade/power-hour',
+        destination: '/arcade/power-hour/index.html'
       },
     ]
   },
