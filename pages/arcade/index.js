@@ -527,6 +527,7 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
               }}
             >
               <Box
+                onClick={generateProjectIdea}
                 sx={{
                   justifyContent: 'center',
                   pt: ['120px', '140px', '140px', '140px'],
@@ -536,7 +537,8 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                   display: 'grid',
                   background:
                     'url(/arcade/arcade_bg.png) no-repeat center center',
-                  backgroundSize: 'contain'
+                  backgroundSize: 'contain',
+                  cursor: 'pointer'
                 }}
               >
                 <Text
@@ -566,7 +568,6 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                     display: 'inline',
                     width: 'auto',
                     height: '8em',
-                    cursor: 'pointer',
                     mb: ['-120px', '-20px', '-30px', '-30px'],
                     transform: [
                       'scale(0.7)',
@@ -576,7 +577,6 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                     ]
                   }}
                   id="generate-project-idea"
-                  onClick={generateProjectIdea}
                 />
               </Box>
               <Box></Box>
@@ -726,7 +726,7 @@ const FAQ = ({ question, answer }) => {
         }}
         dangerouslySetInnerHTML={{ __html: parsedAnswer }}
       />
-     
+
     </Box>
   )
 }
@@ -1862,7 +1862,7 @@ export async function getStaticProps() {
     .filter(sticker => sticker !== 'hero.jpg')
 
   const items = await shopParts()
-  
+
   const carousel = items
     .map(record => ({
       hours: record['Cost Hours'] || 0,
