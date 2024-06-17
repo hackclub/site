@@ -84,6 +84,8 @@ export default function ShopComponent({
               subtext={item['Description']}
               cost={item['Cost Hours']}
               quantity={item['Max Order Quantity']}
+              fulfillmentDescription={item['Fulfillment Description']}
+              fullName={item['Full Name']}
               polaroidRotation={pRotate}
               ticketRotation={tRotate}
               link={buyLink(item.id)}

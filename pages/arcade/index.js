@@ -527,6 +527,7 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
               }}
             >
               <Box
+                onClick={generateProjectIdea}
                 sx={{
                   justifyContent: 'center',
                   pt: ['120px', '140px', '140px', '140px'],
@@ -536,7 +537,8 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                   display: 'grid',
                   background:
                     'url(/arcade/arcade_bg.png) no-repeat center center',
-                  backgroundSize: 'contain'
+                  backgroundSize: 'contain',
+                  cursor: 'pointer'
                 }}
               >
                 <Text
@@ -566,7 +568,6 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                     display: 'inline',
                     width: 'auto',
                     height: '8em',
-                    cursor: 'pointer',
                     mb: ['-120px', '-20px', '-30px', '-30px'],
                     transform: [
                       'scale(0.7)',
@@ -576,7 +577,6 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                     ]
                   }}
                   id="generate-project-idea"
-                  onClick={generateProjectIdea}
                 />
               </Box>
               <Box></Box>
@@ -726,7 +726,7 @@ const FAQ = ({ question, answer }) => {
         }}
         dangerouslySetInnerHTML={{ __html: parsedAnswer }}
       />
-     
+
     </Box>
   )
 }
@@ -1515,6 +1515,12 @@ const Arcade = ({
                       Design a PCB, get a $100 grant
                     </li>
                     <li>
+                      <Link href="https://fraps.hackclub.com" target="_blank">
+                        Hackaccino:
+                      </Link>{' '}
+                      Build a 3D Website and get a free frappuccino! ☕
+                    </li>
+                    <li>
                       <a href="https://blot.hackclub.com/">Blot:</a> Write code.
                       Make art. Get a drawing machine.
                     </li>
@@ -1730,7 +1736,8 @@ const Arcade = ({
             sx={{
               width: '100%',
               position: 'absolute',
-              top: '-8vw'
+              top: '-8vw',
+              zIndex: 0
             }}
           />
           <Box
@@ -1745,14 +1752,14 @@ const Arcade = ({
             <Text
               variant="title"
               className="slackey"
-              sx={{ textAlign: 'center', width: '100%', display: 'block' }}
+              sx={{ textAlign: 'center', width: '100%', display: 'block', marginTop: '25px' }}
             >
               F.A.Q.
             </Text>
             <Grid
               sx={{
                 gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
-                width: '100%',
+                // width: '100%',
                 width: '90vw',
                 maxWidth: '1200px',
                 margin: 'auto',
@@ -1777,7 +1784,7 @@ const Arcade = ({
               />
               <FAQ
                 question="I need help!"
-                answer="Get it in the #arcade channel of the [Hack Club Slack](https://hackclub.com/slack). Alternatively, reach out to [arcade@hackclub.com](mailto:arcade@hackclub.com)"
+                answer="Get it in the #arcade-help channel of the [Hack Club Slack](https://hackclub.com/slack). Alternatively, reach out to [arcade@hackclub.com](mailto:arcade@hackclub.com)"
               />
               <FAQ
                 question="My hours aren't counted!"
@@ -1862,7 +1869,7 @@ export async function getStaticProps() {
     .filter(sticker => sticker !== 'hero.jpg')
 
   const items = await shopParts()
-  
+
   const carousel = items
     .map(record => ({
       hours: record['Cost Hours'] || 0,
