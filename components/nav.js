@@ -142,7 +142,9 @@ const Navigation = props => (
       <Link>Community</Link>
     </NextLink>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
-    <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
+    <Link href="https://boreal.hackclub.com/">
+      The&nbsp;Boreal&nbsp;Express
+    </Link>
     <NextLink href="/onboard" passHref>
       <Link>OnBoard</Link>
     </NextLink>
