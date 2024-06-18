@@ -237,9 +237,9 @@ const ShipPage = () => {
                 <Balancer ratio={0.3}>
                   Circuit boards are{' '}
                   <Sparkles>
-                    <Text sx={{ fontWeight: 400 }}>magical</Text>
-                  </Sparkles>
-                  . You design one, we'll print it!
+                    <Text sx={{ fontWeight: 400 }}>magical{'.'}</Text>
+                  </Sparkles>{' '}
+                  You design one, we'll print it!
                 </Balancer>
               </Heading>
 
