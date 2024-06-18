@@ -176,20 +176,18 @@ const Page = () => (
         >
           Apply now
         </Button>
-        <NextLink href="/slack" passHref>
-          <Button
-            as="a"
-            variant="ctaLg"
-            href="/slack"
-            sx={{
-              backgroundImage: t => t.util.gx('green', 'blue'),
-              ml: [0, 3],
-              mt: [3, 0]
-            }}
-          >
-            Join the Slack
-          </Button>
-        </NextLink>
+        <Button
+          as="a"
+          variant="ctaLg"
+          href="/slack"
+          sx={{
+            backgroundImage: t => t.util.gx('green', 'blue'),
+            ml: [0, 3],
+            mt: [3, 0]
+          }}
+        >
+          Join the Slack
+        </Button>
       </FadeIn>
       <Box
         sx={{
