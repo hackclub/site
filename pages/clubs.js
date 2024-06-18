@@ -176,7 +176,7 @@ const Page = () => (
         >
           Apply now
         </Button>
-        <NextLink href="/slack" passHref>
+        <Link href="/slack" passHref>
           <Button
             as="a"
             variant="ctaLg"
@@ -189,7 +189,7 @@ const Page = () => (
           >
             Join the Slack
           </Button>
-        </NextLink>
+        </Link>
       </FadeIn>
       <Box
         sx={{
