@@ -928,7 +928,7 @@ const Arcade = ({
         as={Head}
         title="Arcade"
         description="The ultimate summer hackathon for high schoolers. Make projects. Track your hours. Redeem for Prizes."
-        image="https://cloud-luaw423i2-hack-club-bot.vercel.app/0frame_33__1_.png"
+        image="https://cloud-249autgay-hack-club-bot.vercel.app/0frame_70.png"
       />
       <Head>
         <meta

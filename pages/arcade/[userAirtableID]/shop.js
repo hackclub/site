@@ -52,7 +52,7 @@ export default function Shop({ availableItems, userAirtableID = null, hoursBalan
       </h1>
       </Balancer>
       <Text sx={{ display: 'block', textAlign: 'center', color: '#35290F' }} className='gaegu' variant='subtitle' >Your current balance is {Math.floor(hoursBalance)} 🎟️</Text>
-      <ShopComponent availableItems={availableItems} userAirtableID={userAirtableID} />
+      <ShopComponent availableItems={availableItems} userAirtableID={userAirtableID} hoursBalance={hoursBalance} />
     </>
   )
 }
@@ -89,6 +89,5 @@ export async function getStaticProps({params}) {
     })
   ])
   
-  return { props }
-
-  }
+  return { props, revalidate: 10 }
+}
