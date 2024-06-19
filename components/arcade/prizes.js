@@ -26,6 +26,8 @@ const Prizes = ({
   const parsedSubText = subtext?.replace(/\[(.*?)\]\((.*?)\)/g,
     '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
   
+  const parsedFullName = fullName?.replace(" ", "-")
+  
   return (
     <Flex
       sx={{
@@ -129,7 +131,6 @@ const Prizes = ({
       >
         {cost} {link ? '🎟️' : cost == 1 ? 'ticket' : 'tickets'}
       </Text>
-{/*
       <Text
         variant="headline"
         sx={{
@@ -142,14 +143,13 @@ const Prizes = ({
           }
         }}
         onClick={() => {
-          document.getElementById(`${text}-info`).showModal()
+          document.getElementById(`${parsedFullName}-info`).showModal()
         }}
       >
         📦
       </Text>
-      */}
       <dialog
-        id={`${text}-info`}
+        id={`${parsedFullName}-info`}
         sx={{
           background: '#09AFB4',
           borderRadius: '10px',
@@ -173,7 +173,7 @@ const Prizes = ({
             zIndex: 2
           }}
           onClick={() => {
-            document.getElementById(`${text}-info`).close()
+            document.getElementById(`${parsedFullName}-info`).close()
           }}
         />
         <Flex
