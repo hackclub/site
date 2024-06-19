@@ -16,6 +16,7 @@ const Prizes = ({
   quantity,
   onQuantityChange,
   index,
+  hoursBalance,
   ...props
 }) => {
   const parsedFulfillmentDesc = fulfillmentDescription?.replace(
@@ -86,24 +87,30 @@ const Prizes = ({
               variant="caption"
               sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
             >
-              <em>You can order {quantity} of these</em>
+              <em>You can order up to {quantity} of these</em>
             </Text>
           </Balancer>
           <Flex>
-          <Quantity numOptions={quantity} label={text} onQuantityChange={onQuantityChange} index={index} />
-          <Button
-            sx={{
-              borderRadius: '5px',
-              color: '#FFEEC6',
-              backgroundColor: '#09878b',
-              width: 'fit-content'
-            }}
-            as="a"
-            href={link}
-            className="gaegu"
-          >
-            Buy
-          </Button>
+            {// only show the quantity dropdown if you have enough hours to buy at least 2 of the item
+              hoursBalance / cost < 2 ? (null) : <Quantity numOptions={Math.min(quantity, Math.floor(hoursBalance / cost))} label={text} onQuantityChange={onQuantityChange} index={index} />
+            }
+            {
+              // only show the buy button if you have enough hours to buy at least 1 of the item
+              hoursBalance / cost < 1 ? (null) :
+                <Button
+                  sx={{
+                    borderRadius: '5px',
+                    color: '#FFEEC6',
+                    backgroundColor: '#09878b',
+                    width: 'fit-content'
+                  }}
+                  as="a"
+                  href={link}
+                  className="gaegu"
+                >
+                  Buy
+                </Button>
+            }
           </Flex>
         </Flex>
       )}
