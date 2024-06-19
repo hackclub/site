@@ -80,7 +80,8 @@ export default function ShopComponent({
           .map((item) => (
             <Prizes
               img={item['Image URL']}
-              text={item['Name']}
+              name={item['Name']}
+              smallName={item['Small Name']}
               subtext={item['Description']}
               cost={item['Cost Hours']}
               quantity={item['Max Order Quantity']}

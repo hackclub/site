@@ -80,6 +80,7 @@ export async function getStaticProps({params}) {
     shopParts().then(items => {
       const availableItems = items.filter(item => item['Enabled']).map(item => ({
         'Name': item['Name'] || null,
+        'Small Name': item['Small Name'] || null,
         'Full Name': item['Full Name'] || null,
         'Description': item['Description'] || null,
         'Fulfillment Description': item['Fulfillment Description'] || null,

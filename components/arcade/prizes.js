@@ -9,6 +9,8 @@ const Prizes = ({
   subtext,
   fulfillmentDescription,
   fullName,
+  name,
+  smallName,
   cost,
   polaroidRotation,
   ticketRotation,
@@ -66,11 +68,11 @@ const Prizes = ({
         variant="headline"
         sx={{ color: '#FFEEC6', mb: 0 }}
       >
-        {text}
+        {name}
       </Text>
-      {/* <Text className="" variant="subtitle" sx={{ color: '#FFEEC6' }}>
-          {text}
-        </Text> */}
+      <Text variant="subtitle" sx={{ color: '#FFEEC6' }}>
+        {smallName}
+      </Text>
       <Balancer>
         <Text
           as="p"
