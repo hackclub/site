@@ -26,30 +26,37 @@ body {
 `
 
 export default function Shop({ availableItems, userAirtableID = null, hoursBalance = 0 }) {
-
+  
   return (
     <>
-    <Meta
+      <Meta
         as={Head}
         title="Arcade Shop"
         description="Redeem prizes at your own Arcade Shop."
         image="https://cloud-luaw423i2-hack-club-bot.vercel.app/0frame_33__1_.png"
       />
-    <Balancer>
-      <h1
-        sx={{
-          textAlign: 'center',
-          fontSize: 5,
-          color: '#FF8C37',
-          my: 0,
-          pt: 5,
-          display:'block',
-          width: '100vw'
-        }}
-        className="slackey"
-      >
-        Welcome to the shop
-      </h1>
+      <style>
+        {`
+        ._title-container {
+          width: 100%;
+        }
+        `}
+      </style>
+      <Balancer className="_title-container">
+        <h1
+          sx={{
+            textAlign: 'center',
+            fontSize: 5,
+            color: '#FF8C37',
+            my: 0,
+            pt: 5,
+            display: 'block',
+            width: '100%'
+          }}
+          className="slackey"
+        >
+          Welcome to the shop
+        </h1>
       </Balancer>
       <Text sx={{ display: 'block', textAlign: 'center', color: '#35290F' }} className='gaegu' variant='subtitle' >Your current balance is {Math.floor(hoursBalance)} 🎟️</Text>
       <ShopComponent availableItems={availableItems} userAirtableID={userAirtableID} hoursBalance={hoursBalance} />
