@@ -258,12 +258,34 @@ export default function Team({ team }) {
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
               <Bio
+                name="Jasper Mayone"
+                teamRole="Community Resources"
+                text="Introduced to Hack Club through the circus, and a native vermonter, Jasper is currently a Junior in high school, on track for graduating a full year early! While in high school, Jasper led a Hack Club at his school. Jasper tries to live by the quote “We’ve all got both light and dark inside us. What matters is the part we choose to act on...that’s who we really are.” from one of his favorite books, Harry Potter. Jasper’s hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus."
+                img="/team/jasper.png"
+                pronouns="he/him"
+                href="https://jaspermayone.com/"
+              />
+              <Bio
+                name="Sarah Dowden"
+                teamRole="Clubs Operations Lead"
+                text="Sarah grew up in West Virginia and while she lives in Vermont now, she still bleeds Blue and Gold for her home state. She earned her business degree and started her career managing a large team at a local grocery store. In her time at Hack Club, she helped numerous clubs and students find their love for STEM. She loves pursuing human connection and building bridges."
+                img="/team/sarah.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Liv Cook"
+                teamRole="HCB Junior Project Manager"
+                text="During her tenure at HCB, Liv cared deeply about ensuring that every user had the best fiscal sponsorship experience possible and that new features and UX improvements were on track to launch. She also loved supporting teams on HCB that are passionate about making a difference in their communities. In her free time, Liv enjoys traveling, writing, and discovering new music. She graduated from the University of Vermont with a degree in Healthcare Systems and Policy."
+                img="/team/liv.png"
+                pronouns="she/her"
+              />
+              <Bio
                 name="Hugo Hu"
                 teamRole="Mail Coordinator & Engineering"
-                text="During his time Hack Club, Hugo led Mail Team, significantly improving logistics for Hack Clubbers across the world. He also helped organize Assemble, and designed the PCBs for Sprig and Blot."
+                text="During his time at Hack Club, Hugo led Mail Team, significantly improving logistics for Hack Clubbers across the world. He also helped organize Assemble, and designed the PCBs for Sprig and Blot."
                 img="https://ca.slack-edge.com/T0266FRGM-U017EPB6LE9-84f26d2a184c-512"
                 pronouns="he/him"
-                href="https://hugohu.me"
+                href="https://hugohu.me"i
               />
               <Bio
                 name="Lexi Mattick"
