@@ -79,7 +79,7 @@ const Prizes = ({
             variant="headline"
             className="gaegu"
           >
-            Limited! <br /> Only {Stock} left!
+            Only {Stock} left!
           </Text>
         )}
       <Text
