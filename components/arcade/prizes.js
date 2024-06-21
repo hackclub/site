@@ -19,7 +19,7 @@ const Prizes = ({
   onQuantityChange,
   index,
   hoursBalance,
-  Stock,
+  stock,
   ...props
 }) => {
   const parsedFulfillmentDesc = fulfillmentDescription?.replace(
@@ -64,7 +64,7 @@ const Prizes = ({
           alt={text}
         />
       </Flex>
-      {Stock && Stock != null && Stock > 0 && Stock <= 100 && (
+      {stock && stock != null && stock > 0 && stock <= 100 && (
           <Text
             sx={{
               background: '#CC6CE7',
@@ -79,7 +79,7 @@ const Prizes = ({
             variant="headline"
             className="gaegu"
           >
-            Only {Stock} left!
+            Only {stock} left!
           </Text>
         )}
       <Text
