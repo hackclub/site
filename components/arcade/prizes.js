@@ -19,6 +19,7 @@ const Prizes = ({
   onQuantityChange,
   index,
   hoursBalance,
+  stock,
   ...props
 }) => {
   const parsedFulfillmentDesc = fulfillmentDescription?.replace(
@@ -93,6 +94,18 @@ const Prizes = ({
             >
               <em>You can order up to {quantity} of these</em>
             </Text>
+
+            
+            {stock && (
+              <Text
+              as="p"
+              variant="caption"
+              sx={{ color: '#FFEEC6', mt: 0, mb: 2, fontWeight: 700 }}
+            >
+              <em>There are only {stock} items left in stock!</em>
+            </Text>
+            )}
+            
           </Balancer>
           <Flex>
             {// only show the quantity dropdown if you have enough hours to buy at least 2 of the item
