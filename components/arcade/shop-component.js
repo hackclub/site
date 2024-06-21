@@ -18,7 +18,11 @@ const styled = `
 body {
   background-color: #FAEFD6;
 }
-`;
+
+a {
+  color: inherit;
+}
+`
 
 export default function ShopComponent({
   availableItems,
