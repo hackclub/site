@@ -71,8 +71,8 @@ const Prizes = ({
               px: '20px',
               color: '#FFEEC6',
               position: 'absolute',
-              top: '-15px',
-              left: '-12px',
+              top: '-22px',
+              left: '-40px',
               zIndex: 1,
               transform: `rotate(${ticketRotation}deg)`
             }}
