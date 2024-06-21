@@ -22,7 +22,7 @@ body {
 a {
   color: inherit;
 }
-`
+`;
 
 export default function ShopComponent({
   availableItems,
