@@ -65,7 +65,7 @@ const Prizes = ({
             alt={text}
           />
         </Flex>
-        {stock && stock != null && stock > 0 && stock <= 100 && (
+        {stock && stock !== null && stock > 0 && stock <= 100 && (
           <Text
             sx={{
               background: '#CC6CE7',
@@ -161,7 +161,7 @@ const Prizes = ({
         variant="headline"
         className="gaegu"
       >
-        {cost} {link ? '🎟️' : cost == 1 ? 'ticket' : 'tickets'}
+        {cost} {link ? '🎟️' : cost === 1 ? 'ticket' : 'tickets'}
       </Text>
       <Text
         variant="headline"
@@ -266,7 +266,7 @@ const Prizes = ({
           variant="headline"
           className="gaegu"
         >
-          {cost} {cost == 1 ? 'ticket' : 'tickets'}
+          {cost} {cost === 1 ? 'ticket' : 'tickets'}
         </Text>
       </dialog>
     </Flex>
