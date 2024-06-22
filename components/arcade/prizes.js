@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Box, Button, Text, Flex, Grid, Card, Link, Close, Divider } from 'theme-ui'
+import React from 'react'
+import { Button, Text, Flex, Close, Divider } from 'theme-ui'
 import Balancer from 'react-wrap-balancer'
 import Quantity from './quantity'
 /** @jsxImportSource theme-ui */
@@ -14,11 +14,11 @@ const Prizes = ({
   cost,
   polaroidRotation,
   ticketRotation,
-  link,
+  link = null,
   quantity,
   onQuantityChange,
   index,
-  hoursBalance,
+  hoursBalance = null,
   ...props
 }) => {
   const parsedFulfillmentDesc = fulfillmentDescription?.replace(
@@ -96,11 +96,11 @@ const Prizes = ({
           </Balancer>
           <Flex>
             {// only show the quantity dropdown if you have enough hours to buy at least 2 of the item
-              hoursBalance / cost < 2 ? (null) : <Quantity numOptions={Math.min(quantity, Math.floor(hoursBalance / cost))} label={text} onQuantityChange={onQuantityChange} index={index} />
+              (hoursBalance ? hoursBalance / cost < 2 : (null)) ? (null) : <Quantity numOptions={Math.min(quantity, Math.floor(hoursBalance / cost))} label={text} onQuantityChange={onQuantityChange} index={index} />
             }
             {
               // only show the buy button if you have enough hours to buy at least 1 of the item
-              hoursBalance / cost < 1 ? (null) :
+              (hoursBalance ? hoursBalance / cost < 1 : (null)) ? (null) :
                 <Button
                   sx={{
                     borderRadius: '5px',
