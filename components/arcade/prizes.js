@@ -26,11 +26,13 @@ const Prizes = ({
     /\[(.*?)\]\((.*?)\)/g,
     '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
   )
-  const parsedSubText = subtext?.replace(/\[(.*?)\]\((.*?)\)/g,
-    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
-  
-  const parsedFullName = fullName?.replace(" ", "-")
-  
+  const parsedSubText = subtext?.replace(
+    /\[(.*?)\]\((.*?)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+  )
+
+  const parsedFullName = fullName?.replace(' ', '-')
+
   return (
     <Flex
       sx={{
@@ -48,23 +50,22 @@ const Prizes = ({
       }}
       {...props}
     >
-      <Flex sx={{flexDirection: 'column'}}>
-        
-      <Flex
-        sx={{
-          background: '#FFEEC6',
-          height: '250px',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-        <img
-          src={img}
-          sx={{ height: 'auto', maxWidth: '280px', maxHeight: '250px' }}
-          alt={text}
-        />
-      </Flex>
-      {stock && stock != null && stock > 0 && stock <= 100 && (
+      <Flex sx={{ flexDirection: 'column' }}>
+        <Flex
+          sx={{
+            background: '#FFEEC6',
+            height: '250px',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <img
+            src={img}
+            sx={{ height: 'auto', maxWidth: '280px', maxHeight: '250px' }}
+            alt={text}
+          />
+        </Flex>
+        {stock && stock != null && stock > 0 && stock <= 100 && (
           <Text
             sx={{
               background: '#CC6CE7',
@@ -82,61 +83,71 @@ const Prizes = ({
             Only {stock} left!
           </Text>
         )}
-      <Text
-        className="slackey"
-        variant="headline"
-        sx={{ color: '#FFEEC6', mb: 0 }}
-      >
-        {name}
-      </Text>
-      <Text variant="subtitle" sx={{ color: '#FFEEC6' }}>
-        {smallName}
-      </Text>
-      <Balancer>
         <Text
-          as="p"
-          variant="caption"
-          sx={{ color: '#FFEEC6', mb: 2, overflowWrap: 'break-word' }}
-          dangerouslySetInnerHTML={{ __html: parsedSubText }}
-        />
-      </Balancer>
-
+          className="slackey"
+          variant="headline"
+          sx={{ color: '#FFEEC6', mb: 0 }}
+        >
+          {name}
+        </Text>
+        <Text variant="subtitle" sx={{ color: '#FFEEC6' }}>
+          {smallName}
+        </Text>
+        <Balancer>
+          <Text
+            as="p"
+            variant="caption"
+            sx={{ color: '#FFEEC6', mb: 2, overflowWrap: 'break-word' }}
+            dangerouslySetInnerHTML={{ __html: parsedSubText }}
+          />
+        </Balancer>
       </Flex>
-      {link && (
-        <Flex sx={{flexDirection: 'column'}}>
-          <Balancer>
-            <Text
-              as="p"
-              variant="caption"
-              sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
-            >
-              <em>You can order up to {quantity} of these</em>
-            </Text>
-          </Balancer>
-          <Flex>
-            {// only show the quantity dropdown if you have enough hours to buy at least 2 of the item
-              (hoursBalance ? hoursBalance / cost < 2 : (null)) ? (null) : <Quantity numOptions={Math.min(quantity, Math.floor(hoursBalance / cost))} label={text} onQuantityChange={onQuantityChange} index={index} />
-            }
-            {
-              // only show the buy button if you have enough hours to buy at least 1 of the item
-              (hoursBalance ? hoursBalance / cost < 1 : (null)) ? (null) :
-                <Button
-                  sx={{
-                    borderRadius: '5px',
-                    color: '#FFEEC6',
-                    backgroundColor: '#09878b',
-                    width: 'fit-content'
-                  }}
-                  as="a"
-                  href={link}
-                  className="gaegu"
-                >
-                  Buy
-                </Button>
-            }
-          </Flex>
+
+      <Flex sx={{ flexDirection: 'column' }}>
+        <Balancer>
+          <Text
+            as="p"
+            variant="caption"
+            sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
+          >
+            <em>You can order up to {quantity} of these</em>
+          </Text>
+        </Balancer>
+
+        {link && (<Flex>
+          {
+            // only show the quantity dropdown if you have enough hours to buy at least 2 of the item
+            (hoursBalance ? hoursBalance / cost < 2 : null) ? null : (
+              <Quantity
+                numOptions={Math.min(quantity, Math.floor(hoursBalance / cost))}
+                label={text}
+                onQuantityChange={onQuantityChange}
+                index={index}
+              />
+            )
+          }
+          {
+            // only show the buy button if you have enough hours to buy at least 1 of the item
+            (hoursBalance ? hoursBalance / cost < 1 : null) ? null : (
+              <Button
+                sx={{
+                  borderRadius: '5px',
+                  color: '#FFEEC6',
+                  backgroundColor: '#09878b',
+                  width: 'fit-content'
+                }}
+                as="a"
+                href={link}
+                className="gaegu"
+              >
+                Buy
+              </Button>
+            )
+          }
         </Flex>
-      )}
+        )}
+      </Flex>
+
       <Text
         sx={{
           background: '#FF8C37',
@@ -231,10 +242,10 @@ const Prizes = ({
           />
           <Balancer>
             <Text
-              variant="subtitle" sx={{ color: '#FFEEC6' }} 
+              variant="subtitle"
+              sx={{ color: '#FFEEC6' }}
               dangerouslySetInnerHTML={{ __html: parsedSubText }}
             />
-            
           </Balancer>
           <Text
             variant="subtitle"
