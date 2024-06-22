@@ -1798,6 +1798,10 @@ const Arcade = ({
                 question="What about school work or a job?"
                 answer="The arcade is about the joy of building for the sake of building. If you're building something for school or work we can't count it."
               />
+              <FAQ
+                question="What counts as a scrap?"
+                answer="Code needs a commit! Things like sprig or blot share links also work. 3D models should also go on a host like Printables or Github."
+              />
             </Grid>
           </Box>
           <Flex

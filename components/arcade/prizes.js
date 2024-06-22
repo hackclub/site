@@ -19,6 +19,7 @@ const Prizes = ({
   onQuantityChange,
   index,
   hoursBalance = null,
+  stock,
   ...props
 }) => {
   const parsedFulfillmentDesc = fulfillmentDescription?.replace(
@@ -63,6 +64,24 @@ const Prizes = ({
           alt={text}
         />
       </Flex>
+      {stock && stock != null && stock > 0 && stock <= 100 && (
+          <Text
+            sx={{
+              background: '#CC6CE7',
+              px: '20px',
+              color: '#FFEEC6',
+              position: 'absolute',
+              top: '-22px',
+              left: '-40px',
+              zIndex: 1,
+              transform: `rotate(${ticketRotation}deg)`
+            }}
+            variant="headline"
+            className="gaegu"
+          >
+            Only {stock} left!
+          </Text>
+        )}
       <Text
         className="slackey"
         variant="headline"

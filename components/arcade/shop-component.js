@@ -18,6 +18,10 @@ const styled = `
 body {
   background-color: #FAEFD6;
 }
+
+a {
+  color: inherit;
+}
 `;
 
 export default function ShopComponent({
@@ -93,6 +97,8 @@ export default function ShopComponent({
               key={item.id}
               id={item.id}
               onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity
+              hoursBalance={hoursBalance}
+              stock={item['Stock']}
             />
           ))}
       </Grid>
