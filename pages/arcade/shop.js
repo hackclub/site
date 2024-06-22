@@ -25,7 +25,7 @@ body {
 `
 
 export default function Shop({ availableItems, userAirtableID = null, hoursBalance = 0 }) {
-  
+
   return (
     <>
       <Meta
@@ -69,8 +69,7 @@ export async function getStaticProps() {
 
   await Promise.all([
     shopParts().then(items => {
-      // FIXME: should be filtered by item['Enabled'] in production
-      const availableItems = items.map(item => ({
+      const availableItems = items.filter((item) => item['Enabled']).map(item => ({
         'Name': item['Name'] || null,
         'Small Name': item['Small Name'] || null,
         'Full Name': item['Full Name'] || null,
@@ -84,6 +83,6 @@ export async function getStaticProps() {
       props.availableItems = availableItems
     }),
   ])
-  
+
   return { props, revalidate: 10 }
 }
