@@ -44,7 +44,7 @@ export default function ShopComponent({
     return `https://forms.hackclub.com/arcade-order?user_id=${userAirtableID}&item_id=${itemID}&quantity=${quantity}`;
   }
 
-  const includeBuyLink = userAirtableID !== null;
+  const canPurchaseItems = userAirtableID !== null;
   useEffect(() => {
     setPRotate(2 + Math.random() * 4) * (Math.random() > 0.5 ? 1 : -1)
     setTRotate(5 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
@@ -93,7 +93,7 @@ export default function ShopComponent({
               fullName={item['Full Name']}
               polaroidRotation={pRotate}
               ticketRotation={tRotate}
-              link={buyLink(item.id)}
+              link={canPurchaseItems ? buyLink(item.id) : null}
               key={item.id}
               id={item.id}
               onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity
