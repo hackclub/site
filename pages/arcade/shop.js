@@ -78,7 +78,8 @@ export async function getStaticProps() {
         'Cost Hours': item['Cost Hours'] || 0,
         id: item.id,
         'Image URL': item['Image URL'] || null,
-        'Max Order Quantity': item['Max Order Quantity'] || 1
+        'Max Order Quantity': item['Max Order Quantity'] || 1,
+        Stock: item['Stock'] || null
       }))
       props.availableItems = availableItems
     }),
