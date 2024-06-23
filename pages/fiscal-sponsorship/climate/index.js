@@ -309,44 +309,99 @@ const FilterPanel = ({ filter, mobile }) => {
 
 const RegionPanel = ({ currentRegion, mobile }) => {
   const [hiddenOnMobile, setHiddenOnMobile] = useState(mobile)
-  return (
-    <>
-      <Heading
-        as="h3"
-        sx={{
-          fontSize: 2,
-          textTransform: 'uppercase',
-          color: 'muted',
-          mb: hiddenOnMobile ? 1 : 3,
-          cursor: mobile ? 'pointer' : 'default',
-          ':hover': mobile
-            ? {
+  return <>
+    <Heading
+      as="h3"
+      sx={{
+        fontSize: 2,
+        textTransform: 'uppercase',
+        color: 'muted',
+        mb: hiddenOnMobile ? 1 : 3,
+        cursor: mobile ? 'pointer' : 'default',
+        ':hover': mobile
+          ? {
+              color: 'blue'
+            }
+          : {}
+      }}
+      onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
+    >
+      {mobile && 'FILTER BY '} REGION{' '}
+      <small
+        style={{
+          transform: 'translateY(-1px)',
+          display: 'inline-block'
+        }}
+      >
+        {mobile && (hiddenOnMobile ? '▶︎' : '▼')}
+      </small>
+    </Heading>
+    <Flex
+      sx={{
+        flexDirection: mobile ? 'row' : 'column',
+        gap: '12px',
+        flexWrap: 'wrap',
+        mb: 3,
+        display: hiddenOnMobile ? 'none' : 'flex'
+      }}
+    >
+      <NextLink scroll={false} href={'/fiscal-sponsorship/climate'} legacyBehavior>
+        <Flex
+          sx={{
+            alignItems: 'center',
+            cursor: 'pointer',
+            gap: 2,
+            py: mobile ? 1 : 0,
+            pl: mobile ? 1 : 0,
+            pr: mobile ? 3 : 0,
+            border: mobile ? '1px solid' : 'none',
+            borderColor: 'sunken',
+            borderRadius: '4px',
+            background: mobile ? 'snow' : 'none',
+            textDecoration: 'none',
+            color: 'secondary',
+            textDecoration: 'none',
+            transition: 'color 0.2s',
+            ':hover': {
+              color: '#B72A3D'
+            },
+            width: 'fit-content'
+          }}
+          as="a"
+        >
+          <Flex
+            sx={{
+              bg: 'smoke',
+              color: 'secondary',
+              p: 1,
+              borderRadius: 6
+            }}
+          >
+            <Icon glyph="list" size={24} />
+          </Flex>
+          <Heading
+            as="h4"
+            sx={{
+              color: 'inherit',
+              fontSize: 3,
+              color: !currentRegion ? 'red' : 'black',
+              ':hover': {
                 color: 'blue'
               }
-            : {}
-        }}
-        onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
-      >
-        {mobile && 'FILTER BY '} REGION{' '}
-        <small
-          style={{
-            transform: 'translateY(-1px)',
-            display: 'inline-block'
-          }}
-        >
-          {mobile && (hiddenOnMobile ? '▶︎' : '▼')}
-        </small>
-      </Heading>
-      <Flex
-        sx={{
-          flexDirection: mobile ? 'row' : 'column',
-          gap: '12px',
-          flexWrap: 'wrap',
-          mb: 3,
-          display: hiddenOnMobile ? 'none' : 'flex'
-        }}
-      >
-        <NextLink scroll={false} href={'/fiscal-sponsorship/climate'}>
+            }}
+          >
+            All
+          </Heading>
+        </Flex>
+      </NextLink>
+      {regions?.map((item, idx) => (
+        <NextLink
+          key={idx}
+          scroll={false}
+          href={`/fiscal-sponsorship/climate/organizations-in-${kebabCase(
+            item.label
+          )}`}
+          legacyBehavior>
           <Flex
             sx={{
               alignItems: 'center',
@@ -360,110 +415,53 @@ const RegionPanel = ({ currentRegion, mobile }) => {
               borderRadius: '4px',
               background: mobile ? 'snow' : 'none',
               textDecoration: 'none',
-              color: 'secondary',
-              textDecoration: 'none',
+              color: currentRegion?.label === item.label ? 'red' : 'black',
               transition: 'color 0.2s',
               ':hover': {
-                color: '#B72A3D'
+                color: 'blue'
               },
               width: 'fit-content'
             }}
-            as="a"
           >
-            <Flex
-              sx={{
-                bg: 'smoke',
-                color: 'secondary',
-                p: 1,
-                borderRadius: 6
-              }}
-            >
-              <Icon glyph="list" size={24} />
-            </Flex>
-            <Heading
-              as="h4"
-              sx={{
-                color: 'inherit',
-                fontSize: 3,
-                color: !currentRegion ? 'red' : 'black',
-                ':hover': {
-                  color: 'blue'
-                }
-              }}
-            >
-              All
+            {item.image ? (
+              <Flex
+                sx={{
+                  backgroundImage: `url("${item.image}")`,
+                  backgroundSize: 'contain',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  color: 'white',
+                  p: 1,
+                  borderRadius: 6
+                }}
+              >
+                <Flex
+                  sx={{
+                    width: 24,
+                    height: 24
+                  }}
+                />
+              </Flex>
+            ) : (
+              <Flex
+                sx={{
+                  bg: item.color,
+                  color: 'white',
+                  p: 1,
+                  borderRadius: 6
+                }}
+              >
+                <Icon glyph={item.icon} size={24} />
+              </Flex>
+            )}
+            <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>
+              {item.label}
             </Heading>
           </Flex>
         </NextLink>
-        {regions?.map((item, idx) => (
-          <NextLink
-            key={idx}
-            scroll={false}
-            href={`/fiscal-sponsorship/climate/organizations-in-${kebabCase(
-              item.label
-            )}`}
-          >
-            <Flex
-              sx={{
-                alignItems: 'center',
-                cursor: 'pointer',
-                gap: 2,
-                py: mobile ? 1 : 0,
-                pl: mobile ? 1 : 0,
-                pr: mobile ? 3 : 0,
-                border: mobile ? '1px solid' : 'none',
-                borderColor: 'sunken',
-                borderRadius: '4px',
-                background: mobile ? 'snow' : 'none',
-                textDecoration: 'none',
-                color: currentRegion?.label === item.label ? 'red' : 'black',
-                transition: 'color 0.2s',
-                ':hover': {
-                  color: 'blue'
-                },
-                width: 'fit-content'
-              }}
-            >
-              {item.image ? (
-                <Flex
-                  sx={{
-                    backgroundImage: `url("${item.image}")`,
-                    backgroundSize: 'contain',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    color: 'white',
-                    p: 1,
-                    borderRadius: 6
-                  }}
-                >
-                  <Flex
-                    sx={{
-                      width: 24,
-                      height: 24
-                    }}
-                  />
-                </Flex>
-              ) : (
-                <Flex
-                  sx={{
-                    bg: item.color,
-                    color: 'white',
-                    p: 1,
-                    borderRadius: 6
-                  }}
-                >
-                  <Icon glyph={item.icon} size={24} />
-                </Flex>
-              )}
-              <Heading as="h4" sx={{ color: 'inherit', fontSize: 3 }}>
-                {item.label}
-              </Heading>
-            </Flex>
-          </NextLink>
-        ))}
-      </Flex>
-    </>
-  )
+      ))}
+    </Flex>
+  </>;
 }
 
 const Filtering = ({ mobile, region, ...props }) => {

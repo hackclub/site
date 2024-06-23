@@ -11,7 +11,7 @@ import {
   Text
 } from 'theme-ui'
 import styled from '@emotion/styled'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../../components/nav'

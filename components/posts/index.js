@@ -3,7 +3,7 @@ import { formatDate } from '../../lib/dates'
 import { Fragment, memo } from 'react'
 import { last, filter } from 'lodash'
 import Masonry from 'react-masonry-css'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Mention from './mention'
 import Emoji from './emoji'
 
@@ -38,18 +38,18 @@ export const formatText = text =>
       )
     }
     if (chunk?.startsWith('```')) {
-      return <pre key={i}>{chunk.replace(/```/g, '')}</pre>
+      return <pre key={i}>{chunk.replace(/```/g, '')}</pre>;
     }
     if (chunk?.startsWith('`')) {
-      return <code key={i}>{chunk.replace(/`/g, '')}</code>
+      return <code key={i}>{chunk.replace(/`/g, '')}</code>;
     }
     if (chunk?.startsWith('*')) {
-      return <strong key={i}>{chunk.replace(/\*/g, '')}</strong>
+      return <strong key={i}>{chunk.replace(/\*/g, '')}</strong>;
     }
     if (chunk?.startsWith('_')) {
-      return <i key={i}>{chunk.replace(/_/g, '')}</i>
+      return <i key={i}>{chunk.replace(/_/g, '')}</i>;
     }
-    return <Fragment key={i}>{chunk?.replace(/&amp;/g, '&')}</Fragment>
+    return <Fragment key={i}>{chunk?.replace(/&amp;/g, '&')}</Fragment>;
   })
 
 const Post = ({

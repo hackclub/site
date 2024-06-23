@@ -58,7 +58,7 @@ const Base = styled('a')`
 `
 
 const Flag = props => (
-  <Link href="/" passHref>
+  <Link href="/" passHref legacyBehavior>
     <Base href="https://hackclub.com/" title="Homepage" {...props} />
   </Link>
 )

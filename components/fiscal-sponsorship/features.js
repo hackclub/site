@@ -1,7 +1,7 @@
 import { Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
 import Icon from '../icon'
 import { Balancer } from 'react-wrap-balancer'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import imgLaptop from '../../public/fiscal-sponsorship/laptop.png'
 
 export default function Features() {
