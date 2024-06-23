@@ -35,10 +35,10 @@ export default async function handler(req, res) {
       smallName: record.fields['Name Small Text'],
       hours: record.fields['Hours'],
       imageURL: record.fields['Image URL'],
-      formURL: record.fields['Order Form URL'],
+      formURL:  record.fields['Order Form URL'],
       description: record.fields['Description'],
       flavorText: record?.fields['Flavor text']?.map(recordID => {
-        const flavorRecord = data.flavor.find(f => f.id === recordID)
+        const flavorRecord = data.flavor.find(f => f.id == recordID)
         const result = {
           message: flavorRecord.fields["Message"],
           character: flavorRecord.fields["Character"],
@@ -66,5 +66,5 @@ export default async function handler(req, res) {
     })
   })
 
-  res.status(200).json({ inventory: inventoryResults, selfClicks })
+  res.status(200).json({inventory: inventoryResults, selfClicks})
 }

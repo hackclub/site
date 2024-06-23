@@ -257,10 +257,10 @@ const Powerups = ({
         variant="headline"
         className="gaegu"
       >
-        {cost} {cost === 1 ? 'ticket' : 'tickets'}
+        {cost} {cost == 1 ? 'ticket' : 'tickets'}
       </Text>
       {extraTags?.map((tag, i) => {
-        if (tag === 'Limited Supply') {
+        if (tag == 'Limited Supply') {
           return (
             <Text
               key={tag}
@@ -383,7 +383,7 @@ const Powerups = ({
           variant="headline"
           className="gaegu"
         >
-          {cost} {cost === 1 ? 'ticket' : 'tickets'}
+          {cost} {cost == 1 ? 'ticket' : 'tickets'}
         </Text>
       </dialog>
     </Flex>
@@ -407,7 +407,7 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
         className="gaegu"
         sx={{
           display: 'block',
-          width: third === 'true' ? ['100%', '100%', '100%', '70%'] : '100%'
+          width: third == 'true' ? ['100%', '100%', '100%', '70%'] : '100%'
         }}
       >
         {title}
@@ -954,7 +954,7 @@ const Arcade = ({
           paddingBottom: '20vh'
         }}
       >
-        {slack === 'slack' ? (
+        {slack == 'slack' ? (
           <Announcement
             copy="You were redirected as we're running a special summer event!"
             caption="To join our Slack, join ARCADE."
@@ -1100,7 +1100,6 @@ const Arcade = ({
           >
             <img
               src="/arcade/prizes.png"
-              alt="Orpheus with a Flipper Zero, a MacBook Air, and other prizes"
               sx={{
                 zIndex: 10,
                 width: ['80%', '70%', '65%', '80%'],
