@@ -34,7 +34,7 @@ const Content = () => (
             <>
               Running on HCB? Get a $500 grant once you have a venue, provided
               by Hack Club.
-              <NextLink href="/hackathons/grant">
+              <NextLink href="/hackathons/grant" legacyBehavior>
                 <Link sx={{ ml: 2, cursor: 'pointer' }}>Learn more &rarr;</Link>
               </NextLink>
             </>
@@ -56,7 +56,7 @@ const Content = () => (
           debit cards, a domain name, stickers, and more.`}
         />
       </List>
-      <NextLink href="/fiscal-sponsorship" passHref>
+      <NextLink href="/fiscal-sponsorship" passHref legacyBehavior>
         <Button as="a" variant="outlineLg" sx={{ width: [null, null, 500] }}>
           Apply&nbsp;
           <Box as="span" sx={{ display: ['none', 'inline', ''] }}>

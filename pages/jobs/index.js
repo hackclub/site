@@ -6,7 +6,7 @@ import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import Icon from '../../components/icon'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
 import { compact } from 'lodash'
 
@@ -17,7 +17,7 @@ const JobListing = ({
   positionLocation,
   positionType
 }) => (
-  <Link href={positionLink} passHref>
+  <Link href={positionLink} passHref legacyBehavior>
     <Card
       variant="sunken"
       as="a"

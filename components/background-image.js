@@ -1,5 +1,5 @@
 import { Box } from 'theme-ui'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 /*
  * Use this component inside a container with CSS:

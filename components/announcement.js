@@ -1,7 +1,7 @@
 import { Card, Text, Box } from 'theme-ui'
 import { keyframes } from '@emotion/react'
 import Icon from './icon'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 
 const unfold = keyframes({
   from: { transform: 'scaleY(0)' },

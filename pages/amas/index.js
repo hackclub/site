@@ -4,7 +4,7 @@ import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import BGImg from '../../components/background-image'
 import NextLink from 'next/link'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import Nav from '../../components/nav'
 import SlideDown from '../../components/slide-down'
 import Footer from '../../components/footer'

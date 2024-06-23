@@ -27,67 +27,65 @@ export default function ScrollingHackathons({
     setPageIsVisible(isVisible)
   }
 
-  return (
-    <>
-      {title ? (
-        <Container>
-          <Heading
-            sx={{
-              fontSize: [36, 64],
-              color: 'black',
-              textAlign: 'center',
-              maxWidth: ['95vw', '66vw'],
-              margin: 'auto',
-              mt: 4
-            }}
+  return <>
+    {title ? (
+      <Container>
+        <Heading
+          sx={{
+            fontSize: [36, 64],
+            color: 'black',
+            textAlign: 'center',
+            maxWidth: ['95vw', '66vw'],
+            margin: 'auto',
+            mt: 4
+          }}
+        >
+          Join other high-schoolers at an upcoming hackathon.
+        </Heading>
+        <Box
+          sx={{
+            maxWidth: ['95vw', '66vw'],
+            margin: 'auto',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            mb: 2
+          }}
+        >
+          <Text sx={{ display: ['none', 'flex'], alignItems: 'center' }}>
+            <Dot />
+          </Text>
+          <Text
+            variant="lead"
+            sx={{ color: 'muted', mr: 2, textAlign: 'center' }}
           >
-            Join other high-schoolers at an upcoming hackathon.
-          </Heading>
-          <Box
-            sx={{
-              maxWidth: ['95vw', '66vw'],
-              margin: 'auto',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              mb: 2
-            }}
-          >
-            <Text sx={{ display: ['none', 'flex'], alignItems: 'center' }}>
-              <Dot />
-            </Text>
-            <Text
-              variant="lead"
-              sx={{ color: 'muted', mr: 2, textAlign: 'center' }}
-            >
-              from{' '}
-              <NextLink href="https://hackathons.hackclub.com" passHref>
-                <Link sx={{ color: 'currentcolor' }}>
-                  hackathons.hackclub.com
-                </Link>
-              </NextLink>
-              , last updated just now.
-            </Text>
-          </Box>
-        </Container>
-      ) : (
-        <></>
+            from{' '}
+            <NextLink href="https://hackathons.hackclub.com" passHref legacyBehavior>
+              <Link sx={{ color: 'currentcolor' }}>
+                hackathons.hackclub.com
+              </Link>
+            </NextLink>
+            , last updated just now.
+          </Text>
+        </Box>
+      </Container>
+    ) : (
+      <></>
+    )}
+    <PageVisibility onChange={handleVisibilityChange}>
+      {pageIsVisible && (
+        <Ticker mode={mode || 'string'} {...props}>
+          {() => (
+            <Box as="div" sx={{ display: 'flex', py: 3 }}>
+              {eventData.map(({ ...props }) => (
+                <EventCard key={eventData.id} {...props} />
+              ))}
+            </Box>
+          )}
+        </Ticker>
       )}
-      <PageVisibility onChange={handleVisibilityChange}>
-        {pageIsVisible && (
-          <Ticker mode={mode || 'string'} {...props}>
-            {() => (
-              <Box as="div" sx={{ display: 'flex', py: 3 }}>
-                {eventData.map(({ ...props }) => (
-                  <EventCard key={eventData.id} {...props} />
-                ))}
-              </Box>
-            )}
-          </Ticker>
-        )}
-      </PageVisibility>
-    </>
-  )
+    </PageVisibility>
+  </>;
 }
 
 const flashing = keyframes({

@@ -1,7 +1,7 @@
 import { Box, Button, Heading, Text, Card } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import hero from '../../public/hackathons/assemble.JPG'
 import Icon from '../icon'
 

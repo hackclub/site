@@ -6,6 +6,7 @@ const nextConfig = {
   },
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'mdx'],
+  transpilePackages: ['animejs'],
   images: {
     domains: [
       'hackclub.com',
@@ -28,7 +29,6 @@ const nextConfig = {
     return config
   },
   async redirects() {
-
     return [
       {
         source: '/bank/:path*',
@@ -206,8 +206,8 @@ const nextConfig = {
         destination: 'https://leaders-letters.vercel.app/'
       },
       {
-              source: '/letters',
-              destination: 'https://leaders-letters.vercel.app/'
+        source: '/letters',
+        destination: 'https://leaders-letters.vercel.app/'
       },
       {
         source: '/clubs/leaders-letters/:path*',
@@ -312,7 +312,7 @@ const nextConfig = {
       {
         source: '/arcade/power-hour',
         destination: '/arcade/power-hour/index.html'
-      },
+      }
     ]
   },
   async headers() {
@@ -362,11 +362,9 @@ const nextConfig = {
 
 import million from 'million/compiler'
 import withMDX from '@next/mdx'
-import withTM from 'next-transpile-modules'
 
 const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
-const withAnimeJS = withTM(['animejs'])
 
-export default million.next(withAnimeJS(withMDXConfig(nextConfig)), {
+export default million.next(withMDXConfig(nextConfig), {
   auto: true
 })

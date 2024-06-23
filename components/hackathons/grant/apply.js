@@ -3,7 +3,7 @@ import { Link, Button, Card } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Zoom from 'react-reveal/Zoom'
 import MSparkles from '../../sparkles/money'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 /** @jsxImportSource theme-ui */
 
 const Photo = ({

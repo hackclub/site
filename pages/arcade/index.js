@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import { Box, Text, Flex, Grid, Card, Close, Divider, Heading } from 'theme-ui'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import fs from 'fs'
 import path from 'path'
 import { startCase } from 'lodash'
@@ -652,7 +652,7 @@ const Sticker = ({ st }) => {
         />
       </Box>
     </Box>
-  )
+  );
 }
 
 const Item = ({ name, img, cost }) => {

@@ -95,7 +95,7 @@ export default function Channels() {
         </Text>
         <SlackEvents />
       </Box>
-      <NextLink href="/ship" passHref>
+      <NextLink href="/ship" passHref legacyBehavior>
         <Card
           as="a"
           variant="interactive"
@@ -214,5 +214,5 @@ export default function Channels() {
         <h3>#lgbtq</h3>
       </Card>
     </Grid>
-  )
+  );
 }

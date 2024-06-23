@@ -1,7 +1,7 @@
 import { Box, Heading, Link, Text, Container, Card, Image } from 'theme-ui'
 import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
-import NextImage from 'next/image'
+import NextImage from "next/legacy/image"
 
 import Fade from 'react-reveal/Fade'
 
