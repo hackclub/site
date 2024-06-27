@@ -3,90 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Sticker SKU Generator</title>
+    <title>Hack Club | Available Stickers</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="favicon" href="/favicon.png">
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="icon" href="/favicon.png">
 </head>
 <body>
-    <h1>Random Sticker SKU Generator</h1>
-    <div style="display: flex; gap: 16px; align-items: center;">
-        <button onclick="generate();">Generate</button>
-        <span id="number">3</span>
-        <input type="range" min="1" max="10" value="3" style="flex-grow: 1;" oninput="document.getElementById('number').textContent = this.value; localStorage.setItem('number', this.value)" onchange="generate();">
-    </div>
-    <h2>SKUs</h2>
-    <textarea onclick="this.select();" id="skus" width="100%" rows="2" onkeypress="generate(); return false;"></textarea>
-    <h2 id="header">Items</h2>
+    <h1>Available Hack Club Stickers</h1>
+    <h2 id="header">Stickers In-Stock</h2>
     <table>
         <thead>
             <tr>
-                <th>SKU</th>
                 <th>Name</th>
                 <th>Image</th>
             </tr>
         </thead>
         <tbody id="body">
+            <tr>
+                <td>Loading...</td>
+                <td>Please wait</td>
+            </tr>
         </tbody>
     </table>
-    <h2>Raw Output</h2>
-    <pre><code id="output">Raw Output</code></pre>
     <script>
-        if (!location.href.includes(".dev")) location.href = "/all.html";
-
-        const button = document.querySelector('button');
-        const skus = document.querySelector('#skus');
-        const output = document.querySelector('#output');
         const header = document.querySelector('#header');
         const tbody = document.querySelector('#body');
 
-        const range = document.querySelector('input[type="range"]');
-        const storedNumber = localStorage.getItem('number');
-
-        if (storedNumber) {
-            range.value = storedNumber;
-            document.getElementById('number').textContent = storedNumber;
-        }
-
-        let blocked = false;
-
-        function generate () {
-            if (blocked) return;
-            blocked = true;
-            skus.value = "Loading";
-            output.textContent = "Loading";
-            fetch("https://arcade-stickers.hackclub.dev/api/skus/random?number=" + range.value)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    skus.value = data.items.map(i => `1x ${i.sku}`).join(", ");
-                    output.textContent = JSON.stringify(data, null, 2);
-                    blocked = false;
-                    tbody.innerHTML = `
-                        ${data.items.map(i => `
-                            <tr>
-                                <td>${i.sku}</td>
-                                <td>${i.name}</td>
-                                <td><img src="${i.picture}" alt="${i.name}" width="100"></td>
-                            </tr>
-                        `).join("")}
-                    `;
-                    header.textContent = `Items (${data.items.length})`;
-                }).catch(err => {
-                    console.error(err);
-                    skus.value = "Error";
-                    output.textContent = "Error";
-                    blocked = false;
-                    tbody.innerHTML = `<tr>
-                        <td>Error</td>
-                        <td>Error</td>
-                        <td>Error</td>
-                    </tr>`;
-                })
-        }
-
-        generate();
+        fetch("https://arcade-stickers.hackclub.dev/api/skus/all")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                blocked = false;
+                tbody.innerHTML = `
+                    ${data.items.map(i => `
+                        <tr>
+                            <td>${i.name}</td>
+                            <td><img src="${i.picture}" alt="${i.name}" width="100"></td>
+                        </tr>
+                    `).join("")}
+                `;
+                header.textContent = `Stickers In-Stock (${data.items.length})`;
+            }).catch(err => {
+                console.error(err);
+                blocked = false;
+                tbody.innerHTML = `<tr>
+                    <td>Error</td>
+                    <td>Error</td>
+                </tr>`;
+            });
     </script>
 </body>
 </html>
