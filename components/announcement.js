@@ -1,7 +1,7 @@
-import { Card, Text, Box } from 'theme-ui'
 import { keyframes } from '@emotion/react'
-import Icon from './icon'
 import Image from 'next/image'
+import { Box, Card, Text } from 'theme-ui'
+import Icon from './icon'
 
 const unfold = keyframes({
   from: { transform: 'scaleY(0)' },
@@ -17,6 +17,7 @@ const Announcement = ({
   imgAlt,
   color = 'accent',
   sx = {},
+  width,
   ...props
 }) => (
   <Card
@@ -26,7 +27,7 @@ const Announcement = ({
       variant: 'cards.translucent',
       mx: 'auto',
       maxWidth: 'narrow',
-      width: '100%',
+      width: width ? width : '100%',
       textAlign: 'left',
       textDecoration: 'none',
       lineHeight: 'caption',
