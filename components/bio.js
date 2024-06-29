@@ -1,6 +1,6 @@
-import { Box, Flex, Text, Avatar, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import { useState } from 'react'
+import { Avatar, Box, Card, Flex, Text } from 'theme-ui'
 
 export default function Bio({ popup = true, spanTwo = false, ...props }) {
   let { img, name, teamRole, pronouns, text, subrole, email, href, video } =
