@@ -161,7 +161,7 @@ const Prizes = ({
         variant="headline"
         className="gaegu"
       >
-        {cost} {link ? '🎟️' : cost == 1 ? 'ticket' : 'tickets'}
+        {cost} 🎟️
       </Text>
       <Text
         variant="headline"
