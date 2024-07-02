@@ -473,7 +473,11 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
       <Text
         className="gaegu"
         as="h1"
-        sx={{ display: 'block', fontSize: [2, 3, 4], marginTop: bugEater ? [null, null, null, '36px'] : '-10px' }}
+        sx={{
+          display: 'block',
+          fontSize: [2, 3, 4],
+          marginTop: bugEater ? [null, null, null, '36px'] : '-10px'
+        }}
       >
         {title}
       </Text>
@@ -726,7 +730,6 @@ const FAQ = ({ question, answer }) => {
         }}
         dangerouslySetInnerHTML={{ __html: parsedAnswer }}
       />
-
     </Box>
   )
 }
@@ -880,11 +883,7 @@ function thinkingWords() {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-const Arcade = ({
-  stickers = [],
-  carousel = [],
-  highlightedItems = []
-}) => {
+const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
   const [showComponent, setShowComponent] = useState(false)
   const [showNum, setNum] = useState(false)
   const [showForm, setForm] = useState(false)
@@ -1535,7 +1534,8 @@ const Arcade = ({
                       Write a programming language, receive fudge!
                     </li>
                   </ul>
-                </>}
+                </>
+              }
               num="Infinite"
               sx={{
                 gridColumn: ['', 'span 2', 'span 2', 'span 2'],
@@ -1553,9 +1553,7 @@ const Arcade = ({
             <Tickets
               title="Not sure what to make?"
               bugEater={true}
-              text={
-                <>Click me for ideas!</>
-              }
+              text={<>Click me for ideas!</>}
               sx={{
                 '&ul>li': {
                   color: 'inherit'
@@ -1663,6 +1661,7 @@ const Arcade = ({
             Redeem these with your tickets! For high schoolers (or younger)
             only.
           </Text>
+
           {/* <Text
             variant="caption"
             className="gaegu"
@@ -1698,10 +1697,33 @@ const Arcade = ({
               />
             ))}
           </Grid>
+          <Box
+            as="a"
+            href="/arcade/shop"
+            sx={{
+              backgroundColor: '#FF8C37',
+              color: '#FAEFD6',
+              borderRadius: '5px',
+              border: 'none',
+              fontSize: ['24px', '28px', '32px'],
+              px: '20px',
+              py: '15px',
+              mt: 4,
+              display: 'block',
+              transitionDuration: '0.3s',
+              textDecoration: 'none',
+              '&:hover': {
+                transform: 'scale(1.05)'
+              }
+            }}
+            className="slackey"
+          >
+            See all prizes!
+          </Box>
           <Text
             className="gaegu"
             variant="subtitle"
-            sx={{ mt: '100px', display: 'block', fontWeight: 'bold' }}
+            sx={{ display: 'block', fontWeight: 'bold' }}
           >
             This is just a{' '}
             <Text
@@ -1752,7 +1774,12 @@ const Arcade = ({
             <Text
               variant="title"
               className="slackey"
-              sx={{ textAlign: 'center', width: '100%', display: 'block', marginTop: '25px' }}
+              sx={{
+                textAlign: 'center',
+                width: '100%',
+                display: 'block',
+                marginTop: '25px'
+              }}
             >
               F.A.Q.
             </Text>
