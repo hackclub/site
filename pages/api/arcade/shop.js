@@ -18,15 +18,16 @@ export const shopParts = async () => {
     let stock = fields["Stock"]
 
     if (stock) {
-      stock -= (await ordersTable.read({
+      await ordersTable.read({
         filterByFormula: `AND(
-          {Item} = "${record.id}",
+          {Item} = "${record["Name"]}",
           OR(
             {Status} = "Fulfilled",
             {Status} = "Awaiting Fulfillment"
           )
         )`
-      })).length;
+      })
+      stock -= records.length;
     }
     return { id: record.id, ...record.fields, "Stock": stock ?? null }
   })
