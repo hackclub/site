@@ -6,6 +6,11 @@ export const shopParts = async () => {
     baseID: "app4kCWulfB02bV8Q",
     tableName: "Shop Items"
   })
+  const ordersTable = new AirtablePlus({
+    apiKey: process.env.AIRTABLE_API_KEY,
+    baseID: "app4kCWulfB02bV8Q",
+    tableName: "Orders"
+  })
 
   const records = await shopItemsTable.read()
   return records.map(record => {
@@ -13,15 +18,15 @@ export const shopParts = async () => {
     let stock = fields["Stock"]
 
     if (stock) {
-      // This is a limited item
-      const orders = fields["Orders"]
-      orders.forEach(order => {
-        const orderFields = order.fields;
-        const status = orderFields["Status"]
-        if (status === "Fulfilled" || status === "Awaiting Fulfillment") {
-          stock -= 1
-        }
-      })
+      stock -= ordersTable.read({
+        filterByFormula: `AND(
+          {Item} = "Test",
+          OR(
+            {Status} = "Fulfilled",
+            {Status} = "Awaiting Fulfillment"
+          )
+        )`
+      }).fields.length;
     }
     return { id: record.id, ...record.fields, "Stock": stock }
   })
