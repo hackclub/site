@@ -204,6 +204,7 @@ function Page({
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
 	  <Announcement
+            width="90vw"
             copy="Build in public this summer!"
             caption="Get domains, breadboards & multimeters, and drawing tablets."
             href="/arcade/"
