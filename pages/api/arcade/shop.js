@@ -28,7 +28,7 @@ export const shopParts = async () => {
         )`
       })).length;
     }
-    return { id: record.id, ...record.fields, "Stock": stock }
+    return { id: record.id, ...record.fields, "Stock": stock ?? null }
   })
 }
 
