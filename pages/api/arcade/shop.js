@@ -13,12 +13,12 @@ export const shopParts = async () => {
   })
 
   const records = await shopItemsTable.read()
-  return records.map(record => {
+  return records.map(async record => {
     const fields = record.fields;
     let stock = fields["Stock"]
 
     if (stock) {
-      stock -= ordersTable.read({
+      stock -= (await ordersTable.read({
         filterByFormula: `AND(
           {Item} = "Test",
           OR(
@@ -26,7 +26,7 @@ export const shopParts = async () => {
             {Status} = "Awaiting Fulfillment"
           )
         )`
-      }).fields.length;
+      })).fields.length;
     }
     return { id: record.id, ...record.fields, "Stock": stock }
   })
