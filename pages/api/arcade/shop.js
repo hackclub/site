@@ -34,11 +34,12 @@ export const shopParts = async () => {
       
       stock -= data.length;
     }
-
-    
-    return { id: record.id, ...record.fields, "Stock": stock ?? null }
+      return { id: record.id, ...record.fields, "Stock": (stock == null)? null : (stock >= 0 ? stock : 0) }
   })
-  const newRecords = await Promise.all(newRecordsPromise)
+
+
+    const newRecords = await Promise.all(newRecordsPromise)
+
   return newRecords
 }
 
