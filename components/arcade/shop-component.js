@@ -52,7 +52,7 @@ export default function ShopComponent({
 
 
   const inStockItems = availableItems.filter(item => item['Stock'] === null || item['Stock'] > 0 );
-const outOfStockItems = availableItems.filter(item => item['Stock'] !== null && item['Stock'] <= 0);
+  const outOfStockItems = availableItems.filter(item => item['Stock'] !== null && item['Stock'] <= 0);
 
   return (
     <>
@@ -107,7 +107,7 @@ const outOfStockItems = availableItems.filter(item => item['Stock'] !== null && 
             />
           ))}
       </Grid>
-      <Text sx={{ display: 'block', textAlign: 'center', color: '#35290F' }} className='gaegu' variant='subtitle' >Out of stock items</Text>
+      <Text sx={{ display: 'block', textAlign: 'center', color: '#35290F' }} className='gaegu' variant='headline' >Out of stock items</Text>
       <Grid
         sx={{
           pt: '50px',
