@@ -20,7 +20,7 @@ export const shopParts = async () => {
     if (stock) {
       stock -= (await ordersTable.read({
         filterByFormula: `AND(
-          {Item} = "Test",
+          {Item} = "${record.id}",
           OR(
             {Status} = "Fulfilled",
             {Status} = "Awaiting Fulfillment"
