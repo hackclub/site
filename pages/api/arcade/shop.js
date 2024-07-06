@@ -26,7 +26,7 @@ export const shopParts = async () => {
             {Status} = "Awaiting Fulfillment"
           )
         )`
-      })).fields.length;
+      })).length;
     }
     return { id: record.id, ...record.fields, "Stock": stock }
   })
