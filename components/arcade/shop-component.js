@@ -50,6 +50,10 @@ export default function ShopComponent({
     setTRotate(5 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
   }, []); 
 
+
+  const inStockItems = availableItems.filter(item => item['Stock'] === null || item['Stock'] > 0 );
+  const outOfStockItems = availableItems.filter(item => item['Stock'] !== null && item['Stock'] <= 0);
+
   return (
     <>
       <Text
@@ -79,7 +83,7 @@ export default function ShopComponent({
           textDecoration: 'italic'
         }}
       >
-        {availableItems
+        {inStockItems
           .sort((a, b) => a['Cost Hours'] - b['Cost Hours'])
           .map((item) => (
             <Prizes
@@ -99,6 +103,44 @@ export default function ShopComponent({
               onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity
               hoursBalance={hoursBalance}
               stock={item['Stock']}
+              inStock={true}
+            />
+          ))}
+      </Grid>
+      <Text sx={{ display: 'block', textAlign: 'center', color: '#35290F' }} className='gaegu' variant='headline' >Out of stock items</Text>
+      <Grid
+        sx={{
+          pt: '50px',
+          pb: '150px',
+          gridTemplateColumns: ['1fr', '1fr', '1fr 1fr', '1fr 1fr 1fr'],
+          gap: '50px',
+          maxWidth: '1000px',
+          width: '80vw',
+          margin: 'auto',
+          textDecoration: 'italic'
+        }}
+      >
+        {outOfStockItems
+          .sort((a, b) => a['Cost Hours'] - b['Cost Hours'])
+          .map((item) => (
+            <Prizes
+              img={item['Image URL']}
+              name={item['Name']}
+              smallName={item['Small Name']}
+              subtext={item['Description']}
+              cost={item['Cost Hours']}
+              quantity={item['Max Order Quantity']}
+              fulfillmentDescription={item['Fulfillment Description']}
+              fullName={item['Full Name']}
+              polaroidRotation={pRotate}
+              ticketRotation={tRotate}
+              link={canPurchaseItems ? buyLink(item.id) : null}
+              key={item.id}
+              id={item.id}
+              onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity
+              hoursBalance={hoursBalance}
+              stock={item['Stock']}
+              inStock={false}
             />
           ))}
       </Grid>

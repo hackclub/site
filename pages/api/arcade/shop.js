@@ -1,14 +1,46 @@
 import AirtablePlus from "airtable-plus"
 
 export const shopParts = async () => {
-  const airtable = new AirtablePlus({
+  const baseID = "app4kCWulfB02bV8Q"
+  const shopItemsTable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
-    baseID: "app4kCWulfB02bV8Q",
+    baseID,
     tableName: "Shop Items"
   })
+  const ordersTable = new AirtablePlus({
+    apiKey: process.env.AIRTABLE_API_KEY,
+    baseID,
+    tableName: "Orders"
+  })
 
-  const records = await airtable.read()
-  return records.map(record => ({id: record.id, ...record.fields}))
+  const records = await shopItemsTable.read()
+  const newRecordsPromise = records.map(async record => {
+    const fields = record.fields;
+    let stock = fields["Stock"]
+
+    if (stock && fields["Orders"]) {
+      const orderIds = fields["Orders"]
+      const ordersFilter = orderIds.map(id => `RECORD_ID() = "${id}"`).join(", ")
+      const data = await ordersTable.read({
+        filterByFormula: `
+        AND(
+        OR(${ordersFilter}),
+        OR(
+          {Status} = "Fulfilled",
+          {Status} = "Awaiting Fulfillment"
+          )
+      )`
+      })
+      
+      stock -= data.length;
+    }
+      return { id: record.id, ...record.fields, "Stock": (stock == null)? null : (stock >= 0 ? stock : 0) }
+  })
+
+
+    const newRecords = await Promise.all(newRecordsPromise)
+
+  return newRecords
 }
 
 export default async function handler(req, res) {
@@ -21,8 +53,9 @@ export default async function handler(req, res) {
       description: record['Description'],
       hours: record['Cost Hours'],
       imageURL: record['Image URL'],
+      stock: record['Stock'],
     }
   })
 
-  res.json(filteredData)
+  return res.json(filteredData)
 }
