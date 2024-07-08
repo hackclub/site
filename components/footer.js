@@ -5,7 +5,7 @@ import NextLink from 'next/link'
 import theme from '@hackclub/theme'
 import Icon from './icon'
 
-const Base = styled(Box)`
+const Base = styled(Box, { shouldForwardProp: prop => prop !== "dark" })`
   background: ${props =>
     props.dark
       ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`

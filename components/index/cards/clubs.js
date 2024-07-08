@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Buttons from './button'
 import CardModel from './card-model'
 import { Box, Grid, Flex, Image, Text } from 'theme-ui'
-import ReactTooltip from 'react-tooltip'
 
 /** @jsxImportSource theme-ui */
 
