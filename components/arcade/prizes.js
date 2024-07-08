@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, Text, Flex, Close, Divider } from 'theme-ui'
 import Balancer from 'react-wrap-balancer'
+import { Button, Close, Divider, Flex, Text } from 'theme-ui'
 import Quantity from './quantity'
 /** @jsxImportSource theme-ui */
 const Prizes = ({
@@ -37,7 +37,7 @@ const Prizes = ({
   return (
     <Flex
       sx={{
-        background: inStock ? '#09AFB4' : '#808080',
+        background: ((hoursBalance && hoursBalance / cost >= 1) && inStock) ? '#09AFB4' : '#808080',
         borderRadius: '10px',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -62,7 +62,7 @@ const Prizes = ({
         >
           <img
             src={img}
-            sx={{ height: 'auto', maxWidth: '280px', maxHeight: '250px', filter: inStock ? 'none' : 'greyscale(1)' }}
+            sx={{ height: 'auto', maxWidth: '280px', maxHeight: '250px', filter: ((hoursBalance && hoursBalance / cost >= 1) && inStock) ? 'none' : 'grayscale(1)'}}
             alt={text}
             
           />
@@ -106,16 +106,7 @@ const Prizes = ({
       </Flex>
       {inStock && (
 
-        <Flex sx={{ flexDirection: 'column' }}>
-        <Balancer>
-          <Text
-            as="p"
-            variant="caption"
-            sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
-            >
-            <em>You can order up to {quantity} of these</em>
-          </Text>
-        </Balancer>
+      <Flex sx={{ flexDirection: 'column' }}>
 
         {link && (<Flex>
           {
