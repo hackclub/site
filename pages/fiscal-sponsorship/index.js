@@ -119,8 +119,7 @@ const organizations = [
     climate: false,
     partners: {},
     logo: 'https://hcb.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa3hFIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2455b72ac87867a346ac5ef38ae2dfdb504af3eb/icon-rounded.png',
-    background_image:
-      'https://hcb.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaDJrIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--84f67f8b9bd9b31e6703b5bf399f48dd2059e1ad/189933158-9f00ceaf-7f61-4bef-9911-4cf4a14e0e4d.png',
+    background_image: '/fiscal-sponsorship/hq-bg.jpg',
     donation_link: 'https://hcb.hackclub.com/donations/start/hq'
   }
 ]
