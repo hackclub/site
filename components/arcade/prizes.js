@@ -56,6 +56,21 @@ const Prizes = ({
         }}
         {...props}
       >
+        <Text
+        sx={{
+          background: '#FF8C37',
+          px: '20px',
+          color: '#FFEEC6',
+          position: 'absolute',
+          top: '-10px',
+          right: '-12px',
+          transform: `rotate(${ticketRotation}deg)`
+        }}
+        variant="headline"
+        className="gaegu"
+      >
+        {cost} 🎟️
+      </Text>
         <Flex sx={{ flexDirection: 'column' }}>
           <Flex
             sx={{
@@ -130,57 +145,25 @@ const Prizes = ({
         </Text>
       </Flex>
 
-      <Text
-        sx={{
-          background: '#FF8C37',
-          px: '20px',
-          color: '#FFEEC6',
-          position: 'absolute',
-          top: '-10px',
-          right: '-12px',
-          transform: `rotate(${ticketRotation}deg)`
-        }}
-        variant="headline"
-        className="gaegu"
-      >
-        {cost} 🎟️
-      </Text>
-      {inStock && (
-
-        <Text
-        variant="headline"
-        sx={{
-          position: 'absolute',
-          bottom: '-25px',
-          right: '-10px',
-          color: '#FFEEC6',
-          '&:hover': {
-            cursor: 'pointer'
-          }
-        }}
-        onClick={() => {
-          document.getElementById(`${parsedFullName}-info`).showModal()
-        }}
-        >
-        📦
-      </Text>
-    )}
+      
       <dialog
       id={`${parsedFullName}-info`}
       sx={{
         background: '#09AFB4',
         borderRadius: '10px',
-        flexDirection: 'column',
+        flexDirection: 'row',
         padding: '30px',
         border: 'none',
         scrollbarWidth: 'none',
         textAlign: 'center',
-        maxWidth: '400px',
-        '@media (max-width: 400px)': {
-          maxWidth: '300px'
+        maxWidth: '800px',
+        width: 'calc(100vw - 30px)',
+        ':-internal-dialog-in-top-layer::backdrop': {
+          background: '#33333344'
         }
       }}
       >
+        
         <Close
           sx={{
             '&:hover': { cursor: 'pointer' },
