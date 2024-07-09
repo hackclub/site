@@ -159,16 +159,18 @@ const Prizes = ({
           }}
         />
         <div
-          style={{
+          sx={{
             display: 'flex',
             flexDirection: 'row',
-            gap: '24px'
+            gap: '24px',
+            '@media screen and (max-width: 600px)': {
+              flexDirection: "column!important"
+            }
           }}
         >
           <div
             style={{
               flexDirection: 'column',
-              maxWidth: '400px',
               display: 'flex',
               position: 'relative',
               width: '100%'
