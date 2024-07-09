@@ -41,7 +41,9 @@ const fixed = props =>
     }
   `
 
-const Root = styled(Box)`
+const Root = styled(Box, {
+  shouldForwardProp: prop => !['bgColor', 'scrolled', 'toggled'].includes(prop)
+})`
   position: fixed;
   top: 0;
   width: 100vw;
@@ -113,7 +115,9 @@ const layout = props =>
           }
         }
       `
-const NavBar = styled(Box)`
+const NavBar = styled(Box, {
+  shouldForwardProp: prop => !['isMobile', 'toggled'].includes(prop)
+})`
   display: none;
   ${layout};
   a {

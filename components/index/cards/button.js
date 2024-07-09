@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Button, Text } from 'theme-ui'
-import ReactTooltip from 'react-tooltip'
+import ReactTooltip from '../../react-tooltip'
 import Icon from '@hackclub/icons'
 
 export default function Buttons({
