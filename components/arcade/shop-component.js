@@ -31,8 +31,6 @@ export default function ShopComponent({
 }) {
   // State to manage quantity for each item
   const [quantities, setQuantities] = useState({});
-  const [pRotate, setPRotate] = useState(0)
-  const [tRotate, setTRotate] = useState(0)
 
   // Function to update quantity for an item
   const handleQuantityChange = (itemID, quantity) => {
@@ -45,10 +43,6 @@ export default function ShopComponent({
   }
 
   const canPurchaseItems = userAirtableID !== null;
-  useEffect(() => {
-    setPRotate(2 + Math.random() * 4) * (Math.random() > 0.5 ? 1 : -1)
-    setTRotate(5 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
-  }, []); 
 
   return (
     <>
@@ -91,8 +85,6 @@ export default function ShopComponent({
               quantity={item['Max Order Quantity']}
               fulfillmentDescription={item['Fulfillment Description']}
               fullName={item['Full Name']}
-              polaroidRotation={pRotate}
-              ticketRotation={tRotate}
               link={canPurchaseItems ? buyLink(item.id) : null}
               key={item.id}
               id={item.id}

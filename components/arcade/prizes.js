@@ -2,6 +2,8 @@ import React from 'react'
 import { Button, Text, Flex, Close, Divider } from 'theme-ui'
 import Balancer from 'react-wrap-balancer'
 import Quantity from './quantity'
+import { tr } from 'date-fns/locale'
+import { useState, useEffect } from 'react'
 /** @jsxImportSource theme-ui */
 const Prizes = ({
   img,
@@ -12,8 +14,6 @@ const Prizes = ({
   name,
   smallName,
   cost,
-  polaroidRotation,
-  ticketRotation,
   link = null,
   quantity,
   onQuantityChange,
@@ -33,16 +33,23 @@ const Prizes = ({
 
   const parsedFullName = fullName?.replace(' ', '-')
 
+  const [pRotate, setPRotate] = useState(0)
+  const [tRotate, setTRotate] = useState(0)
+
+  useEffect(() => {
+    setPRotate(-1 + Math.random() * 9) * (Math.random() > 0.5 ? 1 : -3)
+    setTRotate(5 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
+  }, []); 
   return (
     <Flex
       sx={{
-        background: '#09AFB4',
+        background: cost >= 100 ? '#1A696B' : cost >= 50 ? '#2B8184' : cost >=10 ? '#09AFB4' : '#28CCD1',
         borderRadius: '10px',
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: '20px',
         position: 'relative',
-        transform: `rotate(${polaroidRotation}deg)`,
+        transform: `rotate(${pRotate}deg)`,
         transitionDuration: '0.5s',
         '&:hover': {
           transform: 'scale(1.1)'
@@ -75,7 +82,7 @@ const Prizes = ({
               top: '-22px',
               left: '-40px',
               zIndex: 1,
-              transform: `rotate(${ticketRotation}deg)`
+              transform: `rotate(-${tRotate}deg) scale(0.8)`
             }}
             variant="headline"
             className="gaegu"
@@ -156,12 +163,13 @@ const Prizes = ({
           position: 'absolute',
           top: '-10px',
           right: '-12px',
-          transform: `rotate(${ticketRotation}deg)`
+          transform: `rotate(${tRotate}deg)`,
+          zIndex: 3
         }}
         variant="headline"
         className="gaegu"
       >
-        {cost} {link ? '🎟️' : cost == 1 ? 'ticket' : 'tickets'}
+        {cost} {link ? '🎟️' : cost == 1 ? '🎟️' : '🎟️'}
       </Text>
       <Text
         variant="headline"
@@ -261,7 +269,7 @@ const Prizes = ({
             position: 'absolute',
             top: '40px',
             right: '12px',
-            transform: `rotate(${ticketRotation}deg)`
+            transform: `rotate(${tRotate}deg)`
           }}
           variant="headline"
           className="gaegu"
