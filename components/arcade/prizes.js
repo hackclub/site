@@ -58,22 +58,6 @@ const Prizes = ({
       >
         <Flex sx={{ flexDirection: 'column' }}>
           <Flex
-          sx={{
-            background: '#FFEEC6',
-            height: '250px',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <img
-            src={img}
-            sx={{ height: 'auto', maxWidth: '280px', maxHeight: '250px', filter: inStock ? 'none' : 'greyscale(1)' }}
-            alt={text}
-            
-          />
-        </Flex>
-        {inStock && stock != null && stock > 0 && stock <= 100 && (
-          <Text
             sx={{
               background: '#FFEEC6',
               height: '250px',
@@ -144,7 +128,7 @@ const Prizes = ({
         >
           {cost} {link ? '🎟️' : cost == 1 ? 'ticket' : 'tickets'}
         </Text>
-        )}
+      </Flex>
 
       <Text
         sx={{
