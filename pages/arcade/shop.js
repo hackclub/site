@@ -98,7 +98,7 @@ export default function Shop({
             left: 0,
             right: 0,
             bottom: 0,
-            bg: 'snow',
+            bg: '#FAEFD6',
             pointerEvents: 'none'
           }}
         />
@@ -128,27 +128,15 @@ export default function Shop({
               Welcome to the shop
             </h1>
             <Text
-              sx={{ display: 'block', textAlign: 'center', color: '#35290F' }}
+              sx={{ display: 'block', textAlign: 'center', color: '#35290F', mb: 3 }}
               className="gaegu"
               variant="subtitle"
             >
-              Like what you see? Check out{' '}
+              1 🎟️ = 1 hour spent building. Like what you see? Check out{' '}
               <Link href="/arcade">the Hack Club Arcade!</Link>
             </Text>
-            <Text
-              sx={{
-                display: 'block',
-                textAlign: 'center',
-                color: '#35290F',
-                mb: 4
-              }}
-              className="gaegu"
-              variant="subtitle"
-            >
-              1 🎟️ = 1 hour spent building
-            </Text>
           </Balancer>
-          <Flex sx={{ justifyContent: 'center', gap: '10px' }}>
+          <Flex sx={{ justifyContent: 'center', gap: '10px', mb: 3}}>
             <Button
               sx={{ bg: '#28CCD1' }}
               onClick={() => {
@@ -196,7 +184,6 @@ export default function Shop({
               All
             </Button>
           </Flex>
-
           <ShopComponent availableItems={items} />
         </Box>
       </Box>
