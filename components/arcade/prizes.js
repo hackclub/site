@@ -84,7 +84,7 @@ const Prizes = ({
               top: '-22px',
               left: '-40px',
               zIndex: 1,
-              transform: `rotate(-${tRotate}deg) scale(0.8)`
+              transform: `rotate(-5deg) scale(0.8)`
             }}
             variant="headline"
             className="gaegu"
