@@ -63,8 +63,8 @@ export default function ShopComponent({
       </Text>
       <Grid
         sx={{
-          pt: '50px',
-          pb: '150px',
+          pt: '20px',
+          pb: '50px',
           gridTemplateColumns: ['1fr', '1fr', '1fr 1fr', '1fr 1fr 1fr'],
           gap: '50px',
           maxWidth: '1000px',
@@ -75,6 +75,7 @@ export default function ShopComponent({
       >
         {availableItems
           .sort((a, b) => a['Cost Hours'] - b['Cost Hours'])
+          .filter(item => (item['Stock'] > 0 || item['Stock'] == null))
           .map((item) => (
             <Prizes
               img={item['Image URL']}
@@ -91,6 +92,29 @@ export default function ShopComponent({
               onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity
               hoursBalance={hoursBalance}
               stock={item['Stock']}
+              categories={item['Category']}
+            />
+          ))}
+          {availableItems
+          .sort((a, b) => a['Cost Hours'] - b['Cost Hours'])
+          .filter(item => (item['Stock'] == 0))
+          .map((item) => (
+            <Prizes
+              img={item['Image URL']}
+              name={item['Name']}
+              smallName={item['Small Name']}
+              subtext={item['Description']}
+              cost={item['Cost Hours']}
+              quantity={item['Max Order Quantity']}
+              fulfillmentDescription={item['Fulfillment Description']}
+              fullName={item['Full Name']}
+              link={canPurchaseItems ? buyLink(item.id) : null}
+              key={item.id}
+              id={item.id}
+              onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity
+              hoursBalance={hoursBalance}
+              stock={item['Stock']}
+              categories={item['Category']}
             />
           ))}
       </Grid>

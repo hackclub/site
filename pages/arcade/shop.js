@@ -5,6 +5,7 @@ import { Balancer } from 'react-wrap-balancer'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import { useState, useEffect, useRef } from 'react'
+import Flag from '../../components/flag'
 
 /** @jsxImportSource theme-ui */
 
@@ -32,17 +33,31 @@ export default function Shop({
 }) {
   // const [t, setT] = useState('')
   const [items, setItems] = useState(availableItems)
-  const [lowerBound, setLowerBound] = useState(0)
-  const [upperBound, setUpperBound] = useState(1000)
+  // const [lowerBound, setLowerBound] = useState(0)
+  // const [upperBound, setUpperBound] = useState(1000)
+  const [cat, setCat] = useState('all')
+
+  const aItems = availableItems.filter(
+    items => items['Cost Hours'] > 0 && items['Cost Hours'] <= 10
+  )
+  const bItems = availableItems.filter(
+    items => items['Cost Hours'] > 10 && items['Cost Hours'] <= 50
+  )
+  const cItems = availableItems.filter(
+    items => items['Cost Hours'] > 50 && items['Cost Hours'] <= 100
+  )
+  const dItems = availableItems.filter(
+    items => items['Cost Hours'] > 100 && items['Cost Hours'] <= 500
+  )
 
   useEffect(() => {
-    let i = availableItems.filter(
-      items =>
-        items['Cost Hours'] >= lowerBound && items['Cost Hours'] <= upperBound
-    )
-    console.log(i)
-    setItems(i)
-  }, [lowerBound, upperBound])
+    if (cat == 'all') {
+      setItems(availableItems)
+    } else {
+      let i = availableItems.filter(items => items['Category'].includes(cat))
+      setItems(i)
+    }
+  }, [cat])
 
   // Spotlight effect
   const spotlightRef = useRef()
@@ -54,8 +69,8 @@ export default function Shop({
 
       spotlightRef.current.style.background = `radial-gradient(
           circle at ${x}px ${y}px,
-          rgba(132, 146, 166, 0) 10px,
-          rgba(250, 239, 214, 0.9) 80px
+          rgba(132, 146, 166, 0) 20px,
+          rgba(250, 239, 214, 0.9) 120px
         )`
     }
     window.addEventListener('mousemove', handler)
@@ -102,6 +117,55 @@ export default function Shop({
             pointerEvents: 'none'
           }}
         />
+         <img
+            src="/arcade/r6.png"
+            alt="Dino!"
+            sx={{
+              width: ['35%', '35%', '35%', '50%'],
+              maxWidth: '210px',
+              position: 'absolute',
+              right: '50px',
+              bottom: '0'
+            }}
+          />
+        <Flag sx={{ display: 'block', zIndex: 4, ml: 5 }} />
+        <img
+          src="/arcade/o6.png"
+          sx={{
+            width: ['30%', '30%', '30%', '40%'],
+            maxWidth: '210px',
+            position: 'absolute',
+            right: '10px',
+            transform: 'scaleX(-1)',
+            top: '0px',
+            zIndex: 0,
+            display: ['none', 'none', 'none', 'block']
+          }}
+        />
+        <img
+        src="/arcade/o2.png"
+        alt="Dino drawing"
+        sx={{
+          width: ['35%', '35%', '35%', '50%'],
+          maxWidth: '210px',
+          position: 'absolute',
+          transform: 'rotate(90deg)',
+          left: '-20px',
+          bottom: '5000px'
+        }}
+      />
+      <img
+        src="/arcade/o7.png"
+        alt="Dino drawing"
+        sx={{
+          width: ['35%', '35%', '35%', '50%'],
+          maxWidth: '210px',
+          position: 'absolute',
+          transform: 'rotate(-90deg)',
+          right: '0px',
+          bottom: '2500px'
+        }}
+      />
         <Box
           sx={{
             position: 'relative',
@@ -119,7 +183,6 @@ export default function Shop({
                 fontSize: 5,
                 color: '#FF8C37',
                 my: 0,
-                pt: 5,
                 display: 'block',
                 width: '100%'
               }}
@@ -128,7 +191,12 @@ export default function Shop({
               Welcome to the shop
             </h1>
             <Text
-              sx={{ display: 'block', textAlign: 'center', color: '#35290F', mb: 3 }}
+              sx={{
+                display: 'block',
+                textAlign: 'center',
+                color: '#35290F',
+                mb: 4
+              }}
               className="gaegu"
               variant="subtitle"
             >
@@ -136,55 +204,125 @@ export default function Shop({
               <Link href="/arcade">the Hack Club Arcade!</Link>
             </Text>
           </Balancer>
-          <Flex sx={{ justifyContent: 'center', gap: '10px', mb: 3}}>
+          <Flex
+            sx={{
+              justifyContent: 'center',
+              gap: '10px',
+              maxWidth: '60%',
+              flexWrap: 'wrap',
+              margin: 'auto',
+              mb: 4
+            }}
+          >
             <Button
-              sx={{ bg: '#28CCD1' }}
+              variant="outline"
+              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
               onClick={() => {
-                setLowerBound(1)
-                setUpperBound(9)
+                setCat('all')
               }}
             >
-              1-9 🎟️
-            </Button>{' '}
-            <Button
-              sx={{ bg: '#09AFB4' }}
-              onClick={() => {
-                setLowerBound(10)
-                setUpperBound(49)
-              }}
-            >
-              10-49 🎟️
-            </Button>
-            <Button
-              sx={{ bg: '#2B8184' }}
-              onClick={() => {
-                setLowerBound(50)
-                setUpperBound(99)
-              }}
-            >
-              50-99 🎟️
-            </Button>
-            <Button
-              sx={{ bg: '#1A696B' }}
-              onClick={() => {
-                setLowerBound(100)
-                setUpperBound(1000)
-              }}
-            >
-              100+ 🎟️
+              👀 All
             </Button>
             <Button
               variant="outline"
-              sx={{ border: '#09AFB4 3px solid', color: '#09AFB4' }}
+              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
               onClick={() => {
-                setLowerBound(0)
-                setUpperBound(1000)
+                setCat('Software Powerups')
               }}
             >
-              All
+              🕸️ Software Powerups
+            </Button>{' '}
+            <Button
+              variant="outline"
+              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
+              onClick={() => {
+                setCat('Art Supplies')
+              }}
+            >
+              🎨 Art Supplies
+            </Button>
+            <Button
+              variant="outline"
+              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
+              onClick={() => {
+                setCat('Embedded Devices')
+              }}
+            >
+              🕹️ Embedded Devices
+            </Button>
+            <Button
+              variant="outline"
+              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
+              onClick={() => {
+                setCat('Hardware')
+              }}
+            >
+              💻 Hardware
+            </Button>
+            <Button
+              variant="outline"
+              sx={{ border: '#09AFB4 3px dashed', color: '#09AFB4' }}
+              onClick={() => {
+                setCat('Swag')
+              }}
+            >
+              🦢 Swag
             </Button>
           </Flex>
-          <ShopComponent availableItems={items} />
+          {cat == 'all' ? (
+            <>
+              <Text
+                sx={{
+                  fontSize: 5,
+                  color: '#28CCD1',
+                  textAlign: 'center',
+                  display: 'block'
+                }}
+                className="gaegu"
+              >
+                Pixel Prizes: 1-10 🎟️
+              </Text>
+              <ShopComponent availableItems={aItems} />
+              <Text
+                sx={{
+                  fontSize: 5,
+                  color: '#09AFB4',
+                  textAlign: 'center',
+                  display: 'block'
+                }}
+                className="gaegu"
+              >
+                Orpheus Loot: 11-50 🎟️
+              </Text>
+              <ShopComponent availableItems={bItems} />
+              <Text
+                sx={{
+                  fontSize: 5,
+                  color: '#2B8184',
+                  textAlign: 'center',
+                  display: 'block'
+                }}
+                className="gaegu"
+              >
+                Hacker Bounties: 51-100 🎟️
+              </Text>
+              <ShopComponent availableItems={cItems} />
+              <Text
+                sx={{
+                  fontSize: 5,
+                  color: '#1A696B',
+                  textAlign: 'center',
+                  display: 'block'
+                }}
+                className="gaegu"
+              >
+                Ticket Trove: 100+ 🎟️
+              </Text>
+              <ShopComponent availableItems={dItems} />
+            </>
+          ) : (
+            <ShopComponent availableItems={items} />
+          )}
         </Box>
       </Box>
     </>
@@ -208,7 +346,8 @@ export async function getStaticProps() {
           id: item.id,
           'Image URL': item['Image URL'] || null,
           'Max Order Quantity': item['Max Order Quantity'] || 1,
-          Stock: item['Stock'] || null
+          Stock: item['Stock'] ?? null,
+          Category: item['Category'] || ''
         }))
       props.availableItems = availableItems
     })

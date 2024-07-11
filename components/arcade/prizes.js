@@ -20,6 +20,7 @@ const Prizes = ({
   index,
   hoursBalance = null,
   stock,
+  categories,
   ...props
 }) => {
   const parsedFulfillmentDesc = fulfillmentDescription?.replace(
@@ -37,13 +38,13 @@ const Prizes = ({
   const [tRotate, setTRotate] = useState(0)
 
   useEffect(() => {
-    setPRotate(-1 + Math.random() * 9) * (Math.random() > 0.5 ? 1 : -3)
-    setTRotate(5 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
-  }, []); 
+    setPRotate((1 + Math.random() * 4) * (Math.random() > 0.5 ? 1 : -1))
+    setTRotate((5 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1))
+  }, [])
   return (
     <Flex
       sx={{
-        background: cost >= 100 ? '#1A696B' : cost >= 50 ? '#2B8184' : cost >=10 ? '#09AFB4' : '#28CCD1',
+        background: cost >= 100 ? '#1A696B' : cost > 50 ? '#2B8184' : cost >10 ? '#09AFB4' : '#28CCD1',
         borderRadius: '10px',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -51,8 +52,9 @@ const Prizes = ({
         position: 'relative',
         transform: `rotate(${pRotate}deg)`,
         transitionDuration: '0.5s',
+        opacity: stock == 0 ? '0.5' : 1,
         '&:hover': {
-          transform: 'scale(1.1)'
+          transform: stock == 0 ? null : 'scale(1.1)'
         }
       }}
       {...props}
@@ -72,7 +74,7 @@ const Prizes = ({
             alt={text}
           />
         </Flex>
-        {stock && stock != null && stock > 0 && stock <= 100 && (
+        {stock <= 100 && stock != null && (
           <Text
             sx={{
               background: '#CC6CE7',
@@ -87,7 +89,7 @@ const Prizes = ({
             variant="headline"
             className="gaegu"
           >
-            Only {stock} left!
+            {stock == 0 ? <>Sold out</> : <>Only {stock} left! </>}
           </Text>
         )}
         <Text
@@ -121,37 +123,41 @@ const Prizes = ({
           </Text>
         </Balancer>
 
-        {link && (<Flex>
-          {
-            // only show the quantity dropdown if you have enough hours to buy at least 2 of the item
-            (hoursBalance ? hoursBalance / cost < 2 : null) ? null : (
-              <Quantity
-                numOptions={Math.min(quantity, Math.floor(hoursBalance / cost))}
-                label={text}
-                onQuantityChange={onQuantityChange}
-                index={index}
-              />
-            )
-          }
-          {
-            // only show the buy button if you have enough hours to buy at least 1 of the item
-            (hoursBalance ? hoursBalance / cost < 1 : null) ? null : (
-              <Button
-                sx={{
-                  borderRadius: '5px',
-                  color: '#FFEEC6',
-                  backgroundColor: '#09878b',
-                  width: 'fit-content'
-                }}
-                as="a"
-                href={link}
-                className="gaegu"
-              >
-                Buy
-              </Button>
-            )
-          }
-        </Flex>
+        {link && (
+          <Flex>
+            {
+              // only show the quantity dropdown if you have enough hours to buy at least 2 of the item
+              (hoursBalance ? hoursBalance / cost < 2 : null) ? null : (
+                <Quantity
+                  numOptions={Math.min(
+                    quantity,
+                    Math.floor(hoursBalance / cost)
+                  )}
+                  label={text}
+                  onQuantityChange={onQuantityChange}
+                  index={index}
+                />
+              )
+            }
+            {
+              // only show the buy button if you have enough hours to buy at least 1 of the item
+              (hoursBalance ? hoursBalance / cost < 1 : null) ? null : (
+                <Button
+                  sx={{
+                    borderRadius: '5px',
+                    color: '#FFEEC6',
+                    backgroundColor: '#09878b',
+                    width: 'fit-content'
+                  }}
+                  as="a"
+                  href={link}
+                  className="gaegu"
+                >
+                  Buy
+                </Button>
+              )
+            }
+          </Flex>
         )}
       </Flex>
 
@@ -179,7 +185,7 @@ const Prizes = ({
           right: '-10px',
           color: '#FFEEC6',
           '&:hover': {
-            cursor: 'pointer'
+            cursor: stock == 0 ? 'default' : 'pointer'
           }
         }}
         onClick={() => {
@@ -191,11 +197,11 @@ const Prizes = ({
       <dialog
         id={`${parsedFullName}-info`}
         sx={{
-          background: '#09AFB4',
+          background: cost >= 100 ? '#1A696B' : cost > 50 ? '#2B8184' : cost >10 ? '#09AFB4' : '#28CCD1',
+          border: `5px dashed ${ cost >= 100 ? '#094243' : cost >= 50 ? '#1A696B' : cost >=10 ? '#2B8184' : '#09AFB4'}`,
           borderRadius: '10px',
           flexDirection: 'column',
           padding: '30px',
-          border: 'none',
           scrollbarWidth: 'none',
           textAlign: 'center',
           maxWidth: '400px',
@@ -210,7 +216,8 @@ const Prizes = ({
             position: 'absolute',
             top: '10px',
             right: '10px',
-            zIndex: 2
+            zIndex: 2,
+            color: `${ cost >= 100 ? '#094243' : cost >= 50 ? '#1A696B' : cost >=10 ? '#2B8184' : '#09AFB4'}`
           }}
           onClick={() => {
             document.getElementById(`${parsedFullName}-info`).close()
