@@ -208,7 +208,7 @@ export default function Shop({
             sx={{
               justifyContent: 'center',
               gap: '10px',
-              maxWidth: '60%',
+              maxWidth: ['100%', '60%', '60%'],
               flexWrap: 'wrap',
               margin: 'auto',
               mb: 4
@@ -273,7 +273,7 @@ export default function Shop({
             <>
               <Text
                 sx={{
-                  fontSize: 5,
+                  fontSize: [4, 5],
                   color: '#28CCD1',
                   textAlign: 'center',
                   display: 'block'
@@ -285,7 +285,7 @@ export default function Shop({
               <ShopComponent availableItems={aItems} />
               <Text
                 sx={{
-                  fontSize: 5,
+                  fontSize: [4, 5],
                   color: '#09AFB4',
                   textAlign: 'center',
                   display: 'block'
@@ -297,7 +297,7 @@ export default function Shop({
               <ShopComponent availableItems={bItems} />
               <Text
                 sx={{
-                  fontSize: 5,
+                  fontSize: [4, 5],
                   color: '#2B8184',
                   textAlign: 'center',
                   display: 'block'
@@ -309,7 +309,7 @@ export default function Shop({
               <ShopComponent availableItems={cItems} />
               <Text
                 sx={{
-                  fontSize: 5,
+                  fontSize: [4, 5],
                   color: '#1A696B',
                   textAlign: 'center',
                   display: 'block'
