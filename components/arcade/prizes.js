@@ -292,8 +292,8 @@ const Prizes = ({
                 {link && (
                   <Flex>
                     {
-                      // only show the quantity dropdown if you have enough hours to buy at least 2 of the item
-                      (hoursBalance ? hoursBalance / cost < 2 : null) ? null : (
+                      // only show the quantity dropdown if you have enough hours to buy at least 2 of the item and item is in stock
+                      ((hoursBalance ? hoursBalance / cost < 2 : null) || !(inStock)) ? null : (
                         <Quantity
                           numOptions={Math.min(
                             quantity,
@@ -306,8 +306,8 @@ const Prizes = ({
                       )
                     }
                     {
-                      // only show the buy button if you have enough hours to buy at least 1 of the item
-                      (hoursBalance ? hoursBalance / cost < 1 : null) ? null : (
+                      // only show the buy button if you have enough hours to buy at least 1 of the item and item is in stock
+                      ((hoursBalance ? hoursBalance / cost < 1 : null) || !(inStock)) ? null : (
                         <Button
                           sx={{
                             borderRadius: '5px',
