@@ -44,6 +44,7 @@ const Prizes = ({
     setTRotate((5 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1))
   }, [])
   return (
+    <>
     <Flex
       sx={{
         background:
