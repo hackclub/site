@@ -86,7 +86,7 @@ const Prizes = ({
               alt={text}
             />
           </Flex>
-          {stock && stock != null && stock > 0 && stock <= 100 && (
+          {inStock && stock != null && stock > 0 && stock <= 100 && (
             <Text
               sx={{
                 background: '#CC6CE7',
