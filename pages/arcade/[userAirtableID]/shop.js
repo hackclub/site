@@ -131,7 +131,6 @@ export default function Shop({
                 fontSize: 5,
                 color: '#FF8C37',
                 my: 0,
-                pt: 5,
                 display: 'block',
                 width: '100%'
               }}

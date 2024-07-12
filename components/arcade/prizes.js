@@ -45,152 +45,30 @@ const Prizes = ({
   }, [])
   return (
     <>
-    <Flex
-      sx={{
-        background:
-          cost >= 100
-            ? '#1A696B'
-            : cost > 50
-              ? '#2B8184'
-              : cost > 10
-                ? '#09AFB4'
-                : '#28CCD1',
-        borderRadius: '10px',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        padding: '20px',
-        position: 'relative',
-        transform: `rotate(${pRotate}deg)`,
-        transitionDuration: '0.5s',
-        opacity: stock == 0 ? '0.5' : 1,
-        '&:hover': {
-          transform: stock == 0 ? null : 'scale(1.1)'
-        }
-      }}
-      {...props}
-    >
-      <Flex sx={{ flexDirection: 'column' }}>
-        <Flex
-          sx={{
-            background: '#FFEEC6',
-            height: '250px',
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-        >
-          <img
-            src={img}
-            sx={{ height: 'auto', maxWidth: '280px', maxHeight: '250px' }}
-            alt={text}
-          />
-        </Flex>
-        {stock <= 100 && stock != null && (
-          <Text
-            sx={{
-              background: '#CC6CE7',
-              px: '20px',
-              color: '#FFEEC6',
-              position: 'absolute',
-              top: '-22px',
-              left: '-40px',
-              zIndex: 1,
-              transform: `rotate(-5deg) scale(0.8)`
-            }}
-            variant="headline"
-            className="gaegu"
-          >
-            {stock == 0 ? <>Sold out</> : <>Only {stock} left! </>}
-          </Text>
-        )}
-        <Text
-          className="slackey"
-          variant="headline"
-          sx={{ color: '#FFEEC6', mb: 0 }}
-        >
-          {name}
-        </Text>
-        <Text variant="subtitle" sx={{ color: '#FFEEC6' }}>
-          {smallName}
-        </Text>
-        <Balancer>
-          <Text
-            as="p"
-            variant="caption"
-            sx={{ color: '#FFEEC6', mb: 2, overflowWrap: 'break-word' }}
-            dangerouslySetInnerHTML={{ __html: parsedSubText }}
-          />
-        </Balancer>
-      </Flex>
-
-      <Flex sx={{ flexDirection: 'column' }}>
-        {pub ? (
-          <></>
-        ) : (
-          <Balancer>
-            <Text
-              as="p"
-              variant="caption"
-              sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
-            >
-              <em>You can order up to {quantity} of these</em>
-            </Text>
-          </Balancer>
-        )}
-
-        {link && (
-          <Flex>
-            {
-              // only show the quantity dropdown if you have enough hours to buy at least 2 of the item
-              (hoursBalance ? hoursBalance / cost < 2 : null) ? null : (
-                <Quantity
-                  numOptions={Math.min(
-                    quantity,
-                    Math.floor(hoursBalance / cost)
-                  )}
-                  label={text}
-                  onQuantityChange={onQuantityChange}
-                  index={index}
-                />
-              )
-            }
-            {
-              // only show the buy button if you have enough hours to buy at least 1 of the item
-              (hoursBalance ? hoursBalance / cost < 1 : null) ? null : (
-                <Button
-                  sx={{
-                    borderRadius: '5px',
-                    color: '#FFEEC6',
-                    backgroundColor: '#09878b',
-                    width: 'fit-content'
-                  }}
-                  as="a"
-                  href={link}
-                  className="gaegu"
-                >
-                  Buy
-                </Button>
-              )
-            }
-          </Flex>
-        )}
-      </Flex>
-      <Text
-        variant="headline"
+      <Flex
         sx={{
-          position: 'absolute',
-          bottom: '-25px',
-          right: '-10px',
-          color: '#FFEEC6',
+          background:
+            cost >= 100
+              ? '#1A696B'
+              : cost > 50
+                ? '#2B8184'
+                : cost > 10
+                  ? '#09AFB4'
+                  : '#28CCD1',
+          borderRadius: '10px',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          padding: '20px',
+          position: 'relative',
+          transform: `rotate(${pRotate}deg)`,
+          transitionDuration: '0.5s',
+          opacity: stock == 0 ? '0.5' : 1,
           '&:hover': {
-            cursor: stock == 0 ? 'default' : 'pointer'
+            transform: stock == 0 ? null : 'scale(1.1)'
           }
         }}
-        onClick={() => {
-          document.getElementById(`${parsedFullName}-info`).showModal()
-        }}
+        {...props}
       >
-        {cost} 🎟️
-      </Text>
         <Flex sx={{ flexDirection: 'column' }}>
           <Flex
             sx={{
@@ -206,7 +84,7 @@ const Prizes = ({
               alt={text}
             />
           </Flex>
-          {stock && stock != null && stock > 0 && stock <= 100 && (
+          {stock <= 100 && stock != null && (
             <Text
               sx={{
                 background: '#CC6CE7',
@@ -216,12 +94,12 @@ const Prizes = ({
                 top: '-22px',
                 left: '-40px',
                 zIndex: 1,
-                transform: `rotate(${ticketRotation}deg)`
+                transform: `rotate(-5deg) scale(0.8)`
               }}
               variant="headline"
               className="gaegu"
             >
-              Only {stock} left!
+              {stock == 0 ? <>Sold out</> : <>Only {stock} left! </>}
             </Text>
           )}
           <Text
@@ -231,41 +109,96 @@ const Prizes = ({
           >
             {name}
           </Text>
-          <Text variant="subtitle" sx={{ color: '#FFEEC6', mt: 0 }}>
+          <Text variant="subtitle" sx={{ color: '#FFEEC6' }}>
             {smallName}
           </Text>
-        </Flex>
-
-        <Flex sx={{ flexDirection: 'column' }}>
           <Balancer>
             <Text
               as="p"
               variant="caption"
-              sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
-            >
-              <em>You can order up to {quantity} of these</em>
-            </Text>
+              sx={{ color: '#FFEEC6', mb: 2, overflowWrap: 'break-word' }}
+              dangerouslySetInnerHTML={{ __html: parsedSubText }}
+            />
           </Balancer>
         </Flex>
 
+        <Flex sx={{ flexDirection: 'column' }}>
+          {pub ? (
+            <></>
+          ) : (
+            <Balancer>
+              <Text
+                as="p"
+                variant="caption"
+                sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
+              >
+                <em>
+                  You can order up to{' '}
+                  {Math.min(quantity, Math.floor(hoursBalance / cost))} of these
+                </em>
+              </Text>
+            </Balancer>
+          )}
+
+          {link && (
+            <Flex>
+              {
+                // only show the quantity dropdown if you have enough hours to buy at least 2 of the item
+                (hoursBalance ? hoursBalance / cost < 2 : null) ? null : (
+                  <Quantity
+                    numOptions={Math.min(
+                      quantity,
+                      Math.floor(hoursBalance / cost)
+                    )}
+                    label={text}
+                    onQuantityChange={onQuantityChange}
+                    index={index}
+                  />
+                )
+              }
+              {
+                // only show the buy button if you have enough hours to buy at least 1 of the item
+                (hoursBalance ? hoursBalance / cost < 1 : null) ? null : (
+                  <Button
+                    sx={{
+                      borderRadius: '5px',
+                      color: '#FFEEC6',
+                      backgroundColor: '#09878b',
+                      width: 'fit-content'
+                    }}
+                    as="a"
+                    href={link}
+                    className="gaegu"
+                  >
+                    Buy
+                  </Button>
+                )
+              }
+            </Flex>
+          )}
+        </Flex>
         <Text
+          variant="headline"
           sx={{
+            position: 'absolute',
+            top: '-25px',
+            right: '-10px',
+            color: '#FFEEC6',
             background: '#FF8C37',
             px: '20px',
             color: '#FFEEC6',
-            position: 'absolute',
-            top: '-10px',
-            right: '-12px',
-            transform: `rotate(${ticketRotation}deg)`
+            '&:hover': {
+              cursor: stock == 0 ? 'default' : 'pointer'
+            }
           }}
-          variant="headline"
-          className="gaegu"
+          onClick={() => {
+            document.getElementById(`${parsedFullName}-info`).showModal()
+          }}
         >
-          {cost} {link ? '🎟️' : cost == 1 ? 'ticket' : 'tickets'}
+          {cost} 🎟️
         </Text>
       </Flex>
 
-      
       <dialog
         id={`${parsedFullName}-info`}
         sx={{
@@ -284,13 +217,12 @@ const Prizes = ({
           scrollbarWidth: 'none',
           textAlign: 'center',
           maxWidth: '800px',
-        width: 'calc(100vw - 30px)',
-        ':-internal-dialog-in-top-layer::backdrop': {
-          background: '#33333344'
-        }
-      }}
+          width: 'calc(100vw - 30px)',
+          ':-internal-dialog-in-top-layer::backdrop': {
+            background: '#33333344'
+          }
+        }}
       >
-        
         <Close
           sx={{
             '&:hover': { cursor: 'pointer' },
@@ -310,7 +242,7 @@ const Prizes = ({
             flexDirection: 'row',
             gap: '24px',
             '@media screen and (max-width: 600px)': {
-              flexDirection: "column!important"
+              flexDirection: 'column!important'
             }
           }}
         >
@@ -330,7 +262,7 @@ const Prizes = ({
                 position: 'absolute',
                 top: '0px',
                 right: '12px',
-                transform: `rotate(${ticketRotation}deg)`
+                transform: `rotate(${tRotate}deg)`
               }}
               variant="headline"
               className="gaegu"
@@ -457,7 +389,7 @@ const Prizes = ({
                 <Text
                   as="p"
                   variant="caption"
-                  sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
+                  sx={{ color: '#FFEEC6', mt: 0, mb: 2, textAlign: 'center', width: '100%'}}
                 >
                   <em>You can order up to {quantity} of these</em>
                 </Text>
