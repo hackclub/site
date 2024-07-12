@@ -196,7 +196,12 @@ const nextConfig = {
         source: '/slack',
         destination: '/arcade?param=slack',
         permanent: false
-      }
+      },
+      {
+        source: '/donate',
+        destination: '/philanthropy',
+        permanent: false
+      },
     ]
   },
   async rewrites() {

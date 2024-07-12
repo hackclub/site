@@ -13,9 +13,5 @@ export function middleware(request) {
     return response
   }
 
-  if (request.nextUrl.pathname === '/donate/') {
-    return NextResponse.redirect('https://hackclub.com/philanthropy/')
-  }
-
   return NextResponse.next()
 }

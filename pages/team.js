@@ -280,6 +280,13 @@ export default function Team({ team }) {
                 pronouns="she/her"
               />
               <Bio
+                name="Shawn Malluwa-Wadu"
+                teamRole="Community Engineer"
+                text="Shawn Malluwa is a Hack clubber from Maryland who joined in 2022 around the launch of Sprig and was heavily involved in refining hardware designs for various HQ projects! During his tenure, he was also the face and voice of a bunch of our social media videos, and works to share the process of making with the world. In his free time, Shawn loves to create Art across various mediums, particularly comics and animation."
+                img="https://cloud-8u876lgxi-hack-club-bot.vercel.app/0shawn.png"
+                pronouns="he/him"
+              />
+              <Bio
                 name="Hugo Hu"
                 teamRole="Mail Coordinator & Engineering"
                 text="During his time at Hack Club, Hugo led Mail Team, significantly improving logistics for Hack Clubbers across the world. He also helped organize Assemble, and designed the PCBs for Sprig and Blot."

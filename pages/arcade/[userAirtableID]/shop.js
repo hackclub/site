@@ -374,21 +374,19 @@ export async function getStaticProps({ params }) {
 
   await Promise.all([
     shopParts().then(items => {
-      const availableItems = items
-        .filter(item => item['Enabled'])
-        .map(item => ({
-          Name: item['Name'] || null,
-          'Small Name': item['Small Name'] || null,
-          'Full Name': item['Full Name'] || null,
-          Description: item['Description'] || null,
-          'Fulfillment Description': item['Fulfillment Description'] || null,
-          'Cost Hours': item['Cost Hours'] || 0,
-          id: item.id,
-          'Image URL': item['Image URL'] || null,
-          'Max Order Quantity': item['Max Order Quantity'] || 1,
-          Stock: item['Stock'] || null,
-          Category: item['Category'] || ''
-        }))
+      const availableItems = items.filter(item => item['Enabled']).map(item => ({
+        'Name': item['Name'] || null,
+        'Small Name': item['Small Name'] || null,
+        'Full Name': item['Full Name'] || null,
+        'Description': item['Description'] || null,
+        'Fulfillment Description': item['Fulfillment Description'] || null,
+        'Cost Hours': item['Cost Hours'] || 0,
+        id: item.id,
+        'Image URL': item['Image URL'] || null,
+        'Max Order Quantity': item['Max Order Quantity'] || 1,
+        Stock: item['Stock'] >= 0 ? item['Stock'] : null,
+        Category: item['Category'] || ''
+      }))
       props.availableItems = availableItems
     }),
     getArcadeUser(userAirtableID).then(user => {

@@ -1799,7 +1799,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               />
               <FAQ
                 question="What types of projects count?"
-                answer="Projects need to be open source (ie. linked to a GitHub repo) & have a way for people to experience it (ie. a game, a website, etc). At the end, each 'scrap' of your project will be put together in a timeline, so make sure to document your progress!"
+                answer="Projects need to be open source (ie. linked to a GitHub repo) & have a way for people to experience it (ie. a game, a website, etc). At the end, each 'scrap' of your project will be put together in a timeline, so make sure to document your progress! Check the [constitution](https://github.com/hackclub/arcade-constitution) for details on what counts."
               />
               <FAQ
                 question="How many projects can I build?"

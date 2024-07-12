@@ -203,7 +203,7 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-	  <Announcement
+          <Announcement
             width="90vw"
             copy="Build in public this summer!"
             caption="Get domains, breadboards & multimeters, and drawing tablets."
@@ -234,7 +234,7 @@ function Page({
             </Text>
             <Heading>
               <Text
-                as="h1"
+                as="p"
                 variant="title"
                 sx={{
                   color: 'white',
@@ -348,8 +348,8 @@ function Page({
                   whiteSpace: ['wrap', 'nowrap', 'nowrap'],
                   color: 'white',
                   background: theme => theme.util.gx('red', 'orange'),
-                  '-webkit-background-clip': 'text',
-                  '-webkit-text-fill-color': 'transparent'
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
                 }}
               >
                 joy of code
@@ -411,15 +411,15 @@ function Page({
                         count === images.length - 2
                           ? images[0].src
                           : images.length - 1
-                          ? images[1].src
-                          : images[count + 2].src
+                            ? images[1].src
+                            : images[count + 2].src
                       }
                       alt={
                         count === images.length - 2
                           ? images[0].alt
                           : images.length - 1
-                          ? images[1].alt
-                          : images[count + 2].alt
+                            ? images[1].alt
+                            : images[count + 2].alt
                       }
                       width={3000}
                       height={2550}
@@ -924,8 +924,8 @@ function Page({
                     ml: 0,
                     whiteSpace: ['wrap', 'nowrap'],
                     background: theme => theme.util.gx('red', 'orange'),
-                    '-webkit-background-clip': 'text',
-                    '-webkit-text-fill-color': 'transparent'
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
                   }}
                 >
                   Hack&nbsp;Club

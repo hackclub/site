@@ -44,9 +44,9 @@ export default function HCBInfo() {
         <li>
           We partner with{' '}
           <Link href="https://column.com" target="_blank">
-            Column Bank
+            Column N.A.
           </Link>{' '}
-          to offer a bank account to fiscally-sponsored projects.
+          to offer restricted funds to fiscally-sponsored projects.
         </li>
         <li>
           You can't deposit or withdraw cash. But you can receive any kind of

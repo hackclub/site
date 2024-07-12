@@ -5,7 +5,6 @@ export default function GitHub({
   type,
   img,
   user,
-  key,
   text,
   time,
   message,

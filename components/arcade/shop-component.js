@@ -95,6 +95,7 @@ export default function ShopComponent({
               stock={item['Stock']}
               categories={item['Category']}
               pub={pub}
+              inStock={true}
             />
           ))}
           {availableItems
@@ -118,6 +119,7 @@ export default function ShopComponent({
               stock={item['Stock']}
               categories={item['Category']}
               pub={pub}
+              inStock={false}
             />
           ))}
       </Grid>
