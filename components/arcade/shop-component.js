@@ -27,7 +27,8 @@ a {
 export default function ShopComponent({
   availableItems,
   userAirtableID = null,
-  hoursBalance = null
+  hoursBalance = null,
+  pub
 }) {
   // State to manage quantity for each item
   const [quantities, setQuantities] = useState({});
@@ -93,6 +94,7 @@ export default function ShopComponent({
               hoursBalance={hoursBalance}
               stock={item['Stock']}
               categories={item['Category']}
+              pub={pub}
             />
           ))}
           {availableItems
@@ -115,6 +117,7 @@ export default function ShopComponent({
               hoursBalance={hoursBalance}
               stock={item['Stock']}
               categories={item['Category']}
+              pub={pub}
             />
           ))}
       </Grid>

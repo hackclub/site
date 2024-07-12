@@ -21,6 +21,7 @@ const Prizes = ({
   hoursBalance = null,
   stock,
   categories,
+  pub,
   ...props
 }) => {
   const parsedFulfillmentDesc = fulfillmentDescription?.replace(
@@ -44,7 +45,14 @@ const Prizes = ({
   return (
     <Flex
       sx={{
-        background: cost >= 100 ? '#1A696B' : cost > 50 ? '#2B8184' : cost >10 ? '#09AFB4' : '#28CCD1',
+        background:
+          cost >= 100
+            ? '#1A696B'
+            : cost > 50
+              ? '#2B8184'
+              : cost > 10
+                ? '#09AFB4'
+                : '#28CCD1',
         borderRadius: '10px',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -113,15 +121,19 @@ const Prizes = ({
       </Flex>
 
       <Flex sx={{ flexDirection: 'column' }}>
-        <Balancer>
-          <Text
-            as="p"
-            variant="caption"
-            sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
-          >
-            <em>You can order up to {quantity} of these</em>
-          </Text>
-        </Balancer>
+        {pub ? (
+          <></>
+        ) : (
+          <Balancer>
+            <Text
+              as="p"
+              variant="caption"
+              sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
+            >
+              <em>You can order up to {quantity} of these</em>
+            </Text>
+          </Balancer>
+        )}
 
         {link && (
           <Flex>
@@ -197,8 +209,15 @@ const Prizes = ({
       <dialog
         id={`${parsedFullName}-info`}
         sx={{
-          background: cost >= 100 ? '#1A696B' : cost > 50 ? '#2B8184' : cost >10 ? '#09AFB4' : '#28CCD1',
-          border: `5px dashed ${ cost >= 100 ? '#094243' : cost >= 50 ? '#1A696B' : cost >=10 ? '#2B8184' : '#09AFB4'}`,
+          background:
+            cost >= 100
+              ? '#1A696B'
+              : cost > 50
+                ? '#2B8184'
+                : cost > 10
+                  ? '#09AFB4'
+                  : '#28CCD1',
+          border: `5px dashed ${cost >= 100 ? '#094243' : cost >= 50 ? '#1A696B' : cost >= 10 ? '#2B8184' : '#09AFB4'}`,
           borderRadius: '10px',
           flexDirection: 'column',
           padding: '30px',
@@ -217,7 +236,7 @@ const Prizes = ({
             top: '10px',
             right: '10px',
             zIndex: 2,
-            color: `${ cost >= 100 ? '#094243' : cost >= 50 ? '#1A696B' : cost >=10 ? '#2B8184' : '#09AFB4'}`
+            color: `${cost >= 100 ? '#094243' : cost >= 50 ? '#1A696B' : cost >= 10 ? '#2B8184' : '#09AFB4'}`
           }}
           onClick={() => {
             document.getElementById(`${parsedFullName}-info`).close()

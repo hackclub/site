@@ -282,7 +282,7 @@ export default function Shop({
               >
                 Pixel Prizes: 1-10 🎟️
               </Text>
-              <ShopComponent availableItems={aItems} />
+              <ShopComponent availableItems={aItems} pub="True" />
               <Text
                 sx={{
                   fontSize: [4, 5],
@@ -294,7 +294,7 @@ export default function Shop({
               >
                 Orpheus Loot: 11-50 🎟️
               </Text>
-              <ShopComponent availableItems={bItems} />
+              <ShopComponent availableItems={bItems} pub="True" />
               <Text
                 sx={{
                   fontSize: [4, 5],
@@ -306,7 +306,7 @@ export default function Shop({
               >
                 Hacker Bounties: 51-100 🎟️
               </Text>
-              <ShopComponent availableItems={cItems} />
+              <ShopComponent availableItems={cItems} pub="True" />
               <Text
                 sx={{
                   fontSize: [4, 5],
@@ -318,10 +318,10 @@ export default function Shop({
               >
                 Ticket Trove: 100+ 🎟️
               </Text>
-              <ShopComponent availableItems={dItems} />
+              <ShopComponent availableItems={dItems} pub="True" />
             </>
           ) : (
-            <ShopComponent availableItems={items} />
+            <ShopComponent availableItems={items}  pub="True"/>
           )}
         </Box>
       </Box>
