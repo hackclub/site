@@ -17,17 +17,10 @@ const Caption = styled(Text)`
   z-index: 0;
 `
 
-const Photo = React.forwardRef(function Photo({
-  src,
-  width,
-  height,
-  alt,
-  showAlt,
-  dark,
-  loading,
-  ref,
-  ...props
-}) {
+const Photo = React.forwardRef(function Photo(
+  { src, width, height, alt, showAlt, dark, loading, ...props },
+  ref
+) {
   const [colorMode] = useColorMode()
   const showCaption = showAlt && alt
   return (
