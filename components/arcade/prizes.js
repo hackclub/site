@@ -64,7 +64,21 @@ const Prizes = ({
           transitionDuration: '0.5s',
           opacity: stock == 0 ? '0.5' : 1,
           '&:hover': {
-            transform: stock == 0 ? null : 'scale(1.1)'
+            transform: stock == 0 ? null : 'scale(1.1)',
+            cursor: stock == 0 ? 'default' : 'pointer'
+          }
+        }}
+        onClick={e => {
+          const div = e.currentTarget
+          const quantity = div.querySelector('[id*="dropdown-"]')
+          const buy = div.querySelector('#buy')
+          if (quantity === e.target || buy == e.target) {
+            console.log('TRUE')
+            return
+          } else {
+            stock != 0
+              ? document.getElementById(`${parsedFullName}-info`).showModal()
+              : null
           }
         }}
         {...props}
@@ -144,7 +158,13 @@ const Prizes = ({
             <Flex>
               {
                 // only show the quantity dropdown if you have enough hours to buy at least 2 of the item
-                (hoursBalance ? hoursBalance / cost < 2 : null) ? null : (
+                (
+                  hoursBalance
+                    ? hoursBalance / cost >= 2
+                      ? stock != 0
+                      : null
+                    : null
+                ) ? (
                   <Quantity
                     numOptions={Math.min(
                       quantity,
@@ -154,12 +174,20 @@ const Prizes = ({
                     onQuantityChange={onQuantityChange}
                     index={index}
                   />
-                )
+                ) : null
               }
               {
                 // only show the buy button if you have enough hours to buy at least 1 of the item
-                (hoursBalance ? hoursBalance / cost < 1 : null) ? null : (
+                //                 (hoursBalance ? hoursBalance / cost < 1 ? stock != 0 ? null )  null : (
+                (
+                  hoursBalance
+                    ? hoursBalance / cost >= 1
+                      ? stock != 0
+                      : null
+                    : null
+                ) ? (
                   <Button
+                    id="buy"
                     sx={{
                       borderRadius: '5px',
                       color: '#FFEEC6',
@@ -172,7 +200,7 @@ const Prizes = ({
                   >
                     Buy
                   </Button>
-                )
+                ) : null
               }
             </Flex>
           )}
@@ -186,13 +214,7 @@ const Prizes = ({
             color: '#FFEEC6',
             background: '#FF8C37',
             px: '20px',
-            color: '#FFEEC6',
-            '&:hover': {
-              cursor: stock == 0 ? 'default' : 'pointer'
-            }
-          }}
-          onClick={() => {
-            document.getElementById(`${parsedFullName}-info`).showModal()
+            color: '#FFEEC6'
           }}
         >
           {cost} 🎟️
@@ -232,7 +254,7 @@ const Prizes = ({
             zIndex: 2,
             color: `${cost >= 100 ? '#094243' : cost >= 50 ? '#1A696B' : cost >= 10 ? '#2B8184' : '#09AFB4'}`
           }}
-          onClick={() => {
+          onClick={e => {
             document.getElementById(`${parsedFullName}-info`).close()
           }}
         />
@@ -350,10 +372,16 @@ const Prizes = ({
                 }}
               >
                 {link && (
-                  <Flex>
+                  <Flex sx={{ width: '50%' }}>
                     {
                       // only show the quantity dropdown if you have enough hours to buy at least 2 of the item
-                      (hoursBalance ? hoursBalance / cost < 2 : null) ? null : (
+                      (
+                        hoursBalance
+                          ? hoursBalance / cost >= 2
+                            ? stock != 0
+                            : null
+                          : null
+                      ) ? (
                         <Quantity
                           numOptions={Math.min(
                             quantity,
@@ -363,17 +391,24 @@ const Prizes = ({
                           onQuantityChange={onQuantityChange}
                           index={index}
                         />
-                      )
+                      ) : null
                     }
                     {
                       // only show the buy button if you have enough hours to buy at least 1 of the item
-                      (hoursBalance ? hoursBalance / cost < 1 : null) ? null : (
+                      (
+                        hoursBalance
+                          ? hoursBalance / cost >= 1
+                            ? stock != 0
+                            : null
+                          : null
+                      ) ? (
                         <Button
                           sx={{
                             borderRadius: '5px',
                             color: '#FFEEC6',
                             backgroundColor: '#09878b',
-                            width: 'fit-content'
+                            width: 'fit-content',
+                            px: 3
                           }}
                           as="a"
                           href={link}
@@ -381,7 +416,7 @@ const Prizes = ({
                         >
                           Buy
                         </Button>
-                      )
+                      ) : null
                     }
                   </Flex>
                 )}
@@ -389,9 +424,19 @@ const Prizes = ({
                 <Text
                   as="p"
                   variant="caption"
-                  sx={{ color: '#FFEEC6', mt: 0, mb: 2, textAlign: 'center', width: '100%'}}
+                  sx={{
+                    color: '#FFEEC6',
+                    mt: 0,
+                    mb: 2,
+                    textAlign: 'center',
+                    width: '100%'
+                  }}
                 >
-                  <em>You can order up to {quantity} of these</em>
+                  <em>
+                    You can order up to{' '}
+                    {Math.min(quantity, Math.floor(hoursBalance / cost))} of
+                    these
+                  </em>
                 </Text>
               </div>
             </div>
