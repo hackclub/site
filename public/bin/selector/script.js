@@ -8,7 +8,8 @@ async function fetchParts() {
     data = await response.json();
 
     data = removeItemByAttribute(data, "type", "Microprocessor");
-    console.log(data)
+    console.log("Fetched parts:");
+    console.log(data)   
     return data
 }
 function removeItemByAttribute(arr, attr, value) {
@@ -69,6 +70,9 @@ function addPartToPage(part) {
     selectorItem.setAttribute("part_name", part.wokwiName)
     selectorItem.className = "selector-item"
 
+    
+
+
     let selectorImage = document.createElement("img")
     selectorImage.src = part.imageUrl
     selectorImage.className = "selector-image"
@@ -83,7 +87,13 @@ function addPartToPage(part) {
     selectorItemDesc.innerText = part.flavorText
     selectorItemDesc.className = "selector-item-description"
     selectorItem.appendChild(selectorItemDesc)
-
+    if (part.newPart){
+       let newImage = document.createElement("img")
+        newImage.src = "../icons/new.png";
+        newImage.className = "new-tag"
+        selectorItem.appendChild(newImage)
+    } 
+    
     document.getElementsByClassName("selector-main")[0].appendChild(selectorItem)
 
     selectorItem.addEventListener("click", () => {

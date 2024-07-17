@@ -55,11 +55,25 @@
     width: 100%;
 }
 
+.recycled {
+    position: absolute;
+    top: 25%;
+    left: 85%;
+    transform: translate(-50%, -50%) rotate(-10deg); /* Adjust rotation angle as needed */
+    width: 60%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+
 .landing-tagline {
     font-size: 35px;
     display: block;
     font-style: italic;
     text-wrap: nowrap;
+}
+
+.landing-tagline-top {
+    padding-top: 45px;
 }
 
 .scroll-prompt {
