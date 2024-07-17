@@ -66,7 +66,7 @@
     top: 10%;
     right: -35%;
     transform: translate(-50%, -50%) rotate(45deg); /* Adjust rotation angle as needed */
-    width: 55%;
+    width: 60%;
     height: auto;
 
 }
@@ -81,6 +81,8 @@
 
 .selector-item.selected {
     outline: 3px solid #867DEC;
+    background-color: #cbcdbc;
+
 }
 
 .selector-image {
