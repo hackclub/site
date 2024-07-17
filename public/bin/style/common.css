@@ -16,8 +16,8 @@
 
 body {
     background-color: #EBECE0;
-    background-image: url(../icons/grid.svg);
-    background-size: 3px;
+    background-image: url(../icons/new-background.svg);
+    background-size: 50px;
     background-repeat: repeat;
     margin: 0;
 }
