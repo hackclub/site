@@ -26,7 +26,7 @@ const events = [
   {
     name: 'Apocalypse',
     description: `The high school hackathon where you build fun tech to survive the zombie apocalypse!`,
-    logo: '',
+    logo: 'https://cloud-7yl2xnwax-hack-club-bot.vercel.app/0image.png',
     location: 'Toronto, Canada',
     season: 'Spring',
     year: '2024',
