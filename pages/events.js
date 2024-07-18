@@ -24,6 +24,39 @@ import theme from '@hackclub/theme'
 
 const events = [
   {
+    name: 'Apocalypse',
+    description: ``,
+    logo: '',
+    location: '',
+    season: 'Spring',
+    year: '2024',
+    // repo: 'apocalypse',
+    image: '',
+    link: 'https://apocalypse.hackclub.com'
+  },
+  {
+    name: 'Wonderland',
+    description: ``,
+    logo: '',
+    location: '',
+    season: 'Winter',
+    year: '2024',
+    // repo: 'wonderland',
+    image: '',
+    link: 'https://wonderland.hackclub.com'
+  },
+  {
+    name: 'Leaders Summit',
+    description: ``,
+    logo: '',
+    location: '',
+    season: 'Winter',
+    year: '2024',
+    // repo: 'summit',
+    image: 'https://cloud-5u0gget9r-hack-club-bot.vercel.app/0image.png',
+    link: 'https://wonderland.hackclub.com'
+  },
+  {
     name: 'Haunted House',
     description: `Where Fright Meets Byte: A Haunted House Hackathon Experience in Downtown Chicago.`,
     logo: 'https://emoji.slack-edge.com/T0266FRGM/hauntedhouse/427353c4bd656767.png',
