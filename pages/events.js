@@ -25,38 +25,35 @@ import theme from '@hackclub/theme'
 const events = [
   {
     name: 'Apocalypse',
-    description: ``,
+    description: `The high school hackathon where you build fun tech to survive the zombie apocalypse!`,
     logo: '',
-    location: '',
+    location: 'Toronto, Canada',
     season: 'Spring',
     year: '2024',
     // repo: 'apocalypse',
     image: '',
-    video: '',
     link: 'https://apocalypse.hackclub.com'
   },
   {
     name: 'Wonderland',
-    description: ``,
+    description: `🕳️🐇 How would you and your friends use a 🥕carrot in a hackathon project? From Alice in Wonderland themed mystery chests, come the infinities of Wonderland.`,
     logo: '',
-    location: '',
+    location: 'Boston, Massachusetts',
     season: 'Winter',
     year: '2024',
     // repo: 'wonderland',
-    image: '',
-    video: '',
+    video: 'https://www.youtube.com/watch?v=X1EVT0vUxAg',
     link: 'https://wonderland.hackclub.com'
   },
   {
     name: 'Leaders Summit',
-    description: ``,
+    description: `A weekend of invention, collaboration, and friendship in San Francisco with 50 Hack Club leaders from around the world.`,
     logo: '',
-    location: '',
+    location: 'San Francisco, California',
     season: 'Winter',
     year: '2024',
     // repo: 'summit',
-    image: 'https://cloud-5u0gget9r-hack-club-bot.vercel.app/0image.png',
-    video: '',
+    video: 'https://www.youtube.com/watch?v=UZEm5lONg7g',
     link: 'https://summit.hackclub.com'
   },
   {
