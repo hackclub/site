@@ -32,6 +32,7 @@ const events = [
     year: '2024',
     // repo: 'apocalypse',
     image: '',
+    video: '',
     link: 'https://apocalypse.hackclub.com'
   },
   {
@@ -43,6 +44,7 @@ const events = [
     year: '2024',
     // repo: 'wonderland',
     image: '',
+    video: '',
     link: 'https://wonderland.hackclub.com'
   },
   {
@@ -54,7 +56,8 @@ const events = [
     year: '2024',
     // repo: 'summit',
     image: 'https://cloud-5u0gget9r-hack-club-bot.vercel.app/0image.png',
-    link: 'https://wonderland.hackclub.com'
+    video: '',
+    link: 'https://summit.hackclub.com'
   },
   {
     name: 'Haunted House',
