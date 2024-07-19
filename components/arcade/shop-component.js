@@ -41,7 +41,7 @@ export default function ShopComponent({
 
   function buyLink(itemID, itemImage) {
     const quantity = quantities[itemID] || 1; // Default quantity is 1 if not set
-    return `https://forms.hackclub.com/arcade-order?user_id=${userAirtableID}&item_id=${itemID}&quantity=${quantity}&image=${encodeURIComponent(itemImage)}`;
+    return `https://forms.hackclub.com/arcade-order?user_id=${userAirtableID}&item_id=${itemID}&quantity=${quantity}&image=${encodeURIComponent(itemImage)}&email=${encodeURIComponent(userEmail)}`;
   }
 
   const canPurchaseItems = userAirtableID !== null;
