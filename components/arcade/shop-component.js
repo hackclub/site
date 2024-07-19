@@ -28,6 +28,7 @@ export default function ShopComponent({
   availableItems,
   userAirtableID = null,
   hoursBalance = null,
+  userEmail = null,
   pub
 }) {
   // State to manage quantity for each item
