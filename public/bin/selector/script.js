@@ -70,9 +70,6 @@ function addPartToPage(part) {
     selectorItem.setAttribute("part_name", part.wokwiName)
     selectorItem.className = "selector-item"
 
-    
-
-
     let selectorImage = document.createElement("img")
     selectorImage.src = part.imageUrl
     selectorImage.className = "selector-image"
@@ -93,9 +90,36 @@ function addPartToPage(part) {
         newImage.className = "new-tag"
         selectorItem.appendChild(newImage)
     } 
-    
+    console.log("Out of stock" + part.outOfStock)
+
     document.getElementsByClassName("selector-main")[0].appendChild(selectorItem)
 
+    if(part.outOfStock){
+        
+     //   selectorItem.classList.add("outOfStock");
+
+        let outOfStockDiv = document.createElement("div");
+        outOfStockDiv.className = "outOfStock";
+
+
+        let outOfStockText = document.createElement("h1");
+        outOfStockText.innerText = "Out of Stock";
+        outOfStockText.className = "outOfStockText";
+
+        let outOfStockInnerText = document.createElement("p");
+        outOfStockInnerText.innerText = "Shipping times delayed";
+        outOfStockInnerText.className = "outOfStockInnerText";
+
+        outOfStockDiv.appendChild(outOfStockText)
+        outOfStockDiv.appendChild(outOfStockInnerText)
+
+
+
+        selectorItem.appendChild(outOfStockDiv)
+        
+
+
+    } 
     selectorItem.addEventListener("click", () => {
         let isSelected = selectorItem.className.includes("selected")
         if (isSelected) {
@@ -107,6 +131,9 @@ function addPartToPage(part) {
         }
         recalculateSelected();
     })
+   
+
+    
 }
 
 window.addEventListener("load", async (e) => {

@@ -79,6 +79,10 @@
     filter: grayscale(1) brightness(0.7);
 }
 
+.selector-item.outOfStock{
+    filter: grayscale(1) brightness(0.7);
+}
+
 .selector-item.selected {
     outline: 3px solid #867DEC;
     background-color: #cbcdbc;
@@ -116,6 +120,40 @@
 .selector-number.disabled {
     filter: grayscale(0.8);
 }
+
+.outOfStock{
+    position: absolute;
+    background-color: rgb(228, 245, 37);
+    top: 17%;
+    left: 23%;
+    transform: translate(-50%, -50%) rotate(-35deg); /* Adjust rotation angle as needed */
+    display: flex;
+    align-items: center;
+    display: table-column;
+}
+
+.outOfStockText {    
+    width: 60%;
+    height: auto;
+    white-space: nowrap;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.outOfStockInnerText {
+    width: 20%;
+    height: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+   
+}
+
+
+
 
 .flex-lb {
     width: 100%;
