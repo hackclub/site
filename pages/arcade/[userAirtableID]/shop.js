@@ -397,7 +397,7 @@ export async function getStaticProps({ params }) {
     getArcadeUser(userAirtableID).then(user => {
       const hoursBalance = user.fields['Balance (Hours)'] || 0
       props.hoursBalance = hoursBalance
-      propts.userEmail = user.fields['Email']
+      props.userEmail = user.fields['Email']
     })
   ])
 
