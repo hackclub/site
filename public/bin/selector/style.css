@@ -59,20 +59,32 @@
     cursor: pointer;
     filter: grayscale(0) brightness(1);
     transition: filter 300ms;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for a more polished look */
+
 }
 
 .new-tag {
     position: absolute;
-    top: 10%;
-    right: -35%;
+    top: 17%;
+    right: -38%;
     transform: translate(-50%, -50%) rotate(45deg); /* Adjust rotation angle as needed */
     width: 60%;
     height: auto;
 
 }
 
+.new-tag:hover{
+   
+        transform: translate(-50%, -50%) rotate(30deg); /* Slight rotation on hover */
+    
+}
+
 .selector-item:hover {
-    background-color: #bcbda7;}
+    background-color: #bcbda7;
+    transform: translate(0%, 0%) scale(1.05); /* Slight rotation on hover */
+
+}
+    
 
 
 .selector-item.disabled {
@@ -123,32 +135,54 @@
 
 .outOfStock{
     position: absolute;
-    background-color: rgb(228, 245, 37);
+    background-color: aliceblue;
     top: 17%;
     left: 23%;
     transform: translate(-50%, -50%) rotate(-35deg); /* Adjust rotation angle as needed */
     display: flex;
-    align-items: center;
     display: table-column;
+    border-radius: 20px; /* Smooth corners */
+    background: linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%); /* Nice gradient color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for a more polished look */
+}
+
+.outOfStock:hover {
+    transform: translate(-50%, -50%) rotate(-30deg); /* Slight rotation on hover */
+}
+
+.amountRemaining{
+    position: absolute;
+    background-color: aliceblue;
+    top: 17%;
+    left: 23%;
+    transform: translate(-50%, -50%) rotate(-35deg); /* Adjust rotation angle as needed */
+    display: flex;
+    display: table-column;
+    border-radius: 20px; /* Smooth corners */
+    background: linear-gradient(135deg, #f8cc08 0%, #df3d01 100%); /* Nice gradient color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for a more polished look */
+}
+
+.amountRemaining:hover {
+    transform: translate(-50%, -50%) rotate(-30deg); /* Slight rotation on hover */
 }
 
 .outOfStockText {    
-    width: 60%;
-    height: auto;
-    white-space: nowrap;
+
+    position: relative;  
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    white-space: nowrap;
 
 }
 
 .outOfStockInnerText {
-    width: 20%;
-    height: auto;
-    white-space: nowrap;
-    padding-bottom: 10px;
+    position: relative;  
     padding-left: 10px;
     padding-right: 10px;
+    white-space: nowrap;
+    padding-bottom: 10px;
    
 }
 

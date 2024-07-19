@@ -120,6 +120,30 @@ function addPartToPage(part) {
 
 
     } 
+
+    if(part.displayAmount && part.currentStockIncludingNonFulfilled < 6 && !part.outOfStock){
+        let stockDiv = document.createElement("div");
+        stockDiv.className = "amountRemaining";
+
+        let stockText = document.createElement("h1");
+        stockText.innerText = part.currentStockIncludingNonFulfilled + " left in stock";
+        stockText.className = "outOfStockText";
+
+        let stockInnerText = document.createElement("p");
+        stockInnerText.innerText = "Shipping times may be delayed";
+        stockInnerText.className = "outOfStockInnerText";
+
+        stockDiv.appendChild(stockText)
+        stockDiv.appendChild(stockInnerText)
+        selectorItem.appendChild(stockDiv)
+
+        console.log("display amunt" + part.displayAmount);
+        console.log("current stock" + part.currentStockIncludingNonFulfilled);
+
+        console.log("out of stock" + part.outOfStock);
+
+
+    }
     selectorItem.addEventListener("click", () => {
         let isSelected = selectorItem.className.includes("selected")
         if (isSelected) {
