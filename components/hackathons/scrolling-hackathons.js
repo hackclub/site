@@ -141,7 +141,7 @@ function EventCard({
         target="_blank"
         rel="noopener noreferrer"
         itemScope
-        itemType="http://schema.org/Event"
+        itemType="https://schema.org/Event"
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -224,7 +224,7 @@ function EventCard({
                 as="span"
                 itemProp="location"
                 itemScope
-                itemType="http://schema.org/Place"
+                itemType="https://schema.org/Place"
               >
                 {!virtual && (
                   <span itemProp="address">

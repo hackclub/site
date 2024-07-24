@@ -62,7 +62,7 @@ export default function Testimonials() {
             budget="$1,000,000"
             budgetLabel="in grants"
             website="killabytez.club"
-            url="http://www.killabytez.club/"
+            url="https://www.killabytez.club/"
             hackerAvatarUrl="/hackers/brian-cisto.jpeg"
             hackerName="Brian Cisto"
             hackerRole="Team Captain & Software Lead"
@@ -160,7 +160,7 @@ function Organization({
             <br />
             <Text
               sx={{
-                fontSize: 2,
+                // fontSize: 2,
                 color: 'snow',
                 textIndent: '-.375em',
                 lineHeight: 'caption',

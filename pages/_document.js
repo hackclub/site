@@ -2,7 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 // import { InitializeColorMode } from 'theme-ui'
 
 const org = {
-  '@context': 'http://schema.org',
+  '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Hack Club',
   url: 'https://hackclub.com/',

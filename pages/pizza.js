@@ -452,7 +452,7 @@ const PizzaPage = () => {
             variant="heading"
             sx={{
               padding: 0,
-              background: 'linear-gradient(95deg, #EC3750 0%, #FF8C37 100%)',
+              // background: 'linear-gradient(95deg, #EC3750 0%, #FF8C37 100%)',
               fontSize: [28, 34, 36],
               background: 'linear-gradient(180deg, #FF8C37 25%, #EC3750 100%)',
               WebkitBackgroundClip: 'text',

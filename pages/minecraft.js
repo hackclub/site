@@ -80,7 +80,7 @@ const Page = () => (
             <Text as="p">
               Hang out with the tree-punchers of Hack&nbsp;Club playing on the
               official server, mc.hackclub.com.{' '}
-              <Link href="http://mc.hackclub.com:2008" color="#759B40">
+              <Link href="https://mc.hackclub.com:2008" color="#759B40">
                 Check out the map »
               </Link>
             </Text>

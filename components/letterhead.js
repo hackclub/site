@@ -16,7 +16,7 @@ const Authored = ({ name, avatar, url, date, ...props }) => (
       'a, span, time': {
         mt: 0,
         mb: 2,
-        bg: 'white',
+        // bg: 'white', Not sure why there were two colors here.
         color: 'muted',
         border: '1px solid',
         borderColor: 'background',
@@ -60,17 +60,17 @@ const Authored = ({ name, avatar, url, date, ...props }) => (
 )
 
 const Letterhead = ({
-  title,
-  desc,
-  author = { name: null, avatar: null, url: null },
-  date,
-  img,
-  path,
-  includeMeta = true,
-  hideGitHub = false,
-  children,
-  ...props
-}) => (
+                      title,
+                      desc,
+                      author = { name: String, avatar: String, url: String },
+                      date,
+                      img,
+                      path,
+                      includeMeta = true,
+                      hideGitHub = false,
+                      children,
+                      ...props
+                    }) => (
   <>
     <Meta as={Head} title={title} description={desc} image={img} />
     <Nav color="text" />

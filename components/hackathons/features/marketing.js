@@ -6,7 +6,6 @@ import Link from 'next/link'
 const Content = () => (
   <Container
     sx={{
-      textAlign: 'center',
       zIndex: 999,
       py: 6,
       color: 'white',

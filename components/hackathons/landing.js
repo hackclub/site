@@ -116,8 +116,6 @@ function Slide({ children }) {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'end',
-        width: '100vw',
-        backgroundSize: 'cover',
         backgroundColor: '#000000',
         boxShadow: 'inset 0 0 4rem 1rem rgba(0, 0, 0, 0.5)',
         backgroundPosition: 'center',

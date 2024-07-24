@@ -73,7 +73,7 @@ export const OrganizationCard = ({
       onClick={() => openModal(organization)}
       rel="noopener noreferrer"
       itemScope
-      itemType="http://schema.org/Event"
+      itemType="https://schema.org/Event"
       variant="event"
       sx={{
         justifyContent: 'center',
@@ -163,7 +163,7 @@ export const OrganizationCard = ({
             as="span"
             itemProp="location"
             itemScope
-            itemType="http://schema.org/Place"
+            itemType="https://schema.org/Place"
           >
             <span itemProp="address">
               {organization.raw.location.continent}

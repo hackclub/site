@@ -77,7 +77,7 @@ const organizations = [
     name: 'Fridays For Future Uganda',
     description: 'Leading the environmental justice fight in Uganda.',
     slug: 'fridays-for-future-uganda',
-    website: 'http://www.fridaysforfutureug.earth/',
+    website: 'https://www.fridaysforfutureug.earth/',
     transparent: true,
     location: {
       readable: 'Uganda',

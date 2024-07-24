@@ -11,7 +11,6 @@ export default function Bank({ data }) {
       <CardModel
         color="white"
         sx={{
-          backgroundColor: 'dark',
           minHeight: ['300px', '400px', '380px'],
           backgroundColor: 'darkless',
           backgroundImage: `linear-gradient(to bottom,rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('/home/hackathons-bg.webp')`,

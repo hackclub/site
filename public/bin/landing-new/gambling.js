@@ -1,6 +1,6 @@
-var fetchedParts;
-var selectedParts = []
-var rolled = false;
+let fetchedParts
+let selectedParts = []
+let rolled = false
 
 
 let yap_sounds = {

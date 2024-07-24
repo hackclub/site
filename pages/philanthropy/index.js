@@ -119,7 +119,6 @@ const Stat = ({ num, words, background }) => {
       sx={{
         padding: '20px !important',
         my: 2,
-        textAlign: 'center',
         backgroundColor: 'elevated',
         backgroundImage: `url('${background}')`,
         backgroundSize: '25px 25px',
@@ -888,7 +887,6 @@ const Philanthropy = ({ posts = [] }) => {
                         sx={{
                           lineHeight: '1em',
                           fontSize: '1.1em !important',
-                          fontSize: '1.1em !important'
                         }}
                       >
                         Co-founder, GitHub

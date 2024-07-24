@@ -19,7 +19,6 @@ export default function Channels() {
       gap={3}
       sx={{
         py: [3, 4],
-        h3: { my: 0 },
         '> div': {
           px: [2, 3],
           py: 4,

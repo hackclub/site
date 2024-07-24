@@ -63,9 +63,9 @@ export default function Shop({
   const spotlightRef = useRef()
   useEffect(() => {
     const handler = event => {
-      var rect = document.getElementById('spotlight').getBoundingClientRect()
-      var x = event.clientX - rect.left //x position within the element.
-      var y = event.clientY - rect.top //y position within the element.
+      const rect = document.getElementById('spotlight').getBoundingClientRect()
+      const x = event.clientX - rect.left  //x position within the element.
+      const y = event.clientY - rect.top  //y position within the element.
 
       spotlightRef.current.style.background = `radial-gradient(
           circle at ${x}px ${y}px,

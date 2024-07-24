@@ -198,7 +198,6 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
               background: mobile ? 'snow' : 'none',
               textDecoration: 'none',
               color: 'secondary',
-              textDecoration: 'none',
               transition: 'color 0.2s',
               ':hover': {
                 color: 'blue'
@@ -227,13 +226,12 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
             <Heading
               as="h4"
               sx={{
-                color: 'inherit',
                 fontSize: 3,
                 color:
-                  category == availableCategory.id ||
+                  category === availableCategory.id ||
                   (availableCategory.index &&
-                    category == null &&
-                    region == null)
+                    category === null &&
+                    region === null)
                     ? 'primary'
                     : 'null',
                 ':hover': {
@@ -297,7 +295,6 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
               borderColor: 'sunken',
               borderRadius: '4px',
               background: mobile ? 'snow' : 'none',
-              textDecoration: 'none',
               color: 'secondary',
               textDecoration: 'none',
               transition: 'color 0.2s',
@@ -334,10 +331,9 @@ const FilterPanel = ({ filter, mobile, clearOffset }) => {
             <Heading
               as="h4"
               sx={{
-                color: 'inherit',
                 fontSize: 3,
                 color:
-                  region == kebabCase(availableRegion.label)
+                  region === kebabCase(availableRegion.label)
                     ? 'primary'
                     : 'null',
                 ':hover': {

@@ -211,7 +211,6 @@ const Prizes = ({
             position: 'absolute',
             top: '-25px',
             right: '-10px',
-            color: '#FFEEC6',
             background: '#FF8C37',
             px: '20px',
             color: '#FFEEC6'

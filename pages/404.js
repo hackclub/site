@@ -190,7 +190,7 @@ const NotFoundPage = () => (
   <>
     <Meta as={Head} title="404" />
     <ForceTheme theme="dark" />
-    <Nav color="primary" dark />
+    <Nav color="primary" dark="true" />
     <Container variant="narrow" sx={{ py: [5, 6], textAlign: 'center' }}>
       <Spinning
         sx={{ fontSize: [128, 256], textAlign: 'center', height: '1lh' }}
