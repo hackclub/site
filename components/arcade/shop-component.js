@@ -28,6 +28,7 @@ export default function ShopComponent({
   availableItems,
   userAirtableID = null,
   hoursBalance = null,
+  userEmail = null,
   pub
 }) {
   // State to manage quantity for each item
@@ -38,9 +39,9 @@ export default function ShopComponent({
     setQuantities({ ...quantities, [itemID]: quantity });
   };
 
-  function buyLink(itemID) {
+  function buyLink(itemID, itemImage) {
     const quantity = quantities[itemID] || 1; // Default quantity is 1 if not set
-    return `https://forms.hackclub.com/arcade-order?user_id=${userAirtableID}&item_id=${itemID}&quantity=${quantity}`;
+    return `https://forms.hackclub.com/arcade-order?user_id=${userAirtableID}&item_id=${itemID}&quantity=${quantity}&image=${encodeURIComponent(itemImage)}&email=${encodeURIComponent(userEmail)}`;
   }
 
   const canPurchaseItems = userAirtableID !== null;
@@ -87,7 +88,7 @@ export default function ShopComponent({
               quantity={item['Max Order Quantity']}
               fulfillmentDescription={item['Fulfillment Description']}
               fullName={item['Full Name']}
-              link={canPurchaseItems ? buyLink(item.id) : null}
+              link={canPurchaseItems ? buyLink(item.id, item['Image URL']) : null}
               key={item.id}
               id={item.id}
               onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity
@@ -111,7 +112,7 @@ export default function ShopComponent({
               quantity={item['Max Order Quantity']}
               fulfillmentDescription={item['Fulfillment Description']}
               fullName={item['Full Name']}
-              link={canPurchaseItems ? buyLink(item.id) : null}
+              link={canPurchaseItems ? buyLink(item.id, item['Image URL']) : null}
               key={item.id}
               id={item.id}
               onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity

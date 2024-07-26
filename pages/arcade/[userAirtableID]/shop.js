@@ -29,6 +29,7 @@ body {
 export default function Shop({
   availableItems,
   userAirtableID = null,
+  userEmail = null,
   hoursBalance = 0
 }) {
   const [items, setItems] = useState(availableItems)
@@ -247,6 +248,7 @@ export default function Shop({
               <ShopComponent
                 availableItems={aItems}
                 userAirtableID={userAirtableID}
+                userEmail={userEmail}
                 hoursBalance={hoursBalance}
               />
               <Text
@@ -263,6 +265,7 @@ export default function Shop({
               <ShopComponent
                 availableItems={bItems}
                 userAirtableID={userAirtableID}
+                userEmail={userEmail}
                 hoursBalance={hoursBalance}
               />
               <Text
@@ -279,6 +282,7 @@ export default function Shop({
               <ShopComponent
                 availableItems={cItems}
                 userAirtableID={userAirtableID}
+                userEmail={userEmail}
                 hoursBalance={hoursBalance}
               />
               <Text
@@ -295,6 +299,7 @@ export default function Shop({
               <ShopComponent
                 availableItems={dItems}
                 userAirtableID={userAirtableID}
+                userEmail={userEmail}
                 hoursBalance={hoursBalance}
               />
             </>
@@ -302,6 +307,7 @@ export default function Shop({
             <ShopComponent
               availableItems={items}
               userAirtableID={userAirtableID}
+              userEmail={userEmail}
               hoursBalance={hoursBalance}
             />
           )}
@@ -391,6 +397,7 @@ export async function getStaticProps({ params }) {
     getArcadeUser(userAirtableID).then(user => {
       const hoursBalance = user.fields['Balance (Hours)'] || 0
       props.hoursBalance = hoursBalance
+      props.userEmail = user.fields['Email']
     })
   ])
 
