@@ -1,4 +1,6 @@
+<svg fill-rule = "evenodd" cliprule = "evenodd" stroke-linejoin = "round" stroke-miterlimit = "1.414" xmlns = "http://www.w3.org/2000/svg" aria-label = "bolt-docs" viewBox = "0 0 32 32" preserveAspectRatio = "xMidYMid meet" fill = "currentColor" width = "48" height = "48"> 
 <g>
   <path fill-rule="evenodd" clip-rule="evenodd" d="M28 16C28 6 26 4 16 4S4 6 4 16s2 12 12 12 12-2 12-12zm-3.664 8.336C25.425 23.247 26 21.1 26 16c0-2.14-.101-3.76-.3-5H6.3C6.1 12.24 6 13.86 6 16c0 5.1.575 7.247 1.664 8.336C8.753 25.425 10.9 26 16 26s7.247-.575 8.336-1.664zM11 8a1 1 0 0 1 1-1h8a1 1 0 0 1 0 2h-8a1 1 0 0 1-1-1z" />
   <path d="M18.534 15.672L15 19.206l-1.534-1.534a1.001 1.001 0 0 0-1.414 1.414l1.413 1.414-.585-.586 1.399 1.4.013.014a.997.997 0 0 0 .708.293.997.997 0 0 0 .708-.293l.013-.014 4.227-4.228a1 1 0 1 0-1.414-1.414z" />
 </g>
+</svg>
