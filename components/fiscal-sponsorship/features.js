@@ -14,10 +14,8 @@ export default function Features() {
           </Balancer>
         </Heading>
         <Text as="p" variant="lead" sx={{ color: 'slate', maxWidth: '52ch' }}>
-          Unlike other fiscal sponsors, we don’t license software from
-          for-profit entities. Since day one, we’ve built beautiful, self-serve
-          software to empower you to raise and spend money without
-          administrative hassle.
+          Since day one, we’ve built beautiful, self-serve software to empower
+          you to raise and spend money without administrative hassle.
         </Text>
         <Grid columns={[null, 2, 3]} sx={{ mt: 4, rowGap: 3, columnGap: 4 }}>
           <Module
