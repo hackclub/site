@@ -63,7 +63,7 @@ export default function Sal() {
       }
     }
 
-    var name = ''
+    let name = ''
 
     if (e === 'days') {
       if (timeLeft[e] === 1 || timeLeft[e] === 0) {

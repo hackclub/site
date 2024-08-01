@@ -299,7 +299,7 @@ export default function Team({ team }) {
                 text="During his time at Hack Club, Hugo led Mail Team, significantly improving logistics for Hack Clubbers across the world. He also helped organize Assemble, and designed the PCBs for Sprig and Blot."
                 img="https://ca.slack-edge.com/T0266FRGM-U017EPB6LE9-84f26d2a184c-512"
                 pronouns="he/him"
-                href="https://hugohu.me"i
+                href="https://hugohu.me"
               />
               <Bio
                 name="Lexi Mattick"

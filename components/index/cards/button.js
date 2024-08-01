@@ -40,7 +40,6 @@ export default function Buttons({
           fontWeight: '400',
           fontSize: primary ? ['18px', '20px', '22px'] : [1, '16px', '18px'],
           backdropFilter: 'blur(2px)',
-          fontWeight: fontWeight
         }}
         as="a"
         href={link || '/'}

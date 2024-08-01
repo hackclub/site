@@ -979,7 +979,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
         <Grid
           sx={{
             gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
-            width: '100%',
             pb: ['0vh', '0vh', '0vh', '20vh'],
             width: '90vw',
             maxWidth: '1200px',

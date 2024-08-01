@@ -14,7 +14,6 @@ export default function Dot({ hideOnMobile }) {
         bg: 'green',
         color: 'white',
         borderRadius: 'circle',
-        display: 'inline-block',
         lineHeight: 0,
         width: '.4em',
         height: '.4em',

@@ -198,7 +198,6 @@ function BulletItem({ children, iconGlyph, iconColor, iconSize }) {
     <Flex
       sx={{
         flexDirection: 'row',
-        alignItems: 'flex-start',
         alignItems: 'center',
         my: 2
       }}

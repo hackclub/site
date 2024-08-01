@@ -183,7 +183,7 @@ const Page = ({ repos, transparentAccounts }) => (
 
       {repos
         .sort(function (a, b) {
-          var keyA = a.stargazers_count,
+          const keyA = a.stargazers_count,
             keyB = b.stargazers_count
           if (keyA < keyB) return 1
           if (keyA > keyB) return -1

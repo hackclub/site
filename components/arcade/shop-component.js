@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Text, Grid } from 'theme-ui';
 import Prizes from './prizes';
 
@@ -52,7 +52,7 @@ export default function ShopComponent({
         sx={{
           display: 'block',
           textAlign: 'center',
-          color: '#35290F',
+          // color: '#35290F',
           textDecoration: 'underline',
           width: '90vw',
           margin: 'auto',
@@ -77,7 +77,7 @@ export default function ShopComponent({
       >
         {availableItems
           .sort((a, b) => a['Cost Hours'] - b['Cost Hours'])
-          .filter(item => (item['Stock'] > 0 || item['Stock'] == null))
+          .filter(item => (item['Stock'] > 0 || item['Stock'] === null))
           .map((item) => (
             <Prizes
               img={item['Image URL']}
@@ -101,7 +101,7 @@ export default function ShopComponent({
           ))}
           {availableItems
           .sort((a, b) => a['Cost Hours'] - b['Cost Hours'])
-          .filter(item => (item['Stock'] == 0))
+          .filter(item => (item['Stock'] === 0))
           .map((item) => (
             <Prizes
               img={item['Image URL']}

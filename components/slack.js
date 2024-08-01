@@ -20,7 +20,7 @@ Highlight = Highlight.withComponent('mark')
 const Content = () => (
   <Container
     sx={{
-      textAlign: 'center',
+      // textAlign: 'center',
       zIndex: 999,
       py: 6,
       color: 'white',

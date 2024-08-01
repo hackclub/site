@@ -1,5 +1,6 @@
 const partsLimit = 8
-var fetchedParts;
+let fetchedParts
+
 async function fetchParts() {
     const response = await fetch('https://hackclub.com/api/bin/wokwi/parts/');
     if (!response.ok) {

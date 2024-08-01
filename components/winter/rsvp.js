@@ -13,7 +13,6 @@ import {
   Flex,
   Checkbox
 } from 'theme-ui'
-import { Zoom } from 'react-reveal'
 
 const Loading = () => (
   <Box
@@ -21,8 +20,8 @@ const Loading = () => (
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      height: '100%',
-      width: '100%',
+      // height: '100%',
+      // width: '100%',
       border: '2px solid #f3f3f3',
       borderTop: '2px solid #ec3750',
       borderRadius: '50%',
@@ -137,7 +136,7 @@ const Rsvp = () => {
 
       {submitted && (
         <Alert variant="primary" sx={{ bg: 'green', mt: [2, 3] }}>
-          <Icon glyph="send" />
+          <Icon glyph="send" size={24} />
           <Text sx={{ ml: 2 }}>Signed up!</Text>
         </Alert>
       )}

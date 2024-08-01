@@ -186,7 +186,6 @@ const FilterPanel = ({ filter, mobile }) => {
             borderColor: 'sunken',
             borderRadius: '4px',
             background: mobile ? 'snow' : 'none',
-            textDecoration: 'none',
             color: 'secondary',
             textDecoration: 'none',
             transition: 'color 0.2s',
@@ -210,7 +209,6 @@ const FilterPanel = ({ filter, mobile }) => {
           <Heading
             as="h4"
             sx={{
-              color: 'inherit',
               fontSize: 3,
               color:
                 currentSelections.length !== baseData.length
@@ -359,7 +357,6 @@ const RegionPanel = ({ currentRegion, mobile }) => {
               borderColor: 'sunken',
               borderRadius: '4px',
               background: mobile ? 'snow' : 'none',
-              textDecoration: 'none',
               color: 'secondary',
               textDecoration: 'none',
               transition: 'color 0.2s',
@@ -383,7 +380,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
             <Heading
               as="h4"
               sx={{
-                color: 'inherit',
+                // color: 'inherit',
                 fontSize: 3,
                 color: !currentRegion ? 'red' : 'black',
                 ':hover': {

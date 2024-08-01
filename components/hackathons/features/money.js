@@ -89,7 +89,6 @@ const ListItem = ({ icon, leadText, body, knew }) => (
         size={45}
         sx={{
           color: 'primary',
-          flexShrink: 'none',
           flexShrink: 0,
           mr: 2
         }}

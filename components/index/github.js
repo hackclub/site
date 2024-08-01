@@ -27,7 +27,6 @@ export default function GitHub({
         zIndex: 4,
         px: '4px !important',
         py: '2px !important',
-        width: '100%',
         display: 'flex',
         alignItems: 'center',
         gap: 2,
@@ -47,7 +46,6 @@ export default function GitHub({
         sx={{
           mr: 2,
           textOverflow: 'ellipsis',
-          display: 'inline-block',
           overflow: 'hidden',
           whiteSpace: 'nowrap',
           flexShrink: 0,

@@ -337,7 +337,7 @@ const Page = () => (
             take part in year long programs like{' '}
             <NextLink href="/onboard">OnBoard</NextLink>, and compete in events
             like the{' '}
-            <a href="http://www.congressionalappchallenge.us">
+            <a href="https://www.congressionalappchallenge.us">
               Congressional App Challenge
             </a>
             . The&nbsp;hack’s the limit.

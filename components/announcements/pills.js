@@ -25,7 +25,6 @@ export function PillHolder({ children }) {
           color: 'muted',
           border: '1px solid',
           borderColor: 'border',
-          bg: 'snow',
           fontSize: 2,
           fontWeight: 'body',
           lineHeight: '36px'

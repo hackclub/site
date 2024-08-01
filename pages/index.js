@@ -135,9 +135,9 @@ function Page({
   const spotlightRef = useRef()
   useEffect(() => {
     const handler = event => {
-      var rect = document.getElementById('spotlight').getBoundingClientRect()
-      var x = event.clientX - rect.left //x position within the element.
-      var y = event.clientY - rect.top //y position within the element.
+      const rect = document.getElementById('spotlight').getBoundingClientRect()
+      const x = event.clientX - rect.left  //x position within the element.
+      const y = event.clientY - rect.top  //y position within the element.
 
       spotlightRef.current.style.background = `radial-gradient(
 				circle at ${x}px ${y}px,
@@ -751,7 +751,7 @@ function Page({
                       flexWrap: 'wrap',
                       width: ['100%', null, null, 'fit-content'],
 
-                      '& > a:nth-child(n+4)': {
+                      '& > a:nth-of-type(n+4)': {
                         display: ['none', null, null, 'flex']
                       }
                     }}
@@ -1116,7 +1116,7 @@ function Page({
           </Box>
         </Box>
 
-        {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
+        {new URL(asPath, 'https://example.com').searchParams.get('gen') ===
           'z' && (
           <>
             <Box

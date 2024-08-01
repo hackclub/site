@@ -1,7 +1,6 @@
 import CardModel from './card-model'
 import { Box, Flex, Grid, Image, Link, Text } from 'theme-ui'
 import Buttons from './button'
-import styled from '@emotion/styled'
 import RelativeTime from 'react-relative-time'
 
 /** @jsxImportSource theme-ui */
@@ -247,7 +246,7 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
             columns={[1, 1, 1, 2]}
             sx={{
               // height: ['250px', '80%', '80%'],
-              ml: [0, 4, 0],
+              // ml: [0, 4, 0],
               gap: '20px',
               mt: [2, 0, 3],
               ml: [1, 0, 0],
