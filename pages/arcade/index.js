@@ -1085,7 +1085,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                     display: 'block'
                   }}
                 >
-                  For high schoolers (or younger).
+                  For high schoolers (18 or younger).
                 </Text>
               )}
             </Fade>
