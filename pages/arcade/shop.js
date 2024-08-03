@@ -84,6 +84,7 @@ export default function Shop({
         description="Check out the prizes at the Arcade Shop!"
         image="https://cloud-luaw423i2-hack-club-bot.vercel.app/0frame_33__1_.png"
       />
+      <meta name="darkreader-lock"/>
       <style>
         {`
         ._title-container {
