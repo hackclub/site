@@ -228,6 +228,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           aria-hidden={!!mobile}
           color={baseColor}
           dark={dark}
+          mix-blend-mode="difference"
         />
         <ToggleContainer color={toggleColor} onClick={handleToggleMenu}>
           <Icon glyph={toggled ? 'view-close' : 'menu'} />
@@ -240,6 +241,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
         toggled={toggled}
         color={baseColor}
         dark={dark}
+        mix-blend-mode="difference"
       />
       {toggled && <ScrollLock />}
     </Root>
