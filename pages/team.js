@@ -258,6 +258,13 @@ export default function Team({ team }) {
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
               <Bio
+                name="Bence Beres"
+                teamRole="Bookkeeper"
+                text="Bence is a true bureaucrat who doesn’t leave any documents unturned. Having made a sharp U-turn after college to switch from his burgeoning career in the world of political science towards the thrilling and life altering adventures of the world of Accounting, Bence understands that knowing Excel is a greatly underappreciated life skill."
+                img="/team/bence.png"
+                pronouns="he/him"
+              />
+              <Bio
                 name="Jasper Mayone"
                 teamRole="Community Resources"
                 text="Introduced to Hack Club through the circus, and a native vermonter, Jasper is currently a Junior in high school, on track for graduating a full year early! While in high school, Jasper led a Hack Club at his school. Jasper tries to live by the quote “We’ve all got both light and dark inside us. What matters is the part we choose to act on...that’s who we really are.” from one of his favorite books, Harry Potter. Jasper’s hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus."

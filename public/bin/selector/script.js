@@ -70,9 +70,6 @@ function addPartToPage(part) {
     selectorItem.setAttribute("part_name", part.wokwiName)
     selectorItem.className = "selector-item"
 
-    
-
-
     let selectorImage = document.createElement("img")
     selectorImage.src = part.imageUrl
     selectorImage.className = "selector-image"
@@ -93,9 +90,60 @@ function addPartToPage(part) {
         newImage.className = "new-tag"
         selectorItem.appendChild(newImage)
     } 
-    
+    console.log("Out of stock" + part.outOfStock)
+
     document.getElementsByClassName("selector-main")[0].appendChild(selectorItem)
 
+    if(part.outOfStock){
+        
+     //   selectorItem.classList.add("outOfStock");
+
+        let outOfStockDiv = document.createElement("div");
+        outOfStockDiv.className = "outOfStock";
+
+
+        let outOfStockText = document.createElement("h1");
+        outOfStockText.innerText = "Out of Stock";
+        outOfStockText.className = "outOfStockText";
+
+        let outOfStockInnerText = document.createElement("p");
+        outOfStockInnerText.innerText = "Shipping times delayed";
+        outOfStockInnerText.className = "outOfStockInnerText";
+
+        outOfStockDiv.appendChild(outOfStockText)
+        outOfStockDiv.appendChild(outOfStockInnerText)
+
+
+
+        selectorItem.appendChild(outOfStockDiv)
+        
+
+
+    } 
+
+    if(part.displayAmount && part.currentStockIncludingNonFulfilled < 6 && !part.outOfStock){
+        let stockDiv = document.createElement("div");
+        stockDiv.className = "amountRemaining";
+
+        let stockText = document.createElement("h1");
+        stockText.innerText = part.currentStockIncludingNonFulfilled + " left in stock";
+        stockText.className = "outOfStockText";
+
+        let stockInnerText = document.createElement("p");
+        stockInnerText.innerText = "Shipping times may be delayed";
+        stockInnerText.className = "outOfStockInnerText";
+
+        stockDiv.appendChild(stockText)
+        stockDiv.appendChild(stockInnerText)
+        selectorItem.appendChild(stockDiv)
+
+        console.log("display amunt" + part.displayAmount);
+        console.log("current stock" + part.currentStockIncludingNonFulfilled);
+
+        console.log("out of stock" + part.outOfStock);
+
+
+    }
     selectorItem.addEventListener("click", () => {
         let isSelected = selectorItem.className.includes("selected")
         if (isSelected) {
@@ -107,6 +155,9 @@ function addPartToPage(part) {
         }
         recalculateSelected();
     })
+   
+
+    
 }
 
 window.addEventListener("load", async (e) => {
