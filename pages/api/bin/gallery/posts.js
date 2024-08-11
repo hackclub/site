@@ -5,7 +5,6 @@ const fetchPosts = async () => {
     const airtable = new AirtablePlus({
       apiKey: process.env.AIRTABLE_API_KEY,
       baseID: 'appKjALSnOoA0EmPk',
-      tableID: 'tblkpXP848G112FPg',
       tableName: 'Main',
     });
 

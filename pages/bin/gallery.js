@@ -13,7 +13,7 @@ function Gallery() {
     console.log("working");
     async function fetchPosts() {
         try {
-          const response = await fetch('http://hackclub.com/api/bin/wokwi/parts/');
+          const response = await fetch('http://hackclub.com/api/bin/gallery/posts/');
           console.log(response);
       
           if (!response.ok) {
