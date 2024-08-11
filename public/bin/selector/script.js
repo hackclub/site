@@ -1,20 +1,6 @@
 const partsLimit = 8
 var fetchedParts;
-async function fetchParts() {
-    const response = await fetch('https://hackclub.com/api/bin/wokwi/parts/');
-    if (!response.ok) {
-        throw new Error('Network response was not ok.');
-    }
-    data = await response.json();
 
-    data = removeItemByAttribute(data, "type", "Microprocessor");
-    console.log("Fetched parts:");
-    console.log(data)   
-    return data
-}
-function removeItemByAttribute(arr, attr, value) {
-    return arr.filter(item => item[attr] !== value);
-}
 /*
 async function preloadImage(item) {
     let response = await fetch(item.imageUrl);
@@ -90,7 +76,6 @@ function addPartToPage(part) {
         newImage.className = "new-tag"
         selectorItem.appendChild(newImage)
     } 
-    console.log("Out of stock" + part.outOfStock)
 
     document.getElementsByClassName("selector-main")[0].appendChild(selectorItem)
 
@@ -161,6 +146,7 @@ function addPartToPage(part) {
 }
 
 window.addEventListener("load", async (e) => {
+    console.log("Page loaded");
     recalculateSelected();
     const fetchedParts = await partsData()
     fetchedParts.forEach(part => {
