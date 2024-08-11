@@ -8,8 +8,6 @@ async function fetchParts() {
     data = await response.json();
 
     data = removeItemByAttribute(data, "type", "Microprocessor");
-    console.log("Fetched parts:");
-    console.log(data)   
     return data
 }
 function removeItemByAttribute(arr, attr, value) {

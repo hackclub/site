@@ -105,3 +105,18 @@
     color: #a7a7a7;
     margin-bottom: 1rem;
 }
+
+
+.bin_home{
+    display: flex; 
+    margin-top: -40px;
+    margin-left: 200px;
+}
+
+.nav{
+    width: 100%;
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    padding-left: 200px;
+    padding-top: -20px;
+}
