@@ -16,6 +16,11 @@
     margin-bottom: 24px; /* Add space between cards vertically */
 }
 
+.gallery_card:hover {
+    background-color: rgba(148, 79, 0, 0.2);
+    transform: translateY(-2px); /* Equivalent to hover:shadow-lg */
+}
+
 
 .feed {
     padding-top: 32px;        
@@ -95,7 +100,7 @@
     font-weight: 700;
     text-align: left;
     color: #e1e1e1;
-    margin-top: -10px;
+    margin-top: 0;
     margin-bottom: 1rem;
 }
 

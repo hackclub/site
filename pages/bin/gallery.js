@@ -1,10 +1,45 @@
 import React from 'react'
-import BinPost from '../../components/bin/galleryView'
+import BinPost from '../../components/bin/galleryview'
 import styles from '../../public/bin/style/gallery.module.css'
 import Nav from '../../components/bin/nav'
+import { useEffect, useRef } from 'react';
+import { resolve } from 'styled-jsx/css';
+
 
 
 function Gallery() {
+    var data = ""; 
+
+    console.log("working");
+    async function fetchPosts() {
+        try {
+          const response = await fetch('http://hackclub.com/api/bin/wokwi/parts/');
+          console.log(response);
+      
+          if (!response.ok) {
+            throw new Error('Network response was not ok. Status: ' + response.ok);
+          }
+      
+          data = await response.json();
+          console.log(data);
+      
+          return data;
+        } catch (error) {
+          console.error('Error fetching posts:', error);
+          throw error;
+        }
+      }
+    
+      useEffect(() => {
+          console.log('Page has loaded');
+    
+          const posts = fetchPosts()
+          console.log(posts);
+    
+    
+      }, []);
+    
+    
 
    return( 
     <section className='page'>
