@@ -8,8 +8,21 @@ const fetchPosts = async () => {
       tableName: 'Main',
     });
 
+    
     const records = await airtable.read();
-    const posts = records.map((record) => record.fields);
+
+    const posts = records.map((record) =>  {
+      return {
+        ID: record.id,
+        postID: record.id,
+        title: record.Title,
+        desc: record["What will you be building?"],
+        slack: record["Slack Handle"],
+        link: record["Wokwi Share link"]
+      };
+    });
+  
+    
     return posts;
   } catch (error) {
     console.error('Error fetching posts:', error);
