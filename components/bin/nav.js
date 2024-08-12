@@ -6,12 +6,8 @@ import styles from '../../public/bin/style/gallery.module.css'
 const Nav = () => {
   return (
     <div className={styles.nav}>
-        <Image
-          src='https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png'
-          alt='logo'
-          width={120}
-          className={styles.bin_home}
-        />
+      <button className={styles.nav_button} onClick={() => window.location.href = '/bin'}>Bin Home</button>
+      <button className={styles.nav_button} onClick={() => window.location.href = '/bin/gallery'}>Gallery</button>
     </div>
   )
 }

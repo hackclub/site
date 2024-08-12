@@ -1,48 +1,47 @@
 import React from 'react'
-import BinPost from '../../components/bin/galleryview'
+import BinPost from '../../components/bin/GalleryPosts'
 import styles from '../../public/bin/style/gallery.module.css'
 import Nav from '../../components/bin/nav'
-import { useEffect, useRef } from 'react';
+import Footer from '../../components/bin/footer'
+import { useEffect, useRef, useState } from 'react';
 import { resolve } from 'styled-jsx/css';
-
-
+import { set } from 'lodash';
 
 function Gallery() {
-    var data = ""; 
+  const [allPosts, setAllPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    console.log("working");
-    async function fetchPosts() {
+
+  const fetchPosts = async () => {
         try {
           const response = await fetch('http://hackclub.com/api/bin/gallery/posts/');
-          console.log(response);
-      
+    
           if (!response.ok) {
             throw new Error('Network response was not ok. Status: ' + response.ok);
           }
-      
-          data = await response.json();
+          const data = await response.json()
           console.log(data);
-      
-          return data;
+          console.log(data.filter(post => post.Status === 'Accepted'));
+          setAllPosts(data.filter(post => post.Status === 'Accepted')); //Filter out rejected or under review as well as hidden posts
+          console.log('done' + allPosts);
         } catch (error) {
-          console.error('Error fetching posts:', error);
           throw error;
+        } finally {
+          // Set loading to false when the async function is done
+          setLoading(false);
+          console.log('done' + loading);
         }
       }
     
       useEffect(() => {
           console.log('Page has loaded');
-    
-          const posts = fetchPosts()
-          console.log(posts);
-    
-    
+          fetchPosts()
       }, []);
-    
-    
+
 
    return( 
     <section className='page'>
+      
         <div className={styles.background}></div>
         <script src="https://awdev.codes/utils/hackclub/orph.js"></script>
 
@@ -53,137 +52,24 @@ function Gallery() {
 
 
     <div className={styles.feed}>
-        <BinPost 
-            title="Raspberry Pi Pico"
-            desc="This is a Raspberry Pi Pico based Temperature and Humidity display that uses a combination of a motion sensor, photo resistor and IR remote/receiver to add some helpful The motion sensor turns on the display when it detects movement, but the photo resistor makes sure it stays off during the night unless you use the IR remote to turn it on in the dark. This way, it won't disrupt your sleep or work at night with accidental triggers of the motion sensor!"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
+        {loading ? ( <div className={styles.loading}>Loading<span className={styles.dots}></span></div>) : (<>{
+        allPosts.map(post => {
+            {console.log(post)}
+            return (            
+            <BinPost 
+              key={post.ID}
+              id={post.ID}
+              title={post.Title}
+              desc={post["What will you be building?"]}
+              slack={post["Slack Handle"]}
+              link={post["Wokwi Share link"]}
+              image="https://www.google.com"
+            />)
 
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-<BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
-
-        <BinPost 
-            title="title"
-            desc="lore ipsum"
-            slack="@CAN"
-            link="https://www.google.com"
-            image="https://www.google.com"
-        />
+        })
+        }</>)}
     </div>
-      
+    <Footer />
     </section>
    )
 }
