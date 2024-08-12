@@ -9,7 +9,17 @@ const fetchPosts = async () => {
     });
 
     const records = await airtable.read();
-    const posts = records.map((record) => record.fields);
+
+    const posts = records.map((record) =>  {
+      return {
+        id: record.id,
+        postID: record.id,
+        title: record.fields.Title,
+        // etc...
+      };
+    });
+  
+    
     return posts;
   } catch (error) {
     console.error('Error fetching posts:', error);
