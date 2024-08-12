@@ -149,6 +149,7 @@ window.addEventListener("load", async (e) => {
     console.log("Page loaded");
     recalculateSelected();
     const fetchedParts = await partsData()
+    console.log("fetchedParts", fetchedParts)
     fetchedParts.forEach(part => {
         if (!(part.imageUrl == undefined)) {
             addPartToPage(part)
