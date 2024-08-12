@@ -20,21 +20,16 @@ function Gallery() {
             throw new Error('Network response was not ok. Status: ' + response.ok);
           }
           const data = await response.json()
-          console.log(data);
-          console.log(data.filter(post => post.Status === 'Accepted'));
           setAllPosts(data.filter(post => post.Status === 'Accepted')); //Filter out rejected or under review as well as hidden posts
-          console.log('done' + allPosts);
         } catch (error) {
           throw error;
         } finally {
           // Set loading to false when the async function is done
           setLoading(false);
-          console.log('done' + loading);
         }
       }
     
       useEffect(() => {
-          console.log('Page has loaded');
           fetchPosts()
       }, []);
 
@@ -54,7 +49,6 @@ function Gallery() {
     <div className={styles.feed}>
         {loading ? ( <div className={styles.loading}>Loading<span className={styles.dots}></span></div>) : (<>{
         allPosts.map(post => {
-            {console.log(post)}
             return (            
             <BinPost 
               key={post.ID}
