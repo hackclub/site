@@ -199,3 +199,10 @@
     margin: 0; /* Optional: removes default margins */
     padding: 0; /* Optional: removes default padding */
 }
+
+.tag_container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}

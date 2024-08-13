@@ -20,6 +20,7 @@ export async function getStaticProps() {
 
 
 function Gallery({ posts = [] }) {
+  console.log(posts);
   
   return (
     <section className='page'>
@@ -45,6 +46,7 @@ function Gallery({ posts = [] }) {
                 slack={post.slack}
                 link={post.link}
                 date={post.created}
+                parts={post.parts}
               />)
 
           })}

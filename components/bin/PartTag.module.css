@@ -1,0 +1,13 @@
+.tag{
+    color: white;
+    padding: 4px 10px; 
+    border-radius: 20px; 
+    width: fit-content;
+    max-width: 300px; 
+    display: flex; 
+    text-align: center; 
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+;
+}
