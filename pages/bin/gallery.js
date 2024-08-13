@@ -19,10 +19,7 @@ export async function getStaticProps() {
 
 
 function Gallery({ posts = [] }) {
-  console.log(posts)
-
-
-
+  
   return (
     <section className='page'>
 
