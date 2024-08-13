@@ -67,19 +67,19 @@ const Footer = () => {
                     </svg>
                     <div className={styles.footer_icons_container}>
                         <a target="_self" rel="noopener me" href="/slack" title="Hack Club on Slack">
-                            <svg fillRule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
-                                stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="slack-fill"
+                            <svg fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round"
+                                strokeMiterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="slack-fill"
                                 viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="32"
                                 height="32">
-                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                <path fillRule="evenodd" clipRule="evenodd"
                                     d="M16 4c10 0 12 2 12 12s-2 12-12 12S4 26 4 16 6 4 16 4zm-2.746 4.122a1.605 1.605 0 0 1 1.745.347 1.6 1.6 0 0 1 .468 1.131v1.6h-1.6a1.603 1.603 0 0 1-1.48-2.212 1.598 1.598 0 0 1 .867-.866zM9.6 12.267h4.267a1.604 1.604 0 0 1 1.478.988A1.596 1.596 0 0 1 15 14.997a1.602 1.602 0 0 1-1.132.47H9.6a1.605 1.605 0 0 1-1.479-.989 1.595 1.595 0 0 1 .347-1.742 1.601 1.601 0 0 1 1.132-.47zm14.279.988a1.596 1.596 0 0 1-.347 1.742 1.6 1.6 0 0 1-1.132.47h-1.6v-1.6a1.596 1.596 0 0 1 .987-1.478 1.605 1.605 0 0 1 1.745.347c.149.148.266.325.347.519zM19.733 9.6v4.267a1.594 1.594 0 0 1-.987 1.477 1.605 1.605 0 0 1-1.226 0 1.602 1.602 0 0 1-.987-1.477V9.6a1.596 1.596 0 0 1 .987-1.478 1.605 1.605 0 0 1 1.745.347 1.598 1.598 0 0 1 .468 1.131zm-1.6 14.4a1.603 1.603 0 0 0 1.6-1.6 1.595 1.595 0 0 0-.987-1.478 1.605 1.605 0 0 0-.613-.122h-1.6v1.6a1.597 1.597 0 0 0 1.6 1.6zm0-4.267H22.4a1.605 1.605 0 0 0 1.479-.988 1.596 1.596 0 0 0-.347-1.742 1.6 1.6 0 0 0-1.132-.47h-4.267a1.605 1.605 0 0 0-1.478.989A1.596 1.596 0 0 0 17 19.264a1.602 1.602 0 0 0 1.132.47zm-10.012-.988a1.596 1.596 0 0 1 .347-1.742 1.601 1.601 0 0 1 1.132-.47h1.6v1.6a1.596 1.596 0 0 1-.987 1.478 1.605 1.605 0 0 1-1.745-.347 1.597 1.597 0 0 1-.347-.519zm4.146 3.655v-4.267a1.593 1.593 0 0 1 .987-1.477 1.603 1.603 0 0 1 1.745.347 1.6 1.6 0 0 1 .468 1.13V22.4a1.597 1.597 0 0 1-1.6 1.6 1.603 1.603 0 0 1-1.6-1.6z">
                                 </path>
                             </svg>
                         </a>
                         <a target="_blank" rel="noopener me" href="https://twitter.com/hackclub"
                             title="Hack Club on Twitter">
-                            <svg fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
-                                stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="twitter"
+                            <svg fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round"
+                                strokeMiterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="twitter"
                                 viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="32"
                                 height="32">
                                 <g>
@@ -91,8 +91,8 @@ const Footer = () => {
                         </a>
                         <a target="_blank" rel="noopener me" href="https://github.com/hackclub"
                             title="Hack Club on GitHub">
-                            <svg fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
-                                stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="github"
+                            <svg fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round"
+                                strokeMiterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="github"
                                 viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="32"
                                 height="32">
                                 <g>
@@ -104,15 +104,15 @@ const Footer = () => {
                         </a>
                         <a target="_blank" rel="noopener me" href="https://figma.com/@hackclub"
                             title="Hack Club on Figma">
-                            <svg fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
-                                stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="figma-fill"
+                            <svg fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round"
+                                strokeMiterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="figma-fill"
                                 viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="32"
                                 height="32">
                                 <g>
                                     <path
                                         d="M16.774 14.114c-.5.5-.78 1.179-.78 1.886v-2.667h2.666c-.707 0-1.386.281-1.886.781z">
                                     </path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                    <path fillRule="evenodd" clipRule="evenodd"
                                         d="M27.986 15.968c0 11-1 12-12 12s-12-1-12-12 1-12 12-12 12 1 12 12zm-9.326-2.635A2.667 2.667 0 1115.993 16v5.333a2.667 2.667 0 11-2.666-2.666 2.667 2.667 0 010-5.334 2.666 2.666 0 110-5.333h5.333a2.667 2.667 0 110 5.333z">
                                     </path>
                                 </g>
@@ -120,12 +120,12 @@ const Footer = () => {
                         </a>
                         <a target="_blank" rel="noopener me" href="https://social.dino.icu/@hackclub"
                             title="Hack Club on Mastodon">
-                            <svg fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
-                                stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="mastodon"
+                            <svg fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round"
+                                strokeMiterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="mastodon"
                                 viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="32"
                                 height="32">
                                 <g>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                    <path fillRule="evenodd" clipRule="evenodd"
                                         d="M28 16C28 6 26 4 16 4C6 4 4 6 4 16C4 26 6 28 16 28C26 28 28 26 28 16ZM20.1998 8.2058C22.0924 8.46832 23.689 9.82312 23.9354 11.5423C24.0428 12.5649 23.9896 14.1016 23.9638 14.8483C23.9574 15.0339 23.9526 15.1707 23.9525 15.2387C23.9525 15.339 23.937 16.2553 23.9308 16.352C23.7649 18.8085 22.1327 19.7786 20.4176 20.0877C20.3988 20.093 20.3776 20.0968 20.3559 20.1008C20.3506 20.1018 20.3453 20.1027 20.3401 20.1037C19.2527 20.303 18.0878 20.3561 16.9826 20.3851C16.7183 20.3917 16.4548 20.3917 16.1905 20.3917C15.0917 20.3919 13.9966 20.2699 12.9284 20.0281C12.9228 20.0267 12.9168 20.0266 12.9111 20.0278C12.9054 20.0289 12.9001 20.0314 12.8955 20.0348C12.891 20.0383 12.8874 20.0427 12.8851 20.0477C12.8827 20.0528 12.8816 20.0582 12.8819 20.0637C12.9121 20.3901 12.9877 20.7113 13.1067 21.0193C13.2547 21.3756 13.7717 22.2315 15.6937 22.2315C16.8106 22.2334 17.9238 22.1114 19.0101 21.8679C19.0156 21.8667 19.0214 21.8667 19.0269 21.8679C19.0324 21.869 19.0376 21.8713 19.0421 21.8746C19.0465 21.8779 19.0501 21.882 19.0526 21.8868C19.0552 21.8916 19.0565 21.8968 19.0566 21.9021V23.1078C19.0564 23.1135 19.0548 23.1191 19.052 23.1241C19.0492 23.1292 19.0452 23.1335 19.0403 23.1369C18.7013 23.3675 18.2457 23.5032 17.8469 23.622C17.8281 23.6276 17.8095 23.6332 17.791 23.6387C17.6086 23.6925 17.4241 23.7398 17.2376 23.7805C15.5421 24.1429 13.7725 24.0552 12.127 23.5274C10.5902 23.0213 9.02149 21.7807 8.63398 20.2899C8.42703 19.4827 8.28122 18.6628 8.19763 17.8363C8.10981 16.9324 8.08046 16.0271 8.05108 15.1205C8.04001 14.779 8.02893 14.4373 8.01473 14.0955C7.9783 13.2243 7.99923 12.2746 8.19531 11.4179C8.60298 9.6784 10.2832 8.46105 12.1232 8.2058C12.161 8.20055 12.2028 8.19365 12.2517 8.18558C12.6158 8.12547 13.3759 8 15.8472 8H15.8681C18.6706 8 19.8805 8.16144 20.1998 8.2058ZM19.4922 17.6719H21.2957L21.2972 13.401C21.2972 12.5279 21.0598 11.8346 20.585 11.3212C20.0936 10.8085 19.4511 10.5452 18.6544 10.5452C17.7329 10.5452 17.0353 10.8783 16.5703 11.5437L16.1208 12.2506L15.672 11.5437C15.207 10.8783 14.5095 10.5452 13.5864 10.5452C12.7889 10.5452 12.1464 10.8085 11.6566 11.3212C11.1818 11.8351 10.9443 12.5283 10.9443 13.401V17.6719H12.7463V13.5268C12.7471 12.6542 13.1385 12.2091 13.922 12.2091C14.7885 12.2091 15.2233 12.7356 15.2233 13.7755V16.0444H17.016V13.7755C17.016 12.7356 17.45 12.2091 18.3165 12.2091C19.1047 12.2091 19.4922 12.6542 19.4922 13.5268V17.6719Z">
                                     </path>
                                 </g>
@@ -133,12 +133,12 @@ const Footer = () => {
                         </a>
                         <a target="_blank" rel="noopener me" href="https://www.youtube.com/c/HackClubHQ"
                             title="Hack Club on YouTube">
-                            <svg fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
-                                stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="youtube"
+                            <svg fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round"
+                                strokeMiterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="youtube"
                                 viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="32"
                                 height="32">
                                 <g>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                    <path fillRule="evenodd" clipRule="evenodd"
                                         d="M28 16C28 6 26 4 16 4S4 6 4 16s2 12 12 12 12-2 12-12zm-14.473 3.127l6.48-3.36-6.485-3.383.005 6.742z">
                                     </path>
                                 </g>
@@ -146,12 +146,12 @@ const Footer = () => {
                         </a>
                         <a target="_blank" rel="noopener me" href="https://www.instagram.com/starthackclub"
                             title="Hack Club on Instagram">
-                            <svg fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
-                                stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="instagram"
+                            <svg fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round"
+                                strokeMiterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="instagram"
                                 viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="32"
                                 height="32">
                                 <g>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                    <path fillRule="evenodd" clipRule="evenodd"
                                         d="M16 6c5.1 0 7.247.575 8.336 1.664C25.425 8.753 26 10.9 26 16s-.575 7.247-1.664 8.336C23.247 25.425 21.1 26 16 26s-7.247-.575-8.336-1.664C6.575 23.247 6 21.1 6 16s.575-7.247 1.664-8.336C8.753 6.575 10.9 6 16 6zm0-2c10 0 12 2 12 12s-2 12-12 12S4 26 4 16 6 4 16 4z">
                                     </path>
                                     <path
@@ -162,8 +162,8 @@ const Footer = () => {
                         </a>
                         <a target="_blank" rel="noopener me" href="mailto:team@hackclub.com"
                             title="Hack Club on email-fill">
-                            <svg fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round"
-                                stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="email-fill"
+                            <svg fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round"
+                                strokeMiterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="email-fill"
                                 viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="32"
                                 height="32">
                                 <g>

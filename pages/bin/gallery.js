@@ -7,33 +7,20 @@ import { useEffect, useRef, useState } from 'react';
 import { resolve } from 'styled-jsx/css';
 import { set } from 'lodash';
 
-function Gallery() {
-  const [allPosts, setAllPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
+export async function getStaticProps() {
+  const host = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://hackclub.com';
+  const res = await fetch(`${host}/api/bin/gallery/posts/`);
+  const posts = await res.json();
+  
+  const filteredPosts = posts.filter(post => post.status === 'Accepted');
+  return {
+    props: { posts: filteredPosts },
+  };
+}
 
 
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch('http://hackclub.com/api/bin/gallery/posts/');
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok. Status: ' + response.ok);
-      }
-      const data = await response.json()
-      setAllPosts(data.filter(post => post.Status === 'Accepted')); //Filter out rejected or under review as well as hidden posts
-    } catch (error) {
-      throw error;
-    } finally {
-      // Set loading to false when the async function is done
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    fetchPosts()
-  }, []);
-
-
+function Gallery({ posts = [] }) {
+  
   return (
     <section className='page'>
 
@@ -47,24 +34,27 @@ function Gallery() {
 
 
       <div className={styles.feed}>
-        {loading ? (<div className={styles.loading}>Loading<span className={styles.dots}></span></div>) : (<>{
-          allPosts.map(post => {
+
+          {posts.map(post => {
             return (
               <BinPost
                 key={post.ID}
                 id={post.ID}
-                title={post.Title}
-                desc={post["What will you be building?"]}
-                slack={post["Slack Handle"]}
-                link={post["Wokwi Share link"]}
+                title={post.title}
+                desc={post.desc}
+                slack={post.slack}
+                link={post.link}
+                date={post.created}
               />)
 
-          })
-        }</>)}
+          })}
+        
       </div>
       <Footer />
     </section>
   )
 }
+
+
 
 export default Gallery
