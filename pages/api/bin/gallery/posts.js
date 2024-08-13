@@ -28,7 +28,7 @@ const fetchPosts = async () => {
     return posts;
   } catch (error) {
     console.error('Error fetching posts:', error);
-    throw error; // Re-throw the error after logging it
+    throw error;
   }
 };
 
