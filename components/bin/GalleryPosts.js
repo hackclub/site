@@ -14,7 +14,6 @@ const BinPost = ({title = "Bin Post", desc = "Bin Project", slack = '', link = '
 
 
   function handleClick() {
-    console.log("clicked");
     if (typeof window !== 'undefined'){
       const currentHost = window.location.host;
   
@@ -23,7 +22,6 @@ const BinPost = ({title = "Bin Post", desc = "Bin Project", slack = '', link = '
    }
 
   function formatDate(dateString) {
-    console.log("date", date)
     const inputDate = new Date(dateString);
     const now = new Date();
     const oneDay = 24 * 60 * 60 * 1000; // Number of milliseconds in one day
