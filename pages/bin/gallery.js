@@ -8,7 +8,8 @@ import { resolve } from 'styled-jsx/css';
 import { set } from 'lodash';
 
 export async function getStaticProps() {
-  const res = await fetch(`/api/bin/gallery/posts/`);
+  const host = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://hackclub.com';
+  const res = await fetch(`${host}/api/bin/gallery/posts/`);
   const posts = await res.json();
   
   const filteredPosts = posts.filter(post => post.status === 'Accepted');
