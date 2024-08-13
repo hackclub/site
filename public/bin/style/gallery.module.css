@@ -191,3 +191,11 @@
 .nav_button:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+.date{
+    color: gray; /* Sets the text color to gray */
+    font-size: 14px; /* Optional: adjusts the font size */
+    font-family: Arial, sans-serif; /* Optional: sets the font family */
+    margin: 0; /* Optional: removes default margins */
+    padding: 0; /* Optional: removes default padding */
+}

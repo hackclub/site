@@ -7,18 +7,21 @@ const fetchPosts = async () => {
       baseID: 'appKjALSnOoA0EmPk',
       tableName: 'Main',
     });
-
+//process.env.AIRTABLE_API_KEY
     
     const records = await airtable.read();
 
     const posts = records.map((record) =>  {
       return {
         ID: record.id,
-        postID: record.id,
         title: record.fields.Title,
         desc: record.fields["What will you be building?"],
         slack: record.fields["Slack Handle"],
-        link: record.fields["Wokwi Share link"]
+        link: record.fields["Wokwi Share link"],
+        status: record.fields.Status,
+        hide: record.fields["Hide From Gallery"],
+        created: record.fields["Created At"],
+        parts: record.fields["Parts List"]
       };
     });
   
