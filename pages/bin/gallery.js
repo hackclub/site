@@ -8,7 +8,7 @@ import { resolve } from 'styled-jsx/css';
 import { set } from 'lodash';
 
 export async function getStaticProps() {
-  const res = await fetch(`http://localhost:3000/api/bin/gallery/posts/`);
+  const res = await fetch(`/api/bin/gallery/posts/`);
   const posts = await res.json();
   
   const filteredPosts = posts.filter(post => post.status === 'Accepted');
