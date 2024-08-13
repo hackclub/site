@@ -7,7 +7,6 @@ const fetchPosts = async () => {
       baseID: 'appKjALSnOoA0EmPk',
       tableName: 'Main',
     });
-//process.env.AIRTABLE_API_KEY
     
     const records = await airtable.read();
 
