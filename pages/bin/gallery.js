@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import { resolve } from 'styled-jsx/css';
 import { set } from 'lodash';
 
-function Gallery() {
+function Gallery({ posts }) {
   const [allPosts, setAllPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -53,10 +53,10 @@ function Gallery() {
               <BinPost
                 key={post.ID}
                 id={post.ID}
-                title={post.Title}
-                desc={post["What will you be building?"]}
-                slack={post["Slack Handle"]}
-                link={post["Wokwi Share link"]}
+                title={post.title}
+                desc={post.desc}
+                slack={post.slack}
+                link={post.link}
               />)
 
           })
@@ -65,6 +65,15 @@ function Gallery() {
       <Footer />
     </section>
   )
+}
+
+export async function getStaticProps(context) {
+  const res = await fetch(`https://hackclub.com/api/bin/gallery/posts/`)
+  const posts = await res.json()
+  const filteredPosts = posts.filter(post => post.Status === 'Accepted');
+  return {
+    props: { posts: filteredPosts }
+  }
 }
 
 export default Gallery

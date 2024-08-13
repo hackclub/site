@@ -15,10 +15,10 @@ const fetchPosts = async () => {
       return {
         ID: record.id,
         postID: record.id,
-        title: record.Title,
-        desc: record["What will you be building?"],
-        slack: record["Slack Handle"],
-        link: record["Wokwi Share link"]
+        title: record.fields.Title,
+        desc: record.fields["What will you be building?"],
+        slack: record.fields["Slack Handle"],
+        link: record.fields["Wokwi Share link"]
       };
     });
   
