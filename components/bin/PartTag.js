@@ -1,7 +1,18 @@
 import React from 'react'
 import styles from './PartTag.module.css'
+import { useState } from 'react';
 
-const PartTag = ({ partID }) => {
+const PartTag = ({ partID, search = false, addFilter, removeFilter}) => {
+  const [isOutlined, setIsOutlined] = useState(false);
+
+  const handleClick = () => {
+    setIsOutlined(prevState => !prevState);
+    if (isOutlined){
+      removeFilter(partID);
+    } else {
+      addFilter(partID);
+    }
+  };
 
     let backgroundColor = '';
     let text = '';
@@ -127,7 +138,8 @@ const PartTag = ({ partID }) => {
     
   return (
     <div style={{ backgroundColor}}
-         className={styles.tag}>
+         className={styles.tag + (isOutlined ? ` ${styles.outlined}` : '')}
+         onClick={handleClick}>
       {text}
     </div>
   )
