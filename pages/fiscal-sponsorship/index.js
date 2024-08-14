@@ -118,7 +118,7 @@ const organizations = [
     missions: [],
     climate: false,
     partners: {},
-    logo: 'https://hcb.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBa3hFIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2455b72ac87867a346ac5ef38ae2dfdb504af3eb/icon-rounded.png',
+    logo: 'https://cloud-91boqw8z9-hack-club-bot.vercel.app/0icon-rounded.png',
     background_image: '/fiscal-sponsorship/hq-bg.jpg',
     donation_link: 'https://hcb.hackclub.com/donations/start/hq'
   }
