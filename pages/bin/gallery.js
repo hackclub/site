@@ -2,7 +2,7 @@ import React from 'react'
 import BinPost from '../../components/bin/GalleryPosts'
 import styles from '../../public/bin/style/gallery.module.css'
 import Nav from '../../components/bin/nav'
-import Footer from '../../components/bin/footer'
+import Footer from '../../components/footer'
 import { useEffect, useRef, useState } from 'react';
 import { resolve } from 'styled-jsx/css';
 import { set } from 'lodash';

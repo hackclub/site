@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from 'react';
 
 
 const BinPost = ({title = "Bin Post", desc = "Bin Project", slack = '', link = '', id, date, parts}) => {
-
   link = link.trim();
   if (!/^https?:\/\//i.test(link)) {
       link = 'https://' + link;
@@ -38,8 +37,10 @@ const BinPost = ({title = "Bin Post", desc = "Bin Project", slack = '', link = '
       return inputDate.toLocaleDateString(undefined, options);
     }
   }
+  if (parts){
+    parts = parts.filter(part => part !== "recvK14pXAY1tn3HQ" && part !== "rec5TQNvkGkscsGuQ"); //Filter out breadboards and raspberry pi
+  }
 
-  console.log("parts", parts);
 
 return (  
     <div alt={id} className={styles.gallery_card} 
@@ -53,7 +54,7 @@ return (
       </div>
      
       <p className={styles.card_desc}>{desc}</p>
-      <span>{(slack ? (slack.startsWith('@') ? (slack) : (`@${slack}`)) : (""))+ " "}</span> 
+      <span className={styles.slack}>{(slack ? (slack.startsWith('@') ? (slack) : (`@${slack}`)) : (""))+ " "}</span> 
       <span className={styles.date}>{formatDate(date)}</span>
       <div className={styles.tag_container}>
 

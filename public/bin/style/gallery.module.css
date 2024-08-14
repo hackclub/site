@@ -196,13 +196,18 @@
     color: gray; /* Sets the text color to gray */
     font-size: 14px; /* Optional: adjusts the font size */
     font-family: Arial, sans-serif; /* Optional: sets the font family */
-    margin: 0; /* Optional: removes default margins */
+    margin: 5px; /* Optional: removes default margins */
     padding: 0; /* Optional: removes default padding */
 }
 
 .tag_container{
+    padding: 5px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
+}
+
+.slack{
+    color: #e1e1e1;
 }
