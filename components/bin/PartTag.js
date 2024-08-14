@@ -6,12 +6,15 @@ const PartTag = ({ partID, search = false, addFilter, removeFilter}) => {
   const [isOutlined, setIsOutlined] = useState(false);
 
   const handleClick = () => {
-    setIsOutlined(prevState => !prevState);
-    if (isOutlined){
-      removeFilter(partID);
-    } else {
-      addFilter(partID);
+    if (search){
+      setIsOutlined(prevState => !prevState);
+      if (isOutlined){
+        removeFilter(partID);
+      } else {
+        addFilter(partID);
+      }
     }
+    
   };
 
     let backgroundColor = '';
