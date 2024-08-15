@@ -5,8 +5,9 @@ import BGImg from '../../components/background-image'
 import background from '../../public/home/assemble.jpg'
 import { Badge, Box, Button, Card, Container, Grid, Heading, Link, Text } from 'theme-ui'
 import SlideDown from '../../components/slide-down'
-import Post from '../../components/arcade/post'
-import styles from '../../components/arcade/post.module.css'
+import Post from '../../components/arcade/showcase/post'
+import styles from '../../components/arcade/showcase/post.module.css'
+import CohortCard from '../../components/arcade/showcase/cohort-card'
 
 export async function getStaticProps() {
     const host = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://hackclub.com';
@@ -73,6 +74,7 @@ const gallery = ({ posts }) => {
       </SlideDown>
 
         <div className={styles.feed}>
+            <CohortCard/>
             {posts.map(post => {
                 return (
                 <Post
@@ -87,42 +89,6 @@ const gallery = ({ posts }) => {
                 />)
 
             })}
-            <Post
-                title="My project"
-
-                />
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
-            <Post/>
         </div>      
         <Footer />
 

@@ -1,0 +1,24 @@
+.feed{
+    min-height: 1000px;
+    padding-top: 32px;        
+    padding-bottom: 32px;    
+    width: 100%;              
+    overflow-y: auto;        
+    overflow-x: hidden;       
+    align-self: center;       
+    
+
+    @media (min-width: 640px) {
+        column-count: 1;          
+    }
+    
+      /* Medium screens */
+    @media (min-width: 768px) {
+        column-count: 2;          
+    }
+    
+      /* Large screens */
+    @media (min-width: 1024px) {
+        column-count: 3;          
+    }
+}
