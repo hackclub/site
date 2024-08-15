@@ -7,11 +7,23 @@
     cursor: pointer;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
     height: fit-content; /* Equivalent to h-fit */
-    min-height: 400px;
+    height: 400px;
     position: relative;
     background-size: cover;
     background-position: center;
     overflow: hidden;
     min-width: 100px;
     outline: black 1px solid;
+}
+
+.card_img{
+
+}
+
+.card_title{
+
+}
+
+.card_description{
+
 }

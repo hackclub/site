@@ -58,7 +58,7 @@ const my = () => {
       </SlideDown>
 
       <div className={styles.feed}>
-            <CohortCard/>
+            <CohortCard images={["https://img.buzzfeed.com/buzzfeed-static/static/2020-05/21/17/asset/19f3032de0de/sub-buzz-1010-1590082675-7.png"]}/>
             <CohortCard/>
             <CohortCard/>
             <CohortCard/>
