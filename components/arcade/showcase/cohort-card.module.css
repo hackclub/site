@@ -4,7 +4,7 @@
     background-color: rgb(217, 217, 217); /* Equivalent to bg-white/20 */
     background-clip: padding-box; /* Equivalent to bg-clip-padding */
     padding: 1.5rem 1.5rem 1rem 1.5rem; /* Equivalent to p-6 pb-4 */
-    cursor: pointer;
+    /* cursor: pointer; */
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
     height: fit-content; /* Equivalent to h-fit */
     min-height: 400px;
