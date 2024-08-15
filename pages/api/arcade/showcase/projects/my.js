@@ -17,8 +17,6 @@ export default async function handler(req, res) {
     filterByFormula: `{User} = '${user.fields['Name']}'`
   })
 
-  console.log({projects})
-  console.log({fields: projects[0].fields})
   const results = projects.map(p => ({
     id: p.id,
     title: p.fields['Name'] || '',
