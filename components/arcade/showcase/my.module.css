@@ -5,20 +5,21 @@
     width: 100%;              
     overflow-y: auto;        
     overflow-x: hidden;       
-    align-self: center;       
+    align-self: center;
+    column-gap: 0px;   
     
 
     @media (min-width: 640px) {
-        column-count: 1;          
+        column-count: 2;          
     }
     
       /* Medium screens */
     @media (min-width: 768px) {
-        column-count: 2;          
+        column-count: 3;          
     }
     
       /* Large screens */
     @media (min-width: 1024px) {
-        column-count: 3;          
+        column-count: 4;          
     }
 }

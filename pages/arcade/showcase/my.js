@@ -42,7 +42,7 @@ const my = () => {
               WebkitTextFillColor: 'transparent'
             }}
           >
-            My Showcases
+            My Ships
           </Text>
           <br />
         <Button
@@ -61,6 +61,8 @@ const my = () => {
             <CohortCard/>
             <CohortCard/>
             <CohortCard/>
+            <CohortCard/>
+
 
         </div>      
       <Footer />
