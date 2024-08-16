@@ -1,10 +1,7 @@
-import React from 'react'
 import { useEffect, useState } from 'react'
-import CohortCard from '../../../../../components/arcade/showcase/cohort-card'
+import ProjectView from '../../../../../components/arcade/showcase/project-view'
 
-const Page = ({ projectID }) => {
-
-  console.log({ projectID })
+const ProjectShowPage = ({projectID}) => {
   const [project, setProject] = useState([])
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
@@ -28,11 +25,12 @@ const Page = ({ projectID }) => {
       setProject(data.projects)
       setStatus('success')
     }
+    console.log("project", project);
   }, [])
 
   return (
     <div>
-      <CohortCard
+      <ProjectView
         key={project.id}
         id={project.id}
         title={project.title}
@@ -47,7 +45,7 @@ const Page = ({ projectID }) => {
   )
 }
 
-export default Page
+export default ProjectShowPage
 
 export async function getStaticPaths() {
   return {

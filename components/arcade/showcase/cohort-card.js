@@ -3,7 +3,7 @@ import { Box, Card, Heading, Link, Text } from 'theme-ui'
 import styles from './cohort-card.module.css'
 
 
-const CohortCard = ({ id, title, desc, slack, scrapbook, playable, images, githubProf, draggable = false }) => {
+const CohortCard = ({ id, title = "Title Not Found", desc = "Description Not Found", slack = "Slack Not Found", scrapbook = "", playLink = "", images = [], githubProf, githubLink = "", draggable = false}) => {
 
   console.log(images)
   return (
