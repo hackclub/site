@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     codeLink: p.fields['Code Link'] || '',
     slackLink: p.fields['Slack Link'] || '',
     playLink: p.fields['Play Link'] || '',
-    images: p.fields['Screenshot'].map(i => i.url) || [],
+    images: (p.fields['Screenshot'] || []).map(i => i.url),
     githubProf: p.fields['Github Profile'] || ''
   }))
   return res.status(200).json({ projects: results })
