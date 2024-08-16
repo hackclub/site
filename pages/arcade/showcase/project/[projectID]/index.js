@@ -1,19 +1,16 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router';
 import CohortCard from '../../../../../components/arcade/showcase/cohort-card'
 
+const Page = ({ projectID }) => {
 
-const Page = () => {
-  const router = useRouter();
-  const { id } = router.query;
-
+  console.log({ projectID })
   const [project, setProject] = useState([])
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
   useEffect(async () => {
     const token = window.localStorage.getItem('arcade.authToken')
-    const response = await fetch(`/api/arcade/showcase/projects/${id}`, {
+    const response = await fetch(`/api/arcade/showcase/projects/${projectID}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -28,7 +25,7 @@ const Page = () => {
       setStatus('error')
       return
     } else {
-      setProjects(data.projects)
+      setProject(data.projects)
       setStatus('success')
     }
   }, [])
@@ -51,3 +48,16 @@ const Page = () => {
 }
 
 export default Page
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: 'blocking'
+  }
+}
+export async function getStaticProps({params}) {
+  const { projectID } = params
+  console.log({ params })
+
+  return { props: { projectID } }
+}
