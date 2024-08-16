@@ -9,7 +9,6 @@ import { Button, Heading, Text } from 'theme-ui'
 import SlideDown from '../../../components/slide-down'
 import styles from '../../../components/arcade/showcase/my.module.css'
 
-
 const ProjectGallery = ({ projects }) => {
   console.log("projects", projects);
 
@@ -32,10 +31,9 @@ const ProjectGallery = ({ projects }) => {
   );
 };
 
-
 const Loading = () => (<div>Loading...</div>)
 
-const Error = (e) => (<div>There was an error loading your projects: {e}</div>)
+const ErrorMessage = () => (<div>There was an error loading your projects.</div>)
 
 const my = () => {
   const [projects, setProjects] = useState([])
@@ -62,7 +60,6 @@ const my = () => {
       setStatus('success')
     }
   }, [])
-
 
   return (
     <section>
@@ -93,12 +90,10 @@ const my = () => {
           }
         
           {
-            status == 'error' && <Error error={errorMsg} />
-            
+            status == 'error' && <ErrorMessage />
           }
 
           {
-
             status == 'success' && <ProjectGallery projects={projects} />
           }
             <Text
