@@ -8,12 +8,13 @@ import background from '../../../public/arcade/subtle-stripes.svg'
 import { Button, Heading, Text } from 'theme-ui'
 import SlideDown from '../../../components/slide-down'
 import styles from '../../../components/arcade/showcase/my.module.css'
+import NewCard from '../../../components/arcade/showcase/create-card'
 
 const ProjectGallery = ({ projects }) => {
-  console.log('projects', projects)
+  console.log("projects", projects);
 
   return (
-    <div className={styles.gallery}>
+    <div className={styles.feed}>
       {projects.map(project => (
         <CohortCard
           key={project.id}
@@ -28,12 +29,12 @@ const ProjectGallery = ({ projects }) => {
         />
       ))}
     </div>
-  )
-}
+  );
+};
 
-const Loading = () => <div>Loading...</div>
+const Loading = () => (<div>Loading...</div>)
 
-const ErrorMessage = () => <div>There was an error loading your projects.</div>
+const ErrorMessage = () => (<div>There was an error loading your projects.</div>)
 
 const my = () => {
   const [projects, setProjects] = useState([])
@@ -44,7 +45,7 @@ const my = () => {
     const response = await fetch('/api/arcade/showcase/projects/my', {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token}`
+        'Authorization': `Bearer ${token}`
       }
     }).catch(e => {
       console.error(e)
@@ -64,7 +65,11 @@ const my = () => {
   return (
     <section>
       <Nav />
-      <BGImg src={background} alt="Arcade Gallery BG Img" priority />
+      <BGImg
+        src={background}
+        alt="Arcade Gallery BG Img"
+        priority
+      />
       <div className={styles.title}>
         <SlideDown duration={768}>
           <Heading
@@ -81,12 +86,22 @@ const my = () => {
               zIndex: 1
             }}
           >
-            My Ships
+
+            <Text
+              as="span"
+              sx={{
+                WebkitTextStroke: 'currentColor',
+                WebkitTextStrokeWidth: ['2px', '3px'],
+                WebkitTextFillColor: 'transparent'
+              }}
+            >
+              My Ships
+            </Text>
             <br />
             <Button
               as="a"
               variant="ctaLg"
-              href="/arcade/showcase/add"
+              href="https://apply.hackclub.com"
               target="_blank"
               rel="noopener"
             >
@@ -94,10 +109,18 @@ const my = () => {
             </Button>
           </Heading>
         </SlideDown>
-        { status === 'loading' && <Loading /> }
-        { status === 'error' && <ErrorMessage /> }
-        { status === 'success' && <ProjectGallery projects={projects} /> }
       </div>
+      {
+        status == 'loading' && <Loading />
+      }
+
+      {
+        status == 'error' && <ErrorMessage />
+      }
+
+      {
+        status == 'success' && <ProjectGallery projects={projects} />
+      }
       <Footer />
     </section>
   )
