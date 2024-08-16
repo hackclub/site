@@ -8,7 +8,6 @@ import background from '../../../public/arcade/subtle-stripes.svg'
 import { Button, Heading, Text } from 'theme-ui'
 import SlideDown from '../../../components/slide-down'
 import styles from '../../../components/arcade/showcase/my.module.css'
-import NewCard from '../../../components/arcade/showcase/create-card'
 
 const ProjectGallery = ({ projects }) => {
   console.log("projects", projects);
