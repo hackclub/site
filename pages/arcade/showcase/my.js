@@ -10,13 +10,28 @@ import SlideDown from '../../../components/slide-down'
 import styles from '../../../components/arcade/showcase/my.module.css'
 
 
-const ProjectGallery = ({ projects }) => (
-  <div className={styles.gallery}>
-    {projects.map(project => (
-      <CohortCard project={project} key={project.id} />
-    ))}
-  </div>
-)
+const ProjectGallery = ({ projects }) => {
+  console.log("projects", projects);
+
+  return (
+    <div className={styles.gallery}>
+      {projects.map(project => (
+        <CohortCard 
+          key={project.id}
+          id={project.id}
+          title={project.title}
+          desc={project.desc}
+          slack={project.slackLink}
+          codeLink={project.codeLink}
+          playLink={project.playLink}
+          images={project.images}
+          githubProf={project.githubProf}
+        />
+      ))}
+    </div>
+  );
+};
+
 
 const Loading = () => (<div>Loading...</div>)
 
@@ -47,6 +62,8 @@ const my = () => {
       setStatus('success')
     }
   }, [])
+
+
   return (
     <section>
       <Nav />
@@ -71,34 +88,19 @@ const my = () => {
               zIndex: 1
             }}
           >
-            My Ships
-            
-            
-            
-          </Text>
-          <br />
-        <Button
-          as="a"
-          variant="ctaLg"
-          href="https://apply.hackclub.com"
-          target="_blank"
-          rel="noopener"
-        >
-          Add a Project
-        </Button>
-        </Heading>
-      </SlideDown>
-      {
-        status == 'loading' && <Loading />
-      }
+          {
+            status == 'loading' && <Loading />
+          }
         
-      {
-        status == 'error' && <Error error={errorMsg} />
-      }
+          {
+            status == 'error' && <Error error={errorMsg} />
+            
+          }
 
-      {
-        status == 'success' && <ProjectGallery projects={projects} />
-      }
+          {
+
+            status == 'success' && <ProjectGallery projects={projects} />
+          }
             <Text
               as="span"
               sx={{

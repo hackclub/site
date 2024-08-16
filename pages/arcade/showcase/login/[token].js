@@ -29,7 +29,7 @@ const LoginPage = ({token}) => {
   const [ status, setStatus ] = useState('Loading...')
   useEffect(async () => {
     const minWaitTime = sleep(3 * 1000)
-    const response = fetch(`/api/arcade/showcase/login/${token}`, {method: 'POST'})
+    const response = await fetch(`/api/arcade/showcase/login/${token}`, {method: 'POST'})
     const data = response.json()
     const [ _wait, _data ] = await Promise.all([minWaitTime, data])
 
