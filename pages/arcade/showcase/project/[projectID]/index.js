@@ -12,7 +12,6 @@ const ProjectShowPage = ({projectID}) => {
 
   const ErrorMessage = () => (<div>There was an error loading your projects.</div>)
 
-  console.log("projectID", projectID);
   const [project, setProject] = useState([])
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
@@ -80,14 +79,7 @@ const ProjectShowPage = ({projectID}) => {
 
 export default ProjectShowPage
 
-export async function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: 'blocking'
-  }
-}
-export async function getStaticProps({params}) {
-  const { projectID } = params
-
+export function getServerSideProps(context) {
+  const { projectID } = context.query
   return { props: { projectID } }
 }
