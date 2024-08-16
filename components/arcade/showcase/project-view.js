@@ -1,12 +1,8 @@
-import React from 'react'
 import styles from './project-view.module.css'
-import { Button, Heading, Text } from 'theme-ui'
-import BGImg from '../../../components/background-image'
-import background from '../../../public/arcade/gridBG.svg'
-import { size } from 'lodash'
+import { Button } from 'theme-ui'
 
-
-const ProjectView = ({ id, title = "Title Not Found", desc = "Description Not Found", slack = "Slack Not Found", scrapbook = "", playLink = "", images = [], githubProf, githubLink = "" }) => {
+const ProjectView = ({ id, title = "Title Not Found", desc = "Description Not Found", slack = "Slack Not Found", scrapbook = "", playLink = "", images = [], githubProf, codeLink = ""}) => {
+  const codeHost = codeLink.includes('github') ? 'View on GitHub' : 'View code link'
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{title}</h1>
@@ -32,11 +28,11 @@ const ProjectView = ({ id, title = "Title Not Found", desc = "Description Not Fo
         <Button
           as="a"
           sx={{ backgroundColor: '#0f0f0f', color: '#ebebeb', textSizeAdjust: "16px" }}
-          href={githubLink}
+          href={codeLink}
           target="_blank"
           rel="noopener"
         >
-          Github
+          {codeHost}
         </Button>
       </div>
     </div>
