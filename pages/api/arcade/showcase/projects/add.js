@@ -21,9 +21,18 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'No code link provided' })
   }
 
+  const org = req.body.codeLink?.split('/')?.[3]
+  const name = req.body.codeLink?.split('/')?.slice(-1)?.[0]
+  const ghData = await fetch(`https://api.github.com/repos/${org}/${name}`).then(r => r.json())
+  const description = ghData.description || ''
+  const playLink = ghData.homepage || ''
+
   const project = await airtable.create({
     "User": [user.id],
     "Code Link": req.body.codeLink,
+    "Name": name,
+    "Description": description,
+    "Play Link": playLink,
   })
 
   return res.status(200).json(project)
