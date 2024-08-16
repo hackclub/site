@@ -13,7 +13,7 @@ const ProjectGallery = ({ projects }) => {
   console.log('projects', projects)
 
   return (
-    <div className={styles.gallery}>
+    <div className={styles.feed}>
       {projects.map(project => (
         <CohortCard
           key={project.id}
@@ -27,6 +27,7 @@ const ProjectGallery = ({ projects }) => {
           githubProf={project.githubProf}
         />
       ))}
+
     </div>
   )
 }
@@ -81,7 +82,21 @@ const my = () => {
               zIndex: 1
             }}
           >
+<<<<<<< Updated upstream
             My Ships
+=======
+          
+            <Text
+              as="span"
+              sx={{
+                WebkitTextStroke: 'currentColor',
+                WebkitTextStrokeWidth: ['2px', '3px'],
+                WebkitTextFillColor: 'transparent'
+              }}
+            >
+              My Ships
+            </Text>
+>>>>>>> Stashed changes
             <br />
             <Button
               as="a"
@@ -98,6 +113,20 @@ const my = () => {
         { status === 'error' && <ErrorMessage /> }
         { status === 'success' && <ProjectGallery projects={projects} /> }
       </div>
+<<<<<<< Updated upstream
+=======
+          {
+            status == 'loading' && <Loading />
+          }
+        
+          {
+            status == 'error' && <ErrorMessage />
+          }
+
+          {
+            status == 'success' && <ProjectGallery projects={projects} />
+          }
+>>>>>>> Stashed changes
       <Footer />
     </section>
   )

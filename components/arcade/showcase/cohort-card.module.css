@@ -1,4 +1,4 @@
-.card{
+.card {
     flex: 1;
     break-inside: avoid;
     position: relative;
@@ -13,7 +13,7 @@
 
 }
 
-.card_img{
+.card_img {
     width: 100%;
     height: auto;
     max-height: 100%;
@@ -23,14 +23,15 @@
 
 }
 
-.card_title{
+.card_title {
+    color: #333;
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0;
 
 }
 
-.card_description{
+.card_description {
     font-size: 1rem;
     color: #333;
     margin: 0;
@@ -41,9 +42,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 3em;
+    margin-bottom: 10px;
 }
 
-.linkWrapper{
+.linkWrapper {
     display: block;
     text-decoration: none;
     color: inherit;
