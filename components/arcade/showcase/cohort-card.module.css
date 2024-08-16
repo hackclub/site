@@ -1,11 +1,6 @@
 .card{
     flex: 1;
     break-inside: avoid;
-    background-color: rgb(255, 255, 255);
-    background-clip: padding-box;
-    padding: 1.5rem 1.5rem 1rem 1.5rem;
-    cursor: pointer;
-    height: fit-content;
     position: relative;
     background-size: cover;
     background-position: center;
