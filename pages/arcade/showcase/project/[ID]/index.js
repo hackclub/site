@@ -1,10 +1,10 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
-import CohortCard from '../../../../../components/arcade/showcase/cohort-card'
+import ProjectView from '../../../../../components/arcade/showcase/project-view'
 
 
-const Page = () => {
+const ProjectShowPage = () => {
   const router = useRouter();
   const { id } = router.query;
 
@@ -28,14 +28,15 @@ const Page = () => {
       setStatus('error')
       return
     } else {
-      setProjects(data.projects)
+      setProject(data.projects)
       setStatus('success')
     }
+    console.log("project", project);
   }, [])
 
   return (
     <div>
-      <CohortCard
+      <ProjectView
         key={project.id}
         id={project.id}
         title={project.title}
@@ -50,4 +51,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default ProjectShowPage
