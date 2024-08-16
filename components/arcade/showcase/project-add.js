@@ -6,11 +6,16 @@ import Submit from '../../submit'
 const Loading = () => <div>Loading...</div>
 const ErrorMsg = () => <div>There was an error loading your projects.</div>
 
+async function projectAdded(response) {
+  const projectID = response.project
+
+  window.location.href = '/arcade/showcase/project/' + projectID
+}
+
 const NewProjectForm = ({authToken}) => {
-  console.log({authToken})
   const { status, formProps, useField } = useForm(
     '/api/arcade/showcase/projects/add',
-    null,
+    projectAdded,
     { initData: {authToken} },
   )
   return (
@@ -18,6 +23,7 @@ const NewProjectForm = ({authToken}) => {
       <form {...formProps}>
         <Label>
           <Text>Repo / code link</Text>
+          <Text color="muted">We'll pull in your project details from this repo</Text>
           <Input
             {...useField('codeLink')}
             placeholder="https://github.com/hackclub/arcade"
