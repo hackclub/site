@@ -17,8 +17,6 @@ const CohortCard = ({ id, title = "Title Not Found", desc = "Description Not Fou
         </div>
       </a>
     </>
-
-
   )
 }
 

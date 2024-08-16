@@ -4,13 +4,15 @@ import ProjectView from '../../../components/arcade/showcase/project-view'
 import Nav from '../../../components/Nav'
 import Footer from '../../../components/arcade/Footer'
 import BGImg from '../../../components/background-image'
-import background from '../../../public/arcade/subtle-stripes.svg'
+import background from '../../../public/arcade/background-pattern.png'
 import { Button, Heading, Text } from 'theme-ui'
 import SlideDown from '../../../components/slide-down'
 import styles from '../../../components/arcade/showcase/my.module.css'
+import Countdown from 'react-countdown';
+
+
 
 const ProjectGallery = ({ projects }) => {
-  console.log("projects", projects);
 
   return (
     <div className={styles.feed}>
@@ -39,6 +41,8 @@ const my = () => {
   const [projects, setProjects] = useState([])
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
+  const launchDate = new Date(2024, 7, 19, 0, 0, 0, 0);
+
   useEffect(async () => {
     const token = window.localStorage.getItem('arcade.authToken')
     const response = await fetch('/api/arcade/showcase/projects/my', {
@@ -85,17 +89,24 @@ const my = () => {
               zIndex: 1
             }}
           >
+            <div className={styles.container}>
+              <Text
+                as="span"
+                sx={{
+                  WebkitTextStroke: 'currentColor',
+                  WebkitTextStrokeWidth: ['2px', '3px'],
+                  WebkitTextFillColor: 'transparent'
+                }}
+              >
+                My Ships
+              </Text>
+              <div className={styles.timer_box}>
+                <p className={styles.timer_text}>First Voting round in</p>
+                <Countdown date={launchDate} className={styles.countdown}/>
+              </div>
 
-            <Text
-              as="span"
-              sx={{
-                WebkitTextStroke: 'currentColor',
-                WebkitTextStrokeWidth: ['2px', '3px'],
-                WebkitTextFillColor: 'transparent'
-              }}
-            >
-              My Ships
-            </Text>
+            </div>
+
             <br />
             <Button
               as="a"
