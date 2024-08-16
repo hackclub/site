@@ -4,7 +4,7 @@ import ProjectView from '../../../components/arcade/showcase/project-view'
 import Nav from '../../../components/Nav'
 import Footer from '../../../components/arcade/Footer'
 import BGImg from '../../../components/background-image'
-import background from '../../../public/home/assemble.jpg'
+import background from '../../../public/arcade/subtle-stripes.svg'
 import { Button, Heading, Text } from 'theme-ui'
 import SlideDown from '../../../components/slide-down'
 import styles from '../../../components/arcade/showcase/my.module.css'
@@ -50,35 +50,31 @@ const my = () => {
   return (
     <section>
       <Nav />
-      {/*<BGImg 
-          src={background}
-          alt="Arcade Gallery BG Img"
-          priority
-      />*/}
-       <SlideDown duration={768}>
-        <Heading
-          as="h1"
-          variant="ultratitle"
-          sx={{
-            color: 'white',
-            textShadow: 'text',
-            filter: 'drop-shadow(0 -2px 4px rgba(0,0,0,0.5))',
-            WebkitFilter: 'drop-shadow(0 -2px 4px rgba(0,0,0,0.5))',
-            maxWidth: [null, 'copyUltra'],
-            my: [3, 4],
-            mx: 'auto',
-            zIndex: 1
-          }}
-        >
-          <Text
-            as="span"
+      <BGImg 
+            src={background}
+            alt="Arcade Gallery BG Img"
+            priority
+        />
+      <div className={styles.title}>
+        <SlideDown duration={768}>
+          <Heading
+            as="h1"
+            variant="ultratitle"
             sx={{
-              WebkitTextStroke: 'currentColor',
-              WebkitTextStrokeWidth: ['2px', '3px'],
-              WebkitTextFillColor: 'transparent'
+              color: 'white',
+              textShadow: 'text',
+              filter: 'drop-shadow(0 -2px 4px rgba(0,0,0,0.5))',
+              WebkitFilter: 'drop-shadow(0 -2px 4px rgba(0,0,0,0.5))',
+              maxWidth: [null, 'copyUltra'],
+              my: [3, 4],
+              mx: 'auto',
+              zIndex: 1
             }}
           >
             My Ships
+            
+            
+            
           </Text>
           <br />
         <Button
@@ -103,6 +99,44 @@ const my = () => {
       {
         status == 'success' && <ProjectGallery projects={projects} />
       }
+            <Text
+              as="span"
+              sx={{
+                WebkitTextStroke: 'currentColor',
+                WebkitTextStrokeWidth: ['2px', '3px'],
+                WebkitTextFillColor: 'transparent'
+              }}
+            >
+              My Ships
+            </Text>
+            <br />
+          <Button
+            as="a"
+            variant="ctaLg"
+            href="https://apply.hackclub.com"
+            target="_blank"
+            rel="noopener"
+          >
+            Add a Project
+          </Button>
+          </Heading>
+        </SlideDown>
+      </div>
+       
+
+      <div className={styles.feed}>
+            <CohortCard title="Here is my Project" desc="dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk"/>
+            <CohortCard title="Here is my Project" desc="dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk"/>
+            <CohortCard title="Here is my Project" desc="dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk"/>
+            <CohortCard title="Here is my Project" desc="dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk"/>
+            <CohortCard title="Here is my Project" desc="dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk"/>
+            <CohortCard title="Here is my Project" desc="dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk"/>
+            <CohortCard title="Here is my Project" desc="dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk"/>
+            <CohortCard title="Here is my Project" desc="dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk"/>
+            <CohortCard title="Here is my Project" desc="dasudyaskjhdkjahdlkjahsd asdnhasdkj as dkajhsd lk"/>
+
+
+        </div>      
       <Footer />
     </section>
   )
