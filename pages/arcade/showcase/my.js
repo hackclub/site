@@ -100,7 +100,7 @@ const my = () => {
             <Button
               as="a"
               variant="ctaLg"
-              href="https://apply.hackclub.com"
+              href="/arcade/showcase/add"
               target="_blank"
               rel="noopener"
             >
