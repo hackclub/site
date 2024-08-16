@@ -4,11 +4,12 @@ import ProjectView from '../../../components/arcade/showcase/project-view'
 import Nav from '../../../components/Nav'
 import Footer from '../../../components/arcade/Footer'
 import BGImg from '../../../components/background-image'
-import background from '../../../public/arcade/background-pattern.png'
+import background from '../../../public/arcade/homeBG.svg'
 import { Button, Heading, Text } from 'theme-ui'
 import SlideDown from '../../../components/slide-down'
 import styles from '../../../components/arcade/showcase/my.module.css'
 import Countdown from 'react-countdown';
+import { StyleSheetContext } from 'styled-components'
 
 
 
@@ -41,6 +42,8 @@ const my = () => {
   const [projects, setProjects] = useState([])
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
+
+  
   const launchDate = new Date(2024, 7, 19, 0, 0, 0, 0);
 
   useEffect(async () => {
@@ -67,10 +70,11 @@ const my = () => {
 
   return (
     <section>
-      <Nav />
+      <Nav color="dark" />
       <BGImg
         src={background}
         alt="Arcade Gallery BG Img"
+        gradient='linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.2))'
         priority
       />
       <div className={styles.title}>
@@ -95,19 +99,21 @@ const my = () => {
                 sx={{
                   WebkitTextStroke: 'currentColor',
                   WebkitTextStrokeWidth: ['2px', '3px'],
-                  WebkitTextFillColor: 'transparent'
+                  color: 'black',
                 }}
               >
                 My Ships
               </Text>
               <div className={styles.timer_box}>
                 <p className={styles.timer_text}>First Voting round in</p>
+                
                 <Countdown date={launchDate} className={styles.countdown}/>
               </div>
 
             </div>
 
             <br />
+            <div className={styles.container}>
             <Button
               as="a"
               variant="ctaLg"
@@ -117,6 +123,8 @@ const my = () => {
             >
               Add a Project
             </Button>
+            </div>
+           
           </Heading>
         </SlideDown>
       </div>

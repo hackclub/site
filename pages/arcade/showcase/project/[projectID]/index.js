@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react'
 import ProjectView from '../../../../../components/arcade/showcase/project-view'
 import Nav from '../../../../../components/Nav'
 import Footer from '../../../../../components/arcade/Footer'
+import BGImg from '../../../../../components/background-image'
+import background from '../../../../../public/arcade/projectBG.svg'
+import styles from '../../../../../components/arcade/showcase/project-view.module.css'
 
 const ProjectShowPage = ({projectID}) => {
 
-  const Loading = () => (<div>Loading...</div>)
+  const Loading = () => (<div className={styles.loading}>Loading...</div>)
 
   const ErrorMessage = () => (<div>There was an error loading your projects.</div>)
 
@@ -39,7 +42,13 @@ const ProjectShowPage = ({projectID}) => {
 
   return (
     <div>
-      <Nav />
+      <Nav color="dark" />
+      <BGImg
+        src={background}
+        alt="Arcade Gallery BG Img"
+        priority
+      />
+      <div className={styles.min}>
       {
         status == 'loading' && <Loading />
       }
@@ -62,6 +71,8 @@ const ProjectShowPage = ({projectID}) => {
           githubProf={project.githubProf}
         />
       }
+      </div>
+
       <Footer />
     </div>
   )

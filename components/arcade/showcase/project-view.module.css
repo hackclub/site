@@ -17,7 +17,8 @@
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 10px;
     margin-bottom: 20px;
-  }
+    width: 780px; /* Adjust the width to fit three images */
+}
   
   .image {
     width: 100%;
@@ -27,9 +28,10 @@
   
   .description {
     font-size: 1.2rem;
-    color: #555;
+    color: #363636;
     margin-bottom: 30px;
     line-height: 1.6;
+    font-weight: 500;
   }
   
   .buttonGroup {
@@ -51,3 +53,14 @@
     background-color: #005bb5;
   }
   
+  .min{
+    min-height: 800px;
+    text-align: center;
+    padding-top: 70px;
+  }
+
+  .loading{
+    font-size: 2.5rem;
+    font-weight: 800px;
+    margin-bottom: 20px;
+  }
