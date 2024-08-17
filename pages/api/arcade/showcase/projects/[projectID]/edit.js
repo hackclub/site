@@ -20,14 +20,6 @@ export default async function handler(req, res) {
   updatedFields['Play Link'] = body.playLink
   updatedFields['Screenshot'] = body.images
 
-  // allow list of fields to change
-  // const allowedFields = ['Name', 'Description', 'Slack Link', 'Code Link', 'Play Link', 'Screenshot', 'Github Profile']
-  // Object.keys(body).forEach(key => {
-  //   if (!allowedFields.includes(key)) {
-  //     delete body[key]
-  //   }
-  // })
-
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
     baseID: 'app4kCWulfB02bV8Q',
@@ -37,8 +29,6 @@ export default async function handler(req, res) {
   const { projectID } = req.query
 
   const project = await airtable.update(projectID, updatedFields )
-
-  console.log(project.fields)
 
   const results = {
     id: project.id,
