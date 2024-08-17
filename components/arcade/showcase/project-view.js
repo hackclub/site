@@ -1,7 +1,7 @@
 import styles from './project-view.module.css'
 import { Button } from 'theme-ui'
 
-const ProjectView = ({ id, title = "Title Not Found", desc = "Description Not Found", slack = "Slack Not Found", scrapbook = "", playLink = "", images = [], githubProf, codeLink = ""}) => {
+const ProjectView = ({ id, title = "Title Not Found", desc = "Description Not Found", slack = "Slack Not Found", scrapbook = "", playLink, images = [], githubProf, codeLink = ""}) => {
   const codeHost = codeLink.includes('github') ? 'View on GitHub' : 'View code link'
   return (
     <div className={styles.container}>
@@ -16,6 +16,7 @@ const ProjectView = ({ id, title = "Title Not Found", desc = "Description Not Fo
       <p className={styles.description}>{desc}</p>
 
       <div className={styles.buttonGroup}>
+        {playLink && (
         <Button
           as="a"
           sx={{ backgroundColor: '#1d571d', color: '#ebebeb', textSizeAdjust: "16px" }}          
@@ -24,7 +25,9 @@ const ProjectView = ({ id, title = "Title Not Found", desc = "Description Not Fo
           rel="noopener"
         >
           Play Game
-        </Button>
+        </Button>)}
+        
+
         <Button
           as="a"
           sx={{ backgroundColor: '#0f0f0f', color: '#ebebeb', textSizeAdjust: "16px" }}

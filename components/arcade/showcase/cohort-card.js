@@ -6,7 +6,18 @@ import { Button } from 'theme-ui'
 
 const CohortCard = ({ id, title = "Title Not Found", desc = "Description Not Found", slack = "Slack Not Found", scrapbook = "", playLink = "", images = [], githubProf, githubLink = "", draggable = false, personal = false}) => {
   const [isHovered, setIsHovered] = useState(false);
+
+
   const handleDelete = async () => {
+    const { status, formProps, useField, data } = useForm(
+    `/api/arcade/showcase/projects/${project.id}/edit`,
+    publishedChanges,
+    {
+      method: 'PATCH',
+      initData: { ...project, recordId: project.id },
+      bearer: window.localStorage.getItem('arcade.authToken')
+    }
+  )
     return;
   }
 
@@ -25,7 +36,7 @@ const CohortCard = ({ id, title = "Title Not Found", desc = "Description Not Fou
     )}
     <a href={`/arcade/showcase/project/${id}`} className={styles.linkWrapper} target="_blank" rel="noopener noreferrer">
         <img
-            src={firstImage}
+            src={images[0] || "https://picsum.photos/200"}
             alt="Project Image"
             className={styles.card_img}
         />
