@@ -56,11 +56,17 @@
   .min{
     min-height: 800px;
     text-align: center;
-    padding-top: 70px;
   }
 
   .loading{
     font-size: 2.5rem;
     font-weight: 800px;
     margin-bottom: 20px;
+  }
+
+
+  @media screen and (max-width: 500px) {
+    .buttonGroup {
+      flex-direction: column;
+    }
   }

@@ -49,6 +49,7 @@ export default async function handler(req, res) {
     slackLink: project.fields['Slack Link'] || '',
     playLink: project.fields['Play Link'] || '',
     images: (project.fields['Screenshot'] || []).map(i => i.url),
+    user: user.fields['Name'],
     githubProf: project.fields['Github Profile'] || ''
   }
 

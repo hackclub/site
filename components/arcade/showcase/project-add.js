@@ -9,7 +9,7 @@ const ErrorMsg = () => <div>There was an error loading your projects.</div>
 async function projectAdded(response) {
   const projectID = response.project
 
-  window.location.href = '/arcade/showcase/project/' + projectID
+  window.location.href = '/arcade/showcase/project/' + projectID + '/edit'
 }
 
 const NewProjectForm = ({authToken}) => {
@@ -37,8 +37,12 @@ const NewProjectForm = ({authToken}) => {
         status={status}
         labels={{
           default: 'Submit repo',
-          error: 'Something went wrong',
+          error: 'Something went wrong!',
           success: 'Pulling repo data'
+        }}
+        sx={{
+          background: status == 'error' ? '#DE4E2B': '#09AFB4',
+          borderRadius: '10px'
         }}
       />
       </form>

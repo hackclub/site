@@ -36,6 +36,7 @@ export default async function handler(req, res) {
     playLink: project.fields['Play Link'] || '',
     images: (project.fields['Screenshot'] || []).map(i => i.url),
     githubProf: project.fields['Github Profile'] || '',
+    user: user.fields['Name'],
     deleted: project.fields['deleted'] || ''
   }
 

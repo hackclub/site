@@ -30,7 +30,8 @@ export default async function handler(req, res) {
     slackLink: p.fields['Slack Link'] || '',
     playLink: p.fields['Play Link'] || '',
     images: (p.fields['Screenshot'] || []).map(i => i.url),
-    githubProf: p.fields['Github Profile'] || ''
+    githubProf: p.fields['Github Profile'] || '',
+    user: user.fields['Name']
   }))
   return res.status(200).json({ project: results[0] })
 }

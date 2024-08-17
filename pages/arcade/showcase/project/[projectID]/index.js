@@ -1,10 +1,37 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import ProjectView from '../../../../../components/arcade/showcase/project-view'
 import Nav from '../../../../../components/Nav'
 import Footer from '../../../../../components/arcade/Footer'
 import BGImg from '../../../../../components/background-image'
-import background from '../../../../../public/arcade/projectBG.svg'
-import styles from '../../../../../components/arcade/showcase/project-view.module.css'
+import styles from '../../../components/arcade/showcase/project-view.module.css'
+import { Box } from 'theme-ui'
+/** @jsxImportSource theme-ui */
+
+const styled = `
+@import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
+body, html {
+  overflow-x: hidden;
+  }
+.slackey {
+  font-family: "Slackey", sans-serif;
+ }
+ .emblema {
+    font-family: "Emblema One", system-ui;
+ }
+
+ .gaegu {
+    font-family: "Gaegu", sans-serif;
+ }
+
+ body {
+    background-color: #FAEFD6;
+    min-height: 100vh;
+ }
+ 
+a {
+  color: inherit;
+}
+`
 
 const ProjectShowPage = ({projectID}) => {
 
@@ -15,7 +42,23 @@ const ProjectShowPage = ({projectID}) => {
   const [project, setProject] = useState([])
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
-
+   // Spotlight effect
+   const spotlightRef = useRef()
+   useEffect(() => {
+     const handler = event => {
+       var rect = document.getElementById('spotlight').getBoundingClientRect()
+       var x = event.clientX - rect.left //x position within the element.
+       var y = event.clientY - rect.top //y position within the element.
+ 
+       spotlightRef.current.style.background = `radial-gradient(
+             circle at ${x}px ${y}px,
+             rgba(132, 146, 166, 0) 20px,
+             rgba(250, 239, 214, 0.9) 120px
+           )`
+     }
+     window.addEventListener('mousemove', handler)
+     return () => window.removeEventListener('mousemove', handler)
+   }, [])
   useEffect(async () => {
     const token = window.localStorage.getItem('arcade.authToken')
     const response = await fetch(`/api/arcade/showcase/projects/${projectID}`, {
@@ -40,15 +83,46 @@ const ProjectShowPage = ({projectID}) => {
   }, [])
 
   return (
-    <div>
-      <Nav color="dark" />
-      <BGImg
-        src={background}
-        alt="Arcade Gallery BG Img"
-        priority
-      />
+    <Box
+        id="spotlight"
+        as="section"
+        sx={{
+          backgroundImage: `
+              linear-gradient(rgba(250, 239, 214, 0.7), rgba(250, 239, 214, 0.7)),
+              url('https://cloud-o19rieg4g-hack-club-bot.vercel.app/0group_495__1_.svg')
+            `,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          position: 'relative',
+          minHeight: '100vh'
+        }}
+      >
+        <Box
+          ref={spotlightRef}
+          sx={{
+            position: 'absolute',
+            zIndex: 2,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            bg: '#FAEFD6',
+            pointerEvents: 'none'
+          }}
+        />
+    <div sx={{zIndex: 5, position: 'relative'}}>
+    <img
+            src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+            sx={{
+              width: '30%',
+              maxWidth: '200px',
+              position: 'absolute',
+              top: '20px',
+              right: '20px'
+            }}
+          />
       <div className={styles.min}>
-      {
+      {/* {
         status == 'loading' && <Loading />
       }
 
@@ -69,11 +143,23 @@ const ProjectShowPage = ({projectID}) => {
           images={project.images}
           githubProf={project.githubProf}
         />
-      }
-      </div>
+      } */}
 
-      <Footer />
+<ProjectView
+          key={project.id}
+          id={project.id}
+          title={project.title}
+          desc={project.desc}
+          slack={project.slackLink}
+          codeLink={project.codeLink}
+          playLink={project.playLink}
+          images={project.images}
+          githubProf={project.githubProf}
+        />
+      </div>
     </div>
+    <style>{styled}</style>
+    </Box>
   )
 }
 
@@ -81,5 +167,5 @@ export default ProjectShowPage
 
 export function getServerSideProps(context) {
   const { projectID } = context.query
-  return { props: { projectID } }
+  return { props: { "hi": 'HI' } }
 }

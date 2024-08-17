@@ -1,5 +1,6 @@
 .feed {
-  width: 100%;              
+  width: 90vw;
+  max-width: 1200px;              
   overflow-y: auto;        
   overflow-x: hidden;       
   align-self: center;
@@ -7,6 +8,7 @@
   grid-gap: 0px;
   background-color: #FAEFD6;
   padding: 10px;
+  margin: auto;
 
   /* Small screens */
   @media (min-width: 640px) {
