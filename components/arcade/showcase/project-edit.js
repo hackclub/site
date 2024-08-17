@@ -1,34 +1,42 @@
-import { Input, Label, Text } from 'theme-ui'
+import { Input, Label, Text, Flex, Box } from 'theme-ui'
 import ProjectView from './project-view'
 import useForm from '../../../lib/use-form'
+import CohortCard from './cohort-card'
+import Submit from '../../submit'
+import { useState } from 'react'
 
-const ProjectEditView = ({ project }) => {
-  const { status, formProps, useField } = useForm(
-    '/api/arcade/showcase/projects/edit',
-    null,
+const ProjectEditForm = ({ project }) => {
+  const [previewProject, setPreviewProject] = useState(project)
+  console.log({previewProject})
+  function publishedChanges(e) {
+    console.log('published changes')
+  }
+  const { status, formProps, useField, data } = useForm(
+    `/api/arcade/showcase/projects/${project.id}/edit`,
+    publishedChanges,
     {
       method: 'PATCH',
-      initData: { ...project }
+      initData: { ...project, recordId: project.id },
+      bearer: window.localStorage.getItem('arcade.authToken')
     }
   )
+    console.log()
   return (
-    <div>
+    <Flex>
       <form {...formProps}>
         <Label>
           <Text>Project name</Text>
           <Input
             {...useField('title')}
             placeholder="Arcade"
-            required
             sx={{ border: '1px solid', borderColor: 'muted', mb: 2 }}
           />
         </Label>
         <Label>
           <Text>Repo Link</Text>
           <Input
-            {...useField('repoLink')}
+            {...useField('codeLink')}
             placeholder="https://github.com/hackclub/arcade"
-            required
             sx={{ border: '1px solid', borderColor: 'muted', mb: 2 }}
           />
         </Label>
@@ -37,7 +45,6 @@ const ProjectEditView = ({ project }) => {
           <Input
             {...useField('playLink')}
             placeholder="https://hackclub.com/arcade"
-            required
             sx={{ border: '1px solid', borderColor: 'muted', mb: 2 }}
           />
         </Label>
@@ -45,7 +52,6 @@ const ProjectEditView = ({ project }) => {
           <Text>Screenshot</Text>
           <Input
             {...useField('screenshot')}
-            required
             sx={{ border: '1px solid', borderColor: 'muted', mb: 2 }}
           />
         </Label>
@@ -53,14 +59,27 @@ const ProjectEditView = ({ project }) => {
           <Text>Video</Text>
           <Input
             {...useField('video')}
-            required
             sx={{ border: '1px solid', borderColor: 'muted', mb: 2 }}
           />
         </Label>
+
+        <Input {...useField('authToken')} type="hidden" />
+
+        <Submit
+          status={status}
+          labels={{
+            default: 'Publish changes',
+            error: 'Something went wrong',
+            success: 'Updated!'
+          }}
+        />
       </form>
-      <ProjectView project={project} />
-    </div>
+      <Box sx={{ width: '50%' }}>
+        <CohortCard {...previewProject} />
+        <ProjectView {...previewProject} />
+      </Box>
+    </Flex>
   )
 }
 
-export default ProjectEditView
+export default ProjectEditForm

@@ -1,5 +1,5 @@
 import AirtablePlus from "airtable-plus";
-import { ensureAuthed } from "../login/test";
+import { ensureAuthed } from "../../login/test";
 
 
 export default async function handler(req, res) {
