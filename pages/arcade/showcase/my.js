@@ -303,7 +303,7 @@ const my = () => {
 
           {status == 'error' && <ErrorMessage />}
 
-          {status == 'success' && <ProjectGallery projects={projects} />}
+          {status == 'success' && <ProjectGallery projects={projects} loadProjects={loadProjects} />}
           <ProjectGallery projects={projects} />
           <dialog id="add-project" sx={{borderRadius: '10px', border: '3px dashed #09AFB4'}} className='gaegu'>
           <ProjectAddView />
