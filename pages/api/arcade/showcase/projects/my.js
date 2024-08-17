@@ -29,5 +29,5 @@ export default async function handler(req, res) {
     githubProf: p.fields['Github Profile'] || '',
     user: user.fields['Name']
   }))
-  return res.status(200).json({ projects: results })
+  return res.status(200).json({ projects: results, name: user.fields['Name']})
 }

@@ -1,7 +1,7 @@
 import styles from './project-view.module.css'
-import { Button } from 'theme-ui'
 import randomNotFoundImg from './random-not-found-img'
-import CohortCard from './cohort-card'
+import { Button, Text } from 'theme-ui'
+import Icon from '@hackclub/icons'
 /** @jsxImportSource theme-ui */
 
 const ProjectView = ({
@@ -24,9 +24,36 @@ const ProjectView = ({
   const imagesList = images.length > 0 ? images : [randomNotFoundImg(id)]
   return (
     <div {...props} className="gaegu" sx={{ position: 'relative' }}>
-      <div sx={{ py: 4, backgroundColor: '#F4E7C7', textAlign: 'center' }}>
-        <h1 className="slackey">{title}</h1>
+      <div sx={{ py: 4, backgroundColor: '#F4E7C7', textAlign: 'center', color: '#333' }}>
+        <h1 className="slackey" sx={{color: '#FF5C00'}}>{title}</h1>
         <h3>By {user}</h3>
+        <Text
+      as="a"
+      href="/arcade/showcase/my"
+        sx={{
+          border: '2px dashed #333',
+          borderRadius: '5px',
+          position: ['relative', 'relative', 'absolute'],
+          display: 'flex',
+          left: '10px',
+          top: '10px',
+          justifyContent: 'center',
+          alignItems: 'center',
+          px: 2,
+          py: 1,
+          transitionDuration: '0.4s',
+          cursor: 'pointer',
+          textDecoration: 'none',
+          mb: 3,
+          color: '#333',
+          '&:hover': {
+            background: '#333',
+            color: '#F4E7C7'
+          }
+        }}
+      >
+        <Icon glyph="home" /> View all my ships
+      </Text>
       </div>
 
       <div

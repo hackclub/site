@@ -4,7 +4,8 @@ import Nav from '../../../../../components/Nav'
 import Footer from '../../../../../components/arcade/Footer'
 import BGImg from '../../../../../components/background-image'
 import styles from '../../../../../components/arcade/showcase/project-view.module.css'
-import { Box } from 'theme-ui'
+import { Box, Text } from 'theme-ui'
+import Icon from '@hackclub/icons'
 /** @jsxImportSource theme-ui */
 
 const styled = `
@@ -118,20 +119,21 @@ const ProjectShowPage = ({ projectID }) => {
             maxWidth: '200px',
             position: 'absolute',
             top: '20px',
-            right: '20px'
+            right: '20px',
+            zIndex: 10
           }}
         />
         <div className={styles.min}>
-          {
+          {/* {
         status == 'loading' && <Loading />
       }
 
       {
         status == 'error' && <ErrorMessage />
-      }
+      } */}
 
-      {
-        status == 'success' && 
+      {/* {
+        status == 'success' &&  */}
         <ProjectView
           key={project.id}
           id={project.id}
@@ -144,7 +146,7 @@ const ProjectShowPage = ({ projectID }) => {
           githubProf={project.githubProf}
           user={project.user}
         />
-      }
+      {/* } */}
         </div>
       </div>
       <style>{styled}</style>
