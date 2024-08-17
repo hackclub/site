@@ -145,7 +145,7 @@ const ErrorMessage = () => (
   </div>
 )
 
-const my = () => {
+const My = () => {
   const [projects, setProjects] = useState([])
   const [name, setName] = useState('')
   const [status, setStatus] = useState('loading')
@@ -349,4 +349,4 @@ const my = () => {
   )
 }
 
-export default my
+export default My

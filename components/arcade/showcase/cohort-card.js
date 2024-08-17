@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Card, Heading, Link, Text } from 'theme-ui'
+import { Box, Card, Heading, Link, Text, Close } from 'theme-ui'
 import styles from './cohort-card.module.css'
 import { useState } from 'react'
 import { Button } from 'theme-ui'
