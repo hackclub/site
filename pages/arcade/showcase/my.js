@@ -264,7 +264,7 @@ const my = () => {
               }}
             >
               <Text className="gaegu" sx={{ color: '#FF5C00' }}>
-                {status == 'success' ? `Welcome, ${projects.user}` : ''}
+                {status == 'success' ? `Welcome, ${name}` : ''}
                 
               </Text>
 
