@@ -4,22 +4,39 @@ import styles from './cohort-card.module.css'
 import { useState } from 'react'
 import { Button } from 'theme-ui'
 
-const CohortCard = ({ id, title = "Title Not Found", desc = "Description Not Found", slack = "Slack Not Found", scrapbook = "", playLink = "", images = [], githubProf, githubLink = "", draggable = false, personal = false}) => {
+const CohortCard = ({ id, title = "Title Not Found", desc = "Description Not Found", slack = "Slack Not Found", scrapbook = "", playLink = "", images = [], githubProf, githubLink = "", draggable = false, personal = false, reload}) => {
   const [isHovered, setIsHovered] = useState(false);
 
 
-  const handleDelete = async () => {
-    const { status, formProps, useField, data } = useForm(
-    `/api/arcade/showcase/projects/${project.id}/edit`,
-    publishedChanges,
-    {
-      method: 'PATCH',
-      initData: { ...project, recordId: project.id },
-      bearer: window.localStorage.getItem('arcade.authToken')
-    }
-  )
-    return;
+  async function handleDelete() {
+    try {
+      const authToken = window.localStorage.getItem('arcade.authToken');
+
+      if (!authToken) {
+          throw new Error('Authorization token is missing.');
+      }
+
+      const response = await fetch(`/api/arcade/showcase/projects/${id}/delete`, {
+          method: 'PATCH',
+          headers: {
+              'Authorization': `Bearer ${authToken}`,
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({}) // Empty body since your API expects some body content
+      });
+
+      if (!response.ok) {
+          throw new Error(`Failed to delete project with ID ${id}: ${response.statusText}`);
+      }
+
+      console.log(`Project with ID ${id} marked as deleted.`);
+  } catch (error) {
+      console.error('Error deleting project:', error);
   }
+
+  reload();
+}
+
 
   const firstImage = images[0] || "https://picsum.photos/200" 
 

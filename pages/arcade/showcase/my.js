@@ -61,7 +61,8 @@ a {
 }
 `
 
-const ProjectGallery = ({ projects }) => {
+const ProjectGallery = ({ projects, loadProjects}) => {
+
   return (
     <div className={styles.feed}>
       <div className={styles.container}>
@@ -103,6 +104,8 @@ const ProjectGallery = ({ projects }) => {
           playLink={project.playLink}
           images={project.images}
           githubProf={project.githubProf}
+          personal={true}
+          reload={loadProjects}
         />
       ))}
     </div>
@@ -174,7 +177,7 @@ const my = () => {
     return () => window.removeEventListener('mousemove', handler)
   }, [])
 
-  useEffect(async () => {
+  const loadProjects = async () => {
     const token = window.localStorage.getItem('arcade.authToken')
     const response = await fetch('/api/arcade/showcase/projects/my', {
       method: 'GET',
@@ -195,6 +198,10 @@ const my = () => {
       setName(data.name)
       setStatus('success')
     }
+  }
+
+  useEffect(async () => {
+    loadProjects();
   }, [])
 
   return (
