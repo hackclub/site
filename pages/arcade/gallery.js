@@ -86,6 +86,7 @@ const gallery = ({ posts }) => {
                     playable={post.playable}
                     images={post.images}
                     githubProf={""}
+                    key={post.id}
                 />)
 
             })}

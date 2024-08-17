@@ -98,19 +98,29 @@ const CohortCard = ({
               bg: '#09AFB4',
               borderRadius: '10px',
               height: '32px',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              transitionDuration: '0.4s',
+              '&:hover': {
+                transform: 'scale(1.15)'
+              }
             }}
           >
             <Icon glyph="edit" />{' '}
           </div>
           <div
-            onClick={handleDelete}
+            onClick={e => {
+              document.getElementById('delete-project').showModal()
+            }}
             sx={{
               color: 'white',
               bg: '#09AFB4',
               borderRadius: '10px',
               height: '32px',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              transitionDuration: '0.4s',
+              '&:hover': {
+                transform: 'scale(1.15)'
+              }
             }}
           >
             <Icon glyph="minus" />{' '}
@@ -131,6 +141,47 @@ const CohortCard = ({
         <h1 className={styles.card_title}>{title}</h1>
         <p className={styles.card_description}>{desc}</p>
       </a>
+      <dialog
+        id="delete-project"
+        sx={{ borderRadius: '10px', border: '3px dashed #09AFB4' }}
+        className="gaegu"
+      >
+        <Text>Are you sure you want to delete this project?</Text>
+        <br />
+        <Button
+          sx={{
+            backgroundColor: '#FF5C00',
+            color: '#FAEFD6',
+            borderRadius: '5px',
+            border: 'none',
+            px: '20px',
+            transitionDuration: '0.3s',
+            '&:hover': {
+              transform: 'scale(1.05)'
+            },
+            width: 'fit-content'
+          }}
+          onClick={e => {
+            handleDelete()
+            document.getElementById('add-project').close()
+          }}
+        >
+          Yes
+        </Button>
+        <Close
+          sx={{
+            '&:hover': { cursor: 'pointer' },
+            position: 'absolute',
+            top: '10px',
+            right: '10px',
+            zIndex: 2,
+            color: '#09AFB4'
+          }}
+          onClick={e => {
+            document.getElementById('add-project').close()
+          }}
+        />
+      </dialog>
     </div>
   )
 }
