@@ -27,6 +27,7 @@ body, html {
 a {
   color: inherit;
 }
+
 `
 
 const Loading = () => <p>Loading...</p>
@@ -78,16 +79,7 @@ export default ({ projectID }) => {
 
   return (
     <>
-    <img
-            src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
-            sx={{
-              width: '30%',
-              maxWidth: '200px',
-              position: 'absolute',
-              top: '20px',
-              right: '20px'
-            }}
-          />
+
       <Box
         id="spotlight"
         as="section"
@@ -125,6 +117,16 @@ export default ({ projectID }) => {
             position: 'relative'
           }}
         >
+           <img
+            src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+            sx={{
+              width: '30%',
+              maxWidth: '200px',
+              position: 'absolute',
+              top: '20px',
+              right: '20px'
+            }}
+          />
           {status === 'loading' && <Loading />}
           {status === 'error' && <ErrorMsg />}
           {status === 'success' && <ProjectEditView project={project} />}

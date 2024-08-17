@@ -22,7 +22,7 @@ const NewProjectForm = ({authToken}) => {
     <div>
       <form {...formProps}>
         <Label>
-          <Text>Repo / code link</Text>
+          <Text className='slackey'>Repo / code link</Text>
           <Text color="muted">We'll pull in your project details from this repo</Text>
           <Input
             {...useField('codeLink')}

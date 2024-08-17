@@ -3,7 +3,7 @@ import ProjectView from '../../../../../components/arcade/showcase/project-view'
 import Nav from '../../../../../components/Nav'
 import Footer from '../../../../../components/arcade/Footer'
 import BGImg from '../../../../../components/background-image'
-import styles from '../../../components/arcade/showcase/project-view.module.css'
+import styles from '../../../../../components/arcade/showcase/project-view.module.css'
 import { Box } from 'theme-ui'
 /** @jsxImportSource theme-ui */
 
@@ -33,38 +33,39 @@ a {
 }
 `
 
-const ProjectShowPage = ({projectID}) => {
+const ProjectShowPage = ({ projectID }) => {
+  const Loading = () => <div className={styles.loading}>Loading...</div>
 
-  const Loading = () => (<div className={styles.loading}>Loading...</div>)
-
-  const ErrorMessage = () => (<div>There was an error loading your projects.</div>)
+  const ErrorMessage = () => (
+    <div>There was an error loading your projects.</div>
+  )
 
   const [project, setProject] = useState([])
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
-   // Spotlight effect
-   const spotlightRef = useRef()
-   useEffect(() => {
-     const handler = event => {
-       var rect = document.getElementById('spotlight').getBoundingClientRect()
-       var x = event.clientX - rect.left //x position within the element.
-       var y = event.clientY - rect.top //y position within the element.
- 
-       spotlightRef.current.style.background = `radial-gradient(
+  // Spotlight effect
+  const spotlightRef = useRef()
+  useEffect(() => {
+    const handler = event => {
+      var rect = document.getElementById('spotlight').getBoundingClientRect()
+      var x = event.clientX - rect.left //x position within the element.
+      var y = event.clientY - rect.top //y position within the element.
+
+      spotlightRef.current.style.background = `radial-gradient(
              circle at ${x}px ${y}px,
              rgba(132, 146, 166, 0) 20px,
              rgba(250, 239, 214, 0.9) 120px
            )`
-     }
-     window.addEventListener('mousemove', handler)
-     return () => window.removeEventListener('mousemove', handler)
-   }, [])
+    }
+    window.addEventListener('mousemove', handler)
+    return () => window.removeEventListener('mousemove', handler)
+  }, [])
   useEffect(async () => {
     const token = window.localStorage.getItem('arcade.authToken')
     const response = await fetch(`/api/arcade/showcase/projects/${projectID}`, {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${token}`
+        Authorization: `Bearer ${token}`
       }
     }).catch(e => {
       console.error(e)
@@ -79,50 +80,49 @@ const ProjectShowPage = ({projectID}) => {
       setProject(data.project)
       setStatus('success')
     }
-
   }, [])
 
   return (
     <Box
-        id="spotlight"
-        as="section"
-        sx={{
-          backgroundImage: `
+      id="spotlight"
+      as="section"
+      sx={{
+        backgroundImage: `
               linear-gradient(rgba(250, 239, 214, 0.7), rgba(250, 239, 214, 0.7)),
               url('https://cloud-o19rieg4g-hack-club-bot.vercel.app/0group_495__1_.svg')
             `,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          position: 'relative',
-          minHeight: '100vh'
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        position: 'relative',
+        minHeight: '100vh'
+      }}
+    >
+      <Box
+        ref={spotlightRef}
+        sx={{
+          position: 'absolute',
+          zIndex: 2,
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          bg: '#FAEFD6',
+          pointerEvents: 'none'
         }}
-      >
-        <Box
-          ref={spotlightRef}
+      />
+      <div sx={{ zIndex: 5, position: 'relative' }}>
+        <img
+          src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
           sx={{
+            width: '30%',
+            maxWidth: '200px',
             position: 'absolute',
-            zIndex: 2,
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            bg: '#FAEFD6',
-            pointerEvents: 'none'
+            top: '20px',
+            right: '20px'
           }}
         />
-    <div sx={{zIndex: 5, position: 'relative'}}>
-    <img
-            src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
-            sx={{
-              width: '30%',
-              maxWidth: '200px',
-              position: 'absolute',
-              top: '20px',
-              right: '20px'
-            }}
-          />
-      <div className={styles.min}>
-      {/* {
+        <div className={styles.min}>
+          {
         status == 'loading' && <Loading />
       }
 
@@ -142,23 +142,12 @@ const ProjectShowPage = ({projectID}) => {
           playLink={project.playLink}
           images={project.images}
           githubProf={project.githubProf}
+          user={project.user}
         />
-      } */}
-
-<ProjectView
-          key={project.id}
-          id={project.id}
-          title={project.title}
-          desc={project.desc}
-          slack={project.slackLink}
-          codeLink={project.codeLink}
-          playLink={project.playLink}
-          images={project.images}
-          githubProf={project.githubProf}
-        />
+      }
+        </div>
       </div>
-    </div>
-    <style>{styled}</style>
+      <style>{styled}</style>
     </Box>
   )
 }
@@ -167,5 +156,5 @@ export default ProjectShowPage
 
 export function getServerSideProps(context) {
   const { projectID } = context.query
-  return { props: { "hi": 'HI' } }
+  return { props: { projectID } }
 }

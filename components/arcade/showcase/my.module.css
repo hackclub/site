@@ -5,24 +5,23 @@
   overflow-x: hidden;       
   align-self: center;
   display: grid;
-  grid-gap: 0px;
-  background-color: #FAEFD6;
+  grid-gap: 20px;
   padding: 10px;
   margin: auto;
 
   /* Small screens */
   @media (min-width: 640px) {
-      grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+      grid-template-columns: repeat(3, 1fr); /* 4 equal-width columns */
   }
   
   /* Medium screens */
   @media (min-width: 768px) {
-      grid-template-columns: repeat(5, 1fr); /* 5 equal-width columns */
+      grid-template-columns: repeat(4, 1fr); /* 5 equal-width columns */
   }
   
   /* Large screens */
   @media (min-width: 1024px) {
-      grid-template-columns: repeat(6, 1fr); /* 6 equal-width columns */
+      grid-template-columns: repeat(5, 1fr); /* 6 equal-width columns */
   }
 }
 

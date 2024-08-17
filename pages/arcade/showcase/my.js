@@ -71,23 +71,31 @@ const ProjectGallery = ({ projects, loadProjects}) => {
           rel="noopener"
           className="gaegu"
           sx={{
-            backgroundColor: '#09AFB4',
+            border: '3px dashed #09AFB4',
             my: 2,
             display: 'flex',
-            color: '#FAEFD6',
+            color: '#09AFB4',
             borderRadius: '10px',
             flexDirection: 'column',
             width: '100%',
             height: '100%',
             textDecoration: 'none',
             textAlign: 'center',
-            py: 2
+            py: 2,
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            transitionDuration: '0.4s',
+            '&:hover': {
+              background: '#09AFB4',
+              color: '#F4E7C7'
+            }
           }}
           onClick={e => {
             document.getElementById('add-project').showModal()
           }}
         >
-          <Icon glyph="plus" sx={{ margin: 'auto' }} />
+          <Icon glyph="plus" sx={{ marginX: 'auto' }} />
           <Text variant="subtitle" sx={{ mt: 0 }}>
             Add a Project
           </Text>
@@ -112,9 +120,9 @@ const ProjectGallery = ({ projects, loadProjects}) => {
   )
 }
 
-const Loading = () => <div>Loading...</div>
+const Loading = () => <div sx={{width: '90vw', maxWidth: '1200px', margin: 'auto', textAlign: 'center'}}>Loading...</div>
 
-const ErrorMessage = () => <div>There was an error loading your projects.</div>
+const ErrorMessage = () => <div sx={{width: '90vw', maxWidth: '1200px', margin: 'auto', textAlign: 'center'}}>There was an error loading your projects.</div>
 
 const my = () => {
   const [projects, setProjects] = useState([])
@@ -152,7 +160,7 @@ const my = () => {
       // Render a countdown
       return (
         <span sx={{ color: '#FF5C00' }}>
-          First Voting round in {hours > 0 ? `${hours} hours` : ''}{' '}
+          First voting round in {hours > 0 ? `${hours} hours` : ''}{' '}
           {minutes > 0 ? `${minutes} minutes` : ''} {seconds} seconds
         </span>
       )
@@ -255,9 +263,9 @@ const my = () => {
                 display: 'block'
               }}
             >
-              <Text className="gaegu" sx={{ color: '#09AFB4' }}>
-                {' '}
-                Welcome, {name}
+              <Text className="gaegu" sx={{ color: '#FF5C00' }}>
+                {status == 'success' ? `Welcome, ${projects.user}` : ''}
+                
               </Text>
 
               <div>
@@ -273,20 +281,6 @@ const my = () => {
                   Your Ships
                 </Text>
               </div>
-              {/* <div className={styles.container}>
-                <Button
-                  as="a"
-                  href="/arcade/showcase/add"
-                  target="_blank"
-                  rel="noopener"
-                  className="gaegu"
-                  sx={{ backgroundColor: '#09AFB4', my: 2 }}
-                >
-                  <Icon glyph="plus" />
-                  Add a Project
-                </Button>
-              </div> */}
-
               <div
                 sx={{
                   display: 'flex',
@@ -304,7 +298,6 @@ const my = () => {
           {status == 'error' && <ErrorMessage />}
 
           {status == 'success' && <ProjectGallery projects={projects} loadProjects={loadProjects} />}
-          <ProjectGallery projects={projects} />
           <dialog id="add-project" sx={{borderRadius: '10px', border: '3px dashed #09AFB4'}} className='gaegu'>
           <ProjectAddView />
             <Close
