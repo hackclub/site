@@ -1,5 +1,7 @@
 import styles from './project-view.module.css'
 import { Button } from 'theme-ui'
+import randomNotFoundImg from './random-not-found-img'
+import CohortCard from './cohort-card'
 /** @jsxImportSource theme-ui */
 
 const ProjectView = ({
@@ -18,6 +20,8 @@ const ProjectView = ({
   const codeHost = codeLink.includes('github')
     ? 'View on GitHub'
     : 'View project source'
+  
+  const imagesList = images.length > 0 ? images : [randomNotFoundImg(id)]
   return (
     <div {...props} className="gaegu" sx={{ position: 'relative' }}>
       <div sx={{ py: 4, backgroundColor: '#F4E7C7', textAlign: 'center' }}>
@@ -43,7 +47,7 @@ const ProjectView = ({
               gridTemplateColumns: images > 1 ? ['1fr', '1fr 1fr', '1fr 1fr 1fr'] : '1fr'
             }}
           >
-            {images.map((image, index) => (
+            {imagesList.map((image, index) => (
               <div
                 sx={{
                   display: 'flex',
