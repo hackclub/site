@@ -1,13 +1,12 @@
 import { Input, Label, Text, Flex, Box, Grid } from 'theme-ui'
 import ProjectView from './project-view'
 import useForm from '../../../lib/use-form'
-import CohortCard from './cohort-card'
 import Submit from '../../submit'
 import { useState } from 'react'
 import Icon from '@hackclub/icons'
+import FileInput from '../../../pages/api/arcade/showcase/projects/[projectID]/file-input'
 const ProjectEditForm = ({ project }) => {
   const [previewProject, setPreviewProject] = useState(project)
-  console.log({ previewProject })
   function publishedChanges(e) {
     console.log('published changes')
   }
@@ -135,6 +134,7 @@ const ProjectEditForm = ({ project }) => {
             }}
           />
         </form>
+        <FileInput />
         <Box
           sx={{
             backgroundColor: '#FAEFD6',
