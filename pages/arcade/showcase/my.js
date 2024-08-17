@@ -13,6 +13,7 @@ import { StyleSheetContext } from 'styled-components'
 
 
 
+
 const ProjectGallery = ({ projects }) => {
 
   return (
@@ -28,6 +29,7 @@ const ProjectGallery = ({ projects }) => {
           playLink={project.playLink}
           images={project.images}
           githubProf={project.githubProf}
+          personal={true}
         />
       ))}
     </div>
@@ -43,7 +45,7 @@ const my = () => {
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
 
-  
+
   const launchDate = new Date(2024, 7, 19, 0, 0, 0, 0);
 
   useEffect(async () => {

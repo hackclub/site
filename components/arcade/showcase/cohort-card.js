@@ -1,19 +1,38 @@
 import React from 'react'
 import { Box, Card, Heading, Link, Text } from 'theme-ui'
 import styles from './cohort-card.module.css'
+import { useState } from 'react'
+import { Button } from 'theme-ui'
 
-const CohortCard = ({ id, title = "Title Not Found", desc = "Description Not Found", slack = "Slack Not Found", scrapbook = "", playLink = "", images = [], githubProf, githubLink = "", draggable = false}) => {
+const CohortCard = ({ id, title = "Title Not Found", desc = "Description Not Found", slack = "Slack Not Found", scrapbook = "", playLink = "", images = [], githubProf, githubLink = "", draggable = false, personal = false}) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const handleDelete = async () => {
+    return;
+  }
 
   const firstImage = images[0] || "https://picsum.photos/200" 
 
+
   return (
-    <Link href={`/arcade/showcase/project/${id}`} className={styles.linkWrapper} rel="noopener noreferrer">
-      <div className={styles.card}>
-        <img src={firstImage} alt="Project Image" className={styles.card_img} />
+    <div
+    className={styles.card}
+    onMouseEnter={() => setIsHovered(true)}
+    onMouseLeave={() => setIsHovered(false)}
+>
+    {personal && isHovered && (
+        <button className={styles.deleteButton}
+        onClick={handleDelete}>Delete</button>
+    )}
+    <a href={`/arcade/showcase/project/${id}`} className={styles.linkWrapper} target="_blank" rel="noopener noreferrer">
+        <img
+            src={firstImage}
+            alt="Project Image"
+            className={styles.card_img}
+        />
         <h1 className={styles.card_title}>{title}</h1>
         <p className={styles.card_description}>{desc}</p>
-      </div>
-    </Link>
+    </a>
+  </div>
   )
 }
 
