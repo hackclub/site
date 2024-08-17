@@ -14,7 +14,7 @@ import { StyleSheetContext } from 'styled-components'
 
 
 
-const ProjectGallery = ({ projects }) => {
+const ProjectGallery = ({ projects, loadProjects}) => {
 
   return (
     <div className={styles.feed}>
@@ -30,6 +30,7 @@ const ProjectGallery = ({ projects }) => {
           images={project.images}
           githubProf={project.githubProf}
           personal={true}
+          reload={loadProjects}
         />
       ))}
     </div>
@@ -48,7 +49,7 @@ const my = () => {
 
   const launchDate = new Date(2024, 7, 19, 0, 0, 0, 0);
 
-  useEffect(async () => {
+  const loadProjects = async () => {
     const token = window.localStorage.getItem('arcade.authToken')
     const response = await fetch('/api/arcade/showcase/projects/my', {
       method: 'GET',
@@ -68,6 +69,10 @@ const my = () => {
       setProjects(data.projects)
       setStatus('success')
     }
+  }
+
+  useEffect(async () => {
+    loadProjects();
   }, [])
 
   return (
@@ -139,7 +144,7 @@ const my = () => {
       }
 
       {
-        status == 'success' && <ProjectGallery projects={projects} />
+        status == 'success' && <ProjectGallery projects={projects} loadProjects={loadProjects}/>
       }
       <Footer />
     </section>

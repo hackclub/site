@@ -20,7 +20,7 @@ const ProjectEditForm = ({ project }) => {
       bearer: window.localStorage.getItem('arcade.authToken')
     }
   )
-    console.log()
+
   return (
     <Flex>
       <form {...formProps}>
