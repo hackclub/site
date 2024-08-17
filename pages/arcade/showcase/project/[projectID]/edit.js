@@ -34,7 +34,7 @@ const Loading = () => <p>Loading...</p>
 
 const ErrorMsg = () => <p>There was an error loading your project!</p>
 
-export default ({ projectID }) => {
+export default Showcase = ({ projectID }) => {
   const [status, setStatus] = useState('loading')
   const [project, setProject] = useState(null)
 

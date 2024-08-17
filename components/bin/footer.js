@@ -66,7 +66,7 @@ const Footer = () => {
                             clipRule="evenodd"></path>
                     </svg>
                     <div className={styles.footer_icons_container}>
-                        <a target="_self" rel="noopener me" href="/slack" title="Hack Club on Slack">
+                        <a target="_self" rel="noopener me" href="https://hackclub.com/slack" title="Hack Club on Slack">
                             <svg fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round"
                                 strokeMiterlimit="1.414" xmlns="http://www.w3.org/2000/svg" aria-label="slack-fill"
                                 viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" fill="currentColor" width="32"
