@@ -34,7 +34,7 @@ const Loading = () => <p>Loading...</p>
 
 const ErrorMsg = () => <p>There was an error loading your project!</p>
 
-export default Showcase = ({ projectID }) => {
+const Showcase = ({ projectID }) => {
   const [status, setStatus] = useState('loading')
   const [project, setProject] = useState(null)
 
@@ -136,6 +136,8 @@ export default Showcase = ({ projectID }) => {
     </>
   )
 }
+
+export default Showcase
 
 export function getServerSideProps(context) {
   const { projectID } = context.query
