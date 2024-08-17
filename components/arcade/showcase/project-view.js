@@ -76,6 +76,7 @@ const ProjectView = ({
           >
             {imagesList.map((image, index) => (
               <div
+                key={index}
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
@@ -83,7 +84,6 @@ const ProjectView = ({
                 }}
               >
                 <img
-                  key={index}
                   src={image}
                   alt={`Project image ${index + 1}`}
                   className={styles.image}

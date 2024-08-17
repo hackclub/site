@@ -61,8 +61,7 @@ a {
 }
 `
 
-const ProjectGallery = ({ projects, loadProjects}) => {
-
+const ProjectGallery = ({ projects, loadProjects }) => {
   return (
     <div className={styles.feed}>
       <div className={styles.container}>
@@ -120,11 +119,33 @@ const ProjectGallery = ({ projects, loadProjects}) => {
   )
 }
 
-const Loading = () => <div sx={{width: '90vw', maxWidth: '1200px', margin: 'auto', textAlign: 'center'}}>Loading...</div>
+const Loading = () => (
+  <div
+    sx={{
+      width: '90vw',
+      maxWidth: '1200px',
+      margin: 'auto',
+      textAlign: 'center'
+    }}
+  >
+    Loading...
+  </div>
+)
 
-const ErrorMessage = () => <div sx={{width: '90vw', maxWidth: '1200px', margin: 'auto', textAlign: 'center'}}>There was an error loading your projects.</div>
+const ErrorMessage = () => (
+  <div
+    sx={{
+      width: '90vw',
+      maxWidth: '1200px',
+      margin: 'auto',
+      textAlign: 'center'
+    }}
+  >
+    There was an error loading your projects.
+  </div>
+)
 
-const my = () => {
+const My = () => {
   const [projects, setProjects] = useState([])
   const [name, setName] = useState('')
   const [status, setStatus] = useState('loading')
@@ -209,7 +230,7 @@ const my = () => {
   }
 
   useEffect(async () => {
-    loadProjects();
+    loadProjects()
   }, [])
 
   return (
@@ -265,7 +286,6 @@ const my = () => {
             >
               <Text className="gaegu" sx={{ color: '#FF5C00' }}>
                 {status == 'success' ? `Welcome, ${name}` : ''}
-                
               </Text>
 
               <div>
@@ -293,13 +313,20 @@ const my = () => {
               </div>
             </Heading>
           </SlideDown>
+
           {status == 'loading' && <Loading />}
 
           {status == 'error' && <ErrorMessage />}
 
-          {status == 'success' && <ProjectGallery projects={projects} loadProjects={loadProjects} />}
-          <dialog id="add-project" sx={{borderRadius: '10px', border: '3px dashed #09AFB4'}} className='gaegu'>
-          <ProjectAddView />
+          {status == 'success' && (
+            <ProjectGallery projects={projects} loadProjects={loadProjects} />
+          )}
+          <dialog
+            id="add-project"
+            sx={{ borderRadius: '10px', border: '3px dashed #09AFB4' }}
+            className="gaegu"
+          >
+            <ProjectAddView />
             <Close
               sx={{
                 '&:hover': { cursor: 'pointer' },
@@ -322,4 +349,4 @@ const my = () => {
   )
 }
 
-export default my
+export default My

@@ -19,7 +19,7 @@ const flavorText = [
   "PUT that request back where it came from or so help me",
   "POST haste!",
   "TODO: Delete this message",
-  <p style={{fontSize: "3px"}}>{sample(tinyEyes)}</p>,
+  <p style={{fontSize: "3px"}} key="tinyEyes">{sample(tinyEyes)}</p>,
   "Caution: objects in loading box are slower than they appear",
   "Caution: wet pixels, do not touch",
   "*Fax machine noises*",
