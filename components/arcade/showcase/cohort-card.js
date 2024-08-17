@@ -4,6 +4,7 @@ import styles from './cohort-card.module.css'
 import { useState } from 'react'
 import { Button } from 'theme-ui'
 import Icon from '@hackclub/icons'
+import randomNotFoundImg from './random-not-found-img'
 /** @jsxImportSource theme-ui */
 
 const CohortCard = ({
@@ -56,7 +57,7 @@ const CohortCard = ({
     reload()
   }
 
-  const firstImage = images[0] || 'https://picsum.photos/200'
+  const firstImage = images[0] || randomNotFoundImg(id)
 
   function red() {
     window.location.href = '/arcade/showcase/project/' + id + '/edit'
@@ -134,7 +135,7 @@ const CohortCard = ({
         rel="noopener noreferrer"
       >
         <img
-          src={images[0] || 'https://picsum.photos/200'}
+          src={firstImage}
           alt="Project Image"
           className={styles.card_img}
         />

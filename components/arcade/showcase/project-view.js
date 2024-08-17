@@ -1,4 +1,5 @@
 import styles from './project-view.module.css'
+import randomNotFoundImg from './random-not-found-img'
 import { Button, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
 /** @jsxImportSource theme-ui */
@@ -19,6 +20,8 @@ const ProjectView = ({
   const codeHost = codeLink.includes('github')
     ? 'View on GitHub'
     : 'View project source'
+  
+  const imagesList = images.length > 0 ? images : [randomNotFoundImg(id)]
   return (
     <div {...props} className="gaegu" sx={{ position: 'relative' }}>
       <div sx={{ py: 4, backgroundColor: '#F4E7C7', textAlign: 'center', color: '#333' }}>
@@ -71,7 +74,7 @@ const ProjectView = ({
               gridTemplateColumns: images > 1 ? ['1fr', '1fr 1fr', '1fr 1fr 1fr'] : '1fr'
             }}
           >
-            {images.map((image, index) => (
+            {imagesList.map((image, index) => (
               <div
                 sx={{
                   display: 'flex',
