@@ -20,6 +20,12 @@ export default async function handler(req, res) {
     maxRecords: 1
   })
 
+  let screenshot
+  try { screenshot = JSON.parse(project.fields['ScreenshotLinks']) } catch { screenshot = [] }
+
+  let video
+  try { video = JSON.parse(project.fields['VideoLinks']) } catch { video = [] }
+
   const results = project.map(p => ({
     id: p.id,
     title: p.fields['Name'] || '',
@@ -33,8 +39,8 @@ export default async function handler(req, res) {
     user: user.fields['Name'],
     color: p.fields['color'] || '',
     textColor: p.fields['textColor'] || '',
-    screenshot: JSON.parse(p.fields['ScreenshotLinks']) || [],
-    video: JSON.parse(p.fields['VideoLinks']) || []
+    screenshot,
+    video,
   }))
   return res.status(200).json({ project: results[0] })
 }
