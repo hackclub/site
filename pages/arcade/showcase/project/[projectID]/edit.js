@@ -4,7 +4,7 @@ import ProjectEditView from '../../../../../components/arcade/showcase/project-e
 /** @jsxImportSource theme-ui */
 
 const styled = `
-@import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap");
 body, html {
   overflow-x: hidden;
   }
