@@ -19,7 +19,8 @@ const CohortCard = ({
   githubLink = '',
   draggable = false,
   personal = false,
-  reload
+  reload,
+  color = ''
 }) => {
   const [isHovered, setIsHovered] = useState(false)
 

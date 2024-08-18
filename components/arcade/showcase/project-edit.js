@@ -8,7 +8,9 @@ import FileInput from '../../../pages/api/arcade/showcase/projects/[projectID]/f
 const ProjectEditForm = ({ project }) => {
   const [previewProject, setPreviewProject] = useState(project)
   function publishedChanges(e) {
-    console.log('published changes')
+    console.log('published changes', e)
+    
+    console.log(color)
   }
   const { status, formProps, useField, data } = useForm(
     `/api/arcade/showcase/projects/${project.id}/edit`,
@@ -19,6 +21,12 @@ const ProjectEditForm = ({ project }) => {
       bearer: window.localStorage.getItem('arcade.authToken')
     }
   )
+
+  const [color, setColor] = useState(project.color);
+
+  const handleColorChange = (e) => {
+    setColor(e.target.value);
+  };
 
   return (
     <Box
@@ -65,7 +73,7 @@ const ProjectEditForm = ({ project }) => {
           mb: 3,
           '&:hover': {
             background: '#333',
-            color: '#F4E7C7'
+            color: '#f8e4c4'
           }
         }}
       >
@@ -119,6 +127,27 @@ const ProjectEditForm = ({ project }) => {
               sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
             />
           </Label>
+
+          <Label>
+            <Text>Background Color</Text>
+            <Input
+              {...useField('color')}
+              type="color"
+              value={color}
+              onChange={handleColorChange}
+              sx={{
+                width: '150px',
+              height: '50px',
+              padding: '0',
+              backgroundColor: 'transparent',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              zIndex: 1,
+              position: 'relative',}}
+            />
+          </Label>
+          <Text>{color}</Text>
 
           <Input {...useField('authToken')} type="hidden" />
 

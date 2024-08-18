@@ -15,6 +15,7 @@ const ProjectView = ({
   githubProf,
   user = 'User Not Found',
   codeLink = '',
+  color = '',
   ...props
 }) => {
   const codeHost = codeLink.includes('github')

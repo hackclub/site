@@ -12,6 +12,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "No body provided" })
   }
 
+
   const updatedFields = {}
   updatedFields['Name'] = body.title
   updatedFields['Description'] = body.desc
@@ -19,6 +20,9 @@ export default async function handler(req, res) {
   updatedFields['Code Link'] = body.codeLink
   updatedFields['Play Link'] = body.playLink
   updatedFields['Screenshot'] = body.images
+  updatedFields['color'] = body.color
+
+  console.log(body.color)
 
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
@@ -40,7 +44,8 @@ export default async function handler(req, res) {
     playLink: project.fields['Play Link'] || '',
     images: (project.fields['Screenshot'] || []).map(i => i.url),
     user: user.fields['Name'],
-    githubProf: project.fields['Github Profile'] || ''
+    githubProf: project.fields['Github Profile'] || '',
+    color: project.fields['color'] || ''
   }
 
   return res.status(200).json({ project: results })
