@@ -33,7 +33,8 @@ export default async function handler(req, res) {
     images: (p.fields['Screenshot'] || []).map(i => i.url),
     githubProf: p.fields['Github Profile'] || '',
     user: user.fields['Name'],
-    color: p.fields['color'] || ''
+    color: p.fields['color'] || '',
+    textColor: p.fields['textColor'] || ''
   }))
   return res.status(200).json({ project: results[0] })
 }

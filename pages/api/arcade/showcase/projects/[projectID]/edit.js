@@ -21,6 +21,7 @@ export default async function handler(req, res) {
   updatedFields['Play Link'] = body.playLink
   updatedFields['Screenshot'] = body.images
   updatedFields['color'] = body.color
+  updatedFields['textColor'] = body.textColor
 
   console.log(body.color)
 
@@ -45,7 +46,8 @@ export default async function handler(req, res) {
     images: (project.fields['Screenshot'] || []).map(i => i.url),
     user: user.fields['Name'],
     githubProf: project.fields['Github Profile'] || '',
-    color: project.fields['color'] || ''
+    color: project.fields['color'] || '',
+    textColor: project.fields['textColor'] || ''
   }
 
   return res.status(200).json({ project: results })

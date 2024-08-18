@@ -1,8 +1,36 @@
 import styles from './project-view.module.css'
+import { useState, useEffect } from 'react'
 import randomNotFoundImg from './random-not-found-img'
 import { Button, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
 /** @jsxImportSource theme-ui */
+
+
+function darkenColor(hex, factor) {
+  let r = parseInt(hex.substring(1, 3), 16);
+  let g = parseInt(hex.substring(3, 5), 16);
+  let b = parseInt(hex.substring(5, 7), 16);
+
+  r = Math.floor(r * factor);
+  g = Math.floor(g * factor);
+  b = Math.floor(b * factor);
+
+  return "#" + 
+         ("0" + r.toString(16)).slice(-2) +
+         ("0" + g.toString(16)).slice(-2) +
+         ("0" + b.toString(16)).slice(-2);
+}
+
+function invertColor(hex) {
+  hex = hex.replace(/^#/, '');
+  let r = parseInt(hex.substring(0, 2), 16);
+  let g = parseInt(hex.substring(2, 4), 16);
+  let b = parseInt(hex.substring(4, 6), 16);
+  r = (255 - r).toString(16).padStart(2, '0');
+  g = (255 - g).toString(16).padStart(2, '0');
+  b = (255 - b).toString(16).padStart(2, '0');
+  return `#${r}${g}${b}`;
+}
 
 const ProjectView = ({
   id,
@@ -16,24 +44,34 @@ const ProjectView = ({
   user = 'User Not Found',
   codeLink = '',
   color = '',
+  textColor = '',
   ...props
 }) => {
+  const [darkColor, setDarkColor ] = useState("#000000")
+  const [invertedColor, setInvertedColor ] = useState("#000000")
+
   const codeHost = codeLink.includes('github')
     ? 'View on GitHub'
     : 'View project source'
   
   const imagesList = images.length > 0 ? images : [randomNotFoundImg(id)]
 
+  useEffect(() => {
+    setDarkColor(darkenColor(color, 0.8));
+    setInvertedColor(invertColor(textColor));
+  }, [color])
+  
+
   return (
     <div {...props} className="gaegu" sx={{ position: 'relative', backgroundColor: color }}>
-      <div sx={{ py: 4, backgroundColor: '#F4E7C7', textAlign: 'center', color: '#333' }}>
-        <h1 className="slackey" sx={{color: '#FF5C00'}}>{title}</h1>
+      <div sx={{ py: 4, backgroundColor: darkColor, textAlign: 'center', color: textColor }}>
+        <h1 className="slackey">{title}</h1>
         <h3>By {user}</h3>
         <Text
       as="a"
       href="/arcade/showcase/my"
         sx={{
-          border: '2px dashed #333',
+          border: `2px dashed ${textColor}`,
           borderRadius: '5px',
           position: ['relative', 'relative', 'absolute'],
           display: 'flex',
@@ -47,10 +85,9 @@ const ProjectView = ({
           cursor: 'pointer',
           textDecoration: 'none',
           mb: 3,
-          color: '#333',
           '&:hover': {
-            background: '#333',
-            color: '#F4E7C7'
+            background: textColor || '#333',
+            color: invertedColor || '#F4E7C7'
           }
         }}
       >
@@ -100,7 +137,7 @@ const ProjectView = ({
 
       <div
         className={styles.buttonGroup}
-        sx={{ width: '90%', margin: 'auto', my: 3 }}
+        sx={{ width: '90%', margin: 'auto', pt: 1, pb: 5 }}
       >
         {playLink && (
           <Button

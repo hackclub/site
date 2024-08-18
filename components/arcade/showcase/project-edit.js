@@ -36,7 +36,7 @@ const ProjectEditForm = ({ project }) => {
         maxWidth: '1200px',
         margin: 'auto',
         position: 'relative',
-        my: 4
+        my: 5
       }}
     >
       <Text
@@ -99,6 +99,14 @@ const ProjectEditForm = ({ project }) => {
             />
           </Label>
           <Label>
+            <Text>Project description</Text>
+            <Input
+              {...useField('desc')}
+              placeholder="A summer of making for high schoolers"
+              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
+            />
+          </Label>
+          <Label>
             <Text>Repo Link</Text>
             <Input
               {...useField('codeLink')}
@@ -148,10 +156,26 @@ const ProjectEditForm = ({ project }) => {
               position: 'relative',}}
             />
           </Label>
-          {/* <Text>{color}</Text> */}
+          <Label>
+            <Text>Text Color</Text>
+            <Input
+              {...useField('textColor')}
+              type="color"
+              sx={{
+                width: '150px',
+              height: '50px',
+              padding: '0',
+              backgroundColor: 'transparent',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              zIndex: 1,
+              position: 'relative',}}
+            />
+          </Label>
 
           <Input {...useField('authToken')} type="hidden" />
-
+          <FileInput />
           <Submit
             status={status}
             labels={{
@@ -164,7 +188,6 @@ const ProjectEditForm = ({ project }) => {
             }}
           />
         </form>
-        <FileInput />
         <Box
           sx={{
             // backgroundColor: color,
