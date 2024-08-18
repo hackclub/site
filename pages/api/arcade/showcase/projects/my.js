@@ -27,7 +27,8 @@ export default async function handler(req, res) {
     playLink: p.fields['Play Link'] || '',
     images: (p.fields['Screenshot'] || []).map(i => i.url),
     githubProf: p.fields['Github Profile'] || '',
-    user: user.fields['Name']
+    user: user.fields['Name'], 
+    color: p.fields['color'] || ''
   }))
   return res.status(200).json({ projects: results, name: user.fields['Name']})
 }

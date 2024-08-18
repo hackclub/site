@@ -1,6 +1,6 @@
-import AirtablePlus from "airtable-plus";
-import { ensureAuthed } from "../../login/test";
-
+import AirtablePlus from 'airtable-plus'
+import { ensureAuthed } from '../../login/test'
+import { closestTo } from 'date-fns'
 
 export default async function handler(req, res) {
   const user = await ensureAuthed(req)
@@ -11,7 +11,7 @@ export default async function handler(req, res) {
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
     baseID: 'app4kCWulfB02bV8Q',
-    tableName: "Showcase"
+    tableName: 'Showcase'
   })
 
   const { projectID } = req.query
@@ -31,7 +31,11 @@ export default async function handler(req, res) {
     playLink: p.fields['Play Link'] || '',
     images: (p.fields['Screenshot'] || []).map(i => i.url),
     githubProf: p.fields['Github Profile'] || '',
-    user: user.fields['Name']
+    user: user.fields['Name'],
+    color: p.fields['color'] || '',
+    textColor: p.fields['textColor'] || '',
+    screenshot: JSON.parse(p.fields['ScreenshotLinks']) || [],
+    video: JSON.parse(p.fields['VideoLinks']) || []
   }))
   return res.status(200).json({ project: results[0] })
 }

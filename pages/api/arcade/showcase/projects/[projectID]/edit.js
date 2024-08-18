@@ -1,5 +1,6 @@
 import AirtablePlus from "airtable-plus";
 import { ensureAuthed } from "../../login/test";
+import { update } from "lodash";
 
 export default async function handler(req, res) {
   const user = await ensureAuthed(req)
@@ -12,6 +13,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "No body provided" })
   }
 
+
   const updatedFields = {}
   updatedFields['Name'] = body.title
   updatedFields['Description'] = body.desc
@@ -19,6 +21,12 @@ export default async function handler(req, res) {
   updatedFields['Code Link'] = body.codeLink
   updatedFields['Play Link'] = body.playLink
   updatedFields['Screenshot'] = body.images
+  updatedFields['color'] = body.color
+  updatedFields['textColor'] = body.textColor
+  updatedFields['ScreenshotLinks'] = body.screenshot
+  updatedFields['VideoLinks'] = body.video
+
+  console.log(body.color)
 
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
@@ -40,7 +48,12 @@ export default async function handler(req, res) {
     playLink: project.fields['Play Link'] || '',
     images: (project.fields['Screenshot'] || []).map(i => i.url),
     user: user.fields['Name'],
-    githubProf: project.fields['Github Profile'] || ''
+    githubProf: project.fields['Github Profile'] || '',
+    color: project.fields['color'] || '',
+    textColor: project.fields['textColor'] || '',
+    screenshot: JSON.parse(p.fields['ScreenshotLinks']) || [],
+    video: JSON.parse(p.fields['VideoLinks']) || [],
+
   }
 
   return res.status(200).json({ project: results })

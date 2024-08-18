@@ -44,23 +44,7 @@ const ProjectShowPage = ({ projectID }) => {
   const [project, setProject] = useState([])
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
-  // Spotlight effect
-  const spotlightRef = useRef()
-  useEffect(() => {
-    const handler = event => {
-      var rect = document.getElementById('spotlight').getBoundingClientRect()
-      var x = event.clientX - rect.left //x position within the element.
-      var y = event.clientY - rect.top //y position within the element.
 
-      spotlightRef.current.style.background = `radial-gradient(
-             circle at ${x}px ${y}px,
-             rgba(132, 146, 166, 0) 20px,
-             rgba(250, 239, 214, 0.9) 120px
-           )`
-    }
-    window.addEventListener('mousemove', handler)
-    return () => window.removeEventListener('mousemove', handler)
-  }, [])
   useEffect(async () => {
     const token = window.localStorage.getItem('arcade.authToken')
     const response = await fetch(`/api/arcade/showcase/projects/${projectID}`, {
@@ -84,33 +68,7 @@ const ProjectShowPage = ({ projectID }) => {
   }, [])
 
   return (
-    <Box
-      id="spotlight"
-      as="section"
-      sx={{
-        backgroundImage: `
-              linear-gradient(rgba(250, 239, 214, 0.7), rgba(250, 239, 214, 0.7)),
-              url('https://cloud-o19rieg4g-hack-club-bot.vercel.app/0group_495__1_.svg')
-            `,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        position: 'relative',
-        minHeight: '100vh'
-      }}
-    >
-      <Box
-        ref={spotlightRef}
-        sx={{
-          position: 'absolute',
-          zIndex: 2,
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          bg: '#FAEFD6',
-          pointerEvents: 'none'
-        }}
-      />
+    <div>
       <div sx={{ zIndex: 5, position: 'relative' }}>
         <img
           src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
@@ -132,25 +90,29 @@ const ProjectShowPage = ({ projectID }) => {
         status == 'error' && <ErrorMessage />
       } */}
 
-      {/* {
+          {/* {
         status == 'success' &&  */}
-        <ProjectView
-          key={project.id}
-          id={project.id}
-          title={project.title}
-          desc={project.desc}
-          slack={project.slackLink}
-          codeLink={project.codeLink}
-          playLink={project.playLink}
-          images={project.images}
-          githubProf={project.githubProf}
-          user={project.user}
-        />
-      {/* } */}
+          <ProjectView
+            key={project.id}
+            id={project.id}
+            title={project.title}
+            desc={project.desc}
+            slack={project.slackLink}
+            codeLink={project.codeLink}
+            playLink={project.playLink}
+            images={project.images}
+            githubProf={project.githubProf}
+            user={project.user}
+            color={project.color}
+            textColor={project.textColor}
+            screenshot={project.screenshot}
+            video={project.video}
+          />
+          {/* } */}
         </div>
       </div>
       <style>{styled}</style>
-    </Box>
+    </div>
   )
 }
 

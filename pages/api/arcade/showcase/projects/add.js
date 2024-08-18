@@ -33,6 +33,7 @@ export default async function handler(req, res) {
     "Name": name,
     "Description": description,
     "Play Link": playLink,
+    "color": "#FAEFD6"
   })
 
   return res.status(200).json({ project: project.id })
