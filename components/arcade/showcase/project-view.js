@@ -23,8 +23,9 @@ const ProjectView = ({
     : 'View project source'
   
   const imagesList = images.length > 0 ? images : [randomNotFoundImg(id)]
+
   return (
-    <div {...props} className="gaegu" sx={{ position: 'relative' }}>
+    <div {...props} className="gaegu" sx={{ position: 'relative', backgroundColor: color }}>
       <div sx={{ py: 4, backgroundColor: '#F4E7C7', textAlign: 'center', color: '#333' }}>
         <h1 className="slackey" sx={{color: '#FF5C00'}}>{title}</h1>
         <h3>By {user}</h3>

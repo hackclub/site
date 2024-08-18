@@ -7,6 +7,7 @@ import Icon from '@hackclub/icons'
 import FileInput from '../../../pages/api/arcade/showcase/projects/[projectID]/file-input'
 const ProjectEditForm = ({ project }) => {
   const [previewProject, setPreviewProject] = useState(project)
+
   function publishedChanges(e) {
     console.log('published changes', e)
     
@@ -22,11 +23,11 @@ const ProjectEditForm = ({ project }) => {
     }
   )
 
-  const [color, setColor] = useState(project.color);
+  // const [color, setColor] = useState(project.color);
 
-  const handleColorChange = (e) => {
-    setColor(e.target.value);
-  };
+  // const handleColorChange = (e) => {
+  //   setColor(e.target.value);
+  // };
 
   return (
     <Box
@@ -133,8 +134,8 @@ const ProjectEditForm = ({ project }) => {
             <Input
               {...useField('color')}
               type="color"
-              value={color}
-              onChange={handleColorChange}
+              // value={color}
+              // onChange={handleColorChange}
               sx={{
                 width: '150px',
               height: '50px',
@@ -147,7 +148,7 @@ const ProjectEditForm = ({ project }) => {
               position: 'relative',}}
             />
           </Label>
-          <Text>{color}</Text>
+          {/* <Text>{color}</Text> */}
 
           <Input {...useField('authToken')} type="hidden" />
 
@@ -166,7 +167,7 @@ const ProjectEditForm = ({ project }) => {
         <FileInput />
         <Box
           sx={{
-            backgroundColor: '#FAEFD6',
+            // backgroundColor: color,
             border: '2px dashed #09AFB4',
             borderRadius: '5px'
           }}

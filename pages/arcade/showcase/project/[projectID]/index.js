@@ -145,6 +145,7 @@ const ProjectShowPage = ({ projectID }) => {
           images={project.images}
           githubProf={project.githubProf}
           user={project.user}
+          color={project.color}
         />
       {/* } */}
         </div>
