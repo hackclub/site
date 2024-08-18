@@ -1,6 +1,5 @@
 import AirtablePlus from 'airtable-plus'
 import { ensureAuthed } from '../../login/test'
-import { closestTo } from 'date-fns'
 
 export default async function handler(req, res) {
   const user = await ensureAuthed(req)
