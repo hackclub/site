@@ -117,10 +117,10 @@ const ProjectView = ({
           display: 'grid',
           gridTemplateColumns:
             screenshot.length > 0
-              ? videos.length > 0
+              ? video.length > 0
                 ? screenshot.length > 1
                   ? '1fr'
-                  : videos.length > 1
+                  : video.length > 1
                     ? '1fr'
                     : ['1fr', '1fr 1fr']
                 : ''
@@ -133,7 +133,7 @@ const ProjectView = ({
             display: 'grid',
             flexWrap: 'wrap',
             gridTemplateColumns:
-              screenshot.length + videos.length > 1
+              screenshot.length + video.length > 1
                 ? ['1fr', '1fr 1fr', '1fr 1fr 1fr']
                 : '1fr',
             gap: '10px'
