@@ -1,16 +1,5 @@
 import { useState } from "react"
 
-async function fileToLink(file) {
-  const fileHost = '/api/bucky/'
-  const formData = new FormData()
-  formData.append('file', file)
-  const response = await fetch(fileHost, {
-    method: 'POST',
-    body: formData,
-  })
-  return response.json()
-}
-
 const FileInput = ({
   onUpload = () => {},
 }) => {
