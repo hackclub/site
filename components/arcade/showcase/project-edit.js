@@ -199,8 +199,9 @@ const ProjectEditForm = ({ project }) => {
             </Flex>
           </Label>
 
-          {screenshot.map(image => (
+          {screenshot.map((image, index) => (
             <div
+              key={index}
               sx={{
                 display: 'grid',
                 position: 'relative',
@@ -261,8 +262,9 @@ const ProjectEditForm = ({ project }) => {
             </Flex>
           </Label>
 
-          {video.map(image => (
+          {video.map((image, index) => (
             <div
+              key={index}
               sx={{
                 display: 'grid',
                 position: 'relative',
