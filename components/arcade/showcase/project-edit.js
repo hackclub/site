@@ -5,12 +5,19 @@ import Submit from '../../submit'
 import { useState } from 'react'
 import Icon from '@hackclub/icons'
 import FileInput from '../../../pages/api/arcade/showcase/projects/[projectID]/file-input'
+/** @jsxImportSource theme-ui */
+
 const ProjectEditForm = ({ project }) => {
   const [previewProject, setPreviewProject] = useState(project)
+  const [screenshot, setScreenshot] = useState(project.screenshot)
+  const [newScreenshot, setNewScreenshot] = useState('')
+
+  const [video, setVideo] = useState(project.video)
+  const [newVideo, setNewVideo] = useState('')
 
   function publishedChanges(e) {
     console.log('published changes', e)
-    
+
     console.log(color)
   }
   const { status, formProps, useField, data } = useForm(
@@ -23,11 +30,37 @@ const ProjectEditForm = ({ project }) => {
     }
   )
 
-  // const [color, setColor] = useState(project.color);
+  const updateScreenshot = newMedia => {
+    if (screenshot.some(item => item === newMedia)) {
+      alert('This media already exists and cannot be added.')
+      return
+    }
+    setScreenshot(screenshot => [...screenshot, newMedia])
+  }
 
-  // const handleColorChange = (e) => {
-  //   setColor(e.target.value);
-  // };
+  const deleteScreenshot = deletedMedia => {
+    setScreenshot(screenshot.filter(item => !item.includes(deletedMedia)))
+  }
+
+  const updateNewScreenshot = e => {
+    setNewScreenshot(e.target.value)
+  }
+
+  const updateVideo = newMedia => {
+    if (video.some(item => item === newMedia)) {
+      alert('This media already exists and cannot be added.')
+      return
+    }
+    setVideo(video => [...video, newMedia])
+  }
+
+  const deleteVideo = deletedMedia => {
+    setVideo(video.filter(item => !item.includes(deletedMedia)))
+  }
+
+  const updateNewVideo = e => {
+    setNewVideo(e.target.value)
+  }
 
   return (
     <Box
@@ -48,15 +81,15 @@ const ProjectEditForm = ({ project }) => {
           display: 'flex',
           width: '100%',
           mb: 2,
-          color: '#333',
+          color: '#333'
         }}
       >
         <Icon glyph="edit" />
         Editing {project.title} details
       </Text>
       <Text
-      as="a"
-      href="/arcade/showcase/my"
+        as="a"
+        href="/arcade/showcase/my"
         sx={{
           border: '2px dashed #333',
           borderRadius: '5px',
@@ -122,7 +155,7 @@ const ProjectEditForm = ({ project }) => {
               sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
             />
           </Label>
-          <Label>
+          {/* <Label>
             <Text>Screenshot</Text>
             <Input
               {...useField('screenshot')}
@@ -135,7 +168,134 @@ const ProjectEditForm = ({ project }) => {
               {...useField('video')}
               sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
             />
+          </Label> */}
+
+          <Input {...useField('authToken')} type="hidden" />
+          {/* <FileInput /> */}
+          <Label>
+            <Text>Add screenshots</Text>
+            <Flex sx={{ alignItems: 'center', mb: 2 }}>
+              <Input
+                type="url"
+                value={newScreenshot}
+                onChange={updateNewScreenshot}
+                sx={{ border: '1px dashed', borderColor: '#09AFB4' }}
+              />
+              <Icon
+                onClick={() => updateScreenshot(newScreenshot)}
+                glyph="plus"
+                sx={{
+                  transitionDuration: '0.3s',
+                  cursor: 'pointer',
+                  height: '37px',
+                  width: '37px',
+                  color: '#09AFB4',
+                  ml: 2,
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  }
+                }}
+              />
+            </Flex>
           </Label>
+
+          {screenshot.map(image => (
+            <div
+              sx={{
+                display: 'grid',
+                position: 'relative',
+                mb: 3,
+                alignItems: 'center',
+                wordBreak: 'break-all',
+                gridTemplateColumns: '8fr 1fr'
+              }}
+            >
+              {image}
+              <Icon
+                onClick={() => deleteScreenshot(image)}
+                glyph="minus"
+                sx={{
+                  transitionDuration: '0.3s',
+                  height: '30px',
+                  width: '30px',
+                  color: '#DE4E2B',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  }
+                }}
+              />
+            </div>
+          ))}
+
+          <Input
+            {...useField('screenshot')}
+            value={JSON.stringify(screenshot)}
+            type="hidden"
+          />
+
+          <Label>
+            <Text>Add videos</Text>
+            <Flex sx={{ alignItems: 'center', mb: 2 }}>
+              <Input
+                type="url"
+                value={newVideo}
+                onChange={updateNewVideo}
+                sx={{ border: '1px dashed', borderColor: '#09AFB4' }}
+              />
+              <Icon
+                onClick={() => updateVideo(newVideo)}
+                glyph="plus"
+                sx={{
+                  transitionDuration: '0.3s',
+                  cursor: 'pointer',
+                  height: '37px',
+                  width: '37px',
+                  color: '#09AFB4',
+                  ml: 2,
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  }
+                }}
+              />
+            </Flex>
+          </Label>
+
+          {video.map(image => (
+            <div
+              sx={{
+                display: 'grid',
+                position: 'relative',
+                mb: 3,
+                alignItems: 'center',
+                wordBreak: 'break-all',
+                gridTemplateColumns: '8fr 1fr'
+              }}
+            >
+              {image}
+              <Icon
+                onClick={() => deleteVideo(image)}
+                glyph="minus"
+                sx={{
+                  transitionDuration: '0.3s',
+                  height: '30px',
+                  width: '30px',
+                  color: '#DE4E2B',
+                  cursor: 'pointer',
+                  float: 'right',
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  }
+                }}
+              />
+            </div>
+          ))}
+
+          <Input
+            {...useField('video')}
+            value={JSON.stringify(video)}
+            type="hidden"
+          />
 
           <Label>
             <Text>Background Color</Text>
@@ -146,14 +306,15 @@ const ProjectEditForm = ({ project }) => {
               // onChange={handleColorChange}
               sx={{
                 width: '150px',
-              height: '50px',
-              padding: '0',
-              backgroundColor: 'transparent',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              zIndex: 1,
-              position: 'relative',}}
+                height: '50px',
+                padding: '0',
+                backgroundColor: 'transparent',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                zIndex: 1,
+                position: 'relative'
+              }}
             />
           </Label>
           <Label>
@@ -163,19 +324,18 @@ const ProjectEditForm = ({ project }) => {
               type="color"
               sx={{
                 width: '150px',
-              height: '50px',
-              padding: '0',
-              backgroundColor: 'transparent',
-              border: 'none',
-              borderRadius: '8px',
-              cursor: 'pointer',
-              zIndex: 1,
-              position: 'relative',}}
+                height: '50px',
+                padding: '0',
+                backgroundColor: 'transparent',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                zIndex: 1,
+                position: 'relative'
+              }}
             />
           </Label>
 
-          <Input {...useField('authToken')} type="hidden" />
-          <FileInput />
           <Submit
             status={status}
             labels={{

@@ -105,6 +105,8 @@ const ProjectShowPage = ({ projectID }) => {
             user={project.user}
             color={project.color}
             textColor={project.textColor}
+            screenshot={project.screenshot}
+            video={project.video}
           />
           {/* } */}
         </div>

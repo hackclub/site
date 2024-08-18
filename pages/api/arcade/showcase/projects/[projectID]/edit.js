@@ -1,5 +1,6 @@
 import AirtablePlus from "airtable-plus";
 import { ensureAuthed } from "../../login/test";
+import { update } from "lodash";
 
 export default async function handler(req, res) {
   const user = await ensureAuthed(req)
@@ -22,6 +23,8 @@ export default async function handler(req, res) {
   updatedFields['Screenshot'] = body.images
   updatedFields['color'] = body.color
   updatedFields['textColor'] = body.textColor
+  updatedFields['ScreenshotLinks'] = body.screenshot
+  updatedFields['VideoLinks'] = body.video
 
   console.log(body.color)
 
@@ -47,7 +50,10 @@ export default async function handler(req, res) {
     user: user.fields['Name'],
     githubProf: project.fields['Github Profile'] || '',
     color: project.fields['color'] || '',
-    textColor: project.fields['textColor'] || ''
+    textColor: project.fields['textColor'] || '',
+    screenshot: JSON.parse(p.fields['ScreenshotLinks']) || [],
+    video: JSON.parse(p.fields['VideoLinks']) || [],
+
   }
 
   return res.status(200).json({ project: results })

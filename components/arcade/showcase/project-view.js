@@ -45,6 +45,8 @@ const ProjectView = ({
   codeLink = '',
   color = '',
   textColor = '',
+  screenshot = [],
+  video = [],
   ...props
 }) => {
   const [darkColor, setDarkColor ] = useState("#000000")
@@ -110,10 +112,11 @@ const ProjectView = ({
             sx={{
               display: 'grid',
               flexWrap: 'wrap',
-              gridTemplateColumns: images > 1 ? ['1fr', '1fr 1fr', '1fr 1fr 1fr'] : '1fr'
+              gridTemplateColumns: images > 1 ? ['1fr', '1fr 1fr', '1fr 1fr 1fr'] : '1fr',
+              gap: '10px'
             }}
           >
-            {imagesList.map((image, index) => (
+            {screenshot.map((image, index) => (
               <div
                 key={index}
                 sx={{
@@ -128,6 +131,14 @@ const ProjectView = ({
                   className={styles.image}
                 />
               </div>
+            ))}
+            {video.map((link, index) => (
+                <div key={index} style={{ marginBottom: '20px' }}>
+                    <video width="600" controls>
+                        <source src={link} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             ))}
           </div>
         
