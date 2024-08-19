@@ -163,8 +163,8 @@ const ProjectEditForm = ({ project }) => {
             <Text>Screenshot link</Text>
             <Text variant="caption">
               Demo your work! No hosted link? Try{' '}
-              <a href="https://hackclub.slack.com/archives/C016DEDUL87">#cdn</a>{' '}
-              or <a href="https://tmpfiles.org/?upload">tmpfiles</a>
+              <a href="https://hackclub.slack.com/archives/C016DEDUL87" target="_blank">#cdn</a>{' '}
+              or <a href="https://tmpfiles.org/?upload" target="_blank">tmpfiles</a>
             </Text>
             <Input
               {...useField('screenshot')}
@@ -176,8 +176,8 @@ const ProjectEditForm = ({ project }) => {
             <Text>Video link</Text>
             <Text variant="caption">
               Add a link to your demo video! Need a host? Try{' '}
-              <a href="https://hackclub.slack.com/archives/C016DEDUL87">#cdn</a>{' '}
-              or <a href="https://tmpfiles.org/?upload">tmpfiles</a>
+              <a href="https://hackclub.slack.com/archives/C016DEDUL87" target="_blank">#cdn</a>{' '}
+              or <a href="https://tmpfiles.org/?upload" target="_blank">tmpfiles</a>
             </Text>
             <Input
               {...useField('video')}

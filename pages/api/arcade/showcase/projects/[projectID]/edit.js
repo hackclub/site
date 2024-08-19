@@ -19,6 +19,7 @@ export default async function handler(req, res) {
   updatedFields['Code Link'] = body.codeLink
   updatedFields['Play Link'] = body.playLink
   updatedFields['Screenshot'] = [body.screenshot].map(i => ({ url: i }))
+  updatedFields['Video'] = [body.video].map(i => ({ url: i }))
   updatedFields['color'] = body.color
   updatedFields['textColor'] = body.textColor
   updatedFields['ScreenshotLink'] = body.screenshot

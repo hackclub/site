@@ -101,7 +101,7 @@ const ProjectView = ({
     <div
       {...props}
       className="gaegu"
-      sx={{ position: 'relative', backgroundColor: color, color: textColor }}
+      sx={{ position: 'relative', backgroundColor: color, color: textColor, minHeight: '100vh' }}
     >
       <div
         sx={{
