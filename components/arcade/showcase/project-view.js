@@ -80,11 +80,12 @@ const ProjectView = ({
   const [markdown, setMarkdown] = useState('')
 
   useEffect(() => {
+    console.log(readMeLink)
     const fetchMarkdown = async () => {
-      const rawReadMeLink = convertToRawUrl(readMeLink)
-      if (rawReadMeLink) {
+      // const rawReadMeLink = convertToRawUrl(readMeLink)
+      if (readMeLink) {
         try {
-          const res = await fetch(rawReadMeLink)
+          const res = await fetch(readMeLink)
           const text = await res.text()
           setMarkdown(text)
         } catch (error) {

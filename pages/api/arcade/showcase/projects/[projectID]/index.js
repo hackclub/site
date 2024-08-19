@@ -53,7 +53,7 @@ export default async function handler(req, res) {
     color: p.fields['color'] || '',
     textColor: p.fields['textColor'] || '',
     screenshot: p.fields['ScreenshotLink'] || '',
-    video: p.fields['VideoLink'] || '',
+    video: p.fields['Video']?.[0]?.url || p.fields['VideoLink'] || '',
     readMeLink: p.fields['ReadMeLink'] || ''
   }
   return res.status(200).json({ project: results })
