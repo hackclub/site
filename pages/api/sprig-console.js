@@ -15,6 +15,11 @@ export async function getConsoles() {
 }
 
 export default async function SprigConsoles(req, res) {
-  const consoleCount = await getConsoles()
+  let consoleCount = 100
+  try {
+    consoleCount = await getConsoles()
+  } catch (error) {
+    console.error(error)
+  }
   res.json(consoleCount)
 }
