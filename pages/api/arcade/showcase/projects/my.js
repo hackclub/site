@@ -29,7 +29,8 @@ export default async function handler(req, res) {
     imageLink: p.fields['ScreenshotLink'] || '',
     githubProf: p.fields['Github Profile'] || '',
     user: user.fields['Name'], 
-    color: p.fields['color'] || ''
+    color: p.fields['color'] || '',
+    textColor: p.fields['textColor'] || ''
   }))
   return res.status(200).json({ projects: results, name: user.fields['Name']})
 }

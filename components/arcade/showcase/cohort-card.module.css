@@ -11,7 +11,7 @@
     align-items: left;
     justify-content: flex-start;
     position: relative;
-
+    padding: 10px;
 }
 
 .card_img {
@@ -19,7 +19,7 @@
     max-width: 200px;
     height: auto;
     max-height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     aspect-ratio: 1 / 1;
 }
 

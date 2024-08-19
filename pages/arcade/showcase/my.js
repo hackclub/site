@@ -102,6 +102,8 @@ const ProjectGallery = ({ projects, loadProjects }) => {
           imageLink={project.imageLink}
           personal={true}
           reload={loadProjects}
+          color={project.color}
+          textColor={project.textColor}
         />
       ))}
     </div>
