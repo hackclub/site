@@ -16,6 +16,8 @@ const CohortCard = ({
   reload,
 }) => {
   const [isHovered, setIsHovered] = useState(false)
+  const [isVisible, setIsVisible] = useState(true);
+
 
   async function handleDelete() {
     try {
@@ -47,9 +49,7 @@ const CohortCard = ({
     } catch (error) {
       console.error('Error deleting project:', error)
     }
-
-    reload()
-  }
+    }
 
   const firstImage = imageLink || randomNotFoundImg(id)
   console.log({imageLink})
@@ -59,7 +59,8 @@ const CohortCard = ({
   }
 
   return (
-    <div
+    <>
+    {isVisible?  (<div
       className={styles.card}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -142,7 +143,7 @@ const CohortCard = ({
         sx={{ borderRadius: '10px', border: '3px dashed #09AFB4' }}
         className="gaegu"
       >
-        <Text sx={{display: 'block', position: 'relative', pr: 3}}>Are you sure you want to delete this project?</Text>
+        <Text>Are you sure you want to delete this project?</Text>
         <br />
         <Button
           sx={{
@@ -158,8 +159,9 @@ const CohortCard = ({
             width: 'fit-content'
           }}
           onClick={e => {
+            setIsVisible(false)
+            document.getElementById('add-project').close()
             handleDelete()
-            document.getElementById('delete-project').close()
           }}
         >
           Yes
@@ -174,11 +176,15 @@ const CohortCard = ({
             color: '#09AFB4'
           }}
           onClick={e => {
-            document.getElementById('delete-project').close()
+            document.getElementById('add-project').close()
           }}
         />
       </dialog>
-    </div>
+    </div>) : null
+    }
+    </>
+    
+    
   )
 }
 

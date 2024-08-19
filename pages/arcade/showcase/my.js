@@ -148,6 +148,7 @@ const My = () => {
       return (
         <div sx={{ width: '100%' }}>
           <Button
+            to="https://hackclub.com/arcade/showcase/vote/"
             sx={{
               backgroundColor: '#FF5C00',
               color: '#FAEFD6',
