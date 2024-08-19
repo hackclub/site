@@ -14,6 +14,8 @@ const CohortCard = ({
   imageLink = '',
   personal = false,
   reload,
+  color = '#09AFB4',
+  textColor="#000000"
 }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [isVisible, setIsVisible] = useState(true);
@@ -60,6 +62,9 @@ const CohortCard = ({
   return (
     <>
     {isVisible?  (<div
+      sx={{
+        backgroundColor: color,
+      }}
       className={styles.card}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -134,8 +139,13 @@ const CohortCard = ({
           alt="Project Image"
           className={styles.card_img}
         />
-        <h1 className={styles.card_title}>{title}</h1>
-        <p className={styles.card_description}>{desc}</p>
+        <h1 
+          sx={{color: textColor}}
+          className={styles.card_title}>
+            {title}
+        </h1>
+
+        <p sx={{color: textColor}} className={styles.card_description}>{desc}</p>
       </a>
       <dialog
         id="delete-project"
