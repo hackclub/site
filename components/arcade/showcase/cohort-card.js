@@ -52,7 +52,6 @@ const CohortCard = ({
     }
 
   const firstImage = imageLink || randomNotFoundImg(id)
-  console.log({imageLink})
 
   function red() {
     window.location.href = '/arcade/showcase/project/' + id + '/edit'
