@@ -48,8 +48,8 @@ export default async function handler(req, res) {
     user: user.fields['Name'],
     color: p.fields['color'] || '',
     textColor: p.fields['textColor'] || '',
-    screenshot: project.fields['ScreenshotLink'] || '',
-    video: project.fields['VideoLink'] || '',
+    screenshot: p.fields['ScreenshotLink'] || '',
+    video: p.fields['VideoLink'] || '',
     readMeLink: p.fields['ReadMeLink'] || ''
   }
   return res.status(200).json({ project: results })
