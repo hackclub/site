@@ -1,6 +1,5 @@
 import AirtablePlus from 'airtable-plus'
 import { ensureAuthed } from '../../login/test'
-import { update } from 'lodash'
 
 export default async function handler(req, res) {
   const user = await ensureAuthed(req)
@@ -19,7 +18,7 @@ export default async function handler(req, res) {
   updatedFields['Slack Link'] = body.slackLink
   updatedFields['Code Link'] = body.codeLink
   updatedFields['Play Link'] = body.playLink
-  updatedFields['Screenshot'] = body.images.map(i => ({ url: i }))
+  updatedFields['Screenshot'] = [body.screenshot].map(i => ({ url: i }))
   updatedFields['color'] = body.color
   updatedFields['textColor'] = body.textColor
   updatedFields['ScreenshotLink'] = body.screenshot
@@ -44,7 +43,7 @@ export default async function handler(req, res) {
     codeLink: project.fields['Code Link'] || '',
     slackLink: project.fields['Slack Link'] || '',
     playLink: project.fields['Play Link'] || '',
-    images: (project.fields['Screenshot'] || []).map(i => i.url),
+    // images: (project.fields['Screenshot'] || []).map(i => i.url),
     user: user.fields['Name'],
     githubProf: project.fields['Github Profile'] || '',
     color: project.fields['color'] || '',
