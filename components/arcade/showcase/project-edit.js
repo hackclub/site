@@ -175,7 +175,7 @@ const ProjectEditForm = ({ project }) => {
 
           <Input {...useField('authToken')} type="hidden" />
           {/* <FileInput /> */}
-          <Label>
+          {/* <Label>
             <Text>Add screenshots</Text>
             <Flex sx={{ alignItems: 'center', mb: 2 }}>
               <Input
@@ -200,7 +200,7 @@ const ProjectEditForm = ({ project }) => {
                 }}
               />
             </Flex>
-          </Label>
+          </Label> */}
           {/* 
           {screenshot.map((image, index) => (
             <div
@@ -232,7 +232,7 @@ const ProjectEditForm = ({ project }) => {
             </div>
           ))} */}
           <Label>
-            <Text>Add screenshots</Text>
+            <Text>Add screenshot link</Text>
             <Text variant="caption">
               Demo your work! No hosted link? Try{' '}
               <a href="https://hackclub.slack.com/archives/C016DEDUL87">#cdn</a>{' '}
@@ -244,7 +244,7 @@ const ProjectEditForm = ({ project }) => {
             />
           </Label>
           <Label>
-            <Text>Add videos</Text>
+            <Text>Add video link</Text>
             <Text variant="caption">
               Add a link to your demo video! Need a host? Try{' '}
               <a href="https://hackclub.slack.com/archives/C016DEDUL87">#cdn</a>{' '}
