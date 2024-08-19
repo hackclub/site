@@ -188,7 +188,7 @@ const ProjectView = ({
           >
             <img
               src={image}
-              alt={`Project image ${index + 1}`}
+              alt="Project Image"
               className={styles.image}
             />
           </div>
