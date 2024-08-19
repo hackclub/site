@@ -180,7 +180,6 @@ const ProjectView = ({
         >
           {/* {imagesList.map((image, index) => ( */}
           <div
-            key={index}
             sx={{
               display: 'flex',
               alignItems: 'center',
@@ -196,7 +195,6 @@ const ProjectView = ({
           {/* ))} */}
           {/* {video.map((link, index) => ( */}
           <div
-            key={index}
             sx={{
               display: 'flex',
               alignItems: 'center',
