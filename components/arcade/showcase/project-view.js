@@ -148,14 +148,6 @@ const ProjectView = ({
           margin: 'auto',
           my: 3,
           maxWidth: '800px',
-          display: 'grid',
-          gridTemplateColumns:
-            screenshot != ''
-              ? video != ''
-                ? ['1fr', '1fr 1fr']
-                : '1fr'
-              : '1fr',
-          gap: '20px'
         }}
       >
         <div
