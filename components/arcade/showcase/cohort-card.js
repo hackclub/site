@@ -120,7 +120,7 @@ const CohortCard = ({
               }
             }}
           >
-            <Icon glyph="minus" />{' '}
+            <Icon glyph="delete" />{' '}
           </div>
         </div>
       )}
