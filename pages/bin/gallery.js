@@ -1,6 +1,7 @@
 import React from 'react'
 import BinPost from '../../components/bin/GalleryPosts'
 import styles from '../../public/bin/style/gallery.module.css'
+import Script from 'next/script'
 import Nav from '../../components/bin/nav'
 import Footer from '../../components/footer'
 import PartTag from '../../components/bin/PartTag';
@@ -72,7 +73,7 @@ function Gallery({ posts = [], tags = [] }) {
     <section className='page'>
 
       <div className={styles.background}></div>
-      <script src="https://awdev.codes/utils/hackclub/orph.js"></script>
+      <Script src="https://awdev.codes/utils/hackclub/orph.js"></Script>
 
       
 
@@ -90,6 +91,7 @@ function Gallery({ posts = [], tags = [] }) {
                   return (
                     <PartTag
                       partID={tag.ID} 
+                      key={tag.ID}
                       search={true}
                       addFilter={addFilter}
                       removeFilter={removeFilter}
