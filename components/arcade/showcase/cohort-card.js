@@ -169,7 +169,7 @@ const CohortCard = ({
           }}
           onClick={e => {
             setIsVisible(false)
-            document.getElementById('add-project').close()
+            document.getElementById('delete-project').close()
             handleDelete()
           }}
         >
@@ -185,7 +185,7 @@ const CohortCard = ({
             color: '#09AFB4'
           }}
           onClick={e => {
-            document.getElementById('add-project').close()
+            document.getElementById('delete-project').close()
           }}
         />
       </dialog>
