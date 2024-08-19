@@ -1,11 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import ProjectView from '../../../../../components/arcade/showcase/project-view'
-import Nav from '../../../../../components/Nav'
-import Footer from '../../../../../components/arcade/Footer'
-import BGImg from '../../../../../components/background-image'
 import styles from '../../../../../components/arcade/showcase/project-view.module.css'
-import { Box, Text } from 'theme-ui'
-import Icon from '@hackclub/icons'
 /** @jsxImportSource theme-ui */
 
 const styled = `

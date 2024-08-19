@@ -1,17 +1,10 @@
 import { useEffect, useState, useRef } from 'react'
 import CohortCard from '../../../components/arcade/showcase/cohort-card'
-import ProjectView from '../../../components/arcade/showcase/project-view'
-import Nav from '../../../components/Nav'
-import Footer from '../../../components/arcade/Footer'
-import BGImg from '../../../components/background-image'
-import background from '../../../public/arcade/homeBG.svg'
 import { Button, Heading, Text, Box, Close } from 'theme-ui'
 import SlideDown from '../../../components/slide-down'
 import styles from '../../../components/arcade/showcase/my.module.css'
 import Countdown from 'react-countdown'
-import { StyleSheetContext } from 'styled-components'
 import Icon from '@hackclub/icons'
-import Flag from '../../../components/flag'
 import ProjectAddView from '../../../components/arcade/showcase/project-add'
 /** @jsxImportSource theme-ui */
 
