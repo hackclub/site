@@ -142,7 +142,7 @@ const CohortCard = ({
         sx={{ borderRadius: '10px', border: '3px dashed #09AFB4' }}
         className="gaegu"
       >
-        <Text>Are you sure you want to delete this project?</Text>
+        <Text sx={{width: '80%'}}>Are you sure you want to delete this project?</Text>
         <br />
         <Button
           sx={{
@@ -159,7 +159,7 @@ const CohortCard = ({
           }}
           onClick={e => {
             handleDelete()
-            document.getElementById('add-project').close()
+            document.getElementById('delete-project').close()
           }}
         >
           Yes
@@ -174,7 +174,7 @@ const CohortCard = ({
             color: '#09AFB4'
           }}
           onClick={e => {
-            document.getElementById('add-project').close()
+            document.getElementById('delete-project').close()
           }}
         />
       </dialog>
