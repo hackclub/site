@@ -147,7 +147,7 @@ const My = () => {
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
 
-  const launchDate = new Date(2024, 7, 19, 0, 0, 0, 0)
+  const launchDate = new Date(2024, 7, 25, 8, 0, 0, 0)
 
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
