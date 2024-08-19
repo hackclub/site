@@ -142,7 +142,7 @@ const CohortCard = ({
         sx={{ borderRadius: '10px', border: '3px dashed #09AFB4' }}
         className="gaegu"
       >
-        <Text sx={{width: '80%'}}>Are you sure you want to delete this project?</Text>
+        <Text sx={{display: 'block', position: 'relative', pr: 3}}>Are you sure you want to delete this project?</Text>
         <br />
         <Button
           sx={{
