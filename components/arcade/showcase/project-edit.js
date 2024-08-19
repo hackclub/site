@@ -201,7 +201,7 @@ const ProjectEditForm = ({ project }) => {
               />
             </Flex>
           </Label>
-
+          {/* 
           {screenshot.map((image, index) => (
             <div
               key={index}
@@ -230,17 +230,31 @@ const ProjectEditForm = ({ project }) => {
                 }}
               />
             </div>
-          ))}
-
-          <Input
-            {...useField('screenshot')}
-            value={JSON.stringify(screenshot)}
-            type="hidden"
-          />
-
+          ))} */}
+          <Label>
+            <Text>Add screenshots</Text>
+            <Text variant="caption">
+              Demo your work! No hosted link? Try{' '}
+              <a href="https://hackclub.slack.com/archives/C016DEDUL87">#cdn</a>{' '}
+              or <a href="https://tmpfiles.org/?upload">tmpfiles</a>
+            </Text>
+            <Input
+              {...useField('screenshot')}
+              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
+            />
+          </Label>
           <Label>
             <Text>Add videos</Text>
-            <Flex sx={{ alignItems: 'center', mb: 2 }}>
+            <Text variant="caption">
+              Add a link to your demo video! Need a host? Try{' '}
+              <a href="https://hackclub.slack.com/archives/C016DEDUL87">#cdn</a>{' '}
+              or <a href="https://tmpfiles.org/?upload">tmpfiles</a>
+            </Text>
+            <Input
+              {...useField('video')}
+              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
+            />
+            {/* <Flex sx={{ alignItems: 'center', mb: 2 }}>
               <Input
                 type="url"
                 value={newVideo}
@@ -262,9 +276,9 @@ const ProjectEditForm = ({ project }) => {
                   }
                 }}
               />
-            </Flex>
+            </Flex> */}
           </Label>
-
+          {/* 
           {video.map((image, index) => (
             <div
               key={index}
@@ -294,7 +308,7 @@ const ProjectEditForm = ({ project }) => {
                 }}
               />
             </div>
-          ))}
+          ))} */}
 
           <Input
             {...useField('video')}
