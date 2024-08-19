@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import ProjectView from '../../../../../components/arcade/showcase/project-view'
 import styles from '../../../../../components/arcade/showcase/project-view.module.css'
 /** @jsxImportSource theme-ui */
