@@ -4,11 +4,11 @@ import useForm from '../../../lib/use-form'
 import Submit from '../../submit'
 import { useState } from 'react'
 import Icon from '@hackclub/icons'
-import FileInput from '../../../pages/api/arcade/showcase/projects/[projectID]/file-input'
+// import FileInput from '../../../pages/api/arcade/showcase/projects/[projectID]/file-input'
 /** @jsxImportSource theme-ui */
 
 const ProjectEditForm = ({ project }) => {
-  const [previewProject, setPreviewProject] = useState(project)
+  // const [previewProject, setPreviewProject] = useState(project)
   const [screenshot, setScreenshot] = useState(project.screenshot)
   const [newScreenshot, setNewScreenshot] = useState('')
 
@@ -17,11 +17,9 @@ const ProjectEditForm = ({ project }) => {
 
   function publishedChanges(e) {
     console.log('published changes', e)
-
-    console.log(color)
   }
   const { status, formProps, useField, data } = useForm(
-    `/api/arcade/showcase/projects/${project.id}/edit`,
+    `/api/arcade/showcase/projects/${project.id}/edit/`,
     publishedChanges,
     {
       method: 'PATCH',
@@ -61,6 +59,10 @@ const ProjectEditForm = ({ project }) => {
 
   const updateNewVideo = e => {
     setNewVideo(e.target.value)
+  }
+
+  const previewProject = {
+    ...data
   }
 
   return (

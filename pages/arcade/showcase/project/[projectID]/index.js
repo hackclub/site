@@ -82,16 +82,15 @@ const ProjectShowPage = ({ projectID }) => {
           }}
         />
         <div className={styles.min}>
-          {/* {
-        status == 'loading' && <Loading />
-      }
+        {
+          status == 'loading' && <Loading />
+        }
 
-      {
-        status == 'error' && <ErrorMessage />
-      } */}
+        {
+          status == 'error' && <ErrorMessage />
+        }
 
-          {/* {
-        status == 'success' &&  */}
+        { status == 'success' && (
           <ProjectView
             key={project.id}
             id={project.id}
@@ -108,7 +107,7 @@ const ProjectShowPage = ({ projectID }) => {
             screenshot={project.screenshot}
             video={project.video}
           />
-          {/* } */}
+        )}
         </div>
       </div>
       <style>{styled}</style>

@@ -20,13 +20,11 @@ export default async function handler(req, res) {
   updatedFields['Slack Link'] = body.slackLink
   updatedFields['Code Link'] = body.codeLink
   updatedFields['Play Link'] = body.playLink
-  updatedFields['Screenshot'] = body.images
+  updatedFields['Screenshot'] = body.images.map(i => ({ url: i }))
   updatedFields['color'] = body.color
   updatedFields['textColor'] = body.textColor
-  updatedFields['ScreenshotLinks'] = body.screenshot
-  updatedFields['VideoLinks'] = body.video
-
-  console.log(body.color)
+  updatedFields['ScreenshotLinks'] = JSON.stringify(body.screenshot || [])
+  updatedFields['VideoLinks'] = JSON.stringify(body.video || [])
 
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
@@ -51,9 +49,8 @@ export default async function handler(req, res) {
     githubProf: project.fields['Github Profile'] || '',
     color: project.fields['color'] || '',
     textColor: project.fields['textColor'] || '',
-    screenshot: JSON.parse(p.fields['ScreenshotLinks']) || [],
-    video: JSON.parse(p.fields['VideoLinks']) || [],
-
+    screenshot: project.fields['ScreenshotLinks'] || [],
+    video: project.fields['VideoLinks'] || [],
   }
 
   return res.status(200).json({ project: results })

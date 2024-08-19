@@ -65,10 +65,13 @@ const Showcase = ({ projectID }) => {
     })
       .then(res => res.json())
       .then(data => {
-        setProject(data.project)
         if (data.error) {
           throw new Error(data.error)
         }
+        if (data.project === null) {
+          throw new Error('Project not found')
+        }
+        setProject(data.project)
         setStatus('success')
       })
       .catch(e => {

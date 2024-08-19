@@ -13,11 +13,12 @@
   }
   
   .image {
-    max-width: 100%;
+    max-width: 24em;
     max-height: 100%;
     width: auto;
     height: auto;
     border-radius: 8px;
+    margin: 0 auto;
 }
   
   .description {

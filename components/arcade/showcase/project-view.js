@@ -139,7 +139,7 @@ const ProjectView = ({
             gap: '10px'
           }}
         >
-          {screenshot.map((image, index) => (
+          {imagesList.map((image, index) => (
             <div
               key={index}
               sx={{

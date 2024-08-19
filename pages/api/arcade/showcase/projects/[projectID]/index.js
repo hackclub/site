@@ -15,18 +15,19 @@ export default async function handler(req, res) {
 
   const { projectID } = req.query
 
-  const project = await airtable.read({
+  const projects = await airtable.read({
     filterByFormula: `AND({User} = '${user.fields['Name']}', RECORD_ID() = '${projectID}')`,
     maxRecords: 1
   })
+  const p = projects[0]
 
   let screenshot
-  try { screenshot = JSON.parse(project.fields['ScreenshotLinks']) } catch { screenshot = [] }
+  try { screenshot = JSON.parse(p.fields['ScreenshotLinks']) } catch(e) { screenshot = [] }
 
   let video
-  try { video = JSON.parse(project.fields['VideoLinks']) } catch { video = [] }
+  try { video = JSON.parse(p.fields['VideoLinks']) } catch(e) { video = [] }
 
-  const results = project.map(p => ({
+  const results = {
     id: p.id,
     title: p.fields['Name'] || '',
     desc: p.fields['Description'] || '',
@@ -41,6 +42,6 @@ export default async function handler(req, res) {
     textColor: p.fields['textColor'] || '',
     screenshot,
     video,
-  }))
-  return res.status(200).json({ project: results[0] })
+  }
+  return res.status(200).json({ project: results })
 }
