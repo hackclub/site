@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Card, Heading, Link, Text, Close } from 'theme-ui'
+import { Text, Close } from 'theme-ui'
 import styles from './cohort-card.module.css'
 import { useState } from 'react'
 import { Button } from 'theme-ui'
@@ -11,16 +11,9 @@ const CohortCard = ({
   id,
   title = 'Title Not Found',
   desc = 'Description Not Found',
-  slack = 'Slack Not Found',
-  scrapbook = '',
-  playLink = '',
-  images = [],
-  githubProf,
-  githubLink = '',
-  draggable = false,
+  imageLink = '',
   personal = false,
   reload,
-  color = ''
 }) => {
   const [isHovered, setIsHovered] = useState(false)
 
@@ -58,7 +51,8 @@ const CohortCard = ({
     reload()
   }
 
-  const firstImage = images[0] || randomNotFoundImg(id)
+  const firstImage = imageLink || randomNotFoundImg(id)
+  console.log({imageLink})
 
   function red() {
     window.location.href = '/arcade/showcase/project/' + id + '/edit'

@@ -106,11 +106,7 @@ const ProjectGallery = ({ projects, loadProjects }) => {
           id={project.id}
           title={project.title}
           desc={project.desc}
-          slack={project.slackLink}
-          codeLink={project.codeLink}
-          playLink={project.playLink}
-          images={project.images}
-          githubProf={project.githubProf}
+          imageLink={project.imageLink}
           personal={true}
           reload={loadProjects}
         />

@@ -25,7 +25,8 @@ export default async function handler(req, res) {
     codeLink: p.fields['Code Link'] || '',
     slackLink: p.fields['Slack Link'] || '',
     playLink: p.fields['Play Link'] || '',
-    images: (p.fields['Screenshot'] || []).map(i => i.url),
+    // images: (p.fields['Screenshot'] || []).map(i => i.url),
+    imageLink: p.fields['ScreenshotLink'] || '',
     githubProf: p.fields['Github Profile'] || '',
     user: user.fields['Name'], 
     color: p.fields['color'] || ''
