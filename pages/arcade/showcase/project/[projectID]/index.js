@@ -21,7 +21,6 @@ body, html {
 
  body {
     background-color: #FAEFD6;
-    min-height: 100vh;
  }
  
 a {
