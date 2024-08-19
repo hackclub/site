@@ -35,16 +35,6 @@ function invertColor(hex) {
   return `#${r}${g}${b}`
 }
 
-function convertToRawUrl(githubUrl) {
-  if (!githubUrl.includes('github.com')) {
-    throw new Error('Invalid GitHub URL')
-  }
-
-  return githubUrl
-    .replace('github.com', 'raw.githubusercontent.com')
-    .replace('/blob/', '/')
-}
-
 const ProjectView = ({
   id,
   title = 'Title Not Found',
@@ -79,7 +69,8 @@ const ProjectView = ({
 
   function convertToRawUrl(githubUrl) {
     if (!githubUrl.includes('github.com')) {
-      throw new Error('Invalid GitHub URL')
+      // throw new Error('Invalid GitHub URL')
+      return ''
     }
 
     return githubUrl
@@ -91,7 +82,7 @@ const ProjectView = ({
 
   useEffect(() => {
     const fetchMarkdown = async () => {
-      rawReadMeLink = convertToRawUrl(readMeLink)
+      const rawReadMeLink = convertToRawUrl(readMeLink)
       if (rawReadMeLink) {
         try {
           const res = await fetch(rawReadMeLink)
