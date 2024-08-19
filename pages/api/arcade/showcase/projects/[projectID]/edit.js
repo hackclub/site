@@ -51,7 +51,7 @@ export default async function handler(req, res) {
     textColor: project.fields['textColor'] || '',
     screenshot: project.fields['ScreenshotLink'] || '',
     video: project.fields['VideoLink'] || '',
-    readMeLink: p.fields['ReadMeLink'] || ''
+    readMeLink: project.fields['ReadMeLink'] || ''
   }
 
   return res.status(200).json({ project: results })
