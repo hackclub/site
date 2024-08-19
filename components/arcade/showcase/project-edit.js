@@ -188,7 +188,7 @@ const ProjectEditForm = ({ project }) => {
             />
           </Label>
           <Label>
-            <Text>Hours spent</Text>
+            <Text>Hours (estimated)</Text>
             <Text variant="caption">
               This isn't shown on the site and won't affect your chances, but it'll help us guage how accurate arcade was. Please be honest– this is just feedback for us for future events we run!
             </Text>
