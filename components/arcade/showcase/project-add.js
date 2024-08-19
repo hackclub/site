@@ -33,7 +33,7 @@ const NewProjectForm = ({ authToken }) => {
             sx={{ border: '1px solid', borderColor: 'muted', mb: 2 }}
           />
         </Label>
-        <Label>
+        {/* <Label>
           <Text className="slackey">GitHub README link</Text>
           <Text color="muted">We'll pull in your project description</Text>
           <Input
@@ -42,7 +42,7 @@ const NewProjectForm = ({ authToken }) => {
             required
             sx={{ border: '1px solid', borderColor: 'muted', mb: 2 }}
           />
-        </Label>
+        </Label> */}
         <Input {...useField('authToken')} type="hidden" />
         <Submit
           status={status}

@@ -30,6 +30,10 @@ export default async function handler(req, res) {
   ).then(r => r.json())
   const description = ghData.description || ''
   const playLink = ghData.homepage || ''
+  const readmeData = await fetch(
+    `https://api.github.com/repos/${org}/${name}/readme`
+  ).then(r => r.json())
+  const readmeLink = readmeData.html_url || ''
 
   const project = await airtable.create({
     User: [user.id],
@@ -38,7 +42,7 @@ export default async function handler(req, res) {
     Description: description,
     'Play Link': playLink,
     color: '#FAEFD6',
-    ReadMeLink: req.body.readMeLink
+    ReadMeLink: readmeLink
   })
 
   return res.status(200).json({ project: project.id })
