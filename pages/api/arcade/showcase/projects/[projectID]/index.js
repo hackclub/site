@@ -21,6 +21,10 @@ export default async function handler(req, res) {
   })
   const p = projects[0]
 
+  if (!p) {
+    return res.status(404).json({ error: 'Project not found' })
+  }
+
   let screenshot
   try {
     screenshot = JSON.parse(p.fields['ScreenshotLinks'])
