@@ -4,6 +4,7 @@ import randomNotFoundImg from './random-not-found-img'
 import { Button, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import ReadmeRenderer from './readme-renderer'
+import YoutubeRenderer from './youtube-renderer'
 /** @jsxImportSource theme-ui */
 
 function darkenColor(hex, factor) {
@@ -66,23 +67,21 @@ const ProjectView = ({
     setInvertedColor(invertColor(textColor))
   }, [color])
 
-  function convertToRawUrl(githubUrl) {
-    if (!githubUrl.includes('github.com')) {
-      // throw new Error('Invalid GitHub URL')
-      return ''
-    }
+  // function convertToRawUrl(githubUrl) {
+  //   if (!githubUrl.includes('github.com')) {
+  //     // throw new Error('Invalid GitHub URL')
+  //     return ''
+  //   }
 
-    return githubUrl
-      .replace('github.com', 'raw.githubusercontent.com')
-      .replace('/blob/', '/')
-  }
+  //   return githubUrl
+  //     .replace('github.com', 'raw.githubusercontent.com')
+  //     .replace('/blob/', '/')
+  // }
 
   const [markdown, setMarkdown] = useState('')
 
   useEffect(() => {
-    console.log(readMeLink)
     const fetchMarkdown = async () => {
-      // const rawReadMeLink = convertToRawUrl(readMeLink)
       if (readMeLink) {
         try {
           const res = await fetch(readMeLink)
@@ -114,6 +113,43 @@ const ProjectView = ({
       >
         <h1 className="slackey">{title}</h1>
         <h3>By {user}</h3>
+
+        <div
+          className={styles.buttonGroup}
+          sx={{ width: '90%', margin: 'auto', pt: 2, pb: 2 }}
+        >
+          {playLink && (
+            <Button
+              as="a"
+              sx={{
+                backgroundColor: '#FF5C00',
+                color: '#ebebeb',
+                textSizeAdjust: '16px',
+                borderRadius: '10px'
+              }}
+              href={playLink}
+              target="_blank"
+              rel="noopener"
+            >
+              Play Now
+            </Button>
+          )}
+
+          <Button
+            as="a"
+            sx={{
+              backgroundColor: '#09AFB4',
+              color: '#ebebeb',
+              textSizeAdjust: '16px',
+              borderRadius: '10px'
+            }}
+            href={codeLink}
+            target="_blank"
+            rel="noopener"
+          >
+            {codeHost}
+          </Button>
+        </div>
         <Text
           as="a"
           href="/arcade/showcase/my"
@@ -176,7 +212,8 @@ const ProjectView = ({
               />
             </div>
           )}
-          { video != '' && (
+          <YoutubeRenderer youtubeLink={video} />
+          {/* { video != '' && (
             <div
               sx={{
                 display: 'flex',
@@ -189,7 +226,7 @@ const ProjectView = ({
                 Your browser does not support the video tag.
               </video>
             </div>
-          )}
+          )} */}
         </div>
 
         <p
@@ -200,42 +237,6 @@ const ProjectView = ({
         </p>
       </div>
 
-      <div
-        className={styles.buttonGroup}
-        sx={{ width: '90%', margin: 'auto', pt: 1, pb: 5 }}
-      >
-        {playLink && (
-          <Button
-            as="a"
-            sx={{
-              backgroundColor: '#FF5C00',
-              color: '#ebebeb',
-              textSizeAdjust: '16px',
-              borderRadius: '10px'
-            }}
-            href={playLink}
-            target="_blank"
-            rel="noopener"
-          >
-            Play Now
-          </Button>
-        )}
-
-        <Button
-          as="a"
-          sx={{
-            backgroundColor: '#09AFB4',
-            color: '#ebebeb',
-            textSizeAdjust: '16px',
-            borderRadius: '10px'
-          }}
-          href={codeLink}
-          target="_blank"
-          rel="noopener"
-        >
-          {codeHost}
-        </Button>
-      </div>
     </div>
   )
 }

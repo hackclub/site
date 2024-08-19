@@ -4,7 +4,11 @@ import style from './readme-renderer.module.css'
 
 const ReadmeRenderer = ({ markdown }) => {
   return (
-    <ReactMarkdown className={style.reactMarkDown} remarkPlugins={[remarkGfm]}>
+    <ReactMarkdown
+      className={style.reactMarkDown}
+      remarkPlugins={[remarkGfm]}
+      linkTarget={'_blank'}
+      >
       {markdown}
     </ReactMarkdown>
   )
