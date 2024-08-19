@@ -159,15 +159,11 @@ const ProjectView = ({
           maxWidth: '800px',
           display: 'grid',
           gridTemplateColumns:
-            screenshot.length > 0
-              ? video.length > 0
-                ? screenshot.length > 1
-                  ? '1fr'
-                  : video.length > 1
-                    ? '1fr'
-                    : ['1fr', '1fr 1fr']
-                : ''
-              : '',
+            screenshot != ''
+              ? video != ''
+                ? ['1fr', '1fr 1fr']
+                : '1fr'
+              : '1fr',
           gap: '20px'
         }}
       >
@@ -176,7 +172,7 @@ const ProjectView = ({
             display: 'grid',
             flexWrap: 'wrap',
             gridTemplateColumns:
-              screenshot.length + video.length > 1
+              screenshot != '' && video != ''
                 ? ['1fr', '1fr 1fr', '1fr 1fr']
                 : '1fr',
             gap: '10px'
@@ -199,7 +195,14 @@ const ProjectView = ({
           </div>
           {/* ))} */}
           {/* {video.map((link, index) => ( */}
-          <div key={index} style={{ marginBottom: '20px' }}>
+          <div
+            key={index}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <video sx={{ width: '100%', height: 'auto' }} controls>
               <source src={video} type="video/mp4" />
               Your browser does not support the video tag.

@@ -158,81 +158,9 @@ const ProjectEditForm = ({ project }) => {
               sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
             />
           </Label>
-          {/* <Label>
-            <Text>Screenshot</Text>
-            <Input
-              {...useField('screenshot')}
-              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
-            />
-          </Label>
-          <Label>
-            <Text>Video</Text>
-            <Input
-              {...useField('video')}
-              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
-            />
-          </Label> */}
 
-          <Input {...useField('authToken')} type="hidden" />
-          {/* <FileInput /> */}
-          {/* <Label>
-            <Text>Add screenshots</Text>
-            <Flex sx={{ alignItems: 'center', mb: 2 }}>
-              <Input
-                type="url"
-                value={newScreenshot}
-                onChange={updateNewScreenshot}
-                sx={{ border: '1px dashed', borderColor: '#09AFB4' }}
-              />
-              <Icon
-                onClick={() => updateScreenshot(newScreenshot)}
-                glyph="plus"
-                sx={{
-                  transitionDuration: '0.3s',
-                  cursor: 'pointer',
-                  height: '37px',
-                  width: '37px',
-                  color: '#09AFB4',
-                  ml: 2,
-                  '&:hover': {
-                    transform: 'scale(1.05)'
-                  }
-                }}
-              />
-            </Flex>
-          </Label> */}
-          {/* 
-          {screenshot.map((image, index) => (
-            <div
-              key={index}
-              sx={{
-                display: 'grid',
-                position: 'relative',
-                mb: 3,
-                alignItems: 'center',
-                wordBreak: 'break-all',
-                gridTemplateColumns: '8fr 1fr'
-              }}
-            >
-              {image}
-              <Icon
-                onClick={() => deleteScreenshot(image)}
-                glyph="minus"
-                sx={{
-                  transitionDuration: '0.3s',
-                  height: '30px',
-                  width: '30px',
-                  color: '#DE4E2B',
-                  cursor: 'pointer',
-                  '&:hover': {
-                    transform: 'scale(1.05)'
-                  }
-                }}
-              />
-            </div>
-          ))} */}
           <Label>
-            <Text>Add screenshot link</Text>
+            <Text>Screenshot link</Text>
             <Text variant="caption">
               Demo your work! No hosted link? Try{' '}
               <a href="https://hackclub.slack.com/archives/C016DEDUL87">#cdn</a>{' '}
@@ -240,11 +168,12 @@ const ProjectEditForm = ({ project }) => {
             </Text>
             <Input
               {...useField('screenshot')}
+              type="url"
               sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
             />
           </Label>
           <Label>
-            <Text>Add video link</Text>
+            <Text>Video link</Text>
             <Text variant="caption">
               Add a link to your demo video! Need a host? Try{' '}
               <a href="https://hackclub.slack.com/archives/C016DEDUL87">#cdn</a>{' '}
@@ -252,69 +181,10 @@ const ProjectEditForm = ({ project }) => {
             </Text>
             <Input
               {...useField('video')}
+              type="url"
               sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
             />
-            {/* <Flex sx={{ alignItems: 'center', mb: 2 }}>
-              <Input
-                type="url"
-                value={newVideo}
-                onChange={updateNewVideo}
-                sx={{ border: '1px dashed', borderColor: '#09AFB4' }}
-              />
-              <Icon
-                onClick={() => updateVideo(newVideo)}
-                glyph="plus"
-                sx={{
-                  transitionDuration: '0.3s',
-                  cursor: 'pointer',
-                  height: '37px',
-                  width: '37px',
-                  color: '#09AFB4',
-                  ml: 2,
-                  '&:hover': {
-                    transform: 'scale(1.05)'
-                  }
-                }}
-              />
-            </Flex> */}
           </Label>
-          {/* 
-          {video.map((image, index) => (
-            <div
-              key={index}
-              sx={{
-                display: 'grid',
-                position: 'relative',
-                mb: 3,
-                alignItems: 'center',
-                wordBreak: 'break-all',
-                gridTemplateColumns: '8fr 1fr'
-              }}
-            >
-              {image}
-              <Icon
-                onClick={() => deleteVideo(image)}
-                glyph="minus"
-                sx={{
-                  transitionDuration: '0.3s',
-                  height: '30px',
-                  width: '30px',
-                  color: '#DE4E2B',
-                  cursor: 'pointer',
-                  float: 'right',
-                  '&:hover': {
-                    transform: 'scale(1.05)'
-                  }
-                }}
-              />
-            </div>
-          ))} */}
-
-          <Input
-            {...useField('video')}
-            value={JSON.stringify(video)}
-            type="hidden"
-          />
 
           <Label>
             <Text>Background Color</Text>
@@ -354,6 +224,7 @@ const ProjectEditForm = ({ project }) => {
               }}
             />
           </Label>
+          <Input {...useField('authToken')} type="hidden" />
 
           <Submit
             status={status}
