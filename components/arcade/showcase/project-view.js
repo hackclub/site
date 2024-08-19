@@ -216,7 +216,7 @@ const ProjectView = ({
             target="_blank"
             rel="noopener"
           >
-            Play Game
+            Play Now
           </Button>
         )}
 
