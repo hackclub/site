@@ -140,7 +140,7 @@ const My = () => {
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
 
-  const launchDate = new Date(2024, 7, 25, 8, 0, 0, 0)
+  const launchDate = new Date(2025, 7, 25, 8, 0, 0, 0)
 
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -170,8 +170,9 @@ const My = () => {
       // Render a countdown
       return (
         <span sx={{ color: '#FF5C00' }}>
-          First voting round in {hours > 0 ? `${hours} hours` : ''}{' '}
-          {minutes > 0 ? `${minutes} minutes` : ''} {seconds} seconds
+          First voting round in a week
+          {/* {hours > 0 ? `${hours} hours` : ''}{' '}
+          {minutes > 0 ? `${minutes} minutes` : ''} {seconds} seconds */}
         </span>
       )
     }
