@@ -169,35 +169,35 @@ const ProjectView = ({
             gap: '10px'
           }}
         >
-          {/* {imagesList.map((image, index) => ( */}
-          <div
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <img
-              src={image}
-              alt="Project Image"
-              className={styles.image}
-            />
-          </div>
-          {/* ))} */}
-          {/* {video.map((link, index) => ( */}
-          <div
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <video sx={{ width: '100%', height: 'auto' }} controls>
-              <source src={video} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          {/* ))} */}
+          { image != '' && (
+            <div
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <img
+                src={image}
+                alt="Project Image"
+                className={styles.image}
+              />
+            </div>
+          )}
+          { video != '' && (
+            <div
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <video sx={{ width: '100%', height: 'auto' }} controls>
+                <source src={video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          )}
         </div>
 
         <p
