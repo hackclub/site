@@ -33,7 +33,7 @@ export default async function handler(req, res) {
   const readmeData = await fetch(
     `https://api.github.com/repos/${org}/${name}/readme`
   ).then(r => r.json())
-  const readmeLink = readmeData.html_url || ''
+  const readmeLink = readmeData.download_url || ''
 
   const project = await airtable.create({
     User: [user.id],
