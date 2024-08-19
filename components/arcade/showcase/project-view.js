@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react'
 import randomNotFoundImg from './random-not-found-img'
 import { Button, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import ReadmeRenderer from './readme-renderer'
 /** @jsxImportSource theme-ui */
 
 function darkenColor(hex, factor) {
@@ -196,7 +195,7 @@ const ProjectView = ({
           className={styles.description}
           sx={{ textAlign: screenshot.length != 1 ? 'center' : 'left' }}
         >
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
+          <ReadmeRenderer markdown={markdown} />
         </p>
       </div>
 
