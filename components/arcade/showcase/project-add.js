@@ -12,39 +12,50 @@ async function projectAdded(response) {
   window.location.href = '/arcade/showcase/project/' + projectID + '/edit'
 }
 
-const NewProjectForm = ({authToken}) => {
+const NewProjectForm = ({ authToken }) => {
   const { status, formProps, useField } = useForm(
     '/api/arcade/showcase/projects/add',
     projectAdded,
-    { initData: {authToken} },
+    { initData: { authToken } }
   )
   return (
     <div>
       <form {...formProps}>
         <Label>
-          <Text className='slackey'>Repo / code link</Text>
-          <Text color="muted">We'll pull in your project details from this repo</Text>
+          <Text className="slackey">GitHub Repo link</Text>
+          <Text color="muted">
+            We'll pull in your project details from this repo
+          </Text>
           <Input
             {...useField('codeLink')}
             placeholder="https://github.com/hackclub/arcade"
             required
-            
+            sx={{ border: '1px solid', borderColor: 'muted', mb: 2 }}
+          />
+        </Label>
+        <Label>
+          <Text className="slackey">GitHub README link</Text>
+          <Text color="muted">We'll pull in your project description</Text>
+          <Input
+            {...useField('readMeLink')}
+            placeholder="https://github.com/hackclub/arcade/README.md"
+            required
             sx={{ border: '1px solid', borderColor: 'muted', mb: 2 }}
           />
         </Label>
         <Input {...useField('authToken')} type="hidden" />
-      <Submit
-        status={status}
-        labels={{
-          default: 'Submit repo',
-          error: 'Something went wrong!',
-          success: 'Pulling repo data'
-        }}
-        sx={{
-          background: status == 'error' ? '#DE4E2B': '#09AFB4',
-          borderRadius: '10px'
-        }}
-      />
+        <Submit
+          status={status}
+          labels={{
+            default: 'Submit repo',
+            error: 'Something went wrong!',
+            success: 'Pulling repo data'
+          }}
+          sx={{
+            background: status == 'error' ? '#DE4E2B' : '#09AFB4',
+            borderRadius: '10px'
+          }}
+        />
       </form>
     </div>
   )
@@ -56,16 +67,18 @@ const ProjectAddView = () => {
 
   useEffect(() => {
     const token = window.localStorage.getItem('arcade.authToken')
-    if (!token) { setStatus('error') }
+    if (!token) {
+      setStatus('error')
+    }
     setAuthToken(token)
     setStatus('success')
   }, [])
 
   return (
     <>
-    {status === 'loading' && <Loading />}
-    {status === 'error' && <ErrorMsg />}
-    {status === 'success' && <NewProjectForm authToken={authToken} />}
+      {status === 'loading' && <Loading />}
+      {status === 'error' && <ErrorMsg />}
+      {status === 'success' && <NewProjectForm authToken={authToken} />}
     </>
   )
 }

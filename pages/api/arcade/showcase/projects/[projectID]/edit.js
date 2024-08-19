@@ -1,6 +1,6 @@
-import AirtablePlus from "airtable-plus";
-import { ensureAuthed } from "../../login/test";
-import { update } from "lodash";
+import AirtablePlus from 'airtable-plus'
+import { ensureAuthed } from '../../login/test'
+import { update } from 'lodash'
 
 export default async function handler(req, res) {
   const user = await ensureAuthed(req)
@@ -10,9 +10,8 @@ export default async function handler(req, res) {
 
   const body = req.body
   if (!body) {
-    return res.status(400).json({ error: "No body provided" })
+    return res.status(400).json({ error: 'No body provided' })
   }
-
 
   const updatedFields = {}
   updatedFields['Name'] = body.title
@@ -23,18 +22,19 @@ export default async function handler(req, res) {
   updatedFields['Screenshot'] = body.images.map(i => ({ url: i }))
   updatedFields['color'] = body.color
   updatedFields['textColor'] = body.textColor
-  updatedFields['ScreenshotLinks'] = JSON.stringify(body.screenshot || [])
-  updatedFields['VideoLinks'] = JSON.stringify(body.video || [])
+  updatedFields['ScreenshotLink'] = body.screenshot
+  updatedFields['VideoLink'] = body.video
+  updatedFields['ReadMeLink'] = body.readMeLink
 
   const airtable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
     baseID: 'app4kCWulfB02bV8Q',
-    tableName: "Showcase"
+    tableName: 'Showcase'
   })
 
   const { projectID } = req.query
 
-  const project = await airtable.update(projectID, updatedFields )
+  const project = await airtable.update(projectID, updatedFields)
 
   const results = {
     id: project.id,
@@ -49,8 +49,9 @@ export default async function handler(req, res) {
     githubProf: project.fields['Github Profile'] || '',
     color: project.fields['color'] || '',
     textColor: project.fields['textColor'] || '',
-    screenshot: project.fields['ScreenshotLinks'] || [],
-    video: project.fields['VideoLinks'] || [],
+    screenshot: project.fields['ScreenshotLink'] || '',
+    video: project.fields['VideoLink'] || '',
+    readMeLink: p.fields['ReadMeLink'] || ''
   }
 
   return res.status(200).json({ project: results })

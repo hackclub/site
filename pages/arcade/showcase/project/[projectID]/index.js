@@ -82,32 +82,29 @@ const ProjectShowPage = ({ projectID }) => {
           }}
         />
         <div className={styles.min}>
-        {
-          status == 'loading' && <Loading />
-        }
+          {status == 'loading' && <Loading />}
 
-        {
-          status == 'error' && <ErrorMessage />
-        }
+          {status == 'error' && <ErrorMessage />}
 
-        { status == 'success' && (
-          <ProjectView
-            key={project.id}
-            id={project.id}
-            title={project.title}
-            desc={project.desc}
-            slack={project.slackLink}
-            codeLink={project.codeLink}
-            playLink={project.playLink}
-            images={project.images}
-            githubProf={project.githubProf}
-            user={project.user}
-            color={project.color}
-            textColor={project.textColor}
-            screenshot={project.screenshot}
-            video={project.video}
-          />
-        )}
+          {status == 'success' && (
+            <ProjectView
+              key={project.id}
+              id={project.id}
+              title={project.title}
+              desc={project.desc}
+              slack={project.slackLink}
+              codeLink={project.codeLink}
+              playLink={project.playLink}
+              images={project.images}
+              githubProf={project.githubProf}
+              user={project.user}
+              color={project.color}
+              textColor={project.textColor}
+              screenshot={project.screenshot}
+              video={project.video}
+              readMeLink={project.readMeLink}
+            />
+          )}
         </div>
       </div>
       <style>{styled}</style>

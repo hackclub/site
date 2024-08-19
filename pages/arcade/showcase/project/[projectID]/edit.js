@@ -82,7 +82,6 @@ const Showcase = ({ projectID }) => {
 
   return (
     <>
-
       <Box
         id="spotlight"
         as="section"
@@ -120,7 +119,7 @@ const Showcase = ({ projectID }) => {
             position: 'relative'
           }}
         >
-           <img
+          <img
             src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
             sx={{
               width: '30%',

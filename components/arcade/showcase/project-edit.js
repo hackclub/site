@@ -135,10 +135,10 @@ const ProjectEditForm = ({ project }) => {
             />
           </Label>
           <Label>
-            <Text>Project description</Text>
+            <Text>ReadMe Link</Text>
             <Input
-              {...useField('desc')}
-              placeholder="A summer of making for high schoolers"
+              {...useField('readMeLink')}
+              placeholder="https://github.com/hackclub/arcade/README.md"
               sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
             />
           </Label>

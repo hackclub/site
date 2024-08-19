@@ -1,9 +1,7 @@
-import { useState } from "react"
+import { useState } from 'react'
 
-const FileInput = ({
-  onUpload = () => {},
-}) => {
-  const [ status, setStatus ] = useState('')
+const FileInput = ({ onUpload = () => {} }) => {
+  const [status, setStatus] = useState('')
 
   return (
     <>
@@ -11,7 +9,7 @@ const FileInput = ({
         type="file"
         onChange={async event => {
           event.preventDefault()
- 
+
           const formData = new FormData()
 
           if (event.target.files.length === 0) {
@@ -22,12 +20,12 @@ const FileInput = ({
           formData.append('file', event.target.files[0])
           const response = await fetch('/api/bucky/', {
             method: 'POST',
-            body: formData,
+            body: formData
           })
-  
+
           // Handle response if necessary
           const data = await response.json()
-          console.log({data})
+          console.log({ data })
           if (data.result) {
             setStatus('Uploaded!')
             onUpload(data.result)

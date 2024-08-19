@@ -22,10 +22,18 @@ export default async function handler(req, res) {
   const p = projects[0]
 
   let screenshot
-  try { screenshot = JSON.parse(p.fields['ScreenshotLinks']) } catch(e) { screenshot = [] }
+  try {
+    screenshot = JSON.parse(p.fields['ScreenshotLinks'])
+  } catch (e) {
+    screenshot = []
+  }
 
   let video
-  try { video = JSON.parse(p.fields['VideoLinks']) } catch(e) { video = [] }
+  try {
+    video = JSON.parse(p.fields['VideoLinks'])
+  } catch (e) {
+    video = []
+  }
 
   const results = {
     id: p.id,
@@ -40,8 +48,9 @@ export default async function handler(req, res) {
     user: user.fields['Name'],
     color: p.fields['color'] || '',
     textColor: p.fields['textColor'] || '',
-    screenshot,
-    video,
+    screenshot: project.fields['ScreenshotLink'] || '',
+    video: project.fields['VideoLink'] || '',
+    readMeLink: p.fields['ReadMeLink'] || ''
   }
   return res.status(200).json({ project: results })
 }

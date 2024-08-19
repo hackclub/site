@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import randomNotFoundImg from './random-not-found-img'
 import { Button, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 /** @jsxImportSource theme-ui */
 
 function darkenColor(hex, factor) {
@@ -33,6 +35,16 @@ function invertColor(hex) {
   return `#${r}${g}${b}`
 }
 
+function convertToRawUrl(githubUrl) {
+  if (!githubUrl.includes('github.com')) {
+    throw new Error('Invalid GitHub URL')
+  }
+
+  return githubUrl
+    .replace('github.com', 'raw.githubusercontent.com')
+    .replace('/blob/', '/')
+}
+
 const ProjectView = ({
   id,
   title = 'Title Not Found',
@@ -46,8 +58,9 @@ const ProjectView = ({
   codeLink = '',
   color = '',
   textColor = '',
-  screenshot = [],
-  video = [],
+  screenshot = '',
+  video = '',
+  readMeLink = '',
   ...props
 }) => {
   const [darkColor, setDarkColor] = useState('#000000')
@@ -57,12 +70,42 @@ const ProjectView = ({
     ? 'View on GitHub'
     : 'View project source'
 
-  const imagesList = images.length > 0 ? images : [randomNotFoundImg(id)]
+  const image = screenshot.length > 1 ? screenshot : [randomNotFoundImg(id)]
 
   useEffect(() => {
     setDarkColor(darkenColor(color, 0.8))
     setInvertedColor(invertColor(textColor))
   }, [color])
+
+  function convertToRawUrl(githubUrl) {
+    if (!githubUrl.includes('github.com')) {
+      throw new Error('Invalid GitHub URL')
+    }
+
+    return githubUrl
+      .replace('github.com', 'raw.githubusercontent.com')
+      .replace('/blob/', '/')
+  }
+
+  const [markdown, setMarkdown] = useState('')
+
+  useEffect(() => {
+    const fetchMarkdown = async () => {
+      rawReadMeLink = convertToRawUrl(readMeLink)
+      if (rawReadMeLink) {
+        try {
+          const res = await fetch(rawReadMeLink)
+          const text = await res.text()
+          setMarkdown(text)
+        } catch (error) {
+          console.error('Error fetching markdown:', error)
+          setMarkdown('Failed to load markdown content')
+        }
+      }
+    }
+
+    fetchMarkdown()
+  }, [readMeLink])
 
   return (
     <div
@@ -134,42 +177,42 @@ const ProjectView = ({
             flexWrap: 'wrap',
             gridTemplateColumns:
               screenshot.length + video.length > 1
-                ? ['1fr', '1fr 1fr', '1fr 1fr 1fr']
+                ? ['1fr', '1fr 1fr', '1fr 1fr']
                 : '1fr',
             gap: '10px'
           }}
         >
-          {imagesList.map((image, index) => (
-            <div
-              key={index}
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <img
-                src={image}
-                alt={`Project image ${index + 1}`}
-                className={styles.image}
-              />
-            </div>
-          ))}
-          {video.map((link, index) => (
-            <div key={index} style={{ marginBottom: '20px' }}>
-              <video sx={{ width: '100%', height: 'auto' }} controls>
-                <source src={link} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          ))}
+          {/* {imagesList.map((image, index) => ( */}
+          <div
+            key={index}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <img
+              src={image}
+              alt={`Project image ${index + 1}`}
+              className={styles.image}
+            />
+          </div>
+          {/* ))} */}
+          {/* {video.map((link, index) => ( */}
+          <div key={index} style={{ marginBottom: '20px' }}>
+            <video sx={{ width: '100%', height: 'auto' }} controls>
+              <source src={video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          {/* ))} */}
         </div>
 
         <p
           className={styles.description}
           sx={{ textAlign: screenshot.length != 1 ? 'center' : 'left' }}
         >
-          {desc}
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
         </p>
       </div>
 
