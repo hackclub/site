@@ -43,6 +43,7 @@ export default async function handler(req, res) {
     id: p.id,
     title: p.fields['Name'] || '',
     desc: p.fields['Description'] || '',
+    hours: p.fields['Estimated Hours'],
     slackLink: p.fields['Slack Link'] || '',
     codeLink: p.fields['Code Link'] || '',
     slackLink: p.fields['Slack Link'] || '',

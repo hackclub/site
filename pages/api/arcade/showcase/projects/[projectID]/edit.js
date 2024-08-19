@@ -14,6 +14,7 @@ export default async function handler(req, res) {
 
   const updatedFields = {}
   updatedFields['Name'] = body.title
+  updatedFields['Estimated Hours'] = body.hours
   updatedFields['Description'] = body.desc
   updatedFields['Slack Link'] = body.slackLink
   updatedFields['Code Link'] = body.codeLink
@@ -39,6 +40,7 @@ export default async function handler(req, res) {
   const results = {
     id: project.id,
     title: project.fields['Name'] || '',
+    hours: project.fields['Estimated Hours'] || '',
     desc: project.fields['Description'] || '',
     slackLink: project.fields['Slack Link'] || '',
     codeLink: project.fields['Code Link'] || '',

@@ -176,6 +176,29 @@ const ProjectEditForm = ({ project }) => {
               }}
             />
           </Label>
+          <Label>
+            <Text>#scrapbook Slack Link</Text>
+            <Text variant="caption">
+              This is just to show you worked on this for arcade!
+            </Text>
+            <Input
+              {...useField('slackLink')}
+              placeholder="https://hackclub.slack.com/archives/C016DEDUL87"
+              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
+            />
+          </Label>
+          <Label>
+            <Text>Hours spent</Text>
+            <Text variant="caption">
+              This isn't shown on the site and won't affect your chances, but it'll help us guage how accurate arcade was. Please be honest– this is just feedback for us for future events we run!
+            </Text>
+            <Input
+              {...useField('hours')}
+              type="number"
+              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
+            />
+          </Label>
+
           <Input {...useField('authToken')} type="hidden" />
 
           <Submit
