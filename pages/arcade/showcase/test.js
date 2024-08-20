@@ -1,10 +1,10 @@
-import React from 'react'
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-const test = () => {
+const Test = () => {
+    
 
-    async function submitVote(points, projectId) {
-        const authToken = window.localStorage.getItem('arcade.authToken')
+    const submitVote = async (rank1, rank2, rank3) => {
+        const authToken = window.localStorage.getItem('arcade.authToken');
 
         try {
             const response = await fetch('/api/arcade/showcase/vote', {
@@ -12,30 +12,35 @@ const test = () => {
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': authToken,
-                    'Points': points.toString(),
-                    'Project-ID': projectId
-                }
-            });
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-    
+                },
+                body: JSON.stringify({
+                    rank1,
+                    rank2,
+                    rank3,
+                }),
+            })
+
+          
             const data = await response.json();
             return data;
         } catch (error) {
             console.error('Error submitting vote:', error);
             throw error;
         }
-    }
-    
-    useEffect(() => {
-        submitVote(5, "recnSpjM91mCKJjlo");
-    }, []);
-    
-return (
-    <div>test</div>
-  )
-}
+    };
 
-export default test
+    useEffect(() => {
+
+    const rank1 = ["recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo"];
+    const rank2 = ["recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo"];
+    const rank3 = ["recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo", "recnSpjM91mCKJjlo"];
+
+        submitVote(rank1, rank2, rank3);
+    }, []);
+
+    return (
+        <div>test</div>
+    );
+};
+
+export default Test;
