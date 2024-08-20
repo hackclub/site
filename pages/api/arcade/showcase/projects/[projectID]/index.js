@@ -42,7 +42,7 @@ export default async function handler(req, res) {
   const results = {
     id: p.id,
     title: p.fields['Name'] || '',
-    desc: p.fields['Description'] || '',
+    description: p.fields['Description'] || '',
     hours: p.fields['Estimated Hours'],
     slackLink: p.fields['Slack Link'] || '',
     codeLink: p.fields['Code Link'] || '',

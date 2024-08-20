@@ -91,6 +91,17 @@ const ProjectEditForm = ({ project }) => {
             />
           </Label>
           <Label>
+            <Text>Short description</Text>
+            <Text variant="caption">
+              This shows up on the showcase page. Keep it short and sweet!
+            </Text>
+            <Input
+              {...useField('description')}
+              placeholder="It's a party!"
+              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
+            />
+          </Label>
+          <Label>
             <Text>ReadMe Link</Text>
             <Input
               {...useField('readMeLink')}

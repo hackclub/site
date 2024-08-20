@@ -38,7 +38,7 @@ function invertColor(hex) {
 const ProjectView = ({
   id,
   title = 'Title Not Found',
-  desc = 'Description Not Found',
+  description = 'Description Not Found',
   slack = 'Slack Not Found',
   scrapbook = '',
   playLink,
@@ -112,6 +112,7 @@ const ProjectView = ({
         }}
       >
         <h1 className="slackey">{title}</h1>
+        <h2>{description}</h2>
         <h3>By {user}</h3>
 
         <div
