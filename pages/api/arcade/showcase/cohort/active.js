@@ -10,7 +10,7 @@ async function getCohortFromAuth(authToken) {
   const cohorts = await airtable.read({
     filterByFormula: `AND(
       FIND("${safeAuthToken}", {Allowed Voter Keys}) > 0,
-      {Is Active} = true
+      {Is Active} = TRUE()
     )`,
     maxRecords: 1
   })
