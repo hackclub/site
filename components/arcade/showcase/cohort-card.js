@@ -77,10 +77,10 @@ const CohortCard = ({
               gap: '5px'
             }}
           >
-            <div
-              as="a"
+            <a
               href={editLink}
               sx={{
+                display: block,
                 color: 'white',
                 bg: '#09AFB4',
                 borderRadius: '10px',
@@ -93,7 +93,7 @@ const CohortCard = ({
               }}
             >
               <Icon glyph="edit" />{' '}
-            </div>
+            </a>
             <div
               onClick={e => {
                 modalRef.current?.showModal()
