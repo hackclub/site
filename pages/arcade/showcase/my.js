@@ -1,17 +1,10 @@
 import { useEffect, useState, useRef } from 'react'
 import CohortCard from '../../../components/arcade/showcase/cohort-card'
-import ProjectView from '../../../components/arcade/showcase/project-view'
-import Nav from '../../../components/Nav'
-import Footer from '../../../components/arcade/Footer'
-import BGImg from '../../../components/background-image'
-import background from '../../../public/arcade/homeBG.svg'
 import { Button, Heading, Text, Box, Close } from 'theme-ui'
 import SlideDown from '../../../components/slide-down'
 import styles from '../../../components/arcade/showcase/my.module.css'
 import Countdown from 'react-countdown'
-import { StyleSheetContext } from 'styled-components'
 import Icon from '@hackclub/icons'
-import Flag from '../../../components/flag'
 import ProjectAddView from '../../../components/arcade/showcase/project-add'
 /** @jsxImportSource theme-ui */
 
@@ -149,7 +142,7 @@ const My = () => {
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
 
-  const launchDate = new Date(2024, 7, 19, 0, 0, 0, 0)
+  const launchDate = new Date(2025, 7, 25, 8, 0, 0, 0)
 
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -180,8 +173,9 @@ const My = () => {
       // Render a countdown
       return (
         <span sx={{ color: '#FF5C00' }}>
-          First voting round in {hours > 0 ? `${hours} hours` : ''}{' '}
-          {minutes > 0 ? `${minutes} minutes` : ''} {seconds} seconds
+          First voting round in a week
+          {/* {hours > 0 ? `${hours} hours` : ''}{' '}
+          {minutes > 0 ? `${minutes} minutes` : ''} {seconds} seconds */}
         </span>
       )
     }

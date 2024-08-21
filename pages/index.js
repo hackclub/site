@@ -1275,9 +1275,14 @@ export async function getStaticProps() {
   }
   hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
-  let events = await fetch(
-    'https://events.hackclub.com/api/events/upcoming/'
-  ).then(res => res.json())
+  let events = []
+  try {
+    await fetch(
+      'https://events.hackclub.com/api/events/upcoming/'
+    ).then(res => res.json())
+  } catch (error) {
+    console.error('Error fetching events:', error)
+  }
 
   return {
     props: {

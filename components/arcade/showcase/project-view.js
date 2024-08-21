@@ -4,6 +4,7 @@ import randomNotFoundImg from './random-not-found-img'
 import { Button, Text } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import ReadmeRenderer from './readme-renderer'
+import YoutubeRenderer from './youtube-renderer'
 /** @jsxImportSource theme-ui */
 
 function darkenColor(hex, factor) {
@@ -37,7 +38,7 @@ function invertColor(hex) {
 const ProjectView = ({
   id,
   title = 'Title Not Found',
-  desc = 'Description Not Found',
+  description = 'Description Not Found',
   slack = 'Slack Not Found',
   scrapbook = '',
   playLink,
@@ -50,6 +51,7 @@ const ProjectView = ({
   screenshot = '',
   video = '',
   readMeLink = '',
+  preview,
   ...props
 }) => {
   const [darkColor, setDarkColor] = useState('#000000')
@@ -66,25 +68,24 @@ const ProjectView = ({
     setInvertedColor(invertColor(textColor))
   }, [color])
 
-  function convertToRawUrl(githubUrl) {
-    if (!githubUrl.includes('github.com')) {
-      // throw new Error('Invalid GitHub URL')
-      return ''
-    }
+  // function convertToRawUrl(githubUrl) {
+  //   if (!githubUrl.includes('github.com')) {
+  //     // throw new Error('Invalid GitHub URL')
+  //     return ''
+  //   }
 
-    return githubUrl
-      .replace('github.com', 'raw.githubusercontent.com')
-      .replace('/blob/', '/')
-  }
+  //   return githubUrl
+  //     .replace('github.com', 'raw.githubusercontent.com')
+  //     .replace('/blob/', '/')
+  // }
 
   const [markdown, setMarkdown] = useState('')
 
   useEffect(() => {
     const fetchMarkdown = async () => {
-      const rawReadMeLink = convertToRawUrl(readMeLink)
-      if (rawReadMeLink) {
+      if (readMeLink) {
         try {
-          const res = await fetch(rawReadMeLink)
+          const res = await fetch(readMeLink)
           const text = await res.text()
           setMarkdown(text)
         } catch (error) {
@@ -101,7 +102,13 @@ const ProjectView = ({
     <div
       {...props}
       className="gaegu"
-      sx={{ position: 'relative', backgroundColor: color, color: textColor }}
+      sx={{
+        position: 'relative',
+        backgroundColor: color,
+        color: textColor,
+        minHeight: '100vh',
+        width: '100%'
+      }}
     >
       <div
         sx={{
@@ -112,33 +119,75 @@ const ProjectView = ({
         }}
       >
         <h1 className="slackey">{title}</h1>
+        <h2>{description}</h2>
         <h3>By {user}</h3>
-        <Text
-          as="a"
-          href="/arcade/showcase/my"
-          sx={{
-            border: `2px dashed ${textColor}`,
-            borderRadius: '5px',
-            position: ['relative', 'relative', 'absolute'],
-            display: 'flex',
-            left: '10px',
-            top: '10px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            px: 2,
-            py: 1,
-            transitionDuration: '0.4s',
-            cursor: 'pointer',
-            textDecoration: 'none',
-            mb: 3,
-            '&:hover': {
-              background: textColor || '#333',
-              color: invertedColor || '#F4E7C7'
-            }
-          }}
+
+        <div
+          className={styles.buttonGroup}
+          sx={{ width: '90%', margin: 'auto', pt: 2, pb: 2 }}
         >
-          <Icon glyph="home" /> View all my ships
-        </Text>
+          {playLink && (
+            <Button
+              as="a"
+              sx={{
+                backgroundColor: '#FF5C00',
+                color: '#ebebeb',
+                textSizeAdjust: '16px',
+                borderRadius: '10px'
+              }}
+              href={playLink}
+              target="_blank"
+              rel="noopener"
+            >
+              Play Now
+            </Button>
+          )}
+
+          <Button
+            as="a"
+            sx={{
+              backgroundColor: '#09AFB4',
+              color: '#ebebeb',
+              textSizeAdjust: '16px',
+              borderRadius: '10px'
+            }}
+            href={codeLink}
+            target="_blank"
+            rel="noopener"
+          >
+            {codeHost}
+          </Button>
+        </div>
+        {preview ? (
+          <></>
+        ) : (
+          <Text
+            as="a"
+            href="/arcade/showcase/my"
+            sx={{
+              border: `2px dashed ${textColor}`,
+              borderRadius: '5px',
+              position: ['relative', 'relative', 'absolute'],
+              display: 'flex',
+              left: '10px',
+              top: '10px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              px: 2,
+              py: 1,
+              transitionDuration: '0.4s',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              mb: 3,
+              '&:hover': {
+                background: textColor || '#333',
+                color: invertedColor || '#F4E7C7'
+              }
+            }}
+          >
+            <Icon glyph="home" /> View all my ships
+          </Text>
+        )}
       </div>
 
       <div
@@ -146,7 +195,7 @@ const ProjectView = ({
           width: '90%',
           margin: 'auto',
           my: 3,
-          maxWidth: '800px',
+          maxWidth: '800px'
         }}
       >
         <div
@@ -160,7 +209,7 @@ const ProjectView = ({
             gap: '10px'
           }}
         >
-          { image != '' && (
+          {image != '' && (
             <div
               sx={{
                 display: 'flex',
@@ -168,14 +217,11 @@ const ProjectView = ({
                 justifyContent: 'center'
               }}
             >
-              <img
-                src={image}
-                alt="Project Image"
-                className={styles.image}
-              />
+              <img src={image} alt="Project Image" className={styles.image} />
             </div>
           )}
-          { video != '' && (
+          <YoutubeRenderer youtubeLink={video} />
+          {/* { video != '' && (
             <div
               sx={{
                 display: 'flex',
@@ -188,7 +234,7 @@ const ProjectView = ({
                 Your browser does not support the video tag.
               </video>
             </div>
-          )}
+          )} */}
         </div>
 
         <p
@@ -197,43 +243,6 @@ const ProjectView = ({
         >
           <ReadmeRenderer markdown={markdown} />
         </p>
-      </div>
-
-      <div
-        className={styles.buttonGroup}
-        sx={{ width: '90%', margin: 'auto', pt: 1, pb: 5 }}
-      >
-        {playLink && (
-          <Button
-            as="a"
-            sx={{
-              backgroundColor: '#FF5C00',
-              color: '#ebebeb',
-              textSizeAdjust: '16px',
-              borderRadius: '10px'
-            }}
-            href={playLink}
-            target="_blank"
-            rel="noopener"
-          >
-            Play Now
-          </Button>
-        )}
-
-        <Button
-          as="a"
-          sx={{
-            backgroundColor: '#09AFB4',
-            color: '#ebebeb',
-            textSizeAdjust: '16px',
-            borderRadius: '10px'
-          }}
-          href={codeLink}
-          target="_blank"
-          rel="noopener"
-        >
-          {codeHost}
-        </Button>
       </div>
     </div>
   )

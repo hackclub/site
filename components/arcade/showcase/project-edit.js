@@ -1,26 +1,14 @@
-import { Input, Label, Text, Flex, Box, Grid } from 'theme-ui'
+import { Input, Label, Text, Box, Grid } from 'theme-ui'
 import ProjectView from './project-view'
 import useForm from '../../../lib/use-form'
 import Submit from '../../submit'
-import { useState } from 'react'
 import Icon from '@hackclub/icons'
-// import FileInput from '../../../pages/api/arcade/showcase/projects/[projectID]/file-input'
 /** @jsxImportSource theme-ui */
 
 const ProjectEditForm = ({ project }) => {
-  // const [previewProject, setPreviewProject] = useState(project)
-  const [screenshot, setScreenshot] = useState(project.screenshot)
-  const [newScreenshot, setNewScreenshot] = useState('')
-
-  const [video, setVideo] = useState(project.video)
-  const [newVideo, setNewVideo] = useState('')
-
-  function publishedChanges(e) {
-    console.log('published changes', e)
-  }
   const { status, formProps, useField, data } = useForm(
     `/api/arcade/showcase/projects/${project.id}/edit/`,
-    publishedChanges,
+    null,
     {
       method: 'PATCH',
       initData: { ...project, recordId: project.id },
@@ -28,38 +16,6 @@ const ProjectEditForm = ({ project }) => {
       clearOnSubmit: null
     }
   )
-
-  const updateScreenshot = newMedia => {
-    if (screenshot.some(item => item === newMedia)) {
-      alert('This media already exists and cannot be added.')
-      return
-    }
-    setScreenshot(screenshot => [...screenshot, newMedia])
-  }
-
-  const deleteScreenshot = deletedMedia => {
-    setScreenshot(screenshot.filter(item => !item.includes(deletedMedia)))
-  }
-
-  const updateNewScreenshot = e => {
-    setNewScreenshot(e.target.value)
-  }
-
-  const updateVideo = newMedia => {
-    if (video.some(item => item === newMedia)) {
-      alert('This media already exists and cannot be added.')
-      return
-    }
-    setVideo(video => [...video, newMedia])
-  }
-
-  const deleteVideo = deletedMedia => {
-    setVideo(video.filter(item => !item.includes(deletedMedia)))
-  }
-
-  const updateNewVideo = e => {
-    setNewVideo(e.target.value)
-  }
 
   const previewProject = {
     ...data
@@ -135,6 +91,17 @@ const ProjectEditForm = ({ project }) => {
             />
           </Label>
           <Label>
+            <Text>Short description</Text>
+            <Text variant="caption">
+              This shows up on the showcase page. Keep it short and sweet!
+            </Text>
+            <Input
+              {...useField('description')}
+              placeholder="It's a party!"
+              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
+            />
+          </Label>
+          <Label>
             <Text>ReadMe Link</Text>
             <Input
               {...useField('readMeLink')}
@@ -160,11 +127,11 @@ const ProjectEditForm = ({ project }) => {
           </Label>
 
           <Label>
-            <Text>Screenshot link</Text>
+            <Text>Screenshot link (required)</Text>
             <Text variant="caption">
-              Demo your work! No hosted link? Try{' '}
-              <a href="https://hackclub.slack.com/archives/C016DEDUL87">#cdn</a>{' '}
-              or <a href="https://tmpfiles.org/?upload">tmpfiles</a>
+              Demo your work! Post an image in{' '}
+              <a href="https://hackclub.slack.com/archives/C016DEDUL87" target="_blank">#cdn</a>{' '}
+              on Slack and paste the link here.
             </Text>
             <Input
               {...useField('screenshot')}
@@ -173,11 +140,9 @@ const ProjectEditForm = ({ project }) => {
             />
           </Label>
           <Label>
-            <Text>Video link</Text>
+            <Text>Video demo (optional)</Text>
             <Text variant="caption">
-              Add a link to your demo video! Need a host? Try{' '}
-              <a href="https://hackclub.slack.com/archives/C016DEDUL87">#cdn</a>{' '}
-              or <a href="https://tmpfiles.org/?upload">tmpfiles</a>
+              Short video demoing your project. YouTube link. Suggested for hardware projects.
             </Text>
             <Input
               {...useField('video')}
@@ -191,8 +156,6 @@ const ProjectEditForm = ({ project }) => {
             <Input
               {...useField('color')}
               type="color"
-              // value={color}
-              // onChange={handleColorChange}
               sx={{
                 width: '150px',
                 height: '50px',
@@ -224,6 +187,29 @@ const ProjectEditForm = ({ project }) => {
               }}
             />
           </Label>
+          <Label>
+            <Text>#scrapbook Slack Link</Text>
+            <Text variant="caption">
+              This is just to show you worked on this for arcade!
+            </Text>
+            <Input
+              {...useField('slackLink')}
+              placeholder="https://hackclub.slack.com/archives/C016DEDUL87"
+              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
+            />
+          </Label>
+          <Label>
+            <Text>Hours (estimated)</Text>
+            <Text variant="caption">
+              This isn't shown on the site and won't affect your chances, but it'll help us guage how accurate arcade was. Please be honest– this is just feedback for us for future events we run!
+            </Text>
+            <Input
+              {...useField('hours')}
+              type="number"
+              sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
+            />
+          </Label>
+
           <Input {...useField('authToken')} type="hidden" />
 
           <Submit
@@ -240,7 +226,6 @@ const ProjectEditForm = ({ project }) => {
         </form>
         <Box
           sx={{
-            // backgroundColor: color,
             border: '2px dashed #09AFB4',
             borderRadius: '5px'
           }}

@@ -54,7 +54,6 @@ const CohortCard = ({
     }
 
   const firstImage = imageLink || randomNotFoundImg(id)
-  console.log({imageLink})
 
   function red() {
     window.location.href = '/arcade/showcase/project/' + id + '/edit'
@@ -125,7 +124,7 @@ const CohortCard = ({
               }
             }}
           >
-            <Icon glyph="minus" />{' '}
+            <Icon glyph="delete" />{' '}
           </div>
         </div>
       )}
@@ -170,7 +169,7 @@ const CohortCard = ({
           }}
           onClick={e => {
             setIsVisible(false)
-            document.getElementById('add-project').close()
+            document.getElementById('delete-project').close()
             handleDelete()
           }}
         >
@@ -186,7 +185,7 @@ const CohortCard = ({
             color: '#09AFB4'
           }}
           onClick={e => {
-            document.getElementById('add-project').close()
+            document.getElementById('delete-project').close()
           }}
         />
       </dialog>

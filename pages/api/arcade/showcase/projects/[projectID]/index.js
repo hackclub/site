@@ -42,7 +42,8 @@ export default async function handler(req, res) {
   const results = {
     id: p.id,
     title: p.fields['Name'] || '',
-    desc: p.fields['Description'] || '',
+    description: p.fields['Description'] || '',
+    hours: p.fields['Estimated Hours'],
     slackLink: p.fields['Slack Link'] || '',
     codeLink: p.fields['Code Link'] || '',
     slackLink: p.fields['Slack Link'] || '',
@@ -53,7 +54,7 @@ export default async function handler(req, res) {
     color: p.fields['color'] || '',
     textColor: p.fields['textColor'] || '',
     screenshot: p.fields['ScreenshotLink'] || '',
-    video: p.fields['VideoLink'] || '',
+    video: p.fields['Video']?.[0]?.url || p.fields['VideoLink'] || '',
     readMeLink: p.fields['ReadMeLink'] || ''
   }
   return res.status(200).json({ project: results })

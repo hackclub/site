@@ -14,11 +14,13 @@ export default async function handler(req, res) {
 
   const updatedFields = {}
   updatedFields['Name'] = body.title
-  updatedFields['Description'] = body.desc
+  updatedFields['Estimated Hours'] = body.hours
+  updatedFields['Description'] = body.description
   updatedFields['Slack Link'] = body.slackLink
   updatedFields['Code Link'] = body.codeLink
   updatedFields['Play Link'] = body.playLink
   updatedFields['Screenshot'] = [body.screenshot].map(i => ({ url: i }))
+  // updatedFields['Video'] = [body.video].map(i => ({ url: i }))
   updatedFields['color'] = body.color
   updatedFields['textColor'] = body.textColor
   updatedFields['ScreenshotLink'] = body.screenshot
@@ -38,7 +40,8 @@ export default async function handler(req, res) {
   const results = {
     id: project.id,
     title: project.fields['Name'] || '',
-    desc: project.fields['Description'] || '',
+    hours: project.fields['Estimated Hours'] || '',
+    description: project.fields['Description'] || '',
     slackLink: project.fields['Slack Link'] || '',
     codeLink: project.fields['Code Link'] || '',
     slackLink: project.fields['Slack Link'] || '',
