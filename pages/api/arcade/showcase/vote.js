@@ -19,8 +19,9 @@ export default async function handler(req, res) {
 
     try {
         
-        const { authorization} = req.headers;
-        const { rank1, rank2, rank3 } = req.body;
+        const authorization = req.headers['authorization']?.replace('Bearer ', '').replace(/[^a-zA-Z0-9-]/g, '');
+
+        const { Overall, Technical, Creative } = req.body;
 
         const pointsDistribution = [5, 4, 3, 2, 1];
 
@@ -36,33 +37,33 @@ export default async function handler(req, res) {
 
         let jobs = []
 
-        for (let i = 0; i < rank1.length; i++) {
-            const project = rank1[i];
+        for (let i = 0; i < Overall.length; i++) {
+            const project = Overall[i];
             const points = pointsDistribution[i];
     
-            jobs.push(addVote(project, points, userID))
+            jobs.push(addVote(project, points, userID, "Overall"))
         }
 
         await Promise.all(jobs)
 
         jobs = []
 
-        for (let i = 0; i < rank2.length; i++) {
-            const project = rank2[i];
+        for (let i = 0; i < Technical.length; i++) {
+            const project = Technical[i];
             const points = pointsDistribution[i];
     
-            await addVote(project, points, userID);
+            await addVote(project, points, userID, "Technical");
         }
 
         await Promise.all(jobs)
 
         jobs = []
 
-        for (let i = 0; i < rank3.length; i++) {
-            const project = rank3[i];
+        for (let i = 0; i < Creative.length; i++) {
+            const project = Creative[i];
             const points = pointsDistribution[i];
     
-            await addVote(project, points, userID);
+            await addVote(project, points, userID, "Creative");
         }
 
         await Promise.all(jobs)
@@ -74,7 +75,7 @@ export default async function handler(req, res) {
     }
 }
 
-const addVote = async (projectId, points, userID) => {
+const addVote = async (projectId, points, userID, type) => {
     if (!userID || !points || !projectId) {      
         return res.status(400).json({ error: 'Missing required headers' });
     }
@@ -82,7 +83,8 @@ const addVote = async (projectId, points, userID) => {
     const vote = await votesTable.create({
             Points: parseInt(points, 10),
             Voter: [userID],
-            Showcase: [projectId]
+            Showcase: [projectId],
+            Type: type
     });
 
 }

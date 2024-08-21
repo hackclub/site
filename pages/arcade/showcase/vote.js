@@ -471,7 +471,7 @@ const My = () => {
     setEndPage(true)
   }
 
- const submitVote = async (rank1, rank2, rank3) => {
+ const submitVote = async (overall, technical, creative) => {
         const authToken = window.localStorage.getItem('arcade.authToken');
 
         try {
@@ -479,12 +479,12 @@ const My = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': authToken,
+                    'Authorization': "Bearer "+ authToken,
                 },
                 body: JSON.stringify({
-                    rank1,
-                    rank2,
-                    rank3,
+                  overall,
+                  technical,
+                  creative,
                 }),
             })
 
@@ -505,7 +505,7 @@ const My = () => {
     console.log(technical)
     console.log(overall)
 
-    submitVote(creative, technical, overall)
+    submitVote(overall, technical, creative)
   }, [endPage])
 
   return endPage == true ? (
