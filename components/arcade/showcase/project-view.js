@@ -51,6 +51,7 @@ const ProjectView = ({
   screenshot = '',
   video = '',
   readMeLink = '',
+  preview,
   ...props
 }) => {
   const [darkColor, setDarkColor] = useState('#000000')
@@ -101,7 +102,13 @@ const ProjectView = ({
     <div
       {...props}
       className="gaegu"
-      sx={{ position: 'relative', backgroundColor: color, color: textColor, minHeight: '100vh' }}
+      sx={{
+        position: 'relative',
+        backgroundColor: color,
+        color: textColor,
+        minHeight: '100vh',
+        width: '100%'
+      }}
     >
       <div
         sx={{
@@ -151,32 +158,36 @@ const ProjectView = ({
             {codeHost}
           </Button>
         </div>
-        <Text
-          as="a"
-          href="/arcade/showcase/my"
-          sx={{
-            border: `2px dashed ${textColor}`,
-            borderRadius: '5px',
-            position: ['relative', 'relative', 'absolute'],
-            display: 'flex',
-            left: '10px',
-            top: '10px',
-            justifyContent: 'center',
-            alignItems: 'center',
-            px: 2,
-            py: 1,
-            transitionDuration: '0.4s',
-            cursor: 'pointer',
-            textDecoration: 'none',
-            mb: 3,
-            '&:hover': {
-              background: textColor || '#333',
-              color: invertedColor || '#F4E7C7'
-            }
-          }}
-        >
-          <Icon glyph="home" /> View all my ships
-        </Text>
+        {preview ? (
+          <></>
+        ) : (
+          <Text
+            as="a"
+            href="/arcade/showcase/my"
+            sx={{
+              border: `2px dashed ${textColor}`,
+              borderRadius: '5px',
+              position: ['relative', 'relative', 'absolute'],
+              display: 'flex',
+              left: '10px',
+              top: '10px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              px: 2,
+              py: 1,
+              transitionDuration: '0.4s',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              mb: 3,
+              '&:hover': {
+                background: textColor || '#333',
+                color: invertedColor || '#F4E7C7'
+              }
+            }}
+          >
+            <Icon glyph="home" /> View all my ships
+          </Text>
+        )}
       </div>
 
       <div
@@ -184,7 +195,7 @@ const ProjectView = ({
           width: '90%',
           margin: 'auto',
           my: 3,
-          maxWidth: '800px',
+          maxWidth: '800px'
         }}
       >
         <div
@@ -198,7 +209,7 @@ const ProjectView = ({
             gap: '10px'
           }}
         >
-          { image != '' && (
+          {image != '' && (
             <div
               sx={{
                 display: 'flex',
@@ -206,11 +217,7 @@ const ProjectView = ({
                 justifyContent: 'center'
               }}
             >
-              <img
-                src={image}
-                alt="Project Image"
-                className={styles.image}
-              />
+              <img src={image} alt="Project Image" className={styles.image} />
             </div>
           )}
           <YoutubeRenderer youtubeLink={video} />
@@ -237,7 +244,6 @@ const ProjectView = ({
           <ReadmeRenderer markdown={markdown} />
         </p>
       </div>
-
     </div>
   )
 }
