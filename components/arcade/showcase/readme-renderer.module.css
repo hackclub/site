@@ -3,6 +3,7 @@
 }
 .reactMarkDown img {
   max-width: 100%;
+  padding: 0.5rem
 }
 
 /*
@@ -393,4 +394,10 @@ SOFTWARE.
 .reactMarkDown code, .reactMarkDown pre tt {
 	background-color: transparent;
 	border: none;
+}
+
+code:not(pre code) {
+	color: #e8912d;
+	font-size: 0.95rem;
+	border: 1px solid #CCCCCC !important;
 }
