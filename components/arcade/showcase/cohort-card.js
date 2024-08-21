@@ -80,7 +80,7 @@ const CohortCard = ({
             <a
               href={editLink}
               sx={{
-                display: block,
+                display: 'block',
                 color: 'white',
                 bg: '#09AFB4',
                 borderRadius: '10px',
