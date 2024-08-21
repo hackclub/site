@@ -9,3 +9,5 @@ public/sitemap.xml
 yarn-error.log
 bun.lockb
 .idea
+.yarn
+.yarnrc.yml
