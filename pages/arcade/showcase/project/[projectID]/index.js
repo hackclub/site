@@ -85,7 +85,7 @@ const ProjectShowPage = ({ projectID }) => {
               key={project.id}
               id={project.id}
               title={project.title}
-              desc={project.desc}
+              desc={project.description}
               slack={project.slackLink}
               codeLink={project.codeLink}
               playLink={project.playLink}
