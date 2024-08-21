@@ -239,24 +239,26 @@ const My = () => {
     setStatus('loading')
 
     try {
-      const response = await fetch(
-        `/api/arcade/showcase/projects/${openProjectId}`,
-        {
-          method: 'GET',
-          headers: {
-            Authorization: `Bearer ${token}`
+      if (openProjectId){
+        const response = await fetch(
+          `/api/arcade/showcase/projects/${openProjectId}`,
+          {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
           }
+        )
+  
+        const data = await response.json()
+  
+        if (data.error) {
+          setStatus('error')
+          setError(data.error)
+        } else {
+          setOpenProject(data.project)
+          setStatus('success')
         }
-      )
-
-      const data = await response.json()
-
-      if (data.error) {
-        setStatus('error')
-        setError(data.error)
-      } else {
-        setOpenProject(data.project)
-        setStatus('success')
       }
     } catch (e) {
       console.error(e)
@@ -274,7 +276,6 @@ const My = () => {
   }, [])
 
   useEffect(() => {
-    console.log(Object.keys(votes).length)
     if (Object.keys(votes).length == 5) {
       setIsButtonActive(true)
     } else {
@@ -499,13 +500,12 @@ const My = () => {
         }
     };
 
-  useEffect(() => {
-    console.log('the votes')
-    console.log(creative)
-    console.log(technical)
-    console.log(overall)
+  const isFirstRender = useRef(true);
 
-    submitVote(overall, technical, creative)
+  useEffect(() => {
+    if (overall.lengh > 0 && technical.length > 0 && creative.length > 0) { //skips first render
+      submitVote(overall, technical, creative)
+    }
   }, [endPage])
 
   return endPage == true ? (

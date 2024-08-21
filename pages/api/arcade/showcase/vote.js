@@ -85,6 +85,6 @@ const addVote = async (projectId, points, userID, type) => {
             Voter: [userID],
             Showcase: [projectId],
             Type: type
-    });
+        });
 
 }
