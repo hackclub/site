@@ -8,7 +8,7 @@ import Icon from '@hackclub/icons'
 import ProjectView from '../../../components/arcade/showcase/project-view'
 import SmallView from '../../../components/arcade/showcase/small-view-card'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import { over } from 'lodash'
+import { over, set } from 'lodash'
 
 /** @jsxImportSource theme-ui */
 
@@ -471,32 +471,33 @@ const My = () => {
     setEndPage(true)
   }
 
-  const submitVote = async (creative, technical, overall) => {
-    const authToken = window.localStorage.getItem('arcade.authToken')
+ const submitVote = async (rank1, rank2, rank3) => {
+        const authToken = window.localStorage.getItem('arcade.authToken');
 
-    try {
-      const response = await fetch('/api/arcade/showcase/vote', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: authToken
-        },
-        body: JSON.stringify({
-          creative,
-          technical,
-          overall
-        })
-      })
+        try {
+            const response = await fetch('/api/arcade/showcase/vote', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': authToken,
+                },
+                body: JSON.stringify({
+                    rank1,
+                    rank2,
+                    rank3,
+                }),
+            })
 
-      const data = await response.json()
-      setSubmitStatus('success')
-      return data
-    } catch (error) {
-      console.error('Error submitting vote:', error)
-      setSubmitStatus('error')
-      throw error
-    }
-  }
+          
+            const data = await response.json();
+            setSubmitStatus('success')
+            return data;
+        } catch (error) {
+            console.error('Error submitting vote:', error);
+            setSubmitStatus('error')
+            throw error;
+        }
+    };
 
   useEffect(() => {
     console.log('the votes')

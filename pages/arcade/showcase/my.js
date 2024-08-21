@@ -201,6 +201,7 @@ const My = () => {
 
   const loadProjects = async () => {
     const token = window.localStorage.getItem('arcade.authToken')
+    console.log(token)
     const response = await fetch('/api/arcade/showcase/projects/my', {
       method: 'GET',
       headers: {
