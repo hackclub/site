@@ -395,7 +395,7 @@ SOFTWARE.
 	border: none;
 }
 
-code:not(pre code) {
+.reactMarkDown code:not(pre code) {
 	color: #e8912d;
 	font-size: 0.95rem;
 	border: 1px solid #CCCCCC !important;
