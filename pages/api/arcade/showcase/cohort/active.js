@@ -32,8 +32,10 @@ async function getShowcases(cohort) {
   ]
 
   const showcases = await airtable.read({
-    filterByFormula: `OR(${showcaseFormula.join(', ')})`
+    filterByFormula: `OR(${showcaseFormula.join(', ')})`,
+    fields: ['Name', 'Code Link', 'Play Link', 'Description', 'color', 'textColor', 'ScreenshotLink', 'ReadMeLink', 'View link'],
   })
+
   return showcases
 }
 
