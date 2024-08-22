@@ -101,7 +101,12 @@ const ProjectView = ({
     <div
       {...props}
       className="gaegu"
-      sx={{ position: 'relative', backgroundColor: color, color: textColor, minHeight: '100vh' }}
+      sx={{
+        position: 'relative',
+        backgroundColor: color,
+        color: textColor,
+        minHeight: '100vh'
+      }}
     >
       <div
         sx={{
@@ -172,6 +177,10 @@ const ProjectView = ({
             '&:hover': {
               background: textColor || '#333',
               color: invertedColor || '#F4E7C7'
+            },
+            '@media screen and (max-width: 767px)': {
+              width: '50%',
+              left: 'calc(25%)'
             }
           }}
         >
@@ -184,7 +193,7 @@ const ProjectView = ({
           width: '90%',
           margin: 'auto',
           my: 3,
-          maxWidth: '800px',
+          maxWidth: '800px'
         }}
       >
         <div
@@ -198,7 +207,7 @@ const ProjectView = ({
             gap: '10px'
           }}
         >
-          { image != '' && (
+          {image != '' && (
             <div
               sx={{
                 display: 'flex',
@@ -206,11 +215,7 @@ const ProjectView = ({
                 justifyContent: 'center'
               }}
             >
-              <img
-                src={image}
-                alt="Project Image"
-                className={styles.image}
-              />
+              <img src={image} alt="Project Image" className={styles.image} />
             </div>
           )}
           <YoutubeRenderer youtubeLink={video} />
@@ -237,7 +242,6 @@ const ProjectView = ({
           <ReadmeRenderer markdown={markdown} />
         </p>
       </div>
-
     </div>
   )
 }
