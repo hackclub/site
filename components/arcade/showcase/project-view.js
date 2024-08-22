@@ -119,8 +119,8 @@ const ProjectView = ({
         }}
       >
         <h1 className="slackey">{title}</h1>
-        <h2>{description}</h2>
-        <h3>By {user}</h3>
+        <h2>{description != 'Description Not Found' ? description : <></>}</h2>
+        <h3>{user != 'User Not Found' ? <>By {user}</> : <></>}</h3>
 
         <div
           className={styles.buttonGroup}
