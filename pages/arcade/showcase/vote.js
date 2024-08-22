@@ -210,7 +210,7 @@ const Vote = () => {
   /* get projects */
   const [originalProjects, setOriginalProjects] = useState([])
   const [projects, setProjects] = useState([])
-  const projectCount = Object.keys(originalProjects).length
+  const projectCount = originalProjects.length
 
   /* for showing individual projects */
   const [openProjectId, setOpenProjectId] = useState('')
