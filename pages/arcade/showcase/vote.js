@@ -105,111 +105,112 @@ const useMousePosition = () => {
 
 const Vote = () => {
   /* test data */
-  let originalProjects = {
-    cohort: {
-      id: 'rectAjJ2Lv4dDhUGR'
-    },
-    showcases: [
-      {
-        id: 'rec4cl4TSvfwwnU6H',
-        createdTime: '2024-08-14T13:47:49.000Z',
-        fields: {
-          Name: 'Blast-off',
-          'Code Link': 'https://github.com/Ranger-NF/BlastOff',
-          'Play Link': 'https://ranger-nf.itch.io/blastoff',
-          Description: 'This is a description',
-          color: '#14f0cb',
-          textColor: '#ffffff',
-          ScreenshotLink:
-            'https://cloud-c6ul4axwx-hack-club-bot.vercel.app/0instagram_profile_downloader.jpg',
-          ReadMeLink:
-            'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
-          'View link':
-            'https://hackclub.com/arcade/showcase/project/rec4cl4TSvfwwnU6H'
-        }
-      },
-      {
-        id: 'recLyu8vD4mmUqYrA',
-        createdTime: '2024-08-19T17:12:16.000Z',
-        fields: {
-          Name: 'Turtle T1 (A rabbit R1 spinoff)',
-          'Code Link': 'https://github.com/briyandyju09/Turtle-T1',
-          Description: 'A web based spin off to the not so liked rabbit R1',
-          color: '#FAEFD6',
-          ScreenshotLink:
-            'https://cloud-k7p388c60-hack-club-bot.vercel.app/0image-19.png',
-          ReadMeLink:
-            'https://raw.githubusercontent.com/briyandyju09/Turtle-T1/main/README.md',
-          'View link':
-            'https://hackclub.com/arcade/showcase/project/recLyu8vD4mmUqYrA'
-        }
-      },
-      {
-        id: 'recYZd9J9MS4fDuJC',
-        createdTime: '2024-08-16T22:28:10.000Z',
-        fields: {
-          Name: 'peace-and-tranquility',
-          'Code Link': 'https://github.com/maxwofford/peace-and-tranquility',
-          'Play Link': 'https://dinosaurbbq.org/',
-          Description: 'No one is around to help',
-          color: '#293438',
-          textColor: '#ffffff',
-          ScreenshotLink:
-            'https://cloud-c6ul4axwx-hack-club-bot.vercel.app/0instagram_profile_downloader.jpg',
-          ReadMeLink:
-            'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
-          'View link':
-            'https://hackclub.com/arcade/showcase/project/recYZd9J9MS4fDuJC'
-        }
-      },
-      {
-        id: 'reclIN8evh60EH90v',
-        createdTime: '2024-08-17T05:57:05.000Z',
-        fields: {
-          Name: 'site2eeeEEE534',
-          'Code Link': 'https://github.com/hackclub/site',
-          'Play Link': 'https://hackclub.com',
-          Description:
-            '🌈 The new, new Hack Club website (uses Next.js & Theme UI).',
-          color: '#68d0f8',
-          textColor: '#fafafa',
-          ScreenshotLink:
-            'https://cloud-c6ul4axwx-hack-club-bot.vercel.app/0instagram_profile_downloader.jpg',
-          ReadMeLink:
-            'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
-          'View link':
-            'https://hackclub.com/arcade/showcase/project/reclIN8evh60EH90v'
-        }
-      },
-      {
-        id: 'reclIN8evh60EH2220v',
-        createdTime: '2024-08-17T05:57:05.000Z',
-        fields: {
-          Name: 'site2eeeEEE53344',
-          'Code Link': 'https://github.com/hackclub/site',
-          'Play Link': 'https://hackclub.com',
-          Description:
-            '🌈 The new, new Hack Club website (uses Next.js & Theme UI).',
-          color: '#68d0f8',
-          textColor: '#fafafa',
-          ScreenshotLink:
-            'https://cloud-c6ul4axwx-hack-club-bot.vercel.app/0instagram_profile_downloader.jpg',
-          ReadMeLink:
-            'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
-          'View link':
-            'https://hackclub.com/arcade/showcase/project/reclIN8evh60EH90v'
-        }
-      }
-    ]
-  }
-  originalProjects = originalProjects.showcases
+  // let originalProjects = {
+  //   cohort: {
+  //     id: 'rectAjJ2Lv4dDhUGR'
+  //   },
+  //   showcases: [
+  //     {
+  //       id: 'rec4cl4TSvfwwnU6H',
+  //       createdTime: '2024-08-14T13:47:49.000Z',
+  //       fields: {
+  //         Name: 'Blast-off',
+  //         'Code Link': 'https://github.com/Ranger-NF/BlastOff',
+  //         'Play Link': 'https://ranger-nf.itch.io/blastoff',
+  //         Description: 'This is a description',
+  //         color: '#14f0cb',
+  //         textColor: '#ffffff',
+  //         ScreenshotLink:
+  //           'https://cloud-c6ul4axwx-hack-club-bot.vercel.app/0instagram_profile_downloader.jpg',
+  //         ReadMeLink:
+  //           'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
+  //         'View link':
+  //           'https://hackclub.com/arcade/showcase/project/rec4cl4TSvfwwnU6H'
+  //       }
+  //     },
+  //     {
+  //       id: 'recLyu8vD4mmUqYrA',
+  //       createdTime: '2024-08-19T17:12:16.000Z',
+  //       fields: {
+  //         Name: 'Turtle T1 (A rabbit R1 spinoff)',
+  //         'Code Link': 'https://github.com/briyandyju09/Turtle-T1',
+  //         Description: 'A web based spin off to the not so liked rabbit R1',
+  //         color: '#FAEFD6',
+  //         ScreenshotLink:
+  //           'https://cloud-k7p388c60-hack-club-bot.vercel.app/0image-19.png',
+  //         ReadMeLink:
+  //           'https://raw.githubusercontent.com/briyandyju09/Turtle-T1/main/README.md',
+  //         'View link':
+  //           'https://hackclub.com/arcade/showcase/project/recLyu8vD4mmUqYrA'
+  //       }
+  //     },
+  //     {
+  //       id: 'recYZd9J9MS4fDuJC',
+  //       createdTime: '2024-08-16T22:28:10.000Z',
+  //       fields: {
+  //         Name: 'peace-and-tranquility',
+  //         'Code Link': 'https://github.com/maxwofford/peace-and-tranquility',
+  //         'Play Link': 'https://dinosaurbbq.org/',
+  //         Description: 'No one is around to help',
+  //         color: '#293438',
+  //         textColor: '#ffffff',
+  //         ScreenshotLink:
+  //           'https://cloud-c6ul4axwx-hack-club-bot.vercel.app/0instagram_profile_downloader.jpg',
+  //         ReadMeLink:
+  //           'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
+  //         'View link':
+  //           'https://hackclub.com/arcade/showcase/project/recYZd9J9MS4fDuJC'
+  //       }
+  //     },
+  //     {
+  //       id: 'reclIN8evh60EH90v',
+  //       createdTime: '2024-08-17T05:57:05.000Z',
+  //       fields: {
+  //         Name: 'site2eeeEEE534',
+  //         'Code Link': 'https://github.com/hackclub/site',
+  //         'Play Link': 'https://hackclub.com',
+  //         Description:
+  //           '🌈 The new, new Hack Club website (uses Next.js & Theme UI).',
+  //         color: '#68d0f8',
+  //         textColor: '#fafafa',
+  //         ScreenshotLink:
+  //           'https://cloud-c6ul4axwx-hack-club-bot.vercel.app/0instagram_profile_downloader.jpg',
+  //         ReadMeLink:
+  //           'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
+  //         'View link':
+  //           'https://hackclub.com/arcade/showcase/project/reclIN8evh60EH90v'
+  //       }
+  //     },
+  //     {
+  //       id: 'reclIN8evh60EH2220v',
+  //       createdTime: '2024-08-17T05:57:05.000Z',
+  //       fields: {
+  //         Name: 'site2eeeEEE53344',
+  //         'Code Link': 'https://github.com/hackclub/site',
+  //         'Play Link': 'https://hackclub.com',
+  //         Description:
+  //           '🌈 The new, new Hack Club website (uses Next.js & Theme UI).',
+  //         color: '#68d0f8',
+  //         textColor: '#fafafa',
+  //         ScreenshotLink:
+  //           'https://cloud-c6ul4axwx-hack-club-bot.vercel.app/0instagram_profile_downloader.jpg',
+  //         ReadMeLink:
+  //           'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
+  //         'View link':
+  //           'https://hackclub.com/arcade/showcase/project/reclIN8evh60EH90v'
+  //       }
+  //     }
+  //   ]
+  // }
+  // originalProjects = originalProjects.showcases
 
   /* necessary to make drag and drop work */
   const [showUIElements, setShowUIElements] = useState(false)
 
   /* get projects */
+  const [originalProjects, setOriginalProjects] = useState([])
+  const [projects, setProjects] = useState([])
   const projectCount = Object.keys(originalProjects).length
-  const [projects, setProjects] = useState(originalProjects)
 
   /* for showing individual projects */
   const [openProjectId, setOpenProjectId] = useState('')
@@ -277,9 +278,9 @@ const Vote = () => {
     }
   }
 
-  // useEffect(async () => {
-  //   loadProjects()
-  // }, [])
+  useEffect(async () => {
+    loadProjects()
+  }, [])
 
   /* get individual project details */
   const getProjectDetails = async () => {
