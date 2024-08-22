@@ -362,6 +362,10 @@ SOFTWARE.
 	border-radius: 3px;
 }
 
+.reactMarkDown pre div {
+	margin: 0 !important;
+}
+
 .reactMarkDown code, .reactMarkDown pre tt {
 	background-color: transparent;
 	border: none;
