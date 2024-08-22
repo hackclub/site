@@ -545,7 +545,7 @@ const Vote = () => {
     if (Object.keys(votes).length == 5) {
       setIsButtonActive(true)
     } else {
-      setIsButtonActive(true)
+      setIsButtonActive(false)
     }
   }, [votes])
 
