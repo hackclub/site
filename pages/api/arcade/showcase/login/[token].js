@@ -8,7 +8,7 @@ const airtable = new AirtablePlus({
 
 async function getUserFromLogin(loginToken) {
   const results = await airtable.read({
-    filterByFormula: `{Login Token} = '${safeLoginToken}'`,
+    filterByFormula: `{Login Token} = '${loginToken}'`,
     maxRecords: 1
   })
 
