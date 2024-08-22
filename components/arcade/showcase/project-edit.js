@@ -209,6 +209,7 @@ const ProjectEditForm = ({ project }) => {
             <Input
               {...useField('hours')}
               type="number"
+              min="1"
               sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
             />
           </Label>
