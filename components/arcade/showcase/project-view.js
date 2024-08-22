@@ -98,11 +98,26 @@ const ProjectView = ({
   }, [readMeLink])
 
   return (
+    // export a css property for each of the color and dark color
     <div
       {...props}
       className="gaegu"
-      sx={{ position: 'relative', backgroundColor: color, color: textColor, minHeight: '100vh' }}
+      sx={{
+        position: 'relative',
+        backgroundColor: color,
+        color: textColor,
+        minHeight: '100vh'
+      }}
     >
+      <style>
+        {`
+      * {
+        --color: ${color};
+        --dark-color: ${darkColor};
+        --text-color: ${textColor};
+      }
+    `}
+      </style>
       <div
         sx={{
           py: 4,
@@ -184,7 +199,7 @@ const ProjectView = ({
           width: '90%',
           margin: 'auto',
           my: 3,
-          maxWidth: '800px',
+          maxWidth: '800px'
         }}
       >
         <div
@@ -198,7 +213,7 @@ const ProjectView = ({
             gap: '10px'
           }}
         >
-          { image != '' && (
+          {image != '' && (
             <div
               sx={{
                 display: 'flex',
@@ -206,11 +221,7 @@ const ProjectView = ({
                 justifyContent: 'center'
               }}
             >
-              <img
-                src={image}
-                alt="Project Image"
-                className={styles.image}
-              />
+              <img src={image} alt="Project Image" className={styles.image} />
             </div>
           )}
           <YoutubeRenderer youtubeLink={video} />
@@ -237,7 +248,6 @@ const ProjectView = ({
           <ReadmeRenderer markdown={markdown} />
         </p>
       </div>
-
     </div>
   )
 }
