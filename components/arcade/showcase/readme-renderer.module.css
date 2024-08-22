@@ -354,39 +354,11 @@ SOFTWARE.
 	text-align: right;
 }
 
-.reactMarkDown code, .reactMarkDown tt {
-	margin: 0 2px;
-	padding: 0 5px;
-	white-space: nowrap;
-	border: 1px solid #eaeaea;
-	background-color: #f8f8f8;
-	border-radius: 3px;
-}
-
-.reactMarkDown pre code {
-	margin: 0;
-	padding: 0;
-	white-space: pre;
-	border: none;
-	background: transparent;
-}
-
-.reactMarkDown .highlight pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
-	font-size: 13px;
-	line-height: 19px;
-	overflow: auto;
-	padding: 6px 10px;
-	border-radius: 3px;
-}
-
 .reactMarkDown pre {
 	border: 1px solid #cccccc;
 	font-size: 13px;
 	line-height: 19px;
 	overflow: auto;
-	padding: 6px 10px;
 	border-radius: 3px;
 }
 
@@ -399,4 +371,6 @@ SOFTWARE.
 	color: #e8912d;
 	font-size: 0.95rem;
 	border: 1px solid #CCCCCC !important;
+	margin: 0 2px;
+	padding: 0 5px;
 }
