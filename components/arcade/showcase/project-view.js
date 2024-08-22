@@ -41,7 +41,7 @@ const ProjectView = ({
   description = 'Description Not Found',
   slack = 'Slack Not Found',
   scrapbook = '',
-  playLink,
+  playLink: TryNowLink,
   images = [],
   githubProf,
   user = 'User Not Found',
@@ -134,7 +134,7 @@ const ProjectView = ({
           className={styles.buttonGroup}
           sx={{ width: '90%', margin: 'auto', pt: 2, pb: 2 }}
         >
-          {playLink && (
+          {TryNowLink && (
             <Button
               as="a"
               sx={{
@@ -143,11 +143,11 @@ const ProjectView = ({
                 textSizeAdjust: '16px',
                 borderRadius: '10px'
               }}
-              href={playLink}
+              href={TryNowLink}
               target="_blank"
               rel="noopener"
             >
-              Play Now
+              Try Now!
             </Button>
           )}
 
