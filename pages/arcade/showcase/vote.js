@@ -17,6 +17,7 @@ const styled = `
 @import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
 body, html {
   overflow-x: hidden;
+  color: #35290F;
   }
 .slackey {
   font-family: "Slackey", sans-serif;
@@ -209,7 +210,7 @@ const Vote = () => {
 
   /* get projects */
   const [originalProjects, setOriginalProjects] = useState([])
-  const [projects, setProjects] = useState([])
+  const [projects, setProjects] = useState(originalProjects)
   const projectCount = originalProjects.length
 
   /* for showing individual projects */
@@ -648,7 +649,7 @@ const Vote = () => {
         flexDirection: 'column',
         gap: '20px',
         position: 'relative',
-        textAlign: 'center'
+        textAlign: 'center',
       }}
     >
       <img
@@ -1012,7 +1013,7 @@ const Vote = () => {
           py: 2
         }}
       >
-        <Text variant="subtitle" sx={{ m: 0 }}>
+        <Text variant="subtitle" sx={{ m: 0, color: '#35290F' }}>
           {' '}
           Ship {currentView + 1}/{projectCount}
         </Text>
@@ -1096,38 +1097,52 @@ const Vote = () => {
         sx={{ width: '90vw', margin: 'auto', maxWidth: '800px' }}
         className="gaegu"
       >
-        <Text
-          variant="title"
-          className="slackey"
-          as="h1"
-          sx={{ color: '#FF5C00' }}
-        >
-          Voting for your favourite ships
-        </Text>
-        <Text variant="subtitle" as="h4" sx={{ mb: 3 }}>
-          When you click start voting, you will first be shown {projectCount}{' '}
-          projects in your cohort. After viewing these projects, you will get
-          the chance to pick your top 5 projects for each category.
-        </Text>
-        <Button
-          onClick={e => {
-            setStartViewProject(true)
-          }}
-          sx={{
-            backgroundColor: '#09AFB4',
-            color: '#FAEFD6',
-            borderRadius: '5px',
-            border: 'none',
-            px: '20px',
-            transitionDuration: '0.3s',
-            '&:hover': {
-              transform: 'scale(1.05)'
-            },
-            width: 'fit-content'
-          }}
-        >
-          Start viewing projects
-        </Button>
+        {loadStatus == 'success' ? (
+          <>
+            <Text
+              variant="title"
+              className="slackey"
+              as="h1"
+              sx={{ color: '#FF5C00' }}
+            >
+              Voting for your favourite ships
+            </Text>
+            <Text variant="subtitle" as="h4" sx={{ mb: 3 }}>
+              When you click start voting, you will first be shown{' '}
+              {projectCount} projects in your cohort. After viewing these
+              projects, you will get the chance to pick your top 5 projects for
+              each category.
+            </Text>
+            <Button
+              onClick={e => {
+                setStartViewProject(true)
+              }}
+              sx={{
+                backgroundColor: '#09AFB4',
+                color: '#FAEFD6',
+                borderRadius: '5px',
+                border: 'none',
+                px: '20px',
+                transitionDuration: '0.3s',
+                '&:hover': {
+                  transform: 'scale(1.05)'
+                },
+                width: 'fit-content'
+              }}
+            >
+              Start viewing projects
+            </Button>{' '}
+          </>
+        ) : (
+          <>
+            <Text variant="subtitle" as="h4" sx={{ mb: 3 }}>
+              {loadStatus}
+            </Text>
+            <Text variant="caption" as="h4">
+              If it persists, please ask for help in #arcade-help.
+            </Text>
+          </>
+        )}
       </div>
       <style>{styled}</style>
     </div>
