@@ -22,6 +22,7 @@ const ReadmeRenderer = ({ markdown }) => {
             <SyntaxHighlighter
               style={solarizedlight}
               PreTag="div"
+              wrapLongLines={true}
               language={match[1]}
               {...props}
             >
