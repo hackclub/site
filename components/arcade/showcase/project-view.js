@@ -106,7 +106,8 @@ const ProjectView = ({
         position: 'relative',
         backgroundColor: color,
         color: textColor,
-        minHeight: '100vh'
+        minHeight: '100vh',
+        height: '100%'
       }}
     >
       <style>
