@@ -120,11 +120,13 @@ const CohortCard = ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src={firstImage}
-            alt="Project Image"
-            className={styles.card_img}
-          />
+          <div className={styles.card_img_container}>
+            <img
+              src={firstImage}
+              alt="Project Image"
+              className={styles.card_img}
+            />
+          </div>
           <h1 sx={{ color: textColor }} className={styles.card_title}>
             {title}
           </h1>

@@ -12,6 +12,7 @@
     justify-content: flex-start;
     position: relative;
     padding: 10px;
+    border-radius: 10px;
 }
 
 .card_img {
@@ -19,8 +20,14 @@
     max-width: 480px;
     height: auto;
     max-height: 100%;
-    object-fit: contain;
     aspect-ratio: 1 / 1;
+    border-radius: 5px;
+}
+
+.card_img_container {
+    height: 200px;
+    align-items: center;
+    display: grid;
 }
 
 .card_title {
