@@ -5,25 +5,57 @@ const airtable = new AirtablePlus({
   baseID: 'app4kCWulfB02bV8Q',
   tableName: 'Users'
 })
-const locations = [
-  { city: 'New York', country: 'USA' },
-  { city: 'Paris', country: 'France' }
-  // Add more locations...
-]
 
-// Work around a node v20.0.0, v20.1.0, and v20.2.0 bug. The issue was fixed
-// in v20.3.0.
-// https://github.com/nodejs/node/issues/47822#issuecomment-1564708870
-// Safe to remove once support for Node v20 is dropped.
-if (
-    // !process.env.IS_BROWSER && // uncomment this line if you use a bundler that sets env.IS_BROWSER during build time
-    process.versions &&
-    // check for `node` in case we want to use this in "exotic" JS envs
-    process.versions.node &&
-    process.versions.node.match(/20\.[0-2]\.0/)
-  ) {
-    require("net").setDefaultAutoSelectFamily(false);
+const testData = [
+  {
+    id: 'rec1FzO4EkkGpmKrE',
+    country: ['Czech Republic'],
+    state: ['Středočeský kraj']
+  },
+  { id: 'rec1FbmaqLe8ymTYt', country: ['United States'], state: ['MA'] },
+  { id: 'rec1Dad1HKUHgMnL6', country: ['Australia'], state: ['Victoria'] },
+  { id: 'rec1DUg36umkIVqpK', country: ['India'], state: ['Delhi'] },
+  { id: 'rec1CmBrkirXIdHwC', country: ['Pakistan'], state: ['Sindh'] },
+  { id: 'rec1BnDrIaco309Tw', country: ['United States'], state: ['Texas'] },
+  {
+    id: 'rec1B324lcw2GqIsB',
+    country: ['United States'],
+    state: ['South Carolina']
   }
+]
+async function getRelevantUsers() {
+  try {
+    const users = await airtable.read({
+      filterByFormula: `{Zach - Country} != ''`
+    })
+
+    console.log(users)
+
+    const userLocations = users.map(user => {
+      return {
+        id: user.id,
+        project:
+          user.fields['Project'][0] || `${user.fields['Total Earned (Hours)']}`,
+        country: user.fields['Zach - Country'],
+        state: user.fields['Belle - State']
+      }
+    })
+
+    console.log(userLocations)
+
+    return userLocations
+  } catch (error) {
+    console.error('Error fetching users:', error)
+    return []
+  }
+}
+
+async function updateLocation(userId, lat, lng) {
+  await airtable.update(userId, {
+    lat: lat,
+    long: lng
+  })
+}
 
 // Function to get coordinates using OpenCage API
 async function getCoordinates(city, country) {
@@ -35,32 +67,23 @@ async function getCoordinates(city, country) {
 
   if (data.results.length > 0) {
     const { lat, lng } = data.results[0].geometry
+
     console.log(lat)
+    console.log(lng)
     return { lat, lng }
   } else {
     throw new Error('Location not found')
   }
 }
 
-// const getUsers = async function () {
-//   const records = await airtable.read({
-//     filterByFormula: `{Total Earned (Hours)} > 3`,
-//     fields: [
-//       'Name',
-//       'Description',
-//       'Slack Link',
-//       'Code Link',
-//       'Play Link',
-//       'ScreenshotLink',
-//       'color',
-//       'textColor'
-//     ]
-//   })
-
-//   return records
-// }
-
 export default async function handler(req, res) {
-  let coordinates = getCoordinates('New York', 'USA')
-  return res.status(200).json({ coordinates })
+  // const users = await getRelevantUsers()
+  // users.map(user => getCoordinates(user.state, user.country))
+
+  for (const user of testData) {
+    const { lat, lng } = await getCoordinates(user.state, user.country)
+    await updateLocation(user.id, lat.toString(), lng.toString())
+  }
+
+  return res.status(200).json()
 }
