@@ -380,18 +380,28 @@ const Vote = () => {
 
   useEffect(() => {
     if (dragging) {
+      let insideVotingBox = false;
+  
       for (const box of boundingBoxes) {
         if (
           box.id.startsWith('votes') &&
           isCursorInsideBoundingBox(mousePosition, box)
         ) {
-          console.log(box.id)
-          setActiveDroppable(true)
-          setActiveDroppableId(box.id)
+          insideVotingBox = true;
+          if (activeDroppableId != box.id) {
+            setActiveDroppable(true);
+            setActiveDroppableId(box.id);
+          }
+          break;
         }
       }
+  
+      if (!insideVotingBox && activeDroppable) {
+        setActiveDroppable(false);
+        setActiveDroppableId(null);
+      }
     }
-  }, [mousePosition])
+  }, [mousePosition]);
 
   const onDragUpdate = update => {
     setDragging(true)
@@ -551,7 +561,7 @@ const Vote = () => {
     if (Object.keys(votes).length == 5) {
       setIsButtonActive(true)
     } else {
-      setIsButtonActive(false)
+      setIsButtonActive(true)
     }
   }, [votes])
 
@@ -616,6 +626,7 @@ const Vote = () => {
         setSubmitStatus('error')
       } else {
         console.log(data)
+        console.log("HIII")
         setSubmitStatus('success')
         // localStorage.setItem('arcade.voted', 'true')
         jsConfetti.current.addConfetti({
@@ -681,9 +692,9 @@ const Vote = () => {
         </Text>
 
         <Text
-          variant="caption"
+          variant="subtitle"
           className="gaegu"
-          sx={{ textAlign: 'center', maxWidth: '800px' }}
+          sx={{ textAlign: 'center', maxWidth: '800px', mt: 0 }}
         >
           {submitStatus == 'loading' ? 'It takes a while' : ''}
         </Text>
