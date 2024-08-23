@@ -591,30 +591,6 @@ const Vote = () => {
     setEndPage(true)
   }
 
-  // const updateVoteStatus = async () => {
-  //   try {
-  //     const response = await fetch('/api/arcade/showcase/setVote', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         userId
-  //       })
-  //     })
-
-  //     const data = await response.json()
-  //     if (data.error) {
-  //       console.error('Error updating voted status:', data.error)
-  //     } else {
-  //       console.log(data)
-  //     }
-  //   } catch (error) {
-  //     console.error('Error updating voted status:', error)
-  //     throw error
-  //   }
-  // }
-
   const submitVote = async (overall, technical, creative) => {
     const authToken = window.localStorage.getItem('arcade.authToken')
 
@@ -639,7 +615,6 @@ const Vote = () => {
       } else {
         console.log(data)
         setSubmitStatus('success')
-        // updateVoteStatus()
         // localStorage.setItem('arcade.voted', 'true')
         jsConfetti.current.addConfetti({
           confettiColors: ['#09AFB4', '#FF5C00']
