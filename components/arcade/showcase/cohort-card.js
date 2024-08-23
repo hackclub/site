@@ -71,8 +71,8 @@ const CohortCard = ({
           <div
             sx={{
               position: 'absolute',
-              top: '10px',
-              left: '10px',
+              top: '16px',
+              left: '16px',
               display: 'flex',
               gap: '5px'
             }}

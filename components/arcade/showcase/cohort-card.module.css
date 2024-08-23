@@ -16,7 +16,8 @@
 }
 
 .card_img {
-    max-width: 200px;
+    width: 100%;
+    max-width: 480px;
     height: auto;
     max-height: 100%;
     aspect-ratio: 1 / 1;
