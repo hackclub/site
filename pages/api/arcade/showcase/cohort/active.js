@@ -1,5 +1,5 @@
 import AirtablePlus from 'airtable-plus'
-
+import { ensureAuthed } from '../login/test'
 async function getCohortFromAuth(authToken) {
   const safeAuthToken = authToken?.replace(/[^a-zA-Z0-9-]/g, '')
   const airtable = new AirtablePlus({
@@ -42,6 +42,10 @@ async function getShowcases(cohort) {
 export default async function handler(req, res) {
   const authToken = req.headers['authorization']?.replace('Bearer ', '')
 
+  const user = await ensureAuthed({
+    headers: { authorization: `Bearer ${authToken}` }
+  })
+
   const cohort = await getCohortFromAuth(authToken)
   if (!cohort) {
     return res.status(401).json({ error: 'No cohort found for user' })
@@ -50,6 +54,7 @@ export default async function handler(req, res) {
   let showcases = await getShowcases(cohort)
 
   res.status(200).json({
+    voted: user.fields['Voted'],
     cohort: {
       id: cohort.id
     },

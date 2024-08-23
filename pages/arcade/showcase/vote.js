@@ -107,6 +107,7 @@ const useMousePosition = () => {
 const Vote = () => {
   /* test data */
   // let originalProjects = {
+  //   voted: true,
   //   cohort: {
   //     id: 'rectAjJ2Lv4dDhUGR'
   //   },
@@ -218,7 +219,7 @@ const Vote = () => {
   const [openProject, setOpenProject] = useState([])
 
   /* status variables */
-  const [loadStatus, setLoadStatus] = useState('loading')
+  const [loadStatus, setLoadStatus] = useState('success') // change
   const [status, setStatus] = useState('loading')
   const [submitStatus, setSubmitStatus] = useState('loading')
 
@@ -226,7 +227,8 @@ const Vote = () => {
   const [creative, setCreative] = useState([])
   const [technical, setTechnical] = useState([])
   const [overall, setOverall] = useState([])
-
+  const [voted, setVoted] = useState(false)
+  // const [userId, setUserId] = useState('')
   /* change what is shown on page */
   const [showCreative, setShowCreative] = useState(true)
   const [showTechnical, setShowTechnical] = useState(false)
@@ -243,17 +245,17 @@ const Vote = () => {
   const dragItemRef = useRef(null)
   const [dragging, setDragging] = useState(false)
   const [votes, setVotes] = useState({})
-  const [voted, setVoted] = useState(false)
   /* check if it's loaded */
+
   useEffect(() => {
     setShowUIElements(true)
-    if (typeof document !== 'undefined') {
-      let vote = window.localStorage.getItem('arcade.voted')
+    // if (typeof document !== 'undefined') {
+    //   let vote = window.localStorage.getItem('arcade.voted')
 
-      if (vote == 'true') {
-        setVoted(true)
-      }
-    }
+    //   if (vote == 'true') {
+    //     setVoted(true)
+    //   }
+    // }
   }, [])
 
   /* load projects */
@@ -275,6 +277,8 @@ const Vote = () => {
     } else {
       setProjects(data.showcases)
       setOriginalProjects(data.showcases)
+      setVoted(data.voted)
+      // setUserId(data.userId)
       setLoadStatus('success')
     }
   }
@@ -587,6 +591,30 @@ const Vote = () => {
     setEndPage(true)
   }
 
+  // const updateVoteStatus = async () => {
+  //   try {
+  //     const response = await fetch('/api/arcade/showcase/setVote', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         userId
+  //       })
+  //     })
+
+  //     const data = await response.json()
+  //     if (data.error) {
+  //       console.error('Error updating voted status:', data.error)
+  //     } else {
+  //       console.log(data)
+  //     }
+  //   } catch (error) {
+  //     console.error('Error updating voted status:', error)
+  //     throw error
+  //   }
+  // }
+
   const submitVote = async (overall, technical, creative) => {
     const authToken = window.localStorage.getItem('arcade.authToken')
 
@@ -611,7 +639,8 @@ const Vote = () => {
       } else {
         console.log(data)
         setSubmitStatus('success')
-        localStorage.setItem('arcade.voted', 'true')
+        // updateVoteStatus()
+        // localStorage.setItem('arcade.voted', 'true')
         jsConfetti.current.addConfetti({
           confettiColors: ['#09AFB4', '#FF5C00']
         })
@@ -636,60 +665,7 @@ const Vote = () => {
     }
   }, [endPage])
 
-  return voted == true ? (
-    <div
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        width: '100vw',
-        backgroundColor: '#FAEFD6',
-        color: '#35290F',
-        flexDirection: 'column',
-        gap: '20px',
-        position: 'relative',
-        textAlign: 'center',
-      }}
-    >
-      <img
-        src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
-        sx={{
-          width: '30%',
-          maxWidth: '200px',
-          position: 'absolute',
-          top: '20px',
-          right: '20px'
-        }}
-      />
-      <Text variant="title" className="gaegu">
-        You've already voted.
-      </Text>
-      <Text variant="subtitle" sx={{ mt: 0 }}>
-        If this is a mistake, please send a message to #arcade-help
-      </Text>
-      <Button
-        as="a"
-        href="/arcade/showcase/my"
-        sx={{
-          backgroundColor:
-            currentView < projectCount - 1 ? '#09AFB4' : '#FF5C00',
-          color: '#FAEFD6',
-          borderRadius: '5px',
-          border: 'none',
-          px: '20px',
-          transitionDuration: '0.3s',
-          '&:hover': {
-            transform: 'scale(1.05)'
-          },
-          width: 'fit-content'
-        }}
-      >
-        See my projects
-      </Button>
-      <style>{styled}</style>
-    </div>
-  ) : startVote == true ? (
+  return startVote == true ? (
     endPage == true ? (
       <div
         sx={{
@@ -1098,41 +1074,96 @@ const Vote = () => {
         className="gaegu"
       >
         {loadStatus == 'success' ? (
-          <>
-            <Text
-              variant="title"
-              className="slackey"
-              as="h1"
-              sx={{ color: '#FF5C00' }}
-            >
-              Voting for your favourite ships
-            </Text>
-            <Text variant="subtitle" as="h4" sx={{ mb: 3 }}>
-              When you click start voting, you will first be shown{' '}
-              {projectCount} projects in your cohort. After viewing these
-              projects, you will get the chance to pick your top 5 projects for
-              each category.
-            </Text>
-            <Button
-              onClick={e => {
-                setStartViewProject(true)
-              }}
+          voted == true ? (
+            <div
               sx={{
-                backgroundColor: '#09AFB4',
-                color: '#FAEFD6',
-                borderRadius: '5px',
-                border: 'none',
-                px: '20px',
-                transitionDuration: '0.3s',
-                '&:hover': {
-                  transform: 'scale(1.05)'
-                },
-                width: 'fit-content'
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                width: '100vw',
+                backgroundColor: '#FAEFD6',
+                color: '#35290F',
+                flexDirection: 'column',
+                gap: '20px',
+                position: 'relative',
+                textAlign: 'center'
               }}
             >
-              Start viewing projects
-            </Button>{' '}
-          </>
+              <img
+                src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+                sx={{
+                  width: '30%',
+                  maxWidth: '200px',
+                  position: 'absolute',
+                  top: '20px',
+                  right: '20px'
+                }}
+              />
+              <Text variant="title" className="gaegu">
+                You've already voted.
+              </Text>
+              <Text variant="subtitle" sx={{ mt: 0 }}>
+                If this is a mistake, please send a message to #arcade-help
+              </Text>
+              <Button
+                as="a"
+                href="/arcade/showcase/my"
+                sx={{
+                  backgroundColor:
+                    currentView < projectCount - 1 ? '#09AFB4' : '#FF5C00',
+                  color: '#FAEFD6',
+                  borderRadius: '5px',
+                  border: 'none',
+                  px: '20px',
+                  transitionDuration: '0.3s',
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  },
+                  width: 'fit-content'
+                }}
+              >
+                See my projects
+              </Button>
+              <style>{styled}</style>
+            </div>
+          ) : (
+            <>
+              <Text
+                variant="title"
+                className="slackey"
+                as="h1"
+                sx={{ color: '#FF5C00' }}
+              >
+                Voting for your favourite ships
+              </Text>
+              <Text variant="subtitle" as="h4" sx={{ mb: 3 }}>
+                When you click start voting, you will first be shown{' '}
+                {projectCount} projects in your cohort. After viewing these
+                projects, you will get the chance to pick your top 5 projects
+                for each category.
+              </Text>
+              <Button
+                onClick={e => {
+                  setStartViewProject(true)
+                }}
+                sx={{
+                  backgroundColor: '#09AFB4',
+                  color: '#FAEFD6',
+                  borderRadius: '5px',
+                  border: 'none',
+                  px: '20px',
+                  transitionDuration: '0.3s',
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  },
+                  width: 'fit-content'
+                }}
+              >
+                Start viewing projects
+              </Button>{' '}
+            </>
+          )
         ) : (
           <>
             <Text variant="subtitle" as="h4" sx={{ mb: 3 }}>
