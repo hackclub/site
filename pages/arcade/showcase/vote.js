@@ -219,7 +219,7 @@ const Vote = () => {
   const [openProject, setOpenProject] = useState([])
 
   /* status variables */
-  const [loadStatus, setLoadStatus] = useState('success') // change
+  const [loadStatus, setLoadStatus] = useState('loading')
   const [status, setStatus] = useState('loading')
   const [submitStatus, setSubmitStatus] = useState('loading')
 
@@ -270,6 +270,7 @@ const Vote = () => {
       console.error(e)
       setLoadStatus('error')
     })
+    setLoadStatus('loading')
     const data = await response.json()
     if (data.error) {
       setLoadStatus('error')
@@ -609,6 +610,7 @@ const Vote = () => {
       })
 
       const data = await response.json()
+
       if (data.error) {
         console.error('Error submitting vote:', data.error)
         setSubmitStatus('error')
@@ -676,6 +678,14 @@ const Vote = () => {
             : submitStatus == 'success'
               ? 'Thanks for voting!'
               : 'Ran into an error sending your votes'}
+        </Text>
+
+        <Text
+          variant="caption"
+          className="gaegu"
+          sx={{ textAlign: 'center', maxWidth: '800px' }}
+        >
+          {submitStatus == 'loading' ? 'It takes a while' : ''}
         </Text>
         <Button
           as="a"

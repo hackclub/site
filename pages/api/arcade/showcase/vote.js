@@ -22,7 +22,8 @@ export default async function handler(req, res) {
       ?.replace('Bearer ', '')
       .replace(/[^a-zA-Z0-9-]/g, '')
 
-    const { Overall, Technical, Creative } = req.body
+    console.log(req.body)
+    const { overall, technical, creative } = req.body
 
     const pointsDistribution = [5, 4, 3, 2, 1]
 
@@ -37,6 +38,8 @@ export default async function handler(req, res) {
     const userID = users[0].id
 
     const userRecord = await usersTable.find(userID)
+
+    console.log(userRecord)
     const voted = userRecord.fields.Voted
 
     if (voted) {
@@ -45,8 +48,8 @@ export default async function handler(req, res) {
 
     let jobs = []
 
-    for (let i = 0; i < Overall.length; i++) {
-      const project = Overall[i]
+    for (let i = 0; i < overall.length; i++) {
+      const project = overall[i]
       const points = pointsDistribution[i]
 
       jobs.push(addVote(project, points, userID, 'Overall'))
@@ -56,8 +59,8 @@ export default async function handler(req, res) {
 
     jobs = []
 
-    for (let i = 0; i < Technical.length; i++) {
-      const project = Technical[i]
+    for (let i = 0; i < technical.length; i++) {
+      const project = technical[i]
       const points = pointsDistribution[i]
 
       await addVote(project, points, userID, 'Technical')
@@ -67,8 +70,8 @@ export default async function handler(req, res) {
 
     jobs = []
 
-    for (let i = 0; i < Creative.length; i++) {
-      const project = Creative[i]
+    for (let i = 0; i < creative.length; i++) {
+      const project = creative[i]
       const points = pointsDistribution[i]
 
       await addVote(project, points, userID, 'Creative')
