@@ -15,7 +15,7 @@
   .image {
     max-width: 24em;
     max-height: 100%;
-    /* width: auto; */
+    width: 100%;
     height: auto;
     border-radius: 8px;
     margin: 0 auto;

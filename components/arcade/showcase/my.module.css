@@ -8,6 +8,12 @@
   grid-gap: 20px;
   padding: 10px;
   margin: auto;
+  margin-bottom: 2rem;
+
+  /* quite wide screens */
+  @media (min-width: 481px) {
+    grid-template-columns: repeat(2, 1fr); /* 3 equal-width columns */
+  }
 
   /* Small screens */
   @media (min-width: 640px) {

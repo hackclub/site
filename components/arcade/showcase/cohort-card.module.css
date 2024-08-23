@@ -16,7 +16,7 @@
 
 .card_img {
     width: 100%;
-    max-width: 200px;
+    max-width: 480px;
     height: auto;
     max-height: 100%;
     object-fit: contain;

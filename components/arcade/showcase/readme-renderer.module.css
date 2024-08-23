@@ -157,6 +157,10 @@ SOFTWARE.
 	margin-top: 0;
 }
 
+.reactMarkDown summary h1, .reactMarkDown summary h2, .reactMarkDown summary h3, .reactMarkDown summary h4, .reactMarkDown summary h5, .reactMarkDown summary h6 {
+	display: inline;
+}
+
 .reactMarkDown li p.first {
 	display: inline-block;
 }
@@ -226,6 +230,8 @@ SOFTWARE.
 
 .reactMarkDown table {
 	padding: 0;
+	display: block;
+	overflow-x: auto;
 }
 
 .reactMarkDown table tr {

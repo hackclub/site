@@ -127,7 +127,9 @@ const ProjectView = ({
         }}
       >
         <h1 className="slackey">{title}</h1>
-        <h2>{description}</h2>
+        <h2 sx={{
+          padding: "0 1rem"
+        }}>{description}</h2>
         <h3>By {user}</h3>
 
         <div
@@ -174,6 +176,7 @@ const ProjectView = ({
             borderRadius: '5px',
             position: ['relative', 'relative', 'absolute'],
             display: 'flex',
+            minWidth: "fit-content",
             left: '10px',
             top: '10px',
             justifyContent: 'center',
