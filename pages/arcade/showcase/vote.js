@@ -249,13 +249,6 @@ const Vote = () => {
 
   useEffect(() => {
     setShowUIElements(true)
-    // if (typeof document !== 'undefined') {
-    //   let vote = window.localStorage.getItem('arcade.voted')
-
-    //   if (vote == 'true') {
-    //     setVoted(true)
-    //   }
-    // }
   }, [])
 
   /* load projects */
@@ -296,7 +289,7 @@ const Vote = () => {
     try {
       if (openProjectId) {
         const response = await fetch(
-          `/api/arcade/showcase/projects/${openProjectId}`,
+          `/api/arcade/showcase/projects/${openProjectId}/show`,
           {
             method: 'GET',
             headers: {
@@ -306,7 +299,7 @@ const Vote = () => {
         )
 
         const data = await response.json()
-
+        console.log(data)
         if (data.error) {
           console.log(data.error)
           setStatus('error')
@@ -324,6 +317,21 @@ const Vote = () => {
   useEffect(() => {
     getProjectDetails()
   }, [openProjectId])
+
+  const dialogRef = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = event => {
+      if (dialogRef.current) {
+        dialogRef.current.close()
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
 
   /* HANDLE DRAG AND DROP LOGIC BELOW*/
   const [mousePosition, setMousePosition] = useState({ x: null, y: null })
@@ -380,28 +388,28 @@ const Vote = () => {
 
   useEffect(() => {
     if (dragging) {
-      let insideVotingBox = false;
-  
+      let insideVotingBox = false
+
       for (const box of boundingBoxes) {
         if (
           box.id.startsWith('votes') &&
           isCursorInsideBoundingBox(mousePosition, box)
         ) {
-          insideVotingBox = true;
+          insideVotingBox = true
           if (activeDroppableId != box.id) {
-            setActiveDroppable(true);
-            setActiveDroppableId(box.id);
+            setActiveDroppable(true)
+            setActiveDroppableId(box.id)
           }
-          break;
+          break
         }
       }
-  
+
       if (!insideVotingBox && activeDroppable) {
-        setActiveDroppable(false);
-        setActiveDroppableId(null);
+        setActiveDroppable(false)
+        setActiveDroppableId(null)
       }
     }
-  }, [mousePosition]);
+  }, [mousePosition])
 
   const onDragUpdate = update => {
     setDragging(true)
@@ -626,9 +634,7 @@ const Vote = () => {
         setSubmitStatus('error')
       } else {
         console.log(data)
-        console.log("HIII")
         setSubmitStatus('success')
-        // localStorage.setItem('arcade.voted', 'true')
         jsConfetti.current.addConfetti({
           confettiColors: ['#09AFB4', '#FF5C00']
         })
@@ -917,6 +923,7 @@ const Vote = () => {
             </DragDropContext>
 
             <dialog
+              ref={dialogRef}
               id="show-project"
               sx={{
                 borderRadius: '10px',
@@ -956,7 +963,8 @@ const Vote = () => {
                   top: '10px',
                   right: '10px',
                   zIndex: 2,
-                  color: '#09AFB4'
+                  color: '#FAEFD6',
+                  background: '#09AFB4'
                 }}
                 onClick={e => {
                   document.getElementById('show-project').close()
@@ -1062,9 +1070,20 @@ const Vote = () => {
         alignItems: 'center',
         height: '100vh',
         width: '100vw',
-        backgroundColor: '#FAEFD6'
+        backgroundColor: '#FAEFD6',
+        position: 'relative'
       }}
     >
+      <img
+        src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+        sx={{
+          width: '30%',
+          maxWidth: '200px',
+          position: 'absolute',
+          top: '20px',
+          right: '20px'
+        }}
+      />
       <div
         sx={{ width: '90vw', margin: 'auto', maxWidth: '800px' }}
         className="gaegu"
@@ -1076,8 +1095,6 @@ const Vote = () => {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: '100vh',
-                width: '100vw',
                 backgroundColor: '#FAEFD6',
                 color: '#35290F',
                 flexDirection: 'column',
@@ -1086,16 +1103,6 @@ const Vote = () => {
                 textAlign: 'center'
               }}
             >
-              <img
-                src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
-                sx={{
-                  width: '30%',
-                  maxWidth: '200px',
-                  position: 'absolute',
-                  top: '20px',
-                  right: '20px'
-                }}
-              />
               <Text variant="title" className="gaegu">
                 You've already voted.
               </Text>

@@ -220,7 +220,7 @@ const ProjectView = ({
               <img src={image} alt="Project Image" className={styles.image} />
             </div>
           )}
-          <YoutubeRenderer youtubeLink={video} />
+          {video.includes('youtube') && <YoutubeRenderer youtubeLink={video} />}
           {/* { video != '' && (
             <div
               sx={{
