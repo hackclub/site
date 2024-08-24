@@ -5,6 +5,9 @@ import { Balancer } from 'react-wrap-balancer'
 import Fade from 'react-reveal/Fade'
 import Project from '../../components/arcade/review/project'
 import { motion } from 'framer-motion'
+import { TypeAnimation } from 'react-type-animation'
+import { useInView } from 'react-intersection-observer'
+import Marquee from 'react-fast-marquee'
 
 /** @jsxImportSource theme-ui */
 
@@ -124,25 +127,26 @@ const testData = [
 ]
 
 const projectVariants = {
-  initial: { x: '100%', opacity: 0, y: '100%' }, // Start off-screen to the right
-  animate: (index) => ({
+  initial: {
+    x: '100%',
+    y: '90vh',
+    opacity: 0
+  },
+  animate: index => ({
     x: 0,
+    y: '90vh',
     opacity: 1,
     transition: {
-      duration: 0.5,
-      delay: index * 1, // Adjust this factor to control the delay for each project
-    },
+      duration: 1,
+      delay: index * 3 // Staggered delay based on index
+    }
   }),
   moveUp: {
-    y: '-1000%', // Move the project upward
+    y: '-90vh',
     transition: {
       ease: 'linear',
-      duration: 30 // Control the speed of the upward movement
+      duration: 60
     }
-  },
-  exit: {
-    opacity: 0, // Fade out or continue sliding up
-    transition: { duration: 0.5 }
   }
 }
 
@@ -156,6 +160,13 @@ const projectVariants = {
 
 const Review = () => {
   const [map, setMap] = useState(null)
+  const { ref, inView, entry } = useInView({ threshold: 0 })
+
+  const [isSmallScreen, setIsSmallScreen] = useState(0)
+
+  useEffect(() => {
+    setIsSmallScreen(window.innerWidth <= 780)
+  }, [])
 
   useEffect(() => {
     import('react-leaflet').then(
@@ -184,10 +195,10 @@ const Review = () => {
         <div
           sx={{
             display: 'grid',
-            gridTemplateColumns: ['1fr', '2fr 1fr', '3fr 1fr']
+            gridTemplateColumns: ['1fr', '1fr', '2fr 1fr', '3fr 1fr']
           }}
         >
-          <div sx={{ px: 5, py: 4 }}>
+          <div sx={{ px: [3, 4, 5, 5], py: 4, pr: [3, 4, 3, 5] }}>
             <Fade>
               <Text
                 as="h3"
@@ -220,23 +231,31 @@ const Review = () => {
                 </Text>
               </Balancer>
             </Fade>
-            <MapContainer
-              center={[51.505, -0.09]}
-              zoom={2}
-              scrollWheelZoom={false}
-              sx={{ height: '400px', borderRadius: '10px' }}
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <Marker position={[51.505, -0.09]}>
-                <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
-              </Marker>
-            </MapContainer>
-            <Fade>
+            <Fade delay={300}>
+              <MapContainer
+                center={[51.505, -0.09]}
+                zoom={2}
+                scrollWheelZoom={false}
+                sx={{
+                  height: ['300px', '350px', '400px', '400px'],
+                  width: ['350px', '450px', '100%', '100%'],
+                  // width: '100%',
+                  borderRadius: '10px'
+                  // margin: ['auto', 'auto', 'initial', 'initial']
+                }}
+              >
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+                <Marker position={[51.505, -0.09]}>
+                  <Popup>
+                    A pretty CSS3 popup. <br /> Easily customizable.
+                  </Popup>
+                </Marker>
+              </MapContainer>
+            </Fade>
+            <Fade delay={400}>
               <Button
                 as="a"
                 sx={{
@@ -255,45 +274,153 @@ const Review = () => {
             </Fade>
           </div>
           <div id="projects">
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              
-              // variants={containerVariants}
-              sx={{ height: '100vh' }}
-            >
-              {testData.map((p, index) => (
-                <motion.div
-                  key={p.id}
-                  custom={index} 
-                  variants={projectVariants}
-                  initial="initial"
-                  animate="animate"
-                  whileInView="moveUp"
-                  exit="exit"
-                  sx={{ position: 'relative', width: '100%' }} // Ensure projects stack vertically
-                >
+            {isSmallScreen ? (
+              <Marquee pauseOnHover={true} autoFill={true} className="h-52">
+                {testData.map((p, index) => (
                   <Project
                     name={p.user[0]}
                     projectName={p.title}
                     country={p.country[0]}
                     img={p.imageLink}
                   />
-                </motion.div>
-              ))}
-            </motion.div>
-            {/* {testData.map(p => (
-              <Project
-                name={p.user[0]}
-                projectName={p.title}
-                country={p.country[0]}
-                img={p.imageLink}
-              />
-            ))} */}
+                ))}
+              </Marquee>
+            ) : (
+              <motion.div
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                // variants={containerVariants}
+                sx={{ height: '100vh', width: '100%' }}
+              >
+                {testData.map((p, index) => (
+                  <motion.div
+                    key={p.id}
+                    custom={index}
+                    variants={projectVariants}
+                    initial="initial"
+                    animate="animate"
+                    whileInView="moveUp"
+                    // exit="exit"
+                    sx={{ position: 'absolute', width: '60%' }} // Ensure projects stack vertically
+                  >
+                    <Project
+                      name={p.user[0]}
+                      projectName={p.title}
+                      country={p.country[0]}
+                      img={p.imageLink}
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
           </div>
         </div>
+        <div
+          sx={{
+            backgroundImage: 'url(/arcade/review/beigeRocky.png)',
+            width: '100vw',
+            height: '800px',
+            backgroundSize: 'cover',
+            color: '#35290F'
+          }}
+        >
+          <div
+            sx={{
+              display: 'grid',
+              gridTemplateColumns: ['1fr', '1fr', '2fr 1.5fr'],
+              pt: 6,
+              pb: 5
+            }}
+          >
+            <img
+              sx={{ width: '90%', margin: 'auto' }}
+              src="/arcade/review/rundown.png"
+            />
+            <div
+              ref={ref}
+              sx={{
+                display: 'flex',
+                flexDirection: ['row', 'row', 'column'],
+                gap: '20px',
+                flexWrap: 'wrap',
+                width: ['350px', '400px', '300px'],
+                margin: 'auto',
+                justifyContent: 'space-between'
+              }}
+            >
+              {inView && (
+                <>
+                  <div>
+                    <TypeAnimation
+                      sequence={['10,000']}
+                      speed={50}
+                      sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                      className="slackey"
+                      cursor={false}
+                    />
+                    <br />
+                    <TypeAnimation
+                      sequence={['', 500, 'high schoolers']}
+                      speed={50}
+                      sx={{ fontSize: [3, 3, 4], mt: 0 }}
+                      cursor={false}
+                    />
+                  </div>
+                  <div>
+                    <TypeAnimation
+                      sequence={['', 1000, '150,000']}
+                      speed={50}
+                      sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                      className="slackey"
+                      cursor={false}
+                    />
+                    <br />
+                    <TypeAnimation
+                      sequence={['', 1500, 'hours building']}
+                      speed={50}
+                      sx={{ fontSize: [3, 3, 4], mt: 0 }}
+                      cursor={false}
+                    />
+                  </div>
+                  <div>
+                    <TypeAnimation
+                      sequence={['', 2000, '4,000']}
+                      speed={50}
+                      sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                      className="slackey"
+                      cursor={false}
+                    />
+                    <br />
+                    <TypeAnimation
+                      sequence={['', 2500, 'projects']}
+                      speed={50}
+                      sx={{ fontSize: [3, 3, 4], mt: 0 }}
+                      cursor={false}
+                    />
+                  </div>
 
+                  <div>
+                    <TypeAnimation
+                      sequence={['', 3000, '$200,000']}
+                      speed={50}
+                      sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                      className="slackey"
+                      cursor={false}
+                    />
+                    <br />
+                    <TypeAnimation
+                      sequence={['', 3500, 'in prizes']}
+                      speed={50}
+                      sx={{ fontSize: [3, 3, 4], mt: 0 }}
+                      cursor={false}
+                    />
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
         <style>{styled}</style>
       </body>
       <script
