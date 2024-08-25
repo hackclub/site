@@ -118,7 +118,10 @@ const ProjectEditForm = ({ project }) => {
             />
           </Label>
           <Label>
-            <Text>Play Link</Text>
+            <Text>Project link</Text>
+            <Text variant="caption">
+              Direct link to your project. Binaries download page, Website link, etc.
+            </Text>
             <Input
               {...useField('playLink')}
               placeholder="https://hackclub.com/arcade"
@@ -206,6 +209,7 @@ const ProjectEditForm = ({ project }) => {
             <Input
               {...useField('hours')}
               type="number"
+              min="1"
               sx={{ border: '1px dashed', borderColor: '#09AFB4', mb: 2 }}
             />
           </Label>

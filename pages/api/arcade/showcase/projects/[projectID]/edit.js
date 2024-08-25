@@ -12,6 +12,25 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'No body provided' })
   }
 
+  // html color input value always gives a 6-char hex color
+  const colorRegex = /^#[0-9A-F]{6}$/i;
+  if(body.color !== "" && !(colorRegex.test(body.color))) {
+    return res
+      .status(400)
+      .json({ error: 'Invalid Color' });
+  }
+  if(body.textColor !== "" && !(colorRegex.test(body.textColor))) {
+    return res
+      .status(400)
+      .json({ error: 'Invalid Text Color' });
+  }
+
+  if(body.hours <= 0) {
+    return res
+      .status(400)
+      .json({ error: 'Hours should be a positive integer' });
+  }
+
   const updatedFields = {}
   updatedFields['Name'] = body.title
   updatedFields['Estimated Hours'] = body.hours

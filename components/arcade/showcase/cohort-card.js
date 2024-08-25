@@ -71,16 +71,16 @@ const CohortCard = ({
           <div
             sx={{
               position: 'absolute',
-              top: '10px',
-              left: '10px',
+              top: '16px',
+              left: '16px',
               display: 'flex',
               gap: '5px'
             }}
           >
-            <div
-              as="a"
+            <a
               href={editLink}
               sx={{
+                display: 'block',
                 color: 'white',
                 bg: '#09AFB4',
                 borderRadius: '10px',
@@ -93,7 +93,7 @@ const CohortCard = ({
               }}
             >
               <Icon glyph="edit" />{' '}
-            </div>
+            </a>
             <div
               onClick={e => {
                 modalRef.current?.showModal()
@@ -120,11 +120,13 @@ const CohortCard = ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src={firstImage}
-            alt="Project Image"
-            className={styles.card_img}
-          />
+          <div className={styles.card_img_container}>
+            <img
+              src={firstImage}
+              alt="Project Image"
+              className={styles.card_img}
+            />
+          </div>
           <h1 sx={{ color: textColor }} className={styles.card_title}>
             {title}
           </h1>

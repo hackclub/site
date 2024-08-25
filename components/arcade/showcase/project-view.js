@@ -99,6 +99,7 @@ const ProjectView = ({
   }, [readMeLink])
 
   return (
+    // export a css property for each of the color and dark color
     <div
       {...props}
       className="gaegu"
@@ -110,6 +111,15 @@ const ProjectView = ({
         width: '100%'
       }}
     >
+      <style>
+        {`
+      * {
+        --color: ${color};
+        --dark-color: ${darkColor};
+        --text-color: ${textColor};
+      }
+    `}
+      </style>
       <div
         sx={{
           py: 4,
@@ -139,7 +149,7 @@ const ProjectView = ({
               target="_blank"
               rel="noopener"
             >
-              Play Now
+              Try Now!
             </Button>
           )}
 
@@ -158,36 +168,37 @@ const ProjectView = ({
             {codeHost}
           </Button>
         </div>
-        {preview ? (
-          <></>
-        ) : (
-          <Text
-            as="a"
-            href="/arcade/showcase/my"
-            sx={{
-              border: `2px dashed ${textColor}`,
-              borderRadius: '5px',
-              position: ['relative', 'relative', 'absolute'],
-              display: 'flex',
-              left: '10px',
-              top: '10px',
-              justifyContent: 'center',
-              alignItems: 'center',
-              px: 2,
-              py: 1,
-              transitionDuration: '0.4s',
-              cursor: 'pointer',
-              textDecoration: 'none',
-              mb: 3,
-              '&:hover': {
-                background: textColor || '#333',
-                color: invertedColor || '#F4E7C7'
-              }
-            }}
-          >
-            <Icon glyph="home" /> View all my ships
-          </Text>
-        )}
+        <Text
+          as="a"
+          href="/arcade/showcase/my"
+          sx={{
+            border: `2px dashed ${textColor}`,
+            borderRadius: '5px',
+            position: ['relative', 'relative', 'absolute'],
+            display: 'flex',
+            minWidth: "fit-content",
+            left: '10px',
+            top: '10px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            px: 2,
+            py: 1,
+            transitionDuration: '0.4s',
+            cursor: 'pointer',
+            textDecoration: 'none',
+            mb: 3,
+            '&:hover': {
+              background: textColor || '#333',
+              color: invertedColor || '#F4E7C7'
+            },
+            '@media screen and (max-width: 767px)': {
+              width: '50%',
+              left: 'calc(25%)'
+            }
+          }}
+        >
+          <Icon glyph="home" /> View all my ships
+        </Text>
       </div>
 
       <div

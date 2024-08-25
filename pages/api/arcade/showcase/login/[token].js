@@ -1,21 +1,17 @@
-import AirtablePlus from "airtable-plus"
+import AirtablePlus from 'airtable-plus'
 
 const airtable = new AirtablePlus({
   apiKey: process.env.AIRTABLE_API_KEY,
   baseID: 'app4kCWulfB02bV8Q',
-  tableName: "Users"
+  tableName: 'Users'
 })
 
 async function getUserFromLogin(loginToken) {
-
-  // only alphanumeric & '-' characters are allowed in the token
-  const safeLoginToken = loginToken.replace(/[^a-zA-Z0-9-]/g, '')
-
   const results = await airtable.read({
-    filterByFormula: `{Login Token} = '${safeLoginToken}'`,
+    filterByFormula: `{Login Token} = '${loginToken}'`,
     maxRecords: 1
   })
-  
+
   return results[0]
 }
 
@@ -28,22 +24,30 @@ async function scrubLoginToken(userID) {
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: "Method not allowed" })
+    return res.status(405).json({ error: 'Method not allowed' })
   }
 
   const { token } = req.query
   if (!token) {
-    return res.status(400).json({ error: "Token is required" })
+    return res.status(400).json({ error: 'Token is required' })
   }
 
-  const user = await getUserFromLogin(token)
+  // only alphanumeric & '-' characters are allowed in the token
+  const safeLoginToken = token.replace(/[^a-zA-Z0-9-]/g, '')
+  if (safeLoginToken === '') {
+    return res
+      .status(400)
+      .json({ error: 'hey! no injection attacks thats mean' })
+  }
+
+  const user = await getUserFromLogin(safeLoginToken)
   if (!user) {
-    return res.status(404).json({ error: "User not found" })
+    return res.status(404).json({ error: 'User not found' })
   }
 
   const authToken = user.fields['Auth Token']
   if (!authToken) {
-    return res.status(500).json({ error: "Auth Token not found" })
+    return res.status(500).json({ error: 'Auth Token not found' })
   }
 
   await scrubLoginToken(user.id)
