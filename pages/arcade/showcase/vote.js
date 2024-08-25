@@ -1173,7 +1173,9 @@ const Vote = () => {
               {loadStatus}
             </Text>
             <Text variant="caption" as="h4">
-              If it persists, please ask for help in #arcade-help.
+              {loadStatus == 'loading'
+                ? "Please give it some time. If it's taken too long, ask for help in #arcade-help"
+                : 'Try logging in again with /showcase in Slack. If it persists, please ask for help in #arcade-help.'}
             </Text>
           </>
         )}
