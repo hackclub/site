@@ -42,7 +42,7 @@ const events = [
     season: 'Winter',
     year: '2024',
     // repo: 'wonderland',
-    video: 'https://www.youtube.com/watch?v=X1EVT0vUxAg',
+    video: 'https://www.youtube.com/embed/X1EVT0vUxAg',
     link: 'https://wonderland.hackclub.com'
   },
   {
@@ -53,7 +53,7 @@ const events = [
     season: 'Winter',
     year: '2024',
     // repo: 'summit',
-    video: 'https://www.youtube.com/watch?v=UZEm5lONg7g',
+    video: 'https://www.youtube.com/embed/UZEm5lONg7g',
     link: 'https://summit.hackclub.com'
   },
   {
