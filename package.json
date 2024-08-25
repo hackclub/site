@@ -69,6 +69,7 @@
     "react-countdown": "^2.3.6",
     "react-datepicker": "^4.24.0",
     "react-dom": "^18.3.1",
+    "react-draggable": "^4.4.6",
     "react-fast-marquee": "^1.6.5",
     "react-horizontal-scrolling-menu": "^6.0.2",
     "react-intersection-observer": "^9.13.0",
