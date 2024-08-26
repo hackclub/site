@@ -104,7 +104,6 @@ async function batchCreate(table, records) {
   }
 
   for (const chunk of chunks) {
-    console.log({ chunk })
     await table.create(chunk)
   }
 }

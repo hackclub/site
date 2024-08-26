@@ -63,8 +63,6 @@ export default async function handler(req, res) {
     getShowcasesFromAuth(authorization)
   ])
 
-  console.log({ cohort, user, showcases })
-
   if (!cohort || !user) {
     return res.status(401).json({ error: 'No cohort or user found' })
   }
