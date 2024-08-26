@@ -1,14 +1,8 @@
-import { useEffect, useState, useRef, useCallback } from 'react'
-import CohortCard from '../../../components/arcade/showcase/cohort-card'
-import { Button, Heading, Text, Box, Close, Flex } from 'theme-ui'
-import SlideDown from '../../../components/slide-down'
-import styles from '../../../components/arcade/showcase/my.module.css'
-import Countdown from 'react-countdown'
-import Icon from '@hackclub/icons'
+import { useEffect, useState, useRef } from 'react'
+import { Button, Text, Box, Close, Flex } from 'theme-ui'
 import ProjectView from '../../../components/arcade/showcase/project-view'
 import SmallView from '../../../components/arcade/showcase/small-view-card'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import { over, set } from 'lodash'
 import JSConfetti from 'js-confetti'
 
 /** @jsxImportSource theme-ui */
