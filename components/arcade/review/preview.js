@@ -2,6 +2,7 @@ import { Text } from 'theme-ui'
 import { Balancer } from 'react-wrap-balancer'
 import Fade from 'react-reveal/Fade'
 import { useInView } from 'react-intersection-observer'
+import { useEffect } from 'react'
 
 /** @jsxImportSource theme-ui */
 
@@ -15,8 +16,11 @@ export default function Preview({
   // inView,
   elementRef
 }) {
-  const { ref, inView } = useInView({ threshold: 0.95 })
+  const { ref, inView } = useInView({ threshold: 0.9 })
 
+  useEffect(() => {
+    console.log(inView)
+  }, [])
   return (
     <section
       sx={{
@@ -31,42 +35,46 @@ export default function Preview({
           alignItems: 'center',
           position: 'relative',
           px: '10vw',
-          height: '100vh'
+          height: ['70vh',  '70vh', '100vh'],
+          pt: ['18vh', '20vh', '0vh']
         }}
         ref={ref}
       >
         <Balancer>
-          {isSmallScreen ? (
-            <Text
-              variant="subtitle"
-              className="slackey"
-              sx={{
-                transition: 'opacity 0.3s ease-in-out',
-                pt: 5,
-                display: 'block'
-              }}
-            >
-              {text}
-            </Text>
-          ) : (
-            inView && (
-              <Fade>
-                <Text
-                  variant="subtitle"
-                  className="slackey"
-                  sx={{
-                    opacity: opacity,
-                    transition: 'opacity 0.3s ease-in-out'
-                  }}
-                >
-                  {text}
-                </Text>
-              </Fade>
-            )
+          {inView && (
+            <Fade>
+              <Text
+                variant="subtitle"
+                className="slackey"
+                sx={{
+                  transition: 'opacity 0.3s ease-in-out'
+                }}
+              >
+                {text}
+              </Text>
+            </Fade>
+            // )
           )}
         </Balancer>
 
-        <div ref={ref} sx={{ position: 'relative' }}>
+        {inView && (
+          <div
+            sx={{ position: 'relative', display: ['block', 'block', 'none'], transition: 'opacity 0.3s ease-in-out' }}
+          >
+            <img
+              src={img}
+              alt={imgAlt}
+              sx={{
+                width: ['300px', '350px', '400px'],
+                height: 'auto',
+                margin: 'auto',
+                display: 'block'
+              }}
+            />
+          </div>
+        )}
+
+        <div sx={{ position: 'relative', display: ['none', 'none', 'block'] }}>
           <img
             src={img}
             alt={imgAlt}
