@@ -157,14 +157,15 @@ const projectVariants = {
     y: '90vh',
     opacity: 0
   },
-  animate: ({ index, testData, instances }) => {
+  animate: ({ index }) => {
     return {
       x: 0,
       y: '90vh',
       opacity: 1,
       transition: {
-        duration: 1,
-        delay: index * 3.5
+        duration: 0.73,
+        delay: index * 3.5,
+        ease: 'backOut'
       },
       repeat: 0
     }
@@ -181,58 +182,58 @@ const projectVariants = {
   }
 }
 
-function useParallax(value, distance) {
-  return useTransform(value, [0, 1], [-distance, distance])
-}
+// function useParallax(value, distance) {
+//   return useTransform(value, [0, 1], [-distance, distance])
+// }
 
-function useScrollPosition(containerRef) {
-  const [scrollPosition, setScrollPosition] = useState(0)
-  const elementRef = useRef(null)
+// function useScrollPosition(containerRef) {
+//   const [scrollPosition, setScrollPosition] = useState(0)
+//   const elementRef = useRef(null)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!containerRef.current || !elementRef.current) return
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       if (!containerRef.current || !elementRef.current) return
 
-      // const parentRect = containerRef.current.getBoundingClientRect()
-      const elementRect = elementRef.current.getBoundingClientRect()
-      // const scrollTop = containerRef.current.scrollTop
-      //elementRect.top - parentRect.top - scrollTop
-      setScrollPosition(elementRect.top)
-    }
+//       // const parentRect = containerRef.current.getBoundingClientRect()
+//       const elementRect = elementRef.current.getBoundingClientRect()
+//       // const scrollTop = containerRef.current.scrollTop
+//       //elementRect.top - parentRect.top - scrollTop
+//       setScrollPosition(elementRect.top)
+//     }
 
-    if (!containerRef.current) return
+//     if (!containerRef.current) return
 
-    const parentElement = containerRef.current
+//     const parentElement = containerRef.current
 
-    parentElement.addEventListener('scroll', handleScroll)
+//     parentElement.addEventListener('scroll', handleScroll)
 
-    handleScroll()
+//     handleScroll()
 
-    return () => {
-      parentElement.removeEventListener('scroll', handleScroll)
-    }
-  }, [containerRef, scrollPosition])
+//     return () => {
+//       parentElement.removeEventListener('scroll', handleScroll)
+//     }
+//   }, [containerRef, scrollPosition])
 
-  return [elementRef, scrollPosition]
-}
+//   return [elementRef, scrollPosition]
+// }
 
 const Review = () => {
-  const [opacity, setOpacity] = useState(1)
-  const [showContent, setShowContent] = useState(false)
+  // const [opacity, setOpacity] = useState(1)
   const [map, setMap] = useState(null)
   const [showHighlight, setShowHighlight] = useState(false)
   const { ref, inView, entry } = useInView({ threshold: 0 })
+  // const { ref: elRef, inView: elInView } = useInView({ threshold: 0.8 })
 
-  const newRef = useRef(null)
+  // const newRef = useRef(null)
   const containerRef = useRef(null)
-  const { scrollYProgress } = useScroll({
-    container: containerRef,
-    target: newRef
-  })
+  // const { scrollYProgress } = useScroll({
+  //   container: containerRef,
+  //   target: newRef
+  // })
 
-  const y = useParallax(scrollYProgress, 300)
+  // const y = useParallax(scrollYProgress, 300)
 
-  const [elementRef, scrollPosition] = useScrollPosition(containerRef)
+  // const [elementRef, scrollPosition] = useScrollPosition(containerRef)
 
   const [animationStates, setAnimationStates] = useState(
     testData.map(() => 'animate')
@@ -246,41 +247,44 @@ const Review = () => {
     )
   }
 
-  useEffect(() => {
-    setShowContent(true)
-  }, [])
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     console.log(scrollPosition)
+  //     let newOpacity = 1
 
-  useEffect(() => {
-    const handleScroll = () => {
-      console.log(scrollPosition)
-      let newOpacity = 1
+  //     //FIGURE OUT A WAY TO MAKE THIS RESPONSIVE TO DIFF HEIGHTS
+  //     if (
+  //       (scrollPosition > 90 && scrollPosition < 800) ||
+  //       (scrollPosition > 900 && scrollPosition < 1600) ||
+  //       (scrollPosition > 1650 && scrollPosition < 2450) ||
+  //       (scrollPosition > 2500 && scrollPosition < 3270)
+  //     ) {
+  //       newOpacity = 0
+  //     }
 
-      //FIGURE OUT A WAY TO MAKE THIS RESPONSIVE TO DIFF HEIGHTS
-      if (
-        (scrollPosition > 90 && scrollPosition < 800) ||
-        (scrollPosition > 900 && scrollPosition < 1600) ||
-        (scrollPosition > 1650 && scrollPosition < 2450) ||
-        (scrollPosition > 2500 && scrollPosition < 3270)
-      ) {
-        newOpacity = 0
-      }
+  //     setOpacity(Math.max(0, Math.min(1, newOpacity)))
+  //   }
 
-      setOpacity(Math.max(0, Math.min(1, newOpacity)))
-    }
+  //   window.addEventListener('scroll', handleScroll)
 
-    window.addEventListener('scroll', handleScroll)
+  //   handleScroll()
 
-    handleScroll()
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [scrollPosition])
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll)
+  //   }
+  // }, [scrollPosition])
 
   const [isSmallScreen, setIsSmallScreen] = useState(0)
 
   useEffect(() => {
-    setIsSmallScreen(window.innerWidth <= 780)
+    const updateScreenSize = () => {
+      setIsSmallScreen(window.innerWidth <= 780)
+    }
+
+    window.addEventListener('resize', updateScreenSize)
+    updateScreenSize()
+
+    return () => window.removeEventListener('resize', updateScreenSize)
   }, [])
 
   // Spotlight effect
@@ -333,6 +337,9 @@ const Review = () => {
     }
   }, [highlightInView, socialContainerInView, rundownRefInView])
 
+  // useEffect(() => {
+  //   console.log(elInView)
+  // }, [elInView])
   //MAP
   if (!map) {
     return <div>Loading...</div>
@@ -363,7 +370,9 @@ const Review = () => {
             scrollSnapAlign: 'start'
           }}
         >
-          <div sx={{ px: [3, 4, 5, 5], py: 4, pr: [3, 4, 3, 5] }}>
+          <div
+            sx={{ px: [3, 4, 5, 5], py: 4, pr: [3, 4, 3, 5], width: '90vw' }}
+          >
             <Fade>
               <Text
                 as="h3"
@@ -390,7 +399,7 @@ const Review = () => {
                 <Text
                   as="p"
                   variant="subtitle"
-                  sx={{ color: '#09AFB4', mb: 3 }}
+                  sx={{ color: '#09AFB4', mb: 3, width: '90vw' }}
                 >
                   One Summer. 10,000 students. The ultimate hackathon.
                 </Text>
@@ -487,7 +496,8 @@ const Review = () => {
             color: '#35290F',
             pb: 6,
             position: 'relative',
-            scrollSnapAlign: 'start'
+            scrollSnapAlign: 'start',
+            height: '100vh'
           }}
           ref={rundownRef}
         >
@@ -511,144 +521,194 @@ const Review = () => {
             <div
               ref={ref}
               sx={{
-                display: 'flex',
-                flexDirection: ['row', 'row', 'column'],
-                gap: '20px',
+                display: 'grid',
+                gridTemplateColumns: ['1fr 1fr', '1fr 1fr', '1fr'],
                 flexWrap: 'wrap',
-                width: ['350px', '400px', '300px'],
+                width: ['350px', '550px', '300px'],
                 margin: 'auto',
-                justifyContent: 'space-between',
-                height: '600px'
+                height: ['300px', '300px', '600px']
               }}
             >
-              {inView && (
+              {isSmallScreen ? (
                 <>
                   <div>
-                    <TypeAnimation
-                      sequence={['10,000']}
-                      speed={50}
+                    <Text
                       sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
                       className="slackey"
-                      cursor={false}
-                    />
-                    <br />
-                    <TypeAnimation
-                      sequence={['', 500, 'high schoolers']}
-                      speed={50}
-                      sx={{ fontSize: [3, 3, 4], mt: 0 }}
-                      cursor={false}
-                    />
+                      as="h1"
+                    >
+                      10,000
+                    </Text>
+                    <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
+                      high schoolers
+                    </Text>
                   </div>
                   <div>
-                    <TypeAnimation
-                      sequence={['', 1000, '150,000']}
-                      speed={50}
+                    <Text
                       sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
                       className="slackey"
-                      cursor={false}
-                    />
-                    <br />
-                    <TypeAnimation
-                      sequence={['', 1500, 'hours building']}
-                      speed={50}
-                      sx={{ fontSize: [3, 3, 4], mt: 0 }}
-                      cursor={false}
-                    />
+                      as="h1"
+                    >
+                      150,000
+                    </Text>
+                    <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
+                      hours building
+                    </Text>
                   </div>
                   <div>
-                    <TypeAnimation
-                      sequence={['', 2000, '4,000']}
-                      speed={50}
+                    <Text
                       sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
                       className="slackey"
-                      cursor={false}
-                    />
-                    <br />
-                    <TypeAnimation
-                      sequence={['', 2500, 'projects']}
-                      speed={50}
-                      sx={{ fontSize: [3, 3, 4], mt: 0 }}
-                      cursor={false}
-                    />
+                      as="h1"
+                    >
+                      2,000
+                    </Text>
+                    <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
+                      projects
+                    </Text>
                   </div>
-
                   <div>
-                    <TypeAnimation
-                      sequence={['', 3000, '$200,000']}
-                      speed={50}
+                    <Text
                       sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
                       className="slackey"
-                      cursor={false}
-                    />
-                    <br />
-                    <TypeAnimation
-                      sequence={['', 3500, 'in prizes']}
-                      speed={50}
-                      sx={{ fontSize: [3, 3, 4], mt: 0 }}
-                      cursor={false}
-                    />
+                      as="h1"
+                    >
+                      $200,000
+                    </Text>
+                    <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
+                      in prizes
+                    </Text>
                   </div>
                 </>
+              ) : (
+                inView && (
+                  <>
+                    <div sx={{ height: ['100px', '100px', '150px'] }}>
+                      <TypeAnimation
+                        sequence={['10,000']}
+                        speed={50}
+                        sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                        className="slackey"
+                        cursor={false}
+                      />
+                      <br />
+                      <TypeAnimation
+                        sequence={['', 500, 'high schoolers']}
+                        speed={50}
+                        sx={{ fontSize: [3, 3, 4], mt: 0 }}
+                        cursor={false}
+                      />
+                    </div>
+                    <div sx={{ height: ['100px', '100px', '150px'] }}>
+                      <TypeAnimation
+                        sequence={['', 1000, '150,000']}
+                        speed={50}
+                        sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                        className="slackey"
+                        cursor={false}
+                      />
+                      <br />
+                      <TypeAnimation
+                        sequence={['', 1500, 'hours building']}
+                        speed={50}
+                        sx={{ fontSize: [3, 3, 4], mt: 0 }}
+                        cursor={false}
+                      />
+                    </div>
+                    <div sx={{ height: ['100px', '100px', '150px'] }}>
+                      <TypeAnimation
+                        sequence={['', 2000, '4,000']}
+                        speed={50}
+                        sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                        className="slackey"
+                        cursor={false}
+                      />
+                      <br />
+                      <TypeAnimation
+                        sequence={['', 2500, 'projects']}
+                        speed={50}
+                        sx={{ fontSize: [3, 3, 4], mt: 0 }}
+                        cursor={false}
+                      />
+                    </div>
+
+                    <div sx={{ height: ['100px', '100px', '150px'] }}>
+                      <TypeAnimation
+                        sequence={['', 3000, '$200,000']}
+                        speed={50}
+                        sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                        className="slackey"
+                        cursor={false}
+                      />
+                      <br />
+                      <TypeAnimation
+                        sequence={['', 3500, 'in prizes']}
+                        speed={50}
+                        sx={{ fontSize: [3, 3, 4], mt: 0 }}
+                        cursor={false}
+                      />
+                    </div>
+                  </>
+                )
               )}
             </div>
           </div>
         </div>
-        {showContent && (
+        <div
+          sx={{
+            position: 'relative',
+            scrollSnapAlign: 'start'
+          }}
+        >
           <div
+            ref={highlightRef}
             sx={{
-              position: 'relative',
-              scrollSnapAlign: 'start'
+              backgroundImage: 'url(/arcade/review/blueGradient.png)',
+              width: '100vw',
+              backgroundSize: 'cover',
+              position: showHighlight ? 'fixed' : 'absolute',
+              height: '100vh',
+              top: 0,
+              zIndex: 0
+            }}
+          ></div>
+          <Text
+            variant="subtitle"
+            sx={{
+              position: showHighlight ? 'fixed' : 'absolute',
+              top: ['5vh', '5vh', '27vh'],
+              maxWidth: ['90vw', '90vw', '30vw'],
+              ml: '10vw'
             }}
           >
-            <div
-              ref={highlightRef}
-              sx={{
-                backgroundImage: 'url(/arcade/review/blueGradient.png)',
-                width: '100vw',
-                backgroundSize: 'cover',
-                position: showHighlight ? 'fixed' : 'absolute',
-                height: '100vh',
-                top: 0,
-                zIndex: 0
-              }}
-            ></div>
-            <Text
-              variant="subtitle"
-              sx={{
-                position: showHighlight ? 'fixed' : 'absolute',
-                top: '27vh',
-                maxWidth: '30vw',
-                ml: '10vw'
-              }}
-            >
-              The 10,000 Arcaders from 50 different countries have....
-            </Text>
-            <div
-              sx={{
-                zIndex: 2,
-                position: 'relative',
-                scrollSnapType: 'y mandatory',
-                overflowY: 'scroll',
-                height: '100vh'
-              }}
-              ref={containerRef}
-            >
-              {details.map((image, index) => (
-                <Preview
-                  key={index}
-                  text={image.text}
-                  img={image.img}
-                  imgAlt={image.imgAlt}
-                  ref={newRef}
-                  y={y}
-                  elementRef={elementRef}
-                  scrollPosition={scrollPosition}
-                  opacity={opacity}
-                />
-              ))}
-            </div>
+            The 10,000 Arcaders from 50 different countries have....
+          </Text>
+          <div
+            sx={{
+              zIndex: 2,
+              position: 'relative',
+              scrollSnapType: 'y mandatory',
+              overflowY: 'scroll',
+              height: '100vh'
+            }}
+            ref={containerRef}
+          >
+            {details.map((image, index) => (
+              <Preview
+                key={index}
+                text={image.text}
+                img={image.img}
+                imgAlt={image.imgAlt}
+                isSmallScreen={isSmallScreen}
+                // ref={newRef}
+                // elementRef={elRef}
+                // inView={elInView}
+                // scrollPosition={scrollPosition}
+                // opacity={opacity}
+              />
+            ))}
           </div>
-        )}
+        </div>
         <div
           sx={{
             height: '1000px',
@@ -668,7 +728,7 @@ const Review = () => {
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
               position: 'relative',
-              minHeight: '100vh'
+              height: '100%'
             }}
           >
             <Box
