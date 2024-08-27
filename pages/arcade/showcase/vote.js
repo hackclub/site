@@ -223,6 +223,7 @@ const Vote = () => {
   const [overall, setOverall] = useState([])
   const [voted, setVoted] = useState(false)
   // const [userId, setUserId] = useState('')
+
   /* change what is shown on page */
   const [showCreative, setShowCreative] = useState(true)
   const [showTechnical, setShowTechnical] = useState(false)
@@ -237,7 +238,6 @@ const Vote = () => {
   const [activeDroppableId, setActiveDroppableId] = useState(null)
   const [activeDroppable, setActiveDroppable] = useState(true)
   const dragItemRef = useRef(null)
-  const [dragging, setDragging] = useState(false)
   const [votes, setVotes] = useState({})
   /* check if it's loaded */
 
@@ -314,18 +314,27 @@ const Vote = () => {
 
   const dialogRef = useRef(null)
 
-  useEffect(() => {
-    const handleClickOutside = event => {
-      if (dialogRef.current) {
-        dialogRef.current.close()
-      }
-    }
+  // useEffect(() => {
+  //   const handleClickOutside = event => {
+  //     if (dialogRef.current) {
+  //       const rect = dialogRef.current.getBoundingClientRect()
 
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+  //       if (
+  //         event.clientX < rect.left ||
+  //         event.clientX > rect.right ||
+  //         event.clientY < rect.top ||
+  //         event.clientY > rect.bottom
+  //       ) {
+  //         dialogRef.current.close()
+  //       }
+  //     }
+  //   }
+
+  //   document.addEventListener('mousedown', handleClickOutside)
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside)
+  //   }
+  // }, [])
 
   /* HANDLE DRAG AND DROP LOGIC BELOW*/
   const [mousePosition, setMousePosition] = useState({ x: null, y: null })
@@ -380,69 +389,93 @@ const Vote = () => {
 
   const boundingBoxes = getBoundingBoxes()
 
-  useEffect(() => {
-    if (dragging) {
-      let insideVotingBox = false
+  // useEffect(() => {
+  //   if (dragging) {
+  //     console.log("DRAGGING")
 
-      for (const box of boundingBoxes) {
-        if (
-          box.id.startsWith('votes') &&
-          isCursorInsideBoundingBox(mousePosition, box)
-        ) {
-          insideVotingBox = true
-          if (activeDroppableId != box.id) {
-            setActiveDroppable(true)
-            setActiveDroppableId(box.id)
-          }
-          break
-        }
-      }
+  //     let insideVotingBox = false
 
-      if (!insideVotingBox && activeDroppable) {
-        setActiveDroppable(false)
-        setActiveDroppableId(null)
-      }
-    }
-  }, [mousePosition])
+  //     for (const box of boundingBoxes) {
+  //       if (
+  //         box.id.startsWith('votes') &&
+  //         isCursorInsideBoundingBox(mousePosition, box)
+  //       ) {
+  //         insideVotingBox = true
+  //         if (activeDroppableId != box.id) {
+  //           setActiveDroppable(true)
+  //           setActiveDroppableId(box.id)
+  //         }
+  //         break
+  //       }
+  //     }
+
+  //     // if (!insideVotingBox && activeDroppable) {
+  //     //   setActiveDroppable(false)
+  //     //   setActiveDroppableId(null)
+  //     // }
+  //   }
+  // }, [mousePosition])
 
   const onDragUpdate = update => {
-    setDragging(true)
-  }
-
-  const onDragEnd = result => {
-    setDragging(false)
-    const { source, destination } = result
-    if (!destination) return
-    let destinationId = ''
+    let insideVotingBox = false
 
     for (const box of boundingBoxes) {
+      console.log(mousePosition)
       if (
         box.id.startsWith('votes') &&
         isCursorInsideBoundingBox(mousePosition, box)
       ) {
-        destinationId = box.id
-        setActiveDroppable(false)
-
-        const linkId = result.draggableId
-        const voteId = destinationId
-
-        setVotes(prevVotes => {
-          const updatedVotes = {
-            ...prevVotes,
-            [voteId]: linkId
-          }
-
-          const votedProjectIds = Object.values(updatedVotes)
-
-          const updatedProjects = originalProjects.filter(
-            project => !votedProjectIds.includes(project.id)
-          )
-
-          setProjects(updatedProjects)
-
-          return updatedVotes
-        })
+        insideVotingBox = true
+        if (activeDroppableId != box.id) {
+          setActiveDroppable(true)
+          setActiveDroppableId(box.id)
+        }
+        break
       }
+    }
+
+    if (!insideVotingBox && activeDroppable) {
+      setActiveDroppable(false)
+      setActiveDroppableId(null)
+    }
+  }
+
+  const onDragEnd = result => {
+    const { source, destination } = result
+
+    if (!destination) return
+
+    console.log(destination)
+
+    if (destination.droppableId == 'projects') {
+      console.log('projects')
+      return
+    }
+
+    if (activeDroppableId && activeDroppableId.startsWith('votes')) {
+      const linkId = result.draggableId
+      const voteId = activeDroppableId
+
+      setVotes(prevVotes => {
+        const updatedVotes = {
+          ...prevVotes,
+          [voteId]: linkId
+        }
+
+        console.log(updatedVotes)
+        const votedProjectIds = Object.values(updatedVotes)
+
+        const updatedProjects = originalProjects.filter(
+          project => !votedProjectIds.includes(project.id)
+        )
+
+        setProjects(updatedProjects)
+
+        return updatedVotes
+      })
+
+      setActiveDroppableId(null)
+      setActiveDroppable(false)
     }
   }
 
@@ -747,7 +780,7 @@ const Vote = () => {
                     py: 4,
                     pl: 4,
                     overflowY: 'scroll',
-                    height: '100vh'
+                    height: '100%'
                   }}
                 >
                   <Text variant="title" className="slackey" as="h1">
@@ -793,7 +826,6 @@ const Vote = () => {
                                 sx={{
                                   ...provided.draggableProps.style
                                 }}
-                                // onMouseDown={handleMouseDown}
                               >
                                 <SmallView
                                   id={project.id}
@@ -809,7 +841,7 @@ const Vote = () => {
                     )}
                   </Droppable>
                 </div>
-                <div sx={{ pl: 3, py: 4, pr: 4 }}>
+                <div sx={{ pl: 3, py: 3, pr: 4 }}>
                   <div>
                     <Text as="p" variant="subtitle">
                       Choose top 5 for{' '}
@@ -841,7 +873,7 @@ const Vote = () => {
                             id={voteId}
                             sx={{
                               width: '100%',
-                              height: ['14vh', '14vh', '12vh'],
+                              height: ['14vh', '14vh', '13.5vh'],
                               minHeight: '80px',
                               border: '2px dashed #09AFB4',
                               borderRadius: '10px',
@@ -922,7 +954,8 @@ const Vote = () => {
               sx={{
                 borderRadius: '10px',
                 border: '3px dashed #09AFB4',
-                width: '70vw'
+                width: '70vw',
+                position: 'relative'
               }}
               className="gaegu"
             >

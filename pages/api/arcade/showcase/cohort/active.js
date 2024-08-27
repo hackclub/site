@@ -25,10 +25,9 @@ async function getShowcasesFromAuth(authToken) {
   })
 
   const showcases = await airtable.read({
-    filterByFormula: `AND(
-      FIND("${authToken}", ARRAYJOIN({Allowed Voter Keys})) > 0,
-      {Has Active Cohort} = TRUE()
-    )`,
+    filterByFormula: `
+      FIND("${authToken}", ARRAYJOIN({Allowed Voter Keys})) > 0
+    `,
     fields: ['Name', 'Code Link', 'Play Link', 'Description', 'color', 'textColor', 'ScreenshotLink', 'ReadMeLink', 'View link']
   })
 
