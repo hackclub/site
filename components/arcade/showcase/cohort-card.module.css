@@ -22,6 +22,7 @@
     max-height: 100%;
     aspect-ratio: 1 / 1;
     border-radius: 5px;
+    object-fit: contain;
 }
 
 .card_img_container {

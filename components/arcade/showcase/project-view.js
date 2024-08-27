@@ -112,12 +112,16 @@ const ProjectView = ({
     >
       <style>
         {`
-      * {
-        --color: ${color};
-        --dark-color: ${darkColor};
-        --text-color: ${textColor};
-      }
-    `}
+          * {
+            --color: ${color};
+            --dark-color: ${darkColor};
+            --text-color: ${textColor};
+          }
+
+          body {
+            background-color: var(--color);
+          }
+        `}
       </style>
       <div
         sx={{
