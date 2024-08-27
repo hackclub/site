@@ -11,12 +11,13 @@ export default function Preview({
   img,
   imgAlt,
   isSmallScreen,
+  rotation,
   // ref,
   // opacity,
   // inView,
   elementRef
 }) {
-  const { ref, inView } = useInView({ threshold: 0.9 })
+  const { ref, inView } = useInView({ threshold: 0.95 })
 
   useEffect(() => {
     console.log(inView)
@@ -82,7 +83,8 @@ export default function Preview({
               width: ['300px', '350px', '400px'],
               height: 'auto',
               margin: 'auto',
-              display: 'block'
+              display: 'block',
+              transform: `rotate(${rotation}deg)`
             }}
           />
         </div>
