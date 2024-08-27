@@ -1,68 +1,68 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
-  
-  .title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-  }
-  
-  .image {
-    max-width: 24em;
-    max-height: 100%;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
-  
-  .description {
-    font-size: 1.2rem;
-    /* color: #363636; */
-    margin-bottom: 30px;
-    line-height: 1.6;
-    font-weight: 500;
-  }
-  
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.image {
+  max-width: 24em;
+  max-height: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.description {
+  font-size: 1.2rem;
+  /* color: #363636; */
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #005bb5;
+}
+
+.min{
+  min-height: 800px;
+  text-align: center;
+}
+
+.loading{
+  font-size: 2.5rem;
+  font-weight: 800px;
+  margin-bottom: 20px;
+  padding-top: 100px;
+}
+
+
+@media screen and (max-width: 500px) {
   .buttonGroup {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
   }
-  
-  .button {
-    padding: 10px 20px;
-    background-color: #0070f3;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #005bb5;
-  }
-  
-  .min{
-    min-height: 800px;
-    text-align: center;
-  }
-
-  .loading{
-    font-size: 2.5rem;
-    font-weight: 800px;
-    margin-bottom: 20px;
-    padding-top: 100px;
-  }
-
-
-  @media screen and (max-width: 500px) {
-    .buttonGroup {
-      flex-direction: column;
-    }
-  }
+}
