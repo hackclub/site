@@ -16,7 +16,7 @@ async function getProjects() {
         'Name (from User)',
         'Zach - Country (from User)'
       ],
-      maxRecords: 100
+      maxRecords: 300
     })
 
     return projects

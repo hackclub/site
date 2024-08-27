@@ -18,7 +18,8 @@ import Dragged from '../../components/arcade/review/dragged'
 import Preview from '../../components/arcade/review/preview'
 import Supporters from '../../components/arcade/review/supporters'
 import Draggable from 'react-draggable'
-import ArcadeFooter from '../../components/arcade/review/footer'
+import AFooter from '../../components/arcade/review/aFooter'
+import Arcader from '../../components/arcade/review/arcader'
 /** @jsxImportSource theme-ui */
 
 const styled = `
@@ -133,6 +134,110 @@ const testData = [
     imageLink: '',
     user: ['Akul Saju'],
     country: ['United Arab Emirates']
+  },
+  {
+    id: 'rec2mPIZX1Awc9q9U',
+    title: 'PyVirtualAssistantLib',
+    imageLink: 'https://cloud-hw6v6wppo-hack-club-bot.vercel.app/0image.png',
+    user: ['Alan'],
+    country: ['Germany']
+  },
+  {
+    id: 'rec2nmRme5YFVAXRp',
+    title: 'gicorada.is-a.dev',
+    imageLink: 'https://cloud-q4vdozniv-hack-club-bot.vercel.app/0image.png',
+    user: ['Giacomo'],
+    country: ['Italy']
+  },
+  {
+    id: 'rec2q3SI5X5Lfj77a',
+    title: 'Juicy-Player-Controller',
+    imageLink: 'https://cloud-pp4awecab-hack-club-bot.vercel.app/0image.png',
+    user: ['Andrew Cromar'],
+    country: ['United States']
+  },
+  {
+    id: 'rec2qHD56MSG0Dx9P',
+    title: 'FamahWebsite',
+    imageLink:
+      'https://cloud-wrxm8g9kg-hack-club-bot.vercel.app/0ceca3e92-dab6-4b5b-b083-2c933bef86cc-image.png',
+    user: ['Fatuma Tahalil'],
+    country: ['Canada']
+  },
+  {
+    id: 'rec2ssaXcwgAaIeFi',
+    title: 'Notebook-3D-Model',
+    imageLink:
+      'https://cloud-40fv5jwqj-hack-club-bot.vercel.app/02024-08-23_22_49_01-window.png',
+    user: ['Victoria'],
+    country: ['Argentina']
+  },
+  {
+    id: 'rec2va8CPuOg5tqKw',
+    title: "advait's logo!",
+    imageLink:
+      'https://cloud-bbqxl24im-hack-club-bot.vercel.app/0group_5advait.png',
+    user: ['Advait Conty'],
+    country: ['Singapore']
+  },
+  {
+    id: 'rec2xdErKxcCGzVXe',
+    title: 'HotelApp',
+    imageLink: 'https://cloud-9kghfblh0-hack-club-bot.vercel.app/0image.png',
+    user: ['Lorenzo'],
+    country: ['Italy']
+  },
+  {
+    id: 'rec2ypPaBeCt48OLp',
+    title: 'oneWay',
+    imageLink: 'https://cloud-9ck0cw9hs-hack-club-bot.vercel.app/0image.png',
+    user: ['SpeedyGo55'],
+    country: ''
+  },
+  {
+    id: 'rec31QeCiyCDqrBVX',
+    title: 'Roblox Game Judger',
+    imageLink: 'https://cloud-ry59nhxaw-hack-club-bot.vercel.app/0image.png',
+    user: ['Murtaza Haque'],
+    country: ['United States']
+  },
+  {
+    id: 'rec33cU3QKJB1p9AG',
+    title: 'Turrtv1.5-build',
+    imageLink: 'https://cloud-mp6pqkrpo-hack-club-bot.vercel.app/0image.png',
+    user: ['Dylan Cortegana'],
+    country: ['USA']
+  },
+  {
+    id: 'rec35mEnXJtfvGnY8',
+    title: 'Integrate',
+    imageLink:
+      'https://cloud-efzcmqt8h-hack-club-bot.vercel.app/0screenshot_2024-08-26_at_11.16.13___am.png',
+    user: ['Om Raheja'],
+    country: ['USA']
+  },
+  {
+    id: 'rec36FPt3lcSFiX87',
+    title: '2048_game',
+    imageLink: 'https://cloud-o14crh79s-hack-club-bot.vercel.app/0image.png',
+    user: ['EXELVI'],
+    country: ['Italy']
+  },
+  {
+    id: 'rec38GrculYVbct09',
+    title: 'tron',
+    imageLink:
+      'https://cloud-5qnb4htfz-hack-club-bot.vercel.app/0tron_demo.gif',
+    user: ['Sayhan Rahman'],
+    country: ['Turkey']
+  },
+  {
+    id: 'rec3DFAcRG7TXgIvK',
+    title: 'oscsim',
+    imageLink:
+      'https://cloud-pzlqe5ilh-hack-club-bot.vercel.app/0img_20240827_074416.jpg',
+    user: ['Lucas Birkert'],
+    country: ['Germany']
   }
 ]
 
@@ -143,7 +248,7 @@ const details = [
     imgAlt: 'Research PCB'
   },
   {
-    text: "if you ate one banana for every hour of work, you'd eat an average person's weight in bananas 200 times", //at 126581/2,080 hours
+    text: "if you ate one banana for every hour of work, you'd eat an average person's weight in bananas 200 times", //
     img: 'https://cloud-el2vr8v7u-hack-club-bot.vercel.app/0group_108__2_.png',
     imgAlt: 'Mercury Searchlight Project'
   },
@@ -156,6 +261,11 @@ const details = [
     text: 'they spent enough electricity to power the average home for 12.6 days', //at 100w/hour for a computer = 15M watts of energy spent
     img: 'https://cloud-50k44rv2t-hack-club-bot.vercel.app/0group_109.png',
     imgAlt: 'Calculator Ray Tracer'
+  },
+  {
+    text: 'if each hour spent was a mile travelled, they could get more than halfway to the moon', //2,903 miles, 3 miles an hour = 968 hours
+    img: 'https://cloud-o8yx5e0ru-hack-club-bot.vercel.app/0group_112__2_.png',
+    imgAlt: 'Terminal Website'
   }
 ]
 
@@ -194,7 +304,18 @@ const Review = () => {
   const [map, setMap] = useState(null)
   const [showHighlight, setShowHighlight] = useState(false)
   const [rotation, setRotation] = useState([])
+  const [projects, setProjects] = useState(testData)
 
+  useEffect(() => {
+    async function getProjects() {
+      let response = await fetch('/api/arcade/review/projects')
+      let data = await response.json()
+
+      setProjects([...projects, ...data.results])
+    }
+
+    getProjects()
+  }, [])
   const {
     ref: recapRef,
     inView: recapInView,
@@ -204,7 +325,7 @@ const Review = () => {
   const containerRef = useRef(null)
 
   const [animationStates, setAnimationStates] = useState(
-    testData.map(() => 'animate')
+    projects.map(() => 'animate')
   )
 
   const handleAnimationComplete = index => {
@@ -218,7 +339,7 @@ const Review = () => {
   useEffect(() => {
     let rot = []
     for (let i = 0; i < details.length; i++) {
-      rotation = (2 + Math.random() * 4) * (Math.random() > 0.5 ? 1 : -1)
+      rotation = (2 + Math.random() * 6) * (Math.random() > 0.5 ? 1 : -1)
       rot[i] = rotation
     }
 
@@ -397,8 +518,9 @@ const Review = () => {
               className="h-52"
               sx={{ display: ['block', 'block', 'none'] }}
             >
-              {testData.map((p, index) => (
+              {projects.map((p, index) => (
                 <Project
+                  key={index}
                   name={p.user[0]}
                   projectName={p.title}
                   country={p.country[0]}
@@ -417,10 +539,10 @@ const Review = () => {
                 display: ['none', 'none', 'block']
               }}
             >
-              {testData.map((p, index) => (
+              {projects.map((p, index) => (
                 <motion.div
                   key={p.id}
-                  custom={{ index, testData }}
+                  custom={{ index, projects }}
                   variants={projectVariants}
                   initial="initial"
                   animate={animationStates[index]}
@@ -446,8 +568,8 @@ const Review = () => {
             color: '#35290F',
             pb: [6, 6, 3],
             position: 'relative',
-            scrollSnapAlign: 'start'
-            // height: ['100vh', '100vh', '120vh']
+            scrollSnapAlign: 'start',
+            height: ['100vh', '110vh', '100vh']
           }}
           ref={rundownRef}
         >
@@ -459,17 +581,44 @@ const Review = () => {
             sx={{
               display: 'grid',
               gridTemplateColumns: ['1fr', '1fr', '2fr 1.5fr'],
-              height: ['600px', '600px', '800px'],
-              pt: 6,
-              pb: ['0px', '100px', '300px']
+              width: '90vw',
+              margin: 'auto',
+              height: ['600px', '600px', '750px'],
+              pt: '92px',
+              pb: ['0px', '100px', '200px']
             }}
             ref={recapRef}
           >
-            <img
-              sx={{ width: '90%', margin: 'auto' }}
-              src="/arcade/review/rundown.png"
-            />
-
+            <div
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <div>
+                <img
+                  sx={{ width: '90%', margin: 'auto' }}
+                  src="/arcade/review/rundown.png"
+                />
+                <div
+                  sx={{
+                    transform: 'rotate(-3.7deg)',
+                    ml: '5vw',
+                    mr: '5vw'
+                  }}
+                >
+                  <Arcader
+                    image="https://cloud-8umm0b2af-hack-club-bot.vercel.app/01000023406.jpg"
+                    name="Leo"
+                    age="15"
+                    country="UK"
+                    quote="Arcade encouraged me to do something with my summer. I even co-hosted my first AMA and am now working to organize more - as well as several European hackathons :)"
+                    center={true}
+                  />
+                </div>
+              </div>
+            </div>
             <div
               sx={{
                 display: ['grid', 'grid', 'none'],
@@ -639,7 +788,8 @@ const Review = () => {
               ml: '10vw'
             }}
           >
-            The 10,000 Arcaders from 50 different countries spent 126,241 hours building projects so....
+            The 10,000 Arcaders from 50 different countries spent 126,241 hours
+            building projects so....
           </Text>
           <div
             sx={{
@@ -656,15 +806,15 @@ const Review = () => {
           >
             {/* {' '}
             <div> */}
-              {details.map((image, index) => (
-                <Preview
-                  key={index}
-                  text={image.text}
-                  img={image.img}
-                  imgAlt={image.imgAlt}
-                  rotation={rotation[index]}
-                />
-              ))}
+            {details.map((image, index) => (
+              <Preview
+                key={index}
+                text={image.text}
+                img={image.img}
+                imgAlt={image.imgAlt}
+                rotation={rotation[index]}
+              />
+            ))}
             {/* </div> */}
           </div>
         </div>
@@ -771,7 +921,7 @@ const Review = () => {
                     <Dragged
                       img="https://cloud-7oxalj768-hack-club-bot.vercel.app/0img_0560.png"
                       title="Anime Sticker Workshop"
-                      sx={{ position: 'absolute', top: '12vw', left: '10vw' }}
+                      sx={{ position: 'absolute', top: '17vw', left: '10vw' }}
                     />
                   </Draggable>
                   <Draggable>
@@ -856,14 +1006,12 @@ const Review = () => {
                   maxWidth: '1200px',
                   zIndex: 10,
                   position: 'relative',
-                  mt: '-20px'
+                  mt: '-20px',
+                  pb: 4,
+                  color: '#FAEFD6'
                 }}
               >
-                <Text
-                  variant="subtitle"
-                  className="slackey"
-                  sx={{ color: '#FAEFD6' }}
-                >
+                <Text variant="subtitle" className="slackey">
                   Made possible with the support of...
                 </Text>
                 <div
@@ -879,11 +1027,17 @@ const Review = () => {
                   <Supporters img="/arcade/review/Framework.png" />
                   <Supporters img="/arcade/review/Flipper.svg" />
                 </div>
-                <div></div>
+                <Arcader
+                  quote="This summer, I built an escape room game and pushed myself to try new things like learning gimp, making animations, and participating in my first game jam (which I was previously too intimidated to try)!"
+                  name="Nina Dong"
+                  age="19"
+                  country="US"
+                  image="https://cloud-ka3tzvqze-hack-club-bot.vercel.app/0nina_dong_photo.jpg"
+                />
               </div>
             </div>
           </div>
-          <ArcadeFooter />
+          <AFooter />
         </div>
 
         <style>{styled}</style>
