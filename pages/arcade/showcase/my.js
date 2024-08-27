@@ -3,7 +3,7 @@ import CohortCard from '../../../components/arcade/showcase/cohort-card'
 import { Button, Heading, Text, Box, Close } from 'theme-ui'
 import SlideDown from '../../../components/slide-down'
 import styles from '../../../components/arcade/showcase/my.module.css'
-import Countdown from 'react-countdown'
+// import Countdown from 'react-countdown'
 import Icon from '@hackclub/icons'
 import ProjectAddView from '../../../components/arcade/showcase/project-add'
 /** @jsxImportSource theme-ui */
@@ -136,50 +136,44 @@ const ErrorMessage = () => (
   </div>
 )
 
+const VoteCountdown = ({ isActive }) => {
+  if (!isActive) {
+    return (<span sx={{ color: '#FF5C00' }}>Voting round opening soon!</span>)
+  } else {
+    return (
+      <div sx={{ width: '100%' }}>
+        <Button
+          as="a"
+          href="/arcade/showcase/vote/"
+          sx={{
+            backgroundColor: '#FF5C00',
+            color: '#FAEFD6',
+            borderRadius: '5px',
+            border: 'none',
+            px: '20px',
+            transitionDuration: '0.3s',
+            '&:hover': {
+              transform: 'scale(1.05)'
+            },
+            width: 'fit-content'
+          }}
+          className="gaegy"
+        >
+          Click here to vote now
+        </Button>
+      </div>
+    )
+  }
+}
+
 const My = () => {
   const [projects, setProjects] = useState([])
+  const [voteOpen, setVoteOpen] = useState(false)
   const [name, setName] = useState('')
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
 
-  const launchDate = new Date(2025, 7, 25, 8, 0, 0, 0)
-
-  const renderer = ({ hours, minutes, seconds, completed }) => {
-    if (completed) {
-      // Render a completed state
-      return (
-        <div sx={{ width: '100%' }}>
-          <Button
-            to="https://hackclub.com/arcade/showcase/vote/"
-            sx={{
-              backgroundColor: '#FF5C00',
-              color: '#FAEFD6',
-              borderRadius: '5px',
-              border: 'none',
-              px: '20px',
-              transitionDuration: '0.3s',
-              '&:hover': {
-                transform: 'scale(1.05)'
-              },
-              width: 'fit-content'
-            }}
-            className="gaegy"
-          >
-            Click here to vote now
-          </Button>
-        </div>
-      )
-    } else {
-      // Render a countdown
-      return (
-        <span sx={{ color: '#FF5C00' }}>
-          First voting round in a week
-          {/* {hours > 0 ? `${hours} hours` : ''}{' '}
-          {minutes > 0 ? `${minutes} minutes` : ''} {seconds} seconds */}
-        </span>
-      )
-    }
-  }
+  // const launchDate = new Date(2025, 7, 25, 8, 0, 0, 0)
 
   // Spotlight effect
   const spotlightRef = useRef()
@@ -222,8 +216,26 @@ const My = () => {
     }
   }
 
+  const loadCohort = async () => {
+    const token = window.localStorage.getItem('arcade.authToken')
+    const response = await fetch('/api/arcade/showcase/cohort/active', {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).catch(e => {
+    })
+    const data = await response.json()
+    if (!data.error && !data.voted) {
+      setVoteOpen(true)
+    } else {
+      return
+    }
+  }
+
   useEffect(async () => {
     loadProjects()
+    loadCohort()
   }, [])
 
   return (
@@ -302,7 +314,7 @@ const My = () => {
                 }}
                 className="gaegu"
               >
-                <Countdown date={launchDate} renderer={renderer} />
+                <VoteCountdown isActive={voteOpen} startTime={null} />
               </div>
             </Heading>
           </SlideDown>

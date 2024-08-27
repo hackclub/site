@@ -51,6 +51,7 @@ const ProjectView = ({
   screenshot = '',
   video = '',
   readMeLink = '',
+  preview,
   ...props
 }) => {
   const [darkColor, setDarkColor] = useState('#000000')
@@ -107,7 +108,7 @@ const ProjectView = ({
         backgroundColor: color,
         color: textColor,
         minHeight: '100vh',
-        height: '100%'
+        width: '100%'
       }}
     >
       <style>
@@ -132,10 +133,8 @@ const ProjectView = ({
         }}
       >
         <h1 className="slackey">{title}</h1>
-        <h2 sx={{
-          padding: "0 1rem"
-        }}>{description}</h2>
-        <h3>By {user}</h3>
+        <h2>{description != 'Description Not Found' ? description : <></>}</h2>
+        <h3>{user != 'User Not Found' ? <>By {user}</> : <></>}</h3>
 
         <div
           className={styles.buttonGroup}
@@ -236,7 +235,7 @@ const ProjectView = ({
               <img src={image} alt="Project Image" className={styles.image} />
             </div>
           )}
-          <YoutubeRenderer youtubeLink={video} />
+          {video.includes('youtube') && <YoutubeRenderer youtubeLink={video} />}
           {/* { video != '' && (
             <div
               sx={{

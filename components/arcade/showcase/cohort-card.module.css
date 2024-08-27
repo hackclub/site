@@ -20,6 +20,7 @@
     max-width: 480px;
     height: auto;
     max-height: 100%;
+    object-fit: cover;
     aspect-ratio: 1 / 1;
     border-radius: 5px;
     object-fit: contain;
