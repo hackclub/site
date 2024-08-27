@@ -431,6 +431,8 @@ const Vote = () => {
           setActiveDroppableId(box.id)
         }
         break
+      } else {
+        insideVotingBox = false
       }
     }
 
