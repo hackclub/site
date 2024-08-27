@@ -9,7 +9,8 @@ import {
   Text,
   Label,
   Input,
-  Card
+  Card,
+  Progress
 } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
@@ -21,39 +22,58 @@ import Submit from '../components/submit'
 import ForceTheme from '../components/force-theme'
 
 const ReplitPage = () => {
-  const [savedToken, setSavedToken] = useState('')
-  const [savedEmail, setSavedEmail] = useState('')
+  const [userDetails, setUserDetails] = useState({ token: null, email: null })
+
+  const [responseText, setResponseText] = useState('')
+  const [progressText, setProgressText] = useState(0)
 
   useEffect(() => {
-    // Load saved data from localStorage on component mount
-    const token = localStorage.getItem('replitToken')
-    const email = localStorage.getItem('replitEmail')
-    if (token) setSavedToken(token)
-    if (email) setSavedEmail(email)
+    const token = localStorage.getItem('token')
+    const email = localStorage.getItem('email')
+    setUserDetails({ token, email })
 
-    if (token) {
-      const progressUrl = new URL('http://68.183.252.105/progress')
-      progressUrl.searchParams.append('token', token)
-
-      // setInterval(() => {
-      //   fetch(progressUrl)
-      // }, 1_000)
-    }
+    setInterval(() => {
+      try {
+        fetch(`/api/replit/progress?token=${localStorage.getItem('token')}`)
+          .then(res => res.text())
+          .then(data => {
+            const split = data.split('/')
+            console.log(data, split)
+            setProgressText(split[0] / split[1])
+          })
+      } catch (e) {
+        console.warn(e)
+      }
+    }, 5_000)
   }, [])
 
-  const { status, data, useField, formProps } = useForm(
-    '/api/replit/signup',
-    response => {
-      // Callback function after successful submission
-      localStorage.setItem('replitToken', data.token)
-      localStorage.setItem('replitEmail', data.email)
-      alert('Form submitted successfully!')
-    },
-    {
-      clearOnSubmit: false,
-      initData: { token: savedToken, email: savedEmail }
+  const handleSubmit = async event => {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    const data = {
+      email: formData.get('email'),
+      token: formData.get('token')
     }
-  )
+
+    try {
+      const response = await fetch('/api/replit/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+
+      const result = await response.json()
+      localStorage.setItem('token', result.token)
+      localStorage.setItem('email', result.email)
+      setUserDetails({ token: result.token, email: result.email })
+      setResponseText('Success!')
+    } catch (error) {
+      setResponseText('Error submitting form')
+      console.error('Error:', error)
+    }
+  }
 
   const tokenSteps = [
     {
@@ -120,31 +140,64 @@ const ReplitPage = () => {
         </Text>
       </Box>
 
+      <Text sx={{ fontSize: '0.1rem' }}>{JSON.stringify(userDetails)}</Text>
+
       <Box sx={{ maxWidth: '100ch', marginX: 'auto' }}>
         <Box sx={{ marginTop: '3rem' }}>
           <Heading as="h2" sx={{ marginBottom: '0.5em' }}>
             Export your repls
           </Heading>
-          <Card>
-            <form {...formProps}>
+          <Card sx={{ background: 'smoke' }}>
+            <form onSubmit={handleSubmit}>
+              <Label sx={{ fontSize: 1 }} htmlFor="email">
+                Email
+              </Label>
+              <Input
+                name="email"
+                type="email"
+                defaultValue={userDetails.email}
+              />
+
               <Label sx={{ fontSize: 1, pt: 2 }} htmlFor="token">
                 Replit connect.sid token
               </Label>
-              <Input {...useField('token')} />
+              <Input name="token" defaultValue={userDetails.token} />
 
-              <Label sx={{ fontSize: 1, pt: 2 }} htmlFor="email">
-                Email override
-              </Label>
-              <Input {...useField('email', 'email')} />
-
-              <Submit
-                sx={{ backgroundColor: 'black', mt: '0.5rem' }}
-                status={status}
-                value="Submit"
+              <Input
+                type="submit"
+                sx={{ backgroundColor: 'black', mt: '0.5rem', color: 'white' }}
+                text="Submit"
               />
             </form>
+            <Text>{responseText}</Text>
+
+            {progressText ? (
+              <Box
+                sx={{
+                  marginTop: '1rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1rem',
+                  alignItems: 'center'
+                }}
+              >
+                <Progress max={1} value={progressText}>
+                  {progressText * 100}%
+                </Progress>
+
+                <Text sx={{ flexShrink: 0 }}>
+                  {progressText * 100}% of your repls have processed.
+                  {progressText <= 0 ? ' Please wait!' : null}
+                  {progressText <= 1 ? ' Check your email!' : null}
+                </Text>
+              </Box>
+            ) : null}
           </Card>
         </Box>
+
+        <Card sx={{ background: 'smoke', marginTop: '3rem' }}>
+          3: Something about free stickers
+        </Card>
 
         <Box sx={{ marginTop: '3rem' }}>
           <Heading as="h2" sx={{ marginBottom: '0.5em' }}>
@@ -154,18 +207,16 @@ const ReplitPage = () => {
           <Box
             sx={{
               display: 'flex',
-              gap: '1rem',
-              overflowX: 'auto',
-              padding: '1rem'
+              flexDirection: 'column',
+              gap: '1rem'
             }}
           >
             {tokenSteps.map((step, idx) => (
               <Card
                 key={idx}
                 sx={{
-                  padding: '1rem !important',
                   lineHeight: 0,
-                  minWidth: '64rem'
+                  background: 'smoke'
                 }}
               >
                 <Heading as="h3" sx={{ lineHeight: 1.5 }}>

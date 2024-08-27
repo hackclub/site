@@ -1,22 +1,13 @@
-import fetch from 'node-fetch'
-
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       const { token, email } = req.body
 
-      // Construct the URL with query parameters
-      const url = new URL('http://68.183.252.105/signup')
+      const url = new URL('http://takeout.hackclub.com/signup')
       url.searchParams.append('token', token)
       url.searchParams.append('email', email)
 
-      // Make the request to the replit-takeout service
-      const response = await fetch(url.toString(), {
-        method: 'POST', // The URL suggests this might be a GET request
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
+      const response = await fetch(url, { method: 'POST' })
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
