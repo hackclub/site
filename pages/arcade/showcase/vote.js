@@ -245,6 +245,7 @@ const Vote = () => {
   const [startVote, setStartVote] = useState(false)
   const [startViewProject, setStartViewProject] = useState(false)
   const [currentView, setCurrentView] = useState(0)
+  const [showForm, setShowForm] = useState(false)
 
   /* drag and drop logic */
   const [activeDroppableId, setActiveDroppableId] = useState(null)
@@ -651,6 +652,30 @@ const Vote = () => {
     setEndPage(true)
   }
 
+  const voteCreativeMobile = ids => {
+    setCreative(ids)
+    setShowCreative(false)
+    setVotes({})
+    setProjects(originalProjects)
+    setShowTechnical(true)
+  }
+
+  const voteTechnicalMobile = ids => {
+    setTechnical(ids)
+    setShowTechnical(false)
+    setVotes({})
+    setProjects(originalProjects)
+    setShowOverall(true)
+  }
+
+  const voteOverallMobile = ids => {
+    setOverall(ids)
+    setShowTechnical(false)
+    setVotes({})
+    setProjects(originalProjects)
+    setEndPage(true)
+  }
+
   const submitVote = async (overall, technical, creative) => {
     const authToken = window.localStorage.getItem('arcade.authToken')
 
@@ -699,6 +724,43 @@ const Vote = () => {
       submitVote(overall, technical, creative)
     }
   }, [endPage])
+
+  //MOBILE w/ ChatGPT help
+  const [selectedProjects, setSelectedProjects] = useState(Array(5).fill(''))
+
+  const handleChange = (index, event) => {
+    const newSelection = [...selectedProjects]
+    newSelection[index] = event.target.value
+    setSelectedProjects(newSelection)
+  }
+
+  const getFilteredOptions = currentIndex => {
+    return projects.filter(
+      project =>
+        !selectedProjects.includes(project.fields.Name) ||
+        selectedProjects[currentIndex] === project.fields.Name
+    )
+  }
+
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    const projectIds = selectedProjects.map(
+      name => projects.find(project => project.fields.Name === name)?.id
+    )
+    console.log('Selected Project IDs:', projectIds)
+
+    showCreative
+      ? voteCreativeMobile(projectIds)
+      : showTechnical
+        ? voteTechnicalMobile(projectIds)
+        : showOverall
+          ? voteOverallMobile(projectIds)
+          : null
+
+    console.log(creative)
+    setSelectedProjects(Array(5).fill(''))
+  }
 
   return startVote == true ? (
     endPage == true ? (
@@ -856,76 +918,57 @@ const Vote = () => {
                     )}
                   </Droppable>
                 </div>
-                <div sx={{ pl: 3, py: 3, pr: 4 }}>
+                <div
+                  sx={{
+                    pl: 4,
+                    py: 3,
+                    pr: 4,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}
+                >
                   <div>
-                    <Text as="p" variant="subtitle">
-                      Choose top 5 for{' '}
-                    </Text>
-                    <Text
-                      as="p"
-                      className="slackey"
-                      variant="subtitle"
-                      sx={{ pb: 3 }}
-                    >
+                    <Text variant="subtitle">Choose top 5 for </Text>
+                    <Text className="slackey" variant="subtitle" sx={{ pb: 3 }}>
                       {showCreative
                         ? 'Most creative ships'
                         : showTechnical
                           ? 'Most technical ships'
                           : 'Best overall ships'}
                     </Text>
-                    {[
-                      'votes-1',
-                      'votes-2',
-                      'votes-3',
-                      'votes-4',
-                      'votes-5'
-                    ].map(voteId => (
-                      <Droppable key={voteId} droppableId={voteId}>
-                        {provided => (
-                          <div
-                            ref={provided.innerRef}
-                            {...provided.droppableProps}
-                            id={voteId}
-                            sx={{
-                              width: '100%',
-                              height: ['14vh', '14vh', '13.5vh'],
-                              minHeight: '80px',
-                              border: '2px dashed #09AFB4',
-                              borderRadius: '10px',
-                              mb: 3,
-                              backgroundColor:
-                                activeDroppableId === voteId
-                                  ? '#F6E7C5'
-                                  : '#FAEFD6',
-                              transition: 'transform 0.2s ease',
-                              transform:
-                                activeDroppableId === voteId
-                                  ? activeDroppable == true
-                                    ? 'scale(1.05)'
-                                    : 'scale(1)'
-                                  : 'scale(1)'
-                            }}
-                          >
-                            {renderVoteBox(voteId)}
-                            {provided.placeholder}
-                          </div>
-                        )}
-                      </Droppable>
-                    ))}
-                    {isButtonActive ? (
+                    {showForm ? (
                       <Button
-                        onClick={e => {
-                          showCreative
-                            ? voteCreative()
-                            : showTechnical
-                              ? voteTechnical()
-                              : showOverall
-                                ? voteOverall()
-                                : null
+                        onClick={() => {
+                          setShowForm(false)
+                        }}
+                        sx={{
+                          border: '2px dashed #09AFB4',
+                          background: 'transparent',
+                          display: 'block',
+                          mt: 3,
+                          color: '#09AFB4',
+                          borderRadius: '5px',
+                          px: '20px',
+                          transitionDuration: '0.3s',
+                          '&:hover': {
+                            transform: 'scale(1.05)'
+                          },
+                          width: 'fit-content'
+                        }}
+                      >
+                        Drag and Drop View
+                      </Button>
+                    ) : (
+                      <Button
+                        onClick={() => {
+                          setShowForm(true)
                         }}
                         sx={{
                           backgroundColor: '#09AFB4',
+                          display: 'block',
                           color: '#FAEFD6',
+                          mt: 3,
                           borderRadius: '5px',
                           border: 'none',
                           px: '20px',
@@ -936,27 +979,153 @@ const Vote = () => {
                           width: 'fit-content'
                         }}
                       >
-                        Place votes
+                        Form View
                       </Button>
+                    )}
+                    {!showForm ? (
+                      <div sx={{ mt: 2 }}>
+                        {[
+                          'votes-1',
+                          'votes-2',
+                          'votes-3',
+                          'votes-4',
+                          'votes-5'
+                        ].map(voteId => (
+                          <Droppable key={voteId} droppableId={voteId}>
+                            {provided => (
+                              <div
+                                ref={provided.innerRef}
+                                {...provided.droppableProps}
+                                id={voteId}
+                                sx={{
+                                  width: '100%',
+                                  height: ['14vh', '14vh', '13.5vh'],
+                                  minHeight: '80px',
+                                  border: '2px dashed #09AFB4',
+                                  borderRadius: '10px',
+                                  mb: 3,
+                                  backgroundColor:
+                                    activeDroppableId === voteId
+                                      ? '#F6E7C5'
+                                      : '#FAEFD6',
+                                  transition: 'transform 0.2s ease',
+                                  transform:
+                                    activeDroppableId === voteId
+                                      ? activeDroppable == true
+                                        ? 'scale(1.05)'
+                                        : 'scale(1)'
+                                      : 'scale(1)'
+                                }}
+                              >
+                                {renderVoteBox(voteId)}
+                                {provided.placeholder}
+                              </div>
+                            )}
+                          </Droppable>
+                        ))}
+                        {isButtonActive ? (
+                          <Button
+                            onClick={e => {
+                              showCreative
+                                ? voteCreative()
+                                : showTechnical
+                                  ? voteTechnical()
+                                  : showOverall
+                                    ? voteOverall()
+                                    : null
+                            }}
+                            sx={{
+                              backgroundColor: '#09AFB4',
+                              color: '#FAEFD6',
+                              borderRadius: '5px',
+                              border: 'none',
+                              px: '20px',
+                              transitionDuration: '0.3s',
+                              '&:hover': {
+                                transform: 'scale(1.05)'
+                              },
+                              width: 'fit-content'
+                            }}
+                          >
+                            Place votes
+                          </Button>
+                        ) : (
+                          <Button
+                            sx={{
+                              backgroundColor: '#09AFB4',
+                              color: '#FAEFD6',
+                              borderRadius: '5px',
+                              border: 'none',
+                              px: '20px',
+                              width: 'fit-content',
+                              opacity: 0.4,
+                              transition: 'none',
+                              '&:hover': {
+                                transform: 'none'
+                              },
+                              cursor: 'not-allowed'
+                            }}
+                          >
+                            Place votes
+                          </Button>
+                        )}
+                      </div>
                     ) : (
-                      <Button
-                        sx={{
-                          backgroundColor: '#09AFB4',
-                          color: '#FAEFD6',
-                          borderRadius: '5px',
-                          border: 'none',
-                          px: '20px',
-                          width: 'fit-content',
-                          opacity: 0.4,
-                          transition: 'none',
-                          '&:hover': {
-                            transform: 'none'
-                          },
-                          cursor: 'not-allowed'
-                        }}
-                      >
-                        Place votes
-                      </Button>
+                      <div sx={{ pb: 5, pt: 2 }}>
+                        <form onSubmit={handleSubmit} id="s-form">
+                          {[0, 1, 2, 3, 4].map(index => (
+                            <div key={index}>
+                              {/* <label htmlFor={`project-${index}`}>
+                              {index + 1}:
+                            </label> */}
+                              <select
+                                id={`project-${index}`}
+                                value={selectedProjects[index]}
+                                onChange={event => handleChange(index, event)}
+                                required
+                                sx={{
+                                  border: '2px dashed #09AFB4',
+                                  background: 'transparent',
+                                  px: 2,
+                                  py: 1,
+                                  borderRadius: '2px',
+                                  width: '100%',
+                                  fontSize: [2, 3],
+                                  mb: 3
+                                }}
+                                className="gaegu"
+                              >
+                                <option value="">Select a project</option>
+                                {getFilteredOptions(index).map(project => (
+                                  <option
+                                    key={project.id}
+                                    value={project.fields.Name}
+                                  >
+                                    {project.fields.Name}
+                                  </option>
+                                ))}
+                              </select>
+                            </div>
+                          ))}
+                          <Button
+                            type="submit"
+                            sx={{
+                              backgroundColor: '#09AFB4',
+                              color: '#FAEFD6',
+                              borderRadius: '5px',
+                              border: 'none',
+                              px: '20px',
+                              transitionDuration: '0.3s',
+                              '&:hover': {
+                                transform: 'scale(1.05)'
+                              },
+                              width: 'fit-content'
+                            }}
+                          >
+                            Vote now
+                          </Button>
+                        </form>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -1035,7 +1204,7 @@ const Vote = () => {
           py: 2
         }}
       >
-        <Text variant="subtitle" sx={{ m: 0, color: '#35290F' }}>
+        <Text variant="subtitle" sx={{ m: 0, color: '#35290F', fontSize: [1, 2] }}>
           {' '}
           Ship {currentView + 1}/{projectCount}
         </Text>

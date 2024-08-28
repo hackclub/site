@@ -1905,7 +1905,7 @@ export async function getStaticProps() {
     .map(record => ({
       hours: record['Cost Hours'] || 0,
       imageURL: record['Image URL'] || '',
-      enabledCarousel: record['Enabled Carousel'] || false,
+      enabledCarousel: record['Enabled Carousel'] || false
     }))
     .filter(item => item.enabledCarousel)
     .filter(item => item.imageURL !== '')
@@ -1916,11 +1916,11 @@ export async function getStaticProps() {
     .map(record => ({
       // id: record['ID'],
       'Image URL': record['Image URL'] || null,
-      'Name': record['Name'] || null,
+      Name: record['Name'] || null,
       'Small Name': record['Small Name'] || null,
       'Full Name': record['Full Name'] || null,
       'Cost Hours': record['Cost Hours'] || null,
-      'Description': record['Description'] || null,
+      Description: record['Description'] || null,
       'Fulfillment Description': record['Fulfillment Description'] || null,
       'Extra tags': record['Extra tags'] || []
     }))
