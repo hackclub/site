@@ -957,7 +957,7 @@ const Vote = () => {
                           width: 'fit-content'
                         }}
                       >
-                        Drag and Drop
+                        Drag and Drop View
                       </Button>
                     ) : (
                       <Button
@@ -979,7 +979,7 @@ const Vote = () => {
                           width: 'fit-content'
                         }}
                       >
-                        Form
+                        Form View
                       </Button>
                     )}
                     {!showForm ? (
