@@ -7,6 +7,19 @@ import JSConfetti from 'js-confetti'
 
 /** @jsxImportSource theme-ui */
 
+
+// https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/guides/drop-animation.md#skipping-the-drop-animation
+function getStyle(style, snapshot) {
+  if (!snapshot.isDropAnimating) {
+    return style;
+  }
+  return {
+    ...style,
+    // cannot be 0, but make it super tiny
+    transitionDuration: `0.001s`,
+  };
+}
+
 const styled = `
 @import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
 body, html {
@@ -810,7 +823,7 @@ const Vote = () => {
                             draggableId={project.id}
                             index={index}
                           >
-                            {provided => (
+                            {(provided, snapshot) => (
                               <div
                                 ref={el => {
                                   provided.innerRef(el)
@@ -825,9 +838,9 @@ const Vote = () => {
 
                                   setOpenProjectId(project.id)
                                 }}
-                                sx={{
-                                  ...provided.draggableProps.style
-                                }}
+                                style={
+                                  getStyle(provided.draggableProps.style, snapshot)
+                                }
                               >
                                 <SmallView
                                   id={project.id}
