@@ -134,7 +134,7 @@ const ProjectView = ({
       >
         <h1 className="slackey">{title}</h1>
         <h2>{description != 'Description Not Found' ? description : <></>}</h2>
-        <h3>{user != 'User Not Found' ? <>By {user}</> : <></>}</h3>
+        {/* <h3>{user != 'User Not Found' ? <>By {user}</> : <></>}</h3> */}
 
         <div
           className={styles.buttonGroup}
@@ -201,7 +201,7 @@ const ProjectView = ({
             }
           }}
         >
-          <Icon glyph="home" /> View all my ships
+          {/* <Icon glyph="home" /> View all my ships */}
         </Text>
       </div>
 
