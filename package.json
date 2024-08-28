@@ -54,6 +54,7 @@
     "jszip": "^3.10.1",
     "jszip-utils": "^0.1.0",
     "lodash": "^4.17.21",
+    "luxon": "^3.5.0",
     "million": "^2.6.4",
     "next": "^12.3.1",
     "next-transpile-modules": "^10.0.1",

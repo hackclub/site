@@ -6,6 +6,7 @@ import styles from '../../../components/arcade/showcase/my.module.css'
 // import Countdown from 'react-countdown'
 import Icon from '@hackclub/icons'
 import ProjectAddView from '../../../components/arcade/showcase/project-add'
+import { DateTime } from 'luxon'
 /** @jsxImportSource theme-ui */
 
 const styled = `
@@ -54,45 +55,48 @@ a {
 }
 `
 
-const ProjectGallery = ({ projects, loadProjects }) => {
+const ProjectGallery = ({ projects, loadProjects, submissionClose }) => {
   return (
     <div className={styles.feed}>
-      <div className={styles.container}>
-        <Box
-          target="_blank"
-          rel="noopener"
-          className="gaegu"
-          sx={{
-            border: '3px dashed #09AFB4',
-            my: 2,
-            display: 'flex',
-            color: '#09AFB4',
-            borderRadius: '10px',
-            flexDirection: 'column',
-            width: '100%',
-            height: '100%',
-            textDecoration: 'none',
-            textAlign: 'center',
-            py: 2,
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            transitionDuration: '0.4s',
-            '&:hover': {
-              background: '#09AFB4',
-              color: '#F4E7C7'
-            }
-          }}
-          onClick={e => {
-            document.getElementById('add-project').showModal()
-          }}
-        >
-          <Icon glyph="plus" sx={{ marginX: 'auto' }} />
-          <Text variant="subtitle" sx={{ mt: 0 }}>
-            Add a Project
-          </Text>
-        </Box>
-      </div>
+      {submissionClose ? null : (
+        <div className={styles.container}>
+          <Box
+            target="_blank"
+            rel="noopener"
+            className="gaegu"
+            sx={{
+              border: '3px dashed #09AFB4',
+              my: 2,
+              display: 'flex',
+              color: '#09AFB4',
+              borderRadius: '10px',
+              flexDirection: 'column',
+              width: '100%',
+              height: '100%',
+              textDecoration: 'none',
+              textAlign: 'center',
+              py: 2,
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              transitionDuration: '0.4s',
+              '&:hover': {
+                background: '#09AFB4',
+                color: '#F4E7C7'
+              }
+            }}
+            onClick={e => {
+              document.getElementById('add-project').showModal()
+            }}
+          >
+            <Icon glyph="plus" sx={{ marginX: 'auto' }} />
+            <Text variant="subtitle" sx={{ mt: 0 }}>
+              Add a Project
+            </Text>
+          </Box>
+        </div>
+      )}
+
       {projects.map(project => (
         <CohortCard
           key={project.id}
@@ -136,9 +140,14 @@ const ErrorMessage = () => (
   </div>
 )
 
-const VoteCountdown = ({ isActive }) => {
+const VoteCountdown = ({ isActive, submissionClose }) => {
   if (!isActive) {
-    return (<span sx={{ color: '#FF5C00' }}>Voting round opening soon!</span>)
+    return (
+      <span sx={{ color: '#FF5C00' }}>
+        Submissions {submissionClose ? 'ended' : 'end on'} Aug 27 at 11:59pm ET.
+        Voting round opening soon!
+      </span>
+    )
   } else {
     return (
       <div sx={{ width: '100%' }}>
@@ -172,7 +181,18 @@ const My = () => {
   const [name, setName] = useState('')
   const [status, setStatus] = useState('loading')
   const [errorMsg, setError] = useState(null)
+  const [submissionClose, setSubmissionClose] = useState(false)
 
+  const deadline = DateTime.fromISO('2024-08-27T23:59:59', {
+    zone: 'America/New_York'
+  })
+  const now = DateTime.now().setZone('America/New_York')
+
+  useEffect(() => {
+    if (now > deadline) {
+      setSubmissionClose(true)
+    }
+  }, [])
   // const launchDate = new Date(2025, 7, 25, 8, 0, 0, 0)
 
   // Spotlight effect
@@ -223,8 +243,7 @@ const My = () => {
       headers: {
         Authorization: `Bearer ${token}`
       }
-    }).catch(e => {
-    })
+    }).catch(e => {})
     const data = await response.json()
     if (!data.error && !data.voted) {
       setVoteOpen(true)
@@ -314,7 +333,11 @@ const My = () => {
                 }}
                 className="gaegu"
               >
-                <VoteCountdown isActive={voteOpen} startTime={null} />
+                <VoteCountdown
+                  isActive={voteOpen}
+                  startTime={null}
+                  submissionClose={submissionClose}
+                />
               </div>
             </Heading>
           </SlideDown>
@@ -324,7 +347,11 @@ const My = () => {
           {status == 'error' && <ErrorMessage />}
 
           {status == 'success' && (
-            <ProjectGallery projects={projects} loadProjects={loadProjects} />
+            <ProjectGallery
+              projects={projects}
+              loadProjects={loadProjects}
+              submissionClose={submissionClose}
+            />
           )}
           <dialog
             id="add-project"

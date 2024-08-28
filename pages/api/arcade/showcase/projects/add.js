@@ -1,7 +1,17 @@
 import AirtablePlus from 'airtable-plus'
 import { ensureAuthed } from '../login/test'
+import { DateTime } from 'luxon'
 
 export default async function handler(req, res) {
+  const deadline = DateTime.fromISO('2024-08-27T20:59:59', {
+    zone: 'America/New_York'
+  })
+  const now = DateTime.now().setZone('America/New_York')
+
+  if (now > deadline) {
+    return res.status(403).json({ error: 'The submission period has ended' })
+  }
+
   const authToken = req.body?.authToken
   if (!authToken) {
     return res.status(401).json({ error: 'No auth token provided' })
