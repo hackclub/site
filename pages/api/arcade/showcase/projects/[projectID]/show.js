@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     playLink: p.fields['Play Link'] || '',
     images: (p.fields['Screenshot'] || []).map(i => i.url),
     githubProf: p.fields['Github Profile'] || '',
-    user: user.fields['Name'],
+    user: p.fields['Name (from User)'] || '',
     color: p.fields['color'] || '',
     textColor: p.fields['textColor'] || '',
     screenshot: p.fields['ScreenshotLink'] || '',

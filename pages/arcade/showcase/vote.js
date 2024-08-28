@@ -7,17 +7,16 @@ import JSConfetti from 'js-confetti'
 
 /** @jsxImportSource theme-ui */
 
-
 // https://github.com/atlassian/react-beautiful-dnd/blob/master/docs/guides/drop-animation.md#skipping-the-drop-animation
 function getStyle(style, snapshot) {
   if (!snapshot.isDropAnimating) {
-    return style;
+    return style
   }
   return {
     ...style,
     // cannot be 0, but make it super tiny
-    transitionDuration: `0.001s`,
-  };
+    transitionDuration: `0.001s`
+  }
 }
 
 const styled = `
@@ -775,7 +774,7 @@ const Vote = () => {
               zIndex: 5,
               position: 'relative',
               color: '#35290F',
-              height: '100vh'
+              height: ['100%', '100%', '100vh']
             }}
             className="gaegu"
           >
@@ -838,9 +837,10 @@ const Vote = () => {
 
                                   setOpenProjectId(project.id)
                                 }}
-                                style={
-                                  getStyle(provided.draggableProps.style, snapshot)
-                                }
+                                style={getStyle(
+                                  provided.draggableProps.style,
+                                  snapshot
+                                )}
                               >
                                 <SmallView
                                   id={project.id}
@@ -969,7 +969,7 @@ const Vote = () => {
               sx={{
                 borderRadius: '10px',
                 border: '3px dashed #09AFB4',
-                width: '70vw',
+                width: ['90vw', '90vw', '70vw'],
                 position: 'relative'
               }}
               className="gaegu"
@@ -1183,10 +1183,10 @@ const Vote = () => {
                 Voting for your favourite ships
               </Text>
               <Text variant="subtitle" as="h4" sx={{ mb: 3 }}>
-                When you click start voting, you will first be shown{' '}
-                {projectCount} projects in your cohort. After viewing these
-                projects, you will get the chance to pick your top 5 projects
-                for each category.
+                Please vote on a device with a mouse if possible. When you click
+                start voting, you will first be shown {projectCount} projects in
+                your cohort. After viewing these projects, you will get the
+                chance to pick your top 5 projects for each category.
               </Text>
               <Button
                 onClick={e => {
