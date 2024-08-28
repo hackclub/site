@@ -1204,7 +1204,7 @@ const Vote = () => {
           py: 2
         }}
       >
-        <Text variant="subtitle" sx={{ m: 0, color: '#35290F' }}>
+        <Text variant="subtitle" sx={{ m: 0, color: '#35290F', fontSize: [1, 2] }}>
           {' '}
           Ship {currentView + 1}/{projectCount}
         </Text>
