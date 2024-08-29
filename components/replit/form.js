@@ -29,7 +29,7 @@ const ReplitForm = ({ cssDark }) => {
   ]
 
   const fieldStyle = ({ disabled }) => ({
-    border: '1.5px solid #0002',
+    border: '1px solid #0002',
     cursor: disabled ? 'not-allowed' : 'auto',
     opacity: disabled ? 0.5 : 1
   })
@@ -39,6 +39,21 @@ const ReplitForm = ({ cssDark }) => {
     cursor: disabled ? 'not-allowed' : 'auto',
     opacity: disabled ? 0.5 : 1
   })
+
+  const StepIndicator = ({ step }) => (
+    <Box
+      sx={{
+        position: 'absolute',
+        left: '-1rem',
+        top: 0,
+        bottom: 0,
+        width: '0.2em',
+        backgroundColor: cssDark,
+        borderRadius: '999px',
+        opacity: step > currentStep ? 0.25 : 1
+      }}
+    ></Box>
+  )
 
   const boxStyle = {
     display: 'flex',
@@ -78,6 +93,7 @@ const ReplitForm = ({ cssDark }) => {
           <Icon glyph="down-caret" />
           Next
         </Button>
+        <StepIndicator step={1} />
       </Box>
     )
   }
@@ -138,6 +154,7 @@ const ReplitForm = ({ cssDark }) => {
             Submit
           </Button>
         </Flex>
+        <StepIndicator step={2} />
       </Box>
     )
   }
@@ -192,6 +209,7 @@ const ReplitForm = ({ cssDark }) => {
           />
         )
       })}
+      <StepIndicator step={3} />
     </Box>
   )
 
@@ -223,9 +241,6 @@ const ReplitForm = ({ cssDark }) => {
         overflow: 'initial'
       }}
     >
-      <Text sx={{ fontSize: '0.6rem' }}>{formData.email || 'no email'}</Text>
-      <Text sx={{ fontSize: '0.6rem' }}>{formData.token || 'no token'}</Text>
-
       <style>{`.step { transition: opacity 0.1s; }`}</style>
       {step1()}
       {step2()}

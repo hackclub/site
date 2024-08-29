@@ -176,7 +176,8 @@ const ReplitPage = () => {
                 height: '1.35em',
                 translate: '-0.095em -0.195em',
                 position: 'absolute',
-                right: 0
+                right: 0,
+                opacity: 0
               }}
               id="fire-replit"
               className="replit-fire"
