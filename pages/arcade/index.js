@@ -347,6 +347,31 @@ const Review = () => {
     setRotation(rot)
   }, [])
 
+    const [arcaderData, setArcaderData] = useState(null)
+    
+    useEffect(() => {
+      async function fetchArcaderData() {
+      try {
+        const response = await fetch('https://api.pixelverse.tech/chat/journal-nocors', {
+        method: 'GET'
+        })
+        const data = await response.json()
+        const randomIndex = Math.floor(Math.random() * data.length)
+        const randomEntry = data[randomIndex]
+    
+        // Preserve line breaks in the message
+        const preservedMessage = randomEntry.message.replace(/\n/g, '<br>')
+        randomEntry.message = preservedMessage
+    
+        setArcaderData(randomEntry)
+      } catch (error) {
+        console.error('Error fetching Arcader data!!!:', error)
+      }
+      }
+    
+      fetchArcaderData()
+    }, [])
+
   // Spotlight effect
   const spotlightRef = useRef()
   useEffect(() => {
@@ -1027,13 +1052,15 @@ const Review = () => {
                   <Supporters img="/arcade/review/Framework.png" />
                   <Supporters img="/arcade/review/Flipper.svg" />
                 </div>
-                <Arcader
-                  quote="This summer, I built an escape room game and pushed myself to try new things like learning gimp, making animations, and participating in my first game jam (which I was previously too intimidated to try)!"
-                  name="Nina Dong"
-                  age="19"
-                  country="US"
-                  image="https://cloud-ka3tzvqze-hack-club-bot.vercel.app/0nina_dong_photo.jpg"
-                />
+                {arcaderData && (
+                  <Arcader
+                    quote={arcaderData.message}
+                    name={arcaderData.name}
+                    age=""
+                    country=""
+                    image={arcaderData.profile_url}
+                  />
+                )}
               </div>
             </div>
           </div>
