@@ -936,7 +936,8 @@ const Vote = () => {
                         : showTechnical
                           ? 'Most technical ships'
                           : 'Best overall ships'}
-                    </Text>
+                    </Text>{' '}
+                    <Text variant="subtitle" sx={{ pb: 3, fontStyle: 'italic' }}>Order matters!</Text>
                     {showForm ? (
                       <Button
                         onClick={() => {
