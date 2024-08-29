@@ -16,38 +16,52 @@ import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Footer from '../components/footer'
 import Nav from '../components/nav'
-import { useState, useEffect } from 'react'
-import useForm from '../lib/use-form'
+import { useState, useEffect, useRef } from 'react'
 import Submit from '../components/submit'
 import ForceTheme from '../components/force-theme'
+import ReplitForm from '../components/replit/form'
 
 const ReplitPage = () => {
-  const [userDetails, setUserDetails] = useState({ token: null, email: null })
+  const [token, setToken] = useState('')
+  const [email, setEmail] = useState('')
 
+  const [submitStatus, setSubmitStatus] = useState('default')
   const [responseText, setResponseText] = useState('')
   const [progressText, setProgressText] = useState(0)
+
+  const intervalRef = useRef(null)
 
   useEffect(() => {
     const token = localStorage.getItem('token')
     const email = localStorage.getItem('email')
-    setUserDetails({ token, email })
 
-    setInterval(() => {
-      try {
-        fetch(`/api/replit/progress?token=${localStorage.getItem('token')}`)
-          .then(res => res.text())
-          .then(data => {
-            const split = data.split('/')
-            console.log(data, split)
-            setProgressText(split[0] / split[1])
-          })
-      } catch (e) {
-        console.warn(e)
-      }
-    }, 5_000)
+    if (token) setToken(token)
+    if (email) setEmail(email)
   }, [])
 
+  useEffect(() => {
+    if (token) {
+      intervalRef.current = setInterval(() => {
+        try {
+          fetch(`/api/replit/progress?token=${token}`)
+            .then(res => res.text())
+            .then(data => {
+              const split = data.split('/')
+              setProgressText(split[0] / split[1])
+            })
+        } catch (e) {
+          console.warn(e)
+        }
+      }, 5000)
+    }
+
+    return () => {
+      clearInterval(intervalRef.current)
+    }
+  }, [token])
+
   const handleSubmit = async event => {
+    setSubmitStatus('submitting')
     event.preventDefault()
     const formData = new FormData(event.target)
     const data = {
@@ -59,21 +73,30 @@ const ReplitPage = () => {
       const response = await fetch('/api/replit/signup', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify(data)
+        body: new URLSearchParams(data).toString()
       })
 
-      const result = await response.json()
-      localStorage.setItem('token', result.token)
-      localStorage.setItem('email', result.email)
-      setUserDetails({ token: result.token, email: result.email })
-      setResponseText('Success!')
+      const result = await response.text()
+      setResponseText(result)
+
+      // Store the email and token in localStorage
+      localStorage.setItem('token', data.token)
+      localStorage.setItem('email', data.email)
+      setSubmitStatus('success')
     } catch (error) {
+      setSubmitStatus('error')
       setResponseText('Error submitting form')
       console.error('Error:', error)
     }
   }
+
+  const steps = [
+    'Enter your email',
+    'Enter your replit token',
+    'Get free stickers'
+  ]
 
   const tokenSteps = [
     {
@@ -90,6 +113,8 @@ const ReplitPage = () => {
     }
   ]
 
+  const cssDark = 'hsl(23, 94%, 32%)'
+
   return (
     <>
       <Meta
@@ -97,7 +122,7 @@ const ReplitPage = () => {
         title="Export your Repls"
         description="Replit free has shut down. Export with Hack Club to GitHub Education's new free codespaces offering"
       />
-      <style>{`html { scroll-behavior: smooth; }`}</style>
+      <style>{`html { scroll-behavior: smooth; } body { background-color: hsl(23, 94%, 96%); }`}</style>
       <ForceTheme theme="light" />
       <Nav />
       <Box
@@ -109,97 +134,135 @@ const ReplitPage = () => {
           paddingTop: ['4rem', null, '6rem'],
           paddingBottom: '1rem',
           textAlign: 'center',
-          backgroundColor: 'black',
+          backgroundColor: cssDark,
           color: 'white'
         }}
       >
         <Heading
           as="h1"
           sx={{
-            fontSize: '3em'
+            fontSize: '4em'
+          }}
+          onMouseOver={() => {
+            document.getElementById('og-replit').style.opacity = '0'
+            document.getElementById('fire-replit').style.opacity = '1'
+          }}
+          onMouseOut={() => {
+            document.getElementById('og-replit').style.opacity = '1'
+            document.getElementById('fire-replit').style.opacity = '0'
           }}
         >
           Export your{' '}
-          <Text as="span" sx={{ display: 'inline-flex' }}>
-            Replit{' '}
+          <Text
+            as="span"
+            sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              position: 'relative'
+            }}
+          >
+            Replit <style>{`.replit-fire {transition: opacity 0.1s;`}</style>
             <Image
               src="/replit/replit.svg"
               alt="replit"
               sx={{ height: '1em' }}
+              id="og-replit"
+              className="replit-fire"
+            />
+            <Image
+              src="/replit/replit-fire-nooutline.png"
+              alt="replit"
+              sx={{
+                height: '1.35em',
+                translate: '-0.095em -0.195em',
+                position: 'absolute',
+                right: 0
+              }}
+              id="fire-replit"
+              className="replit-fire"
             />
           </Text>{' '}
           repls
         </Heading>
 
         <Text sx={{ maxWidth: '80ch', fontSize: '1.2em', marginY: '1em' }}>
-          Replit has discontinued its free plan. Previously free features like
-          unlimited & private repls now cost $10 per month. GitHub Education is
-          offering free{' '}
-          <Link href="https://github.com/features/codespaces">Codespaces</Link>{' '}
-          to all students.
+          On 25th August, Replit cut down its free plan - it's now unusable.
+          <br />
+          Previously, you got unlimited repls for free, for as long as you
+          wanted.
+          <br />
+          Now you get three repls, for 600 minutes per month (20 mins/day).
         </Text>
       </Box>
 
-      <Text sx={{ fontSize: '0.1rem' }}>{JSON.stringify(userDetails)}</Text>
-
-      <Box sx={{ maxWidth: '100ch', marginX: 'auto' }}>
-        <Box sx={{ marginTop: '3rem' }}>
-          <Heading as="h2" sx={{ marginBottom: '0.5em' }}>
-            Export your repls
-          </Heading>
-          <Card sx={{ background: 'smoke' }}>
-            <form onSubmit={handleSubmit}>
-              <Label sx={{ fontSize: 1 }} htmlFor="email">
-                Email
-              </Label>
-              <Input
-                name="email"
-                type="email"
-                defaultValue={userDetails.email}
-              />
-
-              <Label sx={{ fontSize: 1, pt: 2 }} htmlFor="token">
-                Replit connect.sid token
-              </Label>
-              <Input name="token" defaultValue={userDetails.token} />
-
-              <Input
-                type="submit"
-                sx={{ backgroundColor: 'black', mt: '0.5rem', color: 'white' }}
-                text="Submit"
-              />
-            </form>
-            <Text>{responseText}</Text>
-
-            {progressText ? (
+      <Box as="main" sx={{ maxWidth: '100ch', marginX: 'auto' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: '2rem',
+            position: 'relative',
+            paddingX: [null, null, '6rem']
+          }}
+        >
+          {steps.map((step, idx) => (
+            <Box
+              key={idx}
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                fontWeight: '600',
+                paddingX: '.25em'
+              }}
+            >
               <Box
                 sx={{
-                  marginTop: '1rem',
+                  width: '1.5em',
+                  height: '1.5em',
+                  backgroundColor: cssDark,
+                  color: 'white',
+                  borderRadius: '999px',
                   display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1rem',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  justifyContent: 'center'
                 }}
               >
-                <Progress max={1} value={progressText}>
-                  {progressText * 100}%
-                </Progress>
-
-                <Text sx={{ flexShrink: 0 }}>
-                  {progressText * 100}% of your repls have processed.
-                  {progressText <= 0 ? ' Please wait!' : null}
-                  {progressText <= 1 ? ' Check your email!' : null}
-                </Text>
+                <Text>{idx + 1}</Text>
               </Box>
-            ) : null}
-          </Card>
+              <Text sx={{ textAlign: 'center' }}>{step}</Text>
+            </Box>
+          ))}
+
+          <Image
+            src="/replit/arrow1.svg"
+            alt=""
+            sx={{
+              position: 'absolute',
+              width: `${7 * 0.9384843737}em`,
+              bottom: '-1.5em',
+              left: '32.5%',
+              translate: '-50% 0'
+            }}
+          />
+          <Image
+            src="/replit/arrow2.svg"
+            alt=""
+            sx={{
+              position: 'absolute',
+              width: '7em',
+              bottom: '-2em',
+              left: '67%',
+              translate: '-50% 0'
+            }}
+          />
         </Box>
 
-        <Card sx={{ background: 'smoke', marginTop: '3rem' }}>
-          3: Something about free stickers
-        </Card>
-
         <Box sx={{ marginTop: '3rem' }}>
+          <ReplitForm cssDark={cssDark} />
+        </Box>
+
+        <Box sx={{ paddingTop: '5rem' }} id="instructions">
           <Heading as="h2" sx={{ marginBottom: '0.5em' }}>
             How to get your Replit <code>connect.sid</code> token
           </Heading>
@@ -215,8 +278,7 @@ const ReplitPage = () => {
               <Card
                 key={idx}
                 sx={{
-                  lineHeight: 0,
-                  background: 'smoke'
+                  lineHeight: 0
                 }}
               >
                 <Heading as="h3" sx={{ lineHeight: 1.5 }}>
@@ -236,7 +298,7 @@ const ReplitPage = () => {
             <Button
               sx={{
                 width: '100%',
-                backgroundColor: 'black',
+                backgroundColor: cssDark,
                 marginTop: '2rem'
               }}
             >
