@@ -14,7 +14,8 @@ const CohortCard = ({
   imageLink = '',
   personal = false,
   color = '#09AFB4',
-  textColor = '#000000'
+  textColor = '#000000',
+  inRunning = null
 }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [isDeleted, setIsDeleted] = useState(false)
@@ -61,7 +62,8 @@ const CohortCard = ({
     <>
       <div
         sx={{
-          backgroundColor: color
+          backgroundColor: color,
+          filter: (inRunning === null || inRunning) ? 'grayscale(0%)' : 'grayscale(50%) contrast(0.5)',
         }}
         className={styles.card}
         onMouseEnter={() => setIsHovered(true)}
