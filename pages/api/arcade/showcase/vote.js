@@ -54,21 +54,21 @@ export default async function handler(req, res) {
       const project = overall[i]
       const points = pointsDistribution[i]
 
-      votesToCreate.push(addVote(project, points, user.id, 'Overall'))
+      votesToCreate.push(addVote(project, points, user.id, user.fields?.['Cohorts']?.[0], 'Overall'))
     }
 
     for (let i = 0; i < technical.length; i++) {
       const project = technical[i]
       const points = pointsDistribution[i]
 
-      votesToCreate.push(addVote(project, points, user.id, 'Technical'))
+      votesToCreate.push(addVote(project, points, user.id, user.fields?.['Cohorts']?.[0], 'Technical'))
     }
 
     for (let i = 0; i < creative.length; i++) {
       const project = creative[i]
       const points = pointsDistribution[i]
 
-      votesToCreate.push(addVote(project, points, user.id, 'Creative'))
+      votesToCreate.push(addVote(project, points, user.id, user.fields?.['Cohorts']?.[0], 'Creative'))
     }
 
     await Promise.all([
@@ -85,13 +85,14 @@ export default async function handler(req, res) {
   }
 }
 
-const addVote = (projectId, points, userID, type) => {
+const addVote = (projectId, points, userID, type, cohortID) => {
   return {
     fields: {
       Points: parseInt(points, 10),
       Voter: [userID],
       Showcase: [projectId],
-      Type: type
+      Cohort: [cohortID],
+      Type: type,
     }
   }
 }

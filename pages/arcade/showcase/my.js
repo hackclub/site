@@ -108,6 +108,7 @@ const ProjectGallery = ({ projects, loadProjects, submissionClose }) => {
           reload={loadProjects}
           color={project.color}
           textColor={project.textColor}
+          inRunning={project.inRunning}
         />
       ))}
     </div>

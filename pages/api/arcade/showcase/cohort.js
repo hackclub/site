@@ -14,7 +14,10 @@ export default async function handler(req, res) {
   })
 
   const projects = await airtable.read({
-    filterByFormula: `AND({User} = '${user.fields['Name']}', NOT({deleted}))`
+    filterByFormula: `AND(
+    {User} = '${user.fields['Name']}',
+    NOT({deleted})
+    )`
   })
 
   const results = projects.map(p => ({
