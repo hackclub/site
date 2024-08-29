@@ -1,97 +1,12 @@
-import {
-  Box,
-  Link,
-  Grid,
-  Image,
-  Container,
-  Button,
-  Heading,
-  Text,
-  Label,
-  Input,
-  Card,
-  Progress
-} from 'theme-ui'
+import { Box, Link, Image, Button, Heading, Text, Card } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Footer from '../components/footer'
 import Nav from '../components/nav'
-import { useState, useEffect, useRef } from 'react'
-import Submit from '../components/submit'
 import ForceTheme from '../components/force-theme'
 import ReplitForm from '../components/replit/form'
 
 const ReplitPage = () => {
-  const [token, setToken] = useState('')
-  const [email, setEmail] = useState('')
-
-  const [submitStatus, setSubmitStatus] = useState('default')
-  const [responseText, setResponseText] = useState('')
-  const [progressText, setProgressText] = useState(0)
-
-  const intervalRef = useRef(null)
-
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    const email = localStorage.getItem('email')
-
-    if (token) setToken(token)
-    if (email) setEmail(email)
-  }, [])
-
-  useEffect(() => {
-    if (token) {
-      intervalRef.current = setInterval(() => {
-        try {
-          fetch(`/api/replit/progress?token=${token}`)
-            .then(res => res.text())
-            .then(data => {
-              const split = data.split('/')
-              setProgressText(split[0] / split[1])
-            })
-        } catch (e) {
-          console.warn(e)
-        }
-      }, 5000)
-    }
-
-    return () => {
-      clearInterval(intervalRef.current)
-    }
-  }, [token])
-
-  const handleSubmit = async event => {
-    setSubmitStatus('submitting')
-    event.preventDefault()
-    const formData = new FormData(event.target)
-    const data = {
-      email: formData.get('email'),
-      token: formData.get('token')
-    }
-
-    try {
-      const response = await fetch('/api/replit/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams(data).toString()
-      })
-
-      const result = await response.text()
-      setResponseText(result)
-
-      // Store the email and token in localStorage
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('email', data.email)
-      setSubmitStatus('success')
-    } catch (error) {
-      setSubmitStatus('error')
-      setResponseText('Error submitting form')
-      console.error('Error:', error)
-    }
-  }
-
   const steps = [
     'Enter your email',
     'Enter your replit token',

@@ -13,7 +13,7 @@ export default async function handler(req, res) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
 
-      const data = await response.text()
+      const data = await response.json()
 
       // Send the response from the replit-takeout service back to the client
       res.status(200).json(data)

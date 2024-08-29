@@ -1,19 +1,98 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Box, Button, Card, Link, Input, Text, Flex, Image } from 'theme-ui'
 import Icon from '@hackclub/icons'
+import JSConfetti from 'js-confetti'
+import { FilloutStandardEmbed } from '@fillout/react'
+import '@fillout/react/style.css'
+
+import theme from '../../lib/theme'
 
 const ReplitForm = ({ cssDark }) => {
   const [currentStep, setCurrentStep] = useState(1)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [buttonText, setButtonText] = useState('Submit')
   const [formData, setFormData] = useState({})
+  let jsConfetti = useRef()
+  let draggedSticker = useRef()
+
+  useEffect(() => {
+    jsConfetti.current = new JSConfetti()
+
+    document.onmousedown = e => {
+      if (e.target.classList.contains('sticker')) {
+        const rect = e.target.getBoundingClientRect()
+        const stickerCentreX = rect.left + rect.width / 2
+        const stickerCentreY = rect.top + rect.height / 2
+
+        e.target.dataset.offsetX = e.clientX - stickerCentreX
+        e.target.dataset.offsetY = e.clientY - stickerCentreY
+
+        document.body.appendChild(e.target)
+        draggedSticker.current = e.target
+        draggedSticker.current.style.left = `${e.pageX - draggedSticker.current.dataset.offsetX}px`
+        draggedSticker.current.style.top = `${e.pageY - draggedSticker.current.dataset.offsetY}px`
+        setTimeout(() => draggedSticker.current.classList.add('dragged'), 0)
+      }
+    }
+
+    document.onmousemove = e => {
+      if (draggedSticker.current) {
+        draggedSticker.current.style.left = `${e.pageX - draggedSticker.current.dataset.offsetX}px`
+        draggedSticker.current.style.top = `${e.pageY - draggedSticker.current.dataset.offsetY}px`
+      }
+    }
+
+    document.onmouseup = () => {
+      if (draggedSticker.current) {
+        draggedSticker.current.classList.remove('dragged')
+        draggedSticker.current = null
+      }
+    }
+  }, [])
 
   const handleInputChange = e => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const submitForm = () => {
-    console.log('submitting')
+  const submitForm = async () => {
+    setIsSubmitted(true)
+    try {
+      const res = await fetch('/api/replit/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+
+      const data = await res.json()
+
+      if (res.ok) {
+        setButtonText(data.message)
+        if (data.success) {
+          jsConfetti.current.addConfetti({
+            confettiColors: [
+              theme.colors.red,
+              theme.colors.orange,
+              theme.colors.yellow,
+              theme.colors.green,
+              theme.colors.cyan,
+              theme.colors.blue,
+              theme.colors.purple
+            ]
+          })
+          setCurrentStep(3)
+        }
+      } else {
+        setButtonText('Error')
+        console.error('Error', res, data)
+      }
+    } catch (error) {
+      console.error('Error:', error)
+    } finally {
+      setIsSubmitted(false)
+    }
   }
 
   const stickers = [
@@ -36,7 +115,7 @@ const ReplitForm = ({ cssDark }) => {
 
   const buttonStyle = ({ disabled }) => ({
     backgroundColor: cssDark,
-    cursor: disabled ? 'not-allowed' : 'auto',
+    cursor: disabled ? 'not-allowed' : 'pointer',
     opacity: disabled ? 0.5 : 1
   })
 
@@ -151,7 +230,7 @@ const ReplitForm = ({ cssDark }) => {
               ...buttonStyle({ disabled: submitButtonDisabled })
             }}
           >
-            Submit
+            {buttonText}
           </Button>
         </Flex>
         <StepIndicator step={2} />
@@ -174,27 +253,13 @@ const ReplitForm = ({ cssDark }) => {
         Get free stickers Get free stickers{' '}
       </Text>
 
-      <style>
-        {`
-          .sticker {
-          scale: 1;
-          filter: drop-shadow(0 0 0.2rem #0008);
-          transition: scale 0.1s, filter 0.1s;
-          }
-
-          .sticker:hover {
-            scale: 1.2;
-            filter: drop-shadow(0 0 0.6rem #0004);
-          }
-          `}
-      </style>
       {stickers.map((sticker, idx) => {
         const pos = getRandomPointOnUnitSquare()
         return (
           <Image
             src={sticker}
-            width="64"
-            height="64"
+            width="72"
+            height="72"
             alt="orpheus dinosaur labelled 'hackers assemble'"
             className="sticker"
             sx={{
@@ -209,6 +274,9 @@ const ReplitForm = ({ cssDark }) => {
           />
         )
       })}
+      <Box sx={{ width: 'calc(100% + calc(1.82rem * 2))', marginX: '-1.82em' }}>
+        <FilloutStandardEmbed filloutId="ji6Jw9xpBPus" />
+      </Box>
       <StepIndicator step={3} />
     </Box>
   )
@@ -226,7 +294,7 @@ const ReplitForm = ({ cssDark }) => {
       case 2:
         return [1 + margin, 1 - position]
       case 3:
-        return [1 - position, -margin]
+        return [1 - position, 0]
     }
   }
 
@@ -241,7 +309,20 @@ const ReplitForm = ({ cssDark }) => {
         overflow: 'initial'
       }}
     >
-      <style>{`.step { transition: opacity 0.1s; }`}</style>
+      <style>{`
+        .step { transition: opacity 0.1s; }
+
+        .sticker {
+            scale: 1;
+            filter: drop-shadow(0 0 0.2rem #0008);
+            transition: scale 0.3s ease, filter 0.3s ease;
+        }
+
+        .sticker.dragged {
+            scale: 1.2;
+            filter: drop-shadow(0 0 0.6rem #0004);
+        }
+        `}</style>
       {step1()}
       {step2()}
       {step3()}
