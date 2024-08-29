@@ -174,6 +174,15 @@ const ReplitPage = () => {
           />
         </Box>
 
+        <Card sx={{ marginTop: '5rem', color: 'red' }}>
+          <Text as="p" sx={{ fontWeight: 'bold', textAlign: 'center' }}>
+            Hey! This is an unreleased project - hold off from filling this out
+            for now.
+            <br />
+            If you want to help test, contact <code>@Malted</code> on the Slack!
+          </Text>
+        </Card>
+
         <Box sx={{ marginTop: '3rem' }}>
           <ReplitForm cssDark={cssDark} />
         </Box>
