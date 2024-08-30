@@ -21,7 +21,8 @@ const getProjects = async function (authToken) {
       'Play Link',
       'ScreenshotLink',
       'color',
-      'textColor'
+      'textColor',
+      'Lost Cohorts',
     ]
   })
 
