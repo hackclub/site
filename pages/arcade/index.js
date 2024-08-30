@@ -352,7 +352,7 @@ const Review = () => {
     useEffect(() => {
       async function fetchArcaderData() {
       try {
-        const response = await fetch('https://api.pixelverse.tech/chat/journal-nocors', {
+        const response = await fetch('https://api.pixelverse.tech/chat/arcadeweb', {
         method: 'GET'
         })
         const data = await response.json()
@@ -1061,6 +1061,12 @@ const Review = () => {
                     image={arcaderData.profile_url}
                   />
                 )}
+                <div>
+                  <Text variant="subtitle" className="gaegu" style={{ fontStyle: 'italic', fontSize: '14px'}}>
+                    (Messages collected by Hayden Kong, 13, Australia. <a href="https://pixelverseit.github.io/hackclub-arcade-tracker-htmlcssjs/letter.html"> View all messages</a>)
+                  </Text>
+                  
+                </div>
               </div>
             </div>
           </div>
