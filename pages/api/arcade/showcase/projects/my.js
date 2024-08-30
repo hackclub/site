@@ -21,7 +21,8 @@ const getProjects = async function (authToken) {
       'Play Link',
       'ScreenshotLink',
       'color',
-      'textColor'
+      'textColor',
+      'Lost Cohorts'
     ]
   })
 
@@ -57,6 +58,7 @@ export default async function handler(req, res) {
       user: user.fields['Name'],
       color: p.fields['color'] || '',
       textColor: p.fields['textColor'] || '',
+      inRunning: false,
     }
 
     if (hasVoted) {
