@@ -23,7 +23,9 @@ export default async function handler(req, res) {
       .replace(/[^a-zA-Z0-9-]/g, '')
 
     if (!authorization || authorization.length === 0) {
-      return res.status(400).json({ error: 'Missing or invalid authorization header' })
+      return res
+        .status(400)
+        .json({ error: 'Missing or invalid authorization header' })
     }
 
     const users = await usersTable.read({
@@ -33,7 +35,9 @@ export default async function handler(req, res) {
     const user = users[0]
 
     if (!user) {
-      return res.status(400).json({ error: 'Missing or invalid authorization header' })
+      return res
+        .status(400)
+        .json({ error: 'Missing or invalid authorization header' })
     }
 
     if (user.fields['Voted']) {
@@ -54,29 +58,51 @@ export default async function handler(req, res) {
       const project = overall[i]
       const points = pointsDistribution[i]
 
-      votesToCreate.push(addVote(project, points, user.id, user.fields?.['Cohorts']?.[0], 'Overall'))
+      votesToCreate.push(
+        addVote(
+          project,
+          points,
+          user.id,
+          user.fields?.['Cohorts']?.[0],
+          'Overall'
+        )
+      )
     }
 
     for (let i = 0; i < technical.length; i++) {
       const project = technical[i]
       const points = pointsDistribution[i]
 
-      votesToCreate.push(addVote(project, points, user.id, user.fields?.['Cohorts']?.[0], 'Technical'))
+      votesToCreate.push(
+        addVote(
+          project,
+          points,
+          user.id,
+          user.fields?.['Cohorts']?.[0],
+          'Technical'
+        )
+      )
     }
 
     for (let i = 0; i < creative.length; i++) {
       const project = creative[i]
       const points = pointsDistribution[i]
 
-      votesToCreate.push(addVote(project, points, user.id, user.fields?.['Cohorts']?.[0], 'Creative'))
+      votesToCreate.push(
+        addVote(
+          project,
+          points,
+          user.id,
+          user.fields?.['Cohorts']?.[0],
+          'Creative'
+        )
+      )
     }
 
-    await Promise.all([
-      batchCreate(votesTable, votesToCreate),
-      usersTable.update(user.id, {
-        Voted: true
-      })
-    ])
+    await batchCreate(votesTable, votesToCreate)
+    await usersTable.update(user.id, {
+      Voted: true
+    })
 
     return res.status(200).json({ success: true })
   } catch (error) {
@@ -85,14 +111,14 @@ export default async function handler(req, res) {
   }
 }
 
-const addVote = (projectId, points, userID, type, cohortID) => {
+const addVote = (projectId, points, userID, cohortID, type) => {
   return {
     fields: {
       Points: parseInt(points, 10),
       Voter: [userID],
       Showcase: [projectId],
       Cohort: [cohortID],
-      Type: type,
+      Type: type
     }
   }
 }
