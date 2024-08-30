@@ -937,7 +937,12 @@ const Vote = () => {
                           ? 'Most technical ships'
                           : 'Best overall ships'}
                     </Text>{' '}
-                    <Text variant="subtitle" sx={{ pb: 3, fontStyle: 'italic' }}>Order matters!</Text>
+                    <Text
+                      variant="subtitle"
+                      sx={{ pb: 3, fontStyle: 'italic' }}
+                    >
+                      Order matters!
+                    </Text>
                     {showForm ? (
                       <Button
                         onClick={() => {
@@ -958,7 +963,7 @@ const Vote = () => {
                           width: 'fit-content'
                         }}
                       >
-                        Drag and Drop View
+                        Use drag and Drop View
                       </Button>
                     ) : (
                       <Button
@@ -980,7 +985,7 @@ const Vote = () => {
                           width: 'fit-content'
                         }}
                       >
-                        Form View
+                        Use form View
                       </Button>
                     )}
                     {!showForm ? (
@@ -1075,10 +1080,13 @@ const Vote = () => {
                       <div sx={{ pb: 5, pt: 2 }}>
                         <form onSubmit={handleSubmit} id="s-form">
                           {[0, 1, 2, 3, 4].map(index => (
-                            <div key={index}>
-                              {/* <label htmlFor={`project-${index}`}>
-                              {index + 1}:
-                            </label> */}
+                            <div key={index} sx={{ display: 'flex' }}>
+                              <label
+                                htmlFor={`project-${index}`}
+                                sx={{ mr: 2 }}
+                              >
+                                {index + 1}
+                              </label>
                               <select
                                 id={`project-${index}`}
                                 value={selectedProjects[index]}
@@ -1205,7 +1213,10 @@ const Vote = () => {
           py: 2
         }}
       >
-        <Text variant="subtitle" sx={{ m: 0, color: '#35290F', fontSize: [1, 2] }}>
+        <Text
+          variant="subtitle"
+          sx={{ m: 0, color: '#35290F', fontSize: [1, 2] }}
+        >
           {' '}
           Ship {currentView + 1}/{projectCount}
         </Text>
