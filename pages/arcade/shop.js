@@ -47,7 +47,7 @@ export default function Shop({
     items => items['Cost Hours'] > 50 && items['Cost Hours'] <= 100
   )
   const dItems = availableItems.filter(
-    items => items['Cost Hours'] > 100 && items['Cost Hours'] <= 500
+    items => items['Cost Hours'] > 100
   )
 
   useEffect(() => {
