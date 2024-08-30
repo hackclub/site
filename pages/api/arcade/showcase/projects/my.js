@@ -57,8 +57,7 @@ export default async function handler(req, res) {
       imageLink: p.fields['ScreenshotLink'] || '',
       user: user.fields['Name'],
       color: p.fields['color'] || '',
-      textColor: p.fields['textColor'] || '',
-      inRunning: false,
+      textColor: p.fields['textColor'] || ''
     }
 
     if (hasVoted) {
