@@ -22,7 +22,7 @@ const getProjects = async function (authToken) {
       'ScreenshotLink',
       'color',
       'textColor',
-      'Lost Cohorts'
+      'Lost Cohorts',
     ]
   })
 
@@ -57,7 +57,7 @@ export default async function handler(req, res) {
       imageLink: p.fields['ScreenshotLink'] || '',
       user: user.fields['Name'],
       color: p.fields['color'] || '',
-      textColor: p.fields['textColor'] || ''
+      textColor: p.fields['textColor'] || '',
     }
 
     if (hasVoted) {
