@@ -1370,9 +1370,9 @@ const Vote = () => {
                 chance to pick your top 5 projects for each category.
               </Text>
               <Button
-                // onClick={e => {
-                //   setStartViewProject(true)
-                // }}
+                onClick={e => {
+                  setStartViewProject(true)
+                }}
                 sx={{
                   backgroundColor: '#09AFB4',
                   color: '#FAEFD6',
@@ -1380,13 +1380,13 @@ const Vote = () => {
                   border: 'none',
                   px: '20px',
                   transitionDuration: '0.3s',
-                  // '&:hover': {
-                  //   transform: 'scale(1.05)'
-                  // },
+                  '&:hover': {
+                    transform: 'scale(1.05)'
+                  },
                   width: 'fit-content'
                 }}
               >
-                We're fixing a bug, check back later
+                Vote now
               </Button>{' '}
             </>
           )
