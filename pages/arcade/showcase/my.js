@@ -145,8 +145,7 @@ const VoteCountdown = ({ isActive, submissionClose }) => {
   if (!isActive) {
     return (
       <span sx={{ color: '#FF5C00' }}>
-        Submissions {submissionClose ? 'ended' : 'end on'} Aug 27 at 11:59pm ET.
-        Voting round opening soon!
+        Submissions {submissionClose ? 'ended' : 'end on'} Aug 27 at 11:59pm ET. <br /> If your project name has 🏃 next to it, it's still in the running for the showcase!
       </span>
     )
   } else {

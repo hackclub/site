@@ -130,7 +130,7 @@ const CohortCard = ({
             />
           </div>
           <h1 sx={{ color: textColor }} className={styles.card_title}>
-            {title}
+            {title} {inRunning ? "🏃" : ""}
           </h1>
 
           <p sx={{ color: textColor }} className={styles.card_description}>
