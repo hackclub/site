@@ -12,10 +12,19 @@ const ReplitForm = ({ cssDark }) => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [buttonText, setButtonText] = useState('Submit')
   const [formData, setFormData] = useState({})
+  const [stickerPositions, setStickerPositions] = useState([])
   let jsConfetti = useRef()
   let draggedSticker = useRef()
 
   useEffect(() => {
+    stickers.forEach((_, idx) => {
+      stickerPositions.push({
+        rotation: `${(Math.random() - 0.5) * 80}deg`,
+        position: getRandomPointOnUnitSquare()
+      })
+    })
+    setStickerPositions(stickerPositions)
+
     jsConfetti.current = new JSConfetti()
 
     document.onmousedown = e => {
@@ -71,6 +80,7 @@ const ReplitForm = ({ cssDark }) => {
       if (res.ok) {
         setButtonText(data.message)
         if (data.success) {
+          localStorage.setItem('token', formData.token)
           jsConfetti.current.addConfetti({
             confettiColors: [
               theme.colors.red,
@@ -254,7 +264,6 @@ const ReplitForm = ({ cssDark }) => {
       </Text>
 
       {stickers.map((sticker, idx) => {
-        const pos = getRandomPointOnUnitSquare()
         return (
           <Image
             src={sticker}
@@ -264,10 +273,11 @@ const ReplitForm = ({ cssDark }) => {
             className="sticker"
             sx={{
               position: 'absolute',
-              rotate: `${(Math.random() - 0.5) * 80}deg`,
-              left: `${pos[0] * 100}%`,
-              top: `${pos[1] * 100}%`,
-              translate: '-50% -50%'
+              rotate: stickerPositions[idx]?.rotation,
+              left: `${stickerPositions[idx]?.position[0] * 100}%`,
+              top: `${stickerPositions[idx]?.position[1] * 100}%`,
+              translate: '-50% -50%',
+              zIndex: 5
             }}
             draggable="false"
             key={idx}
@@ -301,8 +311,6 @@ const ReplitForm = ({ cssDark }) => {
   return (
     <Card
       sx={{
-        width: '30rem',
-        marginX: 'auto',
         display: 'flex',
         flexDirection: 'column',
         gap: '2rem',
