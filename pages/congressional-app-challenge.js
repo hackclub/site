@@ -95,43 +95,99 @@ const Page = () => (
           />
           </Box>
         </Heading>
-        <Container id="about-hack-club" sx={{alignItems: 'center', width: '90%', display: 'flex'}}>
+        <Container 
+          id="about-hack-club" 
+          sx={{
+            alignItems: 'center',
+            width: '90%',
+            display: 'flex',
+            flexDirection: ['column', 'row']}}>
           <Box 
             sx={{
               display: 'flex', 
               flexDirection: 'column', 
-              alignItems:'flex-start',
-              width: '60%'
+              alignItems:['center', 'flex-start'],
+              width: ['100%', '60%']
               }}
           >
-            <Box as="h1" sx={{fontSize: '40px'}}>What is Hack Club?</Box>
-            <Box as="p" sx={{ textAlign: 'left', fontSize:'20px'}}>
+            <Text as="h1" sx={{fontSize: '40px'}}>What is Hack Club?</Text>
+            <Text as="p" sx={{ textAlign: ['center', 'left'], fontSize:'20px'}}>
               text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here 
               text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here
-              text here text here text here text here text here text here text here text here text here text here text here text here text
-            </Box>
+              text here text here text here text here text here text here text here text here text here text here text here text here
+            </Text>
+            <a target="_blank" href="https://www.congressionalappchallenge.us/">
+              <Button 
+                sx={{
+                  background:'#001D85',
+                  color:'white',
+                  borderRadius:'10px',
+                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                  fontSize:'20px',
+                  marginTop:'5px',
+                  fontWeight:'bold'}}>
+                  Get Stickers!
+                </Button>
+            </a>
           </Box>
-          <Box as="img" src="/home/flagship_4.jpg" sx={{width: '30%', borderRadius:'10px', border: '5px solid', borderColor: '#C70000', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginLeft: '10px'}}></Box>
+          <Image src="/home/flagship_4.jpg" 
+            sx={{
+              width: ['80%', '60%', '30%'],
+              marginTop: ['10px', 'null'],
+              borderRadius:'10px',
+              border: '5px solid',
+              borderColor: '#C70000',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+              marginLeft: '10px'}}>
+            </Image>
 
         </Container>
-        <Container id="about-congressional" sx={{alignItems: 'center', width: '90%', display: 'flex', marginTop: '4'}}>
-          <Box as="img" src="/home/flagship_4.jpg" sx={{width: '30%', borderRadius:'10px', border: '5px solid', borderColor: '#C70000', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginRight: '10px'}}></Box>
+        <Container 
+          id="about-congressional" 
+          sx={{
+            alignItems: 'center',
+            width: '90%',
+            display: 'flex',
+            marginTop: '4',
+            flexDirection: ['column', 'row']}}>
+          <Image src="/home/flagship_4.jpg" 
+            sx={{
+              width: ['80%', '60%', '30%'],
+              marginBottom: ['10px', 'null'],
+              borderRadius:'10px',
+              border: '5px solid',
+              borderColor: '#C70000',
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+              marginRight: '10px',
+              order: [1,0],
+              marginTop: ['10px', 'null']}}>
+            </Image>
           <Box 
             sx={{
               display: 'flex', 
               flexDirection: 'column', 
-              alignItems:'flex-end',
-              width: '60%',
+              alignItems:['center', 'flex-end'],
+              width: ['100%', '60%']
               }}
           >
-            <Box as="h1" sx={{fontSize: '37px'}}>What is the Congressional App Challenge?</Box>
-            <Box as="p" sx={{ textAlign: 'right', fontSize:'20px'}}>
+            <Text as="h1" sx={{fontSize: '30px'}}>What is the Congressional App Challenge?</Text>
+            <Text as="p" sx={{ textAlign: ['center', 'right'], fontSize:'20px'}}>
               text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here 
               text here text here text here text here text here text here text here text here text here text here text
-            </Box>
-            <Box as="a" target="_blank" href="https://www.congressionalappchallenge.us/">
-              <Box as="button" sx={{background:'#001D85', color:'white', borderRadius:'10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', paddingLeft:'30px', paddingRight:'30px', fontSize:'18px', marginTop:'5px', fontWeight:'bold'}}>Learn more here</Box>
-            </Box>
+            </Text>
+            <a target="_blank" href="https://www.congressionalappchallenge.us/">
+              <Button 
+                sx={{
+                  background:'#001D85',
+                  color:'white',
+                  borderRadius:'10px',
+                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                  fontSize:'15px',
+                  marginTop:'5px',
+                  fontWeight:'bold'}}>
+                  Learn more here
+                </Button>
+            </a>
           </Box>
 
         </Container>
