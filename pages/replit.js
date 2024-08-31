@@ -33,7 +33,7 @@ const ReplitPage = () => {
       } catch (err) {
         console.error("Couldn't get progress:", err)
       }
-    }, 1000)
+    }, 5_000)
 
     return () => clearInterval(interval)
   }, [])
