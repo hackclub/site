@@ -282,6 +282,11 @@ const Page = () => (
 
         </Container>
       </Container>
+
+
+      <Container id="madeby" sx={{mt:'4', mb:'4', textAlign:'center', alignItems:'center'}}>
+        <Text as="h2" sx={{fontSize:'25px'}}>Made with &lt;3 by Hack Clubbers</Text>
+      </Container>
     </Box>
     <Footer light />
   </>
