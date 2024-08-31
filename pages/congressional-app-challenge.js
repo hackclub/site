@@ -111,11 +111,11 @@ const Page = () => (
               text here text here text here text here text here text here text here text here text here text here text here text here text
             </Box>
           </Box>
-          <Box as="img" src="/home/flagship_4.jpg" sx={{width: '35%', borderRadius:'10px', border: '5px solid', borderColor: '#C70000', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginLeft: '10px'}}></Box>
+          <Box as="img" src="/home/flagship_4.jpg" sx={{width: '30%', borderRadius:'10px', border: '5px solid', borderColor: '#C70000', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginLeft: '10px'}}></Box>
 
         </Container>
         <Container id="about-congressional" sx={{alignItems: 'center', width: '90%', display: 'flex', marginTop: '4'}}>
-          <Box as="img" src="/home/flagship_4.jpg" sx={{width: '35%', borderRadius:'10px', border: '5px solid', borderColor: '#C70000', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginRight: '10px'}}></Box>
+          <Box as="img" src="/home/flagship_4.jpg" sx={{width: '30%', borderRadius:'10px', border: '5px solid', borderColor: '#C70000', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', marginRight: '10px'}}></Box>
           <Box 
             sx={{
               display: 'flex', 
@@ -127,8 +127,7 @@ const Page = () => (
             <Box as="h1" sx={{fontSize: '37px'}}>What is the Congressional App Challenge?</Box>
             <Box as="p" sx={{ textAlign: 'right', fontSize:'20px'}}>
               text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here 
-              text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here
-              text here text here text here text here text here text here text here text here text here text here text here text here text
+              text here text here text here text here text here text here text here text here text here text here text
             </Box>
             <Box as="a" target="_blank" href="https://www.congressionalappchallenge.us/">
               <Box as="button" sx={{background:'#001D85', color:'white', borderRadius:'10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', paddingLeft:'30px', paddingRight:'30px', fontSize:'18px', marginTop:'5px', fontWeight:'bold'}}>Learn more here</Box>
