@@ -191,12 +191,7 @@ const nextConfig = {
         source: '/blot/',
         destination: 'https://blot.hackclub.com',
         permanent: false
-      },
-      {
-        source: '/slack',
-        destination: '/arcade?param=slack',
-        permanent: false
-      },
+      }
       {
         source: '/donate',
         destination: '/philanthropy',
