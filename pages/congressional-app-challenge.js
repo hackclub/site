@@ -246,11 +246,11 @@ const Page = () => (
             p:'2', mt:'5',
             alignItems:'center',
             display:'flex',
-            flexDirection:'column',
+            flexDirection:'column'
           }}>
-          <Text as="h2" sx={{fontSize:'30px', mt:'3'}}>STEP 2</Text>
+          <Text as="h2" sx={{fontSize:'30px', mt:'3', color:'#C70000'}}>STEP 2</Text>
           <Text as="p" sx={{width: ['90%', '70%'], fontSize:'23px'}}>Join Zoom calls with past Hack Club winners to learn about their projects and to get advice on where to start.</Text>
-          <Grid id="zoom-cards" gap={2} columns={[1, null, 3]} sx={{m:'2', justifyContent:'center', alignItems:'center', display:'flex', flexDirection:['column', 'row']}}>
+          <Grid id="zoom-cards" gap={2} columns={[1, null, 3]} sx={{m:'2', justifyContent:'center', alignItems:'center', justifyItems:'center'}}>
             <Box id="zoom-card" sx={{width:['90%', '80%'], m:'3'}}>
               <Image src="/home/flagship_4.jpg" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
               <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
@@ -342,25 +342,93 @@ const Page = () => (
               <Text>Grant Step here</Text>
             </Box>
           </Grid>
+          <Text as="p" sx={{width: ['90%', '70%'], fontSize:'23px', mt:'4'}}>Explore Hack Club’s You Ship, We Ship for additional grants</Text>
+          <Grid id="ysws" gap={2} columns={[2, 3, 5, 7]} sx={{justifyContent:'center', alignItems:'center', fontSize:'14px', mt:'3'}}>
+            <a href='https://sprig.hackclub.com/' target="_blank">
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>Sprig</Button>
+            </a>
+            <a href='https://hackclub.com/bin/' target="_blank">
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>The Bin</Button>
+            </a>
+            <a href='https://boba.hackclub.com/' target="_blank">
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>Boba Drops</Button>
+            </a>
+            <a href='https://hackclub.com/onboard/' target="_blank">
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>OnBoard</Button>
+            </a>
+            <a href='https://fraps.hackclub.com/' target="_blank">
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>Hackaccino</Button>
+            </a>
+            <a href='https://blot.hackclub.com/' target="_blank">
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>Blot</Button>
+            </a>
+            <a href='https://cider.hackclub.com/' target="_blank">
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>Cider</Button>
+            </a>
+            
+          </Grid>
         </Container>
       </Container>
 
       <Container id="past-winners" 
           sx={{
             background:'#001D85',
-            width:'100%',
+            width:'90%',
             borderRadius: '20px',
             color:'white',
             p:'2', mt:'5',
             alignItems:'center',
             display:'flex',
             flexDirection:'column',
+            textAlign:'center'
           }}>
-            <Text as="h2" sx={{color:'white', fontSize:'30px', mt:'2'}}>Past Hack Club Winners</Text>
-            <Text sx={{color:'grey', fontSize:'30px', mt:'2'}}>Winner carousel here</Text>
+          <Text as="h2" sx={{fontSize:'30px', mt:'3', color:'white'}}>Past Hack Club Winners</Text>
+          <Grid id="winners" gap={2} columns={[1, null, 3]} sx={{m:'2', justifyContent:'center', alignItems:'center', justifyItems:'center'}}>
+            <Box id="andrea" sx={{width:['80%'], m:'3'}}>
+              <Image src="https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/3starfly.png" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
+              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
+                <Text as="h3" sx={{}}>Starfly &#40;Andrea, 16&#41;</Text>
+                <Text as="i" sx={{}}>Starfly bridges the gap between gender and racial profiles in astronomy and STEM.</Text>
+              </Box>
+            </Box>
+            <Box id="clay" sx={{width:['80%'], m:'3'}}>
+              <Image src="https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/2lexiscan.png" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
+              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
+                <Text as="h3" sx={{}}>Lexiscan &#40;Clay, 16&#41;</Text>
+                <Text as="i" sx={{}}>Lexiscan is an app that helps people with dyslexia to read by reading text out loud.</Text>
+              </Box>
+            </Box>
+            <Box id="sahiti" sx={{width:['80%'], m:'3'}}>
+              <Image src="https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/1drivesmart.png " sx={{ borderRadius: '10px 10px 0 0'}}></Image>
+              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
+                <Text as="h3" sx={{}}>DriveSmart &#40;Sahiti, 17&#41;</Text>
+                <Text as="i" sx={{}}>Drivesmart helps teen drivers be safe on the roads through different modules, machine learning, and moderation.</Text>
+              </Box>
+            </Box>
+            <Box id="alex" sx={{width:['80%'], m:'3'}}>
+              <Image src="https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/5trailus.png" sx={{ borderRadius: '10px 10px 0 0', width:['70%', '50%']}}></Image>
+              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
+                <Text as="h3" sx={{}}>TrailUS &#40;Alex, 15&#41;</Text>
+                <Text as="i" sx={{}}>TrailUS encourages healthier lifestyles and makes it easy for people to enjoy local trails.</Text>
+              </Box>
+            </Box>
+            <Box id="samay" sx={{width:['80%'], m:'3'}}>
+              <Image src="https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/0dreamer.png " sx={{ borderRadius: '10px 10px 0 0'}}></Image>
+              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
+                <Text as="h3" sx={{}}>Dreamer &#40;Samay, 17&#41;</Text>
+                <Text as="i" sx={{}}>Dreamer makes learning more interesting for students with learning disorders.</Text>
+              </Box>
+            </Box>
+            <Box id="zoya" sx={{width:['80%'], m:'3'}}>
+              <Image src="https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/4momently.png " sx={{ borderRadius: '10px 10px 0 0', width:['80%', '60%']}}></Image>
+              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
+                <Text as="h3" sx={{}}>Moment-ly &#40;Zoya, 17&#41;</Text>
+                <Text as="i" sx={{}}>Moment-ly motivates a female demographic with tools, while promoting wellness. </Text>
+              </Box>
+            </Box>
+          </Grid>
 
         </Container>
-
 
       <Container id="madeby" sx={{mt:'4', mb:'4', textAlign:'center', alignItems:'center'}}>
         <Text as="h2" sx={{fontSize:'25px'}}>Made with &lt;3 by Hack Clubbers</Text>
