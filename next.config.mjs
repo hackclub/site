@@ -191,7 +191,7 @@ const nextConfig = {
         source: '/blot/',
         destination: 'https://blot.hackclub.com',
         permanent: false
-      }
+      },
       {
         source: '/donate',
         destination: '/philanthropy',
@@ -312,7 +312,7 @@ const nextConfig = {
       {
         source: '/arcade/power-hour',
         destination: '/arcade/power-hour/index.html'
-      },
+      }
     ]
   },
   async headers() {
