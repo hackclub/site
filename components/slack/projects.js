@@ -8,20 +8,12 @@ const projects = [
     itemId: 0
   },
   {
-    title: 'A free domain service.',
-    description:
-      'The teenage hackers behind Oblong are building a free domain service and non-profit to break down the barriers of entry for building a website.',
-    img: 'oblong',
-    color: ['#ff8c37', '#F2A510'],
-    itemId: 1
-  },
-  {
     title: 'An open source VPN.',
     description:
       'Lead by an ex-Apple engineer, the team behind Burrow is building an open source VPN to burrow through school firewalls and keep your data safe.',
     img: 'burrow',
     color: ['#f1c40f', '#FAE078'],
-    itemId: 2
+    itemId: 1
   },
   {
     title: 'Free compute infrastructure.',
@@ -29,15 +21,7 @@ const projects = [
       "The team behind Nest is building a free compute infrastructure for high schoolers to run their code on. It's like AWS, but free and for students.",
     img: 'nest',
     color: ['#33d6a6', '#51F5C5'],
-    itemId: 3
-  },
-  {
-    title: 'A chat app and cell phone carrier.',
-    description:
-      'The teenage PurpleBubble team are building a private, secure and open source chat app',
-    img: 'purplebubble',
-    color: ['#5bc0de', '#88e5f8'],
-    itemId: 4
+    itemId: 2
   }
 ]
 

@@ -193,11 +193,6 @@ const nextConfig = {
         permanent: false
       },
       {
-        source: '/slack',
-        destination: '/arcade?param=slack',
-        permanent: false
-      },
-      {
         source: '/donate',
         destination: '/philanthropy',
         permanent: false
@@ -317,7 +312,7 @@ const nextConfig = {
       {
         source: '/arcade/power-hour',
         destination: '/arcade/power-hour/index.html'
-      },
+      }
     ]
   },
   async headers() {

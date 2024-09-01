@@ -1,12 +1,43 @@
-import { Box, Link, Image, Button, Heading, Text, Card } from 'theme-ui'
+import {
+  Box,
+  Link,
+  Image,
+  Button,
+  Heading,
+  Text,
+  Card,
+  Progress
+} from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Footer from '../components/footer'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import ReplitForm from '../components/replit/form'
+import { useEffect, useState } from 'react'
 
 const ReplitPage = () => {
+  const [progress, setProgress] = useState(null)
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      const token = localStorage.getItem('token')
+      if (!token) return
+
+      try {
+        const response = await fetch(`/api/replit/progress?token=${token}`)
+        if (!response.ok) throw new Error('Failed to fetch progress')
+        const data = await response.json()
+        console.info(data)
+        setProgress(data)
+      } catch (err) {
+        console.error("Couldn't get progress:", err)
+      }
+    }, 5_000)
+
+    return () => clearInterval(interval)
+  }, [])
+
   const steps = [
     'Enter your email',
     'Enter your replit token',
@@ -111,7 +142,14 @@ const ReplitPage = () => {
         </Text>
       </Box>
 
-      <Box as="main" sx={{ maxWidth: '100ch', marginX: 'auto' }}>
+      <Box
+        as="main"
+        sx={{
+          maxWidth: '100ch',
+          marginX: 'auto',
+          paddingX: '1rem'
+        }}
+      >
         <Box
           sx={{
             display: 'flex',
@@ -174,16 +212,44 @@ const ReplitPage = () => {
           />
         </Box>
 
-        <Card sx={{ marginTop: '5rem', color: 'red' }}>
-          <Text as="p" sx={{ fontWeight: 'bold', textAlign: 'center' }}>
-            Hey! This is an unreleased project - hold off from filling this out
-            for now.
-            <br />
-            If you want to help test, contact <code>@Malted</code> on the Slack!
-          </Text>
-        </Card>
+        <Box
+          sx={{
+            marginTop: '3rem',
+            width: '30rem',
+            marginX: 'auto'
+          }}
+        >
+          {progress ? (
+            <Box sx={{ marginBottom: '1rem' }}>
+              <Text>
+                {progress.successful} of {progress.repl_count} repls processed!
+                {progress.failed.timed_out + progress.failed.failed > 0 ? (
+                  <Text
+                    title={`${progress.failed.timed_out} timed out, ${progress.failed.failed} failed`}
+                  >
+                    {' '}
+                    (+ {progress.failed.timed_out + progress.failed.failed}{' '}
+                    error
+                    {progress.failed.timed_out + progress.failed.failed !== 1
+                      ? 's'
+                      : null}
+                    )
+                  </Text>
+                ) : null}
+              </Text>
 
-        <Box sx={{ marginTop: '3rem' }}>
+              <Progress
+                sx={{ color: cssDark, backgroundColor: 'smoke' }}
+                max={progress.repl_count}
+                value={
+                  progress.successful +
+                  progress.failed.timed_out +
+                  progress.failed.failed
+                }
+              ></Progress>
+            </Box>
+          ) : null}
+
           <ReplitForm cssDark={cssDark} />
         </Box>
 
