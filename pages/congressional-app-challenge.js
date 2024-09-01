@@ -113,8 +113,10 @@ const Page = () => (
         >
           <Text variant="headline" as="h1" >What is Hack Club?</Text>
           <Text variant="subtitle" as="p" sx={{ textAlign: ['center', 'left']}}>
-            text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here 
-            text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here
+            Hack Club is a community of thousands of Hack Clubbers who gather online and in person to make things with code. 
+            Whether you’re a beginner programmer or have years of experience, there’s a place for you at Hack Club. 
+            At Hack Club, you can meet other Hack Clubbers in your community at one of the 400+ Hack Clubs and high school 
+            hackathons or build open-source games and tools together.
           </Text>
           <a target="_blank" href="https://www.congressionalappchallenge.us/">
             <Button 
@@ -150,7 +152,7 @@ const Page = () => (
           display: 'flex',
           marginTop: '4',
           flexDirection: ['column', 'row']}}>
-        <Image src="/home/flagship_4.jpg" 
+        <Image src="https://www.congressionalappchallenge.us/wp-content/uploads/2018/08/Congressional-App-Challenge-Coalition-Vertical-2.png" 
           sx={{
             width: ['80%', '60%', '40%'],
             marginBottom: ['10px', 'null'],
@@ -171,9 +173,10 @@ const Page = () => (
             }}
         >
           <Text variant="headline" as="h1" sx={{textAlign: ['center', 'right']}}>What is the Congressional App Challenge?</Text>
-          <Text variant="subtitle" as="p" sx={{ textAlign: ['center', 'right']}}>
-            text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here 
-            text here text here text here text here text here text here text here text here text here text here text
+          <Text variant="subtitle" as="p" sx={{textAlign: ['center', 'right']}}>
+            The Congressional App Challenge is a contest where students create their own app, 
+            regardless of their coding experience. In 2022, 35% of participants were beginners. 
+            You’ll learn coding skills, showcase your ideas, and access various opportunities.
           </Text>
           <a target="_blank" href="https://www.congressionalappchallenge.us/">
             <Button 
@@ -216,8 +219,8 @@ const Page = () => (
               flexDirection: ['column', 'row'],
               justifyContent:'center'
             }}>
-            <Text as="p" sx={{width:['100%', '50%'], fontSize:'23px', textAlign:['center','left']}}>Join the Hack Club Slack to get advice from past winners, help with your project, and to join a community of over 30K+ teen coders.</Text>
-            <a target="_blank" href="https://hackclub.com/arcade/?param=slack">
+            <Text as="p" sx={{width:['100%', '50%'], fontSize:'23px', textAlign:['center','left']}}>Join the Hack Club Slack to get advice from past winners, help with your project, and to join a community of over 35K+ teen coders.</Text>
+            <a target="_blank" href="https://hackclub.com/slack/">
               <Button 
                 sx={{
                   background:'#001D85',
@@ -252,8 +255,8 @@ const Page = () => (
               <Image src="/home/flagship_4.jpg" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
               <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
                 <Text as="h3" sx={{}}>FIRSTNAME LASTNAME</Text>
-                <Text as="i" sx={{}}>PROJECT NAME</Text>
-                <Text as="i" sx={{}}>XX:XX-YY:YY PM</Text>
+                <Text as="i" sx={{}}>Call description</Text>
+                <Text as="i" sx={{}}>September 10th, 7 PM EST</Text>
               </Box>
               <a>
                 <Button sx={{background:'white', color:'#001D85', mt:'2', borderRadius:'10px'}}>Add to Calendar</Button>
@@ -263,8 +266,8 @@ const Page = () => (
               <Image src="/home/flagship_4.jpg" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
               <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
                 <Text as="h3" sx={{}}>FIRSTNAME LASTNAME</Text>
-                <Text as="i" sx={{}}>PROJECT NAME</Text>
-                <Text as="i" sx={{}}>XX:XX-YY:YY PM</Text>
+                <Text as="i" sx={{}}>Call description</Text>
+                <Text as="i" sx={{}}>September 19th, 8 PM EST</Text>
               </Box>
               <a>
                 <Button sx={{background:'white', color:'#001D85', mt:'2', borderRadius:'10px'}}>Add to Calendar</Button>
@@ -274,8 +277,8 @@ const Page = () => (
               <Image src="/home/flagship_4.jpg" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
               <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
                 <Text as="h3" sx={{}}>FIRSTNAME LASTNAME</Text>
-                <Text as="i" sx={{}}>PROJECT NAME</Text>
-                <Text as="i" sx={{}}>XX:XX-YY:YY PM</Text>
+                <Text as="i" sx={{}}>Call description</Text>
+                <Text as="i" sx={{}}>October 2nd, 7 PM EST</Text>
               </Box>
               <a>
                 <Button sx={{background:'white', color:'#001D85', mt:'2', borderRadius:'10px'}}>Add to Calendar</Button>
@@ -284,12 +287,55 @@ const Page = () => (
           </Grid>
 
         </Container>
+        <Container id='step3'
+          sx={{
+            alignItems: 'center',
+            width: '100%',
+            display: 'flex',
+            marginTop: '2',
+            flexDirection: 'column',
+            justifyContent:'center'
+          }}>
+          <Text as="h2" sx={{color:'#C70000', fontSize:'30px', mt:'3'}}>STEP 3</Text>
+          <Text as="p" sx={{width: ['90%', '70%'], fontSize:'23px'}}>Submit your project idea for a grant!</Text>
+          <Grid id="grant-drig" gap={3} columns={[1, 2, 4]} sx={{m:'2', justifyContent:'center', alignItems:'center', display:'flex', flexDirection:['column', 'row']}}>
+            <Box bg="#c9c9c9" sx={{borderRadius:'30px', p:'2', border: '3px solid', borderColor: '#C70000'}}>
+              <Text>Grant Step here</Text>
+            </Box>
+            <Box bg="#c9c9c9" sx={{borderRadius:'30px', p:'2', border: '3px solid', borderColor: '#C70000'}}>
+              <Text>Grant Step here</Text>
+            </Box>
+            <Box bg="#c9c9c9" sx={{borderRadius:'30px', p:'2', border: '3px solid', borderColor: '#C70000'}}>
+              <Text>Grant Step here</Text>
+            </Box>
+            <Box bg="#c9c9c9" sx={{borderRadius:'30px', p:'2', border: '3px solid', borderColor: '#C70000'}}>
+              <Text>Grant Step here</Text>
+            </Box>
+          </Grid>
+        </Container>
       </Container>
+
+      <Container id="past-winners" 
+          sx={{
+            background:'#001D85',
+            width:'100%',
+            borderRadius: '20px',
+            color:'white',
+            p:'2', mt:'5',
+            alignItems:'center',
+            display:'flex',
+            flexDirection:'column',
+          }}>
+            <Text as="h2" sx={{color:'white', fontSize:'30px', mt:'2'}}>Past Hack Club Winners</Text>
+            <Text sx={{color:'grey', fontSize:'30px', mt:'2'}}>Winner carousel here</Text>
+
+        </Container>
 
 
       <Container id="madeby" sx={{mt:'4', mb:'4', textAlign:'center', alignItems:'center'}}>
         <Text as="h2" sx={{fontSize:'25px'}}>Made with &lt;3 by Hack Clubbers</Text>
       </Container>
+      
     </Box>
     <Footer light />
   </>
