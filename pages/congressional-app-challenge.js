@@ -47,6 +47,7 @@ const Page = () => (
           sx={{
             color: 'black',
             textShadow: 'text',
+            width: '90%',
             my: [3, 4],
             mx: 'auto',
             zIndex: 1
@@ -54,6 +55,7 @@ const Page = () => (
         >
           <Text
             as="span"
+            
           >
             Build a cool project for the{' '}
           </Text>
@@ -65,6 +67,8 @@ const Page = () => (
           >
             Congressional App Challenge
           </Text>
+          </Heading>
+
           <Box
             id="lines"
             sx={{
@@ -91,7 +95,6 @@ const Page = () => (
             }}
           />
           </Box>
-        </Heading>
       </Box>
       <Container 
         id="about-hack-club" 
@@ -108,11 +111,10 @@ const Page = () => (
             width: ['100%', '60%']
             }}
         >
-          <Text as="h1" sx={{fontSize: '40px'}}>What is Hack Club?</Text>
-          <Text as="p" sx={{ textAlign: ['center', 'left'], fontSize:'23px'}}>
+          <Text variant="headline" as="h1" >What is Hack Club?</Text>
+          <Text variant="subtitle" as="p" sx={{ textAlign: ['center', 'left']}}>
             text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here 
             text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here
-            text here text here text here text here text here text here text here text here text here text here text here text here
           </Text>
           <a target="_blank" href="https://www.congressionalappchallenge.us/">
             <Button 
@@ -122,7 +124,7 @@ const Page = () => (
                 borderRadius:'10px',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                 fontSize:'23px',
-                marginTop:'5px',
+                margin: '10px 0 10px 0',
                 fontWeight:'bold'}}>
                 Get Stickers!
               </Button>
@@ -130,7 +132,7 @@ const Page = () => (
         </Box>
         <Image src="/home/flagship_4.jpg" 
           sx={{
-            width: ['80%', '60%', '30%'],
+            width: ['80%', '60%', '40%'],
             marginTop: ['10px', 'null'],
             borderRadius:'10px',
             border: '5px solid',
@@ -150,7 +152,7 @@ const Page = () => (
           flexDirection: ['column', 'row']}}>
         <Image src="/home/flagship_4.jpg" 
           sx={{
-            width: ['80%', '60%', '30%'],
+            width: ['80%', '60%', '40%'],
             marginBottom: ['10px', 'null'],
             borderRadius:'10px',
             border: '5px solid',
@@ -168,8 +170,8 @@ const Page = () => (
             width: ['100%', '60%']
             }}
         >
-          <Text as="h1" sx={{fontSize: '30px', textAlign: ['center', 'right']}}>What is the Congressional App Challenge?</Text>
-          <Text as="p" sx={{ textAlign: ['center', 'right'], fontSize:'23px'}}>
+          <Text variant="headline" as="h1" sx={{textAlign: ['center', 'right']}}>What is the Congressional App Challenge?</Text>
+          <Text variant="subtitle" as="p" sx={{ textAlign: ['center', 'right']}}>
             text here text here text here text here text here text here text here text here text here text here text here text here text here text here text here 
             text here text here text here text here text here text here text here text here text here text here text
           </Text>
@@ -180,8 +182,8 @@ const Page = () => (
                 color:'white',
                 borderRadius:'10px',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                fontSize:'15px',
-                marginTop:'5px',
+                fontSize:'23px',
+                margin: '10px 0 10px 0',
                 fontWeight:'bold'}}>
                 Learn more here
               </Button>
@@ -189,7 +191,7 @@ const Page = () => (
         </Box>
       </Container>
       <Container id="steps" sx={{alignItems:'center', textAlign:'center', marginTop: '4',width: '90%'}}>
-        <Text as="h1">
+        <Text variant="headline" as="h1">
           <Text as="span">
               How can Hack Club help you make an{' '}
             </Text>
@@ -236,6 +238,7 @@ const Page = () => (
           sx={{
             background:'#001D85',
             width:'100%',
+            borderRadius: '20px',
             color:'white',
             p:'2', mt:'5',
             alignItems:'center',
@@ -246,8 +249,8 @@ const Page = () => (
           <Text as="p" sx={{width: ['90%', '70%'], fontSize:'23px'}}>Join Zoom calls with past Hack Club winners to learn about their projects and to get advice on where to start.</Text>
           <Grid id="zoom-cards" gap={2} columns={[1, null, 3]} sx={{m:'2', justifyContent:'center', alignItems:'center', display:'flex', flexDirection:['column', 'row']}}>
             <Box id="zoom-card" sx={{width:['90%', '80%'], m:'3'}}>
-              <Image src="/home/flagship_4.jpg"></Image>
-              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2'}}>
+              <Image src="/home/flagship_4.jpg" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
+              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
                 <Text as="h3" sx={{}}>FIRSTNAME LASTNAME</Text>
                 <Text as="i" sx={{}}>PROJECT NAME</Text>
                 <Text as="i" sx={{}}>XX:XX-YY:YY PM</Text>
@@ -257,8 +260,8 @@ const Page = () => (
               </a>
             </Box>
             <Box id="zoom-card" sx={{width:['90%', '80%'], m:'3'}}>
-              <Image src="/home/flagship_4.jpg"></Image>
-              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2'}}>
+              <Image src="/home/flagship_4.jpg" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
+              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
                 <Text as="h3" sx={{}}>FIRSTNAME LASTNAME</Text>
                 <Text as="i" sx={{}}>PROJECT NAME</Text>
                 <Text as="i" sx={{}}>XX:XX-YY:YY PM</Text>
@@ -267,9 +270,9 @@ const Page = () => (
                 <Button sx={{background:'white', color:'#001D85', mt:'2', borderRadius:'10px'}}>Add to Calendar</Button>
               </a>
             </Box>
-            <Box id="zoom-card" sx={{width:['90%', '80%'], m:'3', borderRadius:'20px'}}>
-              <Image src="/home/flagship_4.jpg"></Image>
-              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2'}}>
+            <Box id="zoom-card" sx={{width:['90%', '80%'], m:'3'}}>
+              <Image src="/home/flagship_4.jpg" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
+              <Box sx={{alignItems:'left', textAlign:'left', display:'flex', flexDirection:'column', background:'white', color:'black', p:'2', borderRadius: '0 0 10px 10px', marginBottom: '2', padding: '3'}}>
                 <Text as="h3" sx={{}}>FIRSTNAME LASTNAME</Text>
                 <Text as="i" sx={{}}>PROJECT NAME</Text>
                 <Text as="i" sx={{}}>XX:XX-YY:YY PM</Text>
