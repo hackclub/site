@@ -345,25 +345,25 @@ const Page = () => (
           <Text as="p" sx={{width: ['90%', '70%'], fontSize:'23px', mt:'4'}}>Explore Hack Club’s You Ship, We Ship for additional grants</Text>
           <Grid id="ysws" gap={2} columns={[2, 3, 5, 7]} sx={{justifyContent:'center', alignItems:'center', fontSize:'14px', mt:'3'}}>
             <a href='https://sprig.hackclub.com/' target="_blank">
-              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>Sprig</Button>
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%', borderRadius:'10px'}}>Sprig</Button>
             </a>
             <a href='https://hackclub.com/bin/' target="_blank">
-              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>The Bin</Button>
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%', borderRadius:'10px'}}>The Bin</Button>
             </a>
             <a href='https://boba.hackclub.com/' target="_blank">
-              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>Boba Drops</Button>
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%', borderRadius:'10px'}}>Boba Drops</Button>
             </a>
             <a href='https://hackclub.com/onboard/' target="_blank">
-              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>OnBoard</Button>
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%', borderRadius:'10px'}}>OnBoard</Button>
             </a>
             <a href='https://fraps.hackclub.com/' target="_blank">
-              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>Hackaccino</Button>
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%', borderRadius:'10px'}}>Hackaccino</Button>
             </a>
             <a href='https://blot.hackclub.com/' target="_blank">
-              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>Blot</Button>
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%', borderRadius:'10px'}}>Blot</Button>
             </a>
             <a href='https://cider.hackclub.com/' target="_blank">
-              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%'}}>Cider</Button>
+              <Button sx={{color:'#001D85', background:'white', border: '3px solid', borderColor: '#001D85', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', width:'100%', borderRadius:'10px'}}>Cider</Button>
             </a>
             
           </Grid>
