@@ -298,16 +298,46 @@ const Page = () => (
           }}>
           <Text as="h2" sx={{color:'#C70000', fontSize:'30px', mt:'3'}}>STEP 3</Text>
           <Text as="p" sx={{width: ['90%', '70%'], fontSize:'23px'}}>Submit your project idea for a grant!</Text>
-          <Grid id="grant-drig" gap={3} columns={[1, 2, 4]} sx={{m:'2', justifyContent:'center', alignItems:'center', display:'flex', flexDirection:['column', 'row']}}>
+          <Grid id="grant-drig" gap={3} columns={[1, 3, 5, 7]} sx={{m:'2', justifyContent:'center', alignItems:'center'}}>
             <Box bg="#c9c9c9" sx={{borderRadius:'30px', p:'2', border: '3px solid', borderColor: '#C70000'}}>
               <Text>Grant Step here</Text>
             </Box>
+            <Text as='h1' sx={{
+              display: ['block', 'none'],
+            }}>
+              &darr;
+            </Text>
+            <Text as='h1'sx={{
+              display: ['none', 'block'],
+            }}>
+              &rarr;
+            </Text>
             <Box bg="#c9c9c9" sx={{borderRadius:'30px', p:'2', border: '3px solid', borderColor: '#C70000'}}>
               <Text>Grant Step here</Text>
             </Box>
+            <Text as='h1' sx={{
+              display: ['block', 'none'],
+            }}>
+              &darr;
+            </Text>
+            <Text as='h1'sx={{
+              display: ['none', 'block'],
+            }}>
+              &rarr;
+            </Text>
             <Box bg="#c9c9c9" sx={{borderRadius:'30px', p:'2', border: '3px solid', borderColor: '#C70000'}}>
               <Text>Grant Step here</Text>
             </Box>
+            <Text as='h1' sx={{
+              display: ['block', 'none'],
+            }}>
+              &darr;
+            </Text>
+            <Text as='h1'sx={{
+              display: ['none', 'block'],
+            }}>
+              &rarr;
+            </Text>
             <Box bg="#c9c9c9" sx={{borderRadius:'30px', p:'2', border: '3px solid', borderColor: '#C70000'}}>
               <Text>Grant Step here</Text>
             </Box>
