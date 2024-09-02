@@ -1,0 +1,44 @@
+[
+    {
+      "title": "Starfly (Andrea, 16)",
+      "user": "Andrea",
+      "description": "Starfly bridges the gap between gender and racial profiles in astronomy and STEM.",
+      "link": "https://www.congressionalappchallenge.us/23-CA38/",
+      "img": "https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/3starfly.png"
+    },
+    {
+      "title": "Lexiscan (Clay, 16)",
+      "user": "Clay",
+      "description": "Lexiscan is an app that helps people with dyslexia to read by reading text out loud.",
+      "link": "https://www.congressionalappchallenge.us/23-VT00/",
+      "img": "https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/2lexiscan.png"
+    },
+    {
+      "title": "DriveSmart (Sahiti, 17)",
+      "user": "Sahiti",
+      "description": "Drivesmart helps teen drivers be safe on the roads through machine learning, and moderation.",
+      "link": "https://www.congressionalappchallenge.us/23-GA06/",
+      "img": "https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/1drivesmart.png"
+    },
+    {
+      "title": "TrailUS (Alex, 15)",
+      "user": "Alex",
+      "description": "TrailUS encourages healthier lifestyles and makes it easy for people to enjoy local trails.",
+      "link": "https://www.congressionalappchallenge.us/22-TX22/",
+      "img": "https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/5trailus.png"
+    },
+    {
+      "title": "Dreamer (Samay, 17)",
+      "user": "Samay",
+      "description": "Dreamer makes learning more interesting for students with learning disorders.",
+      "link": "https://www.congressionalappchallenge.us/23-SC05/",
+      "img": "https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/0dreamer.png"
+    },
+    {
+      "title": "Moment-ly (Zoya, 17)",
+      "user": "Zoya",
+      "description": "Moment-ly motivates a female demographic with tools, while promoting wellness.",
+      "link": "#",
+      "img": "https://cloud-dcu6dxu0h-hack-club-bot.vercel.app/4momently.png"
+    }
+]
