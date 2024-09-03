@@ -6,10 +6,10 @@ const Carousel = ({ cards }) => {
     const scrollContainerRef = useRef(null);
     const cardsPerView = 3; // Number of cards that can be seen at once
     const cardWidth = 400; // Width of each card in pixels
-    const scrollAmount = cardsPerView * cardWidth; // Total scroll width for each move
+    const scrollAmount = cardWidth; // Total scroll width for each move
     const totalCards = cards.length;
     
-    // Made another one of cards to do infinite scrolling
+    // Made another set of cards to do infinite scrolling
     const infiniteCards = [...cards, ...cards, ...cards]; // Repeat the cards 3x for non-choppy scrolling
   
     // Fixes scroll position to the middle set the mount for non-choppy scrolling
