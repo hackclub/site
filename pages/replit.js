@@ -1,19 +1,11 @@
-import {
-  Box,
-  Link,
-  Image,
-  Button,
-  Heading,
-  Text,
-  Card,
-  Progress
-} from 'theme-ui'
+import { Box, Link, Image, Button, Heading, Text, Card } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Footer from '../components/footer'
 import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import ReplitForm from '../components/replit/form'
+import Progress from '../components/replit/progress'
 import { useEffect, useState } from 'react'
 
 const ReplitPage = () => {
@@ -219,37 +211,7 @@ const ReplitPage = () => {
             marginX: 'auto'
           }}
         >
-          {progress ? (
-            <Box sx={{ marginBottom: '1rem' }}>
-              <Text>
-                {progress.successful} of {progress.repl_count} repls processed!
-                {progress.failed.timed_out + progress.failed.failed > 0 ? (
-                  <Text
-                    title={`${progress.failed.timed_out} timed out, ${progress.failed.failed} failed`}
-                  >
-                    {' '}
-                    (+ {progress.failed.timed_out + progress.failed.failed}{' '}
-                    error
-                    {progress.failed.timed_out + progress.failed.failed !== 1
-                      ? 's'
-                      : null}
-                    )
-                  </Text>
-                ) : null}
-              </Text>
-
-              <Progress
-                sx={{ color: cssDark, backgroundColor: 'smoke' }}
-                max={progress.repl_count}
-                value={
-                  progress.successful +
-                  progress.failed.timed_out +
-                  progress.failed.failed
-                }
-              ></Progress>
-            </Box>
-          ) : null}
-
+          <Progress progress={progress} />
           <ReplitForm cssDark={cssDark} />
         </Box>
 

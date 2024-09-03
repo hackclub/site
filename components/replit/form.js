@@ -258,9 +258,8 @@ const ReplitForm = ({ cssDark }) => {
     >
       <Text sx={{ fontWeight: '700' }}>Stickers</Text>
       <Text>
-        Get free stickers Get free stickers Get free stickers Get free stickers
-        Get free stickers Get free stickers Get free stickers Get free stickers
-        Get free stickers Get free stickers{' '}
+        Get free stickers! The first 5,000 people to use this tool get access to
+        a free sticker pack, courtesy of GitHub Education!
       </Text>
 
       {stickers.map((sticker, idx) => {
@@ -284,7 +283,13 @@ const ReplitForm = ({ cssDark }) => {
           />
         )
       })}
-      <Box sx={{ width: 'calc(100% + calc(1.82rem * 2))', marginX: '-1.82em' }}>
+      <Box
+        sx={{
+          width: 'calc(100% + calc(1.82rem * 2))',
+          marginX: '-1.82em',
+          pointerEvents: currentStep === 3 ? 'auto' : 'none'
+        }}
+      >
         <FilloutStandardEmbed filloutId="ji6Jw9xpBPus" />
       </Box>
       <StepIndicator step={3} />
