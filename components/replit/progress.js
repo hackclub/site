@@ -18,7 +18,7 @@ const ProgressComponent = ({ progress }) => {
       <Text sx={{ fontSize: '1.2rem' }}>
         {progress.completed
           ? 'Export complete! Check your email.'
-          : `${processedCount} of ${progress.repl_count} repls processed!
+          : `${processedCount} of ${progress.repl_count} repls processed! We'll email you once we're done.
           ${title ? <Text>{title}</Text> : ''}`}
       </Text>
 
