@@ -263,7 +263,7 @@ function Page({
                 src="/home/flagship_4.jpg" 
                 sx={{ borderRadius: '10px', m:'3', wdith:['100%', '50%']}}>
               </Image>
-              <Text as='p' sx={{fontSize:'23px'}}>Name, Age</Text>
+              <Text as='p' sx={{fontSize:'23px'}}>Clay, 16</Text>
             </Box>
             <Box 
               sx={{
@@ -273,7 +273,7 @@ function Page({
                 src="/home/flagship_4.jpg" 
                 sx={{ borderRadius: '10px', m:'3', wdith:['100%', '50%']}}>
               </Image>
-              <Text as='p' sx={{fontSize:'23px'}}>Name, Age</Text>
+              <Text as='p' sx={{fontSize:'23px'}}>Sahiti, 17</Text>
             </Box>
             <Box 
               sx={{

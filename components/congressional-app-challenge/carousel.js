@@ -4,7 +4,7 @@ import CarouselCards from './carousel-cards';
 
 const Carousel = ({ cards }) => {
     const scrollContainerRef = useRef(null);
-    const cardsPerView = 3; // Number of cards that can be seen at once
+    const cardsPerView = 1; // Number of cards that can be seen at once
     const cardWidth = 400; // Width of each card in pixels
     const scrollAmount = cardsPerView * cardWidth; // Total scroll width for each move
     const totalCards = cards.length;
