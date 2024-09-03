@@ -250,6 +250,52 @@ function Page({
           }}>
           <Text as="h2" sx={{fontSize:'30px', mt:'3', color:'#C70000'}}>STEP 2</Text>
           <Text as="p" sx={{width: ['90%', '70%'], fontSize:'23px'}}>Join Zoom calls with past Hack Club winners to learn about their projects and to get advice on where to start.</Text>
+          <Box 
+            sx={{
+              display:'flex',
+              flexDirection:['column', 'row'],
+              m:'2'}}>
+            <Box 
+              sx={{
+                display:'flex',
+                flexDirection:'column'}}>
+              <Image 
+                src="/home/flagship_4.jpg" 
+                sx={{ borderRadius: '10px', m:'3', wdith:['100%', '50%']}}>
+              </Image>
+              <Text as='p' sx={{fontSize:'23px'}}>Name, Age</Text>
+            </Box>
+            <Box 
+              sx={{
+                display:'flex',
+                flexDirection:'column'}}>
+              <Image 
+                src="/home/flagship_4.jpg" 
+                sx={{ borderRadius: '10px', m:'3', wdith:['100%', '50%']}}>
+              </Image>
+              <Text as='p' sx={{fontSize:'23px'}}>Name, Age</Text>
+            </Box>
+            <Box 
+              sx={{
+                display:'flex',
+                flexDirection:'column'}}>
+              <Image 
+                src="/home/flagship_4.jpg" 
+                sx={{ borderRadius: '10px', m:'3', wdith:['100%', '50%']}}>
+              </Image>
+              <Text as='p' sx={{fontSize:'23px'}}>Name, Age</Text>
+            </Box>
+            <Box 
+              sx={{
+                display:'flex',
+                flexDirection:'column'}}>
+              <Image 
+                src="/home/flagship_4.jpg" 
+                sx={{ borderRadius: '10px', m:'3', wdith:['100%', '50%']}}>
+              </Image>
+              <Text as='p' sx={{fontSize:'23px'}}>Name, Age</Text>
+            </Box>
+          </Box>
           <Grid 
             id="zoom-cards"
             gap={2} 
@@ -260,74 +306,68 @@ function Page({
               alignItems:'center', 
               justifyItems:'center'}}
             >
-            <Box id="zoom-card" sx={{width:['90%', '80%'], m:'3'}}>
-              <Image src="/home/flagship_4.jpg" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
+            <Box id="zoom-card" sx={{width:['90%'], m:'3'}}>
               <Box 
                 sx={{
-                  alignItems:'left',
-                  textAlign:'left',
+                  alignItems:'center',
+                  textAlign:'center',
                   display:'flex',
                   flexDirection:'column',
                   background:'white',
                   color:'black',
                   p:'2',
-                  borderRadius: '0 0 10px 10px',
+                  borderRadius: '10px',
                   marginBottom: '2',
                   padding: '3'}}
                 >
-                <Text as="h3" sx={{}}>FIRSTNAME LASTNAME</Text>
-                <Text as="i" sx={{}}>Call description</Text>
-                <Text as="i" sx={{}}>September 10th, 7 PM EST</Text>
+                <Text as="h3" sx={{}}>September 10th, 7 PM EST</Text>
+                <a>
+                  <Button sx={{background:'#001D85', color:'#white', mt:'2', borderRadius:'10px'}}>Add to Calendar</Button>
+                </a>
               </Box>
-              <a>
-                <Button sx={{background:'white', color:'#001D85', mt:'2', borderRadius:'10px'}}>Add to Calendar</Button>
-              </a>
+
             </Box>
-            <Box id="zoom-card" sx={{width:['90%', '80%'], m:'3'}}>
-              <Image src="/home/flagship_4.jpg" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
+            <Box id="zoom-card" sx={{width:['90%'], m:'3'}}>
               <Box 
                 sx={{
-                  alignItems:'left',
-                  textAlign:'left',
+                  alignItems:'center',
+                  textAlign:'center',
                   display:'flex',
                   flexDirection:'column',
                   background:'white',
                   color:'black',
                   p:'2',
-                  borderRadius: '0 0 10px 10px',
+                  borderRadius: '10px',
                   marginBottom: '2',
                   padding: '3'}}
                 >
-                <Text as="h3" sx={{}}>FIRSTNAME LASTNAME</Text>
-                <Text as="i" sx={{}}>Call description</Text>
-                <Text as="i" sx={{}}>September 19th, 8 PM EST</Text>
+                <Text as="h3" sx={{}}>September 19th, 8 PM EST</Text>
+                <a>
+                  <Button sx={{background:'#001D85', color:'#white', mt:'2', borderRadius:'10px'}}>Add to Calendar</Button>
+                </a>
               </Box>
-              <a>
-                <Button sx={{background:'white', color:'#001D85', mt:'2', borderRadius:'10px'}}>Add to Calendar</Button>
-              </a>
+              
             </Box>
-            <Box id="zoom-card" sx={{width:['90%', '80%'], m:'3'}}>
-              <Image src="/home/flagship_4.jpg" sx={{ borderRadius: '10px 10px 0 0'}}></Image>
+            <Box id="zoom-card" sx={{width:['90%'], m:'3'}}>
               <Box 
                 sx={{
-                  alignItems:'left',
-                  textAlign:'left',
+                  alignItems:'center',
+                  textAlign:'center',
                   display:'flex',
                   flexDirection:'column',
                   background:'white',
                   color:'black',
                   p:'2',
-                  borderRadius: '0 0 10px 10px',
+                  borderRadius: '10px',
                   marginBottom: '2',
                   padding: '3'}}
                 >
-                <Text as="h3" sx={{}}>FIRSTNAME LASTNAME</Text>
-                <Text as="i" sx={{}}>Call description</Text>
-                <Text as="i" sx={{}}>October 2nd, 7 PM EST</Text>
+                <Text as="h3" sx={{}}>October 2nd, 7 PM EST</Text>
+                <a>
+                  <Button sx={{background:'#001D85', color:'#white', mt:'2', borderRadius:'10px'}}>Add to Calendar</Button>
+                </a>
               </Box>
-              <a>
-                <Button sx={{background:'white', color:'#001D85', mt:'2', borderRadius:'10px'}}>Add to Calendar</Button>
-              </a>
+              
             </Box>
           </Grid>
 
