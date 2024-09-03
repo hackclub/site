@@ -3,7 +3,7 @@ import CarouselCards from './carousel-cards';
 
 const Carousel = ({ cards }) => {
   const scrollContainerRef = useRef(null);
-  const cardsPerView = 3; // Number of cards visible at once
+  const cardsPerView = 1; // Number of cards visible at once
   const cardWidth = 400; // Width of each card in pixels
   const scrollAmount = cardsPerView * cardWidth; // Total scroll width for each move
 
@@ -48,6 +48,7 @@ const Carousel = ({ cards }) => {
         ref={scrollContainerRef}
         style={{
           display: 'flex',
+          margin: '0',
           width: '70%',
           overflowX: 'hidden', // Hide overflow content
         }}
