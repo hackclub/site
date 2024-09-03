@@ -9,6 +9,10 @@ const TokenInstructions = () => {
 
   const tokenSteps = [
     {
+      image: '/replit/replit-homepage.png',
+      desc: 'Go to replit.com, and sign in.'
+    },
+    {
       image: '/replit/aarc1.gif',
       desc: "Open your browser's developer tools. You can do this by right-clicking on the page and selecting 'Inspect' or by pressing F12 on your keyboard."
     },
@@ -55,11 +59,14 @@ const TokenInstructions = () => {
         </Heading>
 
         <Button
-          onClick={() => setCurrentStep(prev => Math.min(prev + 1, 2))}
+          onClick={() =>
+            setCurrentStep(prev => Math.min(prev + 1, tokenSteps.length - 1))
+          }
           sx={{
             bg: 'hsl(23, 94%, 32%)',
-            opacity: currentStep === 2 ? 0.5 : 1,
-            pointerEvents: currentStep === 2 ? 'none' : 'auto'
+            opacity: currentStep === tokenSteps.length - 1 ? 0.5 : 1,
+            pointerEvents:
+              currentStep === tokenSteps.length - 1 ? 'none' : 'auto'
           }}
         >
           <Box sx={{ rotate: '180deg', lineHeight: 0, marginLeft: '-8px' }}>
