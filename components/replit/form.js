@@ -259,7 +259,7 @@ const ReplitForm = ({ cssDark }) => {
       <Text sx={{ fontWeight: '700' }}>Stickers</Text>
       <Text>
         Get free stickers! The first 5,000 people to use this tool get access to
-        a free sticker pack, courtesy of GitHub Education!
+        a free sticker pack!
       </Text>
 
       {stickers.map((sticker, idx) => {
