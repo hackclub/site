@@ -113,8 +113,8 @@ const ReplitForm = ({ cssDark }) => {
     '/stickers/orphmoji_peefest.png',
     '/stickers/skullpup_boba.png',
     '/stickers/hackers,_assemble!.png',
-    '/stickers/orphmoji_yippee.png',
-    '/replit/replit-fire.png'
+    '/stickers/orphmoji_yippee.png'
+    // '/replit/replit-fire.png'
   ]
 
   const fieldStyle = ({ disabled }) => ({

@@ -14,15 +14,13 @@ const ProgressComponent = ({ progress }) => {
   }
 
   return (
-    <Box sx={{ marginBottom: '1rem' }}>
-      {progress.completed ? (
-        <Text>Export complete! Check your email.</Text>
-      ) : (
-        <Text>
-          {processedCount} of {progress.repl_count} repls processed!
-          {title ? <Text>{title}</Text> : null}
-        </Text>
-      )}
+    <Box sx={{ marginBottom: '1rem', textAlign: 'center' }}>
+      <Text sx={{ fontSize: '1.2rem' }}>
+        {progress.completed
+          ? 'Export complete! Check your email.'
+          : `${processedCount} of ${progress.repl_count} repls processed!
+          ${title ? <Text>{title}</Text> : ''}`}
+      </Text>
 
       <Progress
         sx={{ color: 'hsl(23, 94%, 32%)', backgroundColor: 'smoke' }}

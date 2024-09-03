@@ -6,6 +6,7 @@ import Nav from '../components/nav'
 import ForceTheme from '../components/force-theme'
 import ReplitForm from '../components/replit/form'
 import Progress from '../components/replit/progress'
+import TokenInstructions from '../components/replit/token-instructions'
 import { useEffect, useState } from 'react'
 
 const ReplitPage = () => {
@@ -36,28 +37,13 @@ const ReplitPage = () => {
     'Get free stickers'
   ]
 
-  const tokenSteps = [
-    {
-      image: '/replit/aarc1.gif',
-      desc: "Open your browser's developer tools. You can do this by right-clicking on the page and selecting 'Inspect' or by pressing F12 on your keyboard."
-    },
-    {
-      image: '/replit/aarc2.gif',
-      desc: 'Select the application tab in the devtools'
-    },
-    {
-      image: '/replit/aarc3.gif',
-      desc: "Make sure replit.com cookies are selected, then scroll down to find 'connect.sid'. Copy the entire token & paste it in the form at the top of this page."
-    }
-  ]
-
   const cssDark = 'hsl(23, 94%, 32%)'
 
   return (
     <>
       <Meta
         as={Head}
-        title="Export your Repls"
+        title="Export your repls"
         description="Replit free has shut down. Export with Hack Club to GitHub Education's new free codespaces offering"
       />
       <style>{`html { scroll-behavior: smooth; } body { background-color: hsl(23, 94%, 96%); }`}</style>
@@ -76,18 +62,81 @@ const ReplitPage = () => {
           color: 'white'
         }}
       >
+        <Heading as="h1" sx={{ position: 'relative', marginBottom: '1rem' }}>
+          Replit Lifeboat:{' '}
+          <Text
+            as="span"
+            sx={{ display: 'inline-flex', flexDirection: 'column' }}
+          >
+            Save Our Ships
+            <Image
+              src="/replit/sos-morse.svg"
+              alt="SOS in morse code"
+              sx={{ opacity: 0.5 }}
+            />
+          </Text>
+          <Text
+            sx={{
+              position: 'absolute',
+              left: '-2.5rem',
+              bottom: '-1rem',
+              rotate: '-30deg',
+              fontSize: '3rem'
+            }}
+          >
+            🛟
+          </Text>
+          <Text
+            sx={{
+              position: 'absolute',
+              left: '2rem',
+              top: '-3rem',
+              rotate: '15deg',
+              fontSize: '2.5rem'
+            }}
+          >
+            🛳️
+          </Text>
+          <Text
+            sx={{
+              position: 'absolute',
+              right: '-2rem',
+              top: '-2.5rem',
+              rotate: '30deg',
+              fontSize: '3rem'
+            }}
+          >
+            🚤
+          </Text>
+          <Text
+            sx={{
+              position: 'absolute',
+              right: '-5rem',
+              bottom: '-1.5rem',
+              rotate: '20deg',
+              fontSize: '3rem'
+            }}
+          >
+            🌊
+          </Text>
+          <Text
+            sx={{
+              position: 'absolute',
+              right: '12rem',
+              bottom: '-2.5rem',
+              rotate: '-15deg',
+              fontSize: '3rem',
+              zIndex: 10
+            }}
+          >
+            ⛵
+          </Text>
+        </Heading>
+
         <Heading
-          as="h1"
+          as="h2"
           sx={{
             fontSize: '4em'
-          }}
-          onMouseOver={() => {
-            document.getElementById('og-replit').style.opacity = '0'
-            document.getElementById('fire-replit').style.opacity = '1'
-          }}
-          onMouseOut={() => {
-            document.getElementById('og-replit').style.opacity = '1'
-            document.getElementById('fire-replit').style.opacity = '0'
           }}
         >
           Export your{' '}
@@ -98,6 +147,16 @@ const ReplitPage = () => {
               alignItems: 'center',
               position: 'relative'
             }}
+            /*
+            onMouseOver={() => {
+              document.getElementById('og-replit').style.opacity = '0'
+              document.getElementById('fire-replit').style.opacity = '1'
+            }}
+            onMouseOut={() => {
+              document.getElementById('og-replit').style.opacity = '1'
+              document.getElementById('fire-replit').style.opacity = '0'
+              }}
+              */
           >
             Replit <style>{`.replit-fire {transition: opacity 0.1s;`}</style>
             <Image
@@ -107,6 +166,7 @@ const ReplitPage = () => {
               id="og-replit"
               className="replit-fire"
             />
+            {/*
             <Image
               src="/replit/replit-fire-nooutline.png"
               alt="replit"
@@ -119,18 +179,26 @@ const ReplitPage = () => {
               }}
               id="fire-replit"
               className="replit-fire"
-            />
+            />*/}
           </Text>{' '}
           repls
         </Heading>
 
-        <Text sx={{ maxWidth: '80ch', fontSize: '1.2em', marginY: '1em' }}>
-          On 25th August, Replit cut down its free plan - it's now unusable.
+        <Text
+          sx={{
+            maxWidth: '80ch',
+            fontSize: '1.2em',
+            marginY: '1em',
+            marginTop: '1em',
+            textWrap: 'pretty'
+          }}
+        >
+          On 25th August, Replit cut down its free plan - many students won't be
+          able to afford to keep using it.
           <br />
-          Previously, you got unlimited repls for free, for as long as you
-          wanted.
-          <br />
-          Now you get three repls, for 600 minutes per month (20 mins/day).
+          We quickly built this tool in response - plug in your email and Replit
+          token and get a zip file containing all your Repls, with full Git
+          history constructed from Replit's files' history.
         </Text>
       </Box>
 
@@ -216,36 +284,11 @@ const ReplitPage = () => {
         </Box>
 
         <Box sx={{ paddingTop: '5rem' }} id="instructions">
-          <Heading as="h2" sx={{ marginBottom: '0.5em' }}>
+          <Heading as="h2" sx={{ marginBottom: '0.5em', textAlign: 'center' }}>
             How to get your Replit <code>connect.sid</code> token
           </Heading>
 
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1rem'
-            }}
-          >
-            {tokenSteps.map((step, idx) => (
-              <Card
-                key={idx}
-                sx={{
-                  lineHeight: 0
-                }}
-              >
-                <Heading as="h3" sx={{ lineHeight: 1.5 }}>
-                  Step {idx + 1}
-                </Heading>
-                <Text sx={{ lineHeight: 1.5 }}>{step.desc}</Text>
-                <Image
-                  src={step.image}
-                  alt=""
-                  sx={{ borderRadius: '0.25rem', marginTop: '1em' }}
-                />
-              </Card>
-            ))}
-          </Box>
+          <TokenInstructions />
 
           <Link href="#">
             <Button
