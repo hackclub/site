@@ -93,6 +93,23 @@ const TokenInstructions = () => {
           sx={{ width: '100%', height: 'auto', borderRadius: '0.25rem' }}
         />
       </Box>
+
+      <Box sx={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
+        <Button
+          onClick={() =>
+            setCurrentStep(prev => Math.min(prev + 1, tokenSteps.length - 1))
+          }
+          sx={{
+            bg: 'hsl(23, 94%, 32%)',
+            display: currentStep === tokenSteps.length - 1 ? 'none' : 'block',
+            pointerEvents:
+              currentStep === tokenSteps.length - 1 ? 'none' : 'auto',
+            fontSize: '0.8em'
+          }}
+        >
+          Next step
+        </Button>
+      </Box>
     </Card>
   )
 }
