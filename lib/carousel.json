@@ -75,10 +75,10 @@
     "background": "#e9e9e9",
     "titleColor": "black",
     "textColor": "black",
-    "descriptionColor":"black",
+    "descriptionColor": "black",
     "title": "Nest",
-    "description": "Free Debian backend hosting provided by Hack Club for all teenagers in Hack Club",
-    "img": "https://cloud-56h978nbq-hack-club-bot.vercel.app/0logo.png",
-    "link": "https://guides.hackclub.app"
+    "description": "Free Linux server for all teenagers in Hack Club to host anything you need",
+    "img": "https://emoji.slack-edge.com/T0266FRGM/nest/aa345378581cee0c.png",
+    "link": "https://hackclub.app"
   }
 ]
