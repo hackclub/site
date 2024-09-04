@@ -13,7 +13,7 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Carousel from '../components/congressional-app-challenge/carousel'
 
-const color = '#000000'
+const color = '#000'
 
 function Page({
   carouselCards
@@ -22,7 +22,7 @@ function Page({
   <>
     <Meta
       as={Head}
-      title="Congressional App Challenge x Hack Club"
+      title="Congressional App Challenge"
       description="How Hack Club can help you apply to the Congressional App Challenge."
     />
     <Nav color={color} light />
@@ -52,6 +52,7 @@ function Page({
           >
             Build a cool project for the{' '}
           </Text>
+          <br />
           <Text
             as="span"
             sx={{
