@@ -18,21 +18,8 @@ export const shopParts = async () => {
     const fields = record.fields;
     let stock = fields["Stock"]
 
-    if (stock && fields["Orders"]) {
-      const orderIds = fields["Orders"]
-      const ordersFilter = orderIds.map(id => `RECORD_ID() = "${id}"`).join(", ")
-      const data = await ordersTable.read({
-        filterByFormula: `
-        AND(
-        OR(${ordersFilter}),
-        OR(
-          {Status} = "Fulfilled",
-          {Status} = "Awaiting Fulfillment"
-          )
-      )`
-      })
-      
-      stock -= data.length;
+    if (stock && fields["Count of Orders Fulfilled"]) {
+      fields["Stock"] -= fields["Count of Orders Fulfilled"]
     }
       return { id: record.id, ...record.fields, "Stock": (stock == null)? null : (stock >= 0 ? stock : 0) }
   })
