@@ -30,8 +30,7 @@ function Page({
     <Meta
       as={Head}
       title="Congressional App Challenge x Hack Club"
-      description="Landing page about how Hack Club can help students apply to the Congressional App Challenge"
-      image="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/52020-07-25_52g0nw40p2b00dh39mt93xq5ubku6yaj.jpeg"
+      description="How Hack Club can help you apply to the Congressional App Challenge."
     />
     <Nav color={color} light />
     <Box id="main">
