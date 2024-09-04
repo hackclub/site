@@ -12,6 +12,7 @@ import Head from 'next/head'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Carousel from '../components/congressional-app-challenge/carousel'
+import ForceTheme from '../components/force-theme'
 
 const color = '#000'
 
@@ -25,6 +26,7 @@ function Page({
         title="Congressional App Challenge"
         description="How Hack Club can help you apply to the Congressional App Challenge."
       />
+      <ForceTheme theme="light" />
       <Nav color={color} light />
       <Box id="main">
         <Box id="header"
