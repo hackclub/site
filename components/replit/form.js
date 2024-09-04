@@ -272,6 +272,7 @@ const ReplitForm = ({ cssDark }) => {
             className="sticker"
             sx={{
               position: 'absolute',
+              display: ['none', null, 'block'],
               rotate: stickerPositions[idx]?.rotation,
               left: `${stickerPositions[idx]?.position[0] * 100}%`,
               top: `${stickerPositions[idx]?.position[1] * 100}%`,

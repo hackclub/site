@@ -1085,7 +1085,13 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                     display: 'block'
                   }}
                 >
-                  For high schoolers (or younger).
+                  The Arcade closed September 1st, but you can still join the <a
+                      href="https://hackclub.com/slack"
+                      target="_blank"
+                      sx={{ color: 'inherit' }}
+                    >
+                      Hack Club Slack
+                    </a>!
                 </Text>
               )}
             </Fade>

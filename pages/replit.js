@@ -59,7 +59,8 @@ const ReplitPage = () => {
           paddingBottom: '1rem',
           textAlign: 'center',
           backgroundColor: cssDark,
-          color: 'white'
+          color: 'white',
+          overflow: 'hidden'
         }}
       >
         <Heading as="h1" sx={{ position: 'relative', marginBottom: '1rem' }}>
@@ -275,7 +276,7 @@ const ReplitPage = () => {
         <Box
           sx={{
             marginTop: '3rem',
-            width: '30rem',
+            maxWidth: '30rem',
             marginX: 'auto'
           }}
         >
