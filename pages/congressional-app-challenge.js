@@ -130,7 +130,7 @@ function Page({
           <Image src="/home/flagship_4.jpg"
             sx={{
               width: ['80%', '60%', '40%'],
-              marginTop: ['10px', 'null'],
+              marginTop: ['10px', null],
               borderRadius: '10px',
               border: '5px solid',
               borderColor: '#C70000',
@@ -138,7 +138,6 @@ function Page({
               marginLeft: '10px'
             }}>
           </Image>
-
         </Container>
         <Container
           id="about-congressional"
@@ -152,14 +151,14 @@ function Page({
           <Image src="https://www.congressionalappchallenge.us/wp-content/uploads/2018/08/Congressional-App-Challenge-Coalition-Vertical-2.png"
             sx={{
               width: ['80%', '60%', '40%'],
-              marginBottom: ['10px', 'null'],
+              marginBottom: ['10px', null],
               borderRadius: '10px',
               border: '5px solid',
               borderColor: '#C70000',
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
               marginRight: '10px',
               order: [1, 0],
-              marginTop: ['10px', 'null']
+              marginTop: ['10px', null]
             }}>
           </Image>
           <Box
@@ -263,7 +262,7 @@ function Page({
                 }}>
                 <Image
                   src="https://media.licdn.com/dms/image/v2/D4E03AQGvO_fJnJLMUw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1704591152368?e=1730937600&v=beta&t=mbQBD6LzcFUAtCbS29Mu3ZippJwx_WEIDXGoXIjvkX0"
-                  sx={{ borderRadius: '10px', m: '3', wdith: ['100%'] }}>
+                  sx={{ borderRadius: '10px', m: '3', width: ['100%'] }}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Clay, 16</Text>
               </Box>
@@ -274,7 +273,7 @@ function Page({
                 }}>
                 <Image
                   src="https://media.licdn.com/dms/image/v2/C5603AQFeo7jDktf6MA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1659043447794?e=1730937600&v=beta&t=kV2wSZtdG_rp10HHHf4qkDJ7mROCc4EhFu1GDQNfix4"
-                  sx={{ borderRadius: '10px', m: '3', wdith: ['100%'] }}>
+                  sx={{ borderRadius: '10px', m: '3', width: ['100%'] }}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Sahiti, 17</Text>
               </Box>
@@ -285,21 +284,18 @@ function Page({
                 }}>
                 <Image
                   src="https://media.licdn.com/dms/image/v2/D5603AQGT0T4r8nfL3w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1705187020782?e=1730937600&v=beta&t=DRVgQG6s0L3FHDL9lRpTGTwHFVLBggZ45arTVLtzq84"
-                  sx={{ borderRadius: '10px', m: '3', wdith: ['100%'] }}>
+                  sx={{ borderRadius: '10px', m: '3', width: ['100%'] }}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Alex, 16</Text>
               </Box>
-              <Grid
-                id="zoom-cards"
-                gap={2}
-                columns={[1, null, 3]}
+              <Box
                 sx={{
                   display: 'flex',
                   flexDirection: 'column'
                 }}>
                 <Image
                   src="https://media.licdn.com/dms/image/v2/D5603AQHRGdnFZSNUhg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1724119335812?e=1730937600&v=beta&t=3bLlWACvpUdWYyLNrTRDDeESSAr3KfvVGY81_Qxf3Qc"
-                  sx={{ borderRadius: '10px', m: '3', wdith: ['100%'] }}>
+                  sx={{ borderRadius: '10px', m: '3', width: ['100%'] }}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Andrea, 16</Text>
               </Box>
@@ -310,7 +306,7 @@ function Page({
                 }}>
                 <Image
                   src="https://ca.slack-edge.com/T0266FRGM-U05392UU6S0-23c5db8f48e1-512"
-                  sx={{ borderRadius: '10px', m: '3', wdith: ['100%'] }}>
+                  sx={{ borderRadius: '10px', m: '3', width: ['100%'] }}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Samay, 17</Text>
               </Box>
@@ -326,7 +322,6 @@ function Page({
                 justifyItems: 'center'
               }}
             >
-
               <Box id="zoom-card" sx={{ width: ['90%'], m: '3' }}>
                 <Box
                   sx={{
@@ -344,264 +339,262 @@ function Page({
                 >
                   <Text as="h3" sx={{}}>September 19th, 8 PM EST</Text>
                   <a target="_blank" href='https://calendar.app.google/eKgDw7tvHRw5G1BLA'>
-                    <Button sx={{ background: '#001D85', color: '#white', mt: '2', borderRadius: '10px' }}>Add to Calendar</Button>
+                    <Button sx={{ background: '#001D85', color: 'white', mt: '2', borderRadius: '10px' }}>Add to Calendar</Button>
                   </a>
                 </Box>
-                <Box id="zoom-card" sx={{ width: ['90%'], m: '3' }}>
-                  <Box
-                    sx={{
-                      alignItems: 'center',
-                      textAlign: 'center',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      background: 'white',
-                      color: 'black',
-                      p: '2',
-                      borderRadius: '10px',
-                      marginBottom: '2',
-                      padding: '3'
-                    }}
-                  >
-                    <Text as="h3" sx={{}}>October 2nd, 7 PM EST</Text>
-                    <a target="_blank" href='https://calendar.app.google/6k5nSPEmUdMJi8p17'>
-                      <Button sx={{ background: '#001D85', color: '#white', mt: '2', borderRadius: '10px' }}>Add to Calendar</Button>
-                    </a>
-                  </Box>
-                </Grid>
-
-              </Container>
-              <Container id='step3'
-                sx={{
-                  alignItems: 'center',
-                  width: '100%',
-                  display: 'flex',
-                  marginTop: '2',
-                  flexDirection: 'column',
-                  justifyContent: 'center'
-                }}>
-                <Text as="h2" sx={{ color: '#C70000', fontSize: '30px', mt: '3' }}>STEP 3</Text>
-                <Text as="p" sx={{ width: ['90%', '70%'], fontSize: '23px' }}>Submit your project for a grant!</Text>
-                <Grid
-                  id="grant-drig"
-                  gap={4}
-                  columns={[1, 2]}
-                  gridAutoRows={'1fr'}
+              </Box>
+              <Box id="zoom-card" sx={{ width: ['90%'], m: '3' }}>
+                <Box
                   sx={{
-                    m: '2',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                  }}>
-                  <Box bg="#e9e9e9" sx={{ borderRadius: '30px', p: '3', border: '3px solid', borderColor: '#C70000', height: '100%' }}>
-                    <Image
-                      sx={{
-                        width: ['100%', '55%']
-                      }}
-                      src='https://cloud-d1apz790h-hack-club-bot.vercel.app/0orpheuslaptop.png'
-                    >
-                    </Image>
-                    <Text as='h4' sx={{ fontSize: '20px' }}>1. First, Come up with a project idea for the Congressional App Challenge, see project guidelines </Text>
-                    <a href='https://www.congressionalappchallenge.us/students/rules/'>
-                      <Text sx={{ fontSize: '20px' }} as='h4'>here.</Text>
-                    </a>
-                  </Box>
-                  <Box
-                    bg="#e9e9e9"
-                    sx={{
-                      borderRadius: '30px',
-                      p: '3', width: '100%',
-                      border: '3px solid',
-                      borderColor: '#C70000',
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      alignItems: 'center'
-                    }}
-                  >
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                      <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                        <a href='https://sprig.hackclub.com/' target="_blank">
-                          <Button
-                            sx={{
-                              color: '#001D85',
-                              background: 'white',
-                              border: '3px solid',
-                              borderColor: '#001D85',
-                              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                              borderRadius: '10px', mr: '2'
-                            }}
-                          >Sprig
-                          </Button>
-                        </a>
-                        <Text as='p' sx={{ width: '100%' }}>Build a JS game, play it on your own console</Text>
-                      </Box>
-                      <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                        <a href='https://hackclub.com/bin/' target="_blank">
-                          <Button
-                            sx={{
-                              color: '#001D85',
-                              background: 'white',
-                              border: '3px solid',
-                              borderColor: '#001D85',
-                              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                              width: '100%', borderRadius: '10px', mr: '2'
-                            }}
-                          >The Bin
-                          </Button>
-                        </a>
-                        <Text as='p' sx={{ width: '100%' }}>Build an online circuit, get the parts for free!</Text>
-                      </Box>
-                      <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                        <a href='https://hackclub.com/onboard/' target="_blank">
-                          <Button
-                            sx={{
-                              color: '#001D85',
-                              background: 'white',
-                              border: '3px solid',
-                              borderColor: '#001D85',
-                              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                              borderRadius: '10px', mr: '2'
-                            }}
-                          >OnBoard
-                          </Button>
-                        </a>
-                        <Text as='p' sx={{ width: '100%' }}>Design a PCB, get a $100 gran</Text>
-                      </Box>
-                      <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                        <a href='https://blot.hackclub.com/' target="_blank">
-                          <Button
-                            sx={{
-                              color: '#001D85',
-                              background: 'white',
-                              border: '3px solid',
-                              borderColor: '#001D85',
-                              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                              borderRadius: '10px', mr: '2'
-                            }}
-                          >Blot
-                          </Button>
-                        </a>
-                        <Text as='p' sx={{ width: '100%' }}>Write code. Make art. Get a drawing machine.</Text>
-                      </Box>
-                    </Box>
-                    <Text as='h4' sx={{ mt: '2', fontSize: '20px' }}>2. Submit your project to one of Hack Club's Hardware You Ship, We Ship.</Text>
-                  </Box>
-                  <Box
-                    bg="#e9e9e9"
-                    sx={{
-                      borderRadius: '30px',
-                      p: '3',
-                      border: '3px solid',
-                      borderColor: '#C70000',
-                      height: '100%'
-                    }}
-                  >
-                    <Image
-                      sx={{
-                        width: ['100%', '60%']
-                      }}
-                      src='https://cloud-he1w40eua-hack-club-bot.vercel.app/0hardware.png'
-                    >
-                    </Image>
-                    <Text as='h4' sx={{ fontSize: '20px' }}>3. Receive hardware that helps you complete your project.</Text>
-                  </Box>
-                  <Box
-                    bg="#e9e9e9"
-                    sx={{
-                      borderRadius: '30px',
-                      p: '3',
-                      border: '3px solid',
-                      borderColor: '#C70000',
-                      height: '100%'
-                    }}
-                  >
-                    <Image
-                      sx={{
-                        width: ['100%', '60%']
-                      }}
-                      src='https://cloud-9e2cjx37b-hack-club-bot.vercel.app/0laptop.png'
-                    >
-                    </Image>
-                    <Text as='h4' sx={{ fontSize: '20px' }}>4. Submit your project to the Congressional App Challenge.</Text>
-                  </Box>
-                </Grid>
-                <Text as="p" sx={{ width: ['90%', '70%'], fontSize: '23px', mt: '4' }}>Explore other Hack Club You Ship, We Ship for additional grants</Text>
-                <Grid
-                  id="ysws"
-                  gap={2}
-                  columns={[1, 3]}
-                  sx={{
-                    justifyContent: 'center',
                     alignItems: 'center',
-                    fontSize: '14px',
-                    mt: '3'
+                    textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    background: 'white',
+                    color: 'black',
+                    p: '2',
+                    borderRadius: '10px',
+                    marginBottom: '2',
+                    padding: '3'
                   }}
                 >
-                  <a href='https://boba.hackclub.com/' target="_blank">
-                    <Button
-                      sx={{
-                        color: '#001D85',
-                        background: 'white',
-                        border: '3px solid',
-                        borderColor: '#001D85',
-                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                        width: '100%', borderRadius: '10px'
-                      }}
-                    >Boba Drops
-                    </Button>
+                  <Text as="h3" sx={{}}>October 2nd, 7 PM EST</Text>
+                  <a target="_blank" href='https://calendar.app.google/6k5nSPEmUdMJi8p17'>
+                    <Button sx={{ background: '#001D85', color: 'white', mt: '2', borderRadius: '10px' }}>Add to Calendar</Button>
                   </a>
-                  <a href='https://fraps.hackclub.com/' target="_blank">
-                    <Button
-                      sx={{
-                        color: '#001D85',
-                        background: 'white',
-                        border: '3px solid',
-                        borderColor: '#001D85',
-                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                        width: '100%',
-                        borderRadius: '10px'
-                      }}
-                    >Hackaccino
-                    </Button>
-                  </a>
-                  <a href='https://cider.hackclub.com/' target="_blank">
-                    <Button
-                      sx={{
-                        color: '#001D85',
-                        background: 'white',
-                        border: '3px solid',
-                        borderColor: '#001D85',
-                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                        width: '100%',
-                        borderRadius: '10px'
-                      }}
-                    >Cider
-                    </Button>
-                  </a>
-
-                </Grid>
-              </Container>
+                </Box>
+              </Box>
+            </Grid>
           </Container>
-
-          <Container id="past-winners"
+          <Container id='step3'
             sx={{
-              background: '#001D85',
-              width: '90%',
-              borderRadius: '20px',
-              color: 'white',
-              p: '2', mt: '5',
               alignItems: 'center',
+              width: '100%',
               display: 'flex',
+              marginTop: '2',
               flexDirection: 'column',
-              textAlign: 'center'
+              justifyContent: 'center'
             }}>
-            <Text as="h2" sx={{ fontSize: '30px', mt: '3', color: 'white' }}>Past Hack Club Winners</Text>
-            <Carousel cards={carouselCards} />
+            <Text as="h2" sx={{ color: '#C70000', fontSize: '30px', mt: '3' }}>STEP 3</Text>
+            <Text as="p" sx={{ width: ['90%', '70%'], fontSize: '23px' }}>Submit your project for a grant!</Text>
+            <Grid
+              id="grant-drig"
+              gap={4}
+              columns={[1, 2]}
+              gridAutoRows={'1fr'}
+              sx={{
+                m: '2',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}>
+              <Box bg="#e9e9e9" sx={{ borderRadius: '30px', p: '3', border: '3px solid', borderColor: '#C70000', height: '100%' }}>
+                <Image
+                  sx={{
+                    width: ['100%', '55%']
+                  }}
+                  src='https://cloud-d1apz790h-hack-club-bot.vercel.app/0orpheuslaptop.png'
+                >
+                </Image>
+                <Text as='h4' sx={{ fontSize: '20px' }}>1. First, Come up with a project idea for the Congressional App Challenge, see project guidelines </Text>
+                <a href='https://www.congressionalappchallenge.us/students/rules/'>
+                  <Text sx={{ fontSize: '20px' }} as='h4'>here.</Text>
+                </a>
+              </Box>
+              <Box
+                bg="#e9e9e9"
+                sx={{
+                  borderRadius: '30px',
+                  p: '3', width: '100%',
+                  border: '3px solid',
+                  borderColor: '#C70000',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                  <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                    <a href='https://sprig.hackclub.com/' target="_blank">
+                      <Button
+                        sx={{
+                          color: '#001D85',
+                          background: 'white',
+                          border: '3px solid',
+                          borderColor: '#001D85',
+                          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                          borderRadius: '10px', mr: '2'
+                        }}
+                      >Sprig
+                      </Button>
+                    </a>
+                    <Text as='p' sx={{ width: '100%' }}>Build a JS game, play it on your own console</Text>
+                  </Box>
+                  <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                    <a href='https://hackclub.com/bin/' target="_blank">
+                      <Button
+                        sx={{
+                          color: '#001D85',
+                          background: 'white',
+                          border: '3px solid',
+                          borderColor: '#001D85',
+                          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                          width: '100%', borderRadius: '10px', mr: '2'
+                        }}
+                      >The Bin
+                      </Button>
+                    </a>
+                    <Text as='p' sx={{ width: '100%' }}>Build an online circuit, get the parts for free!</Text>
+                  </Box>
+                  <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                    <a href='https://hackclub.com/onboard/' target="_blank">
+                      <Button
+                        sx={{
+                          color: '#001D85',
+                          background: 'white',
+                          border: '3px solid',
+                          borderColor: '#001D85',
+                          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                          borderRadius: '10px', mr: '2'
+                        }}
+                      >OnBoard
+                      </Button>
+                    </a>
+                    <Text as='p' sx={{ width: '100%' }}>Design a PCB, get a $100 grant</Text>
+                  </Box>
+                  <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                    <a href='https://blot.hackclub.com/' target="_blank">
+                      <Button
+                        sx={{
+                          color: '#001D85',
+                          background: 'white',
+                          border: '3px solid',
+                          borderColor: '#001D85',
+                          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                          borderRadius: '10px', mr: '2'
+                        }}
+                      >Blot
+                      </Button>
+                    </a>
+                    <Text as='p' sx={{ width: '100%' }}>Write code. Make art. Get a drawing machine.</Text>
+                  </Box>
+                </Box>
+                <Text as='h4' sx={{ mt: '2', fontSize: '20px' }}>2. Submit your project to one of Hack Club's Hardware You Ship, We Ship.</Text>
+              </Box>
+              <Box
+                bg="#e9e9e9"
+                sx={{
+                  borderRadius: '30px',
+                  p: '3',
+                  border: '3px solid',
+                  borderColor: '#C70000',
+                  height: '100%'
+                }}
+              >
+                <Image
+                  sx={{
+                    width: ['100%', '60%']
+                  }}
+                  src='https://cloud-he1w40eua-hack-club-bot.vercel.app/0hardware.png'
+                >
+                </Image>
+                <Text as='h4' sx={{ fontSize: '20px' }}>3. Receive hardware that helps you complete your project.</Text>
+              </Box>
+              <Box
+                bg="#e9e9e9"
+                sx={{
+                  borderRadius: '30px',
+                  p: '3',
+                  border: '3px solid',
+                  borderColor: '#C70000',
+                  height: '100%'
+                }}
+              >
+                <Image
+                  sx={{
+                    width: ['100%', '60%']
+                  }}
+                  src='https://cloud-9e2cjx37b-hack-club-bot.vercel.app/0laptop.png'
+                >
+                </Image>
+                <Text as='h4' sx={{ fontSize: '20px' }}>4. Submit your project to the Congressional App Challenge.</Text>
+              </Box>
+            </Grid>
+            <Text as="p" sx={{ width: ['90%', '70%'], fontSize: '23px', mt: '4' }}>Explore other Hack Club You Ship, We Ship for additional grants</Text>
+            <Grid
+              id="ysws"
+              gap={2}
+              columns={[1, 3]}
+              sx={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                fontSize: '14px',
+                mt: '3'
+              }}
+            >
+              <a href='https://boba.hackclub.com/' target="_blank">
+                <Button
+                  sx={{
+                    color: '#001D85',
+                    background: 'white',
+                    border: '3px solid',
+                    borderColor: '#001D85',
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                    width: '100%', borderRadius: '10px'
+                  }}
+                >Boba Drops
+                </Button>
+              </a>
+              <a href='https://fraps.hackclub.com/' target="_blank">
+                <Button
+                  sx={{
+                    color: '#001D85',
+                    background: 'white',
+                    border: '3px solid',
+                    borderColor: '#001D85',
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                    width: '100%',
+                    borderRadius: '10px'
+                  }}
+                >Hackaccino
+                </Button>
+              </a>
+              <a href='https://cider.hackclub.com/' target="_blank">
+                <Button
+                  sx={{
+                    color: '#001D85',
+                    background: 'white',
+                    border: '3px solid',
+                    borderColor: '#001D85',
+                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                    width: '100%',
+                    borderRadius: '10px'
+                  }}
+                >Cider
+                </Button>
+              </a>
+            </Grid>
           </Container>
-          <Container id="madeby" sx={{ mt: '4', mb: '4', textAlign: 'center', alignItems: 'center' }}>
-            <Text as="h2" sx={{ fontSize: '25px' }}>Made with &lt;3 by Hack Clubbers</Text>
-          </Container>
-
+        </Container>
+        <Container id="past-winners"
+          sx={{
+            background: '#001D85',
+            width: '90%',
+            borderRadius: '20px',
+            color: 'white',
+            p: '2', mt: '5',
+            alignItems: 'center',
+            display: 'flex',
+            flexDirection: 'column',
+            textAlign: 'center'
+          }}>
+          <Text as="h2" sx={{ fontSize: '30px', mt: '3', color: 'white' }}>Past Hack Club Winners</Text>
+          <Carousel cards={carouselCards} />
+        </Container>
+        <Container id="madeby" sx={{ mt: '4', mb: '4', textAlign: 'center', alignItems: 'center' }}>
+          <Text as="h2" sx={{ fontSize: '25px' }}>Made with &lt;3 by Hack Clubbers</Text>
+        </Container>
       </Box>
       <Footer light />
     </>
