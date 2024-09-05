@@ -95,7 +95,6 @@
     "remark": "^15.0.1",
     "remark-gfm": "^3.0.1",
     "remark-html": "^16.0.1",
-    "socket.io": "^4.7.5",
     "styled-components": "^6.1.8",
     "swr": "^2.2.4",
     "theme-ui": "^0.14",

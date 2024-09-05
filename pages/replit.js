@@ -16,7 +16,7 @@ const ReplitPage = () => {
   const [stats, setStats] = useState(null)
 
   const fetchStats = async () => {
-    const statResponse = await fetch('/api/replit/stats')
+    const statResponse = await fetch('http://takeout.hackclub.com/stats')
     if (!statResponse.ok) throw new Error('Failed to fetch stats')
     const statData = await statResponse.json()
     console.info(statData)
