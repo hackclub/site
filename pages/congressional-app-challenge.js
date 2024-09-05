@@ -596,6 +596,9 @@ function Page({
         </Container>
         <Container id="madeby" sx={{ mt: '4', mb: '4', textAlign: 'center', alignItems: 'center' }}>
           <Text as="h2" sx={{ fontSize: '25px' }}>Made with &lt;3 by Hack Clubbers</Text>
+          <Text variant="subtitle" as="p">
+            Special thanks to Congresswoman Becca Balint, VT-00, for pioneering this collaboration between Hack Club and the Congressional App Challenge.
+            </Text>
         </Container>
       </Box>
       <Footer light />
