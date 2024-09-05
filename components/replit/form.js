@@ -291,7 +291,12 @@ const ReplitForm = ({ cssDark }) => {
           pointerEvents: currentStep === 3 ? 'auto' : 'none'
         }}
       >
-        <FilloutStandardEmbed filloutId="ji6Jw9xpBPus" />
+        <FilloutStandardEmbed
+          filloutId="ji6Jw9xpBPus"
+          parameters={{
+            email: formData.email
+          }}
+        />
       </Box>
       <StepIndicator step={3} />
     </Box>
