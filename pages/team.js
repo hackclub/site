@@ -68,12 +68,7 @@ export default function Team({ team }) {
                   mr: [0, 0, 0, 1],
                   transform: [null, null, null, 'rotate(180deg)'],
                   width: ['100%', null, null, 'fit-content'],
-                  my: [
-                    '0px!important',
-                    '0px!important',
-                    '0px!important',
-                    3
-                  ]
+                  my: ['0px!important', '0px!important', '0px!important', 3]
                 }}
               >
                 Board & Advisors
@@ -299,7 +294,8 @@ export default function Team({ team }) {
                 text="During his time at Hack Club, Hugo led Mail Team, significantly improving logistics for Hack Clubbers across the world. He also helped organize Assemble, and designed the PCBs for Sprig and Blot."
                 img="https://ca.slack-edge.com/T0266FRGM-U017EPB6LE9-84f26d2a184c-512"
                 pronouns="he/him"
-                href="https://hugohu.me"i
+                href="https://hugohu.me"
+                i
               />
               <Bio
                 name="Lexi Mattick"
@@ -529,9 +525,9 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
 
 export const getServerSideProps = async () => {
   try {
-    const team = await fetch('https://internal.hackclub.com/team').then(res =>
-      res.json()
-    )
+    const team = await fetch(
+      'https://walrus-app-ynr6x.ondigitalocean.app/'
+    ).then(res => res.json())
     return { props: { team } }
   } catch (e) {
     return { props: { team: [] } }
