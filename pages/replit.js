@@ -9,18 +9,18 @@ import Progress from '../components/replit/progress'
 import TokenInstructions from '../components/replit/token-instructions'
 import { useEffect, useState } from 'react'
 import ScaleUp from '../components/replit/scale-up'
-import Icon from '@hackclub/icons'
 
 const ReplitPage = () => {
   const [progress, setProgress] = useState(null)
   const [stats, setStats] = useState(null)
+  const [oldStats, setOldStats] = useState(null)
 
   const fetchStats = async () => {
     const statResponse = await fetch('/api/replit/stats')
     if (!statResponse.ok) throw new Error('Failed to fetch stats')
-    const statData = await statResponse.json()
-    console.info(statData)
-    setStats(statData)
+    const newStats = await statResponse.json()
+    setOldStats(stats)
+    setStats(newStats)
   }
 
   useEffect(async () => {
@@ -35,13 +35,15 @@ const ReplitPage = () => {
         if (!response.ok) throw new Error('Failed to fetch progress')
         const data = await response.json()
         console.info(data)
+        oldFileCount = progress.file_count
+        oldReplCount = formData.repl_count
         setProgress(data)
 
         await fetchStats()
       } catch (err) {
         console.error("Couldn't get progress:", err)
       }
-    }, 5_000)
+    }, 1_000)
 
     return () => clearInterval(interval)
   }, [])
@@ -228,8 +230,16 @@ const ReplitPage = () => {
           .{' '}
           {stats ? (
             <Text>
-              <ScaleUp number={stats.file_count} /> files &{' '}
-              <ScaleUp number={stats.repl_count} /> repls exported.
+              <ScaleUp
+                number={stats.file_count}
+                from={oldStats?.file_count || 0}
+              />{' '}
+              files &{' '}
+              <ScaleUp
+                number={stats.repl_count}
+                from={oldStats?.repl_count || 0}
+              />{' '}
+              repls exported.
             </Text>
           ) : null}
         </Text>

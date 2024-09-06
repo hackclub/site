@@ -9,8 +9,8 @@ const easeInOutExpo = x =>
         ? Math.pow(2, 20 * x - 10) / 2
         : (2 - Math.pow(2, -20 * x + 10)) / 2
 
-const ScaleUp = ({ number }) => {
-  const [displayNumber, setDisplayNumber] = useState(0)
+const ScaleUp = ({ number, from = 0 }) => {
+  const [displayNumber, setDisplayNumber] = useState(from)
 
   useEffect(() => {
     const duration = 2000
