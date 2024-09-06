@@ -5,7 +5,7 @@ import Prizes from './prizes';
 /** @jsxImportSource theme-ui */
 
 const styled = `
-@import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap);
 
 .slackey {
   font-family: "Slackey", sans-serif;

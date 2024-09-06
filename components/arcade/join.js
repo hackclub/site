@@ -224,9 +224,9 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
       ) : (
         <Flex
           as="a"
-          onClick={() => {
-            setForm(true)
-          }}
+          // onClick={() => {
+          //   setForm(true)
+          // }}
           target="_blank"
           className="slackey"
           sx={{

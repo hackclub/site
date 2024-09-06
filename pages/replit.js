@@ -1,4 +1,4 @@
-import { Box, Link, Image, Button, Heading, Text, Card } from 'theme-ui'
+import { Box, Link, Image, Button, Heading, Text, Card, Flex } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import Footer from '../components/footer'
@@ -8,11 +8,24 @@ import ReplitForm from '../components/replit/form'
 import Progress from '../components/replit/progress'
 import TokenInstructions from '../components/replit/token-instructions'
 import { useEffect, useState } from 'react'
+import ScaleUp from '../components/replit/scale-up'
+import Icon from '@hackclub/icons'
 
 const ReplitPage = () => {
   const [progress, setProgress] = useState(null)
+  const [stats, setStats] = useState(null)
 
-  useEffect(() => {
+  const fetchStats = async () => {
+    const statResponse = await fetch('/api/replit/stats')
+    if (!statResponse.ok) throw new Error('Failed to fetch stats')
+    const statData = await statResponse.json()
+    console.info(statData)
+    setStats(statData)
+  }
+
+  useEffect(async () => {
+    await fetchStats()
+
     const interval = setInterval(async () => {
       const token = localStorage.getItem('token')
       if (!token) return
@@ -23,6 +36,8 @@ const ReplitPage = () => {
         const data = await response.json()
         console.info(data)
         setProgress(data)
+
+        await fetchStats()
       } catch (err) {
         console.error("Couldn't get progress:", err)
       }
@@ -187,19 +202,36 @@ const ReplitPage = () => {
 
         <Text
           sx={{
-            maxWidth: '80ch',
+            maxWidth: '100ch',
             fontSize: '1.2em',
             marginY: '1em',
             marginTop: '1em',
             textWrap: 'pretty'
           }}
         >
-          On 25th August, Replit cut down its free plan - many students won't be
-          able to afford to keep using it.
+          Replit cut down its free plan - many students can't afford to keep
+          using it.
           <br />
-          We quickly built this tool in response - plug in your email and Replit
-          token and get a zip file containing all your Repls, with full Git
-          history constructed from Replit's files' history.
+          We quickly built this project exporter. It's the only way to download
+          your repls with <i>edit history intact</i> (as a git repo).
+          <br />
+          Written in Rust &{' '}
+          <Link
+            className="gh-link"
+            href="https://github.com/hackclub/replit-lifeboat"
+            sx={{
+              color: 'inherit'
+            }}
+          >
+            open source
+          </Link>
+          .{' '}
+          {stats ? (
+            <Text>
+              <ScaleUp number={stats.file_count} /> files &{' '}
+              <ScaleUp number={stats.repl_count} /> repls exported.
+            </Text>
+          ) : null}
         </Text>
       </Box>
 

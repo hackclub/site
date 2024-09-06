@@ -20,7 +20,7 @@ function getStyle(style, snapshot) {
 }
 
 const styled = `
-@import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap);
 body, html {
   overflow-x: hidden;
   color: #35290F;
