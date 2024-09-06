@@ -15,7 +15,6 @@ const ScaleUp = ({ number, from = 0 }) => {
 
   useEffect(() => {
     const startValue = previousNumberRef.current
-    console.warn(`scaling from ${startValue} to ${number}`)
     const duration = 2000
     const startTime = performance.now()
 
