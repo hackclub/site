@@ -35,8 +35,6 @@ const ReplitPage = () => {
         if (!response.ok) throw new Error('Failed to fetch progress')
         const data = await response.json()
         console.info(data)
-        oldFileCount = progress.file_count
-        oldReplCount = formData.repl_count
         setProgress(data)
 
         await fetchStats()

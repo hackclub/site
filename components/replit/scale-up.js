@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 const easeInOutExpo = x =>
   x === 0
@@ -11,8 +11,11 @@ const easeInOutExpo = x =>
 
 const ScaleUp = ({ number, from = 0 }) => {
   const [displayNumber, setDisplayNumber] = useState(from)
+  const previousNumberRef = useRef(from)
 
   useEffect(() => {
+    const startValue = previousNumberRef.current
+    console.warn(`scaling from ${startValue} to ${number}`)
     const duration = 2000
     const startTime = performance.now()
 
@@ -20,17 +23,20 @@ const ScaleUp = ({ number, from = 0 }) => {
       const time = performance.now() - startTime
       const progress = time / duration
       const easedProgress = easeInOutExpo(progress)
-
-      setDisplayNumber(Math.round(number * easedProgress))
+      const currentValue = startValue + (number - startValue) * easedProgress
+      setDisplayNumber(Math.round(currentValue))
 
       if (progress < 1) {
         requestAnimationFrame(animate)
       } else {
         setDisplayNumber(number)
+        previousNumberRef.current = number
       }
     }
 
-    requestAnimationFrame(animate)
+    if (startValue !== number) {
+      requestAnimationFrame(animate)
+    }
   }, [number])
 
   return <span>{displayNumber}</span>
