@@ -217,9 +217,8 @@ function Page({
                 display: 'flex',
                 marginTop: '2',
                 flexDirection: ['column', 'row'],
-                justifyContent: 'center'
               }}>
-              <Text as="p" sx={{ width: ['100%', '50%'], fontSize: '23px', textAlign: ['center', 'left'] }}>Join the Hack Club Slack to get advice from past winners, help with your project, and to join a community of over 35K+ teen coders.</Text>
+              <Text as="p" sx={{ width: ['100%', '50%'], fontSize: '23px', textAlign: ['center', 'left']}}>Join the Hack Club Slack to get advice from past winners, help with your project, and to join a community of over 35K+ teen coders.</Text>
               <a target="_blank" href="https://hackclub.com/slack/">
                 <Button
                   sx={{
@@ -230,10 +229,9 @@ function Page({
                     fontSize: '25px',
                     marginTop: '5px',
                     fontWeight: 'bold',
-                    ml: '2'
+                    ml: '2',
                   }}>
                   #congressional-app-challenge
-
                 </Button>
               </a>
             </Box>
@@ -255,7 +253,8 @@ function Page({
               columns={[2, 5]}
               sx={{
                 m: '2',
-                justifyItems: 'center'
+                justifyItems: 'center',
+                alignItems: 'space-between'
               }}>
               <Box
                 sx={{
@@ -263,8 +262,8 @@ function Page({
                   flexDirection: 'column'
                 }}>
                 <Image
-                  src="https://media.licdn.com/dms/image/v2/D4E03AQGvO_fJnJLMUw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1704591152368?e=1730937600&v=beta&t=mbQBD6LzcFUAtCbS29Mu3ZippJwx_WEIDXGoXIjvkX0"
-                  sx={{ borderRadius: '10px', m: '3', width: ['100%'] }}>
+                  src="https://cloud-b6mzh2987-hack-club-bot.vercel.app/21704591152368.jpg"
+                  sx={{ borderRadius: '10px', width: ['90%'], margin: 'auto', mb: '3', mt: '3'}}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Clay, 16</Text>
               </Box>
@@ -274,8 +273,8 @@ function Page({
                   flexDirection: 'column'
                 }}>
                 <Image
-                  src="https://media.licdn.com/dms/image/v2/C5603AQFeo7jDktf6MA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1659043447794?e=1730937600&v=beta&t=kV2wSZtdG_rp10HHHf4qkDJ7mROCc4EhFu1GDQNfix4"
-                  sx={{ borderRadius: '10px', m: '3', width: ['100%'] }}>
+                  src="https://cloud-b6mzh2987-hack-club-bot.vercel.app/31659043447794.jpg"
+                  sx={{ borderRadius: '10px', width: ['90%'], margin: 'auto', mb: '3', mt: '3'}}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Sahiti, 17</Text>
               </Box>
@@ -285,8 +284,8 @@ function Page({
                   flexDirection: 'column'
                 }}>
                 <Image
-                  src="https://media.licdn.com/dms/image/v2/D5603AQGT0T4r8nfL3w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1705187020782?e=1730937600&v=beta&t=DRVgQG6s0L3FHDL9lRpTGTwHFVLBggZ45arTVLtzq84"
-                  sx={{ borderRadius: '10px', m: '3', width: ['100%'] }}>
+                  src="https://cloud-b6mzh2987-hack-club-bot.vercel.app/11705187020782.jpg"
+                  sx={{ borderRadius: '10px', width: ['90%'], margin: 'auto', mb: '3', mt: '3' }}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Alex, 16</Text>
               </Box>
@@ -296,8 +295,8 @@ function Page({
                   flexDirection: 'column'
                 }}>
                 <Image
-                  src="https://media.licdn.com/dms/image/v2/D5603AQHRGdnFZSNUhg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1724119335812?e=1730937600&v=beta&t=3bLlWACvpUdWYyLNrTRDDeESSAr3KfvVGY81_Qxf3Qc"
-                  sx={{ borderRadius: '10px', m: '3', width: ['100%'] }}>
+                  src="https://cloud-b6mzh2987-hack-club-bot.vercel.app/01725595833101.jpg"
+                  sx={{ borderRadius: '10px', width: ['90%'], margin: 'auto', mb: '3', mt: '3'}}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Andrea, 16</Text>
               </Box>
@@ -307,8 +306,8 @@ function Page({
                   flexDirection: 'column'
                 }}>
                 <Image
-                  src="https://ca.slack-edge.com/T0266FRGM-U05392UU6S0-23c5db8f48e1-512"
-                  sx={{ borderRadius: '10px', m: '3', width: ['100%'] }}>
+                  src="https://cloud-b6mzh2987-hack-club-bot.vercel.app/51716079075907.jpg"
+                  sx={{ borderRadius: '10px', width: ['90%'], margin: 'auto', mb: '3', mt: '3' }}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Samay, 17</Text>
               </Box>
@@ -397,7 +396,7 @@ function Page({
                   src='https://cloud-d1apz790h-hack-club-bot.vercel.app/0orpheuslaptop.png'
                 >
                 </Image>
-                <Text as='h4' sx={{ fontSize: '20px' }}>1. First, Come up with a project idea for the Congressional App Challenge, see project guidelines </Text>
+                <Text as='h4' sx={{ fontSize: '20px' }}>1. Come up with a project idea for the Congressional App Challenge! See the project guidelines </Text>
                 <a href='https://www.congressionalappchallenge.us/students/rules/'>
                   <Text sx={{ fontSize: '20px' }} as='h4'>here.</Text>
                 </a>
@@ -416,8 +415,8 @@ function Page({
                   alignItems: 'center'
                 }}
               >
-                <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                  <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                <Box sx={{ display: 'flex', flexDirection: 'column', width: '95%' }}>
+                  <Box sx={{ display: 'flex', m: '2'}}>
                     <a href='https://sprig.hackclub.com/' target="_blank">
                       <Button
                         sx={{
@@ -431,7 +430,7 @@ function Page({
                       >Sprig
                       </Button>
                     </a>
-                    <Text as='p' sx={{ width: '100%' }}>Build a JS game, play it on your own console</Text>
+                    <Text as='p' sx={{ width: '100%', textAlign: 'right'}}>Build a JS game, play it on your own console</Text>
                   </Box>
                   <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
                     <a href='https://hackclub.com/bin/' target="_blank">
@@ -444,10 +443,10 @@ function Page({
                           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                           width: '100%', borderRadius: '10px', mr: '2'
                         }}
-                      >The Bin
+                      >Bin
                       </Button>
                     </a>
-                    <Text as='p' sx={{ width: '100%' }}>Build an online circuit, get the parts for free!</Text>
+                    <Text as='p' sx={{ width: '100%', textAlign: 'right' }}>Build an online circuit, get the parts for free!</Text>
                   </Box>
                   <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
                     <a href='https://hackclub.com/onboard/' target="_blank">
@@ -463,7 +462,7 @@ function Page({
                       >OnBoard
                       </Button>
                     </a>
-                    <Text as='p' sx={{ width: '100%' }}>Design a PCB, get a $100 grant</Text>
+                    <Text as='p' sx={{ width: '100%', textAlign: 'right'}}>Design a PCB, get a $100 grant</Text>
                   </Box>
                   <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
                     <a href='https://blot.hackclub.com/' target="_blank">
@@ -479,10 +478,10 @@ function Page({
                       >Blot
                       </Button>
                     </a>
-                    <Text as='p' sx={{ width: '100%' }}>Write code. Make art. Get a drawing machine.</Text>
+                    <Text as='p' sx={{ width: '100%', textAlign: 'right' }}>Write code. Make art. Get a drawing machine.</Text>
                   </Box>
                 </Box>
-                <Text as='h4' sx={{ mt: '2', fontSize: '20px' }}>2. Submit your project to one of Hack Club's Hardware You Ship, We Ship.</Text>
+                <Text as='h4' sx={{ mt: '2', fontSize: '20px' }}>2. Submit your project to one of Hack Club's Hardware You Ship, We Ship programs.</Text>
               </Box>
               <Box
                 bg="#e9e9e9"
