@@ -252,6 +252,62 @@ export default function Team({ team }) {
               </Text>
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
+                  <Bio
+                name="Arianna Martinelli"
+                teamRole="Operations"
+                text="Arianna (a current freshman at Carnegie-Mellon University and a former Hack Club leader from Kentucky) loves onboarding all our cool organizations and making HCB more accessible. When she’s not learning about how humans and computers can work together, she’s making memes and decorating the world with Hack Club stickers."
+                  img="/team/arianna.png"
+                pronouns="she/her"
+              />
+              <Bio
+                name="Tobi Brown"
+                teamRole="Storytelling"
+                text="From a young age, Toby had a fascination with anything electronic. As a toddler, he would show far more interest in the 20-year-old air conditioning unit in the corner of the room than in anyone trying to talk to him. This fascination eventually led him to coding; and at the age of 6, Toby built his first website. While most sane people would probably describe this website as "atrocious", 6-year-old Toby was completely hooked. Nowadays, Toby does Storytelling at Hack Club, and is a self-proclaimed pizza eating expert."
+                  img="/team/toby.png"
+                pronouns="he/him"
+              />
+               <Bio
+                name="Marianna Ludensky"
+                teamRole="Creative Lead"
+                text="Originally from Ukraine, Marianna (Mare) Ludensky is a creative producer passionate about storytelling, immersive entertainment, education and building meaningful & fun experiences that bring joy and inspiration to its participants. Prior to Hack Club, Mare worked at MasterClass producing classes across a variety of topics and at VICE Media concepting and producing interactive experiences (e.g. an interactive fireworks show) for VICE audiences. At Hack Club, Mare produces the Days of Service initiative helping to bring computer science education via hackathons to girls across the country. Over the last decade, Mare has been on a life adventure living in NYC, California, and now the beaches of Florida. She is a mom who loves experimenting with new recipes, going on walks with a good podcast, and floating down a lazy river with friends. "
+                img="/team/marianna.png"
+                pronouns="she/her"
+              />
+                  <Bio
+                name="Nila Palmo Ram"
+                teamRole="Engineering Assistant"
+                text="Nila absolutely loves coding and is all about making tech awesome while experimenting on how to keep it ethical and humanistic. Over at Hack Club, she's on a mission to empower more girl Hack Clubbers by guiding them in organizing Hackathons, collaborating on special projects, and fostering connections amongst them. Alongside Christina, she's also busy drumming up funds for Hack Club, always on the lookout for new donors. When she's not in front of the screen, you'll find her out by the water, diving into all sorts of aquatic adventures."
+                img="/team/nila.png"
+                pronouns="she/her"
+              />
+                  <Bio
+                name="Dieter Schoening"
+                teamRole="Media Creation"
+                text="Dieter grew up in South Carolina where he started the adventure of content creation. Now he is helping with our social media and projects to get more teens interested in Hack Club. Fun facts: He likes virtual reality development, boba, hiking, entrepreneurship"
+                img="/team/dieter.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Thomas Stubblefield"
+                teamRole="Clubs Lead"
+                text="Thomas is a Hack Clubber from South Carolina who led a Hack Club at his high school and is now building software to make the experience of being a part of and leading a club better. He currently leads the clubs program. He loves to build side projects, make tea, and hike. Thomas lives his life by three sayings: time will tell, in life we are always learning, and bum bum bummm (a friendly melody he hums daily)."
+                  img="/team/thomas.png"
+                pronouns="he/him"
+              />
+               <Bio
+                name="Faisal Sayed"
+                teamRole="Engineering"
+                text="Faisal has been associated with Hack Club for 3 years and loves building open-source projects that bring joy. During the first workshop-bounty-program back in 2020, Faisal was heavily involved in creating & reviewing numerous programming workshops. At HQ, He works with Graham on HQ Engineering and infrastructure. Outside of Hack Club, Faisal likes working on his side-projects like Firefiles and tmdr."
+                img="/team/faisal.png"
+                pronouns="he/him"
+              />
+              <Bio
+                name="Leo McElroy"
+                teamRole="Clubs Engineering Lead"
+                text="Leo builds digital systems, physical tools, and communities to help people express themselves and pursue their curiosity. He's created tools for democratizing personal automation (including programming languages for designing stuff), travelled the world visiting makerspaces on a Watson Fellowship, and created and ran a few makerspaces himself."
+                img="/team/leo.png"
+                pronouns="he/him"
+              />
               <Bio
                 name="Bence Beres"
                 teamRole="Bookkeeper"
