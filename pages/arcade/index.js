@@ -1323,8 +1323,9 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 transform: 'rotate(-7deg) scale(1.1)',
                 zIndex: 10,
                 position: 'relative',
-                marginBottom: ['-380px', '-420px', '-450px', '-520px'],
-                marginTop: ['120px', '120px', '120px', '150px']
+                marginBottom: ['-900px', '-820px', '-850px', '-1020px'],
+                marginTop: ['120px', '120px', '120px', '150px'],
+                width: ['110vw','105vw']
               }}
             >
               <Ticker speed={5}>
