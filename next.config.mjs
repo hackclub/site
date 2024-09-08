@@ -312,6 +312,10 @@ const nextConfig = {
       {
         source: '/arcade/power-hour',
         destination: '/arcade/power-hour/index.html'
+      },
+      {
+        source: '/nest/',
+        destination: 'https://hackclub.app/'
       }
     ]
   },
