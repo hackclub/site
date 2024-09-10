@@ -306,7 +306,7 @@ function Page({
                   flexDirection: 'column'
                 }}>
                 <Image
-                  src="https://cloud-b6mzh2987-hack-club-bot.vercel.app/51716079075907.jpg"
+                  src="https://ca.slack-edge.com/T0266FRGM-U05392UU6S0-23c5db8f48e1-512"
                   sx={{ borderRadius: '10px', width: ['90%'], margin: 'auto', mb: '3', mt: '3' }}>
                 </Image>
                 <Text as='p' sx={{ fontSize: '23px' }}>Samay, 17</Text>
