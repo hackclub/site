@@ -526,7 +526,7 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
 export const getServerSideProps = async () => {
   try {
     const team = await fetch(
-      'https://walrus-app-ynr6x.ondigitalocean.app/'
+      'https://team.hackclub.com/'
     ).then(res => res.json())
     return { props: { team } }
   } catch (e) {
