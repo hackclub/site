@@ -525,7 +525,7 @@ button {
 
 .timeline-list {
     margin: auto;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     height: min-content;
     display: grid;
     gap: 20px;
@@ -561,6 +561,10 @@ button {
 
 .greenbutton {
     background: linear-gradient(to bottom right, #63CE61, #ADEA00);
+}
+
+.purplebutton {
+    background: linear-gradient(to bottom right, #350491, #311c7c);
 }
 
 .bluebutton {
@@ -821,3 +825,27 @@ button {
 .project-idea-title {
     text-align: center;
 }
+
+.blur-box {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(140, 15, 151, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #272727;
+    margin-bottom: 20px;
+  }
+  
