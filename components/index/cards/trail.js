@@ -62,15 +62,15 @@ export default function Trail() {
             </Text>
 
             <Buttons
-              icon="flag-fill"
-              href="https://trail.hackclub.com/"
+              icon="view-fill"
+              href="https://www.youtube.com/watch?v=ufMUJ9D1fi8"
               target="_blank"
               rel="noopener"
               primary="#032412"
               id="43"
               sx={{ color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
             >
-              Join Us
+              View the Documentary
             </Buttons>
           </Flex>
         </Flex>
@@ -79,12 +79,12 @@ export default function Trail() {
             as="p"
             variant="subtitle"
             sx={{
-              fontSize: ['22px', '20px', '18px'],
+              fontSize: ['26px', '24px', '22px'],
               color: "#032412",
               backgroundColor: "#FFF5D8"
             }}
           >
-            Join 30 Hack Clubbers on a 7 day hike along the Pacific Crest Trail supplied by only the technical equipment that we built. 
+            30 Hack Clubbers went on a 7 day hike along the Pacific Crest Trail supplied by only the technical equipment that they built. 
           </Text>
         </Box>
       </Grid>
