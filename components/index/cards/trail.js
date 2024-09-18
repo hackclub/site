@@ -63,14 +63,14 @@ export default function Trail() {
 
             <Buttons
               icon="flag-fill"
-              href="https://trail.hackclub.com/"
+              href="https://www.youtube.com/watch?v=ufMUJ9D1fi8"
               target="_blank"
               rel="noopener"
               primary="#032412"
               id="43"
               sx={{ color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
             >
-              Join Us
+              View Documentary
             </Buttons>
           </Flex>
         </Flex>
