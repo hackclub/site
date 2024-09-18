@@ -253,6 +253,13 @@ export default function Team({ team }) {
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
               <Bio
+                name="Dieter Schoening"
+                teamRole="Media Creation"
+                text="Deet is a true social media wizard with a knack for creating amazing hilarious content. He made a giant microwave (to keep warm in the winter?) and electric scooter chariot for the HC youtube channel. Some really impressive things he has done include growing a 7 figure clothing business at the age of 14 and growing the Hackclub acount to 80k followers!"
+                img="/team/dieter.jpg"
+                pronouns="he/him/his"
+              />
+              <Bio
                 name="Thomas Stubblefield"
                 teamRole="Clubs Lead"
                 text="Thomas is a Hack Clubber from South Carolina who led a Hack Club at his high school and helped build software to make the experience of being a part of and leading a club better. He was the team lead of the clubs program. He loves to build side projects, make tea, and hike. Thomas lives his life by three sayings: time will tell, in life we are always learning, and bum bum bummm (a friendly melody he hums daily)."
