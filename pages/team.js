@@ -253,6 +253,13 @@ export default function Team({ team }) {
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
               <Bio
+                name="Thomas Stubblefield"
+                teamRole="Clubs Lead"
+                text="Thomas is a Hack Clubber from South Carolina who led a Hack Club at his high school and helped build software to make the experience of being a part of and leading a club better. He was the team lead of the clubs program. He loves to build side projects, make tea, and hike. Thomas lives his life by three sayings: time will tell, in life we are always learning, and bum bum bummm (a friendly melody he hums daily)."
+                img="/team/thomas.png"
+                pronouns="he/him"
+              />
+              <Bio
                 name="Bence Beres"
                 teamRole="Bookkeeper"
                 text="Bence is a true bureaucrat who doesn’t leave any documents unturned. Having made a sharp U-turn after college to switch from his burgeoning career in the world of political science towards the thrilling and life altering adventures of the world of Accounting, Bence understands that knowing Excel is a greatly underappreciated life skill."
@@ -525,9 +532,9 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
 
 export const getServerSideProps = async () => {
   try {
-    const team = await fetch(
-      'https://team.hackclub.com/'
-    ).then(res => res.json())
+    const team = await fetch('https://team.hackclub.com/').then(res =>
+      res.json()
+    )
     return { props: { team } }
   } catch (e) {
     return { props: { team: [] } }
