@@ -253,6 +253,14 @@ export default function Team({ team }) {
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
               <Bio
+                name="Caleb Denio"
+                teamRole="HCB Engineering"
+                text="Caleb enjoys the simple things in life: making music, drinking lattes, and programming. At HCB, he developed a ton of awesome features like Acount/Routing numbers, recurring domains, reordering the home page, donation page customization, passkey support, and started the HCB app! He also was a key part of switching HCB over to Increase after the SVB fiasco! With over 762 merged PRs, Caleb has done a ton for HCB and this only just touches on the work he has done!"
+                img="https://calebden.io/me.jpeg"
+                pronouns="he/him/his"
+                href="https://calebden.io/"
+              />
+              <Bio
                 name="Dieter Schoening"
                 teamRole="Media Creation"
                 text="Deet is a true social media wizard with a knack for creating amazing hilarious content. He made a giant microwave (to keep warm in the winter?) and electric scooter chariot for the HC youtube channel. Some really impressive things he has done include growing a 7 figure clothing business at the age of 14 and growing the Hackclub acount to 80k followers!"
