@@ -70,7 +70,7 @@ export default function Trail() {
               id="43"
               sx={{ color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
             >
-              Join Us
+              View the Documentary
             </Buttons>
           </Flex>
         </Flex>
