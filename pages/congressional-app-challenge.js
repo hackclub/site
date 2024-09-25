@@ -416,6 +416,22 @@ function Page({
                 }}
               >
                 <Box sx={{ display: 'flex', flexDirection: 'column', width: '95%' }}>
+                  <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                    <a href='https://cider.hackclub.com' target="_blank">
+                      <Button
+                        sx={{
+                          color: '#001D85',
+                          background: 'white',
+                          border: '3px solid',
+                          borderColor: '#001D85',
+                          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                          width: '100%', borderRadius: '10px', mr: '2'
+                        }}
+                      >Cider
+                      </Button>
+                    </a>
+                    <Text as='p' sx={{ width: '100%', textAlign: 'right' }}>Build an iOS app, get $100 to publish it on the App Store!</Text>
+                  </Box>
                   <Box sx={{ display: 'flex', m: '2'}}>
                     <a href='https://sprig.hackclub.com/' target="_blank">
                       <Button
