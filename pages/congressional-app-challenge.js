@@ -577,20 +577,6 @@ function Page({
                 >Hackaccino
                 </Button>
               </a>
-              <a href='https://cider.hackclub.com/' target="_blank">
-                <Button
-                  sx={{
-                    color: '#001D85',
-                    background: 'white',
-                    border: '3px solid',
-                    borderColor: '#001D85',
-                    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                    width: '100%',
-                    borderRadius: '10px'
-                  }}
-                >Cider
-                </Button>
-              </a>
             </Grid>
           </Container>
         </Container>
