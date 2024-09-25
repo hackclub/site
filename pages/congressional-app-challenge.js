@@ -416,22 +416,6 @@ function Page({
                 }}
               >
                 <Box sx={{ display: 'flex', flexDirection: 'column', width: '95%' }}>
-                  <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                    <a href='https://cider.hackclub.com' target="_blank">
-                      <Button
-                        sx={{
-                          color: '#001D85',
-                          background: 'white',
-                          border: '3px solid',
-                          borderColor: '#001D85',
-                          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-                          width: '100%', borderRadius: '10px', mr: '2'
-                        }}
-                      >Cider
-                      </Button>
-                    </a>
-                    <Text as='p' sx={{ width: '100%', textAlign: 'right' }}>Build an iOS app, get $100 to publish it on the App Store!</Text>
-                  </Box>
                   <Box sx={{ display: 'flex', m: '2'}}>
                     <a href='https://sprig.hackclub.com/' target="_blank">
                       <Button
@@ -495,6 +479,22 @@ function Page({
                       </Button>
                     </a>
                     <Text as='p' sx={{ width: '100%', textAlign: 'right' }}>Write code. Make art. Get a drawing machine.</Text>
+                  </Box>
+                  <Box sx={{ display: 'flex', m: '2', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                    <a href='https://cider.hackclub.com' target="_blank">
+                      <Button
+                        sx={{
+                          color: '#001D85',
+                          background: 'white',
+                          border: '3px solid',
+                          borderColor: '#001D85',
+                          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                          width: '100%', borderRadius: '10px', mr: '2'
+                        }}
+                      >Cider
+                      </Button>
+                    </a>
+                    <Text as='p' sx={{ width: '100%', textAlign: 'right' }}>Build an iOS app, get $100 to publish it on the App Store!</Text>
                   </Box>
                 </Box>
                 <Text as='h4' sx={{ mt: '2', fontSize: '20px' }}>2. Submit your project to one of Hack Club's Hardware You Ship, We Ship programs.</Text>
