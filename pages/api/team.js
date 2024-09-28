@@ -3,7 +3,7 @@ import AirtablePlus from 'airtable-plus'
 const airtable = new AirtablePlus({
     baseID: 'app79wD9AFys1NMUp',
     apiKey: process.env.AIRTABLE_API_KEY,
-    tableName: 'Current copy',
+    tableName: 'Current',
 })
 
 const cache = {
