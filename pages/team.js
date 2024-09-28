@@ -263,7 +263,7 @@ export default function Team({ team }) {
               <Bio
                 name="Dieter Schoening"
                 teamRole="Media Creation"
-                text="Deet is a true social media wizard with a knack for creating amazing hilarious content. He made a giant microwave (to keep warm in the winter?) and electric scooter chariot for the HC youtube channel. Some really impressive things he has done include growing a 7 figure clothing business at the age of 14 and growing the Hackclub acount to 80k followers!"
+                text="Deet has a special knack for creating hilarious content. He made a human-sized microwave (to keep warm in the winter?) and an electric chariot with friends from Hack Club. Under Deet's leadership, Hack Club's social media grew exponentially. He'll be remembered for the friendship and kindness he offered so many Hack Clubbers."
                 img="/team/dieter.jpg"
                 pronouns="he/him/his"
               />
