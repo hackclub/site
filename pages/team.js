@@ -270,7 +270,7 @@ export default function Team({ team }) {
               <Bio
                 name="Thomas Stubblefield"
                 teamRole="Clubs Lead"
-                text="Thomas is a Hack Clubber from South Carolina who led a Hack Club at his high school and helped build software to make the experience of being a part of and leading a club better. He was the team lead of the clubs program. He loves to build side projects, make tea, and hike. Thomas lives his life by three sayings: time will tell, in life we are always learning, and bum bum bummm (a friendly melody he hums daily). He helped organize and run Summit (an event for hackclub club leaders) and lead 30 hackers on an expedition across the Pacific Crest Trail in California!"
+                text="Thomas is a Hack Clubber from South Carolina; he led a Hack Club at his high school and, whilst at HQ, helped build software to make the experience of being a part of and leading a club better. He also organized the first leaders summit and led 30 hackers on an expedition across the Pacific Crest Trail in California. He loves to build side projects, make tea, and hike. Thomas lives his life by three sayings: time will tell, in life we are always learning, and bum bum bummm (a friendly melody he hums daily)."
                 img="/team/thomas.png"
                 pronouns="he/him"
               />
