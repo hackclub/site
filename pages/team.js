@@ -255,7 +255,7 @@ export default function Team({ team }) {
               <Bio
                 name="Caleb Denio"
                 teamRole="HCB Engineering"
-                text="Caleb enjoys the simple things in life: making music, drinking lattes, and programming. At HCB, he developed a ton of awesome features like Acount/Routing numbers, recurring domains, reordering the home page, donation page customization, passkey support, and started the HCB app! He also was a key part of switching HCB over to Increase after the SVB fiasco! With over 762 merged PRs, Caleb has done a ton for HCB and this only just touches on the work he has done!"
+                text="Caleb enjoys the simple things in life: making music, drinking lattes, and programming. At HCB, Caleb survived two bank failures, made money movement instant, and laid the groundwork for HCB's mobile app. Caleb was a much loved member of the team, his joyfulness lit up the HCB office every day."
                 img="https://calebden.io/me.jpeg"
                 pronouns="he/him/his"
                 href="https://calebden.io/"
