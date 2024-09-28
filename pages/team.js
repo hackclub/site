@@ -253,6 +253,28 @@ export default function Team({ team }) {
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
               <Bio
+                name="Caleb Denio"
+                teamRole="HCB Engineering"
+                text="Caleb enjoys the simple things in life: making music, drinking lattes, and programming. At HCB, Caleb survived two bank failures, made money movement instant, and laid the groundwork for HCB's mobile app. Caleb was a much loved member of the team, his joyfulness lit up the HCB office every day."
+                img="https://calebden.io/me.jpeg"
+                pronouns="he/him/his"
+                href="https://calebden.io/"
+              />
+              <Bio
+                name="Dieter Schoening"
+                teamRole="Media Creation"
+                text="Deet has a special knack for creating hilarious content. He made a human-sized microwave (to keep warm in the winter?) and an electric chariot with friends from Hack Club. Under Deet's leadership, Hack Club's social media grew exponentially. He'll be remembered for the friendship and kindness he offered so many Hack Clubbers."
+                img="/team/dieter.jpg"
+                pronouns="he/him/his"
+              />
+              <Bio
+                name="Thomas Stubblefield"
+                teamRole="Clubs Lead"
+                text="Thomas is a Hack Clubber from South Carolina; he led a Hack Club at his high school and, whilst at HQ, helped build software to make the experience of being a part of and leading a club better. He also organized the first leaders summit and led 30 hackers on an expedition across the Pacific Crest Trail in California. He loves to build side projects, make tea, and hike. Thomas lives his life by three sayings: time will tell, in life we are always learning, and bum bum bummm (a friendly melody he hums daily)."
+                img="/team/thomas.png"
+                pronouns="he/him"
+              />
+              <Bio
                 name="Bence Beres"
                 teamRole="Bookkeeper"
                 text="Bence is a true bureaucrat who doesn’t leave any documents unturned. Having made a sharp U-turn after college to switch from his burgeoning career in the world of political science towards the thrilling and life altering adventures of the world of Accounting, Bence understands that knowing Excel is a greatly underappreciated life skill."
@@ -525,9 +547,9 @@ When not busy juggling different tasks he takes up, he enjoys tinkering & buildi
 
 export const getServerSideProps = async () => {
   try {
-    const team = await fetch(
-      'https://team.hackclub.com/'
-    ).then(res => res.json())
+    const team = await fetch('https://team.hackclub.com/').then(res =>
+      res.json()
+    )
     return { props: { team } }
   } catch (e) {
     return { props: { team: [] } }
