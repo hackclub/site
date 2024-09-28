@@ -256,6 +256,7 @@ export default function Team({ team }) {
               </Text>
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
+
               {team.acknowledged?.map(member => (
                 <Bio
                   img={member.avatar}
@@ -279,7 +280,6 @@ export default function Team({ team }) {
 export const getServerSideProps = async () => {
   try {
     const team = await fetchTeam();
-
     return { props: { team } }
   } catch (e) {
     return { props: { team: {} } }
