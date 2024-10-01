@@ -1,8 +1,9 @@
 import { Text } from 'theme-ui'
 import { Balancer } from 'react-wrap-balancer'
 import Fade from 'react-reveal/Fade'
+import Zoom from 'react-reveal/Zoom'
 import { useInView } from 'react-intersection-observer'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 /** @jsxImportSource theme-ui */
 
@@ -12,15 +13,24 @@ export default function Preview({
   imgAlt,
   isSmallScreen,
   rotation,
+  sticker1,
+  sticker2,
+  // position,
   // ref,
   // opacity,
   // inView,
   elementRef
 }) {
-  const { ref, inView } = useInView({ threshold: 0.95 })
-
+  const { ref, inView } = useInView({ threshold: 0.9 })
+  const [position, setPosition] = useState([])
   useEffect(() => {
     console.log(inView)
+    setPosition([
+      Math.floor(Math.random() * 12) + 5,
+      Math.floor(Math.random() * 15) + 8,
+      Math.random() * 20 + 3,
+      Math.random() > 0.4
+    ])
   }, [])
   return (
     <section
@@ -36,7 +46,7 @@ export default function Preview({
           alignItems: 'center',
           position: 'relative',
           px: '10vw',
-          height: ['70vh',  '70vh', '100vh'],
+          height: ['70vh', '70vh', '100vh'],
           pt: ['18vh', '20vh', '0vh']
         }}
         ref={ref}
@@ -57,10 +67,49 @@ export default function Preview({
             // )
           )}
         </Balancer>
+        {inView && (
+          <div
+            sx={{
+              position: 'absolute',
+              top: `${position[3] ? position[0] : position[0] + 60}vh`,
+              left: `${position[1]}vh`,
+              width: '62px',
+              transform: `rotate(${position[2]}deg)`,
+              zIndex: 5,
+              transitionDuration: '0.52s'
+            }}
+          >
+            <Zoom>
+              <img src={sticker1} sx={{ width: '100%', filter: 'drop-shadow(2px 2px #24ffffff)' }} />
+            </Zoom>
+          </div>
+        )}
 
         {inView && (
           <div
-            sx={{ position: 'relative', display: ['block', 'block', 'none'], transition: 'opacity 0.3s ease-in-out' }}
+            sx={{
+              position: 'absolute',
+              bottom: `${position[3] ? position[0] : position[0] + 60}vh`,
+              right: `${position[1]}vh`,
+              width: '81px',
+              transform: `rotate(-${position[2]}deg)`,
+              zIndex: 5,
+              transitionDuration: '0.52s'
+            }}
+          >
+            <Zoom>
+              <img src={sticker2} sx={{ width: '100%', filter: 'drop-shadow(2px 2px #24ffffff)'}} />
+            </Zoom>
+          </div>
+        )}
+
+        {inView && (
+          <div
+            sx={{
+              position: 'relative',
+              display: ['block', 'block', 'none'],
+              transition: 'opacity 0.3s ease-in-out'
+            }}
           >
             <img
               src={img}

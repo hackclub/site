@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { Button, Heading, Text, Box, Close } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import { Balancer } from 'react-wrap-balancer'
+import { useCallback } from 'react'
 import Fade from 'react-reveal/Fade'
 import Project from '../../components/arcade/review/project'
 import {
@@ -122,13 +123,6 @@ const testData = [
     country: ''
   },
   {
-    id: 'rec0MCupFjvVCeCWd',
-    title: 'main',
-    imageLink: '',
-    user: ['Hamza Nasher-Alneam'],
-    country: ['United States']
-  },
-  {
     id: 'rec0XmkWtdFl3GpCv',
     title: 'Python Game Engine',
     imageLink: '',
@@ -157,14 +151,6 @@ const testData = [
     country: ['United States']
   },
   {
-    id: 'rec2qHD56MSG0Dx9P',
-    title: 'FamahWebsite',
-    imageLink:
-      'https://cloud-wrxm8g9kg-hack-club-bot.vercel.app/0ceca3e92-dab6-4b5b-b083-2c933bef86cc-image.png',
-    user: ['Fatuma Tahalil'],
-    country: ['Canada']
-  },
-  {
     id: 'rec2ssaXcwgAaIeFi',
     title: 'Notebook-3D-Model',
     imageLink:
@@ -188,32 +174,10 @@ const testData = [
     country: ['Italy']
   },
   {
-    id: 'rec2ypPaBeCt48OLp',
-    title: 'oneWay',
-    imageLink: 'https://cloud-9ck0cw9hs-hack-club-bot.vercel.app/0image.png',
-    user: ['SpeedyGo55'],
-    country: ''
-  },
-  {
-    id: 'rec31QeCiyCDqrBVX',
-    title: 'Roblox Game Judger',
-    imageLink: 'https://cloud-ry59nhxaw-hack-club-bot.vercel.app/0image.png',
-    user: ['Murtaza Haque'],
-    country: ['United States']
-  },
-  {
     id: 'rec33cU3QKJB1p9AG',
     title: 'Turrtv1.5-build',
     imageLink: 'https://cloud-mp6pqkrpo-hack-club-bot.vercel.app/0image.png',
     user: ['Dylan Cortegana'],
-    country: ['USA']
-  },
-  {
-    id: 'rec35mEnXJtfvGnY8',
-    title: 'Integrate',
-    imageLink:
-      'https://cloud-efzcmqt8h-hack-club-bot.vercel.app/0screenshot_2024-08-26_at_11.16.13___am.png',
-    user: ['Om Raheja'],
     country: ['USA']
   },
   {
@@ -245,27 +209,37 @@ const details = [
   {
     text: 'they coded/designed as much as 61 full-time engineers for a whole year. ', //at 126581/2,080 hours
     img: 'https://cloud-50k44rv2t-hack-club-bot.vercel.app/1group_111.png',
-    imgAlt: 'Research PCB'
+    imgAlt: 'Research PCB',
+    sticker1: '/arcade/review/stickers/computer.png',
+    sticker2: '/arcade/review/stickers/code.png'
   },
   {
     text: "if you ate one banana for every hour of work, you'd eat an average person's weight in bananas 200 times", //
     img: 'https://cloud-el2vr8v7u-hack-club-bot.vercel.app/0group_108__2_.png',
-    imgAlt: 'Mercury Searchlight Project'
+    imgAlt: 'Mercury Searchlight Project',
+    sticker1: '/arcade/review/stickers/eatBanana.png',
+    sticker2: '/arcade/review/stickers/banana.png'
   },
   {
     text: "they could've walked nonstop from New York to San Francisco and back 65 times", //2,903 miles, 3 miles an hour = 968 hours
     img: 'https://cloud-fkduovepp-hack-club-bot.vercel.app/0group_110.png',
-    imgAlt: 'PCB Lightsaber'
+    imgAlt: 'PCB Lightsaber',
+    sticker1: '/arcade/review/stickers/sf.png',
+    sticker2: '/arcade/review/stickers/ded.png'
   },
   {
     text: 'they spent enough electricity to power the average home for 12.6 days', //at 100w/hour for a computer = 15M watts of energy spent
     img: 'https://cloud-50k44rv2t-hack-club-bot.vercel.app/0group_109.png',
-    imgAlt: 'Calculator Ray Tracer'
+    imgAlt: 'Calculator Ray Tracer',
+    sticker1: '/arcade/review/stickers/power.png',
+    sticker2: '/arcade/review/stickers/grab.png'
   },
   {
     text: 'if each hour spent was a mile travelled, they could get more than halfway to the moon', //2,903 miles, 3 miles an hour = 968 hours
     img: 'https://cloud-o8yx5e0ru-hack-club-bot.vercel.app/0group_112__2_.png',
-    imgAlt: 'Terminal Website'
+    imgAlt: 'Terminal Website',
+    sticker1: '/arcade/review/stickers/cool.png',
+    sticker2: '/arcade/review/stickers/rocket.png'
   }
 ]
 
@@ -275,28 +249,24 @@ const projectVariants = {
     y: '90vh',
     opacity: 0
   },
-  animate: ({ index }) => {
-    return {
-      x: 0,
-      y: '90vh',
-      opacity: 1,
-      transition: {
-        duration: 0.73,
-        delay: index * 3.5,
-        ease: 'backOut'
-      },
-      repeat: 0
+  animate: ({ index }) => ({
+    x: 0,
+    y: '90vh',
+    opacity: 1,
+    transition: {
+      duration: 0.73,
+      delay: index * 3.5,
+      ease: 'backOut'
     }
-  },
+  }),
   moveUp: {
     x: 0,
     y: '-90vh',
-    opacity: [1, 0, 0],
+    opacity: [1, 0],
     transition: {
       ease: 'linear',
       duration: 60
-    },
-    repeat: 0
+    }
   }
 }
 
@@ -320,21 +290,19 @@ const Review = () => {
     ref: recapRef,
     inView: recapInView,
     entry
-  } = useInView({ threshold: 0 })
+  } = useInView({ threshold: 0.1 })
 
   const containerRef = useRef(null)
 
   const [animationStates, setAnimationStates] = useState(
-    projects.map(() => 'animate')
+    new Array(projects.length).fill('animate')
   )
 
-  const handleAnimationComplete = index => {
+  const handleAnimationComplete = useCallback(index => {
     setAnimationStates(prevStates =>
-      prevStates.map((state, i) =>
-        i === index && state === 'animate' ? 'moveUp' : state
-      )
+      prevStates.map((state, i) => (i === index ? 'moveUp' : state))
     )
-  }
+  }, [])
 
   useEffect(() => {
     let rot = []
@@ -347,30 +315,33 @@ const Review = () => {
     setRotation(rot)
   }, [])
 
-    const [arcaderData, setArcaderData] = useState(null)
-    
-    useEffect(() => {
-      async function fetchArcaderData() {
+  const [arcaderData, setArcaderData] = useState(null)
+
+  useEffect(() => {
+    async function fetchArcaderData() {
       try {
-        const response = await fetch('https://api.pixelverse.tech/chat/arcadeweb', {
-        method: 'GET'
-        })
+        const response = await fetch(
+          'https://api.pixelverse.tech/chat/arcadeweb',
+          {
+            method: 'GET'
+          }
+        )
         const data = await response.json()
         const randomIndex = Math.floor(Math.random() * data.length)
         const randomEntry = data[randomIndex]
-    
+
         // Preserve line breaks in the message
         const preservedMessage = randomEntry.message.replace(/\n/g, '<br>')
         randomEntry.message = preservedMessage
-    
+
         setArcaderData(randomEntry)
       } catch (error) {
         console.error('Error fetching Arcader data!!!:', error)
       }
-      }
-    
-      fetchArcaderData()
-    }, [])
+    }
+
+    fetchArcaderData()
+  }, [])
 
   // Spotlight effect
   const spotlightRef = useRef()
@@ -489,7 +460,7 @@ const Review = () => {
                     width: ['90vw', '90vw', '100%']
                   }}
                 >
-                  One Summer. 10,000 students. The ultimate hackathon.
+                  One Summer. 9,159 students. The ultimate hackathon.
                 </Text>
               </Balancer>
             </Fade>
@@ -539,9 +510,15 @@ const Review = () => {
           <div id="projects">
             <Marquee
               pauseOnHover={true}
-              autoFill={true}
-              className="h-52"
-              sx={{ display: ['block', 'block', 'none'] }}
+              // autoFill={false}
+              direction="up"
+              loop="1"
+              sx={{
+                height: '100%',
+                display: ['none', 'none', 'flex'], 
+                flexDirection: 'row',
+                alignItems: 'flex-start', 
+              }}
             >
               {projects.map((p, index) => (
                 <Project
@@ -553,10 +530,30 @@ const Review = () => {
                 />
               ))}
             </Marquee>
-            <motion.div
+            <Marquee
+              pauseOnHover={true}
+              autoFill={true}
+              direction="right"
+              sx={{
+                height: '100%',
+                display: ['flex', 'flex', 'none'], 
+                flexDirection: 'row',
+                alignItems: 'center', 
+              }}
+            >
+              {projects.map((p, index) => (
+                <Project
+                  key={index}
+                  name={p.user[0]}
+                  projectName={p.title}
+                  country={p.country[0]}
+                  img={p.imageLink}
+                />
+              ))}
+            </Marquee>
+            {/* <motion.div
               initial="initial"
               animate="animate"
-              exit="exit"
               sx={{
                 height: '100vh',
                 width: '280px',
@@ -567,7 +564,7 @@ const Review = () => {
               {projects.map((p, index) => (
                 <motion.div
                   key={p.id}
-                  custom={{ index, projects }}
+                  custom={{ index }}
                   variants={projectVariants}
                   initial="initial"
                   animate={animationStates[index]}
@@ -582,7 +579,7 @@ const Review = () => {
                   />
                 </motion.div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
         <div
@@ -660,7 +657,7 @@ const Review = () => {
                   className="slackey"
                   as="h1"
                 >
-                  10,000
+                  9,159
                 </Text>
                 <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
                   high schoolers
@@ -672,7 +669,7 @@ const Review = () => {
                   className="slackey"
                   as="h1"
                 >
-                  150,000
+                  126,241
                 </Text>
                 <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
                   hours building
@@ -696,7 +693,7 @@ const Review = () => {
                   className="slackey"
                   as="h1"
                 >
-                  $200,000
+                  $400,000
                 </Text>
                 <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
                   in prizes
@@ -716,7 +713,7 @@ const Review = () => {
               >
                 <div sx={{ height: ['100px', '100px', '150px'] }}>
                   <TypeAnimation
-                    sequence={['10,000']}
+                    sequence={['9,159']}
                     speed={50}
                     sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
                     className="slackey"
@@ -732,7 +729,7 @@ const Review = () => {
                 </div>
                 <div sx={{ height: ['100px', '100px', '150px'] }}>
                   <TypeAnimation
-                    sequence={['', 1000, '150,000']}
+                    sequence={['', 1000, '126,241']}
                     speed={50}
                     sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
                     className="slackey"
@@ -748,7 +745,7 @@ const Review = () => {
                 </div>
                 <div sx={{ height: ['100px', '100px', '150px'] }}>
                   <TypeAnimation
-                    sequence={['', 2000, '4,000']}
+                    sequence={['', 2000, '23,046']}
                     speed={50}
                     sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
                     className="slackey"
@@ -765,7 +762,7 @@ const Review = () => {
 
                 <div sx={{ height: ['100px', '100px', '150px'] }}>
                   <TypeAnimation
-                    sequence={['', 3000, '$200,000']}
+                    sequence={['', 3000, '$400,000']}
                     speed={50}
                     sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
                     className="slackey"
@@ -838,6 +835,9 @@ const Review = () => {
                 img={image.img}
                 imgAlt={image.imgAlt}
                 rotation={rotation[index]}
+                sticker1={image.sticker1}
+                sticker2={image.sticker2}
+                // position={[Math.floor(Math.random() * 15) + 5, Math.floor(Math.random() * 20) + 10, Math.random() * 7]}
               />
             ))}
             {/* </div> */}
@@ -928,41 +928,41 @@ const Review = () => {
                     height: '70vh'
                   }}
                 >
-                  <Draggable>
-                    <Dragged
-                      img="https://cloud-flbk0h0jg-hack-club-bot.vercel.app/0screenshot_2024-08-16_211342__1_.png"
-                      title="AMA w/ Ryan North"
-                      sx={{ position: 'absolute', top: '1vw', left: '20vw' }}
-                    />
-                  </Draggable>
-                  <Draggable>
-                    <Dragged
-                      img="https://cloud-bejfiwprw-hack-club-bot.vercel.app/0screenshot_2024-08-27_at_2.41.20_pm.png"
-                      title="PCB Workshop by Adam"
-                      sx={{ position: 'absolute', top: '2vw', right: '15vw' }}
-                    />
-                  </Draggable>
-                  <Draggable>
-                    <Dragged
-                      img="https://cloud-7oxalj768-hack-club-bot.vercel.app/0img_0560.png"
-                      title="Anime Sticker Workshop"
-                      sx={{ position: 'absolute', top: '17vw', left: '10vw' }}
-                    />
-                  </Draggable>
-                  <Draggable>
-                    <Dragged
-                      img="https://cloud-flbk0h0jg-hack-club-bot.vercel.app/0screenshot_2024-08-16_211342__1_.png"
-                      title="Ship Showcase"
-                      sx={{ position: 'absolute', top: '20vw', right: '10vw' }}
-                    />
-                  </Draggable>
-                  <Draggable>
-                    <Dragged
-                      img="https://cloud-flbk0h0jg-hack-club-bot.vercel.app/0screenshot_2024-08-16_211342__1_.png"
-                      title="AMA w/ FRAMEWORK CEO"
-                      sx={{ position: 'absolute', top: '10vw', right: '35vw' }}
-                    />
-                  </Draggable>
+                  {/* <Draggable> */}
+                  <Dragged
+                    img="https://cloud-flbk0h0jg-hack-club-bot.vercel.app/0screenshot_2024-08-16_211342__1_.png"
+                    title="AMA w/ Ryan North"
+                    sx={{ position: 'absolute', top: '1vw', left: '20vw' }}
+                  />
+                  {/* </Draggable> */}
+                  {/* <Draggable> */}
+                  <Dragged
+                    img="https://cloud-bejfiwprw-hack-club-bot.vercel.app/0screenshot_2024-08-27_at_2.41.20_pm.png"
+                    title="PCB Workshop by Adam"
+                    sx={{ position: 'absolute', top: '2vw', right: '15vw' }}
+                  />
+                  {/* </Draggable> */}
+                  {/* <Draggable> */}
+                  <Dragged
+                    img="https://cloud-7oxalj768-hack-club-bot.vercel.app/0img_0560.png"
+                    title="Anime Sticker Workshop"
+                    sx={{ position: 'absolute', top: '17vw', left: '10vw' }}
+                  />
+                  {/* </Draggable> */}
+                  {/* <Draggable> */}
+                  <Dragged
+                    img="/arcade/review/showcase.png"
+                    title="Ship Showcase"
+                    sx={{ position: 'absolute', top: '20vw', right: '10vw' }}
+                  />
+                  {/* </Draggable> */}
+                  {/* <Draggable> */}
+                  <Dragged
+                    img="/arcade/review/frameworkAMA.png"
+                    title="AMA w/ FRAMEWORK CEO"
+                    sx={{ position: 'absolute', top: '10vw', right: '35vw' }}
+                  />
+                  {/* </Draggable> */}
                 </div>
                 <div
                   sx={{
@@ -1062,10 +1062,18 @@ const Review = () => {
                   />
                 )}
                 <div>
-                  <Text variant="subtitle" className="gaegu" style={{ fontStyle: 'italic', fontSize: '14px'}}>
-                    (Messages collected by Hayden Kong, 13, Australia. <a href="https://pixelverseit.github.io/hackclub-arcade-tracker-htmlcssjs/letter.html"> View all messages</a>)
+                  <Text
+                    variant="subtitle"
+                    className="gaegu"
+                    style={{ fontStyle: 'italic', fontSize: '14px' }}
+                  >
+                    (Messages collected by Hayden Kong, 13, Australia.{' '}
+                    <a href="https://pixelverseit.github.io/hackclub-arcade-tracker-htmlcssjs/letter.html">
+                      {' '}
+                      View all messages
+                    </a>
+                    )
                   </Text>
-                  
                 </div>
               </div>
             </div>
