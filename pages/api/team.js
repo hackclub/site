@@ -39,12 +39,11 @@ export async function fetchTeam() {
 
         if (process.env.SLACK_API_TOKEN) {
             const slackData = await fetch(
-                'https://hackclub.slack.com/api/users.profile.get',
+                'https://hackclub.slack.com/api/users.profile.get?user=' + record.fields["Slack ID"],
                 {
-                    method: 'POST',
-                    body: `--orpheus\r\nContent-Disposition: form-data; name="token"\r\n\r\n${process.env.SLACK_API_TOKEN}\r\n--orpheus\r\nContent-Disposition: form-data; name="user"\r\n\r\n${record.fields["Slack ID"]}\r\n--orpheus\r\nContent-Disposition: form-data;`,
+                    method: 'GET',
                     headers: {
-                        'content-type': 'multipart/form-data; boundary=orpheus',
+                        'authorization': process.env.SLACK_API_TOKEN
                     }
                 }
             ).then(r => r.json());
@@ -56,9 +55,6 @@ export async function fetchTeam() {
                     member.avatar = `https://ca.slack-edge.com/T0266FRGM-${record.fields["Slack ID"]}-${slackData.profile.avatar_hash}-128`
                 }
                 member.pronouns = slackData.profile.pronouns
-                if (slackData.profile.fields['Xf5LNGS86L']?.value) {
-                    member.website = slackData.profile.fields['Xf5LNGS86L'].value
-                }
             }
         }
 
