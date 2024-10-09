@@ -31,7 +31,7 @@ export async function fetchTeam() {
             pronouns: null,
             slack_id: record.fields["Slack ID"] || null,
             slack_display_name: "",
-            avatar: null,
+            avatar: record.fields["Override Avatar"] ? record.fields["Override Avatar"][0].thumbnails.large.url : null,
             avatar_id: "",
             email: record.fields["Email"] || null,
             website: record.fields["Website"] || null,
@@ -49,9 +49,7 @@ export async function fetchTeam() {
             ).then(r => r.json());
 
             if (slackData.ok) {
-                if (record.fields["Override Avatar"]) {
-                    member.avatar = record.fields["Override Avatar"][0].thumbnails.large.url
-                } else if (process.env.SLACK_API_TOKEN) {
+                if (!record.fields["Override Avatar"]) {
                     member.avatar = `https://ca.slack-edge.com/T0266FRGM-${record.fields["Slack ID"]}-${slackData.profile.avatar_hash}-128`
                 }
                 member.pronouns = slackData.profile.pronouns
