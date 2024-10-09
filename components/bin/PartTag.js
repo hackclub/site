@@ -132,6 +132,10 @@ const PartTag = ({ partID, search = false, addFilter, removeFilter}) => {
         backgroundColor = '#4682B4'; // Vibrant light steel blue
         text = '4 Digit Display';
         break;
+      case "recltWikgPdLvpJfe":
+        backgroundColor = '#65f09f'
+        text = 'Stepper Motor';
+        break;
       default:
         backgroundColor = 'gray'; // Default gray
         text = 'Invalid Tag';
