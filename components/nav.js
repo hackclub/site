@@ -49,6 +49,7 @@ const Root = styled(Box, {
   width: 100vw;
   z-index: 1000;
   ${fixed};
+  transition: background 0.15s;
   @media print {
     display: none;
   }
@@ -144,8 +145,8 @@ const Navigation = props => (
     </NextLink>
     <Link href="/slack">Community</Link>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
-    <NextLink href="/onboard" passHref>
-      <Link>OnBoard</Link>
+    <NextLink href="/ysws" passHref>
+      <Link>You Ship, We Ship</Link>
     </NextLink>
   </NavBar>
 )
