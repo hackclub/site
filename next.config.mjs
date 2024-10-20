@@ -197,6 +197,11 @@ const nextConfig = {
         destination: '/philanthropy',
         permanent: false
       },
+      {
+        source: '/bun',
+        destination: 'https://bun.sh/',
+        permanent: false
+      },
     ]
   },
   async rewrites() {
