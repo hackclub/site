@@ -28,7 +28,7 @@ const scrolled = props =>
     height: 56px;
     &:hover,
     &:focus {
-      animation: ${waveFlagScaled} 0.5s linear infinite alternate;
+      animation: ${waveFlagScaled} 0.3s ease-in-out infinite alternate;
     }
   `
 
@@ -49,7 +49,7 @@ const Base = styled('a')`
   }
   &:hover,
   &:focus {
-    animation: ${waveFlag} 0.5s linear infinite alternate;
+    animation: ${waveFlag} 0.2s ease-in-out infinite alternate;
   }
   @media (prefers-reduced-motion: reduce) {
     animation: none !important;
