@@ -203,6 +203,13 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
+          <Announcement
+            copy="Organize Counterspell in Your City"
+            caption="Counterspell is Hack Club’s fall game jam happening in 200 cities simultaneously."
+            href="https://counterspell.hackclub.com"
+            iconLeft="rep"
+            color="primary"
+          />
           <Box
             sx={{
               width: '90vw',
