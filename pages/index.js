@@ -670,7 +670,6 @@ function Page({
               </Text>
             </Box>
             <Pizza />
-            <Trail />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
