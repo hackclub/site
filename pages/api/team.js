@@ -37,13 +37,13 @@ export async function fetchTeam() {
             website: record.fields["Website"] || null,
         }
 
-        if (process.env.SLACK_API_TOKEN) {
+        if (process.env.SLACK_PFP_TOKEN) {
             const slackData = await fetch(
                 'https://hackclub.slack.com/api/users.profile.get?user=' + record.fields["Slack ID"],
                 {
                     method: 'GET',
                     headers: {
-                        'authorization': process.env.SLACK_API_TOKEN
+                        'authorization': process.env.SLACK_PFP_TOKEN
                     }
                 }
             ).then(r => r.json());
