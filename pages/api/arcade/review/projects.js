@@ -9,10 +9,11 @@ const airtable = new AirtablePlus({
 async function getProjects() {
   try {
     const projects = await airtable.read({
-      filterByFormula: `{ScreenshotLink} != ''`,
+      filterByFormula: `AND({ScreenshotLink} != '', {Play Link} != '')`,
       fields: [
         'Name',
         'ScreenshotLink',
+        'Play Link',
         'Name (from User)',
         'Zach - Country (from User)'
       ],
@@ -33,6 +34,7 @@ export default async function handler(req, res) {
     id: p.id,
     title: p.fields['Name'] || '',
     imageLink: p.fields['ScreenshotLink'] || '',
+    playLink: p.fields['Play Link'] || '',
     user: p.fields['Name (from User)'] || '',
     country: p.fields['Zach - Country (from User)'] || ''
   }))

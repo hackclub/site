@@ -58,7 +58,8 @@ export default function Preview({
                 variant="subtitle"
                 className="slackey"
                 sx={{
-                  transition: 'opacity 0.3s ease-in-out'
+                  transition: 'opacity 0.3s ease-in-out',
+                  display: 'block'
                 }}
               >
                 {text}
@@ -70,6 +71,7 @@ export default function Preview({
         {inView && (
           <div
             sx={{
+              display: ['none', 'none', 'block'],
               position: 'absolute',
               top: `${position[3] ? position[0] : position[0] + 60}vh`,
               left: `${position[1]}vh`,
@@ -80,7 +82,10 @@ export default function Preview({
             }}
           >
             <Zoom>
-              <img src={sticker1} sx={{ width: '100%', filter: 'drop-shadow(2px 2px #24ffffff)' }} />
+              <img
+                src={sticker1}
+                sx={{ width: '100%', filter: 'drop-shadow(2px 2px #24ffffff)' }}
+              />
             </Zoom>
           </div>
         )}
@@ -89,16 +94,23 @@ export default function Preview({
           <div
             sx={{
               position: 'absolute',
-              bottom: `${position[3] ? position[0] : position[0] + 60}vh`,
-              right: `${position[1]}vh`,
-              width: '81px',
+              bottom: [
+                '-120px',
+                '-120px',
+                `${position[3] ? position[0] : position[0] + 60}vh`
+              ],
+              right: ['23px', '23px', `${position[1]}vh`],
+              width: ['50px', '81px'],
               transform: `rotate(-${position[2]}deg)`,
               zIndex: 5,
               transitionDuration: '0.52s'
             }}
           >
             <Zoom>
-              <img src={sticker2} sx={{ width: '100%', filter: 'drop-shadow(2px 2px #24ffffff)'}} />
+              <img
+                src={sticker2}
+                sx={{ width: '100%', filter: 'drop-shadow(2px 2px #24ffffff)' }}
+              />
             </Zoom>
           </div>
         )}

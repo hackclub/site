@@ -21,6 +21,14 @@ import Supporters from '../../components/arcade/review/supporters'
 import Draggable from 'react-draggable'
 import AFooter from '../../components/arcade/review/aFooter'
 import Arcader from '../../components/arcade/review/arcader'
+import dynamic from 'next/dynamic'
+const DynamicLeafletMap = dynamic(
+  () => import('../../components/arcade/review/map'),
+  {
+    ssr: false // Disable server-side rendering for this component
+  }
+)
+
 /** @jsxImportSource theme-ui */
 
 const styled = `
@@ -271,10 +279,10 @@ const projectVariants = {
 }
 
 const Review = () => {
-  const [map, setMap] = useState(null)
   const [showHighlight, setShowHighlight] = useState(false)
   const [rotation, setRotation] = useState([])
-  const [projects, setProjects] = useState(testData)
+  const [projects, setProjects] = useState([])
+  const [loading, setLoading] = useState(true) // Loading state
 
   useEffect(() => {
     async function getProjects() {
@@ -282,6 +290,7 @@ const Review = () => {
       let data = await response.json()
 
       setProjects([...projects, ...data.results])
+      setLoading(false)
     }
 
     getProjects()
@@ -294,15 +303,15 @@ const Review = () => {
 
   const containerRef = useRef(null)
 
-  const [animationStates, setAnimationStates] = useState(
-    new Array(projects.length).fill('animate')
-  )
+  // const [animationStates, setAnimationStates] = useState(
+  //   new Array(projects.length).fill('animate')
+  // )
 
-  const handleAnimationComplete = useCallback(index => {
-    setAnimationStates(prevStates =>
-      prevStates.map((state, i) => (i === index ? 'moveUp' : state))
-    )
-  }, [])
+  // const handleAnimationComplete = useCallback(index => {
+  //   setAnimationStates(prevStates =>
+  //     prevStates.map((state, i) => (i === index ? 'moveUp' : state))
+  //   )
+  // }, [])
 
   useEffect(() => {
     let rot = []
@@ -361,13 +370,15 @@ const Review = () => {
     return () => window.removeEventListener('mousemove', handler)
   }, [])
 
-  //LEAFLET
+  const [points, setPoints] = useState([])
+
+  // Fetch JSON data
   useEffect(() => {
-    import('react-leaflet').then(
-      ({ MapContainer, TileLayer, Marker, Popup, useMap }) => {
-        setMap({ MapContainer, TileLayer, Marker, Popup })
-      }
-    )
+    fetch('/arcade/review/locations.json') // Update the path to your JSON file
+      .then(response => response.json())
+      .then(data => setPoints(data))
+      .then(console.log(points))
+      .catch(error => console.error('Error fetching the JSON file:', error))
   }, [])
 
   // create fixed bg when you reach a particular scroll
@@ -394,11 +405,23 @@ const Review = () => {
   }, [highlightInView, socialContainerInView, rundownRefInView])
 
   //MAP
-  if (!map) {
-    return <div>Loading...</div>
+  if (loading) {
+    return (
+      <div
+        sx={{
+          backgroundColor: '#FAEFD6',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100vw',
+          height: '100vh',
+          color: '#FF5C00'
+        }}
+      >
+        Loading...
+      </div>
+    )
   }
-
-  const { MapContainer, TileLayer, Marker, Popup } = map
 
   return (
     <>
@@ -417,17 +440,23 @@ const Review = () => {
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""
         />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet/dist/leaflet.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/react-leaflet-markercluster/dist/styles.min.css"
+        />
         <div
           sx={{
-            display: 'grid',
-            gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'],
+            // display: 'grid',
+            // gridTemplateColumns: ['1fr', '1fr', '3fr 1fr'],
             width: '100vw',
             scrollSnapAlign: 'start'
           }}
         >
-          <div
-            sx={{ px: [3, 4, 5, 5], py: 4, pr: [3, 4, 3, 5], width: '100%' }}
-          >
+          <div sx={{ px: [3, 4, 5, 5], pt: 4, pb: 0, width: '100%' }}>
             <Fade>
               <Text
                 as="h3"
@@ -456,39 +485,31 @@ const Review = () => {
                   variant="subtitle"
                   sx={{
                     color: '#09AFB4',
-                    mb: 3,
-                    width: ['90vw', '90vw', '100%']
+                    my: 2,
+                    width: ['90vw', '90vw', '100%'],
+                    fontWeight: 'bold'
                   }}
                 >
                   One Summer. 9,159 students. The ultimate hackathon.
                 </Text>
               </Balancer>
             </Fade>
-            <Fade delay={300}>
-              <MapContainer
-                center={[51.505, -0.09]}
-                zoom={2}
-                scrollWheelZoom={false}
+            <Fade delay={400}>
+              <DynamicLeafletMap points={points} />
+              <Text
+                as="p"
+                variant="caption"
                 sx={{
-                  height: ['300px', '350px', '400px', '400px'],
-                  width: ['350px', '450px', '100%', '100%'],
-                  // width: '100%',
-                  borderRadius: '10px'
-                  // margin: ['auto', 'auto', 'initial', 'initial']
+                  color: '#09AFB4',
+                  mb: 0,
+                  width: ['90vw', '90vw', '100%']
                 }}
               >
-                <TileLayer
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={[51.505, -0.09]}>
-                  <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                  </Popup>
-                </Marker>
-              </MapContainer>
+                Every teenager we shipped to during Arcade. Click on the
+                clusters to see more specific locations.
+              </Text>
             </Fade>
-            <Fade delay={400}>
+            {/* <Fade delay={400}>
               <Button
                 as="a"
                 sx={{
@@ -505,40 +526,19 @@ const Review = () => {
               >
                 See all projects
               </Button>
-            </Fade>
+            </Fade> */}
           </div>
           <div id="projects">
-            <Marquee
-              pauseOnHover={true}
-              // autoFill={false}
-              direction="up"
-              loop="1"
-              sx={{
-                height: '100%',
-                display: ['none', 'none', 'flex'], 
-                flexDirection: 'row',
-                alignItems: 'flex-start', 
-              }}
-            >
-              {projects.map((p, index) => (
-                <Project
-                  key={index}
-                  name={p.user[0]}
-                  projectName={p.title}
-                  country={p.country[0]}
-                  img={p.imageLink}
-                />
-              ))}
-            </Marquee>
             <Marquee
               pauseOnHover={true}
               autoFill={true}
               direction="right"
               sx={{
                 height: '100%',
-                display: ['flex', 'flex', 'none'], 
+                display: 'flex',
+                // display: ['flex', 'flex', 'none'],
                 flexDirection: 'row',
-                alignItems: 'center', 
+                alignItems: 'center'
               }}
             >
               {projects.map((p, index) => (
@@ -546,6 +546,7 @@ const Review = () => {
                   key={index}
                   name={p.user[0]}
                   projectName={p.title}
+                  playLink={p.playLink}
                   country={p.country[0]}
                   img={p.imageLink}
                 />
@@ -606,8 +607,8 @@ const Review = () => {
               width: '90vw',
               margin: 'auto',
               height: ['600px', '600px', '750px'],
-              pt: '92px',
-              pb: ['0px', '100px', '200px']
+              pt: ['52px', '32px', '22px'],
+              pb: ['0px', '100px', '100px']
             }}
             ref={recapRef}
           >
@@ -620,14 +621,22 @@ const Review = () => {
             >
               <div>
                 <img
-                  sx={{ width: '90%', margin: 'auto' }}
+                  sx={{
+                    width: ['90%', '70%', '90%'],
+                    margin: 'auto',
+                    display: 'block'
+                  }}
                   src="/arcade/review/rundown.png"
                 />
                 <div
                   sx={{
                     transform: 'rotate(-3.7deg)',
-                    ml: '5vw',
-                    mr: '5vw'
+                    mt: '-20px',
+                    // ml: '5vw',
+                    // mr: '5vw',
+                    width: ['90%', '70%', '90%'],
+                    display: 'block',
+                    margin: 'auto'
                   }}
                 >
                   <Arcader
@@ -648,54 +657,54 @@ const Review = () => {
                 flexWrap: 'wrap',
                 width: ['90vw', '70vw', '300px'],
                 margin: 'auto',
-                height: ['300px', '300px', '600px']
+                height: ['220px', '200px', '600px']
               }}
             >
               <div>
                 <Text
-                  sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                  sx={{ fontSize: [4, '38px', '46px'], mb: 0 }}
                   className="slackey"
                   as="h1"
                 >
                   9,159
                 </Text>
-                <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
+                <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="p">
                   high schoolers
                 </Text>
               </div>
               <div>
                 <Text
-                  sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                  sx={{ fontSize: [4, '38px', '46px'], mb: 0 }}
                   className="slackey"
                   as="h1"
                 >
                   126,241
                 </Text>
-                <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
+                <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="p">
                   hours building
                 </Text>
               </div>
               <div>
                 <Text
-                  sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                  sx={{ fontSize: [4, '38px', '46px'], mb: 0 }}
                   className="slackey"
                   as="h1"
                 >
                   2,000
                 </Text>
-                <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
+                <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="p">
                   projects
                 </Text>
               </div>
               <div>
                 <Text
-                  sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                  sx={{ fontSize: [4, '38px', '46px'], mb: 0 }}
                   className="slackey"
                   as="h1"
                 >
                   $400,000
                 </Text>
-                <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="h3">
+                <Text sx={{ fontSize: [3, 3, 4], mt: 0 }} as="p">
                   in prizes
                 </Text>
               </div>
@@ -708,14 +717,14 @@ const Review = () => {
                   flexWrap: 'wrap',
                   width: ['90vw', '70vw', '300px'],
                   margin: 'auto',
-                  height: ['200px', '300px', '600px']
+                  height: ['200px', '300px', '480px']
                 }}
               >
-                <div sx={{ height: ['100px', '100px', '150px'] }}>
+                <div sx={{ height: ['100px', '100px', '120px'] }}>
                   <TypeAnimation
                     sequence={['9,159']}
                     speed={50}
-                    sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                    sx={{ fontSize: [4, '38px', '48px'], mb: 0 }}
                     className="slackey"
                     cursor={false}
                   />
@@ -727,11 +736,11 @@ const Review = () => {
                     cursor={false}
                   />
                 </div>
-                <div sx={{ height: ['100px', '100px', '150px'] }}>
+                <div sx={{ height: ['100px', '100px', '120px'] }}>
                   <TypeAnimation
                     sequence={['', 1000, '126,241']}
                     speed={50}
-                    sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                    sx={{ fontSize: [4, '38px', '48px'], mb: 0 }}
                     className="slackey"
                     cursor={false}
                   />
@@ -743,11 +752,11 @@ const Review = () => {
                     cursor={false}
                   />
                 </div>
-                <div sx={{ height: ['100px', '100px', '150px'] }}>
+                <div sx={{ height: ['100px', '100px', '120px'] }}>
                   <TypeAnimation
                     sequence={['', 2000, '23,046']}
                     speed={50}
-                    sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                    sx={{ fontSize: [4, '38px', '48px'], mb: 0 }}
                     className="slackey"
                     cursor={false}
                   />
@@ -760,11 +769,11 @@ const Review = () => {
                   />
                 </div>
 
-                <div sx={{ height: ['100px', '100px', '150px'] }}>
+                <div sx={{ height: ['100px', '100px', '120px'] }}>
                   <TypeAnimation
                     sequence={['', 3000, '$400,000']}
                     speed={50}
-                    sx={{ fontSize: [4, '38px', '52px'], mb: 0 }}
+                    sx={{ fontSize: [4, '38px', '48px'], mb: 0 }}
                     className="slackey"
                     cursor={false}
                   />
@@ -805,7 +814,7 @@ const Review = () => {
             sx={{
               display: 'block',
               position: showHighlight ? 'fixed' : 'absolute',
-              top: ['5vh', '5vh', '27vh'],
+              top: ['5vh', '5vh', '15vw'],
               maxWidth: ['90vw', '90vw', '30vw'],
               ml: '10vw'
             }}
@@ -928,41 +937,41 @@ const Review = () => {
                     height: '70vh'
                   }}
                 >
-                  {/* <Draggable> */}
-                  <Dragged
-                    img="https://cloud-flbk0h0jg-hack-club-bot.vercel.app/0screenshot_2024-08-16_211342__1_.png"
-                    title="AMA w/ Ryan North"
-                    sx={{ position: 'absolute', top: '1vw', left: '20vw' }}
-                  />
-                  {/* </Draggable> */}
-                  {/* <Draggable> */}
-                  <Dragged
-                    img="https://cloud-bejfiwprw-hack-club-bot.vercel.app/0screenshot_2024-08-27_at_2.41.20_pm.png"
-                    title="PCB Workshop by Adam"
-                    sx={{ position: 'absolute', top: '2vw', right: '15vw' }}
-                  />
-                  {/* </Draggable> */}
-                  {/* <Draggable> */}
-                  <Dragged
-                    img="https://cloud-7oxalj768-hack-club-bot.vercel.app/0img_0560.png"
-                    title="Anime Sticker Workshop"
-                    sx={{ position: 'absolute', top: '17vw', left: '10vw' }}
-                  />
-                  {/* </Draggable> */}
-                  {/* <Draggable> */}
-                  <Dragged
-                    img="/arcade/review/showcase.png"
-                    title="Ship Showcase"
-                    sx={{ position: 'absolute', top: '20vw', right: '10vw' }}
-                  />
-                  {/* </Draggable> */}
-                  {/* <Draggable> */}
-                  <Dragged
-                    img="/arcade/review/frameworkAMA.png"
-                    title="AMA w/ FRAMEWORK CEO"
-                    sx={{ position: 'absolute', top: '10vw', right: '35vw' }}
-                  />
-                  {/* </Draggable> */}
+                  <Draggable>
+                    <Dragged
+                      img="https://cloud-flbk0h0jg-hack-club-bot.vercel.app/0screenshot_2024-08-16_211342__1_.png"
+                      title="AMA w/ Ryan North"
+                      sx={{ position: 'absolute', top: '1vw', left: '20vw' }}
+                    />
+                  </Draggable>
+                  <Draggable>
+                    <Dragged
+                      img="https://cloud-bejfiwprw-hack-club-bot.vercel.app/0screenshot_2024-08-27_at_2.41.20_pm.png"
+                      title="PCB Workshop by Adam"
+                      sx={{ position: 'absolute', top: '2vw', right: '15vw' }}
+                    />
+                  </Draggable>
+                  <Draggable>
+                    <Dragged
+                      img="https://cloud-7oxalj768-hack-club-bot.vercel.app/0img_0560.png"
+                      title="Anime Sticker Workshop"
+                      sx={{ position: 'absolute', top: '17vw', left: '10vw' }}
+                    />
+                  </Draggable>
+                  <Draggable>
+                    <Dragged
+                      img="/arcade/review/showcase.png"
+                      title="Ship Showcase"
+                      sx={{ position: 'absolute', top: '20vw', right: '10vw' }}
+                    />
+                  </Draggable>
+                  <Draggable>
+                    <Dragged
+                      img="/arcade/review/frameworkAMA.png"
+                      title="AMA w/ FRAMEWORK CEO"
+                      sx={{ position: 'absolute', top: '10vw', right: '35vw' }}
+                    />
+                  </Draggable>
                 </div>
                 <div
                   sx={{
@@ -1012,7 +1021,7 @@ const Review = () => {
                 // position: 'absolute',
                 top: 0,
                 width: '101vw',
-                mt: '-47px',
+                mt: '0px',
                 zIndex: 5
               }}
             />
