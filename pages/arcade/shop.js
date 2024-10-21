@@ -1,11 +1,11 @@
-import ShopComponent from '../../components/arcade/shop-component'
-import { shopParts } from '../api/arcade/shop'
-import { Link, Text, Button, Flex, Box } from 'theme-ui'
-import { Balancer } from 'react-wrap-balancer'
+// import ShopComponent from '../../components/arcade/shop-component'
+// import { shopParts } from '../api/arcade/shop'
+// import { Link, Text, Button, Flex, Box } from 'theme-ui'
+// import { Balancer } from 'react-wrap-balancer'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import { useState, useEffect, useRef } from 'react'
-import Flag from '../../components/flag'
+// import { useState, useEffect, useRef } from 'react'
+// import Flag from '../../components/flag'
 
 /** @jsxImportSource theme-ui */
 
@@ -26,56 +26,56 @@ body {
 
 `
 
-export default function Shop({
-  availableItems,
-  userAirtableID = null,
-  hoursBalance = 0
-}) {
-  // const [t, setT] = useState('')
-  const [items, setItems] = useState(availableItems)
-  // const [lowerBound, setLowerBound] = useState(0)
-  // const [upperBound, setUpperBound] = useState(1000)
-  const [cat, setCat] = useState('all')
+export default function Shop() {
+//   // availableItems,
+//   userAirtableID = null,
+//   hoursBalance = 0
+// }) {
+//   // const [t, setT] = useState('')
+//   const [items, setItems] = useState(availableItems)
+//   // const [lowerBound, setLowerBound] = useState(0)
+//   // const [upperBound, setUpperBound] = useState(1000)
+//   const [cat, setCat] = useState('all')
 
-  const aItems = availableItems.filter(
-    items => items['Cost Hours'] > 0 && items['Cost Hours'] <= 10
-  )
-  const bItems = availableItems.filter(
-    items => items['Cost Hours'] > 10 && items['Cost Hours'] <= 50
-  )
-  const cItems = availableItems.filter(
-    items => items['Cost Hours'] > 50 && items['Cost Hours'] <= 100
-  )
-  const dItems = availableItems.filter(
-    items => items['Cost Hours'] > 100 && items['Cost Hours'] <= 500
-  )
+//   const aItems = availableItems.filter(
+//     items => items['Cost Hours'] > 0 && items['Cost Hours'] <= 10
+//   )
+//   const bItems = availableItems.filter(
+//     items => items['Cost Hours'] > 10 && items['Cost Hours'] <= 50
+//   )
+//   const cItems = availableItems.filter(
+//     items => items['Cost Hours'] > 50 && items['Cost Hours'] <= 100
+//   )
+//   const dItems = availableItems.filter(
+//     items => items['Cost Hours'] > 100 && items['Cost Hours'] <= 500
+//   )
 
-  useEffect(() => {
-    if (cat == 'all') {
-      setItems(availableItems)
-    } else {
-      let i = availableItems.filter(items => items['Category'].includes(cat))
-      setItems(i)
-    }
-  }, [cat])
+//   useEffect(() => {
+//     if (cat == 'all') {
+//       setItems(availableItems)
+//     } else {
+//       let i = availableItems.filter(items => items['Category'].includes(cat))
+//       setItems(i)
+//     }
+//   }, [cat])
 
-  // Spotlight effect
-  const spotlightRef = useRef()
-  useEffect(() => {
-    const handler = event => {
-      var rect = document.getElementById('spotlight').getBoundingClientRect()
-      var x = event.clientX - rect.left //x position within the element.
-      var y = event.clientY - rect.top //y position within the element.
+//   // Spotlight effect
+//   const spotlightRef = useRef()
+//   useEffect(() => {
+//     const handler = event => {
+//       var rect = document.getElementById('spotlight').getBoundingClientRect()
+//       var x = event.clientX - rect.left //x position within the element.
+//       var y = event.clientY - rect.top //y position within the element.
 
-      spotlightRef.current.style.background = `radial-gradient(
-          circle at ${x}px ${y}px,
-          rgba(132, 146, 166, 0) 20px,
-          rgba(250, 239, 214, 0.9) 120px
-        )`
-    }
-    window.addEventListener('mousemove', handler)
-    return () => window.removeEventListener('mousemove', handler)
-  }, [])
+//       spotlightRef.current.style.background = `radial-gradient(
+//           circle at ${x}px ${y}px,
+//           rgba(132, 146, 166, 0) 20px,
+//           rgba(250, 239, 214, 0.9) 120px
+//         )`
+//     }
+//     window.addEventListener('mousemove', handler)
+//     return () => window.removeEventListener('mousemove', handler)
+//   }, [])
   return (
     <>
       <Meta
@@ -84,7 +84,7 @@ export default function Shop({
         description="Check out the prizes at the Arcade Shop!"
         image="https://cloud-luaw423i2-hack-club-bot.vercel.app/0frame_33__1_.png"
       />
-      <style>
+      {/* <style>
         {`
         ._title-container {
           width: 100%;
@@ -324,33 +324,33 @@ export default function Shop({
             <ShopComponent availableItems={items}  pub="True"/>
           )}
         </Box>
-      </Box>
+      </Box> */}
     </>
   )
 }
 
-export async function getStaticProps() {
-  const props = {}
+// export async function getStaticProps() {
+//   const props = {}
 
-  await Promise.all([
-    shopParts().then(items => {
-      const availableItems = items.filter((item) => item['Enabled']).map(item => ({
-        'Name': item['Name'] || null,
-        'Small Name': item['Small Name'] || null,
-        'Full Name': item['Full Name'] || null,
-        'Description': item['Description'] || null,
-        'Fulfillment Description': item['Fulfillment Description'] || null,
-        'Cost Hours': item['Cost Hours'] || 0,
-        id: item.id,
-        'Image URL': item['Image URL'] || null,
-        'Max Order Quantity': item['Max Order Quantity'] || 1,
-        Stock: item['Stock'] >= 0 ? item['Stock'] : null,
-         Category: item['Category'] || ''
-      }))
+//   await Promise.all([
+//     shopParts().then(items => {
+//       const availableItems = items.filter((item) => item['Enabled']).map(item => ({
+//         'Name': item['Name'] || null,
+//         'Small Name': item['Small Name'] || null,
+//         'Full Name': item['Full Name'] || null,
+//         'Description': item['Description'] || null,
+//         'Fulfillment Description': item['Fulfillment Description'] || null,
+//         'Cost Hours': item['Cost Hours'] || 0,
+//         id: item.id,
+//         'Image URL': item['Image URL'] || null,
+//         'Max Order Quantity': item['Max Order Quantity'] || 1,
+//         Stock: item['Stock'] >= 0 ? item['Stock'] : null,
+//          Category: item['Category'] || ''
+//       }))
 
-      props.availableItems = availableItems
-    })
-  ])
+//       props.availableItems = availableItems
+//     })
+//   ])
 
-  return { props, revalidate: 10 }
-}
+//   return { props, revalidate: 10 }
+// }
