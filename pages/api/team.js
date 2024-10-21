@@ -41,10 +41,12 @@ export async function fetchTeam() {
             const slackData = await fetch(
                 'https://hackclub.slack.com/api/users.profile.get?user=' + record.fields["Slack ID"],
                 {
-                    method: 'GET',
+                    method: 'POST',
                     headers: {
-                        'authorization': process.env.SLACK_API_TOKEN
-                    }
+                        'content-type': 'multipart/form-data; boundary=----orpheus',
+                        cookie: process.env.SLACK_API_COOKIE
+                    },
+                    body: `------orpheus\r\nContent-Disposition: form-data; name=\"token\"\r\n\r\n${process.env.SLACK_API_TOKEN}\r\n------orpheus\r\nContent-Disposition: form-data; name=\"user\"\r\n\r\n${record.fields["Slack ID"]}\r\n------orpheus\r\n`
                 }
             ).then(r => r.json());
 
