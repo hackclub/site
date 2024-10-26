@@ -5,7 +5,7 @@ import useOrganizationI18n from '../organizationI18n'
 
 export default function OrganizationAdultForm({ requiredFields }) {
   const org = useOrganizationI18n()
-  const [teenagerLed, setTeenagerLed] = useState('true')
+  const [teenagerLed, setTeenagerLed] = useState('false')
 
   const onTeenagerLedChange = e => {
     const newValue = e.target.value
