@@ -62,7 +62,7 @@ export default async function handler(req, res) {
         Accommodations: data.accommodations,
         'HCB ID': r.id
       })
-      res.writeHead(302, { Location: '/hcb/apply/success' }).end()
+      res.status(200).end();
     })
     .catch(error => {
       console.error(error)
