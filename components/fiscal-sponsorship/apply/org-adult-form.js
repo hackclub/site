@@ -7,7 +7,16 @@ export default function OrganizationAdultForm({ requiredFields }) {
   const org = useOrganizationI18n()
   const [teenagerLed, setTeenagerLed] = useState('true')
 
-  const onTeenagerLedChange = e => setTeenagerLed(e.target.value)
+  const onTeenagerLedChange = e => {
+    const newValue = e.target.value
+    setTeenagerLed(newValue)
+
+    if (newValue === 'true') {
+      // Clear cache of removed fields
+      sessionStorage.removeItem('bank-signup-eventPoliticalActivity')
+      sessionStorage.removeItem('bank-signup-eventAnnualBudget')
+    }
+  }
 
   useEffect(() => {
     // [@garyhtou] welp... this exists because the Field component will cache
@@ -43,7 +52,7 @@ export default function OrganizationAdultForm({ requiredFields }) {
         </Select>
       </Field>
 
-      {teenagerLed === 'false' && (
+      {teenagerLed !== 'true' && (
         <>
           <Field
             name="eventPoliticalActivity"
