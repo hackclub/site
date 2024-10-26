@@ -60,6 +60,9 @@ export default async function handler(req, res) {
         'Contact Option': data.contactOption,
         'Slack Username': data.slackUsername,
         Accommodations: data.accommodations,
+        'Teenager Led?': data.eventTeenagerLed === 'true',
+        '(Adults) Political Activity': data.eventPoliticalActivity,
+        '(Adults) Annual Budget': parseInt(data.eventAnnualBudget),
         'HCB ID': r.id
       })
       res.status(200).end();
