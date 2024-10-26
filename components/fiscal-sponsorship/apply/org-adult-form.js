@@ -43,6 +43,7 @@ export default function OrganizationAdultForm({ requiredFields }) {
             <Textarea
               name="eventPoliticalActivity"
               id="eventPoliticalActivity"
+              placeholder="We are involved in..."
               rows={3}
               sx={{
                 resize: 'vertical'

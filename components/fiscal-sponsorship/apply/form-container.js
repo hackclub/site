@@ -13,6 +13,9 @@ const formContainer = forwardRef(({ children, ...props }, ref) => {
         minHeight: '100dvb',
         '&.has-errors div[aria-required="true"] input:placeholder-shown': {
           borderColor: 'primary'
+        },
+        '&.has-errors div[aria-required="true"] textarea:placeholder-shown': {
+          borderColor: 'primary'
         }
       }}
       {...props}
