@@ -58,7 +58,12 @@ export function onSubmit({
   if (!formError) {
     setIsSubmitting(true)
     sendApplication().then(() => {
-      router.push('/fiscal-sponsorship/apply/success')
+      const isAdult = formData.get('eventTeenagerLed') !== 'true'
+      const acceptanceEta = isAdult
+        ? 'within two weeks'
+        : 'within two business days'
+
+      router.push(`/fiscal-sponsorship/apply/success?eta=${acceptanceEta}`)
     })
   }
   return

@@ -4,13 +4,11 @@ import Checkbox from './checkbox'
 import Field from './field'
 // This is using country-list instead of country-list-js as it has a smaller bundle size
 import { getNames } from 'country-list'
+import useOrganizationI18n from '../organizationI18n'
+import OrganizationAdultForm from './org-adult-form'
 
 export default function OrganizationInfoForm({ requiredFields }) {
-  const [org, setOrg] = useState('Organization')
-
-  useEffect(() => {
-    if (navigator.language === 'en-GB') setOrg('Organisation')
-  }, [])
+  const org = useOrganizationI18n()
 
   return (
     <>
@@ -95,6 +93,8 @@ export default function OrganizationInfoForm({ requiredFields }) {
           }}
         />
       </Field>
+
+      <OrganizationAdultForm requiredFields={requiredFields} />
     </>
   )
 }
