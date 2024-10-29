@@ -48,18 +48,16 @@ const organizations = [
     logo: '/fiscal-sponsorship/apocalypse.png',
     background_image: '/fiscal-sponsorship/apocalypse-bg.png'
   },
-
   {
-    id: 'org_XDundl',
-    name: 'Fridays For Future Uganda',
-    description: 'Leading the environmental justice fight in Uganda.',
-    slug: 'fridays-for-future-uganda',
+    id: 'org_BbVuWN',
+    name: 'Green Mountain Robotics',
+    description: 'Spreading STEM interest, one robot at a time.',
+    slug: 'green-mountain-robotics',
     location: {
-      readable: 'Uganda'
+      readable: 'Chittenden County, VT, USA'
     },
-    logo: '/fiscal-sponsorship/fff-uganda.png',
-    background_image:
-      'https://hcb.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc3pJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--854fedfb94c579a004bd6c8284e55db7b640fa4f/FFF%20Uganda%20photo.jpeg'
+    logo: '/fiscal-sponsorship/green-mountain-robotics.png',
+    background_image: 'green-mountain-robotics-bg.png'
   },
   {
     id: 'org_a29uVj',
