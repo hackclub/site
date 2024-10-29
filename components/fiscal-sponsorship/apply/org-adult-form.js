@@ -56,7 +56,7 @@ export default function OrganizationAdultForm({ requiredFields }) {
         <>
           <Field
             name="eventPoliticalActivity"
-            label={`Please describe any political activity your ${org.toLowerCase()} is involved in`}
+            label={`Please describe any political activity your ${org.toLowerCase()} is involved in, if any`}
             description="This includes but is not limited to protests, public demonstrations, political education, and lobbying."
             requiredFields={requiredFields}
           >
