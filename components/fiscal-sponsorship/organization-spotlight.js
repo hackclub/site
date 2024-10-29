@@ -41,9 +41,8 @@ export default function OrganizationSpotlight({ organization }) {
           loading="lazy"
           width={64}
           height={64}
-          sx={{
-            objectFit: 'contain',
-            borderRadius: 'extra'
+          style={{
+            borderRadius: '16px'
           }}
         />
         <div>

@@ -38,16 +38,15 @@ const organizations = [
     background_image: '/fiscal-sponsorship/reboot-bg.jpg'
   },
   {
-    id: 'org_raices',
-    name: 'Raices Cyber',
-    description:
-      'Empowering the Hispanic and Latino cyber and technology community.',
-    slug: 'raices-cyber-org',
+    id: 'org_AluOql',
+    name: 'Apocalypse',
+    description: "Canada's largest in-person high school hackathon.",
+    slug: 'apocalypse',
     location: {
-      readable: 'Philadelphia, PA, USA'
+      readable: 'Toronto, Canada'
     },
-    logo: '/fiscal-sponsorship/raices.png',
-    background_image: '/fiscal-sponsorship/raices-bg.jpg'
+    logo: '/fiscal-sponsorship/apocalypse.png',
+    background_image: '/fiscal-sponsorship/apocalypse-bg.png'
   },
 
   {
