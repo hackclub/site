@@ -32,18 +32,10 @@ const organizations = [
     description:
       'Publishing techno-optimism, through newsletters, magazines, and events.',
     slug: 'reboot',
-    website: '',
     transparent: true,
     location: {
-      readable: 'Bay Area, CA, USA',
-      country_code: 'US',
-      country: 'United States',
-      continent: 'North America'
+      readable: 'Bay Area, CA, USA'
     },
-    category: 'nonprofit',
-    missions: [],
-    climate: false,
-    partners: {},
     logo: '/fiscal-sponsorship/reboot.png',
     background_image: '/fiscal-sponsorship/reboot-bg.jpg',
     donation_link: 'https://hcb.hackclub.com/donations/start/reboot'
@@ -55,15 +47,10 @@ const organizations = [
     description:
       'Empowering the Hispanic and Latino cyber and technology community.',
     slug: 'raices-cyber-org',
-    website: 'https://raicescyber.org',
     transparent: false,
     location: {
-      readable: 'Philadelphia, PA, USA',
-      country_code: 'US',
-      country: 'United States',
-      continent: 'North America'
+      readable: 'Philadelphia, PA, USA'
     },
-    category: 'nonprofit',
     logo: '/fiscal-sponsorship/raices.png',
     background_image: '/fiscal-sponsorship/raices-bg.jpg',
     donation_link: 'https://hcb.hackclub.com/donations/start/raices-cyber-org'
@@ -75,22 +62,9 @@ const organizations = [
     name: 'Fridays For Future Uganda',
     description: 'Leading the environmental justice fight in Uganda.',
     slug: 'fridays-for-future-uganda',
-    website: 'http://www.fridaysforfutureug.earth/',
     transparent: true,
     location: {
-      readable: 'Uganda',
-      country_code: 'UG',
-      country: 'Uganda',
-      continent: 'Africa'
-    },
-    category: 'nonprofit',
-    missions: [],
-    climate: true,
-    partners: {
-      '128_collective': {
-        funded: false,
-        recommended: true
-      }
+      readable: 'Uganda'
     },
     logo: '/fiscal-sponsorship/fff-uganda.png',
     background_image:
@@ -104,18 +78,10 @@ const organizations = [
     name: 'Hack Club HQ',
     description: 'This is us! We run our operations on HCB.',
     slug: 'hq',
-    website: 'https://hackclub.com',
     transparent: true,
     location: {
-      readable: 'Vermont, USA',
-      country_code: 'US',
-      country: 'United States',
-      continent: 'North America'
+      readable: 'Vermont, USA'
     },
-    category: 'hack_club_hq',
-    missions: [],
-    climate: false,
-    partners: {},
     logo: 'https://cloud-91boqw8z9-hack-club-bot.vercel.app/0icon-rounded.png',
     background_image: '/fiscal-sponsorship/hq-bg.jpg',
     donation_link: 'https://hcb.hackclub.com/donations/start/hq'
