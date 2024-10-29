@@ -7,12 +7,6 @@ export default function PersonalInfoForm({ requiredFields }) {
   const [selectedContactOption, setSelectedContactOption] = useState('Email')
   const { teenagerLed } = useTeenagerLedContext()
 
-  useEffect(() => {
-    if (teenagerLed === 'true') return
-    // adults can only be contacted via email (not Slack)
-    setSelectedContactOption('Email')
-  }, [teenagerLed])
-
   return (
     <>
       <Flex sx={{ justifyContent: 'space-between', gap: 4 }}>
@@ -111,7 +105,10 @@ export default function PersonalInfoForm({ requiredFields }) {
             </Grid>
           </Grid>
         </Field>
-      ) : null}
+      ) : (
+        // When not teenage-led, default to "email" as preferred contact channel
+        <input name="contactOption" type="hidden" value="Email" />
+      )}
 
       <Field
         name="userPhone"
