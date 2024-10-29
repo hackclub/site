@@ -8,11 +8,7 @@ export default function OrganizationSpotlight({ organization }) {
     <Tilt>
       <Card
         as="a"
-        href={
-          organization.transparent
-            ? `https://hcb.hackclub.com/${organization.slug}`
-            : organization.donation_link
-        }
+        href={`https://hcb.hackclub.com/${organization.slug}`}
         sx={{
           justifyContent: 'center',
           alignItems: 'center',

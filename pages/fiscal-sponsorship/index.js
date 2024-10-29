@@ -27,64 +27,51 @@ import OrganizationSpotlight from '../../components/fiscal-sponsorship/organizat
 const organizations = [
   {
     id: 'org_MpJurQ',
-    object: 'directory_organization',
     name: 'Reboot',
     description:
       'Publishing techno-optimism, through newsletters, magazines, and events.',
     slug: 'reboot',
-    transparent: true,
     location: {
       readable: 'Bay Area, CA, USA'
     },
     logo: '/fiscal-sponsorship/reboot.png',
-    background_image: '/fiscal-sponsorship/reboot-bg.jpg',
-    donation_link: 'https://hcb.hackclub.com/donations/start/reboot'
+    background_image: '/fiscal-sponsorship/reboot-bg.jpg'
   },
   {
     id: 'org_raices',
-    object: 'directory_organization',
     name: 'Raices Cyber',
     description:
       'Empowering the Hispanic and Latino cyber and technology community.',
     slug: 'raices-cyber-org',
-    transparent: false,
     location: {
       readable: 'Philadelphia, PA, USA'
     },
     logo: '/fiscal-sponsorship/raices.png',
-    background_image: '/fiscal-sponsorship/raices-bg.jpg',
-    donation_link: 'https://hcb.hackclub.com/donations/start/raices-cyber-org'
+    background_image: '/fiscal-sponsorship/raices-bg.jpg'
   },
 
   {
     id: 'org_XDundl',
-    object: 'directory_organization',
     name: 'Fridays For Future Uganda',
     description: 'Leading the environmental justice fight in Uganda.',
     slug: 'fridays-for-future-uganda',
-    transparent: true,
     location: {
       readable: 'Uganda'
     },
     logo: '/fiscal-sponsorship/fff-uganda.png',
     background_image:
-      'https://hcb.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc3pJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--854fedfb94c579a004bd6c8284e55db7b640fa4f/FFF%20Uganda%20photo.jpeg',
-    donation_link:
-      'https://hcb.hackclub.com/donations/start/fridays-for-future-uganda'
+      'https://hcb.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc3pJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--854fedfb94c579a004bd6c8284e55db7b640fa4f/FFF%20Uganda%20photo.jpeg'
   },
   {
     id: 'org_a29uVj',
-    object: 'directory_organization',
     name: 'Hack Club HQ',
     description: 'This is us! We run our operations on HCB.',
     slug: 'hq',
-    transparent: true,
     location: {
       readable: 'Vermont, USA'
     },
     logo: 'https://cloud-91boqw8z9-hack-club-bot.vercel.app/0icon-rounded.png',
-    background_image: '/fiscal-sponsorship/hq-bg.jpg',
-    donation_link: 'https://hcb.hackclub.com/donations/start/hq'
+    background_image: '/fiscal-sponsorship/hq-bg.jpg'
   }
 ]
 
