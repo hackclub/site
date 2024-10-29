@@ -1,6 +1,5 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Balancer } from 'react-wrap-balancer'
 import {
@@ -19,108 +18,59 @@ import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Photo from '../../components/photo'
 import Stat from '../../components/stat'
-import Tilt from '../../components/tilt'
-
 import ContactBanner from '../../components/fiscal-sponsorship/contact'
 import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
+import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
 
 const organizations = [
   {
     id: 'org_MpJurQ',
-    object: 'directory_organization',
     name: 'Reboot',
     description:
       'Publishing techno-optimism, through newsletters, magazines, and events.',
     slug: 'reboot',
-    website: '',
-    transparent: true,
     location: {
-      readable: 'Bay Area, CA, USA',
-      country_code: 'US',
-      country: 'United States',
-      continent: 'North America'
+      readable: 'Bay Area, CA, USA'
     },
-    category: 'nonprofit',
-    missions: [],
-    climate: false,
-    partners: {},
     logo: '/fiscal-sponsorship/reboot.png',
-    background_image: '/fiscal-sponsorship/reboot-bg.jpg',
-    donation_link: 'https://hcb.hackclub.com/donations/start/reboot'
+    background_image: '/fiscal-sponsorship/reboot-bg.jpg'
   },
   {
-    id: 'org_raices',
-    object: 'directory_organization',
-    name: 'Raices Cyber',
-    description:
-      'Empowering the Hispanic and Latino cyber and technology community.',
-    slug: 'raices-cyber-org',
-    website: 'https://raicescyber.org',
-    transparent: false,
+    id: 'org_AluOql',
+    name: 'Apocalypse',
+    description: "Canada's largest in-person high school hackathon.",
+    slug: 'apocalypse',
     location: {
-      readable: 'Philadelphia, PA, USA',
-      country_code: 'US',
-      country: 'United States',
-      continent: 'North America'
+      readable: 'Toronto, Canada'
     },
-    category: 'nonprofit',
-    logo: '/fiscal-sponsorship/raices.png',
-    background_image: '/fiscal-sponsorship/raices-bg.jpg',
-    donation_link: 'https://hcb.hackclub.com/donations/start/raices-cyber-org'
+    logo: '/fiscal-sponsorship/apocalypse.png',
+    background_image: '/fiscal-sponsorship/apocalypse-bg.png'
   },
 
   {
     id: 'org_XDundl',
-    object: 'directory_organization',
     name: 'Fridays For Future Uganda',
     description: 'Leading the environmental justice fight in Uganda.',
     slug: 'fridays-for-future-uganda',
-    website: 'http://www.fridaysforfutureug.earth/',
-    transparent: true,
     location: {
-      readable: 'Uganda',
-      country_code: 'UG',
-      country: 'Uganda',
-      continent: 'Africa'
-    },
-    category: 'nonprofit',
-    missions: [],
-    climate: true,
-    partners: {
-      '128_collective': {
-        funded: false,
-        recommended: true
-      }
+      readable: 'Uganda'
     },
     logo: '/fiscal-sponsorship/fff-uganda.png',
     background_image:
-      'https://hcb.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc3pJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--854fedfb94c579a004bd6c8284e55db7b640fa4f/FFF%20Uganda%20photo.jpeg',
-    donation_link:
-      'https://hcb.hackclub.com/donations/start/fridays-for-future-uganda'
+      'https://hcb.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc3pJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--854fedfb94c579a004bd6c8284e55db7b640fa4f/FFF%20Uganda%20photo.jpeg'
   },
   {
     id: 'org_a29uVj',
-    object: 'directory_organization',
     name: 'Hack Club HQ',
     description: 'This is us! We run our operations on HCB.',
     slug: 'hq',
-    website: 'https://hackclub.com',
-    transparent: true,
     location: {
-      readable: 'Vermont, USA',
-      country_code: 'US',
-      country: 'United States',
-      continent: 'North America'
+      readable: 'Vermont, USA'
     },
-    category: 'hack_club_hq',
-    missions: [],
-    climate: false,
-    partners: {},
     logo: 'https://cloud-91boqw8z9-hack-club-bot.vercel.app/0icon-rounded.png',
-    background_image: '/fiscal-sponsorship/hq-bg.jpg',
-    donation_link: 'https://hcb.hackclub.com/donations/start/hq'
+    background_image: '/fiscal-sponsorship/hq-bg.jpg'
   }
 ]
 
@@ -269,83 +219,9 @@ export default function Page() {
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
           <Grid columns={[1, 2]} gap={[3, 4]} sx={{ mt: 4 }}>
-            {organizations
-              // .map(org => new Organization(org))
-              .map(organization => (
-                <Tilt key={organization.id}>
-                  <Card
-                    as="a"
-                    href={
-                      organization.transparent
-                        ? `https://hcb.hackclub.com/${organization.slug}`
-                        : organization.donation_link
-                    }
-                    sx={{
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      minHeight: 128,
-                      color: 'white',
-                      cursor: 'pointer',
-                      textShadow: '0 1px 4px rgba(0, 0, 0, 0.5)',
-                      textDecoration: 'none',
-                      backgroundColor: 'black',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      borderRadius: 'extra',
-                      overflow: 'hidden',
-                      position: 'relative',
-                      p: 3,
-                      height: '100%',
-                      display: 'grid',
-                      gridTemplateColumns: '64px 1fr',
-                      columnGap: 3,
-                      rowGap: 2
-                    }}
-                    style={{
-                      backgroundImage: `linear-gradient(rgba(0,0,0,0.375) 0%, rgba(0,0,0,0.5) 75%), url('${organization.background_image}')`
-                    }}
-                  >
-                    <Image
-                      src={organization.logo}
-                      alt={`${organization.name} logo`}
-                      loading="lazy"
-                      width={64}
-                      height={64}
-                      sx={{
-                        objectFit: 'contain',
-                        borderRadius: 'extra'
-                      }}
-                    />
-                    <div>
-                      <Heading
-                        as="h3"
-                        sx={{
-                          fontSize: [3, 4],
-                          m: 0,
-                          overflowWrap: 'anywhere',
-                          width: '100%',
-                          display: 'block'
-                        }}
-                      >
-                        {organization.name}
-                      </Heading>
-                      <Text
-                        variant="caption"
-                        sx={{
-                          color: 'white',
-                          opacity: 0.875
-                        }}
-                      >
-                        {organization.location.readable}
-                      </Text>
-                    </div>
-                    <Text as="p" sx={{ gridColumn: ['span 2', '2'] }}>
-                      <Balancer>{organization.description}</Balancer>
-                    </Text>
-                  </Card>
-                </Tilt>
-              ))}
+            {organizations.map(org => (
+              <OrganizationSpotlight organization={org} key={org.id} />
+            ))}
           </Grid>
           <Box
             sx={{
