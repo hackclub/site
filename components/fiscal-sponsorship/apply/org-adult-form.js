@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import { Input, Select, Textarea } from 'theme-ui'
 import Field from './field'
 import useOrganizationI18n from '../organizationI18n'
+import { useTeenagerLedContext } from './teenager-led-context'
 
 export default function OrganizationAdultForm({ requiredFields }) {
   const org = useOrganizationI18n()
-  const [teenagerLed, setTeenagerLed] = useState('false')
+  const { teenagerLed, setTeenagerLed } = useTeenagerLedContext()
 
   const onTeenagerLedChange = e => {
     const newValue = e.target.value

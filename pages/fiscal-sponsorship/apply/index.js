@@ -14,6 +14,7 @@ import { onSubmit } from '../../../components/fiscal-sponsorship/apply/submit'
 import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
 import ContactBanner from '../../../components/fiscal-sponsorship/contact'
 import Callout from '../../../components/fiscal-sponsorship/apply/callout'
+import { TeenagerLedProvider } from '../../../components/fiscal-sponsorship/apply/teenager-led-context'
 
 export default function Apply() {
   const router = useRouter()
@@ -125,33 +126,35 @@ export default function Apply() {
             })
           }
         >
-          <Callout />
+          <TeenagerLedProvider>
+            <Callout />
 
-          <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
-            Your organization
-          </Heading>
-          <OrganizationInfoForm requiredFields={requiredFields} />
-          <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
-            Personal details
-          </Heading>
-          <PersonalInfoForm requiredFields={requiredFields} />
-          {formError && <Alert bg="primary">{formError}</Alert>}
-          <Button
-            variant="ctaLg"
-            type="submit"
-            disabled={isSubmitting}
-            sx={{
-              backgroundImage: theme => theme.util.gx('cyan', 'blue'),
-              '&:disabled': {
-                background: 'muted',
-                cursor: 'not-allowed',
-                transform: 'none !important'
-              },
-              width: 'fit-content'
-            }}
-          >
-            {isSubmitting ? 'Submitting…' : 'Submit'}
-          </Button>
+            <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
+              Your organization
+            </Heading>
+            <OrganizationInfoForm requiredFields={requiredFields} />
+            <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
+              Personal details
+            </Heading>
+            <PersonalInfoForm requiredFields={requiredFields} />
+            {formError && <Alert bg="primary">{formError}</Alert>}
+            <Button
+              variant="ctaLg"
+              type="submit"
+              disabled={isSubmitting}
+              sx={{
+                backgroundImage: theme => theme.util.gx('cyan', 'blue'),
+                '&:disabled': {
+                  background: 'muted',
+                  cursor: 'not-allowed',
+                  transform: 'none !important'
+                },
+                width: 'fit-content'
+              }}
+            >
+              {isSubmitting ? 'Submitting…' : 'Submit'}
+            </Button>
+          </TeenagerLedProvider>
         </FormContainer>
       </Grid>
       <Watermark />

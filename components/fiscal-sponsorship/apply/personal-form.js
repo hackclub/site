@@ -1,9 +1,17 @@
 import { Input, Flex, Label, Radio, Grid, Select } from 'theme-ui'
 import Field from './field'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useTeenagerLedContext } from './teenager-led-context'
 
 export default function PersonalInfoForm({ requiredFields }) {
   const [selectedContactOption, setSelectedContactOption] = useState('Email')
+  const { teenagerLed } = useTeenagerLedContext()
+
+  useEffect(() => {
+    if (teenagerLed === 'true') return
+    // adults can only be contacted via email (not Slack)
+    setSelectedContactOption('Email')
+  }, [teenagerLed])
 
   return (
     <>
@@ -32,76 +40,79 @@ export default function PersonalInfoForm({ requiredFields }) {
         />
       </Field>
 
-      <Field
-        name="contactOption"
-        label="Preferred contact channel"
-        requiredFields={requiredFields}
-      >
-        <Grid
-          columns={[null, 2]}
-          sx={{
-            rowGap: 2,
-            columnGap: 4,
-            width: '100%'
-          }}
+      {teenagerLed === 'true' ? (
+        <Field
+          name="contactOption"
+          label="Preferred contact channel"
+          requiredFields={requiredFields}
         >
-          <Label
-            sx={{
-              display: 'flex',
-              flexDirection: 'row'
-            }}
-          >
-            <Radio
-              name="contactOption"
-              value="Email"
-              defaultChecked={true}
-              onInput={() => setSelectedContactOption('Email')}
-            />
-            Email
-          </Label>
           <Grid
+            columns={[null, 2]}
             sx={{
-              columnGap: 0,
               rowGap: 2,
-              gridTemplateColumns: 'auto 1fr'
+              columnGap: 4,
+              width: '100%'
             }}
           >
             <Label
               sx={{
-                display: 'contents',
-                '~ div > label': { fontSize: 1 }
+                display: 'flex',
+                flexDirection: 'row'
               }}
             >
               <Radio
                 name="contactOption"
-                value="Slack"
-                onInput={() => setSelectedContactOption('Slack')}
+                value="Email"
+                defaultChecked={true}
+                onInput={() => setSelectedContactOption('Email')}
               />
-              Hack Club Slack
+              Email
             </Label>
-            {selectedContactOption === 'Slack' ? (
-              <>
-                <div />
-                <Field
-                  label="Your Hack Club Slack username"
-                  description="For teenagers only!"
-                  name="slackUsername"
-                  requiredFields={requiredFields}
-                >
-                  <Input
+            <Grid
+              sx={{
+                columnGap: 0,
+                rowGap: 2,
+                gridTemplateColumns: 'auto 1fr'
+              }}
+            >
+              <Label
+                sx={{
+                  display: 'contents',
+                  '~ div > label': { fontSize: 1 }
+                }}
+              >
+                <Radio
+                  name="contactOption"
+                  value="Slack"
+                  onInput={() => setSelectedContactOption('Slack')}
+                />
+                Hack Club Slack
+              </Label>
+              {selectedContactOption === 'Slack' ? (
+                <>
+                  <div />
+                  <Field
+                    label="Your Hack Club Slack username"
+                    description="For teenagers only!"
                     name="slackUsername"
-                    id="slackUsername"
-                    placeholder="FionaH"
-                    autocomplete="off"
-                    data-1p-ignore
-                    autoFocus
-                  />
-                </Field>
-              </>
-            ) : null}
+                    requiredFields={requiredFields}
+                  >
+                    <Input
+                      name="slackUsername"
+                      id="slackUsername"
+                      placeholder="FionaH"
+                      autocomplete="off"
+                      data-1p-ignore
+                      autoFocus
+                    />
+                  </Field>
+                </>
+              ) : null}
+            </Grid>
           </Grid>
-        </Grid>
-      </Field>
+        </Field>
+      ) : null}
+
       <Field
         name="userPhone"
         label="Phone"
