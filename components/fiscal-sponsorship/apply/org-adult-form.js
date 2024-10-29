@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import { Input, Select, Textarea } from 'theme-ui'
 import Field from './field'
 import useOrganizationI18n from '../organizationI18n'
+import { useTeenagerLedContext } from './teenager-led-context'
 
 export default function OrganizationAdultForm({ requiredFields }) {
   const org = useOrganizationI18n()
-  const [teenagerLed, setTeenagerLed] = useState('false')
+  const { teenagerLed, setTeenagerLed } = useTeenagerLedContext()
 
   const onTeenagerLedChange = e => {
     const newValue = e.target.value
@@ -56,7 +57,7 @@ export default function OrganizationAdultForm({ requiredFields }) {
         <>
           <Field
             name="eventPoliticalActivity"
-            label={`Please describe any political activity your ${org.toLowerCase()} is involved in`}
+            label={`Please describe any political activity your ${org.toLowerCase()} is involved in, if any`}
             description="This includes but is not limited to protests, public demonstrations, political education, and lobbying."
             requiredFields={requiredFields}
           >
