@@ -32,6 +32,7 @@ export default function Apply() {
     'firstName',
     'lastName',
     'userEmail',
+    'userPhone',
     'userBirthday',
     'slackUsername'
   ]
