@@ -13,6 +13,7 @@ import PersonalInfoForm from '../../../components/fiscal-sponsorship/apply/perso
 import { onSubmit } from '../../../components/fiscal-sponsorship/apply/submit'
 import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
 import ContactBanner from '../../../components/fiscal-sponsorship/contact'
+import Callout from '../../../components/fiscal-sponsorship/apply/callout'
 
 export default function Apply() {
   const router = useRouter()
@@ -105,7 +106,9 @@ export default function Apply() {
             </Heading>
           </Box>
           <HCBInfo />
-          <ContactBanner sx={{ borderRadius: 'default', bg: 'snow', width: 'fit-content' }} />
+          <ContactBanner
+            sx={{ borderRadius: 'default', bg: 'snow', width: 'fit-content' }}
+          />
         </Flex>
         <FormContainer
           ref={formContainer}
@@ -121,6 +124,8 @@ export default function Apply() {
             })
           }
         >
+          <Callout />
+
           <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
             Your organization
           </Heading>
