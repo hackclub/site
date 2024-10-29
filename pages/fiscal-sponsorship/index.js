@@ -1,6 +1,5 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Balancer } from 'react-wrap-balancer'
 import {
@@ -19,12 +18,11 @@ import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Photo from '../../components/photo'
 import Stat from '../../components/stat'
-import Tilt from '../../components/tilt'
-
 import ContactBanner from '../../components/fiscal-sponsorship/contact'
 import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
+import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
 
 const organizations = [
   {
@@ -269,83 +267,9 @@ export default function Page() {
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
           <Grid columns={[1, 2]} gap={[3, 4]} sx={{ mt: 4 }}>
-            {organizations
-              // .map(org => new Organization(org))
-              .map(organization => (
-                <Tilt key={organization.id}>
-                  <Card
-                    as="a"
-                    href={
-                      organization.transparent
-                        ? `https://hcb.hackclub.com/${organization.slug}`
-                        : organization.donation_link
-                    }
-                    sx={{
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      minHeight: 128,
-                      color: 'white',
-                      cursor: 'pointer',
-                      textShadow: '0 1px 4px rgba(0, 0, 0, 0.5)',
-                      textDecoration: 'none',
-                      backgroundColor: 'black',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      borderRadius: 'extra',
-                      overflow: 'hidden',
-                      position: 'relative',
-                      p: 3,
-                      height: '100%',
-                      display: 'grid',
-                      gridTemplateColumns: '64px 1fr',
-                      columnGap: 3,
-                      rowGap: 2
-                    }}
-                    style={{
-                      backgroundImage: `linear-gradient(rgba(0,0,0,0.375) 0%, rgba(0,0,0,0.5) 75%), url('${organization.background_image}')`
-                    }}
-                  >
-                    <Image
-                      src={organization.logo}
-                      alt={`${organization.name} logo`}
-                      loading="lazy"
-                      width={64}
-                      height={64}
-                      sx={{
-                        objectFit: 'contain',
-                        borderRadius: 'extra'
-                      }}
-                    />
-                    <div>
-                      <Heading
-                        as="h3"
-                        sx={{
-                          fontSize: [3, 4],
-                          m: 0,
-                          overflowWrap: 'anywhere',
-                          width: '100%',
-                          display: 'block'
-                        }}
-                      >
-                        {organization.name}
-                      </Heading>
-                      <Text
-                        variant="caption"
-                        sx={{
-                          color: 'white',
-                          opacity: 0.875
-                        }}
-                      >
-                        {organization.location.readable}
-                      </Text>
-                    </div>
-                    <Text as="p" sx={{ gridColumn: ['span 2', '2'] }}>
-                      <Balancer>{organization.description}</Balancer>
-                    </Text>
-                  </Card>
-                </Tilt>
-              ))}
+            {organizations.map(org => (
+              <OrganizationSpotlight organization={org} key={org.id} />
+            ))}
           </Grid>
           <Box
             sx={{
