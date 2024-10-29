@@ -1,9 +1,6 @@
 import { createContext, useContext, useState } from 'react'
 
-const TeenagerLedContext = createContext({
-  teenagerLed: 'false',
-  setTeenagerLed: () => {}
-})
+const TeenagerLedContext = createContext()
 const useTeenagerLedContext = () => useContext(TeenagerLedContext)
 
 const TeenagerLedProvider = ({ children }) => {
