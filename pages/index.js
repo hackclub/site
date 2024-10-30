@@ -203,6 +203,12 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
+          <Announcement
+            copy="Build, Battle, Booty. Repeat."
+            caption="Get domains, breadboards, multimeters, and drawing tablets—set sail at High Seas!"
+            href="https://highseas.hackclub.com/"
+            imgSrc="https://cloud-jul29z0v7-hack-club-bot.vercel.app/0image.png"
+          />
           <Box
             sx={{
               width: '90vw',
