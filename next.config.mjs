@@ -202,6 +202,11 @@ const nextConfig = {
         destination: '/philanthropy',
         permanent: false
       },
+      {
+        source: '/github',
+        destination: 'https://github.com/hackclub',
+        permanent: true
+      },
     ]
   },
   async rewrites() {
