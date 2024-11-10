@@ -10,6 +10,7 @@ export default function HighSeas() {
     <CardModel
       color="white"
       sx={{
+        display: 'flex',
         backgroundSize: 'cover',
         backgroundColor: '#FFF5D8',
         
@@ -22,16 +23,18 @@ export default function HighSeas() {
         styles={`
           @font-face {
             font-family: 'HighSeas1';
+
             src: url('https://highseas.hackclub.com/_next/static/media/0fc6f5e9d9c3e206-s.p.ttf') format('woff');
             font-weight: normal;
             font-style: normal;
           }
         `}
       />
-      <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
+      <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 , gridGap: 0}}>
         <Flex
           sx={{
             flexDirection: 'column',
+            display: 'flex',
             justifyContent: 'space-between'
           }}
         >
@@ -41,6 +44,7 @@ export default function HighSeas() {
               width: ['200px', '250px', '300px'],
               mt: ['-5px', '-5px', '-5px'],
               mb: ['30px', '30px', '30px'],
+              display: 'flex',
               position: 'relative',
               zIndex: 2,
               fontSize: ['36px', 4, 5],
@@ -51,8 +55,9 @@ export default function HighSeas() {
 
           <Flex
             sx={{
-              flexDirection: ['row', 'row', 'column'],
-              justifyContent: 'space-between'
+              flexDirection: ['column', 'column', 'column'],
+              justifyContent: 'space-between',
+              display: 'flex',
             }}
           >
             <Text
@@ -80,6 +85,10 @@ export default function HighSeas() {
               href="https://highseas.hackclub.com/"
               target="_blank"
               rel="noopener"
+              sx = {{
+                mt: [30, 30, 30],
+                mb:[0,0,15]
+              }}
               primary="#24479C"
               id="43"
             >
@@ -88,17 +97,17 @@ export default function HighSeas() {
             </Buttons>
           </Flex>
         </Flex>
-        <Box style={{display: "flex", alignItems: "center"}}>
+        <Box style={{display: "flex", alignItems: "center" }}>
         <Image
-            src="	https://highseas.hackclub.com/chest.svg"
+            src="	https://highseas.hackclub.com/_next/image?url=%2Fchest.png&w=828&q=75"
             sx={{
-              width: ['200px', '250px', '300px'],
-              mt: ['-5px', '-5px', '-5px'],
-              mb: ['30px', '30px', '30px'],
+              width: ['0', '0', '300px'],
+              mt: ['0px', '0px', '-5px'],
+              mb: ['0px', '0px', '30px'],
               ml: ['0px', '0px', '50px'],
               position: 'relative',
               zIndex: 2,
-              fontSize: ['36px', 4, 5],
+              fontSize: ['0px', 4, 5],
               color: 'white'
             }}
             alt="HighSeas"

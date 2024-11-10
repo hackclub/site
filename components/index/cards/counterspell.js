@@ -80,7 +80,7 @@ export default function Counterspell() {
               as="p"
               variant="subheadline"
               sx={{
-                ml: ['0px', '0px', '-15px'],
+                ml: ['-8px', '0px', '-15px'],
                 mt: ['-30px', '0px', '-10px'],
                 mb: ['0px', '0px', '20px'],
                 zIndex: 2,
@@ -89,7 +89,7 @@ export default function Counterspell() {
 
                 color: '#FFFFFFF',
 
-                fontSize: ['5px !important','5px !important','16px !important'],
+                fontSize: ['10px !important','10px !important','16px !important'],
 
               }}
             >
@@ -106,13 +106,13 @@ export default function Counterspell() {
             <Buttons
               href="https://counterspell.hackclub.com/"
               target="_blank"
-              sx = {{
-
-              }}
+             
               rel="noopener"
               primary="#24479C"
               icon = "door-enter"
               id="43"
+              zIndex={999}
+              sx = {{zIndex: 9999999, left: ["50%", "50%", "0%"]}}
             >
                 
               Learn More
