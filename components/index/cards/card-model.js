@@ -10,6 +10,7 @@ const CardModel = ({
   background,
   children,
   image,
+  image_fit,
   link,
   highlight,
   github_link,
@@ -141,7 +142,7 @@ const CardModel = ({
         src={image}
         draggable="false"
         sx={{
-          objectFit: 'cover',
+          objectFit: image_fit ? image_fit : 'cover',
           position: 'absolute',
           width: '100%',
           height: '100%',
