@@ -7526,7 +7526,7 @@ react-easy-swipe@^0.0.21:
   dependencies:
     prop-types "^15.5.8"
 
-react-fast-compare@^3.0.1, react-fast-compare@^3.2.0:
+react-fast-compare@^3.0.1, react-fast-compare@^3.2.2:
   version "3.2.2"
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.2.tgz"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
@@ -7685,12 +7685,12 @@ react-smooth@^4.0.0:
     prop-types "^15.8.1"
     react-transition-group "^4.4.5"
 
-react-snowfall@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.npmjs.org/react-snowfall/-/react-snowfall-1.2.1.tgz"
-  integrity sha512-d2UR3nDq3F0DJGaTfJ0QNbBo76UZHtT9wHFj+ePxAl4FgSxWBhxB/Bjn06f5iDBwhgwiZ7CZmv3lwfNvjo6a+w==
+react-snowfall@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-snowfall/-/react-snowfall-2.1.1.tgz#0ad21415b3256af4522b7264b3ad61be5ba22c7d"
+  integrity sha512-29F2U+skZc8uYYYzVP2Ub4mbc5nPH+0jYr1yXDysaPCnHdl9nVUN3h/ygg6PYw2LH53q6ZQCNfj30kVliaPvBg==
   dependencies:
-    react-fast-compare "^3.2.0"
+    react-fast-compare "^3.2.2"
 
 react-syntax-highlighter@^15.5.0:
   version "15.5.0"
