@@ -134,17 +134,7 @@ const Apply = ({ channel }) => {
             duration="Step 1"
             name={
               <>
-                On{' '}
-                <Link
-                  href="https://hackclub.com/slack"
-                  target="_blank"
-                  sx={{
-                    color: 'white'
-                  }}
-                >
-                  Slack
-                </Link>
-                , send your website to{' '}
+                On Slack, send your website to{' '}
                 <Link href={channel} target="_blank">
                   #hackathon-grants
                 </Link>
@@ -181,24 +171,6 @@ const Apply = ({ channel }) => {
       </Grid>
 
       <Slide left>
-        <Link
-          href="/slack/?reason=Application%20for%20the%20high%20school%20hackathon%20grant"
-          target="_blank"
-          sx={{ textDecoration: 'none' }}
-        >
-          <Button
-            as="a"
-            variant="primary"
-            sx={{
-              fontSize: [2, null, 3],
-              display: 'block',
-              mx: 'auto',
-              width: 'fit-content'
-            }}
-          >
-            Join Slack
-          </Button>
-        </Link>
         <Box
           sx={{
             fontSize: ['14px', 1, 1],
