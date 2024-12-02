@@ -247,7 +247,7 @@ export async function getStaticProps() {
   })
 
   const transparentAccounts = (
-    await fetch('https://hcb.hackclub.com/api/v3/organizations').then(res =>
+    await fetch('https://hcb.hackclub.com/api/v3/directory/organizations').then(res =>
       res.json()
     )
   ).filter(account => account.category?.replaceAll(' ', '_') === 'hack_club_hq')
