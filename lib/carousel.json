@@ -80,15 +80,5 @@
     "description": "Free Linux server for all Hack Clubbers to host anything they need",
     "img": "https://emoji.slack-edge.com/T0266FRGM/nest/aa345378581cee0c.png",
     "link": "https://hackclub.app"
-  },
-  {
-    "background": "#ec3750",
-    "titleColor": "white",
-    "textColor": "white",
-    "descriptionColor": "white",
-    "title": "BrowserBuddy",
-    "description": "You Ship a browser extension, We Ship you a Chrome Developer License among other prizes",
-    "img": "https://browserbuddy.hackclub.com/DaviLhlapakRosa_business_dino.png",
-    "link": "https://browserbuddy.hackclub.com/"
   }
 ]
