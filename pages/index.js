@@ -679,7 +679,6 @@ function Page({
             <HighSeas />
             <Counterspell />
             <Pizza />
-            <Trail />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
