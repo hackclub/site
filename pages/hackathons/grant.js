@@ -316,17 +316,7 @@ const HackathonGrant = () => {
                 >
                   guide on building hackathon websites
                 </Link>{' '}
-                or ask in{' '}
-                <Link
-                  href="/slack"
-                  target="_blank"
-                  sx={{
-                    color: 'muted'
-                  }}
-                >
-                  Slack
-                </Link>{' '}
-                if you need help.
+                or ask in Slack if you need help.
               </Text>
             </Requirement>
             <Requirement
