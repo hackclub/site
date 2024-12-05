@@ -18,13 +18,13 @@
     "link": "https://cpu.land"
   },
   {
-    "background": "#e5e6da",
+    "background": "white",
     "titleColor": "black",
     "descriptionColor": "black",
-    "title": "The Bin",
-    "description": "A free electronics starter kit for high schoolers, shipped to your door.",
-    "img": "https://cloud-19s894dm1-hack-club-bot.vercel.app/08842522a-d52d-40e8-9113-0fea592512d7.gif",
-    "link": "https://hackclub.com/bin"
+    "title": "High Seas",
+    "description": "Build personal projects. Get free stuff",
+    "img": "https://highseas.hackclub.com/highlogo.svg",
+    "link": "https://highseas.hackclub.com/"
   },
   {
     "background": "#000",
