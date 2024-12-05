@@ -1755,7 +1755,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             position: 'relative',
             background: '#09AFB4',
             display: 'block',
-            mt: '100px',
+            mt: '180px',
             pb: '100px'
           }}
         >
