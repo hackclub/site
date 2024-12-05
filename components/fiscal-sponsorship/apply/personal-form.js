@@ -1,4 +1,4 @@
-import { Input, Flex, Label, Radio, Grid, Select } from 'theme-ui'
+import { Input, Flex, Label, Radio, Grid, Select, Checkbox } from 'theme-ui'
 import Field from './field'
 import { useEffect, useState } from 'react'
 import { useTeenagerLedContext } from './teenager-led-context'
@@ -155,6 +155,7 @@ export default function PersonalInfoForm({ requiredFields }) {
           placeholder="Max"
         />
       </Field>
+      */}
       <Field
         name="returningUser"
         label="Have you used HCB before?"
@@ -163,7 +164,7 @@ export default function PersonalInfoForm({ requiredFields }) {
       >
         <Checkbox name="returningUser" />
       </Field>
-      <Field
+      {/* <Field
         name="userAddress"
         label="Address"
         description="This is so we can send you some swag and goodies if you ever request them!"
@@ -175,7 +176,6 @@ export default function PersonalInfoForm({ requiredFields }) {
           setValidationResult={setValidationResult}
         />
       </Field>
-
       */}
       <Field
         name="accommodations"
