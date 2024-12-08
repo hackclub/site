@@ -9,6 +9,15 @@
     "link": "https://jams.hackclub.com"
   },
   {
+    "background": "#C76B0F",
+    "titleColor": "#F6D193",
+    "descriptionColor": "#F6D193",
+    "title": "Boba Drops",
+    "description": "Build a HTML + CSS Static Site!, Get free Boba",
+    "img": "https://cloud-7egmr7wle-hack-club-bot.vercel.app/0boba_drops.svg",
+    "link": "https://hack.club/boba"
+  },
+  {
     "background": "snow",
     "titleColor": "dark",
     "descriptionColor": "black",
