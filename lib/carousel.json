@@ -18,6 +18,24 @@
     "link": "https://hack.club/boba"
   },
   {
+    "background": "#FFF1DE",
+    "titleColor": "#4F2A0E",
+    "descriptionColor": "#4F2A0E",
+    "title": "Hackaccino",
+    "description": "Make a 3D Website • Get a free Frappuccino",
+    "img": "https://cloud-ahkc8uotv-hack-club-bot.vercel.app/0group_15.png",
+    "link": "https://hack.club/fraps"
+  },
+    {
+    "background": "#30AE1F",
+    "titleColor": "#FFFFFF",
+    "descriptionColor": "#FFFFFF",
+    "title": "HackCraft",
+    "description": "Ship a mod - Get Minecraft",
+    "img": "https://cloud-kgilrkgl7-hack-club-bot.vercel.app/0image.png",
+    "link": "https://hackcraft.hackclub.com/"
+  },
+  {
     "background": "snow",
     "titleColor": "dark",
     "descriptionColor": "black",
