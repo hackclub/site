@@ -26,6 +26,15 @@
     "img": "https://cloud-ahkc8uotv-hack-club-bot.vercel.app/0group_15.png",
     "link": "https://hack.club/fraps"
   },
+  {
+    "background": "#EF6C46",
+    "titleColor": "#EDE2DC",
+    "descriptionColor": "#EDE2DC",
+    "title": "Cider",
+    "description": "Design, Code, and Ship an iOS app to the App Store in 30 days.",
+    "img": "https://cloud-m33gqgkp6-hack-club-bot.vercel.app/0image.png",
+    "link": "https://cider.hackclub.com/"
+  },
     {
     "background": "#30AE1F",
     "titleColor": "#FFFFFF",
