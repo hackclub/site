@@ -80,6 +80,15 @@
     "img": "https://emoji.slack-edge.com/T0266FRGM/sinerider/68a0bc1208e885dd.png",
     "link": "https://sinerider.com"
   },
+   {
+    "background": "#BDDDE4",
+    "titleColor": "#83583C",
+    "textColor": "#83583C",
+    "title": "BakeBuild",
+    "description": "CAD. Cut. Cookie. 🍪",
+    "img": "https://cloud-qn2vtsqzj-hack-club-bot.vercel.app/0bitten_cookies_illustration.png",
+    "link": "https://bakebuild.hackclub.com/"
+  },
   {
     "background": "dark",
     "titleColor": "green",
