@@ -3,6 +3,7 @@ import Field from './field'
 import Checkbox from './checkbox'
 import { useEffect, useState } from 'react'
 import { useTeenagerLedContext } from './teenager-led-context'
+import Checkbox from './checkbox'
 
 export default function PersonalInfoForm({ requiredFields }) {
   const [selectedContactOption, setSelectedContactOption] = useState('Email')
