@@ -3,6 +3,7 @@ import { Box, Card, Flex, Image, Link, Text } from 'theme-ui'
 import { Zoom } from 'react-reveal'
 import ReactTooltip from '../../react-tooltip'
 import Comma from '../../comma'
+import CountUp from 'react-countup'
 
 /** @jsxImportSource theme-ui */
 
@@ -95,7 +96,19 @@ const CardModel = ({
             </Link>
             {stars ? (
               <Text as="h2">
-                ⭐️ <Comma>{stars}</Comma>
+                ⭐️ <CountUp
+                    start={0}
+                    end={stars}
+                    delay={0}
+                    duration={2.5}
+                    separator=","
+                    scrollSpyOnce={true}
+      enableScrollSpy={true}
+                  >
+                    {({countUpRef}) => (
+                      <span ref={countUpRef} className="cursor-pointer"></span>
+                    )}
+                  </CountUp>
               </Text>
             ) : (
               <></>
@@ -114,7 +127,19 @@ const CardModel = ({
           >
             {stars ? (
               <Text as="h2" sx={{ fontSize: ['20px', '24px', '28px'] }}>
-                ⭐️ <Comma>{stars}</Comma>
+                ⭐️ <CountUp
+                    start={0}
+                    end={stars}
+                    delay={0}
+                    duration={2.5}
+                    separator=","
+                    scrollSpyOnce={true}
+      enableScrollSpy={true}
+                  >
+                    {({countUpRef}) => (
+                      <span ref={countUpRef} className="cursor-pointer"></span>
+                    )}
+                  </CountUp>
               </Text>
             ) : (
               <></>

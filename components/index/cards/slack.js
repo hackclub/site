@@ -4,6 +4,7 @@ import Buttons from './button'
 import Event from '../events'
 import Dot from '../../dot'
 import Comma from '../../comma'
+import CountUp from 'react-countup'
 /** @jsxImportSource theme-ui */
 
 const Cover = () => (
@@ -28,7 +29,18 @@ const Stats = ({ data, subheading, nonMobile = false }) => (
       as="h4"
       sx={{ mb: 0, pt: 2, fontSize: ['28px', '36px', '38px'] }}
     >
-      <Comma>{data}</Comma>
+      <CountUp
+      start={0}
+      scrollSpyOnce={true}
+      enableScrollSpy={true}
+        end={data}
+        duration={2.5}
+        separator=","
+      >
+        {({countUpRef}) => (
+          <span ref={countUpRef} className="cursor-pointer"></span>
+        )}
+      </CountUp>
     </Heading>
     <Text
       sx={{
