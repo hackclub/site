@@ -22,7 +22,7 @@ import { useState } from 'react'
 const year = 2024
 const announcementMessage =
   'https://hackclub.slack.com/archives/CQFS7Q4A1/p1730478548123589'
-const signupsOpen = true
+const signupsOpen = false
 
 const Hero = styled(Box)`
   background-image: linear-gradient(
