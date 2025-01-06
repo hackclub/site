@@ -14,7 +14,7 @@ export default function Callout() {
       }}
     >
       <Text as="p" sx={{ fontWeight: 'bold' }}>
-        HCB is a fiscal sponsor primaily for teenage-led organization
+        HCB is a fiscal sponsor primarily for teenage-led organizations
       </Text>
       <Text as="p" sx={{ mt: 1, textWrap: 'balance' }}>
         Although we would love to be able to support organizations across all
