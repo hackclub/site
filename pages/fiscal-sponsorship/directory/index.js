@@ -1110,7 +1110,7 @@ export class Organization {
     return {
       type: this.raw.category,
       category: 'Coding',
-      badges: ['128_collective_funded']
+      badges: ['']
     }
   }
 
@@ -1161,7 +1161,7 @@ export class Organization {
    * @type {boolean}
    */
   get is128Recommended() {
-    return this.raw.partners?.['128_collective']?.recommended
+    return false
   }
 
   /**
@@ -1169,7 +1169,7 @@ export class Organization {
    * @type {boolean}
    */
   get is128Funded() {
-    return this.raw.partners?.['128_collective']?.funded
+    return false
   }
 
   /**
