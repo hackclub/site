@@ -315,7 +315,75 @@ export default function Page() {
           </Grid>
         </Container>
       </Box>
-
+      {/** removed for now
+      <Box as="section" bg="snow" sx={{ py: 5 }}>
+        <Container>
+          <Grid columns={[null, null, 2]} gap={[4, 5]}>
+            <div>
+              <Heading
+                variant="headline"
+                as="h2"
+                sx={{ marginBlockStart: [null, 4] }}
+              >
+                <Balancer>
+                  The fiscal sponsor of&nbsp;choice for the best funders.
+                </Balancer>
+              </Heading>
+              <Flex
+                sx={{
+                  alignItems: 'center',
+                  gap: [3, 4],
+                  mt: 4,
+                  img: {
+                    width: [72, 128],
+                    height: [72, 128],
+                    objectFit: 'contain'
+                  }
+                }}
+              >
+                {['ycjf.png', 'first.png'].map(file => (
+                  <img
+                    key={file}
+                    src={`/fiscal-sponsorship/${file}`}
+                    width={128}
+                    height={128}
+                    loading="lazy"
+                    alt={file.split('.')[0].toUpperCase()}
+                  />
+                ))}
+              </Flex>
+            </div>
+            <Card sx={{ maxWidth: 'copy', ml: [null, -4], textAlign: 'left' }}>
+              <Text
+                as="blockquote"
+                variant="lead"
+                sx={{
+                  mt: '0 !important',
+                  color: 'slate',
+                  textIndent: '-0.33em'
+                }}
+              >
+                “Quote goes here”
+              </Text>
+              <Text
+                as="p"
+                variant="caption"
+                sx={{ color: 'muted', mt: 3, textIndent: '-1.5ch' }}
+              >
+                —
+                <Text as="strong" color="slate">
+                  FirstName LastName
+                </Text>
+                , Title,{' '}
+                <UILink href="https://example.com">
+                  Organization
+                </UILink>
+              </Text>
+            </Card>
+          </Grid>
+        </Container>
+      </Box>
+      */}
       <Container>
         <Grid
           columns={[null, null, 2]}

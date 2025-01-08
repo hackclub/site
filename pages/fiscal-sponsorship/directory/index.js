@@ -1157,22 +1157,6 @@ export class Organization {
   }
 
   /**
-   * Checks if the organization is recommended by 128 Collective.
-   * @type {boolean}
-   */
-  get is128Recommended() {
-    return false
-  }
-
-  /**
-   * Checks if the organization is funded by 128 Collective.
-   * @type {boolean}
-   */
-  get is128Funded() {
-    return false
-  }
-
-  /**
    * Updates the organization data by making an API call.
    * @returns {Organization} The updated Organization instance.
    */
