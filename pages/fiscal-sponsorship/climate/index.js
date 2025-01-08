@@ -1235,7 +1235,7 @@ export class Organization {
     return {
       type: this.raw.category,
       category: 'Coding',
-      badges: ['']
+      badges: []
     }
   }
 
