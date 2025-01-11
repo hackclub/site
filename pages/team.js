@@ -280,7 +280,7 @@ export default function Team({ team }) {
               >
                 <Grid columns={[1, 2, null, 4]} gap={2} m={10}>
                   {team.current
-                    ?.filter(member => member.department === 'Welcomers')
+                    ?.filter(member => member.department === 'Welcoming')
                     .map(member => (
                       <Bio
                         img={member.avatar}

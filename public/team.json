@@ -1,7 +1,7 @@
 [
   {
     "Name": "Max Wofford",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Tech & Creative Lead",
     "Order": 1,
     "Acknowledged": "",
@@ -15,7 +15,7 @@
   },
   {
     "Name": "Chris Walker",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Hacker Resources",
     "Order": 2,
     "Acknowledged": "",
@@ -29,7 +29,7 @@
   },
   {
     "Name": "Leo McElroy",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Clubs Engineering Lead",
     "Order": 3,
     "Acknowledged": true,
@@ -43,7 +43,7 @@
   },
   {
     "Name": "Faisal Sayed",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering",
     "Order": 4,
     "Acknowledged": true,
@@ -57,7 +57,7 @@
   },
   {
     "Name": "Deven Jadhav",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Events Lead",
     "Order": 5,
     "Acknowledged": "",
@@ -71,7 +71,7 @@
   },
   {
     "Name": "Graham Darcey",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Creative Technologist",
     "Order": 6,
     "Acknowledged": "",
@@ -85,7 +85,7 @@
   },
   {
     "Name": "Woody Keppel",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Event Alchemist",
     "Order": 7,
     "Acknowledged": "",
@@ -99,7 +99,7 @@
   },
   {
     "Name": "Josias Aurel",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering",
     "Order": 8,
     "Acknowledged": "",
@@ -113,7 +113,7 @@
   },
   {
     "Name": "Nila Palmo Ram",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering Assistant",
     "Order": 9,
     "Acknowledged": true,
@@ -127,7 +127,7 @@
   },
   {
     "Name": "Arav Narula",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Community Operations & Engineering",
     "Order": 10,
     "Acknowledged": "",
@@ -141,7 +141,7 @@
   },
   {
     "Name": "Toby Brown",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Storytelling",
     "Order": 11,
     "Acknowledged": true,
@@ -155,7 +155,7 @@
   },
   {
     "Name": "Thomas Stubblefield",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Clubs Lead",
     "Order": 12,
     "Acknowledged": true,
@@ -169,7 +169,7 @@
   },
   {
     "Name": "Lucas Honda",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering",
     "Order": 13,
     "Acknowledged": "",
@@ -183,7 +183,7 @@
   },
   {
     "Name": "Dieter Schoening",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Media Creation",
     "Order": 14,
     "Acknowledged": true,
@@ -197,7 +197,7 @@
   },
   {
     "Name": "Sahiti Dasari",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Clubs Operations & Engineering",
     "Order": 15,
     "Acknowledged": "",
@@ -211,7 +211,7 @@
   },
   {
     "Name": "Shubham Panth",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering",
     "Order": 16,
     "Acknowledged": "",
@@ -225,7 +225,7 @@
   },
   {
     "Name": "Marianna Ludensky",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Creative Lead",
     "Order": 17,
     "Acknowledged": true,
@@ -239,7 +239,7 @@
   },
   {
     "Name": "Nora",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering & Logistics",
     "Order": 18,
     "Acknowledged": "",
@@ -253,7 +253,7 @@
   },
   {
     "Name": "Cheru Berhanu",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering",
     "Order": 19,
     "Acknowledged": "",
@@ -267,7 +267,7 @@
   },
   {
     "Name": "Rachel Albert",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Summer Intern Logistics",
     "Order": 20,
     "Acknowledged": true,
@@ -281,7 +281,7 @@
   },
   {
     "Name": "Alex Ren",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering",
     "Order": 21,
     "Acknowledged": "",
@@ -295,7 +295,7 @@
   },
   {
     "Name": "Lux Loff",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering",
     "Order": 22,
     "Acknowledged": "",
@@ -309,7 +309,7 @@
   },
   {
     "Name": "Kartikey Singh Chauhan",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering & Community",
     "Order": 23,
     "Acknowledged": "",
@@ -323,7 +323,7 @@
   },
   {
     "Name": "Melanie Smith",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Director of Operations",
     "Order": 1,
     "Acknowledged": "",
@@ -337,7 +337,7 @@
   },
   {
     "Name": "Gary Tou",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Engineering Manager",
     "Order": 2,
     "Acknowledged": "",
@@ -351,7 +351,7 @@
   },
   {
     "Name": "Daisy Reyes",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "HCB Operations Lead",
     "Order": 3,
     "Acknowledged": "",
@@ -365,7 +365,7 @@
   },
   {
     "Name": "Hunter Goodenough",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations Associate",
     "Order": 4,
     "Acknowledged": true,
@@ -379,7 +379,7 @@
   },
   {
     "Name": "Kris Hoadley",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Bookkeeper",
     "Order": 5,
     "Acknowledged": "",
@@ -393,7 +393,7 @@
   },
   {
     "Name": "Ben Dixon",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering",
     "Order": 6,
     "Acknowledged": "",
@@ -407,7 +407,7 @@
   },
   {
     "Name": "Paul Spitler",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Account Manager",
     "Order": 4,
     "Acknowledged": "",
@@ -421,7 +421,7 @@
   },
   {
     "Name": "Ruien Luo",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations & Engineering Contributor",
     "Order": 13,
     "Acknowledged": "",
@@ -435,7 +435,7 @@
   },
   {
     "Name": "Dylan Wahbe",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Account Manager",
     "Order": 7,
     "Acknowledged": "",
@@ -449,7 +449,7 @@
   },
   {
     "Name": "Alex DeForrest",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations Contributor",
     "Order": 16,
     "Acknowledged": "",
@@ -463,7 +463,7 @@
   },
   {
     "Name": "Sam Poder",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Engineering Contributor",
     "Order": 11,
     "Acknowledged": "",
@@ -477,7 +477,7 @@
   },
   {
     "Name": "Manu Gurudath",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Engineering Contributor",
     "Order": 14,
     "Acknowledged": "",
@@ -491,7 +491,7 @@
   },
   {
     "Name": "Rhys Panopio",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations Gap Year",
     "Order": 9,
     "Acknowledged": "",
@@ -505,7 +505,7 @@
   },
   {
     "Name": "Albert C",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Engineering",
     "Order": 10,
     "Acknowledged": "",
@@ -519,7 +519,7 @@
   },
   {
     "Name": "Alex Luo",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations Contributor",
     "Order": 18,
     "Acknowledged": "",
@@ -533,7 +533,7 @@
   },
   {
     "Name": "Sarvesh Mohan Kumar",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations Contributor",
     "Order": 17,
     "Acknowledged": "",
@@ -547,7 +547,7 @@
   },
   {
     "Name": "Lucy Tran",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Financial Operations",
     "Order": 6,
     "Acknowledged": "",
@@ -561,7 +561,7 @@
   },
   {
     "Name": "Saran Wagner",
-    "Department": "Moderation",
+    "Department": ["Moderation"],
     "Role": "Moderation & Conduct",
     "Order": 2,
     "Acknowledged": "",
@@ -575,7 +575,7 @@
   },
   {
     "Name": "Phaedra Sanon",
-    "Department": "Community",
+    "Department": ["Community"],
     "Role": "Moderation & Conduct",
     "Order": 3,
     "Acknowledged": "",
@@ -589,7 +589,7 @@
   },
   {
     "Name": "Amber",
-    "Department": "Moderation",
+    "Department": ["Moderation", "Welcoming"],
     "Role": "Moderation, Conduct & Welcoming",
     "Order": 4,
     "Acknowledged": "",
@@ -603,7 +603,7 @@
   },
   {
     "Name": "Bence Beres",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Bookkeeper",
     "Order": 1,
     "Acknowledged": true,
@@ -617,7 +617,7 @@
   },
   {
     "Name": "Jasper Mayone",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Community Resources",
     "Order": 2,
     "Acknowledged": true,
@@ -631,7 +631,7 @@
   },
   {
     "Name": "Liv Cook",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "HCB Junior Project Manager",
     "Order": 3,
     "Acknowledged": true,
@@ -645,7 +645,7 @@
   },
   {
     "Name": "Shawn Malluwa-Wadu",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Community Engineer",
     "Order": 4,
     "Acknowledged": true,
@@ -659,7 +659,7 @@
   },
   {
     "Name": "Hugo Hu",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Mail Coordinator & Engineering",
     "Order": 5,
     "Acknowledged": true,
@@ -673,7 +673,7 @@
   },
   {
     "Name": "Lexi Mattick",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Clubs Engineering",
     "Order": 6,
     "Acknowledged": true,
@@ -687,7 +687,7 @@
   },
   {
     "Name": "Holly Delisle",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Clubs Operations Lead",
     "Order": 7,
     "Acknowledged": true,
@@ -701,7 +701,7 @@
   },
   {
     "Name": "Kunal Botla",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "HCB Operations",
     "Order": 8,
     "Acknowledged": true,
@@ -715,7 +715,7 @@
   },
   {
     "Name": "Ella Xu",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Clubs Engineering",
     "Order": 9,
     "Acknowledged": true,
@@ -729,7 +729,7 @@
   },
   {
     "Name": "Cedric Hutchings",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Constructionist",
     "Order": 10,
     "Acknowledged": true,
@@ -743,7 +743,7 @@
   },
   {
     "Name": "Kara Massie",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Production Lead",
     "Order": 11,
     "Acknowledged": true,
@@ -757,7 +757,7 @@
   },
   {
     "Name": "Maggie Liu",
-    "Department": "Community",
+    "Department": ["Community"],
     "Role": "Moderation & Events",
     "Order": 13,
     "Acknowledged": true,
@@ -771,7 +771,7 @@
   },
   {
     "Name": "Athul Blesson",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "APAC Director",
     "Order": 14,
     "Acknowledged": true,
@@ -785,7 +785,7 @@
   },
   {
     "Name": "Harsh Bajpai",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "APAC Clubs",
     "Order": 15,
     "Acknowledged": true,
@@ -799,7 +799,7 @@
   },
   {
     "Name": "Annlee Fores",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "APAC Operations",
     "Order": 16,
     "Acknowledged": true,
@@ -813,7 +813,7 @@
   },
   {
     "Name": "Anna Grace Benny",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "APAC Clubs",
     "Order": 17,
     "Acknowledged": true,
@@ -827,7 +827,7 @@
   },
   {
     "Name": "Ishan Goel",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Communications Intern",
     "Order": 18,
     "Acknowledged": true,
@@ -841,7 +841,7 @@
   },
   {
     "Name": "Abby Fischler",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Junior Administrative Engineer",
     "Order": 19,
     "Acknowledged": true,
@@ -855,7 +855,7 @@
   },
   {
     "Name": "Jessica Card",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Education Engineer",
     "Order": 20,
     "Acknowledged": true,
@@ -869,7 +869,7 @@
   },
   {
     "Name": "Belle See",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineer for Comms",
     "Order": 21,
     "Acknowledged": true,
@@ -883,8 +883,8 @@
   },
   {
     "Name": "Claire Wang",
-    "Department": "Community",
-    "Role": "Community",
+    "Department": ["Community"],
+    "Role": ["Community"],
     "Order": 22,
     "Acknowledged": true,
     "Bio": "Claire works on the Community Team and was a previous summer intern. She hopes to make the community both more welcoming and more technical, as well as inspire beginners to love STEM and making. She first joined Hack Club in 8th grade because of an online competition, and has been running a Hack Club ever since then. In addition to CS, she loves neuroscience, sci-fi, debate, and creating Spotify playlists.",
@@ -897,7 +897,7 @@
   },
   {
     "Name": "Rishi Kothari",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Summer Intern",
     "Order": 23,
     "Acknowledged": true,
@@ -911,7 +911,7 @@
   },
   {
     "Name": "Zach Fogg",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Community Game Designer",
     "Order": 24,
     "Acknowledged": true,
@@ -925,7 +925,7 @@
   },
   {
     "Name": "Matthew Stanciu",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Clubs Lead",
     "Order": 25,
     "Acknowledged": true,
@@ -939,7 +939,7 @@
   },
   {
     "Name": "Lachlan Campbell",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Storytelling",
     "Order": 26,
     "Acknowledged": true,
@@ -953,7 +953,7 @@
   },
   {
     "Name": "Scott Motte",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "HCB Engineer",
     "Order": 27,
     "Acknowledged": true,
@@ -967,7 +967,7 @@
   },
   {
     "Name": "Tina Soriano",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Exec. Assistant",
     "Order": 28,
     "Acknowledged": true,
@@ -981,7 +981,7 @@
   },
   {
     "Name": "Mark Allen",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "AMA Producer",
     "Order": 29,
     "Acknowledged": true,
@@ -995,7 +995,7 @@
   },
   {
     "Name": "Dina Elhanan",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Summer Intern",
     "Order": 30,
     "Acknowledged": true,
@@ -1009,8 +1009,8 @@
   },
   {
     "Name": "Mingjie Jiang",
-    "Department": "Community",
-    "Role": "Community",
+    "Department": ["Community"],
+    "Role": ["Community"],
     "Order": 31,
     "Acknowledged": true,
     "Bio": "Mingjie started working with Hack Club in July 2017, while leading his club in Rockville, Maryland, working on community engagement & public identity. He\u2019s also run Hack Chicago, CodeDay, and countless other hackathons to spread his passion for technology.",
@@ -1023,7 +1023,7 @@
   },
   {
     "Name": "Theo Bleier",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Special Projects",
     "Order": 32,
     "Acknowledged": true,
@@ -1037,7 +1037,7 @@
   },
   {
     "Name": "Linus Lee",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "HCB Engineer",
     "Order": 33,
     "Acknowledged": true,
@@ -1051,7 +1051,7 @@
   },
   {
     "Name": "Fernanda Lozano",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Flagship",
     "Order": 34,
     "Acknowledged": true,
@@ -1065,7 +1065,7 @@
   },
   {
     "Name": "Michael Destefanis",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "HCB Operations",
     "Order": 35,
     "Acknowledged": true,
@@ -1079,7 +1079,7 @@
   },
   {
     "Name": "Amogh Chaubey",
-    "Department": "Community",
+    "Department": ["Community"],
     "Role": "Community + Events",
     "Order": 36,
     "Acknowledged": true,
@@ -1093,7 +1093,7 @@
   },
   {
     "Name": "Arianna Martinelli",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations Mentor",
     "Order": 8,
     "Acknowledged": "",
@@ -1107,7 +1107,7 @@
   },
   {
     "Name": "Ian Madden",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Engineering Contributor",
     "Order": 12,
     "Acknowledged": "",
@@ -1121,7 +1121,7 @@
   },
   {
     "Name": "Sean Outram",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations Contributor",
     "Order": 15,
     "Acknowledged": "",
@@ -1135,7 +1135,7 @@
   },
   {
     "Name": "Aryan Kapoor",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations Contributor",
     "Order": 19,
     "Acknowledged": "",
@@ -1149,7 +1149,7 @@
   },
   {
     "Name": "Caleb Denio",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "HCB Engineer",
     "Order": 13,
     "Acknowledged": true,
@@ -1163,7 +1163,7 @@
   },
   {
     "Name": "Anish Anne",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations Contributor",
     "Order": 21,
     "Acknowledged": "",
@@ -1177,7 +1177,7 @@
   },
   {
     "Name": "Leo Wilkin",
-    "Department": "HCB",
+    "Department": ["HCB"],
     "Role": "Operations Contributor",
     "Order": 20,
     "Acknowledged": "",
@@ -1191,7 +1191,7 @@
   },
   {
     "Name": "Paolo Carino",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Media Creations",
     "Order": 23,
     "Acknowledged": "",
@@ -1205,7 +1205,7 @@
   },
   {
     "Name": "Jared Senesac",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Club Operations Lead",
     "Order": 24,
     "Acknowledged": "",
@@ -1219,7 +1219,7 @@
   },
   {
     "Name": "Acon Lin",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering",
     "Order": 25,
     "Acknowledged": "",
@@ -1233,7 +1233,7 @@
   },
   {
     "Name": "Louisa",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Community Moderation",
     "Order": 26,
     "Acknowledged": "",
@@ -1247,7 +1247,7 @@
   },
   {
     "Name": "Sofia Egan",
-    "Department": "HQ",
+    "Department": ["HQ"],
     "Role": "Engineering",
     "Order": 27,
     "Acknowledged": "",
@@ -1261,7 +1261,7 @@
   },
   {
     "Name": "Eesha",
-    "Department": "Events",
+    "Department": ["Events"],
     "Role": "Virtual Events Lead",
     "Acknowledged": "",
     "Bio": "",
@@ -1271,12 +1271,36 @@
   },
   {
     "Name": "Felix Gao",
-    "Department": "Newspaper",
+    "Department": ["Newspaper"],
     "Role": "Newspaper Team Lead",
     "Acknowledged": "",
     "Bio": "",
     "Slack ID": "U07BU2HS17Z",
     "Email": "",
     "Website": "https://felixgao.dev/"
+  },
+  {
+    "Name": "Mahad Kalam",
+    "Department": ["Newspaper"],
+    "Role": "Reporting and Infra",
+    "Acknowledged": "",
+    "Bio": "Mahad is a 16 year old student from the UK who enjoys making bots and tools for the community. He's currently working on Archimedes, a helpful Slack bot for the Newspaper Team.",
+    "Slack ID": "U059VC0UDEU",
+    "Override Avatar": "",
+    "Email": "hi@skyfall.dev",
+    "Re-ping server": "",
+    "Website": "https://skyfall.dev"
+  },
+  {
+    "Name": "Ryan Farnell",
+    "Department": ["Welcoming"],
+    "Role": "Welcomer",
+    "Acknowledged": "",
+    "Bio": "Does stuff, and things sometimes",
+    "Slack ID": "U04KNK837S4",
+    "Override Avatar": "",
+    "Email": "admin@whatware.net",
+    "Re-ping server": "",
+    "Website": "https://whatware.net"
   }
 ]
