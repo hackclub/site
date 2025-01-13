@@ -197,7 +197,7 @@ const HackathonGrant = () => {
 
           <Grid columns={[1, 1, 2, 2]} gap={4}>
             <Requirement
-              title="Running through next year"
+              title="Running August 2022 to December 2024"
               checkmark="clock-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
               size="36"
