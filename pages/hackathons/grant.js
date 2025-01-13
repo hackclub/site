@@ -56,8 +56,6 @@ const Requirement = ({ title, children, checkmark, background, size }) => {
 }
 
 const HackathonGrant = () => {
-  let open = false // applications are open
-
   return (
     <>
       <Meta
