@@ -315,6 +315,7 @@ export default function Page() {
           </Grid>
         </Container>
       </Box>
+      {/** removed for now
       <Box as="section" bg="snow" sx={{ py: 5 }}>
         <Container>
           <Grid columns={[null, null, 2]} gap={[4, 5]}>
@@ -340,7 +341,7 @@ export default function Page() {
                   }
                 }}
               >
-                {['128.png', 'ycjf.png', 'first.png'].map(file => (
+                {['ycjf.png', 'first.png'].map(file => (
                   <img
                     key={file}
                     src={`/fiscal-sponsorship/${file}`}
@@ -362,9 +363,7 @@ export default function Page() {
                   textIndent: '-0.33em'
                 }}
               >
-                “HCB’s Climate fiscal sponsorship program removes funding
-                barriers with a blend of youth-centered, tech-savvy services and
-                a deep commitment to authentic youth empowerment.”
+                “Quote goes here”
               </Text>
               <Text
                 as="p"
@@ -373,18 +372,18 @@ export default function Page() {
               >
                 —
                 <Text as="strong" color="slate">
-                  Kate Goss
+                  FirstName LastName
                 </Text>
-                , Executive Director,{' '}
-                <UILink href="https://128collective.org">
-                  128&nbsp;Collective
+                , Title,{' '}
+                <UILink href="https://example.com">
+                  Organization
                 </UILink>
               </Text>
             </Card>
           </Grid>
         </Container>
       </Box>
-
+      */}
       <Container>
         <Grid
           columns={[null, null, 2]}
