@@ -302,7 +302,7 @@ const Page = () => (
               sx={{ mt: 0, a: { variant: 'styles.a', color: 'blue' } }}
             >
               <strong>Everyone gets hacking, individually.</strong> Not hacking
-              bank accounts, being creative and{' '}
+              bank accounts, but rather being creative and{' '}
               <Link href="/ship">making something awesome</Link>.
             </Text>
             <Text as="span" color="blue">
