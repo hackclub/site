@@ -43,6 +43,9 @@ function formatMoney(amount) {
 }
 
 const Stats = ({ stats }) => {
+  if (stats.transactions_volume === undefined) {
+    return null
+  }
   const [balance, setBalance] = useState(0) // A formatted balance string, split by decimal
 
   useEffect(() => {
@@ -64,7 +67,6 @@ const Stats = ({ stats }) => {
 
     return () => observer.disconnect()
   }, [stats.transactions_volume])
-
   return (
     <Box id="parent">
       <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
@@ -103,11 +105,20 @@ const Stats = ({ stats }) => {
 
 export async function getStaticProps(context) {
   const res = await fetch(`https://hcb.hackclub.com/stats`)
-  const stats = await res.json()
-
-  return {
-    props: {
-      stats
+  try {
+    const stats = await res.json()
+    return {
+      props: {
+        stats
+      },
+      revalidate: 10
+    }
+  } catch (e) {
+    return {
+      props: {
+        stats: {}
+      },
+      revalidate: 10
     }
   }
 }
