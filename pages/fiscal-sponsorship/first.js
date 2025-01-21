@@ -190,15 +190,14 @@ export async function getStaticProps(context) {
       props: {
         stats
       },
-      revalidate: 10
+      revalidate: 60 * 60 // once an hour
     }
   } catch (e) {
     return {
       props: {
         stats: {}
       },
-      revalidate: 10
+      revalidate: 60 * 60 // once an hour
     }
   }
-  
 }
