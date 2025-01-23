@@ -1,11 +1,13 @@
 import { Box, Text, Image, Link } from 'theme-ui'
 
-const Screen = ({ backgroundImage }) => {
+const Screen = ({ backgroundImage, title, sxProps, children, expand }) => {
     let color = backgroundImage ? "" : "#fff"
+    let expan = expand ? ["100%", null, null, '58vh'] : "58vh"
+    let props = Object.assign({},{display: "flex", flexDirection: "column", width: ["100%", null, null, "55%"]}, sxProps )
     return (
-              <Box sx  = {{display: "flex", flexDirection: "column", width: ["100%", null, null, "55%"]}}>
+              <Box sx  = {props}>
                   <Box sx = {{
-                    width: ['100%'], 
+                    width: "100%", 
                     borderColor: "black", 
                     border: "2px solid", 
                     borderRadius: "6px 6px 0 0", 
@@ -28,7 +30,7 @@ const Screen = ({ backgroundImage }) => {
                         paddingX: 2,
                         height: "80%"
                         }}>
-                          <Text variant="caption" sx = {{width: "80%", fontSize: "12px"}}>Hack Club - Congressional App Challenge</Text></Box>
+                          <Text variant="caption" sx = {{width: "80%", fontSize: "12px"}}>{title}</Text></Box>
                     </Box>
                 </Box>
                 <Box sx = {{
@@ -39,9 +41,12 @@ const Screen = ({ backgroundImage }) => {
                       borderLeft: "2px solid",
                       borderRight: "2px solid", 
                       borderRadius: "0 0 6px 6px", 
-                      height:'58vh',
+                      padding: 3,
+                      height: expan,
                       backgroundImage: `url(${backgroundImage})`,
-                      backgroundSize: "cover"}}/>
+                      backgroundSize: "cover"}}>
+                        {children}
+                      </Box>
                 </Box>
     )
 }

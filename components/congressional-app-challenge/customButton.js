@@ -4,7 +4,8 @@ export default function CustomButton({
     link,
     color, 
     textColor, // 🤓
-    sxProps
+    sxProps,
+    children
 }){ return (
     <Box sx= {sxProps}>
     <Button as="a" className="gaegu" href={link} sx = {{
@@ -23,7 +24,10 @@ export default function CustomButton({
         borderColor: "#000"
         }}>
                 {text}
+        
+        <Box sx = {{position: "absolute", right: -12, top: -3 }}>{children}</Box>
         </Button>
+
     </Box>
 
 )}
