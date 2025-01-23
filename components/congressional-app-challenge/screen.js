@@ -10,11 +10,25 @@ const Screen = ({ backgroundImage }) => {
                     border: "2px solid", 
                     borderRadius: "6px 6px 0 0", 
                     height:'7vh',
-                    backgroundColor: "white"}}>
-                    <Box sx = {{margin: "2", display: "flex", flexDirection: "row"}}>
-                      <Box className="circle" sx = {{backgroundColor: "red"}}/>
-                      <Box className="circle" sx = {{backgroundColor: "yellow"}}/>
-                      <Box className="circle" sx = {{backgroundColor: "green"}}/>
+                    backgroundColor: "white",
+                    alignItems: "center",
+                    display: "flex",
+                    flexDirection: "row"}}>
+                    <Box sx = {{display: "flex", flexDirection: "row", width: "100%", }}>
+                      <Box sx = {{display: "flex", flexDirection: "row", justifyContent: 'center', alignItems: 'center', marginTop: 2, marginBottom: 2, marginLeft: 2}}>
+                        <Box className="circle" sx = {{backgroundColor: "red"}}/>
+                        <Box className="circle" sx = {{backgroundColor: "yellow"}}/>
+                        <Box className="circle" sx = {{backgroundColor: "green"}}/>
+                      </Box>
+                      <Box className = "hidden" sx = {{
+                        borderRadius: "10px",
+                        border: "1px solid",
+                        marginX: "auto",
+                        marginY: "auto",
+                        paddingX: 2,
+                        height: "80%"
+                        }}>
+                          <Text variant="caption" sx = {{width: "80%", fontSize: "12px"}}>Hack Club - Congressional App Challenge</Text></Box>
                     </Box>
                 </Box>
                 <Box sx = {{
