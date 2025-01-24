@@ -1034,13 +1034,11 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={70}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                Tom Preston-Werner (8x)                                    
+                    Tom Preston-Werner (8x)
                   </Text>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Musk Foundation (5x)
                   </Text>
-
-
                 </Fade>
                 <br></br>
                 <Fade delay={90}>
@@ -1093,16 +1091,16 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
 
                 <Fade delay={260}>
-              <Fade delay={410}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Argosy Foundation (4x)
-                  </Text>
-                </Fade>
+                  <Fade delay={410}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      Argosy Foundation (4x)
+                    </Text>
+                  </Fade>
                 </Fade>
               </Box>
               <Box>
                 <Fade>
-                <Text as="h3" sx={{ lineHeight: '1.8em' }}>
+                  <Text as="h3" sx={{ lineHeight: '1.8em' }}>
                     $200k - $500k
                   </Text>
                 </Fade>
@@ -1138,13 +1136,13 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
 
                 <Fade delay={470}>
-                <Fade delay={360}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    GitHub Education (5x)
-                  </Text>
+                  <Fade delay={360}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      GitHub Education (5x)
+                    </Text>
+                  </Fade>
                 </Fade>
-                </Fade>
-                </Box>
+              </Box>
               <Box>
                 <Fade delay={470}>
                   <Text as="h3" sx={{ marginBottom: '8px' }}>
