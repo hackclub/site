@@ -7,9 +7,9 @@ export default function Polaroid({
 }){
     return (
         <Box sx = {sxProps}>
-            <Box sx = {{margin: 2, backgroundColor: "#fff", border: "2px", width: 200, boxShadow: "1px 1px 1px 1px #9E9E9E"}}>
+            <Box sx = {{margin: 2, backgroundColor: "#fff", border: "2px", width: 190, boxShadow: "1px 1px 1px 1px #9E9E9E"}}>
                 <Image src = {image} sx= {{paddingX: 3, paddingTop: 3, objectFit: "cover"}}/>
-                <Box variant = "caption" sx={{width: "100%", textAlign: "center", paddingBottom: 4, marginBottom: 3}}>{caption}</Box>
+                <Box variant="caption" sx={{width: "100%", textAlign: "center", padding: 2}}>{caption}</Box>
             </Box>
         </Box>
     )

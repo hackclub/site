@@ -25,7 +25,7 @@ export default function CustomButton({
         }}>
                 {text}
         
-        <Box sx = {{position: "absolute", right: -12, top: -3 }}>{children}</Box>
+        <Box sx = {{position: "absolute", right: -20, top: -3 }}>{children}</Box>
         </Button>
 
     </Box>
