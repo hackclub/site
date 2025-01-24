@@ -1034,8 +1034,10 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={70}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                Tom Preston-Werner (8x)                     
-                Musk Foundation (5x)               
+                    Tom Preston-Werner (8x)
+                  </Text>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Musk Foundation (5x)
                   </Text>
                 </Fade>
                 <br></br>
@@ -1087,16 +1089,18 @@ const Philanthropy = ({ posts = [] }) => {
                     Joe Liemandt
                   </Text>
                 </Fade>
-              </Box>
-              <Box>
+
                 <Fade delay={260}>
-                  <Text as="h3" sx={{ marginBottom: '8px' }}>
-              <Fade delay={410}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Argosy Foundation (4x)
-                  </Text>
+                  <Fade delay={410}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      Argosy Foundation (4x)
+                    </Text>
+                  </Fade>
                 </Fade>
               </Box>
+              <Box>
+                <Fade>
+                  <Text as="h3" sx={{ lineHeight: '1.8em' }}>
                     $200k - $500k
                   </Text>
                 </Fade>
@@ -1130,14 +1134,15 @@ const Philanthropy = ({ posts = [] }) => {
                     Ron Conway (5x)
                   </Text>
                 </Fade>
-              <Box>
+
                 <Fade delay={470}>
-                  <Text as="h3" sx={{ marginBottom: '8px' }}>
-                <Fade delay={360}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    GitHub Education (5x)
-                  </Text>
+                  <Fade delay={360}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      GitHub Education (5x)
+                    </Text>
+                  </Fade>
                 </Fade>
+              </Box>
               <Box>
                 <Fade delay={470}>
                   <Text as="h3" sx={{ marginBottom: '8px' }}>
@@ -1164,7 +1169,7 @@ const Philanthropy = ({ posts = [] }) => {
             <Fade delay={800}>
               <br />
               <Text sx={{ color: 'muted', fontSize: '90%' }}>
-                * The numbers in bracket indicates repeated gifts
+                * The numbers in bracket indicates # of gifts since 2018
               </Text>
             </Fade>
           </Box>
