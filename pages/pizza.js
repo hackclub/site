@@ -785,7 +785,7 @@ const PizzaPage = () => {
           }}
         >
           Need help getting your Pizza Grant? Email{' '}
-          <Link href="mailto:thomas@hackclub.com">thomas@hackclub.com</Link>
+          <Link href="mailto:jared@hackclub.com">jared@hackclub.com</Link>
         </Text>
       </Container>
       <Footer
