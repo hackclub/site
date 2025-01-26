@@ -146,10 +146,7 @@ const Prizes = ({
                 variant="caption"
                 sx={{ color: '#FFEEC6', mt: 0, mb: 2 }}
               >
-                <em>
-                  You can order up to{' '}
-                  {Math.min(quantity, Math.floor(hoursBalance / cost))} of these
-                </em>
+                <em></em>
               </Text>
             </Balancer>
           )}
@@ -166,10 +163,7 @@ const Prizes = ({
                     : null
                 ) ? (
                   <Quantity
-                    numOptions={Math.min(
-                      quantity,
-                      Math.floor(hoursBalance / cost)
-                    )}
+                    numOptions={quantity}
                     label={text}
                     onQuantityChange={onQuantityChange}
                     index={index}
@@ -178,7 +172,6 @@ const Prizes = ({
               }
               {
                 // only show the buy button if you have enough hours to buy at least 1 of the item
-                //                 (hoursBalance ? hoursBalance / cost < 1 ? stock != 0 ? null )  null : (
                 (
                   hoursBalance
                     ? hoursBalance / cost >= 1
@@ -383,10 +376,7 @@ const Prizes = ({
                           : null
                       ) ? (
                         <Quantity
-                          numOptions={Math.min(
-                            quantity,
-                            Math.floor(hoursBalance / cost)
-                          )}
+                          numOptions={quantity}
                           label={text}
                           onQuantityChange={onQuantityChange}
                           index={index}
@@ -432,11 +422,7 @@ const Prizes = ({
                     width: '100%'
                   }}
                 >
-                  <em>
-                    You can order up to{' '}
-                    {Math.min(quantity, Math.floor(hoursBalance / cost))} of
-                    these
-                  </em>
+                  <em></em>
                 </Text>
               </div>
             </div>
