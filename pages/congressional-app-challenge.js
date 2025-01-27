@@ -11,6 +11,7 @@ import {
 
 import Meta from '@hackclub/meta'
 import Countdown from 'react-countdown';
+import { useState } from 'react';
 import Head from 'next/head'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
@@ -40,32 +41,21 @@ const styled = `
   background-image: url('/congressional-app-challenge/pattern.svg');
 }
 
-.blurple { 
-  color: rgb(65, 60, 242);
+.underline {
   text-decoration: underline;
   text-decoration-style: wavy;
+  &.blurple {
+    color: rgb(65, 60, 242);
   }
-
-.yellow {
+  &.yellow {
     color: rgb(250, 203, 45);
-    text-decoration: underline;
-    text-decoration-style: wavy;
-}
-
-.pink {
-  color: rgb(225, 91, 166);
-  text-decoration: underline;
-  text-decoration-style: wavy;
-}
-
-@media only screen and (max-width: 500px) {
-  .hidden {
-   display: none;
+  }
+  &.pink {
+    color: rgb(225, 91, 166);
   }
 }
 `
 
-const color = '#000'
 const palette = {
   "cream": "#fffbf1",
   "pink": "#e15ba6",
@@ -75,9 +65,19 @@ const palette = {
   "white": "#fff"
 }
 
+const photos = {
+   "0": {"name": "outernet", "alt": "Outernet (2023)", "img": "https://cloud-25h1tatrt-hack-club-bot.vercel.app/0260102957-168f5ff5-ca65-44d9-8814-a7baad487f31.png"},
+   "1": {"name": "zephyr", "alt": "The Hacker Zephyr (2021)", "img": "https://cloud-lgzpj1j7i-hack-club-bot.vercel.app/0zephyr.jpeg"},
+	 "2": {"name": "arcade", "alt": "Arcade [AMA with Framework CEO Nirav Patel] (2024)", "img": "https://cloud-lvxsxkpn4-hack-club-bot.vercel.app/1frameworkama.png"},
+	 "3": {"name": "trail", "alt": "The Trail (2024)", "img": "https://cloud-lvxsxkpn4-hack-club-bot.vercel.app/2image.png"},
+	 "4": {"name": "ascend", "alt": "Ascend (2024)", "img": "https://cloud-ggl6f1hfj-hack-club-bot.vercel.app/0image.png"},
+	 "5": {"name": "leaders", "alt": "The Leaders Summit (2024)", "img": "https://cloud-lvxsxkpn4-hack-club-bot.vercel.app/3group.png"}
+}
+
 function Page({
   carouselCards
 }) {
+  const [contentTyping, setContentTyping] = useState(0)
   return (
     <>
       <Meta
@@ -86,7 +86,7 @@ function Page({
         description="Hack Club + The 2025 Congressional App Challenge"
       />
       <ForceTheme theme="light" />
-      <Nav color={color} light />
+      <Nav color="#000" light />
       <Box id = "hero" sx={{
           backgroundColor: palette['cream'],
           minHeight: "100vh",
@@ -165,34 +165,56 @@ function Page({
               This year, the <Link as="a" href="https://congressionalappchallenge.us">Congressional App Challenge</Link> is partnering with Hack Club to empower teenage hackers nationwide. 
               <br/> <br/>
               Every day, Hack Clubbers worldwide <b>gather to code together</b> online and in-person at hackathons, clubs and more.
-              <br/> <br/>
                 Connect with <b>thousands of other high school programmers</b> in the community and build your winning submission for the 2025 Challenge.
                 <br/> <br/>
                 <Text sx = {{textDecoration: "underline",textDecorationStyle: "wavy", textUnderlineOffset: "3px"}}>Need a little more persuasion?</Text>
                 <br/>
                 <TypeAnimation
+                    omitDeletionAnimation={true}
                     sequence={[
+                      ()=>{
+                        setContentTyping(0)
+                      },
+                      `We've hosted an outdoors hackathon in the scenic Northeast kingdom of Vermont.`,
+                      (element)=>{
+                        element.innerHTML = `We've hosted an <a style = "color: #413cf2" href = "https://youtu.be/O1s5HqSqKi0">outdoors hackathon</a> in the scenic Northeast kingdom of Vermont.`},
+                      2000, 
+                      ()=>{
+                        setContentTyping(1)
+                      },
                       `In the past, we've ran the world's longest hackathon across the United States — by train.`,
                       (element)=>{
-                        element.innerHTML = `In the past, we've ran the <a style = "color: #413cf2" href = "https://www.youtube.com/watch?v=2BID8_pGuqA">world's longest hackathon</a> across the United States — by train.`},
+                        element.innerHTML = `In the past, we've ran the <a style = "color: #e15ba6" href = "https://www.youtube.com/watch?v=2BID8_pGuqA">world's longest hackathon</a> across the United States — by train.`},
                       2000, 
-                      `We've shipped hundreds of thousands of dollars worth of laptops, 3D printers and other epic prizes to teenagers.`,
+                      ()=>{
+                        setContentTyping(2)
+                      },
+                      `We've given away hundreds of thousands of dollars worth of laptops, 3D printers and other epic prizes to teenagers.`,
                       (element)=>{
-                        element.innerHTML = `We've shipped <a style = "color: #e15ba6" href = "https://hackclub.com/arcade">hundreds of thousands of dollars</a> worth of laptops, 3D printers and other epic prizes to teenagers.`},
+                        element.innerHTML = `We've given away <a style = "color: #facb2d" href = "https://hackclub.com/arcade">hundreds of thousands of dollars</a> worth of laptops, 3D printers and other epic prizes to teenagers.`},
                         2000,
+                      ()=>{
+                          setContentTyping(3)
+                      },
                       "We ran a 7-day hikeathon along the Pacific Crest Trail in 2024.",
                       (element)=>{
-                        element.innerHTML = `We ran a <a style = "color: #facb2d"  href = 'https://www.youtube.com/watch?v=ufMUJ9D1fi8'>7-day hikeathon</a> along the Pacific Crest Trail in 2024.`
+                        element.innerHTML = `We ran a <a style = "color: #413cf2"  href = 'https://www.youtube.com/watch?v=ufMUJ9D1fi8'>7-day hikeathon</a> along the Pacific Crest Trail in 2024.`
                       },
                       2000,
+                      ()=>{
+                        setContentTyping(4)
+                      },
                       'We hosted a high schooler-directed all-girls hackathon at SpaceX in Los Angeles.',
                       (element)=> {
-                        element.innerHTML = `We hosted a high schooler-directed <a style = "color: #413cf2" href = "https://ascend.hackclub.com/">all-girls hackathon</a> at SpaceX in Los Angeles.`
+                        element.innerHTML = `We hosted a high schooler-directed <a style = "color: #e15ba6" href = "https://ascend.hackclub.com/">all-girls hackathon</a> at SpaceX in Los Angeles.`
                       },
                       2000,
+                      ()=>{
+                        setContentTyping(5)
+                      },
                       'We run a worldwide clubs program, with awesome perks for club leaders.',
                       (element)=>{
-                        element.innerHTML = `We run a <a style = "color: #e15ba6" href = 'https://hackclub.com/clubs/'>worldwide clubs program</a>, with awesome perks for club leaders.`
+                        element.innerHTML = `We run a <a style = "color: #facb2d" href = 'https://hackclub.com/clubs/'>worldwide clubs program</a>, with awesome perks for club leaders.`
                       },
                       2000
                     ]}
@@ -202,8 +224,8 @@ function Page({
                     repeat={Infinity}
                   />
             </Text>
-            <Box sx={{width: ["100%", null, "45%", "45%"], marginX: "auto", paddingY: 3}}>
-              <Photo showAlt height="150px" width="150px" alt = "Assemble, held at Figma's HQ in San Francisco (2022)" src="https://cloud-d1marlfq9-hack-club-bot.vercel.app/0image.png"/>
+            <Box sx={{width: ["100%", null, "45%", "45%"], marginX: "auto", paddingY: [0, null, null, 3]}}>
+              <Photo showAlt height="150px" width="150px" alt = {photos[contentTyping]["alt"]} src={photos[contentTyping]["img"]}/>
             </Box>
             </Box>  
           </Box>
@@ -225,13 +247,13 @@ function Page({
             borderLeft:"1px solid black",
             borderRight:"1px solid black" }}>
 
-          <Heading as="h1" sx={{paddingY: 3}}>Get <span class = "blurple">free stuff</span></Heading>
+          <Heading as="h1" sx={{paddingY: 3}}>Get <span class = "underline blurple">free stuff</span></Heading>
           <Box sx = {{display: "flex", flexDirection: ["column", null, null, "row"], marginBottom: 3, columnGap: 5, rowGap: 3, justifyContent: "flex-end"}}>
           <Text sx = {{width: ["100%", null, null, "50%"], marginRight: [0, 0, 0, 3]}}>
               Dozens of teen-led hardware and software initiatives ('You Ship, We Ship') are run each year, from Tamagotchi clones and portable game consoles to 3D websites. The best part? It's all <b>free</b>, and completely <Link as="a" href="https://github.com/hackclub">open source.</Link>
             <br/> <br/> 
               Ever wanted to <Link as="a" href= "https://hackclub.com/onboard">learn how to design your own PCB</Link>?  How about building a website in exchange for a <Link as="a" href = "https://boba.hackclub.com">boba</Link> or <Link as="a" href ="https://fraps.hackclub.com">frappuccino</Link>? 
-              <br/>Or, have you been thinking about <b>publishing your Congressional App Challenge submission on the App Store</b>, but are worried about the publishing fee? We've <Link as="a" href="https://cider.hackclub.com">got you covered.</Link>
+              <br/>Or, have you been thinking about <b>publishing your Congressional App Challenge submission on the App Store</b>, but are worried about paying the publishing fee? We've <Link as="a" href="https://cider.hackclub.com">got you covered.</Link>
               <br/><br/>
               <b>Go on — build that project you've always wanted to.</b>
             </Text>
@@ -244,17 +266,17 @@ function Page({
             </Box>
           </Box>
 
-        <Heading as="h1" sx={{paddingY: 3, textAlign: "right"}}>Join a <span class = "yellow">community</span> of teen hackers</Heading>
+        <Heading as="h1" sx={{paddingY: 3, textAlign: "right"}}>Join a <span class = "underline yellow">community</span> of teen hackers</Heading>
         <Box sx = {{display: "flex", flexDirection: ["column", null, null, "row"]}}>
             <Box sx = {{width: ["100%", null, null, "50%"], marginTop: [3, 3, 3, 0], paddingBottom: 6, marginBottom: 6,  position: 'relative'}}>
               <Polaroid 
-                image="https://cloud-ggl6f1hfj-hack-club-bot.vercel.app/0image.png" 
-                caption="Hackers at SpaceX (2024)"
-                sxProps={{transform: 'rotate(12deg)', zIndex: 1, position: 'absolute', top: [-4, -3, -3, -5], left: [-2, 160, 340, 20], width: [140, 160, 185, 230]}}/>
+                image="https://cloud-d1marlfq9-hack-club-bot.vercel.app/0image.png" 
+                caption="Assemble (2022)"
+                sxProps={{transform: 'rotate(12deg)', zIndex: 1, position: 'absolute', top: [-4, -3, -3, -5], left: [-2, 160, 340, 10], width: [140, 160, 185, 220]}}/>
               <Polaroid 
-                image="https://cloud-25h1tatrt-hack-club-bot.vercel.app/0260102957-168f5ff5-ca65-44d9-8814-a7baad487f31.png" 
-                caption="The Outernet Cafe (2023)"
-                sxProps={{transform: 'rotate(350deg)', zIndex: 0, position: 'absolute', top: [2, -2, -3, -4], left: [90, 30, 140, 130], width: [170, 220, 250, 300]}}/>
+                image="https://cloud-5nm2f26ov-hack-club-bot.vercel.app/0img_8771.jpg" 
+                caption="Hackers with Linus Tech Tips (2024)"
+                sxProps={{transform: 'rotate(350deg)', zIndex: 0, position: 'absolute', top: [2, -2, -3, -4], left: [90, 30, 140, 180], width: [170, 220, 250, 230]}}/>
             </Box>
             <Text sx = {{width: ["100%", null, null, "50%"], marginLeft: [0, 0, 0, 3], textAlign: "right", paddingTop: [3, 4, 4, 0]}}>
               Hack Clubbers come from all over the world. In 2024, we hosted <Link as="a" href="https://counterspell.hackclub.com">Counterspell</Link>, a game jam that ran simultaneously in 40+ locations worldwide. 
@@ -268,7 +290,7 @@ function Page({
       </Box>
       <Box id="winners" sx={{backgroundColor: palette["cream"], padding: [3, 4, 4, 5]}}>
           <Box sx = {{padding: 4, height: ["100%", null, null, "90vh"]}}>
-            <Heading as="h1" sx={{pb: 4}}>Meet <span class = "pink">past winners</span></Heading>
+            <Heading as="h1" sx={{pb: 4}}>Meet <span class = "underline pink">past winners</span></Heading>
             <Box sx = {{position: "relative"}}>
               <Screen 
                 expand
@@ -290,11 +312,13 @@ function Page({
                       age="16" 
                       state="TX" 
                       description="Alex likes writing code, designing PCBs, and maintaining servers." 
+                      page="https://www.congressionalappchallenge.us/22-TX22/"
                       image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/11705187020782.jpg"/>
                     <UserProfile 
                       name = "Andrea" 
                       age="16" state="CA" 
                       description="Andrea is a high school developer and passionate researcher." 
+                      page="https://www.congressionalappchallenge.us/23-CA38/"
                       image="https://cloud-6aiidi150-hack-club-bot.vercel.app/0image_6966_from_slack.jpg"/>
                   </Box>
                   </Screen>

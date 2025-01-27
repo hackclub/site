@@ -22,13 +22,14 @@ const Screen = ({ backgroundImage, title, sxProps, children, expand }) => {
                         <Box className="circle" sx = {{backgroundColor: "yellow"}}/>
                         <Box className="circle" sx = {{backgroundColor: "green"}}/>
                       </Box>
-                      <Box className = "hidden" sx = {{
+                      <Box sx = {{
                         borderRadius: "10px",
                         border: "1px solid",
                         marginX: "auto",
                         marginY: "auto",
                         paddingX: 2,
-                        height: "80%"
+                        height: "80%",
+                        visibility: ["hidden", "visible"]
                         }}>
                           <Text variant="caption" sx = {{width: "80%", fontSize: "12px"}}>{title}</Text></Box>
                     </Box>
