@@ -42,29 +42,20 @@ const styled = `
 
 .blurple { 
   color: rgb(65, 60, 242);
-  background-repeat:repeat-x;
-  background-size: 16px 4px;
-  background-position:0 95%;
-  background-image:
-      linear-gradient(45deg, transparent 65%,rgb(65, 60, 242) 80%, transparent 90%), linear-gradient(135deg, transparent 5%,rgb(65, 60, 242) 15%, transparent 25%), linear-gradient(135deg, transparent 45%,rgb(65, 60, 242) 55%, transparent 65%), linear-gradient(45deg, transparent 25%,rgb(65, 60, 242) 35%, transparent 50%);
-}
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  }
 
 .yellow {
     color: rgb(250, 203, 45);
-    background-repeat:repeat-x;
-    background-size: 16px 4px;
-    background-position:0 95%;
-    background-image:
-      linear-gradient(45deg, transparent 65%, rgb(250, 203, 45) 80%, transparent 90%), linear-gradient(135deg, transparent 5%, rgb(250, 203, 45) 15%, transparent 25%), linear-gradient(135deg, transparent 45%,rgb(250, 203, 45) 55%, transparent 65%), linear-gradient(45deg, transparent 25%, rgb(250, 203, 45) 35%, transparent 50%);
+    text-decoration: underline;
+    text-decoration-style: wavy;
 }
 
 .pink {
   color: rgb(225, 91, 166);
-  background-repeat:repeat-x;
-  background-size: 16px 4px;
-  background-position:0 95%;
-  background-image:
-      linear-gradient(45deg, transparent 65%,rgb(225, 91, 166) 80%, transparent 90%), linear-gradient(135deg, transparent 5%,rgb(225, 91, 166) 15%, transparent 25%), linear-gradient(135deg, transparent 45%,rgb(225, 91, 166) 55%, transparent 65%), linear-gradient(45deg, transparent 25%,rgb(225, 91, 166) 35%, transparent 50%);
+  text-decoration: underline;
+  text-decoration-style: wavy;
 }
 
 @media only screen and (max-width: 500px) {
@@ -143,10 +134,15 @@ function Page({
               <Heading className="gaegu" variant="subtitle">Hack Club presents the</Heading>
               <Heading as="h1" variant="title" sx={{textShadow: "2px 2px #413cf2, 4px 4px #facb2d, 6px 6px #e15ba6"}}>Congressional App Challenge</Heading>
               <Box sx = {{width: "100%", marginTop: 4, display: 'flex', flexDirection: ['column', null, null, 'row'], rowGap: 3, columnGap: 3}}>
-                <CustomButton text="FREE STICKERS" color={palette['pink']} textColor={palette["white"]} link="#" sxProps = {{width: ["100%", null, null, "50%"], position: 'relative'}}>
+                <CustomButton 
+                  text="FREE STICKERS" 
+                  color={palette['pink']} 
+                  textColor={palette["white"]} 
+                  link="https://forms.hackclub.com/congressional-app-challenge" 
+                  sxProps = {{width: ["100%", null, null, "50%"], position: 'relative'}}>
                   <Image src = "/congressional-app-challenge/notify.svg" sx = {{zIndex: "1"}}/>
                 </CustomButton>
-                <CustomButton text="JOIN HACK CLUB" color={palette['white']} textColor={palette["black"]} link="#" sxProps = {{width: ["100%", null, null, "50%"]}}/>
+                <CustomButton text="JOIN HACK CLUB" color={palette['white']} textColor={palette["black"]} link="https://hackclub.com/slack" sxProps = {{width: ["100%", null, null, "50%"]}}/>
               </Box>
             </Box>
         </Box>
@@ -172,11 +168,11 @@ function Page({
               <br/> <br/>
                 Connect with <b>thousands of other high school programmers</b> in the community and build your winning submission for the 2025 Challenge.
                 <br/> <br/>
-                Need a little more persuasion?
+                <Text sx = {{textDecoration: "underline",textDecorationStyle: "wavy", textUnderlineOffset: "3px"}}>Need a little more persuasion?</Text>
                 <br/>
                 <TypeAnimation
                     sequence={[
-                      `In the past, we've run the world's longest hackathon across the United States — by train.`,
+                      `In the past, we've ran the world's longest hackathon across the United States — by train.`,
                       (element)=>{
                         element.innerHTML = `In the past, we've ran the <a style = "color: #413cf2" href = "https://www.youtube.com/watch?v=2BID8_pGuqA">world's longest hackathon</a> across the United States — by train.`},
                       2000, 
@@ -207,7 +203,7 @@ function Page({
                   />
             </Text>
             <Box sx={{width: ["100%", null, "45%", "45%"], marginX: "auto", paddingY: 3}}>
-              <Photo showAlt height="150px" width="150px" alt = "Assemble, held at Figma's HQ in San Francisco" src="https://cloud-d1marlfq9-hack-club-bot.vercel.app/0image.png"/>
+              <Photo showAlt height="150px" width="150px" alt = "Assemble, held at Figma's HQ in San Francisco (2022)" src="https://cloud-d1marlfq9-hack-club-bot.vercel.app/0image.png"/>
             </Box>
             </Box>  
           </Box>
@@ -230,13 +226,21 @@ function Page({
             borderRight:"1px solid black" }}>
 
           <Heading as="h1" sx={{paddingY: 3}}>Get <span class = "blurple">free stuff</span></Heading>
-          <Box sx = {{display: "flex", flexDirection: ["column", null, null, "row"]}}>
-            <Text sx = {{width: ["100%", null, null, "50%"], marginRight: [0, 0, 0, 3]}}>
+          <Box sx = {{display: "flex", flexDirection: ["column", null, null, "row"], marginBottom: 3, columnGap: 5, rowGap: 3, justifyContent: "flex-end"}}>
+          <Text sx = {{width: ["100%", null, null, "50%"], marginRight: [0, 0, 0, 3]}}>
               Dozens of teen-led hardware and software initiatives ('You Ship, We Ship') are run each year, from Tamagotchi clones and portable game consoles to 3D websites. The best part? It's all <b>free</b>, and completely <Link as="a" href="https://github.com/hackclub">open source.</Link>
             <br/> <br/> 
+              Ever wanted to <Link as="a" href= "https://hackclub.com/onboard">learn how to design your own PCB</Link>?  How about building a website in exchange for a <Link as="a" href = "https://boba.hackclub.com">boba</Link> or <Link as="a" href ="https://fraps.hackclub.com">frappuccino</Link>? 
+              <br/>Or, have you been thinking about <b>publishing your Congressional App Challenge submission on the App Store</b>, but are worried about the publishing fee? We've <Link as="a" href="https://cider.hackclub.com">got you covered.</Link>
+              <br/><br/>
               <b>Go on — build that project you've always wanted to.</b>
             </Text>
-            <Box sx = {{width: ["100%", null, null, "50%"], marginTop: [3, 3, 3, 0]}}>
+            <Box sx={{width: ["100%", "80%", "60%", "40%"], marginX: "auto"}}>
+            <Polaroid 
+              image="https://cloud-k3x2sjgmj-hack-club-bot.vercel.app/0sprig-front.jpeg"
+              caption="Sprig, an open-source game console"
+              sxProps={{width: ["100%", null, "80%"], marginX: "auto"}}
+              />
             </Box>
           </Box>
 
@@ -244,18 +248,18 @@ function Page({
         <Box sx = {{display: "flex", flexDirection: ["column", null, null, "row"]}}>
             <Box sx = {{width: ["100%", null, null, "50%"], marginTop: [3, 3, 3, 0], paddingBottom: 6, marginBottom: 6,  position: 'relative'}}>
               <Polaroid 
-                image="https://cloud-cw5ndizx6-hack-club-bot.vercel.app/0image.png" 
-                caption="Hack Clubbers at SpaceX"
-                sxProps={{transform: 'rotate(12deg)', zIndex: 1, position: 'absolute', top: [-4, -2, -3, -4], left: [4, 160, 300, 40]}}/>
+                image="https://cloud-ggl6f1hfj-hack-club-bot.vercel.app/0image.png" 
+                caption="Hackers at SpaceX (2024)"
+                sxProps={{transform: 'rotate(12deg)', zIndex: 1, position: 'absolute', top: [-4, -3, -3, -5], left: [-2, 160, 340, 20], width: [140, 160, 185, 230]}}/>
               <Polaroid 
-                image="https://static.vecteezy.com/system/resources/thumbnails/004/511/281/small/default-avatar-photo-placeholder-profile-picture-vector.jpg" 
-                caption="sdfjds"
-                sxProps={{transform: 'rotate(350deg)', zIndex: 0, position: 'absolute', top: [-4, -2, -3, -4], left: [4,30, 220, 140]}}/>
+                image="https://cloud-25h1tatrt-hack-club-bot.vercel.app/0260102957-168f5ff5-ca65-44d9-8814-a7baad487f31.png" 
+                caption="The Outernet Cafe (2023)"
+                sxProps={{transform: 'rotate(350deg)', zIndex: 0, position: 'absolute', top: [2, -2, -3, -4], left: [90, 30, 140, 130], width: [170, 220, 250, 300]}}/>
             </Box>
             <Text sx = {{width: ["100%", null, null, "50%"], marginLeft: [0, 0, 0, 3], textAlign: "right", paddingTop: [3, 4, 4, 0]}}>
               Hack Clubbers come from all over the world. In 2024, we hosted <Link as="a" href="https://counterspell.hackclub.com">Counterspell</Link>, a game jam that ran simultaneously in 40+ locations worldwide. 
               
-              This year, we'll be running <Link as="a" href = "https://scrapyard.hackclub.com">Scrapyard</Link>, with a flagship hackathon hosted in Los Angeles - built and organized {/* it pains me to spell it like this */} by a team of teenagers at Hack Club.
+              This year, <b>we'll be running <Link as="a" href = "https://scrapyard.hackclub.com">Scrapyard</Link>, with a flagship hackathon hosted in Los Angeles</b> - just one of many events this year built and organized {/* it pains me to spell it like this */} by a team of teenagers at Hack Club.
               <br/><br/>
               <b>No matter who you are, where you're from, or how experienced (or not!) you are at programming - you're welcome here.</b>
             </Text>
@@ -281,8 +285,17 @@ function Page({
                     justifyContent: "space-around",
                     alignItems: "center"
                   }}>
-                    <UserProfile name = "sdf" age="17" state="vt" description="sdfsdfsd" image="https://static.vecteezy.com/system/resources/thumbnails/004/511/281/small/default-avatar-photo-placeholder-profile-picture-vector.jpg"/>
-                    <UserProfile name = "sdf" age="17" state="vt" description="sdfsdfsd" image="https://static.vecteezy.com/system/resources/thumbnails/004/511/281/small/default-avatar-photo-placeholder-profile-picture-vector.jpg"/>
+                    <UserProfile 
+                      name = "Alex" 
+                      age="16" 
+                      state="TX" 
+                      description="Alex likes writing code, designing PCBs, and maintaining servers." 
+                      image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/11705187020782.jpg"/>
+                    <UserProfile 
+                      name = "Andrea" 
+                      age="16" state="CA" 
+                      description="Andrea is a high school developer and passionate researcher." 
+                      image="https://cloud-6aiidi150-hack-club-bot.vercel.app/0image_6966_from_slack.jpg"/>
                   </Box>
                   </Screen>
 
@@ -322,7 +335,7 @@ function Page({
             backgroundColor: "#fff",
             borderLeft: "1px solid black",
             borderRight: "1px solid black"}}>
-            <Text as="h2" className="gaegu" sx={{textAlign: "center"}}>submissions for the 2025 Congressional App Challenge open</Text>
+            <Text as="h2" className="gaegu" sx={{textAlign: "center"}}>Submissions for the 2025 Congressional App Challenge open</Text>
 
             <Text 
               as="h1" 
@@ -333,8 +346,13 @@ function Page({
                 marginY: 4}}> <Countdown date={Date.parse("2025-05-01")} /></Text>
             <Heading variant="title" sx={{textShadow: "2px 2px #413cf2, 4px 4px #facb2d, 6px 6px #e15ba6", textAlign: 'center'}}>What are you waiting for?</Heading>
             <Box sx = {{marginTop: 4, display: 'flex', flexDirection: ['column', null, null, 'row'], rowGap: 2, columnGap: 2, alignContent: 'space-around', width: "100%"}}>
-                <CustomButton text="FREE STICKERS" color={palette['pink']} textColor={palette["white"]} link="#" sxProps = {{width: ["100%", null, null, "50%"]}}/>
-                <CustomButton text="JOIN HACK CLUB" color={palette['white']} textColor={palette["black"]} link="#" sxProps = {{width: ["100%", null, null, "50%"]}}/>
+                <CustomButton 
+                  text="FREE STICKERS" 
+                  color={palette['pink']} 
+                  textColor={palette["white"]} 
+                  link="https://forms.hackclub.com/congressional-app-challenge" 
+                  sxProps = {{width: ["100%", null, null, "50%"]}}/>
+                <CustomButton text="JOIN HACK CLUB" color={palette['white']} textColor={palette["black"]} link="https://hackclub.com/slack" sxProps = {{width: ["100%", null, null, "50%"]}}/>
               </Box>
           </Box>
         </Box>

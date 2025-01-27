@@ -9,9 +9,9 @@ export default function UserProfile({
 }){
     return (
         <Box sx = {{display: "flex", flexDirection: "column", padding: 2, width: 200}}>
-            <Image src = {image} sx = {{objectFit: "cover", borderRadius: 6}}/>
+            <Image src = {image} sx = {{objectFit: "cover", borderRadius: 6, width: 170, height: 170}}/>
             <Box sx={{display: "flex", flexDirection: "column", width: "100%", textAlign: "left", paddingBottom: 1, marginBottom: 1}}>
-                <Text variant = "subtitle" className="gaegu">{name} ({age}, {state})</Text>
+                <Text variant="subtitle" className="gaegu">{name} ({age}, {state})</Text>
                 <Text variant = "text" className="gaegu">{description}</Text>
             </Box>
         </Box>
