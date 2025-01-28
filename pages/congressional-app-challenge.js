@@ -1,10 +1,4 @@
-import {
-  Box,
-  Link,
-  Heading,
-  Image,
-  Text
-} from 'theme-ui'
+import { Box, Link, Heading, Image, Text } from 'theme-ui'
 
 import Meta from '@hackclub/meta'
 import Countdown from 'react-countdown'
@@ -458,7 +452,12 @@ function Page({ carouselCards }) {
               <Polaroid
                 image="https://cloud-k3x2sjgmj-hack-club-bot.vercel.app/0sprig-front.jpeg"
                 caption="Sprig, an open-source game console"
-                sxProps={{ width: ['100%', null, '80%'], marginX: 'auto', position: "relative" }}/>
+                sxProps={{
+                  width: ['100%', null, '80%'],
+                  marginX: 'auto',
+                  position: 'relative'
+                }}
+              />
             </Box>
           </Box>
 
