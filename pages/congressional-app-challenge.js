@@ -128,6 +128,7 @@ function Page({ carouselCards }) {
           >
             <Image
               src="https://cloud-n807bcpij-hack-club-bot.vercel.app/10318016-8380173-super-matte-5000-uncoated-vinyl-stickers_11.png"
+              alt="A sticker of Orpheus"
               sx={{
                 position: 'absolute',
                 height: '180px',
@@ -139,6 +140,7 @@ function Page({ carouselCards }) {
             />
             <Image
               src="https://cloud-jpt4mntmx-hack-club-bot.vercel.app/0heidi_1.png"
+              alt="A sticker of Heidi"
               sx={{
                 height: '160px',
                 display: ['none', null, 'block', null],
@@ -170,14 +172,17 @@ function Page({ carouselCards }) {
             >
               <Image
                 src="https://assets.hackclub.com/icon-rounded.svg"
+                alt="The Hack Club logo"
                 sx={{ height: 54, px: 1 }}
               />
               <Image
                 src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Plus_symbol.svg"
+                alt="A plus symbol"
                 sx={{ height: 54, px: 1 }}
               />
               <Image
                 src="https://www.congressionalappchallenge.us/wp-content/uploads/2018/08/CAClogo-dome-only-color.png"
+                alt="The Congressional App Challenge logo"
                 sx={{ height: 54, display: 'inline' }}
               />
             </Box>
@@ -215,6 +220,7 @@ function Page({ carouselCards }) {
               >
                 <Image
                   src="/congressional-app-challenge/notify.svg"
+                  alt="An exclamation point"
                   sx={{ zIndex: '1' }}
                 />
               </CustomButton>
@@ -443,6 +449,7 @@ function Page({ carouselCards }) {
               <Polaroid
                 image="https://cloud-k3x2sjgmj-hack-club-bot.vercel.app/0sprig-front.jpeg"
                 caption="Sprig, an open-source game console"
+                alt="Sprig, an open-source game console"
                 sxProps={{
                   width: ['100%', null, '80%'],
                   marginX: 'auto',
@@ -474,6 +481,7 @@ function Page({ carouselCards }) {
               <Polaroid
                 image="https://cloud-d1marlfq9-hack-club-bot.vercel.app/0image.png"
                 caption="Assemble (2022)"
+                alt="Hack Clubbers at the 2022 Assemble hackathon"
                 sxProps={{
                   transform: 'rotate(12deg)',
                   zIndex: 1,
@@ -486,6 +494,7 @@ function Page({ carouselCards }) {
               <Polaroid
                 image="https://cloud-5nm2f26ov-hack-club-bot.vercel.app/0img_8771.jpg"
                 caption="Hackers with Linus Tech Tips (2024)"
+                alt="Hack Clubbers with Linus Tech Tips"
                 sxProps={{
                   transform: 'rotate(350deg)',
                   zIndex: 0,
@@ -605,6 +614,7 @@ function Page({ carouselCards }) {
               </Box>
               <Image
                 src="https://cloud-n807bcpij-hack-club-bot.vercel.app/0terrifiedheidi.png"
+                alt="A sticker of scared Heidi"
                 sx={{
                   height: '250px',
                   display: ['none', null, 'block', null],

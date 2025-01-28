@@ -1,6 +1,6 @@
 import { Box, Text, Image } from 'theme-ui'
 
-export default function Polaroid({ image, caption, sxProps, children }) {
+export default function Polaroid({ image, alt, caption, sxProps, children }) {
   return (
     <Box sx={sxProps}>
       <Box
@@ -14,6 +14,7 @@ export default function Polaroid({ image, caption, sxProps, children }) {
       >
         <Image
           src={image}
+          alt={alt}
           sx={{
             paddingX: [2, null, 3, null],
             paddingTop: [2, null, 3, null],

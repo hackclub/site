@@ -4,6 +4,7 @@ export default function UserProfile({
   image,
   name,
   age,
+  alt,
   state,
   page,
   description
@@ -14,6 +15,7 @@ export default function UserProfile({
     >
       <Image
         src={image}
+        alt={alt}
         sx={{ objectFit: 'cover', borderRadius: 6, width: 170, height: 170 }}
       />
       <Box
