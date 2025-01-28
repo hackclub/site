@@ -182,7 +182,7 @@ function Page({ carouselCards }) {
               />
             </Box>
             <Heading className="gaegu" variant="subtitle">
-              Hack Club presents the
+              Hack Club wants YOU to do the
             </Heading>
             <Heading
               as="h1"
@@ -204,7 +204,7 @@ function Page({ carouselCards }) {
               }}
             >
               <CustomButton
-                text="FREE STICKERS"
+                text="GET FREE STICKERS"
                 color={palette['pink']}
                 textColor={palette['white']}
                 link="https://forms.hackclub.com/congressional-app-challenge"
@@ -268,19 +268,10 @@ function Page({ carouselCards }) {
               }}
             >
               <Text variant="subtitle" sx={{ width: ['100%'] }}>
-                This year, the{' '}
-                <Link as="a" href="https://congressionalappchallenge.us">
-                  Congressional App Challenge
-                </Link>{' '}
-                is partnering with Hack Club to empower teenage hackers
-                nationwide.
+                Each year, thousands of high schoolers across the United States participate in the Congressional App Challenge, and this year, <span class = "underline pink">Hack Club</span> is here to help.
                 <br /> <br />
-                Every day, Hack Clubbers worldwide{' '}
-                <b>gather to code together</b> online and in-person at
-                hackathons, clubs and more. Connect with{' '}
-                <b>thousands of other high school programmers</b> in the
-                community and build your winning submission for the 2025
-                Challenge.
+                Every day, Hack Clubbers worldwide work together to <b>build projects and win prizes</b> in awesome hackathons and events. 
+                <br/>Join the <Link as="a" href="https://hackclub.com/slack">Hack Club Slack</Link> to chat with and <b>get support on your Congressional App Challenge submission</b> from tens of thousands of other high school programmers.
                 <br /> <br />
                 <Text
                   sx={{
@@ -523,8 +514,8 @@ function Page({ carouselCards }) {
                 we'll be running{' '}
                 <Link as="a" href="https://scrapyard.hackclub.com">
                   Scrapyard
-                </Link>
-                , with a flagship hackathon hosted in Los Angeles
+                </Link>{' '}
+                worldwide, with a flagship hackathon hosted on March 1st-2nd 
               </b>{' '}
               - just one of many events this year built and organized{' '}
               {/* it pains me to spell it like this */} by a team of teenagers
@@ -678,7 +669,7 @@ function Page({ carouselCards }) {
             }}
           >
             <CustomButton
-              text="FREE STICKERS"
+              text="GET FREE STICKERS"
               color={palette['pink']}
               textColor={palette['white']}
               link="https://forms.hackclub.com/congressional-app-challenge"
