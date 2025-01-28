@@ -1,8 +1,8 @@
 import { Box, Text, Image, Link } from 'theme-ui'
 
-const Screen = ({ backgroundImage, title, sxProps, children, expand }) => {
+const Screen = ({ backgroundImage, title, sxProps, children, expand, expand2}) => {
   let color = backgroundImage ? '' : '#fff'
-  let expan = expand ? ['100%', null, null, '58vh'] : '58vh'
+  let expan = expand2 ? ['100%', null, null, '68vh'] : (expand ? ['100%', null, null, '58vh'] : '58vh') // jank
   let props = Object.assign(
     {},
     {

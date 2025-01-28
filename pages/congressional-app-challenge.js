@@ -458,8 +458,7 @@ function Page({ carouselCards }) {
               <Polaroid
                 image="https://cloud-k3x2sjgmj-hack-club-bot.vercel.app/0sprig-front.jpeg"
                 caption="Sprig, an open-source game console"
-                sxProps={{ width: ['100%', null, '80%'], marginX: 'auto' }}
-              />
+                sxProps={{ width: ['100%', null, '80%'], marginX: 'auto', position: "relative" }}/>
             </Box>
           </Box>
 
@@ -545,13 +544,13 @@ function Page({ carouselCards }) {
         id="winners"
         sx={{ backgroundColor: palette['cream'], padding: [3, 4, 4, 5] }}
       >
-        <Box sx={{ padding: 4, height: ['100%', null, null, '90vh'] }}>
+        <Box sx={{ padding: 4, height: ['100%', null, null, '100vh'] }}>
           <Heading as="h1" sx={{ pb: 4 }}>
             Meet <span class="underline pink">past winners</span>
           </Heading>
           <Box sx={{ position: 'relative' }}>
             <Screen
-              expand
+              expand2
               title="Hack Club - Challenge Winners v2 FINAL THIS ONE"
               sxProps={{
                 position: ['relative', null, null, 'absolute'],
@@ -572,7 +571,7 @@ function Page({ carouselCards }) {
                   name="Alex"
                   age="16"
                   state="TX"
-                  description="Alex likes writing code, designing PCBs, and maintaining servers."
+                  description="Alex likes writing code, designing PCBs, and maintaining servers and networks."
                   page="https://www.congressionalappchallenge.us/22-TX22/"
                   image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/11705187020782.jpg"
                 />
@@ -580,7 +579,7 @@ function Page({ carouselCards }) {
                   name="Andrea"
                   age="16"
                   state="CA"
-                  description="Andrea is a high school developer and passionate researcher."
+                  description="Andrea is a passionate high school researcher and student developer of tools for biological research."
                   page="https://www.congressionalappchallenge.us/23-CA38/"
                   image="https://cloud-6aiidi150-hack-club-bot.vercel.app/0image_6966_from_slack.jpg"
                 />
@@ -588,7 +587,7 @@ function Page({ carouselCards }) {
             </Screen>
 
             <Screen
-              expand
+              expand2
               title="Hack Club - Challenge Winners (draft)"
               sxProps={{
                 position: ['relative', null, null, 'absolute'],
@@ -606,11 +605,12 @@ function Page({ carouselCards }) {
                 }}
               >
                 <UserProfile
-                  name="sdf"
-                  age="17"
-                  state="vt"
-                  description="sdfsdfsd"
-                  image="https://static.vecteezy.com/system/resources/thumbnails/004/511/281/small/default-avatar-photo-placeholder-profile-picture-vector.jpg"
+                  name="Sahiti"
+                  age="18"
+                  state="GA"
+                  description="Sahiti is a developer in love with computer science and entrepreneurship. She aims to make an impact by spreading opportunities."
+                  page="https://www.congressionalappchallenge.us/23-GA06/"
+                  image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/31659043447794.jpg"
                 />
               </Box>
               <Image

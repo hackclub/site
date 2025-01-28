@@ -1,6 +1,6 @@
 import { Box, Text, Image } from 'theme-ui'
 
-export default function Polaroid({ image, caption, sxProps }) {
+export default function Polaroid({ image, caption, sxProps, children }) {
   return (
     <Box sx={sxProps}>
       <Box
@@ -28,6 +28,7 @@ export default function Polaroid({ image, caption, sxProps }) {
           {caption}
         </Box>
       </Box>
+      {children}
     </Box>
   )
 }
