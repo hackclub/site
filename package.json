@@ -43,7 +43,7 @@
     "country-list": "^2.3.0",
     "country-list-js": "^3.1.8",
     "cursor-effects": "^1.0.15",
-    "date-fns": "^2.30.0",
+    "date-fns": "^4.1.0",
     "devtools-detect": "^4.0.1",
     "form-data": "^4.0.0",
     "fuzzysort": "^2.0.4",
