@@ -417,7 +417,7 @@ const Philanthropy = ({ posts = [] }) => {
                   my={3}
                   sx={{ width: ['100%', 'auto'] }}
                   as="a"
-                  href="https://hcb.hackclub.com/donations/start/hq"
+                  href="https://hcb.hackclub.com/donations/start/hq?utm_source=site&utm_medium=internal&utm_campaign=philanthropy_page&utm_content=hero_button"
                 >
                   Donate
                   <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
@@ -605,7 +605,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Box mt={[2, 3]}>
                   <Text
                     as="a"
-                    href="https://hcb.hackclub.com/donations/start/hq"
+                    href="https://hcb.hackclub.com/donations/start/hq?utm_source=site&utm_medium=internal&utm_campaign=philanthropy_page&utm_content=body_link"
                     target="_blank"
                     sx={{
                       color: '#ec3750',
