@@ -42,6 +42,7 @@ import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import HighSeas from '../components/index/cards/highseas'
 import Counterspell from '../components/index/cards/counterspell'
+import CountUp from 'react-countup'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -245,7 +246,22 @@ function Page({
                   width: '100%'
                 }}
               >
-                We are <Comma>{slackData.total_members_count}</Comma>{' '}
+                We are{' '}
+                {slackData.total_members_count && (
+                    <CountUp
+                    start={0}
+                    end={slackData.total_members_count}
+                    delay={0}
+                    duration={2.5}
+                    separator=","
+                    scrollSpyOnce={true}
+      enableScrollSpy={true}
+                  >
+                    {({countUpRef}) => (
+                      <span ref={countUpRef} className="cursor-pointer"></span>
+                    )}
+                  </CountUp>
+                  )}
                 <Text
                   sx={{
                     color: 'transparent',
@@ -1280,9 +1296,9 @@ export async function getStaticProps() {
 
   let events = []
   try {
-    await fetch(
-      'https://events.hackclub.com/api/events/upcoming/'
-    ).then(res => res.json())
+    await fetch('https://events.hackclub.com/api/events/upcoming/').then(res =>
+      res.json()
+    )
   } catch (error) {
     console.error('Error fetching events:', error)
   }
