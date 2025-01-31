@@ -51,11 +51,6 @@ const nextConfig = {
         destination: 'https://sprig.hackclub.com',
         permanent: true
       },
-      {
-        source: '/slack/',
-        destination: 'https://highseas.hackclub.com',
-        permanent: false
-      },
       { source: '/start/', destination: '/', permanent: false },
       { source: '/repl/', destination: '/', permanent: true },
       { source: '/c9/', destination: '/deprecated/cloud9/', permanent: true },
