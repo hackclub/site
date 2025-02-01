@@ -203,12 +203,6 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          <Announcement
-            copy="Build, Battle, Booty. Repeat."
-            caption="Get free Raspberry Pis, Framework Laptops, iPads, and more. Join High Seas! Oct 30 - Jan 31. highseas.hackclub.com"
-            href="https://highseas.hackclub.com/"
-            imgSrc="https://cloud-jul29z0v7-hack-club-bot.vercel.app/0image.png"
-          />
           <Box
             sx={{
               width: '90vw',
