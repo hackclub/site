@@ -92,7 +92,7 @@ export default async function handler(req, res) {
   }
 
   const slackPromise = postData(
-    'https://toriel.hackclub.com/slack-invite',
+    'https://qg8sogo0c8gsg8wk4k0oswgw.a.selfhosted.hackclub.com/',
     {
       email: !isAdult ? data.email : null,
       ip: req.headers['x-forwarded-for'] || req.socket.remoteAddress,
