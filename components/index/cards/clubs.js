@@ -60,7 +60,7 @@ export default function Clubs() {
           width: 'fit-content'
         }}
       >
-        A Network of 400+ Coding Clubs
+        A Network of 850+ Coding Clubs
       </Text>
       <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Box>
