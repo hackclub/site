@@ -12,8 +12,9 @@ import Polaroid from '../components/congressional-app-challenge/polaroid'
 import UserProfile from '../components/congressional-app-challenge/userProfile'
 import ForceTheme from '../components/force-theme'
 import Carousel from '../components/index/carousel'
-import { TypeAnimation } from 'react-type-animation'
 import Photo from '../components/photo'
+import { TypeAnimation } from 'react-type-animation'
+
 
 const styled = `
 @import url("https://fonts.googleapis.com/css2?family=Gaegu&display=swap");
@@ -122,7 +123,7 @@ function Page({ carouselCards }) {
             title="Hack Club - Congressional App Challenge"
             backgroundImage="https://cloud-qqz8uj8y5-hack-club-bot.vercel.app/027544281748_b641f43479_o-1.jpg"
             sxProps={{
-              height: ['40vh', null, null, '100%'],
+              height: ['20vh', null, null, '100%'],
               position: 'relative'
             }}
           >
@@ -234,6 +235,15 @@ function Page({ carouselCards }) {
             </Box>
           </Box>
         </Box>
+        <Box sx= {{width: "100vw", display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <a href = "#start">
+          <Image
+                src="/congressional-app-challenge/chevron.svg"
+                alt="A chevron"
+                sx={{ height: 40, marginTop: 60}}
+              />
+        </a>
+        </Box>
       </Box>
 
       <Box
@@ -255,13 +265,14 @@ function Page({ carouselCards }) {
           <Heading
             as="h1"
             variant="title"
+            id="start"
             sx={{
               paddingY: 3,
               textAlign: 'left',
               textShadow: '2px 2px #413cf2, 4px 4px #facb2d, 6px 6px #e15ba6'
             }}
           >
-            What will you create this year?
+            A nonprofit by and for teenagers
           </Heading>
           <Box sx={{}}>
             <Box
@@ -274,10 +285,20 @@ function Page({ carouselCards }) {
               }}
             >
               <Text variant="subtitle" sx={{ width: ['100%'] }}>
-                Each year, thousands of high schoolers across the United States participate in the Congressional App Challenge, and this year, <span class = "underline pink">Hack Club</span> is here to help.
-                <br /> <br />
-                Every day, Hack Clubbers worldwide work together to <b>build projects and win prizes</b> in awesome hackathons and events. 
-                <br/>Join the <Link as="a" href="https://hackclub.com/slack">Hack Club Slack</Link> to chat with and <b>get support on your Congressional App Challenge submission</b> from tens of thousands of other high school programmers.
+                
+                Hack Club has <Link as="a" href="https://hackclub.com/arcade">given away</Link> $100,000s of Framework Laptops, 3D printers, and Raspberry Pis in the past year.
+
+                <br /><br />
+
+                We host dozens of really cool, unique hackathons on <Link as="a" href="https://zephyr.hackclub.com">trains</Link> and in <Link as="a" href="https://outernet.hackclub.com">forests</Link> for free.
+
+                <br /><br />
+
+                Hack Clubbers provide <Link as="a" href="https://hackclub.app">free website and Discord bot hosting</Link> with SSH access and send tens of thousands of messages every day helping each other on their projects in the Hack Club Slack.
+                
+                <br /><br />
+                
+                Join us as you work on your Congressional App Challenge project. 
                 <br /> <br />
                 <Text
                   sx={{
@@ -543,19 +564,18 @@ function Page({ carouselCards }) {
         id="winners"
         sx={{ backgroundColor: palette['cream'], padding: [3, 4, 4, 5] }}
       >
-        <Box sx={{ padding: 4, height: ['100%', null, null, '100vh'] }}>
+        <Box sx={{ padding: 4, height: ['100%', null, null, '135vh'] }}>
           <Heading as="h1" sx={{ pb: 4 }}>
-            Meet <span class="underline pink">past winners</span>
+            Meet <span class="underline pink">past winners</span>...
           </Heading>
-          <Box sx={{ position: 'relative' }}>
+          <Box sx={{ position: 'relative', display: 'flex', flexDirection: 'column', rowGap: 2 }}>
             <Screen
               expand2
-              title="Hack Club - Challenge Winners v2 FINAL THIS ONE"
+              title="Hack Club - Challenge Winners FINAL"
               sxProps={{
                 position: ['relative', null, null, 'absolute'],
-                top: [0, 0, 0, 40],
-                marginBottom: [2, 2, 2, 0],
-                zIndex: 1
+                top: [0, 0, 0, 0],
+                zIndex: 2
               }}
             >
               <Box
@@ -563,7 +583,8 @@ function Page({ carouselCards }) {
                   display: 'flex',
                   flexDirection: ['column', 'row', 'row', 'row'],
                   justifyContent: 'space-around',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  zIndex: 2
                 }}
               >
                 <UserProfile
@@ -587,12 +608,48 @@ function Page({ carouselCards }) {
 
             <Screen
               expand2
+              title="Hack Club - Challenge Winners FINAL THIS ONE (2)"
+              sxProps={{
+                position: ['relative', null, null, 'absolute'],
+                left: [0, 0, 0, 80],
+                top: [0, 0, 0, 400],
+                zIndex: 4
+              }}
+            >
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: ['column', 'row', 'row', 'row'],
+                  alignItems: 'center',
+                  justifyContent: 'space-around'
+                }}
+              > 
+              <UserProfile
+                  name="Celeste"
+                  age="16"
+                  state="GA"
+                  description="Celeste is a computer scientist, roboticist, and singer. She's passionate about the intersection of STEM and the arts, as well as tech advocacy."
+                  page="https://www.court-connect.net/"
+                  image="https://cloud-6a1c03tuu-hack-club-bot.vercel.app/0img_1754.jpg"
+                />
+              <UserProfile
+                  name="Clay"
+                  age="16"
+                  state="VT"
+                  description="Clay is a student developer and high schooler from Vermont, as well as a member of Green Mountain Robotics and Robohawks."
+                  page="https://www.congressionalappchallenge.us/23-VT00/"
+                  image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/21704591152368.jpg"
+                />
+          </Box>
+        </Screen>
+        <Screen
+              expand2
               title="Hack Club - Challenge Winners (draft)"
               sxProps={{
                 position: ['relative', null, null, 'absolute'],
                 right: [0, 0, 0, 10],
-                top: [0, 0, 0, -10],
-                zIndex: 0
+                top: [0, 0, 0, -45],
+                zIndex: 1
               }}
             >
               <Box
@@ -611,19 +668,41 @@ function Page({ carouselCards }) {
                   page="https://www.congressionalappchallenge.us/23-GA06/"
                   image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/31659043447794.jpg"
                 />
+                    <Box
+                  sx={{ display: ['none', null, 'flex', 'none'],  padding: 2, width: 200 }}
+                  />
+
               </Box>
+              <Box>
+                <Box sx ={{
+                    left: [null, null, 10, 245],
+                    position: "absolute",
+                    textAlign: 'right',
+                    bottom: [0, null, 20, -220],
+                    display: ['none', null, null, 'block'],
+                }}>
+                    <Heading as="h1" sx={{marginBottom: 3}}>
+                      ...on the <span class = "underline blurple">Hack Club Slack
+                      </span>
+                  </Heading>
+                  <Text variant="subtitle">Join the <a href = "https://hackclub.com/slack">Slack</a> and build your winning app submission today.</Text>
+                </Box>
+
               <Image
                 src="https://cloud-n807bcpij-hack-club-bot.vercel.app/0terrifiedheidi.png"
                 alt="A sticker of scared Heidi"
                 sx={{
                   height: '250px',
-                  display: ['none', null, 'block', null],
                   position: 'absolute',
-                  right: -4,
-                  bottom: -60
+                  display: ['none', null, 'block', 'block'],
+                  right: [0, null, 80, -4],
+                  bottom: [0, null, 15, -480],
+                  zIndex: 4
                 }}
               />
+              </Box>
             </Screen>
+
           </Box>
         </Box>
       </Box>
