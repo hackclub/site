@@ -123,7 +123,7 @@ function Page({ carouselCards }) {
             title="Hack Club - Congressional App Challenge"
             backgroundImage="https://cloud-qqz8uj8y5-hack-club-bot.vercel.app/027544281748_b641f43479_o-1.jpg"
             sxProps={{
-              height: ['40vh', null, null, '100%'],
+              height: ['20vh', null, null, '100%'],
               position: 'relative'
             }}
           >
@@ -234,6 +234,15 @@ function Page({ carouselCards }) {
               />
             </Box>
           </Box>
+        </Box>
+        <Box sx= {{width: "100vw", display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <a href = "#">
+          <Image
+                src="/congressional-app-challenge/chevron.svg"
+                alt="A chevron"
+                sx={{ height: 40, marginTop: 60}}
+              />
+        </a>
         </Box>
       </Box>
 
@@ -544,7 +553,7 @@ function Page({ carouselCards }) {
         id="winners"
         sx={{ backgroundColor: palette['cream'], padding: [3, 4, 4, 5] }}
       >
-        <Box sx={{ padding: 4, height: ['100%', null, null, '170vh'] }}>
+        <Box sx={{ padding: 4, height: ['100%', null, null, '130vh'] }}>
           <Heading as="h1" sx={{ pb: 4 }}>
             Meet <span class="underline pink">past winners</span>...
           </Heading>
@@ -613,12 +622,12 @@ function Page({ carouselCards }) {
                   image="https://cloud-6a1c03tuu-hack-club-bot.vercel.app/0img_1754.jpg"
                 />
               <UserProfile
-                  name="Sahiti"
-                  age="18"
-                  state="GA"
-                  description="Sahiti is a developer in love with computer science and entrepreneurship. She aims to make an impact by spreading opportunities."
-                  page="https://www.congressionalappchallenge.us/23-GA06/"
-                  image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/31659043447794.jpg"
+                  name="Clay"
+                  age="16"
+                  state="VT"
+                  description="Clay is a student developer and high schooler from Vermont, as well as a member of Green Mountain Robotics and Robohawks."
+                  page="https://www.congressionalappchallenge.us/23-VT00/"
+                  image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/21704591152368.jpg"
                 />
           </Box>
         </Screen>
