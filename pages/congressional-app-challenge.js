@@ -236,7 +236,7 @@ function Page({ carouselCards }) {
           </Box>
         </Box>
         <Box sx= {{width: "100vw", display: "flex", justifyContent: "center", alignItems: "center"}}>
-        <a href = "#">
+        <a href = "#start">
           <Image
                 src="/congressional-app-challenge/chevron.svg"
                 alt="A chevron"
@@ -265,13 +265,14 @@ function Page({ carouselCards }) {
           <Heading
             as="h1"
             variant="title"
+            id="start"
             sx={{
               paddingY: 3,
               textAlign: 'left',
               textShadow: '2px 2px #413cf2, 4px 4px #facb2d, 6px 6px #e15ba6'
             }}
           >
-            What will you create this year?
+            A nonprofit by and for teenagers
           </Heading>
           <Box sx={{}}>
             <Box
@@ -284,10 +285,20 @@ function Page({ carouselCards }) {
               }}
             >
               <Text variant="subtitle" sx={{ width: ['100%'] }}>
-                Each year, thousands of high schoolers across the United States participate in the Congressional App Challenge, and this year, <span class = "underline pink">Hack Club</span> is here to help.
-                <br /> <br />
-                Every day, Hack Clubbers worldwide work together to <b>build projects and win prizes</b> in awesome hackathons and events. 
-                <br/>Join the <Link as="a" href="https://hackclub.com/slack">Hack Club Slack</Link> to chat with and <b>get support on your Congressional App Challenge submission</b> from tens of thousands of other high school programmers.
+                
+                Hack Club has <Link as="a" href="https://hackclub.com/arcade">given away</Link> $100,000s of Framework Laptops, 3D printers, and Raspberry Pis in the past year.
+
+                <br /><br />
+
+                We host dozens of really cool, unique hackathons on <Link as="a" href="https://zephyr.hackclub.com">trains</Link> and in <Link as="a" href="https://outernet.hackclub.com">forests</Link> for free.
+
+                <br /><br />
+
+                Hack Clubbers provide <Link as="a" href="https://hackclub.app">free website and Discord bot hosting</Link> with SSH access and send tens of thousands of messages every day helping each other on their projects in the Hack Club Slack.
+                
+                <br /><br />
+                
+                Join us as you work on your Congressional App Challenge project. 
                 <br /> <br />
                 <Text
                   sx={{
@@ -553,7 +564,7 @@ function Page({ carouselCards }) {
         id="winners"
         sx={{ backgroundColor: palette['cream'], padding: [3, 4, 4, 5] }}
       >
-        <Box sx={{ padding: 4, height: ['100%', null, null, '130vh'] }}>
+        <Box sx={{ padding: 4, height: ['100%', null, null, '135vh'] }}>
           <Heading as="h1" sx={{ pb: 4 }}>
             Meet <span class="underline pink">past winners</span>...
           </Heading>
