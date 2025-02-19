@@ -6,6 +6,7 @@ import { useState } from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
+import Announcement from '../components/announcement'
 import Screen from '../components/congressional-app-challenge/screen'
 import CustomButton from '../components/congressional-app-challenge/customButton'
 import Polaroid from '../components/congressional-app-challenge/polaroid'
@@ -164,11 +165,17 @@ function Page({ carouselCards }) {
               justifyContent: 'flex-end'
             }}
           >
+          <Announcement
+          copy="Build stupid s#!t. Get stupid prizes."
+          caption="Join Scrapyard, a hackathon running in 60+ cities worldwide."
+          href="https://scrapyard.hackclub.com/"
+          imgSrc="https://cloud-a1rsaev4v-hack-club-bot.vercel.app/0favicon.png"
+          />
             <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'row',
-                alignContent: 'space-between'
+                alignContent: 'space-between',
               }}
             >
               <Image
@@ -235,12 +242,12 @@ function Page({ carouselCards }) {
             </Box>
           </Box>
         </Box>
-        <Box sx= {{width: "100vw", display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <Box sx= {{width: "100vw", display: "flex", flexGrow: 1, height: "100%", justifyContent: "center", alignItems: "center"}}>
         <a href = "#start">
           <Image
                 src="/congressional-app-challenge/chevron.svg"
                 alt="A chevron"
-                sx={{ height: 40, marginTop: 60}}
+                sx={{ height: 40, marginTop: 40, display: ["none", null, null, "inline"]}}
               />
         </a>
         </Box>
@@ -287,19 +294,13 @@ function Page({ carouselCards }) {
               <Text variant="subtitle" sx={{ width: ['100%'] }}>
                 
                 Hack Club has <Link as="a" href="https://hackclub.com/arcade">given away</Link> $100,000s of Framework Laptops, 3D printers, and Raspberry Pis in the past year.
-
-                <br /><br />
-
+                <br />
                 We host dozens of really cool, unique hackathons on <Link as="a" href="https://zephyr.hackclub.com">trains</Link> and in <Link as="a" href="https://outernet.hackclub.com">forests</Link> for free.
 
                 <br /><br />
 
                 Hack Clubbers provide <Link as="a" href="https://hackclub.app">free website and Discord bot hosting</Link> with SSH access and send tens of thousands of messages every day helping each other on their projects in the Hack Club Slack.
-                
-                <br /><br />
-                
-                Join us as you work on your Congressional App Challenge project. 
-                <br /> <br />
+                <br/><br/>
                 <Text
                   sx={{
                     textDecoration: 'underline',
@@ -370,7 +371,7 @@ function Page({ carouselCards }) {
               </Text>
               <Box
                 sx={{
-                  width: ['100%', null, '45%', '45%'],
+                  width: ['100%', null, '35%', '35%'],
                   marginX: 'auto',
                   paddingY: [0, null, null, 3]
                 }}
@@ -383,6 +384,45 @@ function Page({ carouselCards }) {
                   src={photos[contentTyping]['img']}
                 />
               </Box>
+            </Box>
+
+            <Heading
+            as="h1"
+            variant="title"
+            id="start"
+            sx={{
+              paddingY: 3,
+              textAlign: "right",
+              textShadow: '2px 2px #413cf2, 4px 4px #facb2d, 6px 6px #e15ba6'
+            }}
+          >
+            The Congressional App Challenge
+          </Heading> 
+            <Box sx = {{textAlign: "right", display: "flex", flexDirection: ["column", null, null, "row"], rowGap: 3, columnGap: 5}}>
+          <Box
+                sx={{
+                  width: ['100%', null, '35%', '35%'],
+                  paddingY: [0, null, null, 3],
+                  marginX: "auto"
+                }}
+              >
+                <Photo
+                  showAlt
+                  height="150px"
+                  width="150px"
+                  alt="The Congressional App Challenge"
+                  src="https://cloud-9e2cjx37b-hack-club-bot.vercel.app/0laptop.png"
+                />
+            </Box>
+            <Text variant="subtitle" sx={{width: ["100%"]}}>
+            The <Link as="a" href = "https://congressionalappchallenge.us">Congressional App Challenge</Link> (CAC) is a nationwide coding competition for middle and high school students in the United States.
+            <br/><br/>
+            Winners from each congressional district are invited to Capitol Hill in Washington, D.C., for the annual <Link as="a" href="https://www.congressionalappchallenge.us/students/houseofcode/">#HouseOfCode</Link> event, where they showcase their apps to lawmakers and the tech community.
+            <br/><br/>
+            The competition is open to students of all skill levels and encourages creativity and innovation from participants.
+            <br/><br/>
+            Join us as you work on your Congressional App Challenge project. 
+            </Text>
             </Box>
           </Box>
         </Box>
