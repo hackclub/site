@@ -590,7 +590,7 @@ function Page({
                   <Text as="p" variant="subtitle">
                     <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
                     Meet other Hack&nbsp;Clubbers in your community to build
-                    together at one of the 400+{' '}
+                    together at one of the 850+{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
                       Hack&nbsp;Clubs
                     </Link>{' '}
