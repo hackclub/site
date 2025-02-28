@@ -10,7 +10,7 @@ const Screen = ({
 }) => {
   let color = backgroundImage ? '' : '#fff'
   let expan = expand2
-    ? ['100%', null, null, '68vh']
+    ? ['100%', null, null, '58vh']
     : expand
       ? ['100%', null, null, '58vh']
       : '58vh' // jank
@@ -83,7 +83,7 @@ const Screen = ({
           padding: 3,
           height: expan,
           backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover'
+          backgroundSize: 'cover',
         }}
       >
         {children}
