@@ -1,5 +1,5 @@
-// @ts-check
 import teamMembers from '../../public/team.json'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
 interface TeamMember {
   name: string
@@ -56,6 +56,9 @@ export async function fetchTeam() {
   return { current, acknowledged }
 }
 
-export default async function handler(_req, res) {
-  res.status(200).json(fetchTeam())
+export default async function handler(
+  _req: NextApiRequest,
+  res: NextApiResponse
+) {
+  res.status(200).json(await fetchTeam())
 }

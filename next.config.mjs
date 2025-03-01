@@ -5,7 +5,7 @@ const nextConfig = {
     ignoreDuringBuilds: true
   },
   trailingSlash: true,
-  pageExtensions: ['js', 'jsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   images: {
     domains: [
       'hackclub.com',
@@ -28,7 +28,6 @@ const nextConfig = {
     return config
   },
   async redirects() {
-
     return [
       {
         source: '/bank/:path*',
@@ -206,7 +205,7 @@ const nextConfig = {
         source: '/github',
         destination: 'https://github.com/hackclub',
         permanent: true
-      },
+      }
     ]
   },
   async rewrites() {
