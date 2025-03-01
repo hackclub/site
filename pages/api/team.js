@@ -1,6 +1,6 @@
 import teamMembers from '../../public/team.json'
 
-export async function fetchTeam() {
+export default async function fetchTeam(_req, res) {
   const current = []
   const acknowledged = []
 
@@ -23,8 +23,7 @@ export async function fetchTeam() {
 
       if (process.env.SLACK_API_TOKEN) {
         const slackData = await fetch(
-          'https://hackclub.slack.com/api/users.profile.get?user=' +
-            member['Slack ID'],
+          `https://hackclub.slack.com/api/users.profile.get?user=${member['Slack ID']}`,
           {
             method: 'POST',
             headers: {
@@ -43,7 +42,7 @@ export async function fetchTeam() {
         }
       }
 
-      if (member['Acknowledged']) {
+      if (member.Acknowledged) {
         acknowledged.push(currentmember)
       } else {
         current.push(currentmember)
@@ -51,5 +50,5 @@ export async function fetchTeam() {
     }
   }
 
-  return { current, acknowledged }
+  res.status(200).json({ current, acknowledged })
 }
