@@ -5,12 +5,12 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Bio from '../components/bio'
 import ForceTheme from '../components/force-theme'
-import { fetchTeam } from './api/team.ts'
+import { fetchTeam } from './api/team'
 
-const CommunityTeamBox = ({ title, children, backgroundColor }) => {
+const CommunityTeamBox = ({ title, children }) => {
   return (
     <Box
-      bg={backgroundColor}
+      bg="rgb(247 225 255)"
       sx={{
         borderRadius: 'default',
         boxShadow: 'default',
@@ -44,7 +44,8 @@ export default function Team({ team }) {
     <>
       <Box as="main" key="main">
         <ForceTheme theme="light" />
-        <Nav light />
+        {/* @ts-expect-error -- TODO: fix this */}
+        <Nav />
         <Meta
           as={Head}
           title="Team"
@@ -243,11 +244,7 @@ export default function Team({ team }) {
                 Community Team
               </Text>
               <Grid columns={[1, null, 2]} gap={3}>
-                <CommunityTeamBox
-                  title="Moderation"
-                  backgroundColor={'rgb(247 225 255)'}
-                  isOpen
-                >
+                <CommunityTeamBox title="Moderation">
                   <Grid gap={2} m={10}>
                     {team.current
                       ?.filter(member => member.department === 'Moderation')
@@ -265,11 +262,7 @@ export default function Team({ team }) {
                       ))}
                   </Grid>
                 </CommunityTeamBox>
-                <CommunityTeamBox
-                  title="Virtual Events"
-                  backgroundColor={'rgb(247 225 255)'}
-                  isOpen
-                >
+                <CommunityTeamBox title="Virtual Events">
                   <Grid gap={2} m={10}>
                     {team.current
                       ?.filter(member => member.department === 'Events')
@@ -287,11 +280,7 @@ export default function Team({ team }) {
                       ))}
                   </Grid>
                 </CommunityTeamBox>
-                <CommunityTeamBox
-                  title="Newspaper"
-                  backgroundColor={'rgb(247 225 255)'}
-                  isOpen
-                >
+                <CommunityTeamBox title="Newspaper">
                   <Grid gap={2} m={10}>
                     {team.current
                       ?.filter(member => member.department === 'Newspaper')
@@ -309,11 +298,7 @@ export default function Team({ team }) {
                       ))}
                   </Grid>
                 </CommunityTeamBox>
-                <CommunityTeamBox
-                  title="Welcomers"
-                  backgroundColor={'rgb(247 225 255)'}
-                  isOpen
-                >
+                <CommunityTeamBox title="Welcomers">
                   <Grid gap={2} m={10}>
                     {team.current
                       ?.filter(member => member.department === 'Welcoming')
