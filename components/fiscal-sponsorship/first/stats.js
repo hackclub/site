@@ -43,9 +43,6 @@ function formatMoney(amount) {
 }
 
 const Stats = ({ stats }) => {
-  if (stats.transactions_volume === undefined) {
-    return null
-  }
   const [balance, setBalance] = useState(0) // A formatted balance string, split by decimal
 
   useEffect(() => {
@@ -67,6 +64,11 @@ const Stats = ({ stats }) => {
 
     return () => observer.disconnect()
   }, [stats.transactions_volume])
+
+  if (stats.transactions_volume === undefined) {
+    return null
+  }
+
   return (
     <Box id="parent">
       <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
