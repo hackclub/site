@@ -1,17 +1,30 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Box, Text } from 'theme-ui'
 
-const CollapsableBox = ({ title, children, backroundColor }) => {
-  const [isOpen, setIsOpen] = useState(false)
+// Not used atm, but keeping around in case we want to add back in
+const CollapsableBox = ({
+  title,
+  children,
+  backgroundColor,
+  isOpen: isOpenProp
+}) => {
+  const [isOpen, setIsOpen] = useState(isOpenProp || false)
+  const [height, setHeight] = useState(0)
   const contentRef = useRef(null)
 
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(isOpen ? contentRef.current.scrollHeight : 0)
+    }
+  }, [isOpen])
+
   const toggleOpen = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(prev => !prev)
   }
 
   return (
     <Box
-      bg={backroundColor}
+      bg={backgroundColor}
       sx={{
         borderRadius: 'default',
         boxShadow: 'default',
@@ -21,6 +34,7 @@ const CollapsableBox = ({ title, children, backroundColor }) => {
     >
       <div
         onClick={toggleOpen}
+        onKeyDown={event => event.key === 'Enter' && toggleOpen()}
         style={{ cursor: 'pointer', fontWeight: 'bold' }}
       >
         <Text
@@ -34,7 +48,7 @@ const CollapsableBox = ({ title, children, backroundColor }) => {
       <div
         ref={contentRef}
         style={{
-          height: isOpen ? `${contentRef.current.scrollHeight}px` : '0px',
+          height: `${height}px`,
           overflow: 'hidden',
           transition: 'height 0.3s ease',
           margin: '0 1rem',
