@@ -155,6 +155,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                 color="black"
                 as={'a'}
                 href={href}
+                target="_blank"
                 sx={{ transform: 'translateX(-2px)' }}
               >
                 {href}

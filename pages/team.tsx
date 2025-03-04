@@ -245,7 +245,7 @@ export default function Team({ team }) {
               </Text>
               <Grid columns={[1, null, 2]} gap={3}>
                 <CommunityTeamBox title="Moderation">
-                  <Grid gap={2} m={10}>
+                  <Grid columns={[1, null, 2]} gap={2} m={10}>
                     {team.current
                       ?.filter(member => member.department === 'Moderation')
                       .map(member => (
@@ -263,7 +263,7 @@ export default function Team({ team }) {
                   </Grid>
                 </CommunityTeamBox>
                 <CommunityTeamBox title="Virtual Events">
-                  <Grid gap={2} m={10}>
+                  <Grid columns={[1, null, 2]} gap={2} m={10}>
                     {team.current
                       ?.filter(member => member.department === 'Events')
                       .map(member => (
@@ -281,7 +281,7 @@ export default function Team({ team }) {
                   </Grid>
                 </CommunityTeamBox>
                 <CommunityTeamBox title="Newspaper">
-                  <Grid gap={2} m={10}>
+                  <Grid columns={[1, null, 2]} gap={2} m={10}>
                     {team.current
                       ?.filter(member => member.department === 'Newspaper')
                       .map(member => (
@@ -299,7 +299,7 @@ export default function Team({ team }) {
                   </Grid>
                 </CommunityTeamBox>
                 <CommunityTeamBox title="Welcomers">
-                  <Grid gap={2} m={10}>
+                  <Grid columns={[1, null, 2]} gap={2} m={10}>
                     {team.current
                       ?.filter(member => member.department === 'Welcoming')
                       .map(member => (
