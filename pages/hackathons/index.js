@@ -6,7 +6,6 @@ import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Recap from '../../components/hackathons/recap'
 import Slack from '../../components/hackathons/features/slack'
-import Money from '../../components/hackathons/features/money'
 import Landing from '../../components/hackathons/landing'
 import Marketing from '../../components/hackathons/features/marketing'
 import Overview from '../../components/hackathons/overview'
@@ -33,7 +32,6 @@ export default function Hackathons({ data }) {
           <ScrollingHackathons eventData={data} title={true} />
 
           <KeepExploring />
-          <Money />
           <Slack />
           <Marketing />
           <Container>
