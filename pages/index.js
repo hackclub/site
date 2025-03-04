@@ -19,7 +19,6 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Pizza from '../components/index/cards/pizza'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -203,12 +202,6 @@ function Page({
             alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
-          />
-          <Announcement
-            copy="Build, Battle, Booty. Repeat."
-            caption="Get free Raspberry Pis, Framework Laptops, iPads, and more. Join High Seas! Oct 30 - Jan 31. highseas.hackclub.com"
-            href="https://highseas.hackclub.com/"
-            imgSrc="https://cloud-jul29z0v7-hack-club-bot.vercel.app/0image.png"
           />
           <Box
             sx={{
@@ -678,7 +671,6 @@ function Page({
             </Box>
             <HighSeas />
             <Counterspell />
-            <Pizza />
             <Trail />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
@@ -1221,17 +1213,20 @@ export async function getStaticProps() {
 
   // HCB: get total raised
   let bankData = []
-  let initialBankData = await fetch('https://hcb.hackclub.com/stats').then(r =>
-    r.json()
-  )
-  let raised = initialBankData.raised / 100
+  let initialBankData = await fetch('https://hcb.hackclub.com/stats')
+  try {
+    const bd = await initialBankData.json()
+    let raised = bd.raised / 100
 
-  bankData.push(
-    `💰 ${raised.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    })} raised`
-  )
+    bankData.push(
+      `💰 ${raised.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      })} raised`
+    )
+  } catch {
+    bankData.push('error')
+  }
 
   // Slack: get total raised
   const { Slack: Slacky } = require('./api/slack')

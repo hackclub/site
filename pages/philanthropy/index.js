@@ -417,7 +417,7 @@ const Philanthropy = ({ posts = [] }) => {
                   my={3}
                   sx={{ width: ['100%', 'auto'] }}
                   as="a"
-                  href="https://hcb.hackclub.com/donations/start/hq"
+                  href="https://hcb.hackclub.com/donations/start/hq?utm_source=site&utm_medium=internal&utm_campaign=philanthropy_page&utm_content=hero_button"
                 >
                   Donate
                   <Text sx={{ display: ['none', 'inline-block'], ml: 2 }}>
@@ -605,7 +605,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Box mt={[2, 3]}>
                   <Text
                     as="a"
-                    href="https://hcb.hackclub.com/donations/start/hq"
+                    href="https://hcb.hackclub.com/donations/start/hq?utm_source=site&utm_medium=internal&utm_campaign=philanthropy_page&utm_content=body_link"
                     target="_blank"
                     sx={{
                       color: '#ec3750',
@@ -1029,12 +1029,15 @@ const Philanthropy = ({ posts = [] }) => {
               <Box>
                 <Fade delay={50}>
                   <Text as="h3" sx={{ marginBottom: '8px' }}>
-                    Above $5M{' '}
+                    $5M - $10M{' '}
                   </Text>
                 </Fade>
                 <Fade delay={70}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Musk Foundation (4x)
+                    Tom Preston-Werner (8x)
+                  </Text>
+                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                    Musk Foundation (5x)
                   </Text>
                 </Fade>
                 <br></br>
@@ -1042,11 +1045,6 @@ const Philanthropy = ({ posts = [] }) => {
                   <Text as="h3" sx={{ marginBottom: '8px' }}>
                     {' '}
                     $1M - $5M{' '}
-                  </Text>
-                </Fade>
-                <Fade delay={110}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Tom Preston-Werner (7x)
                   </Text>
                 </Fade>
                 <Fade delay={120}>
@@ -1073,17 +1071,17 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={190}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Lizzy Danhakl/Andrew Reed (3x)
+                    Lizzy Danhakl/Andrew Reed (5x)
                   </Text>
                 </Fade>
                 <Fade delay={210}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Craig Newmark (4x)
+                    Craig Newmark (5x)
                   </Text>
                 </Fade>
                 <Fade delay={230}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Endless Network (2x)
+                    Endless Network (3x)
                   </Text>
                 </Fade>
                 <Fade delay={250}>
@@ -1091,10 +1089,18 @@ const Philanthropy = ({ posts = [] }) => {
                     Joe Liemandt
                   </Text>
                 </Fade>
+
+                <Fade delay={260}>
+                  <Fade delay={410}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      Argosy Foundation (4x)
+                    </Text>
+                  </Fade>
+                </Fade>
               </Box>
               <Box>
-                <Fade delay={260}>
-                  <Text as="h3" sx={{ marginBottom: '8px' }}>
+                <Fade>
+                  <Text as="h3" sx={{ lineHeight: '1.8em' }}>
                     $200k - $500k
                   </Text>
                 </Fade>
@@ -1118,15 +1124,23 @@ const Philanthropy = ({ posts = [] }) => {
                     Ron Baron
                   </Text>
                 </Fade>
-                <Fade delay={360}>
+                <Fade delay={530}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Ron Conway (4x)
+                    Adam Ross (4x)
                   </Text>
                 </Fade>
-                <Fade delay={410}>
+                <Fade delay={360}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Argosy Foundation (3x)
+                    Ron Conway (5x)
                   </Text>
+                </Fade>
+
+                <Fade delay={470}>
+                  <Fade delay={360}>
+                    <Text as="p" sx={{ lineHeight: '1.8em' }}>
+                      GitHub Education (5x)
+                    </Text>
+                  </Fade>
                 </Fade>
               </Box>
               <Box>
@@ -1140,11 +1154,6 @@ const Philanthropy = ({ posts = [] }) => {
                     Quinn Slack (3x)
                   </Text>
                 </Fade>
-                <Fade delay={530}>
-                  <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    Adam Ross (3x)
-                  </Text>
-                </Fade>
                 <Fade delay={560}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
                     Peter Levine
@@ -1152,7 +1161,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Fade>
                 <Fade delay={590}>
                   <Text as="p" sx={{ lineHeight: '1.8em' }}>
-                    FUTO
+                    FUTO (3x)
                   </Text>
                 </Fade>
               </Box>
@@ -1160,7 +1169,7 @@ const Philanthropy = ({ posts = [] }) => {
             <Fade delay={800}>
               <br />
               <Text sx={{ color: 'muted', fontSize: '90%' }}>
-                * The numbers in bracket indicates repeated gifts
+                * The numbers in bracket indicates # of gifts since 2018
               </Text>
             </Fade>
           </Box>
