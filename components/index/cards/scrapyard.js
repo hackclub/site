@@ -27,6 +27,12 @@ export default function Scrapyard() {
             font-weight: normal;
             font-style: normal;
           }
+          @font-face {
+            font-family: 'moonblossom';
+            src: url('https://use.typekit.net/af/bf03be/00000000000000007735fbe5/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+          }
         `}
       />
       <Grid columns={[1, 1, 1]} sx={{ position: 'relative', zIndex: 2 }}>
