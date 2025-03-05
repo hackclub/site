@@ -41,7 +41,7 @@ import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import HighSeas from '../components/index/cards/highseas'
-import Counterspell from '../components/index/cards/counterspell'
+import Scrapyard from '../components/index/cards/scrapyard'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -669,8 +669,7 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <HighSeas />
-            <Counterspell />
+            <Scrapyard />
             <Trail />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
