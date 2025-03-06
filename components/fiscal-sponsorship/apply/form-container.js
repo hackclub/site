@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 import { Box, Container } from 'theme-ui'
+import { TeenagerLedProvider } from '../../../components/fiscal-sponsorship/apply/teenager-led-context'
 
 const formContainer = forwardRef(({ children, ...props }, ref) => {
   return (
@@ -31,7 +32,7 @@ const formContainer = forwardRef(({ children, ...props }, ref) => {
           px: 0
         }}
       >
-        {children}
+        <TeenagerLedProvider>{children}</TeenagerLedProvider>
       </Container>
     </Box>
   )

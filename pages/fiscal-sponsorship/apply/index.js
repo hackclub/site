@@ -1,43 +1,15 @@
-import { useRouter } from 'next/router'
-import { useRef, useState } from 'react'
-import { Alert, Box, Button, Flex, Grid, Heading, Text } from 'theme-ui'
+import { Box, Flex, Grid, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Link from 'next/link'
 import Icon from '@hackclub/icons'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../../../components/force-theme'
-import FormContainer from '../../../components/fiscal-sponsorship/apply/form-container'
 import HCBInfo from '../../../components/fiscal-sponsorship/apply/hcb-info'
-import OrganizationInfoForm from '../../../components/fiscal-sponsorship/apply/org-form'
-import PersonalInfoForm from '../../../components/fiscal-sponsorship/apply/personal-form'
-import { onSubmit } from '../../../components/fiscal-sponsorship/apply/submit'
 import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
 import ContactBanner from '../../../components/fiscal-sponsorship/contact'
-import Callout from '../../../components/fiscal-sponsorship/apply/callout'
-import { TeenagerLedProvider } from '../../../components/fiscal-sponsorship/apply/teenager-led-context'
+import ApplicationForm from '../../../components/fiscal-sponsorship/apply/application-form'
 
 export default function Apply() {
-  const router = useRouter()
-  const formContainer = useRef()
-  const [formError, setFormError] = useState(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  const requiredFields = [
-    'eventName',
-    'eventLocation',
-    'eventPostalCode',
-    'eventDescription',
-    'eventTeenagerLed',
-    'eventPoliticalActivity',
-    'eventAnnualBudget',
-    'firstName',
-    'lastName',
-    'userEmail',
-    'userPhone',
-    'userBirthday',
-    'slackUsername'
-  ]
-
   return (
     <>
       <Meta as={Head} title="Apply for HCB" />
@@ -112,50 +84,7 @@ export default function Apply() {
             sx={{ borderRadius: 'default', bg: 'snow', width: 'fit-content' }}
           />
         </Flex>
-        <FormContainer
-          ref={formContainer}
-          className={formError ? 'has-errors' : null}
-          onSubmit={event =>
-            onSubmit({
-              event,
-              router,
-              form: formContainer,
-              setFormError,
-              setIsSubmitting,
-              requiredFields
-            })
-          }
-        >
-          <TeenagerLedProvider>
-            <Callout />
-
-            <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
-              Your organization
-            </Heading>
-            <OrganizationInfoForm requiredFields={requiredFields} />
-            <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
-              Personal details
-            </Heading>
-            <PersonalInfoForm requiredFields={requiredFields} />
-            {formError && <Alert bg="primary">{formError}</Alert>}
-            <Button
-              variant="ctaLg"
-              type="submit"
-              disabled={isSubmitting}
-              sx={{
-                backgroundImage: theme => theme.util.gx('cyan', 'blue'),
-                '&:disabled': {
-                  background: 'muted',
-                  cursor: 'not-allowed',
-                  transform: 'none !important'
-                },
-                width: 'fit-content'
-              }}
-            >
-              {isSubmitting ? 'Submitting…' : 'Submit'}
-            </Button>
-          </TeenagerLedProvider>
-        </FormContainer>
+        <ApplicationForm />
       </Grid>
       <Watermark />
     </>
