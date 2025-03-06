@@ -8,7 +8,6 @@ import HCBInfo from '../../../components/fiscal-sponsorship/apply/hcb-info'
 import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
 import ContactBanner from '../../../components/fiscal-sponsorship/contact'
 import ApplicationForm from '../../../components/fiscal-sponsorship/apply/application-form'
-import { MultiStepProvider } from '../../../components/fiscal-sponsorship/apply/multi-step-context'
 
 export default function Apply() {
   return (
@@ -85,9 +84,7 @@ export default function Apply() {
             sx={{ borderRadius: 'default', bg: 'snow', width: 'fit-content' }}
           />
         </Flex>
-        <MultiStepProvider>
-          <ApplicationForm />
-        </MultiStepProvider>
+        <ApplicationForm />
       </Grid>
       <Watermark />
     </>

@@ -1,13 +1,16 @@
 import { Box, Button } from 'theme-ui'
 import { useMultiStepContext } from './multi-step-context'
+import { Children } from 'react'
 
-export default function MultiStepForm({ isSubmitting, maxSteps, children }) {
-  const { step, modifyStep } = useMultiStepContext()
-  // TODO: it shows form validation errors whens switching to a new page
+export default function MultiStepForm({ children, submitButton }) {
+  const { step, useStepper } = useMultiStepContext()
+  const steps = Children.toArray(children)
+  const { nextStep, previousStep } = useStepper(steps)
 
   return (
     <>
-      {children}
+      {/* Render current step */}
+      {steps[step]}
 
       <Box
         sx={{
@@ -17,46 +20,19 @@ export default function MultiStepForm({ isSubmitting, maxSteps, children }) {
           marginLeft: 'auto'
         }}
       >
-        {step > 1 && (
-          <Button
-            variant="outline"
-            onClick={() => {
-              modifyStep(-1)
-            }}
-          >
+        {step > 0 && (
+          <Button type="button" variant="outline" onClick={previousStep}>
             Back
           </Button>
         )}
 
-        {step < maxSteps && (
-          <Button
-            variant="primary"
-            onClick={() => {
-              modifyStep(1)
-            }}
-          >
+        {step < steps.length - 1 && (
+          <Button type="button" variant="primary" onClick={nextStep}>
             Next
           </Button>
         )}
 
-        {step === maxSteps && (
-          <Button
-            variant="ctaLg"
-            type="submit"
-            disabled={isSubmitting}
-            sx={{
-              backgroundImage: theme => theme.util.gx('cyan', 'blue'),
-              '&:disabled': {
-                background: 'muted',
-                cursor: 'not-allowed',
-                transform: 'none !important'
-              },
-              width: 'fit-content'
-            }}
-          >
-            {isSubmitting ? 'Submitting…' : 'Submit'}
-          </Button>
-        )}
+        {step === steps.length - 1 && submitButton}
       </Box>
     </>
   )

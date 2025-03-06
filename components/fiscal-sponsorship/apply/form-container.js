@@ -1,6 +1,7 @@
 import { forwardRef } from 'react'
 import { Box, Container } from 'theme-ui'
 import { TeenagerLedProvider } from '../../../components/fiscal-sponsorship/apply/teenager-led-context'
+import { MultiStepProvider } from './multi-step-context'
 
 const formContainer = forwardRef(({ children, ...props }, ref) => {
   return (
@@ -32,7 +33,9 @@ const formContainer = forwardRef(({ children, ...props }, ref) => {
           px: 0
         }}
       >
-        <TeenagerLedProvider>{children}</TeenagerLedProvider>
+        <MultiStepProvider>
+          <TeenagerLedProvider>{children}</TeenagerLedProvider>
+        </MultiStepProvider>
       </Container>
     </Box>
   )
