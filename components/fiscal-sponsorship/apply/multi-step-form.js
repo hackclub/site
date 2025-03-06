@@ -9,7 +9,10 @@ export default function MultiStepForm({ children, submitButton }) {
 
   return (
     <>
-      {/* Render current step */}
+      {/*
+        We must render all form fields to DOM so that they can be submitted
+        with the form. So, we simple hide all non-current steps.
+      */}
       {steps.map((stepComponent, index) => (
         <Box key={index} sx={step !== index ? { display: 'none' } : {}}>
           {stepComponent}
