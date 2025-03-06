@@ -1,4 +1,4 @@
-import { Box, Button } from 'theme-ui'
+import { Box, Button, Heading } from 'theme-ui'
 import { useMultiStepContext } from './multi-step-context'
 import { Children } from 'react'
 
@@ -10,7 +10,11 @@ export default function MultiStepForm({ children, submitButton }) {
   return (
     <>
       {/* Render current step */}
-      {steps[step]}
+      {steps.map((stepComponent, index) => (
+        <Box key={index} sx={step !== index ? { display: 'none' } : {}}>
+          {stepComponent}
+        </Box>
+      ))}
 
       <Box
         sx={{
@@ -37,3 +41,17 @@ export default function MultiStepForm({ children, submitButton }) {
     </>
   )
 }
+
+function Step({ children, title }) {
+  return (
+    <>
+      {title && (
+        <Heading as="h2" variant="headline">
+          {title}
+        </Heading>
+      )}
+      {children}
+    </>
+  )
+}
+MultiStepForm.Step = Step

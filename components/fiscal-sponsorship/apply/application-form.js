@@ -67,26 +67,20 @@ export default function ApplicationForm() {
     >
       <MultiStepForm submitButton={submitButton}>
         {/* Step 1 */}
-        <>
+        <MultiStepForm.Step>
           <Callout />
           <TeenagerOrAdultForm requiredFields={requiredFields} />
-        </>
+        </MultiStepForm.Step>
         {/* Step 2 */}
-        <>
-          <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
-            Your organization
-          </Heading>
+        <MultiStepForm.Step title="Your organization">
           <OrganizationInfoForm requiredFields={requiredFields} />
-        </>
+        </MultiStepForm.Step>
         {/* Step 3 */}
-        <>
-          <Heading as="h2" variant="headline" sx={{ mb: -2 }}>
-            Personal details
-          </Heading>
+        <MultiStepForm.Step title="Personal details">
           <PersonalInfoForm requiredFields={requiredFields} />
-          {formError && <Alert bg="primary">{formError}</Alert>}
-        </>
+        </MultiStepForm.Step>
       </MultiStepForm>
+      {formError && <Alert bg="primary">{formError}</Alert>}
     </FormContainer>
   )
 }
