@@ -29,7 +29,7 @@ export default function ApplicationForm() {
     lastName: 'last name',
     userEmail: 'email',
     userPhone: 'phone number',
-    userBirthday: 'birthday',
+    userBirthday: 'birthday'
   }
 
   const submitButton = (

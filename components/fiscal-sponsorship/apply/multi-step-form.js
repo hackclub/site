@@ -35,7 +35,7 @@ export default function MultiStepForm({ children, submitButton }) {
 
         {step < steps.length - 1 && (
           <Button type="button" variant="primary" onClick={nextStep}>
-            Next
+            Continue
           </Button>
         )}
 
