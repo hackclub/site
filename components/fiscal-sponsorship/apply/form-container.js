@@ -11,7 +11,7 @@ const formContainer = forwardRef(({ children, ...props }, ref) => {
       sx={{
         bg: 'snow',
         px: [3, 5],
-        py: 5,
+        py: [1, 5],
         minHeight: '100dvb',
         '&.has-errors div[aria-required="true"] input:placeholder-shown': {
           borderColor: 'primary'
@@ -33,9 +33,7 @@ const formContainer = forwardRef(({ children, ...props }, ref) => {
           px: 0
         }}
       >
-        <MultiStepProvider>
-          <TeenagerLedProvider>{children}</TeenagerLedProvider>
-        </MultiStepProvider>
+        <TeenagerLedProvider>{children}</TeenagerLedProvider>
       </Container>
     </Box>
   )

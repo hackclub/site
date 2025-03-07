@@ -26,7 +26,7 @@ export default function TeenagerOrAdultForm({ requiredFields }) {
     // NOTE: This depends on Field's useEffect hook to run first.
     const eventTeenagerLedElm = document.getElementById('eventTeenagerLed')
     setTeenagerLed(eventTeenagerLedElm.value)
-  }, [])
+  })
 
   return (
     <>
