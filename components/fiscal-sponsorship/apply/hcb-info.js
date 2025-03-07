@@ -8,7 +8,7 @@ export default function HCBInfo() {
         gridArea: 'info',
         alignItems: 'start',
         mark: { color: '#ec555c', bg: 'inherit' },
-        ul: { pl: [3, 0], color: 'muted', mb: 4 },
+        ul: { pl: 3, color: 'muted', mb: 4 },
         p: { color: 'muted', mb: 0 }
       }}
     >
@@ -28,14 +28,15 @@ export default function HCBInfo() {
         </Link>
       </Heading>
       <ul>
-        <li>Nonprofit status.</li>
-        <li>Tax-deductible donations.</li>
+        <li>Gives your project nonprofit status.</li>
+        <li>Enables tax-deductible donations.</li>
       </ul>
       <Heading variant="subheadline">
         HCB provides a financial platform.
       </Heading>
       <ul>
-        <li>A donations page and invoicing system.</li>
+        <li>Accessed via a beautiful, modern interface.</li>
+        <li>Provides a donation page and invoicing system.</li>
         <li>Transfer money electronically.</li>
         <li>Order cards for you and your team to make purchases.</li>
       </ul>
