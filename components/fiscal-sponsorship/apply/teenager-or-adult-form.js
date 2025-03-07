@@ -1,11 +1,9 @@
 import { useEffect } from 'react'
 import { Select } from 'theme-ui'
 import Field from './field'
-import useOrganizationI18n from '../organizationI18n'
 import { useTeenagerLedContext } from './teenager-led-context'
 
 export default function TeenagerOrAdultForm({ requiredFields }) {
-  const org = useOrganizationI18n()
   const { teenagerLed, setTeenagerLed } = useTeenagerLedContext()
 
   const onTeenagerLedChange = e => {
@@ -52,6 +50,11 @@ export default function TeenagerOrAdultForm({ requiredFields }) {
           ))}
         </Select>
       </Field>
+      <p>
+        NOTE: this kinda ugly rn, i plan on making this teenager question look a
+        bit better by having two boxes side by side. one box/button for teen,
+        another for adult
+      </p>
     </>
   )
 }

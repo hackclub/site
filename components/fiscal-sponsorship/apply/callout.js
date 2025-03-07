@@ -10,7 +10,8 @@ export default function Callout() {
         color: 'blue',
         fontSize: 1,
         textWrap: 'pretty',
-        lineHeight: 1.375
+        lineHeight: 1.375,
+        marginBottom: '2rem'
       }}
     >
       <Text as="p" sx={{ fontWeight: 'bold' }}>

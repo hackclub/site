@@ -68,7 +68,7 @@ export default function ApplicationForm() {
     >
       <MultiStepForm submitButton={submitButton}>
         {/* Step 1 */}
-        <MultiStepForm.Step>
+        <MultiStepForm.Step title="Let's get started">
           <Callout />
           <TeenagerOrAdultForm requiredFields={requiredFields} />
         </MultiStepForm.Step>
