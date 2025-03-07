@@ -15,21 +15,22 @@ export default function ApplicationForm() {
   const [formError, setFormError] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const requiredFields = [
-    'eventName',
-    'eventLocation',
-    'eventPostalCode',
-    'eventDescription',
-    'eventTeenagerLed',
-    'eventPoliticalActivity',
-    'eventAnnualBudget',
-    'firstName',
-    'lastName',
-    'userEmail',
-    'userPhone',
-    'userBirthday',
-    'slackUsername'
-  ]
+  const requiredFields = {
+    // Key: form field name
+    // Value: humanize field name used in error message
+    eventName: 'organization name',
+    eventLocation: 'organization country',
+    eventPostalCode: 'organization zip/postal code',
+    eventDescription: 'organization description',
+    eventTeenagerLed: 'are you a teenager?',
+    eventPoliticalActivity: "organization's political activity",
+    eventAnnualBudget: 'organization annual budget',
+    firstName: 'first name',
+    lastName: 'last name',
+    userEmail: 'email',
+    userPhone: 'phone number',
+    userBirthday: 'birthday',
+  }
 
   const submitButton = (
     <Button

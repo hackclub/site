@@ -11,7 +11,7 @@ export default function Field({
   children
 }) {
   const router = useRouter()
-  const isRequired = requiredFields.includes(name)
+  const isRequired = Object.keys(requiredFields).includes(name)
 
   /* Fill in the field input element with the value from sessionStorage.
     Note: the custom checkbox component does this in its own useEffect hook. */

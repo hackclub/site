@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 async function sendApplication() {
   // Get the form data from sessionStorage
   const data = {}
@@ -22,6 +24,8 @@ async function sendApplication() {
   }
 }
 
+const isBlank = string => !string || string.trim() === ''
+
 export function onSubmit({
   event,
   router,
@@ -32,28 +36,38 @@ export function onSubmit({
   setIsSubmitting
 }) {
   event.preventDefault()
-  /* Don't return from inside the loop since
-        we want all input values to be saved every time */
-  let wasError = false
-
   const formData = new FormData(form.current)
+  const missingFields = []
 
-  // Save form data
+  const conditionalRequiredFields = _.cloneDeep(requiredFields) // Deep clone to prevent modification from leaking
+  if (formData.get('contactOption') === 'Slack') {
+    // If contact option is Slack, they must provide a Slack username
+    conditionalRequiredFields.slackUsername = 'slack username'
+  }
+
+  console.log({ conditionalRequiredFields })
+
   formData.forEach((value, key) => {
+    // Save form data
     sessionStorage.setItem('bank-signup-' + key, value)
 
     // Check if there are empty required fields.
     if (
-      ((!value || value.trim() === '') && requiredFields.includes(key)) ||
-      (formData.get('contactOption') === 'slack' &&
-        (!formData.get('slackUsername') != null ||
-          formData.get('slackUsername') === '')) // I'm so sorry for this
+      isBlank(value) &&
+      Object.keys(conditionalRequiredFields).includes(key)
     ) {
-      setFormError('Please fill out all required fields.')
-      wasError = true
+      missingFields.push(conditionalRequiredFields[key])
     }
   })
-  if (wasError) return
+
+  if (missingFields.length !== 0) {
+    console.log({ missingFields })
+
+    setFormError(
+      `Please fill out all required fields: ${missingFields.join(', ')}`
+    )
+    return // Don't submit application
+  }
 
   if (!formError) {
     setIsSubmitting(true)
