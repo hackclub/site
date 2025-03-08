@@ -86,7 +86,7 @@ export default function ApplicationForm() {
       >
         {/* Step 1 */}
         <MultiStepForm.Step title="Let's get started">
-          <Text as="p" variant="caption" sx={{ marginBottom: '2rem' }}>
+          <Text as="p" variant="caption" sx={{ marginBottom: '1rem' }}>
             Fill out this quick application to run your project on HCB. If you
             are a teenager, there is a very high likelihood we will accept your
             project. We just need to collect a few pieces of information first.

@@ -1,14 +1,19 @@
 import Icon from '../icon'
 import { Flex, Link, Text } from 'theme-ui'
+import { useMultiStepContext } from './apply/multi-step-context'
 
 const phoneNumber = '+1 (844) 237-2290'
 const phoneNumberUri = '+1-844-237-2290'
 const email = 'hcb@hackclub.com'
 
 export default function ContactBanner({ sx }) {
+  const { step } = useMultiStepContext()
+  const firstStep = step === 0
+
   return (
     <Flex
       sx={{
+        display: firstStep ? 'block' : ['none', 'block'],
         bg: 'sunken',
         color: 'slate',
         alignItems: 'center',

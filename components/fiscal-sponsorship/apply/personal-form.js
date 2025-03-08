@@ -91,7 +91,6 @@ export default function PersonalInfoForm({ requiredFields }) {
                   <div />
                   <Field
                     label="Your Hack Club Slack username"
-                    description="For teenagers only!"
                     name="slackUsername"
                     requiredFields={requiredFields}
                   >

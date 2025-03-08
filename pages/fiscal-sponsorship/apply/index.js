@@ -88,6 +88,9 @@ export default function Apply() {
                   HCB
                 </Flex>
               </Heading>
+              <Text variant="caption">
+                Use HCB to raise nonprofit dollars to fund your project.
+              </Text>
             </Box>
             <HCBInfo />
             <ContactBanner
