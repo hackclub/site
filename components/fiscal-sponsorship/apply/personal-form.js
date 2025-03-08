@@ -1,8 +1,9 @@
-import { Input, Flex, Label, Radio, Grid, Select } from 'theme-ui'
+import { Input, Flex, Label, Radio, Grid, Select, Box, Text } from 'theme-ui'
 import Field from './field'
 import Checkbox from './checkbox'
 import { useEffect, useState } from 'react'
 import { useTeenagerLedContext } from './teenager-led-context'
+import { getNames } from 'country-list'
 
 export default function PersonalInfoForm({ requiredFields }) {
   const [selectedContactOption, setSelectedContactOption] = useState('Email')
@@ -41,9 +42,9 @@ export default function PersonalInfoForm({ requiredFields }) {
           label="Preferred contact channel"
           requiredFields={requiredFields}
         >
-          <Grid
-            columns={[null, 2]}
+          <Flex
             sx={{
+              flexDirection: ['column', 'row'],
               rowGap: 2,
               columnGap: 4,
               width: '100%'
@@ -52,7 +53,8 @@ export default function PersonalInfoForm({ requiredFields }) {
             <Label
               sx={{
                 display: 'flex',
-                flexDirection: 'row'
+                flexDirection: 'row',
+                width: 'fit-content'
               }}
             >
               <Radio
@@ -67,7 +69,8 @@ export default function PersonalInfoForm({ requiredFields }) {
               sx={{
                 columnGap: 0,
                 rowGap: 2,
-                gridTemplateColumns: 'auto 1fr'
+                gridTemplateColumns: 'auto 1fr',
+                flexGrow: 1
               }}
             >
               <Label
@@ -88,7 +91,6 @@ export default function PersonalInfoForm({ requiredFields }) {
                   <div />
                   <Field
                     label="Your Hack Club Slack username"
-                    description="For teenagers only!"
                     name="slackUsername"
                     requiredFields={requiredFields}
                   >
@@ -104,7 +106,7 @@ export default function PersonalInfoForm({ requiredFields }) {
                 </>
               ) : null}
             </Grid>
-          </Grid>
+          </Flex>
         </Field>
       ) : (
         // When not teenage-led, default to "email" as preferred contact channel
@@ -126,37 +128,90 @@ export default function PersonalInfoForm({ requiredFields }) {
       </Field>
       <Field
         name="userBirthday"
-        label="Birth year"
+        label="Birthday"
         requiredFields={requiredFields}
       >
-        <Select name="userBirthday" id="userBirthday" defaultValue="">
-          <option value="" disabled>
-            Select a year
-          </option>
-          {/* show a century of years starting from 13 years ago */}
-          {Array.from({ length: 98 }, (_, i) => {
-            const year = new Date().getFullYear() - 13 - i
-            return (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            )
-          })}
-        </Select>
+        <Input type="date" name="userBirthday" id="userBirthday" />
       </Field>
 
-      {/* <Field
+      <Flex sx={{ flexDirection: 'column', gap: 1 }}>
+        <Field
+          name="userAddressLine1"
+          label={'Your personal address'}
+          requiredFields={requiredFields}
+        >
+          <Input
+            name="userAddressLine1"
+            id="userAddressLine1"
+            placeholder="8605 Santa Monica Blvd, Suite 86294"
+          />
+        </Field>
+
+        <Grid columns={2} gap={1}>
+          <Field
+            name="userAddressCity"
+            label={<Text sx={{ fontSize: 1 }}>City</Text>}
+            requiredFields={requiredFields}
+          >
+            <Input
+              name="userAddressCity"
+              placeholder="Santa Monica"
+              id="userAddressCity"
+            />
+          </Field>
+          <Field
+            name="userAddressProvince"
+            label={<Text sx={{ fontSize: 1 }}>State / Province</Text>}
+            requiredFields={requiredFields}
+          >
+            <Input
+              name="userAddressProvince"
+              placeholder="California"
+              id="userAddressProvince"
+            />
+          </Field>
+          <Field
+            name="userAddressPostalCode"
+            label={<Text sx={{ fontSize: 1 }}>ZIP / Postal code</Text>}
+            requiredFields={requiredFields}
+          >
+            <Input
+              name="userAddressPostalCode"
+              placeholder="90069"
+              id="userAddressPostalCode"
+            />
+          </Field>
+          <Field
+            name="userAddressCountry"
+            label={<Text sx={{ fontSize: 1 }}>Country</Text>}
+            requiredFields={requiredFields}
+          >
+            <Select name="userAddressCountry" id="userAddressCountry">
+              {getNames()
+                .sort()
+                .sort(item => (item === 'United States of America' ? -1 : 1))
+                .map(country => (
+                  <option key={country} value={country}>
+                    {country}
+                  </option>
+                ))}
+            </Select>
+          </Field>
+        </Grid>
+      </Flex>
+
+      <Field
         name="referredBy"
-        label="Who were you referred by?"
+        label="How did you hear about HCB?"
         requiredFields={requiredFields}
       >
         <Input
           name="referredBy"
           id="referredBy"
-          placeholder="Max"
+          placeholder="Word of mouth, an event, etc. Be specific!"
         />
       </Field>
-      */}
+
       <Field
         name="returningUser"
         label="Have you used HCB before?"
@@ -165,19 +220,7 @@ export default function PersonalInfoForm({ requiredFields }) {
       >
         <Checkbox name="returningUser" />
       </Field>
-      {/* <Field
-        name="userAddress"
-        label="Address"
-        description="This is so we can send you some swag and goodies if you ever request them!"
-        requiredFields={requiredFields}
-      >
-        <AddressInput
-          name="userAddress"
-          isPersonalAddressInput={true}
-          setValidationResult={setValidationResult}
-        />
-      </Field>
-      */}
+
       <Field
         name="accommodations"
         label="Accessibility needs"

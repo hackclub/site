@@ -213,7 +213,7 @@ export default function Page() {
             }}
           >
             <Stat value="$30M+" label="processed transactions" reversed />
-            <Stat value="2000+" label="projects" reversed />
+            <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
           <Grid columns={[1, 2]} gap={[3, 4]} sx={{ mt: 4 }}>
