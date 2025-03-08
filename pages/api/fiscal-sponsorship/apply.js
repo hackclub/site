@@ -62,6 +62,7 @@ export default async function handler(req, res) {
         '(Adults) Annual Budget': parseInt(data.eventAnnualBudget),
         'HCB ID': r.id
       })
+      res.status(200).end()
     })
     .catch(error => {
       console.error(error)
