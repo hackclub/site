@@ -9,7 +9,7 @@ async function sendApplication() {
       data[key.replace('bank-signup-', '')] = sessionStorage.getItem(key)
     }
   }
-  console.dir('Sending data:', data)
+  console.log({ data })
 
   // Send the data
   try {
@@ -45,8 +45,6 @@ export function onSubmit({
     conditionalRequiredFields.slackUsername = 'slack username'
   }
 
-  console.log({ conditionalRequiredFields })
-
   formData.forEach((value, key) => {
     // Save form data
     sessionStorage.setItem('bank-signup-' + key, value)
@@ -61,8 +59,6 @@ export function onSubmit({
   })
 
   if (missingFields.length !== 0) {
-    console.log({ missingFields })
-
     setFormError(
       `Please fill out all required fields: ${missingFields.join(', ')}`
     )
