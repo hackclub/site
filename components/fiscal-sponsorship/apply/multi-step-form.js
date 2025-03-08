@@ -2,7 +2,11 @@ import { Box, Button, Heading } from 'theme-ui'
 import { useMultiStepContext } from './multi-step-context'
 import { Children } from 'react'
 
-export default function MultiStepForm({ children, submitButton }) {
+export default function MultiStepForm({
+  children,
+  submitButton,
+  validationErrors
+}) {
   const { step, useStepper } = useMultiStepContext()
   const steps = Children.toArray(children)
   const { nextStep, previousStep } = useStepper(steps)
@@ -14,17 +18,27 @@ export default function MultiStepForm({ children, submitButton }) {
         with the form. So, we simple hide all non-current steps.
       */}
       {steps.map((stepComponent, index) => (
-        <Box key={index} sx={step !== index ? { display: 'none' } : {}}>
+        <Box
+          key={index}
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            rowGap: 3,
+            ...(step !== index ? { display: 'none' } : {})
+          }}
+        >
           {stepComponent}
         </Box>
       ))}
+
+      {validationErrors}
 
       <Box
         sx={{
           display: 'flex',
           gap: '1rem',
           marginTop: '2rem',
-          marginLeft: 'auto'
+          justifyContent: 'flex-end'
         }}
       >
         {step > 0 && (

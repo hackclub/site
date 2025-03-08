@@ -32,7 +32,7 @@ export default function Apply() {
               px: [3, 5],
               py: 4,
               gap: 4,
-              height: [null, '100svh'],
+              height: [null, null, '100svh'],
               position: [null, null, 'sticky'],
               top: 0,
               overflowY: [null, null, 'auto']
@@ -62,10 +62,18 @@ export default function Apply() {
                   Back
                 </Text>
               </Link>
-              <Heading as="h1" variant="title">
-                Apply to join
+              <Heading as="h1" variant="headline">
+                Turn your ideas into
                 <br />
-                <Flex sx={{ alignItems: 'center', gap: 3 }}>
+                reality with{' '}
+                <Flex
+                  sx={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    verticalAlign: 'middle'
+                  }}
+                >
                   <img
                     src="/fiscal-sponsorship/hcb-icon-small.png"
                     width={48}

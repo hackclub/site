@@ -18,10 +18,17 @@ export default function Field({
   useEffect(() => {
     const value =
       router.query[name] || sessionStorage.getItem('bank-signup-' + name)
-    if (value) {
-      const input = document.getElementById(name)
-      if (input) input.value = value
+    if (!value) return
+
+    let input = document.getElementById(name)
+    if (input) {
+      input.value = value
+      return
     }
+
+    // Maybe it's radio buttons
+    input = document.querySelector(`input[name='${name}']`)
+    if (input) input.checked = true
   }, [router.query, name])
 
   return (

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Select } from 'theme-ui'
+import { Flex, Input, Label, Radio, Select } from 'theme-ui'
 import Field from './field'
 import { useTeenagerLedContext } from './teenager-led-context'
 
@@ -24,37 +24,72 @@ export default function TeenagerOrAdultForm({ requiredFields }) {
     // `teenagerLed` state may not be synced with the DOM input value. This code
     // syncs `teenagerLed` with the DOM input value.
     // NOTE: This depends on Field's useEffect hook to run first.
-    const eventTeenagerLedElm = document.getElementById('eventTeenagerLed')
-    setTeenagerLed(eventTeenagerLedElm.value)
+    const eventTeenagerLedElm = document.querySelector(
+      'input[name="eventTeenagerLed"]:checked'
+    )
+    if (eventTeenagerLedElm) setTeenagerLed(eventTeenagerLedElm.value)
   })
 
   return (
-    <>
-      <Field
-        name="eventTeenagerLed"
-        label={'Are you a teenager?'}
-        col={true}
-        description={'18 and under'}
-        requiredFields={requiredFields}
-      >
-        <Select
-          name="eventTeenagerLed"
-          id="eventTeenagerLed"
-          onChange={onTeenagerLedChange}
-          value={teenagerLed}
+    <Field
+      name="eventTeenagerLed"
+      label={'Are you a teenager?'}
+      col={true}
+      description={'18 and under'}
+      requiredFields={requiredFields}
+    >
+      <Flex columns={2} sx={{ gap: 3 }}>
+        <Label
+          sx={{
+            alignItems: 'center',
+            backgroundColor: ' rgba(91,192,222,.25)',
+            borderRadius: '.75rem',
+            color: '#338eda',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            lineHeight: '1.25',
+            padding: '1rem',
+            textAlign: 'center',
+            boxShadow:
+              teenagerLed === 'true' ? '0 0 0 1px #fff,0 0 0 3px #338eda' : null
+          }}
         >
-          {Object.entries({ Yes: 'true', No: 'false' }).map(([name, value]) => (
-            <option key={name} value={value}>
-              {name}
-            </option>
-          ))}
-        </Select>
-      </Field>
-      <p>
-        NOTE: this kinda ugly rn, i plan on making this teenager question look a
-        bit better by having two boxes side by side. one box/button for teen,
-        another for adult
-      </p>
-    </>
+          <Radio
+            name="eventTeenagerLed"
+            value="true"
+            onChange={onTeenagerLedChange}
+            sx={{ display: 'none!important' }}
+          />
+          Yes, I'm a teenager
+        </Label>
+        <Label
+          sx={{
+            alignItems: 'center',
+            backgroundColor: ' rgba(91,192,222,.25)',
+            borderRadius: '.75rem',
+            color: '#338eda',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            lineHeight: '1.25',
+            padding: '1rem',
+            textAlign: 'center',
+            boxShadow:
+              teenagerLed === 'false'
+                ? '0 0 0 1px #fff,0 0 0 3px #338eda'
+                : null
+          }}
+        >
+          <Radio
+            name="eventTeenagerLed"
+            value="false"
+            onChange={onTeenagerLedChange}
+            sx={{ display: 'none!important' }}
+          />
+          I'm an adult
+        </Label>
+      </Flex>
+    </Field>
   )
 }

@@ -12,8 +12,12 @@ const formContainer = forwardRef(({ children, ...props }, ref) => {
         bg: 'snow',
         px: [3, 5],
         py: [1, 5],
-        minHeight: '100dvb',
+        pb: 5,
+        minHeight: [null, null, '100dvb'],
         '&.has-errors div[aria-required="true"] input:placeholder-shown': {
+          borderColor: 'primary'
+        },
+        '&.has-errors div[aria-required="true"] input[type="date"]': {
           borderColor: 'primary'
         },
         '&.has-errors div[aria-required="true"] textarea:placeholder-shown': {
@@ -26,10 +30,6 @@ const formContainer = forwardRef(({ children, ...props }, ref) => {
         variant="copy"
         sx={{
           ml: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          columnGap: 4,
-          rowGap: 3,
           px: 0
         }}
       >

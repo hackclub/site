@@ -1,11 +1,10 @@
 import { useRouter } from 'next/router'
 import { useRef, useState } from 'react'
-import { Alert, Heading, Button } from 'theme-ui'
+import { Alert, Button, Text } from 'theme-ui'
 import FormContainer from './form-container'
 import OrganizationInfoForm from './org-form'
 import PersonalInfoForm from './personal-form'
 import { onSubmit } from './submit'
-import Callout from './callout'
 import TeenagerOrAdultForm from './teenager-or-adult-form'
 import MultiStepForm from './multi-step-form'
 
@@ -18,18 +17,27 @@ export default function ApplicationForm() {
   const requiredFields = {
     // Key: form field name
     // Value: humanize field name used in error message
-    eventName: 'organization name',
-    eventLocation: 'organization country',
-    eventPostalCode: 'organization zip/postal code',
-    eventDescription: 'organization description',
     eventTeenagerLed: 'are you a teenager?',
-    eventPoliticalActivity: "organization's political activity",
-    eventAnnualBudget: 'organization annual budget',
+    eventName: 'project name',
+    eventPostalCode: 'project zip/postal code',
+    eventDescription: 'project description',
+    eventIsPolitical: "project's political activity",
+    eventPoliticalActivity: "project's political activity",
+    eventHasWebsite: 'project website',
+    eventWebsite: 'project website',
+    eventAnnualBudget: 'project annual budget',
     firstName: 'first name',
     lastName: 'last name',
     userEmail: 'email',
     userPhone: 'phone number',
-    userBirthday: 'birthday'
+    userBirthday: 'birthday',
+    userAddressLine1: 'address line 1',
+    userAddressCity: 'city',
+    userAddressProvince: 'state/province',
+    userAddressPostalCode: 'ZIP/postal code',
+    userAddressCountry: 'country',
+
+    referredBy: 'how did you hear about HCB?'
   }
 
   const submitButton = (
@@ -66,14 +74,27 @@ export default function ApplicationForm() {
         })
       }
     >
-      <MultiStepForm submitButton={submitButton}>
+      <MultiStepForm
+        submitButton={submitButton}
+        validationErrors={
+          formError && (
+            <Alert bg="primary" sx={{ mt: 4 }}>
+              {formError}
+            </Alert>
+          )
+        }
+      >
         {/* Step 1 */}
         <MultiStepForm.Step title="Let's get started">
-          <Callout />
+          <Text as="p" variant="caption" sx={{ marginBottom: '2rem' }}>
+            Fill out this quick application to run your project on HCB. If you
+            are a teenager, there is a very high likelihood we will accept your
+            project. We just need to collect a few pieces of information first.
+          </Text>
           <TeenagerOrAdultForm requiredFields={requiredFields} />
         </MultiStepForm.Step>
         {/* Step 2 */}
-        <MultiStepForm.Step title="Your organization">
+        <MultiStepForm.Step>
           <OrganizationInfoForm requiredFields={requiredFields} />
         </MultiStepForm.Step>
         {/* Step 3 */}
@@ -81,7 +102,6 @@ export default function ApplicationForm() {
           <PersonalInfoForm requiredFields={requiredFields} />
         </MultiStepForm.Step>
       </MultiStepForm>
-      {formError && <Alert bg="primary">{formError}</Alert>}
     </FormContainer>
   )
 }

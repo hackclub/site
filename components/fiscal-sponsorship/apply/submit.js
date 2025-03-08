@@ -75,7 +75,7 @@ export function onSubmit({
       const isAdult = formData.get('eventTeenagerLed') !== 'true'
       const acceptanceEta = isAdult
         ? 'within two weeks'
-        : 'within two business days'
+        : 'within 24 hours on weekdays and 48 hours on weekends'
 
       router.push(`/fiscal-sponsorship/apply/success?eta=${acceptanceEta}`)
     })

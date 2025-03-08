@@ -12,23 +12,6 @@ export default function OrganizationAdultForm({ requiredFields }) {
       {teenagerLed !== 'true' && (
         <>
           <Field
-            name="eventPoliticalActivity"
-            label={`Please describe any political activity your ${org.toLowerCase()} is involved in, if any`}
-            description="This includes but is not limited to protests, public demonstrations, political education, and lobbying."
-            requiredFields={requiredFields}
-          >
-            <Textarea
-              name="eventPoliticalActivity"
-              id="eventPoliticalActivity"
-              placeholder="We are involved in..."
-              rows={3}
-              sx={{
-                resize: 'vertical'
-              }}
-            />
-          </Field>
-
-          <Field
             name="eventAnnualBudget"
             label="What is your estimated annual budget (USD) for this year?"
             requiredFields={requiredFields}
