@@ -96,30 +96,36 @@ export default function OrganizationInfoForm({ requiredFields }) {
         </Select>
       </Field>
 
-      {
-        hasWebsite ? (
-          <Field
+      {hasWebsite ? (
+        <Field
+          name="eventWebsite"
+          label={`${org} website`}
+          requiredFields={requiredFields}
+        >
+          <Input
             name="eventWebsite"
-            label={`${org} website`}
-            requiredFields={requiredFields}
-          >
-            <Input
-              name="eventWebsite"
-              id="eventWebsite"
-              inputMode="url"
-              placeholder="hackclub.com"
-            />
-          </Field>
-        ) : teenagerLed === 'true' ? (
-          <Text variant="caption">
-            A website is not required to apply for HCB. However, most successful
-            projects that raise money have a custom-build website. If you've
-            never built a website before, checkout{' '}
-            <Link href="https://boba.hackclub.com/">Boba Drops</Link>, a Hack
-            Club workshop on how to build a website.
-          </Text>
-        ) : null /* don't show Boba Drops to adult-led orgs lol*/
-      }
+            id="eventWebsite"
+            inputMode="url"
+            placeholder="hackclub.com"
+          />
+        </Field>
+      ) : (
+        <>
+          {/* No website */}
+          <input type="hidden" name="eventWebsite" value="" />
+
+          {teenagerLed === 'true' && (
+            /* don't show Boba Drops to adult-led orgs lol*/
+            <Text variant="caption">
+              A website is not required to apply for HCB. However, most
+              successful projects that raise money have a custom-build website.
+              If you've never built a website before, checkout{' '}
+              <Link href="https://boba.hackclub.com/">Boba Drops</Link>, a Hack
+              Club workshop on how to build a website.
+            </Text>
+          )}
+        </>
+      )}
 
       {teenagerLed === 'true' ? (
         <>

@@ -131,7 +131,7 @@ export default function PersonalInfoForm({ requiredFields }) {
         label="Birthday"
         requiredFields={requiredFields}
       >
-        <Input type="date" name="userBirthday" />
+        <Input type="date" name="userBirthday" id="userBirthday" />
       </Field>
 
       <Flex sx={{ flexDirection: 'column', gap: 1 }}>
@@ -142,6 +142,7 @@ export default function PersonalInfoForm({ requiredFields }) {
         >
           <Input
             name="userAddressLine1"
+            id="userAddressLine1"
             placeholder="8605 Santa Monica Blvd, Suite 86294"
           />
         </Field>
@@ -152,21 +153,33 @@ export default function PersonalInfoForm({ requiredFields }) {
             label={<Text sx={{ fontSize: 1 }}>City</Text>}
             requiredFields={requiredFields}
           >
-            <Input name="userAddressCity" placeholder="Santa Monica" />
+            <Input
+              name="userAddressCity"
+              placeholder="Santa Monica"
+              id="userAddressCity"
+            />
           </Field>
           <Field
             name="userAddressProvince"
             label={<Text sx={{ fontSize: 1 }}>State / Province</Text>}
             requiredFields={requiredFields}
           >
-            <Input name="userAddressProvince" placeholder="California" />
+            <Input
+              name="userAddressProvince"
+              placeholder="California"
+              id="userAddressProvince"
+            />
           </Field>
           <Field
             name="userAddressPostalCode"
             label={<Text sx={{ fontSize: 1 }}>ZIP / Postal code</Text>}
             requiredFields={requiredFields}
           >
-            <Input name="userAddressPostalCode" placeholder="90069" />
+            <Input
+              name="userAddressPostalCode"
+              placeholder="90069"
+              id="userAddressPostalCode"
+            />
           </Field>
           <Field
             name="userAddressCountry"
