@@ -24,7 +24,6 @@ export default function ApplicationForm() {
     eventIsPolitical: "project's political activity",
     eventPoliticalActivity: "project's political activity",
     eventHasWebsite: 'project website',
-    eventWebsite: 'project website',
     eventAnnualBudget: 'project annual budget',
     firstName: 'first name',
     lastName: 'last name',
