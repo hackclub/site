@@ -7,13 +7,13 @@ const phoneNumberUri = '+1-844-237-2290'
 const email = 'hcb@hackclub.com'
 
 export default function ContactBanner({ sx }) {
-  const { step } = useMultiStepContext()
-  const firstStep = step === 0
+  const stepContext = useMultiStepContext()
+  const firstStep = stepContext?.step === 0
 
   return (
     <Flex
       sx={{
-        display: firstStep ? 'block' : ['none', 'block'],
+        display: firstStep ? 'flex' : ['none', 'flex'],
         bg: 'sunken',
         color: 'slate',
         alignItems: 'center',
