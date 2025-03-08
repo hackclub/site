@@ -72,7 +72,7 @@ _Have questions? Join us in [#hackclub-site-dev](https://hackclub.slack.com/arch
 
 ---
 
-Hack Club, 2024. MIT License.
+Hack Club, 2025. MIT License.
 
 [next.js]: https://nextjs.org
 [mdx]: https://mdxjs.com
