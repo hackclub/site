@@ -1,19 +1,25 @@
-import { Box, Link, Heading } from 'theme-ui'
+import { Box, Link, Heading, Grid } from 'theme-ui'
 import Icon from '../../icon'
+import { useMultiStepContext } from './multi-step-context'
+import { useEffect } from 'react'
 
 export default function HCBInfo() {
+  const { step } = useMultiStepContext()
+  const firstStep = step === 0
+
   return (
     <Box
       sx={{
+        display: firstStep ? 'block' : ['none', 'block'],
         gridArea: 'info',
         alignItems: 'start',
         mark: { color: '#ec555c', bg: 'inherit' },
-        ul: { pl: [3, 0], color: 'muted', mb: 4 },
+        ul: { pl: 3, color: 'muted', mb: 4 },
         p: { color: 'muted', mb: 0 }
       }}
     >
       <Heading variant="subheadline">
-        HCB is a{' '}
+        HCB is not a bank, we're a{' '}
         <Link
           href="https://en.wikipedia.org/wiki/Fiscal_sponsorship"
           target="_blank"
@@ -27,39 +33,22 @@ export default function HCBInfo() {
           <Icon glyph="external" size={24} aria-hidden />
         </Link>
       </Heading>
+      {/* <Grid columns={2} bg="white" sx={{ color: 'muted', border: 'slate 1px' }}>
+        <Box>Gives your project nonprofit status.</Box>
+      </Grid> */}
+
       <ul>
-        <li>Nonprofit status.</li>
-        <li>Tax-deductible donations.</li>
+        <li>HCB gives your project nonprofit status.</li>
+        <li>Allows you to raise tax-deductible donations.</li>
+        <li>Provides a financial platform.</li>
+        <li>Allows you to order cards to make purchases.</li>
       </ul>
-      <Heading variant="subheadline">
-        HCB provides a financial platform.
-      </Heading>
-      <ul>
-        <li>A donations page and invoicing system.</li>
-        <li>Transfer money electronically.</li>
-        <li>Order cards for you and your team to make purchases.</li>
-      </ul>
-      <Heading variant="subheadline">HCB is not a bank.</Heading>
-      <ul>
-        <li>
-          We partner with{' '}
-          <Link href="https://column.com" target="_blank">
-            Column N.A.
-          </Link>{' '}
-          to offer restricted funds to fiscally-sponsored projects.
-        </li>
-        <li>
-          You can't deposit or withdraw cash. But you can receive any kind of
-          electronic payment!
-        </li>
-      </ul>
-      <Heading variant="subheadline">HCB is not for for-profits.</Heading>
       <p>
-        If you’re looking to set up a for-profit entity, consider{' '}
-        <Link href="https://stripe.com/atlas" target="_blank">
-          Stripe Atlas
-        </Link>
-        .
+        HCB partners with{' '}
+        <Link href="https://column.com" target="_blank">
+          Column N.A.
+        </Link>{' '}
+        to provide restricted funds to fiscally-sponsored projects.
       </p>
     </Box>
   )
