@@ -69,6 +69,7 @@ const Stats = ({ stats }) => {
     return null
   }
 
+
   return (
     <Box id="parent">
       <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
