@@ -28,7 +28,6 @@ export default function Checkbox({ name, defaultChecked = false, size = 38 }) {
         name={name}
         aria-checked={checked}
         role="checkbox"
-        tabindex="0"
         onClick={() => toggle()}
         onKeyDown={e => e.key === 'Enter' && toggle()}
       />

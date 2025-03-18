@@ -11,17 +11,24 @@ export default function Field({
   children
 }) {
   const router = useRouter()
-  const isRequired = requiredFields.includes(name)
+  const isRequired = Object.keys(requiredFields).includes(name)
 
   /* Fill in the field input element with the value from sessionStorage.
     Note: the custom checkbox component does this in its own useEffect hook. */
   useEffect(() => {
     const value =
       router.query[name] || sessionStorage.getItem('bank-signup-' + name)
-    if (value) {
-      const input = document.getElementById(name)
-      if (input) input.value = value
+    if (!value) return
+
+    let input = document.getElementById(name)
+    if (input) {
+      input.value = value
+      return
     }
+
+    // Maybe it's radio buttons
+    input = document.querySelector(`input[name='${name}']`)
+    if (input) input.checked = true
   }, [router.query, name])
 
   return (
