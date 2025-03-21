@@ -23,7 +23,7 @@ import Meta from '@hackclub/meta'
 import Nav from '../../components/nav'
 import ForceTheme from '../../components/force-theme'
 import Footer from '../../components/footer'
-import ElonCopy from '../../components/announcements/relon.mdx'
+import Copy from '../../components/announcements/hcb-open-source.mdx'
 import Amount from '../../components/announcements/amount'
 import SlackCTA from '../../components/announcements/cta'
 import AnnouncementHolder from '../../components/announcements/holder'
@@ -97,7 +97,7 @@ const RelonPage = () => (
         />
         <DatePill tag="Mar 29, 2025" />
       </PillHolder>
-      <ElonCopy />
+      <Copy />
     </AnnouncementHolder>
     <SlackCTA />
     <Footer />
