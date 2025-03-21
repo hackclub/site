@@ -212,7 +212,7 @@ export default function Page() {
               mb: 4
             }}
           >
-            <Stat value="$30M+" label="processed transactions" reversed />
+            <Stat value="$40M+" label="processed transactions" reversed />
             <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
