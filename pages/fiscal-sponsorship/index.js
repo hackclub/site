@@ -23,6 +23,8 @@ import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
 import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
+import { setCookie } from 'cookies-next'
+import { useEffect } from 'react'
 
 const organizations = [
   {
@@ -73,6 +75,13 @@ const organizations = [
 ]
 
 export default function Page() {
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search)
+		const referral = params.get('referral')
+		if (referral) {
+		  setCookie('referral', referral)
+		}
+	}, [])
   return (
     <>
       <Meta
