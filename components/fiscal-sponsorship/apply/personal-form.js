@@ -231,7 +231,7 @@ export default function PersonalInfoForm({ requiredFields }) {
 			name="referralCode"
 			id="referralCode"
 			placeholder="rec123456789"
-			value={defaultReferralCode}
+			defaultValue={defaultReferralCode}
 		/>
 	  </Field>
 
