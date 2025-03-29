@@ -48,7 +48,7 @@ const RelonPage = () => (
       as={Head}
       title="HCB is now open source!"
       description="Our fiscal sponsorship platform’s codebase is now publicly available under the AGPL license and we’re continuing to encourage transparency amongst nonprofits."
-      image="https://cloud-6w46cupdh-hack-club-bot.vercel.app/0social-card.png"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9f07613f2f1a8fa166d56695015fab73c0ab8060_og_image.png"
     />
     <ForceTheme theme="light" />
     <Nav />
