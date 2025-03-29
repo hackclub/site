@@ -65,7 +65,10 @@ const Stats = ({ stats }) => {
     return () => observer.disconnect()
   }, [stats.transactions_volume])
 
-  if (stats.transactions_volume === undefined) return null
+  if (stats.transactions_volume === undefined) {
+    return null
+  }
+
 
   return (
     <Box id="parent">
