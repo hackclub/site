@@ -48,6 +48,7 @@ const Footer = () => {
                 </div>
                 <div className={styles.footer_links_column}>
                     <h2>Resources</h2>
+                    <a href="https://hackclub.com/pizza">Clubs Pizza Grant</a>
                     <a href="https://events.hackclub.com/">Community Events</a>
                     <a href="https://jams.hackclub.com/">Jams</a>
                     <a href="https://toolbox.hackclub.com/">Toolbox</a>
