@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Box, Card, Text } from 'theme-ui'
 import Icon from './icon'
 
-const unfold = keyframes({
+export const unfold = keyframes({
   from: { transform: 'scaleY(0)' },
   to: { transform: 'scaleY(100%)' }
 })
