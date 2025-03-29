@@ -101,7 +101,7 @@ const RelonPage = () => (
         <AuthorPill
           firstName="Ian"
           tag="Ian Madden"
-          image="https://github.com/YodaLightsabr.png"
+          image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/eb65161e4fdd194bc39916abc7b9acd358fa9d8a_image.png"
         />
         <AuthorPill
           firstName="Gary"
