@@ -80,7 +80,7 @@ const RelonPage = () => (
           as="h2"
           variant="title"
           sx={{
-            fontSize: [5, 5, 5, 5],
+            fontSize: [4, 4, 4, 4],
             fontWeight: 400,
             marginTop: '24px',
             maxWidth: '900px',
