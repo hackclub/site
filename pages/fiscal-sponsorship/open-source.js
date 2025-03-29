@@ -29,7 +29,7 @@ import SlackCTA from '../../components/announcements/cta'
 import AnnouncementHolder from '../../components/announcements/holder'
 
 const StyledLink = styled.a`
-  text-decoration: none;
+  text-decoration: underline;
   color: ${theme.colors.white};
 `
 
@@ -47,7 +47,7 @@ const RelonPage = () => (
     <Meta
       as={Head}
       title="HCB is now open source!"
-      description="Our Ruby on Rails codebase is now publicly available under the AGPL license and we’re continuing to encourage transparency amongst nonprofits."
+      description="Our fiscal sponsorship platform’s codebase is now publicly available under the AGPL license and we’re continuing to encourage transparency amongst nonprofits."
       image="https://cloud-6w46cupdh-hack-club-bot.vercel.app/0social-card.png"
     />
     <ForceTheme theme="light" />
