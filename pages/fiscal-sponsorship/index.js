@@ -85,32 +85,39 @@ function OpenSourceAlert() {
       <Box sx={{
         py: 3,
         px: 4,
-        background: "linear-gradient(rgba(255,255,255,0.4), rgba(200,200,200,.3))",
+        background: [
+          "rgba(200, 200, 200, 0.3)",
+          "linear-gradient(rgba(255,255,255,0.4), rgba(200,200,200,.3))"
+        ],
         backdropFilter: "blur(20px)",
         borderRadius: 20,
         boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
         display: "flex",
         alignItems: 'center',
         gap: 10,
-        mt: -50,
+        mt: [20, -50],
         transform: "scaleY(0)",
         '@media (prefers-reduced-motion: no-preference)': {
           animation: `${unfold} 0.5s ease-out forwards`,
           animationDelay: "0.5s"
         },
+        flexDirection: ["column", "row"]
       }}>
         <span style={{ fontSize: 20 }}>
           <strong style={{ fontSize: 23 }}>HCB is now open source! </strong><br />
           Join us in building the infrastructure powering student-led organizations
         </span>
 
-        <Button as="a" sx={{ ml: "auto", flexShrink: 0 }} variant="outline" target="_blank" href="https://github.com/hackclub/hcb">
-          Star on GitHub
-        </Button>
-        <Button as="a" href="https://github.com/hackclub/hcb" target="_blank" style={{ flexShrink: 0, gap: 10, paddingLeft: 25 }}>
-          Read our blog post
-          <Icon glyph="github" />
-        </Button>
+        <Box sx={{ gap: 2, display: "flex", width: ["100%", "auto"], alignItems: ["stretch", "center"], flexShrink: 0, ml: [undefined, "auto"], flexDirection: ["column", "row"] }}>
+          <Button as="a" sx={{ flexShrink: 0, gap: 14, paddingLeft: 25 }} variant="outline" target="_blank" href="https://github.com/hackclub/hcb">
+            Star on GitHub
+            <Icon glyph="github" />
+          </Button>
+          <Button as="a" sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px' }} href="https://github.com/hackclub/hcb" target="_blank">
+            Read our blog post
+            <Icon glyph="view-forward" />
+          </Button>
+        </Box>
       </Box>
     </Container >
   )
