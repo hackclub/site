@@ -83,7 +83,7 @@ const RelonPage = () => (
             fontSize: [5, 5, 5, 5],
             fontWeight: 400,
             marginTop: '24px',
-            maxWidth: '800px',
+            maxWidth: '900px',
             mx: 'auto'
           }}
         >
