@@ -1,15 +1,4 @@
-import {
-  Avatar,
-  Badge,
-  BaseStyles,
-  Box,
-  Button,
-  Container,
-  Flex,
-  Grid,
-  Heading,
-  Text
-} from 'theme-ui'
+import { Box, Container, Heading } from 'theme-ui'
 import {
   PillHolder,
   AuthorPill,
@@ -24,16 +13,16 @@ import Nav from '../../components/nav'
 import ForceTheme from '../../components/force-theme'
 import Footer from '../../components/footer'
 import Copy from '../../components/announcements/hcb-open-source.mdx'
-import Amount from '../../components/announcements/amount'
 import SlackCTA from '../../components/announcements/cta'
 import AnnouncementHolder from '../../components/announcements/holder'
+import Balancer from 'react-wrap-balancer'
 
 const StyledLink = styled.a`
   text-decoration: underline;
   color: ${theme.colors.white};
 `
 
-const RelonLink = props => {
+const Link = props => {
   const { href } = props
   return (
     <NextLink href={href} passHref>
@@ -74,21 +63,26 @@ const RelonPage = () => (
             }
           }}
         >
-          <RelonLink href="/fiscal-sponsorship">HCB</RelonLink> is now open source!
+          <Link href="/fiscal-sponsorship">HCB</Link> is now open source!
         </Heading>
-        <Heading
-          as="h2"
-          variant="title"
-          sx={{
-            fontSize: [4, 4, 4, 4],
-            fontWeight: 400,
-            marginTop: '24px',
-            maxWidth: '900px',
-            mx: 'auto'
-          }}
-        >
-          Our fiscal sponsorship platform’s <RelonLink href="https://github.com/hackclub/hcb">codebase</RelonLink> is now publicly available under the AGPL license and we’re continuing to encourage transparency amongst nonprofits.
-        </Heading>
+        <Balancer>
+          <Heading
+            as="h2"
+            variant="title"
+            sx={{
+              fontSize: [3, 4, 4, 4],
+              fontWeight: 400,
+              marginTop: '24px',
+              maxWidth: '900px',
+              mx: 'auto'
+            }}
+          >
+            Our fiscal sponsorship platform’s{' '}
+            <Link href="https://github.com/hackclub/hcb">codebase</Link> is now
+            publicly available under the AGPL license and we’re continuing to
+            encourage transparency amongst nonprofits.
+          </Heading>
+        </Balancer>
       </Container>
     </Box>
     <AnnouncementHolder>
