@@ -83,7 +83,7 @@ function OpenSourceAlert() {
       }}
     >
       <Box sx={{
-        py: 3,
+        py: ['25px', 3],
         px: 4,
         background: [
           "rgba(200, 200, 200, 0.3)",
@@ -108,7 +108,7 @@ function OpenSourceAlert() {
           Join us in building the infrastructure powering student-led organizations
         </span>
 
-        <Box sx={{ gap: 2, display: "flex", width: ["100%", "auto"], alignItems: ["stretch", "center"], flexShrink: 0, ml: [undefined, "auto"], flexDirection: ["column", "row"] }}>
+        <Box sx={{ gap: 2, display: "flex", width: ["100%", "auto"], alignItems: ["stretch", "center"], flexShrink: 0, ml: [undefined, "auto"], flexDirection: ["column-reverse", "row"] }}>
           <Button as="a" sx={{ flexShrink: 0, gap: 14, paddingLeft: 25 }} variant="outline" target="_blank" href="https://github.com/hackclub/hcb">
             Star on GitHub
             <Icon glyph="github" />
