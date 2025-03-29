@@ -113,7 +113,7 @@ function OpenSourceAlert() {
             Star on GitHub
             <Icon glyph="github" />
           </Button>
-          <Button as="a" sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px' }} href="https://github.com/hackclub/hcb" target="_blank">
+          <Button as="a" sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px' }} href="https://hackclub.com/hcb/open-source" target="_blank">
             Read our blog post
             <Icon glyph="view-forward" />
           </Button>
