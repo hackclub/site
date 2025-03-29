@@ -23,6 +23,8 @@ import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
 import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
+import { unfold } from '../../components/announcement'
+import Icon from '@hackclub/icons'
 
 const organizations = [
   {
@@ -72,6 +74,48 @@ const organizations = [
   }
 ]
 
+
+function OpenSourceAlert() {
+  return (
+    <Container
+      sx={{
+        position: 'relative',
+      }}
+    >
+      <Box sx={{
+        py: 3,
+        px: 4,
+        background: "linear-gradient(rgba(255,255,255,0.4), rgba(200,200,200,.3))",
+        backdropFilter: "blur(20px)",
+        borderRadius: 20,
+        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        display: "flex",
+        alignItems: 'center',
+        gap: 10,
+        mt: -50,
+        transform: "scaleY(0)",
+        '@media (prefers-reduced-motion: no-preference)': {
+          animation: `${unfold} 0.5s ease-out forwards`,
+          animationDelay: "0.5s"
+        },
+      }}>
+        <span style={{ fontSize: 20 }}>
+          <strong style={{ fontSize: 23 }}>HCB is now open source! </strong><br />
+          Join us in building the infrastructure powering student-led organizations
+        </span>
+
+        <Button as="a" sx={{ ml: "auto", flexShrink: 0 }} variant="outline" target="_blank" href="https://github.com/hackclub/hcb">
+          Star on GitHub
+        </Button>
+        <Button as="a" href="https://github.com/hackclub/hcb" target="_blank" style={{ flexShrink: 0, gap: 10, paddingLeft: 25 }}>
+          Read our blog post
+          <Icon glyph="github" />
+        </Button>
+      </Box>
+    </Container >
+  )
+}
+
 export default function Page() {
   return (
     <>
@@ -88,7 +132,7 @@ export default function Page() {
         sx={{
           position: 'relative',
           pt: 6,
-          pb: [4, 5],
+          pb: [4, "90px"],
           bg: 'rgb(104, 41, 205)',
           backgroundImage:
             'radial-gradient(ellipse at 5% 5%, #ec555c 0%, rgba(236,85,92,0) 75%),radial-gradient(ellipse at 95% 5%, #dc71a1 0%, rgba(220,113,161,0) 75%),radial-gradient(ellipse at 95% 95%, #fcc8bf 0%, rgba(252,200,191,0) 75%),radial-gradient(ellipse at 5% 95%, #ffce33 0%, rgba(255,206,51,0) 75%)'
@@ -198,7 +242,8 @@ export default function Page() {
             <SignIn />
           </Flex>
         </Container>
-      </Box>
+      </Box >
+      <OpenSourceAlert />
       <Box id="organizations" as="section" sx={{ py: [4, 5] }}>
         <Container sx={{}}>
           {/* <Text as="p" variant="headline" sx={{ mt: 0 }}>
