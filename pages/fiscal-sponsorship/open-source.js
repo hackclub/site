@@ -76,6 +76,20 @@ const RelonPage = () => (
         >
           <RelonLink href="/fiscal-sponsorship">HCB</RelonLink> is now open source!
         </Heading>
+        <Heading
+          as="h2"
+          variant="title"
+          sx={{
+            fontSize: 6,
+            fontWeight: 400,
+            marginTop: '24px',
+            fontSize: '32px',
+            maxWidth: '800px',
+            mx: 'auto'
+          }}
+        >
+          Our fiscal sponsorship platform’s <RelonLink href="https://github.com/hackclub/hcb">codebase</RelonLink> is now publicly available under the AGPL license and we’re continuing to encourage transparency amongst nonprofits.
+        </Heading>
       </Container>
     </Box>
     <AnnouncementHolder>
