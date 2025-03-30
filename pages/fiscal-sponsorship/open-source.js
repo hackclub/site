@@ -102,6 +102,16 @@ const RelonPage = () => (
           tag="Gary Tou"
           image="https://github.com/garyhtou.png"
         />
+        <AuthorPill
+          firstName="Manu"
+          tag="Manu Gurudath"
+          image="https://github.com/manuthecoder.png"
+        />
+        <AuthorPill
+          firstName="Ruien"
+          tag="Ruien Luo"
+          image="https://github.com/rluodev.png"
+        />
         <DatePill tag="Mar 29, 2025" />
       </PillHolder>
       <Copy />
