@@ -280,8 +280,9 @@ export default function Page() {
                   mt: 3
                 }}
               >
-                Apply before <strong>April 16th</strong> using this referral
-                link and get stickers + fiscal sponsorship fees waived for May
+                Apply by <strong>April 16th</strong> using referral code (
+                {getCookie('referral')}) and get stickers + fiscal sponsorship
+                fees waived for the month of May.
                 <Link
                   href="https://docs.google.com/document/d/e/2PACX-1vTPygv_qfd2FnU3Dslt4o69nBlOoKhvWDuexk67ApjuIH96ghjpLjw9wJhsRUtTZYX3XO4EVdxXVx7Q/pub"
                   target="_blank"
