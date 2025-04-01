@@ -23,6 +23,8 @@ import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
 import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
+import { setCookie, getCookie } from 'cookies-next'
+import { useEffect, useState } from 'react'
 import { unfold } from '../../components/announcement'
 import Icon from '@hackclub/icons'
 
@@ -74,56 +76,95 @@ const organizations = [
   }
 ]
 
-
 function OpenSourceAlert() {
   return (
     <Container
       sx={{
-        position: 'relative',
+        position: 'relative'
       }}
     >
-      <Box sx={{
-        py: ['25px', 3],
-        px: 4,
-        background: [
-          "rgba(200, 200, 200, 0.3)",
-          "linear-gradient(rgba(255,255,255,0.4), rgba(200,200,200,.3))"
-        ],
-        backdropFilter: "blur(20px)",
-        borderRadius: 20,
-        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-        display: "flex",
-        alignItems: 'center',
-        gap: 10,
-        mt: [20, -50],
-        transform: "scaleY(0)",
-        '@media (prefers-reduced-motion: no-preference)': {
-          animation: `${unfold} 0.5s ease-out forwards`,
-          animationDelay: "0.5s"
-        },
-        flexDirection: ["column", "row"]
-      }}>
+      <Box
+        sx={{
+          py: ['25px', 3],
+          px: 4,
+          background: [
+            'rgba(200, 200, 200, 0.3)',
+            'linear-gradient(rgba(255,255,255,0.4), rgba(200,200,200,.3))'
+          ],
+          backdropFilter: 'blur(20px)',
+          borderRadius: 20,
+          boxShadow:
+            '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          mt: [20, -50],
+          transform: 'scaleY(0)',
+          '@media (prefers-reduced-motion: no-preference)': {
+            animation: `${unfold} 0.5s ease-out forwards`,
+            animationDelay: '0.5s'
+          },
+          flexDirection: ['column', 'row']
+        }}
+      >
         <span style={{ fontSize: 20 }}>
-          <strong style={{ fontSize: 23 }}>HCB is now open source! </strong><br />
-          Join us in building the infrastructure powering student-led organizations
+          <strong style={{ fontSize: 23 }}>HCB is now open source! </strong>
+          <br />
+          Join us in building the infrastructure powering student-led
+          organizations
         </span>
 
-        <Box sx={{ gap: 2, display: "flex", width: ["100%", "auto"], alignItems: ["stretch", "center"], flexShrink: 0, ml: [undefined, "auto"], flexDirection: ["column-reverse", "row"] }}>
-          <Button as="a" sx={{ flexShrink: 0, gap: 14, paddingLeft: 25 }} variant="outline" target="_blank" href="https://github.com/hackclub/hcb">
+        <Box
+          sx={{
+            gap: 2,
+            display: 'flex',
+            width: ['100%', 'auto'],
+            alignItems: ['stretch', 'center'],
+            flexShrink: 0,
+            ml: [undefined, 'auto'],
+            flexDirection: ['column-reverse', 'row']
+          }}
+        >
+          <Button
+            as="a"
+            sx={{ flexShrink: 0, gap: 14, paddingLeft: 25 }}
+            variant="outline"
+            target="_blank"
+            href="https://github.com/hackclub/hcb"
+          >
             Star on GitHub
             <Icon glyph="github" />
           </Button>
-          <Button as="a" sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px' }} href="https://hackclub.com/hcb/open-source" target="_blank">
+          <Button
+            as="a"
+            sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px' }}
+            href="https://hackclub.com/hcb/open-source"
+            target="_blank"
+          >
             Read our blog post
             <Icon glyph="view-forward" />
           </Button>
         </Box>
       </Box>
-    </Container >
+    </Container>
   )
 }
 
 export default function Page() {
+  const [hasReferral, setHasReferral] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const referral = params.get('referral')
+    const referralCookie = getCookie('referral')
+
+    if (referral) {
+      setCookie('referral', referral)
+    }
+
+    setHasReferral(!!referral || !!referralCookie)
+  }, [])
+
   return (
     <>
       <Meta
@@ -139,7 +180,7 @@ export default function Page() {
         sx={{
           position: 'relative',
           pt: 6,
-          pb: [4, "90px"],
+          pb: [4, '90px'],
           bg: 'rgb(104, 41, 205)',
           backgroundImage:
             'radial-gradient(ellipse at 5% 5%, #ec555c 0%, rgba(236,85,92,0) 75%),radial-gradient(ellipse at 95% 5%, #dc71a1 0%, rgba(220,113,161,0) 75%),radial-gradient(ellipse at 95% 95%, #fcc8bf 0%, rgba(252,200,191,0) 75%),radial-gradient(ellipse at 5% 95%, #ffce33 0%, rgba(255,206,51,0) 75%)'
@@ -225,6 +266,36 @@ export default function Page() {
               best-in-class software.
             </Balancer>
           </Text>
+
+          {hasReferral && (
+            <Text variant="lead" sx={{ my: [3, 4] }}>
+              <Box
+                sx={{
+                  bg: 'rgba(255, 255, 255, 0.2)',
+                  p: 3,
+                  borderRadius: 'default',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  backdropFilter: 'blur(8px)',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  mt: 3
+                }}
+              >
+                Apply by <strong>April 16th</strong> using referral code (
+                {getCookie('referral')}) and get stickers + fiscal sponsorship
+                fees waived for the month of May.
+                <Link
+                  href="https://docs.google.com/document/d/e/2PACX-1vTPygv_qfd2FnU3Dslt4o69nBlOoKhvWDuexk67ApjuIH96ghjpLjw9wJhsRUtTZYX3XO4EVdxXVx7Q/pub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Terms apply"
+                  style={{ marginLeft: '4px' }}
+                >
+                  *
+                </Link>
+              </Box>
+            </Text>
+          )}
+
           <Flex
             sx={{
               flexDirection: ['column', 'row'],
@@ -249,7 +320,7 @@ export default function Page() {
             <SignIn />
           </Flex>
         </Container>
-      </Box >
+      </Box>
       <OpenSourceAlert />
       <Box id="organizations" as="section" sx={{ py: [4, 5] }}>
         <Container sx={{}}>
@@ -347,10 +418,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                {
-                  backgroundImage:
-                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                }
+                  {
+                    backgroundImage:
+                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                  }
               }}
               style={{ margin: 0 }}
             >
