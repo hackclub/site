@@ -23,8 +23,8 @@ import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
 import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
-import { setCookie } from 'cookies-next'
-import { useEffect } from 'react'
+import { setCookie, getCookie } from 'cookies-next'
+import { useEffect, useState } from 'react'
 import { unfold } from '../../components/announcement'
 import Icon from '@hackclub/icons'
 
@@ -126,13 +126,20 @@ function OpenSourceAlert() {
 }
 
 export default function Page() {
+	const [hasReferral, setHasReferral] = useState(false)
+
 	useEffect(() => {
 		const params = new URLSearchParams(window.location.search)
 		const referral = params.get('referral')
+		const referralCookie = getCookie('referral')
+		
 		if (referral) {
 		  setCookie('referral', referral)
 		}
+		
+		setHasReferral(!!referral || !!referralCookie)
 	}, [])
+
   return (
     <>
       <Meta
@@ -234,6 +241,30 @@ export default function Page() {
               best-in-class software.
             </Balancer>
           </Text>
+
+		  {hasReferral && (
+			<Text variant="lead" sx={{ my: [3, 4] }}>
+				<Box sx={{
+					bg: 'rgba(255, 255, 255, 0.2)',
+					p: 3,
+					borderRadius: 'default',
+					border: '1px solid rgba(255, 255, 255, 0.3)',
+					backdropFilter: 'blur(8px)',
+					boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+					mt: 3
+				}}>
+					Apply before <strong>April 16th</strong> using this referral link and get stickers + fiscal sponsorship fees waived for May
+					<Link 
+					href="https://docs.google.com/document/d/e/2PACX-1vTPygv_qfd2FnU3Dslt4o69nBlOoKhvWDuexk67ApjuIH96ghjpLjw9wJhsRUtTZYX3XO4EVdxXVx7Q/pub" 
+					target="_blank" 
+					rel="noopener noreferrer" 
+					title="Terms apply"
+					style={{ marginLeft: '4px' }}
+					>*</Link>
+				</Box>
+			</Text>
+		)}
+
           <Flex
             sx={{
               flexDirection: ['column', 'row'],
