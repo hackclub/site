@@ -267,6 +267,10 @@ export default function Page() {
             <Stat value="$40M+" label="processed transactions" reversed />
             <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
+
+            <a href="https://www.producthunt.com/posts/hcb?embed=true&utm_source=badge-top-post-topic-badge&utm_medium=badge&utm_souce=badge-hcb" target="_blank" style={{ alignSelf: 'center', marginTop: '10px', display: "block" }}>
+              <img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-topic-badge.svg?post_id=947520&theme=light&period=weekly&topic_id=94&t=1743476906647" alt="HCB - The&#0032;open&#0045;source&#0044;&#0032;nonprofit&#0032;neobank | Product Hunt" style={{ width: '250px', height: '54px' }} width="250" height="54" />
+            </a>
           </Flex>
           <Grid columns={[1, 2]} gap={[3, 4]} sx={{ mt: 4 }}>
             {organizations.map(org => (
