@@ -12,10 +12,10 @@ export default function PersonalInfoForm({ requiredFields }) {
   const [defaultReferralCode, setDefaultReferralCode] = useState('')
 
   useEffect(() => {
-	const referralCode = getCookie('referral')
-	if (referralCode) {
-	  setDefaultReferralCode(referralCode)
-	}
+    const referralCode = getCookie('referral')
+    if (referralCode) {
+      setDefaultReferralCode(referralCode)
+    }
   }, [])
 
   return (
@@ -221,19 +221,19 @@ export default function PersonalInfoForm({ requiredFields }) {
         />
       </Field>
 
-	  <Field
-		name="referralCode"
-		label="Referral code"
-		description="Have a referral code? Enter it here!"
-		requiredFields={requiredFields}
-	  >
-		<Input
-			name="referralCode"
-			id="referralCode"
-			placeholder="rec123456789"
-			defaultValue={defaultReferralCode}
-		/>
-	  </Field>
+      <Field
+        name="referralCode"
+        label="Referral code"
+        description="Have a referral code? Enter it here!"
+        requiredFields={requiredFields}
+      >
+        <Input
+          name="referralCode"
+          id="referralCode"
+          placeholder="rec123456789"
+          defaultValue={defaultReferralCode}
+        />
+      </Field>
 
       <Field
         name="returningUser"
