@@ -61,8 +61,7 @@ export default async function handler(req, res) {
         '(Adults) Political Activity': data.eventPoliticalActivity,
         '(Adults) Annual Budget': parseInt(data.eventAnnualBudget),
         'HCB ID': r.id,
-        'Referral Code': data.referralCode,
-        Tubs: data.referralCode ? 'GFGS' : ''
+        'Referral Code': data.referralCode
       })
       res.status(200).end()
     })
