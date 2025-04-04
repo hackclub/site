@@ -4,19 +4,10 @@ import Checkbox from './checkbox'
 import { useEffect, useState } from 'react'
 import { useTeenagerLedContext } from './teenager-led-context'
 import { getNames } from 'country-list'
-import { getCookie } from 'cookies-next'
 
 export default function PersonalInfoForm({ requiredFields }) {
   const [selectedContactOption, setSelectedContactOption] = useState('Email')
   const { teenagerLed } = useTeenagerLedContext()
-  const [defaultReferralCode, setDefaultReferralCode] = useState('')
-
-  useEffect(() => {
-    const referralCode = getCookie('referral')
-    if (referralCode) {
-      setDefaultReferralCode(referralCode)
-    }
-  }, [])
 
   return (
     <>
@@ -218,20 +209,6 @@ export default function PersonalInfoForm({ requiredFields }) {
           name="referredBy"
           id="referredBy"
           placeholder="Word of mouth, an event, etc. Be specific!"
-        />
-      </Field>
-
-      <Field
-        name="referralCode"
-        label="Referral code"
-        description="Have a referral code? Enter it here!"
-        requiredFields={requiredFields}
-      >
-        <Input
-          name="referralCode"
-          id="referralCode"
-          placeholder="rec123456789"
-          defaultValue={defaultReferralCode}
         />
       </Field>
 
