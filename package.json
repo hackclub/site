@@ -81,7 +81,7 @@
     "react-reveal": "^1.2.2",
     "react-router-dom": "^6.22.3",
     "react-scrolllock": "^5.0.1",
-    "react-snowfall": "^1.2.1",
+    "react-snowfall": "^2.2.0",
     "react-syntax-highlighter": "^15.5.0",
     "react-ticker": "^1.3.2",
     "react-tooltip": "^4.5.1",
