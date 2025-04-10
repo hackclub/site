@@ -6,7 +6,6 @@ import { useState } from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
-import Announcement from '../components/announcement'
 import Screen from '../components/congressional-app-challenge/screen'
 import CustomButton from '../components/congressional-app-challenge/customButton'
 import Polaroid from '../components/congressional-app-challenge/polaroid'
@@ -165,12 +164,6 @@ function Page({ carouselCards }) {
               justifyContent: 'flex-end'
             }}
           >
-          <Announcement
-          copy="Build stupid s#!t. Get stupid prizes."
-          caption="Join Scrapyard, a hackathon running in 60+ cities worldwide."
-          href="https://scrapyard.hackclub.com/"
-          imgSrc="https://cloud-a1rsaev4v-hack-club-bot.vercel.app/0favicon.png"
-          />
             <Box
               sx={{
                 display: 'flex',
@@ -581,7 +574,7 @@ function Page({ carouselCards }) {
               , a game jam that ran simultaneously in 40+ locations worldwide.
               This year,{' '}
               <b>
-                we'll be running{' '}
+                we ran{' '}
                 <Link as="a" href="https://scrapyard.hackclub.com">
                   Scrapyard
                 </Link>{' '}
