@@ -1,4 +1,5 @@
 Contact: mailto:security@hackclub.com
-Expires: 2024-12-31T11:59:00.000Z
-Preferred-Languages: en
+Expires: 2026-12-31T11:59:00.000Z
+Preferred-Languages: en-US
+Policy: https://hackclub.com/security
 Canonical: https://hackclub.com/.well-known/security.txt

@@ -200,6 +200,12 @@ const nextConfig = {
         source: '/github',
         destination: 'https://github.com/hackclub',
         permanent: true
+
+      },
+      {
+        source: '/nest',
+        destination: 'https://hackclub.app',
+        permanent: true
       }
     ]
   },
@@ -317,10 +323,6 @@ const nextConfig = {
         source: '/arcade/power-hour',
         destination: '/arcade/power-hour/index.html'
       },
-      {
-        source: '/nest/',
-        destination: 'https://hackclub.app/'
-      }
     ]
   },
   async headers() {
