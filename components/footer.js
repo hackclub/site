@@ -52,7 +52,7 @@ const Service = ({ href, icon, name = '', ...props }) => (
 const Footer = ({
   dark = false,
   email = 'team@hackclub.com',
-  children = undefined,
+  children,
   ...props
 }) => (
   <Base

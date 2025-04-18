@@ -5,47 +5,14 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Bio from '../components/bio'
 import ForceTheme from '../components/force-theme'
-import { fetchTeam } from './api/team'
-
-const CommunityTeamBox = ({ title, children }) => {
-  return (
-    <Box
-      bg="rgb(247 225 255)"
-      sx={{
-        borderRadius: 'default',
-        boxShadow: 'default',
-        overflow: 'hidden'
-      }}
-      mb={2}
-    >
-      <div style={{ fontWeight: 'bold' }}>
-        <Text
-          variant="headline"
-          as="h4"
-          sx={{ textAlign: 'center', fontSize: 3 }}
-        >
-          {title}
-        </Text>
-      </div>
-      <div
-        style={{
-          overflow: 'hidden',
-          margin: '0 1rem 1rem'
-        }}
-      >
-        {children}
-      </div>
-    </Box>
-  )
-}
+import { fetchTeam } from './api/team';
 
 export default function Team({ team }) {
   return (
     <>
       <Box as="main" key="main">
         <ForceTheme theme="light" />
-        {/* @ts-expect-error -- TODO: fix this */}
-        <Nav />
+        <Nav light />
         <Meta
           as={Head}
           title="Team"
@@ -154,7 +121,7 @@ export default function Team({ team }) {
                 </Grid>
               </Box>
             </Flex>
-            <Grid columns={[1, null, 2]} gap={3}>
+            <Grid columns={[1, null, null, 2]} gap={3}>
               <Box>
                 <Box
                   sx={{
@@ -243,83 +210,25 @@ export default function Team({ team }) {
               >
                 Community Team
               </Text>
-              <Grid columns={[1, null, 2]} gap={3}>
-                <CommunityTeamBox title="Moderation">
-                  <Grid columns={[1, null, 2]} gap={2} m={10}>
-                    {team.current
-                      ?.filter(member => member.department === 'Moderation')
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
-                </CommunityTeamBox>
-                <CommunityTeamBox title="Virtual Events">
-                  <Grid columns={[1, null, 2]} gap={2} m={10}>
-                    {team.current
-                      ?.filter(member => member.department === 'Events')
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
-                </CommunityTeamBox>
-                <CommunityTeamBox title="Newspaper">
-                  <Grid columns={[1, null, 2]} gap={2} m={10}>
-                    {team.current
-                      ?.filter(member => member.department === 'Newspaper')
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
-                </CommunityTeamBox>
-                <CommunityTeamBox title="Welcomers">
-                  <Grid columns={[1, null, 2]} gap={2} m={10}>
-                    {team.current
-                      ?.filter(member => member.department === 'Welcoming')
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
-                </CommunityTeamBox>
+              <Grid columns={[1, 2, null, 4]} gap={2}>
+                {team.current
+                  ?.filter(member => member.department === 'Community')
+                  .map(member => (
+                    <Bio
+                      img={member.avatar}
+                      name={member.name}
+                      teamRole={member.role}
+                      text={member.bio}
+                      pronouns={member.pronouns}
+                      email={member.email}
+                      href={member.website}
+                      key={member.name}
+                    />
+                  ))}
               </Grid>
             </Box>
             <br />
-            <Box sx={{ textAlign: 'center', mt: 100, mb: [3, 4] }}>
+            <Box sx={{ textAlign: 'center', mt: 2, mb: [3, 4] }}>
               <Text
                 variant="title"
                 color="orange"
@@ -347,6 +256,7 @@ export default function Team({ team }) {
               </Text>
             </Box>
             <Grid columns={[1, null, 2, 4]} gap={2}>
+
               {team.acknowledged?.map(member => (
                 <Bio
                   img={member.avatar}
@@ -369,7 +279,7 @@ export default function Team({ team }) {
 
 export const getServerSideProps = async () => {
   try {
-    const team = await fetchTeam()
+    const team = await fetchTeam();
     return { props: { team } }
   } catch (e) {
     return { props: { team: {} } }
