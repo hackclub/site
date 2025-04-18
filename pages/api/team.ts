@@ -5,7 +5,6 @@ interface TeamMember {
   name: string
   department: string
   role: string | string[]
-  order: number
   acknowledged: boolean
   bio: string
   bioHackFoundation: string
