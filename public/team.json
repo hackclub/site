@@ -676,6 +676,30 @@
     "avatar": "https://cachet.dunkirk.sh/users/U04FATFRE6T/r"
   },
   {
+    "name": "Eesha",
+    "department": "Events",
+    "role": "Virtual Events Lead",
+    "acknowledged": false,
+    "bio": "Eesha is a 16 year old Hack Clubber from somewhere over the rainbow. Wherever she goes you're sure to find chaos and banana ducks following her, in a fun, loving way of course. She's been working on running virtual events for the Hack Club community whilst being overworked with school and robotics.",
+    "slackId": "U06QST7V0J2",
+    "email": "eesha",
+    "website": "https://beepboopblorp.github.io/personal-website",
+    "avatar": "https://cachet.dunkirk.sh/users/U06QST7V0J2/r"
+  },
+  {
+    "name": "Amber",
+    "department": "Events",
+    "role": "Virtual Events Infra",
+    "order": 1,
+    "acknowledged": false,
+    "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
+    "bioHackFoundation": "",
+    "slackId": "U054VC2KM9P",
+    "email": "amber",
+    "website": "https://transcental.dev",
+    "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
+  },
+  {
     "name": "Aram",
     "department": "Events",
     "role": "Event Organiser",
@@ -1402,17 +1426,6 @@
     "email": "sofia",
     "website": "",
     "avatar": "https://cloud-b6ykpb7te-hack-club-bot.vercel.app/0image.png"
-  },
-  {
-    "name": "Eesha",
-    "department": "Events",
-    "role": "Virtual Events Lead",
-    "acknowledged": false,
-    "bio": "",
-    "slackId": "U06QST7V0J2",
-    "email": "eesha@hackclub.com",
-    "website": "https://beepboopblorp.github.io/personal-website",
-    "avatar": "https://cachet.dunkirk.sh/users/U06QST7V0J2/r"
   },
   {
     "name": "Felix Gao",
