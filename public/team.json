@@ -1450,6 +1450,28 @@
     "avatar": "https://cachet.dunkirk.sh/users/U059VC0UDEU/r"
   },
   {
+    "name": "Hex4",
+    "department": "Newspaper",
+    "role": "Reporter",
+    "acknowledged": false,
+    "bio": "From Alberta, Canada hex4 is a part of the Newspaper team reporting on the various things that happen in Hack Club",
+    "slackId": "U071JHBEJ7R",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U071JHBEJ7R/r"
+  },
+  {
+    "name": "Neko",
+    "department": "Newspaper",
+    "role": "Reporter",
+    "acknowledged": false,
+    "bio": "From the US, Neko is a part of the Newspaper team reporting on the various things that happen in Hack Club. She has a passion for doing a lot of random and wacky things.",
+    "slackId": "U07PYPAF5RR",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07PYPAF5RR/r"
+  },
+  {
     "name": "Ryan Farnell",
     "department": "Welcoming",
     "role": "Welcomer",
