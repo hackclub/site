@@ -287,7 +287,7 @@ function Page({
               <Button
                 variant="ctaLg"
                 as="a"
-                href="https://shipwrecked.hack.club/3"
+                href="https://shipwrecked.hackclub.com/"
                 mt={3}
                 sx={{ 
                   transformOrigin: 'left',
