@@ -216,6 +216,18 @@
     "avatar": "https://cloud-3sfhhme28-hack-club-bot.vercel.app/0image.png"
   },
   {
+    "name": "Annabel",
+    "department": "HQ",
+    "role": "Engineering & Community",
+    "acknowledged": false,
+    "bio": "Annabel is a 17 year old Hack Clubber from Australia. They're currently gap-yearing for Hack Club and have worked on several programs and the Athena intiative. They're an avid Celeste and Hollow Knight fan and love to play games in their free time. They also love to build things, and have built several tools for Hack Club.",
+    "bioHackFoundation": "",
+    "slackId": "U078J6H1XL3",
+    "email": "annabel",
+    "website": "https://phthallo.com",
+    "avatar": "https://cachet.dunkirk.sh/users/U078J6H1XL3/r"
+  },
+  {
     "name": "Jared Senesac",
     "department": "HQ",
     "role": "Club Operations Lead",
@@ -238,6 +250,28 @@
     "email": "sofia",
     "website": "",
     "avatar": "https://cloud-b6ykpb7te-hack-club-bot.vercel.app/0image.png"
+  },
+  {
+    "name": "Phoebe",
+    "department": "HQ",
+    "role": "Communications & Partnership",
+    "acknowledged": false,
+    "bio": "Phoebe is a Franco-American netizen with a passion for art, hacking and music. After going to the forward-thinking Paris 8 University - and working as a software engineer - she joined Hack Club to help with communications and partnerships!",
+    "slackId": "U08B2HD1JNA",
+    "email": "phoebe",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U08B2HD1JNA/r"
+  },
+  {
+    "name": "Zenab",
+    "department": "HQ",
+    "role": "Creative Events Manager",
+    "acknowledged": false,
+    "bio": "Zenab works as a Creative Events Manager for the Days of Service program, helping non-binary youth and young girls write their first lines of code.",
+    "slackId": "U079FFTKM37",
+    "email": "zenab",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U079FFTKM37/r"
   },
   {
     "name": "Melanie Smith",
@@ -352,7 +386,7 @@
     "department": "HCB",
     "role": "Engineering",
     "acknowledged": false,
-    "bio": "",
+    "bio": "Ian joined Hack Club in 2021 and developed a passion for hackathons and the infrastructure behind them. After running a few events of his own, like Assemble in 2022 and Hack OC in 2023, Ian now works on engineering at HCB.",
     "bioHackFoundation": "",
     "slackId": "U022XFD2TML",
     "email": "ian",
@@ -364,12 +398,12 @@
     "department": "HCB",
     "role": "Operations & Engineering Contributor",
     "acknowledged": false,
-    "bio": "Ruien is a Hack Clubber in Silicon Valley. Having first found Hack Club and HCB when he was looking for a financial solution for hosting his hackathon, HackBackBetter, he now helps fellow hackclubbers and hackathon organizers organize their own hackathons in his operations role at HCB. More than anything else, he absolutely loves to get to know and help hackathon organizers during hackathon grant calls.",
+    "bio": "Ruien is a Hack Clubber in California. Having first found Hack Club and HCB when he was looking for a financial solution for hosting his hackathon, he now helps fellow hackclubbers and hackathon organizers get started with hackathons and other projects on HCB.",
     "bioHackFoundation": "",
     "slackId": "U04JRBGPH5G",
     "email": "ruien",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U04JRBGPH5G/r"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0f881116f6bfe31df850476833e4602b7b7a0f40_0img_4162_cropped.jpg"
   },
   {
     "name": "Manu Gurudath",
