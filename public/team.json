@@ -48,6 +48,17 @@
     "avatar": "https://cachet.dunkirk.sh/users/U04QH1TTMBP/r"
   },
   {
+    "name": "Zenab",
+    "department": "HQ",
+    "role": "Creative Events Manager",
+    "acknowledged": false,
+    "bio": "Zenab works as a Creative Events Manager for the Days of Service program, helping non-binary youth and young girls write their first lines of code.",
+    "slackId": "U079FFTKM37",
+    "email": "zenab",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U079FFTKM37/r"
+  },
+  {
     "name": "Ben Dixon",
     "department": "HQ",
     "role": "Engineering",
@@ -225,7 +236,7 @@
     "slackId": "U078J6H1XL3",
     "email": "annabel",
     "website": "https://phthallo.com",
-    "avatar": "https://cachet.dunkirk.sh/users/U078J6H1XL3/r"
+    "avatar": "https://cloud-6fxxs7j9y-hack-club-bot.vercel.app/11733036812219.jpg"
   },
   {
     "name": "Jared Senesac",
@@ -261,17 +272,6 @@
     "email": "phoebe",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U08B2HD1JNA/r"
-  },
-  {
-    "name": "Zenab",
-    "department": "HQ",
-    "role": "Creative Events Manager",
-    "acknowledged": false,
-    "bio": "Zenab works as a Creative Events Manager for the Days of Service program, helping non-binary youth and young girls write their first lines of code.",
-    "slackId": "U079FFTKM37",
-    "email": "zenab",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U079FFTKM37/r"
   },
   {
     "name": "Melanie Smith",
@@ -571,7 +571,7 @@
     "slackId": "U078J6H1XL3",
     "email": "annabel",
     "website": "https://phthallo.com",
-    "avatar": "https://cachet.dunkirk.sh/users/U078J6H1XL3/r"
+    "avatar": "https://cloud-6fxxs7j9y-hack-club-bot.vercel.app/11733036812219.jpg"
   },
   {
     "name": "Angad Behl",
