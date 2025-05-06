@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Avatar, Box, Card, Flex, Text } from 'theme-ui'
 
 export default function Bio({ popup = true, spanTwo = false, ...props }) {
-  let { img, name, teamRole, pronouns, text, subrole, email, href, video } =
+  const { img, name, teamRole, pronouns, text, subrole, email, href, video } =
     props
   const [expand, setExpand] = useState(false)
   return (
@@ -16,8 +16,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           display: 'flex',
           alignItems: popup ? 'center' : 'flex-start',
           transition: 'transform 0.125s ease-in-out',
-          '&:hover':
-            { transform: 'scale(1.025)' },
+          '&:hover': { transform: 'scale(1.025)' },
           cursor: (text && popup) || href ? 'pointer' : null,
           textDecoration: 'none',
           maxWidth: '600px',
@@ -25,7 +24,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           maxHeight: '90vh',
           overflowY: 'hidden',
           overscrollBehavior: 'contain',
-          gridColumn: !spanTwo ? null : [null, null, `1 / span 2`],
+          gridColumn: !spanTwo ? null : [null, null, '1 / span 2'],
           position: 'relative'
         }}
         as={href && !text ? 'a' : 'div'}
@@ -95,12 +94,23 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
               )}
             </Text>
           </Flex>
-          {!popup && email && (
-            <Text color="muted" as={'a'} href={`mailto:${email}@hackclub.com`}>
-              {email}@hackclub.com
-              <br />
-            </Text>
-          )}
+          {!popup &&
+            email &&
+            (email.includes('@') ? (
+              <Text color="muted" as={'a'} href={`mailto:${email}`}>
+                {email}
+                <br />
+              </Text>
+            ) : (
+              <Text
+                color="muted"
+                as={'a'}
+                href={`mailto:${email}@hackclub.com`}
+              >
+                {email}@hackclub.com
+                <br />
+              </Text>
+            ))}
 
           {!popup && (
             <>
@@ -123,7 +133,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen
-                  ></iframe>
+                  />
                 </Flex>
               )}
             </>
@@ -145,6 +155,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                 color="black"
                 as={'a'}
                 href={href}
+                target="_blank"
                 sx={{ transform: 'translateX(-2px)' }}
               >
                 {href}
@@ -154,38 +165,36 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
         </Box>
       </Card>
       {popup && expand && (
-        <>
+        <Flex
+          sx={{
+            position: 'fixed',
+            zIndex: 1004,
+            top: 0,
+            left: 0,
+            height: '100vh',
+            width: '100vw',
+            alignItems: 'center',
+            justifyContent: 'center',
+            background: 'rgba(0,0,0,0.6)',
+            pb: 4
+          }}
+        >
+          <Bio {...props} popup={false} />
           <Flex
             sx={{
               position: 'fixed',
-              zIndex: 1004,
+              zIndex: 1002,
               top: 0,
               left: 0,
               height: '100vh',
               width: '100vw',
               alignItems: 'center',
               justifyContent: 'center',
-              background: 'rgba(0,0,0,0.6)',
               pb: 4
             }}
-          >
-            <Bio {...props} popup={false} />
-            <Flex
-              sx={{
-                position: 'fixed',
-                zIndex: 1002,
-                top: 0,
-                left: 0,
-                height: '100vh',
-                width: '100vw',
-                alignItems: 'center',
-                justifyContent: 'center',
-                pb: 4
-              }}
-              onClick={() => setExpand(false)}
-            ></Flex>
-          </Flex>
-        </>
+            onClick={() => setExpand(false)}
+          />
+        </Flex>
       )}
     </>
   )

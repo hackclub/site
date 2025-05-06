@@ -20,7 +20,7 @@ export default function Bank({ data }) {
           color: 'snow'
         }}
         badge
-        text={data[0]}
+        text={data[0] === 'error' ? 'The coolest money thing' : data[0]}
       >
         <Heading
           variant="title"

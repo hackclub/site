@@ -23,6 +23,10 @@ import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
 import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
+import { setCookie, getCookie } from 'cookies-next'
+import { useEffect, useState } from 'react'
+import { unfold } from '../../components/announcement'
+import Icon from '@hackclub/icons'
 
 const organizations = [
   {
@@ -72,7 +76,95 @@ const organizations = [
   }
 ]
 
+function OpenSourceAlert() {
+  return (
+    <Container
+      sx={{
+        position: 'relative'
+      }}
+    >
+      <Box
+        sx={{
+          py: ['25px', 3],
+          px: 4,
+          background: [
+            'rgba(200, 200, 200, 0.3)',
+            'linear-gradient(rgba(255,255,255,0.4), rgba(200,200,200,.3))'
+          ],
+          backdropFilter: 'blur(20px)',
+          borderRadius: 20,
+          boxShadow:
+            '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          mt: [20, -50],
+          transform: 'scaleY(0)',
+          '@media (prefers-reduced-motion: no-preference)': {
+            animation: `${unfold} 0.5s ease-out forwards`,
+            animationDelay: '0.5s'
+          },
+          flexDirection: ['column', 'row']
+        }}
+      >
+        <span style={{ fontSize: 20 }}>
+          <strong style={{ fontSize: 23 }}>HCB is now open source! </strong>
+          <br />
+          Join us in building the infrastructure powering student-led
+          organizations
+        </span>
+
+        <Box
+          sx={{
+            gap: 2,
+            display: 'flex',
+            width: ['100%', 'auto'],
+            alignItems: ['stretch', 'center'],
+            flexShrink: 0,
+            ml: [undefined, 'auto'],
+            flexDirection: ['column-reverse', 'row']
+          }}
+        >
+          <Button
+            as="a"
+            sx={{ flexShrink: 0, gap: 14, paddingLeft: 25 }}
+            variant="outline"
+            target="_blank"
+            href="https://github.com/hackclub/hcb"
+          >
+            Star on GitHub
+            <Icon glyph="github" />
+          </Button>
+          <Button
+            as="a"
+            sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px' }}
+            href="https://hackclub.com/hcb/open-source"
+            target="_blank"
+          >
+            Read our blog post
+            <Icon glyph="view-forward" />
+          </Button>
+        </Box>
+      </Box>
+    </Container>
+  )
+}
+
 export default function Page() {
+  const [hasReferral, setHasReferral] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const referral = params.get('referral')
+    const referralCookie = getCookie('referral')
+
+    if (referral) {
+      setCookie('referral', referral)
+    }
+
+    setHasReferral(!!referral || !!referralCookie)
+  }, [])
+
   return (
     <>
       <Meta
@@ -88,7 +180,7 @@ export default function Page() {
         sx={{
           position: 'relative',
           pt: 6,
-          pb: [4, 5],
+          pb: [4, '90px'],
           bg: 'rgb(104, 41, 205)',
           backgroundImage:
             'radial-gradient(ellipse at 5% 5%, #ec555c 0%, rgba(236,85,92,0) 75%),radial-gradient(ellipse at 95% 5%, #dc71a1 0%, rgba(220,113,161,0) 75%),radial-gradient(ellipse at 95% 95%, #fcc8bf 0%, rgba(252,200,191,0) 75%),radial-gradient(ellipse at 5% 95%, #ffce33 0%, rgba(255,206,51,0) 75%)'
@@ -174,6 +266,36 @@ export default function Page() {
               best-in-class software.
             </Balancer>
           </Text>
+
+          {hasReferral && (
+            <Text variant="lead" sx={{ my: [3, 4] }}>
+              <Box
+                sx={{
+                  bg: 'rgba(255, 255, 255, 0.2)',
+                  p: 3,
+                  borderRadius: 'default',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  backdropFilter: 'blur(8px)',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  mt: 3
+                }}
+              >
+                Apply by <strong>April 16th</strong> using referral code (
+                {getCookie('referral')}) and get stickers + fiscal sponsorship
+                fees waived for the month of May.
+                <Link
+                  href="https://docs.google.com/document/d/e/2PACX-1vTPygv_qfd2FnU3Dslt4o69nBlOoKhvWDuexk67ApjuIH96ghjpLjw9wJhsRUtTZYX3XO4EVdxXVx7Q/pub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Terms apply"
+                  style={{ marginLeft: '4px' }}
+                >
+                  *
+                </Link>
+              </Box>
+            </Text>
+          )}
+
           <Flex
             sx={{
               flexDirection: ['column', 'row'],
@@ -199,6 +321,7 @@ export default function Page() {
           </Flex>
         </Container>
       </Box>
+      <OpenSourceAlert />
       <Box id="organizations" as="section" sx={{ py: [4, 5] }}>
         <Container sx={{}}>
           {/* <Text as="p" variant="headline" sx={{ mt: 0 }}>
@@ -212,8 +335,8 @@ export default function Page() {
               mb: 4
             }}
           >
-            <Stat value="$30M+" label="processed transactions" reversed />
-            <Stat value="2000+" label="projects" reversed />
+            <Stat value="$40M+" label="processed transactions" reversed />
+            <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
           <Grid columns={[1, 2]} gap={[3, 4]} sx={{ mt: 4 }}>
@@ -315,6 +438,7 @@ export default function Page() {
           </Grid>
         </Container>
       </Box>
+      {/** removed for now
       <Box as="section" bg="snow" sx={{ py: 5 }}>
         <Container>
           <Grid columns={[null, null, 2]} gap={[4, 5]}>
@@ -340,7 +464,7 @@ export default function Page() {
                   }
                 }}
               >
-                {['128.png', 'ycjf.png', 'first.png'].map(file => (
+                {['ycjf.png', 'first.png'].map(file => (
                   <img
                     key={file}
                     src={`/fiscal-sponsorship/${file}`}
@@ -362,9 +486,7 @@ export default function Page() {
                   textIndent: '-0.33em'
                 }}
               >
-                “HCB’s Climate fiscal sponsorship program removes funding
-                barriers with a blend of youth-centered, tech-savvy services and
-                a deep commitment to authentic youth empowerment.”
+                “Quote goes here”
               </Text>
               <Text
                 as="p"
@@ -373,18 +495,18 @@ export default function Page() {
               >
                 —
                 <Text as="strong" color="slate">
-                  Kate Goss
+                  FirstName LastName
                 </Text>
-                , Executive Director,{' '}
-                <UILink href="https://128collective.org">
-                  128&nbsp;Collective
+                , Title,{' '}
+                <UILink href="https://example.com">
+                  Organization
                 </UILink>
               </Text>
             </Card>
           </Grid>
         </Container>
       </Box>
-
+      */}
       <Container>
         <Grid
           columns={[null, null, 2]}
@@ -440,7 +562,7 @@ export default function Page() {
                 <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
               </svg>
               <span>
-                As part of our commitment to climate justice, funding for HCB’s
+                As part of our commitment to the environment, funding for HCB’s
                 operations&nbsp;and staff will never come from the{' '}
                 <UILink
                   href="https://www.ffisolutions.com/the-carbon-underground-200-500/"

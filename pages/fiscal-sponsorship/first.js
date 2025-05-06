@@ -184,12 +184,20 @@ export default function First({ stats }) {
 
 export async function getStaticProps(context) {
   const res = await fetch(`https://hcb.hackclub.com/stats`)
-  const stats = await res.json()
-
-  return {
-    props: {
-      stats
-    },
-    revalidate: 10
+  try {
+    const stats = await res.json()
+    return {
+      props: {
+        stats
+      },
+      revalidate: 60 * 60 // once an hour
+    }
+  } catch (e) {
+    return {
+      props: {
+        stats: {}
+      },
+      revalidate: 60 * 60 // once an hour
+    }
   }
 }

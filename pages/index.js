@@ -19,7 +19,6 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Pizza from '../components/index/cards/pizza'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -41,8 +40,7 @@ import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
-import HighSeas from '../components/index/cards/highseas'
-import Counterspell from '../components/index/cards/counterspell'
+import Scrapyard from '../components/index/cards/scrapyard'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -204,12 +202,6 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          <Announcement
-            copy="Build, Battle, Booty. Repeat."
-            caption="Get free Raspberry Pis, Framework Laptops, iPads, and more. Join High Seas! Oct 30 - Jan 31. highseas.hackclub.com"
-            href="https://highseas.hackclub.com/"
-            imgSrc="https://cloud-jul29z0v7-hack-club-bot.vercel.app/0image.png"
-          />
           <Box
             sx={{
               width: '90vw',
@@ -287,9 +279,22 @@ function Page({
                 as="a"
                 href="/slack"
                 mt={[3, 0, 0]}
+                mr={3}
                 sx={{ transformOrigin: 'center left' }}
               >
-                Join our community
+                Join Slack
+              </Button>
+              <Button
+                variant="ctaLg"
+                as="a"
+                href="https://shipwrecked.hack.club/3"
+                mt={3}
+                sx={{ 
+                  transformOrigin: 'left',
+                  backgroundImage: t => t.util.gx('green', 'blue'),
+                }}
+              >
+                Sign Up: Private Island Hackathon
               </Button>
             </Heading>
           </Box>
@@ -366,8 +371,8 @@ function Page({
               }}
             >
               Every day, thousands of Hack&nbsp;Clubbers gather online and
-              in-person to make things with code. Whether you’re a beginner
-              programmer or have years of experience, there’s a place for you at
+              in-person to make things with code. Whether you're a beginner
+              programmer or have years of experience, there's a place for you at
               Hack&nbsp;Club. Read about our{' '}
               <Link href="/philosophy" target="_blank" rel="noopener">
                 hacker ethic
@@ -536,7 +541,7 @@ function Page({
                     <strong sx={{ mb: 1 }}>
                       Connect with other teenage coders
                     </strong>
-                    Have a coding question? Looking for project feedback? You’ll
+                    Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
                     <Link href="/slack" target="_blank" rel="noopener">
                       Slack{' '}
@@ -676,9 +681,7 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <HighSeas />
-            <Counterspell />
-            <Pizza />
+            <Scrapyard />
             <Trail />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
@@ -906,7 +909,7 @@ function Page({
                 variant="eyebrow"
                 sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
               >
-                We've got a lot going on - Let’s recap
+                We've got a lot going on - Let's recap
               </Text>
               <Text
                 variant="title"
@@ -1049,7 +1052,7 @@ function Page({
                   icon="github"
                   color="white"
                   name="Explore Our Open Source Tools"
-                  desc="We’re currently building a game engine, daily streak system, graphing game, and more!"
+                  desc="We're currently building a game engine, daily streak system, graphing game, and more!"
                   sx={{
                     p: {
                       fontSize: [1, '16px', '20px']
@@ -1103,7 +1106,7 @@ function Page({
                   icon="clubs"
                   color="white"
                   name="Start A Club"
-                  desc="Build an in-person community of high school hackers, and we’re here to help."
+                  desc="Build an in-person community of high school hackers, and we're here to help."
                   sx={{
                     p: {
                       fontSize: ['18px', '20px', '22px']
@@ -1221,17 +1224,20 @@ export async function getStaticProps() {
 
   // HCB: get total raised
   let bankData = []
-  let initialBankData = await fetch('https://hcb.hackclub.com/stats').then(r =>
-    r.json()
-  )
-  let raised = initialBankData.raised / 100
+  let initialBankData = await fetch('https://hcb.hackclub.com/stats')
+  try {
+    const bd = await initialBankData.json()
+    let raised = bd.raised / 100
 
-  bankData.push(
-    `💰 ${raised.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    })} raised`
-  )
+    bankData.push(
+      `💰 ${raised.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      })} raised`
+    )
+  } catch {
+    bankData.push('error')
+  }
 
   // Slack: get total raised
   const { Slack: Slacky } = require('./api/slack')
