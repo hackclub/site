@@ -150,6 +150,7 @@ const Page = ({ css }) => (
           'flag-orpheus-top-bw',
           'flag-orpheus-left-bw',
           'flag-standalone-bw',
+          'flag-standalone-wtransparent',
           'icon-rounded',
           'icon-square',
           'icon-progress-rounded',

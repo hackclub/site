@@ -1,4 +1,14 @@
-import { Badge, Box, Button, Card, Flex, Grid, Heading, Link, Text } from 'theme-ui'
+import {
+  Badge,
+  Box,
+  Button,
+  Card,
+  Flex,
+  Grid,
+  Heading,
+  Link,
+  Text
+} from 'theme-ui'
 import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -9,7 +19,6 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Pizza from '../components/index/cards/pizza'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -29,7 +38,9 @@ import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
-
+import Onboard from '../components/index/cards/onboard'
+import Trail from '../components/index/cards/trail'
+import Scrapyard from '../components/index/cards/scrapyard'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -119,6 +130,24 @@ function Page({
     }
   }, [count, images.length])
 
+  // Spotlight effect
+  const spotlightRef = useRef()
+  useEffect(() => {
+    const handler = event => {
+      var rect = document.getElementById('spotlight').getBoundingClientRect()
+      var x = event.clientX - rect.left //x position within the element.
+      var y = event.clientY - rect.top //y position within the element.
+
+      spotlightRef.current.style.background = `radial-gradient(
+				circle at ${x}px ${y}px,
+				rgba(132, 146, 166, 0) 10px,
+				rgba(249, 250, 252, 0.9) 80px
+			)`
+    }
+    window.addEventListener('mousemove', handler)
+    return () => window.removeEventListener('mousemove', handler)
+  }, [])
+
   return (
     <>
       <Meta
@@ -147,15 +176,15 @@ function Page({
           reveal={reveal}
           onMouseEnter={() => {
             setHover(true)
+            console.log(hover)
           }}
           onMouseOut={() => {
-            setHover(false)
+            setReveal(false)
           }}
         />
         <Konami action={easterEgg}>
           {"Hey, I'm an Easter Egg! Look at me!"}
         </Konami>
-
         <Box
           as="header"
           sx={{
@@ -172,13 +201,6 @@ function Page({
             alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
-          />
-          <Announcement
-            copy="Hop OnBoard and create your first PCB"
-            caption="Join 1,000 others to create your first circuit board."
-            href="https://hackclub.com/onboard/"
-            iconLeft="idea"
-            color="primary"
           />
           <Box
             sx={{
@@ -204,7 +226,7 @@ function Page({
             </Text>
             <Heading>
               <Text
-                as="h1"
+                as="p"
                 variant="title"
                 sx={{
                   color: 'white',
@@ -227,7 +249,6 @@ function Page({
                 >
                   <Text
                     onClick={() => {
-                      setHover(false)
                       !reveal ? setReveal(true) : setReveal(false)
                     }}
                     sx={{
@@ -258,9 +279,22 @@ function Page({
                 as="a"
                 href="/slack"
                 mt={[3, 0, 0]}
+                mr={3}
                 sx={{ transformOrigin: 'center left' }}
               >
-                Join our community
+                Join Slack
+              </Button>
+              <Button
+                variant="ctaLg"
+                as="a"
+                href="https://shipwrecked.hack.club/3"
+                mt={3}
+                sx={{ 
+                  transformOrigin: 'left',
+                  backgroundImage: t => t.util.gx('green', 'blue'),
+                }}
+              >
+                Sign Up: Private Island Hackathon
               </Button>
             </Heading>
           </Box>
@@ -319,8 +353,8 @@ function Page({
                   whiteSpace: ['wrap', 'nowrap', 'nowrap'],
                   color: 'white',
                   background: theme => theme.util.gx('red', 'orange'),
-                  '-webkit-background-clip': 'text',
-                  '-webkit-text-fill-color': 'transparent'
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
                 }}
               >
                 joy of code
@@ -337,8 +371,8 @@ function Page({
               }}
             >
               Every day, thousands of Hack&nbsp;Clubbers gather online and
-              in-person to make things with code. Whether you’re a beginner
-              programmer or have years of experience, there’s a place for you at
+              in-person to make things with code. Whether you're a beginner
+              programmer or have years of experience, there's a place for you at
               Hack&nbsp;Club. Read about our{' '}
               <Link href="/philosophy" target="_blank" rel="noopener">
                 hacker ethic
@@ -382,15 +416,15 @@ function Page({
                         count === images.length - 2
                           ? images[0].src
                           : images.length - 1
-                          ? images[1].src
-                          : images[count + 2].src
+                            ? images[1].src
+                            : images[count + 2].src
                       }
                       alt={
                         count === images.length - 2
                           ? images[0].alt
                           : images.length - 1
-                          ? images[1].alt
-                          : images[count + 2].alt
+                            ? images[1].alt
+                            : images[count + 2].alt
                       }
                       width={3000}
                       height={2550}
@@ -507,7 +541,7 @@ function Page({
                     <strong sx={{ mb: 1 }}>
                       Connect with other teenage coders
                     </strong>
-                    Have a coding question? Looking for project feedback? You’ll
+                    Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
                     <Link href="/slack" target="_blank" rel="noopener">
                       Slack{' '}
@@ -585,21 +619,38 @@ function Page({
         </Box>
         <Carousel cards={carouselCards} />
         <Box
+          id="spotlight"
           as="section"
           sx={{
-            background: 'snow',
-            backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
+            backgroundImage: `
+              linear-gradient(rgba(249, 250, 252, 0.7), rgba(249, 250, 252, 0.7)),
+              url('https://icons.hackclub.com/api/icons/0x8492a6/glyph:rep.svg')
+            `,
             backgroundSize: '40px 40px',
             backgroundRepeat: 'repeat',
-            backgroundPosition: '10% 10%'
+            position: 'relative'
           }}
         >
+          <Box
+            ref={spotlightRef}
+            sx={{
+              position: 'absolute',
+              zIndex: 2,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              bg: 'snow',
+              pointerEvents: 'none'
+            }}
+          />
           <Box
             sx={{
               position: 'relative',
               width: '90vw',
               maxWidth: 'layout',
-              margin: 'auto'
+              margin: 'auto',
+              zIndex: 5
             }}
             py={[4, 4, 5]}
           >
@@ -630,7 +681,8 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Pizza />
+            <Scrapyard />
+            <Trail />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
@@ -733,6 +785,7 @@ function Page({
                             url={data.url}
                             message={data.message}
                             key={key}
+                            opacity={1 / (key / 2 + 1)}
                           />
                         )
                       })}
@@ -746,12 +799,13 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
+              <Onboard stars={stars.onboard.stargazerCount} delay={100} />
               <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
                   delay={300}
-                  stars={stars.sprigHardware.stargazerCount}
+                  stars={stars.sprig.stargazerCount}
                   consoleCount={consoleCount}
                 />
               </Box>
@@ -855,7 +909,7 @@ function Page({
                 variant="eyebrow"
                 sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
               >
-                We've got a lot going on - Let’s recap
+                We've got a lot going on - Let's recap
               </Text>
               <Text
                 variant="title"
@@ -875,8 +929,8 @@ function Page({
                     ml: 0,
                     whiteSpace: ['wrap', 'nowrap'],
                     background: theme => theme.util.gx('red', 'orange'),
-                    '-webkit-background-clip': 'text',
-                    '-webkit-text-fill-color': 'transparent'
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
                   }}
                 >
                   Hack&nbsp;Club
@@ -998,7 +1052,7 @@ function Page({
                   icon="github"
                   color="white"
                   name="Explore Our Open Source Tools"
-                  desc="We’re currently building a game engine, daily streak system, graphing game, and more!"
+                  desc="We're currently building a game engine, daily streak system, graphing game, and more!"
                   sx={{
                     p: {
                       fontSize: [1, '16px', '20px']
@@ -1052,7 +1106,7 @@ function Page({
                   icon="clubs"
                   color="white"
                   name="Start A Club"
-                  desc="Build an in-person community of high school hackers, and we’re here to help."
+                  desc="Build an in-person community of high school hackers, and we're here to help."
                   sx={{
                     p: {
                       fontSize: ['18px', '20px', '22px']
@@ -1066,78 +1120,79 @@ function Page({
             </Grid>
           </Box>
         </Box>
-      </Box>
-      {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
-        'z' && (
-        <>
-          <Box
-            sx={{
-              position: 'fixed',
-              top: 0,
-              width: '100%',
-              zIndex: 1000
-            }}
-          >
+
+        {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
+          'z' && (
+          <>
             <Box
               sx={{
-                position: 'relative',
-                margin: 'auto',
-                width: 'fit-content',
+                position: 'fixed',
+                top: 0,
+                width: '100%',
+                zIndex: 1000
+              }}
+            >
+              <Box
+                sx={{
+                  position: 'relative',
+                  margin: 'auto',
+                  width: 'fit-content',
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </Box>
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                right: 0,
+                zIndex: 1000,
                 lineHeight: 0
               }}
             >
               <iframe
                 width="560"
                 height="315"
-                src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
               ></iframe>
             </Box>
-          </Box>
-          <Box
-            sx={{
-              position: 'fixed',
-              bottom: 0,
-              right: 0,
-              zIndex: 1000,
-              lineHeight: 0
-            }}
-          >
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </Box>
-          <Box
-            sx={{
-              position: 'fixed',
-              bottom: 0,
-              left: 0,
-              zIndex: 1000,
-              lineHeight: 0
-            }}
-          >
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-          </Box>
-        </>
-      )}
-      <MailingList />
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                zIndex: 1000,
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </Box>
+          </>
+        )}
+        <MailingList />
+      </Box>
       <Footer
         dark
         sx={{
@@ -1169,17 +1224,20 @@ export async function getStaticProps() {
 
   // HCB: get total raised
   let bankData = []
-  let initialBankData = await fetch('https://hcb.hackclub.com/stats').then(r =>
-    r.json()
-  )
-  let raised = initialBankData.raised / 100
+  let initialBankData = await fetch('https://hcb.hackclub.com/stats')
+  try {
+    const bd = await initialBankData.json()
+    let raised = bd.raised / 100
 
-  bankData.push(
-    `💰 ${raised.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    })} raised`
-  )
+    bankData.push(
+      `💰 ${raised.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      })} raised`
+    )
+  } catch {
+    bankData.push('error')
+  }
 
   // Slack: get total raised
   const { Slack: Slacky } = require('./api/slack')
@@ -1223,10 +1281,16 @@ export async function getStaticProps() {
   } catch (error) {
     hackathonsData = [] // or some default value if an error occurs
   }
+  hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
-  let events = await fetch(
-    'https://events.hackclub.com/api/events/upcoming/'
-  ).then(res => res.json())
+  let events = []
+  try {
+    await fetch(
+      'https://events.hackclub.com/api/events/upcoming/'
+    ).then(res => res.json())
+  } catch (error) {
+    console.error('Error fetching events:', error)
+  }
 
   return {
     props: {

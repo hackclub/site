@@ -1,0 +1,72 @@
+.feed {
+  width: 90vw;
+  max-width: 1200px;              
+  overflow-y: auto;        
+  overflow-x: hidden;       
+  align-self: center;
+  display: grid;
+  grid-gap: 20px;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 2rem;
+
+  /* quite wide screens */
+  @media (min-width: 481px) {
+    grid-template-columns: repeat(2, 1fr); /* 3 equal-width columns */
+  }
+
+  /* Small screens */
+  @media (min-width: 640px) {
+      grid-template-columns: repeat(3, 1fr); /* 4 equal-width columns */
+  }
+  
+  /* Medium screens */
+  @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr); /* 5 equal-width columns */
+  }
+  
+  /* Large screens */
+  @media (min-width: 1024px) {
+      grid-template-columns: repeat(5, 1fr); /* 6 equal-width columns */
+  }
+}
+
+.title{
+  margin-top: 200px;
+}
+
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the title horizontally */
+}
+
+.title-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.timer_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-left: 16px; /* Space between the title and countdown box */
+}
+
+.timer_text {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+.countdown {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}

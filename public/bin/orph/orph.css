@@ -1,0 +1,14 @@
+.orph {
+    position: absolute;
+    z-index: 69420;
+    top: 0;
+    left: 10px;
+    height: 100px;
+    cursor: pointer;
+    transform-origin: top left;
+    transition: 750ms transform ease-in-out;
+}
+
+.orph:hover {
+    transform: rotate(-10deg);
+}
