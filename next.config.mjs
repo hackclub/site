@@ -192,6 +192,11 @@ const nextConfig = {
         permanent: false
       },
       {
+        source: '/nest/',
+        destination: 'https://hackclub.app/',
+        permanent: true
+      },
+      {
         source: '/donate',
         destination: '/philanthropy',
         permanent: false
