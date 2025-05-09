@@ -38,6 +38,7 @@ export default async function handler(req, res) {
       name: record['Name'],
       smallName: record['Small Name'],
       description: record['Description'],
+      fulfillmentDescription: record['Fulfillment Description'],
       hours: record['Cost Hours'],
       imageURL: record['Image URL'],
       stock: record['Stock'],
