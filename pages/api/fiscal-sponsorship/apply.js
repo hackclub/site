@@ -62,7 +62,9 @@ export default async function handler(req, res) {
         '(Adults) Annual Budget': parseInt(data.eventAnnualBudget),
         'HCB ID': r.id,
         'Referral Code': data.referralCode,
-        Tubs: ['ftcscout', 'GFGS'].includes(data.tubs) ? data.tubs : undefined
+        Tubs: ['ftcscout', 'GFGS'].includes(data.tub_program)
+          ? data.tub_program
+          : undefined
       })
       res.status(200).end()
     })

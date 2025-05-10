@@ -150,9 +150,9 @@ export default function Page() {
 
     if (referral) {
       setCookie('referral', referral)
-      setCookie('tubs', 'GFGS')
+      setCookie('tub_program', 'GFGS')
     } else if (tubProgram) {
-      setCookie('tubs', tubProgram)
+      setCookie('tub_program', tubProgram)
       setCookie('referral', '')
     }
 

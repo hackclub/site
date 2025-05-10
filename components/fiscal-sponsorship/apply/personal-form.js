@@ -232,7 +232,12 @@ export default function PersonalInfoForm({ requiredFields }) {
         />
       </Field>
 
-      <Input name="tubs" id="tubs" type="hidden" value={getCookie('tubs')} />
+      <Input
+        name="tub_program"
+        id="tub_program"
+        type="hidden"
+        value={getCookie('tub_program')}
+      />
 
       <Field
         name="returningUser"
