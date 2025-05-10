@@ -35,9 +35,7 @@ const organizations = [
     description:
       'Publishing techno-optimism, through newsletters, magazines, and events.',
     slug: 'reboot',
-    location: {
-      readable: 'Bay Area, CA, USA'
-    },
+    location: { readable: 'Bay Area, CA, USA' },
     logo: '/fiscal-sponsorship/reboot.png',
     background_image: '/fiscal-sponsorship/reboot-bg.jpg'
   },
@@ -46,9 +44,7 @@ const organizations = [
     name: 'Apocalypse',
     description: "Canada's largest in-person high school hackathon.",
     slug: 'apocalypse',
-    location: {
-      readable: 'Toronto, Canada'
-    },
+    location: { readable: 'Toronto, Canada' },
     logo: '/fiscal-sponsorship/apocalypse.png',
     background_image: '/fiscal-sponsorship/apocalypse-bg.png'
   },
@@ -57,9 +53,7 @@ const organizations = [
     name: 'Green Mountain Robotics',
     description: 'Spreading STEM interest, one robot at a time.',
     slug: 'green-mountain-robotics',
-    location: {
-      readable: 'Chittenden County, VT, USA'
-    },
+    location: { readable: 'Chittenden County, VT, USA' },
     logo: '/fiscal-sponsorship/green-mountain-robotics.png',
     background_image: 'green-mountain-robotics-bg.png'
   },
@@ -68,9 +62,7 @@ const organizations = [
     name: 'Hack Club HQ',
     description: 'This is us! We run our operations on HCB.',
     slug: 'hq',
-    location: {
-      readable: 'Vermont, USA'
-    },
+    location: { readable: 'Vermont, USA' },
     logo: 'https://cloud-91boqw8z9-hack-club-bot.vercel.app/0icon-rounded.png',
     background_image: '/fiscal-sponsorship/hq-bg.jpg'
   }
@@ -78,11 +70,7 @@ const organizations = [
 
 function OpenSourceAlert() {
   return (
-    <Container
-      sx={{
-        position: 'relative'
-      }}
-    >
+    <Container sx={{ position: 'relative' }}>
       <Box
         sx={{
           py: ['25px', 3],
@@ -155,11 +143,17 @@ export default function Page() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
+
+    const tubProgram = params.get('tub_program')
     const referral = params.get('referral')
     const referralCookie = getCookie('referral')
 
     if (referral) {
       setCookie('referral', referral)
+      setCookie('tub_program', 'GFGS')
+    } else if (tubProgram) {
+      setCookie('tub_program', tubProgram)
+      setCookie('referral', '')
     }
 
     setHasReferral(!!referral || !!referralCookie)
@@ -327,14 +321,7 @@ export default function Page() {
           {/* <Text as="p" variant="headline" sx={{ mt: 0 }}>
             Powering nonprofits at every scale
           </Text> */}
-          <Flex
-            sx={{
-              flexWrap: 'wrap',
-              rowGap: 3,
-              columnGap: [4, 5],
-              mb: 4
-            }}
-          >
+          <Flex sx={{ flexWrap: 'wrap', rowGap: 3, columnGap: [4, 5], mb: 4 }}>
             <Stat value="$40M+" label="processed transactions" reversed />
             <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
