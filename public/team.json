@@ -1343,7 +1343,7 @@
     "name": "Rachel Albert",
     "department": "HQ",
     "role": "Summer Intern Logistics",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "Rachel has been a public school arts teacher for more than 10 years now. She is the go-to person for having everyone at HQ feed and the go-to person for interns whether they have safety questions or questions about the dorm in general.",
     "bioHackFoundation": "",
     "slackId": "U0791NE7WHH",
