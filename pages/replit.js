@@ -229,12 +229,14 @@ const ReplitPage = () => {
           {stats ? (
             <Text>
               <ScaleUp
-                number={stats.file_count}
+                // number={stats.file_count}
+                number={1091841}
                 from={oldStats?.file_count || 0}
               />{' '}
               files &{' '}
               <ScaleUp
-                number={stats.repl_count}
+                // number={stats.repl_count}
+                number={82699}
                 from={oldStats?.repl_count || 0}
               />{' '}
               repls exported.
@@ -263,16 +265,18 @@ const ReplitPage = () => {
             display: 'block'
           }}
         >
+          <Text as="span" sx={{ fontWeight: 'bold' }}>
+            This does not work anymore.
+          </Text>
           <br />
           After ~6 months of operation, Replit has changed how their GraphQL
           endpoint works (presumably specifically to kill this project).
           <br />
-          The time spent fixing it would not be worth it :(
-          <br />
-          <Text sx={{ fontWeight: 'bold' }}>
-            You can still download individual Repls as ZIP archives, though they
-            won't have edit history.
-          </Text>
+          The time spent fixing it would not be worth it;{' '}
+          <Text as="span" sx={{ fontWeight: 'bold' }}>
+            though you can still download individual Repls as ZIP archives.
+          </Text>{' '}
+          They won't have edit history though.
         </Text>
 
         <Image
