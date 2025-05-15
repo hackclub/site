@@ -11,40 +11,40 @@ import { useEffect, useState } from 'react'
 import ScaleUp from '../components/replit/scale-up'
 
 const ReplitPage = () => {
-  const [progress, setProgress] = useState(null)
-  const [stats, setStats] = useState(null)
-  const [oldStats, setOldStats] = useState(null)
+  // const [progress, setProgress] = useState(null)
+  // const [stats, setStats] = useState(null)
+  // const [oldStats, setOldStats] = useState(null)
 
-  const fetchStats = async () => {
-    const statResponse = await fetch('/api/replit/stats')
-    if (!statResponse.ok) throw new Error('Failed to fetch stats')
-    const newStats = await statResponse.json()
-    setOldStats(stats)
-    setStats(newStats)
-  }
+  // const fetchStats = async () => {
+  //   const statResponse = await fetch('/api/replit/stats')
+  //   if (!statResponse.ok) throw new Error('Failed to fetch stats')
+  //   const newStats = await statResponse.json()
+  //   setOldStats(stats)
+  //   setStats(newStats)
+  // }
 
-  useEffect(async () => {
-    await fetchStats()
+  // useEffect(async () => {
+  //   await fetchStats()
 
-    const interval = setInterval(async () => {
-      const token = localStorage.getItem('token')
-      if (!token) return
+  //   const interval = setInterval(async () => {
+  //     const token = localStorage.getItem('token')
+  //     if (!token) return
 
-      try {
-        const response = await fetch(`/api/replit/progress?token=${token}`)
-        if (!response.ok) throw new Error('Failed to fetch progress')
-        const data = await response.json()
-        console.info(data)
-        setProgress(data)
+  //     try {
+  //       const response = await fetch(`/api/replit/progress?token=${token}`)
+  //       if (!response.ok) throw new Error('Failed to fetch progress')
+  //       const data = await response.json()
+  //       console.info(data)
+  //       setProgress(data)
 
-        await fetchStats()
-      } catch (err) {
-        console.error("Couldn't get progress:", err)
-      }
-    }, 5_000)
+  //       await fetchStats()
+  //     } catch (err) {
+  //       console.error("Couldn't get progress:", err)
+  //     }
+  //   }, 5_000)
 
-    return () => clearInterval(interval)
-  }, [])
+  //   return () => clearInterval(interval)
+  // }, [])
 
   const steps = [
     'Enter your email',
@@ -226,22 +226,10 @@ const ReplitPage = () => {
             open source
           </Link>
           .{' '}
-          {stats ? (
-            <Text>
-              <ScaleUp
-                // number={stats.file_count}
-                number={1091841}
-                from={oldStats?.file_count || 0}
-              />{' '}
-              files &{' '}
-              <ScaleUp
-                // number={stats.repl_count}
-                number={82699}
-                from={oldStats?.repl_count || 0}
-              />{' '}
-              repls exported.
-            </Text>
-          ) : null}
+          <Text>
+            <ScaleUp number={1091841} from={0} /> files &{' '}
+            <ScaleUp number={82699} from={0} /> repls exported.
+          </Text>
         </Text>
       </Box>
 
@@ -361,7 +349,7 @@ const ReplitPage = () => {
             pointerEvents: 'none'
           }}
         >
-          <Progress progress={progress} />
+          {/* <Progress progress={progress} /> */}
           <ReplitForm cssDark={cssDark} />
         </Box>
 
