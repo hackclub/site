@@ -418,6 +418,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U04C8LLPKS7/r"
   },
   {
+    "name": "Samuel Fernandez",
+    "department": "HCB",
+    "role": "Engineering Contributor",
+    "acknowledged": false,
+    "bio": "Samuel is a Hack Clubber from Tampa, FL. After finding Hack Club while looking for hackathons, he's now attended and organized many himself, and he now works on improving HCB so other teens can run their own events and nonprofits!",
+    "bioHackFoundation": "",
+    "slackId": "U04G40QKAAD",
+    "email": "samuelf",
+    "website": "https://sfernandez.dev",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a87bb79e3bb856cdccc585a5d0cbeaa9166de0cf_scrapyard-samuel.jpg"
+  },
+  {
     "name": "Sean Outram",
     "department": "HCB",
     "role": "Operations Contributor",
