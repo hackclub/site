@@ -41,6 +41,7 @@ import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
+import Neighborhood from '../components/index/cards/neighborhood'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -287,7 +288,7 @@ function Page({
               <Button
                 variant="ctaLg"
                 as="a"
-                href="https://shipwrecked.hack.club/3"
+                href="https://shipwrecked.hackclub/3"
                 mt={3}
                 sx={{ 
                   transformOrigin: 'left',
@@ -682,6 +683,7 @@ function Page({
               </Text>
             </Box>
             <Scrapyard />
+            <Neighborhood />
             <Trail />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
@@ -889,8 +891,6 @@ function Page({
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
-
-              {/* <Events events={events} /> */}
               <HCB data={bankData} />
             </Box>
           </Box>
