@@ -251,13 +251,48 @@ const ReplitPage = () => {
           paddingX: '1rem'
         }}
       >
+        <Text
+          sx={{
+            maxWidth: '100ch',
+            fontSize: '1.2em',
+            marginY: '1em',
+            textWrap: 'balance',
+            textAlign: 'center',
+            mx: 'auto',
+            marginBottom: '1em',
+            display: 'block'
+          }}
+        >
+          <br />
+          After ~6 months of operation, Replit has changed how their GraphQL
+          endpoint works (presumably specifically to kill this project).
+          <br />
+          The time spent fixing it would not be worth it :(
+          <br />
+          <Text sx={{ fontWeight: 'bold' }}>
+            You can still download individual Repls as ZIP archives, though they
+            won't have edit history.
+          </Text>
+        </Text>
+
+        <Image
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/19a2da199dc4ea5b55eee1f69ce814ca4a7c3b01_screenshot_2025-04-22_at_1.38.22_pm.png"
+          alt="download repl as zip instructions"
+          sx={{
+            width: '50%',
+            marginX: 'auto',
+            display: 'block',
+            borderRadius: 12
+          }}
+        />
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
             marginTop: '2rem',
             position: 'relative',
-            paddingX: [null, null, '6rem']
+            paddingX: [null, null, '6rem'],
+            opacity: 0.5
           }}
         >
           {steps.map((step, idx) => (
@@ -317,7 +352,9 @@ const ReplitPage = () => {
           sx={{
             marginTop: '3rem',
             maxWidth: '30rem',
-            marginX: 'auto'
+            marginX: 'auto',
+            opacity: 0.5,
+            pointerEvents: 'none'
           }}
         >
           <Progress progress={progress} />
