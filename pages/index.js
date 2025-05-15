@@ -40,7 +40,7 @@ import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
-import Scrapyard from '../components/index/cards/scrapyard'
+import Neighborhood from '../components/index/cards/neighborhood'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -681,7 +681,7 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Scrapyard />
+            <Neighborhood />
             <Trail />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
