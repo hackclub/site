@@ -257,7 +257,7 @@ const ReplitPage = () => {
             This does not work anymore.
           </Text>
           <br />
-          After ~6 months of operation, Replit has changed how their GraphQL
+          After 9 months of operation, Replit has changed how their GraphQL
           endpoint works (presumably specifically to kill this project).
           <br />
           The time spent fixing it would not be worth it;{' '}
