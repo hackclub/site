@@ -24,15 +24,10 @@ export async function fetchTeam() {
   const acknowledged: TeamMember[] = []
 
   try {
-    // Fetch cached user data
-    const cacheResponse = await fetch(
-      `${process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_URL || 'http://localhost:3000'}/api/team-cache`,
-      {
-        headers: { 'Cache-Control': 'no-cache' }
-      }
-    )
-
-    const { cache: userDataCache = {} } = await cacheResponse.json()
+    // Get user cache directly from the team-cache module
+    // This is more reliable in serverless environments than making HTTP requests
+    const { getUserCache } = await import('./team-cache')
+    const userDataCache = await getUserCache()
 
     for (const member of teamMembers as TeamMember[]) {
       // Always use cachet.dunkirk.sh for avatar images
@@ -53,6 +48,20 @@ export async function fetchTeam() {
     }
   } catch (error) {
     console.error('Error fetching cached team data:', error)
+    
+    // Fallback if cache fails
+    for (const member of teamMembers as TeamMember[]) {
+      // Always use cachet.dunkirk.sh for avatar images
+      if (member.slackId) {
+        member.avatar = `https://cachet.dunkirk.sh/users/${member.slackId}/r`
+      }
+
+      if (member.acknowledged) {
+        acknowledged.push(member)
+      } else {
+        current.push(member)
+      }
+    }
   }
 
   return { current, acknowledged }

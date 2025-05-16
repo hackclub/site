@@ -5,6 +5,7 @@ import teamMembers from '../../public/team.json'
 const CACHE_DURATION = 12 * 60 * 60
 
 // In-memory cache for user data
+// Note: This will be reset whenever the serverless function cold starts
 let userDataCache: Record<string, any> = {}
 let cacheTimestamp = 0
 
@@ -27,7 +28,7 @@ async function fetchUserData(slackId: string) {
 async function refreshCache() {
   // Skip refresh if cache is still fresh
   const now = Date.now()
-  if (now - cacheTimestamp < CACHE_DURATION * 1000) {
+  if (now - cacheTimestamp < CACHE_DURATION * 1000 && Object.keys(userDataCache).length > 0) {
     return userDataCache
   }
   
@@ -66,6 +67,15 @@ async function refreshCache() {
   return newCache
 }
 
+// Export for internal use by other API routes
+export async function getUserCache(forceRefresh = false) {
+  if (forceRefresh || Object.keys(userDataCache).length === 0 || Date.now() - cacheTimestamp > CACHE_DURATION * 1000) {
+    await refreshCache()
+  }
+  
+  return userDataCache
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -73,9 +83,8 @@ export default async function handler(
   // Force refresh if requested
   const forceRefresh = req.query.refresh === 'true'
   
-  if (forceRefresh || Object.keys(userDataCache).length === 0 || Date.now() - cacheTimestamp > CACHE_DURATION * 1000) {
-    await refreshCache()
-  }
+  // Get the cache (refreshing if needed)
+  await getUserCache(forceRefresh)
   
   // Set cache control headers
   res.setHeader('Cache-Control', `s-maxage=${CACHE_DURATION}, stale-while-revalidate`)
