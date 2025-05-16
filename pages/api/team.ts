@@ -26,20 +26,20 @@ export async function fetchTeam() {
       formData.append('token', process.env.SLACK_API_TOKEN)
       formData.append('user', member.slackId)
 
-      const slackData = await fetch(
-        `https://hackclub.slack.com/api/users.profile.get?user=${member.slackId}`,
-        {
-          method: 'POST',
-          headers: {
-            'content-type': 'multipart/form-data',
-            cookie: process.env.SLACK_API_COOKIE || ''
-          },
-          body: formData
-        }
-      ).then(r => r.json())
+      const slackData: {
+        message?: string
+        id: string
+        expiration: string
+        user: string
+        displayName: string
+        pronouns?: string
+        image: string
+      } = await fetch(`https://cachet.dunkirk.sh/users/${member.slackId}`, {
+        method: 'GET'
+      }).then(r => r.json())
 
-      if (slackData.ok) {
-        member.pronouns = slackData.profile.pronouns
+      if (!slackData.message) {
+        member.pronouns = slackData.pronouns
       } else {
         console.warn('Not found:', member.slackId)
       }
