@@ -83,10 +83,7 @@ export default function PersonalInfoForm({ requiredFields }) {
               }}
             >
               <Label
-                sx={{
-                  display: 'contents',
-                  '~ div > label': { fontSize: 1 }
-                }}
+                sx={{ display: 'contents', '~ div > label': { fontSize: 1 } }}
               >
                 <Radio
                   name="contactOption"
@@ -234,6 +231,13 @@ export default function PersonalInfoForm({ requiredFields }) {
           defaultValue={defaultReferralCode}
         />
       </Field>
+
+      <Input
+        name="tub_program"
+        id="tub_program"
+        type="hidden"
+        value={getCookie('tub_program')}
+      />
 
       <Field
         name="returningUser"
