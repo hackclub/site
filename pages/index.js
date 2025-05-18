@@ -382,6 +382,30 @@ function Page({
                 Sign Up: Private Island Hackathon
               </Button>
             </Flex>
+            <Flex sx={{
+              gap: [3],
+              my: 1,
+              py: 3,
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: ['16px', '18px'],
+              color: 'white',
+              opacity: 0.9,
+              borderBottom: '1px solid',
+              borderColor: 'cyberpunk.gridLine'
+            }}>
+              <Text sx={{
+                color: '#33d6a6',
+                fontWeight: 'bold'
+              }}>
+                $500k+ in prizes given
+              </Text>
+              <Text sx={{ opacity: 0.5 }}>•</Text>
+              <Text>80k+ projects built</Text>
+              <Text sx={{ opacity: 0.5 }}>•</Text>
+              <Text><Comma>{slackData.total_members_count || 60_000}</Comma> teenage builders</Text>
+            </Flex>
           </Box>
         </Box>
         <Box as="section" sx={{
@@ -953,7 +977,8 @@ function Page({
                     fontSize: ['36px', '48px', '72px'],
                     width: '18ch',
                     textAlign: 'center',
-                    margin: 'auto'
+                    margin: 'auto',
+                    mb: 4
                   }}
                 >
                   Find your{' '}
@@ -961,9 +986,11 @@ function Page({
                     as="span"
                     sx={{
                       borderRadius: 'default',
-                      mx: 0,
-                      whiteSpace: 'nowrap',
-                      color: '#F002ED' // Magenta
+                      ml: 0,
+                      whiteSpace: ['wrap', 'nowrap'],
+                      background: 'linear-gradient(to right, #00BFFF, #8A2BE2)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent'
                     }}
                   >
                     IRL community.
@@ -1018,206 +1045,239 @@ function Page({
                   fontSize: ['36px', '48px', '72px'],
                   width: '16ch',
                   textAlign: 'center',
-                  margin: 'auto'
+                  margin: 'auto',
+                  mb: 4
                 }}
               >
                 Find your second home at{' '}
                 <Text
                   as="span"
                   sx={{
-                    borderRadius: 'default',
-                    ml: 0,
-                    whiteSpace: ['wrap', 'nowrap'],
-                    background: 'linear-gradient(to right, #00BFFF, #8A2BE2)', // Electric Blue to Neon Purple
+                    background: 'linear-gradient(90deg, #00BFFF 0%, #8A2BE2 100%)',
                     WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent'
+                    WebkitTextFillColor: 'transparent',
+                    display: 'inline'
                   }}
                 >
-                  Hack&nbsp;Club
+                  Hack Club
                 </Text>
               </Text>
+
+              <Flex sx={{
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 4,
+                mb: [4, 5]
+              }}>
+                <Button
+                  as="a"
+                  href="/slack"
+                  variant="ctaLg"
+                  sx={{
+                    fontSize: ['24px', '42px'],
+                    px: [5, 6],
+                    py: [3, 4],
+                    borderRadius: 50,
+                    background: 'linear-gradient(90deg, #00BFFF 0%, #8A2BE2 100%)',
+                    color: 'white',
+                    fontWeight: 'bold',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.02em',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease-in-out',
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                      boxShadow: '0 0 20px rgba(0, 191, 255, 0.5)'
+                    }
+                  }}
+                >
+                  JOIN THE SLACK →
+                </Button>
+              </Flex>
+
+              <Grid
+                pt={[3, 4]}
+                pb={[4, 5]}
+                gap={3}
+                columns={[1, 2, 3]}
+                sx={{
+                  textAlign: 'left',
+                  '> a, > div': {
+                    borderRadius: 'extra',
+                    boxShadow: 'elevated',
+                    p: [3, null, 4]
+                  },
+                  span: {
+                    boxShadow:
+                      '-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)'
+                  },
+                  svg: { fill: 'currentColor' }
+                }}
+              >
+                <Card
+                  as="a"
+                  href="/slack"
+                  target="_blank"
+                  rel="noopener"
+                  variant="interactive"
+                  sx={{
+                    background:
+                      'linear-gradient(32deg, #00BFFF 0%, #1A1032 100%)', // Blue to Dark Blue/Purple
+                    color: 'white',
+                    svg: { color: '#E0E0E0' }, // Light icon color
+                    position: 'relative',
+                    '.icon': {
+                      transition:
+                        'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+                    },
+                    ':hover,:focus': {
+                      '.icon': {
+                        transform: 'translateX(28px) translateY(-28px)',
+                        opacity: 0
+                      }
+                    }
+                  }}
+                >
+                  <Icon
+                    glyph="external"
+                    size={32}
+                    className="icon"
+                    sx={{
+                      position: 'absolute',
+                      top: 2,
+                      right: 2,
+                      opacity: 0.3,
+                      fontSize: ['18px', '20px', '22px'],
+                      zIndex: 3,
+                      color: 'black !important'
+                    }}
+                  />
+                  <Stage
+                    icon="slack"
+                    color="black"
+                    name="Meet Fellow Makers"
+                    desc="Connect with 60k+ technical teenagers on Slack and hack on things together."
+                    sx={{
+                      p: {
+                        fontSize: ['18px', '20px', '22px']
+                      },
+                      h3: {
+                        fontSize: ['22px', 2, 3]
+                      }
+                    }}
+                  />
+                </Card>
+                <Card
+                  sx={{
+                    background:
+                      'linear-gradient(-32deg, #F002ED 14%, #1A1032 82%)', // Magenta to Dark Purple
+                    color: 'white',
+                    svg: { color: '#E0E0E0' }, // Light icon color
+                    textDecoration: 'none',
+                    position: 'relative',
+                    '.icon': {
+                      transition:
+                        'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+                    },
+                    ':hover,:focus': {
+                      '.icon': {
+                        transform: 'translateX(28px) translateY(-28px)',
+                        opacity: 0
+                      }
+                    }
+                  }}
+                  as="a"
+                  href="https://github.com/hackclub"
+                  variant="interactive"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <Icon
+                    glyph="external"
+                    size={32}
+                    className="icon"
+                    sx={{
+                      position: 'absolute',
+                      top: 2,
+                      right: 2,
+                      opacity: 0.3,
+                      fontSize: [1, '16px', '20px'],
+                      zIndex: 3,
+                      color: 'white !important'
+                    }}
+                  />
+                  <Stage
+                    icon="github"
+                    color="black"
+                    name="Explore Our Open Source Tools"
+                    desc="We're currently building a game engine, daily streak system, graphing game, and more!"
+                    sx={{
+                      p: {
+                        fontSize: [1, '16px', '20px']
+                      },
+                      h3: {
+                        fontSize: ['22px', 2, 3]
+                      }
+                    }}
+                  />
+                </Card>
+                <Card
+                  sx={{
+                    background:
+                      'linear-gradient(to bottom, #8A2BE2 0%, #0A0F2C 100%)', // Neon Purple to Dark Blue/Purple
+                    color: 'white',
+                    svg: { color: '#E0E0E0' }, // Light icon color
+                    textDecoration: 'none',
+                    position: 'relative',
+                    '.icon': {
+                      transition:
+                        'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
+                    },
+                    ':hover,:focus': {
+                      '.icon': {
+                        transform: 'translateX(28px) translateY(-28px)',
+                        opacity: 0
+                      }
+                    }
+                  }}
+                  as="a"
+                  href="/clubs"
+                  variant="interactive"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <Icon
+                    glyph="external"
+                    size={32}
+                    className="icon"
+                    sx={{
+                      position: 'absolute',
+                      top: 2,
+                      right: 2,
+                      opacity: 0.3,
+                      fontSize: ['18px', '20px', '22px'],
+                      zIndex: 3,
+                      color: 'white !important'
+                    }}
+                  />
+                  <Stage
+                    icon="clubs"
+                    color="black"
+                    name="Start A Club"
+                    desc="Build an in-person community of high school hackers, and we're here to help."
+                    sx={{
+                      p: {
+                        fontSize: ['18px', '20px', '22px']
+                      },
+                      h3: {
+                        fontSize: ['22px', 2, 3]
+                      }
+                    }}
+                  />
+                </Card>
+              </Grid>
             </Box>
-            <Grid
-              pt={[3, 4]}
-              pb={[4, 5]}
-              gap={3}
-              columns={[1, 2, 3]}
-              sx={{
-                textAlign: 'left',
-                '> a, > div': {
-                  borderRadius: 'extra',
-                  boxShadow: 'elevated',
-                  p: [3, null, 4]
-                },
-                span: {
-                  boxShadow:
-                    '-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)'
-                },
-                svg: { fill: 'currentColor' }
-              }}
-            >
-              <Card
-                as="a"
-                href="/slack"
-                target="_blank"
-                rel="noopener"
-                variant="interactive"
-                sx={{
-                  background:
-                    'linear-gradient(32deg, #00BFFF 0%, #1A1032 100%)', // Blue to Dark Blue/Purple
-                  color: 'white',
-                  svg: { color: '#E0E0E0' }, // Light icon color
-                  position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
-                  },
-                  ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
-                    }
-                  }
-                }}
-              >
-                <Icon
-                  glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: ['18px', '20px', '22px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
-                <Stage
-                  icon="slack"
-                  color="white"
-                  name="Join Our Slack"
-                  desc="Connect with other technical teenagers on Slack and hack on things together."
-                  sx={{
-                    p: {
-                      fontSize: ['18px', '20px', '22px']
-                    },
-                    h3: {
-                      fontSize: ['22px', 2, 3]
-                    }
-                  }}
-                />
-              </Card>
-              <Card
-                sx={{
-                  background:
-                    'linear-gradient(-32deg, #F002ED 14%, #1A1032 82%)', // Magenta to Dark Purple
-                  color: 'white',
-                  svg: { color: '#E0E0E0' }, // Light icon color
-                  textDecoration: 'none',
-                  position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
-                  },
-                  ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
-                    }
-                  }
-                }}
-                as="a"
-                href="https://github.com/hackclub"
-                variant="interactive"
-                target="_blank"
-                rel="noopener"
-              >
-                <Icon
-                  glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: [1, '16px', '20px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
-                <Stage
-                  icon="github"
-                  color="white"
-                  name="Explore Our Open Source Tools"
-                  desc="We're currently building a game engine, daily streak system, graphing game, and more!"
-                  sx={{
-                    p: {
-                      fontSize: [1, '16px', '20px']
-                    },
-                    h3: {
-                      fontSize: ['22px', 2, 3]
-                    }
-                  }}
-                />
-              </Card>
-              <Card
-                sx={{
-                  background:
-                    'linear-gradient(to bottom, #8A2BE2 0%, #0A0F2C 100%)', // Neon Purple to Dark Blue/Purple
-                  color: 'white',
-                  svg: { color: '#E0E0E0' }, // Light icon color
-                  textDecoration: 'none',
-                  position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
-                  },
-                  ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
-                    }
-                  }
-                }}
-                as="a"
-                href="/clubs"
-                variant="interactive"
-                target="_blank"
-                rel="noopener"
-              >
-                <Icon
-                  glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: ['18px', '20px', '22px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
-                <Stage
-                  icon="clubs"
-                  color="white"
-                  name="Start A Club"
-                  desc="Build an in-person community of high school hackers, and we're here to help."
-                  sx={{
-                    p: {
-                      fontSize: ['18px', '20px', '22px']
-                    },
-                    h3: {
-                      fontSize: ['22px', 2, 3]
-                    }
-                  }}
-                />
-              </Card>
-            </Grid>
           </Box>
         </Box>
 
