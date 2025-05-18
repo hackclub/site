@@ -178,13 +178,12 @@ function Page({
         />
       </Head>
       <ForceTheme theme="light" />
-      <Nav />
+      <Nav dark />
       <Box
         as="main"
         sx={{
           overflowX: 'hidden',
           position: 'relative',
-          fontFamily: "Instrument Sans, sans-serif",
           bg: theme.colors.cyberpunk.darkBg,
           color: theme.colors.cyberpunk.text,
           '@keyframes gridFloat': {
@@ -213,18 +212,19 @@ function Page({
         <Box
           as="header"
           sx={{
-            bg: theme.colors.cyberpunk.darkerBg,
-            pt: [6, 7, 8],
-            pb: [5, 6, 7],
-            textAlign: 'left',
+            bg: '#0A0F2C',
+            pt: [7, 8, '180px'],
+            pb: [6, 7, '160px'],
+            minHeight: ['50vh'],
+            textAlign: 'center',
             position: 'relative',
             overflow: 'hidden',
-            backgroundImage: theme => `
-              linear-gradient(to bottom right, ${theme.colors.cyberpunk.electricBlue}0D, ${theme.colors.cyberpunk.neonPurple}0D),
-              linear-gradient(${theme.colors.cyberpunk.gridLine} 1px, transparent 1px),
-              linear-gradient(90deg, ${theme.colors.cyberpunk.gridLine} 1px, transparent 1px),
-              linear-gradient(${theme.colors.cyberpunk.gridLineLarge} 2px, transparent 2px),
-              linear-gradient(90deg, ${theme.colors.cyberpunk.gridLineLarge} 2px, transparent 2px)
+            backgroundImage: `
+              linear-gradient(to bottom right, rgba(0, 191, 255, 0.05), rgba(138, 43, 226, 0.05)),
+              linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(rgba(255, 255, 255, 0.05) 2px, transparent 2px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.05) 2px, transparent 2px)
             `,
             backgroundSize: `
               100% 100%,
@@ -233,6 +233,28 @@ function Page({
               100px 100px,
               100px 100px
             `,
+            '@keyframes gridFloat': {
+              '0%': {
+                backgroundPosition: '0 0'
+              },
+              '100%': {
+                backgroundPosition: '20px 20px'
+              }
+            },
+            '@keyframes float': {
+              '0%': {
+                transform: 'translateY(0px) rotate(0deg)',
+                opacity: 0.3
+              },
+              '50%': {
+                transform: 'translateY(-20px) rotate(10deg)',
+                opacity: 0.6
+              },
+              '100%': {
+                transform: 'translateY(0px) rotate(0deg)',
+                opacity: 0.3
+              }
+            },
             animation: 'gridFloat 20s linear infinite',
             '&::before': {
               content: '""',
@@ -241,131 +263,106 @@ function Page({
               left: 0,
               right: 0,
               bottom: 0,
-              background: theme => `radial-gradient(circle at 50% 50%, ${theme.colors.cyberpunk.darkerBg}00, ${theme.colors.cyberpunk.darkerBg} 100%)`,
+              background: 'radial-gradient(circle at 50% 50%, rgba(10, 15, 44, 0), rgba(10, 15, 44, 1) 70%)',
               pointerEvents: 'none'
             }
           }}
         >
+          {/* Programming Language Icons */}
           <Box
             sx={{
-              width: '90vw',
-              maxWidth: [null, 'layout'],
-              position: 'relative',
-              mx: 'auto',
-              py: [4, 4, 4],
-              textShadow: 'text',
-              zIndex: 1
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 1,
+              opacity: 0.2
             }}
           >
-            {/* Floating Icons START */}
-            <Box sx={{
-              '@keyframes float': {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' }
-              },
-              '@keyframes glow': {
-                '0%, 100%': { filter: 'brightness(1) drop-shadow(0 0 5px currentColor)' },
-                '50%': { filter: 'brightness(1.2) drop-shadow(0 0 15px currentColor)' }
-              }
-            }}>
-              <Box sx={{ position: 'absolute', top: '10%', left: '5%', fontSize: '48px', opacity: 0.7, zIndex: 0, animation: 'float 3s ease-in-out infinite, glow 4s ease-in-out infinite', color: theme => theme.colors.cyberpunk.electricBlue }}>
-                <SiJavascript />
-              </Box>
-              <Box sx={{ position: 'absolute', top: '20%', right: '8%', fontSize: '60px', opacity: 0.7, zIndex: 0, animation: 'float 4s ease-in-out infinite, glow 5s ease-in-out infinite', color: theme => theme.colors.cyberpunk.magenta }}>
-                <SiPython />
-              </Box>
-              <Box sx={{ position: 'absolute', bottom: '15%', left: '10%', fontSize: '52px', opacity: 0.7, zIndex: 0, animation: 'float 3.5s ease-in-out infinite, glow 4.5s ease-in-out infinite', color: theme => theme.colors.cyberpunk.neonPurple }}>
-                <SiReact />
-              </Box>
-              <Box sx={{ position: 'absolute', bottom: '25%', right: '15%', fontSize: '40px', opacity: 0.7, zIndex: 0, animation: 'float 4.5s ease-in-out infinite, glow 5.5s ease-in-out infinite', color: theme => theme.colors.cyberpunk.electricBlue }}>
-                <SiHtml5 />
-              </Box>
-              <Box sx={{ position: 'absolute', top: '60%', left: '2%', fontSize: '38px', opacity: 0.6, zIndex: 0, animation: 'float 5s ease-in-out infinite, glow 6s ease-in-out infinite', color: theme => theme.colors.cyberpunk.magenta }}>
-                <SiCss3 />
-              </Box>
-              <Box sx={{ position: 'absolute', top: '50%', right: '2%', fontSize: '55px', opacity: 0.6, zIndex: 0, animation: 'float 3.8s ease-in-out infinite, glow 4.8s ease-in-out infinite', color: theme => theme.colors.cyberpunk.neonPurple }}>
-                <SiNodedotjs />
-              </Box>
-              <Box sx={{ position: 'absolute', top: '5%', right: '20%', fontSize: '45px', opacity: 0.5, zIndex: 0, animation: 'float 4.2s ease-in-out infinite, glow 5.2s ease-in-out infinite', color: theme => theme.colors.cyberpunk.electricBlue }}>
-                <SiSwift />
-              </Box>
-              <Box sx={{ position: 'absolute', bottom: '5%', right: '30%', fontSize: '50px', opacity: 0.5, zIndex: 0, animation: 'float 4.8s ease-in-out infinite, glow 5.8s ease-in-out infinite', color: theme => theme.colors.cyberpunk.magenta }}>
-                <SiGo />
-              </Box>
-            </Box>
-            {/* Floating Icons END */}
-            <Text
-              variant="eyebrow"
-              sx={{
-                color: 'sunken',
-                pb: 2,
-                position: 'relative',
-                display: 'block'
-              }}
-              as="h4"
-            >
-              Welcome to Hack&nbsp;Club
-            </Text>
-            <Heading>
-              <Text
-                as="p"
-                variant="title"
+            {[
+              { Icon: SiJavascript, left: '10%', top: '20%', delay: '0s' },
+              { Icon: SiPython, left: '20%', top: '60%', delay: '0.5s' },
+              { Icon: SiHtml5, left: '80%', top: '15%', delay: '1s' },
+              { Icon: SiCss3, left: '85%', top: '70%', delay: '1.5s' },
+              { Icon: SiReact, left: '45%', top: '25%', delay: '2s' },
+              { Icon: SiNodedotjs, left: '15%', top: '85%', delay: '2.5s' },
+              { Icon: SiSwift, left: '75%', top: '45%', delay: '3s' },
+              { Icon: SiGo, left: '35%', top: '75%', delay: '3.5s' },
+              { Icon: SiRust, left: '90%', top: '85%', delay: '4s' },
+              { Icon: SiKotlin, left: '5%', top: '40%', delay: '4.5s' }
+            ].map(({ Icon, left, top, delay }, i) => (
+              <Box
+                key={i}
                 sx={{
+                  position: 'absolute',
+                  left,
+                  top,
                   color: 'white',
-                  mb: [3, 4],
-                  zIndex: 1,
-                  textAlign: 'left',
-                  fontSize: ['42px', '52px', '64px'],
-                  lineHeight: 1.2,
-                  width: '100%'
+                  fontSize: ['36px', '48px', '64px'],
+                  animation: 'float 6s infinite',
+                  animationDelay: delay,
+                  animationTimingFunction: 'ease-in-out'
                 }}
               >
-                We are <Comma>{slackData.total_members_count}</Comma>{' '}
-                <Text
-                  sx={{
-                    color: 'transparent',
-                    ml: 2,
-                    mr: 3,
-                    whiteSpace: 'nowrap'
-                  }}
-                >
-                  <Text
-                    onClick={() => {
-                      !reveal ? setReveal(true) : setReveal(false)
-                    }}
-                    sx={{
-                      // lineHeight: 0.875,
-                      px: 2,
-                      backgroundColor: '#F002ED', // Cyberpunk Magenta
-                      position: 'absolute',
-                      borderRadius: 10,
-                      transform: 'rotate(-3deg) translateY(-5px)',
-                      color: 'white',
-                      whiteSpace: 'nowrap',
-                      textDecoration: 'none',
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                    aria-hidden="true"
-                  >
-                    teen hackers
-                  </Text>
-                  teen hackers
-                </Text>
-                <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
-                the world who code together
-              </Text>
+                <Icon />
+              </Box>
+            ))}
+          </Box>
+          <Box
+            sx={{
+              maxWidth: ['90vw', '85vw', '80vw'],
+              mx: 'auto',
+              textAlign: 'center',
+              position: 'relative',
+              zIndex: 2
+            }}
+          >
+            <Text
+              as="h1"
+              variant="title"
+              sx={{
+                fontSize: ['42px', '56px', '72px'],
+                mb: 3,
+                background: 'linear-gradient(to right, #00BFFF, #F002ED)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                textAlign: 'center'
+              }}
+            >
+              A Home for High School Hackers
+            </Text>
+            <Text
+              as="p"
+              variant="subtitle"
+              sx={{
+                fontSize: ['18px', '22px', '24px'],
+                maxWidth: '650px',
+                mx: 'auto',
+                mb: 4,
+                color: 'white',
+                opacity: 0.9
+              }}
+            >
+              Join a community of <Comma>{slackData.total_members_count}</Comma> makers, building open source projects and learning to code together.
+            </Text>
+            <Flex
+              sx={{
+                justifyContent: 'center',
+                gap: 3,
+                flexWrap: 'wrap'
+              }}
+            >
               <Button
                 variant="ctaLg"
                 as="a"
                 href="/slack"
-                mt={[3, 0, 0]}
-                mr={3}
                 sx={{
                   transformOrigin: 'center left',
-                  bg: '#8A2BE2', // Neon Purple
-                  // Optionally, add hover effects
+                  bg: '#8A2BE2',
+                  px: 4,
+                  py: 3,
+                  fontSize: [2, 3]
                 }}
               >
                 Join Slack
@@ -374,45 +371,17 @@ function Page({
                 variant="ctaLg"
                 as="a"
                 href="https://shipwrecked.hack.club/3"
-                mt={3}
                 sx={{
                   transformOrigin: 'left',
-                  backgroundImage: 'linear-gradient(to right, #00BFFF, #8A2BE2)', // Electric Blue to Neon Purple gradient
+                  backgroundImage: 'linear-gradient(to right, #00BFFF, #8A2BE2)',
+                  px: 4,
+                  py: 3,
+                  fontSize: [2, 3]
                 }}
               >
                 Sign Up: Private Island Hackathon
               </Button>
-            </Heading>
-          </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: ['flex-start', 'flex-start', 'flex-end'],
-              marginRight: 2,
-              mt: [4, 3, 1]
-            }}
-          >
-            <Badge
-              as="a"
-              href="https://outernet.hackclub.com/"
-              target="_blank"
-              rel="noopener"
-              variant="pill"
-              sx={{
-                zIndex: '1',
-                bg: 'black',
-                color: 'white',
-                opacity: 1,
-                textDecoration: 'none',
-                fontWeight: 'normal',
-                ':hover': { opacity: 1 },
-                transition: '0.3s ease'
-                // mixBlendMode: 'multiply'
-              }}
-              title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            >
-              Hackers at Outernet in Vermont
-            </Badge>
+            </Flex>
           </Box>
         </Box>
         <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
@@ -1276,7 +1245,7 @@ function Page({
             </>
           )}
         <MailingList />
-      </Box>
+      </Box >
       <Footer
         dark
         sx={{
