@@ -1216,6 +1216,16 @@
   resolved "https://registry.yarnpkg.com/@fillout/react/-/react-1.2.1.tgz#ef13cc191fbc0a6465eb7417f95879527c908c95"
   integrity sha512-KWdmo9jwVECSzsN2ugfdgMffPHhcBcescpt9ozOp59f4xCEsE4g+yfugs4MzCxa3GSlcjyq3RdIHXVMZ64B3ng==
 
+"@fontsource/instrument-sans@^5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/instrument-sans/-/instrument-sans-5.2.5.tgz#a8c2bd8219fb20811973495272e09ba6f2468fad"
+  integrity sha512-+u6WgD2gZfjEnMKwRZ0D/CizoF0n3sLIT+cQtqJrnmWh2xhcF35xl06vA2uCTBF/CiYKgNmm1AVWBqURY/aJ2w==
+
+"@fontsource/manrope@^5.2.5":
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/manrope/-/manrope-5.2.5.tgz#a2e98f1d879dc71f452b8641167932e1df7f6070"
+  integrity sha512-4mYUAhsuF8KoXseG8T9woWUc/foznUVluFtE6fCKAqe76WM3kmDNedaINWjzWB73+wly0duFvVpDBma3NXXT0g==
+
 "@github/time-elements@^4.0.0":
   version "4.0.0"
   resolved "https://registry.npmjs.org/@github/time-elements/-/time-elements-4.0.0.tgz"
@@ -7651,6 +7661,11 @@ react-horizontal-scrolling-menu@^6.1.0:
   integrity sha512-qJrGbx1+a3xUiTb/00Sx78NAMrrjak/5c3B/1SPC9KkrO8kwmxB45u5oH41UBaFxzOcq0U/CC4PcFD36BERzXQ==
   dependencies:
     smooth-scroll-into-view-if-needed "^2.0.2"
+
+react-icons@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-5.5.0.tgz#8aa25d3543ff84231685d3331164c00299cdfaf2"
+  integrity sha512-MEFcXdkP3dLo8uumGI5xN3lDFNsRtrjbOEKDLD7yv76v4wpnEq2Lt2qeHaQOr34I/wPN3s3+N08WkQ+CW37Xiw==
 
 react-is@16.13.1, react-is@^16.10.2, react-is@^16.13.1, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"

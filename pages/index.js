@@ -42,6 +42,19 @@ import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
+import {
+  SiJavascript,
+  SiPython,
+  SiHtml5,
+  SiCss3,
+  SiReact,
+  SiNodedotjs,
+  SiSwift,
+  SiGo,
+  SiRust,
+  SiKotlin
+} from 'react-icons/si'
+import theme from '../lib/theme'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -170,7 +183,18 @@ function Page({
         as="main"
         sx={{
           overflowX: 'hidden',
-          position: 'relative'
+          position: 'relative',
+          fontFamily: "Instrument Sans, sans-serif",
+          bg: theme.colors.cyberpunk.darkBg,
+          color: theme.colors.cyberpunk.text,
+          '@keyframes gridFloat': {
+            '0%': {
+              backgroundPosition: '0 0'
+            },
+            '100%': {
+              backgroundPosition: '100px 100px'
+            }
+          }
         }}
       >
         <Secret
@@ -189,20 +213,39 @@ function Page({
         <Box
           as="header"
           sx={{
-            bg: 'dark',
-            pt: [5, 6],
-            pb: [2, 3],
+            bg: theme.colors.cyberpunk.darkerBg,
+            pt: [6, 7, 8],
+            pb: [5, 6, 7],
             textAlign: 'left',
             position: 'relative',
-            overflowX: 'hidden'
+            overflow: 'hidden',
+            backgroundImage: theme => `
+              linear-gradient(to bottom right, ${theme.colors.cyberpunk.electricBlue}0D, ${theme.colors.cyberpunk.neonPurple}0D),
+              linear-gradient(${theme.colors.cyberpunk.gridLine} 1px, transparent 1px),
+              linear-gradient(90deg, ${theme.colors.cyberpunk.gridLine} 1px, transparent 1px),
+              linear-gradient(${theme.colors.cyberpunk.gridLineLarge} 2px, transparent 2px),
+              linear-gradient(90deg, ${theme.colors.cyberpunk.gridLineLarge} 2px, transparent 2px)
+            `,
+            backgroundSize: `
+              100% 100%,
+              20px 20px,
+              20px 20px,
+              100px 100px,
+              100px 100px
+            `,
+            animation: 'gridFloat 20s linear infinite',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: theme => `radial-gradient(circle at 50% 50%, ${theme.colors.cyberpunk.darkerBg}00, ${theme.colors.cyberpunk.darkerBg} 100%)`,
+              pointerEvents: 'none'
+            }
           }}
         >
-          <BGImg
-            src={OuternetImgFile}
-            alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            priority
-            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
-          />
           <Box
             sx={{
               width: '90vw',
@@ -210,9 +253,47 @@ function Page({
               position: 'relative',
               mx: 'auto',
               py: [4, 4, 4],
-              textShadow: 'text'
+              textShadow: 'text',
+              zIndex: 1
             }}
           >
+            {/* Floating Icons START */}
+            <Box sx={{
+              '@keyframes float': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' }
+              },
+              '@keyframes glow': {
+                '0%, 100%': { filter: 'brightness(1) drop-shadow(0 0 5px currentColor)' },
+                '50%': { filter: 'brightness(1.2) drop-shadow(0 0 15px currentColor)' }
+              }
+            }}>
+              <Box sx={{ position: 'absolute', top: '10%', left: '5%', fontSize: '48px', opacity: 0.7, zIndex: 0, animation: 'float 3s ease-in-out infinite, glow 4s ease-in-out infinite', color: theme => theme.colors.cyberpunk.electricBlue }}>
+                <SiJavascript />
+              </Box>
+              <Box sx={{ position: 'absolute', top: '20%', right: '8%', fontSize: '60px', opacity: 0.7, zIndex: 0, animation: 'float 4s ease-in-out infinite, glow 5s ease-in-out infinite', color: theme => theme.colors.cyberpunk.magenta }}>
+                <SiPython />
+              </Box>
+              <Box sx={{ position: 'absolute', bottom: '15%', left: '10%', fontSize: '52px', opacity: 0.7, zIndex: 0, animation: 'float 3.5s ease-in-out infinite, glow 4.5s ease-in-out infinite', color: theme => theme.colors.cyberpunk.neonPurple }}>
+                <SiReact />
+              </Box>
+              <Box sx={{ position: 'absolute', bottom: '25%', right: '15%', fontSize: '40px', opacity: 0.7, zIndex: 0, animation: 'float 4.5s ease-in-out infinite, glow 5.5s ease-in-out infinite', color: theme => theme.colors.cyberpunk.electricBlue }}>
+                <SiHtml5 />
+              </Box>
+              <Box sx={{ position: 'absolute', top: '60%', left: '2%', fontSize: '38px', opacity: 0.6, zIndex: 0, animation: 'float 5s ease-in-out infinite, glow 6s ease-in-out infinite', color: theme => theme.colors.cyberpunk.magenta }}>
+                <SiCss3 />
+              </Box>
+              <Box sx={{ position: 'absolute', top: '50%', right: '2%', fontSize: '55px', opacity: 0.6, zIndex: 0, animation: 'float 3.8s ease-in-out infinite, glow 4.8s ease-in-out infinite', color: theme => theme.colors.cyberpunk.neonPurple }}>
+                <SiNodedotjs />
+              </Box>
+              <Box sx={{ position: 'absolute', top: '5%', right: '20%', fontSize: '45px', opacity: 0.5, zIndex: 0, animation: 'float 4.2s ease-in-out infinite, glow 5.2s ease-in-out infinite', color: theme => theme.colors.cyberpunk.electricBlue }}>
+                <SiSwift />
+              </Box>
+              <Box sx={{ position: 'absolute', bottom: '5%', right: '30%', fontSize: '50px', opacity: 0.5, zIndex: 0, animation: 'float 4.8s ease-in-out infinite, glow 5.8s ease-in-out infinite', color: theme => theme.colors.cyberpunk.magenta }}>
+                <SiGo />
+              </Box>
+            </Box>
+            {/* Floating Icons END */}
             <Text
               variant="eyebrow"
               sx={{
@@ -255,7 +336,7 @@ function Page({
                     sx={{
                       // lineHeight: 0.875,
                       px: 2,
-                      backgroundColor: 'red',
+                      backgroundColor: '#F002ED', // Cyberpunk Magenta
                       position: 'absolute',
                       borderRadius: 10,
                       transform: 'rotate(-3deg) translateY(-5px)',
@@ -281,7 +362,11 @@ function Page({
                 href="/slack"
                 mt={[3, 0, 0]}
                 mr={3}
-                sx={{ transformOrigin: 'center left' }}
+                sx={{
+                  transformOrigin: 'center left',
+                  bg: '#8A2BE2', // Neon Purple
+                  // Optionally, add hover effects
+                }}
               >
                 Join Slack
               </Button>
@@ -290,9 +375,9 @@ function Page({
                 as="a"
                 href="https://shipwrecked.hack.club/3"
                 mt={3}
-                sx={{ 
+                sx={{
                   transformOrigin: 'left',
-                  backgroundImage: t => t.util.gx('green', 'blue'),
+                  backgroundImage: 'linear-gradient(to right, #00BFFF, #8A2BE2)', // Electric Blue to Neon Purple gradient
                 }}
               >
                 Sign Up: Private Island Hackathon
@@ -353,7 +438,7 @@ function Page({
                   mx: 0,
                   whiteSpace: ['wrap', 'nowrap', 'nowrap'],
                   color: 'white',
-                  background: theme => theme.util.gx('red', 'orange'),
+                  background: 'linear-gradient(to right, #00BFFF, #F002ED)', // Electric Blue to Magenta gradient
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
                 }}
@@ -368,17 +453,13 @@ function Page({
               sx={{
                 fontSize: ['18px', '20px', '22px'],
                 pb: [3, 3, 4],
-                maxWidth: '62ch'
+                maxWidth: 'unset'
               }}
             >
-              Every day, thousands of Hack&nbsp;Clubbers gather online and
-              in-person to make things with code. Whether you're a beginner
-              programmer or have years of experience, there's a place for you at
-              Hack&nbsp;Club. Read about our{' '}
-              <Link href="/philosophy" target="_blank" rel="noopener">
-                hacker ethic
-              </Link>
-              .
+              Hack Club isn't like a CS Discord server or a WhatsApp group.
+              It's a place for those who build things and dream big, not for class credit or for an exam, but for the love of making.
+              It's for the folks who've been coding in their bedrooms and want to share their work with teens who get them.
+              It's for the folks who've never written a line of code in their life, and want help from people who'll go above and beyond to help you, not just tell you to "read the f**king manual" or "ask ChatGPT".
             </Text>
             <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
               <Box
@@ -535,7 +616,7 @@ function Page({
                   }}
                   as="li"
                 >
-                  <Text as="span" color="red" aria-hidden="true">
+                  <Text as="span" color="#00BFFF" aria-hidden="true">
                     1
                   </Text>
                   <Text as="p" variant="subtitle">
@@ -563,7 +644,7 @@ function Page({
                   }}
                   as="li"
                 >
-                  <Text as="span" color="orange" aria-hidden="true">
+                  <Text as="span" color="#F002ED" aria-hidden="true">
                     2
                   </Text>
                   <Text
@@ -597,7 +678,7 @@ function Page({
                   }}
                   as="li"
                 >
-                  <Text as="span" color="yellow" aria-hidden="true">
+                  <Text as="span" color="#8A2BE2" aria-hidden="true">
                     3
                   </Text>
                   <Text as="p" variant="subtitle">
@@ -666,7 +747,7 @@ function Page({
                     mx: 0,
                     whiteSpace: 'nowrap',
                     color: 'white',
-                    bg: 'red'
+                    bg: '#00BFFF' // Electric Blue
                   }}
                 >
                   builders
@@ -727,7 +808,7 @@ function Page({
                         borderRadius: 'default',
                         mx: 0,
                         whiteSpace: 'nowrap',
-                        color: 'orange'
+                        color: '#8A2BE2' // Neon Purple
                       }}
                     >
                       open source
@@ -740,13 +821,14 @@ function Page({
                     sx={{
                       fontSize: ['18px', '20px', '22px'],
                       pb: [3, 0, 0],
-                      maxWidth: '60ch'
+                      maxWidth: 'unset'
                     }}
                   >
-                    In collaboration with engineers on the Hack&nbsp;Club team,
-                    Hack Clubbers build learning tools for each other. Get
-                    involved with these projects by building something with our
-                    tools or contribute to the tools themselves.
+                    We're builders ourselves.
+                    We know that across the world, there are tens of thousands of teens who just need someone to give them a little push and help them make something they're proud of.
+                    Most coding classes teach you programming concepts and ethical issues and copyright laws, instead of just teaching you how to make something actually real.
+                    Our goal is to create a world of hackers and painters and dreamers, who make something interesting — something they're proud of.
+                    Want to join us?
                   </Text>
                 </Box>
                 {gitHubData && (
@@ -836,7 +918,7 @@ function Page({
                 left: 0
               }}
             >
-              {}
+              { }
             </Box>
             <Box
               py={[4, 5, '82px']}
@@ -865,7 +947,7 @@ function Page({
                       borderRadius: 'default',
                       mx: 0,
                       whiteSpace: 'nowrap',
-                      color: 'orange'
+                      color: '#F002ED' // Magenta
                     }}
                   >
                     IRL community.
@@ -930,7 +1012,7 @@ function Page({
                     borderRadius: 'default',
                     ml: 0,
                     whiteSpace: ['wrap', 'nowrap'],
-                    background: theme => theme.util.gx('red', 'orange'),
+                    background: 'linear-gradient(to right, #00BFFF, #8A2BE2)', // Electric Blue to Neon Purple
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent'
                   }}
@@ -966,9 +1048,9 @@ function Page({
                 variant="interactive"
                 sx={{
                   background:
-                    'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
+                    'linear-gradient(32deg, #00BFFF 0%, #1A1032 100%)', // Blue to Dark Blue/Purple
                   color: 'white',
-                  svg: { color: 'rgb(51, 142, 218)' },
+                  svg: { color: '#E0E0E0' }, // Light icon color
                   position: 'relative',
                   '.icon': {
                     transition:
@@ -1014,9 +1096,9 @@ function Page({
               <Card
                 sx={{
                   background:
-                    'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
+                    'linear-gradient(-32deg, #F002ED 14%, #1A1032 82%)', // Magenta to Dark Purple
                   color: 'white',
-                  svg: { color: '#fb558e' },
+                  svg: { color: '#E0E0E0' }, // Light icon color
                   textDecoration: 'none',
                   position: 'relative',
                   '.icon': {
@@ -1068,9 +1150,9 @@ function Page({
               <Card
                 sx={{
                   background:
-                    'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
+                    'linear-gradient(to bottom, #8A2BE2 0%, #0A0F2C 100%)', // Neon Purple to Dark Blue/Purple
                   color: 'white',
-                  svg: { color: 'rgb(236, 55, 80)' },
+                  svg: { color: '#E0E0E0' }, // Light icon color
                   textDecoration: 'none',
                   position: 'relative',
                   '.icon': {
@@ -1125,87 +1207,87 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-          <>
-            <Box
-              sx={{
-                position: 'fixed',
-                top: 0,
-                width: '100%',
-                zIndex: 1000
-              }}
-            >
+            <>
               <Box
                 sx={{
-                  position: 'relative',
-                  margin: 'auto',
-                  width: 'fit-content',
+                  position: 'fixed',
+                  top: 0,
+                  width: '100%',
+                  zIndex: 1000
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    margin: 'auto',
+                    width: 'fit-content',
+                    lineHeight: 0
+                  }}
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  right: 0,
+                  zIndex: 1000,
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </Box>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                right: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-          </>
-        )}
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 1000,
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </>
+          )}
         <MailingList />
       </Box>
       <Footer
         dark
         sx={{
-          backgroundColor: 'dark',
+          backgroundColor: '#0A0F2C',
           position: 'relative',
           overflow: 'hidden',
           textShadow: '0 1px 2px rgba(0,0,0,0.375)',
-          'h2,span,p,a': { color: 'white !important' },
+          'h2,span,p,a': { color: '#E0E0E0 !important' },
           '> div img': { objectPosition: ['left', 'center'] },
           svg: {
-            fill: 'white',
+            fill: '#E0E0E0',
             filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
           }
         }}

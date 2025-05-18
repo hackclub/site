@@ -8,6 +8,7 @@ import '@hackclub/theme/fonts/reg-bold.css'
 import theme from '../lib/theme'
 import { ThemeProvider } from 'theme-ui'
 import { Provider as BalancerProvider } from 'react-wrap-balancer'
+import '@fontsource/instrument-sans';
 
 const App = ({ Component, pageProps }) => (
   <ThemeProvider theme={theme}>
