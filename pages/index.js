@@ -177,7 +177,7 @@ function Page({
           size="512x512"
         />
       </Head>
-      <ForceTheme theme="light" />
+      <ForceTheme theme="dark" />
       <Nav dark />
       <Box
         as="main"
@@ -265,6 +265,17 @@ function Page({
               bottom: 0,
               background: 'radial-gradient(circle at 50% 50%, rgba(10, 15, 44, 0), rgba(10, 15, 44, 1) 70%)',
               pointerEvents: 'none'
+            },
+            '&::after': {
+              content: '""',
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: '150px',
+              background: 'linear-gradient(to bottom, transparent, #0A0F2C)',
+              pointerEvents: 'none',
+              zIndex: 2
             }
           }}
         >
@@ -455,7 +466,7 @@ function Page({
             </Text>
           </Box>
         </Box>
-        <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
+        <Box as="section" sx={{ py: [4, 5, '82px'], bg: 'cyberpunk.darkBg' }}>
           <Box
             sx={{
               position: 'relative',
@@ -467,7 +478,10 @@ function Page({
             <Text
               variant="title"
               as="h1"
-              sx={{ fontSize: ['36px', '48px', '56px'] }}
+              sx={{
+                fontSize: ['36px', '48px', '56px'],
+                color: 'white'
+              }}
             >
               Discover the{' '}
               <Text
@@ -477,8 +491,7 @@ function Page({
                   px: 1,
                   mx: 0,
                   whiteSpace: ['wrap', 'nowrap', 'nowrap'],
-                  color: 'white',
-                  background: 'linear-gradient(to right, #00BFFF, #F002ED)', // Electric Blue to Magenta gradient
+                  background: 'linear-gradient(to right, #00BFFF, #F002ED)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
                 }}
@@ -493,13 +506,11 @@ function Page({
               sx={{
                 fontSize: ['18px', '20px', '22px'],
                 pb: [3, 3, 4],
-                maxWidth: 'unset'
+                maxWidth: 'unset',
+                color: 'cyberpunk.text'
               }}
             >
-              Hack Club isn't like a CS Discord server or a WhatsApp group.
-              It's a place for those who build things and dream big, not for class credit or for an exam, but for the love of making.
-              It's for the folks who've been coding in their bedrooms and want to share their work with teens who get them.
-              It's for the folks who've never written a line of code in their life, and want help from people who'll go above and beyond to help you, not just tell you to "read the f**king manual" or "ask ChatGPT".
+              In collaboration with engineers on the Hack Club team, Hack Clubbers build learning tools for each other. Get involved with these projects by building something with our tools or contribute to the tools themselves.
             </Text>
             <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
               <Box
@@ -638,8 +649,16 @@ function Page({
                     fontWeight: 'bold',
                     border: '3px solid currentColor'
                   },
-                  p: { my: 0, fontSize: ['18px', '20px', '22px'] },
-                  strong: { display: 'block', fontSize: ['22px', 2, 3] }
+                  p: {
+                    my: 0,
+                    fontSize: ['18px', '20px', '22px'],
+                    color: 'cyberpunk.text'
+                  },
+                  strong: {
+                    display: 'block',
+                    fontSize: ['22px', 2, 3],
+                    color: 'white'
+                  }
                 }}
                 as="ul"
               >
@@ -656,7 +675,7 @@ function Page({
                   }}
                   as="li"
                 >
-                  <Text as="span" color="#00BFFF" aria-hidden="true">
+                  <Text as="span" color="cyberpunk.electricBlue" aria-hidden="true">
                     1
                   </Text>
                   <Text as="p" variant="subtitle">
@@ -665,7 +684,7 @@ function Page({
                     </strong>
                     Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
-                    <Link href="/slack" target="_blank" rel="noopener">
+                    <Link href="/slack" target="_blank" rel="noopener" sx={{ color: 'cyberpunk.electricBlue' }}>
                       Slack{' '}
                     </Link>
                     (like Discord), active at all hours.
@@ -763,7 +782,18 @@ function Page({
               right: 0,
               bottom: 0,
               bg: 'snow',
-              pointerEvents: 'none'
+              pointerEvents: 'none',
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '150px',
+                background: 'linear-gradient(to bottom, transparent, #0A0F2C)',
+                pointerEvents: 'none',
+                zIndex: 2
+              }
             }}
           />
           <Box
@@ -864,11 +894,7 @@ function Page({
                       maxWidth: 'unset'
                     }}
                   >
-                    We're builders ourselves.
-                    We know that across the world, there are tens of thousands of teens who just need someone to give them a little push and help them make something they're proud of.
-                    Most coding classes teach you programming concepts and ethical issues and copyright laws, instead of just teaching you how to make something actually real.
-                    Our goal is to create a world of hackers and painters and dreamers, who make something interesting — something they're proud of.
-                    Want to join us?
+                    In collaboration with engineers on the Hack Club team, Hack Clubbers build learning tools for each other. Get involved with these projects by building something with our tools or contribute to the tools themselves.
                   </Text>
                 </Box>
                 {gitHubData && (
