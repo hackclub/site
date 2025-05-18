@@ -1275,14 +1275,37 @@ const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
   const carouselCards = require('../lib/carousel.json')
+  const { Slack: Slacky } = require('./api/slack')
+  const { fetchGitHub } = require('./api/github')
+  const { fetchStars } = require('./api/stars')
+  const { getGames } = require('./api/games')
+  const { getConsoles } = require('./api/sprig-console')
 
-  // HCB: get total raised
+  const [
+    bankResponse,
+    slackData,
+    gitHubData,
+    stars,
+    game,
+    consoleCount,
+    hackathonsData,
+    events
+  ] = await Promise.all([
+    fetch('https://hcb.hackclub.com/stats'),
+    Slacky(),
+    fetchGitHub(),
+    fetchStars(),
+    getGames(),
+    getConsoles(),
+    fetch('https://hackathons.hackclub.com/api/events/upcoming').then(res => res.ok ? res.json() : []),
+    fetch('https://events.hackclub.com/api/events/upcoming/').then(res => res.json()).catch(() => [])
+  ])
+
+  // Process bank data
   let bankData = []
-  let initialBankData = await fetch('https://hcb.hackclub.com/stats')
   try {
-    const bd = await initialBankData.json()
+    const bd = await bankResponse.json()
     let raised = bd.raised / 100
-
     bankData.push(
       `💰 ${raised.toLocaleString('en-US', {
         style: 'currency',
@@ -1293,70 +1316,24 @@ export async function getStaticProps() {
     bankData.push('error')
   }
 
-  // Slack: get total raised
-  const { Slack: Slacky } = require('./api/slack')
-  let slackData = await Slacky()
-
-  // GitHub: get latest github activity (currently this is erroring and
-  // preventing the site from deploying
-
-  const { fetchGitHub } = require('./api/github')
-  let gitHubData = await fetchGitHub()
-
-  //   let gitHubData = null
-
-  // GitHub: get latest GitHub stars
-  const { fetchStars } = require('./api/stars')
-  let stars = await fetchStars()
-
-  // Sprig: get newest games
-  const { getGames } = require('./api/games')
-  let game = await getGames()
-
-  let gameTitle = []
-
-  gameTitle = game.map(r => r.title)
-
-  // Sprig: get console count
-  const { getConsoles } = require('./api/sprig-console')
-  const consoleCount = await getConsoles()
-
-  // Hackathons: get latest hackathons
-  let hackathonsData
-  try {
-    const response = await fetch(
-      'https://hackathons.hackclub.com/api/events/upcoming'
-    )
-    if (response.ok) {
-      hackathonsData = await response.json()
-    } else {
-      hackathonsData = [] // or some default value if the fetch fails
-    }
-  } catch (error) {
-    hackathonsData = [] // or some default value if an error occurs
+  // Sort hackathons by date
+  if (Array.isArray(hackathonsData)) {
+    hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
   }
-  hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
-  let events = []
-  try {
-    await fetch(
-      'https://events.hackclub.com/api/events/upcoming/'
-    ).then(res => res.json())
-  } catch (error) {
-    console.error('Error fetching events:', error)
-  }
+  let gameTitle = game ? game.map(r => r.title) : []
 
   return {
     props: {
-      game,
+      game: game || [],
       gameTitle,
       gitHubData,
       consoleCount,
-      hackathonsData,
+      hackathonsData: hackathonsData || [],
       bankData,
       slackData,
       stars,
-      events,
+      events: events || [],
       carouselCards
     },
     revalidate: 60
