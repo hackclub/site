@@ -1244,20 +1244,21 @@ function Page({
               </Box>
             </>
           )}
-        <MailingList />
+        {/* <MailingList /> */}
       </Box >
       <Footer
         dark
+        pink
         sx={{
-          backgroundColor: '#0A0F2C',
+          backgroundColor: 'rgb(233, 49, 135)',
           position: 'relative',
           overflow: 'hidden',
-          textShadow: '0 1px 2px rgba(0,0,0,0.375)',
+          textShadow: '0 1px 2px rgba(0,0,255,0.375)',
           'h2,span,p,a': { color: '#E0E0E0 !important' },
           '> div img': { objectPosition: ['left', 'center'] },
           svg: {
             fill: '#E0E0E0',
-            filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
+            filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25))'
           }
         }}
       >

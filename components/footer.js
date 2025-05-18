@@ -8,7 +8,7 @@ import Icon from './icon'
 const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' })`
   background: ${props =>
     props.dark
-      ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
+      ? `${theme.colors.darker} radial-gradient(${props.pink ? "rgb(158, 27, 88)" : theme.colors.black} 1px, transparent 1px)`
       : `${theme.colors.snow} url('/pattern.svg') repeat`};
   ${props =>
     props.dark &&
@@ -51,6 +51,7 @@ const Service = ({ href, icon, name = '', ...props }) => (
 
 const Footer = ({
   dark = false,
+  pink = false,
   email = 'team@hackclub.com',
   children = undefined,
   ...props
@@ -59,6 +60,7 @@ const Footer = ({
     color={dark ? 'muted' : 'slate'}
     py={[4, 5]}
     dark={dark}
+    pink={pink}
     sx={{ textAlign: 'left' }}
     as="footer"
     {...props}
