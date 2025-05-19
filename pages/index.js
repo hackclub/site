@@ -212,7 +212,7 @@ function Page({
         <Box
           as="header"
           sx={{
-            bg: '#0A0F2C',
+            bg: 'cyberpunk.darkerBg',
             pt: [7, 8, '180px'],
             pb: [6, 7, '160px'],
             minHeight: ['50vh'],
@@ -220,11 +220,11 @@ function Page({
             position: 'relative',
             overflow: 'hidden',
             backgroundImage: `
-              linear-gradient(to bottom right, rgba(0, 191, 255, 0.05), rgba(138, 43, 226, 0.05)),
-              linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-              linear-gradient(rgba(255, 255, 255, 0.05) 2px, transparent 2px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.05) 2px, transparent 2px)
+              linear-gradient(to bottom right, rgba(0, 191, 255, 0.1), rgba(138, 43, 226, 0.1)),
+              linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+              linear-gradient(rgba(255, 255, 255, 0.025) 2px, transparent 2px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.025) 2px, transparent 2px)
             `,
             backgroundSize: `
               100% 100%,
@@ -241,20 +241,6 @@ function Page({
                 backgroundPosition: '20px 20px'
               }
             },
-            '@keyframes float': {
-              '0%': {
-                transform: 'translateY(0px) rotate(0deg)',
-                opacity: 0.3
-              },
-              '50%': {
-                transform: 'translateY(-20px) rotate(10deg)',
-                opacity: 0.6
-              },
-              '100%': {
-                transform: 'translateY(0px) rotate(0deg)',
-                opacity: 0.3
-              }
-            },
             animation: 'gridFloat 20s linear infinite',
             '&::before': {
               content: '""',
@@ -263,7 +249,7 @@ function Page({
               left: 0,
               right: 0,
               bottom: 0,
-              background: 'radial-gradient(circle at 50% 50%, rgba(10, 15, 44, 0), rgba(10, 15, 44, 1) 70%)',
+              background: 'radial-gradient(circle at 50% 50%, rgba(5, 8, 26, 0), rgba(5, 8, 26, 0.95) 70%)',
               pointerEvents: 'none'
             },
             '&::after': {
@@ -273,7 +259,7 @@ function Page({
               left: 0,
               right: 0,
               height: '150px',
-              background: 'linear-gradient(to bottom, transparent, #0A0F2C)',
+              background: 'linear-gradient(to bottom, transparent, rgba(5, 8, 26, 1))',
               pointerEvents: 'none',
               zIndex: 2
             }
@@ -338,7 +324,8 @@ function Page({
                 background: 'linear-gradient(to right, #00BFFF, #F002ED)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                textAlign: 'center'
+                textAlign: 'center',
+                textShadow: '0 0 20px rgba(0, 191, 255, 0.3)'
               }}
             >
               A Home for High School Hackers
@@ -351,8 +338,8 @@ function Page({
                 maxWidth: '650px',
                 mx: 'auto',
                 mb: 4,
-                color: 'white',
-                opacity: 0.9
+                color: 'cyberpunk.textHighlight',
+                textShadow: '0 0 10px rgba(255, 255, 255, 0.2)'
               }}
             >
               Join a community of <Comma>{slackData.total_members_count}</Comma> makers, building open source projects and learning to code together.
@@ -361,7 +348,7 @@ function Page({
               sx={{
                 justifyContent: 'center',
                 gap: 3,
-                flexWrap: 'wrap'
+                flexWrap: 'wrap',
               }}
             >
               <Button
@@ -376,7 +363,8 @@ function Page({
                   fontSize: [2, 3]
                 }}
               >
-                Join Slack
+                <Text>Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '60k+'} Teen Hackers</Text>
+                <Icon glyph="slack-fill" size={24} />
               </Button>
               <Button
                 variant="ctaLg"
@@ -401,20 +389,21 @@ function Page({
               justifyContent: 'center',
               alignItems: 'center',
               fontSize: ['16px', '18px'],
-              color: 'white',
-              opacity: 0.9,
+              color: 'cyberpunk.textHighlight',
+              opacity: 0.95,
               borderBottom: '1px solid',
               borderColor: 'cyberpunk.gridLine'
             }}>
               <Text sx={{
                 color: '#33d6a6',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                textShadow: '0 0 10px rgba(51, 214, 166, 0.3)'
               }}>
                 $500k+ in prizes given
               </Text>
-              <Text sx={{ opacity: 0.5 }}>•</Text>
+              <Text sx={{ color: 'cyberpunk.textMuted' }}>•</Text>
               <Text>80k+ projects built</Text>
-              <Text sx={{ opacity: 0.5 }}>•</Text>
+              <Text sx={{ color: 'cyberpunk.textMuted' }}>•</Text>
               <Text><Comma>{slackData.total_members_count || 60_000}</Comma> teenage builders</Text>
             </Flex>
           </Box>
@@ -755,12 +744,13 @@ function Page({
               width: '90vw',
               maxWidth: 'layout',
               margin: 'auto',
-              zIndex: 5
+              zIndex: 5,
+              color: "black"
             }}
             py={[4, 4, 5]}
           >
             <Box>
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+              <Text variant="title" sx={{ fontSize: ['36px', 4, 5], color: 'cyberpunk.textForeground' }}>
                 Connect with{' '}
                 <Text
                   as="span"
@@ -769,8 +759,8 @@ function Page({
                     px: 2,
                     mx: 0,
                     whiteSpace: 'nowrap',
-                    color: 'white',
-                    bg: '#00BFFF' // Electric Blue
+                    color: 'cyberpunk.textHighlight',
+                    bg: 'cyberpunk.electricBlue' // Electric Blue
                   }}
                 >
                   builders
@@ -780,7 +770,7 @@ function Page({
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
+                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0], color: 'cyberpunk.textForeground', opacity: 0.8 }}
               >
                 We gather both online and in-person to share our love of code
                 and make things together!
@@ -957,7 +947,8 @@ function Page({
                     width: '18ch',
                     textAlign: 'center',
                     margin: 'auto',
-                    mb: 4
+                    mb: 1,
+                    color: 'cyberpunk.textForeground'
                   }}
                 >
                   Find your{' '}
@@ -982,7 +973,9 @@ function Page({
                     fontSize: ['18px', '24px', '32px'],
                     margin: 'auto',
                     pt: 2,
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    color: 'cyberpunk.textForeground',
+                    opacity: 0.8
                   }}
                 >
                   Thousands of Hack Clubbers organize and participate in
@@ -1010,12 +1003,13 @@ function Page({
           borderColor: 'cyberpunk.gridLine'
         }}>
           <Box sx={{
-            width: '90vw',
-            maxWidth: 'layout',
+            maxWidth: ['90vw', '85vw', '70ch'],
             mx: 'auto',
+            px: 3
           }}>
             <Text as="p" sx={{
-              fontSize: ['18px', '20px', '32px'],
+              fontSize: ['18px', '20px', '22px'],
+              lineHeight: 1.75,
               color: 'cyberpunk.text',
               mb: 3,
               '& strong': {
@@ -1094,6 +1088,17 @@ function Page({
                 gap: 4,
                 mb: [4, 5]
               }}>
+                <Text
+                  sx={{
+                    fontSize: ['18px', '22px'],
+                    color: 'cyberpunk.text',
+                    textAlign: 'center',
+                    maxWidth: '600px',
+                    mx: 'auto'
+                  }}
+                >
+                  Ready to find your people and build amazing things? The Hack Club Slack is where it happens.
+                </Text>
                 <Button
                   as="a"
                   href="/slack"
@@ -1119,6 +1124,9 @@ function Page({
                 >
                   JOIN THE SLACK →
                 </Button>
+                <Text variant="ctaLabel">
+                  Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '60k+'} teen hackers building the future
+                </Text>
               </Flex>
 
               <Grid
