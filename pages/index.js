@@ -419,53 +419,6 @@ function Page({
             </Flex>
           </Box>
         </Box>
-        <Box as="section" sx={{
-          bg: 'cyberpunk.darkerBg',
-          py: [4, 5],
-          color: 'cyberpunk.text',
-          borderTop: '1px solid',
-          borderBottom: '1px solid',
-          borderColor: 'cyberpunk.gridLine'
-        }}>
-          <Box sx={{
-            maxWidth: ['90vw', '85vw', '70ch'],
-            mx: 'auto',
-            px: 3
-          }}>
-            <Text as="p" sx={{
-              fontSize: ['18px', '20px', '22px'],
-              lineHeight: 1.75,
-              color: 'cyberpunk.text',
-              mb: 3,
-              '& strong': {
-                color: 'cyberpunk.electricBlue'
-              }
-            }}>
-              <strong>Hack Club isn't like a CS Discord server or a WhatsApp group.</strong> It's a place for those who build things and dream big, not for class credit or for an exam, but for the love of making.
-            </Text>
-            <Text as="p" sx={{
-              fontSize: ['18px', '20px', '22px'],
-              lineHeight: 1.75,
-              color: 'cyberpunk.text',
-              mb: 3,
-              '& strong': {
-                color: 'cyberpunk.magenta'
-              }
-            }}>
-              <strong>It's for the folks who've been coding in their bedrooms</strong> and want to share their work with teens who get them. It's for the folks who've never written a line of code in their life, and want help from people who'll go above and beyond to help you, not just tell you to just "read the manual" or "ask ChatGPT".
-            </Text>
-            <Text as="p" sx={{
-              fontSize: ['18px', '20px', '22px'],
-              lineHeight: 1.75,
-              color: 'cyberpunk.text',
-              '& strong': {
-                color: 'cyberpunk.neonPurple'
-              }
-            }}>
-              <strong>We're builders ourselves,</strong> and we know that across the world, there are tens of thousands of teens who just need someone to give them a little push and help them make something they're proud of.
-            </Text>
-          </Box>
-        </Box>
         <Box as="section" sx={{ py: [4, 5, '82px'], bg: 'cyberpunk.darkBg' }}>
           <Box
             sx={{
@@ -1046,6 +999,52 @@ function Page({
               {/* <Events events={events} /> */}
               <HCB data={bankData} />
             </Box>
+          </Box>
+        </Box>
+        <Box as="section" sx={{
+          bg: 'cyberpunk.darkerBg',
+          py: [4, 5],
+          color: 'cyberpunk.text',
+          borderTop: '1px solid',
+          borderBottom: '1px solid',
+          borderColor: 'cyberpunk.gridLine'
+        }}>
+          <Box sx={{
+            width: '90vw',
+            maxWidth: 'layout',
+            mx: 'auto',
+          }}>
+            <Text as="p" sx={{
+              fontSize: ['18px', '20px', '32px'],
+              color: 'cyberpunk.text',
+              mb: 3,
+              '& strong': {
+                color: 'cyberpunk.electricBlue'
+              }
+            }}>
+              <strong>Hack Club isn't like a CS Discord server or a WhatsApp group.</strong> It's a place for those who build things and dream big, not for class credit or for an exam, but for the love of making.
+            </Text>
+            <Text as="p" sx={{
+              fontSize: ['18px', '20px', '22px'],
+              lineHeight: 1.75,
+              color: 'cyberpunk.text',
+              mb: 3,
+              '& strong': {
+                color: 'cyberpunk.magenta'
+              }
+            }}>
+              <strong>It's for the folks who've been coding in their bedrooms</strong> and want to share their work with teens who get them. It's for the folks who've never written a line of code in their life, and want help from people who'll go above and beyond to help you, not just tell you to just "read the manual" or "ask ChatGPT".
+            </Text>
+            <Text as="p" sx={{
+              fontSize: ['18px', '20px', '22px'],
+              lineHeight: 1.75,
+              color: 'cyberpunk.text',
+              '& strong': {
+                color: 'cyberpunk.neonPurple'
+              }
+            }}>
+              <strong>We're builders ourselves,</strong> and we know that across the world, there are tens of thousands of teens who just need someone to give them a little push and help them make something they're proud of.
+            </Text>
           </Box>
         </Box>
         <Box py={[4, 5, '82px']}>
