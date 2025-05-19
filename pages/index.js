@@ -559,6 +559,7 @@ function Page({
                       width={3000}
                       height={2550}
                       showAlt
+                      dark={true}
                     />
                   </Box>
                 </Box>
