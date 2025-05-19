@@ -24,7 +24,7 @@ const CardModel = ({
   ...props
 }) => (
   // <Zoom delay={delay}>
-  <Card
+  (<Card
     sx={{
       position: 'relative',
       width: '100%',
@@ -62,7 +62,6 @@ const CardModel = ({
         {text || 'Happening now'}
       </Box>
     )}
-
     {github_link && (
       <Box>
         {position === 'bottom' ? (
@@ -136,7 +135,6 @@ const CardModel = ({
         )}
       </Box>
     )}
-
     {image && (
       <Image
         src={image}
@@ -156,7 +154,7 @@ const CardModel = ({
     )}
     {children}
     <ReactTooltip />
-  </Card>
+  </Card>)
   // </Zoom>
 )
 

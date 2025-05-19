@@ -656,7 +656,7 @@ const Sticker = ({ st }) => {
         />
       </Box>
     </Box>
-  )
+  );
 }
 
 const Item = ({ name, img, cost }) => {

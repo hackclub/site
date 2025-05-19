@@ -59,7 +59,6 @@ export default function OrganizationInfoForm({ requiredFields }) {
           placeholder="Shelburne School Hackathon"
         />
       </Field>
-
       <Field
         name="eventDescription"
         label={`Tell us about your ${org.toLowerCase()}`}
@@ -78,7 +77,6 @@ export default function OrganizationInfoForm({ requiredFields }) {
           }}
         />
       </Field>
-
       <Field
         label="Does your project have a website?"
         name="eventHasWebsite"
@@ -95,7 +93,6 @@ export default function OrganizationInfoForm({ requiredFields }) {
           ))}
         </Select>
       </Field>
-
       {hasWebsite ? (
         <Field
           name="eventWebsite"
@@ -116,17 +113,15 @@ export default function OrganizationInfoForm({ requiredFields }) {
 
           {teenagerLed === 'true' && (
             /* don't show Boba Drops to adult-led orgs lol*/
-            <Text variant="caption">
-              A website is not required to apply for HCB. However, most
-              successful projects that raise money have a custom-build website.
-              If you've never built a website before, checkout{' '}
+            (<Text variant="caption">A website is not required to apply for HCB. However, most
+                            successful projects that raise money have a custom-build website.
+                            If you've never built a website before, checkout{' '}
               <Link href="https://boba.hackclub.com/">Boba Drops</Link>, a Hack
-              Club workshop on how to build a website.
-            </Text>
+                            Club workshop on how to build a website.
+                          </Text>)
           )}
         </>
       )}
-
       {teenagerLed === 'true' ? (
         <>
           <Field
@@ -152,13 +147,12 @@ export default function OrganizationInfoForm({ requiredFields }) {
         </>
       ) : (
         // Adults always get the text area
-        politicalActivityTextarea(false)
+        (politicalActivityTextarea(false))
       )}
       <Text variant="caption">
         This includes but is not limited to protests, public demonstrations,
         political education, and lobbying.
       </Text>
-
       {/* Move transparency mode prompt to HCB onboarding */}
       {/* <Field
         name="transparent"
@@ -174,8 +168,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
       >
         <Checkbox defaultChecked={true} name="transparent" />
       </Field> */}
-
       <OrganizationAdultForm requiredFields={requiredFields} />
     </>
-  )
+  );
 }

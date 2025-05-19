@@ -361,7 +361,6 @@ export default function Page() {
         </Container>
       </Box>
       <Features />
-
       <Box id="fees" as="section" sx={{ position: 'relative', py: 5 }}>
         <Container>
           <Grid columns={[null, null, 2]} gap={[4, 5]}>
@@ -500,7 +499,7 @@ export default function Page() {
           gap={[4, 5]}
           sx={{ py: 5, p: { fontSize: 2, '&:last-child': { mb: 0 } } }}
         >
-          <Link href="https://outernet.hackclub.com/">
+          <Link href="https://outernet.hackclub.com/" legacyBehavior>
             <Photo
               src={OuternetImgFile}
               alt="Each year, 1000s of teenagers attend Hack Club events like this"
@@ -563,7 +562,6 @@ export default function Page() {
           </div>
         </Grid>
       </Container>
-
       <Box
         as="section"
         id="apply"
@@ -625,5 +623,5 @@ export default function Page() {
       <ContactBanner sx={{ justifyContent: 'center' }} />
       <Footer />
     </>
-  )
+  );
 }
