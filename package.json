@@ -8,7 +8,7 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && tsc",
     "format": "prettier --write ."
   },
   "dependencies": {

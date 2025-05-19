@@ -1,7 +1,7 @@
 import { Box, Container, Heading, Card, Text, Grid } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
-import ForceTheme from '/components/force-theme'
+import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Link from 'next/link'
