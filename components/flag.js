@@ -32,7 +32,7 @@ const scrolled = props =>
     }
   `
 
-const Base = styled('a')`
+const Base = styled('div')`
   background-image: url(https://assets.hackclub.com/flag-orpheus-top.svg);
   background-repeat: no-repeat;
   background-position: top left;
@@ -58,8 +58,10 @@ const Base = styled('a')`
 `
 
 const Flag = props => (
-  <Link href="/" passHref>
-    <Base href="https://hackclub.com/" title="Homepage" {...props} />
+  <Link href="/" passHref legacyBehavior>
+    <a href="https://hackclub.com/" title="Homepage">
+      <Base {...props} />
+    </a>
   </Link>
 )
 
