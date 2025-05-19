@@ -55,7 +55,56 @@ import {
   SiKotlin
 } from 'react-icons/si'
 import theme from '../lib/theme'
+import { ThemeProvider } from 'theme-ui'
 /** @jsxImportSource theme-ui */
+
+// Define cyberpunk variants locally for the homepage
+const cyberpunkVariants = {
+  text: {
+    title: {
+      fontSize: [5, 6],
+      fontWeight: 'bold',
+      lineHeight: 'title',
+      color: 'cyberpunk.textHighlight'
+    },
+    subtitle: {
+      fontSize: [2, 3],
+      fontWeight: 'body',
+      lineHeight: 'subheading',
+      color: 'cyberpunk.text'
+    },
+    headline: {
+      variant: 'text.title',
+      fontSize: [4, 5, 6],
+      mt: 3,
+      mb: 3,
+      color: 'cyberpunk.textHighlight'
+    },
+    ultratitle: {
+      variant: 'text.title',
+      fontSize: [5, 6, 7],
+      mb: 4,
+      color: 'cyberpunk.textHighlight'
+    },
+    lead: {
+      fontSize: [2, 3],
+      maxWidth: 'copyPlus',
+      color: 'cyberpunk.text'
+    }
+  },
+  buttons: {
+    primary: {
+      textTransform: 'uppercase',
+      backgroundImage: 'linear-gradient(to right, #00BFFF, #8A2BE2)',
+      '&:hover': {
+        transform: 'scale(1.05)',
+        transition: 'transform 0.2s ease-in-out'
+      },
+      gap: 2,
+      color: 'white'
+    }
+  }
+}
 
 function Page({
   hackathonsData,
@@ -163,10 +212,10 @@ function Page({
   }, [])
 
   return (
-    <>
+    <ThemeProvider theme={{ ...theme, ...cyberpunkVariants }}>
       <Meta
         as={Head}
-        title="A Home for High School Hackers"
+        title="A Home for High School Makers"
         description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
         image="https://cloud-lgl7kg862-hack-club-bot.vercel.app/0start__1_.png"
       />
@@ -184,8 +233,8 @@ function Page({
         sx={{
           overflowX: 'hidden',
           position: 'relative',
-          bg: theme.colors.cyberpunk.darkBg,
-          color: theme.colors.cyberpunk.text,
+          bg: 'cyberpunk.darkBg',
+          color: 'cyberpunk.text',
           '@keyframes gridFloat': {
             '0%': {
               backgroundPosition: '0 0'
@@ -1406,7 +1455,7 @@ function Page({
         }`}
         </style>
       </Footer>
-    </>
+    </ThemeProvider>
   )
 }
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
