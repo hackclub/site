@@ -14,7 +14,7 @@ import {
   Image
 } from 'theme-ui'
 import Photo from '../../components/photo'
-import NextImage from 'next/image'
+import NextImage from "next/legacy/image"
 import Marquee from 'react-marquee-slider'
 import Photo1 from '../../public/winter/1.jpeg'
 import Photo2 from '../../public/winter/2.png'

@@ -17,7 +17,7 @@ import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Icon from '../components/icon'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import OuternetPic from '../public/outernet/hack.jpg'
 import { compact } from 'lodash'
 import theme from '@hackclub/theme'

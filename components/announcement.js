@@ -1,5 +1,5 @@
 import { keyframes } from '@emotion/react'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { Box, Card, Text } from 'theme-ui'
 import Icon from './icon'
 

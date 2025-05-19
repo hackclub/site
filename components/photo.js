@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Box, Card, Text, useColorMode } from 'theme-ui'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import theme from '../lib/theme'
 import React from 'react'
 

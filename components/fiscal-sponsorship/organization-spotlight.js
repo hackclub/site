@@ -1,6 +1,6 @@
 import Tilt from '../tilt'
 import { Card, Heading, Text } from 'theme-ui'
-import Image from 'next/image'
+import Image from "next/legacy/image"
 import { Balancer } from 'react-wrap-balancer'
 
 export default function OrganizationSpotlight({ organization }) {
