@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { Box, Card, Text, useColorMode } from 'theme-ui'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import theme from '../lib/theme'
 import React from 'react'
 
@@ -45,9 +45,12 @@ const Photo = React.forwardRef(function Photo(
         alt={alt}
         width={width}
         height={height}
-        layout="responsive"
         loading={loading || 'lazy'}
-      />
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto"
+        }} />
       {showCaption && (
         <Caption
           as="figcaption"
@@ -57,7 +60,7 @@ const Photo = React.forwardRef(function Photo(
         </Caption>
       )}
     </Card>
-  )
+  );
 })
 
 export default Photo

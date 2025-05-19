@@ -13,7 +13,7 @@ import {
   Avatar
 } from 'theme-ui'
 import Photo from '../../components/photo'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../../components/force-theme'

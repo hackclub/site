@@ -1,5 +1,5 @@
 import { keyframes } from '@emotion/react'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import { Box, Card, Text } from 'theme-ui'
 import Icon from './icon'
 
@@ -54,7 +54,15 @@ const Announcement = ({
     )}
     {imgSrc && (
       <Box sx={{ mr: [2, 3], ml: 2, width: 32, flexShrink: 0 }}>
-        <Image src={imgSrc} alt={imgAlt} width={32} height={32} />
+        <Image
+          src={imgSrc}
+          alt={imgAlt}
+          width={32}
+          height={32}
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </Box>
     )}
     <Text

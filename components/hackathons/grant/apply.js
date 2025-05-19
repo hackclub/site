@@ -3,7 +3,7 @@ import { Link, Button, Card } from 'theme-ui'
 import { Slide } from 'react-reveal'
 import Zoom from 'react-reveal/Zoom'
 import MSparkles from '../../sparkles/money'
-import Image from "next/legacy/image"
+import Image from "next/image"
 /** @jsxImportSource theme-ui */
 
 const Photo = ({
@@ -45,8 +45,11 @@ const Photo = ({
           alt={alt}
           width="100%"
           height="60%"
-          layout="responsive"
-        />
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto"
+          }} />
         <Box
           as="span"
           sx={{
@@ -77,7 +80,7 @@ const Photo = ({
         </Heading>
       </Box>
     </Card>
-  )
+  );
 }
 
 const Apply = ({ channel }) => {

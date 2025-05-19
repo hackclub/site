@@ -3,7 +3,7 @@ import { formatDate } from '../../lib/dates'
 import { Fragment, memo } from 'react'
 import { last, filter } from 'lodash'
 import Masonry from 'react-masonry-css'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import Mention from './mention'
 import Emoji from './emoji'
 

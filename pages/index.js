@@ -1236,7 +1236,7 @@ function Page({
                       opacity: 0.3,
                       fontSize: ['18px', '20px', '22px'],
                       zIndex: 3,
-                      color: 'black !important'
+                      color: 'white !important'
                     }}
                   />
                   <Stage

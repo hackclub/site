@@ -1,7 +1,7 @@
 import { Box, Button, Heading, Text, Card } from 'theme-ui'
 import Fade from 'react-reveal/Fade'
 import ScrollHint from '../scroll-hint'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import hero from '../../public/hackathons/assemble.JPG'
 import Icon from '../icon'
 
@@ -129,15 +129,17 @@ function Slide({ children }) {
     >
       <Image
         src={hero}
-        layout="fill"
-        objectFit="cover"
         alt="Dark room with a stage and students sitting below"
         // placeholder="blur"
         priority
-      />
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: "cover"
+        }} />
       {children}
     </Box>
-  )
+  );
 }
 
 function BlueGradientFilter() {

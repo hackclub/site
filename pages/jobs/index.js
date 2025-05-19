@@ -6,7 +6,7 @@ import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import Icon from '../../components/icon'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
 import { compact } from 'lodash'
 
@@ -104,9 +104,11 @@ const Page = ({ jobs }) => (
           <Image
             src={zephyrPic}
             alt="Hack Clubbers hacking during the Hacker Zephyr trip"
-            layout="fill"
-            objectFit="cover"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
         </Box>
         <Container>
           <Heading

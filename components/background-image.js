@@ -1,5 +1,5 @@
 import { Box } from 'theme-ui'
-import Image from "next/legacy/image"
+import Image from "next/image"
 
 /*
  * Use this component inside a container with CSS:
@@ -36,7 +36,14 @@ const BGImg = ({
       '~ *': { position: 'relative' }
     }}
   >
-    <Image layout="responsive" alt={alt} {...props} />
+    <Image
+      alt={alt}
+      {...props}
+      sizes="100vw"
+      style={{
+        width: "100%",
+        height: "auto"
+      }} />
   </Box>
 )
 

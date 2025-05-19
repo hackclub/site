@@ -1,7 +1,7 @@
 import { Box, Heading, Link, Text, Container, Grid } from 'theme-ui'
 import Icon from '../icon'
 import { Balancer } from 'react-wrap-balancer'
-import Image from "next/legacy/image"
+import Image from "next/image"
 import imgLaptop from '../../public/fiscal-sponsorship/laptop.png'
 
 export default function Features() {
@@ -121,12 +121,16 @@ function Laptop({ href, title, sx }) {
       <Image
         src={imgLaptop}
         alt="Laptop"
-        style={{ width: '100%', height: 'auto' }}
         unoptimized
-      />
+        style={{
+          width: '100%',
+          height: 'auto',
+          maxWidth: "100%",
+          height: "auto"
+        }} />
       <Text variant="caption" as="p" sx={{ color: 'primary', mt: 2 }}>
         See <i>Reboot</i>’s finances in Transparency Mode
       </Text>
     </Link>
-  )
+  );
 }
