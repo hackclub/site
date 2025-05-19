@@ -1130,7 +1130,6 @@ function Page({
 
               <Grid
                 pt={[3, 4]}
-                pb={[4, 5]}
                 gap={3}
                 columns={[1, 2, 3]}
                 sx={{
@@ -1383,7 +1382,7 @@ function Page({
               </Box>
             </>
           )}
-        {/* <MailingList /> */}
+        <MailingList />
       </Box >
       <Footer
         dark
