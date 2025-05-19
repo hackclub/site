@@ -328,7 +328,7 @@ function Page({
                 textShadow: '0 0 20px rgba(0, 191, 255, 0.3)'
               }}
             >
-              A Home for High School Hackers
+              A Home for High School Makers
             </Text>
             <Text
               as="p"
@@ -893,7 +893,6 @@ function Page({
                 gameImage1={gameImage1}
               />
               <Onboard stars={stars.onboard.stargazerCount} delay={100} />
-              <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
