@@ -35,13 +35,13 @@ for (let i = 0; i <= steps; i++) {
         // head
         rc.circle(150, 170, 20, {fill: 'rgb(255, 255, 255)',stroke:'white'});
         // body
-        rc.line(150, 180, 150, 220, {stroke:'white'});
+        rc.line(150, 170, 150, 210, {stroke:'white'});
         // hands
         rc.line(150, 190, 130, 200, {stroke:'white'}); // left arm
         rc.line(150, 190, 170, 200, {stroke:'white'}); // right arm
         // legs
-        rc.line(150, 220, 140, 240, {stroke:'white'}); // left leg
-        rc.line(150, 220, 160, 240, {stroke:'white'}); // right leg
+        rc.line(150, 210, 140, 230, {stroke:'white'}); // left leg
+        rc.line(150, 210, 160, 230, {stroke:'white'}); // right leg
 
     }, [width, height]);
 
