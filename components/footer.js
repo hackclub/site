@@ -4,7 +4,7 @@ import { Box, Container, Image, Grid, Heading, Link, Text } from 'theme-ui'
 import NextLink from 'next/link'
 import theme from '@hackclub/theme'
 import Icon from './icon'
-
+import Ladder from './ladder.js'
 const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' })`
   background: ${props =>
     props.dark
@@ -191,6 +191,7 @@ const Footer = ({
         © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
         81-2908499)
       </Text>
+      <Ladder />
     </Container>
   </Base>
 )
