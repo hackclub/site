@@ -27,17 +27,14 @@ const rgbaBgColor = (props, opacity) =>
 //         backdrop-filter: saturate(180%) blur(20px);
 //       `
 const fixed = props =>
-  (props.scrolled || props.toggled || props.fixed) &&
+  (props.style?.['--scrolled'] || props.style?.['--toggled']) &&
   css`
-    background-color: ${rgbaBgColor(props, 0.96875)};
+    background-color: ${props.style?.['--bgColor'] || [255, 255, 255]};
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-      background-color: ${props.transparent
-        ? 'transparent'
-        : rgbaBgColor(props, 0.75)};
+      background-color: transparent;
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
-      /* {bg}; to support dark mode later */
     }
   `
 
@@ -125,7 +122,7 @@ const NavBar = styled(Box, {
     padding: ${theme.space[3]}px;
     text-decoration: none;
     @media (min-width: 56em) {
-      color: ${props => theme.colors[props.color] || props.color};
+      color: ${props => props.color && theme.colors[props.color] ? theme.colors[props.color] : props.color};
     }
   }
 `
@@ -210,11 +207,12 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   return (
     <Root
       {...props}
-      fixed={fixed}
-      scrolled={scrolled}
-      toggled={toggled}
-      dark={dark}
-      bgColor={bgColor || (dark ? [32, 34, 36] : [255, 255, 255])}
+      sx={{
+        '--scrolled': scrolled ? 1 : 0,
+        '--toggled': toggled ? 1 : 0,
+        '--dark': dark ? 1 : 0,
+        '--bgColor': bgColor || (dark ? [32, 34, 36] : [255, 255, 255])
+      }}
       as="header"
     >
       <Content>
