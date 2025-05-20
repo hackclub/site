@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Box, Container, Image, Grid, Heading, Link, Text } from 'theme-ui'
+import { Box, Container, Image, Grid, Heading, Link, Text, Flex } from 'theme-ui'
 import NextLink from 'next/link'
 import theme from '@hackclub/theme'
 import Icon from './icon'
@@ -67,7 +67,7 @@ const Footer = ({
       {children}
       <Grid
         as="article"
-        gap={[2, 4]}
+        gap={0}
         columns={[2, 3, 4]}
         sx={{
           px: 0,
@@ -119,7 +119,7 @@ const Footer = ({
           <Link href="https://directory.hackclub.com/">Clubs Directory</Link>
           <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
         </Box>
-        <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
+        <Box>
           <Logo aria-label="Hack Club logo" width={128} height={45} />
           <Grid
             columns={[8, 4]}
@@ -185,13 +185,20 @@ const Footer = ({
               (call toll-free)
             </Text>
           </Text>
+          <Text as="p" variant="caption" sx={{ mt: 3 }}>
+            © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
+            81-2908499)
+          </Text>
+        </Box>
+        <Box sx={{ 
+          display: ['none', null, 'flex'],
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%'
+        }}>
+          <Ladder />
         </Box>
       </Grid>
-      <Text as="p" variant="caption" sx={{ mt: 3 }}>
-        © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
-        81-2908499)
-      </Text>
-      <Ladder />
     </Container>
   </Base>
 )
