@@ -1,33 +1,38 @@
 import AirtablePlus from "airtable-plus"
 
 export const shopParts = async () => {
-  const baseID = "app4kCWulfB02bV8Q"
-  const shopItemsTable = new AirtablePlus({
-    apiKey: process.env.AIRTABLE_API_KEY,
-    baseID,
-    tableName: "Shop Items"
-  })
-  const ordersTable = new AirtablePlus({
-    apiKey: process.env.AIRTABLE_API_KEY,
-    baseID,
-    tableName: "Orders"
-  })
+  try {
+    const baseID = "app4kCWulfB02bV8Q"
+    const shopItemsTable = new AirtablePlus({
+      apiKey: process.env.AIRTABLE_API_KEY,
+      baseID,
+      tableName: "Shop Items"
+    })
+    const ordersTable = new AirtablePlus({
+      apiKey: process.env.AIRTABLE_API_KEY,
+      baseID,
+      tableName: "Orders"
+    })
 
-  const records = await shopItemsTable.read()
-  const newRecordsPromise = records.map(async record => {
-    const fields = record.fields;
-    let stock = fields["Stock"]
+    const records = await shopItemsTable.read()
+    const newRecordsPromise = records.map(async record => {
+      const fields = record.fields;
+      let stock = fields["Stock"]
 
-    if (stock && fields["Count of Orders Fulfilled"]) {
-      stock -= fields["Count of Orders Fulfilled"]
-    }
-      return { id: record.id, ...record.fields, "Stock": (stock == null)? null : (stock >= 0 ? stock : 0) }
-  })
+      if (stock && fields["Count of Orders Fulfilled"]) {
+        stock -= fields["Count of Orders Fulfilled"]
+      }
+      return { id: record.id, ...record.fields, "Stock": (stock == null) ? null : (stock >= 0 ? stock : 0) }
+    })
 
 
     const newRecords = await Promise.all(newRecordsPromise)
 
-  return newRecords
+    return newRecords
+  } catch (error) {
+    console.warn(`Failed to fetch Arcade shop items: ${error}. Returning empty props.`)
+    return []
+  }
 }
 
 export default async function handler(req, res) {

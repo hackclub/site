@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { Box, Button, Card, Link, Input, Text, Flex, Image } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import JSConfetti from 'js-confetti'
-import { Fillout } from '@fillout/react'
+import { FilloutStandardEmbed } from '@fillout/react'
 
 import theme from '../../lib/theme'
 
@@ -108,7 +108,7 @@ const ReplitForm = ({ cssDark }) => {
     '/stickers/orpheus-having-boba.png',
     '/stickers/find out.png',
     '/stickers/hackers,_assemble!.png',
-    '/stickers/mo' parts mo' problems.png',
+    '/stickers/mo-parts-mo-problems.png',
     '/stickers/orphmoji_peefest.png',
     '/stickers/skullpup_boba.png',
     '/stickers/hackers,_assemble!.png',
@@ -290,7 +290,7 @@ const ReplitForm = ({ cssDark }) => {
           pointerEvents: currentStep === 3 ? 'auto' : 'none'
         }}
       >
-        <Fillout
+        <FilloutStandardEmbed
           filloutId="ji6Jw9xpBPus"
           parameters={{
             email: formData.email
