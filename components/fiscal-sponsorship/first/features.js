@@ -3,7 +3,7 @@ import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
 import NextImage from "next/image"
 
-import Fade from 'react-reveal/Fade'
+import Fade from 'react-swift-reveal/Fade'
 
 export default function Features() {
   return (

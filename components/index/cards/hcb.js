@@ -1,6 +1,6 @@
 import CardModel from './card-model'
 import { Box, Grid, Heading, Text } from 'theme-ui'
-import { Fade } from 'react-reveal'
+import { Fade } from 'react-swift-reveal'
 import Buttons from './button'
 
 /** @jsxImportSource theme-ui */

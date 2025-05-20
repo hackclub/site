@@ -1,6 +1,6 @@
 import { sample, take } from 'lodash'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { Slide } from 'react-reveal'
+import { Slide } from 'react-swift-reveal'
 import useWebSocket from 'react-use-websocket'
 import { Box, Text } from 'theme-ui'
 
@@ -101,8 +101,7 @@ const SlackEvents = ({ sx, color, textColor, ...props }) => {
           display: 'block',
           height: '2em',
           backgroundImage: theme =>
-            `linear-gradient(rgba(255,255,255,0), ${
-              color || theme.colors.white
+            `linear-gradient(rgba(255,255,255,0), ${color || theme.colors.white
             })`
         },
         div: { mb: [1, 2] },

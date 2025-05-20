@@ -4,7 +4,7 @@ import { keyframes } from '@emotion/react'
 import React, { useEffect, useState } from 'react'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
-import { Fade } from 'react-reveal'
+import { Fade } from 'react-swift-reveal'
 /** @jsxImportSource theme-ui */
 
 export default function Carousel({ cards }) {

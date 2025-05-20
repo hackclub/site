@@ -19,8 +19,7 @@ import ForceTheme from '../../components/force-theme'
 import Footer from '../../components/footer'
 import ReactBeforeSliderComponent from 'react-before-after-slider-component'
 import 'react-before-after-slider-component/dist/build.css'
-import Fade from 'react-reveal/Fade'
-import Slide from 'react-reveal/Slide'
+import { Fade, Slide } from 'react-swift-reveal'
 import Marquee from 'react-marquee-slider'
 import ExecuteBig from '../../public/donate/codedaydc_hack.jpg'
 import HackCamp from '../../public/donate/sf.jpg'
@@ -47,7 +46,7 @@ const Header = styled(Box)`
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '160px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => { }}>
         {photos.map((photo, index) => (
           <Image
             placeholder="blur"
@@ -66,7 +65,7 @@ const PhotoRow = ({ photos }) => (
       </Marquee>
     </Box>
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => { }}>
         {photos.map((photo, index) => (
           <Image
             placeholder="blur"
@@ -508,7 +507,7 @@ const Philanthropy = ({ posts = [] }) => {
           <br />
           <Fade>
             <Text as="p">
-              Led by young engineers, with early backing from the 21st century’s
+              Led by young engineers, with early backing from the 21st century's
               most iconic creators, Hack Club already reaches tens of thousands
               of teenagers, and represents the largest network of technical
               teens in the world. Each day, new projects are shipped, new lines
@@ -523,7 +522,7 @@ const Philanthropy = ({ posts = [] }) => {
               Hack Club is always free for teenagers and with your support, Hack
               Club can grow to hundreds of thousands of teen hackers, bringing
               free computer science education, a hacker mindset, and an equal
-              shot at success to every teenager, regardless of where they’re
+              shot at success to every teenager, regardless of where they're
               from, how they identify, or what their parents do.
             </Text>
           </Fade>
@@ -551,14 +550,14 @@ const Philanthropy = ({ posts = [] }) => {
             <Fade delay={60}>
               <HackClubber
                 photo="jason.png"
-                quote="I’ve met some of the best people"
+                quote="I've met some of the best people"
                 info="Jason, 16, Texas"
               />
             </Fade>
             <Fade delay={90}>
               <HackClubber
                 photo="sam.png"
-                quote="In Hack Club I’ve found a home"
+                quote="In Hack Club I've found a home"
                 info="Sam, 17, Singapore"
               />
             </Fade>
@@ -733,7 +732,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Flex>
             <span>
-            Explore Hack Club's annual reports from 2022 onward, showcasing each year's impact and key milestones.
+              Explore Hack Club's annual reports from 2022 onward, showcasing each year's impact and key milestones.
             </span>
           </Fade>
           {/* <Fade delay={300}>
@@ -821,26 +820,28 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Grid>
             <Fade delay={210} bottom>
-              <Text as="h2">
-                “Hack Club helped me fall in love with creating and made me feel
-                like I belong.”
-              </Text>
-              <Text
-                sx={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}
-              >
-                <Image
-                  src="/philanthropy/belle.png"
-                  width="20"
-                  height="20"
-                  sx={{ borderRadius: '100%' }}
-                  alt="belle"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    objectFit: "cover"
-                  }} />
-                Belle, 17, Malaysia
-              </Text>
+              <div>
+                <Text as="h2">
+                  "Hack Club helped me fall in love with creating and made me feel
+                  like I belong."
+                </Text>
+                <Text
+                  sx={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}
+                >
+                  <Image
+                    src="/philanthropy/belle.png"
+                    width="20"
+                    height="20"
+                    sx={{ borderRadius: '100%' }}
+                    alt="belle"
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      objectFit: "cover"
+                    }} />
+                  Belle, 17, Malaysia
+                </Text>
+              </div>
             </Fade>
           </Container>
         </Box>
@@ -1067,7 +1068,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Text>
                 <br />
                 <Text as="p">
-                  In 2017, I joined as a founding board member, and I’ve seen
+                  In 2017, I joined as a founding board member, and I've seen
                   firsthand the leadership team act with integrity and
                   transparency since Day 1. Founder Zach Latta and COO Christina
                   Asquith are efficient, responsible and disciplined stewards of
@@ -1352,7 +1353,7 @@ const Philanthropy = ({ posts = [] }) => {
                 >
                   Thanks to our donor-funded laptop program, Hack Club sent him
                   a MacBook Air. In his Hack Club, Obrey and his best friend
-                  Edward built robots that won Canada’s Humanitarian Activist
+                  Edward built robots that won Canada's Humanitarian Activist
                   Award.
                 </Heading>
                 <Flex align="center" mt={[3, 4]}>
@@ -1386,7 +1387,7 @@ const Philanthropy = ({ posts = [] }) => {
                   comfort zone and take on challenges I never previously would
                   have — starting a CS Club at my school, (co-)hosting AMAs, and
                   even organizing Leland Hacks, the first in-person hackathon in
-                  my city after the pandemic.”
+                  my city after the pandemic."
                 </Heading>
                 <Flex align="center" mt={[3, 4]}>
                   <Avatar
@@ -1408,7 +1409,7 @@ const Philanthropy = ({ posts = [] }) => {
           <Line />
           <Fade>
             <Text as="h1" sx={{ textAlign: 'center' }} mb={[4, 5]}>
-              Hack Club invites the 21st century’s leading thinkers, builders
+              Hack Club invites the 21st century's leading thinkers, builders
               and disrupters to join our small, core network of donors with a
               gift.
             </Text>
@@ -1426,7 +1427,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <br />
                 <Text as="p">
                   Founded in 2014, Hack Club grew 700 percent during the
-                  COVID-19 pandemic, and Hack Club’s team of engineers can’t
+                  COVID-19 pandemic, and Hack Club's team of engineers can't
                   keep up with demand.
                 </Text>
               </Box>

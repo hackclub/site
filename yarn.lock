@@ -698,9 +698,9 @@ __metadata:
     react-masonry-css: "npm:^1.0.16"
     react-page-visibility: "npm:^7.0.0"
     react-relative-time: "npm:^0.0.9"
-    react-reveal: "npm:^1.2.2"
     react-scrolllock: "npm:^5.0.1"
     react-snowfall: "npm:^2.2.0"
+    react-swift-reveal: "npm:^1.2.1"
     react-syntax-highlighter: "npm:^15.6.1"
     react-ticker: "npm:^1.3.2"
     react-tooltip: "npm:^5.28.1"
@@ -1928,7 +1928,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^19.1.5":
+"@types/react-dom@npm:^19.0.0, @types/react-dom@npm:^19.1.5":
   version: 19.1.5
   resolution: "@types/react-dom@npm:19.1.5"
   peerDependencies:
@@ -6842,7 +6842,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.10, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -6998,7 +6998,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^19.1.0":
+"react-dom@npm:^19.0.0, react-dom@npm:^19.1.0":
   version: 19.1.0
   resolution: "react-dom@npm:19.1.0"
   dependencies:
@@ -7154,17 +7154,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-reveal@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "react-reveal@npm:1.2.2"
-  dependencies:
-    prop-types: "npm:^15.5.10"
-  peerDependencies:
-    react: ^15.3.0 || ^16.0.0
-  checksum: 10c0/6bc548a7e7b416e62df061aaa8f51bc2944e50e7271398ee22af4a3224b59d9247518859753d64370131f69807a7ebb2320ff4b151c375e043995afb5004247d
-  languageName: node
-  linkType: hard
-
 "react-scrolllock@npm:^5.0.1":
   version: 5.0.1
   resolution: "react-scrolllock@npm:5.0.1"
@@ -7199,6 +7188,17 @@ __metadata:
     react: ^16.8 || 17.x || 18.x
     react-dom: ^16.8 || 17.x || 18.x
   checksum: 10c0/278fb6fd6f9e79fd747c243761ea546a1e441d73a2ba1b78e2977de53161fccf675665f0f4eb0417e352e493da13ee440a6dc671ab61a7e72de68354245e06c0
+  languageName: node
+  linkType: hard
+
+"react-swift-reveal@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "react-swift-reveal@npm:1.2.1"
+  dependencies:
+    "@types/react-dom": "npm:^19.0.0"
+    react: "npm:^19.1.0"
+    react-dom: "npm:^19.0.0"
+  checksum: 10c0/23521aebb6f2dc9c3cb14905e6832bc76312d095f74995c0af56fe892bcd5b7f357a24f15d25b33cdb88b1120e91a0d8c4669391f77daa86a0fce9025063533d
   languageName: node
   linkType: hard
 

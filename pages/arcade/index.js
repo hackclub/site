@@ -14,7 +14,7 @@ import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../../components/arcade/footer'
 import Balancer from 'react-wrap-balancer'
-import { Fade } from 'react-reveal'
+import { Fade } from 'react-swift-reveal'
 import Join from '../../components/arcade/join'
 import Announcement from '../../components/announcement'
 import Link from 'next/link'
@@ -1089,12 +1089,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                   }}
                 >
                   The Arcade closed September 1st, but you can still join the <a
-                      href="https://hackclub.com/slack"
-                      target="_blank"
-                      sx={{ color: 'inherit' }}
-                    >
-                      Hack Club Slack
-                    </a>!
+                    href="https://hackclub.com/slack"
+                    target="_blank"
+                    sx={{ color: 'inherit' }}
+                  >
+                    Hack Club Slack
+                  </a>!
                 </Text>
               )}
             </Fade>
@@ -1328,7 +1328,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 position: 'relative',
                 marginBottom: ['-900px', '-820px', '-850px', '-1020px'],
                 marginTop: ['120px', '120px', '120px', '150px'],
-                width: ['110vw','105vw']
+                width: ['110vw', '105vw']
               }}
             >
               <Ticker speed={5}>
