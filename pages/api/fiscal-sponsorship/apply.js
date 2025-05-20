@@ -7,6 +7,8 @@ const applicationsTable = new AirtablePlus({
   tableName: 'Events'
 })
 
+const tub_programs = ['ftcscout', 'GFGS'] // Pre-approved TUB programs
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.status(405).json({ status: 'error', error: 'Must send POST request' })
@@ -19,9 +21,9 @@ export default async function handler(req, res) {
     body: JSON.stringify({
       email: data.userEmail,
       name: data.eventName,
-      country: getCode(data.eventLocation) || '',
-      postal_code: data.eventPostalCode || '',
-      transparent: data.transparent
+      country: getCode(data.userAddressCountry) || '',
+      postal_code: data.userAddressPostalCode || '',
+      transparent: 'false'
     }),
     method: 'POST',
     headers: {
@@ -39,16 +41,13 @@ export default async function handler(req, res) {
         'Date of Birth': data.userBirthday,
         'Event Name': data.eventName,
         'Event Website': data.eventWebsite,
-        'Zip Code': data.eventPostalCode,
+        'Zip Code': data.userAddressPostalCode,
         'Tell us about your event': data.eventDescription,
-        'Mailing Address': data.userAddress,
-        'Address Line 1': data.addressLine1,
-        City: data.addressCity,
-        State: data.addressState,
-        'Address Country': data.addressCountry,
-        'Address Country Code': data.addressCountryCode,
-        'Event Location': data.eventLocation,
-        'Event Country Code': data.eventCountryCode,
+        'Address Line 1': data.userAddressLine1,
+        City: data.userAddressCity,
+        State: data.userAddressProvince,
+        'Address Country': data.userAddressCountry,
+        'Event Location': data.userAddressCountry,
         'Have you used HCB for any previous events?':
           data.returningUser === 'true'
             ? 'Yes, I have used HCB before'
@@ -63,9 +62,13 @@ export default async function handler(req, res) {
         'Teenager Led?': data.eventTeenagerLed === 'true',
         '(Adults) Political Activity': data.eventPoliticalActivity,
         '(Adults) Annual Budget': parseInt(data.eventAnnualBudget),
-        'HCB ID': r.id
+        'HCB ID': r.id,
+        'Referral Code': data.referralCode,
+        Tubs: tub_programs.includes(data.tub_program)
+          ? data.tub_program
+          : undefined
       })
-      res.status(200).end();
+      res.status(200).end()
     })
     .catch(error => {
       console.error(error)

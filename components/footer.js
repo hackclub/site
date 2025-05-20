@@ -52,7 +52,7 @@ const Service = ({ href, icon, name = '', ...props }) => (
 const Footer = ({
   dark = false,
   email = 'team@hackclub.com',
-  children,
+  children = undefined,
   ...props
 }) => (
   <Base
@@ -113,7 +113,6 @@ const Footer = ({
           <Heading as="h2" variant="subheadline" mb={3}>
             Resources
           </Heading>
-          <Link href="https://hackclub.com/pizza">Clubs Pizza Grant</Link>
           <Link href="https://events.hackclub.com/">Community Events</Link>
           <Link href="https://jams.hackclub.com/">Jams</Link>
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>

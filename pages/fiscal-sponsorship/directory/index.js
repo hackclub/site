@@ -1110,7 +1110,7 @@ export class Organization {
     return {
       type: this.raw.category,
       category: 'Coding',
-      badges: ['128_collective_funded']
+      badges: []
     }
   }
 
@@ -1154,22 +1154,6 @@ export class Organization {
       continent: this.raw.location.continent,
       countryCode: this.raw.location.country_code
     }
-  }
-
-  /**
-   * Checks if the organization is recommended by 128 Collective.
-   * @type {boolean}
-   */
-  get is128Recommended() {
-    return this.raw.partners?.['128_collective']?.recommended
-  }
-
-  /**
-   * Checks if the organization is funded by 128 Collective.
-   * @type {boolean}
-   */
-  get is128Funded() {
-    return this.raw.partners?.['128_collective']?.funded
   }
 
   /**

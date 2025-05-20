@@ -41,24 +41,6 @@ export const badges = [
     icon: 'explore',
     match: org => org.isTransparent
   },
-  // The "128 Collective Funded" is hidden for now. It may be re-added in the
-  // future after 128 Collective has more multi-year grants.
-  // {
-  //   label: 'Funded',
-  //   id: '128CollectiveFunded',
-  //   tooltip: '128 Collective Funded',
-  //   match: org => org.is128Funded,
-  //   image:
-  //     'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
-  // },
-  {
-    label: 'Recommended',
-    id: '128CollectiveRecommended',
-    tooltip: '128 Collective Recommended',
-    match: org => org.is128Recommended,
-    image:
-      'https://d33wubrfki0l68.cloudfront.net/5fc90935f8126233f42919a6c68601a5d735d798/fa4b2/images/logo.svg'
-  }
 ]
 
 badges.__proto__.forOrg = function (org) {
@@ -1147,69 +1129,6 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             </Grid>
           </Container>
         </Grid>
-        <Box
-          sx={{
-            mt: [5, 3, 0],
-            pt: [5, null, null, null, 6],
-            pb: [3, 4, 5, null, 6],
-            minHeight: ['70vh', 'none'],
-            textAlign: 'center',
-            backgroundImage:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://cloud-hc1lyhwxy-hack-club-bot.vercel.app/0marita-kavelashvili-ugnrxk1129g-unsplash.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            color: 'white'
-          }}
-        >
-          <Box
-            sx={{
-              width: '100%',
-              maxWidth: 'calc(48rem + 312px)',
-              mx: 'auto',
-              px: '16px'
-            }}
-          >
-            <Heading
-              sx={{
-                textAlign: 'center',
-                mt: [2, 4],
-                textShadow: '0 0 16px rgba(0, 0, 0, 1)',
-                fontSize: [5, null, 6, 6]
-              }}
-              as="h3"
-              variant="subheadline"
-            >
-              Join us in supporting <br /> climate initiatives.
-            </Heading>
-            <Box
-              sx={{
-                fontSize: [2, 3, 3],
-                textAlign: 'center',
-                my: 3
-              }}
-            >
-              Let your money work for change by donating to all climate-focused
-              nonprofits on HCB. Donate to 128 Collective’s curated list of
-              recommended organizations.
-            </Box>
-            <Button
-              variant="ctaLg"
-              as="a"
-              href="https://hcb.hackclub.com/donations/start/128-collective-fund"
-              target="_blank"
-              sx={{
-                ml: [0, 3],
-                mt: 2,
-                backgroundImage: t => t.util.gx('green', 'blue')
-              }}
-            >
-              <Text>Donate to the climate&nbsp;fund</Text>
-            </Button>
-          </Box>
-        </Box>
       </Box>
       <Footer />
     </div>
@@ -1316,7 +1235,7 @@ export class Organization {
     return {
       type: this.raw.category,
       category: 'Coding',
-      badges: ['128_collective_funded']
+      badges: []
     }
   }
 
@@ -1360,22 +1279,6 @@ export class Organization {
       continent: this.raw.location.continent,
       countryCode: this.raw.location.country_code
     }
-  }
-
-  /**
-   * Checks if the organization is recommended by 128 Collective.
-   * @type {boolean}
-   */
-  get is128Recommended() {
-    return this.raw.partners?.['128_collective']?.recommended
-  }
-
-  /**
-   * Checks if the organization is funded by 128 Collective.
-   * @type {boolean}
-   */
-  get is128Funded() {
-    return this.raw.partners?.['128_collective']?.funded
   }
 
   /**
