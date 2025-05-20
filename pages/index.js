@@ -44,6 +44,180 @@ import Trail from '../components/index/cards/trail'
 
 /** @jsxImportSource theme-ui */
 
+const HeaderCarousel = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const nextSlide = () => {
+    setCurrentIndex(prevIndex => (prevIndex + 1) % images.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentIndex(
+      prevIndex => (prevIndex - 1 + images.length) % images.length
+    )
+  }
+
+  // Auto-rotate every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide()
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
+      {/* Background image with fade transition */}
+      {images.map((image, index) => (
+        <Box
+          key={index}
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            opacity: index === currentIndex ? 1 : 0,
+            transition: 'opacity 0.8s ease-in-out',
+            zIndex: index === currentIndex ? 1 : 0
+          }}
+        >
+          <BGImg
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+            priority={index === 0}
+            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
+          />
+        </Box>
+      ))}
+
+      {/* Navigation buttons */}
+      <Box
+        as="button"
+        onClick={prevSlide}
+        aria-label="Previous image"
+        sx={{
+          position: 'absolute',
+          left: ['10px', '20px', '30px'],
+          top: '50%',
+          transform: 'translateY(-50%)',
+          bg: 'rgba(255, 255, 255, 0.2)',
+          border: 'none',
+          borderRadius: '50%',
+          width: ['40px', '50px', '60px'],
+          height: ['40px', '50px', '60px'],
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          color: 'white',
+          fontSize: ['24px', '32px', '40px'],
+          zIndex: 10,
+          transition: 'background 0.2s',
+          '&:hover': {
+            bg: 'rgba(255, 255, 255, 0.3)'
+          }
+        }}
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15 18L9 12L15 6"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </Box>
+
+      <Box
+        as="button"
+        onClick={nextSlide}
+        aria-label="Next image"
+        sx={{
+          position: 'absolute',
+          right: ['10px', '20px', '30px'],
+          top: '50%',
+          transform: 'translateY(-50%)',
+          bg: 'rgba(255, 255, 255, 0.2)',
+          border: 'none',
+          borderRadius: '50%',
+          width: ['40px', '50px', '60px'],
+          height: ['40px', '50px', '60px'],
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          color: 'white',
+          fontSize: ['24px', '32px', '40px'],
+          zIndex: 10,
+          transition: 'background 0.2s',
+          '&:hover': {
+            bg: 'rgba(255, 255, 255, 0.3)'
+          }
+        }}
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9 6L15 12L9 18"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </Box>
+
+      {/* Indicators */}
+      <Flex
+        sx={{
+          position: 'absolute',
+          bottom: '20px',
+          width: '100%',
+          justifyContent: 'center',
+          gap: 2,
+          zIndex: 10
+        }}
+      >
+        {images.map((_, index) => (
+          <Box
+            key={index}
+            as="button"
+            onClick={() => setCurrentIndex(index)}
+            sx={{
+              width: '12px',
+              height: '12px',
+              borderRadius: '50%',
+              bg:
+                index === currentIndex
+                  ? 'white'
+                  : 'rgba(255, 255, 255, 0.5)',
+              border: 'none',
+              padding: 0,
+              cursor: 'pointer'
+            }}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </Flex>
+    </Box>
+  )
+}
+
 function Page({
   hackathonsData,
   bankData,
@@ -83,8 +257,7 @@ function Page({
     alert('Hey, you typed the Konami Code!')
 
     jsConfetti.current.addConfetti({
-      confettiColors: [
-        // Hack Club colours!
+      confettiColors: [ 
         '#ec3750',
         '#ff8c37',
         '#f1c40f',
@@ -92,7 +265,7 @@ function Page({
         '#5bc0de',
         '#338eda',
         '#a633d6'
-      ]
+      ],
     })
   }
 
@@ -149,6 +322,40 @@ function Page({
     return () => window.removeEventListener('mousemove', handler)
   }, [])
 
+  // Define header carousel images
+  const headerImages = [
+    {
+      src: OuternetImgFile,
+      alt: "Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!",
+      width: 3000,
+      height: 2000
+    },
+    {
+      src: "/home/flagship_4.jpg",
+      alt: "Hack Clubbers at Flagship, 2019",
+      width: 3000, 
+      height: 2000
+    },
+    {
+      src: "/home/zephyr-spacex.jpeg",
+      alt: "Hack Clubbers at SpaceX HQ in LA",
+      width: 3000,
+      height: 2000
+    },
+    {
+      src: "/hackathons/mahacks.jpeg",
+      alt: "MA Hacks, Hack Clubber organized hackathon",
+      width: 3000,
+      height: 2000
+    },
+    {
+      src: "/home/ama.png",
+      alt: "AMA with Sal Khan",
+      width: 3000,
+      height: 2000
+    }
+  ]
+
   return (
     <>
       <Meta
@@ -197,12 +404,9 @@ function Page({
             overflowX: 'hidden'
           }}
         >
-          <BGImg
-            src={OuternetImgFile}
-            alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            priority
-            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
-          />
+          {/* Replace the static BGImg with our new HeaderCarousel */}
+          <HeaderCarousel images={headerImages} />
+
           <Announcement
             copy="Build, Battle, Booty. Repeat."
             caption="Get free Raspberry Pis, Framework Laptops, iPads, and more. Join High Seas! Oct 30 - Jan 31. highseas.hackclub.com"
@@ -307,7 +511,7 @@ function Page({
               rel="noopener"
               variant="pill"
               sx={{
-                zIndex: '1',
+                zIndex: '10',
                 bg: 'black',
                 color: 'white',
                 opacity: 1,
@@ -315,11 +519,10 @@ function Page({
                 fontWeight: 'normal',
                 ':hover': { opacity: 1 },
                 transition: '0.3s ease'
-                // mixBlendMode: 'multiply'
               }}
               title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
             >
-              Hackers at Outernet in Vermont
+              Hackers at events around the world
             </Badge>
           </Box>
         </Box>
