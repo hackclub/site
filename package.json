@@ -27,6 +27,7 @@
     "@sendgrid/mail": "^8.1.4",
     "@theme-ui/color": "^0.17.2",
     "@tracespace/core": "^5.0.0-alpha.0",
+    "@types/node": "^22.15.21",
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
     "airtable-plus": "^1.0.4",
