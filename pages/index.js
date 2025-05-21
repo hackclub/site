@@ -42,6 +42,7 @@ import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
+import Juice from "../components/index/cards/juice"
 import {
   SiJavascript,
   SiPython,
@@ -835,6 +836,7 @@ function Page({
             <Neighborhood />
             <Trail />
             <Scrapyard />
+            <Juice />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>

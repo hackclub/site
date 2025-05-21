@@ -4,17 +4,15 @@ import Buttons from './button'
 
 /** @jsxImportSource theme-ui */
 
-export default function Trail() {
+export default function Juice() {
   return (
     <CardModel
       color="white"
       sx={{
-        backgroundSize: 'cover',
         backgroundColor: '#FFF5D8',
-        fontFamily: "Fraunces"
       }}
       position={[null, 'bottom', 'bottom']}
-      image={"https://cloud-olwxtauup-hack-club-bot.vercel.app/0stampfit.png"}
+      image={"https://hc-cdn.hel1.your-objectstorage.com/s/v3/97abfba452a8e0444ff76a57fefedb1a4ee3eef6_dsc_5737.jpg"}
     >
       <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Flex
@@ -25,7 +23,7 @@ export default function Trail() {
           }}
         >
           <Image
-            src="https://cloud-qk962s2kz-hack-club-bot.vercel.app/0traillogo.png"
+            src="https://juice.hackclub.com/logo.svg"
             sx={{
               width: ['200px', '250px', '300px'],
               mt: ['-5px', '-5px', '-5px'],
@@ -35,7 +33,7 @@ export default function Trail() {
               fontSize: ['36px', 4, 5],
               color: 'white'
             }}
-            alt="Trail"
+            alt="Juice"
           />
 
           <Flex
@@ -44,48 +42,44 @@ export default function Trail() {
               justifyContent: 'space-between'
             }}
           >
-            <Text
-              as="p"
-              variant="subheadline"
-              sx={{
-                ml: ['0px', '0px', '10px'],
-                mt: ['0px', '0px', '-10px'],
-                mb: ['0px', '0px', '20px'],
-                zIndex: 2,
-                color: '#032412',
-                fontSize: ['24px !important'],
-
-              }}
-            >
-              Pacific Crest Trail
-              <br />
-              July 12-19
-            </Text>
-
             <Buttons
               icon="view-fill"
-              href="https://www.youtube.com/watch?v=ufMUJ9D1fi8"
+              href="https://juice.hackclub.com"
               target="_blank"
               rel="noopener"
               primary="#032412"
               id="43"
               sx={{ color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
             >
-              View the Documentary
+              View the website
             </Buttons>
           </Flex>
         </Flex>
-        <Box style={{display: "flex", alignItems: "center"}}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            backgroundColor: "#FFF9E6",
+            borderRadius: ['30px', "105px 105px 70px 60px", "60px 105px"],
+            backgroundSize: 'cover',
+            width: 'min(90%, 430px)',
+            filter: 'drop-shadow(5px 5px 5px #000000AA)',
+            position: 'relative',
+          }}
+        >
           <Text
             as="p"
             variant="subtitle"
             sx={{
-              fontSize: ['26px', '24px', '22px'],
-              color: "#032412",
-              backgroundColor: "#FFF5D8"
+              fontFamily: '"M PLUS Rounded 1c"',
+              fontWeight: "600",
+              textAlign: 'center',
+              margin: '8%',
+              fontSize: ['20px', '20px', '20px'],
+              color: '#786A50',
             }}
           >
-            30 Hack Clubbers went on a 7 day hike along the Pacific Crest Trail supplied by only the technical equipment that they built. 
+            More than 100 Hack Clubbers went to Shanghai, China to show off and build awesome video games!
           </Text>
         </Box>
       </Grid>
