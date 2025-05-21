@@ -42,6 +42,7 @@ import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
+import YTCarousel from '../components/index/yt-carousel'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -620,7 +621,7 @@ function Page({
           </Box>
         </Box>
         <Carousel cards={carouselCards} />
-        <Carousel cards={ytCarouselCards}/>
+        <YTCarousel cards={ytCarouselCards}/>
         <Box
           id="spotlight"
           as="section"
