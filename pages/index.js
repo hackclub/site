@@ -58,7 +58,8 @@ function Page({
   gameTitle,
   events,
   carouselCards,
-  context
+  context,
+  ytCarouselCards
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -619,6 +620,7 @@ function Page({
           </Box>
         </Box>
         <Carousel cards={carouselCards} />
+        <Carousel cards={ytCarouselCards}/>
         <Box
           id="spotlight"
           as="section"
@@ -1223,7 +1225,7 @@ const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
   const carouselCards = require('../lib/carousel.json')
-
+  const ytCarouselCards = require('../lib/yt-carousel.json')
   // HCB: get total raised
   let bankData = []
   let initialBankData = await fetch('https://hcb.hackclub.com/stats')
@@ -1305,7 +1307,8 @@ export async function getStaticProps() {
       slackData,
       stars,
       events,
-      carouselCards
+      carouselCards,
+      ytCarouselCards
     },
     revalidate: 60
   }

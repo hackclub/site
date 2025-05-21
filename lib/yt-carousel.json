@@ -1,0 +1,102 @@
+[
+  {
+    "background": "linear-gradient(to bottom right, #993CCF 0%, rgba(170, 77, 181, 0.95) 17.19%, rgba(193, 99, 146, 0.90) 31.77%, rgba(223, 129, 101, 0.71) 52.08%, rgba(240, 146, 75, 0.60) 63.54%)",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "Hackclubbers in Shanghai!",
+    "description": "Around 100 hackclubbers from ~23 countries opened a week long popup cafe in the streets of Shanghai.",
+    "img": "https://cloud-7xyxcf3f6-hack-club-bot.vercel.app/0new_project__3_.png",
+    "link": "https://www.youtube.com/watch?v=fuTlToZ1SX8&list=PLbNbddgD-XxH0TDS6qFynB6-YnWZU5Fhc"
+  },
+  {
+    "background": "#C76B0F",
+    "titleColor": "#F6D193",
+    "descriptionColor": "#F6D193",
+    "title": "Jua",
+    "description": "We hosted the Largest All-Girls hackathon in Nairobi!",
+    "img": "https://cloud-oil5vh30l-hack-club-bot.vercel.app/0boba_hc_toolbox.png",
+    "link": "https://youtu.be/S5dKIlBN_1s?si=r8GnKE4PYERrvp7v"
+  },
+  {
+    "background": "#FFF1DE",
+    "titleColor": "#4F2A0E",
+    "descriptionColor": "#4F2A0E",
+    "title": "Scapyard",
+    "description": "We hosted a hackathon for the WORST Ideas",
+    "img": "https://cloud-ahkc8uotv-hack-club-bot.vercel.app/0group_15.png",
+    "link": "https://youtu.be/8iM1W8kXrQA?si=uBVDO7fd9aghRSQE"
+  },
+  {
+    "background": "#EF6C46",
+    "titleColor": "#EDE2DC",
+    "descriptionColor": "#EDE2DC",
+    "title": "The Boreal Express",
+    "description": "We hosted a hackathon ACROSS Canada, on a train!",
+    "img": "https://cloud-m33gqgkp6-hack-club-bot.vercel.app/0image.png",
+    "link": "https://youtu.be/H5RPsCMl3uM?si=wXgThhbKeaB2ESE_"
+  },
+    {
+    "background": "#30AE1F",
+    "titleColor": "#FFFFFF",
+    "descriptionColor": "#FFFFFF",
+    "title": "Counterspell",
+    "description": "We organised a Game Jam in 50 cities simaltaneously!",
+    "img": "https://cloud-kgilrkgl7-hack-club-bot.vercel.app/0image.png",
+    "link": "https://hackcraft.hackclub.com/"
+  },
+  {
+    "background": "snow",
+    "titleColor": "dark",
+    "descriptionColor": "black",
+    "title": "The Trail",
+    "description": "The World's First Hikeathon: 30 Teen Hackers hike Pacific Crest Trail!",
+    "img": "https://cloud-eg2ex8nol-hack-club-bot.vercel.app/0favicon-on-light-removebg-preview.png",
+    "link": "https://youtu.be/ufMUJ9D1fi8?si=NCWACHKKOD0vW7t8"
+  },
+  {
+    "background": "#000",
+    "titleColor": "green",
+    "descriptionColor": "white",
+    "title": "Summit",
+    "description": "We organised The Hackclub Leaders Summit 2024",
+    "img": "https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png",
+    "link": "https://youtu.be/UZEm5lONg7g?si=GWy29PKD8Jo3pH1Y"
+  },
+  {
+    "background": "snow",
+    "titleColor": "dark",
+    "descriptionColor": "black",
+    "title": "EPOCH",
+    "description": "We organized a hackathon in Delhi/NCR, India!",
+    "img": "https://emoji.slack-edge.com/T0266FRGM/someassemblyrequired/cfacfacaaa2d8b1d.png",
+    "link": "https://youtu.be/KLx4NZZPzMc?si=WZRcs9v5fklPv70P"
+  },
+  {
+    "background": "#271932",
+    "titleColor": "#CAB4D4",
+    "textColor": "#CAB4D4",
+    "title": "Assemble",
+    "description": "We hosted a High School Hackathon!",
+    "img": "https://emoji.slack-edge.com/T0266FRGM/sinerider/68a0bc1208e885dd.png",
+    "link": "https://youtu.be/PnK4gzO6S3Q?si=Czpzq9s_TnI4UtPF"
+  },
+  {
+    "background": "dark",
+    "titleColor": "green",
+    "descriptionColor": "white",
+    "title": "The Hacker Zephyr",
+    "description": "The World's Longest Hackathon, literally ",
+    "img": "https://cloud-6skkg6eck-hack-club-bot.vercel.app/0image.png",
+    "link": "https://youtu.be/2BID8_pGuqA?si=S_5gz27Fip7hWq4q"
+  },
+  {
+    "background": "#e9e9e9",
+    "titleColor": "black",
+    "textColor": "black",
+    "descriptionColor": "black",
+    "title": "HC at RMRRF 2025",
+    "description": "Around 20 Teen Hackers built their 3d printers from scratch and presented them at The RMRRF!",
+    "img": "https://emoji.slack-edge.com/T0266FRGM/nest/aa345378581cee0c.png",
+    "link": "https://www.youtube.com/live/EhKuOT_FsDI?si=3N2Ixq-J0tr1KXjq"
+  }
+]
