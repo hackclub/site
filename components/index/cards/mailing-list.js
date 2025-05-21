@@ -95,16 +95,31 @@ const MailingList = () => {
   }, [])
 
   return (
-    <Box sx={{ position: 'relative', py: 6, background: 'darker' }}>
+    <Box sx={{ 
+      position: 'relative', 
+      py: 6, 
+      background: 'darker',
+      backgroundImage: theme => 
+        `linear-gradient(45deg, 
+          ${theme.colors.darker} 0%, 
+          ${theme.colors.black} 100%)`,
+      borderTop: '1px solid',
+      borderColor: 'rgba(255, 140, 55, 0.2)'
+    }}>
       <Card
         sx={{
           maxWidth: '1050px',
           mx: 'auto',
-          // mt: [3, 4],
-          background: 'rgb(255,255,255, 0.45)',
+          background: 'rgba(0, 0, 0, 0.6)',
           position: 'relative',
           zIndex: 2,
-          backdropFilter: 'blur(8px)'
+          backdropFilter: 'blur(8px)',
+          borderRadius: 'extra',
+          boxShadow: '0 8px 16px rgba(0, 0, 0, 0.25)',
+          border: '1px solid',
+          borderColor: 'rgba(255, 140, 55, 0.3)',
+          color: 'white',
+          p: 4
         }}
       >
         <Flex
@@ -126,26 +141,38 @@ const MailingList = () => {
                 sx={{
                   fontSize: [4, '36px', '42px', 6],
                   zIndex: 2,
-                  textAlign: 'left'
+                  textAlign: 'left',
+                  color: 'white',
+                  position: 'relative',
+                  '&::after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: '-8px',
+                    left: 0,
+                    width: '80px',
+                    height: '4px',
+                    background: theme => theme.util.gx('orange', 'red')
+                  }
                 }}
               >
-                Join the newsletter
+                Join our newsletter
               </Text>
               <Text
                 sx={{
-                  color: 'darkless',
-                  mt: 2,
+                  color: 'muted',
+                  mt: 4,
                   fontSize: 3,
                   textAlign: 'left'
                 }}
                 as="p"
               >
-                We&apos;ll send you an email no more than once a month, when we
-                work on something cool for you. Check out our{' '}
+                Get the latest Hack Club updates, new projects, and upcoming events sent to your inbox.
+                Check out our{' '}
                 <Link
                   href="https://workshops.hackclub.com/leader-newsletters/"
                   target="_blank"
                   rel="noopener norefferer"
+                  sx={{ color: 'orange' }}
                 >
                   previous issues
                 </Link>
@@ -160,13 +187,26 @@ const MailingList = () => {
               sx={{
                 textAlign: 'center',
                 alignItems: 'end',
-                input: { bg: 'sunken' },
-                width: '100%'
+                input: { 
+                  bg: 'black',
+                  border: '1px solid',
+                  borderColor: 'rgba(255, 140, 55, 0.3)',
+                  color: 'white',
+                  '&::placeholder': {
+                    color: 'rgba(255, 255, 255, 0.5)'
+                  },
+                  '&:focus': {
+                    borderColor: 'orange',
+                    outline: 'none'
+                  }
+                },
+                width: '100%',
+                mt: 3
               }}
             >
               <Box sx={{ width: '100%' }}>
                 <Input
-                  autofillBackgroundColor="highlight"
+                  autofillBackgroundColor="darker"
                   type="text"
                   name="name"
                   id="name"
@@ -175,13 +215,14 @@ const MailingList = () => {
                   sx={{
                     width: '100%',
                     textAlign: 'center',
-                    fontSize: 2
+                    fontSize: 2,
+                    py: 2
                   }}
                 />
               </Box>
               <div>
                 <Input
-                  autofillBackgroundColor="highlight"
+                  autofillBackgroundColor="darker"
                   type="email"
                   name="email"
                   id="email"
@@ -190,11 +231,25 @@ const MailingList = () => {
                   sx={{
                     width: '100%',
                     textAlign: 'center',
-                    fontSize: 2
+                    fontSize: 2,
+                    py: 2
                   }}
                 />
               </div>
-              <Button type="submit" sx={{ mt: [2, 0], fontSize: 2 }}>
+              <Button 
+                type="submit" 
+                sx={{ 
+                  mt: [2, 0], 
+                  fontSize: 2,
+                  backgroundImage: theme => theme.util.gx('orange', 'red'),
+                  color: 'white',
+                  transition: 'transform 0.2s ease-in-out',
+                  py: 2,
+                  '&:hover': {
+                    transform: 'translateY(-2px)'
+                  }
+                }}
+              >
                 {submitting ? (
                   <>
                     <Loading /> Subscribe
@@ -204,7 +259,9 @@ const MailingList = () => {
                     <Icon glyph="send" /> You're on the list!
                   </>
                 ) : (
-                  'Subscribe'
+                  <>
+                    <Icon glyph="email" size={20} sx={{ mr: 2 }} /> Subscribe
+                  </>
                 )}
               </Button>
             </Grid>
@@ -237,7 +294,7 @@ const MailingList = () => {
       <BGImg
         width={2544}
         height={2048}
-        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
+        gradient="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7))"
         src={background}
         placeholder="blur"
         alt="Globe with hundreds of Hack Clubs"

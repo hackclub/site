@@ -75,7 +75,7 @@ export default function ScrollingHackathons({
       )}
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
-          <Ticker mode={mode || 'string'} {...props}>
+          <Ticker mode={mode || 'string'} speed={5} move={true} direction="toLeft" {...props}>
             {() => (
               <Box as="div" sx={{ display: 'flex', py: 3 }}>
                 {eventData.map(({ ...props }) => (

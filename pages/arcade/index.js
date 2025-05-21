@@ -1328,7 +1328,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 width: ['110vw','105vw']
               }}
             >
-              <Ticker speed={5}>
+              <Ticker speed={5} move={true} direction="toLeft">
                 {() => (
                   <Box as="div" sx={{ display: 'flex', height: 'fit-content' }}>
                     {carousel.map((item, i) => (
