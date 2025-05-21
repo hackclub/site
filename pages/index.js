@@ -2,8 +2,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { Box, Button, Container, Flex, Grid, Heading, Image, Input, Text, Link } from 'theme-ui'
 import { keyframes } from '@emotion/react'
-import Fade from 'react-reveal/Fade'
-import Slide from 'react-reveal/Slide'
 import Icon from '../components/icon'
 import Carousel from '../components/index/carousel'
 import MailingList from '../components/index/cards/mailing-list'
@@ -25,8 +23,71 @@ const heroImage = keyframes`
   to { opacity: 1; transform: translateX(0);}
 `
 
-function AnimatedBackground() {
-  // Subtle animated SVG pattern
+// A variety of background patterns for use throughout the site
+function AnimatedBackground({ 
+  pattern = 'dots', 
+  opacity = 0.08, 
+  speed = 30, 
+  animationEnabled = true,
+  direction = 'normal',
+  customColor = 'white',
+  size = 'normal'
+}) {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    // Check if user prefers reduced motion
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = () => setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Compute pattern size multiplier
+  const sizeMultiplier = size === 'small' ? 0.7 : size === 'large' ? 1.5 : 1;
+  
+  // Enhanced pattern collection with more variety
+  const patterns = {
+    dots: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E")`,
+    grid: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0.5H40M0 10.5H40M0 20.5H40M0 30.5H40M0.5 0V40M10.5 0V40M20.5 0V40M30.5 0V40' stroke='white' stroke-opacity='0.3'/%3E%3C/svg%3E")`,
+    circuit: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10H20M10 10V20M40 10H50M50 10V20M10 50V40M10 50H20M50 50H40M50 50V40' stroke='white' stroke-opacity='0.25'/%3E%3Ccircle cx='10' cy='10' r='2' fill='white' fill-opacity='0.5'/%3E%3Ccircle cx='50' cy='10' r='2' fill='white' fill-opacity='0.5'/%3E%3Ccircle cx='10' cy='50' r='2' fill='white' fill-opacity='0.5'/%3E%3Ccircle cx='50' cy='50' r='2' fill='white' fill-opacity='0.5'/%3E%3C/svg%3E")`,
+    hexagons: `url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 2.5L43.3 13.75V36.25L25 47.5L6.7 36.25V13.75L25 2.5Z' stroke='white' stroke-opacity='0.25'/%3E%3C/svg%3E")`,
+    diamonds: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 2L38 20L20 38L2 20L20 2Z' stroke='white' stroke-opacity='0.25'/%3E%3C/svg%3E")`,
+    triangles: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 5L35 30H5L20 5Z' stroke='white' stroke-opacity='0.25'/%3E%3C/svg%3E")`,
+    waves: `url("data:image/svg+xml,%3Csvg width='60' height='20' viewBox='0 0 60 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10C5 5 10 15 15 10C20 5 25 15 30 10C35 5 40 15 45 10C50 5 55 15 60 10' stroke='white' stroke-opacity='0.25' stroke-width='1'/%3E%3C/svg%3E")`,
+    code: `url("data:image/svg+xml,%3Csvg width='50' height='30' viewBox='0 0 50 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 5L5 15L15 25M35 5L45 15L35 25' stroke='white' stroke-opacity='0.25' stroke-width='1.5'/%3E%3C/svg%3E")`
+  };
+  
+  // Animation directions
+  const animationDirection = {
+    normal: { 
+      from: { backgroundPosition: '0 0' }, 
+      to: { backgroundPosition: '200px 200px' } 
+    },
+    reverse: {
+      from: { backgroundPosition: '200px 200px' },
+      to: { backgroundPosition: '0 0' }
+    },
+    diagonal: {
+      from: { backgroundPosition: '0 0' },
+      to: { backgroundPosition: '200px -200px' }
+    },
+    horizontal: {
+      from: { backgroundPosition: '0 0' },
+      to: { backgroundPosition: '200px 0' }
+    },
+    vertical: {
+      from: { backgroundPosition: '0 0' },
+      to: { backgroundPosition: '0 200px' }
+    }
+  };
+  
+  // Select animation based on direction
+  const selectedAnimation = animationDirection[direction] || animationDirection.normal;
+  
   return (
     <Box
       sx={{
@@ -36,14 +97,16 @@ function AnimatedBackground() {
         height: '100%',
         zIndex: 0,
         pointerEvents: 'none',
-        opacity: 0.08,
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E")`,
-        animation: 'bgmove 30s linear infinite'
+        opacity: opacity,
+        backgroundImage: patterns[pattern] || patterns.dots,
+        backgroundSize: `${40 * sizeMultiplier}px ${40 * sizeMultiplier}px`,
+        animation: animationEnabled && !prefersReducedMotion ? 'bgmove linear infinite' : 'none',
+        animationDuration: `${speed}s`
       }}
       css={{
         '@keyframes bgmove': {
-          '0%': { backgroundPosition: '0 0' },
-          '100%': { backgroundPosition: '200px 200px' }
+          '0%': selectedAnimation.from,
+          '100%': selectedAnimation.to
         }
       }}
     />
@@ -62,6 +125,19 @@ function scrollToSection(id) {
 function HeaderNav() {
   const [menuOpen, setMenuOpen] = useState(false)
   
+  // Close menu when clicking outside
+  useEffect(() => {
+    if (menuOpen) {
+      const handleClickOutside = (e) => {
+        if (!e.target.closest('header')) {
+          setMenuOpen(false)
+        }
+      }
+      document.addEventListener('click', handleClickOutside)
+      return () => document.removeEventListener('click', handleClickOutside)
+    }
+  }, [menuOpen])
+  
   return (
     <Box
       as="header"
@@ -74,8 +150,8 @@ function HeaderNav() {
         backdropFilter: 'blur(8px)',
         borderBottom: '1.5px solid',
         borderColor: 'rgba(255,255,255,0.08)',
-        py: [2.5, 2.5], // Slightly more vertical padding for Goldilocks feel
-        px: [2, 3, 4],
+        py: [2, 2.5],
+        px: [3, 3, 4],
         mb: 0
       }}
     >
@@ -94,9 +170,19 @@ function HeaderNav() {
             <Image
               src="https://assets.hackclub.com/flag-orpheus-top.svg"
               alt="Hack Club"
-              sx={{ height: [30, 40], width: 'auto', mr: 2, display: 'inline-block' }}
+              sx={{ height: [30, 35, 40], width: 'auto', mr: 2, display: 'inline-block' }}
             />
-            <Text sx={{ fontWeight: 800, fontSize: [2, 3, 4], color: 'orange', letterSpacing: '-0.03em', fontFamily: 'Phantom Sans, sans-serif' }}>
+            <Text sx={{ 
+              fontWeight: 800, 
+              fontSize: [2, 3, 4], 
+              color: 'orange', 
+              letterSpacing: '-0.03em', 
+              fontFamily: 'Phantom Sans, sans-serif',
+              transition: 'color 0.2s ease',
+              ':hover': {
+                color: '#ff9900'
+              }
+            }}>
               Hack Club
             </Text>
           </Link>
@@ -109,50 +195,78 @@ function HeaderNav() {
                 color: 'white',
                 p: 2,
                 borderColor: 'rgba(255,255,255,0.2)',
-                ':hover': { bg: 'rgba(255,255,255,0.06)' }
+                ':hover': { bg: 'rgba(255,255,255,0.06)' },
+                borderRadius: 'default',
+                transition: 'all 0.2s ease',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 2
               }}
-              onClick={() => setMenuOpen(!menuOpen)}
+              onClick={(e) => {
+                e.stopPropagation()
+                setMenuOpen(!menuOpen)
+              }}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
             >
-              {menuOpen ? 'Close' : 'Menu'}
+              {menuOpen ? (
+                <>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  Close
+                </>
+              ) : (
+                <>
+                  <svg width="18" height="14" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1H23M1 9H23M1 17H23" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                  Menu
+                </>
+              )}
             </Button>
           </Box>
           
-          {/* Desktop navigation */}
+          {/* Desktop navigation - simplified with fewer items */}
           <Flex
             as="nav"
             sx={{
-              gap: [2, 3],
+              gap: [2, 3, 4],
               alignItems: 'center',
               display: ['none', 'flex']
             }}
           >
-            <Link href="https://toolbox.hackclub.com/" sx={navLinkStyle} target="_blank" rel="noopener">Toolbox</Link>
             <Link href="https://hackclub.com/clubs" sx={navLinkStyle} target="_blank" rel="noopener">Clubs</Link>
             <Link href="/hackathons" sx={navLinkStyle}>Hackathons</Link>
             <Link href="https://scrapbook.hackclub.com/" sx={navLinkStyle} target="_blank" rel="noopener">Scrapbook</Link>
-            <Link href="https://hackclub.com/fiscal-sponsorship/" sx={navLinkStyle} target="_blank" rel="noopener">Fiscal Sponsorship</Link>
             <Link href="/slack" sx={navLinkStyle}>Slack</Link>
             <Link href="https://github.com/hackclub" target="_blank" rel="noopener" sx={navLinkStyle}>GitHub</Link>
           </Flex>
         </Flex>
         
-        {/* Mobile navigation */}
+        {/* Mobile navigation - simplified with fewer items */}
         {menuOpen && (
           <Box sx={{
             width: '100%',
             py: 2,
             display: ['block', 'none'],
-            borderTop: '1px solid rgba(255,255,255,0.1)'
-          }}>
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            animation: 'slideDown 0.2s ease-out'
+          }}
+          css={{
+            '@keyframes slideDown': {
+              from: { opacity: 0, transform: 'translateY(-8px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+          >
             <Flex sx={{
               flexDirection: 'column',
-              gap: 2
+              gap: 1
             }}>
-              <Link href="https://toolbox.hackclub.com/" sx={mobileNavLinkStyle} target="_blank" rel="noopener">Toolbox</Link>
               <Link href="https://hackclub.com/clubs" sx={mobileNavLinkStyle} target="_blank" rel="noopener">Clubs</Link>
               <Link href="/hackathons" sx={mobileNavLinkStyle}>Hackathons</Link>
               <Link href="https://scrapbook.hackclub.com/" sx={mobileNavLinkStyle} target="_blank" rel="noopener">Scrapbook</Link>
-              <Link href="https://hackclub.com/fiscal-sponsorship/" sx={mobileNavLinkStyle} target="_blank" rel="noopener">Fiscal Sponsorship</Link>
               <Link href="/slack" sx={mobileNavLinkStyle}>Slack</Link>
               <Link href="https://github.com/hackclub" target="_blank" rel="noopener" sx={mobileNavLinkStyle}>GitHub</Link>
             </Flex>
@@ -166,36 +280,62 @@ function HeaderNav() {
 const navLinkStyle = {
   color: 'white',
   fontWeight: 600,
-  fontSize: [2, 3],
+  fontSize: [2, 2, 3],
   textDecoration: 'none',
   px: 2,
-  py: 1,
+  py: 2,
   borderRadius: 'default',
-  transition: 'background 0.2s,color 0.2s',
+  transition: 'all 0.2s ease',
+  position: 'relative',
   ':hover,:focus': {
     color: 'orange',
-    background: 'rgba(255,255,255,0.06)'
+    background: 'rgba(255,255,255,0.06)',
+    textDecoration: 'none',
+    outline: 'none'
+  },
+  ':focus-visible': {
+    boxShadow: '0 0 0 2px rgba(255, 102, 0, 0.5)'
+  },
+  ':after': {
+    content: '""',
+    position: 'absolute',
+    width: '0%',
+    height: '2px',
+    bottom: '8px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    backgroundColor: 'orange',
+    transition: 'width 0.2s ease'
+  },
+  ':hover:after': {
+    width: 'calc(100% - 20px)'
   }
 }
 
 const mobileNavLinkStyle = {
   color: 'white',
   fontWeight: 600,
-  fontSize: 3,
+  fontSize: 2,
   textDecoration: 'none',
-  px: 2,
-  py: 2,
+  px: 3,
+  py: 3,
   borderRadius: 'default',
-  transition: 'background 0.2s,color 0.2s',
+  transition: 'all 0.2s ease',
+  display: 'flex',
+  alignItems: 'center',
+  width: '100%',
   ':hover,:focus': {
     color: 'orange',
-    background: 'rgba(255,255,255,0.06)'
+    background: 'rgba(255,255,255,0.06)',
+    textDecoration: 'none'
+  },
+  ':focus-visible': {
+    boxShadow: '0 0 0 2px rgba(255, 102, 0, 0.5)'
   }
 }
 
 function Hero() {
-  return (
-    <Box
+  return (    <Box
       as="section"
       sx={{
         minHeight: ['auto', '80vh', '90vh'],
@@ -209,29 +349,36 @@ function Hero() {
         position: 'relative',
         overflow: 'hidden',
         px: [2, 3, 4, 5],
-        pt: [3, 4, 5, 6], // Goldilocks: slightly more top padding
-        pb: [4, 5, 6]
+        pt: [4, 5, 6, 6], 
+        pb: [5, 5, 6]
       }}
     >
-      <AnimatedBackground />
+      <AnimatedBackground pattern="hexagons" speed={40} direction="diagonal" size="large" />
       <Container sx={{ maxWidth: 1200, width: '100%' }}>
-        <Grid columns={[1, 1, 2]} gap={[4, 5]}>
+        <Grid columns={[1, 1, 2]} gap={[4, 5]} sx={{ alignItems: 'center' }}>
           <Box sx={{ alignSelf: 'center', textAlign: ['center', 'center', 'left'] }}>
-            <Fade bottom>
-              <Heading
-                variant="ultratitle"
-                sx={{
-                  fontSize: ['2.5rem', '3rem', '3.5rem'],
-                  background: orangeGradient,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  mb: 3,
-                }}
-              >
-                Imagine a world...
-              </Heading>
-            </Fade>
-            <Fade bottom delay={200}>
+            <Heading
+              variant="ultratitle"
+              sx={{
+                fontSize: ['2.2rem', '2.6rem', '3rem', '3.4rem'],
+                background: orangeGradient,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                mb: 3,
+                lineHeight: 1.1,
+                fontWeight: 800
+              }}
+            >
+              This is Hack Club.
+            </Heading>
+            <Box
+              sx={{
+                borderLeft: ['none', 'none', '4px solid'],
+                borderColor: 'orange',
+                pl: [0, 0, 3],
+                mb: 4
+              }}
+            >
               <Text
                 variant="lead"
                 sx={{
@@ -239,130 +386,180 @@ function Hero() {
                   opacity: 0.95,
                   mb: 2,
                   maxWidth: 500,
+                  fontSize: ['1.1rem', '1.2rem', '1.3rem'],
+                  lineHeight: 1.6
                 }}
               >
-                ...where coding is more than just <b>debugging alone at 3AM</b> with cold pizza 🍕 and Stack Overflow tabs.
+                It's late nights. Big ideas.<br />
+                Code that breaks. Then works.<br />
+                Friends who cheer you on even when nothing's working.
               </Text>
-            </Fade>
-            <Fade bottom delay={400}>
-              <Heading
-                variant="title"
+              <Text
+                variant="lead"
                 sx={{
-                  color: 'orange',
+                  color: 'white',
+                  opacity: 0.95,
                   mb: 3,
+                  maxWidth: 550,
+                  fontSize: ['1.1rem', '1.2rem', '1.3rem'],
+                  lineHeight: 1.6
                 }}
               >
-                But plot twist: teens already built that world. Welcome to Hack Club.
-              </Heading>
-            </Fade>
-            <Fade bottom delay={600}>
+                It's not a class. Not a competition.<br />
+                It's a space to build whatever's on your mind—with people who actually get it.
+              </Text>
               <Text
                 variant="lead"
                 sx={{
-                  color: 'white',
-                  opacity: 0.95,
-                  mb: 2,
+                  color: '#ff9900',
+                  mb: 0,
                   maxWidth: 550,
+                  fontSize: ['1.1rem', '1.2rem', '1.3rem'],
+                  lineHeight: 1.6,
+                  fontWeight: 600
                 }}
               >
-                This is the <b>clubhouse for creative chaos</b>, where you can ship memes, code, and dreams. No adults running the show. No cringe. Just teens, tech, and a little bit of magic. ✨
+                No one's telling you what to do.<br />
+                You just start. And somehow, you're not alone.
               </Text>
-            </Fade>
-            <Fade bottom delay={800}>
-              <Text
-                variant="lead"
-                sx={{
-                  color: 'white',
-                  opacity: 0.95,
-                  mb: 4,
-                  maxWidth: 550,
-                }}
-              >
-                <span style={{ color: '#ff9900', fontWeight: 700 }}>We’re the only club where you can push code, push boundaries, and push your luck at Mario Kart—all before lunch. 🚀</span>
-                <br />
-                <span style={{ color: '#ff9900', fontWeight: 700 }}>No gatekeeping. No boring lectures. Just pure, unfiltered hacker energy.</span>
-              </Text>
-            </Fade>
-            <Flex sx={{ gap: 3, flexWrap: 'wrap', mb: 4 }}>
-              <Fade left delay={1000}>
-                <Button variant="primary"
-                  as="a"
-                  href="#"
-                  onClick={e => {
-                    e.preventDefault()
-                    scrollToSection('slack-section')
-                  }}
-                  sx={{
-                    fontSize: [2, 3],
-                    px: [4, 5],
-                    py: [2, 3],
-                    ':hover': { bg: 'white', color: 'orange', transform: 'translateY(-5px)' }
-                  }}
-                >
-                  Join our Slack 💬
-                </Button>
-              </Fade>
-              <Fade left delay={1200}>
-                <Button variant="outline"
-                  as="a"
-                  href="#"
-                  onClick={e => {
-                    e.preventDefault()
-                    scrollToSection('programs')
-                  }}
-                  sx={{
-                    fontSize: [2, 3],
-                    px: [4, 5],
-                    py: [2, 3],
-                    ml: 2,
-                    color: 'orange',
-                    borderColor: 'orange',
-                    ':hover': { bg: 'orange', color: 'black', transform: 'translateY(-5px)' }
-                  }}
-                >
-                  Explore Programs 🚀
-                </Button>
-              </Fade>
-            </Flex>
-            <Fade left delay={1400}>
-              <Text variant="caption" sx={{ mt: 2 }}>
-                <Icon glyph="github" size={20} sx={{ verticalAlign: 'middle', mr: 2 }} />
-                Proudly partnered with <b>GitHub</b>, <b>Arduino</b>, and more. <br />
-                <span style={{ color: '#ff9900' }}>Warning: May cause excessive creativity and lifelong friendships. 🧡</span>
-              </Text>
-            </Fade>
-          </Box>
-          {/* Mobile optimized display of hero images */}
-          <Box sx={{ position: 'relative' }}>
-            <Slide right>
-              <Image
-                src="/home/flagship_4.jpg"
-                alt="Hack Clubbers at Flagship, 2019"
-                sx={{
+            </Box>
+            <Flex sx={{ 
+              gap: 3, 
+              flexWrap: 'wrap', 
+              mb: 4, 
+              justifyContent: ['center', 'center', 'flex-start'],
+              width: '100%',
+            }}
+            css={{
+              '@media (max-width: 32em)': {
+                'button, a': {
                   width: '100%',
-                  maxWidth: [300, 380, 480],
-                  borderRadius: '2xl',
-                  boxShadow: '0 8px 48px #ff660033',
-                  objectFit: 'cover',
-                  mx: 'auto',
-                  display: 'block'
+                  justifyContent: 'center'
+                }
+              }
+            }}
+            >
+              <Button variant="primary"
+                as="a"
+                href="#"
+                onClick={e => {
+                  e.preventDefault()
+                  scrollToSection('slack-section')
                 }}
-              />
-              <Image
-                src="/home/zephyr-spacex.jpeg"
-                alt="Hack Clubbers at SpaceX HQ"
                 sx={{
-                  width: ['70%', '70%', '80%'],
-                  maxWidth: [240, 300, 380],
-                  borderRadius: '2xl',
-                  boxShadow: '0 4px 24px #ff990055',
-                  objectFit: 'cover',
-                  mt: 3,
-                  mx: 'auto',
-                  display: ['none', 'block']
+                  fontSize: [2, 3],
+                  px: [4, 5],
+                  py: [2, 3],
+                  transition: 'all 0.3s ease',
+                  ':hover': { bg: 'white', color: 'orange', transform: 'translateY(-5px)' },
+                  boxShadow: '0 4px 20px rgba(255, 102, 0, 0.25)',
+                  fontWeight: 600
                 }}
-              />
-            </Slide>
+              >
+                Join Slack
+              </Button>
+              <Button variant="outline"
+                as="a"
+                href="#"
+                onClick={e => {
+                  e.preventDefault()
+                  scrollToSection('programs')
+                }}
+                sx={{
+                  fontSize: [2, 3],
+                  px: [4, 5],
+                  py: [2, 3],
+                  color: 'orange',
+                  borderColor: 'orange',
+                  borderWidth: 2,
+                  transition: 'all 0.3s ease',
+                  ':hover': { bg: 'orange', color: 'black', transform: 'translateY(-5px)' },
+                  fontWeight: 600
+                }}
+              >
+                Explore Programs
+              </Button>
+            </Flex>
+            <Box
+              sx={{
+                bg: 'rgba(255, 255, 255, 0.05)',
+                p: 3,
+                borderRadius: '8px',
+                borderLeft: '3px solid',
+                borderColor: 'orange',
+                textAlign: ['left', 'left', 'left'],
+                mt: 2
+              }}
+            >
+              <Text 
+                variant="caption" 
+                sx={{ 
+                  display: 'flex',
+                  alignItems: 'center',
+                  fontSize: [1, 2],
+                  flexWrap: 'wrap'
+                }}
+              >
+                <Icon glyph="github" size={20} sx={{ flexShrink: 0, mr: 2, color: 'orange' }} />
+                <span>
+                  Proudly partnered with <strong>GitHub</strong>, <strong>Arduino</strong>, and more. 
+                  <span style={{ color: '#ff9900', fontWeight: 600 }}> Join our creative coding community.</span>
+                </span>
+              </Text>
+            </Box>
+          </Box>
+          {/* Enhanced hero images with better mobile display */}
+          <Box 
+            sx={{ 
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 3,
+              width: '100%',
+              px: [2, 2, 0]
+            }}
+          >
+            <Image
+              src="/home/flagship_4.jpg"
+              alt="Hack Clubbers at Flagship, 2019"
+              sx={{
+                width: '100%',
+                aspectRatio: '4/3',
+                maxWidth: [300, 360, 420, 500],
+                height: 'auto',
+                borderRadius: 'lg',
+                boxShadow: '0 12px 48px rgba(255, 102, 0, 0.3)',
+                objectFit: 'cover',
+                mx: 'auto',
+                display: 'block',                transform: 'rotate(0deg)',
+                transition: 'all 0.3s ease',
+                ':hover': {
+                  transform: 'scale(1.02)',
+                  boxShadow: '0 16px 56px rgba(255, 102, 0, 0.4)'
+                }
+              }}
+            />
+            <Image
+              src="/home/zephyr-spacex.jpeg"
+              alt="Hack Clubbers at SpaceX HQ"
+              sx={{
+                width: '100%',
+                aspectRatio: '4/3',                maxWidth: [300, 360, 420, 500],
+                height: 'auto',
+                borderRadius: 'lg',
+                boxShadow: '0 12px 48px rgba(255, 153, 0, 0.3)',
+                objectFit: 'cover',
+                mx: 'auto',
+                display: 'block',                transform: 'rotate(0deg)',
+                transition: 'all 0.3s ease',
+                ':hover': {
+                  transform: 'scale(1.02)',
+                  boxShadow: '0 16px 56px rgba(255, 153, 0, 0.4)'
+                }
+              }}
+            />
           </Box>
         </Grid>
       </Container>
@@ -400,29 +597,23 @@ function Programs({ carouselCards = [] }) {
       }}
     >
       <Container sx={{ maxWidth: 1200 }}>
-        <Fade bottom>
-          <Heading
-            as="h2"
-            sx={{
-              fontSize: [4, 5, 6],
-              fontWeight: 700,
-              mb: 4,
-              background: orangeGradient,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
-            }}
-          >
-            Programs Happening Now
-          </Heading>
-        </Fade>
-        <Fade bottom delay={200}>
-          <Text as="p" sx={{ fontSize: [2, 3], color: 'muted', mb: 5, maxWidth: 600 }}>
-            <span role="img" aria-label="sparkles">✨</span> Dive into something wild: from hackathons in forests to coding on trains, there’s always something new. <span role="img" aria-label="rocket">🚀</span>
-          </Text>
-        </Fade>
-        <Fade bottom delay={400}>
-          <Carousel cards={carouselCards || []} />
-        </Fade>
+        <Heading
+          as="h2"
+          sx={{
+            fontSize: [4, 5, 6],
+            fontWeight: 700,
+            mb: 4,
+            background: orangeGradient,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}
+        >
+          Programs Happening Now
+        </Heading>
+        <Text as="p" sx={{ fontSize: [2, 3], color: 'muted', mb: 5, maxWidth: 600 }}>
+          <span role="img" aria-label="sparkles">✨</span> Dive into something wild: from hackathons in forests to coding on trains, there’s always something new. <span role="img" aria-label="rocket">🚀</span>
+        </Text>
+        <Carousel cards={carouselCards || []} />
       </Container>
       {/* Orange accent */}
       <Box
@@ -457,64 +648,89 @@ function CallToAction() {
         position: 'relative'
       }}
     >
-      <Fade bottom>
-        <Heading
-          as="h2"
+      <AnimatedBackground pattern="dots" speed={35} opacity={0.05} />
+      <Heading
+        as="h2"
+        sx={{
+          fontSize: ['1.75rem', '2.1rem', '2.5rem'],
+          fontWeight: 700,
+          mb: 3,
+          background: orangeGradient,
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          lineHeight: 1.2
+        }}
+      >
+        Ready to join us?
+      </Heading>
+      <Text 
+        as="p" 
+        sx={{ 
+          fontSize: [2, 3], 
+          color: 'muted', 
+          mb: 4,
+          maxWidth: '600px',
+          mx: 'auto',
+          lineHeight: 1.5
+        }}
+      >
+        Connect with thousands of teen coders. Build projects together, share what you're learning, and find your people.
+      </Text>
+      <Flex 
+        sx={{ 
+          justifyContent: 'center', 
+          gap: 3, 
+          flexWrap: 'wrap',
+          px: [2, 0]
+        }}
+        css={{
+          '@media (max-width: 32em)': {
+            'button, a': {
+              width: '100%',
+              justifyContent: 'center'
+            }
+          }
+        }}
+      >
+        <Button
+          as="a"
+          href="/slack"
           sx={{
-            fontSize: [4, 5],
+            bg: 'orange',
+            color: 'black',
             fontWeight: 700,
-            mb: 3,
-            background: orangeGradient,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
+            fontSize: [2, 3],
+            px: [4, 5],
+            py: [2, 3],
+            borderRadius: 'circle',
+            boxShadow: '0 4px 24px #ff660055',
+            transition: 'transform 0.2s, background-color 0.2s, color 0.2s',
+            ':hover': { bg: 'white', color: 'orange', transform: 'translateY(-5px)' }
           }}
         >
-          Ready to get started?
-        </Heading>
-        <Text as="p" sx={{ fontSize: [2, 3], color: 'muted', mb: 4 }}>
-          Join thousands of teens building the future. Sign up for our newsletter or hop into our Slack to meet other hackers!
-        </Text>
-        <Flex sx={{ justifyContent: 'center', gap: 3, flexWrap: 'wrap' }}>
-          <Button
-            as="a"
-            href="/slack"
-            sx={{
-              bg: 'orange',
-              color: 'black',
-              fontWeight: 700,
-              fontSize: [2, 3],
-              px: [4, 5],
-              py: [2, 3],
-              borderRadius: 'circle',
-              boxShadow: '0 4px 24px #ff660055',
-              transition: '0.2s',
-              ':hover': { bg: 'white', color: 'orange' }
-            }}
-          >
-            Join Slack
-          </Button>
-          <Button
-            as="a"
-            href="#newsletter"
-            sx={{
-              bg: 'transparent',
-              color: 'orange',
-              border: '2px solid',
-              borderColor: 'orange',
-              fontWeight: 700,
-              fontSize: [2, 3],
-              px: [4, 5],
-              py: [2, 3],
-              borderRadius: 'circle',
-              boxShadow: '0 2px 12px #ff660033',
-              ml: 2,
-              ':hover': { bg: 'orange', color: 'black' }
-            }}
-          >
-            Subscribe to Newsletter
-          </Button>
-        </Flex>
-      </Fade>
+          Join Slack
+        </Button>
+        <Button
+          as="a"
+          href="#newsletter"
+          sx={{
+            bg: 'transparent',
+            color: 'orange',
+            border: '2px solid',
+            borderColor: 'orange',
+            fontWeight: 700,
+            fontSize: [2, 3],
+            px: [4, 5],
+            py: [2, 3],
+            borderRadius: 'circle',
+            boxShadow: '0 2px 12px #ff660033',
+            transition: 'transform 0.2s, background-color 0.2s, color 0.2s',
+            ':hover': { bg: 'orange', color: 'black', transform: 'translateY(-5px)' }
+          }}
+        >
+          Newsletter
+        </Button>
+      </Flex>
       {/* Orange accent */}
       <Box
         sx={{
@@ -546,8 +762,8 @@ function BackToTop() {
     <Box
       sx={{
         position: 'fixed',
-        bottom: [16, 32],
-        right: [16, 32],
+        bottom: [16, 24, 32],
+        right: [16, 24, 32],
         zIndex: 100,
         display: show ? 'flex' : 'none',
         alignItems: 'center',
@@ -560,16 +776,17 @@ function BackToTop() {
           bg: 'orange',
           color: 'black',
           borderRadius: 'circle',
-          boxShadow: '0 2px 12px #ff660033',
-          p: 3,
-          fontSize: 3,
-          width: 56,
-          height: 56,
+          boxShadow: '0 2px 16px rgba(255,102,0,0.3)',
+          p: [2, 3],
+          fontSize: [2, 3],
+          width: [48, 56],
+          height: [48, 56],
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           transition: 'box-shadow 0.2s, background 0.2s, color 0.2s, transform 0.2s',
-          ':hover': { bg: 'white', color: 'orange', transform: 'translateY(-4px)' }
+          ':hover': { bg: 'white', color: 'orange', transform: 'translateY(-4px)', boxShadow: '0 4px 20px rgba(255,102,0,0.4)' },
+          ':active': { transform: 'translateY(0)', boxShadow: '0 2px 8px rgba(255,102,0,0.3)' }
         }}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         aria-label="Back to top"
@@ -595,26 +812,7 @@ function SlackSection() {
         overflow: 'hidden'
       }}
     >
-      {/* Animated background dots */}
-      <Box
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 0,
-          pointerEvents: 'none',
-          opacity: 0.07,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E")`,
-          animation: 'bgmove 30s linear infinite'
-        }}
-        css={{
-          '@keyframes bgmove': {
-            '0%': { backgroundPosition: '0 0' },
-            '100%': { backgroundPosition: '200px 200px' }
-          }
-        }}
-      />
+      <AnimatedBackground pattern="dots" speed={30} opacity={0.07} />
       {/* Orange accent */}
       <Box
         sx={{
@@ -631,73 +829,82 @@ function SlackSection() {
         }}
       />
       <Container sx={{ maxWidth: 900, position: 'relative', zIndex: 1 }}>
-        <Fade bottom>
-          <Flex
-            sx={{
-              flexDirection: ['column', 'column', 'row'],
-              alignItems: ['center', 'center', 'flex-start'],
-              bg: 'rgba(24,24,27,0.95)',
-              borderRadius: '2xl',
-              boxShadow: '0 8px 48px #ff660033',
-              p: [3, 4, 5],
-              gap: [3, 4, 5]
-            }}
-          >
-            <Box sx={{ flex: '0 0 auto', textAlign: 'center', mb: [2, 3, 0] }}>
-              <Text sx={{ fontSize: [5, 6, 7], mb: [1, 2] }}>💬</Text>
-              {/* You can swap the emoji for an SVG or image if you want */}
-            </Box>
-            <Box sx={{ flex: '1 1 0', minWidth: 0 }}>
-              <Heading
-                as="h2"
+        <Flex
+          sx={{
+            flexDirection: ['column', 'column', 'row'],
+            alignItems: ['center', 'center', 'flex-start'],
+            bg: 'rgba(24,24,27,0.95)',
+            borderRadius: '2xl',
+            boxShadow: '0 8px 48px #ff660033',
+            p: [3, 4, 5],
+            gap: [3, 4, 5],
+            animation: 'fadeIn 0.8s ease-out',
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+        >
+          <Box sx={{ flex: '0 0 auto', textAlign: 'center', mb: [2, 3, 0] }}>
+            <Text sx={{ fontSize: [5, 6, 7], mb: [1, 2] }}>💬</Text>
+          </Box>
+          <Box sx={{ flex: '1 1 0', minWidth: 0 }}>
+            <Heading
+              as="h2"
+              sx={{
+                fontSize: [3, 3, 4, 5],
+                fontWeight: 800,
+                mb: 2,
+                background: orangeGradient,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                textAlign: ['center', 'center', 'left'],
+                lineHeight: 1.2
+              }}
+            >
+              The Hack Club Slack
+            </Heading>
+            <Text
+              as="p"
+              sx={{
+                fontSize: [1, 2, 3],
+                color: 'muted',
+                mb: 3,
+                maxWidth: 600,
+                textAlign: ['center', 'center', 'left'],
+                lineHeight: 1.5
+              }}
+            >
+              <b>Come for the skills, stay for the people.</b><br />
+              Communication and planning for our open source projects happen in the Slack. Coding is often seen as an isolating activity. Plenty of groups exist for kids who are interested in sports, theater, or chess, but the stereotype of a programmer is a person who sits alone in a dark room. It doesn't have to be this way—in the Hack Club Slack (Discord-style online groupchat), you'll find a group of <b>27,253+</b> fabulous people to talk to, active at all hours.
+            </Text>
+            <Box sx={{ textAlign: ['center', 'center', 'left'] }}>
+              <Button
+                as="a"
+                href="/slack"
                 sx={{
-                  fontSize: [3, 4, 5],
-                  fontWeight: 800,
-                  mb: 2,
-                  background: orangeGradient,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  textAlign: ['center', 'center', 'left']
+                  bg: 'orange',
+                  color: 'black',
+                  fontWeight: 700,
+                  fontSize: [2, 2, 3],
+                  px: [3, 4, 5],
+                  py: [2, 3],
+                  borderRadius: 'circle',
+                  boxShadow: '0 4px 24px #ff660055',
+                  transition: 'transform 0.2s, background-color 0.2s, color 0.2s',
+                  display: 'inline-block',
+                  width: ['100%', 'auto'],
+                  textAlign: 'center',
+                  ':hover': { bg: 'white', color: 'orange', transform: 'translateY(-5px)' }
                 }}
               >
-                The Hack Club Slack
-              </Heading>
-              <Text
-                as="p"
-                sx={{
-                  fontSize: [1, 2, 3],
-                  color: 'muted',
-                  mb: 3,
-                  maxWidth: 600,
-                  textAlign: ['center', 'center', 'left']
-                }}
-              >
-                <b>Come for the skills, stay for the people.</b><br />
-                Communication and planning for our open source projects happen in the Slack. Coding is often seen as an isolating activity. Plenty of groups exist for kids who are interested in sports, theater, or chess, but the stereotype of a programmer is a person who sits alone in a dark room. It doesn't have to be this way—in the Hack Club Slack (Discord-style online groupchat), you'll find a group of <b>27,253+</b> fabulous people to talk to, active at all hours.
-              </Text>
-              <Box sx={{ textAlign: ['center', 'center', 'left'] }}>
-                <Button
-                  as="a"
-                  href="/slack"
-                  sx={{
-                    bg: 'orange',
-                    color: 'black',
-                    fontWeight: 700,
-                    fontSize: [2, 3],
-                    px: [3, 4, 5],
-                    py: [2, 3],
-                    borderRadius: 'circle',
-                    boxShadow: '0 4px 24px #ff660055',
-                    transition: '0.2s',
-                    ':hover': { bg: 'white', color: 'orange' }
-                  }}
-                >
-                  Join our Slack &rarr;
-                </Button>
-              </Box>
+                Join our Slack &rarr;
+              </Button>
             </Box>
-          </Flex>
-        </Fade>
+          </Box>
+        </Flex>
       </Container>
     </Box>
   )
@@ -718,26 +925,7 @@ function NewsletterSection() {
         overflow: 'hidden'
       }}
     >
-      {/* Animated background dots */}
-      <Box
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 0,
-          pointerEvents: 'none',
-          opacity: 0.07,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E")`,
-          animation: 'bgmove 30s linear infinite'
-        }}
-        css={{
-          '@keyframes bgmove': {
-            '0%': { backgroundPosition: '0 0' },
-            '100%': { backgroundPosition: '200px 200px' }
-          }
-        }}
-      />
+      <AnimatedBackground pattern="grid" speed={35} opacity={0.05} direction="horizontal" />
       {/* Orange accent */}
       <Box
         sx={{
@@ -754,135 +942,200 @@ function NewsletterSection() {
         }}
       />
       <Container sx={{ maxWidth: 700, position: 'relative', zIndex: 1 }}>
-        <Fade bottom>
-          <Box
+        <Box
+          sx={{
+            bg: 'rgba(24,24,27,0.95)',
+            borderRadius: 'lg',
+            boxShadow: '0 8px 48px rgba(255, 102, 0, 0.2)',
+            p: [3, 4, 5],
+            animation: 'fadeIn 0.8s ease-out',
+            border: '1px solid',
+            borderColor: 'rgba(255, 153, 0, 0.15)'
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+        >
+          <Flex
             sx={{
-              bg: 'rgba(24,24,27,0.95)',
-              borderRadius: '2xl',
-              boxShadow: '0 8px 48px #ff660033',
-              p: [3, 4, 5],
+              flexDirection: ['column', 'column', 'row'],
+              alignItems: 'center',
+              gap: [3, 4, 5]
             }}
           >
-            <Flex
-              sx={{
-                flexDirection: ['column', 'column', 'row'],
-                alignItems: 'center',
-                gap: [3, 4, 5]
-              }}
-            >
-              <Box sx={{ flex: '0 0 auto', textAlign: 'center', mb: [2, 3, 0] }}>
-                <Text sx={{ fontSize: [5, 6, 7], mb: [1, 2] }}>📬</Text>
+            <Box sx={{ flex: '0 0 auto', textAlign: 'center', mb: [2, 3, 0] }}>
+              <Box
+                sx={{
+                  width: [50, 60, 70],
+                  height: [50, 60, 70],
+                  borderRadius: '50%',
+                  bg: 'rgba(255, 102, 0, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mb: 2,
+                  mx: 'auto'
+                }}
+              >
+                <Text sx={{ fontSize: [4, 5], color: 'orange' }}>📬</Text>
               </Box>
-              <Box sx={{ flex: '1 1 0', minWidth: 0, width: '100%' }}>
-                <Heading
-                  as="h2"
-                  variant="title"
-                  sx={{
-                    background: orangeGradient,
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    mb: 2,
-                    fontSize: [3, 4, 4],
-                    textAlign: ['center', 'center', 'left']
-                  }}
-                >
-                  Stay in the Loop
-                </Heading>
-                <Text
-                  as="p"
-                  variant="lead"
-                  sx={{
-                    color: 'muted',
-                    mb: 3,
-                    maxWidth: 500,
-                    fontSize: [1, 2, 3],
-                    textAlign: ['center', 'center', 'left']
-                  }}
-                >
-                  Get the latest Hack Club news, events, and opportunities delivered straight to your inbox. No spam, just pure hacker goodness!
-                </Text>
-                <Box
-                  as="form"
-                  action="https://hackclub.com/api/newsletter"
-                  method="POST"
-                  sx={{
-                    display: 'flex',
-                    flexDirection: ['column', 'column', 'row'],
-                    gap: 2,
-                    alignItems: ['stretch', 'stretch', 'center'],
-                    mt: 2,
-                    width: '100%'
-                  }}
-                  target="_blank"
-                >
+            </Box>
+            <Box sx={{ flex: '1 1 0', minWidth: 0, width: '100%' }}>
+              <Heading
+                as="h2"
+                variant="title"
+                sx={{
+                  background: orangeGradient,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  mb: 2,
+                  fontSize: [3, 3, 4],
+                  textAlign: ['center', 'center', 'left'],
+                  lineHeight: 1.2,
+                  fontWeight: 800
+                }}
+              >
+                Stay Updated
+              </Heading>
+              <Text
+                as="p"
+                variant="lead"
+                sx={{
+                  color: 'muted',
+                  mb: 3,
+                  maxWidth: 500,
+                  fontSize: [1, 2],
+                  textAlign: ['center', 'center', 'left'],
+                  lineHeight: 1.5
+                }}
+              >
+                Get event invites, news, and opportunities for teen hackers. No spam, just the good stuff.
+              </Text>
+              <Box
+                as="form"
+                action="https://hackclub.com/api/newsletter"
+                method="POST"
+                sx={{
+                  display: 'flex',
+                  flexDirection: ['column', 'column', 'row'],
+                  gap: 2,
+                  alignItems: ['stretch', 'stretch', 'flex-end'],
+                  mt: 2,
+                  width: '100%'
+                }}
+                target="_blank"
+              >
+                <Box sx={{ flex: 1, width: '100%' }}>
+                  <Text as="label" htmlFor="newsletter-name" sx={{ display: 'block', fontSize: 1, mb: 1, color: 'muted' }}>
+                    Your name
+                  </Text>
                   <Input
+                    id="newsletter-name"
                     name="name"
-                    type="text"
+                    type="text" 
                     required
-                    placeholder="Your name"
+                    placeholder="Orpheus"
                     sx={{
                       variant: 'forms.input',
                       bg: 'elevated',
                       color: 'text',
-                      fontSize: [2, 2, 3],
+                      fontSize: 2,
                       borderRadius: 'default',
-                      border: 'none',
+                      border: '1px solid rgba(255,255,255,0.1)',
                       width: '100%',
                       minWidth: 0,
-                      flex: 1,
-                      boxShadow: '0 2px 12px #ff660022',
-                      '::placeholder': { color: 'muted', opacity: 1 },
-                      p: 2
+                      boxShadow: '0 2px 12px rgba(255, 102, 0, 0.1)',
+                      '::placeholder': { color: 'muted', opacity: 0.7 },
+                      p: 2,
+                      transition: 'all 0.2s ease',
+                      height: '44px',
+                      ':focus': {
+                        boxShadow: '0 0 0 2px rgba(255, 102, 0, 0.3)',
+                        borderColor: 'orange',
+                        outline: 'none'
+                      }
                     }}
                     aria-label="Full name"
                     autoComplete="name"
                   />
+                </Box>
+                <Box sx={{ flex: 1, width: '100%' }}>
+                  <Text as="label" htmlFor="newsletter-email" sx={{ display: 'block', fontSize: 1, mb: 1, color: 'muted' }}>
+                    Your email
+                  </Text>
                   <Input
+                    id="newsletter-email"
                     name="email"
                     type="email"
                     required
-                    placeholder="Your email address"
+                    placeholder="orpheus@hackclub.com"
                     sx={{
                       variant: 'forms.input',
                       bg: 'elevated',
                       color: 'text',
-                      fontSize: [2, 2, 3],
+                      fontSize: 2,
                       borderRadius: 'default',
-                      border: 'none',
+                      border: '1px solid rgba(255,255,255,0.1)',
                       width: '100%',
                       minWidth: 0,
-                      flex: 1,
-                      boxShadow: '0 2px 12px #ff660022',
-                      '::placeholder': { color: 'muted', opacity: 1 },
-                      p: 2
+                      boxShadow: '0 2px 12px rgba(255, 102, 0, 0.1)',
+                      '::placeholder': { color: 'muted', opacity: 0.7 },
+                      p: 2,
+                      transition: 'all 0.2s ease',
+                      height: '44px',
+                      ':focus': {
+                        boxShadow: '0 0 0 2px rgba(255, 102, 0, 0.3)',
+                        borderColor: 'orange',
+                        outline: 'none'
+                      }
                     }}
                     aria-label="Email address"
                     autoComplete="email"
                   />
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    sx={{
-                      fontSize: [2, 2, 3],
-                      px: [3, 4, 5],
-                      py: 2,
-                      borderRadius: 'circle',
-                      boxShadow: '0 4px 24px #ff660055',
-                      mt: [2, 2, 0],
-                      width: ['100%', '100%', 'auto'],
-                      fontWeight: 700,
-                      letterSpacing: 'headline',
-                      transition: '0.2s',
-                      ':hover': { bg: 'white', color: 'orange' }
-                    }}
-                  >
-                    Subscribe
-                  </Button>
                 </Box>
+                <Button
+                  type="submit"
+                  variant="primary"
+                  sx={{
+                    fontSize: 2,
+                    px: 4,
+                    py: 2,
+                    borderRadius: 'default',
+                    boxShadow: '0 4px 16px rgba(255, 102, 0, 0.3)',
+                    mt: [2, 2, '24px'], // Align with inputs
+                    width: ['100%', '100%', 'auto'],
+                    minWidth: ['auto', 'auto', '120px'],
+                    fontWeight: 700,
+                    transition: 'all 0.2s ease',
+                    height: '44px',
+                    ':hover': { 
+                      bg: 'white', 
+                      color: 'orange', 
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 6px 20px rgba(255, 102, 0, 0.4)'
+                    }
+                  }}
+                >
+                  Subscribe
+                </Button>
               </Box>
-            </Flex>
-          </Box>
-        </Fade>
+              <Text 
+                sx={{ 
+                  mt: 3, 
+                  fontSize: 1, 
+                  color: 'muted', 
+                  textAlign: ['center', 'center', 'left'],
+                  opacity: 0.8
+                }}
+              >
+                By subscribing, you agree to receive messages about Hack Club opportunities.
+              </Text>
+            </Box>
+          </Flex>
+        </Box>
       </Container>
     </Box>
   )
@@ -904,88 +1157,121 @@ function OuternetHighlight() {
         overflow: 'hidden'
       }}
     >
+      <AnimatedBackground pattern="hexagons" speed={60} opacity={0.06} />
       <Container sx={{ maxWidth: 1100, position: 'relative', zIndex: 1 }}>
         <Flex
           sx={{
             flexDirection: ['column', 'column', 'row'],
             alignItems: 'center',
-            gap: [3, 4, 5]
+            gap: [3, 4, 5],
+            animation: 'fadeIn 1s ease-out',
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0 },
+              to: { opacity: 1 }
+            }
           }}
         >
-          <Fade left>
-            <Box
+          <Box
+            sx={{
+              flex: ['1 1 auto', '1 1 auto', '0 0 400px'],
+              width: '100%',
+              maxWidth: [360, 400, 500],
+              borderRadius: '2xl',
+              overflow: 'hidden',
+              boxShadow: '0 8px 48px #ff660033',
+              mb: [3, 3, 0],
+              mx: ['auto', 'auto', 0],
+              animation: 'slideInLeft 1s ease-out',
+            }}
+            css={{
+              '@keyframes slideInLeft': {
+                from: { opacity: 0, transform: 'translateX(-30px)' },
+                to: { opacity: 1, transform: 'translateX(0)' }
+              }
+            }}
+          >
+            <Image
+              src={OuternetImgFile}
+              alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for Outernet"
               sx={{
-                flex: ['1 1 auto', '1 1 auto', '0 0 400px'],
                 width: '100%',
-                maxWidth: [360, 400, 500],
-                borderRadius: '2xl',
-                overflow: 'hidden',
-                boxShadow: '0 8px 48px #ff660033',
-                mb: [3, 3, 0],
-                mx: ['auto', 'auto', 0]
+                height: 'auto',
+                display: 'block',
+                objectFit: 'cover',
+                transition: 'transform 0.5s ease-out',
+                ':hover': {
+                  transform: 'scale(1.05)'
+                }
+              }}
+            />
+          </Box>
+          <Box 
+            sx={{ 
+              flex: '1 1 0', 
+              px: [0, 0, 4], 
+              textAlign: ['center', 'center', 'left'],
+              animation: 'slideInRight 1s ease-out',
+            }}
+            css={{
+              '@keyframes slideInRight': {
+                from: { opacity: 0, transform: 'translateX(30px)' },
+                to: { opacity: 1, transform: 'translateX(0)' }
+              }
+            }}
+          >
+            <Heading
+              as="h3"
+              sx={{
+                fontSize: [3, 4],
+                fontWeight: 700,
+                mb: 2,
+                color: 'orange'
               }}
             >
-              <Image
-                src={OuternetImgFile}
-                alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for Outernet"
-                sx={{
-                  width: '100%',
-                  height: 'auto',
-                  display: 'block',
-                  objectFit: 'cover'
-                }}
-              />
-            </Box>
-          </Fade>
-          <Fade right>
-            <Box sx={{ flex: '1 1 0', px: [0, 0, 4], textAlign: ['center', 'center', 'left'] }}>
-              <Heading
-                as="h3"
-                sx={{
-                  fontSize: [3, 4],
-                  fontWeight: 700,
-                  mb: 2,
-                  color: 'orange'
-                }}
-              >
-                Outernet: The Ultimate Hack Club Adventure
-              </Heading>
-              <Text
-                as="p"
-                sx={{
-                  fontSize: [1, 2, 3],
-                  color: 'muted',
-                  mb: 3,
-                  maxWidth: [null, null, 500]
-                }}
-              >
-                Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. Campfires, coding, and lifelong friendships—this is where the magic happens!
-              </Text>
-              <Button
-                as="a"
-                href="https://outernet.hackclub.com/"
-                target="_blank"
-                rel="noopener"
-                sx={{
-                  bg: 'orange',
-                  color: 'black',
-                  fontWeight: 700,
-                  fontSize: [2, 2, 3],
-                  px: [3, 4, 5],
-                  py: 2,
-                  borderRadius: 'circle',
-                  boxShadow: '0 4px 24px #ff660055',
-                  transition: '0.2s',
-                  ':hover': { bg: 'white', color: 'orange' }
-                }}
-              >
-                Learn More About Outernet
-              </Button>
-            </Box>
-          </Fade>
+              Outernet: The Ultimate Hack Club Adventure
+            </Heading>
+            <Text
+              as="p"
+              sx={{
+                fontSize: [1, 2, 3],
+                color: 'muted',
+                mb: 3,
+                maxWidth: [null, null, 500]
+              }}
+            >
+              Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. Campfires, coding, and lifelong friendships—this is where the magic happens!
+            </Text>
+            <Button
+              as="a"
+              href="https://outernet.hackclub.com/"
+              target="_blank"
+              rel="noopener"
+              sx={{
+                bg: 'orange',
+                color: 'black',
+                fontWeight: 700,
+                fontSize: [2, 2, 3],
+                px: [3, 4, 5],
+                py: 2,
+                borderRadius: 'circle',
+                boxShadow: '0 4px 24px #ff660055',
+                transition: 'transform 0.2s, background-color 0.2s, color 0.2s, box-shadow 0.2s',
+                ':hover': { 
+                  bg: 'white', 
+                  color: 'orange',
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 8px 32px #ff660088',
+                }
+              }}
+            >
+              Learn More About Outernet
+            </Button>
+          </Box>
         </Flex>
       </Container>
-      {/* Orange accent and dots */}
+      {/* Orange accent */}
       <Box
         sx={{
           position: 'absolute',
@@ -998,25 +1284,6 @@ function OuternetHighlight() {
           filter: 'blur(80px)',
           zIndex: 0,
           pointerEvents: 'none'
-        }}
-      />
-      <Box
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 0,
-          pointerEvents: 'none',
-          opacity: 0.07,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E")`,
-          animation: 'bgmove 30s linear infinite'
-        }}
-        css={{
-          '@keyframes bgmove': {
-            '0%': { backgroundPosition: '0 0' },
-            '100%': { backgroundPosition: '200px 200px' }
-          }
         }}
       />
     </Box>
@@ -1037,38 +1304,62 @@ function JuiceAdventureSection() {
         overflow: 'hidden'
       }}
     >
+      <AnimatedBackground pattern="dots" speed={45} opacity={0.07} />
       <Container sx={{ maxWidth: 1100, position: 'relative', zIndex: 1 }}>
-        <Fade bottom>
-          <Heading
-            as="h2"
-            sx={{
-              fontSize: ['2rem', '2.5rem', '3rem'],
-              fontWeight: 800,
-              mb: [3, 4],
-              background: orangeGradient,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              textAlign: 'center'
-            }}
-          >
-            Hack Club JUICE: Pop-Up Hacker Café in Shanghai 🇨🇳
-          </Heading>
-        </Fade>
-        <Grid columns={[1, 2]} gap={[4, 5]} sx={{ alignItems: 'center', mt: [3, 4] }}>
-          <Box>
-            <Fade left>
+        <Heading
+          as="h2"
+          sx={{
+            fontSize: ['1.7rem', '2.1rem', '2.5rem', '3rem'],
+            fontWeight: 800,
+            mb: [3, 4],
+            background: orangeGradient,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textAlign: 'center',
+            animation: 'fadeIn 0.8s ease-out',
+            lineHeight: 1.2
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+        >
+          Hack Club JUICE: Pop-Up Hacker Café in Shanghai 🇨🇳
+        </Heading>
+        <Grid 
+          columns={[1, null, 2]} 
+          gap={[4, 5]} 
+          sx={{ 
+            alignItems: 'center', 
+            mt: [3, 4],
+            animation: 'fadeIn 0.8s ease-out 0.2s backwards',
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+        >          <Box>
+            <Flex sx={{ flexDirection: 'column', gap: 3 }}>
               <Image
                 src="/home/juice-airport.jpg"
                 alt="Hack Clubbers at the airport heading to Shanghai for JUICE"
                 sx={{
                   width: '100%',
-                  maxWidth: 420,
+                  maxWidth: [340, 380, 420],
+                  height: 'auto',
                   borderRadius: '2xl',
                   boxShadow: '0 8px 48px #ff660033',
                   objectFit: 'cover',
-                  mb: 3,
                   mx: 'auto',
-                  display: 'block'
+                  display: 'block',
+                  transition: 'transform 0.3s ease-out',
+                  ':hover': {
+                    transform: 'scale(1.02)'
+                  }
                 }}
               />
               <Image
@@ -1076,61 +1367,69 @@ function JuiceAdventureSection() {
                 alt="Hack Clubbers at the hotel in Shanghai for JUICE"
                 sx={{
                   width: '100%',
-                  maxWidth: 420,
+                  maxWidth: [340, 380, 420],
+                  height: 'auto',
                   borderRadius: '2xl',
                   boxShadow: '0 8px 48px #ff990055',
                   objectFit: 'cover',
                   mx: 'auto',
-                  display: 'block'
+                  display: 'block',
+                  transition: 'transform 0.3s ease-out',
+                  ':hover': {
+                    transform: 'scale(1.02)'
+                  }
                 }}
               />
-            </Fade>
+            </Flex>
           </Box>
           <Box>
-            <Fade right>
-              <Text
-                as="p"
-                sx={{
-                  fontSize: [2, 3],
-                  color: 'muted',
-                  mb: 3,
-                  lineHeight: 1.6
-                }}
-              >
-                <b>Announcing Hack Club’s next grand adventure, JUICE!!</b> <br />
-                This April, 30+ Hack Clubbers traveled to Shanghai, China 🇨🇳, to run <b>#juice</b>—the world’s first pop-up hacker cafe! For 2 months, Hack Clubbers built their own video games, all completely <b>languageless</b> (no spoken or written words)! Then, for 7 days, we demoed our games in a pop-up cafe for anyone off the streets of Shanghai to come in and play.
-                <br /><br />
-                <b>BUILD A GAME:</b> From February 1st to April 1st, teens collaborated in #juice, adding their ideas to Juice's GitHub and spending 100+ hours creating epic, languageless games. Everyone who shipped a game received travel stipend support—beginners were welcome!
-                <br /><br />
-                <b>RUN A POP-UP CAFÉ:</b> From April 4th to 11th, Hack Clubbers ran a pop-up café in Shanghai, building custom booths for their games and welcoming visitors from all over the city. Hotel stays, food, and all travel were paid for by Hack Club, making it an unforgettable adventure for many who had never left their home country before.
-                <br /><br />
-                <b>This adventure was for YOU—the first-time game builder, the first-time traveler. More new adventures like JUICE are coming this year!</b>
-              </Text>
-              <Button
-                as="a"
-                href="https://juice.hackclub.com/"
-                target="_blank"
-                rel="noopener"
-                sx={{
-                  bg: 'orange',
-                  color: 'black',
-                  fontWeight: 700,
-                  fontSize: [2, 2, 3],
-                  px: [3, 4, 5],
-                  py: 2,
-                  borderRadius: 'circle',
-                  boxShadow: '0 4px 24px #ff660055',
-                  transition: '0.2s',
-                  ':hover': { bg: 'white', color: 'orange' }
-                }}
-              >
-                Learn More About JUICE
-              </Button>
-            </Fade>
+            <Text
+              as="p"
+              sx={{
+                fontSize: [2, 3],
+                color: 'muted',
+                mb: 3,
+                lineHeight: 1.6
+              }}
+            >
+              <b>Announcing Hack Club's next grand adventure, JUICE!!</b> <br />
+              This April, 30+ Hack Clubbers traveled to Shanghai, China 🇨🇳, to run <b>#juice</b>—the world's first pop-up hacker cafe! For 2 months, Hack Clubbers built their own video games, all completely <b>languageless</b> (no spoken or written words)! Then, for 7 days, we demoed our games in a pop-up cafe for anyone off the streets of Shanghai to come in and play.
+              <br /><br />
+              <b>BUILD A GAME:</b> From February 1st to April 1st, teens collaborated in #juice, adding their ideas to Juice's GitHub and spending 100+ hours creating epic, languageless games. Everyone who shipped a game received travel stipend support—beginners were welcome!
+              <br /><br />
+              <b>RUN A POP-UP CAFÉ:</b> From April 4th to 11th, Hack Clubbers ran a pop-up café in Shanghai, building custom booths for their games and welcoming visitors from all over the city. Hotel stays, food, and all travel were paid for by Hack Club, making it an unforgettable adventure for many who had never left their home country before.
+              <br /><br />
+              <b>This adventure was for YOU—the first-time game builder, the first-time traveler. More new adventures like JUICE are coming this year!</b>
+            </Text>
+            <Button
+              as="a"
+              href="https://juice.hackclub.com/"
+              target="_blank"
+              rel="noopener"
+              sx={{
+                bg: 'orange',
+                color: 'black',
+                fontWeight: 700,
+                fontSize: [2, 2, 3],
+                px: [3, 4, 5],
+                py: 2,
+                borderRadius: 'circle',
+                boxShadow: '0 4px 24px #ff660055',
+                transition: 'transform 0.2s, background-color 0.2s, color 0.2s, box-shadow 0.2s',
+                ':hover': { 
+                  bg: 'white', 
+                  color: 'orange',
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 8px 32px #ff660088',
+                }
+              }}
+            >
+              Learn More About JUICE
+            </Button>
           </Box>
         </Grid>
       </Container>
-      {/* Orange accent and dots */}
+      {/* Orange accent */}
       <Box
         sx={{
           position: 'absolute',
@@ -1145,30 +1444,10 @@ function JuiceAdventureSection() {
           pointerEvents: 'none'
         }}
       />
-      <Box
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 0,
-          pointerEvents: 'none',
-          opacity: 0.07,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E")`,
-          animation: 'bgmove 30s linear infinite'
-        }}
-        css={{
-          '@keyframes bgmove': {
-            '0%': { backgroundPosition: '0 0' },
-            '100%': { backgroundPosition: '200px 200px' }
-          }
-        }}
-      />
     </Box>
   )
 }
 
-// Fix for TopicsSection function - the function was missing in our implementation
 function TopicsSection() {
   const topics = [
     {
@@ -1220,57 +1499,67 @@ function TopicsSection() {
         overflow: 'hidden'
       }}
     >
+      <AnimatedBackground pattern="circuit" speed={35} />
       <Container sx={{ maxWidth: 1100, position: 'relative', zIndex: 1 }}>
-        <Fade bottom>
-          <Heading
-            variant="title"
-            sx={{
-              fontSize: ['1.75rem', '2.25rem', '2.5rem'],
-              background: orangeGradient,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              textAlign: 'center',
-              mb: [4, 5]
-            }}
-          >
-            What You'll Actually Do Here
-          </Heading>
-        </Fade>
-        <Grid columns={[1, 1, 3]} gap={[4, 4, 5]}>
+        <Heading
+          variant="title"
+          sx={{
+            fontSize: ['1.6rem', '2rem', '2.5rem'],
+            background: orangeGradient,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textAlign: 'center',
+            mb: [4, 5],
+            animation: 'fadeIn 0.8s ease-out',
+            lineHeight: 1.2
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+        >
+          What You'll Actually Do Here
+        </Heading>
+        <Grid columns={[1, null, 3]} gap={[4, 4, 5]}>
           {topics.map((t, i) => (
-            <Slide
+            <Box
               key={i}
-              {...(i === 0 ? { left: true } : i === 1 ? { bottom: true } : { right: true })}
-              delay={i * 100}
+              sx={{
+                bg: 'rgba(24,24,27,0.95)',
+                borderRadius: '2xl',
+                boxShadow: '0 4px 24px #ff660033',
+                p: [3, 4, 5],
+                textAlign: 'left',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                minHeight: [180, 200, 220],
+                transition: 'transform 0.2s, box-shadow 0.2s',
+                ':hover': {
+                  transform: 'translateY(-8px)',
+                  boxShadow: '0 12px 48px #ff660055',
+                },
+                animation: 'fadeIn 0.8s ease-out backwards',
+                animationDelay: `${Math.min(i * 0.2, 0.6)}s`, // Cap delay at 0.6s for accessibility
+              }}
+              css={{
+                '@keyframes fadeIn': {
+                  from: { opacity: 0, transform: 'translateY(20px)' },
+                  to: { opacity: 1, transform: 'translateY(0)' }
+                }
+              }}
             >
-              <Box
-                sx={{
-                  bg: 'rgba(24,24,27,0.95)',
-                  borderRadius: '2xl',
-                  boxShadow: '0 4px 24px #ff660033',
-                  p: [3, 4, 5],
-                  textAlign: 'left',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'flex-start',
-                  minHeight: [180, 200, 220],
-                  transition: 'transform 0.2s, box-shadow 0.2s',
-                  ':hover': {
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 48px #ff660055',
-                  }
-                }}
-              >
-                <Text sx={{ fontSize: [4, 5, 6], mb: 2 }}>{t.icon}</Text>
-                <Heading as="h3" sx={{ color: 'orange', mb: 2, fontSize: [2, 3] }}>{t.title}</Heading>
-                <Text sx={{ color: 'muted', fontSize: [1, 2] }}>{t.desc}</Text>
-              </Box>
-            </Slide>
+              <Text sx={{ fontSize: [4, 5, 6], mb: 2 }}>{t.icon}</Text>
+              <Heading as="h3" sx={{ color: 'orange', mb: 2, fontSize: [2, 3] }}>{t.title}</Heading>
+              <Text sx={{ color: 'muted', fontSize: [1, 2], lineHeight: 1.5 }}>{t.desc}</Text>
+            </Box>
           ))}
         </Grid>
       </Container>
 
-      {/* Orange accent and dots */}
+      {/* Orange accent */}
       <Box
         sx={{
           position: 'absolute',
@@ -1283,25 +1572,6 @@ function TopicsSection() {
           filter: 'blur(80px)',
           zIndex: 0,
           pointerEvents: 'none'
-        }}
-      />
-      <Box
-        sx={{
-          position: 'absolute',
-          inset: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 0,
-          pointerEvents: 'none',
-          opacity: 0.07,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E")`,
-          animation: 'bgmove 30s linear infinite'
-        }}
-        css={{
-          '@keyframes bgmove': {
-            '0%': { backgroundPosition: '0 0' },
-            '100%': { backgroundPosition: '200px 200px' }
-          }
         }}
       />
     </Box>
@@ -1357,17 +1627,26 @@ function ShowcaseSection() {
         overflow: 'hidden'
       }}
     >
+      <AnimatedBackground pattern="grid" speed={50} opacity={0.06} />
       <Container sx={{ maxWidth: 1200, position: 'relative', zIndex: 1 }}>
         <Heading
           as="h2"
           sx={{
-            fontSize: ['1.75rem', '2.25rem', '2.5rem', '3rem'],
+            fontSize: ['1.6rem', '2rem', '2.5rem', '3rem'],
             fontWeight: 800,
             mb: [3, 4, 5],
             background: orangeGradient,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            textAlign: 'center'
+            textAlign: 'center',
+            animation: 'fadeIn 0.8s ease-out',
+            lineHeight: 1.2
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
           }}
         >
           What Makes Hack Club Special?
@@ -1380,64 +1659,72 @@ function ShowcaseSection() {
                 flexDirection: ['column', 'column', i % 2 === 0 ? 'row' : 'row-reverse'],
                 alignItems: 'center',
                 mb: [4, 5, 6],
-                gap: [3, 4, 5]
+                gap: [3, 4, 5],
+                animation: i % 2 === 0 ? 'fadeInLeft 0.8s ease-out backwards' : 'fadeInRight 0.8s ease-out backwards',
+                animationDelay: `${Math.min(i * 0.2, 0.8)}s`, // Cap delay at 0.8s for accessibility
               }}
-            >
-              <Slide
-                left={i % 2 === 0}
-                right={i % 2 !== 0}
-                duration={900}
+              css={{
+                '@keyframes fadeInLeft': {
+                  from: { opacity: 0, transform: 'translateX(-20px)' }, // Reduced movement for accessibility
+                  to: { opacity: 1, transform: 'translateX(0)' }
+                },
+                '@keyframes fadeInRight': {
+                  from: { opacity: 0, transform: 'translateX(20px)' }, // Reduced movement for accessibility
+                  to: { opacity: 1, transform: 'translateX(0)' }
+                }
+              }}
+            >              <Box
+                sx={{
+                  flex: ['1 1 auto', '1 1 auto', '0 0 400px'],
+                  width: '100%',
+                  maxWidth: [260, 300, 400, 480],
+                  borderRadius: '2xl',
+                  overflow: 'hidden',
+                  boxShadow: '0 8px 48px #ff660033',
+                  mb: [3, 3, 0],
+                  mx: ['auto', 'auto', 0],                  transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out',
+                  ':hover': {
+                    transform: 'scale(1.05)',
+                    boxShadow: '0 16px 60px rgba(255, 102, 0, 0.4)',
+                  }
+                }}
               >
-                <Box
+                <Image
+                  src={item.img}
+                  alt={item.alt}
                   sx={{
-                    flex: ['1 1 auto', '1 1 auto', '0 0 340px'],
                     width: '100%',
-                    maxWidth: [300, 340, 420],
-                    borderRadius: '2xl',
-                    overflow: 'hidden',
-                    boxShadow: '0 8px 48px #ff660033',
-                    mb: [3, 3, 0],
-                    mx: ['auto', 'auto', 0]
+                    height: 'auto',
+                    display: 'block',
+                    objectFit: 'cover'
+                  }}
+                />
+              </Box>
+              <Box sx={{ flex: '1 1 0', px: [2, 3, 4], textAlign: ['center', 'center', 'left'] }}>
+                <Heading
+                  as="h3"
+                  sx={{
+                    fontSize: [2, 3, 4],
+                    fontWeight: 700,
+                    mb: 2,
+                    color: 'orange'
                   }}
                 >
-                  <Image
-                    src={item.img}
-                    alt={item.alt}
-                    sx={{
-                      width: '100%',
-                      height: 'auto',
-                      display: 'block',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </Box>
-              </Slide>
-              <Fade bottom duration={900}>
-                <Box sx={{ flex: '1 1 0', px: [2, 3, 4], textAlign: ['center', 'center', 'left'] }}>
-                  <Heading
-                    as="h3"
-                    sx={{
-                      fontSize: [2, 3, 4],
-                      fontWeight: 700,
-                      mb: 2,
-                      color: 'orange'
-                    }}
-                  >
-                    {item.title}
-                  </Heading>
-                  <Text
-                    as="p"
-                    sx={{
-                      fontSize: [1, 2, 3],
-                      color: 'muted',
-                      mb: 0,
-                      maxWidth: [null, null, 500]
-                    }}
-                  >
-                    {item.desc}
-                  </Text>
-                </Box>
-              </Fade>
+                  {item.title}
+                </Heading>
+                <Text
+                  as="p"
+                  sx={{
+                    fontSize: [1, 2, 3],
+                    color: 'muted',
+                    mb: 0,
+                    maxWidth: [null, null, 500],
+                    lineHeight: 1.5
+                  }}
+                >
+                  {item.desc}
+                </Text>
+              </Box>
             </Flex>
           ))}
         </Box>
@@ -1491,9 +1778,7 @@ export default function Home({ carouselCards }) {
         <link
           rel="stylesheet"
           href="https://assets.hackclub.com/fonts/Phantom_Sans_0.7/web.css"
-        />
-        {/* Brand colors for theme-ui (optional, if not already in theme.js) */}
-        <style>{`
+        />        {/* Brand colors for theme-ui (optional, if not already in theme.js) */}        <style>{`
           :root {
             --hackclub-orange: #ff8c37;
             --hackclub-red: #ec3750;
@@ -1510,12 +1795,54 @@ export default function Home({ carouselCards }) {
             padding: 0;
             -webkit-text-size-adjust: 100%;
             overflow-x: hidden; /* Prevent horizontal scroll */
-            width: 100vw;
+            width: 100%;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+          }
+          *, *::before, *::after {
             box-sizing: border-box;
           }
           #__next {
-            width: 100vw;
+            width: 100%;
             overflow-x: hidden;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            * {
+              animation-duration: 0.01ms !important;
+              animation-iteration-count: 1 !important;
+              transition-duration: 0.01ms !important;
+              scroll-behavior: auto !important;
+            }
+          }
+          button, a {
+            touch-action: manipulation;
+          }
+          a:focus, button:focus, input:focus {
+            outline: 2px solid var(--hackclub-orange);
+            outline-offset: 2px;
+          }
+          @media (max-width: 32em) {
+            .mobile-full-width {
+              width: 100% !important;
+            }
+          }
+          img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+          }
+          /* Improve mobile tap targets */
+          @media (max-width: 32em) {
+            button, a, input[type="submit"] {
+              min-height: 44px;
+              min-width: 44px;
+            }
+          }
+          /* Smooth font rendering */
+          body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
           }
         `}</style>
       </Head>
@@ -1541,11 +1868,10 @@ export async function getStaticProps() {
   let carouselCards = [];
   
   try {
-    // Simple, direct import with fallback
     carouselCards = require('../lib/carousel.json');
   } catch (err) {
-    console.error("Error loading carousel data:", err.message || err);
-    // Silently fall back to empty array
+    console.error("Error loading carousel data:", err);
+    // Return empty array if data can't be loaded
   }
 
   return {

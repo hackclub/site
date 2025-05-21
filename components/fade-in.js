@@ -6,7 +6,7 @@ import { keyframes } from '@emotion/react'
 const fadeIn = keyframes({ from: { opacity: 0 }, to: { opacity: 1 } })
 
 const Wrapper = styled(Box)`
-  @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 600px) {
     animation-name: ${fadeIn};
     animation-fill-mode: backwards;
   }
