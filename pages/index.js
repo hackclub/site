@@ -27,6 +27,7 @@ import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
 import OuternetImgFile from '../public/home/outernet-110.jpg'
+import AssembleBannerImg from "../public/banner.png"
 import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
@@ -274,94 +275,17 @@ function Page({
             minHeight: ['50vh'],
             textAlign: 'center',
             position: 'relative',
-            overflow: 'hidden',
-            backgroundImage: `
-              linear-gradient(to bottom right, rgba(0, 191, 255, 0.1), rgba(138, 43, 226, 0.1)),
-              linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-              linear-gradient(rgba(255, 255, 255, 0.025) 2px, transparent 2px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.025) 2px, transparent 2px)
-            `,
-            backgroundSize: `
-              100% 100%,
-              20px 20px,
-              20px 20px,
-              100px 100px,
-              100px 100px
-            `,
-            '@keyframes gridFloat': {
-              '0%': {
-                backgroundPosition: '0 0'
-              },
-              '100%': {
-                backgroundPosition: '20px 20px'
-              }
-            },
-            animation: 'gridFloat 20s linear infinite',
-            '&::before': {
-              content: '""',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: 'radial-gradient(circle at 50% 50%, rgba(5, 8, 26, 0), rgba(5, 8, 26, 0.95) 70%)',
-              pointerEvents: 'none'
-            },
-            '&::after': {
-              content: '""',
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: '150px',
-              background: 'linear-gradient(to bottom, transparent, rgba(5, 8, 26, 1))',
-              pointerEvents: 'none',
-              zIndex: 2
-            }
+            overflow: 'hidden'
           }}
         >
-          {/* Programming Language Icons */}
-          <Box
-            sx={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              zIndex: 1,
-              opacity: 0.2
-            }}
-          >
-            {[
-              { Icon: SiJavascript, left: '10%', top: '20%', delay: '0s' },
-              { Icon: SiPython, left: '20%', top: '60%', delay: '0.5s' },
-              { Icon: SiHtml5, left: '80%', top: '15%', delay: '1s' },
-              { Icon: SiCss3, left: '85%', top: '70%', delay: '1.5s' },
-              { Icon: SiReact, left: '45%', top: '25%', delay: '2s' },
-              { Icon: SiNodedotjs, left: '15%', top: '85%', delay: '2.5s' },
-              { Icon: SiSwift, left: '75%', top: '45%', delay: '3s' },
-              { Icon: SiGo, left: '35%', top: '75%', delay: '3.5s' },
-              { Icon: SiRust, left: '90%', top: '85%', delay: '4s' },
-              { Icon: SiKotlin, left: '5%', top: '40%', delay: '4.5s' }
-            ].map(({ Icon, left, top, delay }, i) => (
-              <Box
-                key={i}
-                sx={{
-                  position: 'absolute',
-                  left,
-                  top,
-                  color: 'white',
-                  fontSize: ['36px', '48px', '64px'],
-                  animation: 'float 6s infinite',
-                  animationDelay: delay,
-                  animationTimingFunction: 'ease-in-out'
-                }}
-              >
-                <Icon />
-              </Box>
-            ))}
-          </Box>
+          <BGImg
+            src={AssembleBannerImg}
+            alt="Hack Club hero background"
+            gradient="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7))"
+            width={1920}
+            height={1080}
+            priority
+          />
           <Box
             sx={{
               maxWidth: ['90vw', '85vw', '80vw'],
@@ -447,8 +371,6 @@ function Page({
               fontSize: ['16px', '18px'],
               color: 'cyberpunk.textHighlight',
               opacity: 0.95,
-              borderBottom: '1px solid',
-              borderColor: 'cyberpunk.gridLine'
             }}>
               <Text sx={{
                 color: '#33d6a6',
