@@ -26,10 +26,11 @@ const rgbaBgColor = (props, opacity) =>
 //         -webkit-backdrop-filter: saturate(180%) blur(20px);
 //         backdrop-filter: saturate(180%) blur(20px);
 //       `
+
 const fixed = props =>
-  (props.style?.['--scrolled'] || props.style?.['--toggled']) &&
+  (props.scrolled || props.toggled) &&
   css`
-    background-color: ${props.style?.['--bgColor'] || [255, 255, 255]};
+    background-color: ${rgbaBgColor({ bgColor: props.bgColor }, 1)};
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       background-color: transparent;
@@ -122,14 +123,17 @@ const NavBar = styled(Box, {
     padding: ${theme.space[3]}px;
     text-decoration: none;
     @media (min-width: 56em) {
-      color: ${props => props.color && theme.colors[props.color] ? theme.colors[props.color] : props.color};
+      color: ${props =>
+    props.color && theme.colors[props.color]
+      ? theme.colors[props.color]
+      : props.color};
     }
   }
 `
 
 const Navigation = props => (
   // REMINDER: This should be no more than 7 links :)
-  (<NavBar role="navigation" {...props}>
+  <NavBar role="navigation" {...props}>
     <NextLink href="/clubs" passHref legacyBehavior>
       <Link>Clubs</Link>
     </NextLink>
@@ -144,7 +148,7 @@ const Navigation = props => (
     <NextLink href="https://toolbox.hackclub.com/" passHref legacyBehavior>
       <Link>Toolbox</Link>
     </NextLink>
-  </NavBar>)
+  </NavBar>
 )
 
 const ToggleContainer = styled(Flex)`
@@ -167,7 +171,6 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
 
   const onScroll = () => {
     const newState = window.scrollY >= 16
-
     setScrolled(newState)
   }
 
@@ -176,20 +179,35 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   }
 
   useEffect(() => {
+    let mobileQuery
+    let handleMobileChange
+
     if (typeof window !== 'undefined') {
       if (!unfixed) {
         window.addEventListener('scroll', onScroll)
       }
 
-      const mobileQuery = window.matchMedia('(max-width: 48em)')
-      mobileQuery.addEventListener('change', () => {
-        setMobile(true)
-        setToggled(false)
-      })
+      mobileQuery = window.matchMedia('(max-width: 48em)')
+      setMobile(mobileQuery.matches)
+
+      handleMobileChange = e => {
+        setMobile(e.matches)
+        if (!e.matches) {
+          setToggled(false)
+        }
+      }
+      mobileQuery.addEventListener('change', handleMobileChange)
     }
 
     return () => {
-      window.removeEventListener('scroll', onScroll)
+      if (typeof window !== 'undefined') {
+        if (!unfixed) {
+          window.removeEventListener('scroll', onScroll)
+        }
+        if (mobileQuery && handleMobileChange) {
+          mobileQuery.removeEventListener('change', handleMobileChange)
+        }
+      }
     }
   }, [unfixed])
 
@@ -204,14 +222,19 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       ? 'slate'
       : color
 
+  const effectiveBgColor = bgColor || (dark ? [32, 34, 36] : [255, 255, 255])
+
   return (
     <Root
       {...props}
+      scrolled={scrolled}
+      toggled={toggled}
+      dark={dark}
+      bgColor={effectiveBgColor}
       sx={{
         '--scrolled': scrolled ? 1 : 0,
         '--toggled': toggled ? 1 : 0,
-        '--dark': dark ? 1 : 0,
-        '--bgColor': bgColor || (dark ? [32, 34, 36] : [255, 255, 255])
+        '--dark': dark ? 1 : 0
       }}
       as="header"
     >
@@ -229,13 +252,13 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       </Content>
       <Navigation
         as="nav"
-        aria-hidden={!mobile}
         isMobile
-        toggled={toggled}
+        toggled={toggled && mobile}
+        aria-hidden={!mobile || !toggled}
         color={baseColor}
         dark={dark}
       />
-      {toggled && <ScrollLock />}
+      {toggled && mobile && <ScrollLock />}
     </Root>
   )
 }
