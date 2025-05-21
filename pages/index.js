@@ -877,7 +877,9 @@ function Page({
                         borderRadius: 'default',
                         mx: 0,
                         whiteSpace: 'nowrap',
-                        color: '#8A2BE2' // Neon Purple
+                        background: 'linear-gradient(to right, #00BFFF, #F002ED)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent'
                       }}
                     >
                       open source
