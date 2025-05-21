@@ -194,7 +194,7 @@ const Footer = ({
   sx={{
     display: ['none', null, 'block'],
     pl: 3,
-    mt: '-1rem'
+    mt: '-0.9rem'
   }}
 >
   <Ladder />
