@@ -26,16 +26,15 @@ const nextConfig = {
     ignoreDuringBuilds: true
   },
   trailingSlash: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'], // Includes 'md'
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
     domains: [
+      // Remove 'dl.airtable.com', 'v5.airtableusercontent.com' to avoid Airtable image domains
       'hackclub.com',
-      'dl.airtable.com',
       'emoji.slack-edge.com',
       'cdn.glitch.com',
       'scrapbook.hackclub.com',
       'assets.hackclub.com',
-      'v5.airtableusercontent.com',
       'hcb.hackclub.com'
     ],
     remotePatterns: [
@@ -46,6 +45,7 @@ const nextConfig = {
     ]
   },
   webpack: (config, { isServer }) => {
+    // Optionally, you can stub out any server-only modules here if needed
     return config;
   },
   async redirects() {
