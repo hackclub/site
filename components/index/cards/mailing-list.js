@@ -14,7 +14,7 @@ const MailingList = () => {
   return (
     <Box
       sx={{
-        bg: 'cyberpunk.darkerBg',
+        bg: 'cyberpunk.lighterBg',
         borderRadius: '12px',
         maxWidth: 'layout',
         mx: 'auto',

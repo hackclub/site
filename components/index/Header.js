@@ -4,7 +4,7 @@ import { withCommas } from '../../lib/utils'
 
 const Header = ({ slackData = { total_members_count: 60000 } }) => (
   <Box as="header" sx={{
-    bg: 'cyberpunk.darkerBg',
+    bg: 'cyberpunk.lighterBg',
     pt: [7, 8, '180px'],
     pb: [6, 7, '160px'],
     minHeight: ['50vh'],

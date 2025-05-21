@@ -14,7 +14,6 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
-import BGImg from '../components/background-image'
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
@@ -26,7 +25,6 @@ import Clubs from '../components/index/cards/clubs'
 import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
-import OuternetImgFile from '../public/home/outernet-110.jpg'
 import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
@@ -56,16 +54,42 @@ import {
 } from 'react-icons/si'
 import theme from '../lib/theme'
 import { ThemeProvider } from 'theme-ui'
-import carouselCardsData from '../lib/carousel.json';
-import { Slack as Slacky } from './api/slack';
-import { fetchGitHub } from './api/github';
-import { fetchStars } from './api/stars';
-import { getGames } from './api/games';
-import { getConsoles } from './api/sprig-console';
+import carouselCardsData from '../lib/carousel.json'
+import { Slack as Slacky } from './api/slack'
+import { fetchGitHub } from './api/github'
+import { fetchStars } from './api/stars'
+import { getGames } from './api/games'
+import { getConsoles } from './api/sprig-console'
 /** @jsxImportSource theme-ui */
 
-// Define cyberpunk variants locally for the homepage
+const cyberpunkColorPalette = {
+  background: '#0A0F2C',
+  lightBg: '#120D2B',
+  lighterBg: '#1A1438',
+  cardBg: '#1F1A40',
+  text: '#E0E0E0',
+  textHighlight: '#00FFFF',
+  textSecondary: '#B0B0D0',
+  textMuted: '#7F7F9F',
+  accentCyan: '#00FFFF',
+  accentMagenta: '#FF00FF',
+  accentLime: '#39FF14',
+  accentElectricBlue: '#00BFFF',
+  accentNeonPurple: '#8A2BE2',
+  accentHotPinkGradient: '#F002ED',
+  accentHotPinkFooter: '#E93187',
+  accentGreen: '#33d6a6',
+  gridLine: 'rgba(138, 43, 226, 0.2)',
+  white: '#FFFFFF',
+  black: '#000000',
+  buttonGradient: 'linear-gradient(to right, #00BFFF, #8A2BE2)',
+  titleGradient: 'linear-gradient(to right, #00BFFF, #F002ED)'
+}
+
 const cyberpunkVariants = {
+  colors: {
+    cyberpunk: cyberpunkColorPalette
+  },
   text: {
     title: {
       fontSize: [5, 6],
@@ -77,37 +101,86 @@ const cyberpunkVariants = {
       fontSize: [2, 3],
       fontWeight: 'body',
       lineHeight: 'subheading',
-      color: 'cyberpunk.text'
+      color: 'cyberpunk.textSecondary'
     },
     headline: {
       variant: 'text.title',
       fontSize: [4, 5, 6],
       mt: 3,
-      mb: 3,
-      color: 'cyberpunk.textHighlight'
+      mb: 3
     },
     ultratitle: {
       variant: 'text.title',
       fontSize: [5, 6, 7],
-      mb: 4,
-      color: 'cyberpunk.textHighlight'
+      mb: 4
     },
     lead: {
       fontSize: [2, 3],
       maxWidth: 'copyPlus',
-      color: 'cyberpunk.text'
+      color: 'cyberpunk.textSecondary'
+    },
+    eyebrow: {
+      fontSize: ['18px', 1, 2],
+      textAlign: 'center',
+      color: 'cyberpunk.textSecondary',
+      textTransform: 'uppercase',
+      letterSpacing: '0.1em',
+      mb: 2
+    },
+    ctaLabel: {
+      fontSize: [1, '16px'],
+      color: 'cyberpunk.textMuted',
+      textAlign: 'center'
     }
   },
   buttons: {
     primary: {
       textTransform: 'uppercase',
-      backgroundImage: 'linear-gradient(to right, #00BFFF, #8A2BE2)',
+      backgroundImage: cyberpunkColorPalette.buttonGradient,
+      color: 'cyberpunk.white',
       '&:hover': {
         transform: 'scale(1.05)',
-        transition: 'transform 0.2s ease-in-out'
+        transition: 'transform 0.2s ease-in-out',
+        boxShadow:
+          '0 0 15px rgba(0, 191, 255, 0.6), 0 0 20px rgba(138, 43, 226, 0.5)'
       },
       gap: 2,
-      color: 'white'
+      border: 'none'
+    },
+    ctaLg: {
+      variant: 'buttons.primary',
+      px: [4, 5],
+      py: [3, 4],
+      fontSize: ['20px', 3, 4],
+      fontWeight: 'bold',
+      borderRadius: 'default'
+    }
+  },
+  cards: {
+    primary: {
+      borderRadius: 'extra',
+      boxShadow: '0 6px 25px rgba(0,0,0,0.6)',
+      p: [3, null, 4],
+      bg: 'cyberpunk.cardBg',
+      color: 'cyberpunk.text',
+      h3: {
+        color: 'cyberpunk.textHighlight',
+        fontSize: ['22px', 2, 3]
+      },
+      p: {
+        color: 'cyberpunk.textSecondary',
+        fontSize: ['18px', '20px', '22px']
+      }
+    },
+    interactive: {
+      variant: 'cards.primary',
+      textDecoration: 'none',
+      transition:
+        'transform 0.25s ease-out, box-shadow 0.25s ease-out',
+      '&:hover,&:focus': {
+        transform: 'translateY(-5px) scale(1.01)',
+        boxShadow: `0 0 25px ${cyberpunkColorPalette.accentCyan}, 0 0 12px ${cyberpunkColorPalette.accentCyan}`
+      }
     }
   }
 }
@@ -117,10 +190,8 @@ function Page({
   bankData,
   slackData,
   gitHubData,
-  gitHubDataLength,
   consoleCount,
   stars,
-  // githubData2,
   dataPieces,
   game,
   gameTitle,
@@ -132,9 +203,6 @@ function Page({
   let [gameImage1, setGameImage1] = useState('')
   let [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
-  let [github, setGithub] = useState(0)
-  let [slackKey, setSlackKey] = useState(0)
-  let [key, setKey] = useState(0)
 
   const { asPath } = useRouter()
 
@@ -152,14 +220,13 @@ function Page({
 
     jsConfetti.current.addConfetti({
       confettiColors: [
-        // Hack Club colours!
-        '#ec3750',
-        '#ff8c37',
-        '#f1c40f',
-        '#33d6a6',
-        '#5bc0de',
-        '#338eda',
-        '#a633d6'
+        cyberpunkColorPalette.accentHotPinkGradient,
+        cyberpunkColorPalette.accentElectricBlue,
+        cyberpunkColorPalette.accentLime,
+        cyberpunkColorPalette.accentMagenta,
+        cyberpunkColorPalette.accentCyan,
+        cyberpunkColorPalette.accentNeonPurple,
+        cyberpunkColorPalette.accentGreen
       ]
     })
   }
@@ -188,30 +255,29 @@ function Page({
     { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
   ]
 
-  // janky right now and does not show last image
-
   useEffect(() => {
     console.log(
-      `White sheets of paper\nWaiting to be printed on\nA blank console waits`
+      `Neon circuits glow\nCode streams in the dark expanse\nFuture takes its form`
     )
     if (count === images.length - 1) {
       setCount(0)
     }
   }, [count, images.length])
 
-  // Spotlight effect
   const spotlightRef = useRef()
   useEffect(() => {
     const handler = event => {
-      var rect = document.getElementById('spotlight').getBoundingClientRect()
-      var x = event.clientX - rect.left //x position within the element.
-      var y = event.clientY - rect.top //y position within the element.
+      if (document.getElementById('spotlight')) {
+        var rect = document.getElementById('spotlight').getBoundingClientRect()
+        var x = event.clientX - rect.left
+        var y = event.clientY - rect.top
 
-      spotlightRef.current.style.background = `radial-gradient(
-				circle at ${x}px ${y}px,
-				rgba(132, 146, 166, 0) 10px,
-				rgba(249, 250, 252, 0.9) 80px
-			)`
+        spotlightRef.current.style.background = `radial-gradient(
+          circle at ${x}px ${y}px,
+          rgba(224, 224, 224, 0.08) 20px, 
+          transparent 120px
+        )`
+      }
     }
     window.addEventListener('mousemove', handler)
     return () => window.removeEventListener('mousemove', handler)
@@ -239,27 +305,18 @@ function Page({
         sx={{
           overflowX: 'hidden',
           position: 'relative',
-          bg: 'cyberpunk.darkBg',
+          bg: 'cyberpunk.background',
           color: 'cyberpunk.text',
           '@keyframes gridFloat': {
-            '0%': {
-              backgroundPosition: '0 0'
-            },
-            '100%': {
-              backgroundPosition: '100px 100px'
-            }
+            '0%': { backgroundPosition: '0 0' },
+            '100%': { backgroundPosition: '100px 100px' }
           }
         }}
       >
         <Secret
           reveal={reveal}
-          onMouseEnter={() => {
-            setHover(true)
-            console.log(hover)
-          }}
-          onMouseOut={() => {
-            setReveal(false)
-          }}
+          onMouseEnter={() => setHover(true)}
+          onMouseOut={() => setReveal(false)}
         />
         <Konami action={easterEgg}>
           {"Hey, I'm an Easter Egg! Look at me!"}
@@ -267,7 +324,7 @@ function Page({
         <Box
           as="header"
           sx={{
-            bg: 'cyberpunk.darkerBg',
+            bg: 'cyberpunk.lighterBg',
             pt: [7, 8, '180px'],
             pb: [6, 7, '160px'],
             minHeight: ['50vh'],
@@ -275,27 +332,13 @@ function Page({
             position: 'relative',
             overflow: 'hidden',
             backgroundImage: `
-              linear-gradient(to bottom right, rgba(0, 191, 255, 0.1), rgba(138, 43, 226, 0.1)),
-              linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-              linear-gradient(rgba(255, 255, 255, 0.025) 2px, transparent 2px),
-              linear-gradient(90deg, rgba(255, 255, 255, 0.025) 2px, transparent 2px)
+              linear-gradient(to bottom right, ${cyberpunkColorPalette.accentElectricBlue}1A, ${cyberpunkColorPalette.accentNeonPurple}1A),
+              linear-gradient(${cyberpunkColorPalette.gridLine} 1px, transparent 1px),
+              linear-gradient(90deg, ${cyberpunkColorPalette.gridLine} 1px, transparent 1px),
+              linear-gradient(${cyberpunkColorPalette.gridLine} 2px, transparent 2px),
+              linear-gradient(90deg, ${cyberpunkColorPalette.gridLine} 2px, transparent 2px)
             `,
-            backgroundSize: `
-              100% 100%,
-              20px 20px,
-              20px 20px,
-              100px 100px,
-              100px 100px
-            `,
-            '@keyframes gridFloat': {
-              '0%': {
-                backgroundPosition: '0 0'
-              },
-              '100%': {
-                backgroundPosition: '20px 20px'
-              }
-            },
+            backgroundSize: `100% 100%, 20px 20px, 20px 20px, 100px 100px, 100px 100px`,
             animation: 'gridFloat 20s linear infinite',
             '&::before': {
               content: '""',
@@ -304,7 +347,6 @@ function Page({
               left: 0,
               right: 0,
               bottom: 0,
-              background: 'radial-gradient(circle at 50% 50%, rgba(5, 8, 26, 0), rgba(5, 8, 26, 0.95) 70%)',
               pointerEvents: 'none'
             },
             '&::after': {
@@ -314,13 +356,12 @@ function Page({
               left: 0,
               right: 0,
               height: '150px',
-              background: 'linear-gradient(to bottom, transparent, rgba(5, 8, 26, 1))',
+              background: `linear-gradient(to bottom, transparent, ${cyberpunkColorPalette.background})`,
               pointerEvents: 'none',
               zIndex: 2
             }
           }}
         >
-          {/* Programming Language Icons */}
           <Box
             sx={{
               position: 'absolute',
@@ -329,7 +370,7 @@ function Page({
               right: 0,
               bottom: 0,
               zIndex: 1,
-              opacity: 0.2
+              opacity: 0.4
             }}
           >
             {[
@@ -350,7 +391,7 @@ function Page({
                   position: 'absolute',
                   left,
                   top,
-                  color: 'white',
+                  color: 'cyberpunk.accentCyan',
                   fontSize: ['36px', '48px', '64px'],
                   animation: 'float 6s infinite',
                   animationDelay: delay,
@@ -376,14 +417,14 @@ function Page({
               sx={{
                 fontSize: ['42px', '56px', '72px'],
                 mb: 3,
-                background: 'linear-gradient(to right, #00BFFF, #F002ED)',
+                background: cyberpunkColorPalette.titleGradient,
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 textAlign: 'center',
-                textShadow: '0 0 20px rgba(0, 191, 255, 0.3)'
+                textShadow: `0 0 20px ${cyberpunkColorPalette.accentElectricBlue}4D`
               }}
             >
-              A Home for High School Makers
+              Where teen coders unite
             </Text>
             <Text
               as="p"
@@ -393,77 +434,78 @@ function Page({
                 maxWidth: '650px',
                 mx: 'auto',
                 mb: 4,
-                color: 'cyberpunk.textHighlight',
-                textShadow: '0 0 10px rgba(255, 255, 255, 0.2)'
+                textShadow: `0 0 10px ${cyberpunkColorPalette.white}33`
               }}
             >
-              Join a community of <Comma>{slackData.total_members_count}</Comma> makers, building open source projects and learning to code together.
+              Join a community of <Comma>{slackData.total_members_count}</Comma>{' '}
+              high school makers, building, learning, and having fun whilst
+              they do it.
             </Text>
             <Flex
-              sx={{
-                justifyContent: 'center',
-                gap: 3,
-                flexWrap: 'wrap',
-              }}
+              sx={{ justifyContent: 'center', gap: 3, flexWrap: 'wrap' }}
             >
               <Button
                 variant="ctaLg"
                 as="a"
                 href="/slack"
-                sx={{
-                  transformOrigin: 'center left',
-                  bg: '#8A2BE2',
-                  px: 4,
-                  py: 3,
-                  fontSize: [2, 3]
-                }}
+                sx={{ px: 4, py: 3, fontSize: [2, 3] }}
               >
-                <Text>Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '60k+'} Teen Hackers</Text>
+                <Text>
+                  Join{' '}
+                  {slackData.total_members_count
+                    ? withCommas(slackData.total_members_count)
+                    : '60k+'}{' '}
+                  Teen Hackers
+                </Text>
                 <Icon glyph="slack-fill" size={24} />
               </Button>
               <Button
                 variant="ctaLg"
                 as="a"
                 href="https://shipwrecked.hack.club/3"
-                sx={{
-                  transformOrigin: 'left',
-                  backgroundImage: 'linear-gradient(to right, #00BFFF, #8A2BE2)',
-                  px: 4,
-                  py: 3,
-                  fontSize: [2, 3]
-                }}
+                sx={{ px: 4, py: 3, fontSize: [2, 3] }}
               >
                 Sign Up: Private Island Hackathon
               </Button>
             </Flex>
-            <Flex sx={{
-              gap: [3],
-              my: 1,
-              py: 3,
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: ['16px', '18px'],
-              color: 'cyberpunk.textHighlight',
-              opacity: 0.95,
-              borderBottom: '1px solid',
-              borderColor: 'cyberpunk.gridLine'
-            }}>
-              <Text sx={{
-                color: '#33d6a6',
-                fontWeight: 'bold',
-                textShadow: '0 0 10px rgba(51, 214, 166, 0.3)'
-              }}>
+            <Flex
+              sx={{
+                gap: [3],
+                my: 1,
+                py: 3,
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                alignItems: 'center',
+                fontSize: ['16px', '18px'],
+                color: 'cyberpunk.textSecondary',
+                opacity: 0.95,
+                borderBottom: '1px solid',
+                borderColor: 'cyberpunk.gridLine'
+              }}
+            >
+              <Text
+                sx={{
+                  color: 'cyberpunk.accentGreen',
+                  fontWeight: 'bold',
+                  textShadow: `0 0 10px ${cyberpunkColorPalette.accentGreen}4D`
+                }}
+              >
                 $500k+ in prizes given
               </Text>
               <Text sx={{ color: 'cyberpunk.textMuted' }}>•</Text>
               <Text>80k+ projects built</Text>
               <Text sx={{ color: 'cyberpunk.textMuted' }}>•</Text>
-              <Text><Comma>{slackData.total_members_count || 60_000}</Comma> teenage builders</Text>
+              <Text>
+                <Comma>{slackData.total_members_count || 60_000}</Comma>{' '}
+                teenage builders
+              </Text>
             </Flex>
           </Box>
         </Box>
-        <Box as="section" sx={{ py: [4, 5, '82px'], bg: 'cyberpunk.darkBg' }}>
+        <Box
+          as="section"
+          sx={{ py: [4, 5, '82px'], bg: 'cyberpunk.lightBg' }}
+        >
           <Box
             sx={{
               position: 'relative',
@@ -476,8 +518,7 @@ function Page({
               variant="title"
               as="h1"
               sx={{
-                fontSize: ['36px', '48px', '56px'],
-                color: 'white'
+                fontSize: ['36px', '48px', '56px']
               }}
             >
               Discover the{' '}
@@ -488,7 +529,7 @@ function Page({
                   px: 1,
                   mx: 0,
                   whiteSpace: ['wrap', 'nowrap', 'nowrap'],
-                  background: 'linear-gradient(to right, #00BFFF, #F002ED)',
+                  background: cyberpunkColorPalette.titleGradient,
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent'
                 }}
@@ -503,11 +544,13 @@ function Page({
               sx={{
                 fontSize: ['18px', '20px', '22px'],
                 pb: [3, 3, 4],
-                maxWidth: 'unset',
-                color: 'cyberpunk.text'
+                maxWidth: 'unset'
               }}
             >
-              In collaboration with engineers on the Hack Club team, Hack Clubbers build learning tools for each other. Get involved with these projects by building something with our tools or contribute to the tools themselves.
+              In collaboration with engineers on the Hack Club team, Hack
+              Clubbers build learning tools for each other. Get involved with
+              these projects by building something with our tools or contribute
+              to the tools themselves.
             </Text>
             <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
               <Box
@@ -516,9 +559,7 @@ function Page({
                   height: ['300px', '300px', '300px', '100%'],
                   py: [3, 3, 3, 0]
                 }}
-                onClick={() => {
-                  setCount(count + 1)
-                }}
+                onClick={() => setCount(count + 1)}
               >
                 <Box
                   sx={{ position: 'absolute', width: '100%', height: '100%' }}
@@ -536,9 +577,7 @@ function Page({
                         marginLeft: ['10%', '10%', '15%', '0']
                       },
                       zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
+                      '&:hover': { cursor: 'pointer' }
                     }}
                   >
                     <Photo
@@ -579,9 +618,7 @@ function Page({
                         marginLeft: ['10%', '10%', '15%', '0']
                       },
                       zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
+                      '&:hover': { cursor: 'pointer' }
                     }}
                   >
                     <Photo
@@ -617,9 +654,7 @@ function Page({
                         marginLeft: ['10%', '10%', '15%', '0']
                       },
                       zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
+                      '&:hover': { cursor: 'pointer' }
                     }}
                   >
                     <Photo
@@ -655,25 +690,21 @@ function Page({
                   strong: {
                     display: 'block',
                     fontSize: ['22px', 2, 3],
-                    color: 'white'
+                    color: 'cyberpunk.textHighlight'
                   }
                 }}
                 as="ul"
               >
                 <Grid
                   columns="auto 1fr"
-                  sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
-                  }}
+                  sx={{ py: 2, px: 2, borderRadius: 'extra' }}
                   as="li"
                 >
-                  <Text as="span" color="cyberpunk.electricBlue" aria-hidden="true">
+                  <Text
+                    as="span"
+                    color="cyberpunk.accentElectricBlue"
+                    aria-hidden="true"
+                  >
                     1
                   </Text>
                   <Text as="p" variant="subtitle">
@@ -682,71 +713,78 @@ function Page({
                     </strong>
                     Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
-                    <Link href="/slack" target="_blank" rel="noopener" sx={{ color: 'cyberpunk.electricBlue' }}>
-                      Slack{' '}
+                    <Link
+                      href="/slack"
+                      target="_blank"
+                      rel="noopener"
+                      sx={{ color: 'cyberpunk.accentElectricBlue' }}
+                    >
+                      Slack
                     </Link>
-                    (like Discord), active at all hours.
+                    {' '}(like Discord), active at all hours.
                   </Text>
                 </Grid>
                 <Grid
                   columns="auto 1fr"
-                  sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
-                  }}
+                  sx={{ py: 2, px: 2, borderRadius: 'extra' }}
                   as="li"
                 >
-                  <Text as="span" color="#F002ED" aria-hidden="true">
+                  <Text
+                    as="span"
+                    color="cyberpunk.accentHotPinkGradient"
+                    aria-hidden="true"
+                  >
                     2
                   </Text>
-                  <Text
-                    as="p"
-                    variant="subtitle"
-                    sx={{
-                      mt: 0
-                    }}
-                  >
+                  <Text as="p" variant="subtitle" sx={{ mt: 0 }}>
                     <strong sx={{ mb: 1 }}>
                       Build open source learning tools
                     </strong>
                     We build large open source projects together (
-                    <Link href="https://github.com/hackclub" target="_blank">
+                    <Link
+                      href="https://github.com/hackclub"
+                      target="_blank"
+                      sx={{ color: 'cyberpunk.accentHotPinkGradient' }}
+                    >
                       3k+&nbsp;PRs a year
                     </Link>
-                    ) like this website, a game engine, daily streak system, and
-                    more!
+                    ) like this website, a game engine, daily streak system,
+                    and more!
                   </Text>
                 </Grid>
                 <Grid
                   columns="auto 1fr"
-                  sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
-                  }}
+                  sx={{ py: 2, px: 2, borderRadius: 'extra' }}
                   as="li"
                 >
-                  <Text as="span" color="#8A2BE2" aria-hidden="true">
+                  <Text
+                    as="span"
+                    color="cyberpunk.accentNeonPurple"
+                    aria-hidden="true"
+                  >
                     3
                   </Text>
                   <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
+                    <strong sx={{ mb: 1 }}>
+                      Gather IRL with other makers
+                    </strong>
                     Meet other Hack&nbsp;Clubbers in your community to build
                     together at one of the 400+{' '}
-                    <Link href="/clubs" target="_blank" rel="noopener">
+                    <Link
+                      href="/clubs"
+                      target="_blank"
+                      rel="noopener"
+                      sx={{ color: 'cyberpunk.accentNeonPurple' }}
+                    >
                       Hack&nbsp;Clubs
                     </Link>{' '}
                     and{' '}
-                    <Link href="/hackathons" target="_blank" rel="noopener">
+                    <Link
+                      href="/hackathons"
+                      target="_blank"
+                      rel="noopener"
+                      sx={{ color: 'cyberpunk.accentNeonPurple' }}
+                    >
                       high school hackathons
                     </Link>
                     .
@@ -761,12 +799,13 @@ function Page({
           id="spotlight"
           as="section"
           sx={{
+            bg: 'cyberpunk.lightBg',
             backgroundImage: `
-              linear-gradient(rgba(249, 250, 252, 0.7), rgba(249, 250, 252, 0.7)),
-              url('https://icons.hackclub.com/api/icons/0x8492a6/glyph:rep.svg')
+              linear-gradient(${cyberpunkColorPalette.lightBg}E6, ${cyberpunkColorPalette.lightBg}E6), 
+              url('https://icons.hackclub.com/api/icons/${cyberpunkColorPalette.accentCyan.substring(1)}/glyph:rep.svg')
             `,
-            backgroundSize: '40px 40px',
-            backgroundRepeat: 'repeat',
+            backgroundSize: 'cover, 40px 40px',
+            backgroundRepeat: 'no-repeat, repeat',
             position: 'relative'
           }}
         >
@@ -779,7 +818,6 @@ function Page({
               left: 0,
               right: 0,
               bottom: 0,
-              bg: 'snow',
               pointerEvents: 'none',
               '&::after': {
                 content: '""',
@@ -788,7 +826,7 @@ function Page({
                 left: 0,
                 right: 0,
                 height: '150px',
-                background: 'linear-gradient(to bottom, transparent, #0A0F2C)',
+                background: `linear-gradient(to bottom, transparent, ${cyberpunkColorPalette.background})`,
                 pointerEvents: 'none',
                 zIndex: 2
               }
@@ -801,12 +839,18 @@ function Page({
               maxWidth: 'layout',
               margin: 'auto',
               zIndex: 5,
-              color: "black"
+              color: 'cyberpunk.text'
             }}
             py={[4, 4, 5]}
           >
             <Box>
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5], color: 'cyberpunk.textForeground' }}>
+              <Text
+                variant="title"
+                sx={{
+                  fontSize: ['36px', 4, 5],
+                  color: 'cyberpunk.textHighlight'
+                }}
+              >
                 Connect with{' '}
                 <Text
                   as="span"
@@ -815,8 +859,8 @@ function Page({
                     px: 2,
                     mx: 0,
                     whiteSpace: 'nowrap',
-                    color: 'cyberpunk.textHighlight',
-                    bg: 'cyberpunk.electricBlue' // Electric Blue
+                    color: 'cyberpunk.background',
+                    bg: 'cyberpunk.accentElectricBlue'
                   }}
                 >
                   builders
@@ -826,19 +870,22 @@ function Page({
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0], color: 'cyberpunk.textForeground', opacity: 0.8 }}
+                sx={{
+                  fontSize: ['18px', '20px', '22px'],
+                  pb: [3, 0, 0],
+                  color: 'cyberpunk.textSecondary',
+                  opacity: 0.9
+                }}
               >
                 We gather both online and in-person to share our love of code
                 and make things together!
               </Text>
             </Box>
-            <Neighborhood />
-            <Trail />
-            <Scrapyard />
-            <Slack slackKey={slackKey} data={slackData} events={events} />
+            <Neighborhood /> <Trail /> <Scrapyard />
+            <Slack slackKey={0} data={slackData} events={events} />
           </Box>
         </Box>
-        <Box>
+        <Box sx={{ bg: 'cyberpunk.lightBg' }}>
           <Box py={[4, 5, '82px']}>
             <Box
               sx={{
@@ -858,10 +905,10 @@ function Page({
                     'flex-start',
                     'center'
                   ],
-                  gap: '10px'
+                  gap: '20px'
                 }}
               >
-                <Box sx={{ mb: [3, 0, 0] }}>
+                <Box sx={{ mb: [3, 0, 0], flex: 2 }}>
                   <Text
                     variant="title"
                     as="h2"
@@ -877,7 +924,7 @@ function Page({
                         borderRadius: 'default',
                         mx: 0,
                         whiteSpace: 'nowrap',
-                        color: '#8A2BE2' // Neon Purple
+                        color: 'cyberpunk.accentNeonPurple'
                       }}
                     >
                       open source
@@ -893,18 +940,21 @@ function Page({
                       maxWidth: 'unset'
                     }}
                   >
-                    In collaboration with engineers on the Hack Club team, Hack Clubbers build learning tools for each other. Get involved with these projects by building something with our tools or contribute to the tools themselves.
+                    In collaboration with engineers on the Hack Club team, Hack
+                    Clubbers build learning tools for each other. Get involved
+                    with these projects by building something with our tools or
+                    contribute to the tools themselves.
                   </Text>
                 </Box>
                 {gitHubData && (
                   <Flex
                     sx={{
+                      flex: 1,
                       flexDirection: ['row', null, null, 'column'],
                       gap: [1, 2, 2],
                       alignItems: ['center', 'center', 'center', 'flex-start'],
                       flexWrap: 'wrap',
                       width: ['100%', null, null, 'fit-content'],
-
                       '& > a:nth-child(n+4)': {
                         display: ['none', null, null, 'flex']
                       }
@@ -916,7 +966,8 @@ function Page({
                         textAlign: 'left',
                         lineHeight: '90%',
                         fontStyle: 'italic',
-                        width: 'fit-content'
+                        width: 'fit-content',
+                        color: 'cyberpunk.textMuted'
                       }}
                     >
                       Live from GitHub
@@ -924,20 +975,18 @@ function Page({
                     {gitHubData
                       .filter(data => !data.user.endsWith('[bot]'))
                       .slice(0, 4)
-                      .map((data, key) => {
-                        return (
-                          <GitHub
-                            type={data.type}
-                            img={data.userImage}
-                            user={data.user}
-                            time={data.time}
-                            url={data.url}
-                            message={data.message}
-                            key={key}
-                            opacity={1 / (key / 2 + 1)}
-                          />
-                        )
-                      })}
+                      .map((data, key) => (
+                        <GitHub
+                          type={data.type}
+                          img={data.userImage}
+                          user={data.user}
+                          time={data.time}
+                          url={data.url}
+                          message={data.message}
+                          key={key}
+                          opacity={1 / (key / 2 + 1)}
+                        />
+                      ))}
                   </Flex>
                 )}
               </Flex>
@@ -963,27 +1012,13 @@ function Page({
           <Box
             sx={{
               position: 'relative',
-              background: 'snow',
-              backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
+              bg: 'cyberpunk.lighterBg',
+              backgroundImage: `url('https://icons.hackclub.com/api/icons/${cyberpunkColorPalette.accentMagenta.substring(1)}/glyph:rep.svg')`,
               backgroundSize: '40px 40px',
               backgroundRepeat: 'repeat',
               backgroundPosition: '10% 10%'
-              // '&:hover': {
-              //   backgroundImage: `url('https://icons.hackclub.com/api/icons/0x000000/glyph:rep.svg')`
-              // }
             }}
           >
-            <Box
-              sx={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                top: 0,
-                left: 0
-              }}
-            >
-              { }
-            </Box>
             <Box
               py={[4, 5, '82px']}
               sx={{
@@ -1003,7 +1038,7 @@ function Page({
                     textAlign: 'center',
                     margin: 'auto',
                     mb: 1,
-                    color: 'cyberpunk.textForeground'
+                    color: 'cyberpunk.textHighlight'
                   }}
                 >
                   Find your{' '}
@@ -1013,7 +1048,7 @@ function Page({
                       borderRadius: 'default',
                       ml: 0,
                       whiteSpace: ['wrap', 'nowrap'],
-                      background: 'linear-gradient(to right, #00BFFF, #8A2BE2)',
+                      background: cyberpunkColorPalette.buttonGradient,
                       WebkitBackgroundClip: 'text',
                       WebkitTextFillColor: 'transparent'
                     }}
@@ -1029,8 +1064,8 @@ function Page({
                     margin: 'auto',
                     pt: 2,
                     textAlign: 'center',
-                    color: 'cyberpunk.textForeground',
-                    opacity: 0.8
+                    color: 'cyberpunk.textSecondary',
+                    opacity: 0.9
                   }}
                 >
                   Thousands of Hack Clubbers organize and participate in
@@ -1043,72 +1078,81 @@ function Page({
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
-
-              {/* <Events events={events} /> */}
               <HCB data={bankData} />
             </Box>
           </Box>
         </Box>
-        <Box as="section" sx={{
-          bg: 'cyberpunk.darkerBg',
-          py: [4, 5],
-          color: 'cyberpunk.text',
-          borderTop: '1px solid',
-          borderBottom: '1px solid',
-          borderColor: 'cyberpunk.gridLine'
-        }}>
-          <Box sx={{
-            maxWidth: ['90vw', '85vw', '70ch'],
-            mx: 'auto',
-            px: 3
-          }}>
-            <Text as="p" sx={{
-              fontSize: ['18px', '20px', '22px'],
-              lineHeight: 1.75,
-              color: 'cyberpunk.text',
-              mb: 3,
-              '& strong': {
-                color: 'cyberpunk.electricBlue'
-              }
-            }}>
-              <strong>Hack Club isn't like a CS Discord server or a WhatsApp group.</strong> It's a place for those who build things and dream big, not for class credit or for an exam, but for the love of making.
+        <Box
+          as="section"
+          sx={{
+            bg: 'cyberpunk.lighterBg',
+            py: [4, 5],
+            color: 'cyberpunk.text',
+            borderTop: '1px solid',
+            borderBottom: '1px solid',
+            borderColor: 'cyberpunk.gridLine'
+          }}
+        >
+          <Box
+            sx={{ maxWidth: ['90vw', '85vw', '70ch'], mx: 'auto', px: 3 }}
+          >
+            <Text
+              as="p"
+              sx={{
+                fontSize: ['18px', '20px', '22px'],
+                lineHeight: 1.75,
+                color: 'cyberpunk.text',
+                mb: 3,
+                '& strong': { color: 'cyberpunk.accentElectricBlue' }
+              }}
+            >
+              <strong>
+                Hack Club isn't like a CS Discord server or a WhatsApp group.
+              </strong>{' '}
+              It's a place for those who build things and dream big, not for
+              class credit or for an exam, but for the love of making.
             </Text>
-            <Text as="p" sx={{
-              fontSize: ['18px', '20px', '22px'],
-              lineHeight: 1.75,
-              color: 'cyberpunk.text',
-              mb: 3,
-              '& strong': {
-                color: 'cyberpunk.magenta'
-              }
-            }}>
-              <strong>It's for the folks who've been coding in their bedrooms</strong> and want to share their work with teens who get them. It's for the folks who've never written a line of code in their life, and want help from people who'll go above and beyond to help you, not just tell you to just "read the manual" or "ask ChatGPT".
+            <Text
+              as="p"
+              sx={{
+                fontSize: ['18px', '20px', '22px'],
+                lineHeight: 1.75,
+                color: 'cyberpunk.text',
+                mb: 3,
+                '& strong': { color: 'cyberpunk.accentMagenta' }
+              }}
+            >
+              <strong>
+                It's for the folks who've been coding in their bedrooms
+              </strong>{' '}
+              and want to share their work with teens who get them. It's for
+              the folks who've never written a line of code in their life, and
+              want help from people who'll go above and beyond to help you, not
+              just tell you to just "read the manual" or "ask ChatGPT".
             </Text>
-            <Text as="p" sx={{
-              fontSize: ['18px', '20px', '22px'],
-              lineHeight: 1.75,
-              color: 'cyberpunk.text',
-              '& strong': {
-                color: 'cyberpunk.neonPurple'
-              }
-            }}>
-              <strong>We're builders ourselves,</strong> and we know that across the world, there are tens of thousands of teens who just need someone to give them a little push and help them make something they're proud of.
+            <Text
+              as="p"
+              sx={{
+                fontSize: ['18px', '20px', '22px'],
+                lineHeight: 1.75,
+                color: 'cyberpunk.text',
+                '& strong': { color: 'cyberpunk.accentNeonPurple' }
+              }}
+            >
+              <strong>We're builders ourselves,</strong> and we know that across
+              the world, there are tens of thousands of teens who just need
+              someone to give them a little push and help them make something
+              they're proud of.
             </Text>
           </Box>
         </Box>
-        <Box py={[4, 5, '82px']}>
-          <Box
-            sx={{
-              width: '90vw',
-              maxWidth: 'layout',
-              margin: 'auto'
-            }}
-          >
+        <Box py={[4, 5, '82px']} sx={{ bg: 'cyberpunk.lightBg' }}>
+          <Box sx={{ width: '90vw', maxWidth: 'layout', margin: 'auto' }}>
             <Box>
               <Text
                 as="p"
                 variant="eyebrow"
-                sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
+                sx={{ fontSize: ['22px', 2, 3] }}
               >
                 We've got a lot going on - Let's recap
               </Text>
@@ -1127,7 +1171,7 @@ function Page({
                 <Text
                   as="span"
                   sx={{
-                    background: 'linear-gradient(90deg, #00BFFF 0%, #8A2BE2 100%)',
+                    background: cyberpunkColorPalette.buttonGradient,
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     display: 'inline'
@@ -1136,70 +1180,58 @@ function Page({
                   Hack Club
                 </Text>
               </Text>
-
-              <Flex sx={{
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: 4,
-                mb: [4, 5]
-              }}>
+              <Flex
+                sx={{
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 4,
+                  mb: [4, 5]
+                }}
+              >
                 <Text
                   sx={{
                     fontSize: ['18px', '22px'],
-                    color: 'cyberpunk.text',
+                    color: 'cyberpunk.textSecondary',
                     textAlign: 'center',
                     maxWidth: '600px',
                     mx: 'auto'
                   }}
                 >
-                  Ready to find your people and build amazing things? The Hack Club Slack is where it happens.
+                  Ready to find your people and build amazing things? The Hack
+                  Club Slack is where it happens.
                 </Text>
                 <Button
                   as="a"
                   href="/slack"
                   variant="ctaLg"
                   sx={{
-                    fontSize: ['24px', '42px'],
+                    fontSize: ['24px', '36px', '42px'],
                     px: [5, 6],
                     py: [3, 4],
                     borderRadius: 50,
-                    background: 'linear-gradient(90deg, #00BFFF 0%, #8A2BE2 100%)',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.02em',
-                    border: 'none',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease-in-out',
                     '&:hover': {
                       transform: 'scale(1.05)',
-                      boxShadow: '0 0 20px rgba(0, 191, 255, 0.5)'
+                      boxShadow: `0 0 25px ${cyberpunkColorPalette.accentElectricBlue}`
                     }
                   }}
                 >
                   JOIN THE SLACK →
                 </Button>
                 <Text variant="ctaLabel">
-                  Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '60k+'} teen hackers building the future
+                  Join{' '}
+                  {slackData.total_members_count
+                    ? withCommas(slackData.total_members_count)
+                    : '60k+'}{' '}
+                  teen hackers building the future
                 </Text>
               </Flex>
-
               <Grid
                 pt={[3, 4]}
                 gap={3}
                 columns={[1, 2, 3]}
                 sx={{
                   textAlign: 'left',
-                  '> a, > div': {
-                    borderRadius: 'extra',
-                    boxShadow: 'elevated',
-                    p: [3, null, 4]
-                  },
-                  span: {
-                    boxShadow:
-                      '-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)'
-                  },
-                  svg: { fill: 'currentColor' }
+                  '> a, > div': { variant: 'cards.interactive' }
                 }}
               >
                 <Card
@@ -1209,158 +1241,66 @@ function Page({
                   rel="noopener"
                   variant="interactive"
                   sx={{
-                    background:
-                      'linear-gradient(32deg, #00BFFF 0%, #1A1032 100%)', // Blue to Dark Blue/Purple
-                    color: 'white',
-                    svg: { color: '#E0E0E0' }, // Light icon color
-                    position: 'relative',
-                    '.icon': {
-                      transition:
-                        'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
-                    },
-                    ':hover,:focus': {
-                      '.icon': {
-                        transform: 'translateX(28px) translateY(-28px)',
-                        opacity: 0
-                      }
-                    }
+                    background: `linear-gradient(32deg, ${cyberpunkColorPalette.accentElectricBlue} 0%, ${cyberpunkColorPalette.cardBg} 100%)`
                   }}
                 >
                   <Icon
                     glyph="external"
                     size={32}
                     className="icon"
-                    sx={{
-                      position: 'absolute',
-                      top: 2,
-                      right: 2,
-                      opacity: 0.3,
-                      fontSize: ['18px', '20px', '22px'],
-                      zIndex: 3,
-                      color: 'white !important'
-                    }}
+                    sx={{ color: 'cyberpunk.white !important' }}
                   />
                   <Stage
                     icon="slack"
-                    color="black"
+                    color="cyberpunk.textHighlight"
                     name="Meet Fellow Makers"
                     desc="Connect with 60k+ technical teenagers on Slack and hack on things together."
-                    sx={{
-                      p: {
-                        fontSize: ['18px', '20px', '22px']
-                      },
-                      h3: {
-                        fontSize: ['22px', 2, 3]
-                      }
-                    }}
                   />
                 </Card>
                 <Card
-                  sx={{
-                    background:
-                      'linear-gradient(-32deg, #F002ED 14%, #1A1032 82%)', // Magenta to Dark Purple
-                    color: 'white',
-                    svg: { color: '#E0E0E0' }, // Light icon color
-                    textDecoration: 'none',
-                    position: 'relative',
-                    '.icon': {
-                      transition:
-                        'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
-                    },
-                    ':hover,:focus': {
-                      '.icon': {
-                        transform: 'translateX(28px) translateY(-28px)',
-                        opacity: 0
-                      }
-                    }
-                  }}
                   as="a"
                   href="https://github.com/hackclub"
                   variant="interactive"
                   target="_blank"
                   rel="noopener"
+                  sx={{
+                    background: `linear-gradient(-32deg, ${cyberpunkColorPalette.accentHotPinkGradient} 14%, ${cyberpunkColorPalette.cardBg} 82%)`
+                  }}
                 >
                   <Icon
                     glyph="external"
                     size={32}
                     className="icon"
-                    sx={{
-                      position: 'absolute',
-                      top: 2,
-                      right: 2,
-                      opacity: 0.3,
-                      fontSize: [1, '16px', '20px'],
-                      zIndex: 3,
-                      color: 'white !important'
-                    }}
+                    sx={{ color: 'cyberpunk.white !important' }}
                   />
                   <Stage
                     icon="github"
-                    color="black"
+                    color="cyberpunk.textHighlight"
                     name="Explore Our Open Source Tools"
                     desc="We're currently building a game engine, daily streak system, graphing game, and more!"
-                    sx={{
-                      p: {
-                        fontSize: [1, '16px', '20px']
-                      },
-                      h3: {
-                        fontSize: ['22px', 2, 3]
-                      }
-                    }}
                   />
                 </Card>
                 <Card
-                  sx={{
-                    background:
-                      'linear-gradient(to bottom, #8A2BE2 0%, #0A0F2C 100%)', // Neon Purple to Dark Blue/Purple
-                    color: 'white',
-                    svg: { color: '#E0E0E0' }, // Light icon color
-                    textDecoration: 'none',
-                    position: 'relative',
-                    '.icon': {
-                      transition:
-                        'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
-                    },
-                    ':hover,:focus': {
-                      '.icon': {
-                        transform: 'translateX(28px) translateY(-28px)',
-                        opacity: 0
-                      }
-                    }
-                  }}
                   as="a"
                   href="/clubs"
                   variant="interactive"
                   target="_blank"
                   rel="noopener"
+                  sx={{
+                    background: `linear-gradient(to bottom, ${cyberpunkColorPalette.accentNeonPurple} 0%, ${cyberpunkColorPalette.cardBg} 100%)`
+                  }}
                 >
                   <Icon
                     glyph="external"
                     size={32}
                     className="icon"
-                    sx={{
-                      position: 'absolute',
-                      top: 2,
-                      right: 2,
-                      opacity: 0.3,
-                      fontSize: ['18px', '20px', '22px'],
-                      zIndex: 3,
-                      color: 'white !important'
-                    }}
+                    sx={{ color: 'cyberpunk.white !important' }}
                   />
                   <Stage
                     icon="clubs"
-                    color="black"
+                    color="cyberpunk.textHighlight"
                     name="Start A Club"
                     desc="Build an in-person community of high school hackers, and we're here to help."
-                    sx={{
-                      p: {
-                        fontSize: ['18px', '20px', '22px']
-                      },
-                      h3: {
-                        fontSize: ['22px', 2, 3]
-                      }
-                    }}
                   />
                 </Card>
               </Grid>
@@ -1392,9 +1332,9 @@ function Page({
                     height="315"
                     src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
                     title="YouTube video player"
-                    frameborder="0"
+                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
+                    allowFullScreen
                   ></iframe>
                 </Box>
               </Box>
@@ -1412,9 +1352,9 @@ function Page({
                   height="315"
                   src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </Box>
               <Box
@@ -1431,37 +1371,31 @@ function Page({
                   height="315"
                   src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
                   title="YouTube video player"
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
+                  allowFullScreen
                 ></iframe>
               </Box>
             </>
           )}
         <MailingList />
-      </Box >
+      </Box>
       <Footer
         dark
         pink
         sx={{
-          backgroundColor: 'rgb(233, 49, 135)',
+          backgroundColor: 'cyberpunk.accentHotPinkFooter',
           position: 'relative',
           overflow: 'hidden',
-          textShadow: '0 1px 2px rgba(0,0,255,0.375)',
-          'h2,span,p,a': { color: '#E0E0E0 !important' },
+          textShadow: `0 1px 2px ${cyberpunkColorPalette.black}60`,
+          'h2,span,p,a': { color: 'cyberpunk.white !important' },
           '> div img': { objectPosition: ['left', 'center'] },
           svg: {
-            fill: '#E0E0E0',
-            filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25))'
+            fill: 'cyberpunk.white',
+            filter: `drop-shadow(0 1px 2px ${cyberpunkColorPalette.black}3F)`
           }
         }}
-      >
-        <style>
-          {`a{
-          color: #338eda
-        }`}
-        </style>
-      </Footer>
+      ></Footer>
     </ThemeProvider>
   )
 }
@@ -1484,26 +1418,28 @@ export async function getStaticProps() {
     fetchStars(),
     getGames(),
     getConsoles(),
-    fetch('https://hackathons.hackclub.com/api/events/upcoming').then(res => res.ok ? res.json() : []),
-    fetch('https://events.hackclub.com/api/events/upcoming/').then(res => res.json()).catch(() => [])
+    fetch('https://hackathons.hackclub.com/api/events/upcoming').then(res =>
+      res.ok ? res.json() : []
+    ),
+    fetch('https://events.hackclub.com/api/events/upcoming/')
+      .then(res => res.json())
+      .catch(() => [])
   ])
 
-  // Process bank data
-  let bankData = []
+  let bankDataProcessed = []
   try {
     const bd = await bankResponse.json()
     let raised = bd.raised / 100
-    bankData.push(
+    bankDataProcessed.push(
       `💰 ${raised.toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD'
       })} raised`
     )
   } catch {
-    bankData.push('error')
+    bankDataProcessed.push('error')
   }
 
-  // Sort hackathons by date
   if (Array.isArray(hackathonsData)) {
     hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
   }
@@ -1514,14 +1450,14 @@ export async function getStaticProps() {
     props: {
       game: game || [],
       gameTitle,
-      gitHubData,
+      gitHubData: gitHubData || null,
       consoleCount,
       hackathonsData: hackathonsData || [],
-      bankData,
+      bankData: bankDataProcessed,
       slackData,
       stars,
       events: events || [],
-      carouselCards: carouselCardsData // Use imported data
+      carouselCards: carouselCardsData
     },
     revalidate: 60
   }
