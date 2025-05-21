@@ -86,6 +86,15 @@ const Footer = ({
           'a,p': { fontSize: 2 }
         }}
       >
+        <Box sx={{ 
+          display: ['none', null, 'flex'],
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%',
+          pr: 7
+        }}>
+          <Ladder />
+        </Box>
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
             Hack&nbsp;Club
@@ -189,14 +198,6 @@ const Footer = ({
             © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
             81-2908499)
           </Text>
-        </Box>
-        <Box sx={{ 
-          display: ['none', null, 'flex'],
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%'
-        }}>
-          <Ladder />
         </Box>
       </Grid>
     </Container>
