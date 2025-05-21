@@ -89,7 +89,6 @@
     "vanilla-tilt": "^1.8.1"
   },
   "devDependencies": {
-    "@types/node": "^22.15.21",
     "@types/prop-types": "^15",
     "eslint": "8.57.0",
     "eslint-config-next": "14.1.0",
