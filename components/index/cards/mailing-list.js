@@ -80,17 +80,17 @@ const MailingList = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               sx={{
-                bg: 'rgba(5, 8, 26, 0.6)',
-                border: 'none',
+                bg: 'cyberpunk.inputBackground',
+                border: '1px solid rgba(224, 224, 224, 0.1)',
                 borderRadius: '8px',
-                color: 'white',
+                color: 'cyberpunk.textHighlight',
                 p: 3,
                 '&:focus': {
                   outline: 'none',
-                  bg: 'rgba(5, 8, 26, 0.8)'
+                  borderColor: 'cyberpunk.electricBlue'
                 },
                 '&::placeholder': {
-                  color: 'rgba(224, 224, 224, 0.5)'
+                  color: 'rgba(224, 224, 224, 0.6)'
                 }
               }}
             />
@@ -100,17 +100,17 @@ const MailingList = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               sx={{
-                bg: 'rgba(5, 8, 26, 0.6)',
-                border: 'none',
+                bg: 'cyberpunk.inputBackground',
+                border: '1px solid rgba(224, 224, 224, 0.1)',
                 borderRadius: '8px',
-                color: 'white',
+                color: 'cyberpunk.textHighlight',
                 p: 3,
                 '&:focus': {
                   outline: 'none',
-                  bg: 'rgba(5, 8, 26, 0.8)'
+                  borderColor: 'cyberpunk.electricBlue'
                 },
                 '&::placeholder': {
-                  color: 'rgba(224, 224, 224, 0.5)'
+                  color: 'rgba(224, 224, 224, 0.6)'
                 }
               }}
             />
