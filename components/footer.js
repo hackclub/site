@@ -86,15 +86,6 @@ const Footer = ({
           'a,p': { fontSize: 2 }
         }}
       >
-        <Box sx={{ 
-          display: ['none', null, 'flex'],
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%',
-          pr: 7
-        }}>
-          <Ladder />
-        </Box>
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
             Hack&nbsp;Club
@@ -199,6 +190,15 @@ const Footer = ({
             81-2908499)
           </Text>
         </Box>
+<Box
+  sx={{
+    display: ['none', null, 'block'],
+    pl: 3,
+    mt: '-1rem'
+  }}
+>
+  <Ladder />
+</Box>
       </Grid>
     </Container>
   </Base>
