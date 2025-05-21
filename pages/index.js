@@ -44,7 +44,7 @@ import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
 /** @jsxImportSource theme-ui */
 
-const HeaderCarousel = ({ images }) => {
+const HeaderCarousel = ({ images, memberCount }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const nextSlide = () => {
@@ -57,7 +57,6 @@ const HeaderCarousel = ({ images }) => {
     )
   }
 
-  // Auto-rotate every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide()
@@ -66,8 +65,14 @@ const HeaderCarousel = ({ images }) => {
   }, [])
 
   return (
-    <Box sx={{ position: 'relative', width: '100%', height: '100%' }}>
-      {/* Background image with fade transition */}
+    <Box className="carousel" sx={{ 
+      position: 'absolute',
+      width: '100%', 
+      height: '100%',
+      top: 0,
+      left: 0,
+      zIndex: 1
+    }}>
       {images.map((image, index) => (
         <Box
           key={index}
@@ -93,7 +98,6 @@ const HeaderCarousel = ({ images }) => {
         </Box>
       ))}
 
-      {/* Navigation buttons */}
       <Box
         as="button"
         onClick={prevSlide}
@@ -103,35 +107,39 @@ const HeaderCarousel = ({ images }) => {
           left: ['10px', '20px', '30px'],
           top: '50%',
           transform: 'translateY(-50%)',
-          bg: 'rgba(255, 255, 255, 0.2)',
-          border: 'none',
+          bg: '#fdf6ee',
+          border: '4px solid #e4d6c3',
           borderRadius: '50%',
-          width: ['40px', '50px', '60px'],
-          height: ['40px', '50px', '60px'],
+          width: ['50px', '60px', '70px'],
+          height: ['50px', '60px', '70px'],
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
-          color: 'white',
-          fontSize: ['24px', '32px', '40px'],
           zIndex: 10,
-          transition: 'background 0.2s',
+          transition: 'all 0.2s',
+          boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
           '&:hover': {
-            bg: 'rgba(255, 255, 255, 0.3)'
+            bg: '#fdf6ee',
+            transform: 'translateY(-50%) scale(1.1) rotate(-5deg)',
+            boxShadow: '0 6px 12px rgba(0,0,0,0.3)'
+          },
+          '&:active': {
+            transform: 'translateY(-50%) scale(0.95)'
           }
         }}
       >
         <svg
-          width="24"
-          height="24"
+          width="30"
+          height="30"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M15 18L9 12L15 6"
-            stroke="currentColor"
-            strokeWidth="3"
+            d="M15 18L8 12L15 6"
+            stroke="#e4d6c3"
+            strokeWidth="5"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
@@ -147,42 +155,168 @@ const HeaderCarousel = ({ images }) => {
           right: ['10px', '20px', '30px'],
           top: '50%',
           transform: 'translateY(-50%)',
-          bg: 'rgba(255, 255, 255, 0.2)',
-          border: 'none',
+          bg: 'rgba(255, 255, 255, 0.9)',
+          border: '4px solid #fdf6ee',
           borderRadius: '50%',
-          width: ['40px', '50px', '60px'],
-          height: ['40px', '50px', '60px'],
+          width: ['50px', '60px', '70px'],
+          height: ['50px', '60px', '70px'],
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           cursor: 'pointer',
-          color: 'white',
-          fontSize: ['24px', '32px', '40px'],
           zIndex: 10,
-          transition: 'background 0.2s',
+          // transition: 'all 0.2s',
+          boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
+                      bg: '#fdf6ee',
+
           '&:hover': {
-            bg: 'rgba(255, 255, 255, 0.3)'
+            transform: 'translateY(-50%) scale(1.1) rotate(5deg)',
+            boxShadow: '0 6px 12px rgba(0,0,0,0.3)'
+          },
+          '&:active': {
+            transform: 'translateY(-50%) scale(0.95)'
           }
         }}
       >
         <svg
-          width="24"
-          height="24"
+          width="30"
+          height="30"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M9 6L15 12L9 18"
-            stroke="currentColor"
-            strokeWidth="3"
+            d="M9 6L16 12L9 18"
+            stroke="#e4d6c3"
+            strokeWidth="5"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
         </svg>
       </Box>
 
-      {/* Indicators */}
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '20px',
+          left: '20px',
+          zIndex: 15
+        }}
+      >
+        <Badge
+          as="span"
+          variant="pill"
+          sx={{
+            zIndex: '10',
+            bg: 'black',
+            color: 'white',
+            opacity: 1,
+            fontWeight: 'normal',
+            transition: '0.3s ease',
+            animation: 'fadeIn 0.5s',
+            '@keyframes fadeIn': {
+              from: { opacity: 0 },
+              to: { opacity: 1 },
+            },
+              display: 'none',
+              '@media (min-width: 56em)': {
+    display: 'block'
+  }
+          }}
+          title={images[currentIndex].caption || images[currentIndex].alt}
+        >
+          {images[currentIndex].alt}
+        </Badge>
+      </Box>
+
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: ['96px', '118px'],
+          right: ['70px', '85px', '100px'],
+          zIndex: 13,
+          width: '18px',
+          height: '12px',
+          background: 'linear-gradient(to bottom, #a88c6d, #7d623c)',
+          borderRadius: '4px 4px 0 0',
+          boxShadow: '0 -2px 4px rgba(0,0,0,0.15)',
+          border: '2px solid #7d623c',
+        }}
+      />
+
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '0px',
+          right: ['75px', '90px', '105px'],
+          zIndex: 13,
+          width: '16px',
+          height: '30px',
+          background: 'linear-gradient(to bottom, #7d623c, #624e30)',
+          borderRadius: '0 0 4px 4px',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.15)',
+          border: '2px solid #7d623c',
+        }}
+      />
+
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '20px',
+          right: '20px',
+          zIndex: 15,
+          width: ['120px', '150px', '180px'],
+          height: ['80px', '100px', '100px'],
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          color: '#513f31',
+          fontWeight: 'bold',
+          padding: '10px',
+          transform: 'rotate(2deg)',
+          paddingBottom: '25px',
+          background: 'linear-gradient(to bottom, #e8d9b5, #d2bc94)',
+          borderRadius: '12px',
+          border: '4px solid #7d623c',
+          boxShadow: '0 4px 8px rgba(0,0,0,0.2), inset 0 1px 3px rgba(255,255,255,0.3)',
+          '&:after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.1) 100%)',
+            borderRadius: '9px',
+            pointerEvents: 'none',
+          }
+        }}
+      >
+        <Text 
+          sx={{ 
+            fontSize: ['10px', '11px', '12px'],
+            mb: '2px',
+            fontFamily: '"Comic Sans MS", cursive, sans-serif',
+            textShadow: '0 1px 0 rgba(255,255,255,0.6)',
+            color: '#665040',
+          }}
+        >
+          Current Population
+        </Text>
+        <Text 
+          sx={{ 
+            fontSize: ['16px', '18px', '32px'],
+            fontWeight: 'bold',
+            fontFamily: '"Comic Sans MS", cursive, sans-serif',
+            textShadow: '0 1px 0 rgba(255,255,255,0.6)',
+            color: '#513f31',
+          }}
+        >
+          <Comma>{memberCount ?? 66549}</Comma>
+        </Text>
+      </Box>
+
       <Flex
         sx={{
           position: 'absolute',
@@ -199,24 +333,28 @@ const HeaderCarousel = ({ images }) => {
             as="button"
             onClick={() => setCurrentIndex(index)}
             sx={{
-              width: '12px',
-              height: '12px',
+              width: '14px',
+              height: '14px',
               borderRadius: '50%',
-              bg:
-                index === currentIndex
-                  ? 'white'
-                  : 'rgba(255, 255, 255, 0.5)',
-              border: 'none',
+              bg: index === currentIndex 
+                ? '#e4d6c3'
+                : 'rgba(255, 255, 255, 0.6)',
+              border: '2px solid',
+              borderColor: index === currentIndex ? '#e4d6c3' : 'white',
               padding: 0,
-              cursor: 'pointer'
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              '&:hover': {
+                transform: 'scale(1.2)'
+              }
             }}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </Flex>
     </Box>
-  )
-}
+  );
+};
 
 function Page({
   hackathonsData,
@@ -226,7 +364,6 @@ function Page({
   gitHubDataLength,
   consoleCount,
   stars,
-  // githubData2,
   dataPieces,
   game,
   gameTitle,
@@ -293,8 +430,6 @@ function Page({
     { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
   ]
 
-  // janky right now and does not show last image
-
   useEffect(() => {
     console.log(
       `White sheets of paper\nWaiting to be printed on\nA blank console waits`
@@ -304,7 +439,6 @@ function Page({
     }
   }, [count, images.length])
 
-  // Spotlight effect
   const spotlightRef = useRef()
   useEffect(() => {
     const handler = event => {
@@ -322,39 +456,38 @@ function Page({
     return () => window.removeEventListener('mousemove', handler)
   }, [])
 
-  // Define header carousel images
   const headerImages = [
-    {
-      src: OuternetImgFile,
-      alt: "Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!",
-      width: 3000,
-      height: 2000
-    },
-    {
-      src: "/home/flagship_4.jpg",
-      alt: "Hack Clubbers at Flagship, 2019",
-      width: 3000, 
-      height: 2000
-    },
-    {
-      src: "/home/zephyr-spacex.jpeg",
-      alt: "Hack Clubbers at SpaceX HQ in LA",
-      width: 3000,
-      height: 2000
-    },
-    {
-      src: "/hackathons/mahacks.jpeg",
-      alt: "MA Hacks, Hack Clubber organized hackathon",
-      width: 3000,
-      height: 2000
-    },
-    {
-      src: "/home/ama.png",
-      alt: "AMA with Sal Khan",
-      width: 3000,
-      height: 2000
-    }
-  ]
+  {
+    src: OuternetImgFile,
+    alt: "Outernet in Cabot, VT",
+    width: 3000,
+    height: 2000
+  },
+  {
+    src: "/home/flagship_4.jpg",
+    alt: "Flagship 2019 in San Francisco, CA",
+    width: 3000, 
+    height: 2000
+  },
+  {
+    src: "/home/zephyr-spacex.jpeg",
+    alt: "SpaceX HQ Tour in Los Angeles, CA",
+    width: 3000,
+    height: 2000
+  },
+  {
+    src: "/hackathons/mahacks.jpeg",
+    alt: "MA Hacks in Boston, MA",
+    width: 3000,
+    height: 2000
+  },
+  {
+    src: "/home/event.jpg",
+    alt: "Lion City Hacks in Singapore",
+    width: 3000,
+    height: 2000
+  }
+];
 
   return (
     <>
@@ -399,17 +532,22 @@ function Page({
             bg: 'dark',
             pt: [5, 6],
             pb: [2, 3],
+            overflowY: 'hidden',
             textAlign: 'left',
-            position: 'relative',
-            overflowX: 'hidden'
+            position: 'relative',  // Keep this as relative
+            paddingTop: '0px !important',
+            overflowX: 'hidden',
+            height: 'auto',  // Auto height to fit content
+            minHeight: '500px'  // Minimum height to show background properly
           }}
         >
-          <BGImg
-            src={OuternetImgFile}
-            alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            priority
-            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
+          {/* Carousel as background */}
+          <HeaderCarousel 
+            images={headerImages} 
+            memberCount={slackData.total_members_count} 
           />
+          
+          {/* Content stays on top with higher z-index */}
           <Box
             sx={{
               width: '90vw',
@@ -417,124 +555,128 @@ function Page({
               position: 'relative',
               mx: 'auto',
               py: [4, 4, 4],
-              textShadow: 'text'
+                            paddingTop: "156px !important",
+
+              px: ["50px", "50px", "90px"],
+              textShadow: 'text',
+              zIndex: 5  // Higher z-index to stay on top of carousel
             }}
           >
             <Text
-              variant="eyebrow"
+              // variant="eyebrow"
               sx={{
                 color: 'sunken',
                 pb: 2,
                 position: 'relative',
                 display: 'block'
               }}
-              as="h4"
+              as="p"
+              variant="title"
             >
-              Welcome to Hack&nbsp;Club
+              Welcome to Hack&nbsp;Club!
             </Text>
             <Heading>
               <Text
-                as="p"
-                variant="title"
+                as="h4"
                 sx={{
-                  color: 'white',
+                  color: 'yellow',
                   mb: [3, 4],
                   zIndex: 1,
                   textAlign: 'left',
-                  fontSize: ['42px', '52px', '64px'],
                   lineHeight: 1.2,
-                  width: '100%'
+                  width: '100%',
+                  position: 'relative'
                 }}
               >
-                We are <Comma>{slackData.total_members_count}</Comma>{' '}
-                <Text
+                {/* Scribbled-out "A home" with handwritten note above */}
+                <Box
                   sx={{
-                    color: 'transparent',
-                    ml: 2,
-                    mr: 3,
-                    whiteSpace: 'nowrap'
+                    position: 'relative',
+                    display: 'inline-block',
+                    width: 'fit-content'
                   }}
                 >
                   <Text
-                    onClick={() => {
-                      !reveal ? setReveal(true) : setReveal(false)
-                    }}
+                    as="span"
                     sx={{
-                      // lineHeight: 0.875,
-                      px: 2,
-                      backgroundColor: 'red',
-                      position: 'absolute',
-                      borderRadius: 10,
-                      transform: 'rotate(-3deg) translateY(-5px)',
-                      color: 'white',
-                      whiteSpace: 'nowrap',
-                      textDecoration: 'none',
-                      '&:hover': {
-                        cursor: 'pointer'
+                      position: 'relative',
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        left: 0,
+                        top: '50%',
+                        width: '100%',
+                        height: '4px',
+                        background: 'red',
+                        borderRadius: '4px',
+                        transform: 'rotate(-5deg)',
+                        opacity: 0.8,
+                        zIndex: 2
                       }
                     }}
-                    aria-hidden="true"
                   >
-                    teen hackers
+                    A home
                   </Text>
-                  teen hackers
-                </Text>
-                <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
-                the world who code together
+                  <Text
+                    as="span"
+                    sx={{
+                      position: 'absolute',
+                      top: '-15px',
+                      left: '-10px', // Moved further left (was 10px)
+                      transform: 'rotate(-8deg)',
+                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontSize: ['16px', '18px', '22px'],
+                      color: 'red',
+                      fontWeight: 'bold',
+                      textShadow: '1px 1px 0 white',
+                      zIndex: 3,
+                      // '&::after': {
+                      //   content: '""',
+                      //   position: 'absolute',
+                      //   width: '90%',
+                      //   height: '10px',
+                      //   borderBottom: '2px solid #ff3b3b',
+                      //   bottom: '-2px',
+                      //   right: '-2px',
+                      //   transform: 'rotate(-2deg)'
+                      // }
+                    }}
+                  >
+                    your home
+                  </Text>
+                </Box>
+                {' for Highschool Hackers'}
               </Text>
+              <Box sx={{ display: ['block', 'flex'], mt: [3, 0] }}>
               <Button
-                variant="ctaLg"
+                variant="cta"
                 as="a"
                 href="/slack"
                 mt={[3, 0, 0]}
                 mr={3}
                 sx={{ transformOrigin: 'center left' }}
               >
+                <Icon glyph="welcome" size={24} color="white" />
                 Join Slack
               </Button>
               <Button
-                variant="ctaLg"
+                variant="cta"
                 as="a"
-                href="https://shipwrecked.hack.club/3"
-                mt={3}
+                href="https://hackclub.com/philosophy/"
+                mt={[3, 0, 0]}
                 sx={{ 
-                  transformOrigin: 'left',
+                  transformOrigin: 'center left',
                   backgroundImage: t => t.util.gx('green', 'blue'),
                 }}
               >
-                Sign Up: Private Island Hackathon
+                                <Icon glyph="compass" size={24} color="white" />
+
+                Our Philosophy
               </Button>
+              </Box>
             </Heading>
           </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: ['flex-start', 'flex-start', 'flex-end'],
-              marginRight: 2,
-              mt: [4, 3, 1]
-            }}
-          >
-            <Badge
-              as="a"
-              href="https://outernet.hackclub.com/"
-              target="_blank"
-              rel="noopener"
-              variant="pill"
-              sx={{
-                zIndex: '10',
-                bg: 'black',
-                color: 'white',
-                opacity: 1,
-                textDecoration: 'none',
-                fontWeight: 'normal',
-                ':hover': { opacity: 1 },
-                transition: '0.3s ease'
-              }}
-              title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            >
-              Hackers at events around the world
-            </Badge>
-          </Box>
+          {/* Remove the old badge - it's now integrated into the carousel */}
         </Box>
         <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
           <Box
@@ -548,7 +690,7 @@ function Page({
             <Text
               variant="title"
               as="h1"
-              sx={{ fontSize: ['36px', '48px', '56px'] }}
+                sx={{ fontSize: ['36px', '48px', '56px'] }}
             >
               Discover the{' '}
               <Text
@@ -1028,9 +1170,6 @@ function Page({
               backgroundSize: '40px 40px',
               backgroundRepeat: 'repeat',
               backgroundPosition: '10% 10%'
-              // '&:hover': {
-              //   backgroundImage: `url('https://icons.hackclub.com/api/icons/0x000000/glyph:rep.svg')`
-              // }
             }}
           >
             <Box

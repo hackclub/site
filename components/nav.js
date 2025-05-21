@@ -397,6 +397,10 @@ const Navigation = props => {
             { href: '/clubs/start', label: 'HCB' },
             { href: '/clubs/start', label: 'Fiscal Sponsorship' }
           ])}
+           {renderDropdown('About', 'about', [
+            { href: '/hackathons', label: 'All Hackathons' },
+            { href: '/hackathons/host', label: 'Host a Hackathon' }
+          ])}
           {renderDropdown('Events', 'events', [
             { href: '/hackathons', label: 'All Hackathons' },
             { href: '/hackathons/host', label: 'Host a Hackathon' }
@@ -411,10 +415,8 @@ const Navigation = props => {
             sx={{
               display: ['flex'],
               alignItems: 'center',
-              gap: '0.25rem',
-              // ml: [0, null, 3],
+              gap: '0.2rem',
               mt: props.isMobile ? 0 : 0,
-              // flexShrink: 0,
               flexWrap: 'wrap',
               justifyContent: props.isMobile ? 'center' : undefined
             }}
@@ -447,17 +449,6 @@ const Navigation = props => {
               <Icon glyph="slack" size={28} style={{ color: '#222' }} />
             </Link>
             {props.toggled && (
-              // <Box
-              //   sx={{
-              //     display: 'flex',
-              //     alignItems: 'center',
-              //     gap: '0.25rem',
-              //     mt: 2,
-              //     width: '100%',
-              //     justifyContent: props.isMobile ? 'center' : undefined,
-              //     flexWrap: 'wrap'
-              //   }}
-              // >
               <>
                 <Link
                   href="https://x.com/hackclub"
@@ -512,7 +503,6 @@ const Navigation = props => {
                 >
                   <Icon glyph="rss" size={28} style={{ color: '#222' }} />
                 </Link>
-                {/* </Box> */}
               </>
             )}
           </Box>
@@ -541,15 +531,17 @@ const HamburgerButton = styled.button`
   justify-content: center;
   min-width: 44px;
   min-height: 44px;
+  margin-left: auto;
+  z-index: 1100;
   background: none;
   border: none;
   outline: none;
   cursor: pointer;
-  margin-left: auto;
-  z-index: 1100;
+  
   @media (min-width: 56em) {
     display: none;
   }
+  
   &:focus {
     outline: 2px solid #ffe066;
   }
@@ -588,18 +580,6 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       window.removeEventListener('scroll', onScroll)
     }
   }, [unfixed])
-
-  // Automatically open all mobile menu sections when hamburger is toggled
-  // useEffect(() => {
-  //   if (mobile && toggled) {
-  //     // Show all sections by default on mobile when menu is opened
-  //     setOpenMenus({
-  //       clubs: true,
-  //       hackathons: true,
-  //       community: true
-  //     });
-  //   }
-  // }, [toggled, mobile]);
 
   // Determine tab color for readability at top
   const baseColor = dark
@@ -659,7 +639,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           aria-controls="mobile-nav"
           onClick={() => setToggled(t => !t)}
         >
-          <Icon glyph={toggled ? 'view-close' : 'menu'} size={32} />
+          <Icon glyph={toggled ? 'view-close' : 'menu'} size={36} />
         </HamburgerButton>
       </Content>
       <Box
@@ -677,7 +657,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           borderRadius: '0 0 2rem 2rem',
           boxShadow: '0 8px 32px rgba(0,0,0,0.12), 0 1.5px 6px rgba(0,0,0,0.08)',
           maxHeight: '80vh', // Limit height to avoid covering entire screen
-          border: '5px solid #e4d6c3',
+          border: '4px solid #e4d6c3',
           borderTopWidth: '5px',
           borderTopStyle: 'solid',
           borderTopColor: 'rgb(228, 214, 195)',
