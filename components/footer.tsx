@@ -7,13 +7,13 @@ import Icon from './icon'
 
 interface BaseProps {
     dark?: boolean
-    pink?: boolean
+    brown?: boolean
 }
 
-const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' && prop !== 'pink' }) <BaseProps>`
+const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' && prop !== 'brown' }) <BaseProps>`
   background: ${props =>
         props.dark
-            ? `${theme.colors.darker} radial-gradient(${props.pink ? "rgb(158, 27, 88)" : theme.colors.black} 1px, transparent 1px)`
+            ? `${theme.colors.darker} radial-gradient(${props.brown ? "rgb(255, 0, 128)" : theme.colors.black} 1px, transparent 1px)`
             : `${theme.colors.snow} url('/pattern.svg') repeat`};
   ${props =>
         props.dark &&
@@ -61,14 +61,14 @@ const Service: React.FC<ServiceProps> = ({ href, icon, name = '', ...props }) =>
 
 interface FooterProps extends React.ComponentPropsWithoutRef<typeof Base> {
     dark?: boolean
-    pink?: boolean
+    brown?: boolean
     email?: string
     children?: React.ReactNode
 }
 
 const Footer: React.FC<FooterProps> = ({
     dark = false,
-    pink = false,
+    brown = false,
     email = 'team@hackclub.com',
     children = undefined,
     ...props
@@ -77,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({
         color={dark ? 'muted' : 'slate'}
         py={[4, 5]}
         dark={dark}
-        pink={pink}
+        brown={brown}
         sx={{ textAlign: 'left' }}
         as="footer"
         {...props}

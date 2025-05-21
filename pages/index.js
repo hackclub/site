@@ -1448,9 +1448,9 @@ function Page({
       </Box >
       <Footer
         dark
-        pink
+        brown
         sx={{
-          backgroundColor: 'rgb(233, 49, 135)',
+          backgroundColor: 'rgb(104, 39, 71)',
           position: 'relative',
           overflow: 'hidden',
           textShadow: '0 1px 2px rgba(0,0,255,0.375)',
