@@ -33,25 +33,37 @@ const getUrl = (type, payload, repo) => {
 
 export async function fetchGitHub() {
   try {
+    const initialGitHubData = await fetch(
+      'https://api.github.com/orgs/hackclub/events'
+    ).then(r => {
+      if (!r.ok) {
+        throw new Error(`GitHub API returned ${r.status}`)
+      }
+      return r.json()
+    }).catch(err => {
+      console.error('GitHub API fetch error:', err.message || err)
+      return []
+    })
 
-  const initialGitHubData = await fetch(
-    'https://api.github.com/orgs/hackclub/events'
-  ).then(r => r.json())
+    if (!initialGitHubData || !Array.isArray(initialGitHubData)) {
+      console.warn('Invalid GitHub data format')
+      return []
+    }
 
-  const gitHubData = initialGitHubData
-    .filter(({ type }) => isRelevantEventType(type))
-    .map(({ type, actor, payload, repo, created_at }) => ({
-      type,
-      user: actor.login,
-      userImage: actor.avatar_url,
-      url: getUrl(type, payload, repo),
-      message: getMessage(type, payload, repo),
-      time: created_at
-    }))
+    const gitHubData = initialGitHubData
+      .filter(({ type }) => isRelevantEventType(type))
+      .map(({ type, actor, payload, repo, created_at }) => ({
+        type,
+        user: actor?.login || 'unknown',
+        userImage: actor?.avatar_url || '',
+        url: getUrl(type, payload, repo),
+        message: getMessage(type, payload, repo),
+        time: created_at
+      }))
 
-  return gitHubData
+    return gitHubData
   } catch (error) {
-    console.error(error)
+    console.error('GitHub data processing error:', error.message || 'Unknown error')
     return []
   }
 }

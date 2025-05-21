@@ -10,16 +10,21 @@ export default async function handler(req, res) {
 
       const response = await fetch(url)
 
-      if (!response.ok)
-        throw new Error(`HTTP error! status: ${response.status}`)
+      if (!response.ok) {
+        console.error(`HTTP error: ${response.status}`)
+        return res.status(response.status).json({ 
+          error: 'Error fetching progress', 
+          message: `Failed with status ${response.status}` 
+        })
+      }
 
       const data = await response.json()
       res.status(200).json(data)
     } catch (error) {
-      console.error('Error fetching progress:', error)
+      console.error('Error fetching progress:', error.message || 'Unknown error')
       res
         .status(500)
-        .json({ error: 'Error fetching progress', message: error.message })
+        .json({ error: 'Error fetching progress', message: error.message || 'Unknown error' })
     }
   } else {
     // Handle any non-GET requests
