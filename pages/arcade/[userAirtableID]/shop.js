@@ -1,6 +1,6 @@
 import ShopComponent from '../../../components/arcade/shop-component'
-import { getArcadeUser } from '../../api/arcade/[userAirtableID]'
-import { shopParts } from '../../api/arcade/shop'
+// import { getArcadeUser } from '../../api/arcade/[userAirtableID]'
+// import { shopParts } from '../../api/arcade/shop'
 import { Image, Link, Text, Flex, Button, Box } from 'theme-ui'
 import { Balancer } from 'react-wrap-balancer'
 import Meta from '@hackclub/meta'
@@ -373,33 +373,21 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { userAirtableID } = params
+  // const { userAirtableID } = params
+  // const props = { userAirtableID }
+  // await Promise.all([
+  //   shopParts().then(items => {
+  //     // ...existing mapping...
+  //     props.availableItems = availableItems
+  //   }),
+  //   getArcadeUser(userAirtableID).then(user => {
+  //     // ...existing mapping...
+  //     props.hoursBalance = hoursBalance
+  //     props.userEmail = user.fields['Email']
+  //   })
+  // ])
+  // return { props, revalidate: 10 }
 
-  const props = { userAirtableID }
-
-  await Promise.all([
-    shopParts().then(items => {
-      const availableItems = items.filter(item => item['Enabled']).map(item => ({
-        'Name': item['Name'] || null,
-        'Small Name': item['Small Name'] || null,
-        'Full Name': item['Full Name'] || null,
-        'Description': item['Description'] || null,
-        'Fulfillment Description': item['Fulfillment Description'] || null,
-        'Cost Hours': item['Cost Hours'] || 0,
-        id: item.id,
-        'Image URL': item['Image URL'] || null,
-        'Max Order Quantity': item['Max Order Quantity'] || 1,
-        Stock: item['Stock'] >= 0 ? item['Stock'] : null,
-        Category: item['Category'] || ''
-      }))
-      props.availableItems = availableItems
-    }),
-    getArcadeUser(userAirtableID).then(user => {
-      const hoursBalance = user.fields['Balance (Hours)'] || 0
-      props.hoursBalance = hoursBalance
-      props.userEmail = user.fields['Email']
-    })
-  ])
-
-  return { props, revalidate: 10 }
+  // Use empty data for build
+  return { props: { availableItems: [], userAirtableID: null, userEmail: null, hoursBalance: 0 }, revalidate: 10 }
 }

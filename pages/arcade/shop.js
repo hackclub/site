@@ -1,5 +1,4 @@
 import ShopComponent from '../../components/arcade/shop-component'
-import { shopParts } from '../api/arcade/shop'
 import { Link, Text, Button, Flex, Box } from 'theme-ui'
 import { Balancer } from 'react-wrap-balancer'
 import Meta from '@hackclub/meta'
@@ -331,27 +330,30 @@ export default function Shop({
 }
 
 export async function getStaticProps() {
-  const props = {}
+  // const props = {}
 
-  await Promise.all([
-    shopParts().then(items => {
-      const availableItems = items.filter((item) => item['Enabled']).map(item => ({
-        'Name': item['Name'] || null,
-        'Small Name': item['Small Name'] || null,
-        'Full Name': item['Full Name'] || null,
-        'Description': item['Description'] || null,
-        'Fulfillment Description': item['Fulfillment Description'] || null,
-        'Cost Hours': item['Cost Hours'] || 0,
-        id: item.id,
-        'Image URL': item['Image URL'] || null,
-        'Max Order Quantity': item['Max Order Quantity'] || 1,
-        Stock: item['Stock'] >= 0 ? item['Stock'] : null,
-         Category: item['Category'] || ''
-      }))
+  // await Promise.all([
+  //   shopParts().then(items => {
+  //     const availableItems = items.filter((item) => item['Enabled']).map(item => ({
+  //       'Name': item['Name'] || null,
+  //       'Small Name': item['Small Name'] || null,
+  //       'Full Name': item['Full Name'] || null,
+  //       'Description': item['Description'] || null,
+  //       'Fulfillment Description': item['Fulfillment Description'] || null,
+  //       'Cost Hours': item['Cost Hours'] || 0,
+  //       id: item.id,
+  //       'Image URL': item['Image URL'] || null,
+  //       'Max Order Quantity': item['Max Order Quantity'] || 1,
+  //       Stock: item['Stock'] >= 0 ? item['Stock'] : null,
+  //        Category: item['Category'] || ''
+  //     }))
 
-      props.availableItems = availableItems
-    })
-  ])
+  //     props.availableItems = availableItems
+  //   })
+  // ])
 
-  return { props, revalidate: 10 }
+  // return { props, revalidate: 10 }
+
+  // Use empty array for build
+  return { props: { availableItems: [] }, revalidate: 10 }
 }

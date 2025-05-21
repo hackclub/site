@@ -29,7 +29,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   images: {
     domains: [
-      // Remove 'dl.airtable.com', 'v5.airtableusercontent.com' to avoid Airtable image domains
+      // Remove 'dl.airtable.com' , 'v5.airtableusercontent.com' to avoid Airtable image domains
       'hackclub.com',
       'emoji.slack-edge.com',
       'cdn.glitch.com',
