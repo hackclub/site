@@ -227,9 +227,13 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   return (
     <Root
       {...props}
+      // @ts-ignore
       scrolled={scrolled}
+      // @ts-ignore
       toggled={toggled}
+      // @ts-ignore
       dark={dark}
+      // @ts-ignore
       bgColor={effectiveBgColor}
       sx={{
         '--scrolled': scrolled ? 1 : 0,
