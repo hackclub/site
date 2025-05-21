@@ -281,7 +281,6 @@ function Page({
           <BGImg
             src={AssembleBannerImg}
             alt="Hack Club hero background"
-            gradient="linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7))"
             width={1920}
             height={1080}
             priority

@@ -1,10 +1,8 @@
 import { Box, Text } from 'theme-ui'
 import CarouselCards from './carousel-cards'
-import { keyframes } from '@emotion/react'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
-import { Fade } from 'react-swift-reveal'
 /** @jsxImportSource theme-ui */
 
 export default function Carousel({ cards }) {
@@ -21,9 +19,7 @@ export default function Carousel({ cards }) {
       {pageIsVisible && (
         <Box as="section" sx={{
           mt: 4,
-          width: '90vw',
-          maxWidth: 'layout',
-          mx: 'auto',
+          width: '100vw',
           overflow: 'hidden',
           position: 'relative',
           '&::before, &::after': {
