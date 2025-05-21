@@ -35,14 +35,6 @@ export default function Carousel({ cards }) {
             zIndex: 2,
             pointerEvents: 'none'
           },
-          '&::before': {
-            left: 0,
-            background: 'linear-gradient(to right, rgba(10, 15, 44, 1), rgba(10, 15, 44, 0))'
-          },
-          '&::after': {
-            right: 0,
-            background: 'linear-gradient(to left, rgba(10, 15, 44, 1), rgba(10, 15, 44, 0))'
-          }
         }}>
           <Text
             variant="eyebrow"
@@ -50,7 +42,8 @@ export default function Carousel({ cards }) {
             sx={{
               fontSize: ['22px', 2, 3],
               mt: [4, 4, 5],
-              textAlign: 'center'
+              textAlign: 'center',
+              letterSpacing: "0.1em"
             }}
           >
             Here are a few projects you could get involved in:

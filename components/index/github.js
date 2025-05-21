@@ -1,5 +1,9 @@
 import { Badge, Flex, Link, Image, Text, Box } from 'theme-ui'
-import RelativeTime from 'react-relative-time'
+import dynamic from 'next/dynamic'
+
+const RelativeTime = dynamic(() => import('react-relative-time'), {
+  ssr: false
+})
 
 export default function GitHub({
   type,
@@ -78,7 +82,9 @@ export default function GitHub({
           ml: 'auto'
         }}
       >
-        <RelativeTime value={time} titleformat="iso8601" />
+        <time dateTime={time} title={time}>
+          <RelativeTime value={time} titleformat="iso8601" />
+        </time>
       </Text>
     </Badge>
   )
