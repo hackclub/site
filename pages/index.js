@@ -1541,22 +1541,11 @@ export async function getStaticProps() {
   let carouselCards = [];
   
   try {
-    // Use a try-catch with require for better error handling during build
-    try {
-      const fs = require('fs');
-      const path = require('path');
-      const carouselPath = path.join(process.cwd(), 'lib', 'carousel.json');
-      
-      if (fs.existsSync(carouselPath)) {
-        carouselCards = JSON.parse(fs.readFileSync(carouselPath, 'utf8'));
-      } else {
-        console.warn('carousel.json file not found, using empty array instead');
-      }
-    } catch (err) {
-      console.error("Error loading carousel data:", err.message || err);
-    }
+    // Simple, direct import with fallback
+    carouselCards = require('../lib/carousel.json');
   } catch (err) {
-    console.error("Error in getStaticProps:", err.message || err);
+    console.error("Error loading carousel data:", err.message || err);
+    // Silently fall back to empty array
   }
 
   return {

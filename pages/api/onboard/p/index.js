@@ -11,21 +11,9 @@ export const getAllOnboardProjects = async () => {
   }
 
   let res;
-  try { 
-    const response = await fetch(url, fetchOptions)
-    if (!response.ok) {
-      console.error(`GitHub API returned ${response.status}`)
-      return []
-    }
-    res = await response.json()
-  }
+  try { res = await fetch(url, fetchOptions).then(r => r.json()) }
   catch (e) {
-    console.error('Failed to fetch projects from GitHub:', e.message || 'Unknown error')
-    return []
-  }
-
-  if (!res || !Array.isArray(res)) {
-    console.error('Invalid response format from GitHub API')
+    console.error('Failed to fetch projects from GitHub', e)
     return []
   }
 
@@ -33,6 +21,7 @@ export const getAllOnboardProjects = async () => {
     console.error('GitHub API rate limit exceeded')
     return []
   }
+  if(!res) return []
 
   const projects = []
 
