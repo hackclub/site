@@ -45,6 +45,7 @@ import Neighborhood from '../components/index/cards/neighborhood'
 import YTCarousel from '../components/index/yt-carousel'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
+import EventSlider from '../components/index/events-slider'
 /** @jsxImportSource theme-ui */
 
 function Page({
