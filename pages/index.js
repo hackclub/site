@@ -406,7 +406,7 @@ function Hero() {
                 }}
               >
                 It's not a class. Not a competition.<br />
-                It's a space to build whatever's on your mind—with people who actually get it.
+                It's a space to build whatever's on your mind—with people who actually get it. 
               </Text>
               <Text
                 variant="lead"
@@ -1868,15 +1868,52 @@ export async function getStaticProps() {
   let carouselCards = [];
   
   try {
-    carouselCards = require('../lib/carousel.json');
+    // Import AirtablePlus
+    const AirtablePlus = require('airtable-plus');
+    
+    // Initialize Airtable for carousel data
+    const airtable = new AirtablePlus({
+      apiKey: process.env.AIRTABLE_API_KEY,
+      baseID: 'appGoJNyWeZQWC4c8',
+      tableName: 'Carousel Cards'
+    });
+    
+    // Fetch data from Airtable
+    const records = await airtable.read({
+      filterByFormula: '{Active} = TRUE()',
+      sort: [{ field: 'Order', direction: 'asc' }]
+    });
+    
+    // Transform Airtable records to the format expected by the component
+    carouselCards = records.map(record => ({
+      background: record.fields.Background,
+      titleColor: record.fields.TitleColor,
+      descriptionColor: record.fields.DescriptionColor,
+      title: record.fields.Title,
+      description: record.fields.Description,
+      img: record.fields.Image?.[0]?.url || '',
+      link: record.fields.Link
+    }));
+    
+    // Fallback to JSON file if no Airtable records
+    if (!carouselCards.length) {
+      carouselCards = require('../lib/carousel.json');
+    }
   } catch (err) {
-    console.error("Error loading carousel data:", err);
-    // Return empty array if data can't be loaded
+    console.error("Error loading carousel data from Airtable:", err);
+    // Attempt to load from JSON as fallback
+    try {
+      carouselCards = require('../lib/carousel.json');
+    } catch (jsonErr) {
+      console.error("Error loading fallback carousel data:", jsonErr);
+    }
   }
 
   return {
     props: {
       carouselCards: carouselCards || []
-    }
+    },
+    // Revalidate every hour
+    revalidate: 3600
   }
 }
