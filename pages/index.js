@@ -10,8 +10,10 @@ import { FaArrowUp } from 'react-icons/fa'
 import Footer from '../components/footer'
 import Head from 'next/head'
 
-const orangeGradient = 'linear-gradient(90deg, #ff6600 0%, #ff9900 100%)'
-const darkGradient = 'linear-gradient(135deg, #18181b 0%, #23232b 100%)'
+const orangeGradient = 'linear-gradient(135deg, #ff6600 0%, #ff9900 50%, #ffaa00 100%)'
+const purpleGradient = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+const pinkGradient = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+const darkGradient = 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #23232b 100%)'
 
 const heroText = keyframes`
   from { opacity: 0; transform: translateY(40px);}
@@ -22,6 +24,56 @@ const heroImage = keyframes`
   from { opacity: 0; transform: translateX(60px);}
   to { opacity: 1; transform: translateX(0);}
 `
+
+// Reduced and optimized animations
+const float = keyframes`
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+`
+
+const pulse = keyframes`
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+`
+
+const shimmer = keyframes`
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+`
+
+// Reduced floating particles component
+function FloatingParticles() {
+  return (
+    <Box
+      sx={{
+        position: 'absolute',
+        inset: 0,
+        overflow: 'hidden',
+        pointerEvents: 'none',
+        zIndex: 1
+      }}
+    >
+      {[...Array(6)].map((_, i) => (
+        <Box
+          key={i}
+          sx={{
+            position: 'absolute',
+            width: ['6px', '8px', '10px'],
+            height: ['6px', '8px', '10px'],
+            borderRadius: '50%',
+            background: i % 3 === 0 ? orangeGradient : i % 3 === 1 ? purpleGradient : pinkGradient,
+            animation: `${float} ${8 + i * 3}s ease-in-out infinite`,
+            animationDelay: `${i * 1}s`,
+            left: `${(i * 20 + 15) % 80}%`,
+            top: `${(i * 25 + 25) % 70}%`,
+            opacity: 0.2,
+            filter: 'blur(0.5px)'
+          }}
+        />
+      ))}
+    </Box>
+  )
+}
 
 // A variety of background patterns for use throughout the site
 function AnimatedBackground({ 
@@ -335,10 +387,11 @@ const mobileNavLinkStyle = {
 }
 
 function Hero() {
-  return (    <Box
+  return (
+    <Box
       as="section"
       sx={{
-        minHeight: ['auto', '80vh', '90vh'],
+        minHeight: ['auto', '80vh', '90vh'], // Restored original height
         width: '100%',
         bg: 'black',
         background: darkGradient,
@@ -349,18 +402,69 @@ function Hero() {
         position: 'relative',
         overflow: 'hidden',
         px: [2, 3, 4, 5],
-        pt: [4, 5, 6, 6], 
+        pt: [4, 5, 6, 6], // Restored original padding
         pb: [5, 5, 6]
       }}
     >
-      <AnimatedBackground pattern="hexagons" speed={40} direction="diagonal" size="large" />
-      <Container sx={{ maxWidth: 1200, width: '100%' }}>
+      <AnimatedBackground pattern="hexagons" speed={60} direction="diagonal" size="normal" opacity={0.05} />
+      <FloatingParticles />
+      
+      {/* Reduced glowing orbs */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '15%',
+          right: '15%',
+          width: ['80px', '100px', '120px'], // Smaller orbs
+          height: ['80px', '100px', '120px'],
+          borderRadius: '50%',
+          background: orangeGradient,
+          opacity: 0.08,
+          filter: 'blur(40px)',
+          animation: `${pulse} 6s ease-in-out infinite`,
+          zIndex: 0
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '25%',
+          left: '10%',
+          width: ['60px', '80px', '100px'],
+          height: ['60px', '80px', '100px'],
+          borderRadius: '50%',
+          background: purpleGradient,
+          opacity: 0.06,
+          filter: 'blur(30px)',
+          animation: `${pulse} 8s ease-in-out infinite reverse`,
+          zIndex: 0
+        }}
+      />
+      
+      <Container sx={{ maxWidth: 1200, width: '100%', position: 'relative', zIndex: 2 }}>
         <Grid columns={[1, 1, 2]} gap={[4, 5]} sx={{ alignItems: 'center' }}>
           <Box sx={{ alignSelf: 'center', textAlign: ['center', 'center', 'left'] }}>
+            <Box
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 2,
+                bg: 'rgba(255, 255, 255, 0.04)',
+                backdropFilter: 'blur(8px)',
+                px: 3,
+                py: 1.5,
+                borderRadius: 'full',
+                border: '1px solid rgba(255, 153, 0, 0.15)',
+                mb: 3
+              }}
+            >
+              <Text sx={{ fontSize: [0, 1], color: 'orange', fontWeight: 600 }}>✨ Built by teens, for teens</Text>
+            </Box>
+            
             <Heading
               variant="ultratitle"
               sx={{
-                fontSize: ['2.2rem', '2.6rem', '3rem', '3.4rem'],
+                fontSize: ['2.5rem', '3rem', '3.5rem', '4rem'], // Restored original sizes
                 background: orangeGradient,
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -373,10 +477,11 @@ function Hero() {
             </Heading>
             <Box
               sx={{
-                borderLeft: ['none', 'none', '4px solid'],
+                borderLeft: ['none', 'none', '4px solid'], // Restored original border
                 borderColor: 'orange',
-                pl: [0, 0, 3],
-                mb: 4
+                pl: [0, 0, 3], // Restored original padding
+                mb: 4, // Restored original margin
+                position: 'relative'
               }}
             >
               <Text
@@ -386,8 +491,9 @@ function Hero() {
                   opacity: 0.95,
                   mb: 2,
                   maxWidth: 500,
-                  fontSize: ['1.1rem', '1.2rem', '1.3rem'],
-                  lineHeight: 1.6
+                  fontSize: ['1.2rem', '1.3rem', '1.4rem'], // Restored original sizes
+                  lineHeight: 1.6,
+                  fontWeight: 500
                 }}
               >
                 It's late nights. Big ideas.<br />
@@ -401,8 +507,9 @@ function Hero() {
                   opacity: 0.95,
                   mb: 3,
                   maxWidth: 550,
-                  fontSize: ['1.1rem', '1.2rem', '1.3rem'],
-                  lineHeight: 1.6
+                  fontSize: ['1.2rem', '1.3rem', '1.4rem'],
+                  lineHeight: 1.6,
+                  fontWeight: 500
                 }}
               >
                 It's not a class. Not a competition.<br />
@@ -411,12 +518,14 @@ function Hero() {
               <Text
                 variant="lead"
                 sx={{
-                  color: '#ff9900',
+                  background: orangeGradient,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
                   mb: 0,
                   maxWidth: 550,
-                  fontSize: ['1.1rem', '1.2rem', '1.3rem'],
+                  fontSize: ['1.2rem', '1.3rem', '1.4rem'],
                   lineHeight: 1.6,
-                  fontWeight: 600
+                  fontWeight: 700
                 }}
               >
                 No one's telling you what to do.<br />
@@ -424,21 +533,13 @@ function Hero() {
               </Text>
             </Box>
             <Flex sx={{ 
-              gap: 3, 
+              gap: [3, 3, 2.5], // Smaller gap on laptops
               flexWrap: 'wrap', 
-              mb: 4, 
+              mb: 4,
               justifyContent: ['center', 'center', 'flex-start'],
-              width: '100%',
-            }}
-            css={{
-              '@media (max-width: 32em)': {
-                'button, a': {
-                  width: '100%',
-                  justifyContent: 'center'
-                }
-              }
-            }}
-            >
+              alignItems: 'center', // Center vertically when wrapping
+              width: '100%'
+            }}>
               <Button variant="primary"
                 as="a"
                 href="#"
@@ -447,16 +548,23 @@ function Hero() {
                   scrollToSection('slack-section')
                 }}
                 sx={{
-                  fontSize: [2, 3],
-                  px: [4, 5],
-                  py: [2, 3],
-                  transition: 'all 0.3s ease',
-                  ':hover': { bg: 'white', color: 'orange', transform: 'translateY(-5px)' },
+                  fontSize: [2, 3, 3], // Keep readable size on laptops
+                  px: [4, 6, 5], // Goldilocks padding
+                  py: [3, 4, 3], // Goldilocks padding
+                  background: orangeGradient,
+                  transition: 'all 0.2s ease',
+                  ':hover': { 
+                    transform: 'translateY(-3px)',
+                    boxShadow: '0 10px 40px rgba(255, 102, 0, 0.4)'
+                  },
                   boxShadow: '0 4px 20px rgba(255, 102, 0, 0.25)',
-                  fontWeight: 600
+                  fontWeight: 700,
+                  borderRadius: 'full',
+                  minWidth: ['auto', 'auto', '150px'], // Slightly wider
+                  textAlign: 'center'
                 }}
               >
-                Join Slack
+                🚀 Join Slack
               </Button>
               <Button variant="outline"
                 as="a"
@@ -466,29 +574,53 @@ function Hero() {
                   scrollToSection('programs')
                 }}
                 sx={{
-                  fontSize: [2, 3],
-                  px: [4, 5],
-                  py: [2, 3],
-                  color: 'orange',
-                  borderColor: 'orange',
-                  borderWidth: 2,
-                  transition: 'all 0.3s ease',
-                  ':hover': { bg: 'orange', color: 'black', transform: 'translateY(-5px)' },
-                  fontWeight: 600
+                  fontSize: [2, 3, 3], // Keep readable size on laptops
+                  px: [4, 6, 5], // Goldilocks padding
+                  py: [3, 4, 3], // Goldilocks padding
+                  color: 'white',
+                  borderColor: 'rgba(255, 255, 255, 0.25)',
+                  borderWidth: 1.5,
+                  bg: 'rgba(255, 255, 255, 0.03)',
+                  backdropFilter: 'blur(8px)',
+                  transition: 'all 0.2s ease',
+                  ':hover': { 
+                    bg: orangeGradient,
+                    borderColor: 'transparent',
+                    color: 'black', 
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 25px rgba(255, 102, 0, 0.25)'
+                  },
+                  fontWeight: 600,
+                  borderRadius: 'full',
+                  minWidth: ['auto', 'auto', '170px'], // Slightly wider
+                  textAlign: 'center'
                 }}
               >
-                Explore Programs
+                ⚡ Explore Programs
               </Button>
             </Flex>
+            
+            {/* Enhanced info box with glassmorphism */}
             <Box
               sx={{
-                bg: 'rgba(255, 255, 255, 0.05)',
-                p: 3,
-                borderRadius: '8px',
-                borderLeft: '3px solid',
-                borderColor: 'orange',
+                bg: 'rgba(255, 255, 255, 0.03)',
+                backdropFilter: 'blur(20px)',
+                p: 4, // Restored original padding
+                borderRadius: 'xl',
+                border: '1px solid rgba(255, 153, 0, 0.2)',
                 textAlign: ['left', 'left', 'left'],
-                mt: 2
+                mt: 3,
+                position: 'relative',
+                overflow: 'hidden',
+                '::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '2px',
+                  background: orangeGradient
+                }
               }}
             >
               <Text 
@@ -496,19 +628,21 @@ function Hero() {
                 sx={{ 
                   display: 'flex',
                   alignItems: 'center',
-                  fontSize: [1, 2],
-                  flexWrap: 'wrap'
+                  fontSize: [1, 2], // Restored original sizes
+                  flexWrap: 'wrap',
+                  fontWeight: 500
                 }}
               >
-                <Icon glyph="github" size={20} sx={{ flexShrink: 0, mr: 2, color: 'orange' }} />
+                <Icon glyph="github" size={24} sx={{ flexShrink: 0, mr: 2, color: 'orange' }} />
                 <span>
-                  Proudly partnered with <strong>GitHub</strong>, <strong>Arduino</strong>, and more. 
-                  <span style={{ color: '#ff9900', fontWeight: 600 }}> Join our creative coding community.</span>
+                  Proudly partnered with <strong style={{ color: '#ff9900' }}>GitHub</strong>, <strong style={{ color: '#ff9900' }}>Arduino</strong>, and more. 
+                  <span style={{ color: '#ff9900', fontWeight: 700 }}> Join our creative coding community.</span>
                 </span>
               </Text>
             </Box>
           </Box>
-          {/* Enhanced hero images with better mobile display */}
+          
+          {/* Enhanced hero images */}
           <Box 
             sx={{ 
               position: 'relative',
@@ -516,68 +650,87 @@ function Hero() {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: 3,
+              gap: 4, // Restored original gap
               width: '100%',
               px: [2, 2, 0]
             }}
           >
-            <Image
-              src="/home/flagship_4.jpg"
-              alt="Hack Clubbers at Flagship, 2019"
+            <Box
               sx={{
-                width: '100%',
-                aspectRatio: '4/3',
-                maxWidth: [300, 360, 420, 500],
-                height: 'auto',
-                borderRadius: 'lg',
-                boxShadow: '0 12px 48px rgba(255, 102, 0, 0.3)',
-                objectFit: 'cover',
-                mx: 'auto',
-                display: 'block',                transform: 'rotate(0deg)',
-                transition: 'all 0.3s ease',
-                ':hover': {
-                  transform: 'scale(1.02)',
-                  boxShadow: '0 16px 56px rgba(255, 102, 0, 0.4)'
+                position: 'relative',
+                '::before': {
+                  content: '""',
+                  position: 'absolute',
+                  inset: '-8px',
+                  background: orangeGradient,
+                  borderRadius: 'lg',
+                  filter: 'blur(15px)',
+                  opacity: 0.2,
+                  zIndex: -1
                 }
               }}
-            />
-            <Image
-              src="/home/zephyr-spacex.jpeg"
-              alt="Hack Clubbers at SpaceX HQ"
+            >
+              <Image
+                src="/home/flagship_4.jpg"
+                alt="Hack Clubbers at Flagship, 2019"
+                sx={{
+                  width: '100%',
+                  aspectRatio: '4/3',
+                  maxWidth: [280, 320, 360, 420], // Smaller on laptops
+                  height: 'auto',
+                  borderRadius: 'lg',
+                  objectFit: 'cover',
+                  mx: 'auto',
+                  display: 'block',
+                  transition: 'transform 0.3s ease',
+                  border: '1px solid rgba(255, 153, 0, 0.15)',
+                  ':hover': {
+                    transform: 'scale(1.02)',
+                    borderColor: 'rgba(255, 153, 0, 0.3)'
+                  }
+                }}
+              />
+            </Box>
+            
+            <Box
               sx={{
-                width: '100%',
-                aspectRatio: '4/3',                maxWidth: [300, 360, 420, 500],
-                height: 'auto',
-                borderRadius: 'lg',
-                boxShadow: '0 12px 48px rgba(255, 153, 0, 0.3)',
-                objectFit: 'cover',
-                mx: 'auto',
-                display: 'block',                transform: 'rotate(0deg)',
-                transition: 'all 0.3s ease',
-                ':hover': {
-                  transform: 'scale(1.02)',
-                  boxShadow: '0 16px 56px rgba(255, 153, 0, 0.4)'
+                position: 'relative',
+                '::before': {
+                  content: '""',
+                  position: 'absolute',
+                  inset: '-8px',
+                  background: purpleGradient,
+                  borderRadius: 'lg',
+                  filter: 'blur(15px)',
+                  opacity: 0.2,
+                  zIndex: -1
                 }
               }}
-            />
+            >
+              <Image
+                src="/home/zephyr-spacex.jpeg"
+                alt="Hack Clubbers at SpaceX HQ"
+                sx={{
+                  width: '100%',
+                  aspectRatio: '4/3',
+                  maxWidth: [280, 320, 360, 420],
+                  height: 'auto',
+                  borderRadius: 'lg',
+                  objectFit: 'cover',
+                  mx: 'auto',
+                  display: 'block',
+                  transition: 'transform 0.3s ease',
+                  border: '1px solid rgba(102, 126, 234, 0.15)',
+                  ':hover': {
+                    transform: 'scale(1.02)',
+                    borderColor: 'rgba(102, 126, 234, 0.3)'
+                  }
+                }}
+              />
+            </Box>
           </Box>
         </Grid>
       </Container>
-      {/* Orange gradient accent */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '-10%',
-          right: '-20%',
-          width: '60vw',
-          height: '60vw',
-          background: orangeGradient,
-          opacity: 0.12,
-          filter: 'blur(80px)',
-          zIndex: 0,
-          pointerEvents: 'none'
-        }}
-      />
     </Box>
   )
 }
@@ -591,43 +744,61 @@ function Programs({ carouselCards = [] }) {
         bg: 'black',
         background: darkGradient,
         color: 'white',
-        py: [5, 6, 7],
+        py: [5, 6, 7], // Restored original padding
         px: [2, 3, 4],
-        position: 'relative'
+        position: 'relative',
+        overflow: 'hidden'
       }}
     >
-      <Container sx={{ maxWidth: 1200 }}>
-        <Heading
-          as="h2"
-          sx={{
-            fontSize: [4, 5, 6],
-            fontWeight: 700,
-            mb: 4,
-            background: orangeGradient,
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}
-        >
-          Programs Happening Now
-        </Heading>
-        <Text as="p" sx={{ fontSize: [2, 3], color: 'muted', mb: 5, maxWidth: 600 }}>
-          <span role="img" aria-label="sparkles">✨</span> Dive into something wild: from hackathons in forests to coding on trains, there’s always something new. <span role="img" aria-label="rocket">🚀</span>
-        </Text>
+      <AnimatedBackground pattern="circuit" speed={35} opacity={0.04} />
+      <Container sx={{ maxWidth: 1200, position: 'relative', zIndex: 1 }}>
+        <Box sx={{ textAlign: 'center', mb: 6 }}> {/* Restored original margin */}
+          <Heading
+            as="h2"
+            sx={{
+              fontSize: [4, 5, 6], // Restored original sizes
+              fontWeight: 800,
+              mb: 3,
+              background: orangeGradient,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              position: 'relative'
+            }}
+          >
+            Programs Happening Now
+          </Heading>
+          <Text 
+            as="p" 
+            sx={{ 
+              fontSize: [2, 3], // Restored original sizes
+              color: 'rgba(255, 255, 255, 0.8)', 
+              mb: 0, 
+              maxWidth: 700,
+              mx: 'auto',
+              lineHeight: 1.6,
+              fontWeight: 500
+            }}
+          >
+            <span role="img" aria-label="sparkles">✨</span> Dive into something wild: from hackathons in forests to coding on trains, there's always something new happening. <span role="img" aria-label="rocket">🚀</span>
+          </Text>
+        </Box>
         <Carousel cards={carouselCards || []} />
       </Container>
-      {/* Orange accent */}
+      
+      {/* Reduced background effects */}
       <Box
         sx={{
           position: 'absolute',
-          left: '-20%',
-          bottom: '-10%',
+          left: '-40%',
+          bottom: '-30%',
           width: '60vw',
           height: '60vw',
           background: orangeGradient,
-          opacity: 0.10,
+          opacity: 0.04,
           filter: 'blur(80px)',
+          borderRadius: '50%',
           zIndex: 0,
-          pointerEvents: 'none'
+          animation: `${pulse} 10s ease-in-out infinite`
         }}
       />
     </Box>
@@ -642,7 +813,7 @@ function CallToAction() {
         bg: 'black',
         background: darkGradient,
         color: 'white',
-        py: [5, 6],
+        py: [4, 5, 6],
         px: [2, 3, 4],
         textAlign: 'center',
         position: 'relative'
@@ -1016,7 +1187,7 @@ function NewsletterSection() {
               </Text>
               <Box
                 as="form"
-                action="https://hackclub.com/api/newsletter"
+                action="/api/mailing-list"
                 method="POST"
                 sx={{
                   display: 'flex',
@@ -1026,7 +1197,6 @@ function NewsletterSection() {
                   mt: 2,
                   width: '100%'
                 }}
-                target="_blank"
               >
                 <Box sx={{ flex: 1, width: '100%' }}>
                   <Text as="label" htmlFor="newsletter-name" sx={{ display: 'block', fontSize: 1, mb: 1, color: 'muted' }}>
@@ -1168,8 +1338,8 @@ function OuternetHighlight() {
           }}
           css={{
             '@keyframes fadeIn': {
-              from: { opacity: 0 },
-              to: { opacity: 1 }
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
             }
           }}
         >
@@ -1493,7 +1663,7 @@ function TopicsSection() {
         bg: 'black',
         background: darkGradient,
         color: 'white',
-        py: [4, 5, 6],
+        py: [4, 5, 6], // Restored original padding
         px: [2, 3, 4],
         position: 'relative',
         overflow: 'hidden'
@@ -1504,20 +1674,13 @@ function TopicsSection() {
         <Heading
           variant="title"
           sx={{
-            fontSize: ['1.6rem', '2rem', '2.5rem'],
+            fontSize: ['1.6rem', '2rem', '2.5rem'], // Restored original sizes
             background: orangeGradient,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             textAlign: 'center',
-            mb: [4, 5],
-            animation: 'fadeIn 0.8s ease-out',
+            mb: [4, 5], // Restored original margin
             lineHeight: 1.2
-          }}
-          css={{
-            '@keyframes fadeIn': {
-              from: { opacity: 0, transform: 'translateY(20px)' },
-              to: { opacity: 1, transform: 'translateY(0)' }
-            }
           }}
         >
           What You'll Actually Do Here
@@ -1530,24 +1693,16 @@ function TopicsSection() {
                 bg: 'rgba(24,24,27,0.95)',
                 borderRadius: '2xl',
                 boxShadow: '0 4px 24px #ff660033',
-                p: [3, 4, 5],
+                p: [3, 4, 5], // Restored original padding
                 textAlign: 'left',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-start',
-                minHeight: [180, 200, 220],
+                minHeight: [180, 200, 220], // Restored original heights
                 transition: 'transform 0.2s, box-shadow 0.2s',
                 ':hover': {
-                  transform: 'translateY(-8px)',
+                  transform: 'translateY(-8px)', // Restored original transform
                   boxShadow: '0 12px 48px #ff660055',
-                },
-                animation: 'fadeIn 0.8s ease-out backwards',
-                animationDelay: `${Math.min(i * 0.2, 0.6)}s`, // Cap delay at 0.6s for accessibility
-              }}
-              css={{
-                '@keyframes fadeIn': {
-                  from: { opacity: 0, transform: 'translateY(20px)' },
-                  to: { opacity: 1, transform: 'translateY(0)' }
                 }
               }}
             >
@@ -1559,17 +1714,17 @@ function TopicsSection() {
         </Grid>
       </Container>
 
-      {/* Orange accent */}
+      {/* Reduced accent */}
       <Box
         sx={{
           position: 'absolute',
-          left: '-20%',
-          top: '-10%',
-          width: '60vw',
-          height: '60vw',
+          left: '-30%',
+          top: '-20%',
+          width: '50vw',
+          height: '50vw',
           background: orangeGradient,
-          opacity: 0.10,
-          filter: 'blur(80px)',
+          opacity: 0.05,
+          filter: 'blur(60px)',
           zIndex: 0,
           pointerEvents: 'none'
         }}
@@ -1673,7 +1828,8 @@ function ShowcaseSection() {
                   to: { opacity: 1, transform: 'translateX(0)' }
                 }
               }}
-            >              <Box
+            >
+              <Box
                 sx={{
                   flex: ['1 1 auto', '1 1 auto', '0 0 400px'],
                   width: '100%',
@@ -1682,7 +1838,8 @@ function ShowcaseSection() {
                   overflow: 'hidden',
                   boxShadow: '0 8px 48px #ff660033',
                   mb: [3, 3, 0],
-                  mx: ['auto', 'auto', 0],                  transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out',
+                  mx: ['auto', 'auto', 0],
+                  transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out',
                   ':hover': {
                     transform: 'scale(1.05)',
                     boxShadow: '0 16px 60px rgba(255, 102, 0, 0.4)',
@@ -1691,8 +1848,10 @@ function ShowcaseSection() {
               >
                 <Image
                   src={item.img}
+
                   alt={item.alt}
                   sx={{
+
                     width: '100%',
                     height: 'auto',
                     display: 'block',
@@ -1774,11 +1933,18 @@ export default function Home({ carouselCards }) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
-        {/* Phantom Sans font */}
+        {/* Enhanced font loading */}
+        <link
+          rel="preload"
+          href="https://assets.hackclub.com/fonts/Phantom_Sans_0.7/web.css"
+          as="style"
+        />
         <link
           rel="stylesheet"
           href="https://assets.hackclub.com/fonts/Phantom_Sans_0.7/web.css"
-        />        {/* Brand colors for theme-ui (optional, if not already in theme.js) */}        <style>{`
+        />
+        
+        <style>{`
           :root {
             --hackclub-orange: #ff8c37;
             --hackclub-red: #ec3750;
@@ -1789,64 +1955,107 @@ export default function Home({ carouselCards }) {
             --hackclub-purple: #a633d6;
             --hackclub-muted: #8492a6;
           }
-          html, body {
+          
+          html {
+            scroll-behavior: smooth;
+          }
+          
+          body {
             font-family: 'Phantom Sans', system-ui, sans-serif;
             margin: 0;
             padding: 0;
             -webkit-text-size-adjust: 100%;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-            width: 100%;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-          }
-          *, *::before, *::after {
-            box-sizing: border-box;
-          }
-          #__next {
-            width: 100%;
             overflow-x: hidden;
-          }
-          @media (prefers-reduced-motion: reduce) {
-            * {
-              animation-duration: 0.01ms !important;
-              animation-iteration-count: 1 !important;
-              transition-duration: 0.01ms !important;
-              scroll-behavior: auto !important;
-            }
-          }
-          button, a {
-            touch-action: manipulation;
-          }
-          a:focus, button:focus, input:focus {
-            outline: 2px solid var(--hackclub-orange);
-            outline-offset: 2px;
-          }
-          @media (max-width: 32em) {
-            .mobile-full-width {
-              width: 100% !important;
-            }
-          }
-          img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-          }
-          /* Improve mobile tap targets */
-          @media (max-width: 32em) {
-            button, a, input[type="submit"] {
-              min-height: 44px;
-              min-width: 44px;
-            }
-          }
-          /* Smooth font rendering */
-          body {
+            width: 100%;
+            box-sizing: border-box;
+            background: #0f0f0f;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
           }
+          
+          *, *::before, *::after {
+            box-sizing: border-box;
+          }
+          
+          #__next {
+            width: 100%;
+            overflow-x: hidden;
+          }
+          
+          /* Performance optimizations */
+          @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+              animation-duration: 0.01ms !important;
+              animation-iteration-count: 1 !important;
+              transition-duration: 0.01ms !important;
+            }
+            html {
+              scroll-behavior: auto !important;
+            }
+          }
+          
+          /* Optimize for lower-end devices */
+          @media (max-width: 768px) and (max-height: 1024px) {
+            * {
+              animation-duration: 0.2s !important;
+              transition-duration: 0.2s !important;
+            }
+          }
+          
+          /* Better button and link styles */
+          button, a {
+            touch-action: manipulation;
+            cursor: pointer;
+          }
+          
+          /* Enhanced focus styles */
+          a:focus-visible, button:focus-visible, input:focus-visible {
+            outline: 2px solid #ff8c37;
+            outline-offset: 2px;
+            border-radius: 4px;
+          }
+          
+          /* Improved mobile tap targets */
+          @media (max-width: 32em) {
+            button, a[role="button"], input[type="submit"] {
+              min-height: 44px;
+              min-width: 44px;
+            }
+          }
+          
+          /* High contrast mode support */
+          @media (prefers-contrast: high) {
+            button, a {
+              border: 2px solid currentColor;
+            }
+          }
+          
+          /* Dark mode optimization */
+          @media (prefers-color-scheme: dark) {
+            body {
+              color-scheme: dark;
+            }
+          }
+          
+          /* Reduce GPU usage on slower devices */
+          @media (max-width: 1024px) {
+            * {
+              transform: translateZ(0);
+              backface-visibility: hidden;
+              perspective: 1000px;
+            }
+          }
         `}</style>
       </Head>
-      <Box sx={{ bg: 'black', minHeight: '100vh', fontFamily: 'Phantom Sans, body' }}>
+      
+      <Box sx={{ 
+        bg: 'black', 
+        minHeight: '100vh', 
+        fontFamily: 'Phantom Sans, body',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
         <HeaderNav />
         <Hero />
         <TopicsSection />
