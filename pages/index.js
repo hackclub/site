@@ -605,10 +605,10 @@ function Page({
                     </strong>
                     Have a coding question? Looking for project feedback? You'll
                     find thousands of fabulous people to talk to in our global{' '}
-                    <Link href="/slack" target="_blank" rel="noopener" sx={{ color: 'cyberpunk.electricBlue' }}>
-                      Slack{' '}
+                    <Link href="/slack" target="_blank" rel="noopener">
+                      Slack
                     </Link>
-                    (like Discord), active at all hours.
+                    {' '}(like Discord), active at all hours.
                   </Text>
                 </Grid>
                 <Grid
