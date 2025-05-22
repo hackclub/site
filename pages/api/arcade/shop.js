@@ -3,7 +3,7 @@ import AirtablePlus from "airtable-plus"
 export const shopParts = async () => {
   const baseID = "app4kCWulfB02bV8Q";
   console.log(process.env.NODE_ENV)
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.FORK_STATUS && process.env.FORK_STATUS === "fork") {
     return [];
   }
   const shopItemsTable = new AirtablePlus({
