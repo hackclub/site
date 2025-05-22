@@ -43,6 +43,7 @@ import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
 import YTCarousel from '../components/index/yt-carousel'
+import Highway from '../components/index/cards/highway'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -686,7 +687,7 @@ function Page({
               </Text>
             </Box>
             <Neighborhood />
-            <Trail />
+            <Highway />
             <Scrapyard />
                  <YTCarousel cards={ytCarouselCards}/>
             <Slack slackKey={slackKey} data={slackData} events={events} />
