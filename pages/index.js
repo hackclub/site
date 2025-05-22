@@ -177,6 +177,7 @@ function Page({
   const [count, setCount] = useState(0)
 
   let images = [
+    { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
     {
       alt: 'Hack Clubbers at SpaceX HQ in LA',
       src: '/home/zephyr-spacex.jpeg'
@@ -186,7 +187,6 @@ function Page({
       alt: 'MA Hacks, Hack Clubber organized hackathon',
       src: '/hackathons/mahacks.jpeg'
     },
-    { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
     { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
   ]
 
