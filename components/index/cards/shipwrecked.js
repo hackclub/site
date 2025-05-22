@@ -89,6 +89,7 @@ export default function Shipwrecked() {
                 textAlign: 'center',
                 margin: '8%',
                 fontSize: '22px',
+                filter: 'drop-shadow(0.1px 0.1px 0.1px #00000099)',
                 color: '#1f2d3d'
               }}
             >
@@ -119,7 +120,7 @@ export default function Shipwrecked() {
               flexDirection: 'column',
               alignItems: 'center',
               // pt: '3%',
-              filter: 'drop-shadow(5px 5px 5px #00000099)',
+              filter: 'drop-shadow(2px 2px 2px #00000099)',
               borderRadius:'20px',
               borderLeft:'1px solid',
               borderBottom:'1px solid',

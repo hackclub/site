@@ -213,7 +213,7 @@ export default function Highway() {
                 <Heading
                   as="h2"
                   sx={{
-                    fontFamily: 'p22stanyan',
+                    fontFamily: 'moonblossom',
                     mx: '8%',
                     my: '3%',
                     p: 0,
