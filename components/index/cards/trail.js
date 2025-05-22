@@ -11,24 +11,27 @@ export default function Trail() {
       sx={{
         backgroundSize: 'cover',
         backgroundColor: '#FFF5D8',
-        fontFamily: "Fraunces"
+        fontFamily: "Fraunces",
+        padding: "20px !important",
+        margin: "0px !important",
       }}
       position={[null, 'bottom', 'bottom']}
       image={"https://cloud-olwxtauup-hack-club-bot.vercel.app/0stampfit.png"}
     >
-      <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Flex
           sx={{
             flexDirection: 'column',
-            justifyContent: 'space-between'
+            width: '100%',
+            margin: "0px !important",
+            // justifyContent: 'space-between'
           }}
         >
           <Image
             src="https://cloud-qk962s2kz-hack-club-bot.vercel.app/0traillogo.png"
             sx={{
-              width: ['200px', '250px', '300px'],
+              width: ['200px', '200px', '200px'],
               mt: ['-5px', '-5px', '-5px'],
-              mb: ['30px', '30px', '30px'],
+              mb: ['10px', '15px', '15px'],
               position: 'relative',
               zIndex: 2,
               fontSize: ['36px', 4, 5],
@@ -37,29 +40,7 @@ export default function Trail() {
             alt="Trail"
           />
 
-          <Flex
-            sx={{
-              flexDirection: ['row', 'row', 'column'],
-              justifyContent: 'space-between'
-            }}
-          >
-            <Text
-              as="p"
-              variant="subheadline"
-              sx={{
-                ml: ['0px', '0px', '10px'],
-                mt: ['0px', '0px', '-10px'],
-                mb: ['0px', '0px', '20px'],
-                zIndex: 2,
-                color: '#032412',
-                fontSize: ['24px !important'],
-
-              }}
-            >
-              Pacific Crest Trail
-              <br />
-              July 12-19
-            </Text>
+     
 
             <Buttons
               icon="view-fill"
@@ -68,26 +49,12 @@ export default function Trail() {
               rel="noopener"
               primary="#032412"
               id="43"
-              sx={{ color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
+              sx={{ fontSize: "15px !important", color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
             >
               View the Documentary
             </Buttons>
           </Flex>
-        </Flex>
-        <Box style={{display: "flex", alignItems: "center"}}>
-          <Text
-            as="p"
-            variant="subtitle"
-            sx={{
-              fontSize: ['26px', '24px', '22px'],
-              color: "#032412",
-              backgroundColor: "#FFF5D8"
-            }}
-          >
-            30 Hack Clubbers went on a 7 day hike along the Pacific Crest Trail supplied by only the technical equipment that they built. 
-          </Text>
-        </Box>
-      </Grid>
+   
     </CardModel>
   )
 }

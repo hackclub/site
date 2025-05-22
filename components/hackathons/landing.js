@@ -23,7 +23,7 @@ export default function Landing() {
           <Box
             sx={{
               zIndex: 999,
-              paddingTop: 96
+              paddingTop: 916
             }}
           >
             <Fade duration={625} bottom>
@@ -47,10 +47,10 @@ export default function Landing() {
                     backgroundImage: t => t.util.gx('yellow', 'pink'),
                     position: 'absolute',
                     right: [0, -3],
-                    top: -3,
+                    bottom: -3,
                     transform: [
-                      'translateY(-50%) rotate(8deg)',
-                      'translateX(15%) rotate(12deg)'
+                      'translateY(50%) rotate(-8deg)',
+                      'translateX(0%) rotate(-8deg)'
                     ],
                     fontSize: [2, 3],
                     display: ['none', 'inline', 'inline']

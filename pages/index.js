@@ -46,28 +46,47 @@ import Neighborhood from '../components/index/cards/neighborhood'
 
 const HeaderCarousel = ({ images, memberCount }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [progress, setProgress] = useState(0)
 
   const nextSlide = () => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % images.length)
+    setProgress(0) // Reset progress when slide changes
   }
 
   const prevSlide = () => {
     setCurrentIndex(
       prevIndex => (prevIndex - 1 + images.length) % images.length
     )
+    setProgress(0) // Reset progress when slide changes
   }
 
   useEffect(() => {
+    const intervalTime = 6000
+    const progressInterval = 65 // Update progress every 50ms for smooth animation
+
+    // Main interval for changing slides
     const timer = setInterval(() => {
       nextSlide()
-    }, 5000)
-    return () => clearInterval(timer)
+    }, intervalTime)
+
+    // Progress interval for updating the progress indicator
+    const progressTimer = setInterval(() => {
+      setProgress(prevProgress => {
+        if (prevProgress >= 100) return 100
+        return prevProgress + (100 * progressInterval / intervalTime)
+      })
+    }, progressInterval)
+
+    return () => {
+      clearInterval(timer)
+      clearInterval(progressTimer)
+    }
   }, [])
 
   return (
-    <Box className="carousel" sx={{ 
+    <Box className="carousel" sx={{
       position: 'absolute',
-      width: '100%', 
+      width: '100%',
       height: '100%',
       top: 0,
       left: 0,
@@ -104,14 +123,14 @@ const HeaderCarousel = ({ images, memberCount }) => {
         aria-label="Previous image"
         sx={{
           position: 'absolute',
-          left: ['10px', '20px', '30px'],
-          top: '50%',
+          left: ['5px', '20px', '30px'],
+          top: '55%',
           transform: 'translateY(-50%)',
           bg: '#fdf6ee',
           border: '4px solid #e4d6c3',
           borderRadius: '50%',
-          width: ['50px', '60px', '70px'],
-          height: ['50px', '60px', '70px'],
+          width: ['45px', '60px', '70px'],
+          height: ['45px', '60px', '70px'],
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -138,7 +157,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
         >
           <path
             d="M15 18L8 12L15 6"
-            stroke="#e4d6c3"
+            stroke="#a89985"
             strokeWidth="5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -152,14 +171,14 @@ const HeaderCarousel = ({ images, memberCount }) => {
         aria-label="Next image"
         sx={{
           position: 'absolute',
-          right: ['10px', '20px', '30px'],
-          top: '50%',
+          right: ['5px', '20px', '30px'],
+          top: '55%',
           transform: 'translateY(-50%)',
-          bg: 'rgba(255, 255, 255, 0.9)',
-          border: '4px solid #fdf6ee',
+          bg: '#fdf6ee',
+          border: '4px solid #e4d6c3',
           borderRadius: '50%',
-          width: ['50px', '60px', '70px'],
-          height: ['50px', '60px', '70px'],
+          width: ['45px', '60px', '70px'],
+          height: ['45px', '60px', '70px'],
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -167,7 +186,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
           zIndex: 10,
           // transition: 'all 0.2s',
           boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
-                      bg: '#fdf6ee',
+          bg: '#fdf6ee',
 
           '&:hover': {
             transform: 'translateY(-50%) scale(1.1) rotate(5deg)',
@@ -187,7 +206,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
         >
           <path
             d="M9 6L16 12L9 18"
-            stroke="#e4d6c3"
+            stroke="#a89985"
             strokeWidth="5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -196,6 +215,8 @@ const HeaderCarousel = ({ images, memberCount }) => {
       </Box>
 
       <Box
+        as="a"
+        href={images[currentIndex].href}
         sx={{
           position: 'absolute',
           bottom: '20px',
@@ -208,24 +229,47 @@ const HeaderCarousel = ({ images, memberCount }) => {
           variant="pill"
           sx={{
             zIndex: '10',
-            bg: 'black',
-            color: 'white',
+            bg: '#fdf6ee',
+            color: '#513f31',
             opacity: 1,
-            fontWeight: 'normal',
+            fontWeight: 'bold',
             transition: '0.3s ease',
             animation: 'fadeIn 0.5s',
             '@keyframes fadeIn': {
               from: { opacity: 0 },
               to: { opacity: 1 },
             },
-              display: 'none',
-              '@media (min-width: 56em)': {
-    display: 'block'
-  }
+            display: 'none',
+            '@media (min-width: 56em)': {
+              display: 'block'
+            },
+            borderRadius: '12px',
+            border: '3px solid #e4d6c3',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            py: 1,
+            px: 2,
+            fontSize: '14px',
+            letterSpacing: '0.02em',
+            transform: 'rotate(-1deg)',
+            '&:hover': {
+              transform: 'rotate(1deg) scale(1.05)',
+              boxShadow: '0 6px 14px rgba(0,0,0,0.2)',
+            }
           }}
           title={images[currentIndex].caption || images[currentIndex].alt}
         >
-          {images[currentIndex].alt}
+          <Icon
+            glyph="pin"
+            size={22}
+            style={{
+              marginRight: '6px',
+              transform: 'translateY(-1px)',
+              verticalAlign: 'middle'
+            }}
+          />
+          <Text as="span" sx={{ display: 'inline-block', position: 'relative', top: '1px' }}>
+            {images[currentIndex].alt}
+          </Text>
         </Badge>
       </Box>
 
@@ -260,9 +304,12 @@ const HeaderCarousel = ({ images, memberCount }) => {
       />
 
       <Box
+        as="a"
+        href="/slack"
         sx={{
           position: 'absolute',
           bottom: '20px',
+          textDecoration: 'none',
           right: '20px',
           zIndex: 15,
           width: ['120px', '150px', '180px'],
@@ -274,12 +321,27 @@ const HeaderCarousel = ({ images, memberCount }) => {
           color: '#513f31',
           fontWeight: 'bold',
           padding: '10px',
+          paddingTop: "15px",
           transform: 'rotate(2deg)',
-          paddingBottom: '25px',
+          // paddingBottom: '25px',
           background: 'linear-gradient(to bottom, #e8d9b5, #d2bc94)',
           borderRadius: '12px',
           border: '4px solid #7d623c',
           boxShadow: '0 4px 8px rgba(0,0,0,0.2), inset 0 1px 3px rgba(255,255,255,0.3)',
+          transition: 'transform 0.2s, box-shadow 0.2s',
+          '@keyframes populationBounce': {
+            '0%': { transform: 'rotate(2deg) translateY(0)' },
+            '20%': { transform: 'rotate(4deg) translateY(-8px)' },
+            '40%': { transform: 'rotate(6deg) translateY(-4px)' },
+            '60%': { transform: 'rotate(4deg) translateY(-6px)' },
+            '80%': { transform: 'rotate(5deg) translateY(-2px)' },
+            '100%': { transform: 'rotate(3deg) translateY(0)' },
+          },
+          '&:hover': {
+            animation: 'populationBounce 0.6s ease-in-out',
+            boxShadow: '0 8px 20px rgba(0,0,0,0.25), inset 0 1px 3px rgba(255,255,255,0.3)',
+            transform: 'rotate(4deg) scale(1.05)',
+          },
           '&:after': {
             content: '""',
             position: 'absolute',
@@ -293,10 +355,10 @@ const HeaderCarousel = ({ images, memberCount }) => {
           }
         }}
       >
-        <Text 
-          sx={{ 
-            fontSize: ['10px', '11px', '12px'],
-            mb: '2px',
+        <Text
+          sx={{
+            fontSize: ['10px', '11px', '15px'],
+            mb: '0px',
             fontFamily: '"Comic Sans MS", cursive, sans-serif',
             textShadow: '0 1px 0 rgba(255,255,255,0.6)',
             color: '#665040',
@@ -304,9 +366,9 @@ const HeaderCarousel = ({ images, memberCount }) => {
         >
           Current Population
         </Text>
-        <Text 
-          sx={{ 
-            fontSize: ['16px', '18px', '32px'],
+        <Text
+          sx={{
+            fontSize: ['24px', '18px', '32px'],
             fontWeight: 'bold',
             fontFamily: '"Comic Sans MS", cursive, sans-serif',
             textShadow: '0 1px 0 rgba(255,255,255,0.6)',
@@ -331,25 +393,48 @@ const HeaderCarousel = ({ images, memberCount }) => {
           <Box
             key={index}
             as="button"
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => {
+              setCurrentIndex(index)
+              setProgress(0)
+            }}
             sx={{
-              width: '14px',
-              height: '14px',
+              position: 'relative',
+              width: index === currentIndex ? '18px' : '14px',
+              height: index === currentIndex ? '18px' : '14px',
               borderRadius: '50%',
-              bg: index === currentIndex 
-                ? '#e4d6c3'
+              bg: index === currentIndex
+                ? '#ec3750'
                 : 'rgba(255, 255, 255, 0.6)',
               border: '2px solid',
-              borderColor: index === currentIndex ? '#e4d6c3' : 'white',
+              borderColor: index === currentIndex ? '#ec3750' : 'white',
               padding: 0,
               cursor: 'pointer',
               transition: 'all 0.2s',
+              boxShadow: index === currentIndex ? '0 0 8px rgba(236, 55, 80, 0.5)' : 'none',
+              overflow: 'hidden',
               '&:hover': {
                 transform: 'scale(1.2)'
               }
             }}
             aria-label={`Go to slide ${index + 1}`}
-          />
+          >
+            {index === currentIndex && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  background: `conic-gradient(
+                    rgba(255, 255, 255, 0.7) ${progress}%, 
+                    transparent ${progress}% 100%
+                  )`,
+                  borderRadius: 'inherit'
+                }}
+              />
+            )}
+          </Box>
         ))}
       </Flex>
     </Box>
@@ -378,10 +463,29 @@ function Page({
   let [github, setGithub] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
+  // Add state for tracking scroll position
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const { asPath } = useRouter()
 
   let jsConfetti = useRef()
+
+  // Add scroll position tracking effect
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show button when scrolled down at least 200px, hide when near top
+      setIsScrolled(window.scrollY > 200)
+    }
+
+    // Set initial state
+    handleScroll()
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll)
+
+    // Clean up on unmount
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     jsConfetti.current = new JSConfetti()
@@ -394,7 +498,7 @@ function Page({
     alert('Hey, you typed the Konami Code!')
 
     jsConfetti.current.addConfetti({
-      confettiColors: [ 
+      confettiColors: [
         '#ec3750',
         '#ff8c37',
         '#f1c40f',
@@ -414,30 +518,6 @@ function Page({
     }
   }, [reveal, hover])
 
-  const [count, setCount] = useState(0)
-
-  let images = [
-    { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
-    {
-      alt: 'Hack Clubbers at SpaceX HQ in LA',
-      src: '/home/zephyr-spacex.jpeg'
-    },
-    {
-      alt: 'MA Hacks, Hack Clubber organized hackathon',
-      src: '/hackathons/mahacks.jpeg'
-    },
-    { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
-    { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
-  ]
-
-  useEffect(() => {
-    console.log(
-      `White sheets of paper\nWaiting to be printed on\nA blank console waits`
-    )
-    if (count === images.length - 1) {
-      setCount(0)
-    }
-  }, [count, images.length])
 
   const spotlightRef = useRef()
   useEffect(() => {
@@ -457,37 +537,48 @@ function Page({
   }, [])
 
   const headerImages = [
-  {
-    src: OuternetImgFile,
-    alt: "Outernet in Cabot, VT",
-    width: 3000,
-    height: 2000
-  },
-  {
-    src: "/home/flagship_4.jpg",
-    alt: "Flagship 2019 in San Francisco, CA",
-    width: 3000, 
-    height: 2000
-  },
-  {
-    src: "/home/zephyr-spacex.jpeg",
-    alt: "SpaceX HQ Tour in Los Angeles, CA",
-    width: 3000,
-    height: 2000
-  },
-  {
-    src: "/hackathons/mahacks.jpeg",
-    alt: "MA Hacks in Boston, MA",
-    width: 3000,
-    height: 2000
-  },
-  {
-    src: "/home/event.jpg",
-    alt: "Lion City Hacks in Singapore",
-    width: 3000,
-    height: 2000
-  }
-];
+    {
+      src: OuternetImgFile,
+      alt: "Outernet in Cabot, VT",
+      href: "https://outernet.hackclub.com/",
+      width: 3000,
+      height: 2000
+    },
+    {
+      src: "/home/flagship_4.jpg",
+      alt: "Flagship 2019 in San Francisco, CA",
+      href: "#",
+      width: 3000,
+      height: 2000
+    },
+    {
+      src: "/home/zephyr-spacex.jpeg",
+      alt: "SpaceX HQ Tour in Los Angeles, CA",
+      href: "https://workshops.hackclub.com/vip-newsletters/021/",
+      width: 3000,
+      height: 2000
+    },
+    {
+      src: "/hackathons/mahacks.jpeg",
+      alt: "MA Hacks in Boston, MA",
+      href: "#'",
+      width: 3000,
+      height: 2000
+    },
+    {
+      src: "/home/event.jpg",
+      alt: "Lion City Hacks in Singapore",
+      href: "https://lioncityhacks.com/",
+      width: 3000,
+      height: 2000
+    }, {
+      src: "/home/wonderland.jpg",
+      alt: "Wonderland in Boston, MA",
+      href: "https://wonderland.hackclub.com/",
+      width: 3000,
+      height: 2000
+    }
+  ];
 
   return (
     <>
@@ -542,11 +633,11 @@ function Page({
           }}
         >
           {/* Carousel as background */}
-          <HeaderCarousel 
-            images={headerImages} 
-            memberCount={slackData.total_members_count} 
+          <HeaderCarousel
+            images={headerImages}
+            memberCount={slackData.total_members_count}
           />
-          
+
           {/* Content stays on top with higher z-index */}
           <Box
             sx={{
@@ -555,20 +646,25 @@ function Page({
               position: 'relative',
               mx: 'auto',
               py: [4, 4, 4],
-                            paddingTop: "156px !important",
-
-              px: ["50px", "50px", "90px"],
+              paddingTop: ["130px !important", "120px !important", "156px !important"],
+              px: ["45px", "60px", "90px"],
               textShadow: 'text',
-              zIndex: 5  // Higher z-index to stay on top of carousel
+              zIndex: 5
             }}
           >
             <Text
-              // variant="eyebrow"
               sx={{
-                color: 'sunken',
+                color: 'yellow',
                 pb: 2,
                 position: 'relative',
-                display: 'block'
+                display: 'inline-block',
+                fontSize: ['24px', '28px', '32px'],
+                fontWeight: 'bold',
+                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                mb: 2,
+                ml: [0, 0, 1],
+                transform: 'translateY(-8px)', // Adjust vertical alignment
+                letterSpacing: '0.01em'
               }}
               as="p"
               variant="title"
@@ -579,13 +675,17 @@ function Page({
               <Text
                 as="h4"
                 sx={{
-                  color: 'yellow',
+                  color: 'white',
                   mb: [3, 4],
                   zIndex: 1,
                   textAlign: 'left',
                   lineHeight: 1.2,
                   width: '100%',
-                  position: 'relative'
+                  position: 'relative',
+                  fontSize: ['32px', '38px', '46px'],
+                  fontWeight: 800,
+                  textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+                  letterSpacing: '-0.01em'
                 }}
               >
                 {/* Scribbled-out "A home" with handwritten note above */}
@@ -622,63 +722,77 @@ function Page({
                     sx={{
                       position: 'absolute',
                       top: '-15px',
-                      left: '-10px', // Moved further left (was 10px)
+                      left: '-10px',
                       transform: 'rotate(-8deg)',
                       fontFamily: '"Comic Sans MS", cursive, sans-serif',
                       fontSize: ['16px', '18px', '22px'],
                       color: 'red',
                       fontWeight: 'bold',
-                      textShadow: '1px 1px 0 white',
+                      textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
                       zIndex: 3,
-                      // '&::after': {
-                      //   content: '""',
-                      //   position: 'absolute',
-                      //   width: '90%',
-                      //   height: '10px',
-                      //   borderBottom: '2px solid #ff3b3b',
-                      //   bottom: '-2px',
-                      //   right: '-2px',
-                      //   transform: 'rotate(-2deg)'
-                      // }
                     }}
                   >
-                    your home
+                    Your home
                   </Text>
                 </Box>
                 {' for Highschool Hackers'}
               </Text>
-              <Box sx={{ display: ['block', 'flex'], mt: [3, 0] }}>
-              <Button
-                variant="cta"
-                as="a"
-                href="/slack"
-                mt={[3, 0, 0]}
-                mr={3}
-                sx={{ transformOrigin: 'center left' }}
-              >
-                <Icon glyph="welcome" size={24} color="white" />
-                Join Slack
-              </Button>
-              <Button
-                variant="cta"
-                as="a"
-                href="https://hackclub.com/philosophy/"
-                mt={[3, 0, 0]}
-                sx={{ 
-                  transformOrigin: 'center left',
-                  backgroundImage: t => t.util.gx('green', 'blue'),
-                }}
-              >
-                                <Icon glyph="compass" size={24} color="white" />
-
-                Our Philosophy
-              </Button>
+              <Box sx={{ display: ['block', 'flex'], mt: [3, 2, 3] }}>
+                <Button
+                  variant="cta"
+                  as="a"
+                  href="/slack"
+                  mt={[3, 0, 0]}
+                  mr={3}
+                  sx={{
+                    transformOrigin: 'center left',
+                    borderRadius: '10px',
+                    py: [2, 2, 2],
+                    boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
+                    transition: 'all 0.2s',
+                    '&:hover': {
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.25)',
+                    }
+                  }}
+                >
+                  <Icon glyph="welcome" size={24} color="white" />
+                  Join Slack
+                </Button>
+                <Button
+                  variant="cta"
+                  as="a"
+                  href="https://hackclub.com/philosophy/"
+                  mt={[3, 0, 0]}
+                  sx={{
+                    transformOrigin: 'center left',
+                    backgroundImage: t => t.util.gx('green', 'blue'),
+                    borderRadius: '10px',
+                    py: [2, 2, 2],
+                    boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
+                    transition: 'all 0.2s',
+                    '&:hover': {
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.25)',
+                    }
+                  }}
+                >
+                  <Icon glyph="compass" size={24} color="white" />
+                  Our Philosophy
+                </Button>
               </Box>
             </Heading>
           </Box>
           {/* Remove the old badge - it's now integrated into the carousel */}
         </Box>
-        <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
+        <Box as="section" sx={{
+          py: [1, 2, '30px'],
+          color: 'black',
+          background: 'linear-gradient(to bottom, #fff9f0, #fff)',
+          borderRadius: ['0px', '0px', '32px'],
+          position: 'relative',
+          zIndex: 2
+        }}>
           <Box
             sx={{
               position: 'relative',
@@ -687,282 +801,255 @@ function Page({
               margin: 'auto'
             }}
           >
-            <Text
-              variant="title"
-              as="h1"
-                sx={{ fontSize: ['36px', '48px', '56px'] }}
-            >
-              Discover the{' '}
-              <Text
-                as="span"
-                sx={{
-                  borderRadius: 'default',
-                  px: 1,
-                  mx: 0,
-                  whiteSpace: ['wrap', 'nowrap', 'nowrap'],
-                  color: 'white',
-                  background: theme => theme.util.gx('red', 'orange'),
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent'
-                }}
-              >
-                joy of code
-              </Text>
-              , together.
-            </Text>
-            <Text
-              variant="subtitle"
-              as="p"
-              sx={{
-                fontSize: ['18px', '20px', '22px'],
-                pb: [3, 3, 4],
-                maxWidth: '62ch'
-              }}
-            >
-              Every day, thousands of Hack&nbsp;Clubbers gather online and
-              in-person to make things with code. Whether you're a beginner
-              programmer or have years of experience, there's a place for you at
-              Hack&nbsp;Club. Read about our{' '}
-              <Link href="/philosophy" target="_blank" rel="noopener">
-                hacker ethic
-              </Link>
-              .
-            </Text>
-            <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
-              <Box
-                sx={{
-                  position: 'relative',
-                  height: ['300px', '300px', '300px', '100%'],
-                  py: [3, 3, 3, 0]
-                }}
-                onClick={() => {
-                  setCount(count + 1)
-                }}
-              >
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={
-                        count === images.length - 2
-                          ? images[0].src
-                          : images.length - 1
-                            ? images[1].src
-                            : images[count + 2].src
-                      }
-                      alt={
-                        count === images.length - 2
-                          ? images[0].alt
-                          : images.length - 1
-                            ? images[1].alt
-                            : images[count + 2].alt
-                      }
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
+            <Grid columns={[1, 1, 3]} gap={[3, 4]} sx={{ alignItems: 'center' }}>
+              {/* Build Almost Anything Column */}
+              <Box sx={{
+                borderRadius: 'extra',
+                bg: 'rgba(255, 237, 209, 0.6)',
+                p: [2, 3],
+                boxShadow: '0 8px 32px rgba(255, 140, 55, 0.12)',
+                transform: ['none', 'none', 'rotate(-1deg)'],
+                transition: 'transform 0.2s ease-in-out',
+                minHeight: '340px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden',
+                '&:hover': {
+                  transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
+                }
+              }}>
+                {/* Decorative icon */}
+                <Box sx={{
+                  position: 'absolute',
+                  top: '-10px',
+                  right: '-10px',
+                  opacity: 0.15,
+                  color: 'orange',
+                  transform: 'rotate(10deg)',
+                  zIndex: 0
+                }}>
+                  <Icon glyph="code" size={100} />
                 </Box>
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
+                <Text
+                  variant="title"
+                  as="h2"
+                  sx={{
+                    fontSize: ['28px', '32px', '36px'],
+                    color: 'orange',
+                    mb: 2,
+                    position: 'relative',
+                    zIndex: 1
+                  }}
                 >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={
-                        count === images.length - 1
-                          ? images[0].src
-                          : images[count + 1].src
-                      }
-                      alt={
-                        count === images.length - 1
-                          ? images[0].alt
-                          : images[count + 1].alt
-                      }
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
+                  Build Almost Anything
+                </Text>
+                <Text
+                  variant="subtitle"
+                  as="p"
+                  sx={{
+                    fontSize: ['16px', '18px', '20px'],
+                    pb: 3,
+                    lineHeight: 1.4
+                  }}
                 >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={images[count].src}
-                      alt={images[count].alt}
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
-              </Box>
-              <Grid
-                columns="1fr"
-                sx={{
-                  gridColumnGap: 3,
-                  span: {
-                    width: 36,
-                    height: 36,
-                    borderRadius: 24,
-                    display: 'inline-block',
-                    fontSize: 2,
-                    lineHeight: '30px',
-                    textAlign: 'center',
+                  Hardware projects, games, web apps, AI—Hack Clubbers create with no limits. We provide tools and support to turn your ideas into reality.
+                </Text>
+                <Button
+                  variant="outline"
+                  as="a"
+                  href="/projects"
+                  sx={{
+                    borderRadius: 'circle',
                     fontWeight: 'bold',
-                    border: '3px solid currentColor'
-                  },
-                  p: { my: 0, fontSize: ['18px', '20px', '22px'] },
-                  strong: { display: 'block', fontSize: ['22px', 2, 3] }
-                }}
-                as="ul"
-              >
-                <Grid
-                  columns="auto 1fr"
-                  sx={{
-                    transitionDuration: '0.52s',
                     py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
+                    px: 3,
+                    mt: 'auto',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    fontSize: 2,
+                    borderWidth: 2,
+                    borderColor: 'orange',
+                    color: 'orange',
+                    bg: 'rgba(255, 255, 255, 0.7)',
+                    '&:hover': {
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 4px 12px rgba(255, 140, 55, 0.2)',
+                    }
                   }}
-                  as="li"
                 >
-                  <Text as="span" color="red" aria-hidden="true">
-                    1
-                  </Text>
-                  <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>
-                      Connect with other teenage coders
-                    </strong>
-                    Have a coding question? Looking for project feedback? You'll
-                    find hundreds of fabulous people to talk to in our global{' '}
-                    <Link href="/slack" target="_blank" rel="noopener">
-                      Slack{' '}
-                    </Link>
-                    (like Discord), active at all hours.
-                  </Text>
-                </Grid>
-                <Grid
-                  columns="auto 1fr"
+                  <Icon glyph="explore" size={30} />
+                  See Projects
+                </Button>
+              </Box>
+
+              {/* Great Minds Think Together Column */}
+              <Box sx={{
+                borderRadius: 'extra',
+                bg: 'rgba(231, 245, 255, 0.6)',
+                p: [2, 3],
+                boxShadow: '0 8px 32px rgba(51, 142, 218, 0.12)',
+                transform: ['none', 'none', 'rotate(1deg)'],
+                transition: 'transform 0.2s ease-in-out',
+                minHeight: '340px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden',
+                '&:hover': {
+                  transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
+                }
+              }}>
+                {/* Decorative icon */}
+                <Box sx={{
+                  position: 'absolute',
+                  top: '-10px',
+                  right: '-15px',
+                  opacity: 0.15,
+                  color: 'blue',
+                  transform: 'rotate(5deg)',
+                  zIndex: 0
+                }}>
+                  <Icon glyph="channel" size={120} />
+                </Box>
+                <Text
+                  variant="title"
+                  as="h2"
                   sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
+                    fontSize: ['28px', '32px', '36px'],
+                    color: 'blue',
+                    mb: 2,
                     position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
+                    zIndex: 1
                   }}
-                  as="li"
                 >
-                  <Text as="span" color="orange" aria-hidden="true">
-                    2
-                  </Text>
-                  <Text
-                    as="p"
-                    variant="subtitle"
-                    sx={{
-                      mt: 0
-                    }}
-                  >
-                    <strong sx={{ mb: 1 }}>
-                      Build open source learning tools
-                    </strong>
-                    We build large open source projects together (
-                    <Link href="https://github.com/hackclub" target="_blank">
-                      3k+&nbsp;PRs a year
-                    </Link>
-                    ) like this website, a game engine, daily streak system, and
-                    more!
-                  </Text>
-                </Grid>
-                <Grid
-                  columns="auto 1fr"
+                  Collaborate & Connect
+                </Text>
+                <Text
+                  variant="subtitle"
+                  as="p"
                   sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
+                    fontSize: ['16px', '18px', '20px'],
+                    pb: 3,
+                    lineHeight: 1.4
                   }}
-                  as="li"
                 >
-                  <Text as="span" color="yellow" aria-hidden="true">
-                    3
-                  </Text>
-                  <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
-                    Meet other Hack&nbsp;Clubbers in your community to build
-                    together at one of the 400+{' '}
-                    <Link href="/clubs" target="_blank" rel="noopener">
-                      Hack&nbsp;Clubs
-                    </Link>{' '}
-                    and{' '}
-                    <Link href="/hackathons" target="_blank" rel="noopener">
-                      high school hackathons
-                    </Link>
-                    .
-                  </Text>
-                </Grid>
-              </Grid>
+                  Teen coders collaborate here, not compete. We build a community grounded in learning and creativity through events, clubs, and hackathons.
+                </Text>
+                <Button
+                  variant="outline"
+                  as="a"
+                  href="/conduct"
+                  sx={{
+                    borderRadius: 'circle',
+                    fontWeight: 'bold',
+                    py: 2,
+                    px: 3,
+                    mt: 'auto',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    fontSize: 2,
+                    borderWidth: 2,
+                    borderColor: 'blue',
+                    color: 'blue',
+                    bg: 'rgba(255, 255, 255, 0.7)',
+                    '&:hover': {
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 4px 12px rgba(51, 142, 218, 0.2)',
+                    }
+                  }}
+                >
+                  <Icon glyph="friend" size={30} />
+                  Code of Conduct
+                </Button>
+              </Box>
+
+              {/* Learn By Doing Column */}
+              <Box sx={{
+                borderRadius: 'extra',
+                bg: 'rgba(233, 216, 253, 0.6)',
+                p: [2, 3],
+                boxShadow: '0 8px 32px rgba(166, 51, 214, 0.12)',
+                transform: ['none', 'none', 'rotate(-1.5deg)'],
+                transition: 'transform 0.2s ease-in-out',
+                minHeight: '340px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                position: 'relative',
+                overflow: 'hidden',
+                '&:hover': {
+                  transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
+                }
+              }}>
+                {/* Decorative icon */}
+                <Box sx={{
+                  position: 'absolute',
+                  top: '-5px',
+                  right: '-10px',
+                  opacity: 0.15,
+                  color: 'purple',
+                  transform: 'rotate(8deg)',
+                  zIndex: 0
+                }}>
+                  <Icon glyph="checkmark" size={90} />
+                </Box>
+                <Text
+                  variant="title"
+                  as="h2"
+                  sx={{
+                    fontSize: ['28px', '32px', '36px'],
+                    color: 'purple',
+                    mb: 2,
+                    position: 'relative',
+                    zIndex: 1
+                  }}
+                >
+                  Learn By Doing
+                </Text>
+                <Text
+                  variant="subtitle"
+                  as="p"
+                  sx={{
+                    fontSize: ['16px', '18px', '20px'],
+                    pb: 3,
+                    lineHeight: 1.4
+                  }}
+                >
+                  Not just tutorials— real projects. Build your skills and portfolio with a global community of teen hackers ready to help you learn and grow.
+                </Text>
+                <Button
+                  variant="outline"
+                  as="a"
+                  href="https://toolbox.hackclub.com/"
+                  sx={{
+                    borderRadius: 'circle',
+                    fontWeight: 'bold',
+                    py: 2,
+                    px: 3,
+                    mt: 'auto',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    fontSize: 2,
+                    borderWidth: 2,
+                    borderColor: 'purple',
+                    color: 'purple',
+                    bg: 'rgba(255, 255, 255, 0.7)',
+                    '&:hover': {
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 4px 12px rgba(166, 51, 214, 0.2)',
+                    }
+                  }}
+                >
+                  <Icon glyph="code" size={30} />
+                  Start Coding
+                </Button>
+              </Box>
             </Grid>
           </Box>
         </Box>
@@ -1001,25 +1088,56 @@ function Page({
               margin: 'auto',
               zIndex: 5
             }}
-            py={[4, 4, 5]}
           >
             <Box>
               <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-                Connect with{' '}
-                <Text
-                  as="span"
+                Programs with fellow{' '}
+                <Box
                   sx={{
-                    borderRadius: 'default',
-                    px: 2,
-                    mx: 0,
-                    whiteSpace: 'nowrap',
-                    color: 'white',
-                    bg: 'red'
+                    position: 'relative',
+                    display: 'inline-block',
+                    width: 'fit-content'
                   }}
                 >
-                  builders
-                </Text>{' '}
-                from around the world
+                  <Text
+                    as="span"
+                    sx={{
+                      position: 'relative',
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        left: 0,
+                        top: '50%',
+                        width: '100%',
+                        height: '4px',
+                        background: 'red',
+                        borderRadius: '4px',
+                        transform: 'rotate(-5deg)',
+                        opacity: 0.8,
+                        zIndex: 2
+                      }
+                    }}
+                  >
+                    students
+                  </Text>
+                  <Text
+                    as="span"
+                    sx={{
+                      position: 'absolute',
+                      top: '-15px',
+                      left: '-5px',
+                      transform: 'rotate(-8deg)',
+                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontSize: ['18px', '20px', '28px'],
+                      color: 'red',
+                      fontWeight: 'bold',
+                      textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                      zIndex: 3,
+                    }}
+                  >
+                    builders
+                  </Text>
+                </Box>{' '}
               </Text>
               <Text
                 variant="subtitle"
@@ -1030,12 +1148,86 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Neighborhood />
-            <Trail />
-            <Scrapyard />
+
+            {/* Programs masonry layout */}
+            <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'], gap: 3, mb: 4 }}>
+              {/* Left side - Neighborhood takes up full height */}
+              <Box>
+                <Neighborhood />
+              </Box>
+
+              {/* Right side - Trail and Scrapyard stacked */}
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, paddingTop: "32px" }}>
+                <Box className="weirdBox" sx={{
+                  mb: 0,
+                  '& > div': {
+                    // More compact styling for Trail
+                    '& > div': {
+                      mb: 0,
+                      // py: [2, 2, 2], 
+                      px: [2, 2, 2],
+                      minHeight: 'unset',
+                      '& > h2': {
+                        fontSize: ['18px', '20px', '24px'],
+                        mb: 1
+                      },
+                      '& > p': {
+                        fontSize: ['13px', '14px', '15px'],
+                        display: ['none', 'block', 'block'], // Hide description on mobile
+                        lineHeight: 1.3,
+                        mb: 0
+                      },
+                      '& > div:last-of-type': {
+                        // Modify button if present
+                        '& a': {
+                          py: 1,
+                          px: 2,
+                          fontSize: 1
+                        }
+                      }
+                    }
+                  }
+                }}>
+                  <Trail />
+                </Box>
+                <Box sx={{
+                  '& > div': {
+                    // More compact styling for Scrapyard
+                    '& > div': {
+                      py: [2, 2, 2],
+                      px: [2, 2, 2],
+                      minHeight: 'unset',
+                      '& > h2': {
+                        fontSize: ['18px', '20px', '24px'],
+                        mb: 1
+                      },
+                      '& > p': {
+                        fontSize: ['13px', '14px', '15px'],
+                        display: ['none', 'block', 'block'], // Hide description on mobile
+                        lineHeight: 1.3,
+                        mb: 2
+                      },
+                      '& > div:last-of-type': {
+                        // Modify button if present
+                        '& a': {
+                          py: 1,
+                          px: 2,
+                          fontSize: 1
+                        }
+                      }
+                    }
+                  }
+                }}>
+                  <Scrapyard />
+                </Box>
+              </Box>
+            </Box>
+
+            {/* Slack remains full width below */}
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
+
         <Box>
           <Box py={[4, 5, '82px']}>
             <Box
@@ -1181,7 +1373,7 @@ function Page({
                 left: 0
               }}
             >
-              {}
+              { }
             </Box>
             <Box
               py={[4, 5, '82px']}
@@ -1237,11 +1429,11 @@ function Page({
                 stars={stars.hackathons.stargazerCount}
               />
 
-              {/* <Events events={events} /> */}
-              <HCB data={bankData} />
+              {/* <Events events={events} /> */}groundClip: 'text',
+              <HCB data={bankData} />nsparent'
             </Box>
           </Box>
-        </Box>
+        </Box>&nbsp;Club
         <Box py={[4, 5, '82px']}>
           <Box
             sx={{
@@ -1470,76 +1662,115 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-          <>
-            <Box
-              sx={{
-                position: 'fixed',
-                top: 0,
-                width: '100%',
-                zIndex: 1000
-              }}
-            >
+            <>
               <Box
                 sx={{
-                  position: 'relative',
-                  margin: 'auto',
-                  width: 'fit-content',
+                  position: 'fixed',
+                  top: 0,
+                  width: '100%',
+                  zIndex: 1000
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    margin: 'auto',
+                    width: 'fit-content',
+                    lineHeight: 0
+                  }}
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  right: 0,
+                  zIndex: 1000,
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </Box>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                right: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-          </>
-        )}
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 1000,
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </>
+          )}
         <MailingList />
       </Box>
+
+      {/* Scroll to Top FAB */}
+      <Box
+        as="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Scroll to top"
+        sx={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          zIndex: 999,
+          width: '54px',
+          height: '54px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          bg: '#fdf6ee',
+          border: '4px solid #e4d6c3',
+          borderRadius: '16px',
+          boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
+          cursor: 'pointer',
+          // Use isScrolled to control visibility
+          opacity: isScrolled ? 0.9 : 0,
+          pointerEvents: isScrolled ? 'auto' : 'none',
+          transform: isScrolled ? 'translateY(0)' : 'translateY(20px)',
+          transition: 'all 0.3s cubic-bezier(.68,-0.55,.27,1.55)',
+          '&:hover': {
+            transform: isScrolled ? 'translateY(-4px) rotate(-5deg)' : 'translateY(20px)',
+            boxShadow: '0 12px 24px rgba(0,0,0,0.2)',
+            opacity: isScrolled ? 1 : 0
+          },
+          '&:active': {
+            transform: 'scale(0.95)'
+          }
+        }}
+      >
+        <Icon glyph="up-caret" size={32} color="#000000" />
+      </Box>
+
       <Footer
         dark
         sx={{
@@ -1564,6 +1795,7 @@ function Page({
     </>
   )
 }
+
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
@@ -1574,10 +1806,8 @@ export async function getStaticProps() {
   let initialBankData = await fetch('https://hcb.hackclub.com/stats')
   try {
     const bd = await initialBankData.json()
-    let raised = bd.raised / 100
-
     bankData.push(
-      `💰 ${raised.toLocaleString('en-US', {
+      `💰 ${bd.raised.toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD'
       })} raised`
@@ -1623,7 +1853,7 @@ export async function getStaticProps() {
     if (response.ok) {
       hackathonsData = await response.json()
     } else {
-      hackathonsData = [] // or some default value if the fetch fails
+      hackathonsData = []
     }
   } catch (error) {
     hackathonsData = [] // or some default value if an error occurs
@@ -1638,6 +1868,31 @@ export async function getStaticProps() {
   } catch (error) {
     console.error('Error fetching events:', error)
   }
+
+  // Define carousel cards with default values
+  // const carouselCards = [
+  //   {
+  //     title: "Hack Club",
+  //     description: "A global community of teenage hackers making things together",
+  //     link: "/about",
+  //     bg: "linear-gradient(90deg, rgba(236,55,80,1) 0%, rgba(255,140,55,1) 100%)",
+  //     color: "white"
+  //   },
+  //   {
+  //     title: "Workshops",
+  //     description: "Learn to code with our community-contributed workshops",
+  //     link: "/workshops",
+  //     bg: "linear-gradient(90deg, rgba(51,214,166,1) 0%, rgba(51,142,218,1) 100%)",
+  //     color: "white"
+  //   },
+  //   {
+  //     title: "Slack",
+  //     description: "Join our Slack community with thousands of teen hackers",
+  //     link: "/slack",
+  //     bg: "linear-gradient(90deg, rgba(170,51,214,1) 0%, rgba(51,142,218,1) 100%)",
+  //     color: "white"
+  //   }
+  // ];
 
   return {
     props: {

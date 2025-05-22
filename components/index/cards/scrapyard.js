@@ -14,7 +14,9 @@ export default function Scrapyard() {
         backgroundSize: 'cover',
         backgroundColor: '#90A8E1',
         fontFamily: "p22stanyan",
-        objectFit: "contain"
+        objectFit: "contain",
+        margin: "0px !important",
+        padding: "10px !important",
       }}
       position={[null, 'bottom', 'bottom']}
 
@@ -35,11 +37,10 @@ export default function Scrapyard() {
           }
         `}
       />
-      <Grid columns={[1, 1, 1]} sx={{ position: 'relative', zIndex: 2 }}>
+      <Grid columns={[1, 1, 1]} sx={{ gap: '0px', position: 'relative', zIndex: 2 }}>
         <Flex
           sx={{
             flexDirection: 'column',
-            justifyContent: 'space-between',
             position: 'relative',
             alignItems: 'center',
           }}
@@ -47,9 +48,9 @@ export default function Scrapyard() {
           <Image
             src="https://cloud-4fnsp2wse-hack-club-bot.vercel.app/0scrapyard.png"
             sx={{
-              width: ['400px', '450px', '500px'],
-              mt: ['30px', '40px', '45px'],
-              mb: ['30px', '30px', '30px'],
+              width: ['200px', '450px', '200px'],
+              mt: ['0px', '0px', '0px'],
+              mb: ['0px', '0px', '0px'],
               position: 'relative',
               zIndex: 3,
               ml: '0px',
@@ -65,7 +66,8 @@ export default function Scrapyard() {
           <Flex
             sx={{
               flexDirection: ['row', 'row', 'column'],
-              justifyContent: 'space-between'
+              justifyContent: 'space-between',
+              width: '100%',
               
             }}
           >
@@ -73,7 +75,8 @@ export default function Scrapyard() {
           sx={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center'
+            alignItems: 'center',
+            width:"100%"
           }}
         >
           <Box
@@ -84,7 +87,9 @@ export default function Scrapyard() {
               width: 'min(500px, calc(100vw - 30px))',
               filter: 'drop-shadow(5px 5px 5px #000000AA)',
               position: 'relative',
-              zIndex: 20
+              zIndex: 20,
+            width:"100%"
+
             }}
           >
             <Heading
@@ -94,7 +99,9 @@ export default function Scrapyard() {
                 textAlign: 'center',
                 margin: '8%',
                 fontSize: '22px',
-                color: '#1f2d3d'
+                color: '#1f2d3d',
+            width:"90%"
+
               }}
             >
               Build stupid stuff, get stupid prizes.
@@ -107,7 +114,7 @@ export default function Scrapyard() {
               backgroundImage: "url('https://scrapyard.hackclub.com/elements/yellow-strip@stretch.svg')",
               backgroundRepeat: 'no-repeat',
               backgroundSize: '100% 100%',
-              width: '75%',
+              width: '100%',
               position: 'relative',
               zIndex: 30,
               top: '-15%',
@@ -126,10 +133,13 @@ export default function Scrapyard() {
                 my: '3%',
                 p: 0,
                 wordBreak: 'keep-all',
+                              textWrap: "wrap !important",
+textAlign: 'center',
                 whiteSpace: 'nowrap',
-                width: 'min-content',
+                width: '75%',
                 fontSize: ['1.2em', '1.4em'],
-                color: '#1f2d3d'
+                color: '#1f2d3d',
+                
               }}
             >
               100+&nbsp;Cities&nbsp;worldwide&nbsp;–&nbsp;March&nbsp;15-16
@@ -172,6 +182,7 @@ export default function Scrapyard() {
               fontSize: ['36px', 4, 5],
               color: 'white',
               objectFit: 'cover',
+
               height: '100%',
               mx: 0
             }}

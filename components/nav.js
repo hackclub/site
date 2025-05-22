@@ -324,12 +324,12 @@ const Navigation = props => {
               {links.map(({ href, label }, i) =>
                 href.startsWith('http') ? (
                   <Link key={i} href={href} target="_blank" rel="noopener noreferrer"
-                    sx={{ py: 1, fontSize:"1rem !important", fontWeight: 700, pl: 2 }}>
+                    sx={{ py: 1, fontSize: "1rem !important", fontWeight: 700, pl: 2 }}>
                     {label}1
                   </Link>
                 ) : (
                   <NextLink key={i} href={href} passHref>
-                    <Link sx={{ py: 1, fontSize:"1rem !important", fontWeight: 700, pl: 2 }}>{label}2</Link>
+                    <Link sx={{ py: 1, fontSize: "1rem !important", fontWeight: 700, pl: 2 }}>{label}2</Link>
                   </NextLink>
                 )
               )}
@@ -357,15 +357,14 @@ const Navigation = props => {
           <Icon glyph="down-caret" size={18} style={{ marginLeft: 4, marginBottom: -2 }} />
         </span>
         <DropdownMenu className="dropdown-menu">
-          {/* No caret in submenu items */}
           {links.map(({ href, label }, i) =>
             href.startsWith('http') ? (
-              <Link key={i} href={href} target="_blank" rel="noopener noreferrer" sx={{ py: 1, fontWeight: 700, fontSize:"1.25rem !important"  }}>
+              <Link key={i} href={href} target="_blank" rel="noopener noreferrer" sx={{ py: 1, fontWeight: 700, fontSize: "1.25rem !important" }}>
                 {label}
               </Link>
             ) : (
               <NextLink key={i} href={href} passHref>
-                <Link sx={{ py: 1, fontWeight: 700,  fontSize:"1.25rem !important" }}>
+                <Link sx={{ py: 1, fontWeight: 700, fontSize: "1.25rem !important" }}>
                   {label}
                 </Link>
               </NextLink>
@@ -378,7 +377,7 @@ const Navigation = props => {
 
   return (
     <>
-      <Box sx={{ display: 'flex', alignItems: 'center', width: '100%', flexDirection: props.isMobile ? 'column' : 'row' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', flexDirection: props.isMobile ? 'column' : 'row' }}>
         <NavBar
           role="navigation"
           {...props}
@@ -392,21 +391,32 @@ const Navigation = props => {
           }}
         >
           {renderDropdown('Clubs', 'clubs', [
-            { href: '/clubs', label: 'All Clubs' },
-            { href: '/clubs/start', label: 'Start a Club' },
-            { href: '/clubs/start', label: 'HCB' },
-            { href: '/clubs/start', label: 'Fiscal Sponsorship' }
+            { href: 'https://directory.hackclub.com', label: 'Directory' },
+            { href: 'https://apply.hackclub.com', label: 'Start a Club' },
+            { href: 'https://toolbox.hackclub.com', label: 'Toolbox' },
+
+            { href: '/fiscal-sponsorship', label: 'Fiscal Sponsorship' }
           ])}
-           {renderDropdown('About', 'about', [
-            { href: '/hackathons', label: 'All Hackathons' },
-            { href: '/hackathons/host', label: 'Host a Hackathon' }
+          {renderDropdown('About', 'about', [
+            { href: '/philosophy', label: 'Philosophy' },
+            { href: '/team', label: 'Our Team & Board' },
+            { href: '/jobs', label: 'Jobs' },
+
+            { href: '/philanthropy', label: 'Donate' }
+
           ])}
           {renderDropdown('Events', 'events', [
-            { href: '/hackathons', label: 'All Hackathons' },
-            { href: '/hackathons/host', label: 'Host a Hackathon' }
+            { href: 'https://events.hackclub.com/', label: 'Online Events' },
+
+            { href: 'https://hackathons.hackclub.com', label: 'Hackathons' },
+            { href: 'https://jams.hackclub.com', label: 'Jams' },
+
+            { href: '/hackathons', label: 'Host a Hackathon' }
           ])}
           {renderDropdown('Community', 'community', [
             { href: '/slack', label: 'Slack' },
+            { href: '/conduct', label: 'Code of Conduct' },
+
             { href: 'https://scrapbook.hackclub.com/', label: 'Scrapbook' }
           ])}
         </NavBar>
@@ -422,7 +432,7 @@ const Navigation = props => {
             }}
           >
             <Link
-              href="https://github.com/hackclub1"
+              href="https://github.com/hackclub"
               target="_blank"
               rel="noopener noreferrer"
               sx={{ color: '#222', p: 2, display: 'flex', alignItems: 'center' }}
@@ -484,7 +494,7 @@ const Navigation = props => {
                 >
                   <Icon glyph="email" size={28} style={{ color: '#222' }} />
                 </Link>
-               
+
                 <Link
                   href="https://www.figma.com/@hackclub"
                   target="_blank"
@@ -601,8 +611,9 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       fixed={fixed}
       scrolled={scrolled}
       toggled={toggled}
-      dark={dark}
+      dark={dark ? 'true' : undefined}
       sx={{
+        marginBottom: '80px',
         borderRadius: (toggled ? '2.5rem 2.5rem 0rem 0rem' : '2.5rem') + " !important",
       }}
       // bgColor is now ignored for background, so no need to pass it
@@ -617,18 +628,20 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
             minWidth: '3.5rem',
             transition: 'transform 0.35s cubic-bezier(.68,-0.55,.27,1.55)',
             transform: logoWave
-              ? 'rotate(-18deg) translateY(-10%)'
-              : 'rotate(0deg) translateY(0)'
+              ? 'rotate(-18deg) translateY(-10%) translateX(3%)'
+              : 'rotate(0deg) translateY(2%) translateX(3%)',
+            zIndex: 0 // Lower than Root's z-index
           }}
         >
-          <Flag scrolled={scrolled || fixed} />
+          <Flag scrolled={scrolled || fixed ? true : undefined} />
+        
         </Box>
         <Box sx={{ flex: '1 1 0', display: ['none', null, 'flex'], justifyContent: 'center', alignItems: 'center' }}>
           <Navigation
             as="nav"
             aria-hidden={!!mobile}
             color={baseColor}
-            dark={dark}
+            dark={dark ? "true" : undefined}
             scrolled={scrolled}
           />
         </Box>
@@ -688,7 +701,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
             isMobile
             toggled={toggled}
             color={baseColor}
-            dark={dark}
+            dark={dark ? "true" : undefined}
             scrolled={scrolled}
           />
         </Box>
