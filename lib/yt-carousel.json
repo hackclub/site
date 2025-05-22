@@ -1,29 +1,29 @@
 [
   {
-    "background": "linear-gradient(to bottom right, #993CCF 0%, rgba(170, 77, 181, 0.95) 17.19%, rgba(193, 99, 146, 0.90) 31.77%, rgba(223, 129, 101, 0.71) 52.08%, rgba(240, 146, 75, 0.60) 63.54%)",
+    "background": "background: #ff8585;background: linear-gradient(90deg, rgba(255, 133, 133, 1) 0%, rgba(253, 29, 29, 1) 22%, rgba(252, 176, 69, 1) 69%);",
     "titleColor": "white",
     "descriptionColor": "white",
-    "title": "Hackclubbers in Shanghai!",
+    "title": "Juice",
     "description": "Around 100 hackclubbers from ~23 countries opened a week long popup cafe in the streets of Shanghai.",
-    "img": "https://cloud-7xyxcf3f6-hack-club-bot.vercel.app/0new_project__3_.png",
+    "img": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4c16121f98762341a7f1d6774e982735b958f051_juiceboxbuilding.png",
     "link": "https://www.youtube.com/watch?v=fuTlToZ1SX8&list=PLbNbddgD-XxH0TDS6qFynB6-YnWZU5Fhc"
   },
   {
-    "background": "#C76B0F",
-    "titleColor": "#F6D193",
-    "descriptionColor": "#F6D193",
+    "background": "#dbd876",
+    "titleColor": "#4F2A0E",
+    "descriptionColor": "#4F2A0E",
     "title": "Jua",
     "description": "We hosted the Largest All-Girls hackathon in Nairobi!",
-    "img": "https://cloud-oil5vh30l-hack-club-bot.vercel.app/0boba_hc_toolbox.png",
+    "img": "https://jua.hackclub.com/nairobi%20sticker%20logo.png",
     "link": "https://youtu.be/S5dKIlBN_1s?si=r8GnKE4PYERrvp7v"
   },
   {
-    "background": "#FFF1DE",
-    "titleColor": "#4F2A0E",
-    "descriptionColor": "#4F2A0E",
+    "background": "#327d78",
+    "titleColor": "#e3dac8",
+    "descriptionColor": "#e3dac8",
     "title": "Scapyard",
     "description": "We hosted a hackathon for the WORST Ideas",
-    "img": "https://cloud-ahkc8uotv-hack-club-bot.vercel.app/0group_15.png",
+    "img": "https://cloud-4fnsp2wse-hack-club-bot.vercel.app/0scrapyard.png",
     "link": "https://youtu.be/8iM1W8kXrQA?si=uBVDO7fd9aghRSQE"
   },
   {
@@ -32,34 +32,34 @@
     "descriptionColor": "#EDE2DC",
     "title": "The Boreal Express",
     "description": "We hosted a hackathon ACROSS Canada, on a train!",
-    "img": "https://cloud-m33gqgkp6-hack-club-bot.vercel.app/0image.png",
+    "img": "https://boreal.hackclub.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftrain.6d06c1c0.png&w=1920&q=75",
     "link": "https://youtu.be/H5RPsCMl3uM?si=wXgThhbKeaB2ESE_"
   },
     {
-    "background": "#30AE1F",
+    "background": "#f74187",
     "titleColor": "#FFFFFF",
     "descriptionColor": "#FFFFFF",
     "title": "Counterspell",
     "description": "We organised a Game Jam in 50 cities simaltaneously!",
-    "img": "https://cloud-kgilrkgl7-hack-club-bot.vercel.app/0image.png",
+    "img": "https://raw.githubusercontent.com/acornitum/counterspell/refs/heads/master/public/favicon.ico",
     "link": "https://hackcraft.hackclub.com/"
   },
   {
-    "background": "snow",
-    "titleColor": "dark",
-    "descriptionColor": "black",
+    "background": "#fef5d8",
+    "titleColor": "#042412",
+    "descriptionColor": "#042412",
     "title": "The Trail",
     "description": "The World's First Hikeathon: 30 Teen Hackers hike Pacific Crest Trail!",
-    "img": "https://cloud-eg2ex8nol-hack-club-bot.vercel.app/0favicon-on-light-removebg-preview.png",
+    "img": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/d092a42bb5c6fc8ad52a3165c4ffa443e59608bc_image-removebg-preview.png",
     "link": "https://youtu.be/ufMUJ9D1fi8?si=NCWACHKKOD0vW7t8"
   },
   {
-    "background": "#000",
-    "titleColor": "green",
-    "descriptionColor": "white",
+    "background": "#b42e1e",
+    "titleColor": "#fcec96",
+    "descriptionColor": "#fcec96",
     "title": "Summit",
     "description": "We organised The Hackclub Leaders Summit 2024",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png",
+    "img": "https://raw.githubusercontent.com/hackclub/summit/refs/heads/main/public/favicon-32x32.png",
     "link": "https://youtu.be/UZEm5lONg7g?si=GWy29PKD8Jo3pH1Y"
   },
   {
@@ -68,7 +68,7 @@
     "descriptionColor": "black",
     "title": "EPOCH",
     "description": "We organized a hackathon in Delhi/NCR, India!",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/someassemblyrequired/cfacfacaaa2d8b1d.png",
+    "img": "🎆",
     "link": "https://youtu.be/KLx4NZZPzMc?si=WZRcs9v5fklPv70P"
   },
   {

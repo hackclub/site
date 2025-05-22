@@ -621,7 +621,7 @@ function Page({
           </Box>
         </Box>
         <Carousel cards={carouselCards} />
-        <YTCarousel cards={ytCarouselCards}/>
+   
         <Box
           id="spotlight"
           as="section"
@@ -688,6 +688,7 @@ function Page({
             <Neighborhood />
             <Trail />
             <Scrapyard />
+                 <YTCarousel cards={ytCarouselCards}/>
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
