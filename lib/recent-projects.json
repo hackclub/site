@@ -1,0 +1,41 @@
+[
+  {
+    "background": "linear-gradient(to bottom right, #993CCF 0%, rgba(170, 77, 181, 0.95) 17.19%, rgba(193, 99, 146, 0.90) 31.77%, rgba(223, 129, 101, 0.71) 52.08%, rgba(240, 146, 75, 0.60) 63.54%)",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "Doom in a PDF!",
+    "description": "A Hackclubber ran doom in a pdf!",
+    "link": "https://github.com/ading2210/doompdf"
+  },
+  {
+    "background": "#C76B0F",
+    "titleColor": "#F6D193",
+    "descriptionColor": "#F6D193",
+    "title": "PandA",
+    "description": "A really beautiful foldable 3d printer.",
+    "link": "https://github.com/lolwutboi987/PandA"
+  },
+  {
+    "background": "#FFF1DE",
+    "titleColor": "#4F2A0E",
+    "descriptionColor": "#4F2A0E",
+    "title": "LibrePods",
+    "description": "Use airpods with android and linux!",
+    "link": "https://github.com/kavishdevar/librepods"
+  },
+  {
+    "background": "#EF6C46",
+    "titleColor": "#EDE2DC",
+    "descriptionColor": "#EDE2DC",
+    "title": "Vortex",
+    "description": "An open-source temp email service!",
+    "link": "https://github.com/SkyfallWasTaken/vortex.email"
+  },
+    {
+    "background": "#30AE1F",
+    "titleColor": "#FFFFFF",
+    "descriptionColor": "#FFFFFF",
+    "title": "HCB-Scan",
+    "description": "The first public explorer for HCB orgs and transactions.",
+    "link": "https://github.com/3kh0/hcbscan"
+  }]

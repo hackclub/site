@@ -48,6 +48,7 @@ import Shipwrecked from '../components/index/cards/shipwrecked'
 import EventSlider from '../components/index/events-slider'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ProjectsSlider from '../components/index/projects-slider'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -840,6 +841,7 @@ function Page({
               // }
             }}
           >
+            <ProjectsSlider />
             <Box
               sx={{
                 position: 'absolute',
