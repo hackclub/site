@@ -1,4 +1,5 @@
 import { Box, Card, Image, Link, Text } from 'theme-ui'
+import { useState, useEffect } from 'react'
 import Icon from '../icon'
 
 /** @jsxImportSource theme-ui */
@@ -12,6 +13,43 @@ export default function YTCarouselCards({
   img,
   link
 }) {
+  const [imageDimensions, setImageDimensions] = useState({
+    width: ['42px', '50px', '58px'],
+    height: ['42px', '50px', '58px'],
+    isRectangle: false
+  })
+
+  useEffect(() => {
+    const checkImageDimensions = () => {
+      const tempImg = new window.Image()
+      tempImg.onload = () => {
+        const aspectRatio = tempImg.naturalWidth / tempImg.naturalHeight
+        const isWideRectangle = aspectRatio > 1.2 
+        
+        if (isWideRectangle) {
+         
+          setImageDimensions({
+            width: ['60px', '72px', '84px'], 
+            height: ['42px', '50px', '58px'], 
+            isRectangle: true
+          })
+        } else {
+
+          setImageDimensions({
+            width: ['42px', '50px', '58px'],
+            height: ['42px', '50px', '58px'],
+            isRectangle: false
+          })
+        }
+      }
+      tempImg.src = img
+    }
+
+    if (img) {
+      checkImageDimensions()
+    }
+  }, [img])
+
   return (
     <Box
       sx={{
@@ -48,12 +86,16 @@ export default function YTCarouselCards({
             top: ['-26px', '-30px', '-35px'],
             left: ['10px', '12px', '15px'],
             zIndex: 2,
-            width: ['42px', '50px', '58px'],
-            height: ['42px', '50px', '58px']
+            width: imageDimensions.width,
+            height: imageDimensions.height,
+            objectFit: imageDimensions.isRectangle ? 'contain' : 'cover',
+            ...(imageDimensions.isRectangle && {
+              borderRadius: '4px',
+              padding: '2px'
+            })
           }}
         />
         <Card
-          // variant="interactive"
           sx={{
             mr: 3,
             background,

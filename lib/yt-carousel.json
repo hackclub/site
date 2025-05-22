@@ -4,7 +4,7 @@
     "titleColor": "white",
     "descriptionColor": "white",
     "title": "Juice",
-    "description": "Around 100 hackclubbers from ~23 countries opened a week long popup cafe in the streets of Shanghai.",
+    "description": "Around 100 hackclubbers from ~23 countries ran a week long popup cafe in the streets of Shanghai.",
     "img": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4c16121f98762341a7f1d6774e982735b958f051_juiceboxbuilding.png",
     "link": "https://www.youtube.com/watch?v=fuTlToZ1SX8&list=PLbNbddgD-XxH0TDS6qFynB6-YnWZU5Fhc"
   },
@@ -22,7 +22,7 @@
     "titleColor": "#e3dac8",
     "descriptionColor": "#e3dac8",
     "title": "Scapyard",
-    "description": "We hosted a hackathon for the WORST Ideas",
+    "description": "We hosted a hackathon for the WORST Ideas!",
     "img": "https://cloud-4fnsp2wse-hack-club-bot.vercel.app/0scrapyard.png",
     "link": "https://youtu.be/8iM1W8kXrQA?si=uBVDO7fd9aghRSQE"
   },
@@ -58,7 +58,7 @@
     "titleColor": "#fcec96",
     "descriptionColor": "#fcec96",
     "title": "Summit",
-    "description": "We organised The Hackclub Leaders Summit 2024",
+    "description": "We organised The Hackclub Leaders Summit 2024.",
     "img": "https://raw.githubusercontent.com/hackclub/summit/refs/heads/main/public/favicon-32x32.png",
     "link": "https://youtu.be/UZEm5lONg7g?si=GWy29PKD8Jo3pH1Y"
   },
@@ -72,12 +72,12 @@
     "link": "https://youtu.be/KLx4NZZPzMc?si=WZRcs9v5fklPv70P"
   },
   {
-    "background": "#271932",
-    "titleColor": "#CAB4D4",
-    "textColor": "#CAB4D4",
+    "background": "#f74a66",
+    "titleColor": "#ebd7fa",
+    "textColor": "#ebd7fa",
     "title": "Assemble",
-    "description": "We hosted a High School Hackathon!",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/sinerider/68a0bc1208e885dd.png",
+    "description": "We hosted a high school hackathon at the Figma HQ in SF!",
+    "img": "https://assemble.hackclub.com/invert.png",
     "link": "https://youtu.be/PnK4gzO6S3Q?si=Czpzq9s_TnI4UtPF"
   },
   {
@@ -85,7 +85,7 @@
     "titleColor": "green",
     "descriptionColor": "white",
     "title": "The Hacker Zephyr",
-    "description": "The World's Longest Hackathon, literally ",
+    "description": "The World's Longest Hackathon, literally",
     "img": "https://cloud-6skkg6eck-hack-club-bot.vercel.app/0image.png",
     "link": "https://youtu.be/2BID8_pGuqA?si=S_5gz27Fip7hWq4q"
   },
