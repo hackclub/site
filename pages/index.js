@@ -42,6 +42,7 @@ import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
+import Image from 'next/image'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -192,7 +193,7 @@ function Page({
             bg: 'dark',
             pt: [5, 6],
             pb: [2, 3],
-            textAlign: 'left',
+            textAlign: 'center',
             position: 'relative',
             overflowX: 'hidden'
           }}
@@ -219,7 +220,8 @@ function Page({
                 color: 'sunken',
                 pb: 2,
                 position: 'relative',
-                display: 'block'
+                display: 'block',
+                fontSize: ['21px', '35px', '35px']
               }}
               as="h4"
             >
@@ -233,8 +235,8 @@ function Page({
                   color: 'white',
                   mb: [3, 4],
                   zIndex: 1,
-                  textAlign: 'left',
-                  fontSize: ['42px', '52px', '64px'],
+                  textAlign: 'center',
+                  fontSize: ['32px', '52px', '64px'],
                   lineHeight: 1.2,
                   width: '100%'
                 }}
@@ -275,28 +277,36 @@ function Page({
                 <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
                 the world who code together
               </Text>
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="/slack"
-                mt={[3, 0, 0]}
-                mr={3}
-                sx={{ transformOrigin: 'center left' }}
-              >
-                Join Slack
-              </Button>
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="https://shipwrecked.hack.club/3"
-                mt={3}
-                sx={{ 
-                  transformOrigin: 'left',
-                  backgroundImage: t => t.util.gx('green', 'blue'),
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '10px',
+                  justifyContent: 'center',
+                  alignItems: 'center'
                 }}
               >
-                Sign Up: Private Island Hackathon
-              </Button>
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  href="/slack"
+                  mr={3}
+                  sx={{ transformOrigin: 'center left' }}
+                >
+                  Join Slack
+                </Button>
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  href="https://shipwrecked.hack.club/3"
+                  sx={{
+                    transformOrigin: 'left',
+                    backgroundImage: t => t.util.gx('green', 'blue')
+                  }}
+                >
+                  Sign Up: Private Island Hackathon
+                </Button>
+              </Box>
             </Heading>
           </Box>
           <Box
@@ -317,12 +327,12 @@ function Page({
                 zIndex: '1',
                 bg: 'black',
                 color: 'white',
-                opacity: 1,
+                opacity: 1.1,
                 textDecoration: 'none',
                 fontWeight: 'normal',
                 ':hover': { opacity: 1 },
-                transition: '0.3s ease'
-                // mixBlendMode: 'multiply'
+                transition: '0.3s ease',
+                mixBlendMode: 'difference'
               }}
               title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
             >
@@ -380,131 +390,36 @@ function Page({
               </Link>
               .
             </Text>
-            <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
-              <Box
+            <Box
+              sx={{
+                width: '100%',
+                height: '100%',
+                position: 'relative',
+                marginTop: ['20px', '20px', '0px'],
+                marginBottom: ['20px', '20px', '20px'],
+                borderRadius: '12px'
+              }}
+            >
+              <Image
+                src="https://lh3.googleusercontent.com/pw/AP1GczM6lk5_7yWnJODKqf0O2xbVsY1fGUbgSrYCsZVOzv5FtRZRZ9ggnSaik1WRZm-Tty_FyQ7fsEu72eE68EBr1WisTm9PbeQauofh2DwhF-i2GLb4SlWGQ0Vn8IYtUka6ojEWbNU5sPZErtWdUCFQTv1s=w1440-h960-s-no-gm?authuser=1"
                 sx={{
-                  position: 'relative',
-                  height: ['300px', '300px', '300px', '100%'],
-                  py: [3, 3, 3, 0]
+                  objectFit: 'cover',
+                  position: 'absolute',
+                  borderRadius: '12px',
+                  ml: -4,
+                  mt: -4,
+                  zIndex: 0
                 }}
-                onClick={() => {
-                  setCount(count + 1)
-                }}
-              >
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={
-                        count === images.length - 2
-                          ? images[0].src
-                          : images.length - 1
-                            ? images[1].src
-                            : images[count + 2].src
-                      }
-                      alt={
-                        count === images.length - 2
-                          ? images[0].alt
-                          : images.length - 1
-                            ? images[1].alt
-                            : images[count + 2].alt
-                      }
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={
-                        count === images.length - 1
-                          ? images[0].src
-                          : images[count + 1].src
-                      }
-                      alt={
-                        count === images.length - 1
-                          ? images[0].alt
-                          : images[count + 1].alt
-                      }
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={images[count].src}
-                      alt={images[count].alt}
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
-              </Box>
+                height={'500px'}
+                width={'1230px'}
+                alt="A crowd of hackers cheering at Epoch"
+              />
+            </Box>
+            <Grid rows={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]}>
               <Grid
                 columns="1fr"
                 sx={{
+                  padding: '0',
                   gridColumnGap: 3,
                   span: {
                     width: 36,
@@ -526,12 +441,14 @@ function Page({
                   columns="auto 1fr"
                   sx={{
                     transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
+                    py: '20px',
+                    px: '20px',
                     color: 'inherit',
                     position: 'relative',
                     textDecoration: 'none',
-                    borderRadius: 'extra'
+                    borderRadius: 'extra',
+                    background: '#F9FAFC',
+                    border: '1px solid #E0E6ED'
                   }}
                   as="li"
                 >
@@ -554,12 +471,14 @@ function Page({
                   columns="auto 1fr"
                   sx={{
                     transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
+                    py: '20px',
+                    px: '20px',
                     color: 'inherit',
                     position: 'relative',
                     textDecoration: 'none',
-                    borderRadius: 'extra'
+                    borderRadius: 'extra',
+                    background: '#F9FAFC',
+                    border: '1px solid #E0E6ED'
                   }}
                   as="li"
                 >
@@ -588,12 +507,14 @@ function Page({
                   columns="auto 1fr"
                   sx={{
                     transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
+                    py: '20px',
+                    px: '20px',
                     color: 'inherit',
                     position: 'relative',
                     textDecoration: 'none',
-                    borderRadius: 'extra'
+                    borderRadius: 'extra',
+                    background: '#F9FAFC',
+                    border: '1px solid #E0E6ED'
                   }}
                   as="li"
                 >
@@ -656,7 +577,7 @@ function Page({
             py={[4, 4, 5]}
           >
             <Box>
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
+              <Text variant="title" sx={{ fontSize: ['36px', 4, 6] }}>
                 Connect with{' '}
                 <Text
                   as="span"
@@ -844,7 +765,10 @@ function Page({
                 width: '90vw',
                 maxWidth: 'layout',
                 margin: 'auto',
-                position: 'relative'
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'left',
+                flexDirection: 'column'
               }}
             >
               <Box>
@@ -853,9 +777,8 @@ function Page({
                   as="h2"
                   sx={{
                     fontSize: ['36px', '48px', '72px'],
-                    width: '18ch',
-                    textAlign: 'center',
-                    margin: 'auto'
+                    width: ['16ch', '18ch', '18ch'],
+                    textAlign: 'left'
                   }}
                 >
                   Find your{' '}
@@ -878,7 +801,7 @@ function Page({
                     fontSize: ['18px', '24px', '32px'],
                     margin: 'auto',
                     pt: 2,
-                    textAlign: 'center'
+                    textAlign: 'left'
                   }}
                 >
                   Thousands of Hack Clubbers organize and participate in
@@ -909,7 +832,7 @@ function Page({
               <Text
                 as="p"
                 variant="eyebrow"
-                sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
+                sx={{ fontSize: ['18px', 2, 3], textAlign: 'left' }}
               >
                 We've got a lot going on - Let's recap
               </Text>
@@ -918,9 +841,8 @@ function Page({
                 as="h2"
                 sx={{
                   fontSize: ['36px', '48px', '72px'],
-                  width: '16ch',
-                  textAlign: 'center',
-                  margin: 'auto'
+                  width: ['16ch', '20ch', '20ch'],
+                  textAlign: 'left'
                 }}
               >
                 Find your second home at{' '}
@@ -936,6 +858,21 @@ function Page({
                   }}
                 >
                   Hack&nbsp;Club
+                </Text>
+                <Text
+                  variant="subtitle"
+                  as="p"
+                  sx={{
+                    fontSize: ['18px', '20px', '22px'],
+                    pb: [3, 0, 0],
+                    maxWidth: '60ch',
+                    lineHeight: '1'
+                  }}
+                >
+                  Hack Club is a place where anyone can jump in, build cool
+                  stuff, and meet awesome people along the way. You don’t need
+                  to know how to code, just bring your curiosity, and we’ll
+                  figure it out together.
                 </Text>
               </Text>
             </Box>
@@ -1287,9 +1224,9 @@ export async function getStaticProps() {
 
   let events = []
   try {
-    await fetch(
-      'https://events.hackclub.com/api/events/upcoming/'
-    ).then(res => res.json())
+    await fetch('https://events.hackclub.com/api/events/upcoming/').then(res =>
+      res.json()
+    )
   } catch (error) {
     console.error('Error fetching events:', error)
   }
