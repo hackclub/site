@@ -64,13 +64,12 @@ export default function Onboard({ stars }) {
             {projects} projects built
           </Text>
           <Text as="p" variant="subtitle">
-            Circuit boards are magical. And nearly a thousand Hack Clubbers have made their own
-            - for free! Get a $100 grant to fuel the creation of your
-            dream project with OnBoard.
+            Circuit boards are magical. And 1,000 Hack Clubbers built their own dream hardware projects
+            - for free!
           </Text>
         </Box>
         <Flex
-          sx={{ flexDirection: 'column', mt: [3, 3, 4], placeSelf: 'start' }}
+          sx={{ flexDirection: 'column', mt: 3, placeSelf: 'start' }}
         >
           <Buttons icon="docs" link="https://jams.hackclub.com/tag/pcb" id="60">
             Learn how to design a PCB

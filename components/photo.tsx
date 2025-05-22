@@ -15,6 +15,7 @@ const Caption = styled(Text)`
   width: 100%;
   max-width: 100%;
   z-index: 0;
+  color: black;
 `
 
 interface PhotoProps extends React.ComponentPropsWithoutRef<typeof Card> {

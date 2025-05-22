@@ -177,11 +177,11 @@ function Page({
   const [count, setCount] = useState(0)
 
   let images = [
-    { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
     {
       alt: 'Hack Clubbers at SpaceX HQ in LA',
       src: '/home/zephyr-spacex.jpeg'
     },
+    { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
     {
       alt: 'MA Hacks, Hack Clubber organized hackathon',
       src: '/hackathons/mahacks.jpeg'
@@ -417,7 +417,7 @@ function Page({
               >
                 joy of code
               </Text>
-              , together.
+              , <i>together</i>.
             </Text>
             <Text
               variant="subtitle"
@@ -429,7 +429,8 @@ function Page({
                 color: 'cyberpunk.text'
               }}
             >
-              In collaboration with engineers on the Hack Club team, Hack Clubbers build learning tools for each other. Get involved with these projects by building something with our tools or contribute to the tools themselves.
+              Coding can be a solitary activity - but it doesn't have to be that way. We've organised hackathons across China, the US, Canada, India, and more, and believe that the
+              best way to enjoy programming is to do it with other people. Here's how we can help you do just that:
             </Text>
             <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
               <Box
@@ -541,7 +542,7 @@ function Page({
                       zIndex: 3,
                       '&:hover': {
                         cursor: 'pointer'
-                      }
+                      },
                     }}
                   >
                     <Photo
@@ -603,7 +604,7 @@ function Page({
                       Connect with other teenage coders
                     </strong>
                     Have a coding question? Looking for project feedback? You'll
-                    find hundreds of fabulous people to talk to in our global{' '}
+                    find thousands of fabulous people to talk to in our global{' '}
                     <Link href="/slack" target="_blank" rel="noopener" sx={{ color: 'cyberpunk.electricBlue' }}>
                       Slack{' '}
                     </Link>
@@ -634,14 +635,14 @@ function Page({
                     }}
                   >
                     <strong sx={{ mb: 1 }}>
-                      Build open source learning tools
+                      Build open source coding tools
                     </strong>
-                    We build large open source projects together (
+                    We build open source projects together (
                     <Link href="https://github.com/hackclub" target="_blank">
                       3k+&nbsp;PRs a year
                     </Link>
-                    ) like this website, a game engine, daily streak system, and
-                    more!
+                    ) like this website, a game engine (and console!), a daily streak tracker, and
+                    more! And of course, you can always choose to start a project of your own.
                   </Text>
                 </Grid>
                 <Grid
@@ -670,8 +671,8 @@ function Page({
                     and{' '}
                     <Link href="/hackathons" target="_blank" rel="noopener">
                       high school hackathons
-                    </Link>
-                    .
+                    </Link>{" "}
+                    (social coding events).
                   </Text>
                 </Grid>
               </Grid>

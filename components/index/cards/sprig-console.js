@@ -91,8 +91,8 @@ export default function SprigConsole({ stars, consoleCount }) {
               id="6"
               icon="emoji"
               link="https://github.com/hackclub/sprig/blob/main/docs/GET_A_SPRIG.md"
-              primary="#427A43"
-              sx={{ mt: [3, 3, 4] }}
+              primary="#FFDE4D"
+              sx={{ color: "black", mt: [3, 3, 4] }}
             >
               Build a game and get your console
             </Buttons>
