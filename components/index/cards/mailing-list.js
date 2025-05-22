@@ -6,7 +6,7 @@ import BGImg from '../../background-image'
 import background from '../../../public/home/footer.png'
 import MailCard from '../../mail-card'
 
-const markdownToHtml = require('@hackclub/markdown')
+//const markdownToHtml = require('@hackclub/markdown')
 
 const Loading = () => (
   <Box
@@ -63,7 +63,7 @@ const MailingList = () => {
   // Then, It makes a second fetch request to get the filename, so that can be used to determine the link.
   // After that, it removes the file extension, so we can use that as the date.
   // Finally, it sets the state of data to the final HTML and the names of the files, so we can map that later on!
-
+/*
   useEffect(() => {
     Promise.all([
       fetch(
@@ -92,7 +92,7 @@ const MailingList = () => {
         .then(data => data.sort((a, b) => b.name.localeCompare(a.name)))
         .then(data => data.map(item => item.name.split('.')[0])) // Grabs the name and gets rid of the file extension
     ]).then(([finalHtml, names]) => setData({ finalHtml, names }))
-  }, [])
+  }, [])*/
 
   return (
     <Box sx={{ position: 'relative', py: 6, background: 'darker' }}>
@@ -108,25 +108,31 @@ const MailingList = () => {
         }}
       >
         <Flex
-          sx={{ flexDirection: ['column', 'column', 'row'], gridGap: [0, 5] }}
+          sx={{ 
+            flexDirection: ['column', 'column', 'row'], 
+            gridGap: [0, 5],
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
         >
           <Flex
             sx={{
               placeItems: 'center',
               justifyContent: 'center',
-              alignItems: ['left', 'left', 'center'],
+              alignItems: 'center',
               flexDirection: 'column',
               gap: '10px',
-              width: ['100%', '100%', '75%']
+              width: ['100%', '100%', '75%'],
+              textAlign: 'center'
             }}
           >
-            <Box>
+            <Box sx={{ textAlign: 'center' }}>
               <Text
                 variant="title"
                 sx={{
                   fontSize: [4, '36px', '42px', 6],
                   zIndex: 2,
-                  textAlign: 'left'
+                  textAlign: 'center'
                 }}
               >
                 Join the newsletter
@@ -136,20 +142,11 @@ const MailingList = () => {
                   color: 'darkless',
                   mt: 2,
                   fontSize: 3,
-                  textAlign: 'left'
+                  textAlign: 'center'
                 }}
                 as="p"
               >
-                We&apos;ll send you an email no more than once a month, when we
-                work on something cool for you. Check out our{' '}
-                <Link
-                  href="https://workshops.hackclub.com/leader-newsletters/"
-                  target="_blank"
-                  rel="noopener norefferer"
-                >
-                  previous issues
-                </Link>
-                .
+Subscribe for Hack Club's bi-weekly newsletter "happenings", it keeps you up to date with all the happenings in Hack Club, whether they be huge announcements or cool projects built by hackclubbers :)
               </Text>
             </Box>
             <Grid
@@ -159,9 +156,11 @@ const MailingList = () => {
               gap={[2, 3]}
               sx={{
                 textAlign: 'center',
-                alignItems: 'end',
+                alignItems: 'center',
+                justifyItems: 'center',
                 input: { bg: 'sunken' },
-                width: '100%'
+                width: '100%',
+                maxWidth: '400px'
               }}
             >
               <Box sx={{ width: '100%' }}>
@@ -179,7 +178,7 @@ const MailingList = () => {
                   }}
                 />
               </Box>
-              <div>
+              <div style={{ width: '100%' }}>
                 <Input
                   autofillBackgroundColor="highlight"
                   type="email"
@@ -209,29 +208,6 @@ const MailingList = () => {
               </Button>
             </Grid>
           </Flex>
-          <Box
-            sx={{
-              display: 'grid',
-              gridGap: 4,
-              mt: [4, 0],
-              width: '100%'
-            }}
-          >
-            {data.finalHtml
-              .map((html, index) => (
-                <MailCard
-                  issue={index + 1}
-                  body={html}
-                  date={format(
-                    parse('', '', new Date(data.names[index])),
-                    'MMMM d, yyyy'
-                  )}
-                  link={data.names[index]}
-                  key={index}
-                />
-              ))
-              .reverse()}
-          </Box>
         </Flex>
       </Card>
       <BGImg

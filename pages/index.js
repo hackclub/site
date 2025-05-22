@@ -690,11 +690,14 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            {/*<Neighborhood />
-            <Highway />
-            <Shipwrecked />*/}
-            <EventSlider sx= {{z:'999999'}} />
-                 <YTCarousel cards={ytCarouselCards}/>
+<Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+  <Box sx={{ px: 10 }}>
+    <EventSlider sx={{ z: '999999', px: 2 }} />
+  </Box>
+  <Box sx={{ px: 10 }}>
+    <YTCarousel cards={ytCarouselCards} />
+  </Box>
+</Box>
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>

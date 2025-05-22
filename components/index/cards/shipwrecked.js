@@ -14,7 +14,7 @@ export default function Shipwrecked() {
         backgroundColor: '#90A8E1',
         fontFamily: "p22stanyan",
         objectFit: "contain",
-        height: '500px', // Fixed height
+        height: '500px', 
         width: '100%',
         minHeight: '500px'
       }}
@@ -25,8 +25,7 @@ export default function Shipwrecked() {
           @import url('https://use.typekit.net/zsi6vlp.css');
         `}
       />
-      
-      {/* Background Image */}
+    
       <Image
         src="https://raw.githubusercontent.com/hackclub/shipwrecked/refs/heads/main/public/shore.webp"
         sx={{
@@ -56,7 +55,7 @@ export default function Shipwrecked() {
             padding: ['20px', '30px', '40px']
           }}
         >
-          {/* Logo */}
+  
           <Image
             src="https://shipwrecked.hackclub.com/logo-outline.svg"
             sx={{
@@ -69,7 +68,7 @@ export default function Shipwrecked() {
             alt="Shipwrecked"
           />
 
-          {/* Content Container */}
+   
           <Box sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -79,7 +78,7 @@ export default function Shipwrecked() {
             width: '100%',
             maxWidth: '500px'
           }}>
-            {/* Description Box */}
+     
             <Box
               sx={{
                 background:'rgba(255, 255, 255, 0.1)',
@@ -109,7 +108,7 @@ export default function Shipwrecked() {
               </Heading>
             </Box>
 
-            {/* Button */}
+     
             <Buttons
               href="https://shipwrecked.hackclub.com/"
               target="_blank"
@@ -134,7 +133,7 @@ export default function Shipwrecked() {
             </Buttons>
           </Box>
 
-          {/* Spacer to push content up */}
+     
           <Box sx={{ minHeight: '20px' }} />
         </Flex>
       </Grid>

@@ -11,7 +11,7 @@ export default function Highway() {
       color="white"
       sx={{
         position: 'relative',
-        height: '500px', // Fixed height to match others
+        height: '500px',
         width: '100%',
         minHeight: '500px',
         fontFamily: 'p22stanyan',
@@ -19,7 +19,7 @@ export default function Highway() {
       }}
       position={[null, 'bottom', 'bottom']}
     >
-      {/* Background */}
+   
       <Box
         sx={{
           position: 'absolute',
@@ -92,7 +92,7 @@ export default function Highway() {
             padding: ['15px', '20px', '25px']
           }}
         >
-          {/* Logo */}
+ 
           <Image
             src="https://highway.hackclub.com/assets/landing/landinglogo-b42d5f8e.png"
             sx={{
@@ -105,7 +105,7 @@ export default function Highway() {
             alt="Highway"
           />
 
-          {/* Content Container */}
+    
           <Box sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -116,7 +116,7 @@ export default function Highway() {
             maxWidth: '480px',
             gap: '12px'
           }}>
-            {/* Combined Content Box */}
+    
             <Box
               sx={{
                 background: "#080807",
@@ -161,7 +161,6 @@ export default function Highway() {
               </Text>
             </Box>
 
-            {/* Button */}
             <Buttons
               href="https://highway.hackclub.com/"
               target="_blank"

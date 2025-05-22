@@ -14,14 +14,14 @@ export default function Neighborhood() {
         backgroundColor: '#90A8E1',
         fontFamily: "M PLUS Rounded 1c",
         objectFit: "contain",
-        height: '500px', // Fixed height to match others
+        height: '500px',
         width: '100%',
         minHeight: '500px',
         overflow: 'hidden'
       }}
       position={[null, 'bottom', 'bottom']}
     >
-      {/* Background Video */}
+  
       <video
         autoPlay
         muted
@@ -62,7 +62,7 @@ export default function Neighborhood() {
             padding: ['20px', '30px', '40px']
           }}
         >
-          {/* Logo */}
+
           <Image
             src="https://neighborhood.hackclub.com/neighborhoodLogo.png"
             sx={{
@@ -75,7 +75,7 @@ export default function Neighborhood() {
             alt="Neighborhood"
           />
 
-          {/* Content Container */}
+         
           <Box sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -85,7 +85,7 @@ export default function Neighborhood() {
             width: '100%',
             maxWidth: '500px'
           }}>
-            {/* Description Box */}
+         
             <Box
               sx={{
                 backgroundColor: "#FFF9E6",
@@ -114,7 +114,7 @@ export default function Neighborhood() {
               </Heading>
             </Box>
 
-            {/* Button */}
+          
             <Buttons
               href="https://neighborhood.hackclub.com/"
               target="_blank"
@@ -140,7 +140,7 @@ export default function Neighborhood() {
             </Buttons>
           </Box>
 
-          {/* Spacer */}
+   
           <Box sx={{ minHeight: '20px' }} />
         </Flex>
       </Grid>
