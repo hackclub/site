@@ -46,6 +46,8 @@ import YTCarousel from '../components/index/yt-carousel'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
 import EventSlider from '../components/index/events-slider'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -688,9 +690,10 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Neighborhood />
+            {/*<Neighborhood />
             <Highway />
-            <Shipwrecked />
+            <Shipwrecked />*/}
+            <EventSlider sx= {{z:'999999'}} />
                  <YTCarousel cards={ytCarouselCards}/>
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>

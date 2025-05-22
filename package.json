@@ -98,6 +98,7 @@
     "remark-html": "^16.0.1",
     "rough-notation": "^0.5.1",
     "roughjs": "^4.6.6",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.15",
     "swr": "^2.3.2",
     "theme-ui": "^0.14.7",
