@@ -24,7 +24,7 @@ export default function YTCarouselCards({
       const tempImg = new window.Image()
       tempImg.onload = () => {
         const aspectRatio = tempImg.naturalWidth / tempImg.naturalHeight
-        const isWideRectangle = aspectRatio > 1.2 
+        const isWideRectangle = aspectRatio > 1.5 
         
         if (isWideRectangle) {
          

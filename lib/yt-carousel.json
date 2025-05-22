@@ -21,7 +21,7 @@
     "background": "#327d78",
     "titleColor": "#e3dac8",
     "descriptionColor": "#e3dac8",
-    "title": "Scapyard",
+    "title": "Scrapyard",
     "description": "We hosted a hackathon for the WORST Ideas!",
     "img": "https://cloud-4fnsp2wse-hack-club-bot.vercel.app/0scrapyard.png",
     "link": "https://youtu.be/8iM1W8kXrQA?si=uBVDO7fd9aghRSQE"
@@ -36,7 +36,7 @@
     "link": "https://youtu.be/H5RPsCMl3uM?si=wXgThhbKeaB2ESE_"
   },
     {
-    "background": "#f74187",
+    "background": "#3a396e",
     "titleColor": "#FFFFFF",
     "descriptionColor": "#FFFFFF",
     "title": "Counterspell",
@@ -63,15 +63,6 @@
     "link": "https://youtu.be/UZEm5lONg7g?si=GWy29PKD8Jo3pH1Y"
   },
   {
-    "background": "snow",
-    "titleColor": "dark",
-    "descriptionColor": "black",
-    "title": "EPOCH",
-    "description": "We organized a hackathon in Delhi/NCR, India!",
-    "img": "🎆",
-    "link": "https://youtu.be/KLx4NZZPzMc?si=WZRcs9v5fklPv70P"
-  },
-  {
     "background": "#f74a66",
     "titleColor": "#ebd7fa",
     "textColor": "#ebd7fa",
@@ -81,22 +72,13 @@
     "link": "https://youtu.be/PnK4gzO6S3Q?si=Czpzq9s_TnI4UtPF"
   },
   {
-    "background": "dark",
-    "titleColor": "green",
-    "descriptionColor": "white",
-    "title": "The Hacker Zephyr",
-    "description": "The World's Longest Hackathon, literally",
-    "img": "https://cloud-6skkg6eck-hack-club-bot.vercel.app/0image.png",
-    "link": "https://youtu.be/2BID8_pGuqA?si=S_5gz27Fip7hWq4q"
-  },
-  {
     "background": "#e9e9e9",
     "titleColor": "black",
     "textColor": "black",
     "descriptionColor": "black",
-    "title": "HC at RMRRF 2025",
+    "title": "Infill",
     "description": "Around 20 Teen Hackers built their 3d printers from scratch and presented them at The RMRRF!",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/nest/aa345378581cee0c.png",
+    "img": "https://raw.githubusercontent.com/hackclub/infill/refs/heads/main/website/public/favicon.svg",
     "link": "https://www.youtube.com/live/EhKuOT_FsDI?si=3N2Ixq-J0tr1KXjq"
   }
 ]
