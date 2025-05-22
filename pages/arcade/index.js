@@ -5,6 +5,8 @@ import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import { Box, Text, Flex, Grid, Card, Close, Divider, Heading } from 'theme-ui'
 import Image from 'next/image'
+import fs from 'fs'
+import path from 'path'
 import { startCase } from 'lodash'
 import Projects from '../../components/arcade/projects'
 import { Howl } from 'howler'
@@ -16,6 +18,7 @@ import { Fade } from 'react-reveal'
 import Join from '../../components/arcade/join'
 import Announcement from '../../components/announcement'
 import Link from 'next/link'
+import { shopParts } from '../api/arcade/shop'
 /** @jsxImportSource theme-ui */
 
 const styled = `
@@ -1898,42 +1901,42 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
 export default Arcade
 
 export async function getStaticProps() {
-  // const stickersDir = path.join(process.cwd(), 'public', 'stickers')
-  // const stickers = fs
-  //   .readdirSync(stickersDir)
-  //   .filter(sticker => sticker !== 'hero.jpg')
+  const stickersDir = path.join(process.cwd(), 'public', 'stickers')
+  const stickers = fs
+    .readdirSync(stickersDir)
+    .filter(sticker => sticker !== 'hero.jpg')
 
-  // const items = await shopParts()
-  // const carousel = items
-  //   .map(record => ({
-  //     hours: record['Cost Hours'] || 0,
-  //     imageURL: record['Image URL'] || '',
-  //     enabledCarousel: record['Enabled Carousel'] || false
-  //   }))
-  //   .filter(item => item.enabledCarousel)
-  //   .filter(item => item.imageURL !== '')
+  const items = await shopParts()
 
-  // const highlightedItems = items
-  //   .filter(item => item['Enabled Highlight'])
-  //   .sort((_a, _b) => Math.random() - 0.5 > 0)
-  //   .map(record => ({
-  //     // id: record['ID'],
-  //     'Image URL': record['Image URL'] || null,
-  //     Name: record['Name'] || null,
-  //     'Small Name': record['Small Name'] || null,
-  //     'Full Name': record['Full Name'] || null,
-  //     'Cost Hours': record['Cost Hours'] || null,
-  //     Description: record['Description'] || null,
-  //     'Fulfillment Description': record['Fulfillment Description'] || null,
-  //     'Extra tags': record['Extra tags'] || []
-  //   }))
+  const carousel = items
+    .map(record => ({
+      hours: record['Cost Hours'] || 0,
+      imageURL: record['Image URL'] || '',
+      enabledCarousel: record['Enabled Carousel'] || false
+    }))
+    .filter(item => item.enabledCarousel)
+    .filter(item => item.imageURL !== '')
 
-  // Use empty arrays for build
+  const highlightedItems = items
+    .filter(item => item['Enabled Highlight'])
+    .sort((_a, _b) => Math.random() - 0.5 > 0)
+    .map(record => ({
+      // id: record['ID'],
+      'Image URL': record['Image URL'] || null,
+      Name: record['Name'] || null,
+      'Small Name': record['Small Name'] || null,
+      'Full Name': record['Full Name'] || null,
+      'Cost Hours': record['Cost Hours'] || null,
+      Description: record['Description'] || null,
+      'Fulfillment Description': record['Fulfillment Description'] || null,
+      'Extra tags': record['Extra tags'] || []
+    }))
+
   return {
     props: {
-      stickers: [],
-      highlightedItems: [],
-      carousel: []
+      stickers,
+      highlightedItems,
+      carousel
     }
   }
 }

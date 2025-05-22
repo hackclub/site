@@ -16,39 +16,6 @@ export default function Carousel({ cards = [] }) {
     setPageIsVisible(isVisible)
   }
 
-  // Reduce ticker speed and disable on mobile for performance
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 600
-  if (isMobile)
-    return (
-      <Box sx={{ mt: 4 }}>
-        <Text
-          variant="eyebrow"
-          as="h4"
-          sx={{
-            fontSize: ['22px', 2, 3],
-            mt: [4, 4, 5],
-            maxWidth: 'layout',
-            width: '90vw',
-            margin: 'auto'
-          }}
-        >
-          Here are a few programs you could get involved in:
-        </Text>
-        <Box
-          as="div"
-          sx={{ display: 'flex', flexDirection: 'column', py: [4, 5, 5], gap: 3 }}
-        >
-          {Array.isArray(cards) && cards.length > 0 ? (
-            cards.slice(0, 3).map((card, idx) => <CarouselCards key={idx} {...card} />)
-          ) : (
-            <Box sx={{ textAlign: 'center', py: 4, color: 'muted' }}>
-              Loading programs...
-            </Box>
-          )}
-        </Box>
-      </Box>
-    )
-
   return (
     <PageVisibility onChange={handleVisibilityChange}>
       {pageIsVisible && (
@@ -75,7 +42,9 @@ export default function Carousel({ cards = [] }) {
                 onMouseLeave={() => setSpeed(5)}
               >
                 {Array.isArray(cards) && cards.length > 0 ? (
-                  cards.map((card, idx) => <CarouselCards key={idx} {...card} />)
+                  cards.map((card, idx) => (
+                    <CarouselCards key={idx} {...card} />
+                  ))
                 ) : (
                   <Box sx={{ textAlign: 'center', py: 4, color: 'muted' }}>
                     Loading programs...
