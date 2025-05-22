@@ -7,7 +7,6 @@ import { css, Global } from '@emotion/react'
 
 export default function Neighborhood() {
   return (
-
     <CardModel
       color="white"
       sx={{
@@ -15,10 +14,14 @@ export default function Neighborhood() {
         backgroundColor: '#90A8E1',
         fontFamily: "M PLUS Rounded 1c",
         objectFit: "contain",
+        height: '500px', // Fixed height to match others
+        width: '100%',
+        minHeight: '500px',
+        overflow: 'hidden'
       }}
       position={[null, 'bottom', 'bottom']}
-
     >
+      {/* Background Video */}
       <video
         autoPlay
         muted
@@ -30,10 +33,12 @@ export default function Neighborhood() {
           height: "100%",
           objectFit: "cover",
           zIndex: 1,
-          margin: "-32px -32px -32px"
+          top: 0,
+          left: 0
         }}
         src="https://neighborhood.hackclub.com/background.mp4"
       />
+
       <Global
         styles={[
            css`
@@ -41,98 +46,84 @@ export default function Neighborhood() {
            `
         ]}
      />
-      <Grid columns={[1, 1, 1]} sx={{ position: 'relative', zIndex: 2 }}>
+
+      <Grid columns={[1]} sx={{ 
+        position: 'relative', 
+        zIndex: 2,
+        height: '100%',
+        width: '100%'
+      }}>
         <Flex
           sx={{
             flexDirection: 'column',
             justifyContent: 'space-between',
-            position: 'relative',
+            height: '100%',
             alignItems: 'center',
+            padding: ['20px', '30px', '40px']
           }}
         >
+          {/* Logo */}
           <Image
             src="https://neighborhood.hackclub.com/neighborhoodLogo.png"
             sx={{
-              width: ['400px', '450px', '500px'],
-              mt: ['30px', '40px', '45px'],
-              mb: ['30px', '30px', '30px'],
-              position: 'relative',
-              zIndex: 3,
-              ml: '0px',
-              mr: '0px',
-              fontSize: ['48px', 4, 5],
-              color: 'white',
-            //   mx: 'auto'
+              width: ['200px', '250px', '300px'],
+              height: 'auto',
+              maxHeight: '120px',
+              objectFit: 'contain',
+              zIndex: 3
             }}
-            alt="Scrapyard"
+            alt="Neighborhood"
           />
-           
 
-          <Flex
-            sx={{
-              flexDirection: ['row', 'row', 'column'],
-              justifyContent: 'space-between'
-              
-            }}
-          >
-        <Box
-          sx={{
+          {/* Content Container */}
+          <Box sx={{
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center'
-          }}
-        >
-          <Box
-            sx={{
-              backgroundColor: "#FFF9E6",
-              borderRadius: "105px 105px 70px 60px",
-              backgroundSize: 'cover',
-              display: 'block',
-              width: 'min(430px, calc(100vw - 200px))',
-              filter: 'drop-shadow(5px 5px 5px #000000AA)',
-              position: 'relative',
-              zIndex: 20
-            }}
-          >
-            <Heading
-              as="h2"
+            alignItems: 'center',
+            flex: 1,
+            justifyContent: 'center',
+            width: '100%',
+            maxWidth: '500px'
+          }}>
+            {/* Description Box */}
+            <Box
               sx={{
-                fontFamily: '"M PLUS Rounded 1c"',
-                fontWeight: "600",
-                textAlign: 'center',
-                margin: '8%',
-                fontSize: '20px',
-                color: '#786A50'
+                backgroundColor: "#FFF9E6",
+                borderRadius: "105px 105px 70px 60px",
+                display: 'block',
+                width: '100%',
+                maxWidth: '450px',
+                filter: 'drop-shadow(5px 5px 5px #000000AA)',
+                zIndex: 20,
+                marginBottom: '20px'
               }}
             >
-              Spend 100 hours on one project, spend this summer in San Francisco.
-            </Heading>
-          </Box>
-          <Box
-            sx={{
-              zIndex: 1,
-              width: 'max-content',
-              backgroundSize: '100% 100%',
-              width: '75%',
-              position: 'relative',
-              zIndex: 30,
-              top: '-23%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              // pt: '3%',
-            }}
-          >
+              <Heading
+                as="h2"
+                sx={{
+                  fontFamily: '"M PLUS Rounded 1c"',
+                  fontWeight: "600",
+                  textAlign: 'center',
+                  margin: '8%',
+                  fontSize: ['18px', '20px', '22px'],
+                  color: '#786A50',
+                  lineHeight: 1.3
+                }}
+              >
+                Spend 100 hours on one project, spend this summer in San Francisco.
+              </Heading>
+            </Box>
+
+            {/* Button */}
             <Buttons
               href="https://neighborhood.hackclub.com/"
               target="_blank"
-             
               rel="noopener"
               primary="#fde778"
-              icon = "door-leave"
+              icon="door-leave"
               zIndex={999}
-              sx = {{
-                marginTop: "12px",
+              sx={{
+                marginTop: "0px",
                 padding: "12px 24px",
                 backgroundColor: "#F7D359",
                 color: "#786A50",
@@ -142,20 +133,16 @@ export default function Neighborhood() {
                 fontWeight: 800,
                 fontFamily: "'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
                 cursor: "pointer",
-                width: "100%"
+                width: "200px"
               }}
             >  
               Join Us
             </Buttons>
           </Box>
-        </Box>
 
-  
-          </Flex>
+          {/* Spacer */}
+          <Box sx={{ minHeight: '20px' }} />
         </Flex>
-
-        
-    
       </Grid>
     </CardModel>
   )

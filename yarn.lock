@@ -7486,6 +7486,11 @@ react-horizontal-scrolling-menu@^6.1.0:
   dependencies:
     smooth-scroll-into-view-if-needed "^2.0.2"
 
+react-icons@^5.5.0:
+  version "5.5.0"
+  resolved "https://registry.npmjs.org/react-icons/-/react-icons-5.5.0.tgz"
+  integrity sha512-MEFcXdkP3dLo8uumGI5xN3lDFNsRtrjbOEKDLD7yv76v4wpnEq2Lt2qeHaQOr34I/wPN3s3+N08WkQ+CW37Xiw==
+
 react-is@^16.10.2, react-is@^16.13.1, react-is@^16.7.0, react-is@^16.8.1, react-is@16.13.1:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"

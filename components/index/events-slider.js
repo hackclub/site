@@ -3,61 +3,46 @@ import React from "react";
 import Highway from "./cards/highway";
 import Shipwrecked from "./cards/shipwrecked";
 import Neighborhood from "./cards/neighborhood";
+import {FaArrowLeft, FaArrowRight} from 'react-icons/fa'
 /** @jsxImportSource theme-ui */
+
+
+const arrowStyles = {
+  position: 'absolute',
+  bottom: '-40px',
+  zIndex: 2,
+  cursor: 'pointer',
+  width: '50px',
+  height: '50px',
+  fontSize: 24,
+  bg: 'background',
+  borderRadius: '50%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+  transition: 'transform 0.2s',
+  ':hover': {
+    transform: 'scale(1.1)'
+  }
+};
 
 function PrevArrow({ onClick }) {
   return (
-    <div
-      onClick={onClick}
-      sx={{
-        position: 'absolute',
-        bottom: '-40px',
-        left: 'calc(50% - 60px)',
-        zIndex: 2,
-        cursor: 'pointer',
-        fontSize: 24,
-        bg: 'background',
-        borderRadius: '50%',
-        px: 3,
-        py: 2,
-        boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
-        transition: 'transform 0.2s',
-        ':hover': {
-          transform: 'scale(1.1)'
-        }
-      }}
-    >
-      ⬅
+    <div onClick={onClick} sx={{ ...arrowStyles, left: 'calc(50% - 60px)' }}>
+      <FaArrowLeft />
     </div>
   );
 }
 
 function NextArrow({ onClick }) {
   return (
-    <div
-      onClick={onClick}
-      sx={{
-        position: 'absolute',
-        bottom: '-40px',
-        right: 'calc(50% - 60px)',
-        zIndex: 2,
-        cursor: 'pointer',
-        fontSize: 24,
-        bg: 'background',
-        borderRadius: '50%',
-        px: 3,
-        py: 2,
-        boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
-        transition: 'transform 0.2s',
-        ':hover': {
-          transform: 'scale(1.1)'
-        }
-      }}
-    >
-      ➡
+    <div onClick={onClick} sx={{ ...arrowStyles, right: 'calc(50% - 60px)' }}>
+      <FaArrowRight />
     </div>
   );
 }
+
 
 
 export default function EventSlider() {
@@ -90,9 +75,15 @@ export default function EventSlider() {
     prevArrow: <PrevArrow />
   }}
 >
+    <div sx = {{px : 2}}>
   <Shipwrecked />
+  </div>
+  <div sx = {{px : 2}}>
   <Highway />
+  </div>
+  <div sx = {{px : 2}}>
   <Neighborhood />
+  </div>
 </Slider>
 
     );
