@@ -98,7 +98,6 @@ export default function Clubs() {
           }
         }}
       >
-        {/* Decorative pins */}
         <Box sx={{
           position: 'absolute',
           top: '15px',
@@ -120,12 +119,11 @@ export default function Clubs() {
           height: '14px',
           borderRadius: '50%',
           background: '#33d6a6',
-          border: '2px solid #2bb68e',
+          border: '2px solid #d23040',
           boxShadow: '0 2px 4px rgba(0,0,0,0.25)',
           zIndex: 10
         }} />
 
-        {/* Header banner */}
         <Box sx={{
           bg: '#ec3750',
           borderRadius: '16px 16px 0 0',
@@ -180,7 +178,6 @@ export default function Clubs() {
             400+ worldwide!
           </Badge>
 
-          {/* Decorative background elements */}
           <Box sx={{
             position: 'absolute',
             top: '-40px',
@@ -204,7 +201,6 @@ export default function Clubs() {
           }} />
         </Box>
 
-        {/* Main content */}
         <Grid
           columns={1}
           sx={{
@@ -241,7 +237,6 @@ export default function Clubs() {
             <Text sx={{ lineHeight: 1.2, fontSize: '16px' }}>Stickers!</Text>
           </Box>
           <Box>
-            {/* Club description */}
             <Text as="p" sx={{
               fontSize: ['16px', '18px'],
               color: '#513f31',
@@ -281,7 +276,6 @@ export default function Clubs() {
 
         </Grid>
 
-        {/* Footer banner */}
         <Box sx={{
           bg: '#f6e9d8',
           borderTop: '2px dashed #e4d6c3',

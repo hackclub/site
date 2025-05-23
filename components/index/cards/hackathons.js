@@ -248,7 +248,6 @@ export default function Hackathons({ data, stars }) {
           </Box>
         </Flex>
 
-        {/* Mobile hackathon list */}
         <Flex
           sx={{
             flexDirection: 'row',
