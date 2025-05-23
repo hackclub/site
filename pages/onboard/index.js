@@ -1,14 +1,19 @@
-import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from "theme-ui";
-import Balancer from "react-wrap-balancer";
-import Head from "next/head";
-import Meta from "@hackclub/meta";
-import Nav from "../../components/nav";
-import Footer from "../../components/footer";
-import FadeIn from "../../components/fade-in";
-import Sparkles from "../../components/sparkles";
-import Tilt from "../../components/tilt";
-import usePrefersReducedMotion from "../../lib/use-prefers-reduced-motion";
-import { useEffect, useRef, useState } from "react";
+import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from 'theme-ui'
+import Balancer from 'react-wrap-balancer'
+import Head from 'next/head'
+import Meta from '@hackclub/meta'
+import Nav from '../../components/nav'
+import Footer from '../../components/footer'
+import FadeIn from '../../components/fade-in'
+import Sparkles from '../../components/sparkles'
+import Tilt from '../../components/tilt'
+import Recap from '../../components/onboard/recap'
+import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
+import { useEffect, useRef, useState } from 'react'
+import sleep from '../../lib/sleep'
+import Announcement from '../../components/announcement'
+import YoutubeVideo from '../../components/onboard/youtube-video'
+import Icon from '@hackclub/icons'
 
 /**
  * @type {import('theme-ui').ThemeUIStyleObject}
@@ -22,135 +27,6 @@ const traceSx = {
 }
 
 const dimBg = '#151515'
-
-// Beloved classic utility function :3
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-
-// "LET'S RECAP" pixel art (exported from Piskel)
-// Original: https://doggo.ninja/fiK0nk.piskel
-const recapWidth = 71
-const recapHeight = 10
-const recapPixels = [
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff,
-  0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000,
-  0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0xffffffff, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff, 0xffffffff,
-  0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0x00000000, 0xffffffff,
-  0xffffffff, 0x00000000, 0x00000000, 0xffffffff, 0xffffffff, 0x00000000,
-  0xffffffff, 0xffffffff, 0x00000000, 0x00000000, 0x00000000, 0x00000000,
-  0xffffffff, 0xffffffff
-]
 
 const slackLink = '/slack/?event=onboard'
 
@@ -255,114 +131,13 @@ const ShipPage = () => {
     return () => observer.disconnect()
   }, [])
 
-  // Fancy lights animation
-  const lightsScrollTrigger = useRef()
-  const lightsAnimated = useRef(false)
-  useEffect(() => {
-    let canceled = false
-
-    const setAtIndex = (i, color) => {
-      if (canceled) return
-
-      // Going outside of React for performance
-      const el = document.getElementById(`pixel-${i}`)
-      if (!el) return
-
-      if (recapPixels[i]) {
-        el.style.background = color
-        el.style.boxShadow = `0 0 10px ${color}`
-      } else {
-        el.style.background = dimBg
-        el.style.boxShadow = 'none'
-      }
-    }
-    const setAll = color => {
-      for (let i = 0; i < recapPixels.length; i++) setAtIndex(i, color)
-    }
-
-    const animate = async () => {
-      if (lightsAnimated.current) return
-      lightsAnimated.current = true
-
-      // Illuminate lights in diagonal lines starting with only top left.
-      for (
-        let curColumn = 0;
-        curColumn < recapWidth + recapHeight;
-        curColumn++
-      ) {
-        for (
-          let offset = curColumn;
-          offset >= Math.max(0, curColumn - recapHeight);
-          offset--
-        ) {
-          const i = curColumn * recapWidth + offset - offset * recapWidth
-          setAtIndex(i, '#ffffff')
-          if (!recapPixels[i]) await sleep(4)
-          if (canceled) return
-        }
-        // await sleep(2); if (canceled) return
-      }
-
-      // Flash the lights twice
-      await sleep(600)
-      if (canceled) return
-
-      setAll(dimBg)
-      await sleep(80)
-      if (canceled) return
-
-      setAll('#aaaaaa')
-      await sleep(20)
-      if (canceled) return
-
-      setAll(dimBg)
-      await sleep(30)
-      if (canceled) return
-
-      setAll('#aaaaaa')
-      await sleep(100)
-      if (canceled) return
-
-      setAll(dimBg)
-      await sleep(200)
-      if (canceled) return
-
-      // Animate rainbow 2-column increments
-      for (let x = 0; x < recapWidth; x++) {
-        const color = `hsl(${(x * 360) / recapWidth}, 100%, 65%)`
-        for (let y = 0; y < recapHeight; y++) {
-          const i = y * recapWidth + x
-          setAtIndex(i, color)
-        }
-        if (x % 2 === 1) await sleep(35)
-      }
-    }
-
-    if (prefersReducedMotion) {
-      if (!lightsAnimated.current) setAll('#ffffff')
-      return () => (canceled = true)
-    } else {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) animate()
-        },
-        { threshold: 0.5 }
-      )
-      observer.observe(lightsScrollTrigger.current)
-      return () => {
-        canceled = true
-        observer.disconnect()
-      }
-    }
-  }, [prefersReducedMotion])
-
   return (
     <>
       <Meta
         as={Head}
         name="OnBoard"
-        description={`We'll pay manufacturing costs for any high schooler who designs a circuit board.`}
-        image="https://cloud-ji9c1qxfx-hack-club-bot.vercel.app/03_card.png"
+        description={`We'll pay manufacturing costs for any high schooler (or younger!) who designs a circuit board.`}
+        image="https://cloud-n2wfd6ra6-hack-club-bot.vercel.app/0onboard-twitter.png"
       />
 
       <style>{`
@@ -425,9 +200,18 @@ const ShipPage = () => {
             position: 'relative'
           }}
         >
+          <Box sx={{ pt: [3, 6] }}>
+            <Announcement
+              copy="Steve Wozniak, Apple co-founder, about OnBoard"
+              caption="I’m so glad young people can create PCBs online. May your creativity change the world! Mine did."
+              imgSrc="https://cloud-iddh16j0r-hack-club-bot.vercel.app/0stevew.png"
+              imgAlt="A picture of Steve Wozniak who is a co-founder of Apple."
+              color="primary"
+            />
+          </Box>
           <Flex
             sx={{
-              pt: 80,
+              pt: [3, 1],
               width: '100%',
               maxWidth: 'layout',
               alignItems: 'center'
@@ -453,13 +237,13 @@ const ShipPage = () => {
                 <Balancer ratio={0.3}>
                   Circuit boards are{' '}
                   <Sparkles>
-                    <Text sx={{ fontWeight: 400 }}>magical</Text>
-                  </Sparkles>
-                  . You design one, we'll print it!
+                    <Text sx={{ fontWeight: 400 }}>magical{'.'}</Text>
+                  </Sparkles>{' '}
+                  You design one, we'll print it!
                 </Balancer>
               </Heading>
 
-              <Flex sx={{ mt: 16, gap: 10, flexDirection: ["column", "row"] }}>
+              <Flex sx={{ mt: 16, gap: 10, flexDirection: ['column', 'row'] }}>
                 <Button
                   variant="ctaLg"
                   as="a"
@@ -576,6 +360,23 @@ const ShipPage = () => {
               Never made a circuit board before? No problem.
             </Balancer>
           </Heading>
+          <Flex sx={{ flexDirection: 'column' }}>
+            <YoutubeVideo
+              youtube-id="LrSKs35nR8k"
+              list="PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3"
+              height="300px"
+            />
+            <Text sx={{ fontSize: 2, color: 'muted' }}>
+              See the{' '}
+              <Link
+                href="https://www.youtube.com/watch?v=LrSKs35nR8k&list=PLbNbddgD-XxECO7C2z-FAlSoJ57VqcJA3"
+                target="_blank"
+              >
+                full playlist
+                <Icon glyph="external" size={18} />
+              </Link>
+            </Text>
+          </Flex>
           <Text sx={{ fontSize: 3 }}>
             Learn how to design your own circuit boards from scratch with our{' '}
             <strong>official tutorials</strong> and jams, like Maggie’s{' '}
@@ -683,35 +484,31 @@ const ShipPage = () => {
               </Flex>
             </a>
 
-            <a
-              href="https://github.com/hackclub/sprig-hardware"
+            {/* <a
+              href="https://github.com/hackclub/OnBoard/tree/main/projects/proto2040"
               target="_blank"
             >
               <Flex as="article">
                 <Text as="p" sx={{ pr: 100 }}>
-                  A <strong>movement sensor</strong> add-on to an open source{' '}
-                  <strong>game console</strong>.
+                  The cutest, tiniest raspberry pi-base developer board.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  Read the source&nbsp;<span className="arrow">&rarr;</span>
+                  Read Paolo's work&nbsp;<span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-6exi6bz1i-hack-club-bot.vercel.app/0rotatesprig.png"
+                  src="https://cloud-6a1wip38p-hack-club-bot.vercel.app/02023-07-21t14_56_26.548z-img_20230720_175244.png"
                   alt="A black circuit board for a game console with copper wiring."
                   sx={{
-                    maxWidth: 280,
+                    maxWidth: 180,
                     position: 'absolute',
                     bottom: -40,
                     right: -75
                   }}
                 />
               </Flex>
-            </a>
+            </a> */}
 
-            <a
-              href="https://github.com/Hugoyhu/Hack-Club-Zephyr-USB-Hub"
-              target="_blank"
-            >
+            <a href="https://jams.hackclub.com/batch/usb-hub" target="_blank">
               <Flex as="article">
                 <Text as="p" sx={{ pr: [100, 100, 100, 0] }}>
                   Hugo's <strong>USB-C hub</strong> for the best{' '}
@@ -745,11 +542,38 @@ const ShipPage = () => {
                   Karmanyaah's <strong>digital level</strong>, SparkleTilt.
                 </Text>
                 <Text as="p" sx={{ pr: 140, color: 'gray' }}>
-                  Learn how to make your own&nbsp;<span className="arrow">&rarr;</span>
+                  Learn how to make your own&nbsp;
+                  <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
                   src="https://cloud-myjum5y6g-hack-club-bot.vercel.app/0longhorn2.png"
                   alt="A longhorn-shaped PCB with glowing horns."
+                  sx={{
+                    position: 'absolute',
+                    top: 40,
+                    right: -30,
+                    maxWidth: 230,
+                    transform: 'rotate(20deg)'
+                  }}
+                />
+              </Flex>
+            </a>
+
+            <a
+              href="https://github.com/hackclub/OnBoard/tree/main/projects/TOTKey"
+              target="_blank"
+            >
+              <Flex as="article">
+                <Text as="p" sx={{ pr: 140 }}>
+                  Build your own <strong>hardware key</strong>.
+                </Text>
+                <Text as="p" sx={{ pr: 140, color: 'gray' }}>
+                  Learn how to make your own&nbsp;
+                  <span className="arrow">&rarr;</span>
+                </Text>
+                <Image
+                  src="https://cloud-6a1wip38p-hack-club-bot.vercel.app/1totk_key.png"
+                  alt="A long PCB with a pixelated screen."
                   sx={{
                     position: 'absolute',
                     top: 40,
@@ -847,7 +671,7 @@ const ShipPage = () => {
                     >
                       apply for the grant
                     </Link>
-                    ! You must be a teenager in high school to apply.
+                    ! You must be a teenager in high school or younger to apply.
                   </>
                 ].map((text, i) => (
                   <Text
@@ -993,21 +817,7 @@ const ShipPage = () => {
             Let's Recap
           </Heading>
 
-          <Grid
-            ref={lightsScrollTrigger}
-            gap={['2px', '3px', '4px']}
-            columns={recapWidth}
-            sx={{ width: '100%', maxWidth: 800 }}
-          >
-            {recapPixels.map((_, i) => (
-              <Box
-                id={`pixel-${i}`}
-                key={i}
-                sx={{ bg: dimBg, paddingTop: '100%' }}
-              />
-            ))}
-          </Grid>
-
+          <Recap />
           <Grid
             width={300}
             gap={4}
@@ -1055,10 +865,14 @@ const ShipPage = () => {
             >
               <Text as="h3">Learn to PCB</Text>
               <Text as="p">
-                Read our tutorials to learn how to make a simple
-                circuit boards from start to end.
+                Read our tutorials to learn how to make a simple circuit boards
+                from start to end.
               </Text>
-              <Button as="a" href="https://jams.hackclub.com/tag/pcb" target="_blank">
+              <Button
+                as="a"
+                href="https://jams.hackclub.com/tag/pcb"
+                target="_blank"
+              >
                 Start the Tutorial
               </Button>
             </Flex>

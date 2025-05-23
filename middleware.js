@@ -12,4 +12,6 @@ export function middleware(request) {
     response.cookies.set('continent', continent || '')
     return response
   }
+
+  return NextResponse.next()
 }

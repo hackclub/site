@@ -1,0 +1,14 @@
+.card{
+    flex: 1;
+    break-inside: avoid;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    min-width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: flex-start;
+
+}

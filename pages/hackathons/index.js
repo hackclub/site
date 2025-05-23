@@ -6,7 +6,6 @@ import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Recap from '../../components/hackathons/recap'
 import Slack from '../../components/hackathons/features/slack'
-import Money from '../../components/hackathons/features/money'
 import Landing from '../../components/hackathons/landing'
 import Marketing from '../../components/hackathons/features/marketing'
 import Overview from '../../components/hackathons/overview'
@@ -27,13 +26,12 @@ export default function Hackathons({ data }) {
         />
         <Box as="main">
           <Landing />
-          
+
           <Overview />
 
           <ScrollingHackathons eventData={data} title={true} />
-          
+
           <KeepExploring />
-          <Money />
           <Slack />
           <Marketing />
           <Container>
@@ -46,22 +44,24 @@ export default function Hackathons({ data }) {
   )
 }
 export async function getStaticProps() {
-  let data;
+  let data
   try {
-    const res = await fetch('https://hackathons.hackclub.com/api/events/upcoming');
+    const res = await fetch(
+      'https://hackathons.hackclub.com/api/events/upcoming'
+    )
     if (res.ok) {
-      data = await res.json();
+      data = await res.json()
     } else {
-      data = []; 
+      data = []
     }
   } catch (error) {
-    data = []; 
+    data = []
   }
 
   return {
     props: {
-      data, 
+      data
     },
     revalidate: 10
-  };
+  }
 }

@@ -1,14 +1,14 @@
-import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from "theme-ui";
-import Balancer from "react-wrap-balancer";
-import Head from "next/head";
-import Meta from "@hackclub/meta";
-import Nav from "../../components/nav";
-import Footer from "../../components/footer";
-import FadeIn from "../../components/fade-in";
-import Sparkles from "../../components/sparkles";
-import Tilt from "../../components/tilt";
-import usePrefersReducedMotion from "../../lib/use-prefers-reduced-motion";
-import { useEffect, useRef, useState } from "react";
+import { Box, Button, Flex, Grid, Heading, Image, Link, Text } from 'theme-ui'
+import Balancer from 'react-wrap-balancer'
+import Head from 'next/head'
+import Meta from '@hackclub/meta'
+import Nav from '../../components/nav'
+import Footer from '../../components/footer'
+import FadeIn from '../../components/fade-in'
+import Sparkles from '../../components/sparkles'
+import Tilt from '../../components/tilt'
+import usePrefersReducedMotion from '../../lib/use-prefers-reduced-motion'
+import { useEffect, useRef, useState } from 'react'
 
 /**
  * @type {import('theme-ui').ThemeUIStyleObject}
@@ -443,7 +443,9 @@ const ShipPage = () => {
                   color: '#87ffa1'
                 }}
               >
-                <Balancer ratio={0.3}>OnBoard with <i>FIRST&reg;</i></Balancer>
+                <Balancer ratio={0.3}>
+                  OnBoard with <i>FIRST&reg;</i>
+                </Balancer>
               </Heading>
 
               <Heading
@@ -456,12 +458,14 @@ const ShipPage = () => {
                     <Text sx={{ fontWeight: 400 }}>magical</Text>
                   </Sparkles>
                   . You design one, we'll print it!
-                  <br /><br />
-                  Plus! FIRST team members get a limited edition PCB badge designed with Dean Kamen.
+                  <br />
+                  <br />
+                  Plus! FIRST team members get a limited edition PCB badge
+                  designed with Dean Kamen.
                 </Balancer>
               </Heading>
 
-              <Flex sx={{ mt: 16, gap: 10, flexDirection: ["column", "row"] }}>
+              <Flex sx={{ mt: 16, gap: 10, flexDirection: ['column', 'row'] }}>
                 <Button
                   variant="ctaLg"
                   as="a"
@@ -624,8 +628,13 @@ const ShipPage = () => {
             maxWidth: 'copyPlus'
           }}
         >
-          <Text as="p" sx={{ color: '#000000', flex: '1', maxWidth: 400, p: 4 }}>
-            FRC team #4272 "Maverick Robotics" made this <strong>swerve-drive encoder</strong> for their robot drive train that's cheaper than stock sensors and saves ports on their CAN.
+          <Text
+            as="p"
+            sx={{ color: '#000000', flex: '1', maxWidth: 400, p: 4 }}
+          >
+            FRC team #4272 "Maverick Robotics" made this{' '}
+            <strong>swerve-drive encoder</strong> for their robot drive train
+            that's cheaper than stock sensors and saves ports on their CAN.
           </Text>
           <Image
             src="https://cloud-of94ar9fg-hack-club-bot.vercel.app/0purple.png"
@@ -1103,10 +1112,14 @@ const ShipPage = () => {
             >
               <Text as="h3">Learn to PCB</Text>
               <Text as="p">
-                Read our tutorials to learn how to make a simple
-                circuit boards from start to end.
+                Read our tutorials to learn how to make a simple circuit boards
+                from start to end.
               </Text>
-              <Button as="a" href="https://jams.hackclub.com/tag/pcb" target="_blank">
+              <Button
+                as="a"
+                href="https://jams.hackclub.com/tag/pcb"
+                target="_blank"
+              >
                 Start the Tutorial
               </Button>
             </Flex>
