@@ -50,19 +50,19 @@ const HeaderCarousel = ({ images, memberCount }) => {
 
   const nextSlide = () => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % images.length)
-    setProgress(0) 
+    setProgress(0)
   }
 
   const prevSlide = () => {
     setCurrentIndex(
       prevIndex => (prevIndex - 1 + images.length) % images.length
     )
-    setProgress(0) 
+    setProgress(0)
   }
 
   useEffect(() => { // handle slides
     const intervalTime = 6000
-    const progressInterval = 65 
+    const progressInterval = 65
 
     const timer = setInterval(() => {
       nextSlide()
@@ -484,9 +484,9 @@ function ToolCard({ icon, name, desc, href }) {
           mb: 2,
           color: '#ec3750',
           transition: 'transform 0.2s ease-out, background-color 0.2s ease-out',
-          '&:hover': { 
+          '&:hover': {
             transform: 'scale(1.1) rotate(10deg)',
-            bg: 'rgba(236, 55, 80, 0.15)' 
+            bg: 'rgba(236, 55, 80, 0.15)'
           }
         }}
       >
@@ -503,15 +503,9 @@ function Page({
   bankData,
   slackData,
   gitHubData,
-  gitHubDataLength,
-  consoleCount,
   stars,
-  dataPieces,
   game,
-  gameTitle,
-  events,
   carouselCards,
-  context
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -659,7 +653,6 @@ function Page({
           reveal={reveal}
           onMouseEnter={() => {
             setHover(true)
-            console.log(hover)
           }}
           onMouseOut={() => {
             setReveal(false)
@@ -676,11 +669,11 @@ function Page({
             pb: [2, 3],
             overflowY: 'hidden',
             textAlign: 'left',
-            position: 'relative', 
+            position: 'relative',
             paddingTop: '0px !important',
             overflowX: 'hidden',
-            height: 'auto', 
-            minHeight: '500px' 
+            height: 'auto',
+            minHeight: '500px'
           }}
         >
           <HeaderCarousel
@@ -840,7 +833,7 @@ function Page({
           position: 'relative',
           zIndex: 2
         }}>
-          
+
           <Box
             sx={{
               position: 'relative',
@@ -849,61 +842,61 @@ function Page({
               margin: 'auto'
             }}
           >
-            <Text variant="title" sx={{ 
-                fontSize: ['36px', 4, 5],
-                fontWeight: 900,
-                color: '#513f31',
-                textShadow: '1px 1px 0 rgba(255,255,255,0.6)',
-                mb: 2
-              }}>
-                Our{' '}
-                <Box
+            <Text variant="title" sx={{
+              fontSize: ['36px', 4, 5],
+              fontWeight: 900,
+              color: '#513f31',
+              textShadow: '1px 1px 0 rgba(255,255,255,0.6)',
+              mb: 2
+            }}>
+              Our{' '}
+              <Box
+                sx={{
+                  position: 'relative',
+                  display: 'inline-block',
+                  width: 'fit-content'
+                }}
+              >
+                <Text
+                  as="span"
                   sx={{
                     position: 'relative',
-                    display: 'inline-block',
-                    width: 'fit-content'
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      left: 0,
+                      top: '50%',
+                      width: '100%',
+                      height: '4px',
+                      background: 'red',
+                      borderRadius: '4px',
+                      transform: 'rotate(-5deg)',
+                      opacity: 0.8,
+                      zIndex: 2
+                    }
                   }}
                 >
-                  <Text
-                    as="span"
-                    sx={{
-                      position: 'relative',
-                      '&::after': {
-                        content: '""',
-                        position: 'absolute',
-                        left: 0,
-                        top: '50%',
-                        width: '100%',
-                        height: '4px',
-                        background: 'red',
-                        borderRadius: '4px',
-                        transform: 'rotate(-5deg)',
-                        opacity: 0.8,
-                        zIndex: 2
-                      }
-                    }}
-                  >
-                    Modus Operandi
-                  </Text>
-                  <Text
-                    as="span"
-                    sx={{
-                      position: 'absolute',
-                      top: '-15px',
-                      left: '-5px',
-                      transform: 'rotate(-8deg)',
-                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
-                      fontSize: ['18px', '20px', '28px'],
-                      color: 'red',
-                      fontWeight: 'bold',
-                      textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                      zIndex: 3,
-                    }}
-                  >
-                    how we do things
-                  </Text>
-                </Box>{' '}
-              </Text>
+                  Modus Operandi
+                </Text>
+                <Text
+                  as="span"
+                  sx={{
+                    position: 'absolute',
+                    top: '-15px',
+                    left: '-5px',
+                    transform: 'rotate(-8deg)',
+                    fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                    fontSize: ['18px', '20px', '28px'],
+                    color: 'red',
+                    fontWeight: 'bold',
+                    textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                    zIndex: 3,
+                  }}
+                >
+                  how we do things
+                </Text>
+              </Box>{' '}
+            </Text>
             <Grid columns={[1, 1, 3]} gap={[3, 4]} sx={{ alignItems: 'center', marginTop: '48px' }}>
               <Box sx={{
                 borderRadius: 'extra',
@@ -1187,7 +1180,7 @@ function Page({
             }}
           >
             <Box>
-              <Text variant="title" sx={{ 
+              <Text variant="title" sx={{
                 fontSize: ['36px', 4, 5],
                 fontWeight: 900,
                 color: '#513f31',
@@ -1245,8 +1238,8 @@ function Page({
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{ 
-                  fontSize: ['18px', '20px', '22px'], 
+                sx={{
+                  fontSize: ['18px', '20px', '22px'],
                   pb: [3, 0, 0],
                   color: '#665040',
                   fontWeight: 600,
@@ -1259,10 +1252,10 @@ function Page({
               </Text>
             </Box>
 
-            <Box sx={{ 
-              display: 'grid', 
-              gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'], 
-              gap: 4, 
+            <Box sx={{
+              display: 'grid',
+              gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'],
+              gap: 4,
               mb: 7,
               '& > div': {
                 borderRadius: '1.75rem',
@@ -1327,7 +1320,7 @@ function Page({
                 </Box>
                 <Box sx={{
                   '& > div': {
-                  
+
                     '& > div': {
                       py: [2, 2, 3],
                       px: [2, 2, 3],
@@ -1347,7 +1340,7 @@ function Page({
                         color: '#665040'
                       },
                       '& > div:last-of-type': {
-                       
+
                         '& a': {
                           py: 1,
                           px: 3,
@@ -1429,15 +1422,15 @@ function Page({
                   boxShadow: 'inset 0 5px 15px rgba(255,255,255,0.3), 0 -4px 10px rgba(0,0,0,0.2)',
                   zIndex: 1
                 }} />
-                
+
                 {gitHubData && (
                   <Box
                     sx={{
                       position: 'absolute',
-                      top: ['-130px', '-130px', '-150px'], 
+                      top: ['-130px', '-130px', '-150px'],
                       left: '50%',
                       transform: 'translateX(-50%)',
-                      width: ['95%', '85%', '80%'], 
+                      width: ['95%', '85%', '80%'],
                       maxWidth: '650px',
                       zIndex: 5,
                       display: 'flex',
@@ -1449,12 +1442,12 @@ function Page({
                   >
                     <Text
                       sx={{
-                        fontSize: ['20px', '22px', '26px'], 
+                        fontSize: ['20px', '22px', '26px'],
                         textAlign: 'center',
                         fontWeight: 'bold',
                         color: '#333',
-                        mb: [1, 1, 2], 
-                        textShadow: '0 1px 0 white, 0 2px 3px rgba(0,0,0,0.1)', 
+                        mb: [1, 1, 2],
+                        textShadow: '0 1px 0 white, 0 2px 3px rgba(0,0,0,0.1)',
                         animation: 'titleFloat 3s ease-in-out infinite',
                         '@keyframes titleFloat': {
                           '0%, 100%': { transform: 'translateY(0)' },
@@ -1464,7 +1457,7 @@ function Page({
                     >
                       Live from GitHub
                     </Text>
-                    
+
                     {gitHubData
                       .filter(data => !data.user.endsWith('[bot]'))
                       .slice(0, 3)
@@ -1494,23 +1487,23 @@ function Page({
                               '60%': { transform: 'translateY(-18px) scale(1.04) rotate(-2deg)' },
                               '80%': { transform: 'translateY(-7px) scale(1.01) rotate(1deg)' }
                             },
-                            boxShadow: '0 8px 20px rgba(0,0,0,0.15)', 
+                            boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
                             background: 'white',
                             borderRadius: '12px',
-                            border: '3px solid #ddd', 
+                            border: '3px solid #ddd',
                             width: '100%',
-                            maxWidth: '550px', 
+                            maxWidth: '550px',
                             pointerEvents: 'auto',
                             position: 'relative',
-                            transform: `scale(${1 - key * 0.05})`, 
+                            transform: `scale(${1 - key * 0.05})`,
                             transformOrigin: 'center top',
                             '&:hover': {
                               animationPlayState: 'paused',
-                              boxShadow: '0 12px 28px rgba(0,0,0,0.2)', 
+                              boxShadow: '0 12px 28px rgba(0,0,0,0.2)',
                               zIndex: 10
                             },
-                            '& > div': { 
-                              padding: [2, 2, 3] 
+                            '& > div': {
+                              padding: [2, 2, 3]
                             }
                           }}
                         >
@@ -1527,12 +1520,12 @@ function Page({
                       ))}
                   </Box>
                 )}
-                
-                <Box sx={{ 
-                  position: 'relative', 
+
+                <Box sx={{
+                  position: 'relative',
                   zIndex: 3,
-                  pt: [1, 1, 2], 
-                  pb: "32px !important" 
+                  pt: [1, 1, 2],
+                  pb: "32px !important"
                 }}>
                   <Text
                     variant="title"
@@ -1562,7 +1555,7 @@ function Page({
                     </Text>{' '}
                     games and tools together
                   </Text>
-                  
+
                   <Text
                     as="p"
                     sx={{
@@ -1580,7 +1573,7 @@ function Page({
                     involved with these projects by building something with our tools
                     or contribute to the tools themselves.
                   </Text>
-                  
+
                   <Box sx={{
                     background: 'white',
                     borderRadius: '1.5rem',
@@ -1591,7 +1584,7 @@ function Page({
                   }}>
                     <Flex
                       sx={{
-                        flexWrap: 'wrap', 
+                        flexWrap: 'wrap',
                         gap: [2, 3, 3],
                         justifyContent: 'center',
                         mb: [3, 3, 4]
@@ -1603,7 +1596,7 @@ function Page({
                       <ToolCard icon="slack" name="Slack" desc="Join community" href="/slack" />
                       <ToolCard icon="bank-account" name="Bank" desc="Finances" href="https://bank.hackclub.com" />
                       <ToolCard icon="github" name="GitHub" desc="Open source" href="https://github.com/hackclub" />
-                   
+
                       <ToolCard icon="event-check" name="Hackathons" desc="Big events" href="https://hackathons.hackclub.com" />
                       <ToolCard icon="photo" name="Scrapbook" desc="Share builds" href="https://scrapbook.hackclub.com" />
                       <ToolCard icon="grid" name="Toolbox" desc="Resources" href="https://toolbox.hackclub.com" />
@@ -1660,7 +1653,7 @@ function Page({
                 }} />
               </Box>
 
-              
+
             </Box>
           </Box>
           <Box
@@ -1694,61 +1687,61 @@ function Page({
               }}
             >
               <Box>
-             <Text variant="title" sx={{ 
-                fontSize: ['36px', 4, 5],
-                fontWeight: 900,
-                color: '#513f31',
-                textShadow: '1px 1px 0 rgba(255,255,255,0.6)',
-                mb: 2
-              }}>
-                Find community{' '}
-                <Box
-                  sx={{
-                    position: 'relative',
-                    display: 'inline-block',
-                    width: 'fit-content'
-                  }}
-                >
-                  <Text
-                    as="span"
+                <Text variant="title" sx={{
+                  fontSize: ['36px', 4, 5],
+                  fontWeight: 900,
+                  color: '#513f31',
+                  textShadow: '1px 1px 0 rgba(255,255,255,0.6)',
+                  mb: 2
+                }}>
+                  Find community{' '}
+                  <Box
                     sx={{
                       position: 'relative',
-                      '&::after': {
-                        content: '""',
+                      display: 'inline-block',
+                      width: 'fit-content'
+                    }}
+                  >
+                    <Text
+                      as="span"
+                      sx={{
+                        position: 'relative',
+                        '&::after': {
+                          content: '""',
+                          position: 'absolute',
+                          left: 0,
+                          top: '50%',
+                          width: '100%',
+                          height: '4px',
+                          background: 'red',
+                          borderRadius: '4px',
+                          transform: 'rotate(-5deg)',
+                          opacity: 0.8,
+                          zIndex: 2
+                        }
+                      }}
+                    >
+                      face-to-face
+                    </Text>
+                    <Text
+                      as="span"
+                      sx={{
                         position: 'absolute',
-                        left: 0,
-                        top: '50%',
-                        width: '100%',
-                        height: '4px',
-                        background: 'red',
-                        borderRadius: '4px',
-                        transform: 'rotate(-5deg)',
-                        opacity: 0.8,
-                        zIndex: 2
-                      }
-                    }}
-                  >
-                    face-to-face
-                  </Text>
-                  <Text
-                    as="span"
-                    sx={{
-                      position: 'absolute',
-                      top: '-15px',
-                      left: '-5px',
-                      transform: 'rotate(-8deg)',
-                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
-                      fontSize: ['18px', '20px', '28px'],
-                      color: 'red',
-                      fontWeight: 'bold',
-                      textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                      zIndex: 3,
-                    }}
-                  >
-                    while touching grass
-                  </Text>
-                </Box>{' '}
-              </Text>
+                        top: '-15px',
+                        left: '-5px',
+                        transform: 'rotate(-8deg)',
+                        fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                        fontSize: ['18px', '20px', '28px'],
+                        color: 'red',
+                        fontWeight: 'bold',
+                        textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                        zIndex: 3,
+                      }}
+                    >
+                      while touching grass
+                    </Text>
+                  </Box>{' '}
+                </Text>
                 <Text
                   variant="subtitle"
                   as="p"
@@ -2135,11 +2128,9 @@ function Page({
   )
 }
 
-const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-
 export async function getStaticProps() {
   const carouselCards = require('../lib/carousel.json')
- 
+
   let bankData = []
   let initialBankData = await fetch('https://hcb.hackclub.com/stats')
   try {

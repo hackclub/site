@@ -7,7 +7,6 @@ import PageVisibility from 'react-page-visibility'
 import { Fade } from 'react-reveal'
 /** @jsxImportSource theme-ui */
 
-// Simple, subtle bounce animation
 const subtleBounce = keyframes`
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -48,7 +47,6 @@ export default function Carousel({ cards }) {
                   py: [4, 5, 5],
                   '& > *': {
                     animation: isHovered ? 'none' : `${subtleBounce} 2s infinite ease-in-out`,
-                    // Apply different delay to each card to create snakelike effect
                     '&:nth-of-type(n)': {
                       animationDelay: i => `${i * 0.2}s`,
                     },

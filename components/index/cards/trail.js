@@ -23,7 +23,6 @@ export default function Trail() {
             flexDirection: 'column',
             width: '100%',
             margin: "0px !important",
-            // justifyContent: 'space-between'
           }}
         >
           <Image

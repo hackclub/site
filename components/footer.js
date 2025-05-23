@@ -66,11 +66,11 @@ const Service = ({ href, icon, name = '', ...props }) => (
       color: '#ec3750 !important',
       '&:hover, &:focus': {
         transform: 'translateY(-5px) rotate(-7deg) !important',
-        bg: 'rgba(236, 55, 80, 0.2)', // Darker background for better contrast
+        bg: 'rgba(236, 55, 80, 0.2)', 
         boxShadow: '0 8px 16px rgba(0,0,0,0.15)', 
-        color: '#d21b34 !important', // Darker red for better contrast
+        color: '#d21b34 !important', 
         textDecoration: 'none !important',
-        border: '1px solid rgba(236, 55, 80, 0.5)' // Adding a border for better definition
+        border: '1px solid rgba(236, 55, 80, 0.5)' 
       }
     }}
     {...props}
@@ -151,7 +151,7 @@ const Footer = ({
       <Grid
         as="article"
         gap={[3, 4]}
-        columns={[1, 3, 4]} // Changed from [2, 3, 4] to [1, 3, 4] to ensure single column on mobile
+        columns={[1, 3, 4]}
         sx={{
           px: 0,
           'h2,p': { color: dark ? 'white' : '#513f31' },
@@ -185,7 +185,7 @@ const Footer = ({
             <FooterLink href="https://hackclub.com/conduct/" internal>Code of Conduct</FooterLink>
           </Box>
         </Box>
-        <Box sx={{ gridColumn: ['span 1', 'span 1'] }}> {/* Updated from span 2 to span 1 */}
+        <Box sx={{ gridColumn: ['span 1', 'span 1'] }}> 
           <Logo 
             aria-label="Hack Club logo" 
             width={128} 
@@ -193,17 +193,17 @@ const Footer = ({
             style={{ 
               transform: 'rotate(-2deg)',
               filter: dark ? 'brightness(1.2)' : 'none',
-              fill: dark ? '#ffffff' : '#513f31' // Updated logo color
+              fill: dark ? '#ffffff' : '#513f31'
             }} 
           />
           <Grid
-            columns={4} // Changed from [8, 4] to fixed 4 columns
+            columns={4} 
             gap={2}
             sx={{
               alignItems: 'center',
               my: 3,
-              maxWidth: '100%', // Allow grid to take full width
-              placeItems: 'start' // Align items to the start
+              maxWidth: '100%',
+              placeItems: 'start'
             }}
           >
             <Service
@@ -283,8 +283,8 @@ const Footer = ({
           borderTop: '2px solid #e4d6c3', 
           fontSize: 1,
           color: dark ? 'muted' : '#7a6e5d',
-          fontFamily: "'Comic Sans MS', cursive, sans-serif", // Added Comic Sans for fun
-          textAlign: 'center' // Center copyright text
+          fontFamily: "'Comic Sans MS', cursive, sans-serif", 
+          textAlign: 'center' 
         }}
       >
         © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN: 81-2908499)

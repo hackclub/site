@@ -8,7 +8,6 @@ import Flag from './flag'
 import ScrollLock from 'react-scrolllock'
 import NextLink from 'next/link'
 
-// Fix: handle undefined bgColor
 const rgbaBgColor = (props, opacity) => {
   const bg = props.bgColor || [253, 246, 238]
   return `rgba(${bg[0]},${bg[1]},${bg[2]},${opacity})`
@@ -226,43 +225,10 @@ const DropdownWrapper = styled(Box)`
   }
 `
 
-// Add global style for dropdown show/hide using class selectors
-import { Global } from '@emotion/react'
-
-// Replace dropdown icons with filled chevrons
-const DropdownArrow = () => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="#222" style={{ marginLeft: 4 }}>
-    <path d="M5 8l5 5 5-5" stroke="#222" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="#222" />
-  </svg>
-)
-
-// Example dropdown icons (chunky, rounded, video game style)
-const ClubIcon = () => (
-  <svg viewBox="0 0 32 32" fill="none">
-    <rect x="6" y="10" width="20" height="12" rx="6" fill="#ffe066" stroke="#ff6bcb" strokeWidth="3" />
-    <circle cx="16" cy="16" r="4" fill="#ff6bcb" stroke="#ffe066" strokeWidth="2" />
-  </svg>
-)
-const HackathonIcon = () => (
-  <svg viewBox="0 0 32 32" fill="none">
-    <rect x="7" y="7" width="18" height="18" rx="7" fill="#ff6bcb" stroke="#ffe066" strokeWidth="3" />
-    <rect x="13" y="13" width="6" height="6" rx="2" fill="#ffe066" stroke="#ff6bcb" strokeWidth="2" />
-  </svg>
-)
-const CommunityIcon = () => (
-  <svg viewBox="0 0 32 32" fill="none">
-    <ellipse cx="16" cy="16" rx="10" ry="8" fill="#ffe066" stroke="#ff6bcb" strokeWidth="3" />
-    <ellipse cx="16" cy="16" rx="4" ry="3" fill="#ff6bcb" stroke="#ffe066" strokeWidth="2" />
-  </svg>
-)
-
 const Navigation = props => {
-  // Only show social icons if not mobile (isMobile/toggled/aria-hidden)
   const showSocial =
-    ((true && !props.toggled && (!props['aria-hidden'] || props['aria-hidden'] === false)) ||
-      (true && props.toggled)) || true
+    true
 
-  // For mobile: manage open/close state for each dropdown
   const [openMenus, setOpenMenus] = useState({})
 
   const handleToggleMenu = key => {
@@ -272,7 +238,6 @@ const Navigation = props => {
     }))
   }
 
-  // Helper for mobile: render tree menus instead of hover
   const renderDropdown = (label, key, links) => {
     if (props.isMobile) {
       return (
@@ -290,11 +255,11 @@ const Navigation = props => {
               fontWeight: 900,
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-between', // Changed to spread icon and text
+              justifyContent: 'space-between', 
               cursor: 'pointer',
               color: '#334E68',
               borderRadius: '0.5rem',
-              background: '#f3ede244' // Light background for buttons
+              background: '#f3ede244' 
             }}
           >
             {label}
@@ -338,11 +303,9 @@ const Navigation = props => {
         </Box>
       )
     }
-    // Desktop: tabbar has caret, submenu does not
     return (
       <DropdownWrapper
         className="dropdown-wrapper"
-        // Add onMouseEnter/onMouseLeave to manage open state for submenu
         onMouseEnter={e => {
           const menu = e.currentTarget.querySelector('.dropdown-menu')
           if (menu) menu.style.display = 'flex'
@@ -591,7 +554,6 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
     }
   }, [unfixed])
 
-  // Determine tab color for readability at top
   const baseColor = dark
     ? color || 'white'
     : color === 'white' && !scrolled
@@ -616,7 +578,6 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
         marginBottom: '80px',
         borderRadius: (toggled ? '2.5rem 2.5rem 0rem 0rem' : '2.5rem') + " !important",
       }}
-      // bgColor is now ignored for background, so no need to pass it
       as="header"
     >
       <Content>
@@ -630,7 +591,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
             transform: logoWave
               ? 'rotate(-18deg) translateY(-10%) translateX(3%)'
               : 'rotate(0deg) translateY(2%) translateX(3%)',
-            zIndex: 0 // Lower than Root's z-index
+            zIndex: 0 
           }}
         >
           <Flag scrolled={scrolled || fixed ? true : undefined} />
@@ -645,7 +606,6 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
             scrolled={scrolled}
           />
         </Box>
-        {/* Hamburger menu for mobile */}
         <HamburgerButton
           aria-label={toggled ? 'Close menu' : 'Open menu'}
           aria-expanded={toggled}
@@ -669,7 +629,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           overflowY: 'auto',
           borderRadius: '0 0 2rem 2rem',
           boxShadow: '0 8px 32px rgba(0,0,0,0.12), 0 1.5px 6px rgba(0,0,0,0.08)',
-          maxHeight: '80vh', // Limit height to avoid covering entire screen
+          maxHeight: '80vh', 
           border: '4px solid #e4d6c3',
           borderTopWidth: '5px',
           borderTopStyle: 'solid',
@@ -690,7 +650,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           py: 4,
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'stretch', // Changed from center to stretch
+          alignItems: 'stretch',
           width: '100%',
           maxWidth: '480px',
           margin: '0 auto',

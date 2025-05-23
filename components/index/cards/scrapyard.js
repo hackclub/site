@@ -57,7 +57,6 @@ export default function Scrapyard() {
               mr: '0px',
               fontSize: ['48px', 4, 5],
               color: 'white',
-            //   mx: 'auto'
             }}
             alt="Scrapyard"
           />
@@ -121,7 +120,6 @@ export default function Scrapyard() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              // pt: '3%',
               filter: 'drop-shadow(5px 5px 5px #00000099)'
             }}
           >
