@@ -33,20 +33,24 @@ export default function ProjectsSlider({ cards }) {
           >
             Some of the recent Cool Projects made by Hack Clubbers.
           </Text>
-          <Ticker speed={speed} sx={{ overflowX: 'hidden' }}>
-            {() => (
-              <Box
-                as="div"
-                sx={{ display: 'flex', py: [4, 5, 5] }}
-                onMouseOver={() => setSpeed(2)}
-                onMouseOut={() => setSpeed(6)}
-              >
-                {cards.map((card, idx) => (
-                  <ProjectCards key={idx} {...card} />
-                ))}
-              </Box>
-            )}
-          </Ticker>
+    <Ticker speed={speed} sx={{ overflowX: 'hidden' }}>
+    {() => (
+        <Box
+        as="div"
+        sx={{ display: 'flex', py: [4, 5, 5] }}
+        onMouseOver={() => setSpeed(2)}
+        onMouseOut={() => setSpeed(6)}
+        >
+        {cards.map((card, idx) => (
+            <ProjectCards key={idx} {...card} />
+        ))}
+        </Box>
+    )}
+    </Ticker>
+
+    <Box sx={{ textAlign: 'center', mt: 3 }}>
+    <Button as="a" href="/ship" target="_blank" rel="noopener noreferrer">Check more</Button>
+    </Box>
         </Box>
       )}
     </PageVisibility>

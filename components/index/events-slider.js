@@ -1,4 +1,5 @@
-import Slider from "react-slick";
+import dynamic from 'next/dynamic'
+const Slider = dynamic(() => import("react-slick"), { ssr: false })
 import React from "react";
 import Highway from "./cards/highway";
 import Shipwrecked from "./cards/shipwrecked";

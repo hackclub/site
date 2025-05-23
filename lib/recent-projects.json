@@ -12,7 +12,7 @@
     "titleColor": "#F6D193",
     "descriptionColor": "#F6D193",
     "title": "PandA",
-    "description": "A really beautiful foldable 3d printer.",
+    "description": "A really beautiful foldable 3d printer from scratch.",
     "link": "https://github.com/lolwutboi987/PandA"
   },
   {
@@ -38,4 +38,5 @@
     "title": "HCB-Scan",
     "description": "The first public explorer for HCB orgs and transactions.",
     "link": "https://github.com/3kh0/hcbscan"
-  }]
+  }
+]
