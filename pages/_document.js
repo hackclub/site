@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-// import { InitializeColorMode } from 'theme-ui'
+import { InitializeColorMode } from 'theme-ui'
 
 const org = {
   '@context': 'http://schema.org',
@@ -41,7 +41,7 @@ class MyDocument extends Document {
           />
         </Head>
         <body>
-          {/* <InitializeColorMode /> */}
+          <InitializeColorMode />
           <Main />
           <NextScript />
         </body>

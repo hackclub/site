@@ -1,11 +1,32 @@
 /** @type {import('next').NextConfig} */
+
+import million from 'million/compiler';
+import createWithMDX from '@next/mdx';
+import createWithTM from 'next-transpile-modules';
+
+// Configure MDX
+const withMDX = createWithMDX({
+  extension: /\.mdx?$/,
+  options: {
+    // You can add MDX options here if needed
+  }
+});
+
+// Configure next-transpile-modules
+// Includes 'animejs' from your new example and 'react-lite-youtube-embed' from previous config
+const withTM = createWithTM([
+  'animejs',
+  'react-lite-youtube-embed'
+  // Add any other problematic modules here
+]);
+
 const nextConfig = {
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true
   },
   trailingSlash: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'], // Includes 'md'
   images: {
     domains: [
       'hackclub.com',
@@ -25,7 +46,7 @@ const nextConfig = {
     ]
   },
   webpack: (config, { isServer }) => {
-    return config
+    return config;
   },
   async redirects() {
     return [
@@ -200,14 +221,13 @@ const nextConfig = {
         source: '/github',
         destination: 'https://github.com/hackclub',
         permanent: true
-
       },
       {
         source: '/nest',
         destination: 'https://hackclub.app',
         permanent: true
       }
-    ]
+    ];
   },
   async rewrites() {
     return [
@@ -323,7 +343,7 @@ const nextConfig = {
         source: '/arcade/power-hour',
         destination: '/arcade/power-hour/index.html'
       },
-    ]
+    ];
   },
   async headers() {
     return [
@@ -366,17 +386,11 @@ const nextConfig = {
           }
         ]
       }
-    ]
+    ];
   }
-}
+};
 
-import million from 'million/compiler'
-import withMDX from '@next/mdx'
-import withTM from 'next-transpile-modules'
-
-const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
-const withAnimeJS = withTM(['animejs'])
-
-export default million.next(withAnimeJS(withMDXConfig(nextConfig)), {
-  auto: true
-})
+// Compose the HOCs: million -> withTM -> withMDX -> nextConfig
+export default million.next(withTM(withMDX(nextConfig)), {
+  auto: true //  Enable auto mode for million.js
+});

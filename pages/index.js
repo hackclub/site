@@ -1,1314 +1,2128 @@
-import {
-  Badge,
-  Box,
-  Button,
-  Card,
-  Flex,
-  Grid,
-  Heading,
-  Link,
-  Text
-} from 'theme-ui'
-import React, { useEffect, useRef, useState } from 'react'
-import Head from 'next/head'
-import { useRouter } from 'next/router'
-import Meta from '@hackclub/meta'
-import Nav from '../components/nav'
-import BGImg from '../components/background-image'
-import ForceTheme from '../components/force-theme'
-import Footer from '../components/footer'
-import Stage from '../components/stage'
-import Carousel from '../components/index/carousel'
-import Sprig from '../components/index/cards/sprig'
-import Sinerider from '../components/index/cards/sinerider'
-import SprigConsole from '../components/index/cards/sprig-console'
-import Clubs from '../components/index/cards/clubs'
-import Workshops from '../components/index/cards/workshops'
-import HCB from '../components/index/cards/hcb'
-import Hackathons from '../components/index/cards/hackathons'
-import OuternetImgFile from '../public/home/outernet-110.jpg'
-import Announcement from '../components/announcement'
-import Konami from 'react-konami-code'
-import JSConfetti from 'js-confetti'
-import Secret from '../components/secret'
-import MailingList from '../components/index/cards/mailing-list'
-import Slack from '../components/index/cards/slack'
-import Icon from '../components/icon'
-import GitHub from '../components/index/github'
-import Photo from '../components/photo'
-import Comma from '../components/comma'
-import Haxidraw from '../components/index/cards/haxidraw'
-import Onboard from '../components/index/cards/onboard'
-import Trail from '../components/index/cards/trail'
-import Scrapyard from '../components/index/cards/scrapyard'
-import Neighborhood from '../components/index/cards/neighborhood'
 /** @jsxImportSource theme-ui */
+import { useState, useRef, useEffect } from 'react'
+import { Box, Button, Container, Flex, Grid, Heading, Image, Input, Text, Link } from 'theme-ui'
+import { keyframes } from '@emotion/react'
+import Icon from '../components/icon'
+import Carousel from '../components/index/carousel'
+import MailingList from '../components/index/cards/mailing-list'
+import theme from '../lib/theme'
+import { FaArrowUp } from 'react-icons/fa'
+import Footer from '../components/footer'
+import Head from 'next/head'
 
-function Page({
-  hackathonsData,
-  bankData,
-  slackData,
-  gitHubData,
-  gitHubDataLength,
-  consoleCount,
-  stars,
-  // githubData2,
-  dataPieces,
-  game,
-  gameTitle,
-  events,
-  carouselCards,
-  context
-}) {
-  let [gameImage, setGameImage] = useState('')
-  let [gameImage1, setGameImage1] = useState('')
-  let [reveal, setReveal] = useState(false)
-  const [hover, setHover] = useState(true)
-  let [github, setGithub] = useState(0)
-  let [slackKey, setSlackKey] = useState(0)
-  let [key, setKey] = useState(0)
+const orangeGradient = 'linear-gradient(135deg, #ff6600 0%, #ff9900 50%, #ffaa00 100%)'
+const purpleGradient = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+const pinkGradient = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
+const darkGradient = 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #23232b 100%)'
 
-  const { asPath } = useRouter()
+const heroText = keyframes`
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+`
 
-  let jsConfetti = useRef()
+const heroImage = keyframes`
+  from { opacity: 0; transform: translateX(60px);}
+  to { opacity: 1; transform: translateX(0);}
+`
 
-  useEffect(() => {
-    jsConfetti.current = new JSConfetti()
+// Reduced and optimized animations
+const float = keyframes`
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+`
 
-    window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
-    window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
-  }, [])
+const pulse = keyframes`
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+`
 
-  const easterEgg = () => {
-    alert('Hey, you typed the Konami Code!')
+const shimmer = keyframes`
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+`
 
-    jsConfetti.current.addConfetti({
-      confettiColors: [
-        // Hack Club colours!
-        '#ec3750',
-        '#ff8c37',
-        '#f1c40f',
-        '#33d6a6',
-        '#5bc0de',
-        '#338eda',
-        '#a633d6'
-      ]
-    })
-  }
-
-  useEffect(() => {
-    if (reveal && !hover) {
-      setTimeout(() => {
-        setReveal(false)
-      }, 2000)
-    }
-  }, [reveal, hover])
-
-  const [count, setCount] = useState(0)
-
-  let images = [
-    { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
-    {
-      alt: 'Hack Clubbers at SpaceX HQ in LA',
-      src: '/home/zephyr-spacex.jpeg'
-    },
-    {
-      alt: 'MA Hacks, Hack Clubber organized hackathon',
-      src: '/hackathons/mahacks.jpeg'
-    },
-    { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
-    { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
-  ]
-
-  // janky right now and does not show last image
-
-  useEffect(() => {
-    console.log(
-      `White sheets of paper\nWaiting to be printed on\nA blank console waits`
-    )
-    if (count === images.length - 1) {
-      setCount(0)
-    }
-  }, [count, images.length])
-
-  // Spotlight effect
-  const spotlightRef = useRef()
-  useEffect(() => {
-    const handler = event => {
-      var rect = document.getElementById('spotlight').getBoundingClientRect()
-      var x = event.clientX - rect.left //x position within the element.
-      var y = event.clientY - rect.top //y position within the element.
-
-      spotlightRef.current.style.background = `radial-gradient(
-				circle at ${x}px ${y}px,
-				rgba(132, 146, 166, 0) 10px,
-				rgba(249, 250, 252, 0.9) 80px
-			)`
-    }
-    window.addEventListener('mousemove', handler)
-    return () => window.removeEventListener('mousemove', handler)
-  }, [])
-
+// Reduced floating particles component
+function FloatingParticles() {
   return (
-    <>
-      <Meta
-        as={Head}
-        title="A Home for High School Hackers"
-        description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
-        image="https://cloud-lgl7kg862-hack-club-bot.vercel.app/0start__1_.png"
-      />
-      <Head>
-        <meta
-          property="og:logo"
-          content="https://assets.hackclub.com/icon-rounded.png"
-          size="512x512"
-        />
-      </Head>
-      <ForceTheme theme="light" />
-      <Nav />
-      <Box
-        as="main"
-        sx={{
-          overflowX: 'hidden',
-          position: 'relative'
-        }}
-      >
-        <Secret
-          reveal={reveal}
-          onMouseEnter={() => {
-            setHover(true)
-            console.log(hover)
-          }}
-          onMouseOut={() => {
-            setReveal(false)
-          }}
-        />
-        <Konami action={easterEgg}>
-          {"Hey, I'm an Easter Egg! Look at me!"}
-        </Konami>
+    <Box
+      sx={{
+        position: 'absolute',
+        inset: 0,
+        overflow: 'hidden',
+        pointerEvents: 'none',
+        zIndex: 1
+      }}
+    >
+      {[...Array(6)].map((_, i) => (
         <Box
-          as="header"
+          key={i}
           sx={{
-            bg: 'dark',
-            pt: [5, 6],
-            pb: [2, 3],
-            textAlign: 'left',
-            position: 'relative',
-            overflowX: 'hidden'
+            position: 'absolute',
+            width: ['6px', '8px', '10px'],
+            height: ['6px', '8px', '10px'],
+            borderRadius: '50%',
+            background: i % 3 === 0 ? orangeGradient : i % 3 === 1 ? purpleGradient : pinkGradient,
+            animation: `${float} ${8 + i * 3}s ease-in-out infinite`,
+            animationDelay: `${i * 1}s`,
+            left: `${(i * 20 + 15) % 80}%`,
+            top: `${(i * 25 + 25) % 70}%`,
+            opacity: 0.2,
+            filter: 'blur(0.5px)'
           }}
-        >
-          <BGImg
-            src={OuternetImgFile}
-            alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            priority
-            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
-          />
-          <Box
+        />
+      ))}
+    </Box>
+  )
+}
+
+// A variety of background patterns for use throughout the site
+function AnimatedBackground({ 
+  pattern = 'dots', 
+  opacity = 0.08, 
+  speed = 30, 
+  animationEnabled = true,
+  direction = 'normal',
+  customColor = 'white',
+  size = 'normal'
+}) {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    // Check if user prefers reduced motion
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = () => setPrefersReducedMotion(mediaQuery.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Compute pattern size multiplier
+  const sizeMultiplier = size === 'small' ? 0.7 : size === 'large' ? 1.5 : 1;
+  
+  // Enhanced pattern collection with more variety
+  const patterns = {
+    dots: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E")`,
+    grid: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0.5H40M0 10.5H40M0 20.5H40M0 30.5H40M0.5 0V40M10.5 0V40M20.5 0V40M30.5 0V40' stroke='white' stroke-opacity='0.3'/%3E%3C/svg%3E")`,
+    circuit: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10H20M10 10V20M40 10H50M50 10V20M10 50V40M10 50H20M50 50H40M50 50V40' stroke='white' stroke-opacity='0.25'/%3E%3Ccircle cx='10' cy='10' r='2' fill='white' fill-opacity='0.5'/%3E%3Ccircle cx='50' cy='10' r='2' fill='white' fill-opacity='0.5'/%3E%3Ccircle cx='10' cy='50' r='2' fill='white' fill-opacity='0.5'/%3E%3Ccircle cx='50' cy='50' r='2' fill='white' fill-opacity='0.5'/%3E%3C/svg%3E")`,
+    hexagons: `url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25 2.5L43.3 13.75V36.25L25 47.5L6.7 36.25V13.75L25 2.5Z' stroke='white' stroke-opacity='0.25'/%3E%3C/svg%3E")`,
+    diamonds: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 2L38 20L20 38L2 20L20 2Z' stroke='white' stroke-opacity='0.25'/%3E%3C/svg%3E")`,
+    triangles: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 5L35 30H5L20 5Z' stroke='white' stroke-opacity='0.25'/%3E%3C/svg%3E")`,
+    waves: `url("data:image/svg+xml,%3Csvg width='60' height='20' viewBox='0 0 60 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10C5 5 10 15 15 10C20 5 25 15 30 10C35 5 40 15 45 10C50 5 55 15 60 10' stroke='white' stroke-opacity='0.25' stroke-width='1'/%3E%3C/svg%3E")`,
+    code: `url("data:image/svg+xml,%3Csvg width='50' height='30' viewBox='0 0 50 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 5L5 15L15 25M35 5L45 15L35 25' stroke='white' stroke-opacity='0.25' stroke-width='1.5'/%3E%3C/svg%3E")`
+  };
+  
+  // Animation directions
+  const animationDirection = {
+    normal: { 
+      from: { backgroundPosition: '0 0' }, 
+      to: { backgroundPosition: '200px 200px' } 
+    },
+    reverse: {
+      from: { backgroundPosition: '200px 200px' },
+      to: { backgroundPosition: '0 0' }
+    },
+    diagonal: {
+      from: { backgroundPosition: '0 0' },
+      to: { backgroundPosition: '200px -200px' }
+    },
+    horizontal: {
+      from: { backgroundPosition: '0 0' },
+      to: { backgroundPosition: '200px 0' }
+    },
+    vertical: {
+      from: { backgroundPosition: '0 0' },
+      to: { backgroundPosition: '0 200px' }
+    }
+  };
+  
+  // Select animation based on direction
+  const selectedAnimation = animationDirection[direction] || animationDirection.normal;
+  
+  return (
+    <Box
+      sx={{
+        position: 'absolute',
+        inset: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: 0,
+        pointerEvents: 'none',
+        opacity: opacity,
+        backgroundImage: patterns[pattern] || patterns.dots,
+        backgroundSize: `${40 * sizeMultiplier}px ${40 * sizeMultiplier}px`,
+        animation: animationEnabled && !prefersReducedMotion ? 'bgmove linear infinite' : 'none',
+        animationDuration: `${speed}s`
+      }}
+      css={{
+        '@keyframes bgmove': {
+          '0%': selectedAnimation.from,
+          '100%': selectedAnimation.to
+        }
+      }}
+    />
+  )
+}
+
+function scrollToSection(id) {
+  if (typeof window !== 'undefined') {
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+}
+
+function HeaderNav() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  
+  // Close menu when clicking outside
+  useEffect(() => {
+    if (menuOpen) {
+      const handleClickOutside = (e) => {
+        if (!e.target.closest('header')) {
+          setMenuOpen(false)
+        }
+      }
+      document.addEventListener('click', handleClickOutside)
+      return () => document.removeEventListener('click', handleClickOutside)
+    }
+  }, [menuOpen])
+  
+  return (
+    <Box
+      as="header"
+      sx={{
+        position: 'sticky',
+        top: 0,
+        width: '100%',
+        zIndex: 100,
+        bg: 'rgba(24,24,27,0.92)',
+        backdropFilter: 'blur(8px)',
+        borderBottom: '1.5px solid',
+        borderColor: 'rgba(255,255,255,0.08)',
+        py: [2, 2.5],
+        px: [3, 3, 4],
+        mb: 0
+      }}
+    >
+      <Container sx={{ maxWidth: 1200 }}>
+        <Flex sx={{ 
+          alignItems: 'center', 
+          justifyContent: 'space-between',
+          flexWrap: ['wrap', 'nowrap']
+        }}>
+          <Link href="/" sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            textDecoration: 'none',
+            py: 2
+          }}>
+            <Image
+              src="https://assets.hackclub.com/flag-orpheus-top.svg"
+              alt="Hack Club"
+              sx={{ height: [30, 35, 40], width: 'auto', mr: 2, display: 'inline-block' }}
+            />
+            <Text sx={{ 
+              fontWeight: 800, 
+              fontSize: [2, 3, 4], 
+              color: 'orange', 
+              letterSpacing: '-0.03em', 
+              fontFamily: 'Phantom Sans, sans-serif',
+              transition: 'color 0.2s ease',
+              ':hover': {
+                color: '#ff9900'
+              }
+            }}>
+              Hack Club
+            </Text>
+          </Link>
+          
+          {/* Mobile menu toggle */}
+          <Box sx={{ display: ['block', 'none'] }}>
+            <Button
+              variant="outline"
+              sx={{
+                color: 'white',
+                p: 2,
+                borderColor: 'rgba(255,255,255,0.2)',
+                ':hover': { bg: 'rgba(255,255,255,0.06)' },
+                borderRadius: 'default',
+                transition: 'all 0.2s ease',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 2
+              }}
+              onClick={(e) => {
+                e.stopPropagation()
+                setMenuOpen(!menuOpen)
+              }}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+            >
+              {menuOpen ? (
+                <>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  Close
+                </>
+              ) : (
+                <>
+                  <svg width="18" height="14" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1H23M1 9H23M1 17H23" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                  Menu
+                </>
+              )}
+            </Button>
+          </Box>
+          
+          {/* Desktop navigation - simplified with fewer items */}
+          <Flex
+            as="nav"
             sx={{
-              width: '90vw',
-              maxWidth: [null, 'layout'],
-              position: 'relative',
-              mx: 'auto',
-              py: [4, 4, 4],
-              textShadow: 'text'
+              gap: [2, 3, 4],
+              alignItems: 'center',
+              display: ['none', 'flex']
             }}
           >
-            <Text
-              variant="eyebrow"
+            <Link href="https://hackclub.com/clubs" sx={navLinkStyle} target="_blank" rel="noopener">Clubs</Link>
+            <Link href="/hackathons" sx={navLinkStyle}>Hackathons</Link>
+            <Link href="https://scrapbook.hackclub.com/" sx={navLinkStyle} target="_blank" rel="noopener">Scrapbook</Link>
+            <Link href="/slack" sx={navLinkStyle}>Slack</Link>
+            <Link href="https://github.com/hackclub" target="_blank" rel="noopener" sx={navLinkStyle}>GitHub</Link>
+          </Flex>
+        </Flex>
+        
+        {/* Mobile navigation - simplified with fewer items */}
+        {menuOpen && (
+          <Box sx={{
+            width: '100%',
+            py: 2,
+            display: ['block', 'none'],
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            animation: 'slideDown 0.2s ease-out'
+          }}
+          css={{
+            '@keyframes slideDown': {
+              from: { opacity: 0, transform: 'translateY(-8px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+          >
+            <Flex sx={{
+              flexDirection: 'column',
+              gap: 1
+            }}>
+              <Link href="https://hackclub.com/clubs" sx={mobileNavLinkStyle} target="_blank" rel="noopener">Clubs</Link>
+              <Link href="/hackathons" sx={mobileNavLinkStyle}>Hackathons</Link>
+              <Link href="https://scrapbook.hackclub.com/" sx={mobileNavLinkStyle} target="_blank" rel="noopener">Scrapbook</Link>
+              <Link href="/slack" sx={mobileNavLinkStyle}>Slack</Link>
+              <Link href="https://github.com/hackclub" target="_blank" rel="noopener" sx={mobileNavLinkStyle}>GitHub</Link>
+            </Flex>
+          </Box>
+        )}
+      </Container>
+    </Box>
+  )
+}
+
+const navLinkStyle = {
+  color: 'white',
+  fontWeight: 600,
+  fontSize: [2, 2, 3],
+  textDecoration: 'none',
+  px: 2,
+  py: 2,
+  borderRadius: 'default',
+  transition: 'all 0.2s ease',
+  position: 'relative',
+  ':hover,:focus': {
+    color: 'orange',
+    background: 'rgba(255,255,255,0.06)',
+    textDecoration: 'none',
+    outline: 'none'
+  },
+  ':focus-visible': {
+    boxShadow: '0 0 0 2px rgba(255, 102, 0, 0.5)'
+  },
+  ':after': {
+    content: '""',
+    position: 'absolute',
+    width: '0%',
+    height: '2px',
+    bottom: '8px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    backgroundColor: 'orange',
+    transition: 'width 0.2s ease'
+  },
+  ':hover:after': {
+    width: 'calc(100% - 20px)'
+  }
+}
+
+const mobileNavLinkStyle = {
+  color: 'white',
+  fontWeight: 600,
+  fontSize: 2,
+  textDecoration: 'none',
+  px: 3,
+  py: 3,
+  borderRadius: 'default',
+  transition: 'all 0.2s ease',
+  display: 'flex',
+  alignItems: 'center',
+  width: '100%',
+  ':hover,:focus': {
+    color: 'orange',
+    background: 'rgba(255,255,255,0.06)',
+    textDecoration: 'none'
+  },
+  ':focus-visible': {
+    boxShadow: '0 0 0 2px rgba(255, 102, 0, 0.5)'
+  }
+}
+
+function Hero() {
+  return (
+    <Box
+      as="section"
+      sx={{
+        minHeight: ['auto', '80vh', '90vh'], // Restored original height
+        width: '100%',
+        bg: 'black',
+        background: darkGradient,
+        color: 'white',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        px: [2, 3, 4, 5],
+        pt: [4, 5, 6, 6], // Restored original padding
+        pb: [5, 5, 6]
+      }}
+    >
+      <AnimatedBackground pattern="hexagons" speed={60} direction="diagonal" size="normal" opacity={0.05} />
+      <FloatingParticles />
+      
+      {/* Reduced glowing orbs */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '15%',
+          right: '15%',
+          width: ['80px', '100px', '120px'], // Smaller orbs
+          height: ['80px', '100px', '120px'],
+          borderRadius: '50%',
+          background: orangeGradient,
+          opacity: 0.08,
+          filter: 'blur(40px)',
+          animation: `${pulse} 6s ease-in-out infinite`,
+          zIndex: 0
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '25%',
+          left: '10%',
+          width: ['60px', '80px', '100px'],
+          height: ['60px', '80px', '100px'],
+          borderRadius: '50%',
+          background: purpleGradient,
+          opacity: 0.06,
+          filter: 'blur(30px)',
+          animation: `${pulse} 8s ease-in-out infinite reverse`,
+          zIndex: 0
+        }}
+      />
+      
+      <Container sx={{ maxWidth: 1200, width: '100%', position: 'relative', zIndex: 2 }}>
+        <Grid columns={[1, 1, 2]} gap={[4, 5]} sx={{ alignItems: 'center' }}>
+          <Box sx={{ alignSelf: 'center', textAlign: ['center', 'center', 'left'] }}>
+            <Box
               sx={{
-                color: 'sunken',
-                pb: 2,
-                position: 'relative',
-                display: 'block'
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 2,
+                bg: 'rgba(255, 255, 255, 0.04)',
+                backdropFilter: 'blur(8px)',
+                px: 3,
+                py: 1.5,
+                borderRadius: 'full',
+                border: '1px solid rgba(255, 153, 0, 0.15)',
+                mb: 3
               }}
-              as="h4"
             >
-              Welcome to Hack&nbsp;Club
-            </Text>
-            <Heading>
+              <Text sx={{ fontSize: [0, 1], color: 'orange', fontWeight: 600 }}>✨ Built by teens, for teens</Text>
+            </Box>
+            
+            <Heading
+              variant="ultratitle"
+              sx={{
+                fontSize: ['2.5rem', '3rem', '3.5rem', '4rem'], // Restored original sizes
+                background: orangeGradient,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                mb: 3,
+                lineHeight: 1.1,
+                fontWeight: 800
+              }}
+            >
+              This is Hack Club.
+            </Heading>
+            <Box
+              sx={{
+                borderLeft: ['none', 'none', '4px solid'], // Restored original border
+                borderColor: 'orange',
+                pl: [0, 0, 3], // Restored original padding
+                mb: 4, // Restored original margin
+                position: 'relative'
+              }}
+            >
               <Text
-                as="p"
-                variant="title"
+                variant="lead"
                 sx={{
                   color: 'white',
-                  mb: [3, 4],
-                  zIndex: 1,
-                  textAlign: 'left',
-                  fontSize: ['42px', '52px', '64px'],
+                  opacity: 0.95,
+                  mb: 2,
+                  maxWidth: 500,
+                  fontSize: ['1.2rem', '1.3rem', '1.4rem'], // Restored original sizes
+                  lineHeight: 1.6,
+                  fontWeight: 500
+                }}
+              >
+                It's late nights. Big ideas.<br />
+                Code that breaks. Then works.<br />
+                Friends who cheer you on even when nothing's working.
+              </Text>
+              <Text
+                variant="lead"
+                sx={{
+                  color: 'white',
+                  opacity: 0.95,
+                  mb: 3,
+                  maxWidth: 550,
+                  fontSize: ['1.2rem', '1.3rem', '1.4rem'],
+                  lineHeight: 1.6,
+                  fontWeight: 500
+                }}
+              >
+                It's not a class. Not a competition.<br />
+                It's a space to build whatever's on your mind—with people who actually get it. 
+              </Text>
+              <Text
+                variant="lead"
+                sx={{
+                  background: orangeGradient,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  mb: 0,
+                  maxWidth: 550,
+                  fontSize: ['1.2rem', '1.3rem', '1.4rem'],
+                  lineHeight: 1.6,
+                  fontWeight: 700
+                }}
+              >
+                No one's telling you what to do.<br />
+                You just start. And somehow, you're not alone.
+              </Text>
+            </Box>
+            <Flex sx={{ 
+              gap: [3, 3, 2.5], // Smaller gap on laptops
+              flexWrap: 'wrap', 
+              mb: 4,
+              justifyContent: ['center', 'center', 'flex-start'],
+              alignItems: 'center', // Center vertically when wrapping
+              width: '100%'
+            }}>
+              <Button variant="primary"
+                as="a"
+                href="#"
+                onClick={e => {
+                  e.preventDefault()
+                  scrollToSection('slack-section')
+                }}
+                sx={{
+                  fontSize: [2, 3, 3], // Keep readable size on laptops
+                  px: [4, 6, 5], // Goldilocks padding
+                  py: [3, 4, 3], // Goldilocks padding
+                  background: orangeGradient,
+                  transition: 'all 0.2s ease',
+                  ':hover': { 
+                    transform: 'translateY(-3px)',
+                    boxShadow: '0 10px 40px rgba(255, 102, 0, 0.4)'
+                  },
+                  boxShadow: '0 4px 20px rgba(255, 102, 0, 0.25)',
+                  fontWeight: 700,
+                  borderRadius: 'full',
+                  minWidth: ['auto', 'auto', '150px'], // Slightly wider
+                  textAlign: 'center'
+                }}
+              >
+                🚀 Join Slack
+              </Button>
+              <Button variant="outline"
+                as="a"
+                href="#"
+                onClick={e => {
+                  e.preventDefault()
+                  scrollToSection('programs')
+                }}
+                sx={{
+                  fontSize: [2, 3, 3], // Keep readable size on laptops
+                  px: [4, 6, 5], // Goldilocks padding
+                  py: [3, 4, 3], // Goldilocks padding
+                  color: 'white',
+                  borderColor: 'rgba(255, 255, 255, 0.25)',
+                  borderWidth: 1.5,
+                  bg: 'rgba(255, 255, 255, 0.03)',
+                  backdropFilter: 'blur(8px)',
+                  transition: 'all 0.2s ease',
+                  ':hover': { 
+                    bg: orangeGradient,
+                    borderColor: 'transparent',
+                    color: 'black', 
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 8px 25px rgba(255, 102, 0, 0.25)'
+                  },
+                  fontWeight: 600,
+                  borderRadius: 'full',
+                  minWidth: ['auto', 'auto', '170px'], // Slightly wider
+                  textAlign: 'center'
+                }}
+              >
+                ⚡ Explore Programs
+              </Button>
+            </Flex>
+            
+            {/* Enhanced info box with glassmorphism */}
+            <Box
+              sx={{
+                bg: 'rgba(255, 255, 255, 0.03)',
+                backdropFilter: 'blur(20px)',
+                p: 4, // Restored original padding
+                borderRadius: 'xl',
+                border: '1px solid rgba(255, 153, 0, 0.2)',
+                textAlign: ['left', 'left', 'left'],
+                mt: 3,
+                position: 'relative',
+                overflow: 'hidden',
+                '::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '2px',
+                  background: orangeGradient
+                }
+              }}
+            >
+              <Text 
+                variant="caption" 
+                sx={{ 
+                  display: 'flex',
+                  alignItems: 'center',
+                  fontSize: [1, 2], // Restored original sizes
+                  flexWrap: 'wrap',
+                  fontWeight: 500
+                }}
+              >
+                <Icon glyph="github" size={24} sx={{ flexShrink: 0, mr: 2, color: 'orange' }} />
+                <span>
+                  Proudly partnered with <strong style={{ color: '#ff9900' }}>GitHub</strong>, <strong style={{ color: '#ff9900' }}>Arduino</strong>, and more. 
+                  <span style={{ color: '#ff9900', fontWeight: 700 }}> Join our creative coding community.</span>
+                </span>
+              </Text>
+            </Box>
+          </Box>
+          
+          {/* Enhanced hero images */}
+          <Box 
+            sx={{ 
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 4, // Restored original gap
+              width: '100%',
+              px: [2, 2, 0]
+            }}
+          >
+            <Box
+              sx={{
+                position: 'relative',
+                '::before': {
+                  content: '""',
+                  position: 'absolute',
+                  inset: '-8px',
+                  background: orangeGradient,
+                  borderRadius: 'lg',
+                  filter: 'blur(15px)',
+                  opacity: 0.2,
+                  zIndex: -1
+                }
+              }}
+            >
+              <Image
+                src="/home/flagship_4.jpg"
+                alt="Hack Clubbers at Flagship, 2019"
+                sx={{
+                  width: '100%',
+                  aspectRatio: '4/3',
+                  maxWidth: [280, 320, 360, 420], // Smaller on laptops
+                  height: 'auto',
+                  borderRadius: 'lg',
+                  objectFit: 'cover',
+                  mx: 'auto',
+                  display: 'block',
+                  transition: 'transform 0.3s ease',
+                  border: '1px solid rgba(255, 153, 0, 0.15)',
+                  ':hover': {
+                    transform: 'scale(1.02)',
+                    borderColor: 'rgba(255, 153, 0, 0.3)'
+                  }
+                }}
+              />
+            </Box>
+            
+            <Box
+              sx={{
+                position: 'relative',
+                '::before': {
+                  content: '""',
+                  position: 'absolute',
+                  inset: '-8px',
+                  background: purpleGradient,
+                  borderRadius: 'lg',
+                  filter: 'blur(15px)',
+                  opacity: 0.2,
+                  zIndex: -1
+                }
+              }}
+            >
+              <Image
+                src="/home/zephyr-spacex.jpeg"
+                alt="Hack Clubbers at SpaceX HQ"
+                sx={{
+                  width: '100%',
+                  aspectRatio: '4/3',
+                  maxWidth: [280, 320, 360, 420],
+                  height: 'auto',
+                  borderRadius: 'lg',
+                  objectFit: 'cover',
+                  mx: 'auto',
+                  display: 'block',
+                  transition: 'transform 0.3s ease',
+                  border: '1px solid rgba(102, 126, 234, 0.15)',
+                  ':hover': {
+                    transform: 'scale(1.02)',
+                    borderColor: 'rgba(102, 126, 234, 0.3)'
+                  }
+                }}
+              />
+            </Box>
+          </Box>
+        </Grid>
+      </Container>
+    </Box>
+  )
+}
+
+function Programs({ carouselCards = [] }) {
+  return (
+    <Box
+      as="section"
+      id="programs"
+      sx={{
+        bg: 'black',
+        background: darkGradient,
+        color: 'white',
+        py: [5, 6, 7], // Restored original padding
+        px: [2, 3, 4],
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
+      <AnimatedBackground pattern="circuit" speed={35} opacity={0.04} />
+      <Container sx={{ maxWidth: 1200, position: 'relative', zIndex: 1 }}>
+        <Box sx={{ textAlign: 'center', mb: 6 }}> {/* Restored original margin */}
+          <Heading
+            as="h2"
+            sx={{
+              fontSize: [4, 5, 6], // Restored original sizes
+              fontWeight: 800,
+              mb: 3,
+              background: orangeGradient,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              position: 'relative'
+            }}
+          >
+            Programs Happening Now
+          </Heading>
+          <Text 
+            as="p" 
+            sx={{ 
+              fontSize: [2, 3], // Restored original sizes
+              color: 'rgba(255, 255, 255, 0.8)', 
+              mb: 0, 
+              maxWidth: 700,
+              mx: 'auto',
+              lineHeight: 1.6,
+              fontWeight: 500
+            }}
+          >
+            <span role="img" aria-label="sparkles">✨</span> Dive into something wild: from hackathons in forests to coding on trains, there's always something new happening. <span role="img" aria-label="rocket">🚀</span>
+          </Text>
+        </Box>
+        <Carousel cards={carouselCards || []} />
+      </Container>
+      
+      {/* Reduced background effects */}
+      <Box
+        sx={{
+          position: 'absolute',
+          left: '-40%',
+          bottom: '-30%',
+          width: '60vw',
+          height: '60vw',
+          background: orangeGradient,
+          opacity: 0.04,
+          filter: 'blur(80px)',
+          borderRadius: '50%',
+          zIndex: 0,
+          animation: `${pulse} 10s ease-in-out infinite`
+        }}
+      />
+    </Box>
+  )
+}
+
+function CallToAction() {
+  return (
+    <Box
+      as="section"
+      sx={{
+        bg: 'black',
+        background: darkGradient,
+        color: 'white',
+        py: [4, 5, 6],
+        px: [2, 3, 4],
+        textAlign: 'center',
+        position: 'relative'
+      }}
+    >
+      <AnimatedBackground pattern="dots" speed={35} opacity={0.05} />
+      <Heading
+        as="h2"
+        sx={{
+          fontSize: ['1.75rem', '2.1rem', '2.5rem'],
+          fontWeight: 700,
+          mb: 3,
+          background: orangeGradient,
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          lineHeight: 1.2
+        }}
+      >
+        Ready to join us?
+      </Heading>
+      <Text 
+        as="p" 
+        sx={{ 
+          fontSize: [2, 3], 
+          color: 'muted', 
+          mb: 4,
+          maxWidth: '600px',
+          mx: 'auto',
+          lineHeight: 1.5
+        }}
+      >
+        Connect with thousands of teen coders. Build projects together, share what you're learning, and find your people.
+      </Text>
+      <Flex 
+        sx={{ 
+          justifyContent: 'center', 
+          gap: 3, 
+          flexWrap: 'wrap',
+          px: [2, 0]
+        }}
+        css={{
+          '@media (max-width: 32em)': {
+            'button, a': {
+              width: '100%',
+              justifyContent: 'center'
+            }
+          }
+        }}
+      >
+        <Button
+          as="a"
+          href="/slack"
+          sx={{
+            bg: 'orange',
+            color: 'black',
+            fontWeight: 700,
+            fontSize: [2, 3],
+            px: [4, 5],
+            py: [2, 3],
+            borderRadius: 'circle',
+            boxShadow: '0 4px 24px #ff660055',
+            transition: 'transform 0.2s, background-color 0.2s, color 0.2s',
+            ':hover': { bg: 'white', color: 'orange', transform: 'translateY(-5px)' }
+          }}
+        >
+          Join Slack
+        </Button>
+        <Button
+          as="a"
+          href="#newsletter"
+          sx={{
+            bg: 'transparent',
+            color: 'orange',
+            border: '2px solid',
+            borderColor: 'orange',
+            fontWeight: 700,
+            fontSize: [2, 3],
+            px: [4, 5],
+            py: [2, 3],
+            borderRadius: 'circle',
+            boxShadow: '0 2px 12px #ff660033',
+            transition: 'transform 0.2s, background-color 0.2s, color 0.2s',
+            ':hover': { bg: 'orange', color: 'black', transform: 'translateY(-5px)' }
+          }}
+        >
+          Newsletter
+        </Button>
+      </Flex>
+      {/* Orange accent */}
+      <Box
+        sx={{
+          position: 'absolute',
+          right: '-20%',
+          bottom: '-10%',
+          width: '60vw',
+          height: '60vw',
+          background: orangeGradient,
+          opacity: 0.10,
+          filter: 'blur(80px)',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+    </Box>
+  )
+}
+
+// Floating Back to Top Button
+function BackToTop() {
+  const [show, setShow] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 300)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  return (
+    <Box
+      sx={{
+        position: 'fixed',
+        bottom: [16, 24, 32],
+        right: [16, 24, 32],
+        zIndex: 100,
+        display: show ? 'flex' : 'none',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <Button
+        variant="primary"
+        sx={{
+          bg: 'orange',
+          color: 'black',
+          borderRadius: 'circle',
+          boxShadow: '0 2px 16px rgba(255,102,0,0.3)',
+          p: [2, 3],
+          fontSize: [2, 3],
+          width: [48, 56],
+          height: [48, 56],
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          transition: 'box-shadow 0.2s, background 0.2s, color 0.2s, transform 0.2s',
+          ':hover': { bg: 'white', color: 'orange', transform: 'translateY(-4px)', boxShadow: '0 4px 20px rgba(255,102,0,0.4)' },
+          ':active': { transform: 'translateY(0)', boxShadow: '0 2px 8px rgba(255,102,0,0.3)' }
+        }}
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+      >
+        <FaArrowUp style={{ margin: 0, padding: 0, display: 'block' }} />
+      </Button>
+    </Box>
+  )
+}
+
+function SlackSection() {
+  return (
+    <Box
+      as="section"
+      id="slack-section"
+      sx={{
+        bg: 'black',
+        background: darkGradient,
+        color: 'white',
+        py: [4, 5, 6],
+        px: [2, 3, 4],
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
+      <AnimatedBackground pattern="dots" speed={30} opacity={0.07} />
+      {/* Orange accent */}
+      <Box
+        sx={{
+          position: 'absolute',
+          left: '-20%',
+          top: '-10%',
+          width: '60vw',
+          height: '60vw',
+          background: orangeGradient,
+          opacity: 0.10,
+          filter: 'blur(80px)',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+      <Container sx={{ maxWidth: 900, position: 'relative', zIndex: 1 }}>
+        <Flex
+          sx={{
+            flexDirection: ['column', 'column', 'row'],
+            alignItems: ['center', 'center', 'flex-start'],
+            bg: 'rgba(24,24,27,0.95)',
+            borderRadius: '2xl',
+            boxShadow: '0 8px 48px #ff660033',
+            p: [3, 4, 5],
+            gap: [3, 4, 5],
+            animation: 'fadeIn 0.8s ease-out',
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+        >
+          <Box sx={{ flex: '0 0 auto', textAlign: 'center', mb: [2, 3, 0] }}>
+            <Text sx={{ fontSize: [5, 6, 7], mb: [1, 2] }}>💬</Text>
+          </Box>
+          <Box sx={{ flex: '1 1 0', minWidth: 0 }}>
+            <Heading
+              as="h2"
+              sx={{
+                fontSize: [3, 3, 4, 5],
+                fontWeight: 800,
+                mb: 2,
+                background: orangeGradient,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                textAlign: ['center', 'center', 'left'],
+                lineHeight: 1.2
+              }}
+            >
+              The Hack Club Slack
+            </Heading>
+            <Text
+              as="p"
+              sx={{
+                fontSize: [1, 2, 3],
+                color: 'muted',
+                mb: 3,
+                maxWidth: 600,
+                textAlign: ['center', 'center', 'left'],
+                lineHeight: 1.5
+              }}
+            >
+              <b>Come for the skills, stay for the people.</b><br />
+              Communication and planning for our open source projects happen in the Slack. Coding is often seen as an isolating activity. Plenty of groups exist for kids who are interested in sports, theater, or chess, but the stereotype of a programmer is a person who sits alone in a dark room. It doesn't have to be this way—in the Hack Club Slack (Discord-style online groupchat), you'll find a group of <b>27,253+</b> fabulous people to talk to, active at all hours.
+            </Text>
+            <Box sx={{ textAlign: ['center', 'center', 'left'] }}>
+              <Button
+                as="a"
+                href="/slack"
+                sx={{
+                  bg: 'orange',
+                  color: 'black',
+                  fontWeight: 700,
+                  fontSize: [2, 2, 3],
+                  px: [3, 4, 5],
+                  py: [2, 3],
+                  borderRadius: 'circle',
+                  boxShadow: '0 4px 24px #ff660055',
+                  transition: 'transform 0.2s, background-color 0.2s, color 0.2s',
+                  display: 'inline-block',
+                  width: ['100%', 'auto'],
+                  textAlign: 'center',
+                  ':hover': { bg: 'white', color: 'orange', transform: 'translateY(-5px)' }
+                }}
+              >
+                Join our Slack &rarr;
+              </Button>
+            </Box>
+          </Box>
+        </Flex>
+      </Container>
+    </Box>
+  )
+}
+
+function NewsletterSection() {
+  return (
+    <Box
+      as="section"
+      id="newsletter"
+      sx={{
+        bg: 'black',
+        background: darkGradient,
+        color: 'white',
+        py: [4, 5, 6],
+        px: [2, 3, 4],
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
+      <AnimatedBackground pattern="grid" speed={35} opacity={0.05} direction="horizontal" />
+      {/* Orange accent */}
+      <Box
+        sx={{
+          position: 'absolute',
+          right: '-20%',
+          bottom: '-10%',
+          width: '60vw',
+          height: '60vw',
+          background: orangeGradient,
+          opacity: 0.10,
+          filter: 'blur(80px)',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+      <Container sx={{ maxWidth: 700, position: 'relative', zIndex: 1 }}>
+        <Box
+          sx={{
+            bg: 'rgba(24,24,27,0.95)',
+            borderRadius: 'lg',
+            boxShadow: '0 8px 48px rgba(255, 102, 0, 0.2)',
+            p: [3, 4, 5],
+            animation: 'fadeIn 0.8s ease-out',
+            border: '1px solid',
+            borderColor: 'rgba(255, 153, 0, 0.15)'
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+        >
+          <Flex
+            sx={{
+              flexDirection: ['column', 'column', 'row'],
+              alignItems: 'center',
+              gap: [3, 4, 5]
+            }}
+          >
+            <Box sx={{ flex: '0 0 auto', textAlign: 'center', mb: [2, 3, 0] }}>
+              <Box
+                sx={{
+                  width: [50, 60, 70],
+                  height: [50, 60, 70],
+                  borderRadius: '50%',
+                  bg: 'rgba(255, 102, 0, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  mb: 2,
+                  mx: 'auto'
+                }}
+              >
+                <Text sx={{ fontSize: [4, 5], color: 'orange' }}>📬</Text>
+              </Box>
+            </Box>
+            <Box sx={{ flex: '1 1 0', minWidth: 0, width: '100%' }}>
+              <Heading
+                as="h2"
+                variant="title"
+                sx={{
+                  background: orangeGradient,
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  mb: 2,
+                  fontSize: [3, 3, 4],
+                  textAlign: ['center', 'center', 'left'],
                   lineHeight: 1.2,
+                  fontWeight: 800
+                }}
+              >
+                Stay Updated
+              </Heading>
+              <Text
+                as="p"
+                variant="lead"
+                sx={{
+                  color: 'muted',
+                  mb: 3,
+                  maxWidth: 500,
+                  fontSize: [1, 2],
+                  textAlign: ['center', 'center', 'left'],
+                  lineHeight: 1.5
+                }}
+              >
+                Get event invites, news, and opportunities for teen hackers. No spam, just the good stuff.
+              </Text>
+              <Box
+                as="form"
+                action="/api/mailing-list"
+                method="POST"
+                sx={{
+                  display: 'flex',
+                  flexDirection: ['column', 'column', 'row'],
+                  gap: 2,
+                  alignItems: ['stretch', 'stretch', 'flex-end'],
+                  mt: 2,
                   width: '100%'
                 }}
               >
-                We are <Comma>{slackData.total_members_count}</Comma>{' '}
-                <Text
-                  sx={{
-                    color: 'transparent',
-                    ml: 2,
-                    mr: 3,
-                    whiteSpace: 'nowrap'
-                  }}
-                >
-                  <Text
-                    onClick={() => {
-                      !reveal ? setReveal(true) : setReveal(false)
-                    }}
+                <Box sx={{ flex: 1, width: '100%' }}>
+                  <Text as="label" htmlFor="newsletter-name" sx={{ display: 'block', fontSize: 1, mb: 1, color: 'muted' }}>
+                    Your name
+                  </Text>
+                  <Input
+                    id="newsletter-name"
+                    name="name"
+                    type="text" 
+                    required
+                    placeholder="Orpheus"
                     sx={{
-                      // lineHeight: 0.875,
-                      px: 2,
-                      backgroundColor: 'red',
-                      position: 'absolute',
-                      borderRadius: 10,
-                      transform: 'rotate(-3deg) translateY(-5px)',
-                      color: 'white',
-                      whiteSpace: 'nowrap',
-                      textDecoration: 'none',
-                      '&:hover': {
-                        cursor: 'pointer'
+                      variant: 'forms.input',
+                      bg: 'elevated',
+                      color: 'text',
+                      fontSize: 2,
+                      borderRadius: 'default',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      width: '100%',
+                      minWidth: 0,
+                      boxShadow: '0 2px 12px rgba(255, 102, 0, 0.1)',
+                      '::placeholder': { color: 'muted', opacity: 0.7 },
+                      p: 2,
+                      transition: 'all 0.2s ease',
+                      height: '44px',
+                      ':focus': {
+                        boxShadow: '0 0 0 2px rgba(255, 102, 0, 0.3)',
+                        borderColor: 'orange',
+                        outline: 'none'
                       }
                     }}
-                    aria-hidden="true"
-                  >
-                    teen hackers
+                    aria-label="Full name"
+                    autoComplete="name"
+                  />
+                </Box>
+                <Box sx={{ flex: 1, width: '100%' }}>
+                  <Text as="label" htmlFor="newsletter-email" sx={{ display: 'block', fontSize: 1, mb: 1, color: 'muted' }}>
+                    Your email
                   </Text>
-                  teen hackers
-                </Text>
-                <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
-                the world who code together
-              </Text>
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="/slack"
-                mt={[3, 0, 0]}
-                mr={3}
-                sx={{ transformOrigin: 'center left' }}
-              >
-                Join Slack
-              </Button>
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="https://shipwrecked.hack.club/3"
-                mt={3}
+                  <Input
+                    id="newsletter-email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="orpheus@hackclub.com"
+                    sx={{
+                      variant: 'forms.input',
+                      bg: 'elevated',
+                      color: 'text',
+                      fontSize: 2,
+                      borderRadius: 'default',
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      width: '100%',
+                      minWidth: 0,
+                      boxShadow: '0 2px 12px rgba(255, 102, 0, 0.1)',
+                      '::placeholder': { color: 'muted', opacity: 0.7 },
+                      p: 2,
+                      transition: 'all 0.2s ease',
+                      height: '44px',
+                      ':focus': {
+                        boxShadow: '0 0 0 2px rgba(255, 102, 0, 0.3)',
+                        borderColor: 'orange',
+                        outline: 'none'
+                      }
+                    }}
+                    aria-label="Email address"
+                    autoComplete="email"
+                  />
+                </Box>
+                <Button
+                  type="submit"
+                  variant="primary"
+                  sx={{
+                    fontSize: 2,
+                    px: 4,
+                    py: 2,
+                    borderRadius: 'default',
+                    boxShadow: '0 4px 16px rgba(255, 102, 0, 0.3)',
+                    mt: [2, 2, '24px'], // Align with inputs
+                    width: ['100%', '100%', 'auto'],
+                    minWidth: ['auto', 'auto', '120px'],
+                    fontWeight: 700,
+                    transition: 'all 0.2s ease',
+                    height: '44px',
+                    ':hover': { 
+                      bg: 'white', 
+                      color: 'orange', 
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 6px 20px rgba(255, 102, 0, 0.4)'
+                    }
+                  }}
+                >
+                  Subscribe
+                </Button>
+              </Box>
+              <Text 
                 sx={{ 
-                  transformOrigin: 'left',
-                  backgroundImage: t => t.util.gx('green', 'blue'),
+                  mt: 3, 
+                  fontSize: 1, 
+                  color: 'muted', 
+                  textAlign: ['center', 'center', 'left'],
+                  opacity: 0.8
                 }}
               >
-                Sign Up: Private Island Hackathon
-              </Button>
-            </Heading>
-          </Box>
+                By subscribing, you agree to receive messages about Hack Club opportunities.
+              </Text>
+            </Box>
+          </Flex>
+        </Box>
+      </Container>
+    </Box>
+  )
+}
+
+const OuternetImgFile = '/home/outernet-110.jpg';
+
+function OuternetHighlight() {
+  return (
+    <Box
+      as="section"
+      sx={{
+        bg: 'black',
+        background: darkGradient,
+        color: 'white',
+        py: [4, 5, 6],
+        px: [2, 3, 4],
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
+      <AnimatedBackground pattern="hexagons" speed={60} opacity={0.06} />
+      <Container sx={{ maxWidth: 1100, position: 'relative', zIndex: 1 }}>
+        <Flex
+          sx={{
+            flexDirection: ['column', 'column', 'row'],
+            alignItems: 'center',
+            gap: [3, 4, 5],
+            animation: 'fadeIn 1s ease-out',
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+        >
           <Box
             sx={{
-              display: 'flex',
-              justifyContent: ['flex-start', 'flex-start', 'flex-end'],
-              marginRight: 2,
-              mt: [4, 3, 1]
+              flex: ['1 1 auto', '1 1 auto', '0 0 400px'],
+              width: '100%',
+              maxWidth: [360, 400, 500],
+              borderRadius: '2xl',
+              overflow: 'hidden',
+              boxShadow: '0 8px 48px #ff660033',
+              mb: [3, 3, 0],
+              mx: ['auto', 'auto', 0],
+              animation: 'slideInLeft 1s ease-out',
+            }}
+            css={{
+              '@keyframes slideInLeft': {
+                from: { opacity: 0, transform: 'translateX(-30px)' },
+                to: { opacity: 1, transform: 'translateX(0)' }
+              }
             }}
           >
-            <Badge
+            <Image
+              src={OuternetImgFile}
+              alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for Outernet"
+              sx={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+                objectFit: 'cover',
+                transition: 'transform 0.5s ease-out',
+                ':hover': {
+                  transform: 'scale(1.05)'
+                }
+              }}
+            />
+          </Box>
+          <Box 
+            sx={{ 
+              flex: '1 1 0', 
+              px: [0, 0, 4], 
+              textAlign: ['center', 'center', 'left'],
+              animation: 'slideInRight 1s ease-out',
+            }}
+            css={{
+              '@keyframes slideInRight': {
+                from: { opacity: 0, transform: 'translateX(30px)' },
+                to: { opacity: 1, transform: 'translateX(0)' }
+              }
+            }}
+          >
+            <Heading
+              as="h3"
+              sx={{
+                fontSize: [3, 4],
+                fontWeight: 700,
+                mb: 2,
+                color: 'orange'
+              }}
+            >
+              Outernet: The Ultimate Hack Club Adventure
+            </Heading>
+            <Text
+              as="p"
+              sx={{
+                fontSize: [1, 2, 3],
+                color: 'muted',
+                mb: 3,
+                maxWidth: [null, null, 500]
+              }}
+            >
+              Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. Campfires, coding, and lifelong friendships—this is where the magic happens!
+            </Text>
+            <Button
               as="a"
               href="https://outernet.hackclub.com/"
               target="_blank"
               rel="noopener"
-              variant="pill"
               sx={{
-                zIndex: '1',
-                bg: 'black',
-                color: 'white',
-                opacity: 1,
-                textDecoration: 'none',
-                fontWeight: 'normal',
-                ':hover': { opacity: 1 },
-                transition: '0.3s ease'
-                // mixBlendMode: 'multiply'
-              }}
-              title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            >
-              Hackers at Outernet in Vermont
-            </Badge>
-          </Box>
-        </Box>
-        <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
-          <Box
-            sx={{
-              position: 'relative',
-              width: '90vw',
-              maxWidth: 'layout',
-              margin: 'auto'
-            }}
-          >
-            <Text
-              variant="title"
-              as="h1"
-              sx={{ fontSize: ['36px', '48px', '56px'] }}
-            >
-              Discover the{' '}
-              <Text
-                as="span"
-                sx={{
-                  borderRadius: 'default',
-                  px: 1,
-                  mx: 0,
-                  whiteSpace: ['wrap', 'nowrap', 'nowrap'],
-                  color: 'white',
-                  background: theme => theme.util.gx('red', 'orange'),
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent'
-                }}
-              >
-                joy of code
-              </Text>
-              , together.
-            </Text>
-            <Text
-              variant="subtitle"
-              as="p"
-              sx={{
-                fontSize: ['18px', '20px', '22px'],
-                pb: [3, 3, 4],
-                maxWidth: '62ch'
+                bg: 'orange',
+                color: 'black',
+                fontWeight: 700,
+                fontSize: [2, 2, 3],
+                px: [3, 4, 5],
+                py: 2,
+                borderRadius: 'circle',
+                boxShadow: '0 4px 24px #ff660055',
+                transition: 'transform 0.2s, background-color 0.2s, color 0.2s, box-shadow 0.2s',
+                ':hover': { 
+                  bg: 'white', 
+                  color: 'orange',
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 8px 32px #ff660088',
+                }
               }}
             >
-              Every day, thousands of Hack&nbsp;Clubbers gather online and
-              in-person to make things with code. Whether you're a beginner
-              programmer or have years of experience, there's a place for you at
-              Hack&nbsp;Club. Read about our{' '}
-              <Link href="/philosophy" target="_blank" rel="noopener">
-                hacker ethic
-              </Link>
-              .
-            </Text>
-            <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
-              <Box
-                sx={{
-                  position: 'relative',
-                  height: ['300px', '300px', '300px', '100%'],
-                  py: [3, 3, 3, 0]
-                }}
-                onClick={() => {
-                  setCount(count + 1)
-                }}
-              >
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={
-                        count === images.length - 2
-                          ? images[0].src
-                          : images.length - 1
-                            ? images[1].src
-                            : images[count + 2].src
-                      }
-                      alt={
-                        count === images.length - 2
-                          ? images[0].alt
-                          : images.length - 1
-                            ? images[1].alt
-                            : images[count + 2].alt
-                      }
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={
-                        count === images.length - 1
-                          ? images[0].src
-                          : images[count + 1].src
-                      }
-                      alt={
-                        count === images.length - 1
-                          ? images[0].alt
-                          : images[count + 1].alt
-                      }
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={images[count].src}
-                      alt={images[count].alt}
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
-              </Box>
-              <Grid
-                columns="1fr"
-                sx={{
-                  gridColumnGap: 3,
-                  span: {
-                    width: 36,
-                    height: 36,
-                    borderRadius: 24,
-                    display: 'inline-block',
-                    fontSize: 2,
-                    lineHeight: '30px',
-                    textAlign: 'center',
-                    fontWeight: 'bold',
-                    border: '3px solid currentColor'
-                  },
-                  p: { my: 0, fontSize: ['18px', '20px', '22px'] },
-                  strong: { display: 'block', fontSize: ['22px', 2, 3] }
-                }}
-                as="ul"
-              >
-                <Grid
-                  columns="auto 1fr"
-                  sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
-                  }}
-                  as="li"
-                >
-                  <Text as="span" color="red" aria-hidden="true">
-                    1
-                  </Text>
-                  <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>
-                      Connect with other teenage coders
-                    </strong>
-                    Have a coding question? Looking for project feedback? You'll
-                    find hundreds of fabulous people to talk to in our global{' '}
-                    <Link href="/slack" target="_blank" rel="noopener">
-                      Slack{' '}
-                    </Link>
-                    (like Discord), active at all hours.
-                  </Text>
-                </Grid>
-                <Grid
-                  columns="auto 1fr"
-                  sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
-                  }}
-                  as="li"
-                >
-                  <Text as="span" color="orange" aria-hidden="true">
-                    2
-                  </Text>
-                  <Text
-                    as="p"
-                    variant="subtitle"
-                    sx={{
-                      mt: 0
-                    }}
-                  >
-                    <strong sx={{ mb: 1 }}>
-                      Build open source learning tools
-                    </strong>
-                    We build large open source projects together (
-                    <Link href="https://github.com/hackclub" target="_blank">
-                      3k+&nbsp;PRs a year
-                    </Link>
-                    ) like this website, a game engine, daily streak system, and
-                    more!
-                  </Text>
-                </Grid>
-                <Grid
-                  columns="auto 1fr"
-                  sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
-                  }}
-                  as="li"
-                >
-                  <Text as="span" color="yellow" aria-hidden="true">
-                    3
-                  </Text>
-                  <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
-                    Meet other Hack&nbsp;Clubbers in your community to build
-                    together at one of the 400+{' '}
-                    <Link href="/clubs" target="_blank" rel="noopener">
-                      Hack&nbsp;Clubs
-                    </Link>{' '}
-                    and{' '}
-                    <Link href="/hackathons" target="_blank" rel="noopener">
-                      high school hackathons
-                    </Link>
-                    .
-                  </Text>
-                </Grid>
-              </Grid>
-            </Grid>
+              Learn More About Outernet
+            </Button>
           </Box>
-        </Box>
-        <Carousel cards={carouselCards} />
-        <Box
-          id="spotlight"
-          as="section"
+        </Flex>
+      </Container>
+      {/* Orange accent */}
+      <Box
+        sx={{
+          position: 'absolute',
+          right: '-20%',
+          bottom: '-10%',
+          width: '60vw',
+          height: '60vw',
+          background: orangeGradient,
+          opacity: 0.10,
+          filter: 'blur(80px)',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+    </Box>
+  )
+}
+
+function JuiceAdventureSection() {
+  return (
+    <Box
+      as="section"
+      sx={{
+        bg: 'black',
+        background: darkGradient,
+        color: 'white',
+        py: [4, 5, 6],
+        px: [2, 3, 4],
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
+      <AnimatedBackground pattern="dots" speed={45} opacity={0.07} />
+      <Container sx={{ maxWidth: 1100, position: 'relative', zIndex: 1 }}>
+        <Heading
+          as="h2"
           sx={{
-            backgroundImage: `
-              linear-gradient(rgba(249, 250, 252, 0.7), rgba(249, 250, 252, 0.7)),
-              url('https://icons.hackclub.com/api/icons/0x8492a6/glyph:rep.svg')
-            `,
-            backgroundSize: '40px 40px',
-            backgroundRepeat: 'repeat',
-            position: 'relative'
+            fontSize: ['1.7rem', '2.1rem', '2.5rem', '3rem'],
+            fontWeight: 800,
+            mb: [3, 4],
+            background: orangeGradient,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textAlign: 'center',
+            animation: 'fadeIn 0.8s ease-out',
+            lineHeight: 1.2
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
           }}
         >
-          <Box
-            ref={spotlightRef}
-            sx={{
-              position: 'absolute',
-              zIndex: 2,
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              bg: 'snow',
-              pointerEvents: 'none'
-            }}
-          />
-          <Box
-            sx={{
-              position: 'relative',
-              width: '90vw',
-              maxWidth: 'layout',
-              margin: 'auto',
-              zIndex: 5
-            }}
-            py={[4, 4, 5]}
-          >
-            <Box>
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-                Connect with{' '}
-                <Text
-                  as="span"
-                  sx={{
-                    borderRadius: 'default',
-                    px: 2,
-                    mx: 0,
-                    whiteSpace: 'nowrap',
-                    color: 'white',
-                    bg: 'red'
-                  }}
-                >
-                  builders
-                </Text>{' '}
-                from around the world
-              </Text>
-              <Text
-                variant="subtitle"
-                as="p"
-                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
-              >
-                We gather both online and in-person to share our love of code
-                and make things together!
-              </Text>
-            </Box>
-            <Neighborhood />
-            <Trail />
-            <Scrapyard />
-            <Slack slackKey={slackKey} data={slackData} events={events} />
-          </Box>
-        </Box>
-        <Box>
-          <Box py={[4, 5, '82px']}>
-            <Box
-              sx={{
-                width: '90vw',
-                maxWidth: 'layout',
-                margin: 'auto',
-                position: 'relative'
-              }}
-            >
-              <Flex
+          Hack Club JUICE: Pop-Up Hacker Café in Shanghai 🇨🇳
+        </Heading>
+        <Grid 
+          columns={[1, null, 2]} 
+          gap={[4, 5]} 
+          sx={{ 
+            alignItems: 'center', 
+            mt: [3, 4],
+            animation: 'fadeIn 0.8s ease-out 0.2s backwards',
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+        >          <Box>
+            <Flex sx={{ flexDirection: 'column', gap: 3 }}>
+              <Image
+                src="/home/juice-airport.jpg"
+                alt="Hack Clubbers at the airport heading to Shanghai for JUICE"
                 sx={{
-                  flexDirection: ['column', 'column', 'column', 'row'],
-                  justifyContent: gitHubData ? 'center' : 'flex-start',
-                  alignItems: [
-                    'flex-start',
-                    'flex-start',
-                    'flex-start',
-                    'center'
-                  ],
-                  gap: '10px'
+                  width: '100%',
+                  maxWidth: [340, 380, 420],
+                  height: 'auto',
+                  borderRadius: '2xl',
+                  boxShadow: '0 8px 48px #ff660033',
+                  objectFit: 'cover',
+                  mx: 'auto',
+                  display: 'block',
+                  transition: 'transform 0.3s ease-out',
+                  ':hover': {
+                    transform: 'scale(1.02)'
+                  }
                 }}
-              >
-                <Box sx={{ mb: [3, 0, 0] }}>
-                  <Text
-                    variant="title"
-                    as="h2"
-                    sx={{
-                      fontSize: ['36px', '48px', '56px'],
-                      maxWidth: '20ch'
-                    }}
-                  >
-                    We build{' '}
-                    <Text
-                      as="span"
-                      sx={{
-                        borderRadius: 'default',
-                        mx: 0,
-                        whiteSpace: 'nowrap',
-                        color: 'orange'
-                      }}
-                    >
-                      open source
-                    </Text>{' '}
-                    games and tools together
-                  </Text>
-                  <Text
-                    variant="subtitle"
-                    as="p"
-                    sx={{
-                      fontSize: ['18px', '20px', '22px'],
-                      pb: [3, 0, 0],
-                      maxWidth: '60ch'
-                    }}
-                  >
-                    In collaboration with engineers on the Hack&nbsp;Club team,
-                    Hack Clubbers build learning tools for each other. Get
-                    involved with these projects by building something with our
-                    tools or contribute to the tools themselves.
-                  </Text>
-                </Box>
-                {gitHubData && (
-                  <Flex
-                    sx={{
-                      flexDirection: ['row', null, null, 'column'],
-                      gap: [1, 2, 2],
-                      alignItems: ['center', 'center', 'center', 'flex-start'],
-                      flexWrap: 'wrap',
-                      width: ['100%', null, null, 'fit-content'],
-
-                      '& > a:nth-child(n+4)': {
-                        display: ['none', null, null, 'flex']
-                      }
-                    }}
-                  >
-                    <Text
-                      sx={{
-                        fontSize: ['11px', '11px', '14px'],
-                        textAlign: 'left',
-                        lineHeight: '90%',
-                        fontStyle: 'italic',
-                        width: 'fit-content'
-                      }}
-                    >
-                      Live from GitHub
-                    </Text>
-                    {gitHubData
-                      .filter(data => !data.user.endsWith('[bot]'))
-                      .slice(0, 4)
-                      .map((data, key) => {
-                        return (
-                          <GitHub
-                            type={data.type}
-                            img={data.userImage}
-                            user={data.user}
-                            time={data.time}
-                            url={data.url}
-                            message={data.message}
-                            key={key}
-                            opacity={1 / (key / 2 + 1)}
-                          />
-                        )
-                      })}
-                  </Flex>
-                )}
-              </Flex>
-              <Sprig
-                delay={100}
-                stars={stars.sprig.stargazerCount}
-                game={game}
-                gameImage={gameImage}
-                gameImage1={gameImage1}
               />
-              <Onboard stars={stars.onboard.stargazerCount} delay={100} />
-              <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
-              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
-              <Box as="section" id="sprig">
-                <SprigConsole
-                  delay={300}
-                  stars={stars.sprig.stargazerCount}
-                  consoleCount={consoleCount}
-                />
-              </Box>
-              <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
-            </Box>
-          </Box>
-          <Box
-            sx={{
-              position: 'relative',
-              background: 'snow',
-              backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
-              backgroundSize: '40px 40px',
-              backgroundRepeat: 'repeat',
-              backgroundPosition: '10% 10%'
-              // '&:hover': {
-              //   backgroundImage: `url('https://icons.hackclub.com/api/icons/0x000000/glyph:rep.svg')`
-              // }
-            }}
-          >
-            <Box
-              sx={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                top: 0,
-                left: 0
-              }}
-            >
-              {}
-            </Box>
-            <Box
-              py={[4, 5, '82px']}
-              sx={{
-                width: '90vw',
-                maxWidth: 'layout',
-                margin: 'auto',
-                position: 'relative'
-              }}
-            >
-              <Box>
-                <Text
-                  variant="title"
-                  as="h2"
-                  sx={{
-                    fontSize: ['36px', '48px', '72px'],
-                    width: '18ch',
-                    textAlign: 'center',
-                    margin: 'auto'
-                  }}
-                >
-                  Find your{' '}
-                  <Text
-                    as="span"
-                    sx={{
-                      borderRadius: 'default',
-                      mx: 0,
-                      whiteSpace: 'nowrap',
-                      color: 'orange'
-                    }}
-                  >
-                    IRL community.
-                  </Text>
-                </Text>
-                <Text
-                  variant="subtitle"
-                  as="p"
-                  sx={{
-                    fontSize: ['18px', '24px', '32px'],
-                    margin: 'auto',
-                    pt: 2,
-                    textAlign: 'center'
-                  }}
-                >
-                  Thousands of Hack Clubbers organize and participate in
-                  hackathons and after school coding clubs.
-                </Text>
-              </Box>
-              <Clubs />
-              <Hackathons
-                delay={400}
-                data={hackathonsData}
-                stars={stars.hackathons.stargazerCount}
-              />
-
-              {/* <Events events={events} /> */}
-              <HCB data={bankData} />
-            </Box>
-          </Box>
-        </Box>
-        <Box py={[4, 5, '82px']}>
-          <Box
-            sx={{
-              width: '90vw',
-              maxWidth: 'layout',
-              margin: 'auto'
-            }}
-          >
-            <Box>
-              <Text
-                as="p"
-                variant="eyebrow"
-                sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
-              >
-                We've got a lot going on - Let's recap
-              </Text>
-              <Text
-                variant="title"
-                as="h2"
+              <Image
+                src="/home/juice-hotel.jpg"
+                alt="Hack Clubbers at the hotel in Shanghai for JUICE"
                 sx={{
-                  fontSize: ['36px', '48px', '72px'],
-                  width: '16ch',
-                  textAlign: 'center',
-                  margin: 'auto'
+                  width: '100%',
+                  maxWidth: [340, 380, 420],
+                  height: 'auto',
+                  borderRadius: '2xl',
+                  boxShadow: '0 8px 48px #ff990055',
+                  objectFit: 'cover',
+                  mx: 'auto',
+                  display: 'block',
+                  transition: 'transform 0.3s ease-out',
+                  ':hover': {
+                    transform: 'scale(1.02)'
+                  }
                 }}
-              >
-                Find your second home at{' '}
-                <Text
-                  as="span"
-                  sx={{
-                    borderRadius: 'default',
-                    ml: 0,
-                    whiteSpace: ['wrap', 'nowrap'],
-                    background: theme => theme.util.gx('red', 'orange'),
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent'
-                  }}
-                >
-                  Hack&nbsp;Club
-                </Text>
-              </Text>
-            </Box>
-            <Grid
-              pt={[3, 4]}
-              pb={[4, 5]}
-              gap={3}
-              columns={[1, 2, 3]}
+              />
+            </Flex>
+          </Box>
+          <Box>
+            <Text
+              as="p"
               sx={{
+                fontSize: [2, 3],
+                color: 'muted',
+                mb: 3,
+                lineHeight: 1.6
+              }}
+            >
+              <b>Announcing Hack Club's next grand adventure, JUICE!!</b> <br />
+              This April, 30+ Hack Clubbers traveled to Shanghai, China 🇨🇳, to run <b>#juice</b>—the world's first pop-up hacker cafe! For 2 months, Hack Clubbers built their own video games, all completely <b>languageless</b> (no spoken or written words)! Then, for 7 days, we demoed our games in a pop-up cafe for anyone off the streets of Shanghai to come in and play.
+              <br /><br />
+              <b>BUILD A GAME:</b> From February 1st to April 1st, teens collaborated in #juice, adding their ideas to Juice's GitHub and spending 100+ hours creating epic, languageless games. Everyone who shipped a game received travel stipend support—beginners were welcome!
+              <br /><br />
+              <b>RUN A POP-UP CAFÉ:</b> From April 4th to 11th, Hack Clubbers ran a pop-up café in Shanghai, building custom booths for their games and welcoming visitors from all over the city. Hotel stays, food, and all travel were paid for by Hack Club, making it an unforgettable adventure for many who had never left their home country before.
+              <br /><br />
+              <b>This adventure was for YOU—the first-time game builder, the first-time traveler. More new adventures like JUICE are coming this year!</b>
+            </Text>
+            <Button
+              as="a"
+              href="https://juice.hackclub.com/"
+              target="_blank"
+              rel="noopener"
+              sx={{
+                bg: 'orange',
+                color: 'black',
+                fontWeight: 700,
+                fontSize: [2, 2, 3],
+                px: [3, 4, 5],
+                py: 2,
+                borderRadius: 'circle',
+                boxShadow: '0 4px 24px #ff660055',
+                transition: 'transform 0.2s, background-color 0.2s, color 0.2s, box-shadow 0.2s',
+                ':hover': { 
+                  bg: 'white', 
+                  color: 'orange',
+                  transform: 'translateY(-5px)',
+                  boxShadow: '0 8px 32px #ff660088',
+                }
+              }}
+            >
+              Learn More About JUICE
+            </Button>
+          </Box>
+        </Grid>
+      </Container>
+      {/* Orange accent */}
+      <Box
+        sx={{
+          position: 'absolute',
+          right: '-20%',
+          bottom: '-10%',
+          width: '60vw',
+          height: '60vw',
+          background: orangeGradient,
+          opacity: 0.10,
+          filter: 'blur(80px)',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+    </Box>
+  )
+}
+
+function TopicsSection() {
+  const topics = [
+    {
+      icon: '💬',
+      title: 'Connect with other teenage coders',
+      desc: (
+        <>
+          Got a bug? Need a meme review? Or just want to vibe? Hundreds of teens are online in our{' '}
+          <Link href="/slack" sx={{ color: 'orange', textDecoration: 'underline' }}>Slack</Link> (think Discord, but for hackers), 24/7.
+        </>
+      )
+    },
+    {
+      icon: '🛠️',
+      title: 'Build open source learning tools',
+      desc: (
+        <>
+          We ship wild open source projects together (
+          <Link href="https://github.com/hackclub" target="_blank" sx={{ color: 'orange', textDecoration: 'underline' }}>
+            3k+ PRs a year
+          </Link>
+          )—from game consoles to streak trackers to this very site!
+        </>
+      )
+    },
+    {
+      icon: '🤝',
+      title: 'Gather IRL with other makers',
+      desc: (
+        <>
+          Meet up at one of 400+{' '}
+          <Link href="https://hackclub.com/clubs" target="_blank" sx={{ color: 'orange', textDecoration: 'underline' }}>Hack&nbsp;Clubs</Link> or{' '}
+          <Link href="/hackathons" sx={{ color: 'orange', textDecoration: 'underline' }}>high school hackathons</Link>. Or just hang out and eat pizza.
+        </>
+      )
+    }
+  ]
+  
+  return (
+    <Box
+      as="section"
+      sx={{
+        bg: 'black',
+        background: darkGradient,
+        color: 'white',
+        py: [4, 5, 6], // Restored original padding
+        px: [2, 3, 4],
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
+      <AnimatedBackground pattern="circuit" speed={35} />
+      <Container sx={{ maxWidth: 1100, position: 'relative', zIndex: 1 }}>
+        <Heading
+          variant="title"
+          sx={{
+            fontSize: ['1.6rem', '2rem', '2.5rem'], // Restored original sizes
+            background: orangeGradient,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textAlign: 'center',
+            mb: [4, 5], // Restored original margin
+            lineHeight: 1.2
+          }}
+        >
+          What You'll Actually Do Here
+        </Heading>
+        <Grid columns={[1, null, 3]} gap={[4, 4, 5]}>
+          {topics.map((t, i) => (
+            <Box
+              key={i}
+              sx={{
+                bg: 'rgba(24,24,27,0.95)',
+                borderRadius: '2xl',
+                boxShadow: '0 4px 24px #ff660033',
+                p: [3, 4, 5], // Restored original padding
                 textAlign: 'left',
-                '> a, > div': {
-                  borderRadius: 'extra',
-                  boxShadow: 'elevated',
-                  p: [3, null, 4]
-                },
-                span: {
-                  boxShadow:
-                    '-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)'
-                },
-                svg: { fill: 'currentColor' }
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                minHeight: [180, 200, 220], // Restored original heights
+                transition: 'transform 0.2s, box-shadow 0.2s',
+                ':hover': {
+                  transform: 'translateY(-8px)', // Restored original transform
+                  boxShadow: '0 12px 48px #ff660055',
+                }
               }}
             >
-              <Card
-                as="a"
-                href="/slack"
-                target="_blank"
-                rel="noopener"
-                variant="interactive"
-                sx={{
-                  background:
-                    'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
-                  color: 'white',
-                  svg: { color: 'rgb(51, 142, 218)' },
-                  position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
-                  },
-                  ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
-                    }
-                  }
-                }}
-              >
-                <Icon
-                  glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: ['18px', '20px', '22px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
-                <Stage
-                  icon="slack"
-                  color="white"
-                  name="Join Our Slack"
-                  desc="Connect with other technical teenagers on Slack and hack on things together."
-                  sx={{
-                    p: {
-                      fontSize: ['18px', '20px', '22px']
-                    },
-                    h3: {
-                      fontSize: ['22px', 2, 3]
-                    }
-                  }}
-                />
-              </Card>
-              <Card
-                sx={{
-                  background:
-                    'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
-                  color: 'white',
-                  svg: { color: '#fb558e' },
-                  textDecoration: 'none',
-                  position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
-                  },
-                  ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
-                    }
-                  }
-                }}
-                as="a"
-                href="https://github.com/hackclub"
-                variant="interactive"
-                target="_blank"
-                rel="noopener"
-              >
-                <Icon
-                  glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: [1, '16px', '20px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
-                <Stage
-                  icon="github"
-                  color="white"
-                  name="Explore Our Open Source Tools"
-                  desc="We're currently building a game engine, daily streak system, graphing game, and more!"
-                  sx={{
-                    p: {
-                      fontSize: [1, '16px', '20px']
-                    },
-                    h3: {
-                      fontSize: ['22px', 2, 3]
-                    }
-                  }}
-                />
-              </Card>
-              <Card
-                sx={{
-                  background:
-                    'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
-                  color: 'white',
-                  svg: { color: 'rgb(236, 55, 80)' },
-                  textDecoration: 'none',
-                  position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
-                  },
-                  ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
-                    }
-                  }
-                }}
-                as="a"
-                href="/clubs"
-                variant="interactive"
-                target="_blank"
-                rel="noopener"
-              >
-                <Icon
-                  glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: ['18px', '20px', '22px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
-                <Stage
-                  icon="clubs"
-                  color="white"
-                  name="Start A Club"
-                  desc="Build an in-person community of high school hackers, and we're here to help."
-                  sx={{
-                    p: {
-                      fontSize: ['18px', '20px', '22px']
-                    },
-                    h3: {
-                      fontSize: ['22px', 2, 3]
-                    }
-                  }}
-                />
-              </Card>
-            </Grid>
-          </Box>
-        </Box>
+              <Text sx={{ fontSize: [4, 5, 6], mb: 2 }}>{t.icon}</Text>
+              <Heading as="h3" sx={{ color: 'orange', mb: 2, fontSize: [2, 3] }}>{t.title}</Heading>
+              <Text sx={{ color: 'muted', fontSize: [1, 2], lineHeight: 1.5 }}>{t.desc}</Text>
+            </Box>
+          ))}
+        </Grid>
+      </Container>
 
-        {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
-          'z' && (
-          <>
-            <Box
+      {/* Reduced accent */}
+      <Box
+        sx={{
+          position: 'absolute',
+          left: '-30%',
+          top: '-20%',
+          width: '50vw',
+          height: '50vw',
+          background: orangeGradient,
+          opacity: 0.05,
+          filter: 'blur(60px)',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+    </Box>
+  )
+}
+
+// Add the missing ShowcaseSection function definition here
+function ShowcaseSection() {
+  // Showcase data: image, alt, title, description
+  const showcases = [
+    {
+      img: '/home/map.png',
+      alt: 'Map of Hack Clubs around the world',
+      title: 'Global Community',
+      desc: 'Hack Clubbers are everywhere! Our network spans the globe, connecting young makers from every continent.'
+    },
+    {
+      img: '/home/zephyr-spacex.jpeg',
+      alt: 'Hack Clubbers at SpaceX HQ in LA',
+      title: 'Epic Field Trips',
+      desc: 'From SpaceX HQ to local meetups, Hack Clubbers get hands-on with the world’s coolest tech and people.'
+    },
+    {
+      img: '/hackathons/mahacks.jpeg',
+      alt: 'MA Hacks, Hack Clubber organized hackathon',
+      title: 'Student-Led Hackathons',
+      desc: 'Hundreds of high school hackathons are organized by Hack Clubbers every year. Build, learn, and compete!'
+    },
+    {
+      img: '/home/ama.png',
+      alt: 'AMA with Sal Khan',
+      title: 'Meet the Legends',
+      desc: 'Join AMAs and workshops with tech leaders like Sal Khan, engineers from GitHub, and more.'
+    },
+    {
+      img: '/home/flagship_4.jpg',
+      alt: 'Hack Clubbers at Flagship, 2019',
+      title: 'Flagship Gatherings',
+      desc: 'Our annual Flagship event brings together the most passionate hackers for a week of creativity and fun.'
+    }
+  ]
+  
+  return (
+    <Box
+      as="section"
+      sx={{
+        bg: 'black',
+        background: darkGradient,
+        color: 'white',
+        py: [4, 5, 6, 7],
+        px: [2, 3, 4, 5],
+        position: 'relative',
+        overflow: 'hidden'
+      }}
+    >
+      <AnimatedBackground pattern="grid" speed={50} opacity={0.06} />
+      <Container sx={{ maxWidth: 1200, position: 'relative', zIndex: 1 }}>
+        <Heading
+          as="h2"
+          sx={{
+            fontSize: ['1.6rem', '2rem', '2.5rem', '3rem'],
+            fontWeight: 800,
+            mb: [3, 4, 5],
+            background: orangeGradient,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            textAlign: 'center',
+            animation: 'fadeIn 0.8s ease-out',
+            lineHeight: 1.2
+          }}
+          css={{
+            '@keyframes fadeIn': {
+              from: { opacity: 0, transform: 'translateY(20px)' },
+              to: { opacity: 1, transform: 'translateY(0)' }
+            }
+          }}
+        >
+          What Makes Hack Club Special?
+        </Heading>
+        <Box>
+          {showcases.map((item, i) => (
+            <Flex
+              key={i}
               sx={{
-                position: 'fixed',
-                top: 0,
-                width: '100%',
-                zIndex: 1000
+                flexDirection: ['column', 'column', i % 2 === 0 ? 'row' : 'row-reverse'],
+                alignItems: 'center',
+                mb: [4, 5, 6],
+                gap: [3, 4, 5],
+                animation: i % 2 === 0 ? 'fadeInLeft 0.8s ease-out backwards' : 'fadeInRight 0.8s ease-out backwards',
+                animationDelay: `${Math.min(i * 0.2, 0.8)}s`, // Cap delay at 0.8s for accessibility
+              }}
+              css={{
+                '@keyframes fadeInLeft': {
+                  from: { opacity: 0, transform: 'translateX(-20px)' }, // Reduced movement for accessibility
+                  to: { opacity: 1, transform: 'translateX(0)' }
+                },
+                '@keyframes fadeInRight': {
+                  from: { opacity: 0, transform: 'translateX(20px)' }, // Reduced movement for accessibility
+                  to: { opacity: 1, transform: 'translateX(0)' }
+                }
               }}
             >
               <Box
                 sx={{
-                  position: 'relative',
-                  margin: 'auto',
-                  width: 'fit-content',
-                  lineHeight: 0
+                  flex: ['1 1 auto', '1 1 auto', '0 0 400px'],
+                  width: '100%',
+                  maxWidth: [260, 300, 400, 480],
+                  borderRadius: '2xl',
+                  overflow: 'hidden',
+                  boxShadow: '0 8px 48px #ff660033',
+                  mb: [3, 3, 0],
+                  mx: ['auto', 'auto', 0],
+                  transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out',
+                  ':hover': {
+                    transform: 'scale(1.05)',
+                    boxShadow: '0 16px 60px rgba(255, 102, 0, 0.4)',
+                  }
                 }}
               >
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
+                <Image
+                  src={item.img}
+
+                  alt={item.alt}
+                  sx={{
+
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                    objectFit: 'cover'
+                  }}
+                />
               </Box>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                right: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-          </>
-        )}
-        <MailingList />
-      </Box>
-      <Footer
-        dark
+              <Box sx={{ flex: '1 1 0', px: [2, 3, 4], textAlign: ['center', 'center', 'left'] }}>
+                <Heading
+                  as="h3"
+                  sx={{
+                    fontSize: [2, 3, 4],
+                    fontWeight: 700,
+                    mb: 2,
+                    color: 'orange'
+                  }}
+                >
+                  {item.title}
+                </Heading>
+                <Text
+                  as="p"
+                  sx={{
+                    fontSize: [1, 2, 3],
+                    color: 'muted',
+                    mb: 0,
+                    maxWidth: [null, null, 500],
+                    lineHeight: 1.5
+                  }}
+                >
+                  {item.desc}
+                </Text>
+              </Box>
+            </Flex>
+          ))}
+        </Box>
+      </Container>
+      {/* Background effects */}
+      <Box
         sx={{
-          backgroundColor: 'dark',
-          position: 'relative',
-          overflow: 'hidden',
-          textShadow: '0 1px 2px rgba(0,0,0,0.375)',
-          'h2,span,p,a': { color: 'white !important' },
-          '> div img': { objectPosition: ['left', 'center'] },
-          svg: {
-            fill: 'white',
-            filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
+          position: 'absolute',
+          left: '-20%',
+          top: '-10%',
+          width: '60vw',
+          height: '60vw',
+          background: orangeGradient,
+          opacity: 0.10,
+          filter: 'blur(80px)',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 0,
+          pointerEvents: 'none',
+          opacity: 0.07,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='2' fill='%23fff'/%3E%3C/svg%3E")`,
+          animation: 'bgmove 30s linear infinite'
+        }}
+        css={{
+          '@keyframes bgmove': {
+            '0%': { backgroundPosition: '0 0' },
+            '100%': { backgroundPosition: '200px 200px' }
           }
         }}
-      >
-        <style>
-          {`a{
-          color: #338eda
-        }`}
-        </style>
-      </Footer>
+      />
+    </Box>
+  )
+}
+
+// Add this global style to prevent horizontal overflow/scroll
+export default function Home({ carouselCards }) {
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        {/* Enhanced font loading */}
+        <link
+          rel="preload"
+          href="https://assets.hackclub.com/fonts/Phantom_Sans_0.7/web.css"
+          as="style"
+        />
+        <link
+          rel="stylesheet"
+          href="https://assets.hackclub.com/fonts/Phantom_Sans_0.7/web.css"
+        />
+        
+        <style>{`
+          :root {
+            --hackclub-orange: #ff8c37;
+            --hackclub-red: #ec3750;
+            --hackclub-yellow: #f1c40f;
+            --hackclub-green: #33d6a6;
+            --hackclub-cyan: #5bc0de;
+            --hackclub-blue: #338eda;
+            --hackclub-purple: #a633d6;
+            --hackclub-muted: #8492a6;
+          }
+          
+          html {
+            scroll-behavior: smooth;
+          }
+          
+          body {
+            font-family: 'Phantom Sans', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-text-size-adjust: 100%;
+            overflow-x: hidden;
+            width: 100%;
+            box-sizing: border-box;
+            background: #0f0f0f;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+          }
+          
+          *, *::before, *::after {
+            box-sizing: border-box;
+          }
+          
+          #__next {
+            width: 100%;
+            overflow-x: hidden;
+          }
+          
+          /* Performance optimizations */
+          @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+              animation-duration: 0.01ms !important;
+              animation-iteration-count: 1 !important;
+              transition-duration: 0.01ms !important;
+            }
+            html {
+              scroll-behavior: auto !important;
+            }
+          }
+          
+          /* Optimize for lower-end devices */
+          @media (max-width: 768px) and (max-height: 1024px) {
+            * {
+              animation-duration: 0.2s !important;
+              transition-duration: 0.2s !important;
+            }
+          }
+          
+          /* Better button and link styles */
+          button, a {
+            touch-action: manipulation;
+            cursor: pointer;
+          }
+          
+          /* Enhanced focus styles */
+          a:focus-visible, button:focus-visible, input:focus-visible {
+            outline: 2px solid #ff8c37;
+            outline-offset: 2px;
+            border-radius: 4px;
+          }
+          
+          /* Improved mobile tap targets */
+          @media (max-width: 32em) {
+            button, a[role="button"], input[type="submit"] {
+              min-height: 44px;
+              min-width: 44px;
+            }
+          }
+          
+          /* High contrast mode support */
+          @media (prefers-contrast: high) {
+            button, a {
+              border: 2px solid currentColor;
+            }
+          }
+          
+          /* Dark mode optimization */
+          @media (prefers-color-scheme: dark) {
+            body {
+              color-scheme: dark;
+            }
+          }
+          
+          /* Reduce GPU usage on slower devices */
+          @media (max-width: 1024px) {
+            * {
+              transform: translateZ(0);
+              backface-visibility: hidden;
+              perspective: 1000px;
+            }
+          }
+        `}</style>
+      </Head>
+      
+      <Box sx={{ 
+        bg: 'black', 
+        minHeight: '100vh', 
+        fontFamily: 'Phantom Sans, body',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <HeaderNav />
+        <Hero />
+        <TopicsSection />
+        <Programs carouselCards={carouselCards} />
+        <OuternetHighlight />
+        <JuiceAdventureSection />
+        <SlackSection />
+        <ShowcaseSection />
+        <CallToAction />
+        <NewsletterSection />
+        <BackToTop />
+        <Footer darkMode={true} />
+      </Box>
     </>
   )
 }
-const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
-  const carouselCards = require('../lib/carousel.json')
-
-  // HCB: get total raised
-  let bankData = []
-  let initialBankData = await fetch('https://hcb.hackclub.com/stats')
+  let carouselCards = [];
+  
   try {
-    const bd = await initialBankData.json()
-    let raised = bd.raised / 100
-
-    bankData.push(
-      `💰 ${raised.toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD'
-      })} raised`
-    )
-  } catch {
-    bankData.push('error')
-  }
-
-  // Slack: get total raised
-  const { Slack: Slacky } = require('./api/slack')
-  let slackData = await Slacky()
-
-  // GitHub: get latest github activity (currently this is erroring and
-  // preventing the site from deploying
-
-  const { fetchGitHub } = require('./api/github')
-  let gitHubData = await fetchGitHub()
-
-  //   let gitHubData = null
-
-  // GitHub: get latest GitHub stars
-  const { fetchStars } = require('./api/stars')
-  let stars = await fetchStars()
-
-  // Sprig: get newest games
-  const { getGames } = require('./api/games')
-  let game = await getGames()
-
-  let gameTitle = []
-
-  gameTitle = game.map(r => r.title)
-
-  // Sprig: get console count
-  const { getConsoles } = require('./api/sprig-console')
-  const consoleCount = await getConsoles()
-
-  // Hackathons: get latest hackathons
-  let hackathonsData
-  try {
-    const response = await fetch(
-      'https://hackathons.hackclub.com/api/events/upcoming'
-    )
-    if (response.ok) {
-      hackathonsData = await response.json()
-    } else {
-      hackathonsData = [] // or some default value if the fetch fails
+    // Import AirtablePlus
+    const AirtablePlus = require('airtable-plus');
+    
+    // Initialize Airtable for carousel data
+    const airtable = new AirtablePlus({
+      apiKey: process.env.AIRTABLE_API_KEY,
+      baseID: 'appGoJNyWeZQWC4c8',
+      tableName: 'Carousel Cards'
+    });
+    
+    // Fetch data from Airtable
+    const records = await airtable.read({
+      filterByFormula: '{Active} = TRUE()',
+      sort: [{ field: 'Order', direction: 'asc' }]
+    });
+    
+    // Transform Airtable records to the format expected by the component
+    carouselCards = records.map(record => ({
+      background: record.fields.Background,
+      titleColor: record.fields.TitleColor,
+      descriptionColor: record.fields.DescriptionColor,
+      title: record.fields.Title,
+      description: record.fields.Description,
+      img: record.fields.Image?.[0]?.url || '',
+      link: record.fields.Link
+    }));
+    
+    // Fallback to JSON file if no Airtable records
+    if (!carouselCards.length) {
+      carouselCards = require('../lib/carousel.json');
     }
-  } catch (error) {
-    hackathonsData = [] // or some default value if an error occurs
-  }
-  hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
-
-  let events = []
-  try {
-    await fetch(
-      'https://events.hackclub.com/api/events/upcoming/'
-    ).then(res => res.json())
-  } catch (error) {
-    console.error('Error fetching events:', error)
+  } catch (err) {
+    console.error("Error loading carousel data from Airtable:", err);
+    // Attempt to load from JSON as fallback
+    try {
+      carouselCards = require('../lib/carousel.json');
+    } catch (jsonErr) {
+      console.error("Error loading fallback carousel data:", jsonErr);
+    }
   }
 
   return {
     props: {
-      game,
-      gameTitle,
-      gitHubData,
-      consoleCount,
-      hackathonsData,
-      bankData,
-      slackData,
-      stars,
-      events,
-      carouselCards
+      carouselCards: carouselCards || []
     },
-    revalidate: 60
+    // Revalidate every hour
+    revalidate: 3600
   }
 }
-
-export default Page

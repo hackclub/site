@@ -8,13 +8,16 @@ import Icon from './icon'
 const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' })`
   background: ${props =>
     props.dark
-      ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
+      ? `linear-gradient(135deg, #18181b 0%, #23232b 100%)`
       : `${theme.colors.snow} url('/pattern.svg') repeat`};
   ${props =>
     props.dark &&
     `
       background-size: ${theme.space[4]}px ${theme.space[4]}px;
-    `} @media print {
+    `}
+  border-top: 4px solid;
+  border-image: linear-gradient(90deg, #ff6600 0%, #ff9900 100%) 1;
+  @media print {
     display: none;
   }
 `
@@ -24,10 +27,17 @@ const Logo = props => (
     xmlns="http://www.w3.org/2000/svg"
     width="256"
     height="90"
-    fill="#8492A6"
+    fill="url(#orange-gradient)"
     viewBox="0 0 256 90"
+    style={{filter: 'drop-shadow(0 0 10px rgba(255, 102, 0, 0.3))'}}
     {...props}
   >
+    <defs>
+      <linearGradient id="orange-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#ff6600" />
+        <stop offset="100%" stopColor="#ff9900" />
+      </linearGradient>
+    </defs>
     <path d="M75.156 38.08l6.475 1.105s1.798-11.402-.224-10.199l-6.251 9.094zM204.85 34.495l2.161 5.06s5.237-2.106 4.619-4.915c-.537-2.442-3.098-1.496-5.641-.557h-.001c-.382.142-.764.282-1.138.412zM207.752 43.455s1.483 6.212 1.421 5.93c-.007-.093.397-.247 1.002-.477 2.014-.766 6.257-2.379 4.999-5.453-1.636-3.997-7.422 0-7.422 0z" />
     <path
       fillRule="evenodd"
@@ -56,10 +66,27 @@ const Footer = ({
   ...props
 }) => (
   <Base
-    color={dark ? 'muted' : 'slate'}
+    color="white"
     py={[4, 5]}
-    dark={dark}
-    sx={{ textAlign: 'left' }}
+    dark={true}
+    sx={{ 
+      textAlign: 'left',
+      boxShadow: '0 -8px 32px rgba(0, 0, 0, 0.2)',
+      position: 'relative',
+      zIndex: 1,
+      '::before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        opacity: 0.05,
+        backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M10 10H20M10 10V20M40 10H50M50 10V20M10 50V40M10 50H20M50 50H40M50 50V40\' stroke=\'white\' stroke-opacity=\'0.25\'/%3E%3Ccircle cx=\'10\' cy=\'10\' r=\'2\' fill=\'white\' fill-opacity=\'0.5\'/%3E%3Ccircle cx=\'50\' cy=\'10\' r=\'2\' fill=\'white\' fill-opacity=\'0.5\'/%3E%3Ccircle cx=\'10\' cy=\'50\' r=\'2\' fill=\'white\' fill-opacity=\'0.5\'/%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'2\' fill=\'white\' fill-opacity=\'0.5\'/%3E%3C/svg%3E")',
+        backgroundSize: '100px 100px',
+        zIndex: -1
+      }
+    }}
     as="footer"
     {...props}
   >
@@ -68,23 +95,33 @@ const Footer = ({
       <Grid
         as="article"
         gap={[2, 4]}
-        columns={[2, 3, 4]}
-        sx={{
-          px: 0,
-          a: {
-            textDecoration: 'none',
-            color: 'muted',
-            transition: '0.125s color ease-in-out',
-            ':hover,:focus': { color: 'slate', textDecoration: 'underline' }
-          },
-          '> div > a': {
-            display: 'block',
-            mb: 2
-          },
-          'h2,p': { color: 'muted' },
-          h2: { fontSize: 3 },
-          'a,p': { fontSize: 2 }
-        }}
+        columns={[2, 3, 4]}          sx={{
+            px: 0,
+            a: {
+              textDecoration: 'none',
+              color: 'muted',
+              transition: '0.2s color ease-in-out, 0.2s transform ease-in-out',
+              ':hover,:focus': { 
+                color: '#ff9900', 
+                textDecoration: 'underline',
+                transform: 'translateX(2px)',
+                textShadow: '0 0 8px rgba(255, 153, 0, 0.5)'
+              }
+            },
+            '> div > a': {
+              display: 'block',
+              mb: 2
+            },
+            'h2,p': { color: 'white' },
+            h2: { 
+              fontSize: 3,
+              background: 'linear-gradient(90deg, #ff6600 0%, #ff9900 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              display: 'inline-block'
+            },
+            'a,p': { fontSize: 2 }
+          }}
       >
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
@@ -123,19 +160,26 @@ const Footer = ({
           <Logo aria-label="Hack Club logo" width={128} height={45} />
           <Grid
             columns={[8, 4]}
-            gap={2}
-            sx={{
+            gap={2}            sx={{
               alignItems: 'center',
               ml: -1,
               my: 3,
               maxWidth: [null, 192],
-              svg: { fill: 'currentColor', width: 32, height: 32 },
+              svg: { 
+                fill: 'currentColor', 
+                width: 32, 
+                height: 32 
+              },
               a: {
                 lineHeight: 0,
                 mb: 0,
-                transition:
-                  'transform .125s ease-in-out, color .125s ease-in-out',
-                ':hover,:focus': { transform: 'scale(1.125)' }
+                color: '#ff6600',
+                transition: 'transform .2s ease-in-out, color .2s ease-in-out',
+                ':hover,:focus': { 
+                  transform: 'scale(1.2)',
+                  color: '#ff9900',
+                  filter: 'drop-shadow(0 0 8px rgba(255, 153, 0, 0.5))'
+                }
               },
               placeItems: 'center'
             }}
@@ -186,8 +230,18 @@ const Footer = ({
             </Text>
           </Text>
         </Box>
-      </Grid>
-      <Text as="p" variant="caption" sx={{ mt: 3 }}>
+      </Grid>      <Text as="p" variant="caption" sx={{ mt: 3, color: 'muted', position: 'relative' }}>
+        <Box 
+          sx={{ 
+            position: 'absolute', 
+            height: '2px', 
+            width: '120px', 
+            background: 'linear-gradient(90deg, #ff6600 0%, #ff9900 100%)', 
+            top: '-8px', 
+            left: 0, 
+            borderRadius: '1px'
+          }} 
+        />
         © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
         81-2908499)
       </Text>

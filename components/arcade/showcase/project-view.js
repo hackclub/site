@@ -99,7 +99,7 @@ const ProjectView = ({
   }, [readMeLink])
 
   return (
-    // export a css property for each of the color and dark color
+    // Export a CSS property for each of the color and dark color
     <div
       {...props}
       className="gaegu"
