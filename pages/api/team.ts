@@ -12,43 +12,55 @@ interface TeamMember {
   overrideAvatar: string
   email: string
   website: string
-  pronouns: string
+  pronouns?: string
   avatar: string
 }
+
+// Cache duration in seconds (5 minutes)
+const CACHE_DURATION = 5 * 60
 
 export async function fetchTeam() {
   const current: TeamMember[] = []
   const acknowledged: TeamMember[] = []
 
-  for (const member of teamMembers as TeamMember[]) {
-    if (process.env.SLACK_API_TOKEN) {
-      const formData = new FormData()
-      formData.append('token', process.env.SLACK_API_TOKEN)
-      formData.append('user', member.slackId)
+  try {
+    // Get user cache directly from the team-cache module
+    // This is more reliable in serverless environments than making HTTP requests
+    const { getUserCache } = await import('./team-cache')
+    const userDataCache = await getUserCache()
 
-      const slackData = await fetch(
-        `https://hackclub.slack.com/api/users.profile.get?user=${member.slackId}`,
-        {
-          method: 'POST',
-          headers: {
-            'content-type': 'multipart/form-data',
-            cookie: process.env.SLACK_API_COOKIE || ''
-          },
-          body: formData
+    for (const member of teamMembers as TeamMember[]) {
+      // Always use cachet.dunkirk.sh for avatar images
+      if (member.slackId) {
+        member.avatar = `https://cachet.dunkirk.sh/users/${member.slackId}/r`
+
+        // Apply cached pronouns if available
+        if (userDataCache[member.slackId]?.pronouns) {
+          member.pronouns = userDataCache[member.slackId].pronouns
         }
-      ).then(r => r.json())
+      }
 
-      if (slackData.ok) {
-        member.pronouns = slackData.profile.pronouns
+      if (member.acknowledged) {
+        acknowledged.push(member)
       } else {
-        console.warn('Not found:', member.slackId)
+        current.push(member)
       }
     }
+  } catch (error) {
+    console.error('Error fetching cached team data:', error)
+    
+    // Fallback if cache fails
+    for (const member of teamMembers as TeamMember[]) {
+      // Always use cachet.dunkirk.sh for avatar images
+      if (member.slackId) {
+        member.avatar = `https://cachet.dunkirk.sh/users/${member.slackId}/r`
+      }
 
-    if (member.acknowledged) {
-      acknowledged.push(member)
-    } else {
-      current.push(member)
+      if (member.acknowledged) {
+        acknowledged.push(member)
+      } else {
+        current.push(member)
+      }
     }
   }
 
@@ -59,5 +71,10 @@ export default async function handler(
   _req: NextApiRequest,
   res: NextApiResponse
 ) {
+  // Set cache headers
+  res.setHeader(
+    'Cache-Control',
+    `s-maxage=${CACHE_DURATION}, stale-while-revalidate`
+  )
   res.status(200).json(await fetchTeam())
 }
