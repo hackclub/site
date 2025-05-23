@@ -404,7 +404,7 @@ const Navigation = props => {
               <Icon glyph="github" size={28} style={{ color: '#222' }} />
             </Link>
             <Link
-              href="https://youtube.com/hackclub"
+              href="https://youtube.com/c/HackClubHQ"
               target="_blank"
               rel="noopener noreferrer"
               sx={{ color: '#222', p: 2, display: 'flex', alignItems: 'center' }}
@@ -413,7 +413,7 @@ const Navigation = props => {
               <Icon glyph="youtube" size={28} style={{ color: '#222' }} />
             </Link>
             <Link
-              href="https://hackclub.com/slack"
+              href="/slack"
               target="_blank"
               rel="noopener noreferrer"
               sx={{ color: '#222', p: 2, display: 'flex', alignItems: 'center' }}

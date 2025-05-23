@@ -95,7 +95,7 @@ const MailingList = () => {
   }, [])
 
   return (
-    <Box sx={{ position: 'relative', py: 6, background: 'snow' }}>
+    <Box sx={{ position: 'relative', py: 6, pt: 5, background: 'snow' }}>
       <Card
         sx={{
           maxWidth: '1050px',
@@ -122,7 +122,8 @@ const MailingList = () => {
               flexDirection: 'column',
               gap: '15px',
               width: ['100%', '100%', '75%'],
-              p: [3, 4]
+              p: [3, 4],
+              pt: "3px !important",
             }}
           >
             <Box>

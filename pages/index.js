@@ -79,7 +79,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
   }, [])
 
   return (
-    <Box className="carousel" sx={{
+    <Box sx={{
       position: 'absolute',
       width: '100%',
       height: '100%',
@@ -800,7 +800,7 @@ function Page({
                 <Button
                   variant="cta"
                   as="a"
-                  href="https://hackclub.com/philosophy/"
+                  href="/philosophy"
                   mt={[3, 0, 0]}
                   sx={{
                     transformOrigin: 'center left',
@@ -950,7 +950,7 @@ function Page({
                 <Button
                   variant="outline"
                   as="a"
-                  href="/projects"
+                  href="https://ysws.hackclub.com/"
                   sx={{
                     borderRadius: 'circle',
                     fontWeight: 'bold',
@@ -1274,7 +1274,7 @@ function Page({
               </Box>
 
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, paddingTop: "32px" }}>
-                <Box className="weirdBox" sx={{
+                <Box sx={{
                   mb: 0,
                   '& > div': {
                     '& > div': {
@@ -1449,10 +1449,57 @@ function Page({
                         '@keyframes titleFloat': {
                           '0%, 100%': { transform: 'translateY(0)' },
                           '50%': { transform: 'translateY(-10px)' }
-                        }
+                        },
+                        position: 'relative'
                       }}
                     >
-                      Live from GitHub
+                      <Box
+                        sx={{
+                          position: 'relative',
+                          display: 'inline-block',
+                          width: 'fit-content'
+                        }}
+                      >
+                        <Text
+                          as="span"
+                          sx={{
+                            position: 'relative',
+                            '&::after': {
+                              content: '""',
+                              position: 'absolute',
+                              left: 0,
+                              top: '50%',
+                              width: '100%',
+                              height: '3px',
+                              background: 'red',
+                              borderRadius: '3px',
+                              transform: 'rotate(-5deg)',
+                              opacity: 0.8,
+                              zIndex: 2
+                            }
+                          }}
+                        >
+                          Live from
+                        </Text>
+                        <Text
+                          as="span"
+                          sx={{
+                            position: 'absolute',
+                            top: '-18px',
+                            left: '-5px',
+                            transform: 'rotate(-8deg)',
+                            fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                            fontSize: ['16px', '18px', '20px'],
+                            color: 'red',
+                            fontWeight: 'bold',
+                            textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                            zIndex: 3,
+                          }}
+                        >
+                          poppin' on
+                        </Text>
+                      </Box>{' '}
+                      GitHub
                     </Text>
 
                     {gitHubData
