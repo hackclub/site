@@ -17,7 +17,7 @@ import { useEffect, useState, useRef } from 'react'
 import Footer from '../../components/footer'
 import { keyframes } from '@emotion/react'
 import RsvpForm from '../../components/bin/rsvp-form'
-import { Fade } from 'react-reveal'
+import { Fade } from 'react-swift-reveal'
 import ForceTheme from '../../components/force-theme'
 import JSConfetti from 'js-confetti'
 import Sparkles from '../../components/sparkles'
@@ -192,13 +192,13 @@ export default function Bin() {
           <Container sx={{ position: 'relative' }}>
             <Box as="section" sx={{ textAlign: 'center', pt: '4em', overflow: 'hidden' }}>
               <ExpiresAt expirationDate={new Date(2024, 3, 13)}>
-              <Box sx={{ mt: 3 }}>
-                <Announcement
-                  copy="Please pardon our dust!"
-                  caption="You found us a little early! We're still building this page, but you can RSVP early."
-                  iconLeft="welcome"
-                />
-              </Box>
+                <Box sx={{ mt: 3 }}>
+                  <Announcement
+                    copy="Please pardon our dust!"
+                    caption="You found us a little early! We're still building this page, but you can RSVP early."
+                    iconLeft="welcome"
+                  />
+                </Box>
               </ExpiresAt>
               <Box sx={{
                 '@media (prefers-reduced-motion: no-preference)': {
@@ -227,27 +227,27 @@ export default function Bin() {
                 </Sparkles>
               </Box>
               <Text sx={{ fontWeight: 'bold' }}>
-              Build{' '}
-              <em>
+                Build{' '}
+                <em>
 
-                <TypeAnimation
-                cursor={false}
-                sequence={[
-                  // Same substring at the start will only be typed out once, initially
-                  'a laser guided nerf gun',
-                  1000, // wait 1s before replacing "Mice" with "Hamsters"
-                  'a clap activated lamp',
-                  1000,
-                  'a temperature activated Febreze can',
-                  1000,
-                  'a flame actuated speaker',
-                  1000,
-                  'a light dependant door',
-                  1000
-                ]}
-                repeat={Infinity}
-                />
-              </em>
+                  <TypeAnimation
+                    cursor={false}
+                    sequence={[
+                      // Same substring at the start will only be typed out once, initially
+                      'a laser guided nerf gun',
+                      1000, // wait 1s before replacing "Mice" with "Hamsters"
+                      'a clap activated lamp',
+                      1000,
+                      'a temperature activated Febreze can',
+                      1000,
+                      'a flame actuated speaker',
+                      1000,
+                      'a light dependant door',
+                      1000
+                    ]}
+                    repeat={Infinity}
+                  />
+                </em>
                 {' '}
                 with parts you pick out.
                 <br />

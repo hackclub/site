@@ -11,7 +11,7 @@ import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import Apply from '../../components/hackathons/grant/apply'
 
-import Zoom from 'react-reveal/Zoom'
+import { Zoom } from 'react-swift-reveal'
 /** @jsxImportSource theme-ui */
 
 const styles = `
@@ -106,7 +106,7 @@ const HackathonGrant = () => {
               <Flex
                 sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
               >
-                <NextLink href="https://hackclub.com" passHref>
+                <NextLink href="https://hackclub.com" passHref legacyBehavior>
                   <Box
                     as="a"
                     width={64}
@@ -155,20 +155,20 @@ const HackathonGrant = () => {
             >
               Want to attend a hackathon?
               <Button
-              variant="ctaLg"
-              as="a"
-              href="https://hackathons.hackclub.com"
-              sx={{
-                ml: [0, 3],
-                mt: 2,
-                backgroundImage: t => t.util.gx('green', 'blue')
-              }}
-            >
-              <Text>
-                Find hackathons{' '}
-                <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
-              </Text>
-            </Button>
+                variant="ctaLg"
+                as="a"
+                href="https://hackathons.hackclub.com"
+                sx={{
+                  ml: [0, 3],
+                  mt: 2,
+                  backgroundImage: t => t.util.gx('green', 'blue')
+                }}
+              >
+                <Text>
+                  Find hackathons{' '}
+                  <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
+                </Text>
+              </Button>
             </Box>
           </Box>
         </Box>
@@ -437,7 +437,7 @@ const HackathonGrant = () => {
       </Zoom>
       <Footer dark key="footer" />
     </>
-  )
+  );
 }
 
 export default HackathonGrant

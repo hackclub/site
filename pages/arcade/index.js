@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import { Box, Text, Flex, Grid, Card, Close, Divider, Heading } from 'theme-ui'
-import Image from 'next/image'
+import Image from "next/image"
 import fs from 'fs'
 import path from 'path'
 import { startCase } from 'lodash'
@@ -14,7 +14,7 @@ import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../../components/arcade/footer'
 import Balancer from 'react-wrap-balancer'
-import { Fade } from 'react-reveal'
+import { Fade } from 'react-swift-reveal'
 import Join from '../../components/arcade/join'
 import Announcement from '../../components/announcement'
 import Link from 'next/link'
@@ -626,7 +626,10 @@ const Sticker = ({ st }) => {
             width={128}
             height={128}
             alt={st.split('.')[0]}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
           <Text
             as="span"
             variant="caption"
@@ -656,7 +659,7 @@ const Sticker = ({ st }) => {
         />
       </Box>
     </Box>
-  )
+  );
 }
 
 const Item = ({ name, img, cost }) => {
@@ -1086,12 +1089,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                   }}
                 >
                   The Arcade closed September 1st, but you can still join the <a
-                      href="https://hackclub.com/slack"
-                      target="_blank"
-                      sx={{ color: 'inherit' }}
-                    >
-                      Hack Club Slack
-                    </a>!
+                    href="https://hackclub.com/slack"
+                    target="_blank"
+                    sx={{ color: 'inherit' }}
+                  >
+                    Hack Club Slack
+                  </a>!
                 </Text>
               )}
             </Fade>
@@ -1325,7 +1328,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 position: 'relative',
                 marginBottom: ['-900px', '-820px', '-850px', '-1020px'],
                 marginTop: ['120px', '120px', '120px', '150px'],
-                width: ['110vw','105vw']
+                width: ['110vw', '105vw']
               }}
             >
               <Ticker speed={5}>

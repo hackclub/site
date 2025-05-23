@@ -84,7 +84,7 @@ export default function Shop({
         description="Check out the prizes at the Arcade Shop!"
         image="https://cloud-luaw423i2-hack-club-bot.vercel.app/0frame_33__1_.png"
       />
-      <meta name="darkreader-lock"/>
+      <meta name="darkreader-lock" />
       <style>
         {`
         ._title-container {
@@ -118,17 +118,17 @@ export default function Shop({
             pointerEvents: 'none'
           }}
         />
-         <img
-            src="/arcade/r6.png"
-            alt="Dino!"
-            sx={{
-              width: ['35%', '35%', '35%', '50%'],
-              maxWidth: '210px',
-              position: 'absolute',
-              right: '50px',
-              bottom: '0'
-            }}
-          />
+        <img
+          src="/arcade/r6.png"
+          alt="Dino!"
+          sx={{
+            width: ['35%', '35%', '35%', '50%'],
+            maxWidth: '210px',
+            position: 'absolute',
+            right: '50px',
+            bottom: '0'
+          }}
+        />
         <Flag sx={{ display: 'block', zIndex: 4, ml: 5 }} />
         <img
           src="/arcade/o6.png"
@@ -144,29 +144,29 @@ export default function Shop({
           }}
         />
         <img
-        src="/arcade/o2.png"
-        alt="Dino drawing"
-        sx={{
-          width: ['35%', '35%', '35%', '50%'],
-          maxWidth: '210px',
-          position: 'absolute',
-          transform: 'rotate(90deg)',
-          left: '-20px',
-          bottom: '5000px'
-        }}
-      />
-      <img
-        src="/arcade/o7.png"
-        alt="Dino drawing"
-        sx={{
-          width: ['35%', '35%', '35%', '50%'],
-          maxWidth: '210px',
-          position: 'absolute',
-          transform: 'rotate(-90deg)',
-          right: '0px',
-          bottom: '2500px'
-        }}
-      />
+          src="/arcade/o2.png"
+          alt="Dino drawing"
+          sx={{
+            width: ['35%', '35%', '35%', '50%'],
+            maxWidth: '210px',
+            position: 'absolute',
+            transform: 'rotate(90deg)',
+            left: '-20px',
+            bottom: '5000px'
+          }}
+        />
+        <img
+          src="/arcade/o7.png"
+          alt="Dino drawing"
+          sx={{
+            width: ['35%', '35%', '35%', '50%'],
+            maxWidth: '210px',
+            position: 'absolute',
+            transform: 'rotate(-90deg)',
+            right: '0px',
+            bottom: '2500px'
+          }}
+        />
         <Box
           sx={{
             position: 'relative',
@@ -322,7 +322,7 @@ export default function Shop({
               <ShopComponent availableItems={dItems} pub="True" />
             </>
           ) : (
-            <ShopComponent availableItems={items}  pub="True"/>
+            <ShopComponent availableItems={items} pub="True" />
           )}
         </Box>
       </Box>
@@ -346,7 +346,7 @@ export async function getStaticProps() {
         'Image URL': item['Image URL'] || null,
         'Max Order Quantity': item['Max Order Quantity'] || 1,
         Stock: item['Stock'] >= 0 ? item['Stock'] : null,
-         Category: item['Category'] || ''
+        Category: item['Category'] || ''
       }))
 
       props.availableItems = availableItems

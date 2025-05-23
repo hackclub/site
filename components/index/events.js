@@ -14,7 +14,7 @@ const Event = ({ id, slug, title, desc, leader, avatar, start, end, cal }) => (
     passHref
     target="_blank"
     rel="noopener"
-  >
+    legacyBehavior>
     <Box
       as="a"
       sx={{

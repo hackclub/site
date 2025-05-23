@@ -1,6 +1,6 @@
 import Icon from '@hackclub/icons'
 import { useState } from 'react'
-import { Avatar, Box, Card, Flex, Text } from 'theme-ui'
+import { Avatar, Box, Card, Flex, Text, Link } from 'theme-ui'
 
 export default function Bio({ popup = true, spanTwo = false, ...props }) {
   const { img, name, teamRole, pronouns, text, subrole, email, href, video } =
@@ -28,8 +28,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           position: 'relative'
         }}
         as={href && !text ? 'a' : 'div'}
-        href={href}
-        target="_blank"
+        {...(href && !text ? { href, target: "_blank" } : {})}
         onClick={() => {
           if (text && popup) {
             setExpand(true)
@@ -62,7 +61,6 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
               <Text
                 color="#24B5A5"
                 variant="subheadline"
-                fontSize={2}
                 sx={{
                   mb: ['0px', '0px', '0px'],
                   fontSize: '1.1em',
@@ -88,7 +86,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                 </>
               )}
               {pronouns && (
-                <Text fontSize={1} ml={1} color="muted" align="center">
+                <Text sx={{ fontSize: 1, align: 'center' }} ml={1} color="muted">
                   ({pronouns})
                 </Text>
               )}
@@ -97,19 +95,18 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
           {!popup &&
             email &&
             (email.includes('@') ? (
-              <Text color="muted" as={'a'} href={`mailto:${email}`}>
+              <Link color="muted" href={`mailto:${email}`}>
                 {email}
                 <br />
-              </Text>
+              </Link>
             ) : (
-              <Text
+              <Link
                 color="muted"
-                as={'a'}
                 href={`mailto:${email}@hackclub.com`}
               >
                 {email}@hackclub.com
                 <br />
-              </Text>
+              </Link>
             ))}
 
           {!popup && (
@@ -130,9 +127,9 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                     width="100%"
                     src={video}
                     title="YouTube video player"
-                    frameborder="0"
+                    style={{ border: 0 }}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
+                    allowFullScreen
                   />
                 </Flex>
               )}
@@ -149,7 +146,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
               >
                 <Icon glyph="external-fill" size={24} />
               </Text>
-              <Text
+              <Link
                 mt={1}
                 mb={0}
                 color="black"
@@ -159,7 +156,7 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
                 sx={{ transform: 'translateX(-2px)' }}
               >
                 {href}
-              </Text>
+              </Link>
             </Flex>
           )}
         </Box>

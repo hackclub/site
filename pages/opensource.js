@@ -240,7 +240,7 @@ export default Page
 
 export async function getStaticProps() {
   const octokit = new Octokit({
-    auth: process.env.GITHUB
+    auth: process.env.GITHUB || process.env.GITHUB_TOKEN
   })
   const repos = await octokit.paginate('GET /orgs/{org}/repos', {
     org: 'hackclub'

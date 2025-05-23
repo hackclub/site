@@ -32,12 +32,12 @@ const ReadmeRenderer = ({ markdown }) => {
             <code className={className} {...props}>
               {children}
             </code>
-          )
+          );
         }
       }}
     >
       {markdown}
     </ReactMarkdown>
-  )
+  );
 }
 export default ReadmeRenderer

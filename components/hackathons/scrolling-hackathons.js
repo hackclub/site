@@ -61,7 +61,7 @@ export default function ScrollingHackathons({
               sx={{ color: 'muted', mr: 2, textAlign: 'center' }}
             >
               from{' '}
-              <NextLink href="https://hackathons.hackclub.com" passHref>
+              <NextLink href="https://hackathons.hackclub.com" passHref legacyBehavior>
                 <Link sx={{ color: 'currentcolor' }}>
                   hackathons.hackclub.com
                 </Link>
@@ -87,7 +87,7 @@ export default function ScrollingHackathons({
         )}
       </PageVisibility>
     </>
-  )
+  );
 }
 
 const flashing = keyframes({

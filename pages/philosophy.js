@@ -269,7 +269,7 @@ export default function Philosophy() {
           >
             Start a club
           </Button>
-          <NextLink href="/slack" passHref>
+          <NextLink href="/slack" passHref legacyBehavior>
             <Button sx={{ bg: 'white', color: 'red' }} as="a">
               Join our Slack
             </Button>
@@ -278,5 +278,5 @@ export default function Philosophy() {
       </Box>
       <Footer light />
     </Box>
-  )
+  );
 }

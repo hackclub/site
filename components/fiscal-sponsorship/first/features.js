@@ -1,9 +1,9 @@
 import { Box, Heading, Link, Text, Container, Card, Image } from 'theme-ui'
 import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
-import NextImage from 'next/image'
+import NextImage from "next/image"
 
-import Fade from 'react-reveal/Fade'
+import { Fade } from 'react-swift-reveal'
 
 export default function Features() {
   return (
@@ -41,7 +41,6 @@ export default function Features() {
         <br />
         <br />
       </Container>
-
       <Container>
         <Masonry
           breakpointCols={{
@@ -69,7 +68,10 @@ export default function Features() {
                 alt="iPad"
                 width={500}
                 height={300}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </Link>
           </ModuleDetails>
 
@@ -265,7 +267,6 @@ export default function Features() {
           are provided by FDIC-certified financial institutions.
         </Text>
       </Container>
-
       <style>{`
       .masonry-posts {
         display: flex;
@@ -318,7 +319,7 @@ export default function Features() {
 
     `}</style>
     </Box>
-  )
+  );
 }
 
 function Module({ icon, name, body, iconColor }) {

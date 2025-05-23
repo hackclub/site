@@ -328,7 +328,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           display: hiddenOnMobile ? 'none' : 'flex'
         }}
       >
-        <NextLink scroll={false} href={'/fiscal-sponsorship/climate'}>
+        <NextLink scroll={false} href={'/fiscal-sponsorship/climate'} legacyBehavior>
           <Flex
             sx={{
               alignItems: 'center',
@@ -384,7 +384,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
             href={`/fiscal-sponsorship/climate/organizations-in-${kebabCase(
               item.label
             )}`}
-          >
+            legacyBehavior>
             <Flex
               sx={{
                 alignItems: 'center',
@@ -445,7 +445,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
         ))}
       </Flex>
     </>
-  )
+  );
 }
 
 const Filtering = ({ mobile, region, ...props }) => {

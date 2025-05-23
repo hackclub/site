@@ -20,6 +20,7 @@ export default function Trail() {
         <Flex
           sx={{
             flexDirection: 'column',
+            flexDirection: 'column',
             justifyContent: 'space-between'
           }}
         >

@@ -1,12 +1,12 @@
 import { Box, Container, Heading, Card, Text, Grid } from 'theme-ui'
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
-import ForceTheme from '/components/force-theme'
+import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Link from 'next/link'
 import Icon from '../../components/icon'
-import Image from 'next/image'
+import Image from "next/image"
 import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
 import { compact } from 'lodash'
 
@@ -17,7 +17,7 @@ const JobListing = ({
   positionLocation,
   positionType
 }) => (
-  <Link href={positionLink} passHref>
+  <Link href={positionLink} passHref legacyBehavior>
     <Card
       variant="sunken"
       as="a"
@@ -104,9 +104,11 @@ const Page = ({ jobs }) => (
           <Image
             src={zephyrPic}
             alt="Hack Clubbers hacking during the Hacker Zephyr trip"
-            layout="fill"
-            objectFit="cover"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
         </Box>
         <Container>
           <Heading

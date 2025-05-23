@@ -51,7 +51,6 @@ export default function Clubs() {
         as="h3"
         sx={{
           borderRadius: 'default',
-          px: 2,
           mx: [-2, 0],
           whiteSpace: [null, 'nowrap', 'nowrap'],
           fontSize: ['36px', 4, 5],
