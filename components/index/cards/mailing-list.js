@@ -95,16 +95,20 @@ const MailingList = () => {
   }, [])
 
   return (
-    <Box sx={{ position: 'relative', py: 6, background: 'darker' }}>
+    <Box sx={{ position: 'relative', py: 6, background: 'snow' }}>
       <Card
         sx={{
           maxWidth: '1050px',
           mx: 'auto',
-          // mt: [3, 4],
-          background: 'rgb(255,255,255, 0.45)',
+          background: '#fdf6ee',
           position: 'relative',
           zIndex: 2,
-          backdropFilter: 'blur(8px)'
+          border: '5px solid #e4d6c3',
+          borderRadius: '2.75rem',
+          boxShadow: '0 12px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10)',
+          overflow: 'hidden',
+          transform: 'rotate(-0.5deg)',
+          padding: [3, 4]
         }}
       >
         <Flex
@@ -116,8 +120,9 @@ const MailingList = () => {
               justifyContent: 'center',
               alignItems: ['left', 'left', 'center'],
               flexDirection: 'column',
-              gap: '10px',
-              width: ['100%', '100%', '75%']
+              gap: '15px',
+              width: ['100%', '100%', '75%'],
+              p: [3, 4]
             }}
           >
             <Box>
@@ -126,17 +131,21 @@ const MailingList = () => {
                 sx={{
                   fontSize: [4, '36px', '42px', 6],
                   zIndex: 2,
-                  textAlign: 'left'
+                  textAlign: 'left',
+                  color: '#513f31',
+                  fontWeight: 900,
+                  textShadow: '0 1px 0 rgba(255,255,255,0.5)'
                 }}
               >
                 Join the newsletter
               </Text>
               <Text
                 sx={{
-                  color: 'darkless',
+                  color: '#665040',
                   mt: 2,
                   fontSize: 3,
-                  textAlign: 'left'
+                  textAlign: 'left',
+                  lineHeight: 1.5
                 }}
                 as="p"
               >
@@ -146,6 +155,16 @@ const MailingList = () => {
                   href="https://workshops.hackclub.com/leader-newsletters/"
                   target="_blank"
                   rel="noopener norefferer"
+                  sx={{
+                    color: '#ec3750',
+                    fontWeight: 'bold',
+                    transition: 'all 0.2s',
+                    '&:hover': {
+                      color: '#ff8c37',
+                      textDecoration: 'none',
+                      transform: 'translateY(-2px)'
+                    }
+                  }}
                 >
                   previous issues
                 </Link>
@@ -156,12 +175,12 @@ const MailingList = () => {
               as="form"
               ref={formRef}
               onSubmit={handleSubmit}
-              gap={[2, 3]}
+              gap={[3, 4]}
               sx={{
                 textAlign: 'center',
                 alignItems: 'end',
-                input: { bg: 'sunken' },
-                width: '100%'
+                width: '100%',
+                mt: 2
               }}
             >
               <Box sx={{ width: '100%' }}>
@@ -175,11 +194,22 @@ const MailingList = () => {
                   sx={{
                     width: '100%',
                     textAlign: 'center',
-                    fontSize: 2
+                    fontSize: 2,
+                    bg: 'white',
+                    border: '3px solid #e4d6c3',
+                    borderRadius: '0.8rem',
+                    py: 2,
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                    transition: 'all 0.2s',
+                    '&:hover, &:focus': {
+                      borderColor: '#ec3750',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 4px 8px rgba(0,0,0,0.15)'
+                    }
                   }}
                 />
               </Box>
-              <div>
+              <Box>
                 <Input
                   autofillBackgroundColor="highlight"
                   type="email"
@@ -190,11 +220,45 @@ const MailingList = () => {
                   sx={{
                     width: '100%',
                     textAlign: 'center',
-                    fontSize: 2
+                    fontSize: 2,
+                    bg: 'white',
+                    border: '3px solid #e4d6c3',
+                    borderRadius: '0.8rem',
+                    py: 2,
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                    transition: 'all 0.2s',
+                    '&:hover, &:focus': {
+                      borderColor: '#ec3750',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 4px 8px rgba(0,0,0,0.15)'
+                    }
                   }}
                 />
-              </div>
-              <Button type="submit" sx={{ mt: [2, 0], fontSize: 2 }}>
+              </Box>
+              <Button
+                type="submit"
+                sx={{
+                  mt: [2, 2],
+                  fontSize: 2,
+                  borderRadius: '0.8rem',
+                  py: 2,
+                  px: 4,
+                  fontWeight: 800,
+                  bg: '#ec3750',
+                  transition: 'all 0.2s',
+                  boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
+                  '&:hover': {
+                    transform: 'translateY(-2px) rotate(-1deg)',
+                    boxShadow: '0 6px 12px rgba(0,0,0,0.2)'
+                  },
+                  '&:active': {
+                    transform: 'translateY(1px)'
+                  },
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 2
+                }}
+              >
                 {submitting ? (
                   <>
                     <Loading /> Subscribe
@@ -204,7 +268,10 @@ const MailingList = () => {
                     <Icon glyph="send" /> You're on the list!
                   </>
                 ) : (
-                  'Subscribe'
+                  <>
+                    <Icon glyph="email" size={24} />
+                    Subscribe
+                  </>
                 )}
               </Button>
             </Grid>
@@ -214,7 +281,8 @@ const MailingList = () => {
               display: 'grid',
               gridGap: 4,
               mt: [4, 0],
-              width: '100%'
+              width: '100%',
+              p: [3, 4]
             }}
           >
             {data.finalHtml
@@ -228,20 +296,24 @@ const MailingList = () => {
                   )}
                   link={data.names[index]}
                   key={index}
+                  sx={{
+                    border: '3px solid #e4d6c3',
+                    borderRadius: '1.2rem',
+                    bg: 'rgba(255, 255, 255, 0.8)',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                    transition: 'all 0.2s',
+                    overflow: 'hidden',
+                    '&:hover': {
+                      transform: 'translateY(-4px) rotate(1deg)',
+                      boxShadow: '0 8px 24px rgba(0,0,0,0.15)'
+                    }
+                  }}
                 />
               ))
               .reverse()}
           </Box>
         </Flex>
       </Card>
-      <BGImg
-        width={2544}
-        height={2048}
-        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
-        src={background}
-        placeholder="blur"
-        alt="Globe with hundreds of Hack Clubs"
-      />
     </Box>
   )
 }
