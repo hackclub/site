@@ -12,6 +12,7 @@ const Stage = ({ icon, color, name, desc, children, ...props }) => (
           borderRadius: 18,
           lineHeight: 0,
           p: 2,
+          color: '#513f31',
           mb: 1,
           display: 'inline-block',
           transform: ['scale(0.75)', 'none'],

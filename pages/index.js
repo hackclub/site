@@ -1768,7 +1768,7 @@ function Page({
         </Box>
 
 
-        <Box py={[4, 5, '82px']}>
+        <Box py={[4, 5, '82px']} sx={{ pb: "0px !important" }}>
           <Box
             sx={{
               width: '90vw',
@@ -1782,32 +1782,68 @@ function Page({
                 variant="eyebrow"
                 sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
               >
-                We've got a lot going on - Let's recap
+                Start your journey today
               </Text>
               <Text
                 variant="title"
                 as="h2"
                 sx={{
                   fontSize: ['36px', '48px', '72px'],
-                  width: '16ch',
+                  color: '#513f31',
+                  textShadow: '1px 1px 0 rgba(255,255,255,0.6)',
+                  mb: 2,
                   textAlign: 'center',
-                  margin: 'auto'
+                  fontWeight: 900
                 }}
               >
-                Find your second home at{' '}
-                <Text
-                  as="span"
+                Find {' '}
+                <Box
                   sx={{
-                    borderRadius: 'default',
-                    ml: 0,
-                    whiteSpace: ['wrap', 'nowrap'],
-                    background: theme => theme.util.gx('red', 'orange'),
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent'
+                    position: 'relative',
+                    display: 'inline-block',
+                    width: 'fit-content'
                   }}
                 >
-                  Hack&nbsp;Club
-                </Text>
+                  <Text
+                    as="span"
+                    sx={{
+                      position: 'relative',
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        left: 0,
+                        top: '50%',
+                        width: '100%',
+                        height: '5px',
+                        background: 'red',
+                        borderRadius: '4px',
+                        transform: 'rotate(-5deg)',
+                        opacity: 0.8,
+                        zIndex: 2
+                      }
+                    }}
+                  >
+                    fulfillment
+                  </Text>
+                  <Text
+                    as="span"
+                    sx={{
+                      position: 'absolute',
+                      top: '-15px',
+                      left: '-12px',
+                      transform: 'rotate(-8deg)',
+                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontSize: ['16px', '18px', '24px'],
+                      color: 'red',
+                      fontWeight: 'bold',
+                      textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                      zIndex: 3,
+                    }}
+                  >
+                    your purpose
+                  </Text>
+                </Box>{' '}
+                at Hack Club
               </Text>
             </Box>
             <Grid
@@ -1816,17 +1852,7 @@ function Page({
               gap={3}
               columns={[1, 2, 3]}
               sx={{
-                textAlign: 'left',
-                '> a, > div': {
-                  borderRadius: 'extra',
-                  boxShadow: 'elevated',
-                  p: [3, null, 4]
-                },
-                span: {
-                  boxShadow:
-                    '-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)'
-                },
-                svg: { fill: 'currentColor' }
+                textAlign: 'left'
               }}
             >
               <Card
@@ -1836,39 +1862,23 @@ function Page({
                 rel="noopener"
                 variant="interactive"
                 sx={{
+                  borderRadius: '1.75rem',
+                  border: '5px solid #33d6a6',
+                  boxShadow: '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
                   background:
                     'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
                   color: 'white',
-                  svg: { color: 'rgb(51, 142, 218)' },
                   position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
-                  },
-                  ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
-                    }
+                  overflow: 'hidden',
+                  transition: 'transform 0.2s, box-shadow 0.2s',
+                  '&:hover': {
+                    transform: 'translateY(-8px) rotate(-1deg)',
+                    boxShadow: '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
                   }
                 }}
               >
-                <Icon
-                  glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: ['18px', '20px', '22px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
                 <Stage
-                  icon="slack"
+                  icon="channel"
                   color="white"
                   name="Join Our Slack"
                   desc="Connect with other technical teenagers on Slack and hack on things together."
@@ -1883,44 +1893,27 @@ function Page({
                 />
               </Card>
               <Card
+                as="a"
+                href="https://github.com/hackclub"
+                target="_blank"
+                rel="noopener"
+                variant="interactive"
                 sx={{
+                  borderRadius: '1.75rem',
+                  border: '5px solid #fb558e',
+                  boxShadow: '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
                   background:
                     'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
                   color: 'white',
-                  svg: { color: '#fb558e' },
-                  textDecoration: 'none',
                   position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
-                  },
-                  ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
-                    }
+                  overflow: 'hidden',
+                  transition: 'transform 0.2s, box-shadow 0.2s',
+                  '&:hover': {
+                    transform: 'translateY(-8px) rotate(1deg)',
+                    boxShadow: '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
                   }
                 }}
-                as="a"
-                href="https://github.com/hackclub"
-                variant="interactive"
-                target="_blank"
-                rel="noopener"
               >
-                <Icon
-                  glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: [1, '16px', '20px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
                 <Stage
                   icon="github"
                   color="white"
@@ -1937,44 +1930,27 @@ function Page({
                 />
               </Card>
               <Card
+                as="a"
+                href="/clubs"
+                target="_blank"
+                rel="noopener"
+                variant="interactive"
                 sx={{
+                  borderRadius: '1.75rem',
+                  border: '5px solid #ff8c37',
+                  boxShadow: '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
                   background:
                     'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
                   color: 'white',
-                  svg: { color: 'rgb(236, 55, 80)' },
-                  textDecoration: 'none',
                   position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
-                  },
-                  ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
-                    }
+                  overflow: 'hidden',
+                  transition: 'transform 0.2s, box-shadow 0.2s',
+                  '&:hover': {
+                    transform: 'translateY(-8px) rotate(-1.5deg)',
+                    boxShadow: '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
                   }
                 }}
-                as="a"
-                href="/clubs"
-                variant="interactive"
-                target="_blank"
-                rel="noopener"
               >
-                <Icon
-                  glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: ['18px', '20px', '22px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
                 <Stage
                   icon="clubs"
                   color="white"
