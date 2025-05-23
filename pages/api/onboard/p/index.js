@@ -21,7 +21,10 @@ export const getAllOnboardProjects = async () => {
     console.error('GitHub API rate limit exceeded')
     return []
   }
-  if(!res) return []
+  if (!Array.isArray(res)) {
+  console.error('Expected array, got:', res);
+  return [];
+}
 
   const projects = []
 
