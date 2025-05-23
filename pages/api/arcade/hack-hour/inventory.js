@@ -1,4 +1,4 @@
-import AirtablePlus from "airtable-plus"
+import AirtablePlus from 'airtable-plus'
 
 const flavorText = async () => {
   const airtable = new AirtablePlus({
@@ -29,40 +29,45 @@ export default async function handler(req, res) {
     flavorText().then(d => data.flavor = d),
   ])
 
-  const inventoryResults = data.inventory.filter(record => record.fields["Enabled"]).map(record => {
-    return {
-      name: record.fields['Name'],
-      smallName: record.fields['Name Small Text'],
-      hours: record.fields['Hours'],
-      imageURL: record.fields['Image URL'],
-      formURL:  record.fields['Order Form URL'],
-      description: record.fields['Description'],
-      flavorText: record?.fields['Flavor text']?.map(recordID => {
-        const flavorRecord = data.flavor.find(f => f.id == recordID)
-        const result = {
-          message: flavorRecord.fields["Message"],
-          character: flavorRecord.fields["Character"],
-          imageURL: flavorRecord.fields["Image URL"]
-        }
-        if (flavorRecord.fields["Shopkeepers"]) {
-          result.characterURL = flavorRecord.fields["Image Link (from Shopkeepers)"][0]
-          result.character = flavorRecord.fields["Character (from Shopkeepers)"][0]
-        }
-        return result
-      })
-    }
-  })
-
+  const inventoryResults = data.inventory
+    .filter(record => record.fields['Enabled'])
+    .map(record => {
+      return {
+        name: record.fields['Name'],
+        smallName: record.fields['Name Small Text'],
+        hours: record.fields['Hours'],
+        imageURL: record.fields['Image URL'],
+        formURL: record.fields['Order Form URL'],
+        description: record.fields['Description'],
+        flavorText: record?.fields['Flavor text']?.map(recordID => {
+          const flavorRecord = data.flavor.find(f => f.id == recordID)
+          const result = {
+            message: flavorRecord.fields['Message'],
+            character: flavorRecord.fields['Character'],
+            imageURL: flavorRecord.fields['Image URL']
+          }
+          if (flavorRecord.fields['Shopkeepers']) {
+            result.characterURL =
+              flavorRecord.fields['Image Link (from Shopkeepers)'][0]
+            result.character =
+              flavorRecord.fields['Character (from Shopkeepers)'][0]
+          }
+          return result
+        })
+      }
+    })
   const selfClicks = {}
-  data.flavor.filter(f => f.fields['Self Click']).forEach(record => {
-    const char = record.fields["Character (from Shopkeepers)"][0]
-    const charURL = record.fields["Image Link (from Shopkeepers)"][0]
-    const charMsg = record.fields["Message"]
-    selfClicks[char] = selfClicks[char] || []
-    selfClicks[char].push({
-      message: charMsg,
-      characterURL: charURL,
-      character: char
+  data.flavor
+    .filter(f => f.fields['Self Click'])
+    .forEach(record => {
+      const char = record.fields['Character (from Shopkeepers)'][0]
+      const charURL = record.fields['Image Link (from Shopkeepers)'][0]
+      const charMsg = record.fields['Message']
+      selfClicks[char] = selfClicks[char] || []
+      selfClicks[char].push({
+        message: charMsg,
+        characterURL: charURL,
+        character: char
     })
   })
 
