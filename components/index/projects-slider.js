@@ -1,5 +1,5 @@
 import { Box, Button, Text } from 'theme-ui'
-import CarouselCards from './carousel-cards'
+import ProjectCards from './project-cards'
 import { keyframes } from '@emotion/react'
 import React, { useEffect, useState } from 'react'
 import Ticker from 'react-ticker'
@@ -42,7 +42,7 @@ export default function ProjectsSlider({ cards }) {
                 onMouseOut={() => setSpeed(6)}
               >
                 {cards.map((card, idx) => (
-                  <CarouselCards key={idx} {...card} />
+                  <ProjectCards key={idx} {...card} />
                 ))}
               </Box>
             )}
