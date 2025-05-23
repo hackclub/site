@@ -9,32 +9,69 @@ export default function Bank({ data }) {
   return (
     <Box sx={{ position: 'relative' }}>
       <CardModel
-        color="white"
+        color="dark"
         sx={{
-          backgroundColor: 'dark',
-          minHeight: ['300px', '400px', '380px'],
-          backgroundColor: 'darkless',
-          backgroundImage: `linear-gradient(to bottom,rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('/home/hackathons-bg.webp')`,
+          minHeight: ['300px', '350px', '350px'],
+          backgroundColor: '#fdf6ee',
+          backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), url('/home/hcb-pattern.webp')`,
           backgroundSize: 'cover',
-          backgroundPosition: '40%',
-          color: 'snow'
+          backgroundPosition: 'center',
+          color: '#513f31',
+          position: 'relative',
+          overflow: 'hidden',
+          '&:before': {
+            content: '""',
+            position: 'absolute',
+            top: '10px',
+            left: '10px',
+            width: '12px',
+            height: '12px',
+            borderRadius: '50%',
+            background: '#e4d6c3',
+            zIndex: 5
+          },
+          py: [3, 3, 4]
         }}
         badge
         text={data[0] === 'error' ? 'The coolest money thing' : data[0]}
       >
         <Heading
           variant="title"
-          sx={{ color: 'red', fontSize: ['36px', 4, 5], mt: [0, 3] }}
+          sx={{
+            color: '#c0392b',
+            fontSize: ['32px', '36px', '42px'],
+            mb: 3,
+            mt: [0, 1],
+            fontFamily: '"Comic Sans MS", cursive, sans-serif',
+            textShadow: '1px 1px 0 rgba(255,255,255,0.6)'
+          }}
         >
-          HCB
+          Hack Club Bank
         </Heading>
-        <Grid columns={[1, '1.3fr 1fr', 2]}>
+        <Grid columns={[1, '1.3fr 1fr', '3fr 2fr']} gap={4}>
           <Box>
-            <Text as="p" variant="subtitle">
-              Become a 501(c)3 nonprofit and join 700+ teams using HCB to run
-              world-class events.
+            <Text
+              as="p"
+              variant="subtitle"
+              sx={{
+                fontSize: ['16px', '18px', '20px'],
+                mb: 3,
+                color: '#513f31',
+                lineHeight: 1.5
+              }}
+            >
+              Become a 501(c)3 nonprofit and join 700+ teams using Hack Club Bank
+              to run world-class events.
             </Text>
-            <Text as="p" variant="subtitle">
+            <Text
+              as="p"
+              variant="subtitle"
+              sx={{
+                fontSize: ['16px', '18px', '20px'],
+                color: '#513f31',
+                lineHeight: 1.5
+              }}
+            >
               This platform is built and maintained by the Hack&nbsp;Club team.
             </Text>
             <Buttons
@@ -42,7 +79,17 @@ export default function Bank({ data }) {
               icon="bank-account"
               link="/hcb"
               primary="red"
-              sx={{ mt: [0, 2, 3] }}
+              sx={{
+                mt: [3, 3, 4],
+                borderRadius: '12px',
+                boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
+                transform: 'rotate(-1deg)',
+                bg: '#c0392b',
+                '&:hover': {
+                  transform: 'rotate(0deg) translateY(-5px)',
+                  boxShadow: '0 8px 16px rgba(0,0,0,0.2)'
+                }
+              }}
             >
               Start fundraising!
             </Buttons>
@@ -64,7 +111,7 @@ export default function Bank({ data }) {
                   textAlign: 'center',
                   '&:before': {
                     content: '""',
-                    backgroundImage: 'url(/home/hcb-mobile.webp)', // image doesn't exist
+                    backgroundImage: 'url(/home/hcb-mobile.webp)',
                     backgroundSize: '100%',
                     backgroundRepeat: 'no-repeat',
                     width: '100%',
@@ -73,71 +120,46 @@ export default function Bank({ data }) {
                     display: 'block'
                   }
                 }}
-              >
-                {/* <Box
-                  sx={{
-                    backgroundImage: 'url(/home/hcb-screen.webp)',
-                    zIndex: 2,
-                    position: 'absolute',
-                    margin: 'auto',
-                    top: '8px',
-                    left: '35px',
-                    width: '75%',
-                    height: '70%',
-                    backgroundSize: '100%',
-                    backgroundRepeat: 'no-repeat'
-                  }}
-                ></Box> */}
-              </Box>
+              />
+            </Box>
+          </Box>
+
+          <Box sx={{
+            display: ['none', 'block', 'block'],
+            position: 'relative',
+            height: '100%',
+
+          }}>
+            <Box
+              sx={{
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+                borderRadius: '12px',
+                boxShadow: '0 8px 16px rgba(0,0,0,0.12)',
+                border: '4px solid #e4d6c3',
+                transform: 'rotate(2deg)',
+                transition: 'transform 0.2s',
+                '&:hover': {
+                  transform: 'rotate(0deg)'
+                }
+              }}
+            >
+              <Box
+                sx={{
+                  backgroundImage: 'url(/home/hcb.webp)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  width: '100%',
+                  height: '100%',
+                  minHeight: '200px'
+                }}
+              />
             </Box>
           </Box>
         </Grid>
       </CardModel>
-      <Box
-        sx={{
-          position: 'absolute',
-          right: [0, '-120px', '-30px'],
-          bottom: [0, '-30px', '-50px'],
-          display: ['none', 'block', 'block'],
-          zIndex: 3
-        }}
-      >
-        {' '}
-        <Box
-          sx={{
-            width: ['250px', '500px'],
-            height: ['180px', '360px'],
-            position: 'relative',
-            display: 'block',
-            textAlign: 'center',
-            '&:before': {
-              content: '""',
-              backgroundImage: 'url(/home/hcb.webp)',
-              backgroundSize: '100%',
-              backgroundRepeat: 'no-repeat',
-              width: '100%',
-              height: '100%',
-              marginX: 'auto',
-              display: 'block'
-            }
-          }}
-        >
-          {/* <Box
-            sx={{
-              backgroundImage: 'url(/home/hcb-screen.webp)',
-              zIndex: 2,
-              position: 'absolute',
-              margin: 'auto',
-              top: '13px',
-              left: '70px',
-              width: '75%',
-              height: '80%',
-              backgroundSize: '100%',
-              backgroundRepeat: 'no-repeat'
-            }}
-          ></Box> */}
-        </Box>
-      </Box>
     </Box>
   )
 }

@@ -19,9 +19,6 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Sprig from '../components/index/cards/sprig'
-import Sinerider from '../components/index/cards/sinerider'
-import SprigConsole from '../components/index/cards/sprig-console'
 import Clubs from '../components/index/cards/clubs'
 import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
@@ -1672,27 +1669,30 @@ function Page({
                 width: '100%',
                 height: '100%',
                 top: 0,
-                left: 0
+                left: 0,
+                background: 'linear-gradient(180deg, rgba(255,240,224,0.3) 0%, rgba(255,249,238,0.5) 100%)',
+                zIndex: 1
               }}
-            >
-              { }
-            </Box>
+            />
             <Box
-              py={[4, 5, '82px']}
+              py={[4, 5, '70px']}
               sx={{
                 width: '90vw',
                 maxWidth: 'layout',
                 margin: 'auto',
-                position: 'relative'
+                position: 'relative',
+                zIndex: 2
               }}
             >
-              <Box>
+              <Box sx={{ textAlign: 'center', mb: [4, 4, 5] }}>
                 <Text variant="title" sx={{
                   fontSize: ['36px', 4, 5],
                   fontWeight: 900,
                   color: '#513f31',
                   textShadow: '1px 1px 0 rgba(255,255,255,0.6)',
-                  mb: 2
+                  mb: 2,
+                  position: 'relative',
+                  display: 'inline-block'
                 }}>
                   Find community{' '}
                   <Box
@@ -1740,29 +1740,201 @@ function Page({
                     >
                       while touching grass
                     </Text>
-                  </Box>{' '}
+                  </Box>
                 </Text>
                 <Text
                   variant="subtitle"
                   as="p"
                   sx={{
-                    fontSize: ['18px', '24px', '32px'],
+                    fontSize: ['18px', '20px', '22px'],
                     margin: 'auto',
                     pt: 2,
+                    maxWidth: '750px',
+                    color: '#665040'
+                  }}
+                >
+                  Hack Clubbers organize and join hackathons and coding clubs all around the world
+                </Text>
+              </Box>
+
+              <Grid gap={[4, 4, 5]} columns={[1, null, '1fr 1fr']} sx={{ mb: 5 }}>
+                <Box
+                  sx={{
+                    position: 'relative',
+                    borderRadius: '1.75rem',
+                    border: '5px solid #e4d6c3',
+                    boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+                    background: '#fdf6ee',
+                    padding: '24px !important',
+                    pb: '20px',
+                    transform: 'rotate(-1deg)',
+                    transition: 'transform 0.2s, box-shadow 0.2s',
+                    overflow: 'hidden',
+                    '&:hover': {
+                      transform: 'rotate(0deg) translateY(-5px)',
+                      boxShadow: '0 15px 30px rgba(0,0,0,0.15)'
+                    },
+                    '&:before': {
+                      content: '""',
+                      position: 'absolute',
+                      top: '10px',
+                      left: '10px',
+                      width: '12px',
+                      height: '12px',
+                      borderRadius: '50%',
+                      background: '#e4d6c3',
+                      zIndex: 1
+                    },
+                    '&:after': {
+                      content: '""',
+                      position: 'absolute',
+                      top: '10px',
+                      right: '10px',
+                      width: '12px',
+                      height: '12px',
+                      borderRadius: '50%',
+                      background: '#e4d6c3',
+                      zIndex: 1
+                    }
+                  }}
+                >
+                  <Text
+                    as="h3"
+                    sx={{
+                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontSize: '22px',
+                      fontWeight: 'bold',
+                      color: '#513f31',
+                      mb: 3,
+                      textAlign: 'center'
+                    }}
+                  >
+                    <Icon glyph="clubs" size={24} sx={{ mr: 2, verticalAlign: 'middle' }} />
+                    Start a club at your school
+                  </Text>
+                  <Clubs />
+                </Box>
+
+                <Box
+                  sx={{
+                    position: 'relative',
+                    borderRadius: '1.75rem',
+                    border: '5px solid #e4d6c3',
+                    boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+                    background: '#fdf6ee',
+                    padding: '24px !important',
+                    pb: '20px',
+                    transform: 'rotate(1deg)',
+                    transition: 'transform 0.2s, box-shadow 0.2s',
+                    overflow: 'hidden',
+                    '&:hover': {
+                      transform: 'rotate(0deg) translateY(-5px)',
+                      boxShadow: '0 15px 30px rgba(0,0,0,0.15)'
+                    },
+                    '&:before': {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: '10px',
+                      left: '10px',
+                      width: '12px',
+                      height: '12px',
+                      borderRadius: '50%',
+                      background: '#e4d6c3',
+                      zIndex: 1
+                    },
+                    '&:after': {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: '10px',
+                      right: '10px',
+                      width: '12px',
+                      height: '12px',
+                      borderRadius: '50%',
+                      background: '#e4d6c3',
+                      zIndex: 1
+                    }
+                  }}
+                >
+                  <Text
+                    as="h3"
+                    sx={{
+                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontSize: '22px',
+                      fontWeight: 'bold',
+                      color: '#513f31',
+                      mb: 3,
+                      textAlign: 'center'
+                    }}
+                  >
+                    <Icon glyph="event-check" size={24} sx={{ mr: 2, verticalAlign: 'middle' }} />
+                    Join a hackathon near you
+                  </Text>
+                  <Hackathons
+                    delay={400}
+                    data={hackathonsData}
+                    stars={stars.hackathons.stargazerCount}
+                  />
+                </Box>
+              </Grid>
+
+              <Box
+                sx={{
+                  position: 'relative',
+                  borderRadius: '1.75rem',
+                  border: '5px solid #e4d6c3',
+                  boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
+                  background: '#fdf6ee',
+                  padding: '24px !important',
+                  pb: '20px',
+                  transform: 'rotate(-0.5deg)',
+                  transition: 'transform 0.2s, box-shadow 0.2s',
+                  overflow: 'hidden',
+                  maxWidth: '850px',
+                  mx: 'auto',
+                  '&:hover': {
+                    transform: 'rotate(0deg) translateY(-5px)',
+                    boxShadow: '0 15px 30px rgba(0,0,0,0.15)'
+                  },
+                  '&:before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: '10px',
+                    left: '10px',
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    background: '#e4d6c3',
+                    zIndex: 1
+                  },
+                  '&:after': {
+                    content: '""',
+                    position: 'absolute',
+                    bottom: '10px',
+                    right: '10px',
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    background: '#e4d6c3',
+                    zIndex: 1
+                  }
+                }}
+              >
+                <Text
+                  as="h3"
+                  sx={{
+                    fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                    fontSize: '22px',
+                    fontWeight: 'bold',
+                    color: '#513f31',
+                    mb: 3,
                     textAlign: 'center'
                   }}
                 >
-                  Thousands of Hack Clubbers organize and participate in
-                  hackathons and after school coding clubs.
+                  <Icon glyph="bank-account" size={24} sx={{ mr: 2, verticalAlign: 'middle' }} />
+                  Get your project funded
                 </Text>
+                <HCB data={bankData} />
               </Box>
-              <Clubs />
-              <Hackathons
-                delay={400}
-                data={hackathonsData}
-                stars={stars.hackathons.stargazerCount}
-              />
-              <HCB data={bankData} />
             </Box>
           </Box>
         </Box>
@@ -1873,7 +2045,7 @@ function Page({
                   transition: 'transform 0.2s, box-shadow 0.2s',
                   '&:hover': {
                     transform: 'translateY(-8px) rotate(-1deg)',
-                    boxShadow: '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
+                    boxShadow: '0 16px 48px rgba(0,0,0,0.12), 0  8px 24px rgba(0,0,0,0.1)'
                   }
                 }}
               >
