@@ -3,7 +3,7 @@ let fetchedDataCache = {}
 async function pullFromStorage() {
   const ts = parseInt(localStorage.getItem('fetchedDataTimestamp'))
   if (!ts) {
-    console.log("No timestamp found in storage")
+    console.log('No timestamp found in storage')
     return null
   }
 
@@ -12,7 +12,7 @@ async function pullFromStorage() {
   const isExpired = now - ts > expiration
 
   if (isExpired) {
-    console.log("Data in storage is expired")
+    console.log('Data in storage is expired')
     return null
   }
 
@@ -30,18 +30,18 @@ async function setToStorage(data) {
 
 async function fetchedDataLoader() {
   if (Object.keys(fetchedDataCache) > 0) {
-    console.log("Found data in cache")
+    console.log('Found data in cache')
     return fetchedDataCache
   }
   const storage = await pullFromStorage()
   if (storage) {
-    console.log("Found parts data in storage")
+    console.log('Found parts data in storage')
     return storage
   }
 
   const data = await fetchData()
   if (data) {
-    console.log("found parts data in fetch")
+    console.log('found parts data in fetch')
     setToStorage(data)
     fetchedDataCache = data
     return data
