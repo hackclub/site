@@ -824,6 +824,7 @@ function Page({
         </Box>
         <Box as="section" sx={{
           py: [1, 2, '30px'],
+          pt: 4,
           color: 'black',
           background: 'linear-gradient(to bottom, #fff9f0, #fff)',
           borderRadius: ['0px', '0px', '32px'],
@@ -890,7 +891,7 @@ function Page({
                     zIndex: 3,
                   }}
                 >
-                  how we do things
+                  secret formula
                 </Text>
               </Box>{' '}
             </Text>
@@ -2042,7 +2043,7 @@ function Page({
                       }
                     }}
                   >
-                    fulfillment
+                    success
                   </Text>
                   <Text
                     as="span"

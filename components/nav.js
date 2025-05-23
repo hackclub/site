@@ -255,11 +255,11 @@ const Navigation = props => {
               fontWeight: 900,
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-between', 
+              justifyContent: 'space-between',
               cursor: 'pointer',
               color: '#334E68',
               borderRadius: '0.5rem',
-              background: '#f3ede244' 
+              background: '#f3ede244'
             }}
           >
             {label}
@@ -433,7 +433,7 @@ const Navigation = props => {
                   <Icon glyph="twitter" size={28} style={{ color: '#222' }} />
                 </Link>
                 <Link
-                  href="https://instagram.com/hackclub"
+                  href="https://instagram.com/starthackclub"
                   target="_blank"
                   rel="noopener noreferrer"
                   sx={{ color: '#222', p: 2, display: 'flex', alignItems: 'center' }}
@@ -442,7 +442,7 @@ const Navigation = props => {
                   <Icon glyph="instagram" size={28} style={{ color: '#222' }} />
                 </Link>
                 <Link
-                  href="https://hachyderm.io/@hackclub"
+                  href="https://social.dino.icu/@hackclub"
                   target="_blank"
                   rel="me noopener noreferrer"
                   sx={{ color: '#222', p: 2, display: 'flex', alignItems: 'center' }}
@@ -468,7 +468,7 @@ const Navigation = props => {
                   <Icon glyph="figma" size={28} style={{ color: '#222' }} />
                 </Link>
                 <Link
-                  href="https://www.figma.com/@hackclub"
+                  href="https://ysws.hackclub.com/feed.xml"
                   target="_blank"
                   rel="noopener noreferrer"
                   sx={{ color: '#222', p: 2, display: 'flex', alignItems: 'center' }}
@@ -591,11 +591,11 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
             transform: logoWave
               ? 'rotate(-18deg) translateY(-10%) translateX(3%)'
               : 'rotate(0deg) translateY(2%) translateX(3%)',
-            zIndex: 0 
+            zIndex: 0
           }}
         >
           <Flag scrolled={scrolled || fixed ? true : undefined} />
-        
+
         </Box>
         <Box sx={{ flex: '1 1 0', display: ['none', null, 'flex'], justifyContent: 'center', alignItems: 'center' }}>
           <Navigation
@@ -629,7 +629,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           overflowY: 'auto',
           borderRadius: '0 0 2rem 2rem',
           boxShadow: '0 8px 32px rgba(0,0,0,0.12), 0 1.5px 6px rgba(0,0,0,0.08)',
-          maxHeight: '80vh', 
+          maxHeight: '80vh',
           border: '4px solid #e4d6c3',
           borderTopWidth: '5px',
           borderTopStyle: 'solid',
