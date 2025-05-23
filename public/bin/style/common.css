@@ -4,6 +4,18 @@
 }
 
 @font-face {
+    font-family: "Lexend";
+    src: url("./Lexend.ttf");
+}
+
+
+@font-face {
+    font-family: "Comic Sans MS";
+    src: url("./ComicSansMS.ttf");
+}
+
+
+@font-face {
     font-family: "Phantom Sans";
     src: url("./PhantomSans_Regular.woff");
 }

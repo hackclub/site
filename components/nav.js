@@ -290,11 +290,11 @@ const Navigation = props => {
                 href.startsWith('http') ? (
                   <Link key={i} href={href} target="_blank" rel="noopener noreferrer"
                     sx={{ py: 1, fontSize: "1rem !important", fontWeight: 700, pl: 2 }}>
-                    {label}1
+                    {label}
                   </Link>
                 ) : (
                   <NextLink key={i} href={href} passHref>
-                    <Link sx={{ py: 1, fontSize: "1rem !important", fontWeight: 700, pl: 2 }}>{label}2</Link>
+                    <Link sx={{ py: 1, fontSize: "1rem !important", fontWeight: 700, pl: 2 }}>{label}</Link>
                   </NextLink>
                 )
               )}
@@ -350,7 +350,8 @@ const Navigation = props => {
             gap: 0,
             overflowY: 'visible !important',
             flexDirection: props.isMobile ? 'column' : 'row',
-            alignItems: props.isMobile ? 'flex-start' : 'center'
+            alignItems: props.isMobile ? 'flex-start' : 'center',
+            mb: props.isMobile ? [6, 6, 2] : 0
           }}
         >
           {renderDropdown('Clubs', 'clubs', [
@@ -618,7 +619,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       <Box
         id="mobile-nav"
         sx={{
-          display: [toggled ? 'block' : 'none', null, 'none'],
+          display: [toggled ? 'block' : 'none', toggled ? 'block' : 'none', 'none'],
           position: 'absolute',
           top: '100%',
           left: 0,

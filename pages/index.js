@@ -2318,6 +2318,9 @@ function Page({
           {`a{
           color: #338eda
         }`}
+          {`
+        @import url(https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap);
+`}
         </style>
       </Footer>
     </>
