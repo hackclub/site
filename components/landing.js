@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-
 import { keyframes } from '@emotion/react';
 
 const riseIn = keyframes`
@@ -21,6 +20,13 @@ const Landing = () => {
     '/home/assemble-group.jpg'
   ];
 
+  const locations = [
+    'Juice, Shanghai',
+    'Juice, Shanghai',
+    'Assemble, SF',
+    'Figma HQ, SF'
+  ];
+
   const animationStyle = {
     animation: `${riseIn} 0.9s ease-out both`,
   };
@@ -37,7 +43,7 @@ const Landing = () => {
         px: [3, 4],
         py: [4, 5],
         bg: 'background',
-        backgroundImage: 'url(/textures/paper-fiber.png)',
+        backgroundImage: 'url(/home/lined-paper.png)',
         backgroundSize: 'cover',
         backgroundRepeat: 'repeat',
         position: 'relative',
@@ -53,12 +59,14 @@ const Landing = () => {
           alignItems: 'center',
         }}
       >
+
+
         <div
           sx={{
-            display: ['flex', 'flex', 'none'],
+            display: ['flex', 'flex', 'flex', 'none'], 
             width: '100%',
             justifyContent: 'center',
-            gap: [2, 3],
+            gap: [3, 4],
             mb: 3,
           }}
         >
@@ -78,33 +86,25 @@ const Landing = () => {
               }}
             >
               <img
-                src="/icons/pin.svg"
-                alt="pin"
-                sx={{
-                  position: 'absolute',
-                  top: '-12px',
-                  left: 'calc(50% - 12px)',
-                  width: '24px',
-                  height: '24px',
-                  zIndex: 2,
-                }}
-              />
-              <img
                 src={src}
                 alt={`small-${i}`}
                 sx={{
-                  width: ['90px', '100px'],
-                  height: ['90px', '100px'],
+                  width: ['110px', '120px'],
+                  height: ['110px', '120px'],
                   borderRadius: '8px',
                   objectFit: 'cover',
                   mx: 'auto',
                   display: 'block',
                 }}
               />
-              <div sx={{ mt: 2, fontSize: 1, textAlign: 'center' }}>Place</div>
+              <div sx={{ mt: 2, fontSize: 1, textAlign: 'center' }}>
+                {locations[i]}
+              </div>
             </div>
           ))}
         </div>
+
+   
         <div
           sx={{
             width: ['100%', '80%', '600px'],
@@ -124,18 +124,6 @@ const Landing = () => {
           }}
         >
           <img
-            src="/icons/pin.svg"
-            alt="pin"
-            sx={{
-              position: 'absolute',
-              top: '-12px',
-              left: 'calc(50% - 12px)',
-              width: '24px',
-              height: '24px',
-              zIndex: 2,
-            }}
-          />
-          <img
             src="/home/assemble.jpg"
             alt="Center"
             sx={{
@@ -145,12 +133,14 @@ const Landing = () => {
             }}
           />
         </div>
+
+
         <div
           sx={{
-            display: ['flex', 'flex', 'none'],
+            display: ['flex', 'flex', 'flex', 'none'], 
             width: '100%',
             justifyContent: 'center',
-            gap: [2, 3],
+            gap: [3, 4],
             mt: 3,
           }}
         >
@@ -170,104 +160,97 @@ const Landing = () => {
               }}
             >
               <img
-                src="/icons/pin.svg"
-                alt="pin"
-                sx={{
-                  position: 'absolute',
-                  top: '-12px',
-                  left: 'calc(50% - 12px)',
-                  width: '24px',
-                  height: '24px',
-                  zIndex: 2,
-                }}
-              />
-              <img
                 src={src}
                 alt={`small-${i + 2}`}
                 sx={{
-                  width: ['90px', '100px'],
-                  height: ['90px', '100px'],
+                  width: ['110px', '120px'],
+                  height: ['110px', '120px'],
                   borderRadius: '8px',
                   objectFit: 'cover',
                   mx: 'auto',
                   display: 'block',
                 }}
               />
-              <div sx={{ mt: 2, fontSize: 1, textAlign: 'center' }}>Place</div>
-            </div>
-          ))}
-        </div>
-        <div
-          sx={{
-            display: ['none', 'none', 'block'],
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            pointerEvents: 'none',
-          }}
-        >
-          {[
-            { src: imagePaths[0], top: '-30px', left: '-30px', rotate: '-10deg' },
-            { src: imagePaths[1], top: '30px', right: '-10px', rotate: '6deg' },
-            { src: imagePaths[2], bottom: '30px', left: '60px', rotate: '5deg' },
-            { src: imagePaths[3], bottom: '-20px', right: '80px', rotate: '-8deg' },
-          ].map((img, i) => (
-            <div
-              key={i}
-              sx={{
-                position: 'absolute',
-                top: img.top,
-                bottom: img.bottom,
-                left: img.left,
-                right: img.right,
-                transform: `rotate(${img.rotate})`,
-                ...animationStyle,
-                '--initial-rotate': img.rotate,
-              }}
-            >
-              <div
-                sx={{
-                  bg: 'white',
-                  p: 3,
-                  borderRadius: '12px',
-                  boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
-                  border: '2px dashed #eee',
-                  position: 'relative',
-                }}
-              >
-                <img
-                  src="/icons/pin.svg"
-                  alt="pin"
-                  sx={{
-                    position: 'absolute',
-                    top: '-12px',
-                    left: 'calc(50% - 12px)',
-                    width: '24px',
-                    height: '24px',
-                    zIndex: 2,
-                  }}
-                />
-                <img
-                  src={img.src}
-                  alt={`img-${i}`}
-                  sx={{
-                    width: '110px',
-                    height: '110px',
-                    borderRadius: '8px',
-                    objectFit: 'cover',
-                    mx: 'auto',
-                    display: 'block',
-                  }}
-                />
-                <div sx={{ mt: 2, fontSize: 1, textAlign: 'center' }}>
-                  {i === 0 || i === 1 ? 'Juice, Shanghai' : i === 2 ? 'Assemble, SF' : 'Figma HQ, SF'}
-                </div>
+              <div sx={{ mt: 2, fontSize: 1, textAlign: 'center' }}>
+                {locations[i + 2]}
               </div>
             </div>
           ))}
         </div>
+
+
+<div
+  sx={{
+    display: ['none', null, null, null, 'block'], 
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    pointerEvents: 'none',
+  }}
+>
+  {[
+    { src: imagePaths[0], top: '-50px', left: '-80px', rotate: '-10deg' },
+    { src: imagePaths[1], top: '60px', right: '-60px', rotate: '6deg' },
+    { src: imagePaths[2], bottom: '60px', left: '40px', rotate: '5deg' },
+    { src: imagePaths[3], bottom: '-40px', right: '100px', rotate: '-8deg' },
+  ].map((img, i) => (
+    <div
+      key={i}
+      sx={{
+        position: 'absolute',
+        top: img.top,
+        bottom: img.bottom,
+        left: img.left,
+        right: img.right,
+        transform: `rotate(${img.rotate})`,
+        ...animationStyle,
+        '--initial-rotate': img.rotate,
+      }}
+    >
+      <div
+        sx={{
+          bg: 'white',
+          p: 3,
+          borderRadius: '12px',
+          boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+          border: '2px dashed #eee',
+          position: 'relative',
+        }}
+      >
+        <img
+          src="/home/pushpin.svg"
+          alt="pin"
+          sx={{
+            position: 'absolute',
+            top: '-12px',
+            left: 'calc(50% - 12px)',
+            width: '24px',
+            height: '24px',
+            zIndex: 2,
+          }}
+        />
+        <img
+          src={img.src}
+          alt={`img-${i}`}
+          sx={{
+            width: '150px',
+            height: '150px',
+            borderRadius: '8px',
+            objectFit: 'cover',
+            mx: 'auto',
+            display: 'block',
+          }}
+        />
+        <div sx={{ mt: 2, fontSize: 1, textAlign: 'center' }}>
+          {locations[i]}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
         <div
           sx={{
             mt: [4, 5],
