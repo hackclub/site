@@ -49,7 +49,7 @@ export default function ProjectsSlider({ cards }) {
     </Ticker>
 
     <Box sx={{ textAlign: 'center', mt: 3 }}>
-    <Button as="a" href="/ship" target="_blank" rel="noopener noreferrer">Check more</Button>
+    <Button as="a" href="/ship" target="_blank" rel="noopener noreferrer">Check more!</Button>
     </Box>
         </Box>
       )}

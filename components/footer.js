@@ -5,6 +5,7 @@ import NextLink from 'next/link'
 import theme from '@hackclub/theme'
 import Icon from './icon'
 import Ladder from './ladder.js'
+
 const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' })`
   background: ${props =>
     props.dark
@@ -65,141 +66,165 @@ const Footer = ({
   >
     <Container px={[3, null, 4]}>
       {children}
-      <Grid
-        as="article"
-        gap={0}
-        columns={[2, 3, 4]}
-        sx={{
-          px: 0,
-          a: {
-            textDecoration: 'none',
-            color: 'muted',
-            transition: '0.125s color ease-in-out',
-            ':hover,:focus': { color: 'slate', textDecoration: 'underline' }
-          },
-          '> div > a': {
-            display: 'block',
-            mb: 2
-          },
-          'h2,p': { color: 'muted' },
-          h2: { fontSize: 3 },
-          'a,p': { fontSize: 2 }
-        }}
-      >
-        <Box>
-          <Heading as="h2" variant="subheadline" mb={3}>
-            Hack&nbsp;Club
-          </Heading>
-          <NextLink href="/philosophy" passHref>
-            <Link>Philosophy</Link>
-          </NextLink>
-          <NextLink href="/team" passHref>
-            <Link>Our Team & Board</Link>
-          </NextLink>
-          <NextLink href="/jobs" passHref>
-            <Link>Jobs</Link>
-          </NextLink>
-          <NextLink href="/brand" passHref>
-            <Link>Branding</Link>
-          </NextLink>
-          <NextLink href="/press" passHref>
-            <Link>Press Inquiries</Link>
-          </NextLink>
-          <NextLink href="/philanthropy" passHref>
-            <Link>Donate</Link>
-          </NextLink>
-        </Box>
-        <Box>
-          <Heading as="h2" variant="subheadline" mb={3}>
-            Resources
-          </Heading>
-          <Link href="https://events.hackclub.com/">Community Events</Link>
-          <Link href="https://jams.hackclub.com/">Jams</Link>
-          <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
-          <Link href="https://directory.hackclub.com/">Clubs Directory</Link>
-          <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
-        </Box>
-        <Box>
-          <Logo aria-label="Hack Club logo" width={128} height={45} />
-          <Grid
-            columns={[8, 4]}
-            gap={2}
-            sx={{
-              alignItems: 'center',
-              ml: -1,
-              my: 3,
-              maxWidth: [null, 192],
-              svg: { fill: 'currentColor', width: 32, height: 32 },
-              a: {
-                lineHeight: 0,
-                mb: 0,
-                transition:
-                  'transform .125s ease-in-out, color .125s ease-in-out',
-                ':hover,:focus': { transform: 'scale(1.125)' }
-              },
-              placeItems: 'center'
-            }}
-          >
-            <Service
-              href="/slack"
-              icon="slack-fill"
-              name="Slack"
-              target="_self"
-            />
-            <Service
-              href="https://twitter.com/hackclub"
-              icon="twitter"
-              name="Twitter"
-            />
-            <Service
-              href="https://github.com/hackclub"
-              icon="github"
-              name="GitHub"
-            />
-            <Service
-              href="https://figma.com/@hackclub"
-              icon="figma-fill"
-              name="Figma"
-            />
-            <Service
-              href="https://social.dino.icu/@hackclub"
-              icon="mastodon"
-              name="Mastodon"
-            />
-            <Service
-              href="https://www.youtube.com/c/HackClubHQ"
-              icon="youtube"
-              name="YouTube"
-            />
-            <Service
-              href="https://www.instagram.com/starthackclub"
-              icon="instagram"
-              name="Instagram"
-            />
-            <Service href={`mailto:${email}`} icon="email-fill" name="Email" />
-          </Grid>
-          <Text my={2}>
-            <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>
-            <br />
-            <Text as="span" color="muted">
-              (call toll-free)
+      <Box sx={{ position: 'relative' }}>
+        <Grid
+          as="article"
+          gap={0}
+          columns={[2, 3, 4]}
+          sx={{
+            px: 0,
+            a: {
+              textDecoration: 'none',
+              color: 'muted',
+              transition: '0.125s color ease-in-out',
+              ':hover,:focus': { color: 'slate', textDecoration: 'underline' }
+            },
+            '> div > a': {
+              display: 'block',
+              mb: 2
+            },
+            'h2,p': { color: 'muted' },
+            h2: { fontSize: 3 },
+            'a,p': { fontSize: 2 }
+          }}
+        >
+          <Box>
+            <Heading as="h2" variant="subheadline" mb={3}>
+              Hack&nbsp;Club
+            </Heading>
+            <NextLink href="/philosophy" passHref>
+              <Link>Philosophy</Link>
+            </NextLink>
+            <NextLink href="/team" passHref>
+              <Link>Our Team & Board</Link>
+            </NextLink>
+            <NextLink href="/jobs" passHref>
+              <Link>Jobs</Link>
+            </NextLink>
+            <NextLink href="/brand" passHref>
+              <Link>Branding</Link>
+            </NextLink>
+            <NextLink href="/press" passHref>
+              <Link>Press Inquiries</Link>
+            </NextLink>
+            <NextLink href="/philanthropy" passHref>
+              <Link>Donate</Link>
+            </NextLink>
+          </Box>
+          <Box>
+            <Heading as="h2" variant="subheadline" mb={3}>
+              Resources
+            </Heading>
+            <Link href="https://events.hackclub.com/">Community Events</Link>
+            <Link href="https://jams.hackclub.com/">Jams</Link>
+            <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
+            <Link href="https://directory.hackclub.com/">Clubs Directory</Link>
+            <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
+          </Box>
+          <Box>
+            <Logo aria-label="Hack Club logo" width={128} height={45} />
+            <Grid
+              columns={[8, 4]}
+              gap={2}
+              sx={{
+                alignItems: 'center',
+                ml: -1,
+                my: 3,
+                maxWidth: [null, 192],
+                svg: { fill: 'currentColor', width: 32, height: 32 },
+                a: {
+                  lineHeight: 0,
+                  mb: 0,
+                  transition:
+                    'transform .125s ease-in-out, color .125s ease-in-out',
+                  ':hover,:focus': { transform: 'scale(1.125)' }
+                },
+                placeItems: 'center'
+              }}
+            >
+              <Service
+                href="/slack"
+                icon="slack-fill"
+                name="Slack"
+                target="_self"
+              />
+              <Service
+                href="https://twitter.com/hackclub"
+                icon="twitter"
+                name="Twitter"
+              />
+              <Service
+                href="https://github.com/hackclub"
+                icon="github"
+                name="GitHub"
+              />
+              <Service
+                href="https://figma.com/@hackclub"
+                icon="figma-fill"
+                name="Figma"
+              />
+              <Service
+                href="https://social.dino.icu/@hackclub"
+                icon="mastodon"
+                name="Mastodon"
+              />
+              <Service
+                href="https://www.youtube.com/c/HackClubHQ"
+                icon="youtube"
+                name="YouTube"
+              />
+              <Service
+                href="https://www.instagram.com/starthackclub"
+                icon="instagram"
+                name="Instagram"
+              />
+              <Service href={`mailto:${email}`} icon="email-fill" name="Email" />
+            </Grid>
+            <Text my={2}>
+              <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>
+              <br />
+              <Text as="span" color="muted">
+                (call toll-free)
+              </Text>
             </Text>
-          </Text>
-          <Text as="p" variant="caption" sx={{ mt: 3 }}>
-            © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
-            81-2908499)
-          </Text>
+            <Text as="p" variant="caption" sx={{ mt: 3 }}>
+              © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
+              81-2908499)
+            </Text>
+          </Box>
+
+          <Box
+            sx={{
+              display: ['none', null, null, 'block']
+            }}
+          />
+        </Grid>
+        
+
+        <Box
+          sx={{
+            position: 'absolute',
+            right: [0, 0, -50, -60, -300],
+            bottom: [0, 0, 40, 30, -30, -45], 
+            transform: [
+              'scale(0)', 
+              'scale(0)', 
+              'scale(0.7)', 
+              'scale(0.75)',
+              'scale(1.0)', 
+              'scale(1.0)'  
+            ],
+            transformOrigin: 'bottom right',
+            zIndex: 1,
+            pointerEvents: 'none',
+            opacity: [0, 0, 0.8, 0.85, 0.9, 0.95], 
+            transition: 'all 0.3s ease',
+            display: ['none', 'none', 'block', 'block', 'block', 'block'] 
+          }}
+        >
+          <Ladder />
         </Box>
-<Box
-  sx={{
-    display: ['none', null, 'block'],
-    pl: 3,
-    mt: '-0.9rem'
-  }}
->
-  <Ladder />
-</Box>
-      </Grid>
+      </Box>
     </Container>
   </Base>
 )
