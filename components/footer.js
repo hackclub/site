@@ -8,13 +8,24 @@ import Icon from './icon'
 const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' })`
   background: ${props =>
     props.dark
-      ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
-      : `${theme.colors.snow} url('/pattern.svg') repeat`};
-  ${props =>
-    props.dark &&
-    `
-      background-size: ${theme.space[4]}px ${theme.space[4]}px;
-    `} @media print {
+      ? `${theme.colors.darker}`
+      : `#fdf6ee`};
+  position: relative;
+  border-top: 5px solid #e4d6c3;
+  box-shadow: 0 -12px 30px rgba(0,0,0,0.12);
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+    height: 15px;
+    background: #e4d6c3;
+    border-radius: 25px 25px 0 0;
+  }
+  
+  @media print {
     display: none;
   }
 `
@@ -43,11 +54,83 @@ const Service = ({ href, icon, name = '', ...props }) => (
     rel="noopener me"
     href={href}
     title={`Hack Club on ${name ? name : icon}`}
+    sx={{
+      display: 'flex !important',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '12px',
+      width: '46px',
+      height: '46px',
+      transition: 'all 0.2s cubic-bezier(.68,-0.55,.27,1.55) !important',
+      bg: 'rgba(236, 55, 80, 0.08)',
+      color: '#ec3750 !important',
+      '&:hover, &:focus': {
+        transform: 'translateY(-5px) rotate(-7deg) !important',
+        bg: 'rgba(236, 55, 80, 0.2)', // Darker background for better contrast
+        boxShadow: '0 8px 16px rgba(0,0,0,0.15)', 
+        color: '#d21b34 !important', // Darker red for better contrast
+        textDecoration: 'none !important',
+        border: '1px solid rgba(236, 55, 80, 0.5)' // Adding a border for better definition
+      }
+    }}
     {...props}
   >
-    <Icon glyph={icon} />
+    <Icon glyph={icon} size={28} />
   </Link>
 )
+
+const FooterHeading = styled(Heading)`
+  position: relative;
+  display: inline-block;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #e4d6c3;
+    border-radius: 4px;
+  }
+`
+
+const FooterLink = ({ href, children, internal = false, ...props }) => {
+  const LinkComponent = internal ? 
+    ({ children, ...props }) => (
+      <NextLink href={href} passHref>
+        <Link {...props}>{children}</Link>
+      </NextLink>
+    ) : 
+    ({ children, ...props }) => (
+      <Link href={href} target="_blank" rel="noopener" {...props}>
+        {children}
+      </Link>
+    )
+  
+  return (
+    <LinkComponent
+      sx={{
+        py: 1,
+        px: 2,
+        borderRadius: '8px',
+        display: 'inline-block',
+        transition: 'all 0.15s cubic-bezier(.68,-0.55,.27,1.55)',
+        fontWeight: 600,
+        color: '#513f31 !important',
+        '&:hover, &:focus': {
+          bg: '#f3ede2',
+          color: 'black !important',
+          transform: 'translateX(4px) rotate(-1deg)',
+          textDecoration: 'none !important',
+          boxShadow: '0 3px 8px rgba(0,0,0,0.0625)'
+        }
+      }}
+      {...props}
+    >
+      {children}
+    </LinkComponent>
+  )
+}
 
 const Footer = ({
   dark = false,
@@ -56,7 +139,7 @@ const Footer = ({
   ...props
 }) => (
   <Base
-    color={dark ? 'muted' : 'slate'}
+    color={dark ? 'muted' : '#513f31'}
     py={[4, 5]}
     dark={dark}
     sx={{ textAlign: 'left' }}
@@ -67,77 +150,60 @@ const Footer = ({
       {children}
       <Grid
         as="article"
-        gap={[2, 4]}
-        columns={[2, 3, 4]}
+        gap={[3, 4]}
+        columns={[1, 3, 4]} // Changed from [2, 3, 4] to [1, 3, 4] to ensure single column on mobile
         sx={{
           px: 0,
-          a: {
-            textDecoration: 'none',
-            color: 'muted',
-            transition: '0.125s color ease-in-out',
-            ':hover,:focus': { color: 'slate', textDecoration: 'underline' }
-          },
-          '> div > a': {
-            display: 'block',
-            mb: 2
-          },
-          'h2,p': { color: 'muted' },
-          h2: { fontSize: 3 },
+          'h2,p': { color: dark ? 'white' : '#513f31' },
+          h2: { fontSize: 3, mb: 3 },
           'a,p': { fontSize: 2 }
         }}
       >
         <Box>
-          <Heading as="h2" variant="subheadline" mb={3}>
+          <FooterHeading as="h2" variant="subheadline">
             Hack&nbsp;Club
-          </Heading>
-          <NextLink href="/philosophy" passHref>
-            <Link>Philosophy</Link>
-          </NextLink>
-          <NextLink href="/team" passHref>
-            <Link>Our Team & Board</Link>
-          </NextLink>
-          <NextLink href="/jobs" passHref>
-            <Link>Jobs</Link>
-          </NextLink>
-          <NextLink href="/brand" passHref>
-            <Link>Branding</Link>
-          </NextLink>
-          <NextLink href="/press" passHref>
-            <Link>Press Inquiries</Link>
-          </NextLink>
-          <NextLink href="/philanthropy" passHref>
-            <Link>Donate</Link>
-          </NextLink>
+          </FooterHeading>
+          
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <FooterLink href="/philosophy" internal>Philosophy</FooterLink>
+            <FooterLink href="/team" internal>Our Team & Board</FooterLink>
+            <FooterLink href="/jobs" internal>Jobs</FooterLink>
+            <FooterLink href="/brand" internal>Branding</FooterLink>
+            <FooterLink href="/press" internal>Press Inquiries</FooterLink>
+            <FooterLink href="/philanthropy" internal>Donate</FooterLink>
+          </Box>
         </Box>
         <Box>
-          <Heading as="h2" variant="subheadline" mb={3}>
+          <FooterHeading as="h2" variant="subheadline">
             Resources
-          </Heading>
-          <Link href="https://events.hackclub.com/">Community Events</Link>
-          <Link href="https://jams.hackclub.com/">Jams</Link>
-          <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
-          <Link href="https://directory.hackclub.com/">Clubs Directory</Link>
-          <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
+          </FooterHeading>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <FooterLink href="https://events.hackclub.com/">Community Events</FooterLink>
+            <FooterLink href="https://jams.hackclub.com/">Jams</FooterLink>
+            <FooterLink href="https://toolbox.hackclub.com/">Toolbox</FooterLink>
+            <FooterLink href="https://directory.hackclub.com/">Clubs Directory</FooterLink>
+            <FooterLink href="https://hackclub.com/conduct/" internal>Code of Conduct</FooterLink>
+          </Box>
         </Box>
-        <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
-          <Logo aria-label="Hack Club logo" width={128} height={45} />
+        <Box sx={{ gridColumn: ['span 1', 'span 1'] }}> {/* Updated from span 2 to span 1 */}
+          <Logo 
+            aria-label="Hack Club logo" 
+            width={128} 
+            height={45} 
+            style={{ 
+              transform: 'rotate(-2deg)',
+              filter: dark ? 'brightness(1.2)' : 'none',
+              fill: dark ? '#ffffff' : '#513f31' // Updated logo color
+            }} 
+          />
           <Grid
-            columns={[8, 4]}
+            columns={4} // Changed from [8, 4] to fixed 4 columns
             gap={2}
             sx={{
               alignItems: 'center',
-              ml: -1,
               my: 3,
-              maxWidth: [null, 192],
-              svg: { fill: 'currentColor', width: 32, height: 32 },
-              a: {
-                lineHeight: 0,
-                mb: 0,
-                transition:
-                  'transform .125s ease-in-out, color .125s ease-in-out',
-                ':hover,:focus': { transform: 'scale(1.125)' }
-              },
-              placeItems: 'center'
+              maxWidth: '100%', // Allow grid to take full width
+              placeItems: 'start' // Align items to the start
             }}
           >
             <Service
@@ -178,18 +244,50 @@ const Footer = ({
             />
             <Service href={`mailto:${email}`} icon="email-fill" name="Email" />
           </Grid>
-          <Text my={2}>
-            <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>
+          <Box 
+            sx={{
+              my: 2,
+              p: 2, 
+              borderRadius: '8px',
+              border: '2px dashed #e4d6c3',
+              display: 'inline-block',
+              bg: 'rgba(236, 55, 80, 0.04)'
+            }}
+          >
+            <Link 
+              href="tel:1-855-625-HACK"
+              sx={{ 
+                fontWeight: 'bold', 
+                color: '#513f31 !important',
+                fontSize: 2,
+                textDecoration: 'none !important',
+                '&:hover': {
+                  textDecoration: 'underline !important'
+                }
+              }}
+            >
+              1-855-625-HACK
+            </Link>
             <br />
-            <Text as="span" color="muted">
+            <Text as="span" color={dark ? 'muted' : '#7a6e5d'} sx={{ fontSize: 1 }}>
               (call toll-free)
             </Text>
-          </Text>
+          </Box>
         </Box>
       </Grid>
-      <Text as="p" variant="caption" sx={{ mt: 3 }}>
-        © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
-        81-2908499)
+      <Text 
+        as="p" 
+        sx={{ 
+          mt: 4, 
+          pt: 3, 
+          borderTop: '2px solid #e4d6c3', 
+          fontSize: 1,
+          color: dark ? 'muted' : '#7a6e5d',
+          fontFamily: "'Comic Sans MS', cursive, sans-serif", // Added Comic Sans for fun
+          textAlign: 'center' // Center copyright text
+        }}
+      >
+        © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN: 81-2908499)
       </Text>
     </Container>
   </Base>
