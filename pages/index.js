@@ -49,6 +49,7 @@ import EventSlider from '../components/index/events-slider'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProjectsSlider from '../components/index/projects-slider'
+import Landing from '../components/landing'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -175,6 +176,7 @@ function Page({
       </Head>
       <ForceTheme theme="light" />
       <Nav />
+      <Landing />
       <Box
         as="main"
         sx={{
