@@ -1264,32 +1264,69 @@ export async function getStaticProps() {
   }
 
   // Slack: get total raised
+  // api key error/no api key handling
+let slackData = { total_members_count: 0 }
+try {
   const { Slack: Slacky } = require('./api/slack')
-  let slackData = await Slacky()
+  slackData = await Slacky()
+} catch (error) {
+  console.error('Slack API error:', error)
+}
 
   // GitHub: get latest github activity (currently this is erroring and
   // preventing the site from deploying
 
+let gitHubData = null
+try {
   const { fetchGitHub } = require('./api/github')
-  let gitHubData = await fetchGitHub()
+  gitHubData = await fetchGitHub()
+} catch (error) {
+  console.error('GitHub API error:', error)
+  gitHubData = null 
+}
 
   //   let gitHubData = null
 
   // GitHub: get latest GitHub stars
+let stars = {
+  sprig: { stargazerCount: 0 },
+  onboard: { stargazerCount: 0 },
+  blot: { stargazerCount: 0 },
+  sinerider: { stargazerCount: 0 },
+  hackclub: { stargazerCount: 0 },
+  hackathons: { stargazerCount: 0 }
+}
+try {
   const { fetchStars } = require('./api/stars')
-  let stars = await fetchStars()
+  stars = await fetchStars()
+} catch (error) {
+  console.error('Stars API error:', error)
+}
 
   // Sprig: get newest games
+let game = []
+let gameTitle = []
+try {
   const { getGames } = require('./api/games')
-  let game = await getGames()
-
-  let gameTitle = []
+  game = await getGames()
+  gameTitle = game.map(r => r.title)
+} catch (error) {
+  console.error('Games API error:', error)
+  game = []
+  gameTitle = []
+}
 
   gameTitle = game.map(r => r.title)
 
   // Sprig: get console count
+let consoleCount = 0
+try {
   const { getConsoles } = require('./api/sprig-console')
-  const consoleCount = await getConsoles()
+  consoleCount = await getConsoles()
+} catch (error) {
+  console.error('Console count API error:', error)
+  consoleCount = 0
+}
 
   // Hackathons: get latest hackathons
   let hackathonsData
