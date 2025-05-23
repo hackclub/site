@@ -1286,7 +1286,7 @@ function Page({
               display: 'grid', 
               gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'], 
               gap: 4, 
-              mb: 4,
+              mb: 7,
               '& > div': {
                 borderRadius: '1.75rem',
                 padding: '8px !important',
