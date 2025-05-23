@@ -50,26 +50,24 @@ const HeaderCarousel = ({ images, memberCount }) => {
 
   const nextSlide = () => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % images.length)
-    setProgress(0) // Reset progress when slide changes
+    setProgress(0) 
   }
 
   const prevSlide = () => {
     setCurrentIndex(
       prevIndex => (prevIndex - 1 + images.length) % images.length
     )
-    setProgress(0) // Reset progress when slide changes
+    setProgress(0) 
   }
 
-  useEffect(() => {
+  useEffect(() => { // handle slides
     const intervalTime = 6000
-    const progressInterval = 65 // Update progress every 50ms for smooth animation
+    const progressInterval = 65 
 
-    // Main interval for changing slides
     const timer = setInterval(() => {
       nextSlide()
     }, intervalTime)
 
-    // Progress interval for updating the progress indicator
     const progressTimer = setInterval(() => {
       setProgress(prevProgress => {
         if (prevProgress >= 100) return 100
@@ -184,7 +182,6 @@ const HeaderCarousel = ({ images, memberCount }) => {
           justifyContent: 'center',
           cursor: 'pointer',
           zIndex: 10,
-          // transition: 'all 0.2s',
           boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
           bg: '#fdf6ee',
 
@@ -323,7 +320,6 @@ const HeaderCarousel = ({ images, memberCount }) => {
           padding: '10px',
           paddingTop: "15px",
           transform: 'rotate(2deg)',
-          // paddingBottom: '25px',
           background: 'linear-gradient(to bottom, #e8d9b5, #d2bc94)',
           borderRadius: '12px',
           border: '4px solid #7d623c',
@@ -441,7 +437,6 @@ const HeaderCarousel = ({ images, memberCount }) => {
   );
 };
 
-// Update the ToolCard component to include proper href and have a more tool-like appearance
 function ToolCard({ icon, name, desc, href }) {
   return (
     <Box
@@ -525,27 +520,21 @@ function Page({
   let [github, setGithub] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
-  // Add state for tracking scroll position
   const [isScrolled, setIsScrolled] = useState(false)
 
   const { asPath } = useRouter()
 
   let jsConfetti = useRef()
 
-  // Add scroll position tracking effect
   useEffect(() => {
     const handleScroll = () => {
-      // Show button when scrolled down at least 200px, hide when near top
       setIsScrolled(window.scrollY > 200)
     }
 
-    // Set initial state
     handleScroll()
 
-    // Add scroll event listener
     window.addEventListener('scroll', handleScroll)
 
-    // Clean up on unmount
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -687,20 +676,18 @@ function Page({
             pb: [2, 3],
             overflowY: 'hidden',
             textAlign: 'left',
-            position: 'relative',  // Keep this as relative
+            position: 'relative', 
             paddingTop: '0px !important',
             overflowX: 'hidden',
-            height: 'auto',  // Auto height to fit content
-            minHeight: '500px'  // Minimum height to show background properly
+            height: 'auto', 
+            minHeight: '500px' 
           }}
         >
-          {/* Carousel as background */}
           <HeaderCarousel
             images={headerImages}
             memberCount={slackData.total_members_count}
           />
 
-          {/* Content stays on top with higher z-index */}
           <Box
             sx={{
               width: '90vw',
@@ -725,7 +712,7 @@ function Page({
                 textShadow: '0 2px 4px rgba(0,0,0,0.3)',
                 mb: 2,
                 ml: [0, 0, 1],
-                transform: 'translateY(-8px)', // Adjust vertical alignment
+                transform: 'translateY(-8px)',
                 letterSpacing: '0.01em'
               }}
               as="p"
@@ -750,7 +737,6 @@ function Page({
                   letterSpacing: '-0.01em'
                 }}
               >
-                {/* Scribbled-out "A home" with handwritten note above */}
                 <Box
                   sx={{
                     position: 'relative',
@@ -845,7 +831,6 @@ function Page({
               </Box>
             </Heading>
           </Box>
-          {/* Remove the old badge - it's now integrated into the carousel */}
         </Box>
         <Box as="section" sx={{
           py: [1, 2, '30px'],
@@ -920,7 +905,6 @@ function Page({
                 </Box>{' '}
               </Text>
             <Grid columns={[1, 1, 3]} gap={[3, 4]} sx={{ alignItems: 'center', marginTop: '48px' }}>
-              {/* Build Almost Anything Column */}
               <Box sx={{
                 borderRadius: 'extra',
                 bg: 'rgba(255, 237, 209, 0.6)',
@@ -938,7 +922,6 @@ function Page({
                   transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
                 }
               }}>
-                {/* Decorative icon */}
                 <Box sx={{
                   position: 'absolute',
                   top: '-10px',
@@ -1003,7 +986,6 @@ function Page({
                 </Button>
               </Box>
 
-              {/* Great Minds Think Together Column */}
               <Box sx={{
                 borderRadius: 'extra',
                 bg: 'rgba(231, 245, 255, 0.6)',
@@ -1021,7 +1003,6 @@ function Page({
                   transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
                 }
               }}>
-                {/* Decorative icon */}
                 <Box sx={{
                   position: 'absolute',
                   top: '-10px',
@@ -1085,8 +1066,6 @@ function Page({
                   Code of Conduct
                 </Button>
               </Box>
-
-              {/* Learn By Doing Column */}
               <Box sx={{
                 borderRadius: 'extra',
                 bg: 'rgba(233, 216, 253, 0.6)',
@@ -1104,7 +1083,6 @@ function Page({
                   transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
                 }
               }}>
-                {/* Decorative icon */}
                 <Box sx={{
                   position: 'absolute',
                   top: '-5px',
@@ -1281,7 +1259,6 @@ function Page({
               </Text>
             </Box>
 
-            {/* Programs masonry layout with updated Animal Crossing style */}
             <Box sx={{ 
               display: 'grid', 
               gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'], 
@@ -1302,17 +1279,14 @@ function Page({
                 paddingY: '0px'
               }
             }}>
-              {/* Left side - Neighborhood takes up full height */}
               <Box>
                 <Neighborhood />
               </Box>
 
-              {/* Right side - Trail and Scrapyard stacked */}
               <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, paddingTop: "32px" }}>
                 <Box className="weirdBox" sx={{
                   mb: 0,
                   '& > div': {
-                    // More compact styling for Trail
                     '& > div': {
                       mb: 0,
                       px: [2, 2, 3],
@@ -1326,13 +1300,12 @@ function Page({
                       },
                       '& > p': {
                         fontSize: ['13px', '14px', '16px'],
-                        display: ['none', 'block', 'block'], // Hide description on mobile
+                        display: ['none', 'block', 'block'],
                         lineHeight: 1.4,
                         mb: 2,
                         color: '#665040'
                       },
                       '& > div:last-of-type': {
-                        // Modify button if present
                         '& a': {
                           py: 1,
                           px: 3,
@@ -1354,7 +1327,7 @@ function Page({
                 </Box>
                 <Box sx={{
                   '& > div': {
-                    // More compact styling for Scrapyard
+                  
                     '& > div': {
                       py: [2, 2, 3],
                       px: [2, 2, 3],
@@ -1368,13 +1341,13 @@ function Page({
                       },
                       '& > p': {
                         fontSize: ['13px', '14px', '16px'],
-                        display: ['none', 'block', 'block'], // Hide description on mobile
+                        display: ['none', 'block', 'block'],
                         lineHeight: 1.4,
                         mb: 2,
                         color: '#665040'
                       },
                       '& > div:last-of-type': {
-                        // Modify button if present
+                       
                         '& a': {
                           py: 1,
                           px: 3,
@@ -1410,7 +1383,6 @@ function Page({
                 position: 'relative'
               }}
             >
-              {/* Toolbox Section - Moved here to replace the "We build open source..." section */}
               <Box
                 as="section"
                 sx={{
@@ -1429,7 +1401,6 @@ function Page({
                   overflow: 'visible',
                   transform: 'rotate(-0.5deg)',
                   '&:after': {
-                    // Bottom panels/compartments styling
                     content: '""',
                     position: 'absolute',
                     bottom: '15px',
@@ -1443,7 +1414,6 @@ function Page({
                   }
                 }}
               >
-                {/* Open Toolbox Lid */}
                 <Box sx={{
                   position: 'absolute',
                   top: ['-70px', '-80px', '-90px'],
@@ -1460,32 +1430,31 @@ function Page({
                   zIndex: 1
                 }} />
                 
-                {/* GitHub Feed stacked and bouncing out of toolbox */}
                 {gitHubData && (
                   <Box
                     sx={{
                       position: 'absolute',
-                      top: ['-130px', '-130px', '-150px'], // Moved down significantly
+                      top: ['-130px', '-130px', '-150px'], 
                       left: '50%',
                       transform: 'translateX(-50%)',
-                      width: ['95%', '85%', '80%'], // Wider for more impact
-                      maxWidth: '650px', // Increased max width
+                      width: ['95%', '85%', '80%'], 
+                      maxWidth: '650px',
                       zIndex: 5,
                       display: 'flex',
                       flexDirection: 'column',
-                      gap: [1.5, 2, 3], // Increased spacing between items
+                      gap: [1.5, 2, 3],
                       alignItems: 'center',
                       pointerEvents: 'none'
                     }}
                   >
                     <Text
                       sx={{
-                        fontSize: ['20px', '22px', '26px'], // Larger text
+                        fontSize: ['20px', '22px', '26px'], 
                         textAlign: 'center',
                         fontWeight: 'bold',
                         color: '#333',
-                        mb: [1, 1, 2], // Less margin on mobile
-                        textShadow: '0 1px 0 white, 0 2px 3px rgba(0,0,0,0.1)', // Enhanced shadow
+                        mb: [1, 1, 2], 
+                        textShadow: '0 1px 0 white, 0 2px 3px rgba(0,0,0,0.1)', 
                         animation: 'titleFloat 3s ease-in-out infinite',
                         '@keyframes titleFloat': {
                           '0%, 100%': { transform: 'translateY(0)' },
@@ -1525,23 +1494,23 @@ function Page({
                               '60%': { transform: 'translateY(-18px) scale(1.04) rotate(-2deg)' },
                               '80%': { transform: 'translateY(-7px) scale(1.01) rotate(1deg)' }
                             },
-                            boxShadow: '0 8px 20px rgba(0,0,0,0.15)', // Chunkier shadow
+                            boxShadow: '0 8px 20px rgba(0,0,0,0.15)', 
                             background: 'white',
                             borderRadius: '12px',
-                            border: '3px solid #ddd', // Thicker border
+                            border: '3px solid #ddd', 
                             width: '100%',
-                            maxWidth: '550px', // Larger cards
+                            maxWidth: '550px', 
                             pointerEvents: 'auto',
                             position: 'relative',
-                            transform: `scale(${1 - key * 0.05})`, // Initial scaled size before animation
+                            transform: `scale(${1 - key * 0.05})`, 
                             transformOrigin: 'center top',
                             '&:hover': {
                               animationPlayState: 'paused',
-                              boxShadow: '0 12px 28px rgba(0,0,0,0.2)', // Enhanced hover effect
+                              boxShadow: '0 12px 28px rgba(0,0,0,0.2)', 
                               zIndex: 10
                             },
-                            '& > div': { // Target the GitHub component
-                              padding: [2, 2, 3] // Add padding inside the GitHub component
+                            '& > div': { 
+                              padding: [2, 2, 3] 
                             }
                           }}
                         >
@@ -1559,12 +1528,11 @@ function Page({
                   </Box>
                 )}
                 
-                {/* Toolbox Title and Content */}
                 <Box sx={{ 
                   position: 'relative', 
                   zIndex: 3,
-                  pt: [1, 1, 2], // Additional top padding to account for the overlapping GitHub feed
-                  pb: "32px !important" // Reduced bottom padding
+                  pt: [1, 1, 2], 
+                  pb: "32px !important" 
                 }}>
                   <Text
                     variant="title"
@@ -1613,20 +1581,18 @@ function Page({
                     or contribute to the tools themselves.
                   </Text>
                   
-                  {/* Tools tray */}
                   <Box sx={{
                     background: 'white',
                     borderRadius: '1.5rem',
                     boxShadow: 'inset 0 0 20px rgba(0,0,0,0.1)',
-                    p: [2, 3, 4], // Smaller padding on mobile
+                    p: [2, 3, 4],
                     position: 'relative',
                     border: '4px solid #c0392b'
                   }}>
-                    {/* Row 1 - Top tools */}
                     <Flex
                       sx={{
-                        flexWrap: 'wrap', // Always wrap on all screen sizes
-                        gap: [2, 3, 3], // Smaller gap on mobile
+                        flexWrap: 'wrap', 
+                        gap: [2, 3, 3],
                         justifyContent: 'center',
                         mb: [3, 3, 4]
                       }}
@@ -1647,39 +1613,7 @@ function Page({
                     </Flex>
                   </Box>
                 </Box>
-                
-                {/* Decorative elements - tools floating around toolbox */}
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    right: '-25px',
-                    bottom: '60px',
-                    transform: 'rotate(15deg)',
-                    color: '#ffe066',
-                    opacity: 0.8,
-                    display: ['none', 'block'],
-                    filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.3))'
-                  }}
-                >
-                  <Icon glyph="wrench" size={72} />
-                </Box>
 
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    left: '-22px',
-                    top: '100px',
-                    transform: 'rotate(-20deg)',
-                    color: '#ffe066',
-                    opacity: 0.8,
-                    display: ['none', 'block'],
-                    filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.3))'
-                  }}
-                >
-                  <Icon glyph="hammer" size={64} />
-                </Box>
-
-                {/* Screws for toolbox corners */}
                 <Box sx={{
                   position: 'absolute',
                   top: '15px',
@@ -1835,14 +1769,11 @@ function Page({
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
               />
-
-              {/* <Events events={events} /> */}
               <HCB data={bankData} />
             </Box>
           </Box>
         </Box>
 
-        {/* Remove the old toolbox section that was here */}
 
         <Box py={[4, 5, '82px']}>
           <Box
@@ -2143,7 +2074,6 @@ function Page({
         <MailingList />
       </Box>
 
-      {/* Scroll to Top FAB */}
       <Box
         as="button"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -2163,7 +2093,6 @@ function Page({
           borderRadius: '16px',
           boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
           cursor: 'pointer',
-          // Use isScrolled to control visibility
           opacity: isScrolled ? 0.9 : 0,
           pointerEvents: isScrolled ? 'auto' : 'none',
           transform: isScrolled ? 'translateY(0)' : 'translateY(20px)',
@@ -2233,8 +2162,6 @@ export async function getStaticProps() {
   const { fetchGitHub } = require('./api/github')
   let gitHubData = await fetchGitHub()
 
-  //   let gitHubData = null
-
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')
   let stars = await fetchStars()
@@ -2274,31 +2201,6 @@ export async function getStaticProps() {
   } catch (error) {
     console.error('Error fetching events:', error)
   }
-  // Define carousel cards with default values
-  // const carouselCards = [ith default values
-  //   {st carouselCards = [
-  //     title: "Hack Club",
-  //     description: "A global community of teenage hackers making things together",
-  //     link: "/about", global community of teenage hackers making things together",
-  //     bg: "linear-gradient(90deg, rgba(236,55,80,1) 0%, rgba(255,140,55,1) 100%)",
-  //     color: "white"adient(90deg, rgba(236,55,80,1) 0%, rgba(255,140,55,1) 100%)",
-  //   },color: "white"
-  //   {,
-  //     title: "Workshops",
-  //     description: "Learn to code with our community-contributed workshops",
-  //     link: "/workshops", to code with our community-contributed workshops",
-  //     bg: "linear-gradient(90deg, rgba(51,214,166,1) 0%, rgba(51,142,218,1) 100%)",
-  //     color: "white"adient(90deg, rgba(51,214,166,1) 0%, rgba(51,142,218,1) 100%)",
-  //   },color: "white"
-  //   {,
-  //     title: "Slack",
-  //     description: "Join our Slack community with thousands of teen hackers",
-  //     link: "/slack",oin our Slack community with thousands of teen hackers",
-  //     bg: "linear-gradient(90deg, rgba(170,51,214,1) 0%, rgba(51,142,218,1) 100%)",
-  //     color: "white"adient(90deg, rgba(170,51,214,1) 0%, rgba(51,142,218,1) 100%)",
-  //   } color: "white"
-  // ];}
-  // ];
   return {
     props: {
       game,
