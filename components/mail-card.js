@@ -7,7 +7,7 @@ export default function MailCard({ body, date, link }) {
       variant="interactive"
       sx={{
         cursor: 'pointer',
-        padding: '0 !important'
+        padding: '0px 0px !important'
       }}
     >
       <Link

@@ -1,48 +1,66 @@
-import AirtablePlus from "airtable-plus"
+import AirtablePlus from 'airtable-plus'
 
 export const shopParts = async () => {
-  const baseID = "app4kCWulfB02bV8Q"
+  const apiKey = process.env.AIRTABLE_API_KEY
+  const baseID = 'app4kCWulfB02bV8Q'
+
+  if (!apiKey) {
+    // handling if the api key is not available
+    console.warn('No Airtable API key provided.')
+    return []
+  }
+
   const shopItemsTable = new AirtablePlus({
-    apiKey: process.env.AIRTABLE_API_KEY,
+    apiKey,
     baseID,
-    tableName: "Shop Items"
+    tableName: 'Shop Items'
   })
   const ordersTable = new AirtablePlus({
-    apiKey: process.env.AIRTABLE_API_KEY,
+    apiKey,
     baseID,
-    tableName: "Orders"
+    tableName: 'Orders'
   })
 
   const records = await shopItemsTable.read()
   const newRecordsPromise = records.map(async record => {
-    const fields = record.fields;
-    let stock = fields["Stock"]
+    const fields = record.fields
+    let stock = fields['Stock']
 
-    if (stock && fields["Count of Orders Fulfilled"]) {
-      stock -= fields["Count of Orders Fulfilled"]
+    if (stock && fields['Count of Orders Fulfilled']) {
+      stock -= fields['Count of Orders Fulfilled']
     }
-      return { id: record.id, ...record.fields, "Stock": (stock == null)? null : (stock >= 0 ? stock : 0) }
+    return {
+      id: record.id,
+      ...record.fields,
+      Stock: stock == null ? null : stock >= 0 ? stock : 0
+    }
   })
 
-
-    const newRecords = await Promise.all(newRecordsPromise)
+  const newRecords = await Promise.all(newRecordsPromise)
 
   return newRecords
 }
 
 export default async function handler(req, res) {
-  const data = await shopParts()
+  try {
+    const data = await shopParts()
 
-  const filteredData = data.filter(record => record["Enabled"]).map(record => {
-    return {
-      name: record['Name'],
-      smallName: record['Small Name'],
-      description: record['Description'],
-      hours: record['Cost Hours'],
-      imageURL: record['Image URL'],
-      stock: record['Stock'],
-    }
-  })
+    const filteredData = data
+      .filter(record => record['Enabled'])
+      .map(record => {
+        return {
+          name: record['Name'],
+          smallName: record['Small Name'],
+          description: record['Description'],
+          hours: record['Cost Hours'],
+          imageURL: record['Image URL'],
+          stock: record['Stock']
+        }
+      })
 
-  return res.json(filteredData)
+    return res.json(filteredData)
+  } catch (error) {
+    console.error('Error fetching shop parts:', error)
+    return res.status(500).json({ error: 'Internal Server Error' })
+  }
 }

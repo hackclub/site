@@ -117,26 +117,30 @@ const MailingList = () => {
               alignItems: ['left', 'left', 'center'],
               flexDirection: 'column',
               gap: '10px',
-              width: ['100%', '100%', '75%']
+              width: ['100%', '100%', '75%'],
+              mx: 'auto'
             }}
           >
             <Box>
-              <Text
-                variant="title"
-                sx={{
-                  fontSize: [4, '36px', '42px', 6],
-                  zIndex: 2,
-                  textAlign: 'left'
-                }}
-              >
-                Join the newsletter
-              </Text>
+              <Box sx={{ position: 'relative', textAlign: 'center' }}>
+                <Text
+                  variant="title"
+                  sx={{
+                    fontSize: [4, '36px', '42px', 6],
+                    zIndex: 2,
+                    textAlign: 'center',
+                    mx: 'auto'
+                  }}
+                >
+                  Join the newsletter
+                </Text>
+              </Box>
               <Text
                 sx={{
                   color: 'darkless',
                   mt: 2,
                   fontSize: 3,
-                  textAlign: 'left'
+                  textAlign: 'center'
                 }}
                 as="p"
               >
@@ -159,7 +163,7 @@ const MailingList = () => {
               gap={[2, 3]}
               sx={{
                 textAlign: 'center',
-                alignItems: 'end',
+                alignItems: 'center',
                 input: { bg: 'sunken' },
                 width: '100%'
               }}
@@ -209,31 +213,58 @@ const MailingList = () => {
               </Button>
             </Grid>
           </Flex>
-          <Box
-            sx={{
-              display: 'grid',
-              gridGap: 4,
-              mt: [4, 0],
-              width: '100%'
-            }}
-          >
-            {data.finalHtml
-              .map((html, index) => (
-                <MailCard
-                  issue={index + 1}
-                  body={html}
-                  date={format(
-                    parse('', '', new Date(data.names[index])),
-                    'MMMM d, yyyy'
-                  )}
-                  link={data.names[index]}
-                  key={index}
-                />
-              ))
-              .reverse()}
-          </Box>
         </Flex>
       </Card>
+
+      <Box
+        sx={{
+          display: 'grid',
+          gridGap: 4,
+          mt: [4, 0],
+          height: 'fit-content',
+          width: '100%',
+          maxWidth: 'layout',
+          position: 'relative',
+          mx: 'auto',
+          zIndex: '1'
+        }}
+      >
+        <Text
+          as="p"
+          sx={{
+            fontSize: ['25px', 3, 4],
+            textAlign: 'left',
+            position: 'relative',
+            zIndex: '1',
+            color: '#121217',
+            mt: '20px'
+          }}
+        >
+          Latest newsletter sent to Hackclubbers!
+        </Text>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: ['column', 'row', 'row'],
+            gap: '30px'
+          }}
+        >
+          {data.finalHtml
+            .map((html, index) => (
+              <MailCard
+                issue={index + 1}
+                body={html}
+                date={format(
+                  parse('', '', new Date(data.names[index])),
+                  'MMMM d, yyyy'
+                )}
+                link={data.names[index]}
+                key={index}
+              />
+            ))
+            .reverse()}
+        </Box>
+      </Box>
       <BGImg
         width={2544}
         height={2048}

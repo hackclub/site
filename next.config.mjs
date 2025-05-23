@@ -15,7 +15,8 @@ const nextConfig = {
       'scrapbook.hackclub.com',
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
-      'hcb.hackclub.com'
+      'hcb.hackclub.com',
+      'lh3.googleusercontent.com'
     ],
     remotePatterns: [
       {
@@ -200,7 +201,6 @@ const nextConfig = {
         source: '/github',
         destination: 'https://github.com/hackclub',
         permanent: true
-
       },
       {
         source: '/nest',
@@ -322,7 +322,7 @@ const nextConfig = {
       {
         source: '/arcade/power-hour',
         destination: '/arcade/power-hour/index.html'
-      },
+      }
     ]
   },
   async headers() {
