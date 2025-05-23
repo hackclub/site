@@ -441,6 +441,68 @@ const HeaderCarousel = ({ images, memberCount }) => {
   );
 };
 
+// Update the ToolCard component to include proper href and have a more tool-like appearance
+function ToolCard({ icon, name, desc, href }) {
+  return (
+    <Box
+      as="a"
+      href={href || `/projects`}
+      target={href?.startsWith('http') ? "_blank" : undefined}
+      rel={href?.startsWith('http') ? "noopener noreferrer" : undefined}
+      sx={{
+        width: ['30%', '100px', '140px'],
+        minWidth: ['90px', '100px', '110px'],
+        height: ['110px', '120px', '130px'],
+        bg: '#fff',
+        borderRadius: '12px',
+        border: '2px solid #e0e0e0',
+        p: 2,
+        textDecoration: 'none',
+        color: '#1f2d3d',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: 2,
+        position: 'relative',
+        textAlign: 'center',
+        transition: 'transform 0.15s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.15s, border-color 0.15s',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+        '&:hover, &:focus': {
+          transform: 'translateY(-5px) rotate(-2deg)',
+          boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
+          borderColor: '#c0392b',
+          outline: 'none',
+          bg: '#fff9f9'
+        }
+      }}
+    >
+      <Box
+        sx={{
+          width: '46px',
+          height: '46px',
+          borderRadius: '12px',
+          bg: 'rgba(236, 55, 80, 0.08)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          mb: 2,
+          color: '#ec3750',
+          transition: 'transform 0.2s ease-out, background-color 0.2s ease-out',
+          '&:hover': { 
+            transform: 'scale(1.1) rotate(10deg)',
+            bg: 'rgba(236, 55, 80, 0.15)' 
+          }
+        }}
+      >
+        <Icon glyph={icon} size={28} />
+      </Box>
+      <Text sx={{ fontWeight: 800, fontSize: 1, mb: '1px', lineHeight: 1.25 }}>{name}</Text>
+      <Text sx={{ fontSize: 0, color: '#718096', lineHeight: 1.25 }}>{desc}</Text>
+    </Box>
+  )
+}
+
 function Page({
   hackathonsData,
   bankData,
@@ -793,6 +855,7 @@ function Page({
           position: 'relative',
           zIndex: 2
         }}>
+          
           <Box
             sx={{
               position: 'relative',
@@ -801,7 +864,62 @@ function Page({
               margin: 'auto'
             }}
           >
-            <Grid columns={[1, 1, 3]} gap={[3, 4]} sx={{ alignItems: 'center' }}>
+            <Text variant="title" sx={{ 
+                fontSize: ['36px', 4, 5],
+                fontWeight: 900,
+                color: '#513f31',
+                textShadow: '1px 1px 0 rgba(255,255,255,0.6)',
+                mb: 2
+              }}>
+                Our{' '}
+                <Box
+                  sx={{
+                    position: 'relative',
+                    display: 'inline-block',
+                    width: 'fit-content'
+                  }}
+                >
+                  <Text
+                    as="span"
+                    sx={{
+                      position: 'relative',
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        left: 0,
+                        top: '50%',
+                        width: '100%',
+                        height: '4px',
+                        background: 'red',
+                        borderRadius: '4px',
+                        transform: 'rotate(-5deg)',
+                        opacity: 0.8,
+                        zIndex: 2
+                      }
+                    }}
+                  >
+                    Modus Operandi
+                  </Text>
+                  <Text
+                    as="span"
+                    sx={{
+                      position: 'absolute',
+                      top: '-15px',
+                      left: '-5px',
+                      transform: 'rotate(-8deg)',
+                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontSize: ['18px', '20px', '28px'],
+                      color: 'red',
+                      fontWeight: 'bold',
+                      textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                      zIndex: 3,
+                    }}
+                  >
+                    how we do things
+                  </Text>
+                </Box>{' '}
+              </Text>
+            <Grid columns={[1, 1, 3]} gap={[3, 4]} sx={{ alignItems: 'center', marginTop: '48px' }}>
               {/* Build Almost Anything Column */}
               <Box sx={{
                 borderRadius: 'extra',
@@ -1064,7 +1182,8 @@ function Page({
             `,
             backgroundSize: '40px 40px',
             backgroundRepeat: 'repeat',
-            position: 'relative'
+            position: 'relative',
+            marginBottom: [4, 5, 6],
           }}
         >
           <Box
@@ -1090,8 +1209,14 @@ function Page({
             }}
           >
             <Box>
-              <Text variant="title" sx={{ fontSize: ['36px', 4, 5] }}>
-                Programs with fellow{' '}
+              <Text variant="title" sx={{ 
+                fontSize: ['36px', 4, 5],
+                fontWeight: 900,
+                color: '#513f31',
+                textShadow: '1px 1px 0 rgba(255,255,255,0.6)',
+                mb: 2
+              }}>
+                Engage with fellow{' '}
                 <Box
                   sx={{
                     position: 'relative',
@@ -1135,54 +1260,91 @@ function Page({
                       zIndex: 3,
                     }}
                   >
-                    builders
+                    makers
                   </Text>
                 </Box>{' '}
               </Text>
               <Text
                 variant="subtitle"
                 as="p"
-                sx={{ fontSize: ['18px', '20px', '22px'], pb: [3, 0, 0] }}
+                sx={{ 
+                  fontSize: ['18px', '20px', '22px'], 
+                  pb: [3, 0, 0],
+                  color: '#665040',
+                  fontWeight: 600,
+                  maxWidth: '80%',
+                  mb: 4
+                }}
               >
                 We gather both online and in-person to share our love of code
                 and make things together!
               </Text>
             </Box>
 
-            {/* Programs masonry layout */}
-            <Box sx={{ display: 'grid', gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'], gap: 3, mb: 4 }}>
+            {/* Programs masonry layout with updated Animal Crossing style */}
+            <Box sx={{ 
+              display: 'grid', 
+              gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'], 
+              gap: 4, 
+              mb: 4,
+              '& > div': {
+                borderRadius: '1.75rem',
+                padding: '8px !important',
+                border: '5px solid #e4d6c3',
+                boxShadow: '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
+                background: '#fdf6ee',
+                transition: 'transform 0.2s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s',
+                overflow: 'hidden',
+                '&:hover': {
+                  transform: 'translateY(-8px) rotate(-1deg)',
+                  boxShadow: '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
+                },
+                paddingY: '0px'
+              }
+            }}>
               {/* Left side - Neighborhood takes up full height */}
               <Box>
                 <Neighborhood />
               </Box>
 
               {/* Right side - Trail and Scrapyard stacked */}
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, paddingTop: "32px" }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, paddingTop: "32px" }}>
                 <Box className="weirdBox" sx={{
                   mb: 0,
                   '& > div': {
                     // More compact styling for Trail
                     '& > div': {
                       mb: 0,
-                      // py: [2, 2, 2], 
-                      px: [2, 2, 2],
+                      px: [2, 2, 3],
                       minHeight: 'unset',
                       '& > h2': {
-                        fontSize: ['18px', '20px', '24px'],
-                        mb: 1
+                        fontSize: ['20px', '22px', '26px'],
+                        mb: 2,
+                        fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                        color: '#513f31',
+                        fontWeight: 'bold'
                       },
                       '& > p': {
-                        fontSize: ['13px', '14px', '15px'],
+                        fontSize: ['13px', '14px', '16px'],
                         display: ['none', 'block', 'block'], // Hide description on mobile
-                        lineHeight: 1.3,
-                        mb: 0
+                        lineHeight: 1.4,
+                        mb: 2,
+                        color: '#665040'
                       },
                       '& > div:last-of-type': {
                         // Modify button if present
                         '& a': {
                           py: 1,
-                          px: 2,
-                          fontSize: 1
+                          px: 3,
+                          fontSize: 1,
+                          borderRadius: '100px',
+                          fontWeight: 'bold',
+                          boxShadow: '0 4px 8px rgba(0,0,0,0.08)',
+                          border: '3px solid',
+                          '&:hover': {
+                            transform: 'scale(1.05) rotate(-1deg)',
+                            boxShadow: '0 6px 12px rgba(0,0,0,0.12)'
+                          }
                         }
                       }
                     }
@@ -1194,25 +1356,37 @@ function Page({
                   '& > div': {
                     // More compact styling for Scrapyard
                     '& > div': {
-                      py: [2, 2, 2],
-                      px: [2, 2, 2],
+                      py: [2, 2, 3],
+                      px: [2, 2, 3],
                       minHeight: 'unset',
                       '& > h2': {
-                        fontSize: ['18px', '20px', '24px'],
-                        mb: 1
+                        fontSize: ['20px', '22px', '26px'],
+                        mb: 2,
+                        fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                        color: '#513f31',
+                        fontWeight: 'bold'
                       },
                       '& > p': {
-                        fontSize: ['13px', '14px', '15px'],
+                        fontSize: ['13px', '14px', '16px'],
                         display: ['none', 'block', 'block'], // Hide description on mobile
-                        lineHeight: 1.3,
-                        mb: 2
+                        lineHeight: 1.4,
+                        mb: 2,
+                        color: '#665040'
                       },
                       '& > div:last-of-type': {
                         // Modify button if present
                         '& a': {
                           py: 1,
-                          px: 2,
-                          fontSize: 1
+                          px: 3,
+                          fontSize: 1,
+                          borderRadius: '100px',
+                          fontWeight: 'bold',
+                          boxShadow: '0 4px 8px rgba(0,0,0,0.08)',
+                          border: '3px solid',
+                          '&:hover': {
+                            transform: 'scale(1.05) rotate(-1deg)',
+                            boxShadow: '0 6px 12px rgba(0,0,0,0.12)'
+                          }
                         }
                       }
                     }
@@ -1223,13 +1397,11 @@ function Page({
               </Box>
             </Box>
 
-            {/* Slack remains full width below */}
-            <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
 
         <Box>
-          <Box py={[4, 5, '82px']}>
+          <Box py={[4, 5, '0px']}>
             <Box
               sx={{
                 width: '90vw',
@@ -1238,26 +1410,174 @@ function Page({
                 position: 'relative'
               }}
             >
-              <Flex
+              {/* Toolbox Section - Moved here to replace the "We build open source..." section */}
+              <Box
+                as="section"
                 sx={{
-                  flexDirection: ['column', 'column', 'column', 'row'],
-                  justifyContent: gitHubData ? 'center' : 'flex-start',
-                  alignItems: [
-                    'flex-start',
-                    'flex-start',
-                    'flex-start',
-                    'center'
-                  ],
-                  gap: '10px'
+                  width: '100%',
+                  maxWidth: 'layout',
+                  margin: '0 auto 64px',
+                  borderRadius: '1.75rem',
+                  border: '5px solid #c0392b',
+                  background: 'linear-gradient(135deg, #e84545 0%, #c0392b 100%)',
+                  boxShadow: '0 12px 40px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.12), inset 0 1px 10px rgba(255,255,255,0.2)',
+                  px: [2, 3, 2.5],
+                  py: [4, 5, 6],
+                  pb: "32px !important",
+                  pt: ['80px', '90px', '100px'],
+                  position: 'relative',
+                  overflow: 'visible',
+                  transform: 'rotate(-0.5deg)',
+                  '&:after': {
+                    // Bottom panels/compartments styling
+                    content: '""',
+                    position: 'absolute',
+                    bottom: '15px',
+                    left: '5%',
+                    right: '5%',
+                    height: '8px',
+                    background: '#a33a38',
+                    borderRadius: '3px',
+                    zIndex: 0,
+                    opacity: 0.7
+                  }
                 }}
               >
-                <Box sx={{ mb: [3, 0, 0] }}>
+                {/* Open Toolbox Lid */}
+                <Box sx={{
+                  position: 'absolute',
+                  top: ['-70px', '-80px', '-90px'],
+                  left: 0,
+                  width: '100%',
+                  height: ['100px', '120px', '140px'],
+                  background: 'linear-gradient(to bottom, #e74c3c, #c0392b)',
+                  borderRadius: '1.75rem 1.75rem 0 0',
+                  border: '5px solid #c0392b',
+                  borderBottom: 'none',
+                  transform: 'rotateX(60deg)',
+                  transformOrigin: 'bottom',
+                  boxShadow: 'inset 0 5px 15px rgba(255,255,255,0.3), 0 -4px 10px rgba(0,0,0,0.2)',
+                  zIndex: 1
+                }} />
+                
+                {/* GitHub Feed stacked and bouncing out of toolbox */}
+                {gitHubData && (
+                  <Box
+                    sx={{
+                      position: 'absolute',
+                      top: ['-130px', '-130px', '-150px'], // Moved down significantly
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      width: ['95%', '85%', '80%'], // Wider for more impact
+                      maxWidth: '650px', // Increased max width
+                      zIndex: 5,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: [1.5, 2, 3], // Increased spacing between items
+                      alignItems: 'center',
+                      pointerEvents: 'none'
+                    }}
+                  >
+                    <Text
+                      sx={{
+                        fontSize: ['20px', '22px', '26px'], // Larger text
+                        textAlign: 'center',
+                        fontWeight: 'bold',
+                        color: '#333',
+                        mb: [1, 1, 2], // Less margin on mobile
+                        textShadow: '0 1px 0 white, 0 2px 3px rgba(0,0,0,0.1)', // Enhanced shadow
+                        animation: 'titleFloat 3s ease-in-out infinite',
+                        '@keyframes titleFloat': {
+                          '0%, 100%': { transform: 'translateY(0)' },
+                          '50%': { transform: 'translateY(-10px)' }
+                        }
+                      }}
+                    >
+                      Live from GitHub
+                    </Text>
+                    
+                    {gitHubData
+                      .filter(data => !data.user.endsWith('[bot]'))
+                      .slice(0, 3)
+                      .map((data, key) => (
+                        <Box
+                          key={key}
+                          sx={{
+                            animation: `githubBounce${key} ${2.8 + key * 0.4}s ${key * 0.25}s infinite cubic-bezier(.68,-0.55,.27,1.55)`,
+                            '@keyframes githubBounce0': {
+                              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                              '20%': { transform: 'translateY(-18px) scale(1.04) rotate(-2deg)' },
+                              '40%': { transform: 'translateY(-8px) scale(1.01) rotate(1deg)' },
+                              '60%': { transform: 'translateY(-14px) scale(1.03) rotate(-1deg)' },
+                              '80%': { transform: 'translateY(-4px) scale(1.01) rotate(2deg)' }
+                            },
+                            '@keyframes githubBounce1': {
+                              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                              '20%': { transform: 'translateY(-22px) scale(1.05) rotate(2deg)' },
+                              '40%': { transform: 'translateY(-10px) scale(1.01) rotate(-2deg)' },
+                              '60%': { transform: 'translateY(-16px) scale(1.03) rotate(1deg)' },
+                              '80%': { transform: 'translateY(-6px) scale(1.01) rotate(-1deg)' }
+                            },
+                            '@keyframes githubBounce2': {
+                              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                              '20%': { transform: 'translateY(-26px) scale(1.06) rotate(-3deg)' },
+                              '40%': { transform: 'translateY(-12px) scale(1.02) rotate(2deg)' },
+                              '60%': { transform: 'translateY(-18px) scale(1.04) rotate(-2deg)' },
+                              '80%': { transform: 'translateY(-7px) scale(1.01) rotate(1deg)' }
+                            },
+                            boxShadow: '0 8px 20px rgba(0,0,0,0.15)', // Chunkier shadow
+                            background: 'white',
+                            borderRadius: '12px',
+                            border: '3px solid #ddd', // Thicker border
+                            width: '100%',
+                            maxWidth: '550px', // Larger cards
+                            pointerEvents: 'auto',
+                            position: 'relative',
+                            transform: `scale(${1 - key * 0.05})`, // Initial scaled size before animation
+                            transformOrigin: 'center top',
+                            '&:hover': {
+                              animationPlayState: 'paused',
+                              boxShadow: '0 12px 28px rgba(0,0,0,0.2)', // Enhanced hover effect
+                              zIndex: 10
+                            },
+                            '& > div': { // Target the GitHub component
+                              padding: [2, 2, 3] // Add padding inside the GitHub component
+                            }
+                          }}
+                        >
+                          <GitHub
+                            type={data.type}
+                            img={data.userImage}
+                            user={data.user}
+                            time={data.time}
+                            url={data.url}
+                            message={data.message}
+                            opacity={1}
+                          />
+                        </Box>
+                      ))}
+                  </Box>
+                )}
+                
+                {/* Toolbox Title and Content */}
+                <Box sx={{ 
+                  position: 'relative', 
+                  zIndex: 3,
+                  pt: [1, 1, 2], // Additional top padding to account for the overlapping GitHub feed
+                  pb: "32px !important" // Reduced bottom padding
+                }}>
                   <Text
                     variant="title"
                     as="h2"
                     sx={{
                       fontSize: ['36px', '48px', '56px'],
-                      maxWidth: '20ch'
+                      color: 'white',
+                      mb: 3,
+                      textAlign: 'center',
+                      fontWeight: 900,
+                      textShadow: '0 2px 4px rgba(0,0,0,0.2)',
+                      maxWidth: '20ch',
+                      mx: 'auto'
                     }}
                   >
                     We build{' '}
@@ -1267,91 +1587,146 @@ function Page({
                         borderRadius: 'default',
                         mx: 0,
                         whiteSpace: 'nowrap',
-                        color: 'orange'
+                        color: '#ffe066'
                       }}
                     >
                       open source
                     </Text>{' '}
                     games and tools together
                   </Text>
+                  
                   <Text
-                    variant="subtitle"
                     as="p"
                     sx={{
+                      color: 'white',
                       fontSize: ['18px', '20px', '22px'],
-                      pb: [3, 0, 0],
-                      maxWidth: '60ch'
+                      mb: 4,
+                      textAlign: 'center',
+                      maxWidth: '60ch',
+                      mx: 'auto',
+                      textShadow: '0 1px 2px rgba(0,0,0,0.2)'
                     }}
                   >
                     In collaboration with engineers on the Hack&nbsp;Club team,
                     Hack Clubbers build learning tools for each other. Get
-                    involved with these projects by building something with our
-                    tools or contribute to the tools themselves.
+                    involved with these projects by building something with our tools
+                    or contribute to the tools themselves.
                   </Text>
-                </Box>
-                {gitHubData && (
-                  <Flex
-                    sx={{
-                      flexDirection: ['row', null, null, 'column'],
-                      gap: [1, 2, 2],
-                      alignItems: ['center', 'center', 'center', 'flex-start'],
-                      flexWrap: 'wrap',
-                      width: ['100%', null, null, 'fit-content'],
-
-                      '& > a:nth-child(n+4)': {
-                        display: ['none', null, null, 'flex']
-                      }
-                    }}
-                  >
-                    <Text
+                  
+                  {/* Tools tray */}
+                  <Box sx={{
+                    background: 'white',
+                    borderRadius: '1.5rem',
+                    boxShadow: 'inset 0 0 20px rgba(0,0,0,0.1)',
+                    p: [2, 3, 4], // Smaller padding on mobile
+                    position: 'relative',
+                    border: '4px solid #c0392b'
+                  }}>
+                    {/* Row 1 - Top tools */}
+                    <Flex
                       sx={{
-                        fontSize: ['11px', '11px', '14px'],
-                        textAlign: 'left',
-                        lineHeight: '90%',
-                        fontStyle: 'italic',
-                        width: 'fit-content'
+                        flexWrap: 'wrap', // Always wrap on all screen sizes
+                        gap: [2, 3, 3], // Smaller gap on mobile
+                        justifyContent: 'center',
+                        mb: [3, 3, 4]
                       }}
                     >
-                      Live from GitHub
-                    </Text>
-                    {gitHubData
-                      .filter(data => !data.user.endsWith('[bot]'))
-                      .slice(0, 4)
-                      .map((data, key) => {
-                        return (
-                          <GitHub
-                            type={data.type}
-                            img={data.userImage}
-                            user={data.user}
-                            time={data.time}
-                            url={data.url}
-                            message={data.message}
-                            key={key}
-                            opacity={1 / (key / 2 + 1)}
-                          />
-                        )
-                      })}
-                  </Flex>
-                )}
-              </Flex>
-              <Sprig
-                delay={100}
-                stars={stars.sprig.stargazerCount}
-                game={game}
-                gameImage={gameImage}
-                gameImage1={gameImage1}
-              />
-              <Onboard stars={stars.onboard.stargazerCount} delay={100} />
-              <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
-              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
-              <Box as="section" id="sprig">
-                <SprigConsole
-                  delay={300}
-                  stars={stars.sprig.stargazerCount}
-                  consoleCount={consoleCount}
-                />
+                      <ToolCard icon="code" name="Workshops" desc="Learn coding" href="https://workshops.hackclub.com" />
+                      <ToolCard icon="flag" name="Sprig" desc="Make pixel games" href="https://sprig.hackclub.com" />
+                      <ToolCard icon="plus" name="Sinerider" desc="Math + games" href="https://sinerider.com" />
+                      <ToolCard icon="slack" name="Slack" desc="Join community" href="/slack" />
+                      <ToolCard icon="bank-account" name="Bank" desc="Finances" href="https://bank.hackclub.com" />
+                      <ToolCard icon="github" name="GitHub" desc="Open source" href="https://github.com/hackclub" />
+                   
+                      <ToolCard icon="event-check" name="Hackathons" desc="Big events" href="https://hackathons.hackclub.com" />
+                      <ToolCard icon="photo" name="Scrapbook" desc="Share builds" href="https://scrapbook.hackclub.com" />
+                      <ToolCard icon="grid" name="Toolbox" desc="Resources" href="https://toolbox.hackclub.com" />
+                      <ToolCard icon="clubs" name="Clubs" desc="Start a club" href="/clubs" />
+                      <ToolCard icon="friend" name="Community" desc="Find friends" href="/community" />
+                      <ToolCard icon="explore" name="Projects" desc="See what's made" href="/projects" />
+                    </Flex>
+                  </Box>
+                </Box>
+                
+                {/* Decorative elements - tools floating around toolbox */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    right: '-25px',
+                    bottom: '60px',
+                    transform: 'rotate(15deg)',
+                    color: '#ffe066',
+                    opacity: 0.8,
+                    display: ['none', 'block'],
+                    filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.3))'
+                  }}
+                >
+                  <Icon glyph="wrench" size={72} />
+                </Box>
+
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    left: '-22px',
+                    top: '100px',
+                    transform: 'rotate(-20deg)',
+                    color: '#ffe066',
+                    opacity: 0.8,
+                    display: ['none', 'block'],
+                    filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.3))'
+                  }}
+                >
+                  <Icon glyph="hammer" size={64} />
+                </Box>
+
+                {/* Screws for toolbox corners */}
+                <Box sx={{
+                  position: 'absolute',
+                  top: '15px',
+                  left: '15px',
+                  width: '12px',
+                  height: '12px',
+                  borderRadius: '50%',
+                  background: '#7f8c8d',
+                  boxShadow: 'inset 0 0 0 3px #2c3e50',
+                  zIndex: 2
+                }} />
+                <Box sx={{
+                  position: 'absolute',
+                  top: '15px',
+                  right: '15px',
+                  width: '12px',
+                  height: '12px',
+                  borderRadius: '50%',
+                  background: '#7f8c8d',
+                  boxShadow: 'inset 0 0 0 3px #2c3e50',
+                  zIndex: 2
+                }} />
+                <Box sx={{
+                  position: 'absolute',
+                  bottom: '15px',
+                  left: '15px',
+                  width: '12px',
+                  height: '12px',
+                  borderRadius: '50%',
+                  background: '#7f8c8d',
+                  boxShadow: 'inset 0 0 0 3px #2c3e50',
+                  zIndex: 2
+                }} />
+                <Box sx={{
+                  position: 'absolute',
+                  bottom: '15px',
+                  right: '15px',
+                  width: '12px',
+                  height: '12px',
+                  borderRadius: '50%',
+                  background: '#7f8c8d',
+                  boxShadow: 'inset 0 0 0 3px #2c3e50',
+                  zIndex: 2
+                }} />
               </Box>
-              <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
+
+              
             </Box>
           </Box>
           <Box
@@ -1385,29 +1760,61 @@ function Page({
               }}
             >
               <Box>
-                <Text
-                  variant="title"
-                  as="h2"
+             <Text variant="title" sx={{ 
+                fontSize: ['36px', 4, 5],
+                fontWeight: 900,
+                color: '#513f31',
+                textShadow: '1px 1px 0 rgba(255,255,255,0.6)',
+                mb: 2
+              }}>
+                Find community{' '}
+                <Box
                   sx={{
-                    fontSize: ['36px', '48px', '72px'],
-                    width: '18ch',
-                    textAlign: 'center',
-                    margin: 'auto'
+                    position: 'relative',
+                    display: 'inline-block',
+                    width: 'fit-content'
                   }}
                 >
-                  Find your{' '}
                   <Text
                     as="span"
                     sx={{
-                      borderRadius: 'default',
-                      mx: 0,
-                      whiteSpace: 'nowrap',
-                      color: 'orange'
+                      position: 'relative',
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        left: 0,
+                        top: '50%',
+                        width: '100%',
+                        height: '4px',
+                        background: 'red',
+                        borderRadius: '4px',
+                        transform: 'rotate(-5deg)',
+                        opacity: 0.8,
+                        zIndex: 2
+                      }
                     }}
                   >
-                    IRL community.
+                    face-to-face
                   </Text>
-                </Text>
+                  <Text
+                    as="span"
+                    sx={{
+                      position: 'absolute',
+                      top: '-15px',
+                      left: '-5px',
+                      transform: 'rotate(-8deg)',
+                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontSize: ['18px', '20px', '28px'],
+                      color: 'red',
+                      fontWeight: 'bold',
+                      textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                      zIndex: 3,
+                    }}
+                  >
+                    while touching grass
+                  </Text>
+                </Box>{' '}
+              </Text>
                 <Text
                   variant="subtitle"
                   as="p"
@@ -1429,11 +1836,14 @@ function Page({
                 stars={stars.hackathons.stargazerCount}
               />
 
-              {/* <Events events={events} /> */}groundClip: 'text',
-              <HCB data={bankData} />nsparent'
+              {/* <Events events={events} /> */}
+              <HCB data={bankData} />
             </Box>
           </Box>
-        </Box>&nbsp;Club
+        </Box>
+
+        {/* Remove the old toolbox section that was here */}
+
         <Box py={[4, 5, '82px']}>
           <Box
             sx={{
@@ -1800,8 +2210,7 @@ const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
   const carouselCards = require('../lib/carousel.json')
-
-  // HCB: get total raised
+ 
   let bankData = []
   let initialBankData = await fetch('https://hcb.hackclub.com/stats')
   try {
@@ -1816,12 +2225,10 @@ export async function getStaticProps() {
     bankData.push('error')
   }
 
-  // Slack: get total raised
   const { Slack: Slacky } = require('./api/slack')
   let slackData = await Slacky()
 
-  // GitHub: get latest github activity (currently this is erroring and
-  // preventing the site from deploying
+
 
   const { fetchGitHub } = require('./api/github')
   let gitHubData = await fetchGitHub()
@@ -1859,7 +2266,6 @@ export async function getStaticProps() {
     hackathonsData = [] // or some default value if an error occurs
   }
   hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
-
   let events = []
   try {
     await fetch(
@@ -1868,32 +2274,31 @@ export async function getStaticProps() {
   } catch (error) {
     console.error('Error fetching events:', error)
   }
-
   // Define carousel cards with default values
-  // const carouselCards = [
-  //   {
+  // const carouselCards = [ith default values
+  //   {st carouselCards = [
   //     title: "Hack Club",
   //     description: "A global community of teenage hackers making things together",
-  //     link: "/about",
+  //     link: "/about", global community of teenage hackers making things together",
   //     bg: "linear-gradient(90deg, rgba(236,55,80,1) 0%, rgba(255,140,55,1) 100%)",
-  //     color: "white"
-  //   },
-  //   {
+  //     color: "white"adient(90deg, rgba(236,55,80,1) 0%, rgba(255,140,55,1) 100%)",
+  //   },color: "white"
+  //   {,
   //     title: "Workshops",
   //     description: "Learn to code with our community-contributed workshops",
-  //     link: "/workshops",
+  //     link: "/workshops", to code with our community-contributed workshops",
   //     bg: "linear-gradient(90deg, rgba(51,214,166,1) 0%, rgba(51,142,218,1) 100%)",
-  //     color: "white"
-  //   },
-  //   {
+  //     color: "white"adient(90deg, rgba(51,214,166,1) 0%, rgba(51,142,218,1) 100%)",
+  //   },color: "white"
+  //   {,
   //     title: "Slack",
   //     description: "Join our Slack community with thousands of teen hackers",
-  //     link: "/slack",
+  //     link: "/slack",oin our Slack community with thousands of teen hackers",
   //     bg: "linear-gradient(90deg, rgba(170,51,214,1) 0%, rgba(51,142,218,1) 100%)",
-  //     color: "white"
-  //   }
+  //     color: "white"adient(90deg, rgba(170,51,214,1) 0%, rgba(51,142,218,1) 100%)",
+  //   } color: "white"
+  // ];}
   // ];
-
   return {
     props: {
       game,
@@ -1910,5 +2315,4 @@ export async function getStaticProps() {
     revalidate: 60
   }
 }
-
-export default Page
+export default Page;
