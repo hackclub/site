@@ -66,7 +66,8 @@ function Page({
   events,
   carouselCards,
   context,
-  ytCarouselCards
+  ytCarouselCards,
+  projectCards
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -286,7 +287,7 @@ function Page({
               <Button
                 variant="ctaLg"
                 as="a"
-                href="/slack"
+
                 mt={[3, 0, 0]}
                 mr={3}
                 sx={{ transformOrigin: 'center left' }}
@@ -691,14 +692,14 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-<Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-  <Box sx={{ px: 10 }}>
-    <EventSlider sx={{ z: '999999', px: 2 }} />
-  </Box>
-  <Box sx={{ px: 10 }}>
-    <YTCarousel cards={ytCarouselCards} />
-  </Box>
-</Box>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+            <Box sx={{ px: 10 }}>
+              <EventSlider sx={{ z: '999999', px: 2 }} />
+            </Box>
+            <Box sx={{ px: 10 }}>
+              <YTCarousel cards={ytCarouselCards} />
+            </Box>
+          </Box>
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
@@ -841,7 +842,8 @@ function Page({
               // }
             }}
           >
-            <ProjectsSlider />
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+            <ProjectsSlider cards={projectCards} />
             <Box
               sx={{
                 position: 'absolute',
@@ -853,6 +855,7 @@ function Page({
             >
               {}
             </Box>
+            
             <Box
               py={[4, 5, '82px']}
               sx={{
@@ -909,6 +912,7 @@ function Page({
 
               {/* <Events events={events} /> */}
               <HCB data={bankData} />
+            </Box>
             </Box>
           </Box>
         </Box>
@@ -1239,6 +1243,7 @@ const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 export async function getStaticProps() {
   const carouselCards = require('../lib/carousel.json')
   const ytCarouselCards = require('../lib/yt-carousel.json')
+  const projectCards = require('../lib/recent-projects.json')
   // HCB: get total raised
   let bankData = []
   let initialBankData = await fetch('https://hcb.hackclub.com/stats')
@@ -1321,7 +1326,8 @@ export async function getStaticProps() {
       stars,
       events,
       carouselCards,
-      ytCarouselCards
+      ytCarouselCards,
+      projectCards
     },
     revalidate: 60
   }
