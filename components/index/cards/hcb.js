@@ -42,7 +42,7 @@ export default function Bank({ data }) {
             fontSize: ['32px', '36px', '42px'],
             mb: 3,
             mt: [0, 1],
-            fontFamily: '"Comic Sans MS", cursive, sans-serif',
+            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             textShadow: '1px 1px 0 rgba(255,255,255,0.6)'
           }}
         >

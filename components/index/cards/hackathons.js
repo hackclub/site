@@ -68,7 +68,7 @@ export default function Hackathons({ data, stars }) {
           fontSize: ['22px', '26px', '30px'],
           position: 'relative',
           zIndex: 2,
-          fontFamily: '"Comic Sans MS", cursive, sans-serif',
+          fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
           borderRadius: '10px',
           px: 3,
           py: 1,

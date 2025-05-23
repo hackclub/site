@@ -35,7 +35,7 @@ export default function Clubs() {
           fontWeight: 'bold',
           boxShadow: '0 2px 4px rgba(0,0,0,0.15)',
           zIndex: 10,
-          fontFamily: '"Comic Sans MS", cursive, sans-serif',
+          fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
           transform: 'rotate(-2deg)'
         }}>
           Summer Creek Hack Club
@@ -139,7 +139,7 @@ export default function Clubs() {
             as="h3"
             sx={{
               fontSize: ['24px', '26px', '30px'],
-              fontFamily: '"Comic Sans MS", cursive, sans-serif',
+              fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
               position: 'relative',
               zIndex: 2,
               textShadow: '0 2px 4px rgba(0,0,0,0.25)',
@@ -226,7 +226,7 @@ export default function Clubs() {
             justifyContent: 'center',
             border: '3px solid #e4b62d',
             boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
-            fontFamily: '"Comic Sans MS", cursive, sans-serif',
+            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             fontWeight: 'bold',
             fontSize: '14px',
             transform: 'rotate(-5deg)',
@@ -285,7 +285,7 @@ export default function Clubs() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          fontFamily: '"Comic Sans MS", cursive, sans-serif',
+          fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
           color: '#7c644c',
           fontSize: ['14px', '16px']
         }}>

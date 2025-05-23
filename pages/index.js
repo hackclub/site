@@ -352,7 +352,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
           sx={{
             fontSize: ['10px', '11px', '15px'],
             mb: '0px',
-            fontFamily: '"Comic Sans MS", cursive, sans-serif',
+            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             textShadow: '0 1px 0 rgba(255,255,255,0.6)',
             color: '#665040',
           }}
@@ -363,7 +363,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
           sx={{
             fontSize: ['24px', '18px', '32px'],
             fontWeight: 'bold',
-            fontFamily: '"Comic Sans MS", cursive, sans-serif',
+            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             textShadow: '0 1px 0 rgba(255,255,255,0.6)',
             color: '#513f31',
           }}
@@ -636,6 +636,7 @@ function Page({
           content="https://assets.hackclub.com/icon-rounded.png"
           size="512x512"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet"></link>
       </Head>
       <ForceTheme theme="light" />
       <Nav />
@@ -762,7 +763,7 @@ function Page({
                       top: '-15px',
                       left: '-10px',
                       transform: 'rotate(-8deg)',
-                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                       fontSize: ['16px', '18px', '22px'],
                       color: 'red',
                       fontWeight: 'bold',
@@ -883,7 +884,7 @@ function Page({
                     top: '-15px',
                     left: '-5px',
                     transform: 'rotate(-8deg)',
-                    fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                    fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                     fontSize: ['18px', '20px', '28px'],
                     color: 'red',
                     fontWeight: 'bold',
@@ -1221,7 +1222,7 @@ function Page({
                       top: '-15px',
                       left: '-5px',
                       transform: 'rotate(-8deg)',
-                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                       fontSize: ['18px', '20px', '28px'],
                       color: 'red',
                       fontWeight: 'bold',
@@ -1285,7 +1286,7 @@ function Page({
                       '& > h2': {
                         fontSize: ['20px', '22px', '26px'],
                         mb: 2,
-                        fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                        fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                         color: '#513f31',
                         fontWeight: 'bold'
                       },
@@ -1326,7 +1327,7 @@ function Page({
                       '& > h2': {
                         fontSize: ['20px', '22px', '26px'],
                         mb: 2,
-                        fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                        fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                         color: '#513f31',
                         fontWeight: 'bold'
                       },
@@ -1489,7 +1490,7 @@ function Page({
                             top: '-18px',
                             left: '-5px',
                             transform: 'rotate(-8deg)',
-                            fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                             fontSize: ['16px', '18px', '20px'],
                             color: 'red',
                             fontWeight: 'bold',
@@ -1778,7 +1779,7 @@ function Page({
                         top: '-15px',
                         left: '-5px',
                         transform: 'rotate(-8deg)',
-                        fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                        fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                         fontSize: ['18px', '20px', '28px'],
                         color: 'red',
                         fontWeight: 'bold',
@@ -1849,7 +1850,7 @@ function Page({
                   <Text
                     as="h3"
                     sx={{
-                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                       fontSize: '22px',
                       fontWeight: 'bold',
                       color: '#513f31',
@@ -1906,7 +1907,7 @@ function Page({
                   <Text
                     as="h3"
                     sx={{
-                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                       fontSize: '22px',
                       fontWeight: 'bold',
                       color: '#513f31',
@@ -1970,7 +1971,7 @@ function Page({
                 <Text
                   as="h3"
                   sx={{
-                    fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                    fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                     fontSize: '22px',
                     fontWeight: 'bold',
                     color: '#513f31',
@@ -2052,7 +2053,7 @@ function Page({
                       top: '-15px',
                       left: '-12px',
                       transform: 'rotate(-8deg)',
-                      fontFamily: '"Comic Sans MS", cursive, sans-serif',
+                      fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                       fontSize: ['16px', '18px', '24px'],
                       color: 'red',
                       fontWeight: 'bold',
@@ -2317,10 +2318,8 @@ function Page({
         <style>
           {`a{
           color: #338eda
-        }`}
-          {`
-        @import url(https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap);
-`}
+      }`}
+
         </style>
       </Footer>
     </>
