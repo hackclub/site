@@ -1479,7 +1479,7 @@ function Page({
                             }
                           }}
                         >
-                          Live from
+                          Live Feed from
                         </Text>
                         <Text
                           as="span"
@@ -1496,7 +1496,7 @@ function Page({
                             zIndex: 3,
                           }}
                         >
-                          poppin' on
+                          going down on
                         </Text>
                       </Box>{' '}
                       GitHub
