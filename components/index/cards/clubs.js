@@ -1,12 +1,15 @@
 import React from 'react'
 import Buttons from './button'
 import CardModel from './card-model'
-import { Box, Grid, Flex, Image, Text, Badge } from 'theme-ui'
+import { Box, Grid, Flex, Image, Text, Badge, useColorMode } from 'theme-ui'
 import Icon from '../../icon'
 
 /** @jsxImportSource theme-ui */
 
 export default function Clubs() {
+  const [colorMode] = useColorMode()
+  const isDark = colorMode === 'dark'
+
   return (
     <>
 
@@ -18,22 +21,26 @@ export default function Clubs() {
         mb: [1, 2, 4],
         borderRadius: '16px',
         overflow: 'hidden',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-        border: '4px solid white',
+        boxShadow: isDark 
+          ? '0 4px 12px rgba(0,0,0,0.3)' 
+          : '0 4px 12px rgba(0,0,0,0.1)',
+        border: isDark ? '4px solid #333' : '4px solid white',
         height: ['180px', '220px', '240px']
       }}>
         <Box sx={{
           position: 'absolute',
           top: '10px',
           left: '10px',
-          bg: 'rgba(255,255,255,0.9)',
-          color: '#513f31',
+          bg: isDark ? 'rgba(51, 51, 51, 0.9)' : 'rgba(255,255,255,0.9)',
+          color: isDark ? '#eee' : '#513f31',
           borderRadius: '8px',
           px: 2,
           py: 1,
           fontSize: ['12px', '14px'],
           fontWeight: 'bold',
-          boxShadow: '0 2px 4px rgba(0,0,0,0.15)',
+          boxShadow: isDark 
+            ? '0 2px 4px rgba(0,0,0,0.3)' 
+            : '0 2px 4px rgba(0,0,0,0.15)',
           zIndex: 10,
           fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
           transform: 'rotate(-2deg)'
@@ -48,7 +55,9 @@ export default function Clubs() {
             height: '100%',
             objectFit: 'cover',
             objectPosition: 'center 30%',
-            filter: 'contrast(1.05) brightness(1.05)',
+            filter: isDark 
+              ? 'contrast(0.95) brightness(0.85)' 
+              : 'contrast(1.05) brightness(1.05)',
             transition: 'transform 0.5s ease-out',
             '&:hover': {
               transform: 'scale(1.05)'
@@ -69,8 +78,8 @@ export default function Clubs() {
             position: 'absolute',
             bottom: 2,
             right: 2,
-            bg: 'white',
-            color: '#513f31',
+            bg: isDark ? '#333' : 'white',
+            color: isDark ? '#ddd' : '#513f31',
             px: 2,
             py: 1,
             fontSize: '12px',
@@ -81,13 +90,17 @@ export default function Clubs() {
         >
           February 2020
         </Box>
-      </Box> <CardModel
+      </Box> 
+      
+      <CardModel
         color="white"
         sx={{
-          backgroundColor: '#fdf6ee',
+          backgroundColor: isDark ? '#222' : '#fdf6ee',
           borderRadius: '24px',
-          border: '6px solid #e4d6c3',
-          boxShadow: '0 12px 24px rgba(0,0,0,0.1)',
+          border: isDark ? '6px solid #444' : '6px solid #e4d6c3',
+          boxShadow: isDark 
+            ? '0 12px 24px rgba(0,0,0,0.3)' 
+            : '0 12px 24px rgba(0,0,0,0.1)',
           padding: '0 !important',
           overflow: 'visible',
           position: 'relative',
@@ -206,7 +219,7 @@ export default function Clubs() {
           sx={{
             p: [3, 4],
             pb: "0px !important",
-            bg: '#fdf6ee',
+            bg: isDark ? '#222' : '#fdf6ee',
             position: 'relative',
             gap: [3, 4]
           }}
@@ -225,7 +238,9 @@ export default function Clubs() {
             alignItems: 'center',
             justifyContent: 'center',
             border: '3px solid #e4b62d',
-            boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
+            boxShadow: isDark 
+              ? '0 4px 8px rgba(0,0,0,0.3)' 
+              : '0 4px 8px rgba(0,0,0,0.15)',
             fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             fontWeight: 'bold',
             fontSize: '14px',
@@ -239,7 +254,7 @@ export default function Clubs() {
           <Box>
             <Text as="p" sx={{
               fontSize: ['16px', '18px'],
-              color: '#513f31',
+              color: isDark ? '#ddd' : '#513f31',
               lineHeight: 1.5,
               mb: 3
             }}>
@@ -256,7 +271,9 @@ export default function Clubs() {
               primary="red"
               sx={{
                 borderRadius: '12px',
-                boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
+                boxShadow: isDark 
+                  ? '0 4px 8px rgba(0,0,0,0.3)' 
+                  : '0 4px 8px rgba(0,0,0,0.15)',
                 py: [2, 2],
                 px: [3, 3],
                 fontSize: ['16px', '18px'],
@@ -265,7 +282,9 @@ export default function Clubs() {
                 transition: 'all 0.2s cubic-bezier(.68,-0.55,.27,1.55)',
                 '&:hover': {
                   transform: 'scale(1.05) rotate(-1deg)',
-                  boxShadow: '0 6px 12px rgba(0,0,0,0.2)'
+                  boxShadow: isDark 
+                    ? '0 6px 12px rgba(0,0,0,0.4)' 
+                    : '0 6px 12px rgba(0,0,0,0.2)'
                 }
               }}
             >
@@ -277,8 +296,8 @@ export default function Clubs() {
         </Grid>
 
         <Box sx={{
-          bg: '#f6e9d8',
-          borderTop: '2px dashed #e4d6c3',
+          bg: isDark ? '#333' : '#f6e9d8',
+          borderTop: isDark ? '2px dashed #444' : '2px dashed #e4d6c3',
           borderRadius: '0 0 16px 16px',
           py: 2,
           px: 3,
@@ -286,7 +305,7 @@ export default function Clubs() {
           justifyContent: 'center',
           alignItems: 'center',
           fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
-          color: '#7c644c',
+          color: isDark ? '#aaa' : '#7c644c',
           fontSize: ['14px', '16px']
         }}>
           <Icon glyph="welcome" size={24} sx={{ mr: 2, color: '#ec3750' }} />

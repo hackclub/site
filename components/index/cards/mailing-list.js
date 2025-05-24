@@ -1,6 +1,6 @@
 import Icon from '@hackclub/icons'
 import { useEffect, useRef, useState } from 'react'
-import { Box, Button, Card, Flex, Grid, Input, Link, Text } from 'theme-ui'
+import { Box, Button, Card, Flex, Grid, Input, Link, Text, useColorMode } from 'theme-ui'
 import { format, parse } from 'date-fns'
 import BGImg from '../../background-image'
 import background from '../../../public/home/footer.png'
@@ -34,6 +34,8 @@ const MailingList = () => {
   const [submitted, setSubmitted] = useState(false)
   const [data, setData] = useState({ finalHtml: [], names: [] })
   const formRef = useRef(null)
+  const [colorMode] = useColorMode()
+  const isDark = colorMode === 'dark'
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -95,17 +97,24 @@ const MailingList = () => {
   }, [])
 
   return (
-    <Box sx={{ position: 'relative', py: 6, pt: 5, background: 'snow' }}>
+    <Box sx={{ 
+      position: 'relative', 
+      py: 6, 
+      pt: 5, 
+      background: isDark ? '#111' : 'snow' 
+    }}>
       <Card
         sx={{
           maxWidth: '1050px',
           mx: 'auto',
-          background: '#fdf6ee',
+          background: isDark ? '#222' : '#fdf6ee',
           position: 'relative',
           zIndex: 2,
-          border: '5px solid #e4d6c3',
+          border: isDark ? '5px solid #444' : '5px solid #e4d6c3',
           borderRadius: '2.75rem',
-          boxShadow: '0 12px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10)',
+          boxShadow: isDark 
+            ? '0 12px 40px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2)'
+            : '0 12px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10)',
           overflow: 'hidden',
           transform: 'rotate(-0.5deg)',
           padding: [3, 4]
@@ -133,16 +142,18 @@ const MailingList = () => {
                   fontSize: [4, '36px', '42px', 6],
                   zIndex: 2,
                   textAlign: 'left',
-                  color: '#513f31',
+                  color: isDark ? '#eee' : '#513f31',
                   fontWeight: 900,
-                  textShadow: '0 1px 0 rgba(255,255,255,0.5)'
+                  textShadow: isDark 
+                    ? '0 1px 2px rgba(0,0,0,0.5)'
+                    : '0 1px 0 rgba(255,255,255,0.5)'
                 }}
               >
                 Join the newsletter
               </Text>
               <Text
                 sx={{
-                  color: '#665040',
+                  color: isDark ? '#aaa' : '#665040',
                   mt: 2,
                   fontSize: 3,
                   textAlign: 'left',
@@ -157,7 +168,7 @@ const MailingList = () => {
                   target="_blank"
                   rel="noopener norefferer"
                   sx={{
-                    color: '#ec3750',
+                    color: isDark ? '#ff686b' : '#ec3750',
                     fontWeight: 'bold',
                     transition: 'all 0.2s',
                     '&:hover': {
@@ -186,7 +197,7 @@ const MailingList = () => {
             >
               <Box sx={{ width: '100%' }}>
                 <Input
-                  autofillBackgroundColor="highlight"
+                  autofillBackgroundColor={isDark ? '#333' : 'highlight'}
                   type="text"
                   name="name"
                   id="name"
@@ -196,23 +207,31 @@ const MailingList = () => {
                     width: '100%',
                     textAlign: 'center',
                     fontSize: 2,
-                    bg: 'white',
-                    border: '3px solid #e4d6c3',
+                    bg: isDark ? '#333' : 'white',
+                    color: isDark ? 'white' : 'inherit',
+                    border: isDark ? '3px solid #555' : '3px solid #e4d6c3',
                     borderRadius: '0.8rem',
                     py: 2,
-                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                    boxShadow: isDark 
+                      ? '0 2px 4px rgba(0,0,0,0.3)'
+                      : '0 2px 4px rgba(0,0,0,0.1)',
                     transition: 'all 0.2s',
                     '&:hover, &:focus': {
                       borderColor: '#ec3750',
                       transform: 'translateY(-2px)',
-                      boxShadow: '0 4px 8px rgba(0,0,0,0.15)'
+                      boxShadow: isDark 
+                        ? '0 4px 8px rgba(0,0,0,0.3)'
+                        : '0 4px 8px rgba(0,0,0,0.15)'
+                    },
+                    '&::placeholder': {
+                      color: isDark ? '#aaa' : 'inherit'
                     }
                   }}
                 />
               </Box>
               <Box>
                 <Input
-                  autofillBackgroundColor="highlight"
+                  autofillBackgroundColor={isDark ? '#333' : 'highlight'}
                   type="email"
                   name="email"
                   id="email"
@@ -222,16 +241,24 @@ const MailingList = () => {
                     width: '100%',
                     textAlign: 'center',
                     fontSize: 2,
-                    bg: 'white',
-                    border: '3px solid #e4d6c3',
+                    bg: isDark ? '#333' : 'white',
+                    color: isDark ? 'white' : 'inherit',
+                    border: isDark ? '3px solid #555' : '3px solid #e4d6c3',
                     borderRadius: '0.8rem',
                     py: 2,
-                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                    boxShadow: isDark 
+                      ? '0 2px 4px rgba(0,0,0,0.3)' 
+                      : '0 2px 4px rgba(0,0,0,0.1)',
                     transition: 'all 0.2s',
                     '&:hover, &:focus': {
                       borderColor: '#ec3750',
                       transform: 'translateY(-2px)',
-                      boxShadow: '0 4px 8px rgba(0,0,0,0.15)'
+                      boxShadow: isDark 
+                        ? '0 4px 8px rgba(0,0,0,0.3)'
+                        : '0 4px 8px rgba(0,0,0,0.15)'
+                    },
+                    '&::placeholder': {
+                      color: isDark ? '#aaa' : 'inherit'
                     }
                   }}
                 />
@@ -247,10 +274,14 @@ const MailingList = () => {
                   fontWeight: 800,
                   bg: '#ec3750',
                   transition: 'all 0.2s',
-                  boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
+                  boxShadow: isDark 
+                    ? '0 4px 8px rgba(0,0,0,0.3)'
+                    : '0 4px 8px rgba(0,0,0,0.15)',
                   '&:hover': {
                     transform: 'translateY(-2px) rotate(-1deg)',
-                    boxShadow: '0 6px 12px rgba(0,0,0,0.2)'
+                    boxShadow: isDark
+                      ? '0 6px 12px rgba(0,0,0,0.4)'
+                      : '0 6px 12px rgba(0,0,0,0.2)'
                   },
                   '&:active': {
                     transform: 'translateY(1px)'
@@ -298,15 +329,20 @@ const MailingList = () => {
                   link={data.names[index]}
                   key={index}
                   sx={{
-                    border: '3px solid #e4d6c3',
+                    border: isDark ? '3px solid #444' : '3px solid #e4d6c3',
                     borderRadius: '1.2rem',
-                    bg: 'rgba(255, 255, 255, 0.8)',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+                    bg: isDark ? 'rgba(51, 51, 51, 0.8)' : 'rgba(255, 255, 255, 0.8)',
+                    boxShadow: isDark
+                      ? '0 4px 12px rgba(0,0,0,0.3)'
+                      : '0 4px 12px rgba(0,0,0,0.1)',
                     transition: 'all 0.2s',
                     overflow: 'hidden',
+                    color: isDark ? '#eee' : 'inherit',
                     '&:hover': {
                       transform: 'translateY(-4px) rotate(1deg)',
-                      boxShadow: '0 8px 24px rgba(0,0,0,0.15)'
+                      boxShadow: isDark
+                        ? '0 8px 24px rgba(0,0,0,0.4)'
+                        : '0 8px 24px rgba(0,0,0,0.15)'
                     }
                   }}
                 />

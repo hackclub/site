@@ -1,22 +1,27 @@
 import CardModel from './card-model'
-import { Box, Grid, Heading, Text } from 'theme-ui'
+import { Box, Grid, Heading, Text, useColorMode } from 'theme-ui'
 import { Fade } from 'react-reveal'
 import Buttons from './button'
 
 /** @jsxImportSource theme-ui */
 
 export default function Bank({ data }) {
+  const [colorMode] = useColorMode()
+  const isDark = colorMode === 'dark'
+
   return (
     <Box sx={{ position: 'relative' }}>
       <CardModel
         color="dark"
         sx={{
           minHeight: ['300px', '350px', '350px'],
-          backgroundColor: '#fdf6ee',
-          backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), url('/home/hcb-pattern.webp')`,
+          backgroundColor: isDark ? '#222' : '#fdf6ee',
+          backgroundImage: isDark 
+            ? `linear-gradient(to bottom, rgba(34, 34, 34, 0.95), rgba(34, 34, 34, 0.9)), url('/home/hcb-pattern.webp')`
+            : `linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), url('/home/hcb-pattern.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          color: '#513f31',
+          color: isDark ? '#ddd' : '#513f31',
           position: 'relative',
           overflow: 'hidden',
           '&:before': {
@@ -27,7 +32,7 @@ export default function Bank({ data }) {
             width: '12px',
             height: '12px',
             borderRadius: '50%',
-            background: '#e4d6c3',
+            background: isDark ? '#444' : '#e4d6c3',
             zIndex: 5
           },
           py: [3, 3, 4]
@@ -38,12 +43,14 @@ export default function Bank({ data }) {
         <Heading
           variant="title"
           sx={{
-            color: '#c0392b',
+            color: isDark ? '#ff686b' : '#c0392b',
             fontSize: ['32px', '36px', '42px'],
             mb: 3,
             mt: [0, 1],
             fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
-            textShadow: '1px 1px 0 rgba(255,255,255,0.6)'
+            textShadow: isDark 
+              ? '1px 1px 0 rgba(0,0,0,0.6)' 
+              : '1px 1px 0 rgba(255,255,255,0.6)'
           }}
         >
           Hack Club Bank
@@ -56,7 +63,7 @@ export default function Bank({ data }) {
               sx={{
                 fontSize: ['16px', '18px', '20px'],
                 mb: 3,
-                color: '#513f31',
+                color: isDark ? '#ccc' : '#513f31',
                 lineHeight: 1.5
               }}
             >
@@ -68,7 +75,7 @@ export default function Bank({ data }) {
               variant="subtitle"
               sx={{
                 fontSize: ['16px', '18px', '20px'],
-                color: '#513f31',
+                color: isDark ? '#ccc' : '#513f31',
                 lineHeight: 1.5
               }}
             >
@@ -82,12 +89,16 @@ export default function Bank({ data }) {
               sx={{
                 mt: [3, 3, 4],
                 borderRadius: '12px',
-                boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
+                boxShadow: isDark 
+                  ? '0 4px 8px rgba(0,0,0,0.3)' 
+                  : '0 4px 8px rgba(0,0,0,0.15)',
                 transform: 'rotate(-1deg)',
-                bg: '#c0392b',
+                bg: isDark ? '#d64541' : '#c0392b',
                 '&:hover': {
                   transform: 'rotate(0deg) translateY(-5px)',
-                  boxShadow: '0 8px 16px rgba(0,0,0,0.2)'
+                  boxShadow: isDark 
+                    ? '0 8px 16px rgba(0,0,0,0.4)' 
+                    : '0 8px 16px rgba(0,0,0,0.2)'
                 }
               }}
             >
@@ -117,7 +128,8 @@ export default function Bank({ data }) {
                     width: '100%',
                     height: '100%',
                     marginX: 'auto',
-                    display: 'block'
+                    display: 'block',
+                    filter: isDark ? 'brightness(0.85) contrast(1.1)' : 'none'
                   }
                 }}
               />
@@ -128,7 +140,6 @@ export default function Bank({ data }) {
             display: ['none', 'block', 'block'],
             position: 'relative',
             height: '100%',
-
           }}>
             <Box
               sx={{
@@ -137,8 +148,10 @@ export default function Bank({ data }) {
                 height: '100%',
                 overflow: 'hidden',
                 borderRadius: '12px',
-                boxShadow: '0 8px 16px rgba(0,0,0,0.12)',
-                border: '4px solid #e4d6c3',
+                boxShadow: isDark 
+                  ? '0 8px 16px rgba(0,0,0,0.25)' 
+                  : '0 8px 16px rgba(0,0,0,0.12)',
+                border: isDark ? '4px solid #444' : '4px solid #e4d6c3',
                 transform: 'rotate(2deg)',
                 transition: 'transform 0.2s',
                 '&:hover': {
@@ -153,7 +166,8 @@ export default function Bank({ data }) {
                   backgroundPosition: 'center',
                   width: '100%',
                   height: '100%',
-                  minHeight: '200px'
+                  minHeight: '200px',
+                  filter: isDark ? 'brightness(0.85) contrast(1.1)' : 'none'
                 }}
               />
             </Box>
