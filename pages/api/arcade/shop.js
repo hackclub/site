@@ -1,7 +1,10 @@
 import AirtablePlus from "airtable-plus"
 
 export const shopParts = async () => {
-  const baseID = "app4kCWulfB02bV8Q"
+  const baseID = "app4kCWulfB02bV8Q";
+  if (process.env.FORK_STATUS && process.env.FORK_STATUS === "fork") {
+    return [];
+  }
   const shopItemsTable = new AirtablePlus({
     apiKey: process.env.AIRTABLE_API_KEY,
     baseID,
@@ -21,11 +24,11 @@ export const shopParts = async () => {
     if (stock && fields["Count of Orders Fulfilled"]) {
       stock -= fields["Count of Orders Fulfilled"]
     }
-      return { id: record.id, ...record.fields, "Stock": (stock == null)? null : (stock >= 0 ? stock : 0) }
+    return { id: record.id, ...record.fields, "Stock": (stock == null) ? null : (stock >= 0 ? stock : 0) }
   })
 
 
-    const newRecords = await Promise.all(newRecordsPromise)
+  const newRecords = await Promise.all(newRecordsPromise)
 
   return newRecords
 }

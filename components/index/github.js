@@ -28,12 +28,13 @@ export default function GitHub({
         px: '4px !important',
         py: '2px !important',
         width: '100%',
-        display: 'flex',
-        alignItems: 'center',
+ 
         gap: 2,
         height: '2rem',
         width: ['fit-content', null, null, '100%'],
-        maxWidth: '30rem',
+        minWidth: 0,
+        display: 'flex',
+        alignItems: 'center',
         opacity: opacity
       }}
       {...props}
