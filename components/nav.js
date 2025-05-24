@@ -255,7 +255,6 @@ const Navigation = props => {
   const [colorMode, setColorMode] = useColorMode()
   const [systemPreference, setSystemPreference] = useState('light')
 
-  // Fix: Check system preference on mount and when it changes
   useEffect(() => {
     const checkSystemPreference = () => {
       if (typeof window !== 'undefined' && window.matchMedia) {
@@ -280,13 +279,11 @@ const Navigation = props => {
     }))
   }
 
-  // Fix: Simpler theme toggle function that just cycles between light and dark
   const cycleColorMode = () => {
     const nextMode = colorMode === 'dark' ? 'light' : 'dark'
     setColorMode(nextMode)
   }
 
-  // Fix: Determine the actual color mode
   const actualColorMode = colorMode === 'system' ? systemPreference : colorMode
   const isDarkMode = actualColorMode === 'dark'
 
@@ -727,7 +724,6 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   const [logoWave, setLogoWave] = useState(false)
   const [colorMode] = useColorMode()
 
-  // Fix: Check system preference directly in the component
   const isDarkMode = colorMode === 'dark'
 
   const onScroll = () => {
