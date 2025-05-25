@@ -517,7 +517,7 @@ export default function Page() {
                 <UILink>Hack Club</UILink>
               </Link>{' '}
               grew, we needed a way to empower our members. We currently have
-              over 30,000 high schoolers involved in Hack Club with over 400
+              over 60,000 high schoolers involved in Hack Club with over 400
               clubs around the world.
             </p>
             <p>
