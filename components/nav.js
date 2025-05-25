@@ -133,7 +133,7 @@ const NavBar = styled(Box, {
 
 const Navigation = props => (
   // REMINDER: This should be no more than 7 links :)
-  <NavBar role="navigation" {...props}>
+  (<NavBar role="navigation" {...props}>
     <NextLink href="/clubs" passHref legacyBehavior>
       <Link>Clubs</Link>
     </NextLink>
@@ -148,7 +148,7 @@ const Navigation = props => (
     <NextLink href="https://toolbox.hackclub.com/" passHref legacyBehavior>
       <Link>Toolbox</Link>
     </NextLink>
-  </NavBar>
+  </NavBar>)
 )
 
 const ToggleContainer = styled(Flex)`
