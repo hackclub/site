@@ -430,6 +430,18 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a87bb79e3bb856cdccc585a5d0cbeaa9166de0cf_scrapyard-samuel.jpg"
   },
   {
+    "name": "Luke Oldenburg",
+    "department": "HCB",
+    "role": "Engineering Contributor",
+    "acknowledged": false,
+    "bio": "Luke is a Hack Clubber based in sunny Tampa, FL. Following being introduced to Hack Club by a friend, he slowly got more involved in the community by attending events and participating in YSWSs. After discovering HCB to run his own hackathons, Luke started patching small bugs he found and now continues to work on HCB to support others in their nonprofit journey!",
+    "bioHackFoundation": "",
+    "slackId": "U06MYDS2LHX",
+    "email": "luke",
+    "website": "https://lukeoldenburg.com/",
+    "avatar": "https://cachet.dunkirk.sh/users/U06MYDS2LHX/r"
+  },
+  {
     "name": "Sean Outram",
     "department": "HCB",
     "role": "Operations Contributor",
@@ -446,12 +458,12 @@
     "department": "HCB",
     "role": "Operations Contributor",
     "acknowledged": false,
-    "bio": "Alex is a current college student from the Seattle area, where he started the Hack Club at his high school after attending Assemble in the summer of 2022, and now is working with Operations for HCB. Alex is deeply involved in his community and giving back, helping with many different events and activities for the community.",
+    "bio": "",
     "bioHackFoundation": "",
     "slackId": "U02CWS020SD",
     "email": "alexd",
     "website": "",
-    "avatar": "https://cloud-181o6w31m-hack-club-bot.vercel.app/0image_2316x3088.jpg"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0513981889e244405d5c4ef0ccd30922e1fecc3c_img_6425_1200x1200.png"
   },
   {
     "name": "Sarvesh Mohan Kumar",

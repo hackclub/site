@@ -11,40 +11,40 @@ import { useEffect, useState } from 'react'
 import ScaleUp from '../components/replit/scale-up'
 
 const ReplitPage = () => {
-  const [progress, setProgress] = useState(null)
-  const [stats, setStats] = useState(null)
-  const [oldStats, setOldStats] = useState(null)
+  // const [progress, setProgress] = useState(null)
+  // const [stats, setStats] = useState(null)
+  // const [oldStats, setOldStats] = useState(null)
 
-  const fetchStats = async () => {
-    const statResponse = await fetch('/api/replit/stats')
-    if (!statResponse.ok) throw new Error('Failed to fetch stats')
-    const newStats = await statResponse.json()
-    setOldStats(stats)
-    setStats(newStats)
-  }
+  // const fetchStats = async () => {
+  //   const statResponse = await fetch('/api/replit/stats')
+  //   if (!statResponse.ok) throw new Error('Failed to fetch stats')
+  //   const newStats = await statResponse.json()
+  //   setOldStats(stats)
+  //   setStats(newStats)
+  // }
 
-  useEffect(async () => {
-    await fetchStats()
+  // useEffect(async () => {
+  //   await fetchStats()
 
-    const interval = setInterval(async () => {
-      const token = localStorage.getItem('token')
-      if (!token) return
+  //   const interval = setInterval(async () => {
+  //     const token = localStorage.getItem('token')
+  //     if (!token) return
 
-      try {
-        const response = await fetch(`/api/replit/progress?token=${token}`)
-        if (!response.ok) throw new Error('Failed to fetch progress')
-        const data = await response.json()
-        console.info(data)
-        setProgress(data)
+  //     try {
+  //       const response = await fetch(`/api/replit/progress?token=${token}`)
+  //       if (!response.ok) throw new Error('Failed to fetch progress')
+  //       const data = await response.json()
+  //       console.info(data)
+  //       setProgress(data)
 
-        await fetchStats()
-      } catch (err) {
-        console.error("Couldn't get progress:", err)
-      }
-    }, 5_000)
+  //       await fetchStats()
+  //     } catch (err) {
+  //       console.error("Couldn't get progress:", err)
+  //     }
+  //   }, 5_000)
 
-    return () => clearInterval(interval)
-  }, [])
+  //   return () => clearInterval(interval)
+  // }, [])
 
   const steps = [
     'Enter your email',
@@ -226,20 +226,10 @@ const ReplitPage = () => {
             open source
           </Link>
           .{' '}
-          {stats ? (
-            <Text>
-              <ScaleUp
-                number={stats.file_count}
-                from={oldStats?.file_count || 0}
-              />{' '}
-              files &{' '}
-              <ScaleUp
-                number={stats.repl_count}
-                from={oldStats?.repl_count || 0}
-              />{' '}
-              repls exported.
-            </Text>
-          ) : null}
+          <Text>
+            <ScaleUp number={1091841} from={0} /> files &{' '}
+            <ScaleUp number={82699} from={0} /> repls exported.
+          </Text>
         </Text>
       </Box>
 
@@ -251,13 +241,50 @@ const ReplitPage = () => {
           paddingX: '1rem'
         }}
       >
+        <Text
+          sx={{
+            maxWidth: '100ch',
+            fontSize: '1.2em',
+            marginY: '1em',
+            textWrap: 'balance',
+            textAlign: 'center',
+            mx: 'auto',
+            marginBottom: '1em',
+            display: 'block'
+          }}
+        >
+          <Text as="span" sx={{ fontWeight: 'bold' }}>
+            This does not work anymore.
+          </Text>
+          <br />
+          After 9 months of operation, Replit has changed how their GraphQL
+          endpoint works (presumably specifically to kill this project).
+          <br />
+          The time spent fixing it would not be worth it;{' '}
+          <Text as="span" sx={{ fontWeight: 'bold' }}>
+            though you can still download individual Repls as ZIP archives.
+          </Text>{' '}
+          They won't have edit history though.
+        </Text>
+
+        <Image
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/19a2da199dc4ea5b55eee1f69ce814ca4a7c3b01_screenshot_2025-04-22_at_1.38.22_pm.png"
+          alt="download repl as zip instructions"
+          sx={{
+            width: '50%',
+            marginX: 'auto',
+            display: 'block',
+            borderRadius: 12
+          }}
+        />
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
             marginTop: '2rem',
             position: 'relative',
-            paddingX: [null, null, '6rem']
+            paddingX: [null, null, '6rem'],
+            opacity: 0.5
           }}
         >
           {steps.map((step, idx) => (
@@ -317,10 +344,12 @@ const ReplitPage = () => {
           sx={{
             marginTop: '3rem',
             maxWidth: '30rem',
-            marginX: 'auto'
+            marginX: 'auto',
+            opacity: 0.5,
+            pointerEvents: 'none'
           }}
         >
-          <Progress progress={progress} />
+          {/* <Progress progress={progress} /> */}
           <ReplitForm cssDark={cssDark} />
         </Box>
 
