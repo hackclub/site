@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { Box, Input, Button, Text, Grid, Card, Flex, Link } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import Tilt from '../../tilt'
@@ -32,27 +32,10 @@ const Loading = () => (
   ></Box>
 )
 
-const MailingList = () => {
-  const [posts, setPosts] = useState([])
+const MailingList = ({ posts = [] }) => {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const formRef = useRef(null)
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch(
-          'https://raw.githubusercontent.com/SkyfallWasTaken/Clippings/refs/heads/main/happenings.json'
-        )
-        const data = await response.json()
-        const latestPosts = data.slice(-3).reverse()
-        setPosts(latestPosts)
-      } catch (error) {
-        console.error('Failed to fetch posts:', error)
-      }
-    }
-    fetchPosts()
-  }, [])
 
   const handleSubmit = async e => {
     e.preventDefault()

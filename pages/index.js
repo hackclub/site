@@ -128,7 +128,8 @@ function Page({
   gameTitle,
   events,
   carouselCards,
-  context
+  context,
+  happeningsPosts
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -1366,7 +1367,7 @@ function Page({
               </Box>
             </>
           )}
-        <MailingList />
+        <MailingList posts={happeningsPosts} />
       </Box >
       <Footer
         dark
@@ -1438,20 +1439,46 @@ export async function getStaticProps() {
 
   let gameTitle = game ? game.map(r => r.title) : []
 
-  return {
-    props: {
-      game: game || [],
-      gameTitle,
-      gitHubData,
-      consoleCount,
-      hackathonsData: hackathonsData || [],
-      bankData,
-      slackData,
-      stars,
-      events: events || [],
-      carouselCards: carouselCardsData // Use imported data
-    },
-    revalidate: 60
+  try {
+    const response = await fetch(
+      'https://raw.githubusercontent.com/SkyfallWasTaken/Clippings/refs/heads/main/happenings.json'
+    )
+    const data = await response.json()
+    const happeningsPosts = data.slice(-3).reverse()
+
+    return {
+      props: {
+        game: game || [],
+        gameTitle,
+        gitHubData,
+        consoleCount,
+        hackathonsData: hackathonsData || [],
+        bankData,
+        slackData,
+        stars,
+        events: events || [],
+        carouselCards: carouselCardsData, // Use imported data
+        happeningsPosts
+      },
+      revalidate: 3600
+    }
+  } catch (error) {
+    console.error('Failed to fetch happenings posts:', error)
+    return {
+      props: {
+        game: game || [],
+        gameTitle,
+        gitHubData,
+        consoleCount,
+        hackathonsData: hackathonsData || [],
+        bankData,
+        slackData,
+        stars,
+        events: events || [],
+        carouselCards: carouselCardsData, // Use imported data
+        happeningsPosts: []
+      }
+    }
   }
 }
 
