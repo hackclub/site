@@ -229,20 +229,9 @@ const Landing = () => {
                   sx={{
                     px: 4,
                     py: 3,
-                    fontSize: ['16px', '18px'],
-                    fontWeight: 'bold',
-                    borderRadius: '12px',
-                    bg: '#5865f2',
-                    color: 'white',
-                    textDecoration: 'none',
-                    cursor: 'pointer',
-                    border: 'none',
-                    transition: 'all 0.2s',
-                    '&:hover': {
-                      bg: '#4752c4',
-                      transform: 'translateY(-2px)'
+                    transformOrigin: 'center left'
                     }
-                  }}
+                  }
                 >
                   Join Slack
                 </Button>
@@ -250,28 +239,21 @@ const Landing = () => {
                   as="a"
                   href="https://shipwrecked.hack.club/3"
                   sx={{
-                    px: 4,
+                    px: 2,
                     py: 3,
-                    fontSize: ['16px', '18px'],
-                    fontWeight: 'bold',
-                    borderRadius: '12px',
-                    background: 'linear-gradient(45deg, #00b894, #0984e3)',
+                    transformOrigin: 'left',
+                    backgroundImage: t => t.util.gx('green', 'blue'),
                     color: 'white',
                     textDecoration: 'none',
                     cursor: 'pointer', 
                     border: 'none',
-                    transition: 'all 0.2s',
-                    '&:hover': {
-                      transform: 'translateY(-2px)',
-                      boxShadow: '0 8px 20px rgba(0,0,0,0.2)'
-                    }
                   }}
                 >
                   Sign Up: Private Island Hackathon
                 </Button>
               </div>
             </Heading>
-          </Box>
+          </Box>                      
         </div>
 
 

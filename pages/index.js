@@ -1337,10 +1337,10 @@ try {
     if (response.ok) {
       hackathonsData = await response.json()
     } else {
-      hackathonsData = [] // or some default value if the fetch fails
+      hackathonsData = [] 
     }
   } catch (error) {
-    hackathonsData = [] // or some default value if an error occurs
+    hackathonsData = [] 
   }
   hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
