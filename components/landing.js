@@ -41,21 +41,35 @@ const Landing = () => {
   };
 
   return (
-    <section
-      sx={{
-        width: '100%',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        bg: 'background',
-        backgroundImage: 'url(/home/lined-paper.png)',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'repeat',
-        position: 'relative',
-      }}
-    >
+<section
+  sx={{
+    width: '100%',
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    bg: 'background',
+    backgroundImage: 'url(/home/assemble.jpg)',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'repeat',
+    position: 'relative',
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+      zIndex: 1,
+    },
+    
+    '& > *': {
+      zIndex: 2,
+    }
+  }}
+>
       <div
         sx={{
           position: 'relative',
@@ -120,7 +134,7 @@ const Landing = () => {
         <div
           sx={{
             width: '100%',
-            maxWidth: ['100%', '500px', '600px'],
+            maxWidth: ['100%', '500px', '1200px'],
             textAlign: 'center',
             mb: 4,
             px: [2, 3],
@@ -129,7 +143,7 @@ const Landing = () => {
           <div
             sx={{
               width: '100%',
-              height: ['250px', '300px', '350px'],
+              height: ['250px', '300px', '450px'],
               borderRadius: '16px',
               mb: 4,
               bg: '#f0f0f0',
@@ -138,27 +152,29 @@ const Landing = () => {
               alignItems: 'center',
               justifyContent: 'center',
               boxShadow: '0 8px 30px rgba(0,0,0,0.12)',
-              border: '2px dashed #e0e0e0',
               ...animationStyle,
               '--initial-rotate': '0deg',
             }}
           >
-            <img
-              src="/home/assemble.jpg"
-              alt="Hack Club Community"
-              sx={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover'
-              }}
-            />
+<img
+  src="/home/outernet-110.jpg"
+  alt="Hack Club Community"
+  sx={{
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    transform: 'scale(1.5)', 
+    transformOrigin: 'center center'
+  }}
+/>
+
           </div>
 
           <Box sx={{ width: '100%' }}>
             <Text
               sx={{
                 color: '#666',
-                fontSize: ['14px', '16px'],
+                fontSize: ['14px', '35px'],
                 fontWeight: '600',
                 mb: 3,
                 display: 'block',
@@ -174,7 +190,7 @@ const Landing = () => {
               <Text
                 as="h1"
                 sx={{
-                  color: '#333',
+                  color: 'white',
                   mb: 4,
                   fontSize: ['28px', '36px', '48px'],
                   lineHeight: 1.2,
