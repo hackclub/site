@@ -173,7 +173,7 @@ const Landing = () => {
           <Box sx={{ width: '100%' }}>
             <Text
               sx={{
-                color: '#666',
+                color: '#e0e6ed',
                 fontSize: ['14px', '35px'],
                 fontWeight: '600',
                 mb: 3,
@@ -192,41 +192,45 @@ const Landing = () => {
                 sx={{
                   color: 'white',
                   mb: 4,
-                  fontSize: ['28px', '36px', '48px'],
+                  fontSize: ['42px', '52px', '64px'],
                   lineHeight: 1.2,
                   fontWeight: 'bold',
                   width: '100%'
                 }}
               >
                 We are <Comma>{slackData.total_members_count}</Comma>{' '}
+              <Text
+                sx={{
+                  color: 'transparent',
+                  ml: 2,
+                  mr: 3,
+                  whiteSpace: 'nowrap'
+                }}
+              >
                 <Text
-                  sx={{
-                    position: 'relative',
-                    display: 'inline-block',
-                    mx: 1,
+                  onClick={() => {
+                    !reveal ? setReveal(true) : setReveal(false)
                   }}
+                  sx={{
+                    // lineHeight: 0.875,
+                    px: 2,
+                    backgroundColor: 'red',
+                    position: 'absolute',
+                    borderRadius: 10,
+                    transform: 'rotate(-3deg) translateY(-5px)',
+                    color: 'white',
+                    whiteSpace: 'nowrap',
+                    textDecoration: 'none',
+                    '&:hover': {
+                      cursor: 'pointer'
+                    }
+                  }}
+                  aria-hidden="true"
                 >
-                  <Text
-                    onClick={() => setReveal(!reveal)}
-                    sx={{
-                      px: 2,
-                      py: 1,
-                      backgroundColor: '#ff4757',
-                      borderRadius: '8px',
-                      transform: 'rotate(-2deg)',
-                      color: 'white',
-                      cursor: 'pointer',
-                      display: 'inline-block',
-                      fontSize: ['24px', '30px', '40px'],
-                      fontWeight: 'bold',
-                      '&:hover': {
-                        transform: 'rotate(-2deg) scale(1.05)'
-                      }
-                    }}
-                  >
-                    teen hackers
-                  </Text>
+                  teen hackers
                 </Text>
+                teen hackers
+              </Text>
                 <br />
                 from around the world who code together
               </Text>
