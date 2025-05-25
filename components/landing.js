@@ -25,7 +25,7 @@ const Landing = () => {
   const imagePaths = [
     '/home/juice-hotel.jpg',
     '/home/juice-airport.jpg',
-    '/home/flagship_4.jpg',
+    '/home/flagship-4.jpg',
     '/home/assemble-group.jpg'
   ];
 
@@ -223,18 +223,16 @@ const Landing = () => {
                 alignItems: 'center',
                 mt: 4
               }}>
-                <Button
-                  as="a"
-                  href="#"
-                  sx={{
-                    px: 4,
-                    py: 3,
-                    transformOrigin: 'center left'
-                    }
-                  }
-                >
-                  Join Slack
-                </Button>
+              <Button
+                variant="ctaLg"
+                as="a"
+
+                mt={[3, 0, 0]}
+                mr={3}
+                sx={{ transformOrigin: 'center left' }}
+              >
+                Join Slack
+              </Button>
                 <Button
                   as="a"
                   href="https://shipwrecked.hack.club/3"
