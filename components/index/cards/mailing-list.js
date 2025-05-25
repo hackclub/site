@@ -72,8 +72,9 @@ const MailingList = ({ posts = [] }) => {
     <Box sx={{ position: 'relative', py: [4, 5, 6], bg: 'cyberpunk.darkerBg' }}>
       <Card
         sx={{
-          maxWidth: '1050px',
-          mx: 'auto',
+          width: '90vw',
+          maxWidth: 'layout',
+          margin: 'auto',
           background: 'rgba(49, 50, 68, 0.75)',
           border: '1px solid',
           borderColor: 'cyberpunk.gridLine',
