@@ -418,6 +418,30 @@
     "avatar": "https://cachet.dunkirk.sh/users/U04C8LLPKS7/r"
   },
   {
+    "name": "Samuel Fernandez",
+    "department": "HCB",
+    "role": "Engineering Contributor",
+    "acknowledged": false,
+    "bio": "Samuel is a Hack Clubber from Tampa, FL. After finding Hack Club while looking for hackathons, he's now attended and organized many himself, and he now works on improving HCB so other teens can run their own events and nonprofits!",
+    "bioHackFoundation": "",
+    "slackId": "U04G40QKAAD",
+    "email": "samuelf",
+    "website": "https://sfernandez.dev",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a87bb79e3bb856cdccc585a5d0cbeaa9166de0cf_scrapyard-samuel.jpg"
+  },
+  {
+    "name": "Luke Oldenburg",
+    "department": "HCB",
+    "role": "Engineering Contributor",
+    "acknowledged": false,
+    "bio": "Luke is a Hack Clubber based in sunny Tampa, FL. Following being introduced to Hack Club by a friend, he slowly got more involved in the community by attending events and participating in YSWSs. After discovering HCB to run his own hackathons, Luke started patching small bugs he found and now continues to work on HCB to support others in their nonprofit journey!",
+    "bioHackFoundation": "",
+    "slackId": "U06MYDS2LHX",
+    "email": "luke",
+    "website": "https://lukeoldenburg.com/",
+    "avatar": "https://cachet.dunkirk.sh/users/U06MYDS2LHX/r"
+  },
+  {
     "name": "Sean Outram",
     "department": "HCB",
     "role": "Operations Contributor",
