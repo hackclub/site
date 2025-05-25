@@ -203,12 +203,12 @@ const MailingList = ({ posts = [] }) => {
           </Flex>
 
           {posts.length > 0 && (
-            <Box sx={{ width: ['100%', null, '50%'], mt: [4, null, 0] }}>
+            <Box sx={{ width: ['100%', null, '50%'], mt: [4, null, 0], display: 'flex', flexDirection: 'column' }}>
               <Text
                 as="h3"
                 variant="title"
                 sx={{
-                  mb: [3, 4],
+                  mb: 3,
                   color: 'cyberpunk.textHighlight',
                   fontSize: ['30px', '32px'],
                   fontWeight: 'bold',
@@ -217,7 +217,12 @@ const MailingList = ({ posts = [] }) => {
               >
                 Latest Happenings:
               </Text>
-              <Box sx={{ display: 'grid', gridGap: [3, 4] }}>
+              <Box sx={{
+                display: 'grid',
+                gridGap: [3, 4],
+                flex: 1,
+                gridTemplateRows: 'repeat(3, 1fr)'
+              }}>
                 {posts.map((post, index) => (
                   <Tilt key={index} options={{ max: 8, perspective: 1000, scale: 1.03 }}>
                     <Box
@@ -227,11 +232,11 @@ const MailingList = ({ posts = [] }) => {
                         borderRadius: '8px',
                         border: '1px solid',
                         borderColor: 'cyberpunk.gridLine',
-                        minHeight: '100px',
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'space-between',
                         transition: 'border-color 0.3s ease',
+                        height: '100%',
                         '&:hover': {
                           borderColor: 'cyberpunk.electricBlue'
                         }

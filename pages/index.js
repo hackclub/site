@@ -281,7 +281,7 @@ function Page({
         >
           <BGImg
             src={AssembleBannerImg}
-            alt="Hack Club hero background"
+            alt="Hack Clubbers at Assemble in SF"
             width={1920}
             height={1080}
             priority
@@ -301,7 +301,7 @@ function Page({
               sx={{
                 fontSize: ['42px', '56px', '72px'],
                 mb: 3,
-                background: 'linear-gradient(to right, #00BFFF, #F002ED)',
+                background: 'linear-gradient(to right,rgb(200, 215, 219),rgb(255, 253, 255))',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 textAlign: 'center',
