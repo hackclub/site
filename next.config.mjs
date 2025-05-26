@@ -11,11 +11,11 @@ const nextConfig = {
       'hackclub.com',
       'dl.airtable.com',
       'emoji.slack-edge.com',
-      'cdn.glitch.com',
       'scrapbook.hackclub.com',
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
-      'hcb.hackclub.com'
+      'hcb.hackclub.com',
+      'hc-cdn.hel1.your-objectstorage.com'
     ],
     remotePatterns: [
       {

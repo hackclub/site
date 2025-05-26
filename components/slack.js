@@ -124,15 +124,15 @@ const Slack = () => {
           }}
         >
           <source
-            src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.hecv.mp4?v=1590780967658"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/8aa6f2ba210919fdb64e73592853f49071ff9261_2d637c98-ed35-417a-bf89-cecc165d7398_output-no-duplicate-frames.hecv.mp4"
             type="video/mp4; codecs=hevc"
           />
           <source
-            src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.webm?v=1590781698834"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/79f106465e5b7829753808d8578aa3da2a58f870_2d637c98-ed35-417a-bf89-cecc165d7398_output-no-duplicate-frames.webm"
             type="video/webm; codecs=vp9,opus"
           />
           <source
-            src="https://cdn.glitch.com/2d637c98-ed35-417a-bf89-cecc165d7398%2Foutput-no-duplicate-frames.mov?v=1590781491717"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ca334a239fe7ef2e814dc2bdc9f46a4569e4c009_2d637c98-ed35-417a-bf89-cecc165d7398_output-no-duplicate-frames.mp4"
             type="video/quicktime"
           />
         </Box>

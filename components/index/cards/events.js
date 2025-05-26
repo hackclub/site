@@ -12,7 +12,7 @@ export default function Events({ data, stars, events }) {
       sx={{
         backgroundColor: 'elevated',
         background:
-          'linear-gradient(to bottom,rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.6) 25%,rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.8) 100%), url("https://hackclub.com/_next/image/?url=https://cdn.glitch.com/a7605379-7582-4aac-8f44-45bbdfca0cfa%252F2020-05-16_screenshot.jpeg?v%3D1589633885855&w=2048&q=75")',
+          'linear-gradient(to bottom,rgba(0, 0, 0, 0.4),rgba(0, 0, 0, 0.6) 25%,rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.8) 100%), url("https://hackclub.com/_next/image/?url=https://hc-cdn.hel1.your-objectstorage.com/s/v3/39fca42191d60f4cb0ae061b85128f750f8f671e_a7605379-7582-4aac-8f44-45bbdfca0cfa_2F2020-05-16_screenshot.jpeg_v_1589633885855&w=2048&q=75")',
         backgroundPositon: 'center center',
         backgroundSize: '100% auto'
       }}
@@ -23,7 +23,7 @@ export default function Events({ data, stars, events }) {
       <Grid columns={[1, '0.6fr 1fr']}>
         <Box>
           <Text as="p" variant="subtitle">
-            Hack Clubbers run events that don’t suck. From live coding sessions
+            Hack Clubbers run events that don't suck. From live coding sessions
             to movie nights, we like to hangout on calls.
           </Text>
           <Text as="p" variant="subtitle">
