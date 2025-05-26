@@ -48,6 +48,7 @@ const Landing = () => {
     'Figma HQ, SF'
   ];
 
+
   useEffect(() => {
     const criticalImages = [
       '/home/outernet-110.jpg', 
@@ -143,8 +144,23 @@ const Landing = () => {
   return (
     <section
       sx={{
-        width: '100%',
-        minHeight: ['calc(100vh - 60px)', 'calc(100vh - 70px)', 'calc(100vh - 80px)'], //navbar height estimation so that the image doesnt overlap the navbar on smaller screens
+  width: '100%',
+  minHeight: 'calc(100vh - 40px)', 
+  '@media (min-width: 480px)': {
+    minHeight: 'calc(100vh + 15px)',
+  },
+  '@media (min-width: 640px)': {
+    minHeight: 'calc(100vh + 80px)', 
+  },
+  '@media (min-width: 768px)': {
+    minHeight: 'calc(100vh + 100px)', 
+  },
+  '@media (min-width: 1024px)': {
+    minHeight: 'calc(100vh - 0px)',
+  },
+  '@media (min-width: 1280px)': {
+    minHeight: 'calc(100vh + 10px)', 
+  },
         height: 'auto',
         display: 'flex',
         alignItems: 'center',
@@ -157,9 +173,9 @@ const Landing = () => {
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         position: 'relative',
-
-        pt: [4, 5, 6], 
-        pb: [4, 5, 6], 
+     
+        pt: [2, 3, 3], 
+        pb: [3, 4, 4],
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -215,7 +231,7 @@ const Landing = () => {
             width: '100%',
             maxWidth: ['100%', '500px', '700px', '900px', '1200px'],
             textAlign: 'center',
-            mb: 4,
+            mb: 3, 
             px: [2, 3, 4],
           }}
         >
@@ -223,13 +239,12 @@ const Landing = () => {
           <div
             sx={{
               width: '100%',
-
               height: [
-                'min(250px, 30vh)', 
-                'min(300px, 35vh)', 
-                'min(350px, 40vh)',  
-                'min(400px, 45vh)',
-                'min(450px, 50vh)'  
+                '220px', 
+                '270px', 
+                '320px', 
+                '360px', 
+                '400px'  
               ],
               borderRadius: '16px',
               mb: 4,
@@ -273,11 +288,11 @@ const Landing = () => {
               sx={{
                 color: '#e0e6ed',
                 fontSize: [
-                  'min(14px, 3.5vw)', 
-                  'min(20px, 4vw)', 
-                  'min(25px, 3.5vw)', 
-                  'min(30px, 3vw)', 
-                  '35px'
+                  '12px',
+                  '16px', 
+                  '20px', 
+                  '24px', 
+                  '28px' 
                 ],
                 fontWeight: '600',
                 mb: 3,
@@ -295,13 +310,13 @@ const Landing = () => {
                 as="h1"
                 sx={{
                   color: 'white',
-                  mb: 4,
+                  mb: 3, 
                   fontSize: [
-                    'min(42px, 10vw)', 
-                    'min(46px, 9vw)', 
-                    'min(52px, 8vw)', 
-                    'min(58px, 7vw)', 
-                    '64px'
+                    '36px',
+                    '40px', 
+                    '44px', 
+                    '48px', 
+                    '52px'  
                   ],
                   lineHeight: 1.2,
                   fontWeight: 'bold',
@@ -351,7 +366,7 @@ const Landing = () => {
                 gap: 3,
                 justifyContent: 'center',
                 alignItems: 'center',
-                mt: 4
+                mt: 3 
               }}>
                 <Button
                   variant="ctaLg"
@@ -383,7 +398,6 @@ const Landing = () => {
           </Box>                      
         </div>
 
- 
         <div
           sx={{
             display: ['flex', 'flex', 'flex', 'flex', 'none'],
