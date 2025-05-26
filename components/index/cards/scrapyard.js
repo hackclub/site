@@ -10,6 +10,7 @@ export default function Scrapyard() {
 
     <CardModel
       color="white"
+      
       sx={{
         backgroundSize: 'cover',
         backgroundColor: '#90A8E1',
@@ -39,6 +40,8 @@ export default function Scrapyard() {
       />
       <Grid columns={[1, 1, 1]} sx={{ gap: '0px', position: 'relative', zIndex: 2 }}>
         <Flex
+        as="a"
+      href="https://scrapyard.hackclub.com/"
           sx={{
             flexDirection: 'column',
             position: 'relative',
@@ -106,65 +109,24 @@ export default function Scrapyard() {
               Build stupid stuff, get stupid prizes.
             </Heading>
           </Box>
-          <Box
-            sx={{
-              zIndex: 1,
-              width: 'max-content',
-              backgroundImage: "url('https://scrapyard.hackclub.com/elements/yellow-strip@stretch.svg')",
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: '100% 100%',
-              width: '100%',
-              position: 'relative',
-              zIndex: 30,
-              top: '-15%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              filter: 'drop-shadow(5px 5px 5px #00000099)'
-            }}
-          >
-            <Heading
-              as="h2"
-              sx={{
-                fontFamily: 'p22stanyan',
-                mx: '8%',
-                my: '3%',
-                p: 0,
-                wordBreak: 'keep-all',
-                              textWrap: "wrap !important",
-textAlign: 'center',
-                whiteSpace: 'nowrap',
-                width: '75%',
-                fontSize: ['1.2em', '1.4em'],
-                color: '#1f2d3d',
-                
-              }}
-            >
-              100+&nbsp;Cities&nbsp;worldwide&nbsp;–&nbsp;March&nbsp;15-16
-            </Heading>
-          </Box>
+ 
+           
         </Box>
-
+<Buttons
+                        icon="view-fill"
+                        href="https://www.youtube.com/watch?v=8iM1W8kXrQA"
+                        target="_blank"
+                        rel="noopener"
+                        primary="#032412"
+                        id="43"
+                        sx={{ fontSize: "15px !important", color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
+                      >
+                        View the Documentary
+                      </Buttons>
   
           </Flex>
         </Flex>
-   
-            <Buttons
-              href="https://scrapyard.hackclub.com/"
-              target="_blank"
-             
-              rel="noopener"
-              primary="#fde778"
-              icon = "door-enter"
-              id="43"
-              zIndex={999}
-              sx = {{zIndex: 9999999, left: ["50%", "50%", "0%"], color: '#1f2d3d'}}
-            >
-                
-              Learn More
-            </Buttons>
-        
-    
+  
       </Grid>
       <Image
             src="https://cloud-hqnbfdg3v-hack-club-bot.vercel.app/0image__14_.png"

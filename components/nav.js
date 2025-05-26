@@ -7,6 +7,7 @@ import Icon from './icon'
 import Flag from './flag'
 import ScrollLock from 'react-scrolllock'
 import NextLink from 'next/link'
+import { useRouter } from 'next/router'
 
 const rgbaBgColor = (props, opacity) => {
   const bg = props => props.dark ? '#222' :  [253, 246, 238]
@@ -738,6 +739,8 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   const [mobile, setMobile] = useState(false)
   const [logoWave, setLogoWave] = useState(false)
   const [colorMode] = useColorMode()
+  const { asPath } = useRouter()
+  const isAnimeMode = asPath.includes('?uwu') || asPath.includes('&uwu')
 
   const isDarkMode = colorMode === 'dark'
 
@@ -807,7 +810,10 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
             zIndex: 0 
           }}
         >
-          <Flag scrolled={scrolled || fixed ? true : undefined} />
+          <Flag 
+            scrolled={scrolled || fixed ? true : undefined} 
+            animeFlag={isAnimeMode}
+          />
 
         </Box>
         <Box sx={{ flex: '1 1 0', display: ['none', null, 'flex'], justifyContent: 'center', alignItems: 'center' }}>

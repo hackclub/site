@@ -30,16 +30,15 @@ import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
 import MailingList from '../components/index/cards/mailing-list'
-import Slack from '../components/index/cards/slack'
 import Icon from '../components/icon'
 import GitHub from '../components/index/github'
-import Photo from '../components/photo'
 import Comma from '../components/comma'
-import Haxidraw from '../components/index/cards/haxidraw'
-import Onboard from '../components/index/cards/onboard'
-import Trail from '../components/index/cards/trail'
+import Highway from '../components/index/cards/highway'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
+import HighSeas from '../components/index/cards/highseas'
+import Shipwrecked from '../components/index/cards/shipwrecked'
+import Juice from '../components/index/cards/juice'
 /** @jsxImportSource theme-ui */
 
 const HeaderCarousel = ({ images, memberCount }) => {
@@ -135,13 +134,13 @@ const HeaderCarousel = ({ images, memberCount }) => {
           cursor: 'pointer',
           zIndex: 10,
           transition: 'all 0.2s',
-          boxShadow: isDark 
+          boxShadow: isDark
             ? '0 4px 8px rgba(0,0,0,0.4)'
             : '0 4px 8px rgba(0,0,0,0.25)',
           '&:hover': {
             bg: isDark ? '#444' : '#fdf6ee',
             transform: 'translateY(-50%) scale(1.1) rotate(-5deg)',
-            boxShadow: isDark 
+            boxShadow: isDark
               ? '0 6px 12px rgba(0,0,0,0.5)'
               : '0 6px 12px rgba(0,0,0,0.3)'
           },
@@ -186,14 +185,14 @@ const HeaderCarousel = ({ images, memberCount }) => {
           justifyContent: 'center',
           cursor: 'pointer',
           zIndex: 10,
-          boxShadow: isDark 
+          boxShadow: isDark
             ? '0 4px 8px rgba(0,0,0,0.4)'
             : '0 4px 8px rgba(0,0,0,0.25)',
 
           '&:hover': {
             bg: isDark ? '#444' : '#fdf6ee',
             transform: 'translateY(-50%) scale(1.1) rotate(5deg)',
-            boxShadow: isDark 
+            boxShadow: isDark
               ? '0 6px 12px rgba(0,0,0,0.5)'
               : '0 6px 12px rgba(0,0,0,0.3)'
           },
@@ -250,7 +249,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
             },
             borderRadius: '12px',
             border: isDark ? '3px solid #444' : '3px solid #e4d6c3',
-            boxShadow: isDark 
+            boxShadow: isDark
               ? '0 4px 12px rgba(0,0,0,0.3)'
               : '0 4px 12px rgba(0,0,0,0.15)',
             py: 1,
@@ -260,7 +259,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
             transform: 'rotate(-1deg)',
             '&:hover': {
               transform: 'rotate(1deg) scale(1.05)',
-              boxShadow: isDark 
+              boxShadow: isDark
                 ? '0 6px 14px rgba(0,0,0,0.4)'
                 : '0 6px 14px rgba(0,0,0,0.2)',
             }
@@ -277,9 +276,9 @@ const HeaderCarousel = ({ images, memberCount }) => {
               color: isDark ? '#eee' : 'inherit'
             }}
           />
-          <Text as="span" sx={{ 
-            display: 'inline-block', 
-            position: 'relative', 
+          <Text as="span" sx={{
+            display: 'inline-block',
+            position: 'relative',
             top: '1px',
             color: isDark ? '#eee' : 'inherit'
           }}>
@@ -296,11 +295,11 @@ const HeaderCarousel = ({ images, memberCount }) => {
           zIndex: 13,
           width: '18px',
           height: '12px',
-          background: isDark 
+          background: isDark
             ? 'linear-gradient(to bottom, #886c4d, #5d4222)'
             : 'linear-gradient(to bottom, #a88c6d, #7d623c)',
           borderRadius: '4px 4px 0 0',
-          boxShadow: isDark 
+          boxShadow: isDark
             ? '0 -2px 4px rgba(0,0,0,0.25)'
             : '0 -2px 4px rgba(0,0,0,0.15)',
           border: isDark ? '2px solid #5d4222' : '2px solid #7d623c',
@@ -315,11 +314,11 @@ const HeaderCarousel = ({ images, memberCount }) => {
           zIndex: 13,
           width: '16px',
           height: '30px',
-          background: isDark 
+          background: isDark
             ? 'linear-gradient(to bottom, #5d4222, #422e16)'
             : 'linear-gradient(to bottom, #7d623c, #624e30)',
           borderRadius: '0 0 4px 4px',
-          boxShadow: isDark 
+          boxShadow: isDark
             ? '0 2px 4px rgba(0,0,0,0.25)'
             : '0 2px 4px rgba(0,0,0,0.15)',
           border: isDark ? '2px solid #5d4222' : '2px solid #7d623c',
@@ -346,12 +345,12 @@ const HeaderCarousel = ({ images, memberCount }) => {
           padding: '10px',
           paddingTop: "15px",
           transform: 'rotate(2deg)',
-          background: isDark 
+          background: isDark
             ? 'linear-gradient(to bottom, #c8b995, #b29c74)'
             : 'linear-gradient(to bottom, #e8d9b5, #d2bc94)',
           borderRadius: '12px',
           border: isDark ? '4px solid #5d4222' : '4px solid #7d623c',
-          boxShadow: isDark 
+          boxShadow: isDark
             ? '0 4px 8px rgba(0,0,0,0.4), inset 0 1px 3px rgba(255,255,255,0.2)'
             : '0 4px 8px rgba(0,0,0,0.2), inset 0 1px 3px rgba(255,255,255,0.3)',
           transition: 'transform 0.2s, box-shadow 0.2s',
@@ -365,7 +364,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
           },
           '&:hover': {
             animation: 'populationBounce 0.6s ease-in-out',
-            boxShadow: isDark 
+            boxShadow: isDark
               ? '0 8px 20px rgba(0,0,0,0.45), inset 0 1px 3px rgba(255,255,255,0.2)'
               : '0 8px 20px rgba(0,0,0,0.25), inset 0 1px 3px rgba(255,255,255,0.3)',
             transform: 'rotate(4deg) scale(1.05)',
@@ -377,7 +376,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: isDark 
+            background: isDark
               ? 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.15) 100%)'
               : 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.1) 100%)',
             borderRadius: '9px',
@@ -390,7 +389,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
             fontSize: ['10px', '11px', '15px'],
             mb: '0px',
             fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
-            textShadow: isDark 
+            textShadow: isDark
               ? '0 1px 0 rgba(0,0,0,0.3)'
               : '0 1px 0 rgba(255,255,255,0.6)',
             color: isDark ? '#513f31' : '#665040',
@@ -403,7 +402,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
             fontSize: ['24px', '18px', '32px'],
             fontWeight: 'bold',
             fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
-            textShadow: isDark 
+            textShadow: isDark
               ? '0 1px 0 rgba(0,0,0,0.3)'
               : '0 1px 0 rgba(255,255,255,0.6)',
             color: isDark ? '#3d2e25' : '#513f31',
@@ -444,8 +443,8 @@ const HeaderCarousel = ({ images, memberCount }) => {
               padding: 0,
               cursor: 'pointer',
               transition: 'all 0.2s',
-              boxShadow: index === currentIndex 
-                ? '0 0 8px rgba(236, 55, 80, 0.5)' 
+              boxShadow: index === currentIndex
+                ? '0 0 8px rgba(236, 55, 80, 0.5)'
                 : isDark ? '0 0 4px rgba(0,0,0,0.4)' : 'none',
               overflow: 'hidden',
               '&:hover': {
@@ -616,7 +615,7 @@ function Page({
       var x = event.clientX - rect.left //x position within the element.
       var y = event.clientY - rect.top //y position within the element.
 
-      spotlightRef.current.style.background = isDark 
+      spotlightRef.current.style.background = isDark
         ? `radial-gradient(
             circle at ${x}px ${y}px,
             rgba(40, 40, 40, 0) 10px,
@@ -882,7 +881,7 @@ function Page({
           py: [1, 2, '30px'],
           pt: 4,
           color: isDark ? 'white' : 'black',
-          background: isDark 
+          background: isDark
             ? 'linear-gradient(to bottom, #222, #111)'
             : 'linear-gradient(to bottom, #fff9f0, #fff)',
           borderRadius: ['0px', '0px', '32px'],
@@ -958,7 +957,7 @@ function Page({
                 borderRadius: 'extra',
                 bg: isDark ? 'rgba(255, 140, 55, 0.15)' : 'rgba(255, 237, 209, 0.6)',
                 p: [2, 3],
-                boxShadow: isDark 
+                boxShadow: isDark
                   ? '0 8px 32px rgba(255, 140, 55, 0.2)'
                   : '0 8px 32px rgba(255, 140, 55, 0.12)',
                 transform: ['none', 'none', 'rotate(-1deg)'],
@@ -1042,7 +1041,7 @@ function Page({
                 borderRadius: 'extra',
                 bg: isDark ? 'rgba(51, 142, 218, 0.15)' : 'rgba(231, 245, 255, 0.6)',
                 p: [2, 3],
-                boxShadow: isDark 
+                boxShadow: isDark
                   ? '0 8px 32px rgba(51, 142, 218, 0.2)'
                   : '0 8px 32px rgba(51, 142, 218, 0.12)',
                 transform: ['none', 'none', 'rotate(1deg)'],
@@ -1125,7 +1124,7 @@ function Page({
                 borderRadius: 'extra',
                 bg: isDark ? 'rgba(166, 51, 214, 0.15)' : 'rgba(233, 216, 253, 0.6)',
                 p: [2, 3],
-                boxShadow: isDark 
+                boxShadow: isDark
                   ? '0 8px 32px rgba(166, 51, 214, 0.2)'
                   : '0 8px 32px rgba(166, 51, 214, 0.12)',
                 transform: ['none', 'none', 'rotate(-1.5deg)'],
@@ -1213,7 +1212,7 @@ function Page({
           as="section"
           sx={{
             // Remove transitions from background-image
-            backgroundImage: isDark 
+            backgroundImage: isDark
               ? `linear-gradient(rgba(17, 17, 17, 0.9), rgba(17, 17, 17, 0.9))`
               : `linear-gradient(rgba(249, 250, 252, 0.9), rgba(249, 250, 252, 0.9))`,
             position: 'relative',
@@ -1309,7 +1308,7 @@ function Page({
                       fontSize: ['18px', '20px', '28px'],
                       color: 'red',
                       fontWeight: 'bold',
-                      textShadow: isDark 
+                      textShadow: isDark
                         ? '1px 1px 0 #333, -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333'
                         : '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
                       zIndex: 3,
@@ -1340,114 +1339,73 @@ function Page({
               display: 'grid',
               gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'],
               gap: 4,
-              mb: 7,
+              mb: 3,
               '& > div': {
                 borderRadius: '1.75rem',
                 padding: '8px !important',
                 border: isDark ? '5px solid #333' : '5px solid #e4d6c3',
-                boxShadow: isDark 
+                boxShadow: isDark
                   ? '0 12px 36px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)'
                   : '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
                 background: isDark ? '#222' : '#fdf6ee',
                 transition: 'transform 0.2s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s',
                 overflow: 'hidden',
+                height: '100%',
                 '&:hover': {
                   transform: 'translateY(-8px) rotate(-1deg)',
-                  boxShadow: isDark 
+                  boxShadow: isDark
                     ? '0 16px 48px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3)'
                     : '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
-                },
-                paddingY: '0px'
+                }
               }
             }}>
-              <Box>
+              <Box sx={{alignContent: 'center'}}>
                 <Neighborhood />
               </Box>
 
-              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4, paddingTop: "32px" }}>
-                <Box sx={{
-                  mb: 0,
-                  '& > div': {
-                    '& > div': {
-                      mb: 0,
-                      px: [2, 2, 3],
-                      minHeight: 'unset',
-                      '& > h2': {
-                        fontSize: ['20px', '22px', '26px'],
-                        mb: 2,
-                        fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
-                        color: '#513f31',
-                        fontWeight: 'bold'
-                      },
-                      '& > p': {
-                        fontSize: ['13px', '14px', '16px'],
-                        display: ['none', 'block', 'block'],
-                        lineHeight: 1.4,
-                        mb: 2,
-                        color: '#665040'
-                      },
-                      '& > div:last-of-type': {
-                        '& a': {
-                          py: 1,
-                          px: 3,
-                          fontSize: 1,
-                          borderRadius: '100px',
-                          fontWeight: 'bold',
-                          boxShadow: '0 4px 8px rgba(0,0,0,0.08)',
-                          border: '3px solid',
-                          '&:hover': {
-                            transform: 'scale(1.05) rotate(-1deg)',
-                            boxShadow: '0 6px 12px rgba(0,0,0,0.12)'
-                          }
-                        }
-                      }
-                    }
-                  }
-                }}>
-                  <Trail />
+              <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2,
+                paddingTop: "32px",
+                justifyContent: "center",
+              }}>
+                <Box sx={{ mb: 0 }}>
+                  <Highway />
                 </Box>
-                <Box sx={{
-                  '& > div': {
-
-                    '& > div': {
-                      py: [2, 2, 3],
-                      px: [2, 2, 3],
-                      minHeight: 'unset',
-                      '& > h2': {
-                        fontSize: ['20px', '22px', '26px'],
-                        mb: 2,
-                        fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
-                        color: '#513f31',
-                        fontWeight: 'bold'
-                      },
-                      '& > p': {
-                        fontSize: ['13px', '14px', '16px'],
-                        display: ['none', 'block', 'block'],
-                        lineHeight: 1.4,
-                        mb: 2,
-                        color: '#665040'
-                      },
-                      '& > div:last-of-type': {
-
-                        '& a': {
-                          py: 1,
-                          px: 3,
-                          fontSize: 1,
-                          borderRadius: '100px',
-                          fontWeight: 'bold',
-                          boxShadow: '0 4px 8px rgba(0,0,0,0.08)',
-                          border: '3px solid',
-                          '&:hover': {
-                            transform: 'scale(1.05) rotate(-1deg)',
-                            boxShadow: '0 6px 12px rgba(0,0,0,0.12)'
-                          }
-                        }
-                      }
-                    }
-                  }
-                }}>
+                <Box>
                   <Scrapyard />
                 </Box>
+              </Box>
+            </Box>
+            <Box sx={{
+              mb: 7,
+              mt: 4,
+              borderRadius: '1.75rem',
+              padding: '8px !important',
+              border: isDark ? '5px solid #333' : '5px solid #e4d6c3',
+              boxShadow: isDark
+                ? '0 12px 36px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)'
+                : '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
+              background: isDark ? '#222' : '#fdf6ee',
+              transition: 'transform 0.2s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s',
+              overflow: 'hidden',
+              height: '100%',
+              '&:hover': {
+                transform: 'translateY(-8px) rotate(-1deg)',
+                boxShadow: isDark
+                  ? '0 16px 48px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3)'
+                  : '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
+              }
+            }}>
+              <Box sx={{
+                display: 'grid',
+                gridTemplateColumns: ['1fr', '1fr', '1fr 1fr 1fr'],
+                gap: 3,
+              }}>
+                <HighSeas />
+                <Shipwrecked />
+                <Juice />
               </Box>
             </Box>
 
@@ -1472,10 +1430,10 @@ function Page({
                   margin: '0 auto 64px',
                   borderRadius: '1.75rem',
                   border: isDark ? '5px solid #444' : '5px solid #c0392b',
-                  background: isDark 
+                  background: isDark
                     ? 'linear-gradient(135deg, #67282f 0%, #461216 100%)'
                     : 'linear-gradient(135deg, #e84545 0%, #c0392b 100%)',
-                  boxShadow: isDark 
+                  boxShadow: isDark
                     ? '0 12px 40px rgba(0,0,0,0.5), 0 4px 12px rgba(0,0,0,0.4), inset 0 1px 10px rgba(255,255,255,0.1)'
                     : '0 12px 40px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.12), inset 0 1px 10px rgba(255,255,255,0.2)',
                   px: [2, 3, 2.5],
@@ -1505,7 +1463,7 @@ function Page({
                   left: 0,
                   width: '100%',
                   height: ['100px', '120px', '140px'],
-                  background: isDark 
+                  background: isDark
                     ? 'linear-gradient(to bottom, #67282f, #461216)'
                     : 'linear-gradient(to bottom, #e74c3c, #c0392b)',
                   borderRadius: '1.75rem 1.75rem 0 0',
@@ -1513,7 +1471,7 @@ function Page({
                   borderBottom: 'none',
                   transform: 'rotateX(60deg)',
                   transformOrigin: 'bottom',
-                  boxShadow: isDark 
+                  boxShadow: isDark
                     ? 'inset 0 5px 15px rgba(255,255,255,0.1), 0 -4px 10px rgba(0,0,0,0.3)'
                     : 'inset 0 5px 15px rgba(255,255,255,0.3), 0 -4px 10px rgba(0,0,0,0.2)',
                   zIndex: 1
@@ -1543,7 +1501,7 @@ function Page({
                         fontWeight: 'bold',
                         color: isDark ? '#eee' : '#333',
                         mb: [1, 1, 2],
-                        textShadow: isDark 
+                        textShadow: isDark
                           ? '0 1px 0 black, 0 2px 3px rgba(0,0,0,0.3)'
                           : '0 1px 0 white, 0 2px 3px rgba(0,0,0,0.1)',
                         animation: 'titleFloat 3s ease-in-out infinite',
@@ -1632,7 +1590,7 @@ function Page({
                               '60%': { transform: 'translateY(-18px) scale(1.04) rotate(-2deg)' },
                               '80%': { transform: 'translateY(-7px) scale(1.01) rotate(1deg)' }
                             },
-                            boxShadow: isDark 
+                            boxShadow: isDark
                               ? '0 8px 20px rgba(0,0,0,0.3)'
                               : '0 8px 20px rgba(0,0,0,0.15)',
                             background: isDark ? '#222' : 'white',
@@ -1646,7 +1604,7 @@ function Page({
                             transformOrigin: 'center top',
                             '&:hover': {
                               animationPlayState: 'paused',
-                              boxShadow: isDark 
+                              boxShadow: isDark
                                 ? '0 12px 28px rgba(0,0,0,0.4)'
                                 : '0 12px 28px rgba(0,0,0,0.2)',
                               zIndex: 10
@@ -1717,7 +1675,7 @@ function Page({
                           }
                         }}
                       >
-                       write software
+                        write software
                       </Text>
                       <Text
                         as="span"
@@ -1737,7 +1695,7 @@ function Page({
                         build awesome stuff
                       </Text>
                     </Box>{' '}
-                     as an{' '}
+                    as an{' '}
                     <Text
                       as="span"
                       sx={{
@@ -1773,7 +1731,7 @@ function Page({
                   <Box sx={{
                     background: isDark ? '#222' : 'white',
                     borderRadius: '1.5rem',
-                    boxShadow: isDark 
+                    boxShadow: isDark
                       ? 'inset 0 0 20px rgba(0,0,0,0.3)'
                       : 'inset 0 0 20px rgba(0,0,0,0.1)',
                     p: [2, 3, 4],
@@ -1968,8 +1926,8 @@ function Page({
                     position: 'relative',
                     borderRadius: '1.75rem',
                     border: isDark ? '5px solid #333' : '5px solid #e4d6c3',
-                    boxShadow: isDark 
- 
+                    boxShadow: isDark
+
                       ? '0 10px 25px rgba(0,0,0,0.3)'
                       : '0 10px 25px rgba(0,0,0,0.1)',
                     background: isDark ? '#222' : '#fdf6ee',
@@ -1980,7 +1938,7 @@ function Page({
                     overflow: 'hidden',
                     '&:hover': {
                       transform: 'rotate(0deg) translateY(-5px)',
-                      boxShadow: isDark 
+                      boxShadow: isDark
                         ? '0 15px 30px rgba(0,0,0,0.4)'
                         : '0 15px 30px rgba(0,0,0,0.15)'
                     },
@@ -2030,7 +1988,7 @@ function Page({
                     position: 'relative',
                     borderRadius: '1.75rem',
                     border: isDark ? '5px solid #333' : '5px solid #e4d6c3',
-                    boxShadow: isDark 
+                    boxShadow: isDark
                       ? '0 10px 25px rgba(0,0,0,0.3)'
                       : '0 10px 25px rgba(0,0,0,0.1)',
                     background: isDark ? '#222' : '#fdf6ee',
@@ -2041,7 +1999,7 @@ function Page({
                     overflow: 'hidden',
                     '&:hover': {
                       transform: 'rotate(0deg) translateY(-5px)',
-                      boxShadow: isDark 
+                      boxShadow: isDark
                         ? '0 15px 30px rgba(0,0,0,0.4)'
                         : '0 15px 30px rgba(0,0,0,0.15)'
                     },
@@ -2096,7 +2054,7 @@ function Page({
                   position: 'relative',
                   borderRadius: '1.75rem',
                   border: isDark ? '5px solid #333' : '5px solid #e4d6c3',
-                  boxShadow: isDark 
+                  boxShadow: isDark
                     ? '0 10px 25px rgba(0,0,0,0.3)'
                     : '0 10px 25px rgba(0,0,0,0.1)',
                   background: isDark ? '#222' : '#fdf6ee',
@@ -2109,7 +2067,7 @@ function Page({
                   mx: 'auto',
                   '&:hover': {
                     transform: 'rotate(0deg) translateY(-5px)',
-                    boxShadow: isDark 
+                    boxShadow: isDark
                       ? '0 15px 30px rgba(0,0,0,0.4)'
                       : '0 15px 30px rgba(0,0,0,0.15)'
                   },
@@ -2152,7 +2110,7 @@ function Page({
                   }}
                 >
                   <Icon glyph="bank-account" size={24} sx={{ mr: 2, verticalAlign: 'middle' }} />
-                                       Get your project{' '}
+                  Get your project{' '}
 
                   <Box
                     sx={{
@@ -2304,7 +2262,7 @@ function Page({
                 sx={{
                   borderRadius: '1.75rem',
                   border: isDark ? '5px solid #1a7f62' : '5px solid #33d6a6',
-                  boxShadow: isDark 
+                  boxShadow: isDark
                     ? '0 12px 36px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)'
                     : '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
                   background: isDark
@@ -2316,7 +2274,7 @@ function Page({
                   transition: 'transform 0.2s, box-shadow 0.2s',
                   '&:hover': {
                     transform: 'translateY(-8px) rotate(-1deg)',
-                    boxShadow: isDark 
+                    boxShadow: isDark
                       ? '0 16px 48px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2)'
                       : '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
                   }
@@ -2346,7 +2304,7 @@ function Page({
                 sx={{
                   borderRadius: '1.75rem',
                   border: isDark ? '5px solid #84305c' : '5px solid #fb558e',
-                  boxShadow: isDark 
+                  boxShadow: isDark
                     ? '0 12px 36px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)'
                     : '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
                   background: isDark
@@ -2358,7 +2316,7 @@ function Page({
                   transition: 'transform 0.2s, box-shadow 0.2s',
                   '&:hover': {
                     transform: 'translateY(-8px) rotate(1deg)',
-                    boxShadow: isDark 
+                    boxShadow: isDark
                       ? '0 16px 48px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2)'
                       : '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
                   }
@@ -2388,7 +2346,7 @@ function Page({
                 sx={{
                   borderRadius: '1.75rem',
                   border: isDark ? '5px solid #8e5721' : '5px solid #ff8c37',
-                  boxShadow: isDark 
+                  boxShadow: isDark
                     ? '0 12px 36px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)'
                     : '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
                   background: isDark
@@ -2400,7 +2358,7 @@ function Page({
                   transition: 'transform 0.2s, box-shadow 0.2s',
                   '&:hover': {
                     transform: 'translateY(-8px) rotate(-1.5deg)',
-                    boxShadow: isDark 
+                    boxShadow: isDark
                       ? '0 16px 48px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2)'
                       : '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
                   }
@@ -2539,8 +2497,8 @@ function Page({
       </Box>
 
       <Footer
-      dark={isDark}
-       
+        dark={isDark}
+
       >
         <style>
           {`a{

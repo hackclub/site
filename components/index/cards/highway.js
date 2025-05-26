@@ -1,23 +1,22 @@
 import CardModel from './card-model'
-import { Box, Flex, Text, Image } from 'theme-ui'
+import { Box, Flex, Grid, Image, Text } from 'theme-ui'
 import Buttons from './button'
-import Icon from '../../icon'
 
 /** @jsxImportSource theme-ui */
 
-export default function HighSeas() {
+export default function Highway() {
   return (
     <CardModel
       color="white"
       sx={{
         backgroundSize: 'cover',
-        backgroundColor: '#e6dddc',
+        backgroundColor: '#302c61',
         fontFamily: "Fraunces",
         padding: "16px !important",
         margin: "0px !important",
       }}
       position={[null, 'bottom', 'bottom']}
-      image={"https://cloud-lyjdp3j9h-hack-club-bot.vercel.app/0image.svg"}
+      image={"/home/highway-bg.png"}
     >
       <Flex
         sx={{
@@ -27,22 +26,18 @@ export default function HighSeas() {
           alignItems: 'center'
         }}
       >
-
         <Image
-          src="https://cloud-5tm6hh4kb-hack-club-bot.vercel.app/0image__1_.svg"
+          src="https://highway.hackclub.com/assets/landing/landinglogo-b42d5f8e.png"
           sx={{
-            maxWidth: ['150px !important', '150px !important', '200px !important'],
+            width: ['200px', '200px', '200px'],
             mt: ['-5px', '-5px', '-5px'],
             position: 'relative',
             zIndex: 2,
             fontSize: ['36px', 4, 5],
             color: 'white'
-
           }}
-          layout="fill"
-          alt="High Seas Logo"
+          alt="Highway Logo"
         />
-
         <Text
           as="p"
           sx={{
@@ -56,24 +51,24 @@ export default function HighSeas() {
             textAlign: 'center',
             whiteSpace: 'nowrap',
             width: '95%',
-            fontSize: ['1.2em', '1.4em'],
+            fontSize: '1.2em !important',
             color: 'white !important',
-            textShadow: '1.5px 1.5px 0px rgba(0, 0, 0, 1)',
+            textShadow: '0 0 10px rgba(0, 0, 0, 1)',
           }}
         >
-          Build personal projects. Get free stuff.
+          Design a hardware project. Make it real. Ends July 31.
         </Text>
 
         <Buttons
-          icon="github"
-          href="https://github.com/hackclub/high-seas"
+          icon="battery-bolt"
+          href="https://highway.hackclub.com/"
           target="_blank"
           rel="noopener"
           primary="#032412"
           id="43"
           sx={{ fontSize: "15px !important", color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
         >
-          Source Code
+          Accelerate
         </Buttons>
       </Flex>
 

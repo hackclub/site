@@ -22,7 +22,7 @@ const Header = styled(Box)`
 
 const Seal = styled(Box)`
   border-radius: 9999px;
-  background-color: white;
+  background-color: snow;
   color: black;
   mix-blend-mode: screen;
   text-align: center;
@@ -103,7 +103,7 @@ const Super = styled(Text)`
 
 export default function Philosophy() {
   return (
-    <Box sx={{ bg: 'white', color: 'black', minHeight: '100vh' }}>
+    <Box sx={{ bg: 'snow', color: 'black', minHeight: '100vh' }}>
       <Nav />
       <Meta
         as={Head}
@@ -117,6 +117,7 @@ export default function Philosophy() {
             width={1}
             sx={{ maxWidth: '56rem!important', py: '72px', px: 3 }}
             px={3}
+            pt={6}
             align="left"
           >
             <Ultraline>We're</Ultraline>
@@ -276,7 +277,7 @@ export default function Philosophy() {
           </NextLink>
         </Box>
       </Box>
-      <Footer light />
+      <Footer />
     </Box>
   )
 }

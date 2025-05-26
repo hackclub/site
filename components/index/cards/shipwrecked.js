@@ -5,7 +5,7 @@ import Icon from '../../icon'
 
 /** @jsxImportSource theme-ui */
 
-export default function HighSeas() {
+export default function Shipwrecked() {
   return (
     <CardModel
       color="white"
@@ -17,7 +17,7 @@ export default function HighSeas() {
         margin: "0px !important",
       }}
       position={[null, 'bottom', 'bottom']}
-      image={"https://cloud-lyjdp3j9h-hack-club-bot.vercel.app/0image.svg"}
+      image={"/home/shipwrecked-bg.webp"}
     >
       <Flex
         sx={{
@@ -29,7 +29,7 @@ export default function HighSeas() {
       >
 
         <Image
-          src="https://cloud-5tm6hh4kb-hack-club-bot.vercel.app/0image__1_.svg"
+          src="/home/shipwrecked-logo.png"
           sx={{
             maxWidth: ['150px !important', '150px !important', '200px !important'],
             mt: ['-5px', '-5px', '-5px'],
@@ -40,7 +40,7 @@ export default function HighSeas() {
 
           }}
           layout="fill"
-          alt="High Seas Logo"
+          alt="Shipwrecked Logo"
         />
 
         <Text
@@ -58,22 +58,22 @@ export default function HighSeas() {
             width: '95%',
             fontSize: ['1.2em', '1.4em'],
             color: 'white !important',
-            textShadow: '1.5px 1.5px 0px rgba(0, 0, 0, 1)',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
           }}
         >
-          Build personal projects. Get free stuff.
+          Ship a viral project. Set sail for adventure.
         </Text>
 
         <Buttons
-          icon="github"
-          href="https://github.com/hackclub/high-seas"
+          icon="view"
+          href="https://shipwrecked.hackclub.com/"
           target="_blank"
           rel="noopener"
           primary="#032412"
           id="43"
           sx={{ fontSize: "15px !important", color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
         >
-          Source Code
+          Sign Up
         </Buttons>
       </Flex>
 

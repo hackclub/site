@@ -2,6 +2,7 @@ import theme from '../lib/theme'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const waveFlag = keyframes`
   from {
@@ -33,7 +34,6 @@ const scrolled = props =>
   `
 
 const Base = styled('a')`
-  background-image: url(https://assets.hackclub.com/flag-orpheus-top.svg);
   background-repeat: no-repeat;
   background-position: top left;
   background-size: contain;
@@ -57,9 +57,38 @@ const Base = styled('a')`
   ${scrolled};
 `
 
-const Flag = props => (
+const Flag = ({ scrolled, alt = 'Hack Club logo', animeFlag = false }) => (
   <Link href="/" passHref>
-    <Base href="https://hackclub.com/" title="Homepage" {...props} />
+    <Base
+      href="/"
+      title="Homepage"
+      as="a"
+      aria-label={alt}
+      sx={{
+        lineHeight: 0,
+        display: 'inline-block',
+        width: ['60px', '72px', '72px'],
+        height: ['38px', '44px', '44px'],
+        position: 'relative',
+        pl: [2, 3],
+        pr: 3,
+        mt: ['-2px', '-4px'],
+        mr: -3
+      }}
+    >
+      <Image
+        src={
+          animeFlag
+            ? '/stickers/hack-club-anime.png'
+            : 'https://assets.hackclub.com/flag-orpheus-top.svg'
+        }
+        alt={alt}
+        width={"112px"}
+        height={animeFlag ? "60px" : "48px"}
+        objectFit='contain'
+        style={{ objectFit: 'contain' }}
+      />
+    </Base>
   </Link>
 )
 
