@@ -126,9 +126,9 @@ const Event = ({
       <Box
         as="iframe"
         src={video}
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
+        allowFullScreen
         width="100%"
         height="250px"
         border="none"

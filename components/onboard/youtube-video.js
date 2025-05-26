@@ -31,9 +31,9 @@ const YoutubeVideo = ({
       src={src}
       title={title}
       {...{ width, height }}
-      frameborder="0"
+      frameBorder="0"
       allow={allowlist}
-      allowfullscreen
+      allowFullScreen
     ></iframe>
   )
 }

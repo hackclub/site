@@ -44,18 +44,18 @@ export default function Overview() {
               height="300px"
               src="https://www.youtube.com/embed/PnK4gzO6S3Q"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
             <iframe
               width="100%"
               height="300px"
               src="https://www.youtube.com/embed/KLx4NZZPzMc"
               title="YouTube video player"
-              frameborder="0"
+              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </Grid>
         </Container>

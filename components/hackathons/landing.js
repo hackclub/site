@@ -2,7 +2,7 @@ import { Box, Button, Heading, Text, Card } from 'theme-ui'
 import { Fade } from 'react-swift-reveal'
 import ScrollHint from '../scroll-hint'
 import Image from "next/image"
-const hero = '/hackathons/assemble.jpg'
+import HeroImage from '../../public/hackathons/assemble.jpg'
 import Icon from '../icon'
 
 export default function Landing() {
@@ -128,7 +128,7 @@ function Slide({ children }) {
       }}
     >
       <Image
-        src={hero}
+        src={HeroImage}
         alt="Dark room with a stage and students sitting below"
         // placeholder="blur"
         priority
