@@ -56,7 +56,7 @@ const navLinks = [
   { href: "https://hackclub.com/philosophy/", label: "Philosophy" },
 ];
 
-// --------- FEATURED PROJECTS ----------
+// --------- FEATURED PROJECTS (EDITABLE) ----------
 // I'll replace this with new projects frequently!
 const FEATURED_PROJECTS = [
   {
@@ -148,6 +148,18 @@ const heroButtonSx = {
   }
 };
 
+// --------- WIDE SIGNUP BUTTON STYLE ----------
+const wideSignupButtonSx = {
+  ...heroButtonSx,
+  mt: [4, 5],
+  width: ["90vw", "60vw", "40vw"],
+  mx: "auto",
+  display: "block",
+  fontSize: [3, 4, 5],
+  borderRadius: 32,
+  textAlign: "center"
+};
+
 // --------- DARK MODE TOGGLE ----------
 function DarkModeToggle() {
   const [colorMode, setColorMode] = useColorMode();
@@ -213,12 +225,14 @@ function FeaturedProject({ project }) {
         gap: [5, 6],
         maxWidth: 1100,
         mx: "auto",
-        px: [3, 4],
-        py: [2, 3]
+        px: [1, 3, 4],
+        py: [2, 3],
+        width: "100%"
       }}>
         <Box sx={{
-          width: ["100%", 440],
-          height: ["auto", 280],
+          width: ["100%", "60%", 440],
+          maxWidth: "440px",
+          height: ["auto", 220, 280],
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -226,8 +240,9 @@ function FeaturedProject({ project }) {
           borderRadius: 18,
           boxShadow: "0 8px 48px #0001",
           overflow: "hidden",
-          minHeight: [220, 280],
-          mb: [4, 0]
+          minHeight: [180, 220, 280],
+          mb: [4, 0],
+          mx: ["auto", 0, 0]
         }}>
           <Image
             src={project.image}
@@ -241,7 +256,13 @@ function FeaturedProject({ project }) {
             }}
           />
         </Box>
-        <Box sx={{ textAlign: "left", maxWidth: 500, ml: [0, 4] }}>
+        <Box sx={{
+          textAlign: ["center", "left"],
+          maxWidth: 500,
+          ml: [0, 4],
+          mt: [3, 0],
+          width: "100%"
+        }}>
           <Heading as="h3" sx={{
             fontSize: [3, 4],
             fontWeight: 700,
@@ -448,6 +469,7 @@ export default function HomePage() {
     <>
       <Head>
         <title>Hack Club - A Home For High School Hackers</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       {/* Navbar */}
@@ -464,15 +486,22 @@ export default function HomePage() {
           sx={{
             maxWidth: 1200,
             mx: "auto",
-            px: 3,
-            height: 80,
+            px: [2, 3],
+            height: [64, 80],
             alignItems: "center",
             justifyContent: "space-between"
           }}>
           <ThemeLink as={NextLink} href="/" sx={{ display: "flex", alignItems: "center" }}>
             <img src="https://assets.hackclub.com/icon-rounded.png" alt="Hack Club Logo" style={{ height: 48 }} />
           </ThemeLink>
-          <Flex as="ul" sx={{ gap: 4, listStyle: "none", alignItems: "center", m: 0, p: 0 }}>
+          <Box as="ul" sx={{
+            display: ["none", "flex"],
+            gap: 4,
+            listStyle: "none",
+            alignItems: "center",
+            m: 0,
+            p: 0
+          }}>
             {navLinks.map(link => (
               <li key={link.href}>
                 <ThemeLink href={link.href} sx={{
@@ -508,8 +537,62 @@ export default function HomePage() {
             <li>
               <DarkModeToggle />
             </li>
-          </Flex>
+          </Box>
         </Flex>
+        {/* MOBILE NAV */}
+        <Box
+          as="ul"
+          sx={{
+            display: ["flex", "none"],
+            flexDirection: "row",
+            gap: 3,
+            listStyle: "none",
+            alignItems: "center",
+            justifyContent: "center",
+            m: 0,
+            p: 0,
+            py: 2,
+            width: "100%",
+            bg: "background",
+            borderTop: "1px solid #eee"
+          }}
+        >
+          {navLinks.map(link => (
+            <li key={link.href}>
+              <ThemeLink href={link.href} sx={{
+                textDecoration: "none",
+                color: "text",
+                fontWeight: 600,
+                fontSize: 2,
+                px: 2,
+                "&:hover": { color: "primary" }
+              }}>
+                {link.label}
+              </ThemeLink>
+            </li>
+          ))}
+          <li>
+            <ThemeLink
+              href="https://hackclub.com/slack"
+              sx={{
+                bg: "primary",
+                color: "background",
+                px: 3,
+                py: 2,
+                borderRadius: 999,
+                fontWeight: "bold",
+                textDecoration: "none",
+                fontSize: 2,
+                transition: "background 0.2s",
+                "&:hover": { bg: "#c72d43" }
+              }}>
+              Slack
+            </ThemeLink>
+          </li>
+          <li>
+            <DarkModeToggle />
+          </li>
+        </Box>
       </Box>
 
       {/* Hero Section with Typing Animation */}
@@ -583,13 +666,20 @@ export default function HomePage() {
                 Start a Club
               </Button>
             </Flex>
+            <Button
+              as="a"
+              href="https://shipwrecked.hack.club/3"
+              sx={wideSignupButtonSx}
+            >
+              Sign up: Private Island Hackathon
+            </Button>
           </Box>
         )}
       </Box>
 
       {/* About Section */}
       <Box as="section" id="about" sx={{ py: [5, 6], bg: "muted" }}>
-        <Box sx={{ maxWidth: 1000, mx: "auto" }}>
+        <Box sx={{ maxWidth: 1000, mx: "auto", px: [2, 3] }}>
           <Heading as="h2" sx={{
             textAlign: "center",
             fontSize: [4, 5],
