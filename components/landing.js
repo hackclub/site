@@ -48,19 +48,16 @@ const Landing = () => {
     'Figma HQ, SF'
   ];
 
-// thing to make main images load first
   useEffect(() => {
     const criticalImages = [
       '/home/outernet-110.jpg', 
       '/home/assemble.jpg'      
     ];
 
-
     const criticalPromises = criticalImages.map((src, index) => {
       return new Promise((resolve, reject) => {
         const img = new Image();
         
-
         if (index === 0) {
           img.fetchPriority = 'high';
           img.loading = 'eager';
@@ -83,12 +80,10 @@ const Landing = () => {
       });
     });
 
-
     Promise.all(criticalPromises)
       .then(() => {
         setCriticalImagesLoaded(true);
         
-    
         const secondaryPromises = imagePaths.map(src => {
           return new Promise((resolve, reject) => {
             const img = new Image();
@@ -115,9 +110,7 @@ const Landing = () => {
       });
   }, []);
 
-
   useEffect(() => {
-
     const preloadLinks = [
       '/home/outernet-110.jpg',
       '/home/assemble.jpg'
@@ -129,7 +122,6 @@ const Landing = () => {
       link.fetchPriority = 'high';
       return link;
     });
-
 
     preloadLinks.forEach(link => {
       document.head.appendChild(link);
@@ -152,7 +144,8 @@ const Landing = () => {
     <section
       sx={{
         width: '100%',
-        minHeight: '100vh',
+        minHeight: ['calc(100vh - 60px)', 'calc(100vh - 70px)', 'calc(100vh - 80px)'], //navbar height estimation so that the image doesnt overlap the navbar on smaller screens
+        height: 'auto',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -164,6 +157,9 @@ const Landing = () => {
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         position: 'relative',
+
+        pt: [4, 5, 6], 
+        pb: [4, 5, 6], 
         '&::before': {
           content: '""',
           position: 'absolute',
@@ -212,75 +208,29 @@ const Landing = () => {
           transition: 'opacity 0.5s ease-in-out',
         }}
       >
-        <div
-          sx={{
-            display: ['flex', 'flex', 'flex', 'none'], 
-            width: '100%',
-            justifyContent: 'center',
-            gap: [2, 3],
-            mb: 4,
-            flexWrap: 'wrap',
-            opacity: allImagesLoaded ? 1 : 0.7,
-            transition: 'opacity 0.3s ease-in-out',
-          }}
-        >
-          {imagePaths.slice(0, 2).map((src, i) => (
-            <div
-              key={i}
-              sx={{
-                ...animationStyle,
-                bg: 'white',
-                p: [2, 3],
-                borderRadius: '12px',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-                transform: i === 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
-                border: '2px dashed #e0e0e0',
-                '--initial-rotate': i === 0 ? '-3deg' : '3deg',
-                maxWidth: ['140px', '160px'],
-                willChange: 'transform',
-              }}
-            >
-              <img
-                src={src}
-                alt={`Event ${i + 1}`}
-                sx={{
-                  width: ['100px', '120px'],
-                  height: ['100px', '120px'],
-                  borderRadius: '8px',
-                  objectFit: 'cover',
-                  display: 'block',
-                }}
-                loading="lazy"
-                fetchPriority="low"
-              />
-              <div sx={{ 
-                mt: 2, 
-                fontSize: ['12px', '14px'], 
-                textAlign: 'center',
-                fontWeight: '600',
-                color: '#666'
-              }}>
-                {locations[i]}
-              </div>
-            </div>
-          ))}
-        </div>
 
 
         <div
           sx={{
             width: '100%',
-            maxWidth: ['100%', '500px', '1200px'],
+            maxWidth: ['100%', '500px', '700px', '900px', '1200px'],
             textAlign: 'center',
             mb: 4,
-            px: [2, 3],
+            px: [2, 3, 4],
           }}
         >
 
           <div
             sx={{
               width: '100%',
-              height: ['250px', '300px', '450px'],
+
+              height: [
+                'min(250px, 30vh)', 
+                'min(300px, 35vh)', 
+                'min(350px, 40vh)',  
+                'min(400px, 45vh)',
+                'min(450px, 50vh)'  
+              ],
               borderRadius: '16px',
               mb: 4,
               bg: '#f0f0f0',
@@ -305,7 +255,7 @@ const Landing = () => {
                 height: '100%',
                 objectFit: 'cover',
                 objectPosition: 'center center',
-                transform: 'scale(1.5) translateZ(0)',
+                transform: 'scale(1.4) translateZ(0)',
                 transformOrigin: 'center center',
                 backfaceVisibility: 'hidden',
                 willChange: 'transform',
@@ -322,7 +272,13 @@ const Landing = () => {
             <Text
               sx={{
                 color: '#e0e6ed',
-                fontSize: ['14px', '35px'],
+                fontSize: [
+                  'min(14px, 3.5vw)', 
+                  'min(20px, 4vw)', 
+                  'min(25px, 3.5vw)', 
+                  'min(30px, 3vw)', 
+                  '35px'
+                ],
                 fontWeight: '600',
                 mb: 3,
                 display: 'block',
@@ -340,7 +296,13 @@ const Landing = () => {
                 sx={{
                   color: 'white',
                   mb: 4,
-                  fontSize: ['42px', '52px', '64px'],
+                  fontSize: [
+                    'min(42px, 10vw)', 
+                    'min(46px, 9vw)', 
+                    'min(52px, 8vw)', 
+                    'min(58px, 7vw)', 
+                    '64px'
+                  ],
                   lineHeight: 1.2,
                   fontWeight: 'bold',
                   width: '100%'
@@ -421,9 +383,10 @@ const Landing = () => {
           </Box>                      
         </div>
 
+ 
         <div
           sx={{
-            display: ['flex', 'flex', 'flex', 'none'], 
+            display: ['flex', 'flex', 'flex', 'flex', 'none'],
             width: '100%',
             justifyContent: 'center',
             gap: [2, 3],
@@ -478,7 +441,7 @@ const Landing = () => {
 
       <div
         sx={{
-          display: ['none', 'none', 'none', 'block'], 
+          display: ['none', 'none', 'none', 'none', 'block'],
           position: 'absolute',
           top: 0,
           left: 0,

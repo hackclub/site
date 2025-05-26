@@ -197,7 +197,7 @@ function Page({
         <Konami action={easterEgg}>
           {"Hey, I'm an Easter Egg! Look at me!"}
         </Konami>
-        <Box
+       { /*<Box
           as="header"
           sx={{
             bg: 'dark',
@@ -340,7 +340,7 @@ function Page({
               Hackers at Outernet in Vermont
             </Badge>
           </Box>
-        </Box>
+        </Box>*/}
         <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
           <Box
             sx={{
