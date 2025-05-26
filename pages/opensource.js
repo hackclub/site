@@ -241,16 +241,31 @@ export default Page
 export async function getStaticProps() {
   const octokit = new Octokit({
     auth: process.env.GITHUB || process.env.GITHUB_TOKEN
-  })
-  const repos = await octokit.paginate('GET /orgs/{org}/repos', {
-    org: 'hackclub'
-  })
+  });
 
-  const transparentAccounts = (
-    await fetch('https://hcb.hackclub.com/api/v3/organizations').then(res =>
+  const [rawRepos, rawTransparentAccounts] = await Promise.all([
+    octokit.paginate('GET /orgs/{org}/repos', {
+      org: 'hackclub',
+      per_page: 100
+    }),
+    fetch('https://hcb.hackclub.com/api/v3/organizations').then(res =>
       res.json()
     )
-  ).filter(account => account.category?.replaceAll(' ', '_') === 'hack_club_hq')
+  ]);
 
-  return { props: { repos, transparentAccounts }, revalidate: 30 }
+  const repos = rawRepos.map(repo => ({
+    stargazers_count: repo.stargazers_count,
+    id: repo.id,
+    name: repo.name,
+    description: repo.description
+  }));
+  const transparentAccounts = rawTransparentAccounts.filter(
+    account => account.category?.replaceAll(' ', '_') === 'hack_club_hq'
+  ).map(account => ({
+    id: account.id,
+    name: account.name,
+    slug: account.slug
+  }));
+
+  return { props: { repos, transparentAccounts }, revalidate: 300 };
 }
