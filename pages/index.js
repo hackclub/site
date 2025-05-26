@@ -1211,13 +1211,11 @@ function Page({
           id="spotlight"
           as="section"
           sx={{
-            // Remove transitions from background-image
             backgroundImage: isDark
               ? `linear-gradient(rgba(17, 17, 17, 0.9), rgba(17, 17, 17, 0.9))`
               : `linear-gradient(rgba(249, 250, 252, 0.9), rgba(249, 250, 252, 0.9))`,
             position: 'relative',
             marginBottom: [4, 5, 6],
-            // Add background color with quick transition
             bg: isDark ? '#111' : 'snow',
             transition: 'background-color 0.2s ease-in-out'
           }}

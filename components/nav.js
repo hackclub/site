@@ -253,7 +253,6 @@ const Navigation = props => {
   const [mounted, setMounted] = useState(false)
   const [openMenus, setOpenMenus] = useState({})
 
-  // Simplified toggle - just light/dark, no system
   const toggleColorMode = () => {
     const nextMode = colorMode === 'dark' ? 'light' : 'dark'
     setColorMode(nextMode)
@@ -263,7 +262,6 @@ const Navigation = props => {
     }
   }
 
-  // Initial theme setup
   useEffect(() => {
     setMounted(true)
     const savedMode = localStorage.getItem('theme-ui-color-mode') || 'light'
@@ -275,8 +273,7 @@ const Navigation = props => {
 
   const isDark = colorMode === 'dark'
 
-  // Remove system theme related code
-  const showReset = false // Remove reset button completely
+  const showReset = false
 
   const showSocial =
     true
@@ -607,7 +604,7 @@ const Navigation = props => {
             aria-label="Toggle theme"
             sx={{
               ml: 4,
-              position: 'relative', // Add this for positioning the reset button
+              position: 'relative', 
             }}
             isDark={isDark}
           >

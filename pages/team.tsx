@@ -43,7 +43,7 @@ export default function Team({ team }) {
   return (
     <>
       <Box as="main" key="main">
-        {/* // <ForceTheme theme="dark" /> */}
+        <ForceTheme theme="dark" />
         {/* @ts-expect-error -- TODO: fix this */}
         <Nav />
         <Meta
