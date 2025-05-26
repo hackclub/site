@@ -367,11 +367,7 @@ export default function Team({ team }) {
   )
 }
 
-export const getServerSideProps = async () => {
-  try {
-    const team = await fetchTeam()
-    return { props: { team } }
-  } catch (e) {
-    return { props: { team: {} } }
-  }
+export const getStaticProps = async () => {
+  const team = await fetchTeam()
+  return { props: { team }, revalidate: 3600 }
 }
