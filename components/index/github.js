@@ -82,8 +82,8 @@ export default function GitHub({
           ml: 'auto'
         }}
       >
-        <time dateTime={time} title={time}>
-          <RelativeTime value={time} titleformat="iso8601" />
+        <time dateTime={time} title={time} suppressHydrationWarning>
+          <RelativeTime value={time} titleformat="iso8601" suppressHydrationWarning />
         </time>
       </Text>
     </Badge>

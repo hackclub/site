@@ -9,7 +9,8 @@
     "build": "next build --turbo",
     "start": "next start",
     "lint": "next lint && tsc",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "scan": "react-scan localhost:3000"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -94,6 +95,7 @@
     "eslint": "8.57.0",
     "eslint-config-next": "14.1.0",
     "prettier": "^3.5.3",
+    "react-scan": "^0.3.4",
     "typescript": "^5.8.2"
   },
   "packageManager": "yarn@4.9.1"
