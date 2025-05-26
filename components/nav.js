@@ -211,11 +211,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
     }
   }, [unfixed])
 
-  const baseColor = dark
-    ? color || 'white'
-    : color === 'white' && scrolled
-      ? 'black'
-      : color
+  const baseColor = !dark ? "white" : color || "white"
   const toggleColor = dark
     ? color || 'snow'
     : toggled || (color === 'white' && scrolled)
