@@ -7,24 +7,46 @@ const nextConfig = {
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   images: {
-    domains: [
-      'hackclub.com',
-      'dl.airtable.com',
-      'emoji.slack-edge.com',
-      'scrapbook.hackclub.com',
-      'assets.hackclub.com',
-      'v5.airtableusercontent.com',
-      'hcb.hackclub.com',
-      'hc-cdn.hel1.your-objectstorage.com'
-    ],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'cloud-*-hack-club-bot.vercel.app'
+      },
+      {
+        protocol: 'https',
+        hostname: 'hackclub.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'dl.airtable.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'emoji.slack-edge.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'scrapbook.hackclub.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'assets.hackclub.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'v5.airtableusercontent.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'hcb.hackclub.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'hc-cdn.hel1.your-objectstorage.com'
       }
     ]
   },
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
     return config
   },
   async redirects() {
