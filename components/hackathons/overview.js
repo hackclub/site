@@ -1,5 +1,4 @@
-import { Box, Heading, Container, Text, Grid, Flex } from 'theme-ui'
-import Photo from '../photo'
+import { Box, Heading, Container, Text, Grid } from 'theme-ui'
 
 export default function Overview() {
   return (
@@ -18,33 +17,13 @@ export default function Overview() {
             <Highlight>build projects</Highlight> for a weekend and{' '}
             <Highlight>share them with the world</Highlight>.
           </Heading>
-          <Grid columns={[null, null, 2]} gap={[3, 4]}>
-            <Text as="p" variant="subtitle">
-              <Box sx={{ color: 'blue', fontSize: 28, mb: 2 }}>
-                The best way to learn is by <b>building</b>.
-              </Box>
-              A hackathon is a space that helps give makers everything they need
-              to start building–mentors, collaborators, inspiration, and a goal
-              to work towards. Hackers will leave a hackathon with a project of
-              their own, ready and excited to keep hacking once they get home.
-            </Text>
-            <Text as="p" variant="subtitle">
-              <Box sx={{ color: 'green', fontSize: 28, mb: 2 }}>
-                We're at our best when we're <b>making</b>.
-              </Box>
-              Hack Club is a global community of thousands of high school
-              makers. We're organizers, coders, hackers, painters, engineers,
-              musicians, writers, volunteers. We make things. We want others to
-              make things too.
-            </Text>
-          </Grid>
           <Grid columns={[null, null, 2]} gap={[3, 4]} mt={4}>
             <iframe
               width="100%"
               height="300px"
               src="https://www.youtube.com/embed/PnK4gzO6S3Q"
               title="YouTube video player"
-              frameBorder="0"
+              style={{ border: 'none' }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
@@ -53,7 +32,7 @@ export default function Overview() {
               height="300px"
               src="https://www.youtube.com/embed/KLx4NZZPzMc"
               title="YouTube video player"
-              frameBorder="0"
+              style={{ border: 'none' }}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
