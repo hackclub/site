@@ -42,7 +42,7 @@ const EmailVerifiedPage = () => {
                             mb: 4
                         }}
                     >
-                        You&apos;re all set! Welcome to Hack Club Happenings, your biweekly dose of awesome from the Hack Club community. We&apos;re stoked to have you on board. Expect cool projects, inspiring stories, and opportunities to get involved, delivered straight to your inbox.
+                        Welcome to Happenings! Expect cool projects, inspiring stories, and opportunities to get involved, delivered to your inbox.
                     </Text>
                     <Text
                         as="p"
@@ -73,7 +73,7 @@ const EmailVerifiedPage = () => {
                                 }
                             }}
                         >
-                            Back to Homepage
+                            BACK TO HOMEPAGE
                         </Button>
                     </NextLink>
                 </Box>

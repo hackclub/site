@@ -23,7 +23,7 @@ export default function Features() {
             name="Receive foundation grants"
             body="with tax-deductible 501(c)(3) status."
           />
-          {/* Send money & reimburse via check, ACH, bank wire, PayPal, & more.
+          {/* Send money & reimburse via check, ACH, bank wire, & more.
               Operate globally with a US Entity.
               Issue physical & virtual debit cards to your team.
               Get 24 hour support on weekdays.
@@ -43,7 +43,7 @@ export default function Features() {
           <Module
             icon="payment-transfer"
             name="Send money & reimburse"
-            body="via check, ACH, bank wire, PayPal, & more."
+            body="via check, ACH, bank wire, & more."
           />
           <Module
             icon="explore"
