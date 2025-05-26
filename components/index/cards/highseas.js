@@ -17,7 +17,7 @@ export default function HighSeas() {
         fontFamily: "Fraunces"
       }}
       position={[null, 'bottom', 'bottom']}
-      image={"https://cloud-lyjdp3j9h-hack-club-bot.vercel.app/0image.svg"}
+      image={"https://hc-cdn.hel1.your-objectstorage.com/s/v3/aa1fc9699fb73ef8500f666304e97c8aa904b857_0image.svg"}
     >
         <Global
         styles={`
@@ -39,7 +39,7 @@ export default function HighSeas() {
           }}
         >
           <Image
-            src="https://cloud-5tm6hh4kb-hack-club-bot.vercel.app/0image__1_.svg"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1ec806630c3e58334f4042bbb046fc55fb1ad364_0image__1_.svg"
             sx={{
               width: ['200px', '250px', '300px'],
               mt: ['-5px', '-5px', '-5px'],

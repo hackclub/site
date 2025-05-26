@@ -27,7 +27,7 @@ export default function Epoch() {
       }}
     >
       <Image
-        src="https://cloud-f3vv32ihb-hack-club-bot.vercel.app/0bg_angelhacks.png"
+        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/2af3f55ccbb4b30be1b6b393be70780c556202e0_0bg_angelhacks.png"
         alt=""
         sx={{
           objectFit: 'cover',
@@ -43,7 +43,7 @@ export default function Epoch() {
         <Box>
           <img
             alt=""
-            src="https://cloud-a2oswmb6u-hack-club-bot.vercel.app/0angelhacks_edgefix.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1d25ea9cba9840f8b3423d6d26b5f73c8db8fe1c_0angelhacks_edgefix.png"
             sx={{
               width: ['270px', '270px', '290px', '390px'],
               position: 'relative',

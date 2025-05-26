@@ -170,7 +170,7 @@ function randomizeParts() {
     selectedParts = chosenPartNames
 }
 
-const rollSound = new Howl({ src: 'https://cloud-eclxkeatl-hack-club-bot.vercel.app/0mario-kart-item-box-sound-mp3cut_audio.mp4'})
+const rollSound = new Howl({ src: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/4e157958569033c1bfaae21d63f7f85aa8178cfd_0mario-kart-item-box-sound-mp3cut_audio.mp4'})
 
 function rollParts(el) {
     if (el.classList.contains("disabled")) {
@@ -263,7 +263,7 @@ async function generateProjectIdea() {
     yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play();
     document.querySelector('#generate-project-idea').classList.add('disabled')
     document.querySelector('#project-idea').innerHTML = "<em>" + thinkingWords() + "..." + "</em>"
-    document.querySelector('#generate-project-idea').src = "https://cloud-80eg2m8id-hack-club-bot.vercel.app/0thinking_rac.png"
+    document.querySelector('#generate-project-idea').src = "https://hc-cdn.hel1.your-objectstorage.com/s/v3/5040000f8df5684e65ad3df9b9d0467d0e9f9304_0thinking_rac.png"
     let text = ""
     if (selectedParts.length == 0) {
         text = "You need to rummage for some parts first!"
@@ -279,7 +279,7 @@ async function generateProjectIdea() {
         text = json.recommendation
     }
     document.querySelector('#project-idea').innerHTML = ""
-    document.querySelector('#generate-project-idea').src = "https://cloud-cyo3pqn0f-hack-club-bot.vercel.app/0statement_rac.png"
+    document.querySelector('#generate-project-idea').src = "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b3eda648ea9a3ca87f5d5d5f662af044fbf0dd3b_0statement_rac.png"
     document.querySelector('#generate-project-idea').classList.remove('disabled')
     yap(text, i => {
         document.querySelector('#project-idea').innerHTML = text.slice(0, Math.max(text.length - i + 1, 0))

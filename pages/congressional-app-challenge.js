@@ -61,32 +61,32 @@ const photos = {
   0: {
     name: 'outernet',
     alt: 'Outernet (2023)',
-    img: 'https://cloud-25h1tatrt-hack-club-bot.vercel.app/0260102957-168f5ff5-ca65-44d9-8814-a7baad487f31.png'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/9e52e8ab92375e88fd8c762b9feaf2f4ef937cf0_0260102957-168f5ff5-ca65-44d9-8814-a7baad487f31.png'
   },
   1: {
     name: 'zephyr',
     alt: 'The Hacker Zephyr (2021)',
-    img: 'https://cloud-lgzpj1j7i-hack-club-bot.vercel.app/0zephyr.jpeg'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/d1eb913799a70fca3926a6fc32477fde817d4d6a_0zephyr.jpeg'
   },
   2: {
     name: 'arcade',
     alt: 'Arcade [AMA with Framework CEO Nirav Patel] (2024)',
-    img: 'https://cloud-lvxsxkpn4-hack-club-bot.vercel.app/1frameworkama.png'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/42b796bc675b2338610a34d53c6ff28bb1a7e9ab_1frameworkama.png'
   },
   3: {
     name: 'trail',
     alt: 'The Trail (2024)',
-    img: 'https://cloud-lvxsxkpn4-hack-club-bot.vercel.app/2image.png'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/02e43b90362a253c575c512ca81ae8d4f0b80989_2image.png'
   },
   4: {
     name: 'ascend',
     alt: 'Ascend (2024)',
-    img: 'https://cloud-ggl6f1hfj-hack-club-bot.vercel.app/0image.png'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/8c67c69b8edb6f84a4ab26500b45c26a1e57518c_0image.png'
   },
   5: {
     name: 'leaders',
     alt: 'The Leaders Summit (2024)',
-    img: 'https://cloud-lvxsxkpn4-hack-club-bot.vercel.app/3group.png'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/322f77d132043b2f5385a1fdd718c8efca835b5d_3group.png'
   }
 }
 
@@ -121,14 +121,14 @@ function Page({ carouselCards }) {
         >
           <Screen
             title="Hack Club - Congressional App Challenge"
-            backgroundImage="https://cloud-qqz8uj8y5-hack-club-bot.vercel.app/027544281748_b641f43479_o-1.jpg"
+            backgroundImage="https://hc-cdn.hel1.your-objectstorage.com/s/v3/098e5d090c915a46fe729652fdc2330ef536d87a_027544281748_b641f43479_o-1.jpg"
             sxProps={{
               height: ['20vh', null, null, '100%'],
               position: 'relative'
             }}
           >
             <Image
-              src="https://cloud-n807bcpij-hack-club-bot.vercel.app/10318016-8380173-super-matte-5000-uncoated-vinyl-stickers_11.png"
+              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1093e42fc1ca8047c49bf7e8aa45f38f7f3f76eb_10318016-8380173-super-matte-5000-uncoated-vinyl-stickers_11.png"
               alt="A sticker of Orpheus"
               sx={{
                 position: 'absolute',
@@ -140,7 +140,7 @@ function Page({ carouselCards }) {
               }}
             />
             <Image
-              src="https://cloud-jpt4mntmx-hack-club-bot.vercel.app/0heidi_1.png"
+              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/41f5adff19ef4347f95cb4bdafff8bd291ea5ef4_0heidi_1.png"
               alt="A sticker of Heidi"
               sx={{
                 height: '160px',
@@ -404,7 +404,7 @@ function Page({ carouselCards }) {
                   height="150px"
                   width="150px"
                   alt="The Congressional App Challenge"
-                  src="https://cloud-9e2cjx37b-hack-club-bot.vercel.app/0laptop.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ad72016257065adfca8b3dd8780b43ace5ad972_0laptop.png"
                 />
             </Box>
             <Text variant="subtitle" sx={{width: ["100%"]}}>
@@ -501,7 +501,7 @@ function Page({ carouselCards }) {
             </Text>
             <Box sx={{ width: ['100%', '80%', '60%', '40%'], marginX: 'auto' }}>
               <Polaroid
-                image="https://cloud-k3x2sjgmj-hack-club-bot.vercel.app/0sprig-front.jpeg"
+                image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3042bd4ec4749d42e637cced8475cc30429edbbf_0sprig-front.jpeg"
                 caption="Sprig, an open-source game console"
                 alt="Sprig, an open-source game console"
                 sxProps={{
@@ -533,7 +533,7 @@ function Page({ carouselCards }) {
               }}
             >
               <Polaroid
-                image="https://cloud-d1marlfq9-hack-club-bot.vercel.app/0image.png"
+                image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3b4c1b9148cef63a40cbaae1ad887de431aa9ee9_0image.png"
                 caption="Assemble (2022)"
                 alt="Hack Clubbers at the 2022 Assemble hackathon"
                 sxProps={{
@@ -546,7 +546,7 @@ function Page({ carouselCards }) {
                 }}
               />
               <Polaroid
-                image="https://cloud-5nm2f26ov-hack-club-bot.vercel.app/0img_8771.jpg"
+                image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/27084e3c1ba912b597b02a257038c58a4c2e1487_0img_8771.jpg"
                 caption="Hackers with Linus Tech Tips (2024)"
                 alt="Hack Clubbers with Linus Tech Tips"
                 sxProps={{
@@ -626,7 +626,7 @@ function Page({ carouselCards }) {
                   state="TX"
                   description="Alex likes writing code, designing PCBs, and maintaining servers and networks."
                   page="https://www.congressionalappchallenge.us/22-TX22/"
-                  image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/11705187020782.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/de23d52f7178bbe90faab980b83c203b1a5d8d04_11705187020782.jpg"
                 />
                 <UserProfile
                   name="Andrea"
@@ -634,7 +634,7 @@ function Page({ carouselCards }) {
                   state="CA"
                   description="Andrea is a passionate high school researcher and student developer of tools for biological research."
                   page="https://www.congressionalappchallenge.us/23-CA38/"
-                  image="https://cloud-6aiidi150-hack-club-bot.vercel.app/0image_6966_from_slack.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5d386186230a738168f0632a0c0da663296555b4_0image_6966_from_slack.jpg"
                 />
               </Box>
             </Screen>
@@ -663,7 +663,7 @@ function Page({ carouselCards }) {
                   state="GA"
                   description="Celeste is a computer scientist, roboticist, and singer. She's passionate about the intersection of STEM and the arts, as well as tech advocacy."
                   page="https://www.court-connect.net/"
-                  image="https://cloud-6a1c03tuu-hack-club-bot.vercel.app/0img_1754.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/904a5dee916305962cd88fd6b3df69ea4fde27a5_0img_1754.jpg"
                 />
               <UserProfile
                   name="Clay"
@@ -671,7 +671,7 @@ function Page({ carouselCards }) {
                   state="VT"
                   description="Clay is a student developer and high schooler from Vermont, as well as a member of Green Mountain Robotics and Robohawks."
                   page="https://www.congressionalappchallenge.us/23-VT00/"
-                  image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/21704591152368.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c093a40f9c3892fe566adf3b16e675a2b166c5ca_21704591152368.jpg"
                 />
           </Box>
         </Screen>
@@ -699,7 +699,7 @@ function Page({ carouselCards }) {
                   state="GA"
                   description="Sahiti is a developer in love with computer science and entrepreneurship. She aims to make an impact by spreading opportunities."
                   page="https://www.congressionalappchallenge.us/23-GA06/"
-                  image="https://cloud-b6mzh2987-hack-club-bot.vercel.app/31659043447794.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a2789dc88a655a31dca9024e1d9934a6f7d2a2c7_31659043447794.jpg"
                 />
                     <Box
                   sx={{ display: ['none', null, 'flex', 'none'],  padding: 2, width: 200 }}
@@ -722,7 +722,7 @@ function Page({ carouselCards }) {
                 </Box>
 
               <Image
-                src="https://cloud-n807bcpij-hack-club-bot.vercel.app/0terrifiedheidi.png"
+                src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ebe5a91fa34f7441be2c5129410670d4e797791c_0terrifiedheidi.png"
                 alt="A sticker of scared Heidi"
                 sx={{
                   height: '250px',

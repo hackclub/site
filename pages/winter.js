@@ -109,7 +109,7 @@ export function Winter() {
                   Timeline
                 </Heading>
                 <Image
-                  src="https://cloud-lbajgdi3a-hack-club-bot.vercel.app/0fox_1.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/b560f32c6cfbba51ef55cfc9ecd5afa770e0c07c_0fox_1.png"
                   alt="Illustrated orange fox sleeping in a curled position"
                   sx={{
                     width: ['100px', null, '80%'],

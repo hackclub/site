@@ -14,7 +14,7 @@ export default function Sinerider({ stars }) {
       sx={{
         backgroundSize: 'cover',
         // backgroundImage:
-        //   'url(https://cloud-pwqxgzqdg-hack-club-bot.vercel.app/0initial-bg__1_.png)',
+        //   'url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/a9bec86553c75e0e6f80d71e1477453beaa91c04_0initial-bg__1_.png)',
         // backgroundPosition: 'center -60px',
         // backgroundRepeat: 'no-repeat',
         backgroundColor: '#271932'
@@ -24,7 +24,7 @@ export default function Sinerider({ stars }) {
       image="/home/sinerider-bg.webp"
     >
       <Image
-        src="https://cloud-9cei11221-hack-club-bot.vercel.app/0logo_text_2.png"
+        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e5a0993886ca0d07125cd51c8a01c21f5ef39ff2_0logo_text_2.png"
         sx={{
           width: ['200px', '250px', '300px'],
           mt: ['-10px', '-20px', '-20px'],

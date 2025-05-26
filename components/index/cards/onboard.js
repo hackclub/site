@@ -20,7 +20,7 @@ export default function Onboard({ stars }) {
     <CardModel
       sx={{
         backgroundColor: 'rgba(0,0,0)',
-        backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.4) 50%), url('https://cloud-fyrwj5rn5-hack-club-bot.vercel.app/0pcb.svg')`,
+        backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.4) 50%), url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/95597d6af86b4d627f9c61f1de31cbe4480ec9da_0pcb.svg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'

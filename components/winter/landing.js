@@ -38,7 +38,7 @@ export default function Landing({ rsvpCount }) {
       <Box
         sx={{
           background:
-            'url(https://cloud-6h53svh6x-hack-club-bot.vercel.app/0group_5.png), linear-gradient(0deg, #3561A4 0%, #338EDA 100%)',
+            'url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/65d6d3336b059806c9b81a7204c9f22f0cbf2176_0group_5.png), linear-gradient(0deg, #3561A4 0%, #338EDA 100%)',
           backgroundPosition: 'bottom center',
           backgroundSize: ['200%', '150%', '100%'],
           backgroundRepeat: 'no-repeat',

@@ -7,7 +7,7 @@ const SprigMeta = () => {
       as={Head}
       title="Donate a Game Console kit"
       description="Inspiring teens to both make and code. Your $100 donation will send a teenager a Hack Club Game Console Kit!"
-      image="https://cloud-kcloydjv0-hack-club-bot.vercel.app/0image_from_ios__1_.jpg"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/908198436d87ac53fa6dab206fe5e0a43fbc7c18_0image_from_ios__1_.jpg"
     />
   )
 }

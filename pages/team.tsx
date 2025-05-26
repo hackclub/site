@@ -57,7 +57,7 @@ export default function Team({ team }) {
           px={[2, 4]}
           sx={{
             backgroundImage:
-              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)',
+              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/a4823163e74f731d77c87c4dbc1338a4ee3d5480_0hack_club_team_-_july_2023.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: '25% 15%'
           }}
@@ -128,7 +128,7 @@ export default function Team({ team }) {
                 </Grid>
                 <Grid columns={[1, null, 3]} gap={2}>
                   <Bio
-                    img="https://cloud-80nhjzldl-hack-club-bot.vercel.app/0.jpeg"
+                    img="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3a54fd5ac577c15dfed7114fa53c9f59e1d41b56_0.jpeg"
                     name="Tom Preston-Werner"
                     teamRole={<>Board Member</>}
                     subrole="Co-Founder, GitHub"

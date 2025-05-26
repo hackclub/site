@@ -57,7 +57,7 @@ const Cover = () => (
 )
 
 const Static = ({
-  img = 'https://cloud-ateizv565-hack-club-bot.vercel.app/0screen_shot_2022-07-27_at_2.57.41_pm.png'
+  img = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/b80d76cabf0828ced0f64cabcd38c5fe4361c242_0screen_shot_2022-07-27_at_2.57.41_pm.png'
 }) => (
   <Box
     as="section"
@@ -90,7 +90,7 @@ const Marketing = () => {
           muted
           loop
           playsInline
-          poster="https://cloud-ateizv565-hack-club-bot.vercel.app/0screen_shot_2022-07-27_at_2.57.41_pm.png"
+          poster="https://hc-cdn.hel1.your-objectstorage.com/s/v3/b80d76cabf0828ced0f64cabcd38c5fe4361c242_0screen_shot_2022-07-27_at_2.57.41_pm.png"
           duration={2000}
           sx={{
             position: 'absolute',
@@ -105,15 +105,15 @@ const Marketing = () => {
           }}
         >
           <source
-            src="https://cloud-55tm7eveg-hack-club-bot.vercel.app/0screen_recording_2022-07-27_at_2.48.43_pm.mp4"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a69d24fc980dd2f07487912694d76105d2a59050_0screen_recording_2022-07-27_at_2.48.43_pm.mp4"
             type="video/mp4; codecs=hevc"
           />
           <source
-            src="https://cloud-r9u5vfqcv-hack-club-bot.vercel.app/0screen_recording_2022-07-27_at_2.48.43_pm.webm"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/919fccb92d93df7d35ad9a44c5867166b1899271_0screen_recording_2022-07-27_at_2.48.43_pm.webm"
             type="video/webm; codecs=vp9,opus"
           />
           <source
-            src="https://cloud-r9u5vfqcv-hack-club-bot.vercel.app/1screen_recording_2022-07-27_at_2.48.43_pm.mp4"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1bc1a9295a9a0def15e3862d37bb1c37763c40c1_1screen_recording_2022-07-27_at_2.48.43_pm.mp4"
             type="video/quicktime"
           />
         </Box>

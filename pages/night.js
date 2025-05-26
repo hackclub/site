@@ -42,7 +42,7 @@ const Page = () => (
       as={Head}
       title="Hack Night"
       description="The Hack Club community regularly gathers on Slack Huddles and Zoom calls to show off what we’re working on & hang out."
-      image="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/52020-07-25_52g0nw40p2b00dh39mt93xq5ubku6yaj.jpeg"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/94f2c77dd790183a8c40f3982984684fef69b3d2_52020-07-25_52g0nw40p2b00dh39mt93xq5ubku6yaj.jpeg"
     />
     <Nav color={color} dark />
     <Box
@@ -54,7 +54,7 @@ const Page = () => (
         color: 'muted',
         textAlign: 'center',
         backgroundImage:
-          'url(https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/62020-07-24_stars.svg)',
+          'url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/36756635990756249550afb6396a2b6c0bdcd228_62020-07-24_stars.svg)',
         backgroundSize: '512px auto'
       }}
     >
@@ -69,7 +69,7 @@ const Page = () => (
           height: '100%',
           display: 'block',
           background:
-            'transparent url(https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/72020-07-24_afnkcwju2hfkbrkc1ee0h5a5y72a2r5f.png) repeat top center',
+            'transparent url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/98331702052e26f52ce3bb80e8c5d17aa74f65c6_72020-07-24_afnkcwju2hfkbrkc1ee0h5a5y72a2r5f.png) repeat top center',
           animation: `${twinkling} 200s linear infinite`
         }}
       ></Box>
@@ -126,12 +126,12 @@ const Page = () => (
         }}
       >
         <Image
-          src="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/82020-07-24_gbetd0kafcxjp2e5hkv4w9u3m40pmmmt.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3a2481ce5cbdb9089a73ff4d27ecd94cd04d6eb2_82020-07-24_gbetd0kafcxjp2e5hkv4w9u3m40pmmmt.png"
           alt="Moon background"
           width={512}
         />
         <Image
-          src="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/92020-07-24_zdd8ycnkp9q0bbf1fj8a1amjv3zndufz.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/984a928a1354bcaaa9141267df31a8a5cc05627c_92020-07-24_zdd8ycnkp9q0bbf1fj8a1amjv3zndufz.png"
           alt="Illustration of Orpheus with a moon"
           width={512}
           sx={{

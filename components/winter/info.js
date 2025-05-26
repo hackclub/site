@@ -162,7 +162,7 @@ export default function InfoGrid() {
                 sx={{
                   backgroundColor: 'transparent',
                   backgroundImage:
-                    'url("https://cloud-ehtgzdn7u-hack-club-bot.vercel.app/0card.png")',
+                    'url("https://hc-cdn.hel1.your-objectstorage.com/s/v3/3949a8e1ad212d68350a95b4a06f78f63a80f9cb_0card.png")',
                   height: ['300px', '500px', '100%', '230px'],
                   backgroundSize: '100%',
                   backgroundRepeat: 'no-repeat',
@@ -179,7 +179,7 @@ export default function InfoGrid() {
             sx={{
               backgroundColor: 'transparent',
               backgroundImage:
-                'url("https://cloud-ehtgzdn7u-hack-club-bot.vercel.app/0card.png")',
+                'url("https://hc-cdn.hel1.your-objectstorage.com/s/v3/3949a8e1ad212d68350a95b4a06f78f63a80f9cb_0card.png")',
               height: ['300px', '500px', '100%', '230px'],
               backgroundSize: '100%',
               backgroundRepeat: 'no-repeat',

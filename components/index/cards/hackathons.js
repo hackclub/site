@@ -33,7 +33,7 @@ export default function Hackathons({ data, stars }) {
       highlight="blue"
     >
       <Image
-        src="https://cloud-issl87d62-hack-club-bot.vercel.app/0bmc_1823.jpg"
+        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/2b66ea22d02bf16708e87765ec466d29effa91ce_0bmc_1823.jpg"
         sx={{
           objectFit: 'cover',
           position: 'absolute',

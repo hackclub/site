@@ -12,7 +12,7 @@ export default function Haxidraw({ stars }) {
       sx={{
         backgroundSize: 'cover',
         backgroundColor: '#95C9E5',
-        backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.4) 70%), url('https://cloud-1tnl6uqvw-hack-club-bot.vercel.app/0image.png')`
+        backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.4) 70%), url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/51b0002299b44eecb22657dfc9635c127c542d5b_0image.png')`
       }}
       position={[null, 'bottom', 'bottom']}
       highlight="#2b27f8d9"

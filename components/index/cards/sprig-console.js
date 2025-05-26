@@ -36,7 +36,7 @@ export default function SprigConsole({ stars, consoleCount }) {
           alt="Printed circuit board"
         />
         <Image
-          src="https://cloud-8u6hh0ho9-hack-club-bot.vercel.app/0sprig_console.svg"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/98a269a6f88df44bfea2ba592478d4195fe4bd2b_0sprig_console.svg"
           sx={{
             width: ['90%', '320px', '450px', '500px'],
             mt: ['42px', 0, 0],
@@ -70,7 +70,7 @@ export default function SprigConsole({ stars, consoleCount }) {
         >
           <Box>
             <Image
-              src="https://cloud-b8z9l7ihq-hack-club-bot.vercel.app/0sprig-light-top-min.png"
+              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/bbe5493e5238d5d6e647fa4bda2967a6b4db62fc_0sprig-light-top-min.png"
               sx={{
                 width: ['120%', '', ''],
                 maxWidth: ['120%', '', ''],

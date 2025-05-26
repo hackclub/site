@@ -226,7 +226,7 @@ function Page({
         as={Head}
         title="A Home for High School Makers"
         description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
-        image="https://cloud-lgl7kg862-hack-club-bot.vercel.app/0start__1_.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/574517edf2788e7c50de0da1c70426cd3164b78d_0start__1_.png"
       />
       <Head>
         <meta

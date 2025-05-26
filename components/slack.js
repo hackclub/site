@@ -75,8 +75,8 @@ const Cover = () => (
 )
 
 const Static = ({
-  img = 'https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png'
-  // img="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/12020-07-25_hn13qhejqrzu4n1jy9yacxxgrgp3wf5u.png"
+  img = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/4a40e958929f3c8150a18b55400d15db94da46f1_02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png'
+  // img="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1e44085854dc063a0a9df004fe6df9cb82cf7b84_12020-07-25_hn13qhejqrzu4n1jy9yacxxgrgp3wf5u.png"
 }) => (
   <Box
     as="section"
@@ -109,7 +109,7 @@ const Slack = () => {
           muted
           loop
           playsInline
-          poster="https://cloud-r4rrjh2z8-hack-club-bot.vercel.app/02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png"
+          poster="https://hc-cdn.hel1.your-objectstorage.com/s/v3/4a40e958929f3c8150a18b55400d15db94da46f1_02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png"
           duration={2000}
           sx={{
             position: 'absolute',

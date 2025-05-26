@@ -283,7 +283,7 @@ export default function Projects() {
                   avatar="https://scrapbook.hackclub.com/_next/image?url=https://secure.gravatar.com/avatar/c2e358d7bf4677cac086556035ce1dbc.jpg?s%3D192%26d%3Dhttps%253A%252F%252Fa.slack-edge.com%252Fdf10d%252Fimg%252Favatars%252Fava_0011-192.png&w=640&q=75"
                   username="KonstantinosFragkoulis"
                   description="Well, the drone now should be able to follow the biggest object that it sees with a specific color. I haven't tested it yet though 😞 (I'm too scared to crash it). Here is a clip from earlier today, my genuine reaction to the first takeoff ever (got a bit scared at the end) 👍 "
-                  image="https://cloud-fshng6w8x-hack-club-bot.vercel.app/0videoframe_809.png"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/486e53bb4360a7882ad6692e73d50a8f7cea2651_0videoframe_809.png"
                 />
               </Grid>
               <Button

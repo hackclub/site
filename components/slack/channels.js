@@ -155,7 +155,7 @@ export default function Channels() {
       <Card
         sx={{
           backgroundImage:
-            'url(https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/12020-07-25_fqxym71bmqjr1d35btawn5q6ph1zt0mk.png)',
+            'url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/a25ff091a2ae9018400209e54b24a825f94d093c_12020-07-25_fqxym71bmqjr1d35btawn5q6ph1zt0mk.png)',
           backgroundColor: '#FEC62E',
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
@@ -176,7 +176,7 @@ export default function Channels() {
         sx={{
           bg: 'dark',
           backgroundImage:
-            'url(https://cloud-jnfb0t781-hack-club-bot.vercel.app/02020-07-25_r6thfxwv1u0c71uw0qk94juv6fxxjygf.png)',
+            'url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/7b6e6bb083a142298e34ec5cf31cb69b9e98f7b9_02020-07-25_r6thfxwv1u0c71uw0qk94juv6fxxjygf.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           textShadow: 'text',
@@ -191,7 +191,7 @@ export default function Channels() {
             #music
           </Text>
           <Image
-            src="https://cloud-jd45ga0mv-hack-club-bot.vercel.app/0music.svg"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/02b15af88c2b3aba03a1813a73fa03f9d8a09b3b_0music.svg"
             alt="Music notes"
             sx={{ height: '50px', width: '50px', ml: 2 }}
           />

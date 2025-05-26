@@ -89,7 +89,7 @@ const Cover = () => (
 
 const Static = ({
   // screenshot of messages from #hackathon-organizers
-  img = 'https://cloud-8611bon87-hack-club-bot.vercel.app/0screen_shot_2022-08-05_at_2.27.38_pm.png'
+  img = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/6eceaf9af0b02e89c4ded779ca8a2241c6087d4e_0screen_shot_2022-08-05_at_2.27.38_pm.png'
 }) => (
   <Box
     as="section"
@@ -123,7 +123,7 @@ const Slack = () => {
           loop
           playsInline
           // screenshot of messages from #hackathon-organizers
-          poster="https://cloud-iwkoq2544-hack-club-bot.vercel.app/0screen_shot_2022-07-30_at_9.03.43_am.png"
+          poster="https://hc-cdn.hel1.your-objectstorage.com/s/v3/b8dbce1d357ff356ce4b7de63ad2830168bd88f9_0screen_shot_2022-07-30_at_9.03.43_am.png"
           duration={2000}
           sx={{
             position: 'absolute',
@@ -138,15 +138,15 @@ const Slack = () => {
           }}
         >
           <source
-            src="https://cloud-hsc3k1am6-hack-club-bot.vercel.app/0screen_recording_2022-08-03_at_9.50.26_am.mp4"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f4e0ad3bcf1b3b139c52878c4ce5dea5cdc2c86a_0screen_recording_2022-08-03_at_9.50.26_am.mp4"
             type="video/mp4; codecs=hevc"
           />
           <source
-            src="https://cloud-azjxx4vqu-hack-club-bot.vercel.app/0have-finally-figured-it-out-hell-yeah.webm"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5908e3cb35ca490592a17feee1e7e8365181028c_0have-finally-figured-it-out-hell-yeah.webm"
             type="video/webm; codecs=vp9,opus"
           />
           <source
-            src="https://cloud-hsc3k1am6-hack-club-bot.vercel.app/0screen_recording_2022-08-03_at_9.50.26_am.mp4"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f4e0ad3bcf1b3b139c52878c4ce5dea5cdc2c86a_0screen_recording_2022-08-03_at_9.50.26_am.mp4"
             type="video/quicktime"
           />
         </Box>

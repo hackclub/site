@@ -134,7 +134,7 @@ export default function Epoch() {
       <Grid columns={[1, 1, '1fr 1.5fr']} sx={{ position: 'relative' }}>
         <Box>
           <Image
-            src="https://cloud-jzsq7jfvg-hack-club-bot.vercel.app/0group_9.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6c3eb2177336f8d9bd361a798eb3e37cb7c5af3a_0group_9.png"
             sx={{
               width: ['220px', '220px', '240px', '350px'],
               position: 'relative',

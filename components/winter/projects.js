@@ -257,7 +257,7 @@ export default function Projects() {
                     {project_idea}
                   </Box>
                   <Image
-                    src="https://cloud-ohzuz4m3t-hack-club-bot.vercel.app/0click_me.svg"
+                    src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/04d93e7e0d839448382e2cf63e7e6cffefeee90b_0click_me.svg"
                     alt="click me"
                     sx={{
                       position: 'absolute',
@@ -274,7 +274,7 @@ export default function Projects() {
                   avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2022-12-04/4449277732855_bc5a70015c4b2146cdec_192.jpg&w=640&q=75"
                   username="sampoder"
                   description="today i presented.. the *CLIMATATOR*! it’s a 4D interactive media experience / climate change simulator that showcases the effects of climate change to a younger audience..."
-                  image="https://cloud-lwd22jmab-hack-club-bot.vercel.app/420210303_154846.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9bbfd767aff10cf8dcd470bc3804bfe380d425a8_420210303_154846.jpg"
                 />
                 <Cards
                   avatar="https://scrapbook.hackclub.com/_next/image?url=https://avatars.slack-edge.com/2022-07-26/3865494839057_a471d7e9c871ca9121ea_192.png&w=640&q=75"
