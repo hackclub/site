@@ -26,7 +26,8 @@ const fadeIn = keyframes`
 
 const Landing = () => {
   const [reveal, setReveal] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [criticalImagesLoaded, setCriticalImagesLoaded] = useState(false);
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [backgroundLoaded, setBackgroundLoaded] = useState(false);
   
   const slackData = {
@@ -47,37 +48,100 @@ const Landing = () => {
     'Figma HQ, SF'
   ];
 
-  
+// thing to make main images load first
   useEffect(() => {
-    const imagePromises = imagePaths.map(src => {
+    const criticalImages = [
+      '/home/outernet-110.jpg', 
+      '/home/assemble.jpg'      
+    ];
+
+
+    const criticalPromises = criticalImages.map((src, index) => {
       return new Promise((resolve, reject) => {
         const img = new Image();
-        img.onload = resolve;
-        img.onerror = reject;
+        
+
+        if (index === 0) {
+          img.fetchPriority = 'high';
+          img.loading = 'eager';
+        }
+        
+        img.onload = () => {
+          if (src.includes('assemble.jpg')) {
+            setBackgroundLoaded(true);
+          }
+          resolve(src);
+        };
+        img.onerror = () => {
+          console.warn(`Failed to load critical image: ${src}`);
+          if (src.includes('assemble.jpg')) {
+            setBackgroundLoaded(true);
+          }
+          resolve(src); 
+        };
         img.src = src;
       });
     });
 
 
-    const centerImagePromise = new Promise((resolve, reject) => {
-      const img = new Image();
-      img.onload = resolve;
-      img.onerror = reject;
-      img.src = '/home/outernet-110.jpg';
+    Promise.all(criticalPromises)
+      .then(() => {
+        setCriticalImagesLoaded(true);
+        
+    
+        const secondaryPromises = imagePaths.map(src => {
+          return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.fetchPriority = 'low';
+            img.loading = 'lazy';
+            img.onload = () => resolve(src);
+            img.onerror = () => {
+              console.warn(`Failed to load secondary image: ${src}`);
+              resolve(src); 
+            };
+            img.src = src;
+          });
+        });
+
+        return Promise.all(secondaryPromises);
+      })
+      .then(() => {
+        setAllImagesLoaded(true);
+      })
+      .catch(err => {
+        console.warn('Image loading error:', err);
+        setCriticalImagesLoaded(true);
+        setAllImagesLoaded(true);
+      });
+  }, []);
+
+
+  useEffect(() => {
+
+    const preloadLinks = [
+      '/home/outernet-110.jpg',
+      '/home/assemble.jpg'
+    ].map(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      link.fetchPriority = 'high';
+      return link;
     });
 
-    Promise.all([...imagePromises, centerImagePromise])
-      .then(() => setImagesLoaded(true))
-      .catch(err => {
-        console.warn('Some images failed to preload:', err);
-        setImagesLoaded(true); 
-      });
 
- 
-    const backgroundImg = new Image();
-    backgroundImg.onload = () => setBackgroundLoaded(true);
-    backgroundImg.onerror = () => setBackgroundLoaded(true);
-    backgroundImg.src = '/home/assemble.jpg';
+    preloadLinks.forEach(link => {
+      document.head.appendChild(link);
+    });
+
+    return () => {
+      preloadLinks.forEach(link => {
+        if (document.head.contains(link)) {
+          document.head.removeChild(link);
+        }
+      });
+    };
   }, []);
 
   const animationStyle = {
@@ -119,7 +183,7 @@ const Landing = () => {
       }}
     >
 
-      {!imagesLoaded && (
+      {!criticalImagesLoaded && (
         <div
           sx={{
             position: 'absolute',
@@ -144,7 +208,7 @@ const Landing = () => {
           flexDirection: 'column',
           alignItems: 'center',
           zIndex: 2,
-          opacity: imagesLoaded ? 1 : 0,
+          opacity: criticalImagesLoaded ? 1 : 0,
           transition: 'opacity 0.5s ease-in-out',
         }}
       >
@@ -156,6 +220,8 @@ const Landing = () => {
             gap: [2, 3],
             mb: 4,
             flexWrap: 'wrap',
+            opacity: allImagesLoaded ? 1 : 0.7,
+            transition: 'opacity 0.3s ease-in-out',
           }}
         >
           {imagePaths.slice(0, 2).map((src, i) => (
@@ -183,8 +249,9 @@ const Landing = () => {
                   borderRadius: '8px',
                   objectFit: 'cover',
                   display: 'block',
-                  loading: 'lazy',
                 }}
+                loading="lazy"
+                fetchPriority="low"
               />
               <div sx={{ 
                 mt: 2, 
@@ -199,6 +266,7 @@ const Landing = () => {
           ))}
         </div>
 
+
         <div
           sx={{
             width: '100%',
@@ -208,6 +276,7 @@ const Landing = () => {
             px: [2, 3],
           }}
         >
+
           <div
             sx={{
               width: '100%',
@@ -242,8 +311,10 @@ const Landing = () => {
                 willChange: 'transform',
                 imageRendering: 'optimizeQuality',
                 transition: 'none',
-                loading: 'eager',
               }}
+              loading="eager"
+              fetchPriority="high"
+              decoding="sync"
             />
           </div>
 
@@ -358,6 +429,8 @@ const Landing = () => {
             gap: [2, 3],
             mt: 2,
             flexWrap: 'wrap',
+            opacity: allImagesLoaded ? 1 : 0.7,
+            transition: 'opacity 0.3s ease-in-out',
           }}
         >
           {imagePaths.slice(2, 4).map((src, i) => (
@@ -385,8 +458,9 @@ const Landing = () => {
                   borderRadius: '8px',
                   objectFit: 'cover',
                   display: 'block',
-                  loading: 'lazy',
                 }}
+                loading="lazy"
+                fetchPriority="low"
               />
               <div sx={{ 
                 mt: 2, 
@@ -412,6 +486,8 @@ const Landing = () => {
           height: '100%',
           pointerEvents: 'none',
           zIndex: 1,
+          opacity: allImagesLoaded ? 1 : 0.7,
+          transition: 'opacity 0.3s ease-in-out',
         }}
       >
         {[
@@ -466,8 +542,9 @@ const Landing = () => {
                   borderRadius: '8px',
                   objectFit: 'cover',
                   display: 'block',
-                  loading: 'lazy',
                 }}
+                loading="lazy"
+                fetchPriority="low"
               />
               <div sx={{ 
                 mt: 2, 
