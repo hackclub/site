@@ -57,7 +57,7 @@ export default function First({ stats }) {
             minHeight: ['70vh', 'none'],
             textAlign: 'center',
             backgroundImage:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://cloud-7chjcfuyw-hack-club-bot.vercel.app/0image.png')",
+              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/d2d750671c846ba2b7e4e2ce408e45da0354d3d3_0image.png')",
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             display: 'flex',

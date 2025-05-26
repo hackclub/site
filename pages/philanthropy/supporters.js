@@ -132,7 +132,7 @@ export default function Donate({ sprig }) {
         as={Head}
         title={title}
         description={desc}
-        image="https://cloud-cz9a6kt0a-hack-club-bot.vercel.app/0social-photo_2.jpg"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9c72ffb39ac22b7f62997bc3f15582036f96fcce_0social-photo_2.jpg"
       />
       <Nav color="muted" />
       <ForceTheme theme="light" />

@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Power Hour: Arcade</title>
-  <link rel="icon" type="image/x-icon" href="https://cloud-n6tkrqcbc-hack-club-bot.vercel.app/0favicon.png">
+  <link rel="icon" type="image/x-icon" href="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6261ffb9f9b5475a826557b78120f3c6c9706097_0favicon.png">
 
   <script>
     let muted = true
@@ -24,9 +24,9 @@
     let items = {}
 
     const containerImages = [
-      "https://cloud-3mgl7gw96-hack-club-bot.vercel.app/0container1.png",
-      "https://cloud-13mfwysva-hack-club-bot.vercel.app/0container2.png",
-      "https://cloud-ly6qgiv93-hack-club-bot.vercel.app/0container3.png",
+      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a77898cb2a4c5ffb6089773ea8e66fafb54f57c8_0container1.png",
+      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/f38713754ab3467b74348acbba56c5eea2fbc65e_0container2.png",
+      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/f474d6a1bd4309206297c370a5e9ceb18db5a009_0container3.png",
     ]
 
     const sample = (arr) => arr[Math.floor(Math.random() * arr.length)]
@@ -56,10 +56,10 @@
 
       function characterImage(character) {
         return {
-          "Dino": "https://cloud-h4wi9l5hg-hack-club-bot.vercel.app/2005.png",
-          "Raccoon": "https://cloud-nfmmdwony-hack-club-bot.vercel.app/1001.png"
+          "Dino": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/5c2a873209168706078cff6193b3ed108ef09147_2005.png",
+          "Raccoon": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/64297d27f5d974d9e0297ee5e958274e48f41e99_1001.png"
 
-        }[character] || "https://cloud-6rd1boq71-hack-club-bot.vercel.app/0image.png"
+        }[character] || "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a8bfec2afc514d82f80a725a1d6c16019d4e52cf_0image.png"
       }
 
       const raccEl = document.querySelector('#shopkeeper-left')
@@ -132,7 +132,7 @@
             <image src="${inv.imageURL}" class="itemimg"></image>
             <div class="itemnumber">ITEM ${(i + 1).toString().padStart(2, '0')}</div>
             <div class="price">${inv.hours || '-'}</div>
-            <image src="https://cloud-7kkn345tx-hack-club-bot.vercel.app/0energy.png" class="energy"></image>
+            <image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5e823ffc0b6cd1de4115a97ed68b2e8b7c312eca_0energy.png" class="energy"></image>
             `
 
           document.querySelector('.item-list').appendChild(el)
@@ -151,7 +151,7 @@
       document.querySelector('.item-list > .loading').classList.add('display-none')
       // audio stuff
       const showMusic = new Howl({
-        src: ['https://cloud-akjvxw4d0-hack-club-bot.vercel.app/0indigo_park_ost_-_airplayn___mollie_s_landing_pad____vmy-mxohsuy__audio.mp4'],
+        src: ['https://hc-cdn.hel1.your-objectstorage.com/s/v3/ab0597be5e5df823e5b9132ce15f78313b51b35d_0indigo_park_ost_-_airplayn___mollie_s_landing_pad____vmy-mxohsuy__audio.mp4'],
         // volume: 0.01,
         loop: true,
         rate: 0.5

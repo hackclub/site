@@ -22,7 +22,7 @@ export default function Hackathons({ data }) {
           as={Head}
           title="Hackathons"
           description="Welcome to the high school hackathon. It's not an extracurricular or a club. It's not a class or a lecture. Hackathons are a playground to build things for fun and meet others doing the same."
-          image="https://cloud-hkscyg8sg-hack-club-bot.vercel.app/0og-image.png"
+          image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/8cb158b062e9b5bc760b2aeb20907edfba1feab3_0og-image.png"
         />
         <Box as="main">
           <Landing />

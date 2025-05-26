@@ -37,9 +37,9 @@ const stickerButtonFontStylesheet = `https://fonts.googleapis.com/css2?family=${
 )}&display=swap&text=${encodeURIComponent(stickerButtonText)}`
 
 const wandImgTraced =
-  'https://cloud-8lszi55ph-hack-club-bot.vercel.app/10frame_2.png'
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/a58b1757ae8e4bcee0c45d9b28bafc34c6ed0ea1_10frame_2.png'
 const wandImgRendered =
-  'https://cloud-8lszi55ph-hack-club-bot.vercel.app/00frame_1.png'
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/40eab72b1e97dbb69c899fab3ded5182d3ef5bea_00frame_1.png'
 
 const ShipPage = () => {
   const prefersReducedMotion = usePrefersReducedMotion()
@@ -137,7 +137,7 @@ const ShipPage = () => {
         as={Head}
         name="OnBoard"
         description={`We'll pay manufacturing costs for any high schooler (or younger!) who designs a circuit board.`}
-        image="https://cloud-n2wfd6ra6-hack-club-bot.vercel.app/0onboard-twitter.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9a5fb9ab9b571336132fd3b87b815ebad7094d36_0onboard-twitter.png"
       />
 
       <style>{`
@@ -171,7 +171,7 @@ const ShipPage = () => {
           bg: '#000000',
           backgroundImage: `
 						linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-						url('https://cloud-dst3a9oz5-hack-club-bot.vercel.app/0image.png')
+						url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/bbaf03f8a50f3f7898064780672a8fc80c06e5c0_0image.png')
 					`,
           color: '#ffffff',
           position: 'relative'
@@ -204,7 +204,7 @@ const ShipPage = () => {
             <Announcement
               copy="Steve Wozniak, Apple co-founder, about OnBoard"
               caption="I’m so glad young people can create PCBs online. May your creativity change the world! Mine did."
-              imgSrc="https://cloud-iddh16j0r-hack-club-bot.vercel.app/0stevew.png"
+              imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ad8dc423c7d07244090e2e3d765707c78f5e0ef0_0stevew.png"
               imgAlt="A picture of Steve Wozniak who is a co-founder of Apple."
               color="primary"
             />
@@ -472,7 +472,7 @@ const ShipPage = () => {
                   <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-r2xrlpq9q-hack-club-bot.vercel.app/0spinner.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/24dffa727a9d5ff235f89d392aa69cf4135a348d_0spinner.png"
                   alt="A red circular circuit board with a graphic of white fidget spinner on it."
                   sx={{
                     maxWidth: 120,
@@ -496,7 +496,7 @@ const ShipPage = () => {
                   Read Paolo's work&nbsp;<span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-6a1wip38p-hack-club-bot.vercel.app/02023-07-21t14_56_26.548z-img_20230720_175244.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1f1862792e10b3cf04c857f899c5173f7a89cebf_02023-07-21t14_56_26.548z-img_20230720_175244.png"
                   alt="A black circuit board for a game console with copper wiring."
                   sx={{
                     maxWidth: 180,
@@ -519,7 +519,7 @@ const ShipPage = () => {
                   <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-c953eezuq-hack-club-bot.vercel.app/0hub.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/90b74ba53cdb9cb3d1c13bcd6e613b65208ed080_0hub.png"
                   alt="A rectangular circuit board in the shape of a train car that acts as a USB type C hub."
                   sx={{
                     flex: 1,
@@ -546,7 +546,7 @@ const ShipPage = () => {
                   <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-myjum5y6g-hack-club-bot.vercel.app/0longhorn2.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e206fe712043171f292a908f35c4e0ae8613ed85_0longhorn2.png"
                   alt="A longhorn-shaped PCB with glowing horns."
                   sx={{
                     position: 'absolute',
@@ -572,7 +572,7 @@ const ShipPage = () => {
                   <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-6a1wip38p-hack-club-bot.vercel.app/1totk_key.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6d914f0f7481a42cefc4be4d08b778bfc84e7748_1totk_key.png"
                   alt="A long PCB with a pixelated screen."
                   sx={{
                     position: 'absolute',
@@ -720,7 +720,7 @@ const ShipPage = () => {
 
               <Tilt options={{ scale: 1 }}>
                 <Image
-                  src="https://cloud-hy108iezt-hack-club-bot.vercel.app/0dinopcb.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/467f66601ad2976e3e0dccbeac1148f3ef9d28e6_0dinopcb.png"
                   alt="A complex white circuit board in the shape of a cute leaping dinosaur."
                   loading="lazy"
                   sx={{
@@ -893,7 +893,7 @@ const ShipPage = () => {
 
       <Box sx={{ position: 'relative' }}>
         <Image
-          src="https://cloud-f4lij7sq1-hack-club-bot.vercel.app/0flowerpcb.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/560afafd9bc41f5a47d74de5ed7e7398ae12a909_0flowerpcb.png"
           alt="A big image of several pink flower-shaped PCBs."
           loading="lazy"
           sx={{

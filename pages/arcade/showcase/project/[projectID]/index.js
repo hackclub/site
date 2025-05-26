@@ -65,7 +65,7 @@ const ProjectShowPage = ({ projectID }) => {
     <div>
       <div sx={{ zIndex: 5, position: 'relative' }}>
         <img
-          src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/80a8ae178edb2ce540124f4c3033ffb05429bd39_0arcade_1.png"
           sx={{
             width: '30%',
             maxWidth: '200px',

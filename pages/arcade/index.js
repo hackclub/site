@@ -564,7 +564,7 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                   }}
                 ></Text>
                 <img
-                  src="https://cloud-ocoecqzgs-hack-club-bot.vercel.app/0screenshot_2024-06-13_at_22.01.02.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/fff613ce81ce31cde4a2d717a1a9f73b1265f767_0screenshot_2024-06-13_at_22.01.02.png"
                   className="hoverable"
                   alt="Need an idea?"
                   sx={{
@@ -847,7 +847,7 @@ async function generateProjectIdea() {
   document.querySelector('#project-idea').innerHTML =
     '<em>' + thinkingWords() + '...' + '</em>'
   document.querySelector('#generate-project-idea').src =
-    'https://cloud-g5g5sistf-hack-club-bot.vercel.app/1untitled_artwork_8_1.png'
+    'https://hc-cdn.hel1.your-objectstorage.com/s/v3/02716a4e8d7135c74a9b91b041fcf144e6263a29_1untitled_artwork_8_1.png'
   let text = ''
   const res = await fetch('/api/arcade/openai/', {
     method: 'POST',
@@ -861,7 +861,7 @@ async function generateProjectIdea() {
   text = json.recommendation
   document.querySelector('#project-idea').innerHTML = ''
   document.querySelector('#generate-project-idea').src =
-    'https://cloud-81d1s66l7-hack-club-bot.vercel.app/0untitled_artwork_9_1.png'
+    'https://hc-cdn.hel1.your-objectstorage.com/s/v3/ea321eb1cb1c26789733d12f46aff4c1205b323f_0untitled_artwork_9_1.png'
   document.querySelector('#generate-project-idea').classList.remove('disabled')
   // document.querySelector('#generate-project-idea').classList.add('talking')
   yap(text, i => {
@@ -930,7 +930,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
         as={Head}
         title="Arcade"
         description="The ultimate summer hackathon for high schoolers. Make projects. Track your hours. Redeem for Prizes."
-        image="https://cloud-249autgay-hack-club-bot.vercel.app/0frame_70.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/23fe90b47d4ba7b045eb5e5f2442afc5d2df6838_0frame_70.png"
       />
       <Head>
         <meta
@@ -961,7 +961,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             copy="You were redirected as we're running a special summer event!"
             caption="To join our Slack, join ARCADE."
             href="/arcade/"
-            imgSrc="https://cloud-gyu8zgkki-hack-club-bot.vercel.app/0_______.png"
+            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/0b0802bac010e90625b4da91382da007d72ff8c7_0_______.png"
           />
         ) : (
           <></>
@@ -1004,7 +1004,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                     marginBottom: '16px',
                     margin: 'auto'
                   }}
-                  src="https://cloud-e3wj9s4pe-hack-club-bot.vercel.app/00combo__1_.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/dbbc2c76471c9cd3e95fa1680376519f5f1aa199_00combo__1_.png"
                 />
               </Box>
             </Fade>

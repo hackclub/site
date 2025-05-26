@@ -63,7 +63,7 @@ const organizations = [
     description: 'This is us! We run our operations on HCB.',
     slug: 'hq',
     location: { readable: 'Vermont, USA' },
-    logo: 'https://cloud-91boqw8z9-hack-club-bot.vercel.app/0icon-rounded.png',
+    logo: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/c864434462cd9112437dbc80577b5ace4b86c944_0icon-rounded.png',
     background_image: '/fiscal-sponsorship/hq-bg.jpg'
   }
 ]

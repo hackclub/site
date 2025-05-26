@@ -56,7 +56,7 @@ const BoardPage = ({ project }) => {
           bg: '#000000',
           backgroundImage: `
 						linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-						url('https://cloud-dst3a9oz5-hack-club-bot.vercel.app/0image.png')
+						url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/bbaf03f8a50f3f7898064780672a8fc80c06e5c0_0image.png')
 					`,
           color: '#ffffff',
           position: 'relative'

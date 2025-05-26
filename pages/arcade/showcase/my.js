@@ -265,7 +265,7 @@ const My = () => {
         sx={{
           backgroundImage: `
               linear-gradient(rgba(250, 239, 214, 0.7), rgba(250, 239, 214, 0.7)),
-              url('https://cloud-o19rieg4g-hack-club-bot.vercel.app/0group_495__1_.svg')
+              url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/32c1212ddb3fa25382e335311f7676436a0c93e5_0group_495__1_.svg')
             `,
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
@@ -288,7 +288,7 @@ const My = () => {
         />
         <div sx={{ zIndex: 5, position: 'relative' }}>
           <img
-            src="https://cloud-677i45opw-hack-club-bot.vercel.app/0arcade_1.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/80a8ae178edb2ce540124f4c3033ffb05429bd39_0arcade_1.png"
             sx={{
               width: '30%',
               maxWidth: '200px',

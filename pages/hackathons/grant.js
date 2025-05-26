@@ -62,7 +62,7 @@ const HackathonGrant = () => {
         as={Head}
         title="Hackathon Grant"
         description="Hack Club provided $500 grants to in-person high school hackathons. This program ended December 31st, 2024."
-        image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/dcc921a786c029cf8114a5ee92d811436537b59f_0grant.png"
       />
       <style>{styles}</style>
       <Box as="main" key="main">
@@ -76,7 +76,7 @@ const HackathonGrant = () => {
             minHeight: ['70vh', 'none'],
             textAlign: 'center',
             backgroundImage:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://cloud-gxxp8xcyl-hack-club-bot.vercel.app/0fzfm1e-ueaef1qw.jpeg')",
+              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/39cb1d3bd4d80d31790e2b92e785ec7bdebda30b_0fzfm1e-ueaef1qw.jpeg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             display: 'flex',

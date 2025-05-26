@@ -43,9 +43,9 @@ const RsvpCount = () => {
 }
 
 const stickerImages = [
-  'https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png',
-  'https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/1prototype.png',
-  'https://cloud-i547pyt1f-hack-club-bot.vercel.app/0idea.png'
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/00729a9823e6364d148ae8d932b476d1fa57fe00_0rummaging.png',
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/2c732ecf0d592ec72cc641b5d411a4dcc3e4e0bb_1prototype.png',
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/34fc9b192c99844d5051701e540bf561bcd8eeec_0idea.png'
 ]
 
 
@@ -54,12 +54,12 @@ const PartPicker = () => {
     {
       name: "Relay",
       description: "On/Off Switch",
-      image: "https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"
+      image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/425199d4c277a8f415020ad69602f9858532f102_0placeholder3.png"
     },
     {
       name: "Mic",
       description: "Record Sound",
-      image: "https://cloud-4zl0ojqxq-hack-club-bot.vercel.app/0placeholder3.png"
+      image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/425199d4c277a8f415020ad69602f9858532f102_0placeholder3.png"
     }
   ]
 
@@ -144,10 +144,10 @@ const slideOut = keyframes({
 
 function crunch() {
   const crunchAudioUrls = [
-    'https://cloud-fwf97jf44-hack-club-bot.vercel.app/0crunch_4_audio.mp4',
-    'https://cloud-fwf97jf44-hack-club-bot.vercel.app/1crunch_3_audio.mp4',
-    'https://cloud-fwf97jf44-hack-club-bot.vercel.app/2crunch_2_audio.mp4',
-    'https://cloud-fwf97jf44-hack-club-bot.vercel.app/3crunch_1_audio.mp4',
+    'https://hc-cdn.hel1.your-objectstorage.com/s/v3/d86bb409966b6f48f79045ebbcba884543b7271a_0crunch_4_audio.mp4',
+    'https://hc-cdn.hel1.your-objectstorage.com/s/v3/a59adefecb083a8213ebc7303a72a6b1f581c01b_1crunch_3_audio.mp4',
+    'https://hc-cdn.hel1.your-objectstorage.com/s/v3/e2d95dc8759265365e4dc8d5c5009db4688b71ce_2crunch_2_audio.mp4',
+    'https://hc-cdn.hel1.your-objectstorage.com/s/v3/b04ad5f10f1586b04642ad1acf63a8fbd424926d_3crunch_1_audio.mp4',
   ]
   const randomCrunch = crunchAudioUrls[Math.floor(Math.random() * crunchAudioUrls.length)]
 
@@ -183,12 +183,12 @@ export default function Bin() {
       <Meta as={Head}
         title="The Bin"
         description="Rummage around in The Bin to get a free electronics starter kit!"
-        image="https://cloud-6902szs7o-hack-club-bot.vercel.app/0og_image.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5b6a81c280ac1dc1eafc3e078997a98d22590ea4_0og_image.png"
       />
       <Nav color="text" />
       <ForceTheme theme="light" />
       <Box as="main" sx={{ bg: '#ECE9E0', textAlign: 'center', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%239C92AC' fill-opacity='0.2' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E")` }}>
-        <Box sx={{ background: 'url(https://cloud-jxq5r0yyp-hack-club-bot.vercel.app/0bg.png)', backgroundSize: 'cover', py: '3em' }}>
+        <Box sx={{ background: 'url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/2b1e3941930185c475a9c18b0ee5913781bdc031_0bg.png)', backgroundSize: 'cover', py: '3em' }}>
           <Container sx={{ position: 'relative' }}>
             <Box as="section" sx={{ textAlign: 'center', pt: '4em', overflow: 'hidden' }}>
               <ExpiresAt expirationDate={new Date(2024, 3, 13)}>
@@ -206,7 +206,7 @@ export default function Bin() {
                 },
               }}>
                 <Image
-                  src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/00729a9823e6364d148ae8d932b476d1fa57fe00_0rummaging.png"
                   onClick={(e) => { fireConfetti(); crunch(); spinIt(e.target) }}
                   sx={{
                     cursor: 'pointer',
@@ -223,7 +223,7 @@ export default function Bin() {
               <RsvpCount />
               <Box id="rsvp">
                 <Sparkles size="100px">
-                  <Image src="https://cloud-rdlz8he4l-hack-club-bot.vercel.app/0thebin.svg" sx={{ maxWidth: '250px' }} />
+                  <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9a77ddcfb7c9e2c572fd22861022f0ccfabfd6ee_0thebin.svg" sx={{ maxWidth: '250px' }} />
                 </Sparkles>
               </Box>
               <Text sx={{ fontWeight: 'bold' }}>
@@ -309,7 +309,7 @@ export default function Bin() {
             <Box sx={{ textAlign: 'left' }}>
               <Flex sx={{ my: 4 }}>
                 <Box>
-                  <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/0rummaging.png" />
+                  <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/00729a9823e6364d148ae8d932b476d1fa57fe00_0rummaging.png" />
                 </Box>
                 <Box>
                   <Heading as="p" variant="headline">
@@ -321,10 +321,10 @@ export default function Bin() {
                   </Text>
                 </Box>
               </Flex>
-              <Image src="https://cloud-2wkwrydc4-hack-club-bot.vercel.app/0parts.svg" sx={{ width: '100%' }} />
+              <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/716f7b2bc8dc9248c16f62506079b733ad64d4d9_0parts.svg" sx={{ width: '100%' }} />
               <Flex sx={{ my: 4 }}>
                 <Box>
-                  <Image src="https://cloud-h7vwjlwe3-hack-club-bot.vercel.app/0frame_1__50_.png" />
+                  <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f53c154554c372cebe6cb1d2f78f2bcd62887c34_0frame_1__50_.png" />
                 </Box>
                 <Box>
                   <Text as="p" variant="headline">
@@ -347,7 +347,7 @@ export default function Bin() {
                   </Text>
                 </Box>
                 <Box>
-                  <Image src="https://cloud-mt5wqf6f5-hack-club-bot.vercel.app/1prototype.png" />
+                  <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/2c732ecf0d592ec72cc641b5d411a4dcc3e4e0bb_1prototype.png" />
                 </Box>
               </Flex>
               <Box sx={{
@@ -373,7 +373,7 @@ export default function Bin() {
                   <Box sx={{ bg: 'darkless', borderRadius: 4, flexGrow: 1 }}>wokwi.com</Box>
                   <Icon glyph='view-reload' height={24} />
                 </Box>
-                <Image src="https://cloud-ghggsmjwa-hack-club-bot.vercel.app/0image.png" alt="Screenshot" />
+                <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/8483308cc40608e60961f7e2ec24a57dbe044108_0image.png" alt="Screenshot" />
               </Box>
               <Flex sx={{ my: 4 }}>
                 <Box>
@@ -387,7 +387,7 @@ export default function Bin() {
                 </Box>
               </Flex>
               <Image
-                src="https://cloud-ge8yutn2q-hack-club-bot.vercel.app/0image.png"
+                src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e4a2b4f7f36010648b7f1fd5fa3710373cb81816_0image.png"
                 width="100%"
               />
             </Box>

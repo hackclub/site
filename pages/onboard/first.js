@@ -161,9 +161,9 @@ const stickerButtonFontStylesheet = `https://fonts.googleapis.com/css2?family=${
 )}&display=swap&text=${encodeURIComponent(stickerButtonText)}`
 
 const wandImgTraced =
-  'https://cloud-mmhtcl463-hack-club-bot.vercel.app/1trace.png'
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/0073ec940f4583d13f22c17466c564816e6c1107_1trace.png'
 const wandImgRendered =
-  'https://cloud-mmhtcl463-hack-club-bot.vercel.app/0transparent_pcb.png'
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/dbb0bd713eed42801c3b8001679c146401a6e3ee_0transparent_pcb.png'
 
 const ShipPage = () => {
   const prefersReducedMotion = usePrefersReducedMotion()
@@ -362,7 +362,7 @@ const ShipPage = () => {
         as={Head}
         name="OnBoard"
         description={`We'll pay manufacturing costs for any high schooler who designs a circuit board.`}
-        image="https://cloud-ji9c1qxfx-hack-club-bot.vercel.app/03_card.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef129c7f39c12f5ff1565a337df0698043191ed_03_card.png"
       />
 
       <style>{`
@@ -396,7 +396,7 @@ const ShipPage = () => {
           bg: '#000000',
           backgroundImage: `
 						linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-						url('https://cloud-dst3a9oz5-hack-club-bot.vercel.app/0image.png')
+						url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/bbaf03f8a50f3f7898064780672a8fc80c06e5c0_0image.png')
 					`,
           color: '#ffffff',
           position: 'relative'
@@ -637,7 +637,7 @@ const ShipPage = () => {
             that's cheaper than stock sensors and saves ports on their CAN.
           </Text>
           <Image
-            src="https://cloud-of94ar9fg-hack-club-bot.vercel.app/0purple.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1cc3f2b5ca1edcf87e56124ef4b4f3da1ac71ea7_0purple.png"
             alt="A purple arrow-shaped circuit board with the words 'maverick robotics' on it."
             sx={{
               pr: [0, null, 4, null],
@@ -728,7 +728,7 @@ const ShipPage = () => {
                   <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-r2xrlpq9q-hack-club-bot.vercel.app/0spinner.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/24dffa727a9d5ff235f89d392aa69cf4135a348d_0spinner.png"
                   alt="A red circular circuit board with a graphic of white fidget spinner on it."
                   sx={{
                     maxWidth: 120,
@@ -753,7 +753,7 @@ const ShipPage = () => {
                   Read the source&nbsp;<span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-6exi6bz1i-hack-club-bot.vercel.app/0rotatesprig.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/325c69ad9a2394aaae79671dbf575f94fb2c677b_0rotatesprig.png"
                   alt="A black circuit board for a game console with copper wiring."
                   sx={{
                     maxWidth: 280,
@@ -779,7 +779,7 @@ const ShipPage = () => {
                   <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-c953eezuq-hack-club-bot.vercel.app/0hub.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/90b74ba53cdb9cb3d1c13bcd6e613b65208ed080_0hub.png"
                   alt="A rectangular circuit board in the shape of a train car that acts as a USB type C hub."
                   sx={{
                     flex: 1,
@@ -805,7 +805,7 @@ const ShipPage = () => {
                   Learn how to make your own&nbsp;<span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://cloud-myjum5y6g-hack-club-bot.vercel.app/0longhorn2.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e206fe712043171f292a908f35c4e0ae8613ed85_0longhorn2.png"
                   alt="A longhorn-shaped PCB with glowing horns."
                   sx={{
                     position: 'absolute',
@@ -953,7 +953,7 @@ const ShipPage = () => {
 
               <Tilt options={{ scale: 1 }}>
                 <Image
-                  src="https://cloud-hy108iezt-hack-club-bot.vercel.app/0dinopcb.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/467f66601ad2976e3e0dccbeac1148f3ef9d28e6_0dinopcb.png"
                   alt="A complex white circuit board in the shape of a cute leaping dinosaur."
                   loading="lazy"
                   sx={{
@@ -1140,7 +1140,7 @@ const ShipPage = () => {
 
       <Box sx={{ position: 'relative' }}>
         <Image
-          src="https://cloud-f4lij7sq1-hack-club-bot.vercel.app/0flowerpcb.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/560afafd9bc41f5a47d74de5ed7e7398ae12a909_0flowerpcb.png"
           alt="A big image of several pink flower-shaped PCBs."
           loading="lazy"
           sx={{

@@ -135,7 +135,7 @@ export default function Sal() {
         as={Head}
         title="Sal Khan | AMA"
         description="We’re excited to welcome Sal Khan (founder of Khan Academy) to speak to teenagers at Hack Club!"
-        image="https://cloud-4vmtnc0af-hack-club-bot.vercel.app/0sal_ama__7_.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/7b1ec5daafe27d8dafa5ecb23819daed4fdd4d0f_0sal_ama__7_.png"
       />
       <Head>
         <meta name="theme-color" content="#14BF96" />
@@ -146,7 +146,7 @@ export default function Sal() {
           minHeight: '100vh',
           width: '100vw',
           backgroundImage:
-            'url(https://cloud-72izs50b1-hack-club-bot.vercel.app/0sal_ama__4_.png)',
+            'url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/3948cda5bba00ebb346795f25a5bcdbbc03ac8e9_0sal_ama__4_.png)',
           position: 'relative',
           zIndex: '0',
           overflow: 'hidden',
@@ -157,7 +157,7 @@ export default function Sal() {
         <Link href="https://hackclub.com" target="_blank" color="inherit">
           <Image
             src={
-              'https://cloud-2pnucywiu-hack-club-bot.vercel.app/0group__8_.png'
+              'https://hc-cdn.hel1.your-objectstorage.com/s/v3/d626f98ff542435786df874dccfa10a0e88213c5_0group__8_.png'
             }
             width={150}
             height={75}
@@ -212,14 +212,14 @@ export default function Sal() {
           }}
         >
           <Image
-            src={`https://cloud-cvi8ihfcw-hack-club-bot.vercel.app/0vector__4_.svg`}
+            src={`https://hc-cdn.hel1.your-objectstorage.com/s/v3/c017b0ecad3ef2e1ca1d4dff80a8d8cc13646c3c_0vector__4_.svg`}
             width={700}
             height={500}
             sx={{ display: ['none', 'block'], pb: '50px' }}
             alt="Sal Khan"
           />
           <Image
-            src={`https://cloud-cvi8ihfcw-hack-club-bot.vercel.app/0vector__4_.svg`}
+            src={`https://hc-cdn.hel1.your-objectstorage.com/s/v3/c017b0ecad3ef2e1ca1d4dff80a8d8cc13646c3c_0vector__4_.svg`}
             width={250}
             height={200}
             sx={{ display: ['block', 'none'], pt: '20px', pb: '10px' }}
@@ -315,7 +315,7 @@ export default function Sal() {
           {timer.length ? (
             <>
               <Image
-                src={`https://cloud-oik8els6y-hack-club-bot.vercel.app/0frame_54__1_.png`}
+                src={`https://hc-cdn.hel1.your-objectstorage.com/s/v3/cce58af4ab4c869abe5a9b8dd1452dbbe341298c_0frame_54__1_.png`}
                 alt="Image of Sal Khan"
                 fill="object-positon"
                 sx={{ position: 'absolute', bottom: 0 }}
@@ -324,7 +324,7 @@ export default function Sal() {
           ) : (
             <>
               <Image
-                src={`https://cloud-oik8els6y-hack-club-bot.vercel.app/0frame_54__1_.png`}
+                src={`https://hc-cdn.hel1.your-objectstorage.com/s/v3/cce58af4ab4c869abe5a9b8dd1452dbbe341298c_0frame_54__1_.png`}
                 layout="responsive"
                 sx={{ display: ['none', 'block'] }}
                 alt="Image of Sal Khan"

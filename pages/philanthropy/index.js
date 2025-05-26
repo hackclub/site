@@ -285,7 +285,7 @@ const delimiterIconStyles = {
   backgroundPosition: 'center',
   borderRadius: 'none',
   backgroundImage:
-    'url(https://cloud-1rqn9rwxm-hack-club-bot.vercel.app/0frame_43.svg)'
+    'url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/76f273acb687fd21680c255b268b4f9b074f61f1_0frame_43.svg)'
 }
 const Map = () => {
   return (
@@ -335,7 +335,7 @@ const Philanthropy = ({ posts = [] }) => {
             textAlign: 'center',
             alignItems: 'center',
             backgroundImage:
-              'linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cloud-51qsxafpt-hack-club-bot.vercel.app/0hackpenn_1__1___1_-min.jpg)',
+              'linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/b446fe85cc0df6b4ac79a163018545e00a836afe_0hackpenn_1__1___1_-min.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'top center'
           }}
@@ -946,7 +946,7 @@ const Philanthropy = ({ posts = [] }) => {
                         borderRadius: '100%',
                         width: '40px',
                         height: '40px',
-                        backgroundImage: `url(https://cloud-80nhjzldl-hack-club-bot.vercel.app/0.jpeg)`,
+                        backgroundImage: `url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/3a54fd5ac577c15dfed7114fa53c9f59e1d41b56_0.jpeg)`,
                         backgroundSize: 'cover',
                         marginRight: 2
                       }}
@@ -1253,55 +1253,55 @@ const Philanthropy = ({ posts = [] }) => {
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }} mb={5}>
             <Fade delay={30}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/0figma.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/bb912a2af2cac36e10538f22d9557e913bf42656_0figma.png"
                 name="Dylan Field, Founder, Figma"
               />
             </Fade>
             <Fade delay={60}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/1vercel.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f3d7b1da8b887f1f5e9dbac6b1a3f0521bf291ac_1vercel.png"
                 name="Guillermo Rauch, Founder, Vercel"
               />
             </Fade>
             <Fade delay={90}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/7laravel.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/98b0dcf1438eb5c8989677efad05064c82496165_7laravel.png"
                 name="Taylor Otwell, Creator of Laravel"
               />
             </Fade>
             <Fade delay={120}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/5sequoia.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e473833bab2d0f82c9bfa41fa9a9503f13d58478_5sequoia.png"
                 name="Andrew Reed, Partner, Sequoia"
               />
             </Fade>
             <Fade delay={150}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/6replit.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/384f53a640ba78ca6975bbfcc13256f19c8cdf27_6replit.png"
                 name="Amjad Masad, Co-founder, Replit"
               />
             </Fade>
             <Fade delay={180}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/2workflow.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5ba44743b10b49a10fe1e75af06d2bdafba28913_2workflow.png"
                 name="Conrad Kramer, Co-founder, Workflow"
               />
             </Fade>
             <Fade delay={210}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/3github.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/07f28b482f6619a01babc325fe67f5592d1f1065_3github.png"
                 name="Tim Clem, Senior Engineer, GitHub"
               />
             </Fade>
             <Fade delay={240}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/4sentry.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/becff51d32977f9d04e07c7afc3c3feda79b2fb8_4sentry.png"
                 name="David Cramer, Co-founder, Sentry"
               />
             </Fade>
             <Fade delay={270}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/8vgs.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1b66baf290dffa32106f48929b4e527811c6749f_8vgs.png"
                 name="Mahmoud Abdelkader, CEO, Very Good Security"
               />
             </Fade>
