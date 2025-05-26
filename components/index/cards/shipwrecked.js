@@ -65,7 +65,7 @@ export default function Shipwrecked() {
         </Text>
 
         <Buttons
-          icon="view"
+          icon="member-add"
           href="https://shipwrecked.hackclub.com/"
           target="_blank"
           rel="noopener"

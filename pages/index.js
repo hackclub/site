@@ -1404,7 +1404,7 @@ function Page({
                 gap: 3,
               }}>
                 <HighSeas />
-                <Shipwrecked />
+                <Shipwrecked /> 
                 <Juice />
               </Box>
             </Box>
@@ -1643,6 +1643,7 @@ function Page({
                       mb: 3,
                       textAlign: 'center',
                       fontWeight: 900,
+                      lineHeight: [1.5, 1.3, 1],
                       textShadow: '0 2px 4px rgba(0,0,0,0.2)',
                       maxWidth: '24ch',
                       mx: 'auto'
@@ -1920,7 +1921,7 @@ function Page({
                 </Text>
               </Box>
 
-              <Grid gap={[4, 4, 5]} columns={[1, null, '1fr 1fr']} sx={{ mb: 5 }}>
+              <Grid gap={[1, 3, 5]} columns={[1, null, '1fr 1fr']} sx={{ mb: 5 }}>
                 <Box
                   sx={{
                     position: 'relative',

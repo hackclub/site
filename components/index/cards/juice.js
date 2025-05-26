@@ -11,7 +11,7 @@ export default function Juice() {
       color="white"
       sx={{
         backgroundSize: 'cover',
-        backgroundColor: '#302c61',
+        backgroundColor: '#331a1f',
         fontFamily: "Fraunces",
         padding: "16px !important",
         margin: "0px !important",
@@ -29,7 +29,7 @@ export default function Juice() {
         >
           <Image
             src="/home/juice-logo.png"
-            style={{
+            sx={{
               width: ['200px', '200px', '200px'],
               mt: ['-5px', '-5px', '-5px'],
               position: 'relative',

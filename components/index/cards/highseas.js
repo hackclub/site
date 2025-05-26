@@ -11,7 +11,7 @@ export default function HighSeas() {
       color="white"
       sx={{
         backgroundSize: 'cover',
-        backgroundColor: '#e6dddc',
+        backgroundColor: '#48a6ef',
         fontFamily: "Fraunces",
         padding: "16px !important",
         margin: "0px !important",
