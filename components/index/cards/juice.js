@@ -13,8 +13,6 @@ export default function Juice() {
       }}
       position={[null, 'bottom', 'bottom']}
       image={"https://hc-cdn.hel1.your-objectstorage.com/s/v3/950eed27101a29150f970c310138c688a846fc8c_46_97abfba452a8e0444ff76a57fefedb1a4ee3eef6_dsc_5737.webp"}
-      width={3900}
-      height={2613}
     >
       <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Flex
