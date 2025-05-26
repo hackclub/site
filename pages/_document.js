@@ -40,6 +40,9 @@ export default class MyDocument extends Document {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }}
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="preconnect" href="https://hc-cdn.hel1.your-objectstorage.com" />
         </Head>
         <body>
           {/* <InitializeColorMode /> */}
