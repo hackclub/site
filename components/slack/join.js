@@ -48,7 +48,7 @@ export default function Join() {
         </Box>
       </Box>
       <Image
-        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5a21ba9b8d7848539b7d489ef86335fb97abae6d_0image.png"
+        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/be958cb39c1e6069b5974a2f73f3ff9dda330cac_63_5a21ba9b8d7848539b7d489ef86335fb97abae6d_0image.webp"
         sx={{
           width: ['100%', '100%', '50%'],
           height: ['100%', '100%', '30rem'],

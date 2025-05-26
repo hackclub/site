@@ -48,7 +48,7 @@ const RelonPage = () => (
       as={Head}
       title="Elon Musk's $1M Donation"
       description="We’re thrilled to announce Elon Musk has donated $1M to Hack Club, a global nonprofit network of high school hackers & coding clubs."
-      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9413340e2c153cda8d235dcf180f1e70cd6c46aa_0social-card.png"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/bcc20afcbf8cfae0b6ac7989ace95899f736273b_105_9413340e2c153cda8d235dcf180f1e70cd6c46aa_0social-card.webp"
     />
     <ForceTheme theme="light" />
     <Nav />

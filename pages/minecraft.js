@@ -24,7 +24,7 @@ const Page = () => (
       as={Head}
       title="Minecraft"
       description="Join the Minecrafters of Hack Club on our official server and build plugins with our technical community."
-      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9685ab891d747e4ca3ab9a99963242c82466a7e3_22020-07-16_xuyhwktf92atdc6k0rf93vqwendrfvy5.jpeg"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ead0f869b2cfd8b64e996f4bdbb579e00ca8ac84_96_9685ab891d747e4ca3ab9a99963242c82466a7e3_22020-07-16_xuyhwktf92atdc6k0rf93vqwendrfvy5.webp"
     />
     <Nav color="#759B40" dark />
     <Box

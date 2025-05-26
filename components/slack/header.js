@@ -56,8 +56,8 @@ const Cover = () => (
 )
 
 const Static = ({
-  img = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/4a40e958929f3c8150a18b55400d15db94da46f1_02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png'
-  // img="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1e44085854dc063a0a9df004fe6df9cb82cf7b84_12020-07-25_hn13qhejqrzu4n1jy9yacxxgrgp3wf5u.png"
+  img = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/0358c4d6f73cbaae3e19b31c3fbb9f3543daf014_6_4a40e958929f3c8150a18b55400d15db94da46f1_02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.webp'
+  // img="https://hc-cdn.hel1.your-objectstorage.com/s/v3/8a0ab0def6a2af5793e3fd0ee82a572a985a5a6e_7_1e44085854dc063a0a9df004fe6df9cb82cf7b84_12020-07-25_hn13qhejqrzu4n1jy9yacxxgrgp3wf5u.webp"
 }) => (
   <Box
     as="section"
@@ -90,7 +90,7 @@ const Slack = () => {
           muted
           loop
           playsInline
-          poster="https://hc-cdn.hel1.your-objectstorage.com/s/v3/4a40e958929f3c8150a18b55400d15db94da46f1_02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.png"
+          poster="https://hc-cdn.hel1.your-objectstorage.com/s/v3/0358c4d6f73cbaae3e19b31c3fbb9f3543daf014_6_4a40e958929f3c8150a18b55400d15db94da46f1_02020-07-25_a1tcva4ch6mmr6j2cfmcb4e9ync3yhar.webp"
           duration={2000}
           sx={{
             position: 'absolute',

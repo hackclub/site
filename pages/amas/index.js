@@ -17,7 +17,7 @@ const Page = ({ upcoming, past }) => (
       as={Head}
       title="AMAs"
       description="Every month, the Hack Club community gets on a Zoom call with someone awesome for a 1-hour AMA. Past guests have included George Hotz, Elon Musk, Limor Fried, Tom Preston-Werner, & more."
-      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/947c7d6745806e0750bcfd5815593bdfec789ec4_62020-07-24_03dp4nhf5acfeyhvg84whafyhe1q30zq.jpeg"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c4962505a739743d701eb87a3b4d2775777450f4_131_947c7d6745806e0750bcfd5815593bdfec789ec4_62020-07-24_03dp4nhf5acfeyhvg84whafyhe1q30zq.webp"
     />
     <ForceTheme theme="dark" />
     <Nav dark />

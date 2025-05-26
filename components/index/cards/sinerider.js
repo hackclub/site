@@ -24,7 +24,7 @@ export default function Sinerider({ stars }) {
       image="/home/sinerider-bg.webp"
     >
       <Image
-        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e5a0993886ca0d07125cd51c8a01c21f5ef39ff2_0logo_text_2.png"
+        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6bfb87df0afad57f0b5dac785a0f7707cd1430af_51_e5a0993886ca0d07125cd51c8a01c21f5ef39ff2_0logo_text_2.webp"
         sx={{
           width: ['200px', '250px', '300px'],
           mt: ['-10px', '-20px', '-20px'],

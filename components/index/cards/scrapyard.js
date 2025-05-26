@@ -45,7 +45,7 @@ export default function Scrapyard() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/05bfbe4f431cc10dcd89d25562b6f2c339b273a2_0scrapyard.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/32546f0d2adcd926c05eb95b8978ef2338e2f5eb_48_05bfbe4f431cc10dcd89d25562b6f2c339b273a2_0scrapyard.webp"
             sx={{
               width: ['400px', '450px', '500px'],
               mt: ['30px', '40px', '45px'],
@@ -159,7 +159,7 @@ export default function Scrapyard() {
     
       </Grid>
       <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ba3a8acc89cfbd4187db71e0fe517dad17719a6f_0image__14_.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/17f51eb2f13383a8890d56c0b2e3639f32921876_49_ba3a8acc89cfbd4187db71e0fe517dad17719a6f_0image__14_.webp"
             sx={{
               width: ['100%', '100%', '100%'],
               mb: ['0px', '0px', '0px'],

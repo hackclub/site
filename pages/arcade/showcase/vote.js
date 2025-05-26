@@ -129,7 +129,7 @@ const Vote = () => {
   //         color: '#14f0cb',
   //         textColor: '#ffffff',
   //         ScreenshotLink:
-  //           'https://hc-cdn.hel1.your-objectstorage.com/s/v3/1334b3c55573bdde6ca2d7a999f4f027bd4ca7a1_0instagram_profile_downloader.jpg',
+  //           'https://hc-cdn.hel1.your-objectstorage.com/s/v3/573f60aa94582dc4724fd16d69ec743ba17cd87c_147_1334b3c55573bdde6ca2d7a999f4f027bd4ca7a1_0instagram_profile_downloader.webp',
   //         ReadMeLink:
   //           'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
   //         'View link':
@@ -145,7 +145,7 @@ const Vote = () => {
   //         Description: 'A web based spin off to the not so liked rabbit R1',
   //         color: '#FAEFD6',
   //         ScreenshotLink:
-  //           'https://hc-cdn.hel1.your-objectstorage.com/s/v3/e30957a80aa2be357665e20bed26d8be393dbe45_0image-19.png',
+  //           'https://hc-cdn.hel1.your-objectstorage.com/s/v3/40b3c09f0863184b505e10b4f6f7fa148fa83a42_148_e30957a80aa2be357665e20bed26d8be393dbe45_0image-19.webp',
   //         ReadMeLink:
   //           'https://raw.githubusercontent.com/briyandyju09/Turtle-T1/main/README.md',
   //         'View link':
@@ -163,7 +163,7 @@ const Vote = () => {
   //         color: '#293438',
   //         textColor: '#ffffff',
   //         ScreenshotLink:
-  //           'https://hc-cdn.hel1.your-objectstorage.com/s/v3/1334b3c55573bdde6ca2d7a999f4f027bd4ca7a1_0instagram_profile_downloader.jpg',
+  //           'https://hc-cdn.hel1.your-objectstorage.com/s/v3/573f60aa94582dc4724fd16d69ec743ba17cd87c_147_1334b3c55573bdde6ca2d7a999f4f027bd4ca7a1_0instagram_profile_downloader.webp',
   //         ReadMeLink:
   //           'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
   //         'View link':
@@ -182,7 +182,7 @@ const Vote = () => {
   //         color: '#68d0f8',
   //         textColor: '#fafafa',
   //         ScreenshotLink:
-  //           'https://hc-cdn.hel1.your-objectstorage.com/s/v3/1334b3c55573bdde6ca2d7a999f4f027bd4ca7a1_0instagram_profile_downloader.jpg',
+  //           'https://hc-cdn.hel1.your-objectstorage.com/s/v3/573f60aa94582dc4724fd16d69ec743ba17cd87c_147_1334b3c55573bdde6ca2d7a999f4f027bd4ca7a1_0instagram_profile_downloader.webp',
   //         ReadMeLink:
   //           'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
   //         'View link':
@@ -201,7 +201,7 @@ const Vote = () => {
   //         color: '#68d0f8',
   //         textColor: '#fafafa',
   //         ScreenshotLink:
-  //           'https://hc-cdn.hel1.your-objectstorage.com/s/v3/1334b3c55573bdde6ca2d7a999f4f027bd4ca7a1_0instagram_profile_downloader.jpg',
+  //           'https://hc-cdn.hel1.your-objectstorage.com/s/v3/573f60aa94582dc4724fd16d69ec743ba17cd87c_147_1334b3c55573bdde6ca2d7a999f4f027bd4ca7a1_0instagram_profile_downloader.webp',
   //         ReadMeLink:
   //           'https://raw.githubusercontent.com/remarkjs/react-markdown/main/readme.md',
   //         'View link':
@@ -779,7 +779,7 @@ const Vote = () => {
         }}
       >
         <img
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/80a8ae178edb2ce540124f4c3033ffb05429bd39_0arcade_1.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/94d650df329df96b071133d6a6a87998ac05da51_146_80a8ae178edb2ce540124f4c3033ffb05429bd39_0arcade_1.webp"
           sx={{
             width: '30%',
             maxWidth: '200px',
@@ -1298,7 +1298,7 @@ const Vote = () => {
       }}
     >
       <img
-        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/80a8ae178edb2ce540124f4c3033ffb05429bd39_0arcade_1.png"
+        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/94d650df329df96b071133d6a6a87998ac05da51_146_80a8ae178edb2ce540124f4c3033ffb05429bd39_0arcade_1.webp"
         sx={{
           width: '30%',
           maxWidth: '200px',

@@ -89,7 +89,7 @@ const Cover = () => (
 
 const Static = ({
   // screenshot of messages from #hackathon-organizers
-  img = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/6eceaf9af0b02e89c4ded779ca8a2241c6087d4e_0screen_shot_2022-08-05_at_2.27.38_pm.png'
+  img = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/7fbb33b47f72406bb237c2f293ae277d256a7423_31_6eceaf9af0b02e89c4ded779ca8a2241c6087d4e_0screen_shot_2022-08-05_at_2.27.38_pm.webp'
 }) => (
   <Box
     as="section"
@@ -123,7 +123,7 @@ const Slack = () => {
           loop
           playsInline
           // screenshot of messages from #hackathon-organizers
-          poster="https://hc-cdn.hel1.your-objectstorage.com/s/v3/b8dbce1d357ff356ce4b7de63ad2830168bd88f9_0screen_shot_2022-07-30_at_9.03.43_am.png"
+          poster="https://hc-cdn.hel1.your-objectstorage.com/s/v3/fcde943b4408619087ac7050f809c7489787cb48_32_b8dbce1d357ff356ce4b7de63ad2830168bd88f9_0screen_shot_2022-07-30_at_9.03.43_am.webp"
           duration={2000}
           sx={{
             position: 'absolute',

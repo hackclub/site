@@ -39,7 +39,7 @@ const SlackPage = () => {
         as={Head}
         name="Join our Slack"
         description={`The Hack Club Slack is a community of ${thousands}k+ high school hackers around the world. Chat, meet new friends, code together, share your work.`}
-        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6cdf1ddfff19c1383f853cb3a8b9410b7969e81b_02020-07-25_d2dd4egb1th5k71w4uj0abbfkvvtnc01.jpeg"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/604f521e4087ced0c08a4a5e5285f6d1f6c33631_108_6cdf1ddfff19c1383f853cb3a8b9410b7969e81b_02020-07-25_d2dd4egb1th5k71w4uj0abbfkvvtnc01.webp"
       />
       <ForceTheme theme="light" />
       <Nav slack={true} />
@@ -118,7 +118,7 @@ const SlackPage = () => {
           <Quote
             text="I knew it's where I wanted to be"
             person="Shawn"
-            img="https://hc-cdn.hel1.your-objectstorage.com/s/v3/592754b1e0f210e145db292e015aac8db2982870_0shawn.png"
+            img="https://hc-cdn.hel1.your-objectstorage.com/s/v3/800b3de4170858d2713ee5cf80e3dd6e816d8dd7_109_592754b1e0f210e145db292e015aac8db2982870_0shawn.webp"
             age={18}
             location="MD"
           />

@@ -249,7 +249,7 @@ const Page = () => (
         </Text>
         <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
           {/* <Photo
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/528bac13dc773bc6933669ce8482d91218467e12_05851864a.jpg"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f39aafca52a6bd25b25e98b634feedf13896671b_39_528bac13dc773bc6933669ce8482d91218467e12_05851864a.webp"
             alt="Summer Creek Hack Club meeting, February 2020"
             width={3000}
             height={2550}
@@ -359,7 +359,7 @@ const Page = () => (
     >
       <BGImg
         gradient="linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.625))"
-        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/00c69b11339d73cfe2f91e07c499bba07fe2b181_a7605379-7582-4aac-8f44-45bbdfca0cfa_2020-05-16_screenshot.jpeg"
+        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f8a92e8c2fbd051a989d7584cdafd028b43ffcb6_74_00c69b11339d73cfe2f91e07c499bba07fe2b181_a7605379-7582-4aac-8f44-45bbdfca0cfa_2020-05-16_screenshot.webp"
         width={2048}
         height={1170}
         alt="Hack Clubbers gather at the Elon Musk AMA in 2020"

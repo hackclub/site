@@ -162,7 +162,7 @@ export default function InfoGrid() {
                 sx={{
                   backgroundColor: 'transparent',
                   backgroundImage:
-                    'url("https://hc-cdn.hel1.your-objectstorage.com/s/v3/3949a8e1ad212d68350a95b4a06f78f63a80f9cb_0card.png")',
+                    'url("https://hc-cdn.hel1.your-objectstorage.com/s/v3/10b1de2fe4eee1d41d06bb30923b8028b04562cb_21_3949a8e1ad212d68350a95b4a06f78f63a80f9cb_0card.webp")',
                   height: ['300px', '500px', '100%', '230px'],
                   backgroundSize: '100%',
                   backgroundRepeat: 'no-repeat',
@@ -179,7 +179,7 @@ export default function InfoGrid() {
             sx={{
               backgroundColor: 'transparent',
               backgroundImage:
-                'url("https://hc-cdn.hel1.your-objectstorage.com/s/v3/3949a8e1ad212d68350a95b4a06f78f63a80f9cb_0card.png")',
+                'url("https://hc-cdn.hel1.your-objectstorage.com/s/v3/10b1de2fe4eee1d41d06bb30923b8028b04562cb_21_3949a8e1ad212d68350a95b4a06f78f63a80f9cb_0card.webp")',
               height: ['300px', '500px', '100%', '230px'],
               backgroundSize: '100%',
               backgroundRepeat: 'no-repeat',

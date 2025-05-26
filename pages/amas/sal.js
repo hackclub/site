@@ -135,7 +135,7 @@ export default function Sal() {
         as={Head}
         title="Sal Khan | AMA"
         description="We’re excited to welcome Sal Khan (founder of Khan Academy) to speak to teenagers at Hack Club!"
-        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/7b1ec5daafe27d8dafa5ecb23819daed4fdd4d0f_0sal_ama__7_.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/30638c5cc47c69349a0debb060b5e310e5781ee6_132_7b1ec5daafe27d8dafa5ecb23819daed4fdd4d0f_0sal_ama__7_.webp"
       />
       <Head>
         <meta name="theme-color" content="#14BF96" />
@@ -157,7 +157,7 @@ export default function Sal() {
         <Link href="https://hackclub.com" target="_blank" color="inherit">
           <Image
             src={
-              'https://hc-cdn.hel1.your-objectstorage.com/s/v3/d626f98ff542435786df874dccfa10a0e88213c5_0group__8_.png'
+              'https://hc-cdn.hel1.your-objectstorage.com/s/v3/2d4f109e25389927dd3e65eeea7405e59eb2296f_134_d626f98ff542435786df874dccfa10a0e88213c5_0group__8_.webp'
             }
             width={150}
             height={75}
@@ -315,7 +315,7 @@ export default function Sal() {
           {timer.length ? (
             <>
               <Image
-                src={`https://hc-cdn.hel1.your-objectstorage.com/s/v3/cce58af4ab4c869abe5a9b8dd1452dbbe341298c_0frame_54__1_.png`}
+                src={`https://hc-cdn.hel1.your-objectstorage.com/s/v3/5c13f22861af59891c07cf7e200eb0d431376ffe_136_cce58af4ab4c869abe5a9b8dd1452dbbe341298c_0frame_54__1_.webp`}
                 alt="Image of Sal Khan"
                 fill="object-positon"
                 sx={{ position: 'absolute', bottom: 0 }}
@@ -324,7 +324,7 @@ export default function Sal() {
           ) : (
             <>
               <Image
-                src={`https://hc-cdn.hel1.your-objectstorage.com/s/v3/cce58af4ab4c869abe5a9b8dd1452dbbe341298c_0frame_54__1_.png`}
+                src={`https://hc-cdn.hel1.your-objectstorage.com/s/v3/5c13f22861af59891c07cf7e200eb0d431376ffe_136_cce58af4ab4c869abe5a9b8dd1452dbbe341298c_0frame_54__1_.webp`}
                 layout="responsive"
                 sx={{ display: ['none', 'block'] }}
                 alt="Image of Sal Khan"

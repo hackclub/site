@@ -132,7 +132,7 @@ export default function Donate({ sprig }) {
         as={Head}
         title={title}
         description={desc}
-        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9c72ffb39ac22b7f62997bc3f15582036f96fcce_0social-photo_2.jpg"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d0e00bc5c0a2d9560399081d0422bb7c36e7483a_104_9c72ffb39ac22b7f62997bc3f15582036f96fcce_0social-photo_2.webp"
       />
       <Nav color="muted" />
       <ForceTheme theme="light" />

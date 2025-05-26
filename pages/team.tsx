@@ -128,7 +128,7 @@ export default function Team({ team }) {
                 </Grid>
                 <Grid columns={[1, null, 3]} gap={2}>
                   <Bio
-                    img="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3a54fd5ac577c15dfed7114fa53c9f59e1d41b56_0.jpeg"
+                    img="https://hc-cdn.hel1.your-objectstorage.com/s/v3/2bf85a815e19fb09de6eb1d33d3df65701545635_129_3a54fd5ac577c15dfed7114fa53c9f59e1d41b56_0.webp"
                     name="Tom Preston-Werner"
                     teamRole={<>Board Member</>}
                     subrole="Co-Founder, GitHub"

@@ -263,7 +263,7 @@ async function generateProjectIdea() {
     yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play();
     document.querySelector('#generate-project-idea').classList.add('disabled')
     document.querySelector('#project-idea').innerHTML = "<em>" + thinkingWords() + "..." + "</em>"
-    document.querySelector('#generate-project-idea').src = "https://hc-cdn.hel1.your-objectstorage.com/s/v3/5040000f8df5684e65ad3df9b9d0467d0e9f9304_0thinking_rac.png"
+    document.querySelector('#generate-project-idea').src = "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ff35bbd5cf62eb8b24b0c5897aad062e7a0a0aa0_301_5040000f8df5684e65ad3df9b9d0467d0e9f9304_0thinking_rac.webp"
     let text = ""
     if (selectedParts.length == 0) {
         text = "You need to rummage for some parts first!"
@@ -279,7 +279,7 @@ async function generateProjectIdea() {
         text = json.recommendation
     }
     document.querySelector('#project-idea').innerHTML = ""
-    document.querySelector('#generate-project-idea').src = "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b3eda648ea9a3ca87f5d5d5f662af044fbf0dd3b_0statement_rac.png"
+    document.querySelector('#generate-project-idea').src = "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0adb5ed6967de08c679ea66e2060011daeb6d08f_302_b3eda648ea9a3ca87f5d5d5f662af044fbf0dd3b_0statement_rac.webp"
     document.querySelector('#generate-project-idea').classList.remove('disabled')
     yap(text, i => {
         document.querySelector('#project-idea').innerHTML = text.slice(0, Math.max(text.length - i + 1, 0))

@@ -109,7 +109,7 @@ export function Winter() {
                   Timeline
                 </Heading>
                 <Image
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/b560f32c6cfbba51ef55cfc9ecd5afa770e0c07c_0fox_1.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f2f9165c12007b08314e45d9f3470c301f127edc_130_b560f32c6cfbba51ef55cfc9ecd5afa770e0c07c_0fox_1.webp"
                   alt="Illustrated orange fox sleeping in a curled position"
                   sx={{
                     width: ['100px', null, '80%'],

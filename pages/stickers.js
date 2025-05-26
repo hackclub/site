@@ -28,7 +28,7 @@ const StickersPage = ({ stickers = [] }) => [
       as={Head}
       title="Stickers"
       description="Check out Hack Club’s stickers."
-      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9a8666b988eaf5cd41c472127a1cf0292b1241e7_image.png"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d2185104bc758ac435b7bd36d393aa70d6e81216_127_9a8666b988eaf5cd41c472127a1cf0292b1241e7_image.webp"
     />
     <Box
       as="article"

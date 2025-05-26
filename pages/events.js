@@ -31,7 +31,7 @@ const events = [
     season: 'Fall',
     year: '2023',
     // repo: 'outernet',
-    image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/e54432289279f0a3a76659ea417a8bfa859eff54_0image.png',
+    image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/706bb62860b058f1a45127978197183b5c24b0a7_94_e54432289279f0a3a76659ea417a8bfa859eff54_0image.webp',
     link: 'https://haunted.hackclub.com'
   },
   {

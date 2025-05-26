@@ -13,7 +13,7 @@ export default function Apocalypse() {
         backgroundColor: '#95C9E5'
       }}
       position={[null, 'bottom', 'bottom']}
-      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/fc14bb6808f5606295c3dd4109c403ca615ecd0c_0image__6_.png"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/7451ac9834bee3911ce2433d7f4ac304ac3dbc3a_37_fc14bb6808f5606295c3dd4109c403ca615ecd0c_0image__6_.webp"
     >
       <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Flex
@@ -23,7 +23,7 @@ export default function Apocalypse() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/b00d12d9e8e1cbe256ba55dafa5d6e19c2bc7cfc_0apotitle_cropped.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/b7374b3fc883de6cfc128e877749e7c750a08d5d_38_b00d12d9e8e1cbe256ba55dafa5d6e19c2bc7cfc_0apotitle_cropped.webp"
             sx={{
               width: ['200px', '250px', '300px'],
               mt: ['-5px', '-5px', '-5px'],

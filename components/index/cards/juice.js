@@ -12,7 +12,7 @@ export default function Juice() {
         backgroundColor: '#FFF5D8',
       }}
       position={[null, 'bottom', 'bottom']}
-      image={"https://hc-cdn.hel1.your-objectstorage.com/s/v3/97abfba452a8e0444ff76a57fefedb1a4ee3eef6_dsc_5737.jpg"}
+      image={"https://hc-cdn.hel1.your-objectstorage.com/s/v3/950eed27101a29150f970c310138c688a846fc8c_46_97abfba452a8e0444ff76a57fefedb1a4ee3eef6_dsc_5737.webp"}
     >
       <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Flex

@@ -70,7 +70,7 @@ export default function SprigConsole({ stars, consoleCount }) {
         >
           <Box>
             <Image
-              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/bbe5493e5238d5d6e647fa4bda2967a6b4db62fc_0sprig-light-top-min.png"
+              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d3b97c5c3f7eeb39ac573deb2b5aa948b2278fca_53_bbe5493e5238d5d6e647fa4bda2967a6b4db62fc_0sprig-light-top-min.webp"
               sx={{
                 width: ['120%', '', ''],
                 maxWidth: ['120%', '', ''],

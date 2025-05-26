@@ -61,32 +61,32 @@ const photos = {
   0: {
     name: 'outernet',
     alt: 'Outernet (2023)',
-    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/9e52e8ab92375e88fd8c762b9feaf2f4ef937cf0_0260102957-168f5ff5-ca65-44d9-8814-a7baad487f31.png'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/ee1f37e16a31819bff47e667ae1d15387c673b6f_75_9e52e8ab92375e88fd8c762b9feaf2f4ef937cf0_0260102957-168f5ff5-ca65-44d9-8814-a7baad487f31.webp'
   },
   1: {
     name: 'zephyr',
     alt: 'The Hacker Zephyr (2021)',
-    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/d1eb913799a70fca3926a6fc32477fde817d4d6a_0zephyr.jpeg'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/73b9f674ae355b225c2749a6f79c5110e67744c1_76_d1eb913799a70fca3926a6fc32477fde817d4d6a_0zephyr.webp'
   },
   2: {
     name: 'arcade',
     alt: 'Arcade [AMA with Framework CEO Nirav Patel] (2024)',
-    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/42b796bc675b2338610a34d53c6ff28bb1a7e9ab_1frameworkama.png'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/6f6c8a39aa85be45e80ddb59b633eec8272efd85_77_42b796bc675b2338610a34d53c6ff28bb1a7e9ab_1frameworkama.webp'
   },
   3: {
     name: 'trail',
     alt: 'The Trail (2024)',
-    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/02e43b90362a253c575c512ca81ae8d4f0b80989_2image.png'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/060b899a555fd966b930e37f04dd0c47909ce858_78_02e43b90362a253c575c512ca81ae8d4f0b80989_2image.webp'
   },
   4: {
     name: 'ascend',
     alt: 'Ascend (2024)',
-    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/8c67c69b8edb6f84a4ab26500b45c26a1e57518c_0image.png'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/f01ea5f562f20f82750ce6fdca07654e0ab4c455_79_8c67c69b8edb6f84a4ab26500b45c26a1e57518c_0image.webp'
   },
   5: {
     name: 'leaders',
     alt: 'The Leaders Summit (2024)',
-    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/322f77d132043b2f5385a1fdd718c8efca835b5d_3group.png'
+    img: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/d5ce71a81d36662b35de24a671f162414b559770_80_322f77d132043b2f5385a1fdd718c8efca835b5d_3group.webp'
   }
 }
 
@@ -121,14 +121,14 @@ function Page({ carouselCards }) {
         >
           <Screen
             title="Hack Club - Congressional App Challenge"
-            backgroundImage="https://hc-cdn.hel1.your-objectstorage.com/s/v3/098e5d090c915a46fe729652fdc2330ef536d87a_027544281748_b641f43479_o-1.jpg"
+            backgroundImage="https://hc-cdn.hel1.your-objectstorage.com/s/v3/fc70ed9aaec4a7bdbc4d15f793cf7ef12ac2d9ce_81_098e5d090c915a46fe729652fdc2330ef536d87a_027544281748_b641f43479_o-1.webp"
             sxProps={{
               height: ['20vh', null, null, '100%'],
               position: 'relative'
             }}
           >
             <Image
-              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1093e42fc1ca8047c49bf7e8aa45f38f7f3f76eb_10318016-8380173-super-matte-5000-uncoated-vinyl-stickers_11.png"
+              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ffaac5cf487f4a1e5110c49a8855bf209e8515dd_82_1093e42fc1ca8047c49bf7e8aa45f38f7f3f76eb_10318016-8380173-super-matte-5000-uncoated-vinyl-stickers_11.webp"
               alt="A sticker of Orpheus"
               sx={{
                 position: 'absolute',
@@ -140,7 +140,7 @@ function Page({ carouselCards }) {
               }}
             />
             <Image
-              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/41f5adff19ef4347f95cb4bdafff8bd291ea5ef4_0heidi_1.png"
+              src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3c3672a8ff09c386b3a8d2c539ab0b0629232e2f_83_41f5adff19ef4347f95cb4bdafff8bd291ea5ef4_0heidi_1.webp"
               alt="A sticker of Heidi"
               sx={{
                 height: '160px',
@@ -404,7 +404,7 @@ function Page({ carouselCards }) {
                   height="150px"
                   width="150px"
                   alt="The Congressional App Challenge"
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ad72016257065adfca8b3dd8780b43ace5ad972_0laptop.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/134b8d65bd9e19e1b5570e3e47770efafc4aa21c_84_9ad72016257065adfca8b3dd8780b43ace5ad972_0laptop.webp"
                 />
             </Box>
             <Text variant="subtitle" sx={{width: ["100%"]}}>
@@ -501,7 +501,7 @@ function Page({ carouselCards }) {
             </Text>
             <Box sx={{ width: ['100%', '80%', '60%', '40%'], marginX: 'auto' }}>
               <Polaroid
-                image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3042bd4ec4749d42e637cced8475cc30429edbbf_0sprig-front.jpeg"
+                image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e498f814409f8ad70a8e8a0ad8f9ba00a2cf8aa2_85_3042bd4ec4749d42e637cced8475cc30429edbbf_0sprig-front.webp"
                 caption="Sprig, an open-source game console"
                 alt="Sprig, an open-source game console"
                 sxProps={{
@@ -533,7 +533,7 @@ function Page({ carouselCards }) {
               }}
             >
               <Polaroid
-                image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3b4c1b9148cef63a40cbaae1ad887de431aa9ee9_0image.png"
+                image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a024778eee9a261d19f2235bf8f4fee78f55db9f_86_3b4c1b9148cef63a40cbaae1ad887de431aa9ee9_0image.webp"
                 caption="Assemble (2022)"
                 alt="Hack Clubbers at the 2022 Assemble hackathon"
                 sxProps={{
@@ -546,7 +546,7 @@ function Page({ carouselCards }) {
                 }}
               />
               <Polaroid
-                image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/27084e3c1ba912b597b02a257038c58a4c2e1487_0img_8771.jpg"
+                image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/0afcb157500c78edca72dc2551fba3d92cd47273_87_27084e3c1ba912b597b02a257038c58a4c2e1487_0img_8771.webp"
                 caption="Hackers with Linus Tech Tips (2024)"
                 alt="Hack Clubbers with Linus Tech Tips"
                 sxProps={{
@@ -626,7 +626,7 @@ function Page({ carouselCards }) {
                   state="TX"
                   description="Alex likes writing code, designing PCBs, and maintaining servers and networks."
                   page="https://www.congressionalappchallenge.us/22-TX22/"
-                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/de23d52f7178bbe90faab980b83c203b1a5d8d04_11705187020782.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/499d74012078f1133102e8f5c61c854a2d5c48c0_88_de23d52f7178bbe90faab980b83c203b1a5d8d04_11705187020782.webp"
                 />
                 <UserProfile
                   name="Andrea"
@@ -634,7 +634,7 @@ function Page({ carouselCards }) {
                   state="CA"
                   description="Andrea is a passionate high school researcher and student developer of tools for biological research."
                   page="https://www.congressionalappchallenge.us/23-CA38/"
-                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5d386186230a738168f0632a0c0da663296555b4_0image_6966_from_slack.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a5776222186b046666ed8a26a60d9ce6dea83e9a_89_5d386186230a738168f0632a0c0da663296555b4_0image_6966_from_slack.webp"
                 />
               </Box>
             </Screen>
@@ -663,7 +663,7 @@ function Page({ carouselCards }) {
                   state="GA"
                   description="Celeste is a computer scientist, roboticist, and singer. She's passionate about the intersection of STEM and the arts, as well as tech advocacy."
                   page="https://www.court-connect.net/"
-                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/904a5dee916305962cd88fd6b3df69ea4fde27a5_0img_1754.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/da5df62598bb80699fb919ace5c8f9c4ac6b3463_90_904a5dee916305962cd88fd6b3df69ea4fde27a5_0img_1754.webp"
                 />
               <UserProfile
                   name="Clay"
@@ -671,7 +671,7 @@ function Page({ carouselCards }) {
                   state="VT"
                   description="Clay is a student developer and high schooler from Vermont, as well as a member of Green Mountain Robotics and Robohawks."
                   page="https://www.congressionalappchallenge.us/23-VT00/"
-                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c093a40f9c3892fe566adf3b16e675a2b166c5ca_21704591152368.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f1457a1691fd05435c62df7cec9cd422f273cd9d_91_c093a40f9c3892fe566adf3b16e675a2b166c5ca_21704591152368.webp"
                 />
           </Box>
         </Screen>
@@ -699,7 +699,7 @@ function Page({ carouselCards }) {
                   state="GA"
                   description="Sahiti is a developer in love with computer science and entrepreneurship. She aims to make an impact by spreading opportunities."
                   page="https://www.congressionalappchallenge.us/23-GA06/"
-                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a2789dc88a655a31dca9024e1d9934a6f7d2a2c7_31659043447794.jpg"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/8cb0ffbdee1f01bb0974de0793f9dccf91239a7b_92_a2789dc88a655a31dca9024e1d9934a6f7d2a2c7_31659043447794.webp"
                 />
                     <Box
                   sx={{ display: ['none', null, 'flex', 'none'],  padding: 2, width: 200 }}
@@ -722,7 +722,7 @@ function Page({ carouselCards }) {
                 </Box>
 
               <Image
-                src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ebe5a91fa34f7441be2c5129410670d4e797791c_0terrifiedheidi.png"
+                src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3ab57e7fa6f53cbe9228b126d4c383e04a0675fe_93_ebe5a91fa34f7441be2c5129410670d4e797791c_0terrifiedheidi.webp"
                 alt="A sticker of scared Heidi"
                 sx={{
                   height: '250px',

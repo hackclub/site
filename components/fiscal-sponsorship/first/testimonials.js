@@ -39,7 +39,7 @@ export default function Testimonials() {
           }}
         >
           <Organization
-            logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/bd93afbf26f0a6d9731ffd1f2bcc74c816bebd30_0image.png"
+            logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6dd4534a242cd8c955c938268ff5c2a98448d31f_23_bd93afbf26f0a6d9731ffd1f2bcc74c816bebd30_0image.webp"
             name="Poseidon Robotics"
             teamNum="FTC Team #16898"
             teamLocation="San Jose, CA"
@@ -47,7 +47,7 @@ export default function Testimonials() {
             budgetLabel="in grants"
             website="evposeidon.wixsite.com"
             url="https://evposeidon.wixsite.com/robo/home"
-            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a74791867a76bec08b7c33fb50793ba9c60fb1ff_0image.png"
+            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/64bd1e9f2fc10f7f7f43239929679fecef4563ed_24_a74791867a76bec08b7c33fb50793ba9c60fb1ff_0image.webp"
             quote="Overall, [HCB] has opened more opportunities for Poseidon, allowing us to undertake larger projects, both on the playing field and in our community."
             hackerName="Ian Marwong"
             hackerRole="Team Lead"
@@ -55,7 +55,7 @@ export default function Testimonials() {
             transparency="poseidon-robotics"
           />
           <Organization
-            logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/0b6e17b57036cb8523e04294283ca240f6b41c52_0image.png"
+            logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/2b60a15799099f53cd967af090f81d9e4a14e633_25_0b6e17b57036cb8523e04294283ca240f6b41c52_0image.webp"
             name="Killabytez"
             teamNum="FTC Team #14663"
             teamLocation="Fremont, CA"
@@ -66,7 +66,7 @@ export default function Testimonials() {
             hackerAvatarUrl="/hackers/brian-cisto.jpeg"
             hackerName="Brian Cisto"
             hackerRole="Team Captain & Software Lead"
-            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/4361147fe2834ba8bf68896fc203e74672e46e1b_0screen_shot_2022-11-06_at_8.45.37_pm.png"
+            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/225cd571feaafd838055b93a1927efb2f12322cc_26_4361147fe2834ba8bf68896fc203e74672e46e1b_0screen_shot_2022-11-06_at_8.45.37_pm.webp"
             quote="[HCB] has been essential to keeping track of our finances as well as giving us the opportunity to establish ourselves as a nonprofit."
           />
         </Grid>

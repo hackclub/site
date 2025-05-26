@@ -77,7 +77,7 @@ const Page = () => (
       as={Head}
       title="Secret Santa"
       description="Find your holiday zen this year with Hack Club’s Secret Santa."
-      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/87cb17d9c849ad28e633ec5a35f73a674205d7ae_0santa.png"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a88fbcfdd6a5e3e0b114c43a175b292cffce17fa_107_87cb17d9c849ad28e633ec5a35f73a674205d7ae_0santa.webp"
     />
     <Nav />
     <Hero py={4}>

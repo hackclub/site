@@ -57,7 +57,7 @@ const Cover = () => (
 )
 
 const Static = ({
-  img = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/b80d76cabf0828ced0f64cabcd38c5fe4361c242_0screen_shot_2022-07-27_at_2.57.41_pm.png'
+  img = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/fa454d32d2d7a16734c75d0bfe899eb8248fedc5_27_b80d76cabf0828ced0f64cabcd38c5fe4361c242_0screen_shot_2022-07-27_at_2.57.41_pm.webp'
 }) => (
   <Box
     as="section"
@@ -90,7 +90,7 @@ const Marketing = () => {
           muted
           loop
           playsInline
-          poster="https://hc-cdn.hel1.your-objectstorage.com/s/v3/b80d76cabf0828ced0f64cabcd38c5fe4361c242_0screen_shot_2022-07-27_at_2.57.41_pm.png"
+          poster="https://hc-cdn.hel1.your-objectstorage.com/s/v3/fa454d32d2d7a16734c75d0bfe899eb8248fedc5_27_b80d76cabf0828ced0f64cabcd38c5fe4361c242_0screen_shot_2022-07-27_at_2.57.41_pm.webp"
           duration={2000}
           sx={{
             position: 'absolute',

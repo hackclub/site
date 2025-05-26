@@ -12,7 +12,7 @@ export default function Haxidraw({ stars }) {
       sx={{
         backgroundSize: 'cover',
         backgroundColor: '#95C9E5',
-        backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.4) 70%), url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/51b0002299b44eecb22657dfc9635c127c542d5b_0image.png')`
+        backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.4) 70%), url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/764459ac9485116803a1e3fe6cb395363d542b74_43_51b0002299b44eecb22657dfc9635c127c542d5b_0image.webp')`
       }}
       position={[null, 'bottom', 'bottom']}
       highlight="#2b27f8d9"

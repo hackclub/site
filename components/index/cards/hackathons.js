@@ -33,7 +33,7 @@ export default function Hackathons({ data, stars }) {
       highlight="blue"
     >
       <Image
-        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/2b66ea22d02bf16708e87765ec466d29effa91ce_0bmc_1823.jpg"
+        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/cd04b6a004d5093e24165dda2809935f410e5b7e_42_2b66ea22d02bf16708e87765ec466d29effa91ce_0bmc_1823.webp"
         sx={{
           objectFit: 'cover',
           position: 'absolute',

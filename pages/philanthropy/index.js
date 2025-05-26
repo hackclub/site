@@ -946,7 +946,7 @@ const Philanthropy = ({ posts = [] }) => {
                         borderRadius: '100%',
                         width: '40px',
                         height: '40px',
-                        backgroundImage: `url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/3a54fd5ac577c15dfed7114fa53c9f59e1d41b56_0.jpeg)`,
+                        backgroundImage: `url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/2bf85a815e19fb09de6eb1d33d3df65701545635_129_3a54fd5ac577c15dfed7114fa53c9f59e1d41b56_0.webp)`,
                         backgroundSize: 'cover',
                         marginRight: 2
                       }}
@@ -1253,55 +1253,55 @@ const Philanthropy = ({ posts = [] }) => {
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }} mb={5}>
             <Fade delay={30}>
               <Pill
-                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/bb912a2af2cac36e10538f22d9557e913bf42656_0figma.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d5410227fa37a4ae32e52fd402ffcf8ca3b2e448_196_bb912a2af2cac36e10538f22d9557e913bf42656_0figma.webp"
                 name="Dylan Field, Founder, Figma"
               />
             </Fade>
             <Fade delay={60}>
               <Pill
-                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f3d7b1da8b887f1f5e9dbac6b1a3f0521bf291ac_1vercel.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/27f5aaad2cc0be8382d8eff12c1230a8564163cc_197_f3d7b1da8b887f1f5e9dbac6b1a3f0521bf291ac_1vercel.webp"
                 name="Guillermo Rauch, Founder, Vercel"
               />
             </Fade>
             <Fade delay={90}>
               <Pill
-                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/98b0dcf1438eb5c8989677efad05064c82496165_7laravel.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9a541c22fa4d76263e0350d673b0973d66f9a758_198_98b0dcf1438eb5c8989677efad05064c82496165_7laravel.webp"
                 name="Taylor Otwell, Creator of Laravel"
               />
             </Fade>
             <Fade delay={120}>
               <Pill
-                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e473833bab2d0f82c9bfa41fa9a9503f13d58478_5sequoia.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/bb2a776f13b185294ef2e22bdfe9b389c76a5ba0_199_e473833bab2d0f82c9bfa41fa9a9503f13d58478_5sequoia.webp"
                 name="Andrew Reed, Partner, Sequoia"
               />
             </Fade>
             <Fade delay={150}>
               <Pill
-                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/384f53a640ba78ca6975bbfcc13256f19c8cdf27_6replit.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c797032307735a471b6715ad799bead60ea03d59_200_384f53a640ba78ca6975bbfcc13256f19c8cdf27_6replit.webp"
                 name="Amjad Masad, Co-founder, Replit"
               />
             </Fade>
             <Fade delay={180}>
               <Pill
-                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5ba44743b10b49a10fe1e75af06d2bdafba28913_2workflow.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/4f0abff81c5c65fea26616fef346bef6064d8985_201_5ba44743b10b49a10fe1e75af06d2bdafba28913_2workflow.webp"
                 name="Conrad Kramer, Co-founder, Workflow"
               />
             </Fade>
             <Fade delay={210}>
               <Pill
-                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/07f28b482f6619a01babc325fe67f5592d1f1065_3github.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/2edbfe419a3e19050e2377ee04eec6a240d8150c_202_07f28b482f6619a01babc325fe67f5592d1f1065_3github.webp"
                 name="Tim Clem, Senior Engineer, GitHub"
               />
             </Fade>
             <Fade delay={240}>
               <Pill
-                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/becff51d32977f9d04e07c7afc3c3feda79b2fb8_4sentry.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c078c2858064e91516679d0eb2287384169fca40_203_becff51d32977f9d04e07c7afc3c3feda79b2fb8_4sentry.webp"
                 name="David Cramer, Co-founder, Sentry"
               />
             </Fade>
             <Fade delay={270}>
               <Pill
-                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1b66baf290dffa32106f48929b4e527811c6749f_8vgs.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/370e87034c90a8feae695a35a091e41df512180b_204_1b66baf290dffa32106f48929b4e527811c6749f_8vgs.webp"
                 name="Mahmoud Abdelkader, CEO, Very Good Security"
               />
             </Fade>

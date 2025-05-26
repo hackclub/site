@@ -104,7 +104,7 @@ export default function Features() {
                 as="div"
                 sx={{
                   backgroundImage:
-                    'url("https://hc-cdn.hel1.your-objectstorage.com/s/v3/3949a8e1ad212d68350a95b4a06f78f63a80f9cb_0card.png")',
+                    'url("https://hc-cdn.hel1.your-objectstorage.com/s/v3/10b1de2fe4eee1d41d06bb30923b8028b04562cb_21_3949a8e1ad212d68350a95b4a06f78f63a80f9cb_0card.webp")',
                   height: '230px',
                   backgroundSize: 'cover',
                   boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)'
@@ -421,7 +421,7 @@ function Laptop({ href, title, sx }) {
           minHeight: '16rem',
           backgroundSize: 'auto 115%',
           backgroundImage:
-            "url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/b094352653c886af043b1a0820b60fb0b1539437_1poseidon.png')",
+            "url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/15de0d91c011eae79cc0df90cc6af4ad6c9e57f3_22_b094352653c886af043b1a0820b60fb0b1539437_1poseidon.webp')",
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat'
         }}

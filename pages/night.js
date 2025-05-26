@@ -42,7 +42,7 @@ const Page = () => (
       as={Head}
       title="Hack Night"
       description="The Hack Club community regularly gathers on Slack Huddles and Zoom calls to show off what we’re working on & hang out."
-      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/94f2c77dd790183a8c40f3982984684fef69b3d2_52020-07-25_52g0nw40p2b00dh39mt93xq5ubku6yaj.jpeg"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/36ea58701b721b4c41905a5d205eccee0b5a3652_99_94f2c77dd790183a8c40f3982984684fef69b3d2_52020-07-25_52g0nw40p2b00dh39mt93xq5ubku6yaj.webp"
     />
     <Nav color={color} dark />
     <Box
@@ -126,12 +126,12 @@ const Page = () => (
         }}
       >
         <Image
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3a2481ce5cbdb9089a73ff4d27ecd94cd04d6eb2_82020-07-24_gbetd0kafcxjp2e5hkv4w9u3m40pmmmt.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/b04f13bc2040549512b98d2a8eec8978eacf700f_102_3a2481ce5cbdb9089a73ff4d27ecd94cd04d6eb2_82020-07-24_gbetd0kafcxjp2e5hkv4w9u3m40pmmmt.webp"
           alt="Moon background"
           width={512}
         />
         <Image
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/984a928a1354bcaaa9141267df31a8a5cc05627c_92020-07-24_zdd8ycnkp9q0bbf1fj8a1amjv3zndufz.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3c151f7f6d7e81737c8ecedbe43aba53881428f8_103_984a928a1354bcaaa9141267df31a8a5cc05627c_92020-07-24_zdd8ycnkp9q0bbf1fj8a1amjv3zndufz.webp"
           alt="Illustration of Orpheus with a moon"
           width={512}
           sx={{

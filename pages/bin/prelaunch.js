@@ -43,9 +43,9 @@ const RsvpCount = () => {
 }
 
 const stickerImages = [
-  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/00729a9823e6364d148ae8d932b476d1fa57fe00_0rummaging.png',
-  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/2c732ecf0d592ec72cc641b5d411a4dcc3e4e0bb_1prototype.png',
-  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/34fc9b192c99844d5051701e540bf561bcd8eeec_0idea.png'
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/6a61ac738afc0720d65a4678391a4ca34457c48a_149_00729a9823e6364d148ae8d932b476d1fa57fe00_0rummaging.webp',
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae3f77fa6eff94c68585aabbb2f8d8483cd5f2ad_150_2c732ecf0d592ec72cc641b5d411a4dcc3e4e0bb_1prototype.webp',
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/abeaa69a01f5efeaae877c94eb7a62a7fda90fa9_151_34fc9b192c99844d5051701e540bf561bcd8eeec_0idea.webp'
 ]
 
 
@@ -54,12 +54,12 @@ const PartPicker = () => {
     {
       name: "Relay",
       description: "On/Off Switch",
-      image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/425199d4c277a8f415020ad69602f9858532f102_0placeholder3.png"
+      image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/564be5acb4b91e9b7adc11573faaf85dc9e8130d_152_425199d4c277a8f415020ad69602f9858532f102_0placeholder3.webp"
     },
     {
       name: "Mic",
       description: "Record Sound",
-      image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/425199d4c277a8f415020ad69602f9858532f102_0placeholder3.png"
+      image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/564be5acb4b91e9b7adc11573faaf85dc9e8130d_152_425199d4c277a8f415020ad69602f9858532f102_0placeholder3.webp"
     }
   ]
 
@@ -183,7 +183,7 @@ export default function Bin() {
       <Meta as={Head}
         title="The Bin"
         description="Rummage around in The Bin to get a free electronics starter kit!"
-        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5b6a81c280ac1dc1eafc3e078997a98d22590ea4_0og_image.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/8bff453265accf37685abe09b572c5b63402a8c2_157_5b6a81c280ac1dc1eafc3e078997a98d22590ea4_0og_image.webp"
       />
       <Nav color="text" />
       <ForceTheme theme="light" />
@@ -206,7 +206,7 @@ export default function Bin() {
                 },
               }}>
                 <Image
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/00729a9823e6364d148ae8d932b476d1fa57fe00_0rummaging.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6a61ac738afc0720d65a4678391a4ca34457c48a_149_00729a9823e6364d148ae8d932b476d1fa57fe00_0rummaging.webp"
                   onClick={(e) => { fireConfetti(); crunch(); spinIt(e.target) }}
                   sx={{
                     cursor: 'pointer',
@@ -309,7 +309,7 @@ export default function Bin() {
             <Box sx={{ textAlign: 'left' }}>
               <Flex sx={{ my: 4 }}>
                 <Box>
-                  <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/00729a9823e6364d148ae8d932b476d1fa57fe00_0rummaging.png" />
+                  <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6a61ac738afc0720d65a4678391a4ca34457c48a_149_00729a9823e6364d148ae8d932b476d1fa57fe00_0rummaging.webp" />
                 </Box>
                 <Box>
                   <Heading as="p" variant="headline">
@@ -324,7 +324,7 @@ export default function Bin() {
               <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/716f7b2bc8dc9248c16f62506079b733ad64d4d9_0parts.svg" sx={{ width: '100%' }} />
               <Flex sx={{ my: 4 }}>
                 <Box>
-                  <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f53c154554c372cebe6cb1d2f78f2bcd62887c34_0frame_1__50_.png" />
+                  <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/00c9d7927226b867a1d2ed1c997eefd7a00e2e07_161_f53c154554c372cebe6cb1d2f78f2bcd62887c34_0frame_1__50_.webp" />
                 </Box>
                 <Box>
                   <Text as="p" variant="headline">
@@ -347,7 +347,7 @@ export default function Bin() {
                   </Text>
                 </Box>
                 <Box>
-                  <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/2c732ecf0d592ec72cc641b5d411a4dcc3e4e0bb_1prototype.png" />
+                  <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae3f77fa6eff94c68585aabbb2f8d8483cd5f2ad_150_2c732ecf0d592ec72cc641b5d411a4dcc3e4e0bb_1prototype.webp" />
                 </Box>
               </Flex>
               <Box sx={{
@@ -373,7 +373,7 @@ export default function Bin() {
                   <Box sx={{ bg: 'darkless', borderRadius: 4, flexGrow: 1 }}>wokwi.com</Box>
                   <Icon glyph='view-reload' height={24} />
                 </Box>
-                <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/8483308cc40608e60961f7e2ec24a57dbe044108_0image.png" alt="Screenshot" />
+                <Image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/db2e4aaf432238850c889ceac14b8393982a9ec7_162_8483308cc40608e60961f7e2ec24a57dbe044108_0image.webp" alt="Screenshot" />
               </Box>
               <Flex sx={{ my: 4 }}>
                 <Box>
@@ -387,7 +387,7 @@ export default function Bin() {
                 </Box>
               </Flex>
               <Image
-                src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e4a2b4f7f36010648b7f1fd5fa3710373cb81816_0image.png"
+                src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/24e0e1fe0f51ade4a02ebff675f05e35ffba81f4_163_e4a2b4f7f36010648b7f1fd5fa3710373cb81816_0image.webp"
                 width="100%"
               />
             </Box>

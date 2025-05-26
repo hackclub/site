@@ -288,7 +288,7 @@ const My = () => {
         />
         <div sx={{ zIndex: 5, position: 'relative' }}>
           <img
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/80a8ae178edb2ce540124f4c3033ffb05429bd39_0arcade_1.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/94d650df329df96b071133d6a6a87998ac05da51_146_80a8ae178edb2ce540124f4c3033ffb05429bd39_0arcade_1.webp"
             sx={{
               width: '30%',
               maxWidth: '200px',

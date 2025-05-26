@@ -268,7 +268,7 @@ const ReplitPage = () => {
         </Text>
 
         <Image
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/19a2da199dc4ea5b55eee1f69ce814ca4a7c3b01_screenshot_2025-04-22_at_1.38.22_pm.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d4de08667aa4ec69b737c4d385c8e406eba468a0_106_19a2da199dc4ea5b55eee1f69ce814ca4a7c3b01_screenshot_2025-04-22_at_1.38.22_pm.webp"
           alt="download repl as zip instructions"
           sx={{
             width: '50%',

@@ -33,7 +33,7 @@ export default function Clubs() {
       }}
     >
       <Image
-        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/528bac13dc773bc6933669ce8482d91218467e12_05851864a.jpg"
+        src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/f39aafca52a6bd25b25e98b634feedf13896671b_39_528bac13dc773bc6933669ce8482d91218467e12_05851864a.webp"
         alt="Summer Creek Hack Club meeting, February 2020"
         sx={{
           objectFit: 'cover',

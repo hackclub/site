@@ -79,7 +79,7 @@ export default function Shop({
         as={Head}
         title="Arcade Shop"
         description="Redeem prizes at your own Arcade Shop."
-        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/3ca4843a059ea83fe92dd50c45f95a14df44e162_0frame_33__1_.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/872dafac97596ddc3e2f2d509ceeef87649e66e6_144_3ca4843a059ea83fe92dd50c45f95a14df44e162_0frame_33__1_.webp"
       />
       <style>
         {`

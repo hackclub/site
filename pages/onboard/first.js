@@ -161,9 +161,9 @@ const stickerButtonFontStylesheet = `https://fonts.googleapis.com/css2?family=${
 )}&display=swap&text=${encodeURIComponent(stickerButtonText)}`
 
 const wandImgTraced =
-  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/0073ec940f4583d13f22c17466c564816e6c1107_1trace.png'
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/8b5362925160dc6bd96e7f62aa172b06e95c118e_177_0073ec940f4583d13f22c17466c564816e6c1107_1trace.webp'
 const wandImgRendered =
-  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/dbb0bd713eed42801c3b8001679c146401a6e3ee_0transparent_pcb.png'
+  'https://hc-cdn.hel1.your-objectstorage.com/s/v3/eae61903158f8f63aef56fc6e5440c1df4227e64_178_dbb0bd713eed42801c3b8001679c146401a6e3ee_0transparent_pcb.webp'
 
 const ShipPage = () => {
   const prefersReducedMotion = usePrefersReducedMotion()
@@ -362,7 +362,7 @@ const ShipPage = () => {
         as={Head}
         name="OnBoard"
         description={`We'll pay manufacturing costs for any high schooler who designs a circuit board.`}
-        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef129c7f39c12f5ff1565a337df0698043191ed_03_card.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c468ac9305f2964a00de348d8b54b4ab3445544e_179_9ef129c7f39c12f5ff1565a337df0698043191ed_03_card.webp"
       />
 
       <style>{`
@@ -396,7 +396,7 @@ const ShipPage = () => {
           bg: '#000000',
           backgroundImage: `
 						linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-						url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/bbaf03f8a50f3f7898064780672a8fc80c06e5c0_0image.png')
+						url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/f1fa4e77e1a82a233b78b97add8e61671007df33_56_bbaf03f8a50f3f7898064780672a8fc80c06e5c0_0image.webp')
 					`,
           color: '#ffffff',
           position: 'relative'
@@ -637,7 +637,7 @@ const ShipPage = () => {
             that's cheaper than stock sensors and saves ports on their CAN.
           </Text>
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1cc3f2b5ca1edcf87e56124ef4b4f3da1ac71ea7_0purple.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9052b9bfe42c03a7aa81454bdfbd43262f6368f0_180_1cc3f2b5ca1edcf87e56124ef4b4f3da1ac71ea7_0purple.webp"
             alt="A purple arrow-shaped circuit board with the words 'maverick robotics' on it."
             sx={{
               pr: [0, null, 4, null],
@@ -728,7 +728,7 @@ const ShipPage = () => {
                   <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/24dffa727a9d5ff235f89d392aa69cf4135a348d_0spinner.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/22bc945a2627657bc01c68487f38d868b4932ed5_181_24dffa727a9d5ff235f89d392aa69cf4135a348d_0spinner.webp"
                   alt="A red circular circuit board with a graphic of white fidget spinner on it."
                   sx={{
                     maxWidth: 120,
@@ -753,7 +753,7 @@ const ShipPage = () => {
                   Read the source&nbsp;<span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/325c69ad9a2394aaae79671dbf575f94fb2c677b_0rotatesprig.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/43fa7369656710ed816f112683b4e113571bb9a3_182_325c69ad9a2394aaae79671dbf575f94fb2c677b_0rotatesprig.webp"
                   alt="A black circuit board for a game console with copper wiring."
                   sx={{
                     maxWidth: 280,
@@ -779,7 +779,7 @@ const ShipPage = () => {
                   <span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/90b74ba53cdb9cb3d1c13bcd6e613b65208ed080_0hub.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5db5e0053d8b0589875ae424b00351f5c1af464a_183_90b74ba53cdb9cb3d1c13bcd6e613b65208ed080_0hub.webp"
                   alt="A rectangular circuit board in the shape of a train car that acts as a USB type C hub."
                   sx={{
                     flex: 1,
@@ -805,7 +805,7 @@ const ShipPage = () => {
                   Learn how to make your own&nbsp;<span className="arrow">&rarr;</span>
                 </Text>
                 <Image
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/e206fe712043171f292a908f35c4e0ae8613ed85_0longhorn2.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/7e828868eeac8a0c4cdd6a66b635c62cae8484be_184_e206fe712043171f292a908f35c4e0ae8613ed85_0longhorn2.webp"
                   alt="A longhorn-shaped PCB with glowing horns."
                   sx={{
                     position: 'absolute',
@@ -953,7 +953,7 @@ const ShipPage = () => {
 
               <Tilt options={{ scale: 1 }}>
                 <Image
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/467f66601ad2976e3e0dccbeac1148f3ef9d28e6_0dinopcb.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/afe553002f01b8efda192d03a36edfdfb801193a_185_467f66601ad2976e3e0dccbeac1148f3ef9d28e6_0dinopcb.webp"
                   alt="A complex white circuit board in the shape of a cute leaping dinosaur."
                   loading="lazy"
                   sx={{
@@ -1140,7 +1140,7 @@ const ShipPage = () => {
 
       <Box sx={{ position: 'relative' }}>
         <Image
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/560afafd9bc41f5a47d74de5ed7e7398ae12a909_0flowerpcb.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/457cf8bd24ab662350cd66a2bc3231299cc283c2_186_560afafd9bc41f5a47d74de5ed7e7398ae12a909_0flowerpcb.webp"
           alt="A big image of several pink flower-shaped PCBs."
           loading="lazy"
           sx={{

@@ -109,7 +109,7 @@ export default function Philosophy() {
         as={Head}
         title="Philosophy"
         description="Read about Hack Club, a network of high school computer science clubs. We want to make building apps and websites accessible to everyone through programming clubs at every high school."
-        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9c72ffb39ac22b7f62997bc3f15582036f96fcce_0social-photo_2.jpg"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d0e00bc5c0a2d9560399081d0422bb7c36e7483a_104_9c72ffb39ac22b7f62997bc3f15582036f96fcce_0social-photo_2.webp"
       />
       <Box>
         <Header>

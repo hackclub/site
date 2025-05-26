@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Power Hour: Arcade</title>
-  <link rel="icon" type="image/x-icon" href="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6261ffb9f9b5475a826557b78120f3c6c9706097_0favicon.png">
+  <link rel="icon" type="image/x-icon" href="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1ee7479f41368d5f7affd7a2b648c2f2a7144d8b_269_6261ffb9f9b5475a826557b78120f3c6c9706097_0favicon.webp">
 
   <script>
     let muted = true
@@ -24,9 +24,9 @@
     let items = {}
 
     const containerImages = [
-      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a77898cb2a4c5ffb6089773ea8e66fafb54f57c8_0container1.png",
-      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/f38713754ab3467b74348acbba56c5eea2fbc65e_0container2.png",
-      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/f474d6a1bd4309206297c370a5e9ceb18db5a009_0container3.png",
+      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/d2a260c2a759495b543b88e8ded74d9e590a9e6a_270_a77898cb2a4c5ffb6089773ea8e66fafb54f57c8_0container1.webp",
+      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/110cf0418c440faaf84c77d16780e171fb5fbb85_271_f38713754ab3467b74348acbba56c5eea2fbc65e_0container2.webp",
+      "https://hc-cdn.hel1.your-objectstorage.com/s/v3/af9a512a4080debb7544b3789daeae923544e17e_272_f474d6a1bd4309206297c370a5e9ceb18db5a009_0container3.webp",
     ]
 
     const sample = (arr) => arr[Math.floor(Math.random() * arr.length)]
@@ -56,10 +56,10 @@
 
       function characterImage(character) {
         return {
-          "Dino": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/5c2a873209168706078cff6193b3ed108ef09147_2005.png",
-          "Raccoon": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/64297d27f5d974d9e0297ee5e958274e48f41e99_1001.png"
+          "Dino": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/9f54180d887e3b427c7d7376fdf1f4fb88108bc9_273_5c2a873209168706078cff6193b3ed108ef09147_2005.webp",
+          "Raccoon": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/349d2145708aac11feba171952432cca035d0484_274_64297d27f5d974d9e0297ee5e958274e48f41e99_1001.webp"
 
-        }[character] || "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a8bfec2afc514d82f80a725a1d6c16019d4e52cf_0image.png"
+        }[character] || "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4247ed430432be9da57e5c6bda9d6705712be536_275_a8bfec2afc514d82f80a725a1d6c16019d4e52cf_0image.webp"
       }
 
       const raccEl = document.querySelector('#shopkeeper-left')
@@ -132,7 +132,7 @@
             <image src="${inv.imageURL}" class="itemimg"></image>
             <div class="itemnumber">ITEM ${(i + 1).toString().padStart(2, '0')}</div>
             <div class="price">${inv.hours || '-'}</div>
-            <image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/5e823ffc0b6cd1de4115a97ed68b2e8b7c312eca_0energy.png" class="energy"></image>
+            <image src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/05d73a516e9389a2a6aa5f01cf627f9ceebdee07_276_5e823ffc0b6cd1de4115a97ed68b2e8b7c312eca_0energy.webp" class="energy"></image>
             `
 
           document.querySelector('.item-list').appendChild(el)
