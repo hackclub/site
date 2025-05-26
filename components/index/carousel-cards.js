@@ -10,8 +10,15 @@ export default function CarouselCards({
   title,
   description,
   img,
-  link
+  link,
+  logoPlacement // 'contained' or undefined/default
 }) {
+  const commonImageStyles = {
+    height: ['42px', '50px', '58px'],
+    width: 'auto',
+    maxWidth: ['60px', '70px', '80px', '150px'],
+    borderRadius: '5px'
+  }
   return (
     <Box
       sx={{
@@ -40,18 +47,19 @@ export default function CarouselCards({
         target="_blank"
         rel="noopener"
       >
-        <Image
-          src={img}
-          alt="carousel card"
-          sx={{
-            position: 'absolute',
-            top: ['-26px', '-30px', '-35px'],
-            left: ['10px', '12px', '15px'],
-            zIndex: 2,
-            width: ['42px', '50px', '58px'],
-            height: ['42px', '50px', '58px']
-          }}
-        />
+        {logoPlacement !== 'contained' && (
+          <Image
+            src={img}
+            alt="carousel card logo"
+            sx={{
+              ...commonImageStyles,
+              position: 'absolute',
+              top: ['-26px', '-30px', '-35px'],
+              left: ['10px', '12px', '15px'],
+              zIndex: 2
+            }}
+          />
+        )}
         <Card
           // variant="interactive"
           sx={{
@@ -69,6 +77,18 @@ export default function CarouselCards({
             height: '100%'
           }}
         >
+          {logoPlacement === 'contained' && (
+            <Image
+              src={img}
+              alt="carousel card logo"
+              sx={{
+                ...commonImageStyles,
+                position: 'relative',
+                display: 'block', // Or 'inline-block' if preferred & fits
+                mb: 2 // Margin below the contained logo
+              }}
+            />
+          )}
           <Text
             as="h3"
             sx={{ color: titleColor, fontSize: ['20px', '21px', '22px'] }}

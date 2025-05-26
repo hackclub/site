@@ -7,7 +7,7 @@ import PageVisibility from 'react-page-visibility'
 import { Fade } from 'react-reveal'
 /** @jsxImportSource theme-ui */
 
-export default function Carousel({ cards }) {
+export default function Carousel({ cards, title }) {
   let [speed, setSpeed] = useState(5)
 
   const [pageIsVisible, setPageIsVisible] = useState(true)
@@ -31,7 +31,7 @@ export default function Carousel({ cards }) {
               margin: 'auto'
             }}
           >
-            Here are a few projects you could get involved in:
+            {title}
           </Text>
           <Ticker speed={speed} sx={{ overflowX: 'hidden' }}>
             {() => (

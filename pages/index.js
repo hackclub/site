@@ -42,6 +42,11 @@ import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
+import Highway from '../components/index/cards/highway'
+import Shipwrecked from '../components/index/cards/shipwrecked'
+import Athena from '../components/index/cards/athena'
+import { format } from 'date-fns'
+import theme from '../lib/theme'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -58,7 +63,8 @@ function Page({
   gameTitle,
   events,
   carouselCards,
-  context
+  context,
+  upcomingHackathonsCarouselData
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -618,7 +624,7 @@ function Page({
             </Grid>
           </Box>
         </Box>
-        <Carousel cards={carouselCards} />
+        <Carousel cards={carouselCards} title="Here are some activities you could join!"/>
         <Box
           id="spotlight"
           as="section"
@@ -685,9 +691,13 @@ function Page({
             <Neighborhood />
             <Trail />
             <Scrapyard />
+            <Highway/>
+            <Shipwrecked/>
+            <Athena /> 
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
+        <Carousel cards={upcomingHackathonsCarouselData} title="Check out these upcoming hackathons!"/>
         <Box>
           <Box py={[4, 5, '82px']}>
             <Box
@@ -1294,6 +1304,55 @@ export async function getStaticProps() {
     console.error('Error fetching events:', error)
   }
 
+  const upcomingHackathonsCarouselData = hackathonsData.slice(0, 10).map(item => {
+    const fallbackGradient = `linear-gradient(to bottom, #333333, #000000)`; // Explicit dark gray to black fallback
+
+    let locationInfo;
+    if (item.virtual) {
+      locationInfo = 'Virtual Event'
+    } else {
+      let parts = []
+      if (item.city) parts.push(item.city)
+      if (item.state) parts.push(item.state)
+
+      if (parts.length > 0) {
+        locationInfo = parts.join(', ')
+      } else if (item.country) {
+        locationInfo = item.country // Fallback to country if city/state are not available
+      } else {
+        locationInfo = 'Event' // Generic fallback
+      }
+    }
+
+    const formattedStartDate = format(new Date(item.start), 'MMM d')
+    const formattedEndDate = format(new Date(item.end), 'MMM d')
+    let dateInfo = `Starts ${formattedStartDate}`
+
+    // Check if start and end dates are different days
+    const startDayTimestamp = new Date(item.start).setHours(0, 0, 0, 0)
+    const endDayTimestamp = new Date(item.end).setHours(0, 0, 0, 0)
+
+    if (startDayTimestamp !== endDayTimestamp) {
+      dateInfo += ` - Ends ${formattedEndDate}`
+    }
+
+    const description = `${locationInfo}. ${dateInfo}.`
+
+    return {
+      id: item.id,
+      title: item.name,
+      description: description,
+      background: item.banner // Check if banner URL exists
+        ? `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(${item.banner}), ${fallbackGradient}` // Stack: overlay, banner, then fallback gradient as safety net
+        : fallbackGradient, // If no banner URL, just use the fallback gradient
+      titleColor: 'white',
+      descriptionColor: 'white',
+      img: item.logo || 'https://assets.hackclub.com/icon-rounded.png', // Use logo for img, fallback
+      link: item.website,
+      logoPlacement: 'contained' // Add this line
+    }
+  })
+
   return {
     props: {
       game,
@@ -1305,7 +1364,8 @@ export async function getStaticProps() {
       slackData,
       stars,
       events,
-      carouselCards
+      carouselCards,
+      upcomingHackathonsCarouselData
     },
     revalidate: 60
   }
