@@ -21,6 +21,8 @@ const CardModel = ({
   delay,
   position,
   filter,
+  width,
+  height,
   ...props
 }) => (
   // <Zoom delay={delay}>
@@ -149,6 +151,8 @@ const CardModel = ({
           zIndex: 0,
           filter
         }}
+        width={width}
+        height={height}
         alt=""
       />
     )}

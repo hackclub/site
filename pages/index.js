@@ -9,14 +9,13 @@ import {
   Link,
   Text
 } from 'theme-ui'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, lazy, Suspense } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import BGImg from '../components/background-image'
 import ForceTheme from '../components/force-theme'
-import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
 import Sprig from '../components/index/cards/sprig'
@@ -32,7 +31,6 @@ import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
-import MailingList from '../components/index/cards/mailing-list'
 import Slack from '../components/index/cards/slack'
 import Icon from '../components/icon'
 import GitHub from '../components/index/github'
@@ -113,6 +111,9 @@ const cyberpunkVariants = {
     }
   }
 }
+
+const MailingList = lazy(() => import('../components/index/cards/mailing-list'));
+const Footer = lazy(() => import('../components/footer'));
 
 function Page({
   hackathonsData,
@@ -1367,30 +1368,34 @@ function Page({
               </Box>
             </>
           )}
-        <MailingList posts={happeningsPosts} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <MailingList posts={happeningsPosts} />
+        </Suspense>
       </Box >
-      <Footer
-        dark
-        brown
-        sx={{
-          backgroundColor: 'rgb(104, 39, 71)',
-          position: 'relative',
-          overflow: 'hidden',
-          textShadow: '0 1px 2px rgba(0,0,255,0.375)',
-          'h2,span,p,a': { color: '#E0E0E0 !important' },
-          '> div img': { objectPosition: ['left', 'center'] },
-          svg: {
-            fill: '#E0E0E0',
-            filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25))'
-          }
-        }}
-      >
-        <style>
-          {`a{
+      <Suspense fallback={<div>Loading footer...</div>}>
+        <Footer
+          dark
+          brown
+          sx={{
+            backgroundColor: 'rgb(104, 39, 71)',
+            position: 'relative',
+            overflow: 'hidden',
+            textShadow: '0 1px 2px rgba(0,0,255,0.375)',
+            'h2,span,p,a': { color: '#E0E0E0 !important' },
+            '> div img': { objectPosition: ['left', 'center'] },
+            svg: {
+              fill: '#E0E0E0',
+              filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25))'
+            }
+          }}
+        >
+          <style>
+            {`a{
           color: #338eda
         }`}
-        </style>
-      </Footer>
+          </style>
+        </Footer>
+      </Suspense>
     </ThemeProvider>
   )
 }
