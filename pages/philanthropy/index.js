@@ -379,7 +379,7 @@ const Philanthropy = ({ posts = [] }) => {
               color: 'white!important',
               height: '480px'
             }}
-            pt={[5, 5, '110px']}
+            pt={6}
           >
             <Box
               sx={{
