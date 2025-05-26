@@ -478,6 +478,9 @@ const HeaderCarousel = ({ images, memberCount }) => {
 };
 
 function ToolCard({ icon, name, desc, href }) {
+  const [colorMode] = useColorMode()
+  const isDark = colorMode === 'dark'
+
   return (
     <Box
       as="a"
@@ -488,12 +491,12 @@ function ToolCard({ icon, name, desc, href }) {
         width: ['30%', '100px', '140px'],
         minWidth: ['90px', '100px', '110px'],
         height: ['110px', '120px', '130px'],
-        bg: '#fff',
+        bg: isDark ? '#333' : '#fff',
         borderRadius: '12px',
-        border: '2px solid #e0e0e0',
+        border: `2px solid ${isDark ? '#444' : '#e0e0e0'}`,
         p: 2,
         textDecoration: 'none',
-        color: '#1f2d3d',
+        color: isDark ? '#eee' : '#1f2d3d',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -501,14 +504,14 @@ function ToolCard({ icon, name, desc, href }) {
         fontSize: 2,
         position: 'relative',
         textAlign: 'center',
-        transition: 'transform 0.15s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.15s, border-color 0.15s',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+        transition: 'transform 0.15s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.15s, border-color 0.15s, background-color 0.15s',
+        boxShadow: isDark ? '0 2px 8px rgba(0,0,0,0.2)' : '0 2px 8px rgba(0,0,0,0.05)',
         '&:hover, &:focus': {
           transform: 'translateY(-5px) rotate(-2deg)',
-          boxShadow: '0 8px 16px rgba(0,0,0,0.1)',
-          borderColor: '#c0392b',
+          boxShadow: isDark ? '0 8px 16px rgba(0,0,0,0.3)' : '0 8px 16px rgba(0,0,0,0.1)',
+          borderColor: isDark ? '#555' : '#c0392b',
           outline: 'none',
-          bg: '#fff9f9'
+          bg: isDark ? '#444' : '#fff9f9'
         }
       }}
     >
@@ -517,7 +520,7 @@ function ToolCard({ icon, name, desc, href }) {
           width: '46px',
           height: '46px',
           borderRadius: '12px',
-          bg: 'rgba(236, 55, 80, 0.08)',
+          bg: isDark ? 'rgba(236, 55, 80, 0.15)' : 'rgba(236, 55, 80, 0.08)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -526,14 +529,14 @@ function ToolCard({ icon, name, desc, href }) {
           transition: 'transform 0.2s ease-out, background-color 0.2s ease-out',
           '&:hover': {
             transform: 'scale(1.1) rotate(10deg)',
-            bg: 'rgba(236, 55, 80, 0.15)'
+            bg: isDark ? 'rgba(236, 55, 80, 0.25)' : 'rgba(236, 55, 80, 0.15)'
           }
         }}
       >
         <Icon glyph={icon} size={28} />
       </Box>
-      <Text sx={{ fontWeight: 800, fontSize: 1, mb: '1px', lineHeight: 1.25 }}>{name}</Text>
-      <Text sx={{ fontSize: 0, color: '#718096', lineHeight: 1.25 }}>{desc}</Text>
+      <Text sx={{ fontWeight: 800, fontSize: 1, mb: '1px', lineHeight: 1.25, color: isDark ? '#eee' : 'inherit' }}>{name}</Text>
+      <Text sx={{ fontSize: 0, color: isDark ? '#888' : '#718096', lineHeight: 1.25 }}>{desc}</Text>
     </Box>
   )
 }
@@ -1209,17 +1212,32 @@ function Page({
           id="spotlight"
           as="section"
           sx={{
+            // Remove transitions from background-image
             backgroundImage: isDark 
-              ? `linear-gradient(rgba(17, 17, 17, 0.7), rgba(17, 17, 17, 0.7)),
-                url('https://icons.hackclub.com/api/icons/0x444/glyph:rep.svg')`
-              : `linear-gradient(rgba(249, 250, 252, 0.7), rgba(249, 250, 252, 0.7)),
-                url('https://icons.hackclub.com/api/icons/0x8492a6/glyph:rep.svg')`,
-            backgroundSize: '40px 40px',
-            backgroundRepeat: 'repeat',
+              ? `linear-gradient(rgba(17, 17, 17, 0.9), rgba(17, 17, 17, 0.9))`
+              : `linear-gradient(rgba(249, 250, 252, 0.9), rgba(249, 250, 252, 0.9))`,
             position: 'relative',
             marginBottom: [4, 5, 6],
+            // Add background color with quick transition
+            bg: isDark ? '#111' : 'snow',
+            transition: 'background-color 0.2s ease-in-out'
           }}
         >
+          <Box
+            as="div"
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundImage: `url('https://icons.hackclub.com/api/icons/${isDark ? '0x444' : '0x8492a6'}/glyph:rep.svg')`,
+              backgroundSize: '40px 40px',
+              backgroundRepeat: 'repeat',
+              opacity: 0.1,
+              transition: 'opacity 0.2s ease-in-out'
+            }}
+          />
           <Box
             ref={spotlightRef}
             sx={{
@@ -1229,8 +1247,9 @@ function Page({
               left: 0,
               right: 0,
               bottom: 0,
-              bg: isDark ? '#111' : 'snow',
-              pointerEvents: 'none'
+              bg: isDark ? 'rgba(17,17,17,0.92)' : 'rgba(249,250,252,0.9)',
+              pointerEvents: 'none',
+              transition: 'background-color 0.2s ease-in-out'
             }}
           />
           <Box
@@ -1667,11 +1686,58 @@ function Page({
                       textAlign: 'center',
                       fontWeight: 900,
                       textShadow: '0 2px 4px rgba(0,0,0,0.2)',
-                      maxWidth: '20ch',
+                      maxWidth: '24ch',
                       mx: 'auto'
                     }}
                   >
-                    We build{' '}
+                    Together, we{' '}
+                    <Box
+                      sx={{
+                        position: 'relative',
+                        display: 'inline-block',
+                        width: 'fit-content'
+                      }}
+                    >
+                      <Text
+                        as="span"
+                        sx={{
+                          position: 'relative',
+                          '&::after': {
+                            content: '""',
+                            position: 'absolute',
+                            left: 0,
+                            top: '50%',
+                            width: '100%',
+                            height: '4px',
+                            background: 'red',
+                            borderRadius: '4px',
+                            transform: 'rotate(-5deg)',
+                            opacity: 0.8,
+                            zIndex: 2
+                          }
+                        }}
+                      >
+                       write software
+                      </Text>
+                      <Text
+                        as="span"
+                        sx={{
+                          position: 'absolute',
+                          top: '-15px',
+                          left: '-5px',
+                          transform: 'rotate(-8deg)',
+                          fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                          fontSize: ['16px', '18px', '24px'],
+                          color: 'red',
+                          fontWeight: 'bold',
+                          textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                          zIndex: 3,
+                        }}
+                      >
+                        build awesome stuff
+                      </Text>
+                    </Box>{' '}
+                     as an{' '}
                     <Text
                       as="span"
                       sx={{
@@ -1683,7 +1749,7 @@ function Page({
                     >
                       open source
                     </Text>{' '}
-                    games and tools together
+                    community
                   </Text>
 
                   <Text
@@ -2079,11 +2145,61 @@ function Page({
                     fontWeight: 'bold',
                     color: isDark ? '#eee' : '#513f31',
                     mb: 3,
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    position: 'relative',
+                    display: 'inline-block',
+                    width: '100%'
                   }}
                 >
                   <Icon glyph="bank-account" size={24} sx={{ mr: 2, verticalAlign: 'middle' }} />
-                  Get your project funded
+                                       Get your project{' '}
+
+                  <Box
+                    sx={{
+                      position: 'relative',
+                      display: 'inline-block',
+                      width: 'fit-content'
+                    }}
+                  >
+                    <Text
+                      as="span"
+                      sx={{
+                        position: 'relative',
+                        '&::after': {
+                          content: '""',
+                          position: 'absolute',
+                          left: 0,
+                          top: '50%',
+                          width: '100%',
+                          height: '4px',
+                          background: 'red',
+                          borderRadius: '4px',
+                          transform: 'rotate(-5deg)',
+                          opacity: 0.8,
+                          zIndex: 2
+                        }
+                      }}
+                    >
+                      funded
+                    </Text>
+                    <Text
+                      as="span"
+                      sx={{
+                        position: 'absolute',
+                        top: '-15px',
+                        left: '0px',
+                        transform: 'rotate(-8deg)',
+                        fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                        fontSize: ['14px', '16px', '20px'],
+                        color: 'red',
+                        fontWeight: 'bold',
+                        textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                        zIndex: 3,
+                      }}
+                    >
+                      bankrolled
+                    </Text>
+                  </Box>
                 </Text>
                 <HCB data={bankData} />
               </Box>
@@ -2147,7 +2263,7 @@ function Page({
                       }
                     }}
                   >
-                    success
+                    fulfillment
                   </Text>
                   <Text
                     as="span"
@@ -2164,7 +2280,7 @@ function Page({
                       zIndex: 3,
                     }}
                   >
-                    your purpose
+                    your crowd
                   </Text>
                 </Box>{' '}
                 at Hack Club
@@ -2423,19 +2539,8 @@ function Page({
       </Box>
 
       <Footer
-        dark
-        sx={{
-          backgroundColor: 'dark',
-          position: 'relative',
-          overflow: 'hidden',
-          textShadow: '0 1px 2px rgba(0,0,0,0.375)',
-          'h2,span,p,a': { color: 'white !important' },
-          '> div img': { objectPosition: ['left', 'center'] },
-          svg: {
-            fill: 'white',
-            filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
-          }
-        }}
+      dark={isDark}
+       
       >
         <style>
           {`a{

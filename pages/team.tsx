@@ -10,7 +10,7 @@ import { fetchTeam } from './api/team'
 const CommunityTeamBox = ({ title, children }) => {
   return (
     <Box
-      bg="rgb(247 225 255)"
+      bg="rgba(247, 225, 255, 0.5)"
       sx={{
         borderRadius: 'default',
         boxShadow: 'default',
@@ -43,7 +43,7 @@ export default function Team({ team }) {
   return (
     <>
       <Box as="main" key="main">
-        <ForceTheme theme="light" />
+        {/* // <ForceTheme theme="dark" /> */}
         {/* @ts-expect-error -- TODO: fix this */}
         <Nav />
         <Meta
@@ -63,7 +63,7 @@ export default function Team({ team }) {
           }}
         >
           <Container>
-            <Text variant="ultratitle" color="snow">
+            <Text variant="ultratitle" color="white">
               By the students,
               <br /> for the students.
             </Text>
@@ -71,7 +71,7 @@ export default function Team({ team }) {
             <Text
               as="div"
               variant="lead"
-              color="smoke"
+              color="white"
               sx={{ maxWidth: '650px' }}
             >
               We believe in a world where every young person is empowered to be
@@ -80,7 +80,7 @@ export default function Team({ team }) {
             </Text>
           </Container>
         </Box>
-        <Box bg="#f9f9fa" py={4}>
+        <Box bg="snow" py={4}>
           <Container>
             <Flex
               sx={{
@@ -362,7 +362,7 @@ export default function Team({ team }) {
           </Container>
         </Box>
       </Box>
-      <Footer light key="footer" />
+      <Footer key="footer" />
     </>
   )
 }

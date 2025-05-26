@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Box, Container, Image, Grid, Heading, Link, Text } from 'theme-ui'
+import { Box, Container, Image, Grid, Heading, Link, Text, useColorMode } from 'theme-ui'
 import NextLink from 'next/link'
 import theme from '@hackclub/theme'
 import Icon from './icon'
@@ -66,11 +66,11 @@ const Service = ({ href, icon, name = '', ...props }) => (
       color: '#ec3750 !important',
       '&:hover, &:focus': {
         transform: 'translateY(-5px) rotate(-7deg) !important',
-        bg: 'rgba(236, 55, 80, 0.2)', 
-        boxShadow: '0 8px 16px rgba(0,0,0,0.15)', 
-        color: '#d21b34 !important', 
+        bg: 'rgba(236, 55, 80, 0.2)',
+        boxShadow: '0 8px 16px rgba(0,0,0,0.15)',
+        color: '#d21b34 !important',
         textDecoration: 'none !important',
-        border: '1px solid rgba(236, 55, 80, 0.5)' 
+        border: '1px solid rgba(236, 55, 80, 0.5)'
       }
     }}
     {...props}
@@ -95,18 +95,20 @@ const FooterHeading = styled(Heading)`
 `
 
 const FooterLink = ({ href, children, internal = false, ...props }) => {
-  const LinkComponent = internal ? 
+  const LinkComponent = internal ?
     ({ children, ...props }) => (
       <NextLink href={href} passHref>
         <Link {...props}>{children}</Link>
       </NextLink>
-    ) : 
+    ) :
     ({ children, ...props }) => (
       <Link href={href} target="_blank" rel="noopener" {...props}>
         {children}
       </Link>
     )
-  
+
+  const { 0: mode } = useColorMode ? useColorMode() : ['light']
+  const isDark = mode === 'dark'
   return (
     <LinkComponent
       sx={{
@@ -116,10 +118,10 @@ const FooterLink = ({ href, children, internal = false, ...props }) => {
         display: 'inline-block',
         transition: 'all 0.15s cubic-bezier(.68,-0.55,.27,1.55)',
         fontWeight: 600,
-        color: '#513f31 !important',
+        color: `${isDark ? 'white' : '#513f31'} !important`,
         '&:hover, &:focus': {
-          bg: '#f3ede2',
-          color: 'black !important',
+          bg: isDark ? 'rgba(255,255,255,0.08)' : '#f3ede2',
+          color: `${isDark ? 'white' : '#513f31'} !important`,
           transform: 'translateX(4px) rotate(-1deg)',
           textDecoration: 'none !important',
           boxShadow: '0 3px 8px rgba(0,0,0,0.0625)'
@@ -132,165 +134,178 @@ const FooterLink = ({ href, children, internal = false, ...props }) => {
   )
 }
 
-const Footer = ({
-  dark = false,
+function Footer({
   email = 'team@hackclub.com',
   children = undefined,
   ...props
-}) => (
-  <Base
-    color={dark ? 'muted' : '#513f31'}
-    py={[4, 5]}
-    dark={dark}
-    sx={{ textAlign: 'left' }}
-    as="footer"
-    {...props}
-  >
-    <Container px={[3, null, 4]}>
-      {children}
-      <Grid
-        as="article"
-        gap={[3, 4]}
-        columns={[1, 3, 4]}
-        sx={{
-          px: 0,
-          'h2,p': { color: dark ? 'white' : '#513f31' },
-          h2: { fontSize: 3, mb: 3 },
-          'a,p': { fontSize: 2 }
-        }}
-      >
-        <Box>
-          <FooterHeading as="h2" variant="subheadline">
-            Hack&nbsp;Club
-          </FooterHeading>
-          
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-            <FooterLink href="/philosophy" internal>Philosophy</FooterLink>
-            <FooterLink href="/team" internal>Our Team & Board</FooterLink>
-            <FooterLink href="/jobs" internal>Jobs</FooterLink>
-            <FooterLink href="/brand" internal>Branding</FooterLink>
-            <FooterLink href="/press" internal>Press Inquiries</FooterLink>
-            <FooterLink href="/philanthropy" internal>Donate</FooterLink>
+}) {
+  const colorMode = useColorMode()
+  return (
+    <Base
+      color={colorMode[0] === 'dark' ? 'muted' : '#513f31'}
+      py={[4, 5]}
+      dark={colorMode[0] === 'dark'} sx={colorMode[0] === 'dark' ? {
+        backgroundColor: 'dark',
+        position: 'relative',
+        overflow: 'hidden',
+        textShadow: '0 1px 2px rgba(0,0,0,0.375)',
+        'h2,span,p,a': { color: 'white !important' },
+        '> div img': { objectPosition: ['left', 'center'] },
+        svg: {
+          fill: 'white',
+          filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
+        },
+        textAlign: 'left'
+      } : { textAlign: 'left' }}
+      as="footer"
+      {...props}
+    >
+      <Container px={[3, null, 4]}>
+        {children}
+        <Grid
+          as="article"
+          gap={[3, 4]}
+          columns={[1, 3, 4]}
+          sx={{
+            px: 0,
+            'h2,p': { color: colorMode[0] === 'dark' ? 'white' : '#513f31' },
+            h2: { fontSize: 3, mb: 3 },
+            'a,p': { fontSize: 2 }
+          }}
+        >
+          <Box>
+            <FooterHeading as="h2" variant="subheadline">
+              Hack&nbsp;Club
+            </FooterHeading>
+
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+              <FooterLink href="/philosophy" internal>Philosophy</FooterLink>
+              <FooterLink href="/team" internal>Our Team & Board</FooterLink>
+              <FooterLink href="/jobs" internal>Jobs</FooterLink>
+              <FooterLink href="/brand" internal>Branding</FooterLink>
+              <FooterLink href="/press" internal>Press Inquiries</FooterLink>
+              <FooterLink href="/philanthropy" internal>Donate</FooterLink>
+            </Box>
           </Box>
-        </Box>
-        <Box>
-          <FooterHeading as="h2" variant="subheadline">
-            Resources
-          </FooterHeading>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-            <FooterLink href="https://events.hackclub.com/">Community Events</FooterLink>
-            <FooterLink href="https://jams.hackclub.com/">Jams</FooterLink>
-            <FooterLink href="https://toolbox.hackclub.com/">Toolbox</FooterLink>
-            <FooterLink href="https://directory.hackclub.com/">Clubs Directory</FooterLink>
-            <FooterLink href="https://hackclub.com/conduct/" internal>Code of Conduct</FooterLink>
+          <Box>
+            <FooterHeading as="h2" variant="subheadline">
+              Resources
+            </FooterHeading>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+              <FooterLink href="https://events.hackclub.com/">Community Events</FooterLink>
+              <FooterLink href="https://jams.hackclub.com/">Jams</FooterLink>
+              <FooterLink href="https://toolbox.hackclub.com/">Toolbox</FooterLink>
+              <FooterLink href="https://directory.hackclub.com/">Clubs Directory</FooterLink>
+              <FooterLink href="https://hackclub.com/conduct/" internal>Code of Conduct</FooterLink>
+            </Box>
           </Box>
-        </Box>
-        <Box sx={{ gridColumn: ['span 1', 'span 1'] }}> 
-          <Logo 
-            aria-label="Hack Club logo" 
-            width={128} 
-            height={45} 
-            style={{ 
-              transform: 'rotate(-2deg)',
-              filter: dark ? 'brightness(1.2)' : 'none',
-              fill: dark ? '#ffffff' : '#513f31'
-            }} 
-          />
-          <Grid
-            columns={4} 
-            gap={2}
-            sx={{
-              alignItems: 'center',
-              my: 3,
-              maxWidth: '100%',
-              placeItems: 'start'
-            }}
-          >
-            <Service
-              href="/slack"
-              icon="slack-fill"
-              name="Slack"
-              target="_self"
+          <Box sx={{ gridColumn: ['span 1', 'span 1'] }}>
+            <Logo
+              aria-label="Hack Club logo"
+              width={128}
+              height={45}
+              style={{
+                transform: 'rotate(-2deg)',
+                filter: colorMode[0] === 'dark' ? 'brightness(1.2)' : 'none',
+                fill: colorMode[0] === 'dark' ? '#ffffff' : '#513f31'
+              }}
             />
-            <Service
-              href="https://twitter.com/hackclub"
-              icon="twitter"
-              name="Twitter"
-            />
-            <Service
-              href="https://github.com/hackclub"
-              icon="github"
-              name="GitHub"
-            />
-            <Service
-              href="https://figma.com/@hackclub"
-              icon="figma-fill"
-              name="Figma"
-            />
-            <Service
-              href="https://social.dino.icu/@hackclub"
-              icon="mastodon"
-              name="Mastodon"
-            />
-            <Service
-              href="https://www.youtube.com/c/HackClubHQ"
-              icon="youtube"
-              name="YouTube"
-            />
-            <Service
-              href="https://www.instagram.com/starthackclub"
-              icon="instagram"
-              name="Instagram"
-            />
-            <Service href={`mailto:${email}`} icon="email-fill" name="Email" />
-          </Grid>
-          <Box 
-            sx={{
-              my: 2,
-              p: 2, 
-              borderRadius: '8px',
-              border: '2px dashed #e4d6c3',
-              display: 'inline-block',
-              bg: 'rgba(236, 55, 80, 0.04)'
-            }}
-          >
-            <Link 
-              href="tel:1-855-625-HACK"
-              sx={{ 
-                fontWeight: 'bold', 
-                color: '#513f31 !important',
-                fontSize: 2,
-                textDecoration: 'none !important',
-                '&:hover': {
-                  textDecoration: 'underline !important'
-                }
+            <Grid
+              columns={4}
+              gap={2}
+              sx={{
+                alignItems: 'center',
+                my: 3,
+                maxWidth: '100%',
+                placeItems: 'start'
               }}
             >
-              1-855-625-HACK
-            </Link>
-            <br />
-            <Text as="span" color={dark ? 'muted' : '#7a6e5d'} sx={{ fontSize: 1 }}>
-              (call toll-free)
-            </Text>
+              <Service
+                href="/slack"
+                icon="slack-fill"
+                name="Slack"
+                target="_self"
+              />
+              <Service
+                href="https://twitter.com/hackclub"
+                icon="twitter"
+                name="Twitter"
+              />
+              <Service
+                href="https://github.com/hackclub"
+                icon="github"
+                name="GitHub"
+              />
+              <Service
+                href="https://figma.com/@hackclub"
+                icon="figma-fill"
+                name="Figma"
+              />
+              <Service
+                href="https://social.dino.icu/@hackclub"
+                icon="mastodon"
+                name="Mastodon"
+              />
+              <Service
+                href="https://www.youtube.com/c/HackClubHQ"
+                icon="youtube"
+                name="YouTube"
+              />
+              <Service
+                href="https://www.instagram.com/starthackclub"
+                icon="instagram"
+                name="Instagram"
+              />
+              <Service href={`mailto:${email}`} icon="email-fill" name="Email" />
+            </Grid>
+            <Box
+              sx={{
+                my: 2,
+                p: 2,
+                borderRadius: '8px',
+                border: '2px dashed #e4d6c3',
+                display: 'inline-block',
+                bg: 'rgba(236, 55, 80, 0.04)'
+              }}
+            >
+              <Link
+                href="tel:1-855-625-HACK"
+                sx={{
+                  fontWeight: 'bold',
+                  color: '#513f31 !important',
+                  fontSize: 2,
+                  textDecoration: 'none !important',
+                  '&:hover': {
+                    textDecoration: 'underline !important'
+                  }
+                }}
+              >
+                1-855-625-HACK
+              </Link>
+              <br />
+              <Text as="span" color={colorMode[0] === 'dark' ? 'muted' : '#7a6e5d'} sx={{ fontSize: 1 }}>
+                (call toll-free)
+              </Text>
+            </Box>
           </Box>
-        </Box>
-      </Grid>
-      <Text 
-        as="p" 
-        sx={{ 
-          mt: 4, 
-          pt: 3, 
-          borderTop: '2px solid #e4d6c3', 
-          fontSize: 1,
-          color: dark ? 'muted' : '#7a6e5d',
-          fontFamily: "'Comic Sans MS', cursive, sans-serif", 
-          textAlign: 'center' 
-        }}
-      >
-        © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN: 81-2908499)
-      </Text>
-    </Container>
-  </Base>
-)
+        </Grid>
+        <Text
+          as="p"
+          sx={{
+            mt: 4,
+            pt: 3,
+            borderTop: '2px solid #e4d6c3',
+            fontSize: 1,
+            color: colorMode[0] === 'dark' ? 'muted' : '#7a6e5d',
+            fontFamily: "'Comic Sans MS', cursive, sans-serif",
+            textAlign: 'center'
+          }}
+        >
+          © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN: 81-2908499)
+        </Text>
+      </Container>
+    </Base>
+  )
+}
 
 export default Footer

@@ -31,7 +31,7 @@ export default function GitHub({
  
         gap: 2,
         height: '2rem',
-        width: ['fit-content', null, null, '100%'],
+        width: ['100%'],
         minWidth: 0,
         display: 'flex',
         alignItems: 'center',

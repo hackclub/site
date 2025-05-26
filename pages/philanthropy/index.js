@@ -316,7 +316,6 @@ const Philanthropy = ({ posts = [] }) => {
         description="Support Hack Club"
         image="https://workshop-cards.hackclub.com/Philanthropy.png?theme=light&md=1&fontSize=250px&caption=&images="
       />
-      <ForceTheme theme="light" />
       <Nav color="white" />
       <Box sx={{ overflowX: 'hidden' }}>
         {/* <Box

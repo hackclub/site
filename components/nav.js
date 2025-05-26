@@ -248,29 +248,38 @@ const DropdownWrapper = styled(Box)`
 `
 
 const Navigation = props => {
+  const [colorMode, setColorMode] = useColorMode()
+  const [mounted, setMounted] = useState(false)
+  const [openMenus, setOpenMenus] = useState({})
+
+  // Simplified toggle - just light/dark, no system
+  const toggleColorMode = () => {
+    const nextMode = colorMode === 'dark' ? 'light' : 'dark'
+    setColorMode(nextMode)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme-ui-color-mode', nextMode)
+      document.documentElement.setAttribute('data-theme', nextMode)
+    }
+  }
+
+  // Initial theme setup
+  useEffect(() => {
+    setMounted(true)
+    const savedMode = localStorage.getItem('theme-ui-color-mode') || 'light'
+    setColorMode(savedMode)
+    document.documentElement.setAttribute('data-theme', savedMode)
+  }, [])
+
+  if (!mounted) return null
+
+  const isDark = colorMode === 'dark'
+
+  // Remove system theme related code
+  const showReset = false // Remove reset button completely
+
   const showSocial =
     true
 
-  const [openMenus, setOpenMenus] = useState({})
-  const [colorMode, setColorMode] = useColorMode()
-  const [systemPreference, setSystemPreference] = useState('light')
-
-  useEffect(() => {
-    const checkSystemPreference = () => {
-      if (typeof window !== 'undefined' && window.matchMedia) {
-        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-        setSystemPreference(isDarkMode ? 'dark' : 'light')
-      }
-    }
-    
-    checkSystemPreference()
-    
-    if (typeof window !== 'undefined' && window.matchMedia) {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-      mediaQuery.addEventListener('change', checkSystemPreference)
-      return () => mediaQuery.removeEventListener('change', checkSystemPreference)
-    }
-  }, [])
 
   const handleToggleMenu = key => {
     setOpenMenus(m => ({
@@ -279,13 +288,8 @@ const Navigation = props => {
     }))
   }
 
-  const cycleColorMode = () => {
-    const nextMode = colorMode === 'dark' ? 'light' : 'dark'
-    setColorMode(nextMode)
-  }
 
-  const actualColorMode = colorMode === 'system' ? systemPreference : colorMode
-  const isDarkMode = actualColorMode === 'dark'
+
 
   const renderDropdown = (label, key, links) => {
     if (props.isMobile) {
@@ -306,9 +310,9 @@ const Navigation = props => {
               alignItems: 'center',
               justifyContent: 'space-between',
               cursor: 'pointer',
-              color: isDarkMode ? '#fff' : '#334E68',
+              color: isDark ? '#fff' : '#334E68',
               borderRadius: '0.5rem',
-              background: isDarkMode ? 'rgba(255,255,255,0.1)' : '#f3ede244'
+              background: isDark ? 'rgba(255,255,255,0.1)' : '#f3ede244'
             }}
           >
             {label}
@@ -318,7 +322,7 @@ const Navigation = props => {
               style={{
                 transform: openMenus[key] ? 'rotate(180deg)' : 'none',
                 transition: 'transform 0.2s',
-                color: isDarkMode ? '#fff' : 'inherit'
+                color: isDark ? '#fff' : 'inherit'
               }}
             />
           </button>
@@ -332,7 +336,7 @@ const Navigation = props => {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2,
-                borderLeft: isDarkMode ? '3px solid #555' : '3px solid #e4d6c3',
+                borderLeft: isDark ? '3px solid #555' : '3px solid #e4d6c3',
                 ml: 2
               }}
             >
@@ -344,11 +348,11 @@ const Navigation = props => {
                       fontSize: "1rem !important", 
                       fontWeight: 700, 
                       pl: 2,
-                      color: isDarkMode ? '#ddd !important' : 'inherit',
+                      color: isDark ? '#ddd !important' : 'inherit',
                       '&:hover, &:focus': {
-                        background: isDarkMode ? '#444 !important' : '#f3ede2 !important',
-                        color: isDarkMode ? 'white !important' : '#111 !important',
-                        borderRadius: '50%'
+                        background: isDark ? '#444 !important' : '#f3ede2 !important',
+                        color: isDark ? 'white !important' : '#111 !important',
+                       
                       }
                     }}>
                     {label}
@@ -360,11 +364,10 @@ const Navigation = props => {
                       fontSize: "1rem !important", 
                       fontWeight: 700, 
                       pl: 2,
-                      color: isDarkMode ? '#ddd !important' : 'inherit',
+                      color: isDark ? '#ddd !important' : 'inherit',
                       '&:hover, &:focus': {
-                        background: isDarkMode ? '#444 !important' : '#f3ede2 !important',
-                        color: isDarkMode ? 'white !important' : '#111 !important',
-                        borderRadius: '50%'
+                        background: isDark ? '#444 !important' : '#f3ede2 !important',
+                        color: isDark ? 'white !important' : '#111 !important',
                       }
                     }}>{label}</Link>
                   </NextLink>
@@ -395,11 +398,11 @@ const Navigation = props => {
             style={{ 
               marginLeft: 4, 
               marginBottom: -2,
-              color: isDarkMode ? '#fff' : 'inherit'
+              color: isDark ? '#fff' : 'inherit'
             }} 
           />
         </span>
-        <DropdownMenu className="dropdown-menu" theme={{ isDark: isDarkMode }}>
+        <DropdownMenu className="dropdown-menu" theme={{ isDark: isDark }}>
           {links.map(({ href, label }, i) =>
             href.startsWith('http') ? (
               <Link 
@@ -438,7 +441,7 @@ const Navigation = props => {
         <NavBar
           role="navigation"
           {...props}
-          dark={isDarkMode}
+          dark={isDark}
           sx={{
             justifyContent: 'center !important',
             width: '100%',
@@ -448,14 +451,14 @@ const Navigation = props => {
             alignItems: props.isMobile ? 'flex-start' : 'center',
             mb: props.isMobile ? [6, 6, 2] : 0,
             a: {
-              color: isDarkMode ? 'white !important' : undefined,
+              color: isDark ? 'white !important' : undefined,
             },
             '.nav-btn': {
-              color: isDarkMode ? 'white !important' : undefined,
+              color: isDark ? 'white !important' : undefined,
             },
             button: {
-              color: isDarkMode ? 'white' : undefined,
-              background: isDarkMode ? 'rgba(255,255,255,0.1)' : '#f3ede244',
+              color: isDark ? 'white' : undefined,
+              background: isDark ? 'rgba(255,255,255,0.1)' : '#f3ede244',
             }
           }}
         >
@@ -502,40 +505,40 @@ const Navigation = props => {
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ 
-                  color: isDarkMode ? '#fff' : '#222', 
+                  color: isDark ? '#fff' : '#222', 
                   p: 2, 
                   display: 'flex', 
                   alignItems: 'center' 
                 }}
                 aria-label="GitHub"
               >
-                <Icon glyph="github" size={28} style={{ color: isDarkMode ? '#fff' : '#222' }} />
+                <Icon glyph="github" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
               </Link>
               <Link
                 href="https://youtube.com/hackclub"
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{ 
-                  color: isDarkMode ? '#fff' : '#222', 
+                  color: isDark ? '#fff' : '#222', 
                   p: 2, 
                   display: 'flex', 
                   alignItems: 'center' 
                 }}
                 aria-label="YouTube"
               >
-                <Icon glyph="youtube" size={28} style={{ color: isDarkMode ? '#fff' : '#222' }} />
+                <Icon glyph="youtube" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
               </Link>
               <Link
                 href="/slack"
                 sx={{ 
-                  color: isDarkMode ? '#fff' : '#222', 
+                  color: isDark ? '#fff' : '#222', 
                   p: 2, 
                   display: ['flex', 'flex', 'flex'], 
                   alignItems: 'center' 
                 }}
                 aria-label="Slack"
               >
-                <Icon glyph="slack" size={28} style={{ color: isDarkMode ? '#fff' : '#222' }} />
+                <Icon glyph="slack" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
               </Link>
               
               {(props.toggled || props.isMobile) && (
@@ -544,76 +547,88 @@ const Navigation = props => {
                     href="https://x.com/hackclub"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: isDarkMode ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
                     aria-label="Twitter"
                   >
-                    <Icon glyph="twitter" size={28} style={{ color: isDarkMode ? '#fff' : '#222' }} />
+                    <Icon glyph="twitter" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
                   </Link>
                   <Link
                     href="https://instagram.com/starthackclub"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: isDarkMode ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
                     aria-label="Instagram"
                   >
-                    <Icon glyph="instagram" size={28} style={{ color: isDarkMode ? '#fff' : '#222' }} />
+                    <Icon glyph="instagram" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
                   </Link>
                   <Link
                     href="https://social.dino.icu/@hackclub"
                     target="_blank"
                     rel="me noopener noreferrer"
-                    sx={{ color: isDarkMode ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
                     aria-label="Mastodon"
                   >
-                    <Icon glyph="mastodon" size={28} style={{ color: isDarkMode ? '#fff' : '#222' }} />
+                    <Icon glyph="mastodon" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
                   </Link>
                   <Link
                     href="mailto:team@hackclub.com"
-                    sx={{ color: isDarkMode ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
                     aria-label="Email"
                   >
-                    <Icon glyph="email" size={28} style={{ color: isDarkMode ? '#fff' : '#222' }} />
+                    <Icon glyph="email" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
                   </Link>
 
                   <Link
                     href="https://www.figma.com/@hackclub"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: isDarkMode ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
                     aria-label="Figma"
                   >
-                    <Icon glyph="figma" size={28} style={{ color: isDarkMode ? '#fff' : '#222' }} />
+                    <Icon glyph="figma" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
                   </Link>
                   <Link
                     href="https://ysws.hackclub.com/feed.xml"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: isDarkMode ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
                     aria-label="YSWS RSS"
                   >
-                    <Icon glyph="rss" size={28} style={{ color: isDarkMode ? '#fff' : '#222' }} />
+                    <Icon glyph="rss" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
                   </Link>
                 </>
               )}
             </>
           )}
             <ThemeToggle
-            onClick={cycleColorMode}
-            title={`Current theme: ${colorMode}. Click to switch to ${colorMode === 'dark' ? 'light' : 'dark'} mode.`}
+            onClick={toggleColorMode}
+            title={`Current theme: ${colorMode}. Click to switch.`}
             aria-label="Toggle theme"
             sx={{
               ml: 4,
+              position: 'relative', // Add this for positioning the reset button
             }}
-            isDark={isDarkMode}
+            isDark={isDark}
           >
-            <ThemeIcon
-              
-              isDark={isDarkMode}
-            >
+            {showReset && (
+              <ResetButton
+                onClick={resetToSystemTheme}
+                title="Reset to system theme"
+                aria-label="Reset to system theme"
+                theme={{ isDark: isDark }}
+              >
+                <Icon
+                  glyph="view-reload"
+                  size={18}
+                  color={isDark ? '#fff' : '#222'}
+                />
+              </ResetButton>
+            )}
+            <ThemeIcon isDark={isDark}>
               <Icon 
-                glyph={isDarkMode ? 'view' : 'view-fill'} 
+                glyph={isDark ? "view" : "view-fill"} 
                 size={32} 
-                color={isDarkMode ? '#fff' : '#222'}
+                color={isDark ? '#fff' : '#222'}
                 className="icon"
               />
             </ThemeIcon>
@@ -775,6 +790,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       toggled={toggled}
       dark={isDarkMode}
       as="header"
+      sx={toggled ? {borderRadius: '2.75rem 2.75rem 0 0 !important'} : {borderRadius: '2.75rem'}}
       theme={{ isDark: isDarkMode }}
     >
       <Content>
@@ -874,5 +890,37 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
 Header.defaultProps = {
   color: 'white'
 }
+
+const ResetButton = styled.button`
+  position: absolute;
+  top: 28px;
+  left: -6px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${props => props.theme.isDark ? '#444' : '#f3ede2'};
+  border: 2px solid ${props => props.theme.isDark ? '#666' : '#e4d6c3'};
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: ${props => props.theme.isDark 
+    ? '0 2px 4px rgba(0,0,0,0.3)' 
+    : '0 2px 4px rgba(0,0,0,0.1)'};
+  transition: all 0.2s cubic-bezier(.68,-0.55,.27,1.55);
+  
+  &:hover, &:focus {
+    transform: scale(1.2) rotate(-45deg);
+    background: ${props => props.theme.isDark 
+      ? '#555' 
+      : '#fff'};
+    box-shadow: ${props => props.theme.isDark 
+      ? '0 3px 6px rgba(0,0,0,0.4)' 
+      : '0 3px 6px rgba(0,0,0,0.15)'};
+    outline: none;
+  }
+`
 
 export default Header

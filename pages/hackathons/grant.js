@@ -1,7 +1,6 @@
 import { Box, Container, Flex, Grid, Heading } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import MSparkles from '../../components/sparkles/money'
@@ -67,7 +66,6 @@ const HackathonGrant = () => {
       <style>{styles}</style>
       <Box as="main" key="main">
         <Nav dark />
-        <ForceTheme theme="dark" />
         <Meta as={Head} title="Hackathon Grant" />
         <Box
           sx={{
@@ -435,7 +433,7 @@ const HackathonGrant = () => {
           </Text>
         </Card>
       </Zoom>
-      <Footer dark key="footer" />
+      <Footer key="footer" />
     </>
   )
 }
