@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { keyframes } from '@emotion/react';
 import { Text, Box, Button, Heading } from 'theme-ui';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Comma from './comma';
 
 const riseIn = keyframes`
@@ -15,8 +15,19 @@ const riseIn = keyframes`
   }
 `;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
 const Landing = () => {
   const [reveal, setReveal] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [backgroundLoaded, setBackgroundLoaded] = useState(false);
   
   const slackData = {
     total_members_count: 69235
@@ -36,40 +47,94 @@ const Landing = () => {
     'Figma HQ, SF'
   ];
 
+  
+  useEffect(() => {
+    const imagePromises = imagePaths.map(src => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = src;
+      });
+    });
+
+
+    const centerImagePromise = new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = resolve;
+      img.onerror = reject;
+      img.src = '/home/outernet-110.jpg';
+    });
+
+    Promise.all([...imagePromises, centerImagePromise])
+      .then(() => setImagesLoaded(true))
+      .catch(err => {
+        console.warn('Some images failed to preload:', err);
+        setImagesLoaded(true); 
+      });
+
+ 
+    const backgroundImg = new Image();
+    backgroundImg.onload = () => setBackgroundLoaded(true);
+    backgroundImg.onerror = () => setBackgroundLoaded(true);
+    backgroundImg.src = '/home/assemble.jpg';
+  }, []);
+
   const animationStyle = {
     animation: `${riseIn} 0.9s ease-out both`,
   };
 
   return (
-<section
-  sx={{
-    width: '100%',
-    minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    bg: 'background',
-    backgroundImage: 'url(/home/assemble.jpg)',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'repeat',
-    position: 'relative',
-    '&::before': {
-      content: '""',
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.5)', 
-      zIndex: 1,
-    },
-    
-    '& > *': {
-      zIndex: 2,
-    }
-  }}
->
+    <section
+      sx={{
+        width: '100%',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        bg: '#1a1a1a',
+        backgroundImage: backgroundLoaded ? 'url(/home/assemble.jpg)' : 'none',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        position: 'relative',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+          zIndex: 1,
+          opacity: backgroundLoaded ? 1 : 0,
+          transition: 'opacity 0.5s ease-in-out',
+        },
+        
+        '& > *': {
+          zIndex: 2,
+        }
+      }}
+    >
+
+      {!imagesLoaded && (
+        <div
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: 'white',
+            fontSize: '18px',
+            zIndex: 3,
+          }}
+        >
+          Loading...
+        </div>
+      )}
+
       <div
         sx={{
           position: 'relative',
@@ -79,6 +144,8 @@ const Landing = () => {
           flexDirection: 'column',
           alignItems: 'center',
           zIndex: 2,
+          opacity: imagesLoaded ? 1 : 0,
+          transition: 'opacity 0.5s ease-in-out',
         }}
       >
         <div
@@ -104,6 +171,7 @@ const Landing = () => {
                 border: '2px dashed #e0e0e0',
                 '--initial-rotate': i === 0 ? '-3deg' : '3deg',
                 maxWidth: ['140px', '160px'],
+                willChange: 'transform',
               }}
             >
               <img
@@ -115,6 +183,7 @@ const Landing = () => {
                   borderRadius: '8px',
                   objectFit: 'cover',
                   display: 'block',
+                  loading: 'lazy',
                 }}
               />
               <div sx={{ 
@@ -129,7 +198,6 @@ const Landing = () => {
             </div>
           ))}
         </div>
-
 
         <div
           sx={{
@@ -154,20 +222,29 @@ const Landing = () => {
               boxShadow: '0 8px 30px rgba(0,0,0,0.12)',
               ...animationStyle,
               '--initial-rotate': '0deg',
+              position: 'relative',
+              transform: 'translateZ(0)', 
+              backfaceVisibility: 'hidden',
+              perspective: '1000px',
             }}
           >
-<img
-  src="/home/outernet-110.jpg"
-  alt="Hack Club Community"
-  sx={{
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    transform: 'scale(1.5)', 
-    transformOrigin: 'center center'
-  }}
-/>
-
+            <img
+              src="/home/outernet-110.jpg"
+              alt="Hack Club Community"
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center center',
+                transform: 'scale(1.5) translateZ(0)',
+                transformOrigin: 'center center',
+                backfaceVisibility: 'hidden',
+                willChange: 'transform',
+                imageRendering: 'optimizeQuality',
+                transition: 'none',
+                loading: 'eager',
+              }}
+            />
           </div>
 
           <Box sx={{ width: '100%' }}>
@@ -199,38 +276,38 @@ const Landing = () => {
                 }}
               >
                 We are <Comma>{slackData.total_members_count}</Comma>{' '}
-              <Text
-                sx={{
-                  color: 'transparent',
-                  ml: 2,
-                  mr: 3,
-                  whiteSpace: 'nowrap'
-                }}
-              >
                 <Text
-                  onClick={() => {
-                    !reveal ? setReveal(true) : setReveal(false)
-                  }}
                   sx={{
-                    // lineHeight: 0.875,
-                    px: 2,
-                    backgroundColor: 'red',
-                    position: 'absolute',
-                    borderRadius: 10,
-                    transform: 'rotate(-3deg) translateY(-5px)',
-                    color: 'white',
-                    whiteSpace: 'nowrap',
-                    textDecoration: 'none',
-                    '&:hover': {
-                      cursor: 'pointer'
-                    }
+                    color: 'transparent',
+                    ml: 2,
+                    mr: 3,
+                    whiteSpace: 'nowrap'
                   }}
-                  aria-hidden="true"
                 >
+                  <Text
+                    onClick={() => {
+                      !reveal ? setReveal(true) : setReveal(false)
+                    }}
+                    sx={{
+                      px: 2,
+                      backgroundColor: 'red',
+                      position: 'absolute',
+                      borderRadius: 10,
+                      transform: 'rotate(-3deg) translateY(-5px)',
+                      color: 'white',
+                      whiteSpace: 'nowrap',
+                      textDecoration: 'none',
+                      willChange: 'transform',
+                      '&:hover': {
+                        cursor: 'pointer'
+                      }
+                    }}
+                    aria-hidden="true"
+                  >
+                    teen hackers
+                  </Text>
                   teen hackers
                 </Text>
-                teen hackers
-              </Text>
                 <br />
                 from around the world who code together
               </Text>
@@ -243,16 +320,15 @@ const Landing = () => {
                 alignItems: 'center',
                 mt: 4
               }}>
-              <Button
-                variant="ctaLg"
-                as="a"
-
-                mt={[3, 0, 0]}
-                mr={3}
-                sx={{ transformOrigin: 'center left' }}
-              >
-                Join Slack
-              </Button>
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  mt={[3, 0, 0]}
+                  mr={3}
+                  sx={{ transformOrigin: 'center left' }}
+                >
+                  Join Slack
+                </Button>
                 <Button
                   as="a"
                   href="https://shipwrecked.hack.club/3"
@@ -273,7 +349,6 @@ const Landing = () => {
             </Heading>
           </Box>                      
         </div>
-
 
         <div
           sx={{
@@ -298,6 +373,7 @@ const Landing = () => {
                 border: '2px dashed #e0e0e0',
                 '--initial-rotate': i === 0 ? '2deg' : '-2deg',
                 maxWidth: ['140px', '160px'],
+                willChange: 'transform',
               }}
             >
               <img
@@ -309,6 +385,7 @@ const Landing = () => {
                   borderRadius: '8px',
                   objectFit: 'cover',
                   display: 'block',
+                  loading: 'lazy',
                 }}
               />
               <div sx={{ 
@@ -324,7 +401,6 @@ const Landing = () => {
           ))}
         </div>
       </div>
-
 
       <div
         sx={{
@@ -355,6 +431,7 @@ const Landing = () => {
               transform: `rotate(${img.rotate})`,
               ...animationStyle,
               '--initial-rotate': img.rotate,
+              willChange: 'transform',
             }}
           >
             <div
@@ -389,6 +466,7 @@ const Landing = () => {
                   borderRadius: '8px',
                   objectFit: 'cover',
                   display: 'block',
+                  loading: 'lazy',
                 }}
               />
               <div sx={{ 
