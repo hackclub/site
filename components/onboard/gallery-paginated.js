@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { Box, Button, Flex, Grid, Heading, Text } from 'theme-ui'
 import Item from './item'
 import Nav from '../nav'
-import { Slide } from 'react-swift-reveal'
+import { Slide } from 'react-reveal'
 
 const perPage = 10
 

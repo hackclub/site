@@ -9,7 +9,7 @@ import {
   Avatar,
   Button
 } from 'theme-ui'
-import { Slide } from 'react-swift-reveal'
+import { Slide } from 'react-reveal'
 
 export default function Testimonials() {
   return (
