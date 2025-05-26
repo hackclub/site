@@ -1,5 +1,5 @@
 import { Box, Button, Heading, Text, Card } from 'theme-ui'
-import { Fade } from 'react-reveal'
+import { Fade } from 'react-swift-reveal'
 import ScrollHint from '../scroll-hint'
 import Image from "next/image"
 import HeroImage from '../../public/hackathons/assemble.jpg'

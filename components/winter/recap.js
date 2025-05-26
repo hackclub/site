@@ -1,6 +1,6 @@
 import { Box, Button, Container, Heading, Grid, Card, Text } from 'theme-ui'
 import theme from '@hackclub/theme'
-import { Slide, Zoom } from 'react-reveal'
+import { Slide, Zoom } from 'react-swift-reveal'
 import BreakdownBox from './breakdown-box'
 import Signup from './form'
 

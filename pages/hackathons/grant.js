@@ -11,7 +11,7 @@ import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import Apply from '../../components/hackathons/grant/apply'
 
-import { Zoom } from 'react-reveal'
+import { Zoom } from 'react-swift-reveal'
 /** @jsxImportSource theme-ui */
 
 const styles = `
