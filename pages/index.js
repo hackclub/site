@@ -641,10 +641,10 @@ function Page({
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
-        <Carousel
+        {/* <Carousel
           cards={upcomingHackathonsCarouselData}
           title="Check out these upcoming hackathons!"
-        />
+        /> */}
         <Box>
           <Box id="open-source-section" py={[4, 5, '82px']}>
             {' '}
