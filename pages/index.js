@@ -12,10 +12,10 @@ import {
 import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import Meta from '@hackclub/meta';
-import Nav from '../components/nav';
+import Meta from '@hackclub/meta'
+import Nav from '../components/nav'
 import BGImg from '../components/background-image' // Replaced by HeroCarousel
-import HeroCarousel from '../components/hero-carousel'; // New Import
+import HeroCarousel from '../components/hero-carousel' // New Import
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
@@ -26,10 +26,10 @@ import SprigConsole from '../components/index/cards/sprig-console'
 import Clubs from '../components/index/cards/clubs'
 import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
-import Hackathons from '../components/index/cards/hackathons';
-import OuternetImgFile from '../public/home/outernet-110.jpg';
-import SpaceXImgFile from '../public/home/zephyr-spacex.jpeg'; // Example image for carousel
-import MAHacksImgFile from '../public/hackathons/mahacks.jpeg'; // Example image for carousel
+import Hackathons from '../components/index/cards/hackathons'
+import OuternetImgFile from '../public/home/outernet-110.jpg'
+import SpaceXImgFile from '../public/home/zephyr-spacex.jpeg' // Example image for carousel
+import MAHacksImgFile from '../public/hackathons/mahacks.jpeg' // Example image for carousel
 import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
@@ -39,7 +39,7 @@ import Slack from '../components/index/cards/slack'
 import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
-import Orpheus from '../components/orpheus'; // Import the new component
+import Orpheus from '../components/orpheus' // Import the new component
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
@@ -57,19 +57,19 @@ const heroImagesData = [
   {
     src: OuternetImgFile.src, // Access the .src property of the imported image object
     alt: 'Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!',
-    caption: 'Outernet, VT. 📸 Matt Gleich',
+    caption: 'Outernet, VT. 📸 Matt Gleich'
   },
   {
     src: SpaceXImgFile.src, // Access the .src property
     alt: 'Hack Clubbers at SpaceX HQ in LA',
-    caption: 'Hack Clubbers at SpaceX HQ',
+    caption: 'Hack Clubbers at SpaceX HQ'
   },
   {
     src: MAHacksImgFile.src, // Access the .src property
     alt: 'MA Hacks, Hack Clubber organized hackathon',
-    caption: 'MA Hacks Hackathon',
-  },
-];
+    caption: 'MA Hacks Hackathon'
+  }
+]
 
 /**
  * The main page component for the Hack Club homepage.
@@ -184,6 +184,57 @@ function Page({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const joyOfCodeItems = [
+    {
+      title: 'Connect with other teenage coders',
+      description: (
+        <>
+          Have a coding question? Looking for project feedback? You'll find
+          hundreds of fabulous people to talk to in our global{' '}
+          <Link href="/slack" target="_blank" rel="noopener">
+            Slack{' '}
+          </Link>
+          (like Discord), active at all hours.
+        </>
+      ),
+      color: 'red',
+      iconGlyph: 'slack-fill' // Icon for this card
+    },
+    {
+      title: 'Build open source learning tools',
+      description: (
+        <>
+          We build large open source projects together (
+          <Link href="https://github.com/hackclub" target="_blank">
+            3k+&nbsp;PRs a year
+          </Link>
+          ) like this website, a game engine, daily streak system, and more!
+        </>
+      ),
+      color: 'orange',
+      iconGlyph: 'github' // Icon for this card
+    },
+    {
+      title: 'Gather IRL with other makers',
+      description: (
+        <>
+          Meet other Hack&nbsp;Clubbers in your community to build together at
+          one of the 400+{' '}
+          <Link href="/clubs" target="_blank" rel="noopener">
+            Hack&nbsp;Clubs
+          </Link>{' '}
+          and{' '}
+          <Link href="/hackathons" target="_blank" rel="noopener">
+            high school hackathons
+          </Link>
+          .
+        </>
+      ),
+      color: 'yellow',
+      iconGlyph: 'welcome' // Icon for this card
+    }
+  ]
+
   return (
     <>
       <Meta
@@ -240,7 +291,7 @@ function Page({
               left: 0,
               right: 0,
               bottom: 0,
-              zIndex: 0, // Ensure it's behind other content in the header
+              zIndex: 0 // Ensure it's behind other content in the header
             }}
           >
             <HeroCarousel
@@ -335,9 +386,9 @@ function Page({
                 as="a"
                 href="https://shipwrecked.hack.club/3"
                 mt={3}
-                sx={{ 
+                sx={{
                   transformOrigin: 'left',
-                  backgroundImage: t => t.util.gx('green', 'blue'),
+                  backgroundImage: t => t.util.gx('green', 'blue')
                 }}
               >
                 Sign Up: Private Island Hackathon
@@ -346,7 +397,8 @@ function Page({
           </Box>
         </Box>
         <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
-          <Box id="joy-of-code-section" // Added ID for Orpheus component
+          <Box
+            id="joy-of-code-section" // Added ID for Orpheus component
             sx={{
               position: 'relative',
               width: '90vw',
@@ -396,127 +448,129 @@ function Page({
               .
             </Text>
             <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
-              <Box sx={{ py: [3,3,3,0], display: ['none', 'none', 'none', 'block'] /* Hide on mobile, show on desktop or adjust as needed */ }}>
-                {/* You can place a static image or other content here if you like */}
-                <Photo src="/home/map.png" alt="Map of Hack Clubs" width={3000} height={2550} showAlt />
-              </Box>
-              <Grid
-                columns="1fr"
-                sx={{
-                  gridColumnGap: 3,
-                  span: {
-                    width: 36,
-                    height: 36,
-                    borderRadius: 24,
-                    display: 'inline-block',
-                    fontSize: 2,
-                    lineHeight: '30px',
-                    textAlign: 'center',
-                    fontWeight: 'bold',
-                    border: '3px solid currentColor'
-                  },
-                  p: { my: 0, fontSize: ['18px', '20px', '22px'] },
-                  strong: { display: 'block', fontSize: ['22px', 2, 3] }
-                }}
+              {/* Re-added cards for "joy of code" */}
+              <Box
                 as="ul"
+                sx={{
+                  p: 0,
+                  listStyle: 'none',
+                  mt: [3, 4],
+                  gridColumn: [
+                    null,
+                    null,
+                    null,
+                    '1 / span 2'
+                  ] /* Take full width on desktop grid */,
+                  display: 'flex',
+                  flexDirection: ['column', 'column', 'row'], // Vertical on mobile/tablet, horizontal on desktop
+                  flexWrap: ['nowrap', 'nowrap', 'wrap'], // Allow wrap on desktop
+                  gap: 3 // Add gap for spacing between cards (uses theme.space[3])
+                }}
               >
-                <Grid
-                  columns="auto 1fr"
-                  sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
-                  }}
-                  as="li"
-                >
-                  <Text as="span" color="red" aria-hidden="true">
-                    1
-                  </Text>
-                  <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>
-                      Connect with other teenage coders
-                    </strong>
-                    Have a coding question? Looking for project feedback? You'll
-                    find hundreds of fabulous people to talk to in our global{' '}
-                    <Link href="/slack" target="_blank" rel="noopener">
-                      Slack{' '}
-                    </Link>
-                    (like Discord), active at all hours.
-                  </Text>
-                </Grid>
-                <Grid
-                  columns="auto 1fr"
-                  sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
-                  }}
-                  as="li"
-                >
-                  <Text as="span" color="orange" aria-hidden="true">
-                    2
-                  </Text>
-                  <Text
-                    as="p"
-                    variant="subtitle"
+                {joyOfCodeItems.map((item, index) => (
+                  <Card
+                    as="li"
+                    key={index}
+                    variant="interactive" // Or "elevated" if you prefer
                     sx={{
-                      mt: 0
+                      position: 'relative', // Needed for absolute positioning of the background icon
+                      overflow: 'hidden', // Keeps oversized icon parts contained
+                      p: [3, 4],
+                      // mb & mr for inter-item spacing are no longer needed here, 'gap' on parent handles it
+                      mb: [null, null, 0], // Ensure no extra bottom margin on desktop items if gap is already there
+                      minWidth: ['auto', 'auto', '300px'], // Minimum width for cards on desktop
+                      flex: [null, null, '1 1 300px'], // Allow cards to grow/shrink but prefer a base width of 300px on desktop
+                      // Hover effect
+                      '.joy-card-number': {
+                        color: item.color,
+                        transition: 'color 0.3s ease'
+                      },
+                      transition:
+                        'background-color 0.3s ease, transform 0.125s ease-in-out', // Added transform to transition
+                      ':hover': {
+                        bg: item.color,
+                        transform: 'scale(1.01)', // Reduced hover scale
+                        '.joy-card-number': {
+                          color: 'background' // Assumes 'background' is the original card bg color from theme
+                        },
+                        // Ensure text inside the card remains readable on hover
+                        'p, strong, a': {
+                          // Added 'a' to this selector
+                          color: 'white !important' // Or another contrasting color, added !important to override default link styles if necessary
+                        },
+                        '.joy-card-bg-icon': {
+                          // Show the icon on hover
+                          opacity: 1
+                        }
+                      }
                     }}
                   >
-                    <strong sx={{ mb: 1 }}>
-                      Build open source learning tools
-                    </strong>
-                    We build large open source projects together (
-                    <Link href="https://github.com/hackclub" target="_blank">
-                      3k+&nbsp;PRs a year
-                    </Link>
-                    ) like this website, a game engine, daily streak system, and
-                    more!
-                  </Text>
-                </Grid>
-                <Grid
-                  columns="auto 1fr"
-                  sx={{
-                    transitionDuration: '0.52s',
-                    py: 2,
-                    px: 2,
-                    color: 'inherit',
-                    position: 'relative',
-                    textDecoration: 'none',
-                    borderRadius: 'extra'
-                  }}
-                  as="li"
-                >
-                  <Text as="span" color="yellow" aria-hidden="true">
-                    3
-                  </Text>
-                  <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
-                    Meet other Hack&nbsp;Clubbers in your community to build
-                    together at one of the 400+{' '}
-                    <Link href="/clubs" target="_blank" rel="noopener">
-                      Hack&nbsp;Clubs
-                    </Link>{' '}
-                    and{' '}
-                    <Link href="/hackathons" target="_blank" rel="noopener">
-                      high school hackathons
-                    </Link>
-                    .
-                  </Text>
-                </Grid>
-              </Grid>
+                    <Icon
+                      glyph={item.iconGlyph}
+                      className="joy-card-bg-icon"
+                      aria-hidden="true"
+                      sx={{
+                        position: 'absolute',
+                        zIndex: 0, // Behind content
+                        opacity: 0, // Initially hidden
+                        transition: 'opacity 0.3s ease-in-out',
+                        color: 'rgba(255, 255, 255, 0.25)', // Increased visibility
+                        top: '50%',
+                        right: ['-20px', '-25px', 'auto'], // Towards the right on mobile/tablet
+                        left: ['auto', 'auto', '50%'], // Centered on desktop
+                        transform: [
+                          'translateY(-50%)',
+                          'translateY(-50%)',
+                          'translate(-50%, -50%)'
+                        ]
+                      }}
+                      size={['480px', '576px', '1000px']} // Use the size prop directly
+                    />
+                    <Text
+                      as="span"
+                      className="joy-card-number"
+                      aria-hidden="true"
+                      sx={{
+                        fontSize: 5,
+                        fontWeight: 'bold',
+                        display: 'block',
+                        mb: 2,
+                        position: 'relative',
+                        zIndex: 1
+                      }}
+                    >
+                      {index + 1}
+                    </Text>
+                    <Text
+                      as="p"
+                      variant="subtitle"
+                      sx={{
+                        fontSize: ['18px', '20px', '22px'],
+                        position: 'relative',
+                        zIndex: 1
+                      }}
+                    >
+                      <strong
+                        sx={{
+                          display: 'block',
+                          mb: 1,
+                          fontSize: ['22px', '24px', '26px']
+                        }}
+                      >
+                        {item.title}
+                      </strong>
+                      {item.description}
+                    </Text>
+                  </Card>
+                ))}
+              </Box>
             </Grid>
           </Box>
         </Box>
-        <Carousel cards={carouselCards} title="Here are some activities you could join!"/>
+        <Carousel
+          cards={carouselCards}
+          title="Here are some activities you could join!"
+        />
         <Box // This section has the ID "spotlight" already, used for the mouse effect
           id="spotlight"
           as="section"
@@ -581,17 +635,20 @@ function Page({
               </Text>
             </Box>
             <Neighborhood />
-            <Trail />
-            <Scrapyard />
-            <Highway/>
-            <Shipwrecked/>
-            <Athena /> 
+            <Highway />
+            <Shipwrecked />
+            <Athena />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
-        <Carousel cards={upcomingHackathonsCarouselData} title="Check out these upcoming hackathons!"/>
+        <Carousel
+          cards={upcomingHackathonsCarouselData}
+          title="Check out these upcoming hackathons!"
+        />
         <Box>
-          <Box id="open-source-section" py={[4, 5, '82px']}> {/* Added ID for Orpheus component */}
+          <Box id="open-source-section" py={[4, 5, '82px']}>
+            {' '}
+            {/* Added ID for Orpheus component */}
             <Box
               sx={{
                 width: '90vw',
@@ -664,7 +721,7 @@ function Page({
                         display: ['none', null, null, 'flex']
                       },
                       // Add background image styles
-                      backgroundImage: "url('../public/toolbox.jpeg)", 
+                      backgroundImage: "url('../public/toolbox.jpeg)",
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       backgroundRepeat: 'no-repeat',
@@ -1038,7 +1095,6 @@ function Page({
             </Grid>
           </Box>
         </Box>
-
         <Orpheus /> {/* Add the Orpheus component */}
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
@@ -1211,61 +1267,63 @@ export async function getStaticProps() {
 
   let events = []
   try {
-    await fetch(
-      'https://events.hackclub.com/api/events/upcoming/'
-    ).then(res => res.json())
+    await fetch('https://events.hackclub.com/api/events/upcoming/').then(res =>
+      res.json()
+    )
   } catch (error) {
     console.error('Error fetching events:', error)
   }
 
-  const upcomingHackathonsCarouselData = hackathonsData.slice(0, 10).map(item => {
-    const fallbackGradient = `linear-gradient(to bottom, #333333, #000000)`; // Explicit dark gray to black fallback
+  const upcomingHackathonsCarouselData = hackathonsData
+    .slice(0, 10)
+    .map(item => {
+      const fallbackGradient = `linear-gradient(to bottom, #333333, #000000)` // Explicit dark gray to black fallback
 
-    let locationInfo;
-    if (item.virtual) {
-      locationInfo = 'Virtual Event'
-    } else {
-      let parts = []
-      if (item.city) parts.push(item.city)
-      if (item.state) parts.push(item.state)
-
-      if (parts.length > 0) {
-        locationInfo = parts.join(', ')
-      } else if (item.country) {
-        locationInfo = item.country // Fallback to country if city/state are not available
+      let locationInfo
+      if (item.virtual) {
+        locationInfo = 'Virtual Event'
       } else {
-        locationInfo = 'Event' // Generic fallback
+        let parts = []
+        if (item.city) parts.push(item.city)
+        if (item.state) parts.push(item.state)
+
+        if (parts.length > 0) {
+          locationInfo = parts.join(', ')
+        } else if (item.country) {
+          locationInfo = item.country // Fallback to country if city/state are not available
+        } else {
+          locationInfo = 'Event' // Generic fallback
+        }
       }
-    }
 
-    const formattedStartDate = format(new Date(item.start), 'MMM d')
-    const formattedEndDate = format(new Date(item.end), 'MMM d')
-    let dateInfo = `Starts ${formattedStartDate}`
+      const formattedStartDate = format(new Date(item.start), 'MMM d')
+      const formattedEndDate = format(new Date(item.end), 'MMM d')
+      let dateInfo = `Starts ${formattedStartDate}`
 
-    // Check if start and end dates are different days
-    const startDayTimestamp = new Date(item.start).setHours(0, 0, 0, 0)
-    const endDayTimestamp = new Date(item.end).setHours(0, 0, 0, 0)
+      // Check if start and end dates are different days
+      const startDayTimestamp = new Date(item.start).setHours(0, 0, 0, 0)
+      const endDayTimestamp = new Date(item.end).setHours(0, 0, 0, 0)
 
-    if (startDayTimestamp !== endDayTimestamp) {
-      dateInfo += ` - Ends ${formattedEndDate}`
-    }
+      if (startDayTimestamp !== endDayTimestamp) {
+        dateInfo += ` - Ends ${formattedEndDate}`
+      }
 
-    const description = `${locationInfo}. ${dateInfo}.`
+      const description = `${locationInfo}. ${dateInfo}.`
 
-    return {
-      id: item.id,
-      title: item.name,
-      description: description,
-      background: item.banner // Check if banner URL exists
-        ? `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(${item.banner}), ${fallbackGradient}` // Stack: overlay, banner, then fallback gradient as safety net
-        : fallbackGradient, // If no banner URL, just use the fallback gradient
-      titleColor: 'white',
-      descriptionColor: 'white',
-      img: item.logo || 'https://assets.hackclub.com/icon-rounded.png', // Use logo for img, fallback
-      link: item.website,
-      logoPlacement: 'contained' // Add this line
-    }
-  })
+      return {
+        id: item.id,
+        title: item.name,
+        description: description,
+        background: item.banner // Check if banner URL exists
+          ? `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(${item.banner}), ${fallbackGradient}` // Stack: overlay, banner, then fallback gradient as safety net
+          : fallbackGradient, // If no banner URL, just use the fallback gradient
+        titleColor: 'white',
+        descriptionColor: 'white',
+        img: item.logo || 'https://assets.hackclub.com/icon-rounded.png', // Use logo for img, fallback
+        link: item.website,
+        logoPlacement: 'contained' // Add this line
+      }
+    })
 
   return {
     props: {
