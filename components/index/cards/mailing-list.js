@@ -239,7 +239,8 @@ const MailingList = ({ posts = [] }) => {
                         height: '100%',
                         '&:hover': {
                           borderColor: 'cyberpunk.electricBlue'
-                        }
+                        },
+                        textDecoration: 'none',
                       }}
                       as={"a"}
                       href={post.link}
@@ -257,19 +258,11 @@ const MailingList = ({ posts = [] }) => {
                         )}
                       </div>
                       <Link
-                        href={post.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         sx={{
-                          color: 'cyberpunk.textMuted',
                           fontSize: ['14px', '16px'],
-                          textDecoration: 'none',
-                          '&:hover': {
-                            textDecoration: 'underline',
-                            color: 'cyberpunk.electricBlue'
-                          },
                           alignSelf: 'flex-start'
                         }}
+                        as={"p"}
                       >
                         Read on the Slack <Icon glyph="external" size={16} style={{ verticalAlign: 'middle' }} />
                       </Link>

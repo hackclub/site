@@ -1,11 +1,9 @@
 import {
-  Badge,
   Box,
   Button,
   Card,
   Flex,
   Grid,
-  Heading,
   Link,
   Text
 } from 'theme-ui'
@@ -15,7 +13,6 @@ import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
 import Nav from '../components/nav'
 import BGImg from '../components/background-image'
-import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
@@ -26,9 +23,9 @@ import Clubs from '../components/index/cards/clubs'
 import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
-import OuternetImgFile from '../public/home/outernet-110.jpg'
+// import OuternetImgFile from '../public/home/outernet-110.jpg'
 import AssembleBannerImg from "../public/banner.png"
-import Announcement from '../components/announcement'
+// import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
@@ -38,24 +35,12 @@ import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
-import Haxidraw from '../components/index/cards/haxidraw'
+// import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
 import Juice from "../components/index/cards/juice"
-import {
-  SiJavascript,
-  SiPython,
-  SiHtml5,
-  SiCss3,
-  SiReact,
-  SiNodedotjs,
-  SiSwift,
-  SiGo,
-  SiRust,
-  SiKotlin
-} from 'react-icons/si'
 import theme from '../lib/theme'
 import { ThemeProvider } from 'theme-ui'
 import carouselCardsData from '../lib/carousel.json';
@@ -235,7 +220,6 @@ function Page({
           size="512x512"
         />
       </Head>
-      <ForceTheme theme="dark" />
       <Nav dark />
       <Box
         as="main"
