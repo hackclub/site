@@ -41,107 +41,80 @@ export default function Athena() {
           height: '100%',
           mx: 0
         }}
-        alt=""
+        alt="Athena background"
       />
-      <Grid columns={[1, 1, 1]} sx={{ position: 'relative', zIndex: 2 }}>
+      <Grid
+        columns={[1, 1, 1]}
+        sx={{ position: 'relative', zIndex: 2, padding: [2, 3, 3] }}
+      >
         <Flex
           sx={{
-            flexDirection: 'column',
-            justifyContent: 'space-between',
+            flexDirection: ['column', 'column', 'row'], // Column on small/medium, row on large
+            justifyContent: ['center', 'center', 'space-around'], // Space items out in row, center in column
             position: 'relative',
-            alignItems: 'center'
+            alignItems: 'center', // Vertically center items in row, horizontally in column
+            gap: [3, 3, 4], // Gap between logo and text box
+            width: '100%',
+            mt: [2, 2, 0] // Margin top for the flex container itself
           }}
         >
+          {/* Text Box with Heading */}
+          <Box
+            sx={{
+              backgroundColor: '#8c2e37',
+              backgroundImage: 'url(https://award.athena.hackclub.com/bg.svg)',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '1.5em 1.5em',
+              borderRadius: '20px',
+              width: ['min(90%, 380px)', 'min(90%, 420px)', '430px'],
+              position: 'relative',
+              zIndex: 20,
+              border: '#d6c2b7 4px solid',
+              padding: '20px',
+              textAlign: 'left'
+            }}
+          >
+            <Heading
+              as="h2"
+              sx={{
+                fontFamily: "'Playfair Display'",
+                fontWeight: '400',
+                fontSize: ['18px', '20px', '22px'],
+                color: '#FFFFFF',
+                textAlign: 'center',
+                mb: 2
+              }}
+            >
+              For girls and non-binary students. Teens only. International.
+            </Heading>
+          </Box>
+
           <Image
             src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6ea8e84acae378a03d5b5e788a780a853aae4d21_outlined_logo__alt_-cropped.svg"
             sx={{
-              width: ['500px', '550px', '600px'],
-              mt: ['30px', '40px', '45px'],
-              mb: ['30px', '30px', '30px'],
+              width: ['280px', '330px', '450px'], // Responsive width for logo, similar to shipwrecked
               position: 'relative',
               zIndex: 3,
-              ml: '0px',
-              mr: '0px',
-              fontSize: ['48px', 4, 5],
-              color: 'white'
-              //   mx: 'auto'
+              flexShrink: 0 // Prevent logo from shrinking too much in flex row
             }}
             alt="Athena"
           />
-
-          <Flex
-            sx={{
-              flexDirection: ['row', 'row', 'column'],
-              justifyContent: 'space-between'
-            }}
-          >
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center'
-              }}
-            >
-              <Box
-                sx={{
-                  backgroundImage: 'https://award.athena.hackclub.com/bg.svg',
-                  backgroundRepect: 'no-repeat',
-                  borderRadius: '6px',
-                  backgroundSize: '1.5em 1.5em',
-                  display: 'block',
-                  width: 'min(430px, calc(100vw - 200px))',
-                  position: 'relative',
-                  zIndex: 20,
-                  border: '#544fff 4px solid'
-                }}
-              >
-                <Box
-                  sx={{
-                    backgroundColor: 'rgb(140, 46, 55)',
-                    borderRadius: '6px',
-                    backgroundSize: '1.5em 1.5em',
-                    display: 'block',
-                    width: 'min(430px, calc(100vw - 200px))',
-                    position: 'relative',
-                    zIndex: 20,
-                    border: '#544fff 4px solid'
-                  }}
-                >
-                  <Heading
-                    as="h2"
-                    sx={{
-                      fontFamily: "'Playfair Display'",
-                      fontWeight: '400',
-                      textAlign: 'center',
-                      margin: '8%',
-                      fontSize: '20px',
-                      color: '#FFFFFF'
-                    }}
-                  >
-                    For girls and non-binary students. Teens only.
-                    International.
-                  </Heading>
-                </Box>
-              </Box>
-            </Box>
-          </Flex>
         </Flex>
         <Buttons
-          href="https://highway.hackclub.com/"
+          href="https://athena.hackclub.com/"
           target="_blank"
           rel="noopener"
-          primary="#544fff"
+          primary="#8c2e37"
           icon="door-enter"
           id="43"
           zIndex={999}
           sx={{
-            zIndex: 9999999,
             left: ['50%', '50%', '0%'],
-            color: '#ffffff',
-            borderRadius: '6px'
+            mt: [2, 2, 3], // Margin top for spacing
+            color: '#ffffff'
           }}
         >
-          Learn More
+          Join us!
         </Buttons>
       </Grid>
     </CardModel>

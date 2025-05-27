@@ -26,29 +26,42 @@ const rgbaBgColor = (props, opacity) =>
 //         -webkit-backdrop-filter: saturate(180%) blur(20px);
 //         backdrop-filter: saturate(180%) blur(20px);
 //       `
-const fixed = props =>
-  (props.scrolled || props.toggled || props.fixed) &&
-  css`
-    background-color: ${rgbaBgColor(props, 0.96875)};
-    border-bottom: 1px solid rgba(48, 48, 48, 0.125);
-    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-      background-color: ${props.transparent
-        ? 'transparent'
-        : rgbaBgColor(props, 0.75)};
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      backdrop-filter: saturate(180%) blur(20px);
-      /* {bg}; to support dark mode later */
-    }
-  `
+const slideDownFromNav = keyframes`
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
 
 const Root = styled(Box, {
-  shouldForwardProp: prop => !['bgColor', 'scrolled', 'toggled'].includes(prop)
+  shouldForwardProp: prop => !['bgColor', 'scrolled', 'toggled', 'fixed', 'dark'].includes(prop)
 })`
   position: fixed;
   top: 0;
   width: 100vw;
   z-index: 1000;
-  ${fixed};
+  top: ${theme.space[2]}px;
+  /* Adjust left/right to account for the border thickness */
+  left: ${theme.space[2]}px;
+  right: ${theme.space[2]}px;
+  width: calc(100vw - ${theme.space[2] * 2}px);
+  border-radius: ${theme.radii.pill};
+  border-width: 4px; /* Keep width consistent for layout */
+  border-style: solid; /* Keep style consistent */
+  transition: background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+
+  ${props =>
+    !props.scrolled && !props.toggled && !props.fixed
+      ? css`
+          background-color: transparent;
+          border-color: transparent;
+          box-shadow: none;
+        `
+      : css`
+          background-color: ${theme.colors.white};
+          border-color: ${theme.colors.muted};
+          box-shadow: ${theme.shadows.elevated};
+        `}
   @media print {
     display: none;
   }
@@ -80,27 +93,32 @@ const slide = keyframes({
 const layout = props =>
   props.isMobile
     ? css`
-        display: ${props.toggled ? 'flex' : 'none'};
+        display: ${props.toggled ? 'flex' : 'none'} !important; // Use important to override base display: none
         flex-direction: column;
+        position: absolute;
+        top: calc(100% + ${theme.space[1]}px); // Gap below the nav
+        left: 0;
+        width: 100%;
+        background-color: ${theme.colors.white}; /* Solid white background for dropdown */
+        border: 4px solid ${theme.colors.muted}; /* Thick gray outline for dropdown */
+        border-radius: ${theme.radii.default}px;
+        /* Only apply border-radius to bottom corners */
+        box-shadow: ${theme.shadows.elevated};
+        padding: ${theme.space[1]}px 0;
+        max-height: calc(100vh - 120px); // Ensure it doesn't overflow viewport too much
         overflow-y: auto;
-        text-align: left;
-        height: 100vh;
+        z-index: 1; // Relative to Root's children like Content (z-index: 2)
         @media (prefers-reduced-motion: no-preference) {
-          animation: ${slide} 0.25s ease-in;
+          animation: ${slideDownFromNav} 0.2s ease-out;
         }
         a {
           color: ${theme.colors[props.dark ? 'white' : 'black']} !important;
-          margin: 0 auto;
-          height: 64px;
-          font-weight: bold;
-          font-size: ${theme.fontSizes[2]}px;
-          width: 100vw;
-          &:not(:last-child) {
-            border-bottom: 1px solid rgba(48, 48, 48, 0.125);
-          }
-          @media screen and (max-width: 22em) {
-            max-width: 16rem;
-          }
+          padding: ${theme.space[2]}px ${theme.space[3]}px;
+          font-size: ${theme.fontSizes[1]}px;
+          width: 100%;
+          border-bottom: 1px solid ${props.dark ? 'rgba(255,255,255,0.1)' : theme.colors.snow};
+          &:last-child { border-bottom: none; }
+          &:hover { background-color: ${theme.colors.snow}; } /* Hover background on white */
         }
       `
     : css`

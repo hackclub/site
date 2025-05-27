@@ -12,9 +12,10 @@ import {
 import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import Meta from '@hackclub/meta'
-import Nav from '../components/nav'
-import BGImg from '../components/background-image'
+import Meta from '@hackclub/meta';
+import Nav from '../components/nav';
+import BGImg from '../components/background-image' // Replaced by HeroCarousel
+import HeroCarousel from '../components/hero-carousel'; // New Import
 import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
@@ -25,8 +26,10 @@ import SprigConsole from '../components/index/cards/sprig-console'
 import Clubs from '../components/index/cards/clubs'
 import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
-import Hackathons from '../components/index/cards/hackathons'
-import OuternetImgFile from '../public/home/outernet-110.jpg'
+import Hackathons from '../components/index/cards/hackathons';
+import OuternetImgFile from '../public/home/outernet-110.jpg';
+import SpaceXImgFile from '../public/home/zephyr-spacex.jpeg'; // Example image for carousel
+import MAHacksImgFile from '../public/hackathons/mahacks.jpeg'; // Example image for carousel
 import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
@@ -36,6 +39,7 @@ import Slack from '../components/index/cards/slack'
 import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
+import Orpheus from '../components/orpheus'; // Import the new component
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
@@ -49,6 +53,44 @@ import { format } from 'date-fns'
 import theme from '../lib/theme'
 /** @jsxImportSource theme-ui */
 
+const heroImagesData = [
+  {
+    src: OuternetImgFile.src, // Access the .src property of the imported image object
+    alt: 'Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!',
+    caption: 'Outernet, VT. 📸 Matt Gleich',
+  },
+  {
+    src: SpaceXImgFile.src, // Access the .src property
+    alt: 'Hack Clubbers at SpaceX HQ in LA',
+    caption: 'Hack Clubbers at SpaceX HQ',
+  },
+  {
+    src: MAHacksImgFile.src, // Access the .src property
+    alt: 'MA Hacks, Hack Clubber organized hackathon',
+    caption: 'MA Hacks Hackathon',
+  },
+];
+
+/**
+ * The main page component for the Hack Club homepage.
+ * It displays various sections including a hero, information about Hack Club,
+ * carousels for activities and upcoming hackathons, sections on open source projects,
+ * and ways to connect with the community.
+ *
+ * @param {object} props - The component's props.
+ * @param {Array<object>} props.hackathonsData - Data for upcoming hackathons.
+ * @param {Array<string>} props.bankData - Statistics related to HCB (Hack Club Bank).
+ * @param {object} props.slackData - Data about the Hack Club Slack community.
+ * @param {Array<object>} props.gitHubData - Recent GitHub activity from Hack Club projects.
+ * @param {number} props.gitHubDataLength - The length of the gitHubData array.
+ * @param {number} props.consoleCount - Count of Sprig consoles.
+ * @param {object} props.stars - GitHub star counts for various Hack Club repositories.
+ * @param {Array<object>} props.game - Data for Sprig games.
+ * @param {Array<string>} props.gameTitle - Titles of Sprig games.
+ * @param {Array<object>} props.events - Data for upcoming events (currently seems unused in rendering).
+ * @param {Array<object>} props.carouselCards - Data for the "activities" carousel.
+ * @param {Array<object>} props.upcomingHackathonsCarouselData - Data for the "upcoming hackathons" carousel.
+ */
 function Page({
   hackathonsData,
   bankData,
@@ -67,6 +109,7 @@ function Page({
   upcomingHackathonsCarouselData
 }) {
   let [gameImage, setGameImage] = useState('')
+  // gameImage1 seems unused?
   let [gameImage1, setGameImage1] = useState('')
   let [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
@@ -78,6 +121,7 @@ function Page({
 
   let jsConfetti = useRef()
 
+  // Effect to initialize JSConfetti and set up global variables for easter eggs.
   useEffect(() => {
     jsConfetti.current = new JSConfetti()
 
@@ -85,6 +129,7 @@ function Page({
     window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
   }, [])
 
+  // Function to trigger confetti when the Konami code is entered.
   const easterEgg = () => {
     alert('Hey, you typed the Konami Code!')
 
@@ -102,43 +147,26 @@ function Page({
     })
   }
 
+  // Effect to hide the "teen hackers" reveal element after a delay if not hovered.
   useEffect(() => {
     if (reveal && !hover) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setReveal(false)
       }, 2000)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reveal, hover])
 
-  const [count, setCount] = useState(0)
-
-  let images = [
-    { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
-    {
-      alt: 'Hack Clubbers at SpaceX HQ in LA',
-      src: '/home/zephyr-spacex.jpeg'
-    },
-    {
-      alt: 'MA Hacks, Hack Clubber organized hackathon',
-      src: '/hackathons/mahacks.jpeg'
-    },
-    { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
-    { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
-  ]
-
-  // janky right now and does not show last image
-
+  // Effect to cycle through images in the "joy of code" section.
   useEffect(() => {
     console.log(
       `White sheets of paper\nWaiting to be printed on\nA blank console waits`
     )
-    if (count === images.length - 1) {
-      setCount(0)
-    }
-  }, [count, images.length])
+  }, [])
+  // This effect seems to only run once on mount and log a haiku.
 
-  // Spotlight effect
   const spotlightRef = useRef()
+  // Effect to create a spotlight mouse-tracking effect on a specific section.
   useEffect(() => {
     const handler = event => {
       var rect = document.getElementById('spotlight').getBoundingClientRect()
@@ -153,6 +181,7 @@ function Page({
     }
     window.addEventListener('mousemove', handler)
     return () => window.removeEventListener('mousemove', handler)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -195,7 +224,7 @@ function Page({
         <Box
           as="header"
           sx={{
-            bg: 'dark',
+            // bg: 'dark', // Background is now handled by the carousel
             pt: [5, 6],
             pb: [2, 3],
             textAlign: 'left',
@@ -203,12 +232,22 @@ function Page({
             overflowX: 'hidden'
           }}
         >
-          <BGImg
-            src={OuternetImgFile}
-            alt="Hack Clubbers gather in the great outdoors of Cabot, VT, for an experience unlike any other: Outernet. 📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            priority
-            gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
-          />
+          {/* Wrapper for HeroCarousel to position it as a background */}
+          <Box
+            sx={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 0, // Ensure it's behind other content in the header
+            }}
+          >
+            <HeroCarousel
+              images={heroImagesData}
+              gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
+            />
+          </Box>
           <Box
             sx={{
               width: '90vw',
@@ -305,39 +344,9 @@ function Page({
               </Button>
             </Heading>
           </Box>
-          <Box
-            sx={{
-              display: 'flex',
-              justifyContent: ['flex-start', 'flex-start', 'flex-end'],
-              marginRight: 2,
-              mt: [4, 3, 1]
-            }}
-          >
-            <Badge
-              as="a"
-              href="https://outernet.hackclub.com/"
-              target="_blank"
-              rel="noopener"
-              variant="pill"
-              sx={{
-                zIndex: '1',
-                bg: 'black',
-                color: 'white',
-                opacity: 1,
-                textDecoration: 'none',
-                fontWeight: 'normal',
-                ':hover': { opacity: 1 },
-                transition: '0.3s ease'
-                // mixBlendMode: 'multiply'
-              }}
-              title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
-            >
-              Hackers at Outernet in Vermont
-            </Badge>
-          </Box>
         </Box>
         <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
-          <Box
+          <Box id="joy-of-code-section" // Added ID for Orpheus component
             sx={{
               position: 'relative',
               width: '90vw',
@@ -387,126 +396,9 @@ function Page({
               .
             </Text>
             <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
-              <Box
-                sx={{
-                  position: 'relative',
-                  height: ['300px', '300px', '300px', '100%'],
-                  py: [3, 3, 3, 0]
-                }}
-                onClick={() => {
-                  setCount(count + 1)
-                }}
-              >
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={
-                        count === images.length - 2
-                          ? images[0].src
-                          : images.length - 1
-                            ? images[1].src
-                            : images[count + 2].src
-                      }
-                      alt={
-                        count === images.length - 2
-                          ? images[0].alt
-                          : images.length - 1
-                            ? images[1].alt
-                            : images[count + 2].alt
-                      }
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(-3deg)' : 'rotate(3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={
-                        count === images.length - 1
-                          ? images[0].src
-                          : images[count + 1].src
-                      }
-                      alt={
-                        count === images.length - 1
-                          ? images[0].alt
-                          : images[count + 1].alt
-                      }
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
-                <Box
-                  sx={{ position: 'absolute', width: '100%', height: '100%' }}
-                >
-                  <Box
-                    sx={{
-                      position: 'relative',
-                      height: ['300px', '300px', '100%'],
-                      figure: {
-                        position: 'absolute',
-                        transform:
-                          count % 2 === 0 ? 'rotate(3deg)' : 'rotate(-3deg)',
-                        height: '85%',
-                        width: ['80%', '80%', '70%', '100%'],
-                        marginLeft: ['10%', '10%', '15%', '0']
-                      },
-                      zIndex: 3,
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                  >
-                    <Photo
-                      src={images[count].src}
-                      alt={images[count].alt}
-                      width={3000}
-                      height={2550}
-                      showAlt
-                    />
-                  </Box>
-                </Box>
+              <Box sx={{ py: [3,3,3,0], display: ['none', 'none', 'none', 'block'] /* Hide on mobile, show on desktop or adjust as needed */ }}>
+                {/* You can place a static image or other content here if you like */}
+                <Photo src="/home/map.png" alt="Map of Hack Clubs" width={3000} height={2550} showAlt />
               </Box>
               <Grid
                 columns="1fr"
@@ -625,7 +517,7 @@ function Page({
           </Box>
         </Box>
         <Carousel cards={carouselCards} title="Here are some activities you could join!"/>
-        <Box
+        <Box // This section has the ID "spotlight" already, used for the mouse effect
           id="spotlight"
           as="section"
           sx={{
@@ -699,7 +591,7 @@ function Page({
         </Box>
         <Carousel cards={upcomingHackathonsCarouselData} title="Check out these upcoming hackathons!"/>
         <Box>
-          <Box py={[4, 5, '82px']}>
+          <Box id="open-source-section" py={[4, 5, '82px']}> {/* Added ID for Orpheus component */}
             <Box
               sx={{
                 width: '90vw',
@@ -768,13 +660,26 @@ function Page({
                       flexWrap: 'wrap',
                       width: ['100%', null, null, 'fit-content'],
 
-                      '& > a:nth-child(n+4)': {
+                      '& > a:nth-child(n+5)': {
                         display: ['none', null, null, 'flex']
-                      }
+                      },
+                      // Add background image styles
+                      backgroundImage: "url('../public/toolbox.jpeg)", 
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      borderRadius: 'extra', // Match other card styles
+                      p: [2, 3], // Add some padding
+                      mt: [2, 0] // Add some top margin for spacing
                     }}
                   >
                     <Text
                       sx={{
+                        color: 'white',
+                        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                        px: 2,
+                        py: 1,
+                        borderRadius: 'default',
                         fontSize: ['11px', '11px', '14px'],
                         textAlign: 'left',
                         lineHeight: '90%',
@@ -825,6 +730,7 @@ function Page({
             </Box>
           </Box>
           <Box
+            id="community-section" // Added ID for Orpheus component
             sx={{
               position: 'relative',
               background: 'snow',
@@ -1133,6 +1039,7 @@ function Page({
           </Box>
         </Box>
 
+        <Orpheus /> {/* Add the Orpheus component */}
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
           <>
@@ -1229,8 +1136,15 @@ function Page({
     </>
   )
 }
-const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+// withCommas seems unused
+// const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
+/**
+ * Fetches static props for the homepage at build time.
+ * This includes data for carousels, Hack Club Bank stats, Slack community info,
+ * GitHub activity, Sprig game data, and upcoming hackathons.
+ * @returns {Promise<object>} Props to be passed to the Page component.
+ */
 export async function getStaticProps() {
   const carouselCards = require('../lib/carousel.json')
 

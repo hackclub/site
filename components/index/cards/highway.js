@@ -141,11 +141,10 @@ export default function Highway() {
           sx={{
             zIndex: 9999999,
             left: ['50%', '50%', '0%'],
-            color: '#ffffff',
-            borderRadius: '6px'
+            color: '#ffffff'
           }}
         >
-          Learn More
+          Hop on the Highway
         </Buttons>
       </Grid>
     </CardModel>
