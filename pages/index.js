@@ -998,28 +998,35 @@ function Page({
                 color: 'cyberpunk.electricBlue'
               }
             }}>
-              <strong>Hack Club isn't like a CS Discord server or a WhatsApp group.</strong> It's a place for those who build things and dream big, not for class credit or for an exam, but for the love of making.
+              <strong>Hack Club isn't just some Discord server or a WhatsApp group.</strong> It's a place for those who build things and dream big, not for class credit or for an exam, but for the love of making.
             </Text>
             <Text as="p" sx={{
               fontSize: ['18px', '20px', '22px'],
               lineHeight: 1.75,
-              color: 'cyberpunk.text',
               mb: 3,
               '& strong': {
-                color: 'cyberpunk.magenta'
+                color: 'orange'
               }
             }}>
-              <strong>It's for the folks who've been coding in their bedrooms</strong> and want to share their work with teens who get them. It's for the folks who've never written a line of code in their life, and want help from people who'll go above and beyond to help you, not just tell you to just "read the manual" or "ask ChatGPT".
+              <strong>It's for the folks who've never written a line of code in their life</strong> and want help from teens who get them and know what it's like to be in their shoes, and it's for those who've been coding for years and want help getting even better.
             </Text>
             <Text as="p" sx={{
               fontSize: ['18px', '20px', '22px'],
               lineHeight: 1.75,
-              color: 'cyberpunk.text',
               '& strong': {
-                color: 'cyberpunk.neonPurple'
+                color: 'magenta',
               }
             }}>
               <strong>We're builders ourselves,</strong> and we know that across the world, there are tens of thousands of teens who just need someone to give them a little push and help them make something they're proud of.
+            </Text>
+            <Text as="p" sx={{
+              fontSize: ['18px', '20px', '22px'],
+              lineHeight: 1.75,
+              '& strong': {
+                color: 'yellow',
+              }
+            }}>
+              The question is - <strong>are you ready to be a part of something bigger?</strong>
             </Text>
           </Box>
         </Box>
