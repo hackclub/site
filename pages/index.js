@@ -1109,7 +1109,7 @@ function Page({
                   JOIN THE SLACK →
                 </Button>
                 <Text variant="ctaLabel">
-                  Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '60k+'} teen hackers building the future
+                  Join {slackData.total_members_count ? withCommas(slackData.total_members_count) : '61,275'} teen hackers building the future
                 </Text>
               </Flex>
 

@@ -241,6 +241,10 @@ const MailingList = ({ posts = [] }) => {
                           borderColor: 'cyberpunk.electricBlue'
                         }
                       }}
+                      as={"a"}
+                      href={post.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <div>
                         <Text as="h4" sx={{ color: 'cyberpunk.electricBlue', mb: 1, fontSize: ['18px', '20px'], fontWeight: 'bold' }}>
