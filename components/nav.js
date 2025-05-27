@@ -26,6 +26,11 @@ const rgbaBgColor = (props, opacity) =>
 //         -webkit-backdrop-filter: saturate(180%) blur(20px);
 //         backdrop-filter: saturate(180%) blur(20px);
 //       `
+
+const initialBackground = props => css`
+  background-color: rgba(0, 0, 0, 0.5);
+`
+
 const fixed = props =>
   (props.scrolled || props.toggled || props.fixed) &&
   css`
@@ -48,6 +53,7 @@ const Root = styled(Box, {
   top: 0;
   width: 100vw;
   z-index: 1000;
+  ${initialBackground};
   ${fixed};
   @media print {
     display: none;

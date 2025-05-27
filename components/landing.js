@@ -36,8 +36,9 @@ const Landing = () => {
       mobile: '80px',     
       tablet: '100px',   
       laptop: '120px',   
-      laptop15: '-50px',   
-      desktop: '140px',  
+      laptop15: '-50px',  
+      desktopS: '-10px', 
+      desktop: '-10px',  
     },
 
     containerMaxWidth: {
@@ -207,7 +208,8 @@ const Landing = () => {
           `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.mobile})`,   
           `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.tablet})`,   
           `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.laptop})`,   
-          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.laptop15})`, 
+          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.laptop15})`,
+          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.desktopS})`,  
           `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.desktop})`   
         ],
         height: 'auto',
