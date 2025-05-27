@@ -922,174 +922,150 @@ function Page({
                 '> a, > div': {
                   borderRadius: 'extra',
                   boxShadow: 'elevated',
-                  p: [3, null, 4]
-                },
-                span: {
-                  boxShadow:
-                    '-2px -2px 6px rgba(255,255,255,0.125), inset 2px 2px 6px rgba(0,0,0,0.1), 2px 2px 8px rgba(0,0,0,0.0625)'
-                },
-                svg: { fill: 'currentColor' }
+                p: [3, 4], // Matched with joy-of-code cards
+                transition: 'transform 0.125s ease-in-out, box-shadow 0.125s ease-in-out',
+                '&:hover, &:focus-within': {
+                  transform: 'scale(1.01)',
+                  boxShadow: 'lifted' // Or 'elevated' if 'lifted' is not defined/preferred
+                }
+                }
               }}
             >
               <Card
                 as="a"
                 href="/slack"
-                target="_blank"
-                rel="noopener"
                 variant="interactive"
                 sx={{
-                  background:
-                    'linear-gradient(32deg, rgba(51, 142, 218, 0.9) 0%, rgba(51, 214, 166, 0.9) 100%)',
+                  backgroundColor: 'blue',
                   color: 'white',
-                  svg: { color: 'rgb(51, 142, 218)' },
-                  position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+                  '.external-link-icon': {
+                    position: 'absolute',
+                    top: theme.space[3],
+                    right: theme.space[3],
+                    color: 'rgba(255,255,255,0.6)',
+                    transition: 'transform 0.2s ease-out, opacity 0.2s ease-out'
                   },
                   ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
+                    '.external-link-icon': {
+                      transform: 'translateX(3px) translateY(-3px)',
+                      opacity: 0.9
                     }
-                  }
+                  },
+                  target: '_blank', // Moved target and rel here for clarity
+                  rel: 'noopener'
                 }}
               >
+                <Box
+                  sx={{
+                    width: 'fit-content',
+                    mb: 3,
+                    // Removed background, border-radius, padding, line-height, and display for the icon wrapper
+                  }}
+                >
+                  <Icon glyph="slack" size={48} sx={{ color: 'white' }} />
+                </Box>
+                <Heading as="h3" variant="headline" sx={{ color: 'white', mb: 2, fontSize: ['22px', '24px', '26px'] }}>
+                  Join Our Slack
+                </Heading>
+                <Text as="p" variant="subtitle" sx={{ color: 'white', opacity: 0.9, fontSize: ['18px', '20px', '22px'], fontWeight: 'normal' }}>
+                  Connect with other technical teenagers on Slack and hack on things together.
+                </Text>
                 <Icon
                   glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: ['18px', '20px', '22px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
-                <Stage
-                  icon="slack"
-                  color="white"
-                  name="Join Our Slack"
-                  desc="Connect with other technical teenagers on Slack and hack on things together."
-                  sx={{
-                    p: {
-                      fontSize: ['18px', '20px', '22px']
-                    },
-                    h3: {
-                      fontSize: ['22px', 2, 3]
-                    }
-                  }}
+                  size={24}
+                  className="external-link-icon"
                 />
               </Card>
               <Card
                 sx={{
                   background:
-                    'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)',
+                    'purple', // Using theme color 'purple'
                   color: 'white',
-                  svg: { color: '#fb558e' },
-                  textDecoration: 'none',
-                  position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.25s ease-in-out'
+                  '.external-link-icon': {
+                    position: 'absolute',
+                    top: theme.space[3],
+                    right: theme.space[3],
+                    color: 'rgba(255,255,255,0.6)',
+                    transition: 'transform 0.2s ease-out, opacity 0.2s ease-out'
                   },
                   ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
+                    '.external-link-icon': {
+                      transform: 'translateX(3px) translateY(-3px)',
+                      opacity: 0.9
                     }
                   }
                 }}
                 as="a"
                 href="https://github.com/hackclub"
-                variant="interactive"
                 target="_blank"
                 rel="noopener"
+                variant="interactive"
               >
+                <Box
+                  sx={{
+                    width: 'fit-content',
+                    mb: 3,
+                    // Removed background, border-radius, padding, line-height, and display for the icon wrapper
+                  }}
+                >
+                  <Icon glyph="github" size={48} sx={{ color: 'white' }} />
+                </Box>
+                <Heading as="h3" variant="headline" sx={{ color: 'white', mb: 2, fontSize: ['22px', '24px', '26px'] }}>
+                  Explore Our Open Source Tools
+                </Heading>
+                <Text as="p" variant="subtitle" sx={{ color: 'white', opacity: 0.9, fontSize: ['18px', '20px', '22px'], fontWeight: 'normal' }}>
+                  We're currently building a game engine, daily streak system, graphing game, and more!
+                </Text>
                 <Icon
                   glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: [1, '16px', '20px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
-                <Stage
-                  icon="github"
-                  color="white"
-                  name="Explore Our Open Source Tools"
-                  desc="We're currently building a game engine, daily streak system, graphing game, and more!"
-                  sx={{
-                    p: {
-                      fontSize: [1, '16px', '20px']
-                    },
-                    h3: {
-                      fontSize: ['22px', 2, 3]
-                    }
-                  }}
+                  size={24}
+                  className="external-link-icon"
                 />
               </Card>
               <Card
                 sx={{
                   background:
-                    'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
+                    'orange', // Using theme color 'orange'
                   color: 'white',
-                  svg: { color: 'rgb(236, 55, 80)' },
-                  textDecoration: 'none',
-                  position: 'relative',
-                  '.icon': {
-                    transition:
-                      'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
+                  '.external-link-icon': {
+                    position: 'absolute',
+                    top: theme.space[3],
+                    right: theme.space[3],
+                    color: 'rgba(255,255,255,0.6)',
+                    transition: 'transform 0.2s ease-out, opacity 0.2s ease-out'
                   },
                   ':hover,:focus': {
-                    '.icon': {
-                      transform: 'translateX(28px) translateY(-28px)',
-                      opacity: 0
+                    '.external-link-icon': {
+                      transform: 'translateX(3px) translateY(-3px)',
+                      opacity: 0.9
                     }
                   }
                 }}
                 as="a"
                 href="/clubs"
-                variant="interactive"
                 target="_blank"
                 rel="noopener"
+                variant="interactive"
               >
+                <Box
+                  sx={{
+                    width: 'fit-content',
+                    mb: 3,
+                    // Removed background, border-radius, padding, line-height, and display for the icon wrapper
+                  }}
+                >
+                  <Icon glyph="clubs" size={48} sx={{ color: 'white' }} />
+                </Box>
+                <Heading as="h3" variant="headline" sx={{ color: 'white', mb: 2, fontSize: ['22px', '24px', '26px'] }}>
+                  Start A Club
+                </Heading>
+                <Text as="p" variant="subtitle" sx={{ color: 'white', opacity: 0.9, fontSize: ['18px', '20px', '22px'], fontWeight: 'normal' }}>
+                  Build an in-person community of high school hackers, and we're here to help.
+                </Text>
                 <Icon
                   glyph="external"
-                  size={32}
-                  className="icon"
-                  sx={{
-                    position: 'absolute',
-                    top: 2,
-                    right: 2,
-                    opacity: 0.3,
-                    fontSize: ['18px', '20px', '22px'],
-                    zIndex: 3,
-                    color: 'white !important'
-                  }}
-                />
-                <Stage
-                  icon="clubs"
-                  color="white"
-                  name="Start A Club"
-                  desc="Build an in-person community of high school hackers, and we're here to help."
-                  sx={{
-                    p: {
-                      fontSize: ['18px', '20px', '22px']
-                    },
-                    h3: {
-                      fontSize: ['22px', 2, 3]
-                    }
-                  }}
+                  size={24}
+                  className="external-link-icon"
                 />
               </Card>
             </Grid>
@@ -1277,8 +1253,9 @@ export async function getStaticProps() {
   const upcomingHackathonsCarouselData = hackathonsData
     .slice(0, 10)
     .map(item => {
-      const fallbackGradient = `linear-gradient(to bottom, #333333, #000000)` // Explicit dark gray to black fallback
-
+      const overlayGradient = 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6))'
+      const baseDarkGradient = 'linear-gradient(to bottom, #333333, #000000)' // Base dark gradient
+      
       let locationInfo
       if (item.virtual) {
         locationInfo = 'Virtual Event'
@@ -1310,13 +1287,17 @@ export async function getStaticProps() {
 
       const description = `${locationInfo}. ${dateInfo}.`
 
+      const backgroundLayers = [overlayGradient]
+      if (item.banner) {
+        backgroundLayers.push(`url(${item.banner})`)
+      }
+      backgroundLayers.push(baseDarkGradient)
+
       return {
         id: item.id,
         title: item.name,
         description: description,
-        background: item.banner // Check if banner URL exists
-          ? `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url(${item.banner}), ${fallbackGradient}` // Stack: overlay, banner, then fallback gradient as safety net
-          : fallbackGradient, // If no banner URL, just use the fallback gradient
+        background: backgroundLayers.join(', '),
         titleColor: 'white',
         descriptionColor: 'white',
         img: item.logo || 'https://assets.hackclub.com/icon-rounded.png', // Use logo for img, fallback
