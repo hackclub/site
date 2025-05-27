@@ -30,19 +30,61 @@ const Landing = () => {
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [backgroundLoaded, setBackgroundLoaded] = useState(false);
   
-  // ADJUSTABLE SPACING - Change these values to control layout
+
   const LAYOUT_CONFIG = {
     imageVerticalOffset: {
-      mobile: '-15px',      
-      tablet: '0px',     
-      laptop: '0px',   
-      desktop: '0px',  
+      mobile: '80px',     
+      tablet: '100px',   
+      laptop: '120px',   
+      laptop15: '-50px',   
+      desktop: '140px',  
     },
+
     containerMaxWidth: {
       mobile: '100%',
       tablet: '600px', 
-      laptop: '900px',     
-      desktop: '1200px'
+      laptop: '900px',   
+      laptop15: '900px',   
+      desktop: '1200px'  
+    },
+
+    mainImageHeight: {
+      mobile: '220px',
+      tablet: '270px',
+      laptop: '360px',    
+      laptop15: '220px',   
+      desktop: '400px'   
+    },
+
+    contentMaxWidth: {
+      mobile: '100%',
+      tablet: '500px',
+      laptop: '800px',     
+      laptop15: '600px',  
+      desktop: '900px'     
+    },
+
+    typography: {
+      subtitle: {
+        mobile: '12px',
+        tablet: '16px',
+        laptop: '24px',      
+        laptop15: '18px',   
+        desktop: '28px'      
+      },
+      heading: {
+        mobile: '36px',
+        tablet: '40px',
+        laptop: '48px',      
+        laptop15: '38px',    
+        desktop: '52px'      
+      }
+    },
+
+    floatingImageSize: {
+      laptop: '140px',     
+      laptop15: '110px',   
+      desktop: '140px'   
     }
   };
   
@@ -160,12 +202,13 @@ const Landing = () => {
     <section
       sx={{
         width: '100%',
+
         minHeight: [
           `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.mobile})`,   
           `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.tablet})`,   
           `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.laptop})`,   
-          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.laptop})`,   
-          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.desktop})` 
+          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.laptop15})`, 
+          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.desktop})`   
         ],
         height: 'auto',
         display: 'flex',
@@ -223,8 +266,8 @@ const Landing = () => {
           maxWidth: [
             LAYOUT_CONFIG.containerMaxWidth.mobile,
             LAYOUT_CONFIG.containerMaxWidth.tablet,
-            LAYOUT_CONFIG.containerMaxWidth.laptop, 
-            LAYOUT_CONFIG.containerMaxWidth.laptop, 
+            LAYOUT_CONFIG.containerMaxWidth.laptop,   
+            LAYOUT_CONFIG.containerMaxWidth.laptop15, 
             LAYOUT_CONFIG.containerMaxWidth.desktop
           ],
           display: 'flex',
@@ -243,8 +286,8 @@ const Landing = () => {
               '100%', 
               '500px', 
               '700px', 
-              '800px',  
-              '900px'   
+              LAYOUT_CONFIG.contentMaxWidth.laptop15, 
+              LAYOUT_CONFIG.contentMaxWidth.desktop 
             ],
             textAlign: 'center',
             mb: 3, 
@@ -256,14 +299,14 @@ const Landing = () => {
             sx={{
               width: '100%',
               height: [
-                '220px', 
-                '270px', 
-                '320px', 
-                '360px', 
-                '400px'   
+                LAYOUT_CONFIG.mainImageHeight.mobile, 
+                LAYOUT_CONFIG.mainImageHeight.tablet, 
+                LAYOUT_CONFIG.mainImageHeight.laptop, 
+                LAYOUT_CONFIG.mainImageHeight.laptop15,
+                LAYOUT_CONFIG.mainImageHeight.desktop
               ],
               borderRadius: '16px',
-              mb: 4,
+              mb: [4, 4, 4, 2, 4],
               bg: '#f0f0f0',
               overflow: 'hidden',
               display: 'flex',
@@ -286,7 +329,13 @@ const Landing = () => {
                 height: '100%',
                 objectFit: 'cover',
                 objectPosition: 'center center',
-                transform: 'scale(1.4) translateZ(0)',
+                transform: [
+                  'scale(1.4) translateZ(0)',
+                  'scale(1.4) translateZ(0)',
+                  'scale(1.4) translateZ(0)',
+                  'scale(1.5) translateZ(0)',
+                  'scale(1.4) translateZ(0)'
+                ],
                 transformOrigin: 'center center',
                 backfaceVisibility: 'hidden',
                 willChange: 'transform',
@@ -304,11 +353,11 @@ const Landing = () => {
               sx={{
                 color: '#e0e6ed',
                 fontSize: [
-                  '12px',
-                  '16px', 
-                  '20px', 
-                  '24px',  
-                  '28px'   
+                  LAYOUT_CONFIG.typography.subtitle.mobile,
+                  LAYOUT_CONFIG.typography.subtitle.tablet, 
+                  LAYOUT_CONFIG.typography.subtitle.laptop, 
+                  LAYOUT_CONFIG.typography.subtitle.laptop15,
+                  LAYOUT_CONFIG.typography.subtitle.desktop
                 ],
                 fontWeight: '600',
                 mb: 3,
@@ -328,11 +377,11 @@ const Landing = () => {
                   color: 'white',
                   mb: 3, 
                   fontSize: [
-                    '36px',
-                    '40px', 
-                    '44px', 
-                    '48px',  
-                    '52px'   
+                    LAYOUT_CONFIG.typography.heading.mobile,
+                    LAYOUT_CONFIG.typography.heading.tablet, 
+                    LAYOUT_CONFIG.typography.heading.laptop, 
+                    LAYOUT_CONFIG.typography.heading.laptop15, 
+                    LAYOUT_CONFIG.typography.heading.desktop
                   ],
                   lineHeight: 1.2,
                   fontWeight: 'bold',
@@ -379,7 +428,7 @@ const Landing = () => {
               <div sx={{
                 display: 'flex',
                 flexDirection: ['column', 'row'],
-                gap: 3,
+                gap: [2, 2, 2, 2, 3],
                 justifyContent: 'center',
                 alignItems: 'center',
                 mt: 3 
@@ -389,7 +438,12 @@ const Landing = () => {
                   as="a"
                   mt={[3, 0, 0]}
                   mr={3}
-                  sx={{ transformOrigin: 'center left' }}
+                  sx={{ 
+                    transformOrigin: 'center left',
+                    fontSize: ['14px', '16px', '16px', '20px', '24px'],
+                    px: [2, 3, 3, 3, 3],
+                    py: [2, 3, 3, 3, 3]
+                  }}
                 >
                   Join Slack
                 </Button>
@@ -397,8 +451,9 @@ const Landing = () => {
                   as="a"
                   href="https://shipwrecked.hack.club/3"
                   sx={{
-                    px: 2,
-                    py: 3,
+                    px: [2, 2, 2, 3, 2],
+                    py: [2, 3, 3, 3, 3],
+                    fontSize: ['16px', '18px', '18px', '20px', '24px'],
                     transformOrigin: 'left',
                     backgroundImage: t => t.util.gx('green', 'blue'),
                     color: 'white',
@@ -416,7 +471,7 @@ const Landing = () => {
 
         <div
           sx={{
-            display: ['flex', 'flex', 'flex', 'none', 'none'], 
+            display: ['flex', 'flex', 'flex', 'none', 'none'],
             width: '100%',
             justifyContent: 'center',
             gap: [2, 3],
@@ -440,6 +495,9 @@ const Landing = () => {
                 '--initial-rotate': i === 0 ? '2deg' : '-2deg',
                 maxWidth: ['140px', '160px'],
                 willChange: 'transform',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
               }}
             >
               <img
@@ -450,7 +508,6 @@ const Landing = () => {
                   height: ['100px', '120px'],
                   borderRadius: '8px',
                   objectFit: 'cover',
-                  display: 'block',
                 }}
                 loading="lazy"
                 fetchPriority="low"
@@ -469,9 +526,10 @@ const Landing = () => {
         </div>
       </div>
 
+
       <div
         sx={{
-          display: ['none', 'none', 'none', 'block', 'block'], 
+          display: ['none', 'none', 'none', 'block', 'block'],
           position: 'absolute',
           top: 0,
           left: 0,
@@ -506,12 +564,18 @@ const Landing = () => {
             <div
               sx={{
                 bg: 'white',
-                p: 3,
+                p: [2, 3],
                 borderRadius: '12px',
                 boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
                 border: '2px dashed #e0e0e0',
                 position: 'relative',
-                maxWidth: ['160px', '180px'],
+                maxWidth: [
+                  LAYOUT_CONFIG.floatingImageSize.laptop15,
+                  LAYOUT_CONFIG.floatingImageSize.desktop   
+                ],
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
               }}
             >
               <div
@@ -530,18 +594,23 @@ const Landing = () => {
                 src={img.src}
                 alt={`Event ${i + 1}`}
                 sx={{
-                  width: ['120px', '140px'], 
-                  height: ['120px', '140px'],
+                  width: [
+                    `calc(${LAYOUT_CONFIG.floatingImageSize.laptop15} - 20px)`, 
+                    `calc(${LAYOUT_CONFIG.floatingImageSize.desktop} - 20px)`   
+                  ],
+                  height: [
+                    `calc(${LAYOUT_CONFIG.floatingImageSize.laptop15} - 20px)`, 
+                    `calc(${LAYOUT_CONFIG.floatingImageSize.desktop} - 20px)`   
+                  ],
                   borderRadius: '8px',
                   objectFit: 'cover',
-                  display: 'block',
                 }}
                 loading="lazy"
                 fetchPriority="low"
               />
               <div sx={{ 
                 mt: 2, 
-                fontSize: '13px', 
+                fontSize: ['11px', '13px'], 
                 textAlign: 'center',
                 fontWeight: '600',
                 color: '#666'
