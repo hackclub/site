@@ -739,7 +739,7 @@ function Page({
                     px: 2,
                     mx: 0,
                     whiteSpace: 'nowrap',
-                    color: 'cyberpunk.textHighlight',
+                    color: 'white !important',
                     bg: 'cyberpunk.electricBlue' // Electric Blue
                   }}
                 >
