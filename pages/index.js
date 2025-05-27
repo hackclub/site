@@ -6,11 +6,10 @@ import {
   Flex,
   Grid,
   Heading,
-  Link,
   Text,
   useColorMode
 } from 'theme-ui'
-import React, { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
@@ -21,11 +20,9 @@ import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
 import Clubs from '../components/index/cards/clubs'
-import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
 import OuternetImgFile from '../public/home/outernet-110.jpg'
-import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
