@@ -30,6 +30,22 @@ const Landing = () => {
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [backgroundLoaded, setBackgroundLoaded] = useState(false);
   
+  // ADJUSTABLE SPACING - Change these values to control layout
+  const LAYOUT_CONFIG = {
+    imageVerticalOffset: {
+      mobile: '-15px',      
+      tablet: '0px',     
+      laptop: '0px',   
+      desktop: '0px',  
+    },
+    containerMaxWidth: {
+      mobile: '100%',
+      tablet: '600px', 
+      laptop: '900px',     
+      desktop: '1200px'
+    }
+  };
+  
   const slackData = {
     total_members_count: 69235
   };
@@ -47,7 +63,6 @@ const Landing = () => {
     'Assemble, SF',
     'Figma HQ, SF'
   ];
-
 
   useEffect(() => {
     const criticalImages = [
@@ -144,23 +159,14 @@ const Landing = () => {
   return (
     <section
       sx={{
-  width: '100%',
-  minHeight: 'calc(100vh - 40px)', 
-  '@media (min-width: 480px)': {
-    minHeight: 'calc(100vh + 15px)',
-  },
-  '@media (min-width: 640px)': {
-    minHeight: 'calc(100vh + 80px)', 
-  },
-  '@media (min-width: 768px)': {
-    minHeight: 'calc(100vh + 100px)', 
-  },
-  '@media (min-width: 1024px)': {
-    minHeight: 'calc(100vh - 0px)',
-  },
-  '@media (min-width: 1280px)': {
-    minHeight: 'calc(100vh + 10px)', 
-  },
+        width: '100%',
+        minHeight: [
+          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.mobile})`,   
+          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.tablet})`,   
+          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.laptop})`,   
+          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.laptop})`,   
+          `calc(100vh - ${LAYOUT_CONFIG.imageVerticalOffset.desktop})` 
+        ],
         height: 'auto',
         display: 'flex',
         alignItems: 'center',
@@ -173,7 +179,6 @@ const Landing = () => {
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         position: 'relative',
-     
         pt: [2, 3, 3], 
         pb: [3, 4, 4],
         '&::before': {
@@ -215,7 +220,13 @@ const Landing = () => {
         sx={{
           position: 'relative',
           width: '100%',
-          maxWidth: '1200px',
+          maxWidth: [
+            LAYOUT_CONFIG.containerMaxWidth.mobile,
+            LAYOUT_CONFIG.containerMaxWidth.tablet,
+            LAYOUT_CONFIG.containerMaxWidth.laptop, 
+            LAYOUT_CONFIG.containerMaxWidth.laptop, 
+            LAYOUT_CONFIG.containerMaxWidth.desktop
+          ],
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -225,11 +236,16 @@ const Landing = () => {
         }}
       >
 
-
         <div
           sx={{
             width: '100%',
-            maxWidth: ['100%', '500px', '700px', '900px', '1200px'],
+            maxWidth: [
+              '100%', 
+              '500px', 
+              '700px', 
+              '800px',  
+              '900px'   
+            ],
             textAlign: 'center',
             mb: 3, 
             px: [2, 3, 4],
@@ -244,7 +260,7 @@ const Landing = () => {
                 '270px', 
                 '320px', 
                 '360px', 
-                '400px'  
+                '400px'   
               ],
               borderRadius: '16px',
               mb: 4,
@@ -291,8 +307,8 @@ const Landing = () => {
                   '12px',
                   '16px', 
                   '20px', 
-                  '24px', 
-                  '28px' 
+                  '24px',  
+                  '28px'   
                 ],
                 fontWeight: '600',
                 mb: 3,
@@ -315,8 +331,8 @@ const Landing = () => {
                     '36px',
                     '40px', 
                     '44px', 
-                    '48px', 
-                    '52px'  
+                    '48px',  
+                    '52px'   
                   ],
                   lineHeight: 1.2,
                   fontWeight: 'bold',
@@ -400,7 +416,7 @@ const Landing = () => {
 
         <div
           sx={{
-            display: ['flex', 'flex', 'flex', 'flex', 'none'],
+            display: ['flex', 'flex', 'flex', 'none', 'none'], 
             width: '100%',
             justifyContent: 'center',
             gap: [2, 3],
@@ -455,7 +471,7 @@ const Landing = () => {
 
       <div
         sx={{
-          display: ['none', 'none', 'none', 'none', 'block'],
+          display: ['none', 'none', 'none', 'block', 'block'], 
           position: 'absolute',
           top: 0,
           left: 0,
@@ -495,7 +511,7 @@ const Landing = () => {
                 boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
                 border: '2px dashed #e0e0e0',
                 position: 'relative',
-                maxWidth: '180px',
+                maxWidth: ['160px', '180px'],
               }}
             >
               <div
@@ -514,8 +530,8 @@ const Landing = () => {
                 src={img.src}
                 alt={`Event ${i + 1}`}
                 sx={{
-                  width: '140px',
-                  height: '140px',
+                  width: ['120px', '140px'], 
+                  height: ['120px', '140px'],
                   borderRadius: '8px',
                   objectFit: 'cover',
                   display: 'block',
