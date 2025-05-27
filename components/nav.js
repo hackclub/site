@@ -45,7 +45,7 @@ const Root = styled(Box, {
   left: ${theme.space[2]}px;
   right: ${theme.space[2]}px;
   width: calc(100vw - ${theme.space[2] * 2}px);
-  border-radius: ${theme.radii.pill};
+  border-radius: 24px; /* Or your desired radius, e.g., theme.radii.extra */
   border-width: 4px; /* Keep width consistent for layout */
   border-style: solid; /* Keep style consistent */
   transition: background-color 0.25s ease-in-out, border-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
@@ -66,6 +66,16 @@ const Root = styled(Box, {
     display: none;
   }
 `
+
+// Define navLinks with hoverColor
+const navLinks = [
+  { href: "/clubs", text: "Clubs", icon: "clubs", isNextLink: true, hoverColor: theme.colors.red },
+  { href: "/fiscal-sponsorship", text: "Fiscal\u00a0Sponsorship", icon: "bank-account", isNextLink: true, hoverColor: theme.colors.orange },
+  { href: "/hackathons", text: "Hackathons", icon: "event-code", isNextLink: true, hoverColor: theme.colors.yellow },
+  { href: "/slack", text: "Community", icon: "slack-fill", isNextLink: false, hoverColor: theme.colors.green },
+  { href: "https://scrapbook.hackclub.com/", text: "Scrapbook", icon: "photo", isNextLink: false, hoverColor: theme.colors.cyan },
+  { href: "https://toolbox.hackclub.com/", text: "Toolbox", icon: "everything", isNextLink: true, hoverColor: theme.colors.blue },
+];
 
 export const Content = styled(Container)`
   display: flex;
@@ -96,29 +106,48 @@ const layout = props =>
         display: ${props.toggled ? 'flex' : 'none'} !important; // Use important to override base display: none
         flex-direction: column;
         position: absolute;
-        top: calc(100% + ${theme.space[1]}px); // Gap below the nav
+        top: calc(100% + ${theme.space[2]}px); // Increased gap below the nav
         left: 0;
         width: 100%;
         background-color: ${theme.colors.white}; /* Solid white background for dropdown */
         border: 4px solid ${theme.colors.muted}; /* Thick gray outline for dropdown */
-        border-radius: ${theme.radii.default}px;
+        border-radius: 14px;
         /* Only apply border-radius to bottom corners */
         box-shadow: ${theme.shadows.elevated};
-        padding: ${theme.space[1]}px 0;
+        padding: 0;
         max-height: calc(100vh - 120px); // Ensure it doesn't overflow viewport too much
-        overflow-y: auto;
+        overflow-y: hidden;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
         z-index: 1; // Relative to Root's children like Content (z-index: 2)
         @media (prefers-reduced-motion: no-preference) {
           animation: ${slideDownFromNav} 0.2s ease-out;
         }
         a {
           color: ${theme.colors[props.dark ? 'white' : 'black']} !important;
-          padding: ${theme.space[2]}px ${theme.space[3]}px;
+          /* Ensure the <a> tag itself is a flex container for its content */
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: ${theme.space[2]}px ${theme.space[3]}px; /* Top/Bottom, Left/Right padding */
+          margin-left: 0; /* Override base NavBar 'a' margin for mobile */
           font-size: ${theme.fontSizes[1]}px;
           width: 100%;
           border-bottom: 1px solid ${props.dark ? 'rgba(255,255,255,0.1)' : theme.colors.snow};
           &:last-child { border-bottom: none; }
-          &:hover { background-color: ${theme.colors.snow}; } /* Hover background on white */
+          /* Individual hover styles will be applied via sx prop */
+
+          /* Style for the text span inside the link */
+          span {
+            flex-grow: 1; /* Allow text to take available space */
+            text-align: left;
+          }
+          /* Style for the icon */
+          svg {
+            margin-left: ${theme.space[2]}px; /* Add some space to the left of the icon */
+            fill: currentColor; /* Make icon color match text */
+            flex-shrink: 0; /* Prevent icon from shrinking if text is long */
+            transition: transform 0.2s ease-in-out; /* Add transition for smooth transform */
+          }
         }
       `
     : css`
@@ -126,10 +155,15 @@ const layout = props =>
           display: flex;
           justify-content: flex-end;
         }
-        a {
+        a { /* Desktop 'a' styles */
           font-size: 18px;
+          color: ${props => props.color ? (theme.colors[props.color] || props.color) : 'inherit'};
+          margin-left: ${theme.space[1]}px; /* Moved from general NavBar a */
+          padding: ${theme.space[3]}px;     /* Moved from general NavBar a */
+          text-decoration: none;          /* Copied from general NavBar a, if needed universally for desktop */
           &:hover {
             color: ${theme.colors[hoverColor(props.color)]};
+            text-decoration: none;
           }
         }
       `
@@ -137,34 +171,91 @@ const NavBar = styled(Box, {
   shouldForwardProp: prop => !['isMobile', 'toggled'].includes(prop)
 })`
   display: none;
-  ${layout};
+  ${layout}; /* This now handles all specific 'a' styling for mobile/desktop */
   a {
-    margin-left: ${theme.space[1]}px;
-    padding: ${theme.space[3]}px;
-    text-decoration: none;
-    @media (min-width: 56em) {
-      color: ${props => theme.colors[props.color] || props.color};
-    }
+    text-decoration: none; /* Universal for all links in NavBar if not overridden */
   }
 `
 
-const Navigation = props => (
-  // REMINDER: This should be no more than 7 links :)
+const Navigation = props => ( // props will include isMobile when rendered for mobile
   <NavBar role="navigation" {...props}>
-    <NextLink href="/clubs" passHref>
-      <Link>Clubs</Link>
-    </NextLink>
-    <NextLink href="/fiscal-sponsorship" passHref>
-      <Link>Fiscal&nbsp;Sponsorship</Link>
-    </NextLink>
-    <NextLink href="/hackathons" passHref>
-      <Link>Hackathons</Link>
-    </NextLink>
-    <Link href="/slack">Community</Link>
-    <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
-    <NextLink href="https://toolbox.hackclub.com/" passHref>
-      <Link>Toolbox</Link>
-    </NextLink>
+    {navLinks.map(linkItem => {
+      let linkContent;
+      let linkSx = {};
+
+      if (props.isMobile) {
+        linkContent = (
+          <>
+            <span>{linkItem.text}</span>
+            <Icon glyph={linkItem.icon} size={20} />
+          </>
+        );
+        linkSx = {
+          '&:hover': {
+            backgroundColor: linkItem.hoverColor,
+            color: `${theme.colors.white} !important`,
+            fontWeight: 'bold',
+            span: { color: `${theme.colors.white} !important` },
+            svg: {
+              fill: `${theme.colors.white} !important`,
+              transform: 'scale(1.25) rotate(-7deg)'
+            }
+          }
+        };
+      } else { // Desktop
+        linkContent = (
+          <>
+            <Icon
+              glyph={linkItem.icon}
+              size={20} 
+              className="desktop-nav-icon"
+              sx={{
+                marginRight: `${theme.space[2]}px`, // Space between icon and text when visible
+                opacity: 0,
+                transform: 'translateX(-100%) scale(0.5)', // Start hidden to the left, small
+                transition: 'opacity 0.2s ease-in-out, transform 0.2s ease-in-out 0.05s', // Slight delay for transform
+                color: linkItem.hoverColor, // Icon takes the link's hover color
+              }}
+            />
+            <span>{linkItem.text}</span>
+          </>
+        );
+        linkSx = {
+          display: 'inline-flex', // Align icon and text
+          alignItems: 'center',
+          overflow: 'hidden',   // Crucial for the icon sliding effect
+          position: 'relative',   // Good for children with transforms
+          '&:hover': {
+            color: `${linkItem.hoverColor} !important`,
+            fontWeight: 'bold',
+            '.desktop-nav-icon': {
+              opacity: 1,
+              transform: 'translateX(0) scale(1.25) rotate(-7deg)', // Icon appears, scales, and tilts
+            }
+          }
+        };
+      }
+
+      if (linkItem.isNextLink) {
+        return (
+          <NextLink href={linkItem.href} passHref key={linkItem.href} legacyBehavior>
+            <Link sx={linkSx}>{linkContent}</Link>
+          </NextLink> // Added legacyBehavior for NextLink with styled components/sx
+        );
+      } else {
+        return (
+          <Link
+            href={linkItem.href}
+            key={linkItem.href}
+            target={linkItem.href.startsWith('http') ? '_blank' : undefined}
+            rel={linkItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            sx={linkSx}
+          >
+            {linkContent}
+          </Link>
+        );
+      }
+    })}
   </NavBar>
 )
 
