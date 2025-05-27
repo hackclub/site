@@ -42,6 +42,14 @@ import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
+import YTCarousel from '../components/index/yt-carousel'
+import Highway from '../components/index/cards/highway'
+import Shipwrecked from '../components/index/cards/shipwrecked'
+import EventSlider from '../components/index/events-slider'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import ProjectsSlider from '../components/index/projects-slider'
+import Landing from '../components/landing'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -58,7 +66,9 @@ function Page({
   gameTitle,
   events,
   carouselCards,
-  context
+  context,
+  ytCarouselCards,
+  projectCards
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -166,6 +176,7 @@ function Page({
       </Head>
       <ForceTheme theme="light" />
       <Nav />
+      <Landing />
       <Box
         as="main"
         sx={{
@@ -186,7 +197,7 @@ function Page({
         <Konami action={easterEgg}>
           {"Hey, I'm an Easter Egg! Look at me!"}
         </Konami>
-        <Box
+       { /*<Box
           as="header"
           sx={{
             bg: 'dark',
@@ -278,7 +289,7 @@ function Page({
               <Button
                 variant="ctaLg"
                 as="a"
-                href="/slack"
+
                 mt={[3, 0, 0]}
                 mr={3}
                 sx={{ transformOrigin: 'center left' }}
@@ -329,7 +340,7 @@ function Page({
               Hackers at Outernet in Vermont
             </Badge>
           </Box>
-        </Box>
+        </Box>*/}
         <Box as="section" sx={{ py: [4, 5, '82px'], color: 'black' }}>
           <Box
             sx={{
@@ -619,6 +630,7 @@ function Page({
           </Box>
         </Box>
         <Carousel cards={carouselCards} />
+   
         <Box
           id="spotlight"
           as="section"
@@ -682,13 +694,121 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Neighborhood />
-            <Trail />
-            <Scrapyard />
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+            <Box sx={{ px: 10 }}>
+              <EventSlider sx={{ z: '999999', px: 2 }} />
+            </Box>
+            <Box sx={{ px: 10 }}>
+              <YTCarousel cards={ytCarouselCards} />
+            </Box>
+          </Box>
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
-        <Box>
+<Box sx={{ position: 'relative' }}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: -1,
+            overflow: 'hidden',
+            pointerEvents: 'none'
+          }}
+        >
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '10%',
+              left: '5%',
+              width: ['200px', '300px', '500px'],
+              height: ['200px', '300px', '500px'],
+              backgroundImage: 'url("/home/assemble.jpg")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 'default',
+              opacity: 0.3,
+              transform: 'rotate(-15deg)',
+              filter: 'blur(1px)'
+            }}
+          />
+          
+        
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '20%',
+              right: '3%',
+              width: ['200px', '300px', '500px'],
+              height: ['200px', '300px', '500px'],
+              backgroundImage: 'url("/home/assemble-hardware.jpg")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 'default',
+              opacity: 0.25,
+              transform: 'rotate(20deg)',
+              filter: 'blur(1px)'
+            }}
+          />
+          
+ 
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '40%',
+              left: '3%',
+              width: ['200px', '300px', '500px'],
+              height: ['200px', '300px', '500px'],
+              backgroundImage: 'url("/home/ama.png")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 'default',
+              opacity: 0.2,
+              transform: 'rotate(-8deg)',
+              filter: 'blur(1.5px)'
+            }}
+          />
+          
+
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: '15%',
+              left: '2%',
+              width: ['200px', '300px', '500px'],
+              height: ['200px', '300px', '500px'],
+              backgroundImage: 'url("/home/hack-penn.jpg")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 'default',
+              opacity: 0.3,
+              transform: 'rotate(12deg)',
+              filter: 'blur(1px)'
+            }}
+          />
+    
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: '25%',
+              right: '2%',
+              width: ['200px', '300px', '500px'],
+              height: ['200px', '300px', '500px'],
+              backgroundImage: 'url("/home/hero.png")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 'default',
+              opacity: 0.25,
+              transform: 'rotate(-25deg)',
+              filter: 'blur(1.5px)'
+            }}
+          />
+        </Box>
+
+
+        <Box sx={{backgroundColor: 'rgba(42, 41, 41, 0.5)', }}>
           <Box py={[4, 5, '82px']}>
             <Box
               sx={{
@@ -814,89 +934,8 @@ function Page({
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
             </Box>
           </Box>
-          <Box
-            sx={{
-              position: 'relative',
-              background: 'snow',
-              backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
-              backgroundSize: '40px 40px',
-              backgroundRepeat: 'repeat',
-              backgroundPosition: '10% 10%'
-              // '&:hover': {
-              //   backgroundImage: `url('https://icons.hackclub.com/api/icons/0x000000/glyph:rep.svg')`
-              // }
-            }}
-          >
-            <Box
-              sx={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                top: 0,
-                left: 0
-              }}
-            >
-              {}
-            </Box>
-            <Box
-              py={[4, 5, '82px']}
-              sx={{
-                width: '90vw',
-                maxWidth: 'layout',
-                margin: 'auto',
-                position: 'relative'
-              }}
-            >
-              <Box>
-                <Text
-                  variant="title"
-                  as="h2"
-                  sx={{
-                    fontSize: ['36px', '48px', '72px'],
-                    width: '18ch',
-                    textAlign: 'center',
-                    margin: 'auto'
-                  }}
-                >
-                  Find your{' '}
-                  <Text
-                    as="span"
-                    sx={{
-                      borderRadius: 'default',
-                      mx: 0,
-                      whiteSpace: 'nowrap',
-                      color: 'orange'
-                    }}
-                  >
-                    IRL community.
-                  </Text>
-                </Text>
-                <Text
-                  variant="subtitle"
-                  as="p"
-                  sx={{
-                    fontSize: ['18px', '24px', '32px'],
-                    margin: 'auto',
-                    pt: 2,
-                    textAlign: 'center'
-                  }}
-                >
-                  Thousands of Hack Clubbers organize and participate in
-                  hackathons and after school coding clubs.
-                </Text>
-              </Box>
-              <Clubs />
-              <Hackathons
-                delay={400}
-                data={hackathonsData}
-                stars={stars.hackathons.stargazerCount}
-              />
-
-              {/* <Events events={events} /> */}
-              <HCB data={bankData} />
-            </Box>
-          </Box>
         </Box>
+      </Box>
         <Box py={[4, 5, '82px']}>
           <Box
             sx={{
@@ -1223,7 +1262,8 @@ const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
   const carouselCards = require('../lib/carousel.json')
-
+  const ytCarouselCards = require('../lib/yt-carousel.json')
+  const projectCards = require('../lib/recent-projects.json')
   // HCB: get total raised
   let bankData = []
   let initialBankData = await fetch('https://hcb.hackclub.com/stats')
@@ -1242,32 +1282,69 @@ export async function getStaticProps() {
   }
 
   // Slack: get total raised
+  // api key error/no api key handling
+let slackData = { total_members_count: 0 }
+try {
   const { Slack: Slacky } = require('./api/slack')
-  let slackData = await Slacky()
+  slackData = await Slacky()
+} catch (error) {
+  console.error('Slack API error:', error)
+}
 
   // GitHub: get latest github activity (currently this is erroring and
   // preventing the site from deploying
 
+let gitHubData = null
+try {
   const { fetchGitHub } = require('./api/github')
-  let gitHubData = await fetchGitHub()
+  gitHubData = await fetchGitHub()
+} catch (error) {
+  console.error('GitHub API error:', error)
+  gitHubData = null 
+}
 
   //   let gitHubData = null
 
   // GitHub: get latest GitHub stars
+let stars = {
+  sprig: { stargazerCount: 0 },
+  onboard: { stargazerCount: 0 },
+  blot: { stargazerCount: 0 },
+  sinerider: { stargazerCount: 0 },
+  hackclub: { stargazerCount: 0 },
+  hackathons: { stargazerCount: 0 }
+}
+try {
   const { fetchStars } = require('./api/stars')
-  let stars = await fetchStars()
+  stars = await fetchStars()
+} catch (error) {
+  console.error('Stars API error:', error)
+}
 
   // Sprig: get newest games
+let game = []
+let gameTitle = []
+try {
   const { getGames } = require('./api/games')
-  let game = await getGames()
-
-  let gameTitle = []
+  game = await getGames()
+  gameTitle = game.map(r => r.title)
+} catch (error) {
+  console.error('Games API error:', error)
+  game = []
+  gameTitle = []
+}
 
   gameTitle = game.map(r => r.title)
 
   // Sprig: get console count
+let consoleCount = 0
+try {
   const { getConsoles } = require('./api/sprig-console')
-  const consoleCount = await getConsoles()
+  consoleCount = await getConsoles()
+} catch (error) {
+  console.error('Console count API error:', error)
+  consoleCount = 0
+}
 
   // Hackathons: get latest hackathons
   let hackathonsData
@@ -1278,10 +1355,10 @@ export async function getStaticProps() {
     if (response.ok) {
       hackathonsData = await response.json()
     } else {
-      hackathonsData = [] // or some default value if the fetch fails
+      hackathonsData = [] 
     }
   } catch (error) {
-    hackathonsData = [] // or some default value if an error occurs
+    hackathonsData = [] 
   }
   hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
 
@@ -1305,7 +1382,9 @@ export async function getStaticProps() {
       slackData,
       stars,
       events,
-      carouselCards
+      carouselCards,
+      ytCarouselCards,
+      projectCards
     },
     revalidate: 60
   }

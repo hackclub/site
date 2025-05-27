@@ -64,9 +64,8 @@ export default function Onboard({ stars }) {
             {projects} projects built
           </Text>
           <Text as="p" variant="subtitle">
-            Circuit boards are magical. You design one, we'll print it.
-            Completely for free! Get a $100 grant to fuel the creation of your
-            dream project with OnBoard.
+            Circuit boards are magical. Over a thousand teenagers designed PCBs from scratch and got grants to fuel their creation.
+            Onboard is over now but there is a lot more at <a href='https://ysws.hackclub.com/' sx = {{textShadow: '0 0 30px rgba(42, 252, 88, 0.6)',color: '#87ffa1'}}>ysws.hackclub.com</a> 
           </Text>
         </Box>
         <Flex
@@ -75,14 +74,14 @@ export default function Onboard({ stars }) {
           <Buttons
             id="59"
             icon="emoji"
-            link="https://github.com/hackclub/OnBoard/blob/main/README.md"
-            primary="#87ffa1"
+            primary="grey"
             color="black"
+            content="Onboard is over now :/"
           >
             Get a grant
           </Buttons>
           <Buttons icon="docs" link="https://jams.hackclub.com/tag/pcb" id="60">
-            Learn how to design a PCB
+            Learn how to design a PCB 
           </Buttons>
           <Buttons icon="friend" link="/slack?event=onboard" id="61">
             See what other hackers have built
