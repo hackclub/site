@@ -33,7 +33,7 @@ const Landing = () => {
 
   const LAYOUT_CONFIG = {
     imageVerticalOffset: {
-      mobile: '80px',     
+      mobile: '-20px',     
       tablet: '100px',   
       laptop: '120px',   
       laptop15: '-50px',  
@@ -61,13 +61,13 @@ const Landing = () => {
       mobile: '100%',
       tablet: '500px',
       laptop: '800px',     
-      laptop15: '600px',  
-      desktop: '900px'     
+      laptop15: '800px',  
+      desktop: '1200px'     
     },
 
     typography: {
       subtitle: {
-        mobile: '12px',
+        mobile: '24px',
         tablet: '16px',
         laptop: '24px',      
         laptop15: '18px',   
@@ -335,7 +335,7 @@ const Landing = () => {
                   'scale(1.4) translateZ(0)',
                   'scale(1.4) translateZ(0)',
                   'scale(1.4) translateZ(0)',
-                  'scale(1.5) translateZ(0)',
+                  'scale(1.4) translateZ(0)',
                   'scale(1.4) translateZ(0)'
                 ],
                 transformOrigin: 'center center',
@@ -442,9 +442,9 @@ const Landing = () => {
                   mr={3}
                   sx={{ 
                     transformOrigin: 'center left',
-                    fontSize: ['14px', '16px', '16px', '20px', '24px'],
-                    px: [2, 3, 3, 3, 3],
-                    py: [2, 3, 3, 3, 3]
+                    fontSize: ['20px', '16px', '16px', '20px', '24px'],
+                    px: [3, 3, 3, 3, 3],
+                    py: [3, 3, 3, 3, 3]
                   }}
                 >
                   Join Slack
@@ -453,9 +453,9 @@ const Landing = () => {
                   as="a"
                   href="https://shipwrecked.hack.club/3"
                   sx={{
-                    px: [2, 2, 2, 3, 2],
-                    py: [2, 3, 3, 3, 3],
-                    fontSize: ['16px', '18px', '18px', '20px', '24px'],
+                    px: [3, 2, 2, 3, 2],
+                    py: [3, 3, 3, 3, 3],
+                    fontSize: ['20px', '18px', '18px', '20px', '24px'],
                     transformOrigin: 'left',
                     backgroundImage: t => t.util.gx('green', 'blue'),
                     color: 'white',
