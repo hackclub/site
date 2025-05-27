@@ -26,16 +26,18 @@ const rgbaBgColor = (props, opacity) =>
 //         -webkit-backdrop-filter: saturate(180%) blur(20px);
 //         backdrop-filter: saturate(180%) blur(20px);
 //       `
-
 const fixed = props =>
-  (props.scrolled || props.toggled) &&
+  (props.scrolled || props.toggled || props.fixed) &&
   css`
-    background-color: ${rgbaBgColor({ bgColor: props.bgColor }, 1)};
+    background-color: ${rgbaBgColor(props, 0.96875)};
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-      background-color: transparent;
+      background-color: ${props.transparent
+      ? 'transparent'
+      : rgbaBgColor(props, 0.75)};
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
+      /* {bg}; to support dark mode later */
     }
   `
 
@@ -123,32 +125,29 @@ const NavBar = styled(Box, {
     padding: ${theme.space[3]}px;
     text-decoration: none;
     @media (min-width: 56em) {
-      color: ${props =>
-    props.color && theme.colors[props.color]
-      ? theme.colors[props.color]
-      : props.color};
+      color: ${props => props.color ? theme.colors[props.color] : props.color};
     }
   }
 `
 
 const Navigation = props => (
   // REMINDER: This should be no more than 7 links :)
-  (<NavBar role="navigation" {...props}>
-    <NextLink href="/clubs" passHref legacyBehavior>
+  <NavBar role="navigation" {...props}>
+    <NextLink href="/clubs" passHref>
       <Link>Clubs</Link>
     </NextLink>
-    <NextLink href="/fiscal-sponsorship" passHref legacyBehavior>
+    <NextLink href="/fiscal-sponsorship" passHref>
       <Link>Fiscal&nbsp;Sponsorship</Link>
     </NextLink>
-    <NextLink href="/hackathons" passHref legacyBehavior>
+    <NextLink href="/hackathons" passHref>
       <Link>Hackathons</Link>
     </NextLink>
     <Link href="/slack">Community</Link>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
-    <NextLink href="https://toolbox.hackclub.com/" passHref legacyBehavior>
+    <NextLink href="https://toolbox.hackclub.com/" passHref>
       <Link>Toolbox</Link>
     </NextLink>
-  </NavBar>)
+  </NavBar>
 )
 
 const ToggleContainer = styled(Flex)`
@@ -171,6 +170,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
 
   const onScroll = () => {
     const newState = window.scrollY >= 16
+
     setScrolled(newState)
   }
 
@@ -179,63 +179,43 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   }
 
   useEffect(() => {
-    let mobileQuery
-    let handleMobileChange
-
     if (typeof window !== 'undefined') {
       if (!unfixed) {
         window.addEventListener('scroll', onScroll)
       }
 
-      mobileQuery = window.matchMedia('(max-width: 48em)')
-      setMobile(mobileQuery.matches)
-
-      handleMobileChange = e => {
-        setMobile(e.matches)
-        if (!e.matches) {
-          setToggled(false)
-        }
-      }
-      mobileQuery.addEventListener('change', handleMobileChange)
+      const mobileQuery = window.matchMedia('(max-width: 48em)')
+      mobileQuery.addEventListener('change', () => {
+        setMobile(true)
+        setToggled(false)
+      })
     }
 
     return () => {
-      if (typeof window !== 'undefined') {
-        if (!unfixed) {
-          window.removeEventListener('scroll', onScroll)
-        }
-        if (mobileQuery && handleMobileChange) {
-          mobileQuery.removeEventListener('change', handleMobileChange)
-        }
-      }
+      window.removeEventListener('scroll', onScroll)
     }
   }, [unfixed])
 
-  const baseColor = !dark ? "white" : color || "white"
+  const baseColor = dark
+    ? color || 'white'
+    : color === 'white' && scrolled
+      ? 'black'
+      : color
   const toggleColor = dark
     ? color || 'snow'
     : toggled || (color === 'white' && scrolled)
       ? 'slate'
       : color
 
-  const effectiveBgColor = bgColor || (dark ? [32, 34, 36] : [255, 255, 255])
-
   return (
     <Root
       {...props}
-      // @ts-ignore
+      // @ts-expect-error
+      fixed={fixed}
       scrolled={scrolled}
-      // @ts-ignore
       toggled={toggled}
-      // @ts-ignore
       dark={dark}
-      // @ts-ignore
-      bgColor={effectiveBgColor}
-      sx={{
-        '--scrolled': scrolled ? 1 : 0,
-        '--toggled': toggled ? 1 : 0,
-        '--dark': dark ? 1 : 0
-      }}
+      bgColor={bgColor || (dark ? [32, 34, 36] : [255, 255, 255])}
       as="header"
     >
       <Content>
@@ -252,13 +232,13 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       </Content>
       <Navigation
         as="nav"
+        aria-hidden={!mobile}
         isMobile
-        toggled={toggled && mobile}
-        aria-hidden={!mobile || !toggled}
+        toggled={toggled}
         color={baseColor}
         dark={dark}
       />
-      {toggled && mobile && <ScrollLock />}
+      {toggled && <ScrollLock />}
     </Root>
   )
 }
