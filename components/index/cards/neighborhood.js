@@ -128,7 +128,7 @@ export default function Neighborhood() {
                   icon="door-leave"
                   zIndex={999}
                   sx={{
-                    marginTop: '20px',
+                    marginTop: '35px',
                     padding: '12px 24px',
                     backgroundColor: '#F7D359',
                     color: '#786A50',

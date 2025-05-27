@@ -73,7 +73,8 @@ export default function Scrapyard() {
             sx={{
               flexDirection: ['row', 'row', 'column'],
               justifyContent: 'space-between',
-              width: '100%'
+              width: '100%',
+              marginLeft: ['-25px', '-25px', '0px'],
             }}
           >
             <Box

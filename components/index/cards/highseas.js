@@ -49,44 +49,54 @@ export default function HighSeas() {
           layout="fill"
           alt="High Seas Logo"
         />
-
-        <Text
-          as="p"
+        <Flex
           sx={{
-            mx: '2%',
-            zIndex: 9,
-            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
-            my: '3%',
-            p: 0,
-            wordBreak: 'keep-all',
-            textWrap: 'wrap !important',
-            textAlign: 'center',
-            whiteSpace: 'nowrap',
-            width: '95%',
-            fontSize: '1.2em !important',
-            color: 'white !important',
-            textShadow: '1.5px 1.5px 0px rgba(0, 0, 0, 1)'
+            flexDirection: ['row', 'row', 'column'],
+            justifyContent: 'space-between',
+            width: '100%',
+            alignItems: 'center',
+            marginLeft: ['-30px', '-25px', '0px']
           }}
         >
-          Build personal projects. Get free stuff. Winter 2024.
-        </Text>
 
-        <Buttons
-          icon="github"
-          href="https://github.com/hackclub/high-seas"
-          target="_blank"
-          rel="noopener"
-          primary="#032412"
-          id="43"
-          sx={{
-            fontSize: '15px !important',
-            color: '#FFF5D8',
-            fontFamily: 'Fraunces',
-            border: '3px solid #FFF5D8'
-          }}
-        >
-          Source Code
-        </Buttons>
+          <Text
+            as="p"
+            sx={{
+              mx: '2%',
+              zIndex: 9,
+              fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+              my: '3%',
+              p: 0,
+              wordBreak: 'keep-all',
+              textWrap: 'wrap !important',
+              textAlign: 'center',
+              whiteSpace: 'nowrap',
+              width: '95%',
+              fontSize: '1.1em !important',
+              color: 'white !important',
+              textShadow: '1.5px 1.5px 0px rgba(0, 0, 0, 1)'
+            }}
+          >
+            Build personal projects. Get free stuff. Winter 2024.
+          </Text>
+
+          <Buttons
+            icon="github"
+            href="https://highseas.hackclub.com/"
+            target="_blank"
+            rel="noopener"
+            primary="#032412"
+            id="43"
+            sx={{
+              fontSize: '15px !important',
+              color: '#FFF5D8',
+              fontFamily: 'Fraunces',
+              border: '3px solid #FFF5D8'
+            }}
+          >
+            Website
+          </Buttons>
+        </Flex>
       </Flex>
     </CardModel>
   )
