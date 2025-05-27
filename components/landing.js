@@ -29,7 +29,26 @@ const Landing = () => {
   const [criticalImagesLoaded, setCriticalImagesLoaded] = useState(false);
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [backgroundLoaded, setBackgroundLoaded] = useState(false);
+  const [slackData, setSlackData] = useState({ total_members_count: null });
+  const [slackDataLoaded, setSlackDataLoaded] = useState(false);
   
+  // Fetch Slack data
+  useEffect(() => {
+    const fetchSlackData = async () => {
+      try {
+        const { Slack: Slacky } = require('../pages/api/slack');
+        const data = await Slacky();
+        setSlackData(data);
+        setSlackDataLoaded(true);
+      } catch (error) {
+        console.error('Slack API error:', error);
+        setSlackData({ total_members_count: null });
+        setSlackDataLoaded(true);
+      }
+    };
+
+    fetchSlackData();
+  }, []);
 
   const LAYOUT_CONFIG = {
     imageVerticalOffset: {
@@ -53,7 +72,7 @@ const Landing = () => {
       mobile: '220px',
       tablet: '270px',
       laptop: '360px',    
-      laptop15: '300px',   
+      laptop15: '270px',   
       desktop: '400px'   
     },
 
@@ -89,9 +108,6 @@ const Landing = () => {
     }
   };
   
-  const slackData = {
-    total_members_count: 69235
-  };
   
   const imagePaths = [
     '/home/juice-hotel.jpg',
@@ -197,6 +213,18 @@ const Landing = () => {
 
   const animationStyle = {
     animation: `${riseIn} 0.9s ease-out both`,
+  };
+
+  const renderMemberCount = () => {
+    if (!slackDataLoaded) {
+      return <span style={{ opacity: 0.5 }}>...</span>;
+    }
+    
+    if (slackData.total_members_count) {
+      return <Comma>{slackData.total_members_count}</Comma>;
+    }
+    
+    return null; 
   };
 
   return (
@@ -390,7 +418,7 @@ const Landing = () => {
                   width: '100%'
                 }}
               >
-                We are <Comma>{slackData.total_members_count}</Comma>{' '}
+                We are {renderMemberCount()}{' '}
                 <Text
                   sx={{
                     color: 'transparent',
