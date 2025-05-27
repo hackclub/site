@@ -31,7 +31,7 @@ export default function ProjectsSlider({ cards }) {
               margin: 'auto'
             }}
           >
-            Some of the recent Cool Projects made by Hack Clubbers.
+            Some of the recent Cool Projects made by Hack Clubbers
           </Text>
     <Ticker speed={speed} sx={{ overflowX: 'hidden' }}>
     {() => (
@@ -49,7 +49,7 @@ export default function ProjectsSlider({ cards }) {
     </Ticker>
 
     <Box sx={{ textAlign: 'center', mt: 3 }}>
-    <Button as="a" href="/ship" target="_blank" rel="noopener noreferrer">Check more!</Button>
+    <Button as="a" href="/ship" target="_blank" rel="noopener noreferrer" sx={{fontSize:"24px"}}>Check more!</Button>
     </Box>
         </Box>
       )}
