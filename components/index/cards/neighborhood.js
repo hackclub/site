@@ -14,9 +14,9 @@ export default function Neighborhood() {
         backgroundColor: '#90A8E1',
         fontFamily: "M PLUS Rounded 1c",
         objectFit: "contain",
-        height: '500px',
+        height: ['400px', '450px', '500px'], 
         width: '100%',
-        minHeight: '500px',
+        minHeight: ['400px', '450px', '500px'],
         overflow: 'hidden'
       }}
       position={[null, 'bottom', 'bottom']}
@@ -59,18 +59,19 @@ export default function Neighborhood() {
             justifyContent: 'space-between',
             height: '100%',
             alignItems: 'center',
-            padding: ['20px', '30px', '40px']
+            padding: ['12px 16px', '20px 30px', '30px 40px']
           }}
         >
 
           <Image
             src="https://neighborhood.hackclub.com/neighborhoodLogo.png"
             sx={{
-              width: ['200px', '250px', '300px'],
+              width: ['160px', '200px', '250px'], 
               height: 'auto',
-              maxHeight: '120px',
+              maxHeight: ['60px', '80px', '120px'], 
               objectFit: 'contain',
-              zIndex: 3
+              zIndex: 3,
+              marginTop: ['8px', '0', '0']
             }}
             alt="Neighborhood"
           />
@@ -83,19 +84,20 @@ export default function Neighborhood() {
             flex: 1,
             justifyContent: 'center',
             width: '100%',
-            maxWidth: '500px'
+            maxWidth: '500px',
+            px: ['8px', '0', '0']
           }}>
          
             <Box
               sx={{
                 backgroundColor: "#FFF9E6",
-                borderRadius: "105px 105px 70px 60px",
+                borderRadius: ['20px', '40px 40px 30px 25px', '105px 105px 70px 60px'],
                 display: 'block',
                 width: '100%',
-                maxWidth: '450px',
+                maxWidth: ['320px', '380px', '450px'], 
                 filter: 'drop-shadow(5px 5px 5px #000000AA)',
                 zIndex: 20,
-                marginBottom: '20px'
+                marginBottom: ['12px', '16px', '20px'] 
               }}
             >
               <Heading
@@ -104,8 +106,8 @@ export default function Neighborhood() {
                   fontFamily: '"M PLUS Rounded 1c"',
                   fontWeight: "600",
                   textAlign: 'center',
-                  margin: '8%',
-                  fontSize: ['18px', '20px', '22px'],
+                  margin: ['6%', '7%', '8%'], 
+                  fontSize: ['18px', '20px', '24px'],
                   color: '#786A50',
                   lineHeight: 1.3
                 }}
@@ -124,16 +126,16 @@ export default function Neighborhood() {
               zIndex={999}
               sx={{
                 marginTop: "0px",
-                padding: "12px 24px",
+                padding: ['10px 20px', '12px 22px', '12px 24px'], 
                 backgroundColor: "#F7D359",
                 color: "#786A50",
                 border: "2px solid #786A50",
                 borderRadius: 100,
-                fontSize: "14px",
+                fontSize: ['12px', '13px', '14px'], 
                 fontWeight: 800,
                 fontFamily: "'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
                 cursor: "pointer",
-                width: "200px"
+                width: ['160px', '180px', '200px'] 
               }}
             >  
               Join Us
@@ -141,7 +143,7 @@ export default function Neighborhood() {
           </Box>
 
    
-          <Box sx={{ minHeight: '20px' }} />
+          <Box sx={{ minHeight: ['10px', '15px', '20px'] }} /> 
         </Flex>
       </Grid>
     </CardModel>

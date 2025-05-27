@@ -11,9 +11,9 @@ export default function Highway() {
       color="white"
       sx={{
         position: 'relative',
-        height: '500px',
+        height: ['400px', '450px', '500px'], 
         width: '100%',
-        minHeight: '500px',
+        minHeight: ['400px', '450px', '500px'],
         fontFamily: 'p22stanyan',
         overflow: 'hidden'
       }}
@@ -106,18 +106,19 @@ export default function Highway() {
             justifyContent: 'space-between',
             height: '100%',
             alignItems: 'center',
-            padding: ['15px', '20px', '25px']
+            padding: ['12px', '20px', '25px'] 
           }}
         >
  
           <Image
             src="https://highway.hackclub.com/assets/landing/landinglogo-b42d5f8e.png"
             sx={{
-              width: ['200px', '250px', '300px'],
+              width: ['160px', '200px', '250px'],
               height: 'auto',
-              maxHeight: '200px',
+              maxHeight: ['80px', '120px', '200px'],
               objectFit: 'contain',
-              zIndex: 3
+              zIndex: 3,
+              marginTop: ['8px', '0', '0']
             }}
             alt="Highway"
           />
@@ -131,7 +132,8 @@ export default function Highway() {
             justifyContent: 'center',
             width: '100%',
             maxWidth: '480px',
-            gap: '12px'
+            gap: ['8px', '12px', '12px'], 
+            px: ['8px', '16px', '0'] 
           }}>
     
             <Box
@@ -139,14 +141,14 @@ export default function Highway() {
                 background: "#080807",
                 display: 'block',
                 width: '100%',
-                maxWidth: '420px',
+                maxWidth: ['340px', '380px', '420px'], 
                 filter: 'drop-shadow(3px 3px 5px #000000AA)',
                 zIndex: 3,
                 border: '2px solid',
                 borderImage: 'linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000) 1',
                 borderRadius: '8px',
                 animation: 'rgb-border 3s linear infinite',
-                padding: '16px'
+                padding: ['12px', '14px', '16px'] 
               }}
             >
               <Heading
@@ -154,8 +156,8 @@ export default function Highway() {
                 sx={{
                   fontFamily: 'moonblossom',
                   textAlign: 'center',
-                  margin: '0 0 12px 0',
-                  fontSize: ['14px', '16px', '18px'],
+                  margin: '0 0 8px 0', 
+                  fontSize: ['14px', '16px', '18px'], 
                   color: '#ffffff',
                   lineHeight: 1.2
                 }}
@@ -168,7 +170,7 @@ export default function Highway() {
                   fontFamily: 'moonblossom',
                   textAlign: 'center',
                   margin: 0,
-                  fontSize: ['12px', '14px', '16px'],
+                  fontSize: ['12px', '14px', '16px'], 
                   color: '#ffffff',
                   lineHeight: 1.3,
                   opacity: 0.9
@@ -188,9 +190,9 @@ export default function Highway() {
               sx={{
                 zIndex: 3, 
                 color: '#1f2d3d',
-                width: '160px',
-                padding: '10px 20px',
-                fontSize: ['14px', '15px', '16px']
+                width: ['140px', '150px', '160px'], 
+                padding: ['8px 16px', '10px 18px', '10px 20px'],
+                fontSize: ['12px', '14px', '15px'] 
               }}
             >
               Learn More
