@@ -47,6 +47,23 @@ export default function Highway() {
         }}
       />
 
+      <Box
+        sx={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100%',
+          height: '100%',
+          backgroundImage: 'url(/home/highwayway.png)',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+          zIndex: 1
+        }}
+      />
+
       <Global
         styles={`
           @font-face {
@@ -80,7 +97,7 @@ export default function Highway() {
           position: 'relative',
           height: '100%',
           width: '100%',
-          zIndex: 1
+          zIndex: 2
         }}
       >
         <Flex
@@ -100,7 +117,7 @@ export default function Highway() {
               height: 'auto',
               maxHeight: '200px',
               objectFit: 'contain',
-              zIndex: 2
+              zIndex: 3
             }}
             alt="Highway"
           />
@@ -124,7 +141,7 @@ export default function Highway() {
                 width: '100%',
                 maxWidth: '420px',
                 filter: 'drop-shadow(3px 3px 5px #000000AA)',
-                zIndex: 2,
+                zIndex: 3,
                 border: '2px solid',
                 borderImage: 'linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000) 1',
                 borderRadius: '8px',
@@ -169,7 +186,7 @@ export default function Highway() {
               icon="door-enter"
               id="43"
               sx={{
-                zIndex: 2, 
+                zIndex: 3, 
                 color: '#1f2d3d',
                 width: '160px',
                 padding: '10px 20px',

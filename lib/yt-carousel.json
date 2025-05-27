@@ -32,7 +32,7 @@
     "descriptionColor": "#EDE2DC",
     "title": "The Boreal Express",
     "description": "We hosted a hackathon ACROSS Canada, on a train!",
-    "img": "https://boreal.hackclub.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftrain.6d06c1c0.png&w=1920&q=75",
+    "img": "/home/boreal.webp",
     "link": "https://youtu.be/H5RPsCMl3uM?si=wXgThhbKeaB2ESE_"
   },
     {

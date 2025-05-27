@@ -70,7 +70,7 @@ const Landing = () => {
         mobile: '24px',
         tablet: '16px',
         laptop: '24px',      
-        laptop15: '18px',   
+        laptop15: '24px',   
         desktop: '28px'      
       },
       heading: {
