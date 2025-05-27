@@ -38,7 +38,7 @@ export default function Hackathons({ data, stars }) {
           right: '10px',
           width: '12px',
           height: '12px',
-          borderRadius: '50%',
+          borderRadipcos: '50%',
           background: 'rgba(255,255,255,0.5)',
           zIndex: 3
         }
@@ -65,7 +65,7 @@ export default function Hackathons({ data, stars }) {
         variant="title"
         as="h3"
         sx={{
-          fontSize: ['22px', '26px', '30px'],
+          fontSize: ['22px', '26px', '26px'],
           position: 'relative',
           zIndex: 2,
           fontFamily:
@@ -76,10 +76,9 @@ export default function Hackathons({ data, stars }) {
           bg: 'rgba(255, 255, 255, 0.15)',
           textShadow: '0 2px 4px rgba(0,0,0,0.5)',
           width: 'fit-content',
-          mb: 3
         }}
       >
-        High School Hackathons
+        Hackathons
       </Text>
       <Grid
         columns={1}
@@ -149,7 +148,7 @@ export default function Hackathons({ data, stars }) {
             right: 0,
             top: 0,
             display: ['none', 'none', 'block'],
-            bg: 'rgba(0,0,0,0.2)',
+            bg: 'rgba(0,0,0,0.5)',
             borderRadius: '12px',
             p: 3,
             boxShadow: '0 4px 8px rgba(0,0,0,0.15)',
@@ -241,7 +240,7 @@ export default function Hackathons({ data, stars }) {
                       sx={{
                         fontWeight: '400',
                         fontSize: '0.85em',
-                        color: 'sunken'
+                        color: 'white'
                       }}
                     >
                       {formatDate('mmmm d', new Date(data.start))}

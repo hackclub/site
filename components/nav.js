@@ -231,7 +231,7 @@ const DropdownMenu = styled(Box)`
     transition:
       background 0.15s ease-in-out,
       color 0.15s ease-in-out;
-    border-radius: 0;
+    border-radius: 0.5rem;
     margin: 0 !important;
 
     &:hover,
@@ -725,19 +725,6 @@ const Navigation = props => {
     </>
   )
 }
-
-const ToggleContainer = styled(Flex)`
-  align-items: center;
-  justify-content: center;
-  min-width: 64px;
-  min-height: 44px;
-  cursor: pointer;
-  user-select: none;
-  margin-left: auto;
-  @media (min-width: 56em) {
-    display: none;
-  }
-`
 
 const HamburgerButton = styled.button`
   display: flex;

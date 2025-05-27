@@ -178,7 +178,8 @@ export default function Clubs() {
                 textShadow: '0 2px 4px rgba(0,0,0,0.25)',
                 mb: 1,
                 display: 'flex',
-                alignItems: 'center'
+                alignItems: 'center',
+                flexWrap: 'wrap'
               }}
             >
               <Icon
@@ -221,7 +222,7 @@ export default function Clubs() {
               height: '150px',
               borderRadius: '50%',
               background: 'rgba(255,255,255,0.1)',
-              zIndex: 1
+              zIndex: 1,
             }}
           />
 
@@ -246,7 +247,12 @@ export default function Clubs() {
             pb: '0px !important',
             bg: isDark ? '#222' : '#fdf6ee',
             position: 'relative',
-            gap: [3, 4]
+            gap: [3, 4],
+            backgroundImage: 'url(/home/map.png)', 
+            backgroundPosition: '-75px 0px',
+  backgroundSize: 'cover',
+  backgroundBlendMode: 'overlay',
+  backgroundRepeat: 'no-repeat'
           }}
         >
           <Box
@@ -276,7 +282,7 @@ export default function Clubs() {
               padding: '2px'
             }}
           >
-            <Text sx={{ lineHeight: 1.2, fontSize: '12px' }}>Free</Text>
+            <Text sx={{ lineHeight: 1, fontSize: '13px' }}>Free</Text>
             <Text sx={{ lineHeight: 1.2, fontSize: '16px' }}>Stickers!</Text>
           </Box>
           <Box>
@@ -289,9 +295,7 @@ export default function Clubs() {
                 mb: 3
               }}
             >
-              Join a community of students building coding clubs at schools
-              around the world. Learn to code by making and sharing real
-              projects in a supportive community.
+             Join or start a Hack Club and be part of a network of quality coding clubs where you learn to code through building things. 
             </Text>
 
             <Buttons
@@ -334,14 +338,14 @@ export default function Clubs() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            fontFamily:
+            reeontFamily:
               '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             color: isDark ? '#aaa' : '#7c644c',
             fontSize: ['14px', '16px']
           }}
         >
           <Icon glyph="welcome" size={24} sx={{ mr: 2, color: '#ec3750' }} />
-          Join 15,000+ students in the global Hack Club community
+          Join 65,000+ students in the global Hack Club community
         </Box>
       </CardModel>
     </>
