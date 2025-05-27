@@ -14,9 +14,13 @@ export default function Scrapyard() {
         backgroundColor: '#90A8E1',
         fontFamily: 'p22stanyan',
         objectFit: 'contain',
-        opacity: 0.8,
+        opacity: 0.7,
         margin: '0px !important',
-        padding: '10px !important'
+        padding: '10px !important',
+        '&:hover': {
+          opacity: 1,
+          transition: 'opacity 0.3s ease-in-out'
+        }
       }}
       position={[null, 'bottom', 'bottom']}
     >
@@ -99,12 +103,12 @@ export default function Scrapyard() {
                     fontFamily: 'moonblossom',
                     textAlign: 'center',
                     margin: '8%',
-                    fontSize: '22px',
+                    fontSize: '17px',
                     color: '#1f2d3d',
                     width: '90%'
                   }}
                 >
-                  Build stupid stuff, get stupid prizes.
+                  Build stupid stuff, get stupid prizes. March 2025.
                 </Heading>
               </Box>
             </Box>

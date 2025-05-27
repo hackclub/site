@@ -13,9 +13,13 @@ export default function HighSeas() {
         backgroundSize: 'cover',
         backgroundColor: '#48a6ef',
         fontFamily: 'Fraunces',
-        opacity: 0.8,
+        opacity: 0.7,
         padding: '16px !important',
-        margin: '0px !important'
+        margin: '0px !important',
+        '&:hover': {
+          opacity: 1,
+          transition: 'opacity 0.3s ease-in-out'
+        }
       }}
       position={[null, 'bottom', 'bottom']}
       image={'https://cloud-lyjdp3j9h-hack-club-bot.vercel.app/0image.svg'}
@@ -51,7 +55,7 @@ export default function HighSeas() {
           sx={{
             mx: '2%',
             zIndex: 9,
-            fontFamily: "'Comic Sans MS', 'Comic Sans', cursive",
+            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             my: '3%',
             p: 0,
             wordBreak: 'keep-all',
@@ -59,12 +63,12 @@ export default function HighSeas() {
             textAlign: 'center',
             whiteSpace: 'nowrap',
             width: '95%',
-            fontSize: ['1.2em', '1.4em'],
+            fontSize: '1.2em !important',
             color: 'white !important',
             textShadow: '1.5px 1.5px 0px rgba(0, 0, 0, 1)'
           }}
         >
-          Build personal projects. Get free stuff.
+          Build personal projects. Get free stuff. Winter 2024.
         </Text>
 
         <Buttons

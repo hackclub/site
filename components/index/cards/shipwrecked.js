@@ -50,7 +50,7 @@ export default function Shipwrecked() {
           sx={{
             mx: '2%',
             zIndex: 9,
-            fontFamily: "'Comic Sans MS', 'Comic Sans', cursive",
+            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             my: '3%',
             p: 0,
             wordBreak: 'keep-all',
@@ -58,12 +58,12 @@ export default function Shipwrecked() {
             textAlign: 'center',
             whiteSpace: 'nowrap',
             width: '95%',
-            fontSize: ['1.2em', '1.4em'],
+            fontSize: '1.2em !important',
             color: 'white !important',
             textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
           }}
         >
-          Ship a viral project. Set sail for adventure.
+          Ship a viral project. Set sail for adventure. Summer 2025.
         </Text>
 
         <Buttons

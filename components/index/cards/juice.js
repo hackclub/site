@@ -14,8 +14,12 @@ export default function Juice() {
         backgroundColor: '#331a1f',
         fontFamily: 'Fraunces',
         padding: '16px !important',
-        opacity: 0.8,
-        margin: '0px !important'
+        opacity: 0.7,
+        margin: '0px !important',
+        '&:hover': {
+          opacity: 1,
+          transition: 'opacity 0.3s ease-in-out'
+        }
       }}
       position={[null, 'bottom', 'bottom']}
       image={'/home/juice-bg.gif'}
@@ -46,7 +50,7 @@ export default function Juice() {
           sx={{
             mx: '2%',
             zIndex: 9,
-            fontFamily: "'Comic Sans MS', 'Comic Sans', cursive",
+            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             my: '3%',
             p: 0,
             wordBreak: 'keep-all',
@@ -54,12 +58,16 @@ export default function Juice() {
             textAlign: 'center',
             whiteSpace: 'nowrap',
             width: '95%',
-            fontSize: ['1.2em', '1.4em'],
+            fontSize: '1.2em !important',
             color: 'white !important',
-            background: 'rgba(0, 0, 0, 0.75)'
+            background: 'rgba(0, 0, 0, 0.75)',
+            '&:hover': {
+              opacity: 1,
+              transition: 'opacity 0.3s ease-in-out'
+            }
           }}
         >
-          Make a game in 2 months. Show it off at a café in Shanghai.
+          Make a game in 2 months. Show it off at a café in Shanghai. Ends April 1.
         </Text>
 
         <Buttons

@@ -1083,7 +1083,7 @@ function Page({
                     borderWidth: 2,
                     borderColor: 'orange',
                     color: 'orange',
-                    bg: 'rgba(255, 255, 255, 0.7)',
+                    bg: isDark ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.7)',
                     '&:hover': {
                       transform: 'translateY(-2px)',
                       boxShadow: '0 4px 12px rgba(255, 140, 55, 0.2)'
@@ -1175,7 +1175,7 @@ function Page({
                     borderWidth: 2,
                     borderColor: 'blue',
                     color: 'blue',
-                    bg: 'rgba(255, 255, 255, 0.7)',
+                    bg: isDark ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.7)',
                     '&:hover': {
                       transform: 'translateY(-2px)',
                       boxShadow: '0 4px 12px rgba(51, 142, 218, 0.2)'
@@ -1266,7 +1266,7 @@ function Page({
                     borderWidth: 2,
                     borderColor: 'purple',
                     color: 'purple',
-                    bg: 'rgba(255, 255, 255, 0.7)',
+                    bg: isDark ? 'rgba(255, 255, 255, 0.85)' : 'rgba(255, 255, 255, 0.7)',
                     '&:hover': {
                       transform: 'translateY(-2px)',
                       boxShadow: '0 4px 12px rgba(166, 51, 214, 0.2)'
@@ -2630,74 +2630,74 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-          <>
-            <Box
-              sx={{
-                position: 'fixed',
-                top: 0,
-                width: '100%',
-                zIndex: 1000
-              }}
-            >
+            <>
               <Box
                 sx={{
-                  position: 'relative',
-                  margin: 'auto',
-                  width: 'fit-content',
+                  position: 'fixed',
+                  top: 0,
+                  width: '100%',
+                  zIndex: 1000
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    margin: 'auto',
+                    width: 'fit-content',
+                    lineHeight: 0
+                  }}
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  right: 0,
+                  zIndex: 1000,
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </Box>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                right: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-          </>
-        )}
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 1000,
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </>
+          )}
         <MailingList />
       </Box>
 

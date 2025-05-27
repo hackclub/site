@@ -43,7 +43,7 @@ export default function Highway() {
           sx={{
             mx: '2%',
             zIndex: 9,
-            fontFamily: "'Comic Sans MS', 'Comic Sans', cursive",
+            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             my: '3%',
             p: 0,
             wordBreak: 'keep-all',
@@ -76,6 +76,6 @@ export default function Highway() {
           Accelerate
         </Buttons>
       </Flex>
-    </CardModel>
+    </CardModel >
   )
 }
