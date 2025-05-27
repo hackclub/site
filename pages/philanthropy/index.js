@@ -726,7 +726,8 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Flex>
             <span>
-            Explore Hack Club's annual reports from 2022 onward, showcasing each year's impact and key milestones.
+              Explore Hack Club's annual reports from 2022 onward, showcasing
+              each year's impact and key milestones.
             </span>
           </Fade>
           {/* <Fade delay={300}>

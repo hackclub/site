@@ -10,7 +10,7 @@ import {
   Text,
   useColorMode
 } from 'theme-ui'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Meta from '@hackclub/meta'
@@ -47,30 +47,29 @@ const HeaderCarousel = ({ images, memberCount }) => {
   const [colorMode] = useColorMode()
   const isDark = colorMode === 'dark'
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentIndex(prevIndex => (prevIndex + 1) % images.length)
     setProgress(0)
-  }
+  }, [images.length])
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentIndex(
       prevIndex => (prevIndex - 1 + images.length) % images.length
     )
     setProgress(0)
-  }
+  }, [images.length])
 
-  useEffect(() => { // handle slides
+  useEffect(() => {
+    // handle slides
     const intervalTime = 6000
     const progressInterval = 65
 
-    const timer = setInterval(() => {
-      nextSlide()
-    }, intervalTime)
+    const timer = setInterval(nextSlide, intervalTime)
 
     const progressTimer = setInterval(() => {
       setProgress(prevProgress => {
         if (prevProgress >= 100) return 100
-        return prevProgress + (100 * progressInterval / intervalTime)
+        return prevProgress + (100 * progressInterval) / intervalTime
       })
     }, progressInterval)
 
@@ -78,17 +77,19 @@ const HeaderCarousel = ({ images, memberCount }) => {
       clearInterval(timer)
       clearInterval(progressTimer)
     }
-  }, [])
+  }, [nextSlide])
 
   return (
-    <Box sx={{
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      top: 0,
-      left: 0,
-      zIndex: 1
-    }}>
+    <Box
+      sx={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        top: 0,
+        left: 0,
+        zIndex: 1
+      }}
+    >
       {images.map((image, index) => (
         <Box
           key={index}
@@ -158,7 +159,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
         >
           <path
             d="M15 18L8 12L15 6"
-            stroke={isDark ? "#999" : "#a89985"}
+            stroke={isDark ? '#999' : '#a89985'}
             strokeWidth="5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -210,7 +211,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
         >
           <path
             d="M9 6L16 12L9 18"
-            stroke={isDark ? "#999" : "#a89985"}
+            stroke={isDark ? '#999' : '#a89985'}
             strokeWidth="5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -241,7 +242,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
             animation: 'fadeIn 0.5s',
             '@keyframes fadeIn': {
               from: { opacity: 0 },
-              to: { opacity: 1 },
+              to: { opacity: 1 }
             },
             display: 'none',
             '@media (min-width: 56em)': {
@@ -261,7 +262,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
               transform: 'rotate(1deg) scale(1.05)',
               boxShadow: isDark
                 ? '0 6px 14px rgba(0,0,0,0.4)'
-                : '0 6px 14px rgba(0,0,0,0.2)',
+                : '0 6px 14px rgba(0,0,0,0.2)'
             }
           }}
           title={images[currentIndex].caption || images[currentIndex].alt}
@@ -276,12 +277,15 @@ const HeaderCarousel = ({ images, memberCount }) => {
               color: isDark ? '#eee' : 'inherit'
             }}
           />
-          <Text as="span" sx={{
-            display: 'inline-block',
-            position: 'relative',
-            top: '1px',
-            color: isDark ? '#eee' : 'inherit'
-          }}>
+          <Text
+            as="span"
+            sx={{
+              display: 'inline-block',
+              position: 'relative',
+              top: '1px',
+              color: isDark ? '#eee' : 'inherit'
+            }}
+          >
             {images[currentIndex].alt}
           </Text>
         </Badge>
@@ -302,7 +306,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
           boxShadow: isDark
             ? '0 -2px 4px rgba(0,0,0,0.25)'
             : '0 -2px 4px rgba(0,0,0,0.15)',
-          border: isDark ? '2px solid #5d4222' : '2px solid #7d623c',
+          border: isDark ? '2px solid #5d4222' : '2px solid #7d623c'
         }}
       />
 
@@ -321,7 +325,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
           boxShadow: isDark
             ? '0 2px 4px rgba(0,0,0,0.25)'
             : '0 2px 4px rgba(0,0,0,0.15)',
-          border: isDark ? '2px solid #5d4222' : '2px solid #7d623c',
+          border: isDark ? '2px solid #5d4222' : '2px solid #7d623c'
         }}
       />
 
@@ -343,7 +347,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
           color: isDark ? '#eee' : '#513f31',
           fontWeight: 'bold',
           padding: '10px',
-          paddingTop: "15px",
+          paddingTop: '15px',
           transform: 'rotate(2deg)',
           background: isDark
             ? 'linear-gradient(to bottom, #c8b995, #b29c74)'
@@ -360,14 +364,14 @@ const HeaderCarousel = ({ images, memberCount }) => {
             '40%': { transform: 'rotate(6deg) translateY(-4px)' },
             '60%': { transform: 'rotate(4deg) translateY(-6px)' },
             '80%': { transform: 'rotate(5deg) translateY(-2px)' },
-            '100%': { transform: 'rotate(3deg) translateY(0)' },
+            '100%': { transform: 'rotate(3deg) translateY(0)' }
           },
           '&:hover': {
             animation: 'populationBounce 0.6s ease-in-out',
             boxShadow: isDark
               ? '0 8px 20px rgba(0,0,0,0.45), inset 0 1px 3px rgba(255,255,255,0.2)'
               : '0 8px 20px rgba(0,0,0,0.25), inset 0 1px 3px rgba(255,255,255,0.3)',
-            transform: 'rotate(4deg) scale(1.05)',
+            transform: 'rotate(4deg) scale(1.05)'
           },
           '&:after': {
             content: '""',
@@ -380,7 +384,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
               ? 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.15) 100%)'
               : 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.1) 100%)',
             borderRadius: '9px',
-            pointerEvents: 'none',
+            pointerEvents: 'none'
           }
         }}
       >
@@ -388,11 +392,12 @@ const HeaderCarousel = ({ images, memberCount }) => {
           sx={{
             fontSize: ['10px', '11px', '15px'],
             mb: '0px',
-            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+            fontFamily:
+              '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             textShadow: isDark
               ? '0 1px 0 rgba(0,0,0,0.3)'
               : '0 1px 0 rgba(255,255,255,0.6)',
-            color: isDark ? '#513f31' : '#665040',
+            color: isDark ? '#513f31' : '#665040'
           }}
         >
           Current Population
@@ -401,11 +406,12 @@ const HeaderCarousel = ({ images, memberCount }) => {
           sx={{
             fontSize: ['24px', '18px', '32px'],
             fontWeight: 'bold',
-            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+            fontFamily:
+              '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
             textShadow: isDark
               ? '0 1px 0 rgba(0,0,0,0.3)'
               : '0 1px 0 rgba(255,255,255,0.6)',
-            color: isDark ? '#3d2e25' : '#513f31',
+            color: isDark ? '#3d2e25' : '#513f31'
           }}
         >
           <Comma>{memberCount ?? 66549}</Comma>
@@ -435,17 +441,19 @@ const HeaderCarousel = ({ images, memberCount }) => {
               width: index === currentIndex ? '18px' : '14px',
               height: index === currentIndex ? '18px' : '14px',
               borderRadius: '50%',
-              bg: index === currentIndex
-                ? '#ec3750'
-                : 'rgba(255, 255, 255, 0.6)',
+              bg:
+                index === currentIndex ? '#ec3750' : 'rgba(255, 255, 255, 0.6)',
               border: '2px solid',
               borderColor: index === currentIndex ? '#ec3750' : 'white',
               padding: 0,
               cursor: 'pointer',
               transition: 'all 0.2s',
-              boxShadow: index === currentIndex
-                ? '0 0 8px rgba(236, 55, 80, 0.5)'
-                : isDark ? '0 0 4px rgba(0,0,0,0.4)' : 'none',
+              boxShadow:
+                index === currentIndex
+                  ? '0 0 8px rgba(236, 55, 80, 0.5)'
+                  : isDark
+                    ? '0 0 4px rgba(0,0,0,0.4)'
+                    : 'none',
               overflow: 'hidden',
               '&:hover': {
                 transform: 'scale(1.2)'
@@ -473,8 +481,8 @@ const HeaderCarousel = ({ images, memberCount }) => {
         ))}
       </Flex>
     </Box>
-  );
-};
+  )
+}
 
 function ToolCard({ icon, name, desc, href }) {
   const [colorMode] = useColorMode()
@@ -484,8 +492,8 @@ function ToolCard({ icon, name, desc, href }) {
     <Box
       as="a"
       href={href || `/projects`}
-      target={href?.startsWith('http') ? "_blank" : undefined}
-      rel={href?.startsWith('http') ? "noopener noreferrer" : undefined}
+      target={href?.startsWith('http') ? '_blank' : undefined}
+      rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
       sx={{
         width: ['30%', '100px', '140px'],
         minWidth: ['90px', '100px', '110px'],
@@ -503,11 +511,16 @@ function ToolCard({ icon, name, desc, href }) {
         fontSize: 2,
         position: 'relative',
         textAlign: 'center',
-        transition: 'transform 0.15s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.15s, border-color 0.15s, background-color 0.15s',
-        boxShadow: isDark ? '0 2px 8px rgba(0,0,0,0.2)' : '0 2px 8px rgba(0,0,0,0.05)',
+        transition:
+          'transform 0.15s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.15s, border-color 0.15s, background-color 0.15s',
+        boxShadow: isDark
+          ? '0 2px 8px rgba(0,0,0,0.2)'
+          : '0 2px 8px rgba(0,0,0,0.05)',
         '&:hover, &:focus': {
           transform: 'translateY(-5px) rotate(-2deg)',
-          boxShadow: isDark ? '0 8px 16px rgba(0,0,0,0.3)' : '0 8px 16px rgba(0,0,0,0.1)',
+          boxShadow: isDark
+            ? '0 8px 16px rgba(0,0,0,0.3)'
+            : '0 8px 16px rgba(0,0,0,0.1)',
           borderColor: isDark ? '#555' : '#c0392b',
           outline: 'none',
           bg: isDark ? '#444' : '#fff9f9'
@@ -534,8 +547,26 @@ function ToolCard({ icon, name, desc, href }) {
       >
         <Icon glyph={icon} size={28} />
       </Box>
-      <Text sx={{ fontWeight: 800, fontSize: 1, mb: '1px', lineHeight: 1.25, color: isDark ? '#eee' : 'inherit' }}>{name}</Text>
-      <Text sx={{ fontSize: 0, color: isDark ? '#888' : '#718096', lineHeight: 1.25 }}>{desc}</Text>
+      <Text
+        sx={{
+          fontWeight: 800,
+          fontSize: 1,
+          mb: '1px',
+          lineHeight: 1.25,
+          color: isDark ? '#eee' : 'inherit'
+        }}
+      >
+        {name}
+      </Text>
+      <Text
+        sx={{
+          fontSize: 0,
+          color: isDark ? '#888' : '#718096',
+          lineHeight: 1.25
+        }}
+      >
+        {desc}
+      </Text>
     </Box>
   )
 }
@@ -547,7 +578,7 @@ function Page({
   gitHubData,
   stars,
   game,
-  carouselCards,
+  carouselCards
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -595,7 +626,7 @@ function Page({
         '#5bc0de',
         '#338eda',
         '#a633d6'
-      ],
+      ]
     })
   }
 
@@ -606,7 +637,6 @@ function Page({
       }, 2000)
     }
   }, [reveal, hover])
-
 
   const spotlightRef = useRef()
   useEffect(() => {
@@ -634,46 +664,47 @@ function Page({
   const headerImages = [
     {
       src: OuternetImgFile,
-      alt: "Outernet in Cabot, VT",
-      href: "https://outernet.hackclub.com/",
+      alt: 'Outernet in Cabot, VT',
+      href: 'https://outernet.hackclub.com/',
       width: 3000,
       height: 2000
     },
     {
-      src: "/home/flagship_4.jpg",
-      alt: "Flagship 2019 in San Francisco, CA",
-      href: "#",
+      src: '/home/flagship_4.jpg',
+      alt: 'Flagship 2019 in San Francisco, CA',
+      href: '#',
       width: 3000,
       height: 2000
     },
     {
-      src: "/home/zephyr-spacex.jpeg",
-      alt: "SpaceX HQ Tour in Los Angeles, CA",
-      href: "https://workshops.hackclub.com/vip-newsletters/021/",
+      src: '/home/zephyr-spacex.jpeg',
+      alt: 'SpaceX HQ Tour in Los Angeles, CA',
+      href: 'https://workshops.hackclub.com/vip-newsletters/021/',
       width: 3000,
       height: 2000
     },
     {
-      src: "/hackathons/mahacks.jpeg",
-      alt: "MA Hacks in Boston, MA",
+      src: '/hackathons/mahacks.jpeg',
+      alt: 'MA Hacks in Boston, MA',
       href: "#'",
       width: 3000,
       height: 2000
     },
     {
-      src: "/home/event.jpg",
-      alt: "Lion City Hacks in Singapore",
-      href: "https://lioncityhacks.com/",
+      src: '/home/event.jpg',
+      alt: 'Lion City Hacks in Singapore',
+      href: 'https://lioncityhacks.com/',
       width: 3000,
       height: 2000
-    }, {
-      src: "/home/wonderland.jpg",
-      alt: "Wonderland in Boston, MA",
-      href: "https://wonderland.hackclub.com/",
+    },
+    {
+      src: '/home/wonderland.jpg',
+      alt: 'Wonderland in Boston, MA',
+      href: 'https://wonderland.hackclub.com/',
       width: 3000,
       height: 2000
     }
-  ];
+  ]
 
   return (
     <>
@@ -689,7 +720,10 @@ function Page({
           content="https://assets.hackclub.com/icon-rounded.png"
           size="512x512"
         />
-        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet"></link>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap"
+          rel="stylesheet"
+        ></link>
       </Head>
       <ForceTheme theme={colorMode} />
       <Nav />
@@ -740,8 +774,12 @@ function Page({
               position: 'relative',
               mx: 'auto',
               py: [4, 4, 4],
-              paddingTop: ["130px !important", "120px !important", "156px !important"],
-              px: ["45px", "60px", "90px"],
+              paddingTop: [
+                '130px !important',
+                '120px !important',
+                '156px !important'
+              ],
+              px: ['45px', '60px', '90px'],
               textShadow: 'text',
               zIndex: 5
             }}
@@ -817,12 +855,14 @@ function Page({
                       top: '-15px',
                       left: '-10px',
                       transform: 'rotate(-8deg)',
-                      fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                      fontFamily:
+                        '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                       fontSize: ['16px', '18px', '22px'],
                       color: 'red',
                       fontWeight: 'bold',
-                      textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                      zIndex: 3,
+                      textShadow:
+                        '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                      zIndex: 3
                     }}
                   >
                     Your home
@@ -845,7 +885,7 @@ function Page({
                     transition: 'all 0.2s',
                     '&:hover': {
                       transform: 'translateY(-2px)',
-                      boxShadow: '0 8px 16px rgba(0,0,0,0.25)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.25)'
                     }
                   }}
                 >
@@ -866,7 +906,7 @@ function Page({
                     transition: 'all 0.2s',
                     '&:hover': {
                       transform: 'translateY(-2px)',
-                      boxShadow: '0 8px 16px rgba(0,0,0,0.25)',
+                      boxShadow: '0 8px 16px rgba(0,0,0,0.25)'
                     }
                   }}
                 >
@@ -877,18 +917,20 @@ function Page({
             </Heading>
           </Box>
         </Box>
-        <Box as="section" sx={{
-          py: [1, 2, '30px'],
-          pt: 4,
-          color: isDark ? 'white' : 'black',
-          background: isDark
-            ? 'linear-gradient(to bottom, #222, #111)'
-            : 'linear-gradient(to bottom, #fff9f0, #fff)',
-          borderRadius: ['0px', '0px', '32px'],
-          position: 'relative',
-          zIndex: 2
-        }}>
-
+        <Box
+          as="section"
+          sx={{
+            py: [1, 2, '30px'],
+            pt: 4,
+            color: isDark ? 'white' : 'black',
+            background: isDark
+              ? 'linear-gradient(to bottom, #222, #111)'
+              : 'linear-gradient(to bottom, #fff9f0, #fff)',
+            borderRadius: ['0px', '0px', '32px'],
+            position: 'relative',
+            zIndex: 2
+          }}
+        >
           <Box
             sx={{
               position: 'relative',
@@ -897,13 +939,18 @@ function Page({
               margin: 'auto'
             }}
           >
-            <Text variant="title" sx={{
-              fontSize: ['36px', 4, 5],
-              fontWeight: 900,
-              color: isDark ? '#eee' : '#513f31',
-              textShadow: isDark ? '1px 1px 0 rgba(0,0,0,0.6)' : '1px 1px 0 rgba(255,255,255,0.6)',
-              mb: 2
-            }}>
+            <Text
+              variant="title"
+              sx={{
+                fontSize: ['36px', 4, 5],
+                fontWeight: 900,
+                color: isDark ? '#eee' : '#513f31',
+                textShadow: isDark
+                  ? '1px 1px 0 rgba(0,0,0,0.6)'
+                  : '1px 1px 0 rgba(255,255,255,0.6)',
+                mb: 2
+              }}
+            >
               Our{' '}
               <Box
                 sx={{
@@ -940,48 +987,60 @@ function Page({
                     top: '-15px',
                     left: '-5px',
                     transform: 'rotate(-8deg)',
-                    fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                    fontFamily:
+                      '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                     fontSize: ['18px', '20px', '28px'],
                     color: 'red',
                     fontWeight: 'bold',
-                    textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                    zIndex: 3,
+                    textShadow:
+                      '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                    zIndex: 3
                   }}
                 >
                   secret formula
                 </Text>
               </Box>{' '}
             </Text>
-            <Grid columns={[1, 1, 3]} gap={[3, 4]} sx={{ alignItems: 'center', marginTop: '48px' }}>
-              <Box sx={{
-                borderRadius: 'extra',
-                bg: isDark ? 'rgba(255, 140, 55, 0.15)' : 'rgba(255, 237, 209, 0.6)',
-                p: [2, 3],
-                boxShadow: isDark
-                  ? '0 8px 32px rgba(255, 140, 55, 0.2)'
-                  : '0 8px 32px rgba(255, 140, 55, 0.12)',
-                transform: ['none', 'none', 'rotate(-1deg)'],
-                transition: 'transform 0.2s ease-in-out',
-                minHeight: '340px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                position: 'relative',
-                overflow: 'hidden',
-                border: isDark ? '2px solid rgba(255, 140, 55, 0.3)' : 'none',
-                '&:hover': {
-                  transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
-                }
-              }}>
-                <Box sx={{
-                  position: 'absolute',
-                  top: '-10px',
-                  right: '-10px',
-                  opacity: 0.15,
-                  color: 'orange',
-                  transform: 'rotate(10deg)',
-                  zIndex: 0
-                }}>
+            <Grid
+              columns={[1, 1, 3]}
+              gap={[3, 4]}
+              sx={{ alignItems: 'center', marginTop: '48px' }}
+            >
+              <Box
+                sx={{
+                  borderRadius: 'extra',
+                  bg: isDark
+                    ? 'rgba(255, 140, 55, 0.15)'
+                    : 'rgba(255, 237, 209, 0.6)',
+                  p: [2, 3],
+                  boxShadow: isDark
+                    ? '0 8px 32px rgba(255, 140, 55, 0.2)'
+                    : '0 8px 32px rgba(255, 140, 55, 0.12)',
+                  transform: ['none', 'none', 'rotate(-1deg)'],
+                  transition: 'transform 0.2s ease-in-out',
+                  minHeight: '340px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  border: isDark ? '2px solid rgba(255, 140, 55, 0.3)' : 'none',
+                  '&:hover': {
+                    transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
+                  }
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: '-10px',
+                    right: '-10px',
+                    opacity: 0.15,
+                    color: 'orange',
+                    transform: 'rotate(10deg)',
+                    zIndex: 0
+                  }}
+                >
                   <Icon glyph="code" size={100} />
                 </Box>
                 <Text
@@ -1006,7 +1065,9 @@ function Page({
                     lineHeight: 1.4
                   }}
                 >
-                  Hardware projects, games, web apps, AI—Hack Clubbers create with no limits. We provide tools and support to turn your ideas into reality.
+                  Hardware projects, games, web apps, AI—Hack Clubbers create
+                  with no limits. We provide tools and support to turn your
+                  ideas into reality.
                 </Text>
                 <Button
                   variant="outline"
@@ -1028,7 +1089,7 @@ function Page({
                     bg: 'rgba(255, 255, 255, 0.7)',
                     '&:hover': {
                       transform: 'translateY(-2px)',
-                      boxShadow: '0 4px 12px rgba(255, 140, 55, 0.2)',
+                      boxShadow: '0 4px 12px rgba(255, 140, 55, 0.2)'
                     }
                   }}
                 >
@@ -1037,35 +1098,41 @@ function Page({
                 </Button>
               </Box>
 
-              <Box sx={{
-                borderRadius: 'extra',
-                bg: isDark ? 'rgba(51, 142, 218, 0.15)' : 'rgba(231, 245, 255, 0.6)',
-                p: [2, 3],
-                boxShadow: isDark
-                  ? '0 8px 32px rgba(51, 142, 218, 0.2)'
-                  : '0 8px 32px rgba(51, 142, 218, 0.12)',
-                transform: ['none', 'none', 'rotate(1deg)'],
-                transition: 'transform 0.2s ease-in-out',
-                minHeight: '340px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                position: 'relative',
-                overflow: 'hidden',
-                border: isDark ? '2px solid rgba(51, 142, 218, 0.3)' : 'none',
-                '&:hover': {
-                  transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
-                }
-              }}>
-                <Box sx={{
-                  position: 'absolute',
-                  top: '-10px',
-                  right: '-15px',
-                  opacity: 0.15,
-                  color: 'blue',
-                  transform: 'rotate(5deg)',
-                  zIndex: 0
-                }}>
+              <Box
+                sx={{
+                  borderRadius: 'extra',
+                  bg: isDark
+                    ? 'rgba(51, 142, 218, 0.15)'
+                    : 'rgba(231, 245, 255, 0.6)',
+                  p: [2, 3],
+                  boxShadow: isDark
+                    ? '0 8px 32px rgba(51, 142, 218, 0.2)'
+                    : '0 8px 32px rgba(51, 142, 218, 0.12)',
+                  transform: ['none', 'none', 'rotate(1deg)'],
+                  transition: 'transform 0.2s ease-in-out',
+                  minHeight: '340px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  border: isDark ? '2px solid rgba(51, 142, 218, 0.3)' : 'none',
+                  '&:hover': {
+                    transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
+                  }
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: '-10px',
+                    right: '-15px',
+                    opacity: 0.15,
+                    color: 'blue',
+                    transform: 'rotate(5deg)',
+                    zIndex: 0
+                  }}
+                >
                   <Icon glyph="channel" size={120} />
                 </Box>
                 <Text
@@ -1090,7 +1157,9 @@ function Page({
                     lineHeight: 1.4
                   }}
                 >
-                  Teen coders collaborate here, not compete. We build a community grounded in learning and creativity through events, clubs, and hackathons.
+                  Teen coders collaborate here, not compete. We build a
+                  community grounded in learning and creativity through events,
+                  clubs, and hackathons.
                 </Text>
                 <Button
                   variant="outline"
@@ -1112,7 +1181,7 @@ function Page({
                     bg: 'rgba(255, 255, 255, 0.7)',
                     '&:hover': {
                       transform: 'translateY(-2px)',
-                      boxShadow: '0 4px 12px rgba(51, 142, 218, 0.2)',
+                      boxShadow: '0 4px 12px rgba(51, 142, 218, 0.2)'
                     }
                   }}
                 >
@@ -1120,35 +1189,41 @@ function Page({
                   Code of Conduct
                 </Button>
               </Box>
-              <Box sx={{
-                borderRadius: 'extra',
-                bg: isDark ? 'rgba(166, 51, 214, 0.15)' : 'rgba(233, 216, 253, 0.6)',
-                p: [2, 3],
-                boxShadow: isDark
-                  ? '0 8px 32px rgba(166, 51, 214, 0.2)'
-                  : '0 8px 32px rgba(166, 51, 214, 0.12)',
-                transform: ['none', 'none', 'rotate(-1.5deg)'],
-                transition: 'transform 0.2s ease-in-out',
-                minHeight: '340px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                position: 'relative',
-                overflow: 'hidden',
-                border: isDark ? '2px solid rgba(166, 51, 214, 0.3)' : 'none',
-                '&:hover': {
-                  transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
-                }
-              }}>
-                <Box sx={{
-                  position: 'absolute',
-                  top: '-5px',
-                  right: '-10px',
-                  opacity: 0.15,
-                  color: 'purple',
-                  transform: 'rotate(8deg)',
-                  zIndex: 0
-                }}>
+              <Box
+                sx={{
+                  borderRadius: 'extra',
+                  bg: isDark
+                    ? 'rgba(166, 51, 214, 0.15)'
+                    : 'rgba(233, 216, 253, 0.6)',
+                  p: [2, 3],
+                  boxShadow: isDark
+                    ? '0 8px 32px rgba(166, 51, 214, 0.2)'
+                    : '0 8px 32px rgba(166, 51, 214, 0.12)',
+                  transform: ['none', 'none', 'rotate(-1.5deg)'],
+                  transition: 'transform 0.2s ease-in-out',
+                  minHeight: '340px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  border: isDark ? '2px solid rgba(166, 51, 214, 0.3)' : 'none',
+                  '&:hover': {
+                    transform: ['none', 'none', 'rotate(0deg) scale(1.02)']
+                  }
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: '-5px',
+                    right: '-10px',
+                    opacity: 0.15,
+                    color: 'purple',
+                    transform: 'rotate(8deg)',
+                    zIndex: 0
+                  }}
+                >
                   <Icon glyph="checkmark" size={90} />
                 </Box>
                 <Text
@@ -1173,7 +1248,9 @@ function Page({
                     lineHeight: 1.4
                   }}
                 >
-                  Not just tutorials— real projects. Build your skills and portfolio with a global community of teen hackers ready to help you learn and grow.
+                  Not just tutorials— real projects. Build your skills and
+                  portfolio with a global community of teen hackers ready to
+                  help you learn and grow.
                 </Text>
                 <Button
                   variant="outline"
@@ -1195,7 +1272,7 @@ function Page({
                     bg: 'rgba(255, 255, 255, 0.7)',
                     '&:hover': {
                       transform: 'translateY(-2px)',
-                      boxShadow: '0 4px 12px rgba(166, 51, 214, 0.2)',
+                      boxShadow: '0 4px 12px rgba(166, 51, 214, 0.2)'
                     }
                   }}
                 >
@@ -1259,13 +1336,18 @@ function Page({
             }}
           >
             <Box>
-              <Text variant="title" sx={{
-                fontSize: ['36px', 4, 5],
-                fontWeight: 900,
-                color: isDark ? '#eee' : '#513f31',
-                textShadow: isDark ? '1px 1px 0 rgba(0,0,0,0.6)' : '1px 1px 0 rgba(255,255,255,0.6)',
-                mb: 2
-              }}>
+              <Text
+                variant="title"
+                sx={{
+                  fontSize: ['36px', 4, 5],
+                  fontWeight: 900,
+                  color: isDark ? '#eee' : '#513f31',
+                  textShadow: isDark
+                    ? '1px 1px 0 rgba(0,0,0,0.6)'
+                    : '1px 1px 0 rgba(255,255,255,0.6)',
+                  mb: 2
+                }}
+              >
                 Engage with fellow{' '}
                 <Box
                   sx={{
@@ -1302,14 +1384,15 @@ function Page({
                       top: '-15px',
                       left: '-5px',
                       transform: 'rotate(-8deg)',
-                      fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                      fontFamily:
+                        '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                       fontSize: ['18px', '20px', '28px'],
                       color: 'red',
                       fontWeight: 'bold',
                       textShadow: isDark
                         ? '1px 1px 0 #333, -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333'
                         : '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                      zIndex: 3,
+                      zIndex: 3
                     }}
                   >
                     makers
@@ -1333,41 +1416,46 @@ function Page({
               </Text>
             </Box>
 
-            <Box sx={{
-              display: 'grid',
-              gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'],
-              gap: 4,
-              mb: 3,
-              '& > div': {
-                borderRadius: '1.75rem',
-                padding: '8px !important',
-                border: isDark ? '5px solid #333' : '5px solid #e4d6c3',
-                boxShadow: isDark
-                  ? '0 12px 36px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)'
-                  : '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
-                background: isDark ? '#222' : '#fdf6ee',
-                transition: 'transform 0.2s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s',
-                overflow: 'hidden',
-                height: '100%',
-                '&:hover': {
-                  transform: 'translateY(-8px) rotate(-1deg)',
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: ['1fr', '1fr', '2fr 1fr'],
+                gap: 4,
+                mb: 3,
+                '& > div': {
+                  borderRadius: '1.75rem',
+                  padding: '8px !important',
+                  border: isDark ? '5px solid #333' : '5px solid #e4d6c3',
                   boxShadow: isDark
-                    ? '0 16px 48px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3)'
-                    : '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
+                    ? '0 12px 36px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)'
+                    : '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
+                  background: isDark ? '#222' : '#fdf6ee',
+                  transition:
+                    'transform 0.2s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s',
+                  overflow: 'hidden',
+                  height: '100%',
+                  '&:hover': {
+                    transform: 'translateY(-8px) rotate(-1deg)',
+                    boxShadow: isDark
+                      ? '0 16px 48px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3)'
+                      : '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
+                  }
                 }
-              }
-            }}>
-              <Box sx={{alignContent: 'center'}}>
+              }}
+            >
+              <Box sx={{ alignContent: 'center' }}>
                 <Neighborhood />
               </Box>
 
-              <Box sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 2,
-                paddingTop: "32px",
-                justifyContent: "center",
-              }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 2,
+                  paddingTop: '32px',
+                  justifyContent: 'center'
+                }}
+              >
                 <Box sx={{ mb: 0 }}>
                   <Highway />
                 </Box>
@@ -1376,37 +1464,41 @@ function Page({
                 </Box>
               </Box>
             </Box>
-            <Box sx={{
-              mb: 7,
-              mt: 4,
-              borderRadius: '1.75rem',
-              padding: '8px !important',
-              border: isDark ? '5px solid #333' : '5px solid #e4d6c3',
-              boxShadow: isDark
-                ? '0 12px 36px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)'
-                : '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
-              background: isDark ? '#222' : '#fdf6ee',
-              transition: 'transform 0.2s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s',
-              overflow: 'hidden',
-              height: '100%',
-              '&:hover': {
-                transform: 'translateY(-8px) rotate(-1deg)',
+            <Box
+              sx={{
+                mb: 7,
+                mt: 4,
+                borderRadius: '1.75rem',
+                padding: '8px !important',
+                border: isDark ? '5px solid #333' : '5px solid #e4d6c3',
                 boxShadow: isDark
-                  ? '0 16px 48px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3)'
-                  : '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
-              }
-            }}>
-              <Box sx={{
-                display: 'grid',
-                gridTemplateColumns: ['1fr', '1fr', '1fr 1fr 1fr'],
-                gap: 3,
-              }}>
+                  ? '0 12px 36px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2)'
+                  : '0 12px 36px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.08)',
+                background: isDark ? '#222' : '#fdf6ee',
+                transition:
+                  'transform 0.2s cubic-bezier(.68,-0.55,.27,1.55), box-shadow 0.2s',
+                overflow: 'hidden',
+                height: '100%',
+                '&:hover': {
+                  transform: 'translateY(-8px) rotate(-1deg)',
+                  boxShadow: isDark
+                    ? '0 16px 48px rgba(0,0,0,0.4), 0 8px 24px rgba(0,0,0,0.3)'
+                    : '0 16px 48px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.1)'
+                }
+              }}
+            >
+              <Box
+                sx={{
+                  display: 'grid',
+                  gridTemplateColumns: ['1fr', '1fr', '1fr 1fr 1fr'],
+                  gap: 3
+                }}
+              >
                 <HighSeas />
-                <Shipwrecked /> 
+                <Shipwrecked />
                 <Juice />
               </Box>
             </Box>
-
           </Box>
         </Box>
 
@@ -1436,7 +1528,7 @@ function Page({
                     : '0 12px 40px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.12), inset 0 1px 10px rgba(255,255,255,0.2)',
                   px: [2, 3, 2.5],
                   py: [4, 5, 6],
-                  pb: "32px !important",
+                  pb: '32px !important',
                   pt: ['80px', '90px', '100px'],
                   position: 'relative',
                   overflow: 'visible',
@@ -1455,25 +1547,27 @@ function Page({
                   }
                 }}
               >
-                <Box sx={{
-                  position: 'absolute',
-                  top: ['-70px', '-80px', '-90px'],
-                  left: 0,
-                  width: '100%',
-                  height: ['100px', '120px', '140px'],
-                  background: isDark
-                    ? 'linear-gradient(to bottom, #67282f, #461216)'
-                    : 'linear-gradient(to bottom, #e74c3c, #c0392b)',
-                  borderRadius: '1.75rem 1.75rem 0 0',
-                  border: isDark ? '5px solid #444' : '5px solid #c0392b',
-                  borderBottom: 'none',
-                  transform: 'rotateX(60deg)',
-                  transformOrigin: 'bottom',
-                  boxShadow: isDark
-                    ? 'inset 0 5px 15px rgba(255,255,255,0.1), 0 -4px 10px rgba(0,0,0,0.3)'
-                    : 'inset 0 5px 15px rgba(255,255,255,0.3), 0 -4px 10px rgba(0,0,0,0.2)',
-                  zIndex: 1
-                }} />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: ['-70px', '-80px', '-90px'],
+                    left: 0,
+                    width: '100%',
+                    height: ['100px', '120px', '140px'],
+                    background: isDark
+                      ? 'linear-gradient(to bottom, #67282f, #461216)'
+                      : 'linear-gradient(to bottom, #e74c3c, #c0392b)',
+                    borderRadius: '1.75rem 1.75rem 0 0',
+                    border: isDark ? '5px solid #444' : '5px solid #c0392b',
+                    borderBottom: 'none',
+                    transform: 'rotateX(60deg)',
+                    transformOrigin: 'bottom',
+                    boxShadow: isDark
+                      ? 'inset 0 5px 15px rgba(255,255,255,0.1), 0 -4px 10px rgba(0,0,0,0.3)'
+                      : 'inset 0 5px 15px rgba(255,255,255,0.3), 0 -4px 10px rgba(0,0,0,0.2)',
+                    zIndex: 1
+                  }}
+                />
 
                 {gitHubData && (
                   <Box
@@ -1545,12 +1639,14 @@ function Page({
                             top: '-18px',
                             left: '-5px',
                             transform: 'rotate(-8deg)',
-                            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                            fontFamily:
+                              '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                             fontSize: ['16px', '18px', '20px'],
                             color: 'red',
                             fontWeight: 'bold',
-                            textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                            zIndex: 3,
+                            textShadow:
+                              '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                            zIndex: 3
                           }}
                         >
                           what's poppin on
@@ -1568,32 +1664,76 @@ function Page({
                           sx={{
                             animation: `githubBounce${key} ${2.8 + key * 0.4}s ${key * 0.25}s infinite cubic-bezier(.68,-0.55,.27,1.55)`,
                             '@keyframes githubBounce0': {
-                              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-                              '20%': { transform: 'translateY(-18px) scale(1.04) rotate(-2deg)' },
-                              '40%': { transform: 'translateY(-8px) scale(1.01) rotate(1deg)' },
-                              '60%': { transform: 'translateY(-14px) scale(1.03) rotate(-1deg)' },
-                              '80%': { transform: 'translateY(-4px) scale(1.01) rotate(2deg)' }
+                              '0%, 100%': {
+                                transform: 'translateY(0) rotate(0deg)'
+                              },
+                              '20%': {
+                                transform:
+                                  'translateY(-18px) scale(1.04) rotate(-2deg)'
+                              },
+                              '40%': {
+                                transform:
+                                  'translateY(-8px) scale(1.01) rotate(1deg)'
+                              },
+                              '60%': {
+                                transform:
+                                  'translateY(-14px) scale(1.03) rotate(-1deg)'
+                              },
+                              '80%': {
+                                transform:
+                                  'translateY(-4px) scale(1.01) rotate(2deg)'
+                              }
                             },
                             '@keyframes githubBounce1': {
-                              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-                              '20%': { transform: 'translateY(-22px) scale(1.05) rotate(2deg)' },
-                              '40%': { transform: 'translateY(-10px) scale(1.01) rotate(-2deg)' },
-                              '60%': { transform: 'translateY(-16px) scale(1.03) rotate(1deg)' },
-                              '80%': { transform: 'translateY(-6px) scale(1.01) rotate(-1deg)' }
+                              '0%, 100%': {
+                                transform: 'translateY(0) rotate(0deg)'
+                              },
+                              '20%': {
+                                transform:
+                                  'translateY(-22px) scale(1.05) rotate(2deg)'
+                              },
+                              '40%': {
+                                transform:
+                                  'translateY(-10px) scale(1.01) rotate(-2deg)'
+                              },
+                              '60%': {
+                                transform:
+                                  'translateY(-16px) scale(1.03) rotate(1deg)'
+                              },
+                              '80%': {
+                                transform:
+                                  'translateY(-6px) scale(1.01) rotate(-1deg)'
+                              }
                             },
                             '@keyframes githubBounce2': {
-                              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-                              '20%': { transform: 'translateY(-26px) scale(1.06) rotate(-3deg)' },
-                              '40%': { transform: 'translateY(-12px) scale(1.02) rotate(2deg)' },
-                              '60%': { transform: 'translateY(-18px) scale(1.04) rotate(-2deg)' },
-                              '80%': { transform: 'translateY(-7px) scale(1.01) rotate(1deg)' }
+                              '0%, 100%': {
+                                transform: 'translateY(0) rotate(0deg)'
+                              },
+                              '20%': {
+                                transform:
+                                  'translateY(-26px) scale(1.06) rotate(-3deg)'
+                              },
+                              '40%': {
+                                transform:
+                                  'translateY(-12px) scale(1.02) rotate(2deg)'
+                              },
+                              '60%': {
+                                transform:
+                                  'translateY(-18px) scale(1.04) rotate(-2deg)'
+                              },
+                              '80%': {
+                                transform:
+                                  'translateY(-7px) scale(1.01) rotate(1deg)'
+                              }
                             },
                             boxShadow: isDark
                               ? '0 8px 20px rgba(0,0,0,0.3)'
                               : '0 8px 20px rgba(0,0,0,0.15)',
                             background: isDark ? '#222' : 'white',
                             borderRadius: '12px',
-                            border: isDark ? '3px solid #444' : '3px solid #ddd',
+                            border: isDark
+                              ? '3px solid #444'
+                              : '3px solid #ddd',
                             width: '100%',
                             maxWidth: '550px',
                             pointerEvents: 'auto',
@@ -1626,12 +1766,14 @@ function Page({
                   </Box>
                 )}
 
-                <Box sx={{
-                  position: 'relative',
-                  zIndex: 3,
-                  pt: [1, 1, 2],
-                  pb: "32px !important"
-                }}>
+                <Box
+                  sx={{
+                    position: 'relative',
+                    zIndex: 3,
+                    pt: [1, 1, 2],
+                    pb: '32px !important'
+                  }}
+                >
                   <Text
                     variant="title"
                     as="h2"
@@ -1683,12 +1825,14 @@ function Page({
                           top: '-15px',
                           left: '-5px',
                           transform: 'rotate(-8deg)',
-                          fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                          fontFamily:
+                            '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                           fontSize: ['16px', '18px', '24px'],
                           color: 'red',
                           fontWeight: 'bold',
-                          textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                          zIndex: 3,
+                          textShadow:
+                            '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                          zIndex: 3
                         }}
                       >
                         build awesome stuff
@@ -1723,20 +1867,22 @@ function Page({
                   >
                     In collaboration with engineers on the Hack&nbsp;Club team,
                     Hack Clubbers build learning tools for each other. Get
-                    involved with these projects by building something with our tools
-                    or contribute to the tools themselves.
+                    involved with these projects by building something with our
+                    tools or contribute to the tools themselves.
                   </Text>
 
-                  <Box sx={{
-                    background: isDark ? '#222' : 'white',
-                    borderRadius: '1.5rem',
-                    boxShadow: isDark
-                      ? 'inset 0 0 20px rgba(0,0,0,0.3)'
-                      : 'inset 0 0 20px rgba(0,0,0,0.1)',
-                    p: [2, 3, 4],
-                    position: 'relative',
-                    border: isDark ? '4px solid #444' : '4px solid #c0392b'
-                  }}>
+                  <Box
+                    sx={{
+                      background: isDark ? '#222' : 'white',
+                      borderRadius: '1.5rem',
+                      boxShadow: isDark
+                        ? 'inset 0 0 20px rgba(0,0,0,0.3)'
+                        : 'inset 0 0 20px rgba(0,0,0,0.1)',
+                      p: [2, 3, 4],
+                      position: 'relative',
+                      border: isDark ? '4px solid #444' : '4px solid #c0392b'
+                    }}
+                  >
                     <Flex
                       sx={{
                         flexWrap: 'wrap',
@@ -1745,70 +1891,136 @@ function Page({
                         mb: [3, 3, 4]
                       }}
                     >
-                      <ToolCard icon="code" name="Workshops" desc="Learn coding" href="https://workshops.hackclub.com" />
-                      <ToolCard icon="flag" name="Sprig" desc="Make pixel games" href="https://sprig.hackclub.com" />
-                      <ToolCard icon="plus" name="Sinerider" desc="Math + games" href="https://sinerider.com" />
-                      <ToolCard icon="slack" name="Slack" desc="Join community" href="/slack" />
-                      <ToolCard icon="bank-account" name="Bank" desc="Finances" href="https://bank.hackclub.com" />
-                      <ToolCard icon="github" name="GitHub" desc="Open source" href="https://github.com/hackclub" />
+                      <ToolCard
+                        icon="code"
+                        name="Workshops"
+                        desc="Learn coding"
+                        href="https://workshops.hackclub.com"
+                      />
+                      <ToolCard
+                        icon="flag"
+                        name="Sprig"
+                        desc="Make pixel games"
+                        href="https://sprig.hackclub.com"
+                      />
+                      <ToolCard
+                        icon="plus"
+                        name="Sinerider"
+                        desc="Math + games"
+                        href="https://sinerider.com"
+                      />
+                      <ToolCard
+                        icon="slack"
+                        name="Slack"
+                        desc="Join community"
+                        href="/slack"
+                      />
+                      <ToolCard
+                        icon="bank-account"
+                        name="Bank"
+                        desc="Finances"
+                        href="https://bank.hackclub.com"
+                      />
+                      <ToolCard
+                        icon="github"
+                        name="GitHub"
+                        desc="Open source"
+                        href="https://github.com/hackclub"
+                      />
 
-                      <ToolCard icon="event-check" name="Hackathons" desc="Big events" href="https://hackathons.hackclub.com" />
-                      <ToolCard icon="photo" name="Scrapbook" desc="Share builds" href="https://scrapbook.hackclub.com" />
-                      <ToolCard icon="grid" name="Toolbox" desc="Resources" href="https://toolbox.hackclub.com" />
-                      <ToolCard icon="clubs" name="Clubs" desc="Start a club" href="/clubs" />
-                      <ToolCard icon="friend" name="Community" desc="Find friends" href="/community" />
-                      <ToolCard icon="explore" name="Projects" desc="See what's made" href="/projects" />
+                      <ToolCard
+                        icon="event-check"
+                        name="Hackathons"
+                        desc="Big events"
+                        href="https://hackathons.hackclub.com"
+                      />
+                      <ToolCard
+                        icon="photo"
+                        name="Scrapbook"
+                        desc="Share builds"
+                        href="https://scrapbook.hackclub.com"
+                      />
+                      <ToolCard
+                        icon="grid"
+                        name="Toolbox"
+                        desc="Resources"
+                        href="https://toolbox.hackclub.com"
+                      />
+                      <ToolCard
+                        icon="clubs"
+                        name="Clubs"
+                        desc="Start a club"
+                        href="/clubs"
+                      />
+                      <ToolCard
+                        icon="friend"
+                        name="Community"
+                        desc="Find friends"
+                        href="/community"
+                      />
+                      <ToolCard
+                        icon="explore"
+                        name="Projects"
+                        desc="See what's made"
+                        href="/projects"
+                      />
                     </Flex>
                   </Box>
                 </Box>
 
-                <Box sx={{
-                  position: 'absolute',
-                  top: '15px',
-                  left: '15px',
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  background: '#7f8c8d',
-                  boxShadow: 'inset 0 0 0 3px #2c3e50',
-                  zIndex: 2
-                }} />
-                <Box sx={{
-                  position: 'absolute',
-                  top: '15px',
-                  right: '15px',
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  background: '#7f8c8d',
-                  boxShadow: 'inset 0 0 0 3px #2c3e50',
-                  zIndex: 2
-                }} />
-                <Box sx={{
-                  position: 'absolute',
-                  bottom: '15px',
-                  left: '15px',
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  background: '#7f8c8d',
-                  boxShadow: 'inset 0 0 0 3px #2c3e50',
-                  zIndex: 2
-                }} />
-                <Box sx={{
-                  position: 'absolute',
-                  bottom: '15px',
-                  right: '15px',
-                  width: '12px',
-                  height: '12px',
-                  borderRadius: '50%',
-                  background: '#7f8c8d',
-                  boxShadow: 'inset 0 0 0 3px #2c3e50',
-                  zIndex: 2
-                }} />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: '15px',
+                    left: '15px',
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    background: '#7f8c8d',
+                    boxShadow: 'inset 0 0 0 3px #2c3e50',
+                    zIndex: 2
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: '15px',
+                    right: '15px',
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    background: '#7f8c8d',
+                    boxShadow: 'inset 0 0 0 3px #2c3e50',
+                    zIndex: 2
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: '15px',
+                    left: '15px',
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    background: '#7f8c8d',
+                    boxShadow: 'inset 0 0 0 3px #2c3e50',
+                    zIndex: 2
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    bottom: '15px',
+                    right: '15px',
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    background: '#7f8c8d',
+                    boxShadow: 'inset 0 0 0 3px #2c3e50',
+                    zIndex: 2
+                  }}
+                />
               </Box>
-
-
             </Box>
           </Box>
           <Box
@@ -1831,8 +2043,8 @@ function Page({
                 top: 0,
                 left: 0,
                 background: isDark
-                  ? 'linear-gradient(180deg, rgba(35,35,35,0.3) 0%, rgba(20,20,20,0.5) 100%)'
-                  : 'linear-gradient(180deg, rgba(255,240,224,0.3) 0%, rgba(255,249,238,0.5) 100%)',
+                  ? 'linear-gradient(180deg, rgba(35, 35, 35, 0.3) 0%, rgba(20, 20, 20, 0.5) 100%)'
+                  : 'linear-gradient(180deg, rgba(255, 240, 224, 0.3) 0%, rgba(255, 249, 238, 0.5) 100%)',
                 zIndex: 1
               }}
             />
@@ -1847,15 +2059,20 @@ function Page({
               }}
             >
               <Box sx={{ textAlign: 'center', mb: [4, 4, 5] }}>
-                <Text variant="title" sx={{
-                  fontSize: ['36px', 4, 5],
-                  fontWeight: 900,
-                  color: isDark ? '#eee' : '#513f31',
-                  textShadow: isDark ? '1px 1px 0 rgba(0,0,0,0.6)' : '1px 1px 0 rgba(255,255,255,0.6)',
-                  mb: 2,
-                  position: 'relative',
-                  display: 'inline-block'
-                }}>
+                <Text
+                  variant="title"
+                  sx={{
+                    fontSize: ['36px', 4, 5],
+                    fontWeight: 900,
+                    color: isDark ? '#eee' : '#513f31',
+                    textShadow: isDark
+                      ? '1px 1px 0 rgba(0,0,0,0.6)'
+                      : '1px 1px 0 rgba(255,255,255,0.6)',
+                    mb: 2,
+                    position: 'relative',
+                    display: 'inline-block'
+                  }}
+                >
                   Find community{' '}
                   <Box
                     sx={{
@@ -1892,12 +2109,14 @@ function Page({
                         top: '-15px',
                         left: '-5px',
                         transform: 'rotate(-8deg)',
-                        fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                        fontFamily:
+                          '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                         fontSize: ['18px', '20px', '28px'],
                         color: 'red',
                         fontWeight: 'bold',
-                        textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                        zIndex: 3,
+                        textShadow:
+                          '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                        zIndex: 3
                       }}
                     >
                       while touching grass
@@ -1915,18 +2134,22 @@ function Page({
                     color: isDark ? '#aaa' : '#665040'
                   }}
                 >
-                  Hack Clubbers organize and join hackathons and coding clubs all around the world
+                  Hack Clubbers organize and join hackathons and coding clubs
+                  all around the world
                 </Text>
               </Box>
 
-              <Grid gap={[1, 3, 5]} columns={[1, null, '1fr 1fr']} sx={{ mb: 5 }}>
+              <Grid
+                gap={[1, 3, 5]}
+                columns={[1, null, '1fr 1fr']}
+                sx={{ mb: 5 }}
+              >
                 <Box
                   sx={{
                     position: 'relative',
                     borderRadius: '1.75rem',
                     border: isDark ? '5px solid #333' : '5px solid #e4d6c3',
                     boxShadow: isDark
-
                       ? '0 10px 25px rgba(0,0,0,0.3)'
                       : '0 10px 25px rgba(0,0,0,0.1)',
                     background: isDark ? '#222' : '#fdf6ee',
@@ -1968,7 +2191,8 @@ function Page({
                   <Text
                     as="h3"
                     sx={{
-                      fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                      fontFamily:
+                        '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                       fontSize: '22px',
                       fontWeight: 'bold',
                       color: isDark ? '#eee' : '#513f31',
@@ -1976,7 +2200,11 @@ function Page({
                       textAlign: 'center'
                     }}
                   >
-                    <Icon glyph="clubs" size={24} sx={{ mr: 2, verticalAlign: 'middle' }} />
+                    <Icon
+                      glyph="clubs"
+                      size={24}
+                      sx={{ mr: 2, verticalAlign: 'middle' }}
+                    />
                     Start a club at your school
                   </Text>
                   <Clubs />
@@ -2029,7 +2257,8 @@ function Page({
                   <Text
                     as="h3"
                     sx={{
-                      fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                      fontFamily:
+                        '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                       fontSize: '22px',
                       fontWeight: 'bold',
                       color: isDark ? '#eee' : '#513f31',
@@ -2037,7 +2266,11 @@ function Page({
                       textAlign: 'center'
                     }}
                   >
-                    <Icon glyph="event-check" size={24} sx={{ mr: 2, verticalAlign: 'middle' }} />
+                    <Icon
+                      glyph="event-check"
+                      size={24}
+                      sx={{ mr: 2, verticalAlign: 'middle' }}
+                    />
                     Join a hackathon near you
                   </Text>
                   <Hackathons
@@ -2097,7 +2330,8 @@ function Page({
                 <Text
                   as="h3"
                   sx={{
-                    fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                    fontFamily:
+                      '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                     fontSize: '22px',
                     fontWeight: 'bold',
                     color: isDark ? '#eee' : '#513f31',
@@ -2108,9 +2342,12 @@ function Page({
                     width: '100%'
                   }}
                 >
-                  <Icon glyph="bank-account" size={24} sx={{ mr: 2, verticalAlign: 'middle' }} />
+                  <Icon
+                    glyph="bank-account"
+                    size={24}
+                    sx={{ mr: 2, verticalAlign: 'middle' }}
+                  />
                   Get your project{' '}
-
                   <Box
                     sx={{
                       position: 'relative',
@@ -2146,12 +2383,14 @@ function Page({
                         top: '-15px',
                         left: '0px',
                         transform: 'rotate(-8deg)',
-                        fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                        fontFamily:
+                          '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                         fontSize: ['14px', '16px', '20px'],
                         color: 'red',
                         fontWeight: 'bold',
-                        textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                        zIndex: 3,
+                        textShadow:
+                          '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                        zIndex: 3
                       }}
                     >
                       bankrolled
@@ -2164,8 +2403,10 @@ function Page({
           </Box>
         </Box>
 
-
-        <Box py={[4, 5, '82px']} sx={{ pb: "0px !important", bg: isDark ? '#111' : 'white' }}>
+        <Box
+          py={[4, 5, '82px']}
+          sx={{ pb: '0px !important', bg: isDark ? '#111' : 'white' }}
+        >
           <Box
             sx={{
               width: '90vw',
@@ -2177,7 +2418,11 @@ function Page({
               <Text
                 as="p"
                 variant="eyebrow"
-                sx={{ fontSize: ['22px', 2, 3], textAlign: 'center', color: isDark ? '#aaa' : 'inherit' }}
+                sx={{
+                  fontSize: ['22px', 2, 3],
+                  textAlign: 'center',
+                  color: isDark ? '#aaa' : 'inherit'
+                }}
               >
                 Start your journey today
               </Text>
@@ -2187,13 +2432,15 @@ function Page({
                 sx={{
                   fontSize: ['36px', '48px', '72px'],
                   color: isDark ? '#eee' : '#513f31',
-                  textShadow: isDark ? '1px 1px 0 rgba(0,0,0,0.6)' : '1px 1px 0 rgba(255,255,255,0.6)',
+                  textShadow: isDark
+                    ? '1px 1px 0 rgba(0,0,0,0.6)'
+                    : '1px 1px 0 rgba(255,255,255,0.6)',
                   mb: 2,
                   textAlign: 'center',
                   fontWeight: 900
                 }}
               >
-                Find {' '}
+                Find{' '}
                 <Box
                   sx={{
                     position: 'relative',
@@ -2229,12 +2476,14 @@ function Page({
                       top: '-15px',
                       left: '-12px',
                       transform: 'rotate(-8deg)',
-                      fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                      fontFamily:
+                        '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
                       fontSize: ['16px', '18px', '24px'],
                       color: 'red',
                       fontWeight: 'bold',
-                      textShadow: '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
-                      zIndex: 3,
+                      textShadow:
+                        '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                      zIndex: 3
                     }}
                   >
                     your crowd
@@ -2384,74 +2633,74 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-            <>
+          <>
+            <Box
+              sx={{
+                position: 'fixed',
+                top: 0,
+                width: '100%',
+                zIndex: 1000
+              }}
+            >
               <Box
                 sx={{
-                  position: 'fixed',
-                  top: 0,
-                  width: '100%',
-                  zIndex: 1000
-                }}
-              >
-                <Box
-                  sx={{
-                    position: 'relative',
-                    margin: 'auto',
-                    width: 'fit-content',
-                    lineHeight: 0
-                  }}
-                >
-                  <iframe
-                    width="560"
-                    height="315"
-                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                  ></iframe>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  position: 'fixed',
-                  bottom: 0,
-                  right: 0,
-                  zIndex: 1000,
+                  position: 'relative',
+                  margin: 'auto',
+                  width: 'fit-content',
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </Box>
-              <Box
-                sx={{
-                  position: 'fixed',
-                  bottom: 0,
-                  left: 0,
-                  zIndex: 1000,
-                  lineHeight: 0
-                }}
-              >
-                <iframe
-                  width="560"
-                  height="315"
-                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
-              </Box>
-            </>
-          )}
+            </Box>
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                right: 0,
+                zIndex: 1000,
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </Box>
+            <Box
+              sx={{
+                position: 'fixed',
+                bottom: 0,
+                left: 0,
+                zIndex: 1000,
+                lineHeight: 0
+              }}
+            >
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </Box>
+          </>
+        )}
         <MailingList />
       </Box>
 
@@ -2481,7 +2730,9 @@ function Page({
           transform: isScrolled ? 'translateY(0)' : 'translateY(20px)',
           transition: 'all 0.3s cubic-bezier(.68,-0.55,.27,1.55)',
           '&:hover': {
-            transform: isScrolled ? 'translateY(-4px) rotate(-5deg)' : 'translateY(20px)',
+            transform: isScrolled
+              ? 'translateY(-4px) rotate(-5deg)'
+              : 'translateY(20px)',
             boxShadow: isDark
               ? '0 12px 24px rgba(0,0,0,0.4)'
               : '0 12px 24px rgba(0,0,0,0.2)',
@@ -2495,15 +2746,11 @@ function Page({
         <Icon glyph="up-caret" size={32} color={isDark ? '#fff' : '#000'} />
       </Box>
 
-      <Footer
-        dark={isDark}
-
-      >
+      <Footer dark={isDark}>
         <style>
           {`a{
           color: #338eda
       }`}
-
         </style>
       </Footer>
     </>
@@ -2529,8 +2776,6 @@ export async function getStaticProps() {
 
   const { Slack: Slacky } = require('./api/slack')
   let slackData = await Slacky()
-
-
 
   const { fetchGitHub } = require('./api/github')
   let gitHubData = await fetchGitHub()
@@ -2568,9 +2813,9 @@ export async function getStaticProps() {
   hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
   let events = []
   try {
-    await fetch(
-      'https://events.hackclub.com/api/events/upcoming/'
-    ).then(res => res.json())
+    await fetch('https://events.hackclub.com/api/events/upcoming/').then(res =>
+      res.json()
+    )
   } catch (error) {
     console.error('Error fetching events:', error)
   }
@@ -2590,4 +2835,4 @@ export async function getStaticProps() {
     revalidate: 60
   }
 }
-export default Page;
+export default Page

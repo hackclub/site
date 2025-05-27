@@ -1,6 +1,16 @@
 import Icon from '@hackclub/icons'
 import { useEffect, useRef, useState } from 'react'
-import { Box, Button, Card, Flex, Grid, Input, Link, Text, useColorMode } from 'theme-ui'
+import {
+  Box,
+  Button,
+  Card,
+  Flex,
+  Grid,
+  Input,
+  Link,
+  Text,
+  useColorMode
+} from 'theme-ui'
 import { format, parse } from 'date-fns'
 import BGImg from '../../background-image'
 import background from '../../../public/home/footer.png'
@@ -97,12 +107,14 @@ const MailingList = () => {
   }, [])
 
   return (
-    <Box sx={{ 
-      position: 'relative', 
-      py: 6, 
-      pt: 5, 
-      background: isDark ? '#111' : 'snow' 
-    }}>
+    <Box
+      sx={{
+        position: 'relative',
+        py: 6,
+        pt: 5,
+        background: isDark ? '#111' : 'snow'
+      }}
+    >
       <Card
         sx={{
           maxWidth: '1050px',
@@ -112,7 +124,7 @@ const MailingList = () => {
           zIndex: 2,
           border: isDark ? '5px solid #444' : '5px solid #e4d6c3',
           borderRadius: '2.75rem',
-          boxShadow: isDark 
+          boxShadow: isDark
             ? '0 12px 40px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2)'
             : '0 12px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10)',
           overflow: 'hidden',
@@ -132,7 +144,7 @@ const MailingList = () => {
               gap: '15px',
               width: ['100%', '100%', '75%'],
               p: [3, 4],
-              pt: "3px !important",
+              pt: '3px !important'
             }}
           >
             <Box>
@@ -144,7 +156,7 @@ const MailingList = () => {
                   textAlign: 'left',
                   color: isDark ? '#eee' : '#513f31',
                   fontWeight: 900,
-                  textShadow: isDark 
+                  textShadow: isDark
                     ? '0 1px 2px rgba(0,0,0,0.5)'
                     : '0 1px 0 rgba(255,255,255,0.5)'
                 }}
@@ -212,14 +224,14 @@ const MailingList = () => {
                     border: isDark ? '3px solid #555' : '3px solid #e4d6c3',
                     borderRadius: '0.8rem',
                     py: 2,
-                    boxShadow: isDark 
+                    boxShadow: isDark
                       ? '0 2px 4px rgba(0,0,0,0.3)'
                       : '0 2px 4px rgba(0,0,0,0.1)',
                     transition: 'all 0.2s',
                     '&:hover, &:focus': {
                       borderColor: '#ec3750',
                       transform: 'translateY(-2px)',
-                      boxShadow: isDark 
+                      boxShadow: isDark
                         ? '0 4px 8px rgba(0,0,0,0.3)'
                         : '0 4px 8px rgba(0,0,0,0.15)'
                     },
@@ -246,14 +258,14 @@ const MailingList = () => {
                     border: isDark ? '3px solid #555' : '3px solid #e4d6c3',
                     borderRadius: '0.8rem',
                     py: 2,
-                    boxShadow: isDark 
-                      ? '0 2px 4px rgba(0,0,0,0.3)' 
+                    boxShadow: isDark
+                      ? '0 2px 4px rgba(0,0,0,0.3)'
                       : '0 2px 4px rgba(0,0,0,0.1)',
                     transition: 'all 0.2s',
                     '&:hover, &:focus': {
                       borderColor: '#ec3750',
                       transform: 'translateY(-2px)',
-                      boxShadow: isDark 
+                      boxShadow: isDark
                         ? '0 4px 8px rgba(0,0,0,0.3)'
                         : '0 4px 8px rgba(0,0,0,0.15)'
                     },
@@ -274,7 +286,7 @@ const MailingList = () => {
                   fontWeight: 800,
                   bg: '#ec3750',
                   transition: 'all 0.2s',
-                  boxShadow: isDark 
+                  boxShadow: isDark
                     ? '0 4px 8px rgba(0,0,0,0.3)'
                     : '0 4px 8px rgba(0,0,0,0.15)',
                   '&:hover': {
@@ -331,7 +343,9 @@ const MailingList = () => {
                   sx={{
                     border: isDark ? '3px solid #444' : '3px solid #e4d6c3',
                     borderRadius: '1.2rem',
-                    bg: isDark ? 'rgba(51, 51, 51, 0.8)' : 'rgba(255, 255, 255, 0.8)',
+                    bg: isDark
+                      ? 'rgba(51, 51, 51, 0.8)'
+                      : 'rgba(255, 255, 255, 0.8)',
                     boxShadow: isDark
                       ? '0 4px 12px rgba(0,0,0,0.3)'
                       : '0 4px 12px rgba(0,0,0,0.1)',

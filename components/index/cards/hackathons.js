@@ -68,7 +68,8 @@ export default function Hackathons({ data, stars }) {
           fontSize: ['22px', '26px', '30px'],
           position: 'relative',
           zIndex: 2,
-          fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+          fontFamily:
+            '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
           borderRadius: '10px',
           px: 3,
           py: 1,
@@ -86,12 +87,16 @@ export default function Hackathons({ data, stars }) {
         gap={3}
       >
         <Box>
-          <Text as="p" variant="subtitle" sx={{
-            textShadow: '1px 1px 5px black',
-            fontSize: ['16px', '18px', '20px'],
-            mb: 3,
-            lineHeight: 1.5
-          }}>
+          <Text
+            as="p"
+            variant="subtitle"
+            sx={{
+              textShadow: '1px 1px 5px black',
+              fontSize: ['16px', '18px', '20px'],
+              mb: 3,
+              lineHeight: 1.5
+            }}
+          >
             We support the largest network of high school hackathons in the
             world. From an online community of organizers to free stickers and
             more!
@@ -264,7 +269,14 @@ export default function Hackathons({ data, stars }) {
             border: '2px solid rgba(255,255,255,0.1)'
           }}
         >
-          <Text sx={{ fontSize: 'small', color: 'white', fontWeight: 'bold', mb: 1 }}>
+          <Text
+            sx={{
+              fontSize: 'small',
+              color: 'white',
+              fontWeight: 'bold',
+              mb: 1
+            }}
+          >
             Upcoming Hackathons:
           </Text>
           <Flex sx={{ gap: '10px', flexDirection: 'column' }}>

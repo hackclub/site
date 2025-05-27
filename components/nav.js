@@ -10,7 +10,7 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 
 const rgbaBgColor = (props, opacity) => {
-  const bg = props => props.dark ? '#222' :  [253, 246, 238]
+  const bg = props => (props.dark ? '#222' : [253, 246, 238])
   return `rgba(${bg[0]},${bg[1]},${bg[2]},${opacity})`
 }
 
@@ -21,8 +21,8 @@ const fixed = props =>
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       background-color: ${props.transparent
-      ? 'transparent'
-      : rgbaBgColor(props, 0.92)};
+        ? 'transparent'
+        : rgbaBgColor(props, 0.92)};
       -webkit-backdrop-filter: saturate(120%) blur(8px);
       backdrop-filter: saturate(120%) blur(8px);
     }
@@ -34,21 +34,21 @@ const Root = styled(Box, {
   position: fixed;
   top: ${props => (props.scrolled ? '0.5rem' : '1.5rem')};
   left: 50%;
-  transform: translateX(-50%)
-    scale(${props => (props.scrolled ? 0.97 : 1)});
+  transform: translateX(-50%) scale(${props => (props.scrolled ? 0.97 : 1)});
   width: calc(100vw - 2rem);
   max-width: 1200px;
   z-index: 1000;
   border-radius: 2.75rem;
-  box-shadow: ${props => props.dark 
-    ? '0 12px 40px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3)' 
-    : '0 12px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10)'};
-  border: 5px solid ${props => props.dark ? '#555' : '#e4d6c3'};
-  background-color: ${props => props.dark ? '#222' : '#fdf6ee'};
+  box-shadow: ${props =>
+    props.dark
+      ? '0 12px 40px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3)'
+      : '0 12px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10)'};
+  border: 5px solid ${props => (props.dark ? '#555' : '#e4d6c3')};
+  background-color: ${props => (props.dark ? '#222' : '#fdf6ee')};
   ${fixed};
   transition:
-    top 0.25s cubic-bezier(.68,-0.55,.27,1.55),
-    transform 0.25s cubic-bezier(.68,-0.55,.27,1.55),
+    top 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    transform 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55),
     background-color 0.2s,
     border-color 0.2s;
   @media print {
@@ -134,7 +134,8 @@ const NavBar = styled(Box, {
   flex: 1 1 0;
   justify-content: center;
   align-items: center;
-  a, .nav-btn {
+  a,
+  .nav-btn {
     margin: 0 0.15rem;
     padding: 0.7rem 1.1rem;
     border-radius: 0.8rem;
@@ -144,27 +145,27 @@ const NavBar = styled(Box, {
     text-decoration: none;
     background: transparent;
     color: ${({ color, theme, dark, scrolled }) =>
-    !dark && (!scrolled && (color === 'white' || !color))
-      ? theme.colors.slate || '#334E68'
-      : theme.colors[color] || color};
+      !dark && !scrolled && (color === 'white' || !color)
+        ? theme.colors.slate || '#334E68'
+        : theme.colors[color] || color};
     box-shadow: none;
-    transition: 
-      color 0.13s cubic-bezier(.68,-0.55,.27,1.55), 
-      background 0.13s cubic-bezier(.68,-0.55,.27,1.55),
-      transform 0.13s cubic-bezier(.68,-0.55,.27,1.55), 
-      box-shadow 0.13s cubic-bezier(.68,-0.55,.27,1.55);
+    transition:
+      color 0.13s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+      background 0.13s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+      transform 0.13s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+      box-shadow 0.13s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     position: relative;
     display: inline-flex;
     align-items: center;
     gap: 0.7rem;
-    &:hover, &:focus {
-      background: ${props => props.dark ? '#444' : '#f3ede2'};
-      color: ${props => props.dark ? 'white' : '#111'};
+    &:hover,
+    &:focus {
+      background: ${props => (props.dark ? '#444' : '#f3ede2')};
+      color: ${props => (props.dark ? 'white' : '#111')};
       transform: translateY(-4px) scale(1.06) rotate(-1.5deg);
-      box-shadow: ${props => props.dark 
-        ? '0 6px 18px 0 rgba(0,0,0,0.3)' 
-        : '0 6px 18px 0 #e4d6c355'};
-      text-shadow: ${props => props.dark ? 'none' : '0 1px 0 #fff7'};
+      box-shadow: ${props =>
+        props.dark ? '0 6px 18px 0 rgba(0,0,0,0.3)' : '0 6px 18px 0 #e4d6c355'};
+      text-shadow: ${props => (props.dark ? 'none' : '0 1px 0 #fff7')};
       cursor: pointer;
       padding-left: 1.1rem;
       padding-right: 1.1rem;
@@ -195,11 +196,12 @@ const DropdownMenu = styled(Box)`
   top: 100%;
   left: 0;
   min-width: 220px;
-  background: ${props => props.theme.isDark ? '#333' : '#fffbe9'};
+  background: ${props => (props.theme.isDark ? '#333' : '#fffbe9')};
   border-radius: 1.25rem;
-  box-shadow: ${props => props.theme.isDark 
-    ? '0 8px 32px rgba(0,0,0,0.4), 0 1.5px 6px rgba(0,0,0,0.3)'
-    : '0 8px 32px rgba(0,0,0,0.12), 0 1.5px 6px rgba(0,0,0,0.08)'};
+  box-shadow: ${props =>
+    props.theme.isDark
+      ? '0 8px 32px rgba(0,0,0,0.4), 0 1.5px 6px rgba(0,0,0,0.3)'
+      : '0 8px 32px rgba(0,0,0,0.12), 0 1.5px 6px rgba(0,0,0,0.08)'};
   padding: 0.5rem 0;
   margin-top: 0.25rem;
   padding-top: 0.75rem;
@@ -216,22 +218,28 @@ const DropdownMenu = styled(Box)`
   display: none;
   flex-direction: column;
   align-items: flex-start;
-  border: 3px solid ${props => props.theme.isDark ? '#555' : '#e4d6c3'};
+  border: 3px solid ${props => (props.theme.isDark ? '#555' : '#e4d6c3')};
   font-size: 1.15rem;
   font-weight: 600;
   pointer-events: auto;
-  
+
   a {
-    color: ${props => props.theme.isDark ? '#eee !important' : 'inherit !important'};
+    color: ${props =>
+      props.theme.isDark ? '#eee !important' : 'inherit !important'};
     width: 100%;
     padding: 0.75rem 1rem !important;
-    transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition:
+      background 0.15s ease-in-out,
+      color 0.15s ease-in-out;
     border-radius: 0;
     margin: 0 !important;
-    
-    &:hover, &:focus {
-      background: ${props => props.theme.isDark ? '#444 !important' : '#f3ede2 !important'};
-      color: ${props => props.theme.isDark ? 'white !important' : '#111 !important'};
+
+    &:hover,
+    &:focus {
+      background: ${props =>
+        props.theme.isDark ? '#444 !important' : '#f3ede2 !important'};
+      color: ${props =>
+        props.theme.isDark ? 'white !important' : '#111 !important'};
       box-shadow: none !important;
       text-shadow: none !important;
     }
@@ -267,7 +275,7 @@ const Navigation = props => {
     const savedMode = localStorage.getItem('theme-ui-color-mode') || 'light'
     setColorMode(savedMode)
     document.documentElement.setAttribute('data-theme', savedMode)
-  }, [])
+  }, [setColorMode])
 
   if (!mounted) return null
 
@@ -275,9 +283,7 @@ const Navigation = props => {
 
   const showReset = false
 
-  const showSocial =
-    true
-
+  const showSocial = true
 
   const handleToggleMenu = key => {
     setOpenMenus(m => ({
@@ -285,9 +291,6 @@ const Navigation = props => {
       [key]: !m[key]
     }))
   }
-
-
-
 
   const renderDropdown = (label, key, links) => {
     if (props.isMobile) {
@@ -340,34 +343,46 @@ const Navigation = props => {
             >
               {links.map(({ href, label }, i) =>
                 href.startsWith('http') ? (
-                  <Link key={i} href={href} target="_blank" rel="noopener noreferrer"
-                    sx={{ 
-                      py: 1, 
-                      fontSize: "1rem !important", 
-                      fontWeight: 700, 
+                  <Link
+                    key={i}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      py: 1,
+                      fontSize: '1rem !important',
+                      fontWeight: 700,
                       pl: 2,
                       color: isDark ? '#ddd !important' : 'inherit',
                       '&:hover, &:focus': {
-                        background: isDark ? '#444 !important' : '#f3ede2 !important',
-                        color: isDark ? 'white !important' : '#111 !important',
-                       
+                        background: isDark
+                          ? '#444 !important'
+                          : '#f3ede2 !important',
+                        color: isDark ? 'white !important' : '#111 !important'
                       }
-                    }}>
+                    }}
+                  >
                     {label}
                   </Link>
                 ) : (
                   <NextLink key={i} href={href} passHref>
-                    <Link sx={{ 
-                      py: 1, 
-                      fontSize: "1rem !important", 
-                      fontWeight: 700, 
-                      pl: 2,
-                      color: isDark ? '#ddd !important' : 'inherit',
-                      '&:hover, &:focus': {
-                        background: isDark ? '#444 !important' : '#f3ede2 !important',
-                        color: isDark ? 'white !important' : '#111 !important',
-                      }
-                    }}>{label}</Link>
+                    <Link
+                      sx={{
+                        py: 1,
+                        fontSize: '1rem !important',
+                        fontWeight: 700,
+                        pl: 2,
+                        color: isDark ? '#ddd !important' : 'inherit',
+                        '&:hover, &:focus': {
+                          background: isDark
+                            ? '#444 !important'
+                            : '#f3ede2 !important',
+                          color: isDark ? 'white !important' : '#111 !important'
+                        }
+                      }}
+                    >
+                      {label}
+                    </Link>
                   </NextLink>
                 )
               )}
@@ -390,39 +405,41 @@ const Navigation = props => {
       >
         <span className="nav-btn">
           {label}
-          <Icon 
-            glyph="down-caret" 
-            size={18} 
-            style={{ 
-              marginLeft: 4, 
+          <Icon
+            glyph="down-caret"
+            size={18}
+            style={{
+              marginLeft: 4,
               marginBottom: -2,
               color: isDark ? '#fff' : 'inherit'
-            }} 
+            }}
           />
         </span>
         <DropdownMenu className="dropdown-menu" theme={{ isDark: isDark }}>
           {links.map(({ href, label }, i) =>
             href.startsWith('http') ? (
-              <Link 
-                key={i} 
-                href={href} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                sx={{ 
-                  py: 1, 
-                  fontWeight: 700, 
-                  fontSize: "1.25rem !important" 
+              <Link
+                key={i}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  py: 1,
+                  fontWeight: 700,
+                  fontSize: '1.25rem !important'
                 }}
               >
                 {label}
               </Link>
             ) : (
               <NextLink key={i} href={href} passHref>
-                <Link sx={{ 
-                  py: 1, 
-                  fontWeight: 700, 
-                  fontSize: "1.25rem !important" 
-                }}>
+                <Link
+                  sx={{
+                    py: 1,
+                    fontWeight: 700,
+                    fontSize: '1.25rem !important'
+                  }}
+                >
                   {label}
                 </Link>
               </NextLink>
@@ -435,7 +452,15 @@ const Navigation = props => {
 
   return (
     <>
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', flexDirection: props.isMobile ? 'column' : 'row' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          flexDirection: props.isMobile ? 'column' : 'row'
+        }}
+      >
         <NavBar
           role="navigation"
           {...props}
@@ -449,14 +474,14 @@ const Navigation = props => {
             alignItems: props.isMobile ? 'flex-start' : 'center',
             mb: props.isMobile ? [6, 6, 2] : 0,
             a: {
-              color: isDark ? 'white !important' : undefined,
+              color: isDark ? 'white !important' : undefined
             },
             '.nav-btn': {
-              color: isDark ? 'white !important' : undefined,
+              color: isDark ? 'white !important' : undefined
             },
             button: {
               color: isDark ? 'white' : undefined,
-              background: isDark ? 'rgba(255,255,255,0.1)' : '#f3ede244',
+              background: isDark ? 'rgba(255,255,255,0.1)' : '#f3ede244'
             }
           }}
         >
@@ -494,117 +519,181 @@ const Navigation = props => {
             justifyContent: props.isMobile ? 'center' : undefined
           }}
         >
-        
-          
           {showSocial && (
             <>
               <Link
                 href="https://github.com/hackclub"
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={{ 
-                  color: isDark ? '#fff' : '#222', 
-                  p: 2, 
-                  display: 'flex', 
-                  alignItems: 'center' 
+                sx={{
+                  color: isDark ? '#fff' : '#222',
+                  p: 2,
+                  display: 'flex',
+                  alignItems: 'center'
                 }}
                 aria-label="GitHub"
               >
-                <Icon glyph="github" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
+                <Icon
+                  glyph="github"
+                  size={28}
+                  style={{ color: isDark ? '#fff' : '#222' }}
+                />
               </Link>
               <Link
                 href="https://youtube.com/hackclub"
                 target="_blank"
                 rel="noopener noreferrer"
-                sx={{ 
-                  color: isDark ? '#fff' : '#222', 
-                  p: 2, 
-                  display: 'flex', 
-                  alignItems: 'center' 
+                sx={{
+                  color: isDark ? '#fff' : '#222',
+                  p: 2,
+                  display: 'flex',
+                  alignItems: 'center'
                 }}
                 aria-label="YouTube"
               >
-                <Icon glyph="youtube" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
+                <Icon
+                  glyph="youtube"
+                  size={28}
+                  style={{ color: isDark ? '#fff' : '#222' }}
+                />
               </Link>
               <Link
                 href="/slack"
-                sx={{ 
-                  color: isDark ? '#fff' : '#222', 
-                  p: 2, 
-                  display: ['flex', 'flex', 'flex'], 
-                  alignItems: 'center' 
+                sx={{
+                  color: isDark ? '#fff' : '#222',
+                  p: 2,
+                  display: ['flex', 'flex', 'flex'],
+                  alignItems: 'center'
                 }}
                 aria-label="Slack"
               >
-                <Icon glyph="slack" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
+                <Icon
+                  glyph="slack"
+                  size={28}
+                  style={{ color: isDark ? '#fff' : '#222' }}
+                />
               </Link>
-              
+
               {(props.toggled || props.isMobile) && (
                 <>
                   <Link
                     href="https://x.com/hackclub"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{
+                      color: isDark ? '#fff' : '#222',
+                      p: 2,
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
                     aria-label="Twitter"
                   >
-                    <Icon glyph="twitter" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
+                    <Icon
+                      glyph="twitter"
+                      size={28}
+                      style={{ color: isDark ? '#fff' : '#222' }}
+                    />
                   </Link>
                   <Link
                     href="https://instagram.com/starthackclub"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{
+                      color: isDark ? '#fff' : '#222',
+                      p: 2,
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
                     aria-label="Instagram"
                   >
-                    <Icon glyph="instagram" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
+                    <Icon
+                      glyph="instagram"
+                      size={28}
+                      style={{ color: isDark ? '#fff' : '#222' }}
+                    />
                   </Link>
                   <Link
                     href="https://social.dino.icu/@hackclub"
                     target="_blank"
                     rel="me noopener noreferrer"
-                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{
+                      color: isDark ? '#fff' : '#222',
+                      p: 2,
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
                     aria-label="Mastodon"
                   >
-                    <Icon glyph="mastodon" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
+                    <Icon
+                      glyph="mastodon"
+                      size={28}
+                      style={{ color: isDark ? '#fff' : '#222' }}
+                    />
                   </Link>
                   <Link
                     href="mailto:team@hackclub.com"
-                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{
+                      color: isDark ? '#fff' : '#222',
+                      p: 2,
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
                     aria-label="Email"
                   >
-                    <Icon glyph="email" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
+                    <Icon
+                      glyph="email"
+                      size={28}
+                      style={{ color: isDark ? '#fff' : '#222' }}
+                    />
                   </Link>
 
                   <Link
                     href="https://www.figma.com/@hackclub"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{
+                      color: isDark ? '#fff' : '#222',
+                      p: 2,
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
                     aria-label="Figma"
                   >
-                    <Icon glyph="figma" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
+                    <Icon
+                      glyph="figma"
+                      size={28}
+                      style={{ color: isDark ? '#fff' : '#222' }}
+                    />
                   </Link>
                   <Link
                     href="https://ysws.hackclub.com/feed.xml"
                     target="_blank"
                     rel="noopener noreferrer"
-                    sx={{ color: isDark ? '#fff' : '#222', p: 2, display: 'flex', alignItems: 'center' }}
+                    sx={{
+                      color: isDark ? '#fff' : '#222',
+                      p: 2,
+                      display: 'flex',
+                      alignItems: 'center'
+                    }}
                     aria-label="YSWS RSS"
                   >
-                    <Icon glyph="rss" size={28} style={{ color: isDark ? '#fff' : '#222' }} />
+                    <Icon
+                      glyph="rss"
+                      size={28}
+                      style={{ color: isDark ? '#fff' : '#222' }}
+                    />
                   </Link>
                 </>
               )}
             </>
           )}
-            <ThemeToggle
+          <ThemeToggle
             onClick={toggleColorMode}
             title={`Current theme: ${colorMode}. Click to switch.`}
             aria-label="Toggle theme"
             sx={{
               ml: 4,
-              position: 'relative', 
+              position: 'relative'
             }}
             isDark={isDark}
           >
@@ -623,9 +712,9 @@ const Navigation = props => {
               </ResetButton>
             )}
             <ThemeIcon isDark={isDark}>
-              <Icon 
-                glyph={isDark ? "view" : "view-fill"} 
-                size={32} 
+              <Icon
+                glyph={isDark ? 'view' : 'view-fill'}
+                size={32}
                 color={isDark ? '#fff' : '#222'}
                 className="icon"
               />
@@ -662,11 +751,11 @@ const HamburgerButton = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  
+
   @media (min-width: 56em) {
     display: none;
   }
-  
+
   &:focus {
     outline: 2px solid #ffe066;
   }
@@ -684,18 +773,21 @@ const ThemeToggle = styled.button`
   justify-content: center;
   width: 48px;
   height: 48px;
-  transition: all 0.2s cubic-bezier(.68,-0.55,.27,1.55);
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   position: relative;
-  
-  &:hover, &:focus {
+
+  &:hover,
+  &:focus {
     transform: scale(1.15) rotate(-5deg);
-    background: ${props => props.isDark ? 'rgba(255,255,255,0.15)' : '#f3ede2'};
-    box-shadow: ${props => props.isDark 
-      ? '0 4px 12px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.2)' 
-      : '0 4px 12px rgba(0,0,0,0.1), 0 0 0 2px #e4d6c3'};
+    background: ${props =>
+      props.isDark ? 'rgba(255,255,255,0.15)' : '#f3ede2'};
+    box-shadow: ${props =>
+      props.isDark
+        ? '0 4px 12px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.2)'
+        : '0 4px 12px rgba(0,0,0,0.1), 0 0 0 2px #e4d6c3'};
     outline: none;
   }
-  
+
   &:active {
     transform: scale(0.95);
   }
@@ -705,7 +797,7 @@ const ThemeIcon = styled(Box)`
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   position: relative;
   overflow: visible;
   &::before {
@@ -714,9 +806,9 @@ const ThemeIcon = styled(Box)`
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   }
-  
+
   .icon {
     width: 100%;
     height: 100%;
@@ -724,10 +816,8 @@ const ThemeIcon = styled(Box)`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   }
-
-
 `
 
 function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
@@ -745,10 +835,6 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
     const newState = window.scrollY >= 16
     setScrolled(newState)
     setLogoWave(window.scrollY > 0)
-  }
-
-  const handleToggleMenu = () => {
-    setToggled(t => !t)
   }
 
   useEffect(() => {
@@ -776,11 +862,6 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       : color === 'white' && scrolled
         ? 'black'
         : color
-  const toggleColor = dark
-    ? color || 'snow'
-    : toggled || (color === 'white' && scrolled)
-      ? 'slate'
-      : color
 
   return (
     <Root
@@ -790,7 +871,11 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       toggled={toggled}
       dark={isDarkMode}
       as="header"
-      sx={toggled ? {borderRadius: '2.75rem 2.75rem 0 0 !important'} : {borderRadius: '2.75rem'}}
+      sx={
+        toggled
+          ? { borderRadius: '2.75rem 2.75rem 0 0 !important' }
+          : { borderRadius: '2.75rem' }
+      }
       theme={{ isDark: isDarkMode }}
     >
       <Content>
@@ -804,21 +889,27 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
             transform: logoWave
               ? 'rotate(-18deg) translateY(-10%) translateX(3%)'
               : 'rotate(0deg) translateY(2%) translateX(3%)',
-            zIndex: 0 
+            zIndex: 0
           }}
         >
-          <Flag 
-            scrolled={scrolled || fixed ? true : undefined} 
+          <Flag
+            scrolled={scrolled || fixed ? true : undefined}
             animeFlag={isAnimeMode}
           />
-
         </Box>
-        <Box sx={{ flex: '1 1 0', display: ['none', null, 'flex'], justifyContent: 'center', alignItems: 'center' }}>
+        <Box
+          sx={{
+            flex: '1 1 0',
+            display: ['none', null, 'flex'],
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
           <Navigation
             as="nav"
             aria-hidden={!!mobile}
             color={isDarkMode ? 'white' : baseColor}
-            dark={isDarkMode ? "true" : dark ? "true" : undefined}
+            dark={isDarkMode ? 'true' : dark ? 'true' : undefined}
             scrolled={scrolled}
           />
         </Box>
@@ -829,13 +920,21 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           onClick={() => setToggled(t => !t)}
           style={{ color: isDarkMode ? '#fff' : '#222' }}
         >
-          <Icon glyph={toggled ? 'view-close' : 'menu'} size={36} color={isDarkMode ? '#fff' : '#222'} />
+          <Icon
+            glyph={toggled ? 'view-close' : 'menu'}
+            size={36}
+            color={isDarkMode ? '#fff' : '#222'}
+          />
         </HamburgerButton>
       </Content>
       <Box
         id="mobile-nav"
         sx={{
-          display: [toggled ? 'block' : 'none', toggled ? 'block' : 'none', 'none'],
+          display: [
+            toggled ? 'block' : 'none',
+            toggled ? 'block' : 'none',
+            'none'
+          ],
           position: 'absolute',
           top: '100%',
           left: 0,
@@ -845,10 +944,10 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           transition: 'opacity 0.2s',
           overflowY: 'auto',
           borderRadius: '0 0 2rem 2rem',
-          boxShadow: isDarkMode 
+          boxShadow: isDarkMode
             ? '0 8px 32px rgba(0,0,0,0.4), 0 1.5px 6px rgba(0,0,0,0.3)'
             : '0 8px 32px rgba(0,0,0,0.12), 0 1.5px 6px rgba(0,0,0,0.08)',
-          maxHeight: '80vh', 
+          maxHeight: '80vh',
           border: isDarkMode ? '4px solid #555' : '4px solid #e4d6c3',
           borderTopWidth: '5px',
           borderTopStyle: 'solid',
@@ -861,26 +960,28 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           width: 'calc(100% + 8px)',
           marginLeft: 'auto',
           marginRight: 'auto',
-          left: '-4px',
+          left: '-4px'
         }}
       >
-        <Box sx={{
-          px: 3,
-          py: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'stretch',
-          width: '100%',
-          maxWidth: '480px',
-          margin: '0 auto',
-          paddingTop: '0px'
-        }}>
+        <Box
+          sx={{
+            px: 3,
+            py: 4,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'stretch',
+            width: '100%',
+            maxWidth: '480px',
+            margin: '0 auto',
+            paddingTop: '0px'
+          }}
+        >
           <Navigation
             as="nav"
             isMobile
             toggled={toggled}
             color={isDarkMode ? 'white' : baseColor}
-            dark={isDarkMode ? "true" : dark ? "true" : undefined}
+            dark={isDarkMode ? 'true' : dark ? 'true' : undefined}
             scrolled={scrolled}
           />
         </Box>
@@ -904,24 +1005,25 @@ const ResetButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${props => props.theme.isDark ? '#444' : '#f3ede2'};
-  border: 2px solid ${props => props.theme.isDark ? '#666' : '#e4d6c3'};
+  background: ${props => (props.theme.isDark ? '#444' : '#f3ede2')};
+  border: 2px solid ${props => (props.theme.isDark ? '#666' : '#e4d6c3')};
   border-radius: 50%;
   cursor: pointer;
   z-index: 5;
-  box-shadow: ${props => props.theme.isDark 
-    ? '0 2px 4px rgba(0,0,0,0.3)' 
-    : '0 2px 4px rgba(0,0,0,0.1)'};
-  transition: all 0.2s cubic-bezier(.68,-0.55,.27,1.55);
-  
-  &:hover, &:focus {
+  box-shadow: ${props =>
+    props.theme.isDark
+      ? '0 2px 4px rgba(0,0,0,0.3)'
+      : '0 2px 4px rgba(0,0,0,0.1)'};
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  &:hover,
+  &:focus {
     transform: scale(1.2) rotate(-45deg);
-    background: ${props => props.theme.isDark 
-      ? '#555' 
-      : '#fff'};
-    box-shadow: ${props => props.theme.isDark 
-      ? '0 3px 6px rgba(0,0,0,0.4)' 
-      : '0 3px 6px rgba(0,0,0,0.15)'};
+    background: ${props => (props.theme.isDark ? '#555' : '#fff')};
+    box-shadow: ${props =>
+      props.theme.isDark
+        ? '0 3px 6px rgba(0,0,0,0.4)'
+        : '0 3px 6px rgba(0,0,0,0.15)'};
     outline: none;
   }
 `

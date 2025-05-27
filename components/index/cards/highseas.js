@@ -12,32 +12,35 @@ export default function HighSeas() {
       sx={{
         backgroundSize: 'cover',
         backgroundColor: '#48a6ef',
-        fontFamily: "Fraunces",
-        padding: "16px !important",
-        margin: "0px !important",
+        fontFamily: 'Fraunces',
+        opacity: 0.8,
+        padding: '16px !important',
+        margin: '0px !important'
       }}
       position={[null, 'bottom', 'bottom']}
-      image={"https://cloud-lyjdp3j9h-hack-club-bot.vercel.app/0image.svg"}
+      image={'https://cloud-lyjdp3j9h-hack-club-bot.vercel.app/0image.svg'}
     >
       <Flex
         sx={{
           flexDirection: 'column',
           width: '100%',
-          margin: "0px !important",
+          margin: '0px !important',
           alignItems: 'center'
         }}
       >
-
         <Image
           src="https://cloud-5tm6hh4kb-hack-club-bot.vercel.app/0image__1_.svg"
           sx={{
-            maxWidth: ['150px !important', '150px !important', '200px !important'],
+            maxWidth: [
+              '150px !important',
+              '150px !important',
+              '200px !important'
+            ],
             mt: ['-5px', '-5px', '-5px'],
             position: 'relative',
             zIndex: 2,
             fontSize: ['36px', 4, 5],
             color: 'white'
-
           }}
           layout="fill"
           alt="High Seas Logo"
@@ -52,13 +55,13 @@ export default function HighSeas() {
             my: '3%',
             p: 0,
             wordBreak: 'keep-all',
-            textWrap: "wrap !important",
+            textWrap: 'wrap !important',
             textAlign: 'center',
             whiteSpace: 'nowrap',
             width: '95%',
             fontSize: ['1.2em', '1.4em'],
             color: 'white !important',
-            textShadow: '1.5px 1.5px 0px rgba(0, 0, 0, 1)',
+            textShadow: '1.5px 1.5px 0px rgba(0, 0, 0, 1)'
           }}
         >
           Build personal projects. Get free stuff.
@@ -71,12 +74,16 @@ export default function HighSeas() {
           rel="noopener"
           primary="#032412"
           id="43"
-          sx={{ fontSize: "15px !important", color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
+          sx={{
+            fontSize: '15px !important',
+            color: '#FFF5D8',
+            fontFamily: 'Fraunces',
+            border: '3px solid #FFF5D8'
+          }}
         >
           Source Code
         </Buttons>
       </Flex>
-
     </CardModel>
   )
 }

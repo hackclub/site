@@ -16,7 +16,7 @@ export default function Bank({ data }) {
         sx={{
           minHeight: ['300px', '350px', '350px'],
           backgroundColor: isDark ? '#222' : '#fdf6ee',
-          backgroundImage: isDark 
+          backgroundImage: isDark
             ? `linear-gradient(to bottom, rgba(34, 34, 34, 0.95), rgba(34, 34, 34, 0.9)), url('/home/hcb-pattern.webp')`
             : `linear-gradient(to bottom, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)), url('/home/hcb-pattern.webp')`,
           backgroundSize: 'cover',
@@ -47,9 +47,10 @@ export default function Bank({ data }) {
             fontSize: ['32px', '36px', '42px'],
             mb: 3,
             mt: [0, 1],
-            fontFamily: '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
-            textShadow: isDark 
-              ? '1px 1px 0 rgba(0,0,0,0.6)' 
+            fontFamily:
+              '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+            textShadow: isDark
+              ? '1px 1px 0 rgba(0,0,0,0.6)'
               : '1px 1px 0 rgba(255,255,255,0.6)'
           }}
         >
@@ -67,8 +68,8 @@ export default function Bank({ data }) {
                 lineHeight: 1.5
               }}
             >
-              Become a 501(c)3 nonprofit and join 700+ teams using Hack Club Bank
-              to run world-class events.
+              Become a 501(c)3 nonprofit and join 700+ teams using Hack Club
+              Bank to run world-class events.
             </Text>
             <Text
               as="p"
@@ -89,15 +90,15 @@ export default function Bank({ data }) {
               sx={{
                 mt: [3, 3, 4],
                 borderRadius: '12px',
-                boxShadow: isDark 
-                  ? '0 4px 8px rgba(0,0,0,0.3)' 
+                boxShadow: isDark
+                  ? '0 4px 8px rgba(0,0,0,0.3)'
                   : '0 4px 8px rgba(0,0,0,0.15)',
                 transform: 'rotate(-1deg)',
                 bg: isDark ? '#d64541' : '#c0392b',
                 '&:hover': {
                   transform: 'rotate(0deg) translateY(-5px)',
-                  boxShadow: isDark 
-                    ? '0 8px 16px rgba(0,0,0,0.4)' 
+                  boxShadow: isDark
+                    ? '0 8px 16px rgba(0,0,0,0.4)'
                     : '0 8px 16px rgba(0,0,0,0.2)'
                 }
               }}
@@ -136,11 +137,13 @@ export default function Bank({ data }) {
             </Box>
           </Box>
 
-          <Box sx={{
-            display: ['none', 'block', 'block'],
-            position: 'relative',
-            height: '100%',
-          }}>
+          <Box
+            sx={{
+              display: ['none', 'block', 'block'],
+              position: 'relative',
+              height: '100%'
+            }}
+          >
             <Box
               sx={{
                 position: 'relative',
@@ -148,8 +151,8 @@ export default function Bank({ data }) {
                 height: '100%',
                 overflow: 'hidden',
                 borderRadius: '12px',
-                boxShadow: isDark 
-                  ? '0 8px 16px rgba(0,0,0,0.25)' 
+                boxShadow: isDark
+                  ? '0 8px 16px rgba(0,0,0,0.25)'
                   : '0 8px 16px rgba(0,0,0,0.12)',
                 border: isDark ? '4px solid #444' : '4px solid #e4d6c3',
                 transform: 'rotate(2deg)',

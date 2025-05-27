@@ -58,7 +58,15 @@ const Base = styled('a')`
 `
 
 const Flag = ({ scrolled, alt = 'Hack Club logo', animeFlag = false }) => (
-  <Link href="/" passHref>
+  <Link
+    href="/"
+    passHref
+    sx={{
+      alignContent: 'center',
+      justifyContent: 'center',
+      justifyItems: 'center'
+    }}
+  >
     <Base
       href="/"
       title="Homepage"
@@ -83,9 +91,9 @@ const Flag = ({ scrolled, alt = 'Hack Club logo', animeFlag = false }) => (
             : 'https://assets.hackclub.com/flag-orpheus-top.svg'
         }
         alt={alt}
-        width={"112px"}
-        height={animeFlag ? "60px" : "48px"}
-        objectFit='contain'
+        width={animeFlag ? '140px' : '112px'}
+        height={animeFlag ? '60px' : '48px'}
+        objectFit="contain"
         style={{ objectFit: 'contain' }}
       />
     </Base>

@@ -1,19 +1,24 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Box, Container, Image, Grid, Heading, Link, Text, useColorMode } from 'theme-ui'
+import {
+  Box,
+  Container,
+  Grid,
+  Heading,
+  Link,
+  Text,
+  useColorMode
+} from 'theme-ui'
 import NextLink from 'next/link'
 import theme from '@hackclub/theme'
 import Icon from './icon'
 
 const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' })`
-  background: ${props =>
-    props.dark
-      ? `${theme.colors.darker}`
-      : `#fdf6ee`};
+  background: ${props => (props.dark ? `${theme.colors.darker}` : `#fdf6ee`)};
   position: relative;
   border-top: 5px solid #e4d6c3;
-  box-shadow: 0 -12px 30px rgba(0,0,0,0.12);
-  
+  box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.12);
+
   &:before {
     content: '';
     position: absolute;
@@ -24,7 +29,7 @@ const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' })`
     background: #e4d6c3;
     border-radius: 25px 25px 0 0;
   }
-  
+
   @media print {
     display: none;
   }
@@ -95,20 +100,21 @@ const FooterHeading = styled(Heading)`
 `
 
 const FooterLink = ({ href, children, internal = false, ...props }) => {
-  const LinkComponent = internal ?
-    ({ children, ...props }) => (
-      <NextLink href={href} passHref>
-        <Link {...props}>{children}</Link>
-      </NextLink>
-    ) :
-    ({ children, ...props }) => (
-      <Link href={href} target="_blank" rel="noopener" {...props}>
-        {children}
-      </Link>
-    )
-
-  const { 0: mode } = useColorMode ? useColorMode() : ['light']
+  const [mode] = useColorMode()
   const isDark = mode === 'dark'
+
+  const LinkComponent = internal
+    ? ({ children, ...props }) => (
+        <NextLink href={href} passHref>
+          <Link {...props}>{children}</Link>
+        </NextLink>
+      )
+    : ({ children, ...props }) => (
+        <Link href={href} target="_blank" rel="noopener" {...props}>
+          {children}
+        </Link>
+      )
+
   return (
     <LinkComponent
       sx={{
@@ -144,19 +150,24 @@ function Footer({
     <Base
       color={colorMode[0] === 'dark' ? 'muted' : '#513f31'}
       py={[4, 5]}
-      dark={colorMode[0] === 'dark'} sx={colorMode[0] === 'dark' ? {
-        backgroundColor: 'dark',
-        position: 'relative',
-        overflow: 'hidden',
-        textShadow: '0 1px 2px rgba(0,0,0,0.375)',
-        'h2,span,p,a': { color: 'white !important' },
-        '> div img': { objectPosition: ['left', 'center'] },
-        svg: {
-          fill: 'white',
-          filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
-        },
-        textAlign: 'left'
-      } : { textAlign: 'left' }}
+      dark={colorMode[0] === 'dark'}
+      sx={
+        colorMode[0] === 'dark'
+          ? {
+              backgroundColor: 'dark',
+              position: 'relative',
+              overflow: 'hidden',
+              textShadow: '0 1px 2px rgba(0,0,0,0.375)',
+              'h2,span,p,a': { color: 'white !important' },
+              '> div img': { objectPosition: ['left', 'center'] },
+              svg: {
+                fill: 'white',
+                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.25))'
+              },
+              textAlign: 'left'
+            }
+          : { textAlign: 'left' }
+      }
       as="footer"
       {...props}
     >
@@ -179,12 +190,24 @@ function Footer({
             </FooterHeading>
 
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-              <FooterLink href="/philosophy" internal>Philosophy</FooterLink>
-              <FooterLink href="/team" internal>Our Team & Board</FooterLink>
-              <FooterLink href="/jobs" internal>Jobs</FooterLink>
-              <FooterLink href="/brand" internal>Branding</FooterLink>
-              <FooterLink href="/press" internal>Press Inquiries</FooterLink>
-              <FooterLink href="/philanthropy" internal>Donate</FooterLink>
+              <FooterLink href="/philosophy" internal>
+                Philosophy
+              </FooterLink>
+              <FooterLink href="/team" internal>
+                Our Team & Board
+              </FooterLink>
+              <FooterLink href="/jobs" internal>
+                Jobs
+              </FooterLink>
+              <FooterLink href="/brand" internal>
+                Branding
+              </FooterLink>
+              <FooterLink href="/press" internal>
+                Press Inquiries
+              </FooterLink>
+              <FooterLink href="/philanthropy" internal>
+                Donate
+              </FooterLink>
             </Box>
           </Box>
           <Box>
@@ -192,11 +215,19 @@ function Footer({
               Resources
             </FooterHeading>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-              <FooterLink href="https://events.hackclub.com/">Community Events</FooterLink>
+              <FooterLink href="https://events.hackclub.com/">
+                Community Events
+              </FooterLink>
               <FooterLink href="https://jams.hackclub.com/">Jams</FooterLink>
-              <FooterLink href="https://toolbox.hackclub.com/">Toolbox</FooterLink>
-              <FooterLink href="https://directory.hackclub.com/">Clubs Directory</FooterLink>
-              <FooterLink href="https://hackclub.com/conduct/" internal>Code of Conduct</FooterLink>
+              <FooterLink href="https://toolbox.hackclub.com/">
+                Toolbox
+              </FooterLink>
+              <FooterLink href="https://directory.hackclub.com/">
+                Clubs Directory
+              </FooterLink>
+              <FooterLink href="https://hackclub.com/conduct/" internal>
+                Code of Conduct
+              </FooterLink>
             </Box>
           </Box>
           <Box sx={{ gridColumn: ['span 1', 'span 1'] }}>
@@ -256,7 +287,11 @@ function Footer({
                 icon="instagram"
                 name="Instagram"
               />
-              <Service href={`mailto:${email}`} icon="email-fill" name="Email" />
+              <Service
+                href={`mailto:${email}`}
+                icon="email-fill"
+                name="Email"
+              />
             </Grid>
             <Box
               sx={{
@@ -283,7 +318,11 @@ function Footer({
                 1-855-625-HACK
               </Link>
               <br />
-              <Text as="span" color={colorMode[0] === 'dark' ? 'muted' : '#7a6e5d'} sx={{ fontSize: 1 }}>
+              <Text
+                as="span"
+                color={colorMode[0] === 'dark' ? 'muted' : '#7a6e5d'}
+                sx={{ fontSize: 1 }}
+              >
                 (call toll-free)
               </Text>
             </Box>
@@ -301,7 +340,8 @@ function Footer({
             textAlign: 'center'
           }}
         >
-          © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN: 81-2908499)
+          © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit
+          (EIN: 81-2908499)
         </Text>
       </Container>
     </Base>

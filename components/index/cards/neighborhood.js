@@ -7,17 +7,15 @@ import { css, Global } from '@emotion/react'
 
 export default function Neighborhood() {
   return (
-
     <CardModel
       color="white"
       sx={{
         backgroundSize: 'cover',
         backgroundColor: '#90A8E1',
-        fontFamily: "M PLUS Rounded 1c",
-        objectFit: "contain",
+        fontFamily: 'M PLUS Rounded 1c',
+        objectFit: 'contain'
       }}
       position={[null, 'bottom', 'bottom']}
-
     >
       <video
         autoPlay
@@ -25,20 +23,20 @@ export default function Neighborhood() {
         loop
         playsInline
         style={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
           zIndex: 1,
-          margin: "-32px -32px -32px"
+          margin: '-32px -32px -32px'
         }}
         src="https://neighborhood.hackclub.com/background.mp4"
       />
       <Global
         styles={[
           css`
-              @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap');
-           `
+            @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap');
+          `
         ]}
       />
       <Grid columns={[1, 1, 1]} sx={{ position: 'relative', zIndex: 2 }}>
@@ -47,7 +45,7 @@ export default function Neighborhood() {
             flexDirection: 'column',
             justifyContent: 'space-between',
             position: 'relative',
-            alignItems: 'center',
+            alignItems: 'center'
           }}
         >
           <Image
@@ -61,7 +59,7 @@ export default function Neighborhood() {
               ml: '0px',
               mr: '0px',
               fontSize: ['48px', 4, 5],
-              color: 'white',
+              color: 'white'
               //   mx: 'auto'
             }}
             alt="Scrapyard"
@@ -71,7 +69,6 @@ export default function Neighborhood() {
             sx={{
               flexDirection: ['row', 'row', 'column'],
               justifyContent: 'space-between'
-
             }}
           >
             <Box
@@ -83,8 +80,8 @@ export default function Neighborhood() {
             >
               <Box
                 sx={{
-                  backgroundColor: "#FFF9E6",
-                  borderRadius: "105px 105px 70px 60px",
+                  backgroundColor: '#FFF9E6',
+                  borderRadius: '105px 105px 70px 60px',
                   backgroundSize: 'cover',
                   display: 'block',
                   width: 'min(430px, calc(100vw - 200px))',
@@ -97,14 +94,15 @@ export default function Neighborhood() {
                   as="h2"
                   sx={{
                     fontFamily: '"M PLUS Rounded 1c"',
-                    fontWeight: "600",
+                    fontWeight: '600',
                     textAlign: 'center',
                     margin: '8%',
                     fontSize: '20px',
                     color: '#786A50'
                   }}
                 >
-                  Spend 100 hours on one project, spend this summer in San Francisco.
+                  Spend 100 hours on one project, spend this summer in San
+                  Francisco.
                 </Heading>
               </Box>
               <Box
@@ -118,43 +116,38 @@ export default function Neighborhood() {
                   top: '-23%',
                   display: 'flex',
                   flexDirection: 'column',
-                  alignItems: 'center',
+                  alignItems: 'center'
                   // pt: '3%',
                 }}
               >
                 <Buttons
                   href="https://neighborhood.hackclub.com/"
                   target="_blank"
-
                   rel="noopener"
                   primary="#fde778"
                   icon="door-leave"
                   zIndex={999}
                   sx={{
-                    marginTop: "12px",
-                    padding: "12px 24px",
-                    backgroundColor: "#F7D359",
-                    color: "#786A50",
-                    border: "2px solid #786A50",
+                    marginTop: '12px',
+                    padding: '12px 24px',
+                    backgroundColor: '#F7D359',
+                    color: '#786A50',
+                    border: '2px solid #786A50',
                     borderRadius: 100,
-                    fontSize: "14px",
+                    fontSize: '14px',
                     fontWeight: 800,
-                    fontFamily: "'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-                    cursor: "pointer",
-                    width: "100%"
+                    fontFamily:
+                      "'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+                    cursor: 'pointer',
+                    width: '100%'
                   }}
                 >
                   Join Us
                 </Buttons>
               </Box>
             </Box>
-
-
           </Flex>
         </Flex>
-
-
-
       </Grid>
     </CardModel>
   )

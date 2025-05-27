@@ -36,21 +36,24 @@ export default function Carousel({ cards }) {
               margin: 'auto'
             }}
           >
-           Featured Iniatives
+            Featured Iniatives
           </Text>
           <Ticker speed={speed} sx={{ overflowX: 'hidden' }}>
             {() => (
               <Box
                 as="div"
-                sx={{ 
-                  display: 'flex', 
+                sx={{
+                  display: 'flex',
                   py: [4, 5, 5],
                   '& > *': {
-                    animation: isHovered ? 'none' : `${subtleBounce} 2s infinite ease-in-out`,
+                    animation: isHovered
+                      ? 'none'
+                      : `${subtleBounce} 2s infinite ease-in-out`,
                     '&:nth-of-type(n)': {
-                      animationDelay: i => `${i * 0.2}s`,
+                      animationDelay: i => `${i * 0.2}s`
                     },
-                    transition: 'transform 0.3s cubic-bezier(.68,-0.55,.27,1.55)',
+                    transition:
+                      'transform 0.3s cubic-bezier(.68,-0.55,.27,1.55)',
                     '&:hover': {
                       transform: 'translateY(-12px) scale(1.03)',
                       boxShadow: '0 12px 20px rgba(0,0,0,0.1)',
@@ -59,17 +62,17 @@ export default function Carousel({ cards }) {
                   }
                 }}
                 onMouseOver={() => {
-                  setSpeed(2);
-                  setIsHovered(true);
+                  setSpeed(2)
+                  setIsHovered(true)
                 }}
                 onMouseOut={() => {
-                  setSpeed(6);
-                  setIsHovered(false);
+                  setSpeed(6)
+                  setIsHovered(false)
                 }}
               >
                 {cards.map((card, idx) => (
-                  <CarouselCards 
-                    key={idx} 
+                  <CarouselCards
+                    key={idx}
                     {...card}
                     style={{ animationDelay: `${idx * 0.2}s` }}
                   />

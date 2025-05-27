@@ -7,22 +7,20 @@ import { Global } from '@emotion/react'
 
 export default function Scrapyard() {
   return (
-
     <CardModel
       color="white"
-      
       sx={{
         backgroundSize: 'cover',
         backgroundColor: '#90A8E1',
-        fontFamily: "p22stanyan",
-        objectFit: "contain",
-        margin: "0px !important",
-        padding: "10px !important",
+        fontFamily: 'p22stanyan',
+        objectFit: 'contain',
+        opacity: 0.8,
+        margin: '0px !important',
+        padding: '10px !important'
       }}
       position={[null, 'bottom', 'bottom']}
-
     >
-        <Global
+      <Global
         styles={`
           @font-face {
             font-family: 'p22stanyan';
@@ -38,14 +36,17 @@ export default function Scrapyard() {
           }
         `}
       />
-      <Grid columns={[1, 1, 1]} sx={{ gap: '0px', position: 'relative', zIndex: 2 }}>
+      <Grid
+        columns={[1, 1, 1]}
+        sx={{ gap: '0px', position: 'relative', zIndex: 2 }}
+      >
         <Flex
-        as="a"
-      href="https://scrapyard.hackclub.com/"
+          as="a"
+          href="https://scrapyard.hackclub.com/"
           sx={{
             flexDirection: 'column',
             position: 'relative',
-            alignItems: 'center',
+            alignItems: 'center'
           }}
         >
           <Image
@@ -59,95 +60,93 @@ export default function Scrapyard() {
               ml: '0px',
               mr: '0px',
               fontSize: ['48px', 4, 5],
-              color: 'white',
+              color: 'white'
             }}
             alt="Scrapyard"
           />
-           
 
           <Flex
             sx={{
               flexDirection: ['row', 'row', 'column'],
               justifyContent: 'space-between',
-              width: '100%',
-              
+              width: '100%'
             }}
           >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            width:"100%"
-          }}
-        >
-          <Box
-            sx={{
-              background: "url('https://scrapyard.hackclub.com/elements/ripped-paper.png')",
-              backgroundSize: 'cover',
-              display: 'block',
-              width: 'min(500px, calc(100vw - 30px))',
-              filter: 'drop-shadow(5px 5px 5px #000000AA)',
-              position: 'relative',
-              zIndex: 20,
-            width:"100%"
-
-            }}
-          >
-            <Heading
-              as="h2"
+            <Box
               sx={{
-                fontFamily: 'moonblossom',
-                textAlign: 'center',
-                margin: '8%',
-                fontSize: '22px',
-                color: '#1f2d3d',
-            width:"90%"
-
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                width: '100%'
               }}
             >
-              Build stupid stuff, get stupid prizes.
-            </Heading>
-          </Box>
- 
-           
-        </Box>
-<Buttons
-                        icon="view-fill"
-                        href="https://www.youtube.com/watch?v=8iM1W8kXrQA"
-                        target="_blank"
-                        rel="noopener"
-                        primary="#032412"
-                        id="43"
-                        sx={{ fontSize: "15px !important", color: '#FFF5D8', fontFamily: "Fraunces", border: "3px solid #FFF5D8" }}
-                      >
-                        View the Documentary
-                      </Buttons>
-  
+              <Box
+                sx={{
+                  background:
+                    "url('https://scrapyard.hackclub.com/elements/ripped-paper.png')",
+                  backgroundSize: 'cover',
+                  display: 'block',
+                  width: 'min(500px, calc(100vw - 30px))',
+                  filter: 'drop-shadow(5px 5px 5px #000000AA)',
+                  position: 'relative',
+                  zIndex: 20,
+                  width: '100%'
+                }}
+              >
+                <Heading
+                  as="h2"
+                  sx={{
+                    fontFamily: 'moonblossom',
+                    textAlign: 'center',
+                    margin: '8%',
+                    fontSize: '22px',
+                    color: '#1f2d3d',
+                    width: '90%'
+                  }}
+                >
+                  Build stupid stuff, get stupid prizes.
+                </Heading>
+              </Box>
+            </Box>
+            <Buttons
+              icon="view-fill"
+              href="https://www.youtube.com/watch?v=8iM1W8kXrQA"
+              target="_blank"
+              rel="noopener"
+              primary="#032412"
+              id="43"
+              sx={{
+                fontSize: '15px !important',
+                color: '#FFF5D8',
+                fontFamily: 'Fraunces',
+                border: '3px solid #FFF5D8'
+              }}
+            >
+              View the Documentary
+            </Buttons>
           </Flex>
         </Flex>
-  
       </Grid>
       <Image
-            src="https://cloud-hqnbfdg3v-hack-club-bot.vercel.app/0image__14_.png"
-            sx={{
-              width: ['100%', '100%', '100%'],
-              mb: ['0px', '0px', '0px'],
-              mr: ['0px', '0px', '0px'],
-              ml: ['0px', '0px', '0px'],
-              position: 'absolute',
-              zIndex: 1,
-              left: 0,
-              bottom: 0,
-              fontSize: ['36px', 4, 5],
-              color: 'white',
-              objectFit: 'cover',
+        src="https://cloud-hqnbfdg3v-hack-club-bot.vercel.app/0image__14_.png"
+        sx={{
+          width: ['100%', '100%', '100%'],
+          mb: ['0px', '0px', '0px'],
+          mr: ['0px', '0px', '0px'],
+          ml: ['0px', '0px', '0px'],
+          position: 'absolute',
+          zIndex: 1,
+          left: 0,
+          bottom: 0,
+          fontSize: ['36px', 4, 5],
+          color: 'white',
+          objectFit: 'cover',
 
-              height: '100%',
-              mx: 0
-            }}
-            alt=""
-          />
+          height: '100%',
+          mx: 0
+        }}
+        alt=""
+      />
     </CardModel>
   )
 }

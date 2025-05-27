@@ -4,7 +4,7 @@ export default function MailCard({ body, date, link }) {
   body = body.length > 130 ? body.substring(0, 130) + '...' : body
   const [colorMode] = useColorMode()
   const isDark = colorMode === 'dark'
-  
+
   return (
     <Card
       variant="interactive"
@@ -24,7 +24,7 @@ export default function MailCard({ body, date, link }) {
             height: '90%',
             color: isDark ? 'white' : 'black',
             textDecoration: 'none !important',
-            bg: isDark ? '#333' : 'white',
+            bg: isDark ? '#333' : 'white'
           }}
         >
           <Box
@@ -37,16 +37,18 @@ export default function MailCard({ body, date, link }) {
               opacity: isDark ? 0.5 : 1,
               filter: isDark ? 'invert(0.8) hue-rotate(180deg)' : 'none',
               position: 'relative',
-              '&:after': isDark ? {
-                content: '""',
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                background: 'linear-gradient(to right, #444, #333, #444)',
-                mixBlendMode: 'color-burn'
-              } : {}
+              '&:after': isDark
+                ? {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(to right, #444, #333, #444)',
+                    mixBlendMode: 'color-burn'
+                  }
+                : {}
             }}
           />
           <Box
@@ -60,12 +62,17 @@ export default function MailCard({ body, date, link }) {
             <Box sx={{ px: [3, 4] }}>
               <Text sx={{ color: isDark ? '#eee' : 'inherit' }}>
                 {date}
-                <Text sx={{ color: isDark ? '#aaa' : '#8492a6' }}>— From Hack Club, to You</Text>
+                <Text sx={{ color: isDark ? '#aaa' : '#8492a6' }}>
+                  — From Hack Club, to You
+                </Text>
               </Text>
-              <Text as="h2" sx={{ 
-                fontWeight: 'normal',
-                color: isDark ? '#ddd' : 'inherit'
-              }}>
+              <Text
+                as="h2"
+                sx={{
+                  fontWeight: 'normal',
+                  color: isDark ? '#ddd' : 'inherit'
+                }}
+              >
                 {body}
               </Text>
             </Box>

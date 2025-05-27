@@ -1,4 +1,4 @@
-import { Badge, Flex, Link, Image, Text, Box } from 'theme-ui'
+import { Badge, Image, Text } from 'theme-ui'
 import RelativeTime from 'react-relative-time'
 
 export default function GitHub({
@@ -28,7 +28,7 @@ export default function GitHub({
         px: '4px !important',
         py: '2px !important',
         width: '100%',
- 
+
         gap: 2,
         height: '2rem',
         width: ['100%'],
