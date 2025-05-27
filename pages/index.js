@@ -705,7 +705,110 @@ function Page({
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
-        <Box>
+<Box sx={{ position: 'relative' }}>
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            zIndex: -1,
+            overflow: 'hidden',
+            pointerEvents: 'none'
+          }}
+        >
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '10%',
+              left: '5%',
+              width: ['200px', '300px', '500px'],
+              height: ['200px', '300px', '500px'],
+              backgroundImage: 'url("/home/assemble.jpg")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 'default',
+              opacity: 0.3,
+              transform: 'rotate(-15deg)',
+              filter: 'blur(1px)'
+            }}
+          />
+          
+        
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '20%',
+              right: '3%',
+              width: ['200px', '300px', '500px'],
+              height: ['200px', '300px', '500px'],
+              backgroundImage: 'url("/home/assemble-hardware.jpg")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 'default',
+              opacity: 0.25,
+              transform: 'rotate(20deg)',
+              filter: 'blur(1px)'
+            }}
+          />
+          
+ 
+          <Box
+            sx={{
+              position: 'absolute',
+              top: '40%',
+              left: '3%',
+              width: ['200px', '300px', '500px'],
+              height: ['200px', '300px', '500px'],
+              backgroundImage: 'url("/home/ama.png")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 'default',
+              opacity: 0.2,
+              transform: 'rotate(-8deg)',
+              filter: 'blur(1.5px)'
+            }}
+          />
+          
+
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: '15%',
+              left: '2%',
+              width: ['200px', '300px', '500px'],
+              height: ['200px', '300px', '500px'],
+              backgroundImage: 'url("/home/hack-penn.jpg")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 'default',
+              opacity: 0.3,
+              transform: 'rotate(12deg)',
+              filter: 'blur(1px)'
+            }}
+          />
+    
+          <Box
+            sx={{
+              position: 'absolute',
+              bottom: '25%',
+              right: '2%',
+              width: ['200px', '300px', '500px'],
+              height: ['200px', '300px', '500px'],
+              backgroundImage: 'url("/home/hero.png")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: 'default',
+              opacity: 0.25,
+              transform: 'rotate(-25deg)',
+              filter: 'blur(1.5px)'
+            }}
+          />
+        </Box>
+
+
+        <Box sx={{backgroundColor: 'rgba(42, 41, 41, 0.5)', }}>
           <Box py={[4, 5, '82px']}>
             <Box
               sx={{
@@ -831,93 +934,8 @@ function Page({
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
             </Box>
           </Box>
-          <Box
-            sx={{
-              position: 'relative',
-              background: 'snow',
-              backgroundImage: `url('https://icons.hackclub.com/api/icons/0xF4F7FB/glyph:rep.svg')`,
-              backgroundSize: '40px 40px',
-              backgroundRepeat: 'repeat',
-              backgroundPosition: '10% 10%'
-              // '&:hover': {
-              //   backgroundImage: `url('https://icons.hackclub.com/api/icons/0x000000/glyph:rep.svg')`
-              // }
-            }}
-          >
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-            <ProjectsSlider cards={projectCards} />
-            <Box
-              sx={{
-                position: 'absolute',
-                width: '100%',
-                height: '100%',
-                top: 0,
-                left: 0
-              }}
-            >
-              {}
-            </Box>
-            
-            <Box
-              py={[4, 5, '82px']}
-              sx={{
-                width: '90vw',
-                maxWidth: 'layout',
-                margin: 'auto',
-                position: 'relative'
-              }}
-            >
-              <Box>
-                <Text
-                  variant="title"
-                  as="h2"
-                  sx={{
-                    fontSize: ['36px', '48px', '72px'],
-                    width: '18ch',
-                    textAlign: 'center',
-                    margin: 'auto'
-                  }}
-                >
-                  Find your{' '}
-                  <Text
-                    as="span"
-                    sx={{
-                      borderRadius: 'default',
-                      mx: 0,
-                      whiteSpace: 'nowrap',
-                      color: 'orange'
-                    }}
-                  >
-                    IRL community.
-                  </Text>
-                </Text>
-                <Text
-                  variant="subtitle"
-                  as="p"
-                  sx={{
-                    fontSize: ['18px', '24px', '32px'],
-                    margin: 'auto',
-                    pt: 2,
-                    textAlign: 'center'
-                  }}
-                >
-                  Thousands of Hack Clubbers organize and participate in
-                  hackathons and after school coding clubs.
-                </Text>
-              </Box>
-              <Clubs />
-              <Hackathons
-                delay={400}
-                data={hackathonsData}
-                stars={stars.hackathons.stargazerCount}
-              />
-
-              {/* <Events events={events} /> */}
-              <HCB data={bankData} />
-            </Box>
-            </Box>
-          </Box>
         </Box>
+      </Box>
         <Box py={[4, 5, '82px']}>
           <Box
             sx={{
