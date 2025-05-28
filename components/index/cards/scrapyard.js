@@ -7,19 +7,24 @@ import { Global } from '@emotion/react'
 
 export default function Scrapyard() {
   return (
-
     <CardModel
       color="white"
       sx={{
         backgroundSize: 'cover',
         backgroundColor: '#90A8E1',
-        fontFamily: "p22stanyan",
-        objectFit: "contain"
+        fontFamily: 'p22stanyan',
+        objectFit: 'contain',
+        opacity: 0.7,
+        margin: '0px !important',
+        padding: '10px !important',
+        '&:hover': {
+          opacity: 1,
+          transition: 'opacity 0.3s ease-in-out'
+        }
       }}
       position={[null, 'bottom', 'bottom']}
-
     >
-        <Global
+      <Global
         styles={`
           @font-face {
             font-family: 'p22stanyan';
@@ -35,148 +40,118 @@ export default function Scrapyard() {
           }
         `}
       />
-      <Grid columns={[1, 1, 1]} sx={{ position: 'relative', zIndex: 2 }}>
+      <Grid
+        columns={[1, 1, 1]}
+        sx={{ gap: '0px', position: 'relative', zIndex: 2 }}
+      >
         <Flex
+          as="a"
+          href="https://scrapyard.hackclub.com/"
           sx={{
             flexDirection: 'column',
-            justifyContent: 'space-between',
             position: 'relative',
-            alignItems: 'center',
+            alignItems: 'center'
           }}
         >
           <Image
             src="https://cloud-4fnsp2wse-hack-club-bot.vercel.app/0scrapyard.png"
             sx={{
-              width: ['400px', '450px', '500px'],
-              mt: ['30px', '40px', '45px'],
-              mb: ['30px', '30px', '30px'],
+              width: ['200px', '450px', '200px'],
+              mt: ['0px', '0px', '0px'],
+              mb: ['0px', '0px', '0px'],
               position: 'relative',
               zIndex: 3,
               ml: '0px',
               mr: '0px',
               fontSize: ['48px', 4, 5],
-              color: 'white',
-            //   mx: 'auto'
+              color: 'white'
             }}
             alt="Scrapyard"
           />
-           
 
           <Flex
             sx={{
               flexDirection: ['row', 'row', 'column'],
-              justifyContent: 'space-between'
-              
+              justifyContent: 'space-between',
+              width: '100%',
+              marginLeft: ['-25px', '-25px', '0px'],
             }}
           >
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}
-        >
-          <Box
-            sx={{
-              background: "url('https://scrapyard.hackclub.com/elements/ripped-paper.png')",
-              backgroundSize: 'cover',
-              display: 'block',
-              width: 'min(500px, calc(100vw - 30px))',
-              filter: 'drop-shadow(5px 5px 5px #000000AA)',
-              position: 'relative',
-              zIndex: 20
-            }}
-          >
-            <Heading
-              as="h2"
+            <Box
               sx={{
-                fontFamily: 'moonblossom',
-                textAlign: 'center',
-                margin: '8%',
-                fontSize: '22px',
-                color: '#1f2d3d'
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                width: '100%'
               }}
             >
-              Build stupid stuff, get stupid prizes.
-            </Heading>
-          </Box>
-          <Box
-            sx={{
-              zIndex: 1,
-              width: 'max-content',
-              backgroundImage: "url('https://scrapyard.hackclub.com/elements/yellow-strip@stretch.svg')",
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: '100% 100%',
-              width: '75%',
-              position: 'relative',
-              zIndex: 30,
-              top: '-15%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              // pt: '3%',
-              filter: 'drop-shadow(5px 5px 5px #00000099)'
-            }}
-          >
-            <Heading
-              as="h2"
+              <Box
+                sx={{
+                  background:
+                    "url('https://scrapyard.hackclub.com/elements/ripped-paper.png')",
+                  backgroundSize: 'cover',
+                  display: 'block',
+                  width: 'min(500px, calc(100vw - 30px))',
+                  filter: 'drop-shadow(5px 5px 5px #000000AA)',
+                  position: 'relative',
+                  zIndex: 20,
+                  width: '100%'
+                }}
+              >
+                <Heading
+                  as="h2"
+                  sx={{
+                    fontFamily: 'moonblossom',
+                    textAlign: 'center',
+                    margin: '8%',
+                    fontSize: '17px',
+                    color: '#1f2d3d',
+                    width: '90%'
+                  }}
+                >
+                  Build stupid stuff, get stupid prizes. March 2025.
+                </Heading>
+              </Box>
+            </Box>
+            <Buttons
+              icon="view-fill"
+              href="https://www.youtube.com/watch?v=8iM1W8kXrQA"
+              target="_blank"
+              rel="noopener"
+              primary="#032412"
+              id="43"
               sx={{
-                fontFamily: 'p22stanyan',
-                mx: '8%',
-                my: '3%',
-                p: 0,
-                wordBreak: 'keep-all',
-                whiteSpace: 'nowrap',
-                width: 'min-content',
-                fontSize: ['1.2em', '1.4em'],
-                color: '#1f2d3d'
+                fontSize: '15px !important',
+                color: '#FFF5D8',
+                fontFamily: 'Fraunces',
+                border: '3px solid #FFF5D8'
               }}
             >
-              100+&nbsp;Cities&nbsp;worldwide&nbsp;–&nbsp;March&nbsp;15-16
-            </Heading>
-          </Box>
-        </Box>
-
-  
+              View the Documentary
+            </Buttons>
           </Flex>
         </Flex>
-   
-            <Buttons
-              href="https://scrapyard.hackclub.com/"
-              target="_blank"
-             
-              rel="noopener"
-              primary="#fde778"
-              icon = "door-enter"
-              id="43"
-              zIndex={999}
-              sx = {{zIndex: 9999999, left: ["50%", "50%", "0%"], color: '#1f2d3d'}}
-            >
-                
-              Learn More
-            </Buttons>
-        
-    
       </Grid>
       <Image
-            src="https://cloud-hqnbfdg3v-hack-club-bot.vercel.app/0image__14_.png"
-            sx={{
-              width: ['100%', '100%', '100%'],
-              mb: ['0px', '0px', '0px'],
-              mr: ['0px', '0px', '0px'],
-              ml: ['0px', '0px', '0px'],
-              position: 'absolute',
-              zIndex: 1,
-              left: 0,
-              bottom: 0,
-              fontSize: ['36px', 4, 5],
-              color: 'white',
-              objectFit: 'cover',
-              height: '100%',
-              mx: 0
-            }}
-            alt=""
-          />
+        src="https://cloud-hqnbfdg3v-hack-club-bot.vercel.app/0image__14_.png"
+        sx={{
+          width: ['100%', '100%', '100%'],
+          mb: ['0px', '0px', '0px'],
+          mr: ['0px', '0px', '0px'],
+          ml: ['0px', '0px', '0px'],
+          position: 'absolute',
+          zIndex: 1,
+          left: 0,
+          bottom: 0,
+          fontSize: ['36px', 4, 5],
+          color: 'white',
+          objectFit: 'cover',
+
+          height: '100%',
+          mx: 0
+        }}
+        alt=""
+      />
     </CardModel>
   )
 }

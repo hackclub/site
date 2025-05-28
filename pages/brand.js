@@ -120,7 +120,7 @@ const Page = ({ css }) => (
       sx={{
         bg: 'sheet',
         color: 'text',
-        pt: [5, null, null, null, 6],
+        pt: 6,
         pb: [3, 4, 5, null, 6],
         textAlign: 'center'
       }}

@@ -173,7 +173,7 @@ export default function Page() {
         as="header"
         sx={{
           position: 'relative',
-          pt: 6,
+          pt: '165px',
           pb: [4, '90px'],
           bg: 'rgb(104, 41, 205)',
           backgroundImage:

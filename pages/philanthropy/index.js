@@ -316,7 +316,6 @@ const Philanthropy = ({ posts = [] }) => {
         description="Support Hack Club"
         image="https://workshop-cards.hackclub.com/Philanthropy.png?theme=light&md=1&fontSize=250px&caption=&images="
       />
-      <ForceTheme theme="light" />
       <Nav color="white" />
       <Box sx={{ overflowX: 'hidden' }}>
         {/* <Box
@@ -380,7 +379,7 @@ const Philanthropy = ({ posts = [] }) => {
               color: 'white!important',
               height: '480px'
             }}
-            pt={[5, 5, '110px']}
+            pt={6}
           >
             <Box
               sx={{
@@ -727,7 +726,8 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Flex>
             <span>
-            Explore Hack Club's annual reports from 2022 onward, showcasing each year's impact and key milestones.
+              Explore Hack Club's annual reports from 2022 onward, showcasing
+              each year's impact and key milestones.
             </span>
           </Fade>
           {/* <Fade delay={300}>

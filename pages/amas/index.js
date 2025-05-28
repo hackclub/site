@@ -192,7 +192,7 @@ const Page = ({ upcoming, past }) => (
           ))}
       </Grid>
     </Box>
-    <Footer dark />
+    <Footer />
   </>
 )
 

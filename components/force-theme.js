@@ -1,11 +1,5 @@
-import { useEffect } from 'react'
-import { useColorMode } from 'theme-ui'
-
 const ForceTheme = ({ theme }) => {
-  const [colorMode, setColorMode] = useColorMode()
-  useEffect(() => {
-    setColorMode(theme)
-  }, [])
+  // this function does nothing now (i didnt want to immediately update 60 files that still try to use it)
   return null
 }
 

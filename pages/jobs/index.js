@@ -82,7 +82,7 @@ const Page = ({ jobs }) => (
     >
       <Box
         sx={{
-          py: [5, 6],
+          py: 6,
           background:
             'linear-gradient(90deg, rgba(2,0,36,0.53) 0%, rgba(2,0,36,0.46) 100%)',
           backgroundSize: 'cover',

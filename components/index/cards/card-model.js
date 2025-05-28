@@ -146,8 +146,8 @@ const CardModel = ({
           position: 'absolute',
           width: '100%',
           height: '100%',
-          ml: ['-24px', '-32px', '-32px', '-32px'],
-          mt: ['-24px', '-32px', '-32px', '-32px'],
+          ml: ['-24px', '-16px', '-16px', '-16px'],
+          mt: ['-24px', '-16px', '-16px', '-16px'],
           zIndex: 0,
           filter
         }}

@@ -5,7 +5,7 @@ import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
 
 const Content = () => (
-  <Grid gap={3} pt={[5, '100px']} pb={[3, 4]}>
+  <Grid gap={3} pt={6} pb={[3, 4]}>
     <Box
       sx={{
         position: 'relative',
