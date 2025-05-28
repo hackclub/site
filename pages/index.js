@@ -781,31 +781,14 @@ function Page({
               zIndex: 5
             }}
           >
-            <Text
-              sx={{
-                color: 'yellow',
-                pb: 2,
-                position: 'relative',
-                display: 'inline-block',
-                fontSize: ['24px', '28px', '32px'],
-                fontWeight: 'bold',
-                textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                mb: 2,
-                ml: [0, 0, 1],
-                transform: 'translateY(-8px)',
-                letterSpacing: '0.01em'
-              }}
-              as="p"
-              variant="title"
-            >
-              Welcome to Hack&nbsp;Club!
-            </Text>
+
             <Heading>
               <Text
                 as="h4"
                 sx={{
                   color: 'white',
-                  mb: [3, 4],
+                  textAlign: ['center', 'left', 'left'],
+                  mb: [1, 1, 3],
                   zIndex: 1,
                   textAlign: 'left',
                   lineHeight: 1.2,
@@ -817,6 +800,7 @@ function Page({
                   letterSpacing: '-0.01em'
                 }}
               >
+                Welcome to Hack Club,
                 <Box
                   sx={{
                     position: 'relative',
@@ -843,7 +827,7 @@ function Page({
                       }
                     }}
                   >
-                    A home
+                    a home
                   </Text>
                   <Text
                     as="span"
@@ -867,6 +851,25 @@ function Page({
                 </Box>
                 {' for Highschool Hackers'}
               </Text>
+              <Text
+                as="h5"
+                sx={{
+                  color: 'yellow',
+                  mb: [1, 2, 3, 4],
+                  zIndex: 1,
+                  textAlign: 'left',
+
+                  lineHeight: [1.3, 1.2],
+                  width: '100%',
+                  position: 'relative',
+                  fontSize: ['18px', '20px', '24px'],
+                  fontWeight: 500,
+                  fontFamily:
+                    '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
+                  letterSpacing: '-0.01em'
+                }}
+              >
+                We're a global community of high school makers in student-led coding clubs building passion and connection.              </Text>
               <Box sx={{ display: ['block', 'flex'], mt: [3, 2, 3] }}>
                 <Button
                   variant="cta"
@@ -912,6 +915,7 @@ function Page({
                 </Button>
               </Box>
             </Heading>
+
           </Box>
         </Box>
         <Box
