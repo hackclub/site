@@ -1,13 +1,9 @@
-/** @jsxImportSource theme-ui */
-import { useState, useRef } from 'react'
-import { Box, Input, Button, Text, Grid, Card, Flex, Link } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import Tilt from '../../tilt'
-import dynamic from 'next/dynamic'
-
-const RelativeTime = dynamic(() => import('react-relative-time'), {
-  ssr: false
-})
+import { useRef, useState } from 'react'
+import { Box, Button, Card, Flex, Grid, Input, Text } from 'theme-ui'
+import BGImg from '../../background-image'
+import background from '../../../public/home/footer.png'
+import MailCard from '../../mail-card'
 
 const Loading = () => (
   <Box
@@ -15,10 +11,8 @@ const Loading = () => (
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      border: '2px solid',
-      borderColor: 'cyberpunk.gridLine',
-      borderTop: '2px solid',
-      borderTopColor: 'cyberpunk.electricBlue',
+      border: '2px solid #f3f3f3',
+      borderTop: '2px solid #ec3750',
       borderRadius: '50%',
       width: '16px',
       height: '16px',
@@ -32,7 +26,7 @@ const Loading = () => (
   ></Box>
 )
 
-const MailingList = ({ posts = [] }) => {
+const MailingList = ({ posts }) => {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const formRef = useRef(null)
@@ -65,54 +59,54 @@ const MailingList = ({ posts = [] }) => {
       console.error('Error during submission:', error)
       setSubmitted(false)
     }
-    setSubmitting(false)
+    finally {
+      setSubmitting(false)
+    }
   }
 
   return (
-    <Box sx={{ position: 'relative', py: [4, 5, 6], bg: 'cyberpunk.darkerBg' }}>
+    <Box sx={{ position: 'relative', py: 6, background: 'darker' }}>
       <Card
         sx={{
-          width: '90vw',
-          maxWidth: 'layout',
-          margin: 'auto',
-          background: 'rgba(49, 50, 68, 0.75)',
-          border: '1px solid',
-          borderColor: 'cyberpunk.gridLine',
+          maxWidth: '1050px',
+          mx: 'auto',
+          // mt: [3, 4],
+          background: 'rgb(255,255,255, 0.45)',
           position: 'relative',
           zIndex: 2,
-          backdropFilter: 'blur(12px)',
-          p: [3, 4],
-          borderRadius: '12px'
+          backdropFilter: 'blur(8px)'
         }}
       >
         <Flex
-          sx={{ flexDirection: ['column', null, 'row'], gap: [4, null, 5] }}
+          sx={{ flexDirection: ['column', 'column', 'row'], gridGap: [0, 5] }}
         >
           <Flex
             sx={{
+              placeItems: 'center',
+              justifyContent: 'center',
+              alignItems: ['left', 'left', 'center'],
               flexDirection: 'column',
-              gap: [3, 4],
-              width: ['100%', null, '50%']
+              gap: '10px',
+              width: ['100%', '100%', '75%']
             }}
           >
             <Box>
               <Text
                 variant="title"
                 sx={{
-                  fontSize: [4, '36px', '42px'],
-                  color: 'cyberpunk.textHighlight',
-                  textAlign: 'left',
-                  mb: 2
+                  fontSize: [4, '36px', '42px', 6],
+                  zIndex: 2,
+                  textAlign: 'left'
                 }}
               >
                 Join the newsletter
               </Text>
               <Text
                 sx={{
-                  color: 'cyberpunk.textMuted',
-                  fontSize: [2, 3],
-                  textAlign: 'left',
-                  lineHeight: 'body'
+                  color: 'darkless',
+                  mt: 2,
+                  fontSize: 3,
+                  textAlign: 'left'
                 }}
                 as="p"
               >
@@ -125,155 +119,87 @@ const MailingList = ({ posts = [] }) => {
               onSubmit={handleSubmit}
               gap={[2, 3]}
               sx={{
-                input: {
-                  bg: 'cyberpunk.inputBackground',
-                  border: '1px solid',
-                  borderColor: 'cyberpunk.gridLine',
-                  borderRadius: '8px',
-                  color: 'cyberpunk.textHighlight',
-                  p: 3,
-                  '&:focus': {
-                    outline: 'none',
-                    borderColor: 'cyberpunk.electricBlue'
-                  },
-                  '&::placeholder': {
-                    color: 'cyberpunk.textMuted',
-                    opacity: 0.7
-                  }
-                },
+                textAlign: 'center',
+                alignItems: 'end',
+                input: { bg: 'sunken' },
                 width: '100%'
               }}
             >
-              <Input
-                autofillBackgroundColor="highlight"
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Your Name"
-                required
-              />
-              <Input
-                autofillBackgroundColor="highlight"
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Your Email"
-                required
-              />
-              <Button type="submit" sx={{
-                mt: [2, 0], fontSize: 2, width: '100%', py: 3,
-                background: 'cyberpunk.ctaGradient',
-                color: 'cyberpunk.textHighlight',
-                border: 'none',
-                borderRadius: '8px',
-                cursor: 'pointer',
-                transition: 'transform 0.2s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-2px)',
-                  boxShadow: '0 4px 12px rgba(0,191,255,0.3)'
-                }
-              }}>
+              <Box sx={{ width: '100%' }}>
+                <Input
+                  autofillBackgroundColor="highlight"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                  sx={{
+                    width: '100%',
+                    textAlign: 'center',
+                    fontSize: 2
+                  }}
+                />
+              </Box>
+              <div>
+                <Input
+                  autofillBackgroundColor="highlight"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                  sx={{
+                    width: '100%',
+                    textAlign: 'center',
+                    fontSize: 2
+                  }}
+                />
+              </div>
+              <Button type="submit" sx={{ mt: [2, 0], fontSize: 2 }}>
                 {submitting ? (
-                  <Flex sx={{ alignItems: 'center', justifyContent: 'center' }}>
+                  <>
                     <Loading /> Subscribe
-                  </Flex>
+                  </>
                 ) : submitted ? (
-                  <Flex sx={{ alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon glyph="send" size={24} style={{ marginRight: '8px' }} /> You&apos;re on the list!
-                  </Flex>
+                  <>
+                    <Icon glyph="send" /> Check your email!
+                  </>
                 ) : (
                   'Subscribe'
                 )}
               </Button>
-
-              {/* Testimonial Section */}
-              <Box sx={{ mt: 4, p: 3, bg: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid', borderColor: 'cyberpunk.gridLine' }}>
-                <Flex sx={{ alignItems: 'center' }}>
-                  <Box>
-                    <Text as="p" sx={{ fontStyle: 'italic', color: 'cyberpunk.text', fontSize: [1, 2], mb: 1 }}>
-                      &quot;Happenings is genuinely the one newsletter I actually look forward to reading&quot;
-                    </Text>
-                    <Text as="p" sx={{ color: 'cyberpunk.textMuted', fontSize: [0, 1], textAlign: 'right' }}>
-                      - Nihaal, 16
-                    </Text>
-                  </Box>
-                </Flex>
-              </Box>
             </Grid>
           </Flex>
-
-          {posts.length > 0 && (
-            <Box sx={{ width: ['100%', null, '50%'], mt: [4, null, 0], display: 'flex', flexDirection: 'column' }}>
-              <Text
-                as="h3"
-                variant="title"
-                sx={{
-                  mb: 3,
-                  color: 'cyberpunk.textHighlight',
-                  fontSize: ['30px', '32px'],
-                  fontWeight: 'bold',
-                  textAlign: ['center', null, 'left']
-                }}
-              >
-                Latest Happenings:
-              </Text>
-              <Box sx={{
-                display: 'grid',
-                gridGap: [3, 4],
-                flex: 1,
-                gridTemplateRows: 'repeat(3, 1fr)'
-              }}>
-                {posts.map((post, index) => (
-                  <Tilt key={index} options={{ max: 8, perspective: 1000, scale: 1.03 }}>
-                    <Box
-                      sx={{
-                        p: 3,
-                        bg: 'cyberpunk.inputBackground',
-                        borderRadius: '8px',
-                        border: '1px solid',
-                        borderColor: 'cyberpunk.gridLine',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                        transition: 'border-color 0.3s ease',
-                        height: '100%',
-                        '&:hover': {
-                          borderColor: 'cyberpunk.electricBlue'
-                        },
-                        textDecoration: 'none',
-                      }}
-                      as={"a"}
-                      href={post.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <div>
-                        <Text as="h4" sx={{ color: 'cyberpunk.electricBlue', mb: 1, fontSize: ['18px', '20px'], fontWeight: 'bold' }}>
-                          {post.title}
-                        </Text>
-                        {post.date && (
-                          <Text as="p" sx={{ color: 'cyberpunk.textMuted', fontSize: ['12px', '14px'], mb: 2 }}>
-                            <RelativeTime value={post.date + " 16:00"} />
-                          </Text>
-                        )}
-                      </div>
-                      <Link
-                        sx={{
-                          fontSize: ['14px', '16px'],
-                          alignSelf: 'flex-start'
-                        }}
-                        as={"p"}
-                      >
-                        Read on the Slack <Icon glyph="external" size={16} style={{ verticalAlign: 'middle' }} />
-                      </Link>
-                    </Box>
-                  </Tilt>
-                ))}
-              </Box>
-            </Box>
-          )}
+          <Box
+            sx={{
+              display: 'grid',
+              gridGap: 4,
+              mt: [4, 0],
+              width: '100%'
+            }}
+          >
+            {posts
+              .map((post, index) => (
+                <MailCard
+                  issue={index + 1}
+                  body={post.title}
+                  date={post.date}
+                  link={post.link}
+                  key={index}
+                />
+              ))
+              .reverse()}
+          </Box>
         </Flex>
       </Card>
+      <BGImg
+        width={2544}
+        height={2048}
+        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
+        src={background}
+        placeholder="blur"
+        alt="Globe with hundreds of Hack Clubs"
+      />
     </Box>
   )
 }

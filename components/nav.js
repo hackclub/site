@@ -42,7 +42,7 @@ const fixed = props =>
   `
 
 const Root = styled(Box, {
-  shouldForwardProp: prop => !['bgColor', 'scrolled', 'toggled'].includes(prop)
+  shouldForwardProp: prop => !['bgColor', 'scrolled', 'toggled', 'fixed'].includes(prop)
 })`
   position: fixed;
   top: 0;
@@ -134,7 +134,7 @@ const Navigation = props => (
   // REMINDER: This should be no more than 7 links :)
   <NavBar role="navigation" {...props}>
     <Link href="/clubs">Clubs</Link>
-    <Link href="/fiscal-sponsorship">Fiscal&nbsp;Sponsorship</Link>
+    <Link href="/fiscal-sponsorship">Fiscal Sponsorship</Link>
     <Link href="/hackathons">Hackathons</Link>
     <Link href="/slack">Community</Link>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
@@ -202,7 +202,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   return (
     <Root
       {...props}
-      // @ts-expect-error
+      // @ts-ignore
       fixed={fixed}
       scrolled={scrolled}
       toggled={toggled}

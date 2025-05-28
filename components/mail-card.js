@@ -34,8 +34,9 @@ export default function MailCard({ body, date, link }) {
           />
           <Box
             sx={{
-              placeItems: 'center',
-              display: 'grid',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
               height: '100%',
               paddingY: [3, 4, 0]
             }}
@@ -45,7 +46,7 @@ export default function MailCard({ body, date, link }) {
                 {date}
                 <Text sx={{ color: '#8492a6' }}>— From Hack Club, to You</Text>
               </Text>
-              <Text as="h2" sx={{ fontWeight: 'normal' }}>
+              <Text as="h2" sx={{ fontWeight: 'normal !important' }}>
                 {body}
               </Text>
             </Box>
