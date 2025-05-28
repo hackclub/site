@@ -7,75 +7,101 @@ const EmailVerifiedPage = () => {
     return (
         <>
             <Head>
-                <title>Email Verified! - Hack Club Happenings</title>
+                <title>You're In! - Hack Club Happenings</title>
             </Head>
             <Container sx={{ textAlign: 'center', py: [4, 5, 6], px: 3 }}>
                 <Box
                     sx={{
-                        bg: 'cyberpunk.inputBackground', // Using a theme color
+                        bg: 'white',
                         p: [4, 5],
                         borderRadius: '12px',
-                        boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+                        boxShadow: 'card',
                         maxWidth: '600px',
                         mx: 'auto',
-                        border: '1px solid',
-                        borderColor: 'cyberpunk.gridLine'
+                        border: '2px solid',
+                        borderColor: 'red'
                     }}
                 >
                     <Text
                         as="h1"
                         variant="title"
                         sx={{
-                            color: 'cyberpunk.electricBlue',
+                            color: 'red',
                             fontSize: ['36px', '48px', '56px'],
-                            mb: 3
+                            mb: 3,
+                            lineHeight: 1.1
                         }}
                     >
-                        🎉 Email verified
+                        🎉 You're in!
                     </Text>
                     <Text
                         as="p"
                         sx={{
-                            color: 'cyberpunk.text',
+                            color: 'blue',
                             fontSize: [2, 3],
-                            lineHeight: 'body',
-                            mb: 4
+                            lineHeight: 'heading',
+                            mb: 4,
+                            fontWeight: 'bold'
                         }}
                     >
-                        Welcome to Happenings! Expect cool projects, inspiring stories, and opportunities to get involved, delivered to your inbox.
+                        Get ready for an incredible journey! You'll be the first to know about amazing projects, hackathons, and opportunities at Hack Club.
                     </Text>
                     <Text
                         as="p"
                         sx={{
-                            color: 'cyberpunk.textMuted',
                             fontSize: [1, 2],
-                            mb: 4
+                            mb: 4,
+                            color: 'muted'
                         }}
                     >
-                        Keep an eye out for our next issue! In the meantime, why not explore what else is going on at Hack Club?
+                        While you wait for your first issue, why not dive into the Hack Club community? There's always something exciting happening!
                     </Text>
-                    <NextLink href="/" passHref legacyBehavior>
-                        <Button
-                            as="a"
-                            sx={{
-                                background: 'cyberpunk.ctaGradient',
-                                color: 'cyberpunk.textHighlight',
-                                py: 3,
-                                px: 4,
-                                fontSize: 2,
-                                fontWeight: 'bold',
-                                borderRadius: '8px',
-                                textDecoration: 'none',
-                                transition: 'transform 0.2s ease-in-out',
-                                '&:hover': {
-                                    transform: 'translateY(-2px)',
-                                    boxShadow: '0 4px 12px rgba(0,191,255,0.3)'
-                                }
-                            }}
-                        >
-                            BACK TO HOMEPAGE
-                        </Button>
-                    </NextLink>
+                    <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center' }}>
+                        <NextLink href="/" passHref legacyBehavior>
+                            <Button
+                                as="a"
+                                sx={{
+                                    bg: 'red',
+                                    color: 'white',
+                                    py: 3,
+                                    px: 4,
+                                    fontSize: 2,
+                                    fontWeight: 'bold',
+                                    borderRadius: '8px',
+                                    textDecoration: 'none',
+                                    transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
+                                    '&:hover': {
+                                        transform: 'translateY(-2px)',
+                                        boxShadow: 'elevated',
+                                        bg: 'red'
+                                    }
+                                }}
+                            >
+                                Return Home
+                            </Button>
+                        </NextLink>
+                        <NextLink href="https://hackclub.com/slack" passHref legacyBehavior>
+                            <Button
+                                as="a"
+                                variant="outline"
+                                sx={{
+                                    py: 3,
+                                    px: 4,
+                                    fontSize: 2,
+                                    fontWeight: 'bold',
+                                    borderRadius: '8px',
+                                    textDecoration: 'none',
+                                    transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
+                                    '&:hover': {
+                                        transform: 'translateY(-2px)',
+                                        boxShadow: 'elevated'
+                                    }
+                                }}
+                            >
+                                Join our Slack
+                            </Button>
+                        </NextLink>
+                    </Box>
                 </Box>
             </Container>
         </>
