@@ -44,7 +44,7 @@ const EmailVerifiedPage = () => {
                             fontWeight: 'bold'
                         }}
                     >
-                        Get ready for an incredible journey! You'll be the first to know about amazing projects, hackathons, and opportunities at Hack Club.
+                        You'll be the first to know about amazing projects, hackathons, and opportunities at Hack Club.
                     </Text>
                     <Text
                         as="p"
