@@ -11,7 +11,7 @@ export default function MailCard({ body, date, link }) {
       }}
     >
       <Link
-        href={`https://workshops.hackclub.com/leader-newsletters/${link}`}
+        href={link}
         sx={{ textDecoration: 'none' }}
         target="_blank"
         rel="noopener norefferer"
