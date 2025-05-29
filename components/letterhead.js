@@ -105,6 +105,12 @@ const Letterhead = ({
           color: 'cyan',
           my: 4,
           a: { color: 'inherit' }
+        },
+        img: {
+          maxWidth: '100%',
+          height: 'auto',
+          display: 'block',
+          margin: '0 auto'
         }
       }}
     >

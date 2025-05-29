@@ -10,8 +10,7 @@ const StaticMention = memo(function StaticMention({ avatar, username, link }) {
         display: 'inline-flex',
         alignItems: 'baseline',
         textDecoration: 'none'
-      }}
-      legacyBehavior>
+      }}>
       {avatar && (
         <img
           src={avatar}
