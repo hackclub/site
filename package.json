@@ -51,6 +51,7 @@
     "next": "^15.3.2",
     "next-transpile-modules": "^10.0.1",
     "openai": "^4.86.1",
+    "playwright": "^1.52.0",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-beautiful-dnd": "^13.1.1",

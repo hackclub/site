@@ -878,6 +878,7 @@ __metadata:
     next: "npm:^15.3.2"
     next-transpile-modules: "npm:^10.0.1"
     openai: "npm:^4.86.1"
+    playwright: "npm:^1.52.0"
     prettier: "npm:^3.5.3"
     prop-types: "npm:^15.8.1"
     react: "npm:^19.1.0"
@@ -7546,7 +7547,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.49.0":
+"playwright@npm:^1.49.0, playwright@npm:^1.52.0":
   version: 1.52.0
   resolution: "playwright@npm:1.52.0"
   dependencies:
