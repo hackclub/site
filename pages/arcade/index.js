@@ -481,112 +481,104 @@ const Tickets = ({ title, num, link, bugEater, children, ...props }) => {
       >
         {title}
       </Text>
-      <Text
-        as="span"
-        sx={{
-          fontSize: [1, 2, 2],
-          display: 'block'
-        }}
-      >
+      <div sx={{ fontSize: [1, 2, 2] }}>
         {children}
-      </Text>
+      </div>
       {bugEater && (
-        <>
-          <Box>
-            <Text
-              id="console"
-              variant="caption"
-              sx={{
-                textAlign: 'center',
-                display: 'block',
-                width: '100%',
-                opacity: 0
-              }}
-            >
-              Click me for ideas!
-            </Text>
-            <Text
-              variant="caption"
-              id="console2"
-              sx={{
-                textAlign: 'center',
-                display: 'block',
-                width: '100%'
-              }}
-            >
-              Click me for ideas!
-            </Text>
+        <div>
+          <Text
+            id="console"
+            variant="caption"
+            sx={{
+              textAlign: 'center',
+              display: 'block',
+              width: '100%',
+              opacity: 0
+            }}
+          >
+            Click me for ideas!
+          </Text>
+          <Text
+            variant="caption"
+            id="console2"
+            sx={{
+              textAlign: 'center',
+              display: 'block',
+              width: '100%'
+            }}
+          >
+            Click me for ideas!
+          </Text>
+          <Box
+            className="hidden"
+            sx={{
+              textAlign: 'center',
+              color: '#5E3414',
+              transform: [
+                'scale(1)',
+                'scale(0.8)',
+                'scale(0.8)',
+                'scale(0.8)'
+              ],
+              mt: ['null', '-40px', '-20px', null]
+            }}
+          >
             <Box
-              className="hidden"
+              onClick={generateProjectIdea}
               sx={{
-                textAlign: 'center',
-                color: '#5E3414',
-                transform: [
-                  'scale(1)',
-                  'scale(0.8)',
-                  'scale(0.8)',
-                  'scale(0.8)'
-                ],
-                mt: ['null', '-40px', '-20px', null]
+                justifyContent: 'center',
+                pt: ['120px', '140px', '140px', '140px'],
+                pb: [7, 7, 7, 7],
+                mt: ['40px', '-20px', '10px', '-50px'],
+                mb: ['40px', '50px', '100px', '-50px'],
+                display: 'grid',
+                background:
+                  'url(/arcade/arcade_bg.png) no-repeat center center',
+                backgroundSize: 'contain',
+                cursor: 'pointer'
               }}
             >
-              <Box
-                onClick={generateProjectIdea}
+              <Text
+                id="project-idea"
+                className="thought"
                 sx={{
-                  justifyContent: 'center',
-                  pt: ['120px', '140px', '140px', '140px'],
-                  pb: [7, 7, 7, 7],
-                  mt: ['40px', '-20px', '10px', '-50px'],
-                  mb: ['40px', '50px', '100px', '-50px'],
-                  display: 'grid',
-                  background:
-                    'url(/arcade/arcade_bg.png) no-repeat center center',
-                  backgroundSize: 'contain',
-                  cursor: 'pointer'
+                  transform: [
+                    'scale(0.7)',
+                    'scale(1)',
+                    'scale(1)',
+                    'scale(1)'
+                  ],
+                  mb: [
+                    '-40px !important',
+                    '10px !important',
+                    '10px !important',
+                    '10px !important'
+                  ]
                 }}
-              >
-                <Text
-                  id="project-idea"
-                  className="thought"
-                  sx={{
-                    transform: [
-                      'scale(0.7)',
-                      'scale(1)',
-                      'scale(1)',
-                      'scale(1)'
-                    ],
-                    mb: [
-                      '-40px !important',
-                      '10px !important',
-                      '10px !important',
-                      '10px !important'
-                    ]
-                  }}
-                ></Text>
-                <img
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/766aeb62514baeaa488e3c409b8a7409053cf1f3_138_fff613ce81ce31cde4a2d717a1a9f73b1265f767_0screenshot_2024-06-13_at_22.01.02.webp"
-                  className="hoverable"
-                  alt="Need an idea?"
-                  sx={{
-                    margin: '0 auto',
-                    display: 'inline',
-                    width: 'auto',
-                    height: '8em',
-                    mb: ['-120px', '-20px', '-30px', '-30px'],
-                    transform: [
-                      'scale(0.7)',
-                      'scale(1)',
-                      'scale(1)',
-                      'scale(1)'
-                    ]
-                  }}
-                  id="generate-project-idea"
-                />
-              </Box>
-              <Box></Box>
+              ></Text>
+              <img
+                src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/766aeb62514baeaa488e3c409b8a7409053cf1f3_138_fff613ce81ce31cde4a2d717a1a9f73b1265f767_0screenshot_2024-06-13_at_22.01.02.webp"
+                className="hoverable"
+                alt="Need an idea?"
+                sx={{
+                  margin: '0 auto',
+                  display: 'inline',
+                  width: 'auto',
+                  height: '8em',
+                  mb: ['-120px', '-20px', '-30px', '-30px'],
+                  transform: [
+                    'scale(0.7)',
+                    'scale(1)',
+                    'scale(1)',
+                    'scale(1)'
+                  ]
+                }}
+                id="generate-project-idea"
+              />
             </Box>
+            <Box></Box>
           </Box>
-        </>
+        </div>
       )}
     </Card>
   )
@@ -1326,7 +1318,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 transform: 'rotate(-7deg) scale(1.1)',
                 zIndex: 10,
                 position: 'relative',
-                marginBottom: ['-900px', '-820px', '-850px', '-1020px'],
+                marginBottom: 0,
                 marginTop: ['120px', '120px', '120px', '150px'],
                 width: ['110vw', '105vw']
               }}
@@ -1484,16 +1476,11 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 h1: {
                   fontSize: [3, 4, 5]
                 },
-                p: {
-                  fontSize: [2, 2, 3],
-                  display: 'block',
-                  pb: 2
-                },
                 minHeight: ['700px', '700px', '700px', 'auto']
               }}
             >
               <>
-                <p>
+                <p sx={{ fontSize: [2, 2, 3], display: 'block', pb: 2 }}>
                   Any technical project counts. You could build an AR game,
                   pixel art display, drawing robot, and more! Anytime you work
                   on your project, start the hack hour timer. You earn a
@@ -1922,7 +1909,6 @@ export async function getStaticProps() {
 
   const highlightedItems = items
     .filter(item => item['Enabled Highlight'])
-    .sort((_a, _b) => Math.random() - 0.5 > 0)
     .map(record => ({
       // id: record['ID'],
       'Image URL': record['Image URL'] || null,
