@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Nav from '../../components/nav'
@@ -175,6 +175,13 @@ a {
 }
 `
 
+// Helper function to generate deterministic "random" rotations
+const getDeterministicRotation = (index, seed = 1) => {
+  // Simple deterministic pseudo-random function
+  const hash = (index * seed * 9301 + 49297) % 233280
+  return (hash / 233280.0) - 0.5
+}
+
 const Powerups = ({
   img,
   text,
@@ -294,7 +301,8 @@ const Powerups = ({
           }
         }}
         onClick={() => {
-          document.getElementById(`${text}-info`).showModal()
+          const dialog = document.getElementById(`${text}-info`)
+          if (dialog) dialog.showModal()
         }}
       >
         📦
@@ -324,7 +332,8 @@ const Powerups = ({
             zIndex: 2
           }}
           onClick={() => {
-            document.getElementById(`${text}-info`).close()
+            const dialog = document.getElementById(`${text}-info`)
+            if (dialog) dialog.close()
           }}
         />
         <Flex
@@ -454,20 +463,41 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
 }
 
 const Tickets = ({ title, num, link, bugEater, children, ...props }) => {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  const handleClick = () => {
+    if (bugEater && isMounted) {
+      generateProjectIdea()
+    }
+  }
+
+  // Use div instead of Card with href when no link is provided
+  const Component = link ? Card : 'div'
+  const componentProps = link ? {
+    variant: "interactive",
+    as: "a",
+    href: link
+  } : {}
+
   return (
-    <Card
-      variant="interactive"
-      as="a"
-      href={link}
+    <Component
+      {...componentProps}
       sx={{
         background: '#FAEFD6',
-        padding: '20px !important',
+        padding: '20px',
         borderRadius: '5px',
         position: 'relative',
         color: '#35290F',
         border: '3px dashed #5E3414',
-        height: '100%'
+        height: '100%',
+        cursor: bugEater ? 'pointer' : link ? 'pointer' : 'default',
+        textDecoration: 'none'
       }}
+      onClick={handleClick}
       {...props}
     >
       <Text
@@ -484,7 +514,7 @@ const Tickets = ({ title, num, link, bugEater, children, ...props }) => {
       <div sx={{ fontSize: [1, 2, 2] }}>
         {children}
       </div>
-      {bugEater && (
+      {bugEater && isMounted && (
         <div>
           <Text
             id="console"
@@ -520,11 +550,10 @@ const Tickets = ({ title, num, link, bugEater, children, ...props }) => {
                 'scale(0.8)',
                 'scale(0.8)'
               ],
-              mt: ['null', '-40px', '-20px', null]
+              mt: [null, '-40px', '-20px', null]
             }}
           >
             <Box
-              onClick={generateProjectIdea}
               sx={{
                 justifyContent: 'center',
                 pt: ['120px', '140px', '140px', '140px'],
@@ -580,7 +609,7 @@ const Tickets = ({ title, num, link, bugEater, children, ...props }) => {
           </Box>
         </div>
       )}
-    </Card>
+    </Component>
   )
 }
 
@@ -639,14 +668,14 @@ const Sticker = ({ st }) => {
           sx={{
             content: '"hi"',
             position: 'absolute',
-            bottom: '-20px', // Position the triangle at the bottom
+            bottom: '-20px',
             left: '50%',
             transform: 'translateX(-50%)',
             width: '0',
             height: '0',
             borderLeft: '10px solid transparent',
             borderRight: '10px solid transparent',
-            borderTop: '20px solid #D0BF97' // Same color as the box background
+            borderTop: '20px solid #D0BF97'
           }}
         />
       </Box>
@@ -728,83 +757,85 @@ const FAQ = ({ question, answer }) => {
     </Box>
   )
 }
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max)
 }
 
-let yap_sounds = {
-  // ty caleb!
-  thinking: [
-    new Howl({ src: '/bin/yapping/thonk1.wav' }),
-    new Howl({ src: '/bin/yapping/thonk2.wav' }),
-    new Howl({ src: '/bin/yapping/thonk3.wav' })
-  ],
-  talking: {
-    // these sounds and most of the yapping code are adapted from https://github.com/equalo-official/animalese-generator
-    a: new Howl({ src: '/bin/yapping/a.wav', volume: 0.16 }),
-    b: new Howl({ src: '/bin/yapping/b.wav', volume: 0.16 }),
-    c: new Howl({ src: '/bin/yapping/c.wav', volume: 0.16 }),
-    d: new Howl({ src: '/bin/yapping/d.wav', volume: 0.16 }),
-    e: new Howl({ src: '/bin/yapping/e.wav', volume: 0.16 }),
-    f: new Howl({ src: '/bin/yapping/f.wav', volume: 0.16 }),
-    g: new Howl({ src: '/bin/yapping/g.wav', volume: 0.16 }),
-    h: new Howl({ src: '/bin/yapping/h.wav', volume: 0.16 }),
-    i: new Howl({ src: '/bin/yapping/i.wav', volume: 0.16 }),
-    j: new Howl({ src: '/bin/yapping/j.wav', volume: 0.16 }),
-    k: new Howl({ src: '/bin/yapping/k.wav', volume: 0.16 }),
-    l: new Howl({ src: '/bin/yapping/l.wav', volume: 0.16 }),
-    m: new Howl({ src: '/bin/yapping/m.wav', volume: 0.16 }),
-    n: new Howl({ src: '/bin/yapping/n.wav', volume: 0.16 }),
-    o: new Howl({ src: '/bin/yapping/o.wav', volume: 0.16 }),
-    p: new Howl({ src: '/bin/yapping/p.wav', volume: 0.16 }),
-    q: new Howl({ src: '/bin/yapping/q.wav', volume: 0.16 }),
-    r: new Howl({ src: '/bin/yapping/r.wav', volume: 0.16 }),
-    s: new Howl({ src: '/bin/yapping/s.wav', volume: 0.16 }),
-    t: new Howl({ src: '/bin/yapping/t.wav', volume: 0.16 }),
-    u: new Howl({ src: '/bin/yapping/u.wav', volume: 0.16 }),
-    v: new Howl({ src: '/bin/yapping/v.wav', volume: 0.16 }),
-    w: new Howl({ src: '/bin/yapping/w.wav', volume: 0.16 }),
-    x: new Howl({ src: '/bin/yapping/x.wav', volume: 0.16 }),
-    y: new Howl({ src: '/bin/yapping/y.wav', volume: 0.16 }),
-    z: new Howl({ src: '/bin/yapping/z.wav', volume: 0.16 }),
-    th: new Howl({ src: '/bin/yapping/th.wav', volume: 0.16 }),
-    sh: new Howl({ src: '/bin/yapping/sh.wav', volume: 0.16 }),
-    _: new Howl({ src: '/bin/yapping/_.wav', volume: 0.16 })
+let yap_sounds = null
+
+// Initialize sounds only on client side
+if (typeof window !== 'undefined') {
+  yap_sounds = {
+    thinking: [
+      new Howl({ src: '/bin/yapping/thonk1.wav' }),
+      new Howl({ src: '/bin/yapping/thonk2.wav' }),
+      new Howl({ src: '/bin/yapping/thonk3.wav' })
+    ],
+    talking: {
+      a: new Howl({ src: '/bin/yapping/a.wav', volume: 0.16 }),
+      b: new Howl({ src: '/bin/yapping/b.wav', volume: 0.16 }),
+      c: new Howl({ src: '/bin/yapping/c.wav', volume: 0.16 }),
+      d: new Howl({ src: '/bin/yapping/d.wav', volume: 0.16 }),
+      e: new Howl({ src: '/bin/yapping/e.wav', volume: 0.16 }),
+      f: new Howl({ src: '/bin/yapping/f.wav', volume: 0.16 }),
+      g: new Howl({ src: '/bin/yapping/g.wav', volume: 0.16 }),
+      h: new Howl({ src: '/bin/yapping/h.wav', volume: 0.16 }),
+      i: new Howl({ src: '/bin/yapping/i.wav', volume: 0.16 }),
+      j: new Howl({ src: '/bin/yapping/j.wav', volume: 0.16 }),
+      k: new Howl({ src: '/bin/yapping/k.wav', volume: 0.16 }),
+      l: new Howl({ src: '/bin/yapping/l.wav', volume: 0.16 }),
+      m: new Howl({ src: '/bin/yapping/m.wav', volume: 0.16 }),
+      n: new Howl({ src: '/bin/yapping/n.wav', volume: 0.16 }),
+      o: new Howl({ src: '/bin/yapping/o.wav', volume: 0.16 }),
+      p: new Howl({ src: '/bin/yapping/p.wav', volume: 0.16 }),
+      q: new Howl({ src: '/bin/yapping/q.wav', volume: 0.16 }),
+      r: new Howl({ src: '/bin/yapping/r.wav', volume: 0.16 }),
+      s: new Howl({ src: '/bin/yapping/s.wav', volume: 0.16 }),
+      t: new Howl({ src: '/bin/yapping/t.wav', volume: 0.16 }),
+      u: new Howl({ src: '/bin/yapping/u.wav', volume: 0.16 }),
+      v: new Howl({ src: '/bin/yapping/v.wav', volume: 0.16 }),
+      w: new Howl({ src: '/bin/yapping/w.wav', volume: 0.16 }),
+      x: new Howl({ src: '/bin/yapping/x.wav', volume: 0.16 }),
+      y: new Howl({ src: '/bin/yapping/y.wav', volume: 0.16 }),
+      z: new Howl({ src: '/bin/yapping/z.wav', volume: 0.16 }),
+      th: new Howl({ src: '/bin/yapping/th.wav', volume: 0.16 }),
+      sh: new Howl({ src: '/bin/yapping/sh.wav', volume: 0.16 }),
+      _: new Howl({ src: '/bin/yapping/_.wav', volume: 0.16 })
+    }
   }
 }
 
 async function yap(text, letterCallback) {
+  if (!yap_sounds) return
+
   text = text.toLowerCase()
   const yap_queue = []
   for (let i = 0; i < text.length; i++) {
     const char = text[i]
     try {
       if (char === 's' && text[i + 1] === 'h') {
-        // test for 'sh' sound
         yap_queue.push(yap_sounds.talking['sh'])
         continue
       } else if (char === 't' && text[i + 1] === 'h') {
-        // test for 'th' sound
         yap_queue.push(yap_sounds.talking['th'])
         continue
       } else if (char === 'h' && (text[i - 1] === 's' || text[i - 1] === 't')) {
-        // test if previous letter was 's' or 't' and current letter is 'h'
         yap_queue.push(yap_sounds.talking['_'])
         continue
       } else if (char === ',' || char === '?' || char === '.') {
         yap_queue.push(yap_sounds.talking['_'])
         continue
       } else if (char === text[i - 1]) {
-        // skip repeat letters
         yap_queue.push(yap_sounds.talking['_'])
         continue
       }
     } catch (e) {
-      // who cares. pick up a foot ball
+      // ignore
     }
     if (!char.match(/[a-zA-Z.]/)) {
       yap_queue.push(yap_sounds.talking['_'])
-      continue // skip characters that are not letters or periods
+      continue
     }
     yap_queue.push(yap_sounds.talking[char])
   }
@@ -822,45 +853,51 @@ async function yap(text, letterCallback) {
 }
 
 async function generateProjectIdea() {
-  if (
-    document
-      .querySelector('#generate-project-idea')
-      .classList.contains('disabled')
-  ) {
+  const generateButton = document.querySelector('#generate-project-idea')
+  const console1 = document.querySelector('#console')
+  const console2 = document.querySelector('#console2')
+  const projectIdea = document.querySelector('#project-idea')
+
+  if (!generateButton || !console1 || !console2 || !projectIdea) return
+
+  if (generateButton.classList.contains('disabled')) {
     return
   }
 
-  yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play()
-  document.querySelector('#generate-project-idea').style.marginTop = '0px'
-  document.querySelector('#console').style.marginTop = '-50px'
-  document.querySelector('#console2').style.opacity = '0'
-  document.querySelector('#project-idea').style.opacity = '1'
-  document.querySelector('#generate-project-idea').classList.add('disabled')
-  document.querySelector('#project-idea').innerHTML =
-    '<em>' + thinkingWords() + '...' + '</em>'
-  document.querySelector('#generate-project-idea').src =
-    'https://hc-cdn.hel1.your-objectstorage.com/s/v3/39ba13a79b6e397ecc56ef7db8af62e294b34140_139_02716a4e8d7135c74a9b91b041fcf144e6263a29_1untitled_artwork_8_1.webp'
-  let text = ''
-  const res = await fetch('/api/arcade/openai/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify()
-  })
+  if (yap_sounds) {
+    yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play()
+  }
 
-  const json = await res.json()
-  text = json.recommendation
-  document.querySelector('#project-idea').innerHTML = ''
-  document.querySelector('#generate-project-idea').src =
-    'https://hc-cdn.hel1.your-objectstorage.com/s/v3/74e5cb83518ff6908004a578fa913f7fb5a7cf26_140_ea321eb1cb1c26789733d12f46aff4c1205b323f_0untitled_artwork_9_1.webp'
-  document.querySelector('#generate-project-idea').classList.remove('disabled')
-  // document.querySelector('#generate-project-idea').classList.add('talking')
+  generateButton.style.marginTop = '0px'
+  console1.style.marginTop = '-50px'
+  console2.style.opacity = '0'
+  projectIdea.style.opacity = '1'
+  generateButton.classList.add('disabled')
+  projectIdea.innerHTML = '<em>' + thinkingWords() + '...' + '</em>'
+  generateButton.src = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/39ba13a79b6e397ecc56ef7db8af62e294b34140_139_02716a4e8d7135c74a9b91b041fcf144e6263a29_1untitled_artwork_8_1.webp'
+
+  let text = ''
+  try {
+    const res = await fetch('/api/arcade/openai/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify()
+    })
+
+    const json = await res.json()
+    text = json.recommendation
+  } catch (error) {
+    text = 'Try building a web app, mobile app, or hardware project!'
+  }
+
+  projectIdea.innerHTML = ''
+  generateButton.src = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/74e5cb83518ff6908004a578fa913f7fb5a7cf26_140_ea321eb1cb1c26789733d12f46aff4c1205b323f_0untitled_artwork_9_1.webp'
+  generateButton.classList.remove('disabled')
+
   yap(text, i => {
-    document.querySelector('#project-idea').innerHTML = text.slice(
-      0,
-      Math.max(text.length - i + 1, 0)
-    )
+    projectIdea.innerHTML = text.slice(0, Math.max(text.length - i + 1, 0))
   })
 }
 
@@ -884,6 +921,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
   const [showForm, setForm] = useState(false)
   const [formSent, setFormSent] = useState(false)
   const [isRevealed, setIsRevealed] = useState(false)
+  const [pageIsVisible, setPageIsVisible] = useState(true)
 
   const handleButtonClick = () => {
     setIsRevealed(!isRevealed)
@@ -895,7 +933,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
   const slack = query.param
 
   const generateRandomNumber = () => {
-    const newRandomNumber = Math.floor(Math.random() * stickers.length) // Generate a random number between 0 and 99
+    const newRandomNumber = Math.floor(Math.random() * stickers.length)
     setNum(newRandomNumber)
   }
 
@@ -912,10 +950,10 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
     generateRandomNumber()
   }
 
-  const [pageIsVisible, setPageIsVisible] = useState(true)
   const handleVisibilityChange = isVisible => {
     setPageIsVisible(isVisible)
   }
+
   return (
     <>
       <Meta
@@ -1007,26 +1045,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 sx={{
                   color: '#FF5C00',
                   textAlign: ['center', 'center', 'center', 'left'],
-
                   fontSize: ['50px', '70px', '80px', '85px']
                 }}
               >
                 ARCADE
               </Text>
             </Fade>
-            {/* <Fade delay={350}>
-              <Text
-                sx={{
-                  display: 'block',
-                  textAlign: ['center', 'center', 'center', 'left'],
-                  py: ['10px', '12px', '13px'],
-                  fontSize: ['40px', '55px', '55px']
-                }}
-                variant="title"
-              >
-                Build something cool.
-              </Text>
-            </Fade> */}
             <Fade delay={450}>
               <Text
                 sx={{
@@ -1039,26 +1063,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 variant="title"
               >
                 The summer is yours for the making
-                {/* Get free tools
-                <br />
-                & build something cool */}
-                {/* Get free tools to build something cool. */}
-                {/* <br /> */}
-                {/* This summer is yours. */}
               </Text>
-            </Fade>
-            <Fade delay={550}>
-              {/* <Text
-                sx={{
-                  display: 'block',
-                  textAlign: ['center', 'center', 'center', 'left'],
-                  py: ['10px', '12px', '13px'],
-                  fontSize: ['40px', '55px', '55px']
-                }}
-                variant="title"
-              >
-                This summer is yours.
-              </Text> */}
             </Fade>
             <Fade delay={650}>
               <Join
@@ -1142,21 +1147,10 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             pt: 1
           }}
         >
-          {/* <Text
-            variant="headline"
-            sx={{ display: 'block', textAlign: 'center' }}
-          >
-            Calling high school makers: Join{' '}
-            <Text className="slackey arcade3" sx={{ color: '#5E3414' }}>
-              ARCADE
-            </Text>
-            .
-          </Text> */}
           <Text
             variant="title"
             sx={{ display: 'block', textAlign: 'center', pb: 3 }}
           >
-            {/* What are you waiting for? */}
             How to play
           </Text>
           <Flex
@@ -1202,29 +1196,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                   display: ['none', 'none', 'block', 'block']
                 }}
               />
-              {/* <Text
-                sx={{
-                  textAlign: 'center',
-                  fontSize: [2, 4, 5],
-                  width: '100%',
-                  display: 'block',
-                  transform: [
-                    'rotate(0deg)',
-                    'rotate(0deg)',
-                    'rotate(3deg)',
-                    'rotate(3deg)'
-                  ],
-                  position: 'absolute',
-                  left: '0vw',
-                  bottom: '-50px',
-                  zIndex: '3'
-                }}
-                className="gaegu"
-              >
-                <Text sx={{ background: '#5E3414', px: 2, py: 1 }}>
-                  Hack. Rinse. Repeat.
-                </Text>
-              </Text> */}
             </Flex>
             <Flex
               sx={{
@@ -1365,7 +1336,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           position: 'relative'
         }}
       >
-        {/* <Balancer> */}
         <Text
           variant="headline"
           sx={{
@@ -1394,12 +1364,11 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               justifyContent: 'space-between'
             }}
           >
-            {showComponent && <Sticker st={stickers[showNum]} />}
+            {showComponent && showNum !== false && <Sticker st={stickers[showNum]} />}
             free stickers
           </Text>{' '}
           and code with other high schoolers!
         </Text>
-        {/* </Balancer> */}
         <Join
           showForm={showForm}
           setForm={setForm}
@@ -1468,84 +1437,82 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               alignItems: 'stretch'
             }}
           >
-            <Tickets
-              title="Build whatever you want!"
-              num="Infinite"
-              sx={{
-                gridColumn: ['', 'span 2', 'span 2', 'span 2'],
-                h1: {
-                  fontSize: [3, 4, 5]
-                },
-                minHeight: ['700px', '700px', '700px', 'auto']
-              }}
-            >
-              <>
-                <p sx={{ fontSize: [2, 2, 3], display: 'block', pb: 2 }}>
-                  Any technical project counts. You could build an AR game,
-                  pixel art display, drawing robot, and more! Anytime you work
-                  on your project, start the hack hour timer. You earn a
-                  ticket for every hour you spend on your project.
-                </p>
-                <Heading as="h4" my={0}>
-                  Don't know where to start?
-                </Heading>
-                <ul>
-                  <li>
-                    <Link href="https://boba.hackclub.com/" target="_blank">
-                      Boba drops:
-                    </Link>{' '}
-                    Build a website, get boba!
-                  </li>
-                  <li>
-                    <Link
-                      href="https://jams.hackclub.com/jam/wizard-orpheus"
-                      target="_blank"
-                    >
-                      Wizard Orpheus:
-                    </Link>{' '}
-                    Build a text-based game with AI
-                  </li>
-                  <li>
-                    <Link href="/bin" target="_blank">
-                      The Bin:
-                    </Link>{' '}
-                    Build an online circuit, get the parts for free!
-                  </li>
-                  <li>
-                    <Link href="/sprig" target="_blank">
-                      Sprig:
-                    </Link>{' '}
-                    Build a JS game, play it on your own console
-                  </li>
-                  <li>
-                    <Link href="/onboard" target="_blank">
-                      OnBoard:
-                    </Link>{' '}
-                    Design a PCB, get a $100 grant
-                  </li>
-                  <li>
-                    <Link href="https://fraps.hackclub.com" target="_blank">
-                      Hackaccino:
-                    </Link>{' '}
-                    Build a 3D Website and get a free frappuccino! ☕
-                  </li>
-                  <li>
-                    <a href="https://blot.hackclub.com/">Blot:</a> Write code.
-                    Make art. Get a drawing machine.
-                  </li>
-                  <li>
-                    <a href="https://cider.hackclub.com">Cider:</a> Make a
-                    mobile app, get an Apple Developer account
-                  </li>
-                  <li>
-                    <a href="https://easel.hackclub.com/orpheus-finds-easel">
-                      Easel:
-                    </a>{' '}
-                    Write a programming language, receive fudge!
-                  </li>
-                </ul>
-              </>
-            </Tickets>
+            <Box sx={{
+              gridColumn: ['', 'span 2', 'span 2', 'span 2'],
+              minHeight: ['700px', '700px', '700px', 'auto']
+            }}>
+              <Tickets
+                title="Build whatever you want!"
+                num="Infinite"
+              >
+                <>
+                  <p sx={{ fontSize: [2, 2, 3], display: 'block', pb: 2 }}>
+                    Any technical project counts. You could build an AR game,
+                    pixel art display, drawing robot, and more! Anytime you work
+                    on your project, start the hack hour timer. You earn a
+                    ticket for every hour you spend on your project.
+                  </p>
+                  <Heading as="h4" my={0}>
+                    Don't know where to start?
+                  </Heading>
+                  <ul>
+                    <li>
+                      <Link href="https://boba.hackclub.com/" target="_blank">
+                        Boba drops:
+                      </Link>{' '}
+                      Build a website, get boba!
+                    </li>
+                    <li>
+                      <Link
+                        href="https://jams.hackclub.com/jam/wizard-orpheus"
+                        target="_blank"
+                      >
+                        Wizard Orpheus:
+                      </Link>{' '}
+                      Build a text-based game with AI
+                    </li>
+                    <li>
+                      <Link href="/bin" target="_blank">
+                        The Bin:
+                      </Link>{' '}
+                      Build an online circuit, get the parts for free!
+                    </li>
+                    <li>
+                      <Link href="/sprig" target="_blank">
+                        Sprig:
+                      </Link>{' '}
+                      Build a JS game, play it on your own console
+                    </li>
+                    <li>
+                      <Link href="/onboard" target="_blank">
+                        OnBoard:
+                      </Link>{' '}
+                      Design a PCB, get a $100 grant
+                    </li>
+                    <li>
+                      <Link href="https://fraps.hackclub.com" target="_blank">
+                        Hackaccino:
+                      </Link>{' '}
+                      Build a 3D Website and get a free frappuccino! ☕
+                    </li>
+                    <li>
+                      <a href="https://blot.hackclub.com/">Blot:</a> Write code.
+                      Make art. Get a drawing machine.
+                    </li>
+                    <li>
+                      <a href="https://cider.hackclub.com">Cider:</a> Make a
+                      mobile app, get an Apple Developer account
+                    </li>
+                    <li>
+                      <a href="https://easel.hackclub.com/orpheus-finds-easel">
+                        Easel:
+                      </a>{' '}
+                      Write a programming language, receive fudge!
+                    </li>
+                  </ul>
+                </>
+              </Tickets>
+            </Box>
             <Tickets
               title="Not sure what to make?"
               bugEater={true}
@@ -1625,14 +1592,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             margin: 'auto',
             textAlign: 'center',
             mt: '-50px'
-            // pb: '50px'
           }}
           id="shop"
         >
           <Balancer>
             <Text variant="title" sx={{ display: 'block' }}>
               <Text
-                //  onClick={handleButtonClick}
                 sx={{
                   background: '#FF8C37',
                   color: '#FFEEC6',
@@ -1659,14 +1624,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             only.
           </Text>
 
-          {/* <Text
-            variant="caption"
-            className="gaegu"
-            sx={{ mt: 2, display: 'block' }}
-          >
-            All physical items only fulfillable where Amazon can be shipped
-            unless otherwise stated.
-          </Text> */}
           <Grid
             sx={{
               pt: '50px',
@@ -1685,10 +1642,10 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 fulfillmentDescription={item['Fulfillment Description']}
                 extraTags={item['Extra tags']}
                 polaroidRotation={
-                  (2 + Math.random() * 4) * (i % 2 === 0 ? 1 : -1)
+                  (2 + getDeterministicRotation(i, 123) * 4) * (i % 2 === 0 ? 1 : -1)
                 }
                 ticketRotation={
-                  (12 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
+                  (12 + getDeterministicRotation(i, 456) * 14) * (getDeterministicRotation(i, 789) > 0 ? 1 : -1)
                 }
                 key={i}
               />
@@ -1783,7 +1740,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             <Grid
               sx={{
                 gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
-                // width: '100%',
                 width: '90vw',
                 maxWidth: '1200px',
                 margin: 'auto',
@@ -1833,14 +1789,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               width: ['70vw', '50vw', '60vw', '70vw'],
               maxWidth: '1200px',
               ml: ['10vw'],
-
               paddingTop: '50px',
               marginBottom: '-50px',
               gap: ['10px', '10px', '2vw', '0vw'],
               flexDirection: 'column'
             }}
           >
-            {/* <Balancer> */}
             <Text
               variant="headline"
               sx={{
@@ -1860,7 +1814,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               <br />
               Build real projects. <br /> Share it with friends.
             </Text>
-            {/* </Balancer> */}
             <Join
               showForm={showForm}
               setForm={setForm}
@@ -1910,7 +1863,6 @@ export async function getStaticProps() {
   const highlightedItems = items
     .filter(item => item['Enabled Highlight'])
     .map(record => ({
-      // id: record['ID'],
       'Image URL': record['Image URL'] || null,
       Name: record['Name'] || null,
       'Small Name': record['Small Name'] || null,
