@@ -58,7 +58,7 @@ const Base = styled('div')`
 `
 
 const Flag = props => (
-  <Link href="/" passHref>
+  <Link href="/" passHref legacyBehavior>
     <Base {...props} />
   </Link>
 )

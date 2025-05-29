@@ -81,7 +81,7 @@ Sheet.defaultProps = {
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '225px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => { }}>
         {photos.map((photo, index) => (
           <NextImage
             placeholder="blur"
@@ -100,7 +100,7 @@ const PhotoRow = ({ photos }) => (
       </Marquee>
     </Box>
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => { }}>
         {photos.map((photo, index) => (
           <NextImage
             placeholder="blur"
@@ -212,8 +212,8 @@ export default function Projects() {
         <Box
           sx={{
             background: ['#D0BF97 url(/arcade/white_bg.svg) no-repeat center center', '#D0BF97 url(/arcade/white_bg.svg) no-repeat center center', 'rgba(0,0,0, 0.8)', 'rgba(0,0,0, 0.8)'],
-           backgroundSize: 'cover', 
-           zIndex: 1,
+            backgroundSize: 'cover',
+            zIndex: 1,
             position: 'relative',
             color: 'white!important',
             height: ['auto', 'auto', '900px', '900px']

@@ -453,7 +453,7 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
   )
 }
 
-const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
+const Tickets = ({ title, num, link, bugEater, children, ...props }) => {
   return (
     <Card
       variant="interactive"
@@ -482,13 +482,13 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
         {title}
       </Text>
       <Text
-        as="p"
+        as="span"
         sx={{
           fontSize: [1, 2, 2],
           display: 'block'
         }}
       >
-        {text}
+        {children}
       </Text>
       {bugEater && (
         <>
@@ -1478,74 +1478,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           >
             <Tickets
               title="Build whatever you want!"
-              text={
-                <>
-                  <p>
-                    Any technical project counts. You could build an AR game,
-                    pixel art display, drawing robot, and more! Anytime you work
-                    on your project, start the hack hour timer. You earn a
-                    ticket for every hour you spend on your project.
-                  </p>
-                  <Heading as="h4" my={0}>
-                    Don't know where to start?
-                  </Heading>
-                  <ul>
-                    <li>
-                      <Link href="https://boba.hackclub.com/" target="_blank">
-                        Boba drops:
-                      </Link>{' '}
-                      Build a website, get boba!
-                    </li>
-                    <li>
-                      <Link
-                        href="https://jams.hackclub.com/jam/wizard-orpheus"
-                        target="_blank"
-                      >
-                        Wizard Orpheus:
-                      </Link>{' '}
-                      Build a text-based game with AI
-                    </li>
-                    <li>
-                      <Link href="/bin" target="_blank">
-                        The Bin:
-                      </Link>{' '}
-                      Build an online circuit, get the parts for free!
-                    </li>
-                    <li>
-                      <Link href="/sprig" target="_blank">
-                        Sprig:
-                      </Link>{' '}
-                      Build a JS game, play it on your own console
-                    </li>
-                    <li>
-                      <Link href="/onboard" target="_blank">
-                        OnBoard:
-                      </Link>{' '}
-                      Design a PCB, get a $100 grant
-                    </li>
-                    <li>
-                      <Link href="https://fraps.hackclub.com" target="_blank">
-                        Hackaccino:
-                      </Link>{' '}
-                      Build a 3D Website and get a free frappuccino! ☕
-                    </li>
-                    <li>
-                      <a href="https://blot.hackclub.com/">Blot:</a> Write code.
-                      Make art. Get a drawing machine.
-                    </li>
-                    <li>
-                      <a href="https://cider.hackclub.com">Cider:</a> Make a
-                      mobile app, get an Apple Developer account
-                    </li>
-                    <li>
-                      <a href="https://easel.hackclub.com/orpheus-finds-easel">
-                        Easel:
-                      </a>{' '}
-                      Write a programming language, receive fudge!
-                    </li>
-                  </ul>
-                </>
-              }
               num="Infinite"
               sx={{
                 gridColumn: ['', 'span 2', 'span 2', 'span 2'],
@@ -1559,11 +1491,77 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 },
                 minHeight: ['700px', '700px', '700px', 'auto']
               }}
-            />
+            >
+              <>
+                <p>
+                  Any technical project counts. You could build an AR game,
+                  pixel art display, drawing robot, and more! Anytime you work
+                  on your project, start the hack hour timer. You earn a
+                  ticket for every hour you spend on your project.
+                </p>
+                <Heading as="h4" my={0}>
+                  Don't know where to start?
+                </Heading>
+                <ul>
+                  <li>
+                    <Link href="https://boba.hackclub.com/" target="_blank">
+                      Boba drops:
+                    </Link>{' '}
+                    Build a website, get boba!
+                  </li>
+                  <li>
+                    <Link
+                      href="https://jams.hackclub.com/jam/wizard-orpheus"
+                      target="_blank"
+                    >
+                      Wizard Orpheus:
+                    </Link>{' '}
+                    Build a text-based game with AI
+                  </li>
+                  <li>
+                    <Link href="/bin" target="_blank">
+                      The Bin:
+                    </Link>{' '}
+                    Build an online circuit, get the parts for free!
+                  </li>
+                  <li>
+                    <Link href="/sprig" target="_blank">
+                      Sprig:
+                    </Link>{' '}
+                    Build a JS game, play it on your own console
+                  </li>
+                  <li>
+                    <Link href="/onboard" target="_blank">
+                      OnBoard:
+                    </Link>{' '}
+                    Design a PCB, get a $100 grant
+                  </li>
+                  <li>
+                    <Link href="https://fraps.hackclub.com" target="_blank">
+                      Hackaccino:
+                    </Link>{' '}
+                    Build a 3D Website and get a free frappuccino! ☕
+                  </li>
+                  <li>
+                    <a href="https://blot.hackclub.com/">Blot:</a> Write code.
+                    Make art. Get a drawing machine.
+                  </li>
+                  <li>
+                    <a href="https://cider.hackclub.com">Cider:</a> Make a
+                    mobile app, get an Apple Developer account
+                  </li>
+                  <li>
+                    <a href="https://easel.hackclub.com/orpheus-finds-easel">
+                      Easel:
+                    </a>{' '}
+                    Write a programming language, receive fudge!
+                  </li>
+                </ul>
+              </>
+            </Tickets>
             <Tickets
               title="Not sure what to make?"
               bugEater={true}
-              text={<>Click me for ideas!</>}
               sx={{
                 '&ul>li': {
                   color: 'inherit'
@@ -1571,7 +1569,9 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 gridColumn: ['span 2', 'span 2', 'span 2', 'span 1'],
                 minHeight: 'auto'
               }}
-            />
+            >
+              Click me for ideas!
+            </Tickets>
             <img
               src="/arcade/r5.png"
               sx={{

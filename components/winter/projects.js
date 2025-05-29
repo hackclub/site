@@ -81,7 +81,7 @@ Sheet.defaultProps = {
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '200px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => { }}>
         {photos.map((photo, index) => (
           <NextImage
             placeholder="blur"
@@ -100,7 +100,7 @@ const PhotoRow = ({ photos }) => (
       </Marquee>
     </Box>
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => { }}>
         {photos.map((photo, index) => (
           <NextImage
             placeholder="blur"

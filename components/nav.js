@@ -224,7 +224,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       as="header"
     >
       <Content>
-        <Flag scrolled={scrolled || fixed} />
+        <Flag />
         <Navigation
           as="nav"
           aria-hidden={!!mobile}
