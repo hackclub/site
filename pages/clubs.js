@@ -379,9 +379,8 @@ const Page = () => (
           <Highlight>every&nbsp;Hack&nbsp;Club is student-led</Highlight> &
           members make self-directed projects.
         </Text>
-        <NextLink href="/philosophy" passHref legacyBehavior>
+        <NextLink href="/philosophy">
           <Button
-            as="a"
             variant="ctaLg"
             sx={{
               background: 'linear-gradient(-32deg, #6f31b7 14%, #fb558e 82%)'

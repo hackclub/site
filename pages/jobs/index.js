@@ -17,11 +17,9 @@ const JobListing = ({
   positionLocation,
   positionType
 }) => (
-  <Link href={positionLink} passHref legacyBehavior>
+  <Link href={positionLink} target="_blank">
     <Card
       variant="sunken"
-      as="a"
-      target="_blank"
       sx={{
         width: '100%',
         textDecoration: 'none',

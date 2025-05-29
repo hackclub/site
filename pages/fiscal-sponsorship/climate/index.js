@@ -131,8 +131,8 @@ const FilterPanel = ({ filter, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-                color: 'blue'
-              }
+              color: 'blue'
+            }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -223,7 +223,7 @@ const FilterPanel = ({ filter, mobile }) => {
               textDecoration: 'none',
               color:
                 currentSelections.length === baseData.length ||
-                !currentSelections.includes(item.id)
+                  !currentSelections.includes(item.id)
                   ? 'black'
                   : 'primary',
               transition: 'color 0.2s',
@@ -303,8 +303,8 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-                color: 'blue'
-              }
+              color: 'blue'
+            }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -328,7 +328,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           display: hiddenOnMobile ? 'none' : 'flex'
         }}
       >
-        <NextLink scroll={false} href={'/fiscal-sponsorship/climate'} legacyBehavior>
+        <NextLink scroll={false} href={'/fiscal-sponsorship/climate'}>
           <Flex
             sx={{
               alignItems: 'center',
@@ -350,7 +350,6 @@ const RegionPanel = ({ currentRegion, mobile }) => {
               },
               width: 'fit-content'
             }}
-            as="a"
           >
             <Flex
               sx={{
@@ -383,8 +382,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
             scroll={false}
             href={`/fiscal-sponsorship/climate/organizations-in-${kebabCase(
               item.label
-            )}`}
-            legacyBehavior>
+            )}`}>
             <Flex
               sx={{
                 alignItems: 'center',
@@ -1114,7 +1112,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   return (
                     currentBadges.length === badges.length ||
                     intersection(organizationBadgeIds, currentBadges).length ===
-                      currentBadges.length
+                    currentBadges.length
                   )
                 })
                 .map(organization => (
@@ -1301,7 +1299,7 @@ export async function fetchRawClimateOrganizations() {
   while (lastLength >= 100) {
     const json = await fetch(
       'https://hcb.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
-        page
+      page
     ).then(res => res.json())
     lastLength = json.length
     page++

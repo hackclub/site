@@ -11,12 +11,9 @@ const Event = ({ id, slug, title, desc, leader, avatar, start, end, cal }) => (
   <Link
     href={`https://events.hackclub.com/${slug}`}
     as={`https://events.hackclub.com/${slug}`}
-    passHref
     target="_blank"
-    rel="noopener"
-    legacyBehavior>
+    rel="noopener">
     <Box
-      as="a"
       sx={{
         position: 'relative',
         textDecoration: 'none',

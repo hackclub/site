@@ -40,9 +40,8 @@ export default function Apply() {
           >
             {/* vertically align h1 to top of form */}
             <Box as="header" sx={{ mt: [null, 3], mb: 'auto' }}>
-              <Link href="/fiscal-sponsorship" passHref legacyBehavior>
+              <Link href="/fiscal-sponsorship">
                 <Text
-                  as="a"
                   variant="subheadline"
                   sx={{
                     mb: 3,

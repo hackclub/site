@@ -95,9 +95,8 @@ export default function Channels() {
         </Text>
         <SlackEvents />
       </Box>
-      <NextLink href="/ship" passHref legacyBehavior>
+      <NextLink href="/ship">
         <Card
-          as="a"
           variant="interactive"
           sx={{
             gridColumn: ['span 2', 'span 5'],

@@ -57,9 +57,8 @@ const EmailVerifiedPage = () => {
                         While you wait for your first issue, why not dive into the Hack Club community? There's always something exciting happening!
                     </Text>
                     <Box sx={{ display: 'flex', gap: 3, justifyContent: 'center' }}>
-                        <NextLink href="/" passHref legacyBehavior>
+                        <NextLink href="/">
                             <Button
-                                as="a"
                                 sx={{
                                     bg: 'red',
                                     color: 'white',
@@ -80,9 +79,8 @@ const EmailVerifiedPage = () => {
                                 Return Home
                             </Button>
                         </NextLink>
-                        <NextLink href="https://hackclub.com/slack" passHref legacyBehavior>
+                        <NextLink href="/slack">
                             <Button
-                                as="a"
                                 variant="outline"
                                 sx={{
                                     py: 3,

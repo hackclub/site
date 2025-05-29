@@ -298,9 +298,8 @@ export default function Page() {
               alignItems: ['start', 'center']
             }}
           >
-            <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
+            <Link href="/fiscal-sponsorship/apply">
               <Button
-                as="a"
                 variant="lg"
                 sx={{
                   bg: 'blue',
@@ -341,9 +340,8 @@ export default function Page() {
               alignItems: 'center'
             }}
           >
-            <Link href="/fiscal-sponsorship/directory" passHref legacyBehavior>
+            <Link href="/fiscal-sponsorship/directory">
               <Button
-                as="a"
                 variant="lg"
                 sx={{
                   bg: 'blue',
@@ -400,10 +398,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                  {
-                    backgroundImage:
-                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                  }
+                {
+                  backgroundImage:
+                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                }
               }}
               style={{ margin: 0 }}
             >
@@ -499,7 +497,7 @@ export default function Page() {
           gap={[4, 5]}
           sx={{ py: 5, p: { fontSize: 2, '&:last-child': { mb: 0 } } }}
         >
-          <Link href="https://outernet.hackclub.com/" legacyBehavior>
+          <Link href="https://outernet.hackclub.com/">
             <Photo
               src={OuternetImgFile}
               alt="Each year, 1000s of teenagers attend Hack Club events like this"
@@ -513,9 +511,7 @@ export default function Page() {
             </Heading>
             <p>
               As{' '}
-              <Link href="/" passHref legacyBehavior>
-                <UILink>Hack Club</UILink>
-              </Link>{' '}
+              <UILink href="/">Hack Club</UILink>{' '}
               grew, we needed a way to empower our members. We currently have
               over 60,000 high schoolers involved in Hack Club with over 400
               clubs around the world.
@@ -596,9 +592,8 @@ export default function Page() {
             gap: 3
           }}
         >
-          <Link href="/fiscal-sponsorship/apply" passHref legacyBehavior>
+          <Link href="/fiscal-sponsorship/apply">
             <Button
-              as="a"
               variant="lg"
               sx={{
                 bg: 'white',

@@ -27,9 +27,8 @@ const Content = () => (
       the first Google search result for "high school hackathons." Your event
       will also be emailed to a network of high school hackers in your area.
     </Text>
-    <Link href="https://hackathons.hackclub.com" passHref legacyBehavior>
+    <Link href="https://hackathons.hackclub.com">
       <Button
-        as="a"
         variant="ctaLg"
         sx={{
           backgroundImage: theme => theme.util.gx('yellow', 'red')

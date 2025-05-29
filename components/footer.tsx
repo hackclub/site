@@ -109,24 +109,12 @@ const Footer: React.FC<FooterProps> = ({
                     <Heading as="h2" variant="subheadline" mb={3}>
                         Hack&nbsp;Club
                     </Heading>
-                    <NextLink href="/philosophy" passHref legacyBehavior>
-                        <Link>Philosophy</Link>
-                    </NextLink>
-                    <NextLink href="/team" passHref legacyBehavior>
-                        <Link>Our Team & Board</Link>
-                    </NextLink>
-                    <NextLink href="/jobs" passHref legacyBehavior>
-                        <Link>Jobs</Link>
-                    </NextLink>
-                    <NextLink href="/brand" passHref legacyBehavior>
-                        <Link>Branding</Link>
-                    </NextLink>
-                    <NextLink href="/press" passHref legacyBehavior>
-                        <Link>Press Inquiries</Link>
-                    </NextLink>
-                    <NextLink href="/philanthropy" passHref legacyBehavior>
-                        <Link>Donate</Link>
-                    </NextLink>
+                    <NextLink href="/philosophy">Philosophy</NextLink>
+                    <NextLink href="/team">Our Team & Board</NextLink>
+                    <NextLink href="/jobs">Jobs</NextLink>
+                    <NextLink href="/brand">Branding</NextLink>
+                    <NextLink href="/press">Press Inquiries</NextLink>
+                    <NextLink href="/philanthropy">Donate</NextLink>
                 </Box>
                 <Box>
                     <Heading as="h2" variant="subheadline" mb={3}>

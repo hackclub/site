@@ -25,9 +25,7 @@ const StyledLink = styled.a`
 const Link = props => {
   const { href } = props
   return (
-    <NextLink href={href} passHref legacyBehavior>
-      <StyledLink>{props.children}</StyledLink>
-    </NextLink>
+    <StyledLink href={href}>{props.children}</StyledLink>
   );
 }
 
