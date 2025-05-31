@@ -163,7 +163,29 @@ const ShipPage = () => {
         <link rel="preload" href={wandImgRendered} as="image" />
       </Head>
 
+      <Box sx={{ bg: '#000000', height: '64px' }} />
       <Nav />
+
+      <Box
+        sx={{
+          bg: '#ff6b35',
+          color: 'white',
+          p: 3,
+          textAlign: 'center',
+          fontSize: 3,
+          fontWeight: 'bold'
+        }}
+      >
+        OnBoard has ended! We gave away $100 PCB grants to 1,000 high schoolers!{' '}
+        <Link
+          href="https://forms.hackclub.com/t/xtYYcGvNTCus"
+          target="_blank"
+          sx={{ color: 'white', textDecoration: 'underline' }}
+        >
+          Sign up here
+        </Link>{' '}
+        to hear about future electronics grants!
+      </Box>
 
       <Box
         as="header"
