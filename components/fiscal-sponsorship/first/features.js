@@ -1,9 +1,9 @@
 import { Box, Heading, Link, Text, Container, Card, Image } from 'theme-ui'
 import Icon from '../../icon'
 import Masonry from 'react-masonry-css'
-import NextImage from 'next/image'
+import NextImage from "next/image"
 
-import Fade from 'react-reveal/Fade'
+import { Fade } from 'react-swift-reveal'
 
 export default function Features() {
   return (
@@ -41,7 +41,6 @@ export default function Features() {
         <br />
         <br />
       </Container>
-
       <Container>
         <Masonry
           breakpointCols={{
@@ -69,7 +68,10 @@ export default function Features() {
                 alt="iPad"
                 width={500}
                 height={300}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
             </Link>
           </ModuleDetails>
 
@@ -102,7 +104,7 @@ export default function Features() {
                 as="div"
                 sx={{
                   backgroundImage:
-                    'url("https://cloud-ehtgzdn7u-hack-club-bot.vercel.app/0card.png")',
+                    'url("https://hc-cdn.hel1.your-objectstorage.com/s/v3/10b1de2fe4eee1d41d06bb30923b8028b04562cb_21_3949a8e1ad212d68350a95b4a06f78f63a80f9cb_0card.webp")',
                   height: '230px',
                   backgroundSize: 'cover',
                   boxShadow: '0 8px 32px rgba(255, 255, 255, 0.0625)'
@@ -265,7 +267,6 @@ export default function Features() {
           are provided by FDIC-certified financial institutions.
         </Text>
       </Container>
-
       <style>{`
       .masonry-posts {
         display: flex;
@@ -318,7 +319,7 @@ export default function Features() {
 
     `}</style>
     </Box>
-  )
+  );
 }
 
 function Module({ icon, name, body, iconColor }) {
@@ -420,7 +421,7 @@ function Laptop({ href, title, sx }) {
           minHeight: '16rem',
           backgroundSize: 'auto 115%',
           backgroundImage:
-            "url('https://cloud-az94fzpyw-hack-club-bot.vercel.app/1poseidon.png')",
+            "url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/15de0d91c011eae79cc0df90cc6af4ad6c9e57f3_22_b094352653c886af043b1a0820b60fb0b1539437_1poseidon.webp')",
           backgroundPosition: 'center top',
           backgroundRepeat: 'no-repeat'
         }}

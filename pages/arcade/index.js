@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Nav from '../../components/nav'
 import Meta from '@hackclub/meta'
 import { Box, Text, Flex, Grid, Card, Close, Divider, Heading } from 'theme-ui'
-import Image from 'next/image'
+import Image from "next/image"
 import fs from 'fs'
 import path from 'path'
 import { startCase } from 'lodash'
@@ -14,7 +14,7 @@ import Ticker from 'react-ticker'
 import PageVisibility from 'react-page-visibility'
 import ArcadeFooter from '../../components/arcade/footer'
 import Balancer from 'react-wrap-balancer'
-import { Fade } from 'react-reveal'
+import { Fade } from 'react-swift-reveal'
 import Join from '../../components/arcade/join'
 import Announcement from '../../components/announcement'
 import Link from 'next/link'
@@ -175,6 +175,13 @@ a {
 }
 `
 
+// Helper function to generate deterministic "random" rotations
+const getDeterministicRotation = (index, seed = 1) => {
+  // Simple deterministic pseudo-random function
+  const hash = (index * seed * 9301 + 49297) % 233280
+  return (hash / 233280.0) - 0.5
+}
+
 const Powerups = ({
   img,
   text,
@@ -294,7 +301,8 @@ const Powerups = ({
           }
         }}
         onClick={() => {
-          document.getElementById(`${text}-info`).showModal()
+          const dialog = document.getElementById(`${text}-info`)
+          if (dialog) dialog.showModal()
         }}
       >
         📦
@@ -324,7 +332,8 @@ const Powerups = ({
             zIndex: 2
           }}
           onClick={() => {
-            document.getElementById(`${text}-info`).close()
+            const dialog = document.getElementById(`${text}-info`)
+            if (dialog) dialog.close()
           }}
         />
         <Flex
@@ -453,21 +462,42 @@ const Intro = ({ title, num, text, img, third, ...props }) => {
   )
 }
 
-const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
+const Tickets = ({ title, num, link, bugEater, children, ...props }) => {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  const handleClick = () => {
+    if (bugEater && isMounted) {
+      generateProjectIdea()
+    }
+  }
+
+  // Use div instead of Card with href when no link is provided
+  const Component = link ? Card : 'div'
+  const componentProps = link ? {
+    variant: "interactive",
+    as: "a",
+    href: link
+  } : {}
+
   return (
-    <Card
-      variant="interactive"
-      as="a"
-      href={link}
+    <Component
+      {...componentProps}
       sx={{
         background: '#FAEFD6',
-        padding: '20px !important',
+        padding: '20px',
         borderRadius: '5px',
         position: 'relative',
         color: '#35290F',
         border: '3px dashed #5E3414',
-        height: '100%'
+        height: '100%',
+        cursor: bugEater ? 'pointer' : link ? 'pointer' : 'default',
+        textDecoration: 'none'
       }}
+      onClick={handleClick}
       {...props}
     >
       <Text
@@ -481,114 +511,105 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
       >
         {title}
       </Text>
-      <Text
-        as="p"
-        sx={{
-          fontSize: [1, 2, 2],
-          display: 'block'
-        }}
-      >
-        {text}
-      </Text>
-      {bugEater && (
-        <>
-          <Box>
-            <Text
-              id="console"
-              variant="caption"
-              sx={{
-                textAlign: 'center',
-                display: 'block',
-                width: '100%',
-                opacity: 0
-              }}
-            >
-              Click me for ideas!
-            </Text>
-            <Text
-              variant="caption"
-              id="console2"
-              sx={{
-                textAlign: 'center',
-                display: 'block',
-                width: '100%'
-              }}
-            >
-              Click me for ideas!
-            </Text>
+      <div sx={{ fontSize: [1, 2, 2] }}>
+        {children}
+      </div>
+      {bugEater && isMounted && (
+        <div>
+          <Text
+            id="console"
+            variant="caption"
+            sx={{
+              textAlign: 'center',
+              display: 'block',
+              width: '100%',
+              opacity: 0
+            }}
+          >
+            Click me for ideas!
+          </Text>
+          <Text
+            variant="caption"
+            id="console2"
+            sx={{
+              textAlign: 'center',
+              display: 'block',
+              width: '100%'
+            }}
+          >
+            Click me for ideas!
+          </Text>
+          <Box
+            className="hidden"
+            sx={{
+              textAlign: 'center',
+              color: '#5E3414',
+              transform: [
+                'scale(1)',
+                'scale(0.8)',
+                'scale(0.8)',
+                'scale(0.8)'
+              ],
+              mt: [null, '-40px', '-20px', null]
+            }}
+          >
             <Box
-              className="hidden"
               sx={{
-                textAlign: 'center',
-                color: '#5E3414',
-                transform: [
-                  'scale(1)',
-                  'scale(0.8)',
-                  'scale(0.8)',
-                  'scale(0.8)'
-                ],
-                mt: ['null', '-40px', '-20px', null]
+                justifyContent: 'center',
+                pt: ['120px', '140px', '140px', '140px'],
+                pb: [7, 7, 7, 7],
+                mt: ['40px', '-20px', '10px', '-50px'],
+                mb: ['40px', '50px', '100px', '-50px'],
+                display: 'grid',
+                background:
+                  'url(/arcade/arcade_bg.png) no-repeat center center',
+                backgroundSize: 'contain',
+                cursor: 'pointer'
               }}
             >
-              <Box
-                onClick={generateProjectIdea}
+              <Text
+                id="project-idea"
+                className="thought"
                 sx={{
-                  justifyContent: 'center',
-                  pt: ['120px', '140px', '140px', '140px'],
-                  pb: [7, 7, 7, 7],
-                  mt: ['40px', '-20px', '10px', '-50px'],
-                  mb: ['40px', '50px', '100px', '-50px'],
-                  display: 'grid',
-                  background:
-                    'url(/arcade/arcade_bg.png) no-repeat center center',
-                  backgroundSize: 'contain',
-                  cursor: 'pointer'
+                  transform: [
+                    'scale(0.7)',
+                    'scale(1)',
+                    'scale(1)',
+                    'scale(1)'
+                  ],
+                  mb: [
+                    '-40px !important',
+                    '10px !important',
+                    '10px !important',
+                    '10px !important'
+                  ]
                 }}
-              >
-                <Text
-                  id="project-idea"
-                  className="thought"
-                  sx={{
-                    transform: [
-                      'scale(0.7)',
-                      'scale(1)',
-                      'scale(1)',
-                      'scale(1)'
-                    ],
-                    mb: [
-                      '-40px !important',
-                      '10px !important',
-                      '10px !important',
-                      '10px !important'
-                    ]
-                  }}
-                ></Text>
-                <img
-                  src="https://cloud-ocoecqzgs-hack-club-bot.vercel.app/0screenshot_2024-06-13_at_22.01.02.png"
-                  className="hoverable"
-                  alt="Need an idea?"
-                  sx={{
-                    margin: '0 auto',
-                    display: 'inline',
-                    width: 'auto',
-                    height: '8em',
-                    mb: ['-120px', '-20px', '-30px', '-30px'],
-                    transform: [
-                      'scale(0.7)',
-                      'scale(1)',
-                      'scale(1)',
-                      'scale(1)'
-                    ]
-                  }}
-                  id="generate-project-idea"
-                />
-              </Box>
-              <Box></Box>
+              ></Text>
+              <img
+                src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/766aeb62514baeaa488e3c409b8a7409053cf1f3_138_fff613ce81ce31cde4a2d717a1a9f73b1265f767_0screenshot_2024-06-13_at_22.01.02.webp"
+                className="hoverable"
+                alt="Need an idea?"
+                sx={{
+                  margin: '0 auto',
+                  display: 'inline',
+                  width: 'auto',
+                  height: '8em',
+                  mb: ['-120px', '-20px', '-30px', '-30px'],
+                  transform: [
+                    'scale(0.7)',
+                    'scale(1)',
+                    'scale(1)',
+                    'scale(1)'
+                  ]
+                }}
+                id="generate-project-idea"
+              />
             </Box>
+            <Box></Box>
           </Box>
-        </>
+        </div>
       )}
-    </Card>
+    </Component>
   )
 }
 
@@ -626,7 +647,10 @@ const Sticker = ({ st }) => {
             width={128}
             height={128}
             alt={st.split('.')[0]}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
           <Text
             as="span"
             variant="caption"
@@ -644,19 +668,19 @@ const Sticker = ({ st }) => {
           sx={{
             content: '"hi"',
             position: 'absolute',
-            bottom: '-20px', // Position the triangle at the bottom
+            bottom: '-20px',
             left: '50%',
             transform: 'translateX(-50%)',
             width: '0',
             height: '0',
             borderLeft: '10px solid transparent',
             borderRight: '10px solid transparent',
-            borderTop: '20px solid #D0BF97' // Same color as the box background
+            borderTop: '20px solid #D0BF97'
           }}
         />
       </Box>
     </Box>
-  )
+  );
 }
 
 const Item = ({ name, img, cost }) => {
@@ -733,83 +757,85 @@ const FAQ = ({ question, answer }) => {
     </Box>
   )
 }
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max)
 }
 
-let yap_sounds = {
-  // ty caleb!
-  thinking: [
-    new Howl({ src: '/bin/yapping/thonk1.wav' }),
-    new Howl({ src: '/bin/yapping/thonk2.wav' }),
-    new Howl({ src: '/bin/yapping/thonk3.wav' })
-  ],
-  talking: {
-    // these sounds and most of the yapping code are adapted from https://github.com/equalo-official/animalese-generator
-    a: new Howl({ src: '/bin/yapping/a.wav', volume: 0.16 }),
-    b: new Howl({ src: '/bin/yapping/b.wav', volume: 0.16 }),
-    c: new Howl({ src: '/bin/yapping/c.wav', volume: 0.16 }),
-    d: new Howl({ src: '/bin/yapping/d.wav', volume: 0.16 }),
-    e: new Howl({ src: '/bin/yapping/e.wav', volume: 0.16 }),
-    f: new Howl({ src: '/bin/yapping/f.wav', volume: 0.16 }),
-    g: new Howl({ src: '/bin/yapping/g.wav', volume: 0.16 }),
-    h: new Howl({ src: '/bin/yapping/h.wav', volume: 0.16 }),
-    i: new Howl({ src: '/bin/yapping/i.wav', volume: 0.16 }),
-    j: new Howl({ src: '/bin/yapping/j.wav', volume: 0.16 }),
-    k: new Howl({ src: '/bin/yapping/k.wav', volume: 0.16 }),
-    l: new Howl({ src: '/bin/yapping/l.wav', volume: 0.16 }),
-    m: new Howl({ src: '/bin/yapping/m.wav', volume: 0.16 }),
-    n: new Howl({ src: '/bin/yapping/n.wav', volume: 0.16 }),
-    o: new Howl({ src: '/bin/yapping/o.wav', volume: 0.16 }),
-    p: new Howl({ src: '/bin/yapping/p.wav', volume: 0.16 }),
-    q: new Howl({ src: '/bin/yapping/q.wav', volume: 0.16 }),
-    r: new Howl({ src: '/bin/yapping/r.wav', volume: 0.16 }),
-    s: new Howl({ src: '/bin/yapping/s.wav', volume: 0.16 }),
-    t: new Howl({ src: '/bin/yapping/t.wav', volume: 0.16 }),
-    u: new Howl({ src: '/bin/yapping/u.wav', volume: 0.16 }),
-    v: new Howl({ src: '/bin/yapping/v.wav', volume: 0.16 }),
-    w: new Howl({ src: '/bin/yapping/w.wav', volume: 0.16 }),
-    x: new Howl({ src: '/bin/yapping/x.wav', volume: 0.16 }),
-    y: new Howl({ src: '/bin/yapping/y.wav', volume: 0.16 }),
-    z: new Howl({ src: '/bin/yapping/z.wav', volume: 0.16 }),
-    th: new Howl({ src: '/bin/yapping/th.wav', volume: 0.16 }),
-    sh: new Howl({ src: '/bin/yapping/sh.wav', volume: 0.16 }),
-    _: new Howl({ src: '/bin/yapping/_.wav', volume: 0.16 })
+let yap_sounds = null
+
+// Initialize sounds only on client side
+if (typeof window !== 'undefined') {
+  yap_sounds = {
+    thinking: [
+      new Howl({ src: '/bin/yapping/thonk1.wav' }),
+      new Howl({ src: '/bin/yapping/thonk2.wav' }),
+      new Howl({ src: '/bin/yapping/thonk3.wav' })
+    ],
+    talking: {
+      a: new Howl({ src: '/bin/yapping/a.wav', volume: 0.16 }),
+      b: new Howl({ src: '/bin/yapping/b.wav', volume: 0.16 }),
+      c: new Howl({ src: '/bin/yapping/c.wav', volume: 0.16 }),
+      d: new Howl({ src: '/bin/yapping/d.wav', volume: 0.16 }),
+      e: new Howl({ src: '/bin/yapping/e.wav', volume: 0.16 }),
+      f: new Howl({ src: '/bin/yapping/f.wav', volume: 0.16 }),
+      g: new Howl({ src: '/bin/yapping/g.wav', volume: 0.16 }),
+      h: new Howl({ src: '/bin/yapping/h.wav', volume: 0.16 }),
+      i: new Howl({ src: '/bin/yapping/i.wav', volume: 0.16 }),
+      j: new Howl({ src: '/bin/yapping/j.wav', volume: 0.16 }),
+      k: new Howl({ src: '/bin/yapping/k.wav', volume: 0.16 }),
+      l: new Howl({ src: '/bin/yapping/l.wav', volume: 0.16 }),
+      m: new Howl({ src: '/bin/yapping/m.wav', volume: 0.16 }),
+      n: new Howl({ src: '/bin/yapping/n.wav', volume: 0.16 }),
+      o: new Howl({ src: '/bin/yapping/o.wav', volume: 0.16 }),
+      p: new Howl({ src: '/bin/yapping/p.wav', volume: 0.16 }),
+      q: new Howl({ src: '/bin/yapping/q.wav', volume: 0.16 }),
+      r: new Howl({ src: '/bin/yapping/r.wav', volume: 0.16 }),
+      s: new Howl({ src: '/bin/yapping/s.wav', volume: 0.16 }),
+      t: new Howl({ src: '/bin/yapping/t.wav', volume: 0.16 }),
+      u: new Howl({ src: '/bin/yapping/u.wav', volume: 0.16 }),
+      v: new Howl({ src: '/bin/yapping/v.wav', volume: 0.16 }),
+      w: new Howl({ src: '/bin/yapping/w.wav', volume: 0.16 }),
+      x: new Howl({ src: '/bin/yapping/x.wav', volume: 0.16 }),
+      y: new Howl({ src: '/bin/yapping/y.wav', volume: 0.16 }),
+      z: new Howl({ src: '/bin/yapping/z.wav', volume: 0.16 }),
+      th: new Howl({ src: '/bin/yapping/th.wav', volume: 0.16 }),
+      sh: new Howl({ src: '/bin/yapping/sh.wav', volume: 0.16 }),
+      _: new Howl({ src: '/bin/yapping/_.wav', volume: 0.16 })
+    }
   }
 }
 
 async function yap(text, letterCallback) {
+  if (!yap_sounds) return
+
   text = text.toLowerCase()
   const yap_queue = []
   for (let i = 0; i < text.length; i++) {
     const char = text[i]
     try {
       if (char === 's' && text[i + 1] === 'h') {
-        // test for 'sh' sound
         yap_queue.push(yap_sounds.talking['sh'])
         continue
       } else if (char === 't' && text[i + 1] === 'h') {
-        // test for 'th' sound
         yap_queue.push(yap_sounds.talking['th'])
         continue
       } else if (char === 'h' && (text[i - 1] === 's' || text[i - 1] === 't')) {
-        // test if previous letter was 's' or 't' and current letter is 'h'
         yap_queue.push(yap_sounds.talking['_'])
         continue
       } else if (char === ',' || char === '?' || char === '.') {
         yap_queue.push(yap_sounds.talking['_'])
         continue
       } else if (char === text[i - 1]) {
-        // skip repeat letters
         yap_queue.push(yap_sounds.talking['_'])
         continue
       }
     } catch (e) {
-      // who cares. pick up a foot ball
+      // ignore
     }
     if (!char.match(/[a-zA-Z.]/)) {
       yap_queue.push(yap_sounds.talking['_'])
-      continue // skip characters that are not letters or periods
+      continue
     }
     yap_queue.push(yap_sounds.talking[char])
   }
@@ -827,45 +853,51 @@ async function yap(text, letterCallback) {
 }
 
 async function generateProjectIdea() {
-  if (
-    document
-      .querySelector('#generate-project-idea')
-      .classList.contains('disabled')
-  ) {
+  const generateButton = document.querySelector('#generate-project-idea')
+  const console1 = document.querySelector('#console')
+  const console2 = document.querySelector('#console2')
+  const projectIdea = document.querySelector('#project-idea')
+
+  if (!generateButton || !console1 || !console2 || !projectIdea) return
+
+  if (generateButton.classList.contains('disabled')) {
     return
   }
 
-  yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play()
-  document.querySelector('#generate-project-idea').style.marginTop = '0px'
-  document.querySelector('#console').style.marginTop = '-50px'
-  document.querySelector('#console2').style.opacity = '0'
-  document.querySelector('#project-idea').style.opacity = '1'
-  document.querySelector('#generate-project-idea').classList.add('disabled')
-  document.querySelector('#project-idea').innerHTML =
-    '<em>' + thinkingWords() + '...' + '</em>'
-  document.querySelector('#generate-project-idea').src =
-    'https://cloud-g5g5sistf-hack-club-bot.vercel.app/1untitled_artwork_8_1.png'
-  let text = ''
-  const res = await fetch('/api/arcade/openai/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify()
-  })
+  if (yap_sounds) {
+    yap_sounds.thinking[getRandomInt(yap_sounds.thinking.length)].play()
+  }
 
-  const json = await res.json()
-  text = json.recommendation
-  document.querySelector('#project-idea').innerHTML = ''
-  document.querySelector('#generate-project-idea').src =
-    'https://cloud-81d1s66l7-hack-club-bot.vercel.app/0untitled_artwork_9_1.png'
-  document.querySelector('#generate-project-idea').classList.remove('disabled')
-  // document.querySelector('#generate-project-idea').classList.add('talking')
+  generateButton.style.marginTop = '0px'
+  console1.style.marginTop = '-50px'
+  console2.style.opacity = '0'
+  projectIdea.style.opacity = '1'
+  generateButton.classList.add('disabled')
+  projectIdea.innerHTML = '<em>' + thinkingWords() + '...' + '</em>'
+  generateButton.src = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/39ba13a79b6e397ecc56ef7db8af62e294b34140_139_02716a4e8d7135c74a9b91b041fcf144e6263a29_1untitled_artwork_8_1.webp'
+
+  let text = ''
+  try {
+    const res = await fetch('/api/arcade/openai/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify()
+    })
+
+    const json = await res.json()
+    text = json.recommendation
+  } catch (error) {
+    text = 'Try building a web app, mobile app, or hardware project!'
+  }
+
+  projectIdea.innerHTML = ''
+  generateButton.src = 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/74e5cb83518ff6908004a578fa913f7fb5a7cf26_140_ea321eb1cb1c26789733d12f46aff4c1205b323f_0untitled_artwork_9_1.webp'
+  generateButton.classList.remove('disabled')
+
   yap(text, i => {
-    document.querySelector('#project-idea').innerHTML = text.slice(
-      0,
-      Math.max(text.length - i + 1, 0)
-    )
+    projectIdea.innerHTML = text.slice(0, Math.max(text.length - i + 1, 0))
   })
 }
 
@@ -889,6 +921,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
   const [showForm, setForm] = useState(false)
   const [formSent, setFormSent] = useState(false)
   const [isRevealed, setIsRevealed] = useState(false)
+  const [pageIsVisible, setPageIsVisible] = useState(true)
 
   const handleButtonClick = () => {
     setIsRevealed(!isRevealed)
@@ -900,7 +933,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
   const slack = query.param
 
   const generateRandomNumber = () => {
-    const newRandomNumber = Math.floor(Math.random() * stickers.length) // Generate a random number between 0 and 99
+    const newRandomNumber = Math.floor(Math.random() * stickers.length)
     setNum(newRandomNumber)
   }
 
@@ -917,17 +950,17 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
     generateRandomNumber()
   }
 
-  const [pageIsVisible, setPageIsVisible] = useState(true)
   const handleVisibilityChange = isVisible => {
     setPageIsVisible(isVisible)
   }
+
   return (
     <>
       <Meta
         as={Head}
         title="Arcade"
         description="The ultimate summer hackathon for high schoolers. Make projects. Track your hours. Redeem for Prizes."
-        image="https://cloud-249autgay-hack-club-bot.vercel.app/0frame_70.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c4f1ebc1328e9a41e962f3abf5bd677832abd15b_141_23fe90b47d4ba7b045eb5e5f2442afc5d2df6838_0frame_70.webp"
       />
       <Head>
         <meta
@@ -958,7 +991,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             copy="You were redirected as we're running a special summer event!"
             caption="To join our Slack, join ARCADE."
             href="/arcade/"
-            imgSrc="https://cloud-gyu8zgkki-hack-club-bot.vercel.app/0_______.png"
+            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/1729a0db07ab94960b0e524b50064da1863a96a5_142_0b0802bac010e90625b4da91382da007d72ff8c7_0_______.webp"
           />
         ) : (
           <></>
@@ -1001,7 +1034,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                     marginBottom: '16px',
                     margin: 'auto'
                   }}
-                  src="https://cloud-e3wj9s4pe-hack-club-bot.vercel.app/00combo__1_.png"
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c56871380344ce9df20d53d4fecd5d7f398ae90c_143_dbbc2c76471c9cd3e95fa1680376519f5f1aa199_00combo__1_.webp"
                 />
               </Box>
             </Fade>
@@ -1012,26 +1045,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 sx={{
                   color: '#FF5C00',
                   textAlign: ['center', 'center', 'center', 'left'],
-
                   fontSize: ['50px', '70px', '80px', '85px']
                 }}
               >
                 ARCADE
               </Text>
             </Fade>
-            {/* <Fade delay={350}>
-              <Text
-                sx={{
-                  display: 'block',
-                  textAlign: ['center', 'center', 'center', 'left'],
-                  py: ['10px', '12px', '13px'],
-                  fontSize: ['40px', '55px', '55px']
-                }}
-                variant="title"
-              >
-                Build something cool.
-              </Text>
-            </Fade> */}
             <Fade delay={450}>
               <Text
                 sx={{
@@ -1044,26 +1063,7 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 variant="title"
               >
                 The summer is yours for the making
-                {/* Get free tools
-                <br />
-                & build something cool */}
-                {/* Get free tools to build something cool. */}
-                {/* <br /> */}
-                {/* This summer is yours. */}
               </Text>
-            </Fade>
-            <Fade delay={550}>
-              {/* <Text
-                sx={{
-                  display: 'block',
-                  textAlign: ['center', 'center', 'center', 'left'],
-                  py: ['10px', '12px', '13px'],
-                  fontSize: ['40px', '55px', '55px']
-                }}
-                variant="title"
-              >
-                This summer is yours.
-              </Text> */}
             </Fade>
             <Fade delay={650}>
               <Join
@@ -1086,12 +1086,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                   }}
                 >
                   The Arcade closed September 1st, but you can still join the <a
-                      href="https://hackclub.com/slack"
-                      target="_blank"
-                      sx={{ color: 'inherit' }}
-                    >
-                      Hack Club Slack
-                    </a>!
+                    href="https://hackclub.com/slack"
+                    target="_blank"
+                    sx={{ color: 'inherit' }}
+                  >
+                    Hack Club Slack
+                  </a>!
                 </Text>
               )}
             </Fade>
@@ -1147,21 +1147,10 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             pt: 1
           }}
         >
-          {/* <Text
-            variant="headline"
-            sx={{ display: 'block', textAlign: 'center' }}
-          >
-            Calling high school makers: Join{' '}
-            <Text className="slackey arcade3" sx={{ color: '#5E3414' }}>
-              ARCADE
-            </Text>
-            .
-          </Text> */}
           <Text
             variant="title"
             sx={{ display: 'block', textAlign: 'center', pb: 3 }}
           >
-            {/* What are you waiting for? */}
             How to play
           </Text>
           <Flex
@@ -1207,29 +1196,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                   display: ['none', 'none', 'block', 'block']
                 }}
               />
-              {/* <Text
-                sx={{
-                  textAlign: 'center',
-                  fontSize: [2, 4, 5],
-                  width: '100%',
-                  display: 'block',
-                  transform: [
-                    'rotate(0deg)',
-                    'rotate(0deg)',
-                    'rotate(3deg)',
-                    'rotate(3deg)'
-                  ],
-                  position: 'absolute',
-                  left: '0vw',
-                  bottom: '-50px',
-                  zIndex: '3'
-                }}
-                className="gaegu"
-              >
-                <Text sx={{ background: '#5E3414', px: 2, py: 1 }}>
-                  Hack. Rinse. Repeat.
-                </Text>
-              </Text> */}
             </Flex>
             <Flex
               sx={{
@@ -1323,9 +1289,9 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 transform: 'rotate(-7deg) scale(1.1)',
                 zIndex: 10,
                 position: 'relative',
-                marginBottom: ['-900px', '-820px', '-850px', '-1020px'],
+                marginBottom: 0,
                 marginTop: ['120px', '120px', '120px', '150px'],
-                width: ['110vw','105vw']
+                width: ['110vw', '105vw']
               }}
             >
               <Ticker speed={5}>
@@ -1370,7 +1336,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
           position: 'relative'
         }}
       >
-        {/* <Balancer> */}
         <Text
           variant="headline"
           sx={{
@@ -1399,12 +1364,11 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               justifyContent: 'space-between'
             }}
           >
-            {showComponent && <Sticker st={stickers[showNum]} />}
+            {showComponent && showNum !== false && <Sticker st={stickers[showNum]} />}
             free stickers
           </Text>{' '}
           and code with other high schoolers!
         </Text>
-        {/* </Balancer> */}
         <Join
           showForm={showForm}
           setForm={setForm}
@@ -1473,11 +1437,16 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               alignItems: 'stretch'
             }}
           >
-            <Tickets
-              title="Build whatever you want!"
-              text={
+            <Box sx={{
+              gridColumn: ['', 'span 2', 'span 2', 'span 2'],
+              minHeight: ['700px', '700px', '700px', 'auto']
+            }}>
+              <Tickets
+                title="Build whatever you want!"
+                num="Infinite"
+              >
                 <>
-                  <p>
+                  <p sx={{ fontSize: [2, 2, 3], display: 'block', pb: 2 }}>
                     Any technical project counts. You could build an AR game,
                     pixel art display, drawing robot, and more! Anytime you work
                     on your project, start the hack hour timer. You earn a
@@ -1542,25 +1511,11 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                     </li>
                   </ul>
                 </>
-              }
-              num="Infinite"
-              sx={{
-                gridColumn: ['', 'span 2', 'span 2', 'span 2'],
-                h1: {
-                  fontSize: [3, 4, 5]
-                },
-                p: {
-                  fontSize: [2, 2, 3],
-                  display: 'block',
-                  pb: 2
-                },
-                minHeight: ['700px', '700px', '700px', 'auto']
-              }}
-            />
+              </Tickets>
+            </Box>
             <Tickets
               title="Not sure what to make?"
               bugEater={true}
-              text={<>Click me for ideas!</>}
               sx={{
                 '&ul>li': {
                   color: 'inherit'
@@ -1568,7 +1523,9 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 gridColumn: ['span 2', 'span 2', 'span 2', 'span 1'],
                 minHeight: 'auto'
               }}
-            />
+            >
+              Click me for ideas!
+            </Tickets>
             <img
               src="/arcade/r5.png"
               sx={{
@@ -1635,14 +1592,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             margin: 'auto',
             textAlign: 'center',
             mt: '-50px'
-            // pb: '50px'
           }}
           id="shop"
         >
           <Balancer>
             <Text variant="title" sx={{ display: 'block' }}>
               <Text
-                //  onClick={handleButtonClick}
                 sx={{
                   background: '#FF8C37',
                   color: '#FFEEC6',
@@ -1669,14 +1624,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             only.
           </Text>
 
-          {/* <Text
-            variant="caption"
-            className="gaegu"
-            sx={{ mt: 2, display: 'block' }}
-          >
-            All physical items only fulfillable where Amazon can be shipped
-            unless otherwise stated.
-          </Text> */}
           <Grid
             sx={{
               pt: '50px',
@@ -1695,10 +1642,10 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
                 fulfillmentDescription={item['Fulfillment Description']}
                 extraTags={item['Extra tags']}
                 polaroidRotation={
-                  (2 + Math.random() * 4) * (i % 2 === 0 ? 1 : -1)
+                  (2 + getDeterministicRotation(i, 123) * 4) * (i % 2 === 0 ? 1 : -1)
                 }
                 ticketRotation={
-                  (12 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
+                  (12 + getDeterministicRotation(i, 456) * 14) * (getDeterministicRotation(i, 789) > 0 ? 1 : -1)
                 }
                 key={i}
               />
@@ -1793,7 +1740,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
             <Grid
               sx={{
                 gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
-                // width: '100%',
                 width: '90vw',
                 maxWidth: '1200px',
                 margin: 'auto',
@@ -1843,14 +1789,12 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               width: ['70vw', '50vw', '60vw', '70vw'],
               maxWidth: '1200px',
               ml: ['10vw'],
-
               paddingTop: '50px',
               marginBottom: '-50px',
               gap: ['10px', '10px', '2vw', '0vw'],
               flexDirection: 'column'
             }}
           >
-            {/* <Balancer> */}
             <Text
               variant="headline"
               sx={{
@@ -1870,7 +1814,6 @@ const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
               <br />
               Build real projects. <br /> Share it with friends.
             </Text>
-            {/* </Balancer> */}
             <Join
               showForm={showForm}
               setForm={setForm}
@@ -1919,9 +1862,7 @@ export async function getStaticProps() {
 
   const highlightedItems = items
     .filter(item => item['Enabled Highlight'])
-    .sort((_a, _b) => Math.random() - 0.5 > 0)
     .map(record => ({
-      // id: record['ID'],
       'Image URL': record['Image URL'] || null,
       Name: record['Name'] || null,
       'Small Name': record['Small Name'] || null,

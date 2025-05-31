@@ -73,7 +73,7 @@ export const regions = [
     iconColor: 'red',
     icon: 'photo',
     image:
-      'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png',
+      'https://hc-cdn.hel1.your-objectstorage.com/s/v3/8e7517599a021bb6704dbc2f9ddad4107e6f9ec1_168_48f7f12a0a2a2595ef6a5d29f6b30cd4c67a4953_3north_america.webp',
     ogImage: '/fiscal-sponsorship/climate/NorthAmerica.png'
   },
   {
@@ -82,7 +82,7 @@ export const regions = [
     iconColor: 'orange',
     icon: 'photo',
     image:
-      'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png',
+      'https://hc-cdn.hel1.your-objectstorage.com/s/v3/d4b40735ce84c9e0cd24463258c9f2d3dff07b0a_169_59c4da67c94f026baba2df1ac0c7cd86cf90f664_4south_america.webp',
     ogImage: '/fiscal-sponsorship/climate/SouthAmerica.png'
   },
   {
@@ -90,7 +90,7 @@ export const regions = [
     color: 'secondary',
     iconColor: 'purple',
     icon: 'explore',
-    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/0africa.png',
+    image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/0c06fd36b025bd3fbd92e80624b9682f7a01f8ed_170_309aadddf4d425756c0260a581b828a4926bd086_0africa.webp',
     ogImage: '/fiscal-sponsorship/climate/Africa.png'
   },
   {
@@ -98,7 +98,7 @@ export const regions = [
     color: 'secondary',
     iconColor: 'blue',
     icon: 'explore',
-    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/1europe.png',
+    image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/f0c7019d0afff290e76804a9df164da1f1ec258b_171_5b09665941ac4a20100a62c4775366010c2fd249_1europe.webp',
     ogImage: '/fiscal-sponsorship/climate/Europe.png'
   },
   {
@@ -107,7 +107,7 @@ export const regions = [
     iconColor: 'green',
     icon: 'explore',
     image:
-      'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png',
+      'https://hc-cdn.hel1.your-objectstorage.com/s/v3/8f0d4583e86a460ab369943ed04abfbc80fdf3a9_172_dce05206531425ec2f06d7ef85a51cb46f013223_0asia___oceania.webp',
     ogImage: '/fiscal-sponsorship/climate/Asia+Oceania.png'
   }
 ]
@@ -131,8 +131,8 @@ const FilterPanel = ({ filter, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-                color: 'blue'
-              }
+              color: 'blue'
+            }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -223,7 +223,7 @@ const FilterPanel = ({ filter, mobile }) => {
               textDecoration: 'none',
               color:
                 currentSelections.length === baseData.length ||
-                !currentSelections.includes(item.id)
+                  !currentSelections.includes(item.id)
                   ? 'black'
                   : 'primary',
               transition: 'color 0.2s',
@@ -303,8 +303,8 @@ const RegionPanel = ({ currentRegion, mobile }) => {
           cursor: mobile ? 'pointer' : 'default',
           ':hover': mobile
             ? {
-                color: 'blue'
-              }
+              color: 'blue'
+            }
             : {}
         }}
         onClick={() => setHiddenOnMobile(!hiddenOnMobile)}
@@ -350,7 +350,6 @@ const RegionPanel = ({ currentRegion, mobile }) => {
               },
               width: 'fit-content'
             }}
-            as="a"
           >
             <Flex
               sx={{
@@ -383,8 +382,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
             scroll={false}
             href={`/fiscal-sponsorship/climate/organizations-in-${kebabCase(
               item.label
-            )}`}
-          >
+            )}`}>
             <Flex
               sx={{
                 alignItems: 'center',
@@ -445,7 +443,7 @@ const RegionPanel = ({ currentRegion, mobile }) => {
         ))}
       </Flex>
     </>
-  )
+  );
 }
 
 const Filtering = ({ mobile, region, ...props }) => {
@@ -879,7 +877,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
             minHeight: ['70vh', 'none'],
             textAlign: 'center',
             backgroundImage:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://cloud-ff8eau8q5-hack-club-bot.vercel.app/0jeremy-bishop-ewkxn5capa4-unsplash.jpg')",
+              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/05ff33ce42ad0b431a9dbf374fad3a2e6bc1e4bb_173_1cdd411490bd12f55635f4e071d933bb477e47a7_0jeremy-bishop-ewkxn5capa4-unsplash.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             display: 'flex',
@@ -1114,7 +1112,7 @@ export default function ClimatePage({ rawOrganizations, pageRegion }) {
                   return (
                     currentBadges.length === badges.length ||
                     intersection(organizationBadgeIds, currentBadges).length ===
-                      currentBadges.length
+                    currentBadges.length
                   )
                 })
                 .map(organization => (
@@ -1301,7 +1299,7 @@ export async function fetchRawClimateOrganizations() {
   while (lastLength >= 100) {
     const json = await fetch(
       'https://hcb.hackclub.com/api/v3/directory/organizations?per_page=100&page=' +
-        page
+      page
     ).then(res => res.json())
     lastLength = json.length
     page++

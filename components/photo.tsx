@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { Box, Card, Text, useColorMode } from 'theme-ui'
-import Image from 'next/image'
+import { Box, Card, Text, useColorMode, ThemeUIStyleObject } from 'theme-ui'
+import Image from "next/image"
 import theme from '../lib/theme'
 import React from 'react'
 
@@ -15,9 +15,21 @@ const Caption = styled(Text)`
   width: 100%;
   max-width: 100%;
   z-index: 0;
+  color: black;
 `
 
-const Photo = React.forwardRef(function Photo(
+interface PhotoProps extends React.ComponentPropsWithoutRef<typeof Card> {
+  src: string
+  width?: number
+  height?: number
+  alt?: string
+  showAlt?: boolean
+  dark?: boolean
+  loading?: 'lazy' | 'eager'
+  sx?: ThemeUIStyleObject
+}
+
+const Photo = React.forwardRef<HTMLDivElement, PhotoProps>(function Photo(
   { src, width, height, alt, showAlt, dark, loading, ...props },
   ref
 ) {
@@ -42,12 +54,13 @@ const Photo = React.forwardRef(function Photo(
     >
       <Image
         src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        layout="responsive"
+        alt={alt || ''}
         loading={loading || 'lazy'}
-      />
+        sizes="100vw"
+        fill
+        style={{
+          objectFit: "cover",
+        }} />
       {showCaption && (
         <Caption
           as="figcaption"
@@ -57,7 +70,7 @@ const Photo = React.forwardRef(function Photo(
         </Caption>
       )}
     </Card>
-  )
+  );
 })
 
 export default Photo

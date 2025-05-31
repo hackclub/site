@@ -1,6 +1,6 @@
 import CardModel from './card-model'
 import { Box, Grid, Heading, Text } from 'theme-ui'
-import { Fade } from 'react-reveal'
+import { Fade } from 'react-swift-reveal'
 import Buttons from './button'
 
 /** @jsxImportSource theme-ui */
@@ -35,7 +35,7 @@ export default function Bank({ data }) {
               world-class events.
             </Text>
             <Text as="p" variant="subtitle">
-              This platform is built and maintained by the Hack&nbsp;Club team.
+              Built by Hack Club, for <i>you.</i> Run high school hackathons, open source collectives, and anything else you can imagine.
             </Text>
             <Buttons
               id="27"

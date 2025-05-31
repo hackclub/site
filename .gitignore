@@ -12,3 +12,4 @@ bun.lockb
 .yarn
 .yarnrc.yml
 .env*.local
+screenshots

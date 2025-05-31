@@ -1,4 +1,5 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from 'next/document'
+import Document from 'next/document'
 // import { InitializeColorMode } from 'theme-ui'
 
 const org = {
@@ -24,7 +25,7 @@ const org = {
   ]
 }
 
-class MyDocument extends Document {
+export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
@@ -39,6 +40,9 @@ class MyDocument extends Document {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(org) }}
           />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="preconnect" href="https://hc-cdn.hel1.your-objectstorage.com" />
         </Head>
         <body>
           {/* <InitializeColorMode /> */}
@@ -49,5 +53,3 @@ class MyDocument extends Document {
     )
   }
 }
-
-export default MyDocument

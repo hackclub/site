@@ -4,7 +4,7 @@ import Head from 'next/head'
 import ForceTheme from '../../components/force-theme'
 import BGImg from '../../components/background-image'
 import NextLink from 'next/link'
-import Image from 'next/image'
+import Image from "next/image"
 import Nav from '../../components/nav'
 import SlideDown from '../../components/slide-down'
 import Footer from '../../components/footer'
@@ -17,7 +17,7 @@ const Page = ({ upcoming, past }) => (
       as={Head}
       title="AMAs"
       description="Every month, the Hack Club community gets on a Zoom call with someone awesome for a 1-hour AMA. Past guests have included George Hotz, Elon Musk, Limor Fried, Tom Preston-Werner, & more."
-      image="https://cloud-n6i5i4zb9-hack-club-bot.vercel.app/62020-07-24_03dp4nhf5acfeyhvg84whafyhe1q30zq.jpeg"
+      image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c4962505a739743d701eb87a3b4d2775777450f4_131_947c7d6745806e0750bcfd5815593bdfec789ec4_62020-07-24_03dp4nhf5acfeyhvg84whafyhe1q30zq.webp"
     />
     <ForceTheme theme="dark" />
     <Nav dark />
@@ -120,7 +120,10 @@ const Page = ({ upcoming, past }) => (
                     height={128}
                     src={event.amaAvatar}
                     alt={event.title}
-                  />
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto"
+                    }} />
                   <Heading as="h3" variant="subheadline" my={2}>
                     {event.title.replace('AMA with ', '')}
                   </Heading>
@@ -174,7 +177,10 @@ const Page = ({ upcoming, past }) => (
                 height={128}
                 src={event.amaAvatar}
                 alt={event.title}
-              />
+                style={{
+                  maxWidth: "100%",
+                  height: "auto"
+                }} />
               <Box ml={3}>
                 <Heading as="h3" variant="subheadline" mb={1}>
                   {event.title.replace('AMA with ', '')}

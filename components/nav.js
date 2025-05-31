@@ -6,7 +6,6 @@ import theme from '../lib/theme'
 import Icon from './icon'
 import Flag from './flag'
 import ScrollLock from 'react-scrolllock'
-import NextLink from 'next/link'
 
 const rgbaBgColor = (props, opacity) =>
   `rgba(
@@ -16,33 +15,34 @@ const rgbaBgColor = (props, opacity) =>
     ${opacity}
   )`
 
-// const bg = (props) =>
-//   props.dark
-//     ? css`
-//         -webkit-backdrop-filter: saturate(90%) blur(20px);
-//         backdrop-filter: saturate(90%) blur(20px);
-//       `
-//     : css`
-//         -webkit-backdrop-filter: saturate(180%) blur(20px);
-//         backdrop-filter: saturate(180%) blur(20px);
-//       `
-const fixed = props =>
-  (props.scrolled || props.toggled || props.fixed) &&
-  css`
-    background-color: ${rgbaBgColor(props, 0.96875)};
+const fixed = props => {
+  const applyDynamicStyles = props.scrolled || props.toggled || props.fixed
+
+  if (!applyDynamicStyles) {
+    return null
+  }
+
+  const makeBackgroundTransparent =
+    props.transparent && !props.scrolled && !props.toggled
+
+  return css`
+    background-color: ${makeBackgroundTransparent
+      ? 'transparent'
+      : rgbaBgColor(props, 0.96875)};
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-      background-color: ${props.transparent
-        ? 'transparent'
-        : rgbaBgColor(props, 0.75)};
+      background-color: ${makeBackgroundTransparent
+      ? 'transparent'
+      : rgbaBgColor(props, 0.75)};
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
-      /* {bg}; to support dark mode later */
     }
   `
+}
 
 const Root = styled(Box, {
-  shouldForwardProp: prop => !['bgColor', 'scrolled', 'toggled'].includes(prop)
+  shouldForwardProp: prop =>
+    !['bgColor', 'scrolled', 'toggled', 'fixed', 'transparent'].includes(prop) // Added transparent
 })`
   position: fixed;
   top: 0;
@@ -89,7 +89,10 @@ const layout = props =>
           animation: ${slide} 0.25s ease-in;
         }
         a {
-          color: ${theme.colors[props.dark ? 'white' : 'black']} !important;
+          /* MODIFIED: Use props.color (baseColor) for mobile links */
+          color: ${props.color && theme.colors[props.color]
+        ? theme.colors[props.color]
+        : props.color} !important;
           margin: 0 auto;
           height: 64px;
           font-weight: bold;
@@ -115,38 +118,38 @@ const layout = props =>
           }
         }
       `
+
 const NavBar = styled(Box, {
-  shouldForwardProp: prop => !['isMobile', 'toggled'].includes(prop)
+  shouldForwardProp: prop =>
+    !['isMobile', 'toggled', 'color', 'dark'].includes(prop)
 })`
   display: none;
+  ${props => css`
+    @media (min-width: 56em) {
+      color: ${props.color && theme.colors[props.color]
+      ? theme.colors[props.color]
+      : props.color};
+    }
+  `}
   ${layout};
   a {
     margin-left: ${theme.space[1]}px;
     padding: ${theme.space[3]}px;
     text-decoration: none;
     @media (min-width: 56em) {
-      color: ${props => theme.colors[props.color] || props.color};
+      color: inherit;
     }
   }
 `
 
 const Navigation = props => (
-  // REMINDER: This should be no more than 7 links :)
   <NavBar role="navigation" {...props}>
-    <NextLink href="/clubs" passHref>
-      <Link>Clubs</Link>
-    </NextLink>
-    <NextLink href="/fiscal-sponsorship" passHref>
-      <Link>Fiscal&nbsp;Sponsorship</Link>
-    </NextLink>
-    <NextLink href="/hackathons" passHref>
-      <Link>Hackathons</Link>
-    </NextLink>
+    <Link href="/clubs">Clubs</Link>
+    <Link href="/fiscal-sponsorship">Fiscal Sponsorship</Link>
+    <Link href="/hackathons">Hackathons</Link>
     <Link href="/slack">Community</Link>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
-    <NextLink href="https://toolbox.hackclub.com/" passHref>
-      <Link>Toolbox</Link>
-    </NextLink>
+    <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
   </NavBar>
 )
 
@@ -170,7 +173,6 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
 
   const onScroll = () => {
     const newState = window.scrollY >= 16
-
     setScrolled(newState)
   }
 
@@ -198,18 +200,22 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
 
   const baseColor = dark
     ? color || 'white'
-    : color === 'white' && scrolled
+    : scrolled
       ? 'black'
-      : color
+      : color || 'white'
+
   const toggleColor = dark
     ? color || 'snow'
-    : toggled || (color === 'white' && scrolled)
+    : toggled
       ? 'slate'
-      : color
+      : color === 'white' && !scrolled
+        ? 'white'
+        : 'slate'
 
   return (
     <Root
       {...props}
+      // @ts-ignore
       fixed={fixed}
       scrolled={scrolled}
       toggled={toggled}
@@ -218,7 +224,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       as="header"
     >
       <Content>
-        <Flag scrolled={scrolled || fixed} />
+        <Flag />
         <Navigation
           as="nav"
           aria-hidden={!!mobile}
@@ -243,7 +249,9 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
 }
 
 Header.defaultProps = {
-  color: 'white'
+  color: 'white',
+  fixed: false,
+  transparent: false
 }
 
 export default Header

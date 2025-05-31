@@ -27,7 +27,6 @@ import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
 import OuternetImgFile from '../public/home/outernet-110.jpg'
-import Announcement from '../components/announcement'
 import Konami from 'react-konami-code'
 import JSConfetti from 'js-confetti'
 import Secret from '../components/secret'
@@ -42,6 +41,13 @@ import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
+
+import carouselCardsData from '../lib/carousel.json';
+import { Slack as Slacky } from './api/slack';
+import { fetchGitHub } from './api/github';
+import { fetchStars } from './api/stars';
+import { getGames } from './api/games';
+import { getConsoles } from './api/sprig-console';
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -49,24 +55,18 @@ function Page({
   bankData,
   slackData,
   gitHubData,
-  gitHubDataLength,
   consoleCount,
   stars,
-  // githubData2,
-  dataPieces,
   game,
-  gameTitle,
   events,
   carouselCards,
-  context
+  happeningsPosts
 }) {
-  let [gameImage, setGameImage] = useState('')
-  let [gameImage1, setGameImage1] = useState('')
+  let [gameImage] = useState('')
+  let [gameImage1] = useState('')
   let [reveal, setReveal] = useState(false)
   const [hover, setHover] = useState(true)
-  let [github, setGithub] = useState(0)
-  let [slackKey, setSlackKey] = useState(0)
-  let [key, setKey] = useState(0)
+  let [slackKey] = useState(0)
 
   const { asPath } = useRouter()
 
@@ -281,7 +281,7 @@ function Page({
                 href="/slack"
                 mt={[3, 0, 0]}
                 mr={3}
-                sx={{ transformOrigin: 'center left' }}
+                sx={{ transformOrigin: 'center left', }}
               >
                 Join Slack
               </Button>
@@ -290,7 +290,7 @@ function Page({
                 as="a"
                 href="https://shipwrecked.hack.club/3"
                 mt={3}
-                sx={{ 
+                sx={{
                   transformOrigin: 'left',
                   backgroundImage: t => t.util.gx('green', 'blue'),
                 }}
@@ -836,7 +836,7 @@ function Page({
                 left: 0
               }}
             >
-              {}
+              { }
             </Box>
             <Box
               py={[4, 5, '82px']}
@@ -1125,75 +1125,75 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-          <>
-            <Box
-              sx={{
-                position: 'fixed',
-                top: 0,
-                width: '100%',
-                zIndex: 1000
-              }}
-            >
+            <>
               <Box
                 sx={{
-                  position: 'relative',
-                  margin: 'auto',
-                  width: 'fit-content',
+                  position: 'fixed',
+                  top: 0,
+                  width: '100%',
+                  zIndex: 1000
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    margin: 'auto',
+                    width: 'fit-content',
+                    lineHeight: 0
+                  }}
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  right: 0,
+                  zIndex: 1000,
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </Box>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                right: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-          </>
-        )}
-        <MailingList />
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 1000,
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </>
+          )}
+        <MailingList posts={happeningsPosts} />
       </Box>
       <Footer
         dark
@@ -1219,18 +1219,33 @@ function Page({
     </>
   )
 }
-const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
-  const carouselCards = require('../lib/carousel.json')
+  const [
+    bankResponse,
+    slackData,
+    gitHubData,
+    stars,
+    game,
+    consoleCount,
+    hackathonsData,
+    events
+  ] = await Promise.all([
+    fetch('https://hcb.hackclub.com/stats'),
+    Slacky(),
+    fetchGitHub(),
+    fetchStars(),
+    getGames(),
+    getConsoles(),
+    fetch('https://hackathons.hackclub.com/api/events/upcoming').then(res => res.ok ? res.json() : []),
+    fetch('https://events.hackclub.com/api/events/upcoming/').then(res => res.json()).catch(() => [])
+  ])
 
-  // HCB: get total raised
+  // Process bank data
   let bankData = []
-  let initialBankData = await fetch('https://hcb.hackclub.com/stats')
   try {
-    const bd = await initialBankData.json()
+    const bd = await bankResponse.json()
     let raised = bd.raised / 100
-
     bankData.push(
       `💰 ${raised.toLocaleString('en-US', {
         style: 'currency',
@@ -1241,73 +1256,53 @@ export async function getStaticProps() {
     bankData.push('error')
   }
 
-  // Slack: get total raised
-  const { Slack: Slacky } = require('./api/slack')
-  let slackData = await Slacky()
+  // Sort hackathons by date
+  if (Array.isArray(hackathonsData)) {
+    hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
+  }
 
-  // GitHub: get latest github activity (currently this is erroring and
-  // preventing the site from deploying
+  let gameTitle = game ? game.map(r => r.title) : []
 
-  const { fetchGitHub } = require('./api/github')
-  let gitHubData = await fetchGitHub()
-
-  //   let gitHubData = null
-
-  // GitHub: get latest GitHub stars
-  const { fetchStars } = require('./api/stars')
-  let stars = await fetchStars()
-
-  // Sprig: get newest games
-  const { getGames } = require('./api/games')
-  let game = await getGames()
-
-  let gameTitle = []
-
-  gameTitle = game.map(r => r.title)
-
-  // Sprig: get console count
-  const { getConsoles } = require('./api/sprig-console')
-  const consoleCount = await getConsoles()
-
-  // Hackathons: get latest hackathons
-  let hackathonsData
   try {
     const response = await fetch(
-      'https://hackathons.hackclub.com/api/events/upcoming'
+      'https://raw.githubusercontent.com/SkyfallWasTaken/Clippings/refs/heads/main/happenings.json'
     )
-    if (response.ok) {
-      hackathonsData = await response.json()
-    } else {
-      hackathonsData = [] // or some default value if the fetch fails
+    const data = await response.json()
+    const happeningsPosts = data.slice(-3).reverse()
+
+    return {
+      props: {
+        game: game || [],
+        gameTitle,
+        gitHubData,
+        consoleCount,
+        hackathonsData: hackathonsData || [],
+        bankData,
+        slackData,
+        stars,
+        events: events || [],
+        carouselCards: carouselCardsData, // Use imported data
+        happeningsPosts
+      },
+      revalidate: 3600
     }
   } catch (error) {
-    hackathonsData = [] // or some default value if an error occurs
-  }
-  hackathonsData.sort((a, b) => new Date(a.start) - new Date(b.start))
-
-  let events = []
-  try {
-    await fetch(
-      'https://events.hackclub.com/api/events/upcoming/'
-    ).then(res => res.json())
-  } catch (error) {
-    console.error('Error fetching events:', error)
-  }
-
-  return {
-    props: {
-      game,
-      gameTitle,
-      gitHubData,
-      consoleCount,
-      hackathonsData,
-      bankData,
-      slackData,
-      stars,
-      events,
-      carouselCards
-    },
-    revalidate: 60
+    console.error('Failed to fetch happenings posts:', error)
+    return {
+      props: {
+        game: game || [],
+        gameTitle,
+        gitHubData,
+        consoleCount,
+        hackathonsData: hackathonsData || [],
+        bankData,
+        slackData,
+        stars,
+        events: events || [],
+        carouselCards: carouselCardsData, // Use imported data
+        happeningsPosts: []
+      }
+    }
   }
 }
 

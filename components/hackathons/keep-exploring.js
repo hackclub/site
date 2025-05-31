@@ -34,7 +34,7 @@ export default function KeepExploring() {
             sx={{ display: ['none', 'flex', 'flex'] }}
           />
         </Heading>
-        <Link href="/slack" passHref>
+        <Link href="/slack">
           <Button
             sx={{
               bg: 'white',
@@ -43,19 +43,17 @@ export default function KeepExploring() {
               mb: [3, 0],
               fontSize: [2, 3]
             }}
-            as="a"
           >
             Meet other hackers
           </Button>
         </Link>
 
-        <Link href="https://hackathons.hackclub.com" passHref>
-          <Button sx={{ bg: 'white', color: 'red', fontSize: [2, 3] }} as="a">
+        <Link href="https://hackathons.hackclub.com">
+          <Button sx={{ bg: 'white', color: 'red', fontSize: [2, 3] }}>
             Discover more hackathons
           </Button>
         </Link>
       </Box>
-
       <Container>
         <Grid
           columns={[null, '1fr 1fr']}
@@ -87,5 +85,5 @@ export default function KeepExploring() {
         </Grid>
       </Container>
     </>
-  )
+  );
 }

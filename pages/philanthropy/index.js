@@ -11,7 +11,7 @@ import {
   Text
 } from 'theme-ui'
 import styled from '@emotion/styled'
-import Image from 'next/image'
+import Image from "next/image"
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../../components/nav'
@@ -19,8 +19,7 @@ import ForceTheme from '../../components/force-theme'
 import Footer from '../../components/footer'
 import ReactBeforeSliderComponent from 'react-before-after-slider-component'
 import 'react-before-after-slider-component/dist/build.css'
-import Fade from 'react-reveal/Fade'
-import Slide from 'react-reveal/Slide'
+import { Fade, Slide } from 'react-swift-reveal'
 import Marquee from 'react-marquee-slider'
 import ExecuteBig from '../../public/donate/codedaydc_hack.jpg'
 import HackCamp from '../../public/donate/sf.jpg'
@@ -47,34 +46,40 @@ const Header = styled(Box)`
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '160px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => { }}>
         {photos.map((photo, index) => (
           <Image
             placeholder="blur"
             src={photo}
-            objectFit="cover"
             className="next-image"
             height="200px"
             width="300px"
             alt="Hack Club students"
             key={'image-' + index}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }} />
         ))}
       </Marquee>
     </Box>
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => { }}>
         {photos.map((photo, index) => (
           <Image
             placeholder="blur"
             src={photo}
-            objectFit="cover"
             className="next-image"
             height="200px"
             width="600px"
             key={'image-' + index}
             alt="Hack Club students"
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }} />
         ))}
       </Marquee>
     </Box>
@@ -280,7 +285,7 @@ const delimiterIconStyles = {
   backgroundPosition: 'center',
   borderRadius: 'none',
   backgroundImage:
-    'url(https://cloud-1rqn9rwxm-hack-club-bot.vercel.app/0frame_43.svg)'
+    'url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/76f273acb687fd21680c255b268b4f9b074f61f1_0frame_43.svg)'
 }
 const Map = () => {
   return (
@@ -330,7 +335,7 @@ const Philanthropy = ({ posts = [] }) => {
             textAlign: 'center',
             alignItems: 'center',
             backgroundImage:
-              'linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://cloud-51qsxafpt-hack-club-bot.vercel.app/0hackpenn_1__1___1_-min.jpg)',
+              'linear-gradient(to bottom,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/b446fe85cc0df6b4ac79a163018545e00a836afe_0hackpenn_1__1___1_-min.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'top center'
           }}
@@ -502,7 +507,7 @@ const Philanthropy = ({ posts = [] }) => {
           <br />
           <Fade>
             <Text as="p">
-              Led by young engineers, with early backing from the 21st century’s
+              Led by young engineers, with early backing from the 21st century's
               most iconic creators, Hack Club already reaches tens of thousands
               of teenagers, and represents the largest network of technical
               teens in the world. Each day, new projects are shipped, new lines
@@ -517,7 +522,7 @@ const Philanthropy = ({ posts = [] }) => {
               Hack Club is always free for teenagers and with your support, Hack
               Club can grow to hundreds of thousands of teen hackers, bringing
               free computer science education, a hacker mindset, and an equal
-              shot at success to every teenager, regardless of where they’re
+              shot at success to every teenager, regardless of where they're
               from, how they identify, or what their parents do.
             </Text>
           </Fade>
@@ -545,14 +550,14 @@ const Philanthropy = ({ posts = [] }) => {
             <Fade delay={60}>
               <HackClubber
                 photo="jason.png"
-                quote="I’ve met some of the best people"
+                quote="I've met some of the best people"
                 info="Jason, 16, Texas"
               />
             </Fade>
             <Fade delay={90}>
               <HackClubber
                 photo="sam.png"
-                quote="In Hack Club I’ve found a home"
+                quote="In Hack Club I've found a home"
                 info="Sam, 17, Singapore"
               />
             </Fade>
@@ -727,7 +732,7 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Flex>
             <span>
-            Explore Hack Club's annual reports from 2022 onward, showcasing each year's impact and key milestones.
+              Explore Hack Club's annual reports from 2022 onward, showcasing each year's impact and key milestones.
             </span>
           </Fade>
           {/* <Fade delay={300}>
@@ -815,22 +820,28 @@ const Philanthropy = ({ posts = [] }) => {
               </Box>
             </Grid>
             <Fade delay={210} bottom>
-              <Text as="h2">
-                “Hack Club helped me fall in love with creating and made me feel
-                like I belong.”
-              </Text>
-              <Text
-                sx={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}
-              >
-                <Image
-                  src="/philanthropy/belle.png"
-                  width="20"
-                  height="20"
-                  sx={{ borderRadius: '100%' }}
-                  alt="belle"
-                />
-                Belle, 17, Malaysia
-              </Text>
+              <div>
+                <Text as="h2">
+                  "Hack Club helped me fall in love with creating and made me feel
+                  like I belong."
+                </Text>
+                <Text
+                  sx={{ display: 'inline-flex', alignItems: 'center', gap: 2 }}
+                >
+                  <Image
+                    src="/philanthropy/belle.png"
+                    width="20"
+                    height="20"
+                    sx={{ borderRadius: '100%' }}
+                    alt="belle"
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      objectFit: "cover"
+                    }} />
+                  Belle, 17, Malaysia
+                </Text>
+              </div>
             </Fade>
           </Container>
         </Box>
@@ -863,7 +874,11 @@ const Philanthropy = ({ posts = [] }) => {
                   width={530}
                   height={150}
                   alt="insider logo"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    objectFit: "cover"
+                  }} />
               </Link>
               <Link
                 href="https://www.wsj.com/articles/teen-hackers-try-to-convince-parents-they-are-up-to-good-11569922200"
@@ -875,7 +890,11 @@ const Philanthropy = ({ posts = [] }) => {
                   width={270}
                   height={100}
                   alt="wsj logo"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    objectFit: "cover"
+                  }} />
               </Link>
               <Link
                 href="https://www.forbes.com/sites/fastforward/2021/06/29/from-journalism-to-a-tech-nonprofit-this-coos-big-pivot-to-empower-the-next-generation-of-coders/"
@@ -887,7 +906,11 @@ const Philanthropy = ({ posts = [] }) => {
                   width={500}
                   height={100}
                   alt="forbes logo"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    objectFit: "cover"
+                  }} />
               </Link>
               <Link
                 href="https://www.philanthropy.com/article/nonprofits-need-to-embrace-transparency-even-if-the-supreme-court-rules-to-protect-donor-privacy"
@@ -899,7 +922,11 @@ const Philanthropy = ({ posts = [] }) => {
                   width={750}
                   height={250}
                   alt="cop logo"
-                />
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    objectFit: "cover"
+                  }} />
               </Link>
             </Grid>
           </Fade>
@@ -919,7 +946,7 @@ const Philanthropy = ({ posts = [] }) => {
                         borderRadius: '100%',
                         width: '40px',
                         height: '40px',
-                        backgroundImage: `url(https://cloud-80nhjzldl-hack-club-bot.vercel.app/0.jpeg)`,
+                        backgroundImage: `url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/2bf85a815e19fb09de6eb1d33d3df65701545635_129_3a54fd5ac577c15dfed7114fa53c9f59e1d41b56_0.webp)`,
                         backgroundSize: 'cover',
                         marginRight: 2
                       }}
@@ -1041,7 +1068,7 @@ const Philanthropy = ({ posts = [] }) => {
                 </Text>
                 <br />
                 <Text as="p">
-                  In 2017, I joined as a founding board member, and I’ve seen
+                  In 2017, I joined as a founding board member, and I've seen
                   firsthand the leadership team act with integrity and
                   transparency since Day 1. Founder Zach Latta and COO Christina
                   Asquith are efficient, responsible and disciplined stewards of
@@ -1226,55 +1253,55 @@ const Philanthropy = ({ posts = [] }) => {
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }} mb={5}>
             <Fade delay={30}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/0figma.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d5410227fa37a4ae32e52fd402ffcf8ca3b2e448_196_bb912a2af2cac36e10538f22d9557e913bf42656_0figma.webp"
                 name="Dylan Field, Founder, Figma"
               />
             </Fade>
             <Fade delay={60}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/1vercel.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/27f5aaad2cc0be8382d8eff12c1230a8564163cc_197_f3d7b1da8b887f1f5e9dbac6b1a3f0521bf291ac_1vercel.webp"
                 name="Guillermo Rauch, Founder, Vercel"
               />
             </Fade>
             <Fade delay={90}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/7laravel.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9a541c22fa4d76263e0350d673b0973d66f9a758_198_98b0dcf1438eb5c8989677efad05064c82496165_7laravel.webp"
                 name="Taylor Otwell, Creator of Laravel"
               />
             </Fade>
             <Fade delay={120}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/5sequoia.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/bb2a776f13b185294ef2e22bdfe9b389c76a5ba0_199_e473833bab2d0f82c9bfa41fa9a9503f13d58478_5sequoia.webp"
                 name="Andrew Reed, Partner, Sequoia"
               />
             </Fade>
             <Fade delay={150}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/6replit.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c797032307735a471b6715ad799bead60ea03d59_200_384f53a640ba78ca6975bbfcc13256f19c8cdf27_6replit.webp"
                 name="Amjad Masad, Co-founder, Replit"
               />
             </Fade>
             <Fade delay={180}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/2workflow.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/4f0abff81c5c65fea26616fef346bef6064d8985_201_5ba44743b10b49a10fe1e75af06d2bdafba28913_2workflow.webp"
                 name="Conrad Kramer, Co-founder, Workflow"
               />
             </Fade>
             <Fade delay={210}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/3github.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/2edbfe419a3e19050e2377ee04eec6a240d8150c_202_07f28b482f6619a01babc325fe67f5592d1f1065_3github.webp"
                 name="Tim Clem, Senior Engineer, GitHub"
               />
             </Fade>
             <Fade delay={240}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/4sentry.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c078c2858064e91516679d0eb2287384169fca40_203_becff51d32977f9d04e07c7afc3c3feda79b2fb8_4sentry.webp"
                 name="David Cramer, Co-founder, Sentry"
               />
             </Fade>
             <Fade delay={270}>
               <Pill
-                logo="https://cloud-kwnsazl2x-hack-club-bot.vercel.app/8vgs.png"
+                logo="https://hc-cdn.hel1.your-objectstorage.com/s/v3/370e87034c90a8feae695a35a091e41df512180b_204_1b66baf290dffa32106f48929b4e527811c6749f_8vgs.webp"
                 name="Mahmoud Abdelkader, CEO, Very Good Security"
               />
             </Fade>
@@ -1326,7 +1353,7 @@ const Philanthropy = ({ posts = [] }) => {
                 >
                   Thanks to our donor-funded laptop program, Hack Club sent him
                   a MacBook Air. In his Hack Club, Obrey and his best friend
-                  Edward built robots that won Canada’s Humanitarian Activist
+                  Edward built robots that won Canada's Humanitarian Activist
                   Award.
                 </Heading>
                 <Flex align="center" mt={[3, 4]}>
@@ -1360,7 +1387,7 @@ const Philanthropy = ({ posts = [] }) => {
                   comfort zone and take on challenges I never previously would
                   have — starting a CS Club at my school, (co-)hosting AMAs, and
                   even organizing Leland Hacks, the first in-person hackathon in
-                  my city after the pandemic.”
+                  my city after the pandemic."
                 </Heading>
                 <Flex align="center" mt={[3, 4]}>
                   <Avatar
@@ -1382,7 +1409,7 @@ const Philanthropy = ({ posts = [] }) => {
           <Line />
           <Fade>
             <Text as="h1" sx={{ textAlign: 'center' }} mb={[4, 5]}>
-              Hack Club invites the 21st century’s leading thinkers, builders
+              Hack Club invites the 21st century's leading thinkers, builders
               and disrupters to join our small, core network of donors with a
               gift.
             </Text>
@@ -1400,7 +1427,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <br />
                 <Text as="p">
                   Founded in 2014, Hack Club grew 700 percent during the
-                  COVID-19 pandemic, and Hack Club’s team of engineers can’t
+                  COVID-19 pandemic, and Hack Club's team of engineers can't
                   keep up with demand.
                 </Text>
               </Box>
@@ -1492,7 +1519,11 @@ const Philanthropy = ({ posts = [] }) => {
                     width={250}
                     height={100}
                     alt="christina"
-                  />
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      objectFit: "cover"
+                    }} />
                   <Text as="p">Christina Asquith, Co-founder and COO</Text>
                 </Box>
               </Fade>
@@ -1503,7 +1534,11 @@ const Philanthropy = ({ posts = [] }) => {
                     width={150}
                     height={100}
                     alt="zach"
-                  />
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      objectFit: "cover"
+                    }} />
                   <Text as="p">Zach Latta, Founder and Executive Director</Text>
                 </Box>
               </Fade>
@@ -1566,7 +1601,7 @@ const Philanthropy = ({ posts = [] }) => {
         <Footer />
       </Box>
     </>
-  )
+  );
 }
 
 export default Philanthropy
