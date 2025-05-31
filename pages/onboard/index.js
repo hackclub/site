@@ -222,7 +222,7 @@ const ShipPage = () => {
             position: 'relative'
           }}
         >
-          <Box sx={{ pt: [3, 6] }}>
+          <Box sx={{ pt: [3, 5] }}>
             <Announcement
               copy="Steve Wozniak, Apple co-founder, about OnBoard"
               caption="I’m so glad young people can create PCBs online. May your creativity change the world! Mine did."
