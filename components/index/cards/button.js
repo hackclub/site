@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Button, Text } from 'theme-ui'
-import ReactTooltip from 'react-tooltip'
+import ReactTooltip from '../../react-tooltip'
 import Icon from '@hackclub/icons'
 
 export default function Buttons({
@@ -11,6 +11,7 @@ export default function Buttons({
   link,
   primary,
   overrideColor,
+  zIndex,
   ...props
 }) {
   let fontWeight = primary ? '700' : '400'
@@ -18,8 +19,9 @@ export default function Buttons({
   return (
     <Box
       as="button"
-      sx={{ background: 'transparent', border: 'none', color: 'white' }}
+      sx={{ background: 'transparent', border: 'none', color: 'white', zIndex: zIndex ||0 }}
       py={1}
+
     >
       <Button
         data-place="right"
@@ -40,7 +42,8 @@ export default function Buttons({
           fontWeight: '400',
           fontSize: primary ? ['18px', '20px', '22px'] : [1, '16px', '18px'],
           backdropFilter: 'blur(2px)',
-          fontWeight: fontWeight
+          fontWeight: fontWeight,
+          zIndex: 999,
         }}
         as="a"
         href={link || '/'}

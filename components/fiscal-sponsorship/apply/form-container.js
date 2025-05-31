@@ -1,5 +1,7 @@
 import { forwardRef } from 'react'
 import { Box, Container } from 'theme-ui'
+import { TeenagerLedProvider } from '../../../components/fiscal-sponsorship/apply/teenager-led-context'
+import { MultiStepProvider } from './multi-step-context'
 
 const formContainer = forwardRef(({ children, ...props }, ref) => {
   return (
@@ -9,9 +11,16 @@ const formContainer = forwardRef(({ children, ...props }, ref) => {
       sx={{
         bg: 'snow',
         px: [3, 5],
-        py: 5,
-        minHeight: '100dvb',
+        py: [1, 5],
+        pb: 5,
+        minHeight: [null, null, '100dvb'],
         '&.has-errors div[aria-required="true"] input:placeholder-shown': {
+          borderColor: 'primary'
+        },
+        '&.has-errors div[aria-required="true"] input[type="date"]': {
+          borderColor: 'primary'
+        },
+        '&.has-errors div[aria-required="true"] textarea:placeholder-shown': {
           borderColor: 'primary'
         }
       }}
@@ -21,14 +30,10 @@ const formContainer = forwardRef(({ children, ...props }, ref) => {
         variant="copy"
         sx={{
           ml: 0,
-          display: 'flex',
-          flexDirection: 'column',
-          columnGap: 4,
-          rowGap: 3,
           px: 0
         }}
       >
-        {children}
+        <TeenagerLedProvider>{children}</TeenagerLedProvider>
       </Container>
     </Box>
   )

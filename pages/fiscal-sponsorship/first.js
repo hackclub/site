@@ -12,8 +12,25 @@ import Testimonials from '../../components/fiscal-sponsorship/first/testimonials
 import Start from '../../components/fiscal-sponsorship/first/start'
 import theme from '@hackclub/theme'
 import { Balancer } from 'react-wrap-balancer'
+import { setCookie } from 'cookies-next'
+import { useEffect } from 'react'
 
 export default function First({ stats }) {
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+
+    const tubProgram = params.get('tub_program')
+    const referral = params.get('referral')
+
+    if (referral) {
+      setCookie('referral', referral)
+      setCookie('tub_program', 'GFGS')
+    } else if (tubProgram) {
+      setCookie('tub_program', tubProgram)
+      setCookie('referral', '')
+    }
+  }, [])
+
   return (
     <>
       <style>
@@ -23,7 +40,7 @@ export default function First({ stats }) {
       </style>
       <Meta
         as={Head}
-        title="Finanical Toolkit for FIRST Teams"
+        title="Financial Toolkit for FIRST Teams"
         description="HCB is the ultimate financial tool for FRC, FTC, and FLL teams to receive grants, fundraise, make purchases, and so much more."
         image="/fiscal-sponsorship/first/og-image.png"
       >
@@ -184,12 +201,20 @@ export default function First({ stats }) {
 
 export async function getStaticProps(context) {
   const res = await fetch(`https://hcb.hackclub.com/stats`)
-  const stats = await res.json()
-
-  return {
-    props: {
-      stats
-    },
-    revalidate: 10
+  try {
+    const stats = await res.json()
+    return {
+      props: {
+        stats
+      },
+      revalidate: 60 * 60 // once an hour
+    }
+  } catch (e) {
+    return {
+      props: {
+        stats: {}
+      },
+      revalidate: 60 * 60 // once an hour
+    }
   }
 }

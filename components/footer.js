@@ -5,7 +5,7 @@ import NextLink from 'next/link'
 import theme from '@hackclub/theme'
 import Icon from './icon'
 
-const Base = styled(Box)`
+const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' })`
   background: ${props =>
     props.dark
       ? `${theme.colors.darker} radial-gradient(${theme.colors.black} 1px, transparent 1px)`
@@ -52,7 +52,7 @@ const Service = ({ href, icon, name = '', ...props }) => (
 const Footer = ({
   dark = false,
   email = 'team@hackclub.com',
-  children,
+  children = undefined,
   ...props
 }) => (
   <Base
@@ -113,7 +113,6 @@ const Footer = ({
           <Heading as="h2" variant="subheadline" mb={3}>
             Resources
           </Heading>
-          <Link href="https://hackclub.com/pizza">Clubs Pizza Grant</Link>
           <Link href="https://events.hackclub.com/">Community Events</Link>
           <Link href="https://jams.hackclub.com/">Jams</Link>
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
@@ -137,7 +136,8 @@ const Footer = ({
                 transition:
                   'transform .125s ease-in-out, color .125s ease-in-out',
                 ':hover,:focus': { transform: 'scale(1.125)' }
-              }
+              },
+              placeItems: 'center'
             }}
           >
             <Service
@@ -176,7 +176,7 @@ const Footer = ({
               icon="instagram"
               name="Instagram"
             />
-            <Service href={`mailto:${email}`} icon="email-fill" />
+            <Service href={`mailto:${email}`} icon="email-fill" name="Email" />
           </Grid>
           <Text my={2}>
             <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>

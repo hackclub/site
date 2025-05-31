@@ -5,10 +5,10 @@ import ForceTheme from '../../components/force-theme'
 import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import MSparkles from '../../components/sparkles/money'
+import Announcement from '../../components/announcement'
 import NextLink from 'next/link'
 import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
-import Form from '../../components/hackathons/grant/form'
 import Apply from '../../components/hackathons/grant/apply'
 
 import Zoom from 'react-reveal/Zoom'
@@ -56,15 +56,12 @@ const Requirement = ({ title, children, checkmark, background, size }) => {
 }
 
 const HackathonGrant = () => {
-  let open = true // applications are open
-  let channel = 'https://hackclub.slack.com/archives/C03TS0VKFPZ' // #hackathon-grants
-
   return (
     <>
       <Meta
         as={Head}
         title="Hackathon Grant"
-        description="Hack Club is providing $500 grants to in-person high school hackathons happening until December 31st, 2024."
+        description="Hack Club provided $500 grants to in-person high school hackathons. This program ended December 31st, 2024."
         image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
       />
       <style>{styles}</style>
@@ -131,6 +128,9 @@ const HackathonGrant = () => {
               </Flex>
               A <MSparkles>$500</MSparkles> grant for your{' '}
               <a sx={{ whiteSpace: 'nowrap' }}>in-person</a> hackathon.
+              <br />
+              <Text style={{ fontSize: '2.5rem', fontWeight: 'normal' }}>This program ended December 31st, 2024.</Text>
+              <br />
             </Heading>
             <Box
               sx={{
@@ -139,18 +139,22 @@ const HackathonGrant = () => {
                 my: 4
               }}
             >
-              Hack Club is providing $500 grants (and waiving{' '}
+              Hack Club provided $500 grants (and waived{' '}
               <Link href="/fiscal-sponsorship" target="_blank">
                 HCB
               </Link>{' '}
               fees) to <a sx={{ whiteSpace: 'nowrap' }}>in-person</a>{' '}
-              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons until
-              December 31st, 2024.
+              <a sx={{ whiteSpace: 'nowrap' }}>high school</a> hackathons.
             </Box>
-            <Button variant="ctaLg" as="a" href="#apply" sx={{ mt: 2 }}>
-              {open ? 'Apply Now' : 'Coming Soon'}
-            </Button>
-            <Button
+            <Box
+              sx={{
+                fontSize: [2, 4, 4],
+                textAlign: 'center',
+                my: 4
+              }}
+            >
+              Want to attend a hackathon?
+              <Button
               variant="ctaLg"
               as="a"
               href="https://hackathons.hackclub.com"
@@ -165,6 +169,7 @@ const HackathonGrant = () => {
                 <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
               </Text>
             </Button>
+            </Box>
           </Box>
         </Box>
         <Container sx={{ py: 5 }}>
@@ -192,7 +197,7 @@ const HackathonGrant = () => {
 
           <Grid columns={[1, 1, 2, 2]} gap={4}>
             <Requirement
-              title="Running through next year"
+              title="Running August 2022 to December 2024"
               checkmark="clock-fill"
               background="https://icons.hackclub.com/api/icons/0x212025/glyph:clock.svg"
               size="36"
@@ -374,25 +379,15 @@ const HackathonGrant = () => {
             <Link href="/brand" target="_blank">
               Hack Club
             </Link>
-            {'.'}.
+            {'.'}
           </Text>
-
-          {open ? (
-            <>
-              <Apply channel={channel} />
-            </>
-          ) : (
-            <>
-              <Heading
-                sx={{ textAlign: 'center', mb: 3, fontSize: 5 }}
-                id="apply"
-              >
-                Applications opening soon.
-              </Heading>
-
-              <Form />
-            </>
-          )}
+          <Box as="div" sx={{ mt: 3 }}></Box>
+          <Heading
+            sx={{ textAlign: 'center', mb: 3, fontSize: 5 }}
+            id="apply"
+          >
+            This program ended on December 31st, 2024.
+          </Heading>
         </Container>
       </Box>
       <Zoom>

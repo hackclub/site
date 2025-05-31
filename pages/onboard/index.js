@@ -104,8 +104,11 @@ const ShipPage = () => {
   const spotlightRef = useRef()
   useEffect(() => {
     const handler = event => {
+      const rect = spotlightRef.current.getBoundingClientRect()
+      const x = event.clientX - rect.left
+      const y = event.clientY - rect.top
       spotlightRef.current.style.background = `radial-gradient(
-				circle at ${event.pageX}px ${event.pageY}px,
+				circle at ${x}px ${y}px,
 				rgba(0, 0, 0, 0) 10px,
 				rgba(0, 0, 0, 0.8) 80px
 			)`
@@ -163,7 +166,29 @@ const ShipPage = () => {
         <link rel="preload" href={wandImgRendered} as="image" />
       </Head>
 
+      <Box sx={{ bg: '#000000', height: '64px' }} />
       <Nav />
+
+      <Box
+        sx={{
+          bg: '#ff6b35',
+          color: 'white',
+          p: 3,
+          textAlign: 'center',
+          fontSize: 3,
+          fontWeight: 'bold'
+        }}
+      >
+        OnBoard has ended! We gave away $100 PCB grants to 1,000 high schoolers!{' '}
+        <Link
+          href="https://forms.hackclub.com/t/xtYYcGvNTCus"
+          target="_blank"
+          sx={{ color: 'white', textDecoration: 'underline' }}
+        >
+          Sign up here
+        </Link>{' '}
+        to hear about future electronics grants!
+      </Box>
 
       <Box
         as="header"
@@ -200,7 +225,7 @@ const ShipPage = () => {
             position: 'relative'
           }}
         >
-          <Box sx={{ pt: [3, 6] }}>
+          <Box sx={{ pt: [3, 5] }}>
             <Announcement
               copy="Steve Wozniak, Apple co-founder, about OnBoard"
               caption="I’m so glad young people can create PCBs online. May your creativity change the world! Mine did."
@@ -237,9 +262,9 @@ const ShipPage = () => {
                 <Balancer ratio={0.3}>
                   Circuit boards are{' '}
                   <Sparkles>
-                    <Text sx={{ fontWeight: 400 }}>magical</Text>
-                  </Sparkles>
-                  . You design one, we'll print it!
+                    <Text sx={{ fontWeight: 400 }}>magical{'.'}</Text>
+                  </Sparkles>{' '}
+                  You design one, we'll print it!
                 </Balancer>
               </Heading>
 

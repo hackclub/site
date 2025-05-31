@@ -108,7 +108,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
           )
         ) : (
           <form
-            onSubmit={handleFormSubmit}
+            // onSubmit={handleFormSubmit}
             sx={{
               height: '100%'
             }}
@@ -210,10 +210,11 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
                   // cursor: highschool ? 'pointer': 'not-allowed',
                   transitionDuration: '0.3s',
                   '&:hover': {
-                    transform: 'scale(1.05)'
+                    // transform: 'scale(1.05)',
                   }
                 }}
                 className="slackey"
+                disabled={true}
               >
                 Join ARCADE
               </button>
@@ -223,17 +224,17 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
       ) : (
         <Flex
           as="a"
-          onClick={() => {
-            setForm(true)
-          }}
+          // onClick={() => {
+          //   setForm(true)
+          // }}
           target="_blank"
           className="slackey"
           sx={{
             justifyContent: 'center',
             alignItems: 'center',
             textDecoration: 'none',
-            backgroundColor: '#FF5C00',
-            cursor: 'pointer',
+            backgroundColor: '#818FA2',
+            cursor: 'not-allowed',
             color: '#FAEFD6',
             width: 'fit-content',
             paddingX: ['8px', '10px', '15px'],
@@ -246,7 +247,7 @@ const Join = ({ fold, last, showForm, setForm, formSent, setFormSent }) => {
             zIndex: 2,
             transitionDuration: '0.3s',
             '&:hover': {
-              transform: 'scale(1.05)'
+              // transform: 'scale(1.05)'
             }
           }}
         >

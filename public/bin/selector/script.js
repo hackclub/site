@@ -1,19 +1,6 @@
 const partsLimit = 8
 var fetchedParts;
-async function fetchParts() {
-    const response = await fetch('https://hackclub.com/api/bin/wokwi/parts/');
-    if (!response.ok) {
-        throw new Error('Network response was not ok.');
-    }
-    data = await response.json();
 
-    data = removeItemByAttribute(data, "type", "Microprocessor");
-    console.log(data)
-    return data
-}
-function removeItemByAttribute(arr, attr, value) {
-    return arr.filter(item => item[attr] !== value);
-}
 /*
 async function preloadImage(item) {
     let response = await fetch(item.imageUrl);
@@ -83,9 +70,65 @@ function addPartToPage(part) {
     selectorItemDesc.innerText = part.flavorText
     selectorItemDesc.className = "selector-item-description"
     selectorItem.appendChild(selectorItemDesc)
+    if (part.newPart){
+       let newImage = document.createElement("img")
+        newImage.src = "../icons/new.png";
+        newImage.className = "new-tag"
+        selectorItem.appendChild(newImage)
+    } 
 
     document.getElementsByClassName("selector-main")[0].appendChild(selectorItem)
 
+    if(part.outOfStock){
+        
+     //   selectorItem.classList.add("outOfStock");
+
+        let outOfStockDiv = document.createElement("div");
+        outOfStockDiv.className = "outOfStock";
+
+
+        let outOfStockText = document.createElement("h1");
+        outOfStockText.innerText = "Out of Stock";
+        outOfStockText.className = "outOfStockText";
+
+        let outOfStockInnerText = document.createElement("p");
+        outOfStockInnerText.innerText = "Shipping times delayed";
+        outOfStockInnerText.className = "outOfStockInnerText";
+
+        outOfStockDiv.appendChild(outOfStockText)
+        outOfStockDiv.appendChild(outOfStockInnerText)
+
+
+
+        selectorItem.appendChild(outOfStockDiv)
+        
+
+
+    } 
+
+    if(part.displayAmount && part.currentStockIncludingNonFulfilled < 6 && !part.outOfStock){
+        let stockDiv = document.createElement("div");
+        stockDiv.className = "amountRemaining";
+
+        let stockText = document.createElement("h1");
+        stockText.innerText = part.currentStockIncludingNonFulfilled + " left in stock";
+        stockText.className = "outOfStockText";
+
+        let stockInnerText = document.createElement("p");
+        stockInnerText.innerText = "Shipping times may be delayed";
+        stockInnerText.className = "outOfStockInnerText";
+
+        stockDiv.appendChild(stockText)
+        stockDiv.appendChild(stockInnerText)
+        selectorItem.appendChild(stockDiv)
+
+        console.log("display amunt" + part.displayAmount);
+        console.log("current stock" + part.currentStockIncludingNonFulfilled);
+
+        console.log("out of stock" + part.outOfStock);
+
+
+    }
     selectorItem.addEventListener("click", () => {
         let isSelected = selectorItem.className.includes("selected")
         if (isSelected) {
@@ -97,11 +140,16 @@ function addPartToPage(part) {
         }
         recalculateSelected();
     })
+   
+
+    
 }
 
 window.addEventListener("load", async (e) => {
+    console.log("Page loaded");
     recalculateSelected();
     const fetchedParts = await partsData()
+    console.log("fetchedParts", fetchedParts)
     fetchedParts.forEach(part => {
         if (!(part.imageUrl == undefined)) {
             addPartToPage(part)

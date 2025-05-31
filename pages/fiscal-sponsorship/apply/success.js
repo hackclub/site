@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Container, Text, Link, Image } from 'theme-ui'
 import JSConfetti from 'js-confetti'
 import { Balancer } from 'react-wrap-balancer'
+import { useRouter } from 'next/router'
 
 function fireConfetti() {
   const jsConfetti = new JSConfetti()
@@ -23,6 +24,9 @@ export default function ApplicationSuccess() {
   useEffect(() => {
     fireConfetti()
   }, [])
+
+  const router = useRouter()
+  const eta = router.query["eta"] || "soon" // default value
 
   return (
     <Container
@@ -51,8 +55,7 @@ export default function ApplicationSuccess() {
         </Text>
         <Text as="p" variant="lead">
           <Balancer>
-            We’ll review your application and get back to you within two
-            business days.
+            We’ll review your application and get back to you {eta}.
           </Balancer>
         </Text>
       </header>

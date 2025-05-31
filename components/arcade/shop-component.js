@@ -5,7 +5,7 @@ import Prizes from './prizes';
 /** @jsxImportSource theme-ui */
 
 const styled = `
-@import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap);
 
 .slackey {
   font-family: "Slackey", sans-serif;
@@ -18,33 +18,33 @@ const styled = `
 body {
   background-color: #FAEFD6;
 }
+
+a {
+  color: inherit;
+}
 `;
 
 export default function ShopComponent({
   availableItems,
   userAirtableID = null,
-  hoursBalance = null
+  hoursBalance = null,
+  userEmail = null,
+  pub
 }) {
   // State to manage quantity for each item
   const [quantities, setQuantities] = useState({});
-  const [pRotate, setPRotate] = useState(0)
-  const [tRotate, setTRotate] = useState(0)
 
   // Function to update quantity for an item
   const handleQuantityChange = (itemID, quantity) => {
     setQuantities({ ...quantities, [itemID]: quantity });
   };
 
-  function buyLink(itemID) {
+  function buyLink(itemID, itemImage) {
     const quantity = quantities[itemID] || 1; // Default quantity is 1 if not set
-    return `https://forms.hackclub.com/arcade-order?user_id=${userAirtableID}&item_id=${itemID}&quantity=${quantity}`;
+    return `https://forms.hackclub.com/arcade-order?user_id=${userAirtableID}&item_id=${itemID}&quantity=${quantity}&image=${encodeURIComponent(itemImage)}&email=${encodeURIComponent(userEmail)}`;
   }
 
-  const includeBuyLink = userAirtableID !== null;
-  useEffect(() => {
-    setPRotate(2 + Math.random() * 4) * (Math.random() > 0.5 ? 1 : -1)
-    setTRotate(5 + Math.random() * 14) * (Math.random() > 0.5 ? 1 : -1)
-  }, []); 
+  const canPurchaseItems = userAirtableID !== null;
 
   return (
     <>
@@ -65,8 +65,8 @@ export default function ShopComponent({
       </Text>
       <Grid
         sx={{
-          pt: '50px',
-          pb: '150px',
+          pt: '20px',
+          pb: '50px',
           gridTemplateColumns: ['1fr', '1fr', '1fr 1fr', '1fr 1fr 1fr'],
           gap: '50px',
           maxWidth: '1000px',
@@ -77,19 +77,50 @@ export default function ShopComponent({
       >
         {availableItems
           .sort((a, b) => a['Cost Hours'] - b['Cost Hours'])
+          .filter(item => (item['Stock'] > 0 || item['Stock'] == null))
           .map((item) => (
             <Prizes
               img={item['Image URL']}
-              text={item['Name']}
+              name={item['Name']}
+              smallName={item['Small Name']}
               subtext={item['Description']}
               cost={item['Cost Hours']}
               quantity={item['Max Order Quantity']}
-              polaroidRotation={pRotate}
-              ticketRotation={tRotate}
-              link={buyLink(item.id)}
+              fulfillmentDescription={item['Fulfillment Description']}
+              fullName={item['Full Name']}
+              link={canPurchaseItems ? buyLink(item.id, item['Image URL']) : null}
               key={item.id}
               id={item.id}
               onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity
+              hoursBalance={hoursBalance}
+              stock={item['Stock']}
+              categories={item['Category']}
+              pub={pub}
+              inStock={true}
+            />
+          ))}
+          {availableItems
+          .sort((a, b) => a['Cost Hours'] - b['Cost Hours'])
+          .filter(item => (item['Stock'] == 0))
+          .map((item) => (
+            <Prizes
+              img={item['Image URL']}
+              name={item['Name']}
+              smallName={item['Small Name']}
+              subtext={item['Description']}
+              cost={item['Cost Hours']}
+              quantity={item['Max Order Quantity']}
+              fulfillmentDescription={item['Fulfillment Description']}
+              fullName={item['Full Name']}
+              link={canPurchaseItems ? buyLink(item.id, item['Image URL']) : null}
+              key={item.id}
+              id={item.id}
+              onQuantityChange={(id, q) => handleQuantityChange(item.id, q)} // Pass handler to update quantity
+              hoursBalance={hoursBalance}
+              stock={item['Stock']}
+              categories={item['Category']}
+              pub={pub}
+              inStock={false}
             />
           ))}
       </Grid>

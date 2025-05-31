@@ -43,7 +43,8 @@ const createProject = async (partsList = []) => {
   const ROW_HEIGHT = 215; // close enough for jazz, keypad is too big for this but ¯\_(ツ)_/¯
 
   const parts = [
-    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {} }
+    { "type": "board-pi-pico-w", "id": "pico", "top": 0, "left": 0, "attrs": {},
+      "type": "board-pi-pico-w", "id": "pico", "top": 100, "left": 100 , "attrs": {}}
   ]
   let x = 88 + PADDING; // for already included Pico
   let y = 0;
@@ -54,15 +55,17 @@ const createProject = async (partsList = []) => {
     })
     return airPart[0].fields['Wokwi Name'].split(',').forEach((name, i) => {
       const width = airPart[0].fields['Wokwi X-Offset'];
+      const attrs = airPart[0].fields['attrs'];
       if ((x + width + PADDING) > MAX_WIDTH) {
         x = 0;
         y += ROW_HEIGHT;
       }
       parts.push({
         type: name,
-        id: name + '-' + i,
+        id: name + '--' + i,
         left: x,
-        top: y
+        top: y,
+        attrs: attrs
       })
       x += width + PADDING;
     })

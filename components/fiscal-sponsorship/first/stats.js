@@ -65,6 +65,11 @@ const Stats = ({ stats }) => {
     return () => observer.disconnect()
   }, [stats.transactions_volume])
 
+  if (stats.transactions_volume === undefined) {
+    return null
+  }
+
+
   return (
     <Box id="parent">
       <Flex sx={{ flexDirection: 'column', alignItems: 'center' }}>
@@ -103,11 +108,20 @@ const Stats = ({ stats }) => {
 
 export async function getStaticProps(context) {
   const res = await fetch(`https://hcb.hackclub.com/stats`)
-  const stats = await res.json()
-
-  return {
-    props: {
-      stats
+  try {
+    const stats = await res.json()
+    return {
+      props: {
+        stats
+      },
+      revalidate: 10
+    }
+  } catch (e) {
+    return {
+      props: {
+        stats: {}
+      },
+      revalidate: 10
     }
   }
 }

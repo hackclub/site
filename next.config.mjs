@@ -5,7 +5,7 @@ const nextConfig = {
     ignoreDuringBuilds: true
   },
   trailingSlash: true,
-  pageExtensions: ['js', 'jsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   images: {
     domains: [
       'hackclub.com',
@@ -28,7 +28,6 @@ const nextConfig = {
     return config
   },
   async redirects() {
-
     return [
       {
         source: '/bank/:path*',
@@ -193,9 +192,20 @@ const nextConfig = {
         permanent: false
       },
       {
-        source: '/slack',
-        destination: '/arcade?param=slack',
+        source: '/donate',
+        destination: '/philanthropy',
         permanent: false
+      },
+      {
+        source: '/github',
+        destination: 'https://github.com/hackclub',
+        permanent: true
+
+      },
+      {
+        source: '/nest',
+        destination: 'https://hackclub.app',
+        permanent: true
       }
     ]
   },
@@ -206,8 +216,8 @@ const nextConfig = {
         destination: 'https://leaders-letters.vercel.app/'
       },
       {
-              source: '/letters',
-              destination: 'https://leaders-letters.vercel.app/'
+        source: '/letters',
+        destination: 'https://leaders-letters.vercel.app/'
       },
       {
         source: '/clubs/leaders-letters/:path*',

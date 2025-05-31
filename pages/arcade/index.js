@@ -22,7 +22,7 @@ import { shopParts } from '../api/arcade/shop'
 /** @jsxImportSource theme-ui */
 
 const styled = `
-@import url('https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=Slackey&family=Emblema+One&family=Gaegu&display=swap);
 body, html {
   overflow-x: hidden;
   }
@@ -473,7 +473,11 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
       <Text
         className="gaegu"
         as="h1"
-        sx={{ display: 'block', fontSize: [2, 3, 4], marginTop: bugEater ? [null, null, null, '36px'] : '-10px' }}
+        sx={{
+          display: 'block',
+          fontSize: [2, 3, 4],
+          marginTop: bugEater ? [null, null, null, '36px'] : '-10px'
+        }}
       >
         {title}
       </Text>
@@ -527,6 +531,7 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
               }}
             >
               <Box
+                onClick={generateProjectIdea}
                 sx={{
                   justifyContent: 'center',
                   pt: ['120px', '140px', '140px', '140px'],
@@ -536,7 +541,8 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                   display: 'grid',
                   background:
                     'url(/arcade/arcade_bg.png) no-repeat center center',
-                  backgroundSize: 'contain'
+                  backgroundSize: 'contain',
+                  cursor: 'pointer'
                 }}
               >
                 <Text
@@ -566,7 +572,6 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                     display: 'inline',
                     width: 'auto',
                     height: '8em',
-                    cursor: 'pointer',
                     mb: ['-120px', '-20px', '-30px', '-30px'],
                     transform: [
                       'scale(0.7)',
@@ -576,7 +581,6 @@ const Tickets = ({ title, num, text, link, bugEater, ...props }) => {
                     ]
                   }}
                   id="generate-project-idea"
-                  onClick={generateProjectIdea}
                 />
               </Box>
               <Box></Box>
@@ -726,7 +730,6 @@ const FAQ = ({ question, answer }) => {
         }}
         dangerouslySetInnerHTML={{ __html: parsedAnswer }}
       />
-     
     </Box>
   )
 }
@@ -880,11 +883,7 @@ function thinkingWords() {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-const Arcade = ({
-  stickers = [],
-  carousel = [],
-  highlightedItems = []
-}) => {
+const Arcade = ({ stickers = [], carousel = [], highlightedItems = [] }) => {
   const [showComponent, setShowComponent] = useState(false)
   const [showNum, setNum] = useState(false)
   const [showForm, setForm] = useState(false)
@@ -928,7 +927,7 @@ const Arcade = ({
         as={Head}
         title="Arcade"
         description="The ultimate summer hackathon for high schoolers. Make projects. Track your hours. Redeem for Prizes."
-        image="https://cloud-luaw423i2-hack-club-bot.vercel.app/0frame_33__1_.png"
+        image="https://cloud-249autgay-hack-club-bot.vercel.app/0frame_70.png"
       />
       <Head>
         <meta
@@ -1086,7 +1085,13 @@ const Arcade = ({
                     display: 'block'
                   }}
                 >
-                  For high schoolers (or younger).
+                  The Arcade closed September 1st, but you can still join the <a
+                      href="https://hackclub.com/slack"
+                      target="_blank"
+                      sx={{ color: 'inherit' }}
+                    >
+                      Hack Club Slack
+                    </a>!
                 </Text>
               )}
             </Fade>
@@ -1318,8 +1323,9 @@ const Arcade = ({
                 transform: 'rotate(-7deg) scale(1.1)',
                 zIndex: 10,
                 position: 'relative',
-                marginBottom: ['-380px', '-420px', '-450px', '-520px'],
-                marginTop: ['120px', '120px', '120px', '150px']
+                marginBottom: ['-900px', '-820px', '-850px', '-1020px'],
+                marginTop: ['120px', '120px', '120px', '150px'],
+                width: ['110vw','105vw']
               }}
             >
               <Ticker speed={5}>
@@ -1515,6 +1521,12 @@ const Arcade = ({
                       Design a PCB, get a $100 grant
                     </li>
                     <li>
+                      <Link href="https://fraps.hackclub.com" target="_blank">
+                        Hackaccino:
+                      </Link>{' '}
+                      Build a 3D Website and get a free frappuccino! ☕
+                    </li>
+                    <li>
                       <a href="https://blot.hackclub.com/">Blot:</a> Write code.
                       Make art. Get a drawing machine.
                     </li>
@@ -1529,7 +1541,8 @@ const Arcade = ({
                       Write a programming language, receive fudge!
                     </li>
                   </ul>
-                </>}
+                </>
+              }
               num="Infinite"
               sx={{
                 gridColumn: ['', 'span 2', 'span 2', 'span 2'],
@@ -1547,9 +1560,7 @@ const Arcade = ({
             <Tickets
               title="Not sure what to make?"
               bugEater={true}
-              text={
-                <>Click me for ideas!</>
-              }
+              text={<>Click me for ideas!</>}
               sx={{
                 '&ul>li': {
                   color: 'inherit'
@@ -1657,6 +1668,7 @@ const Arcade = ({
             Redeem these with your tickets! For high schoolers (or younger)
             only.
           </Text>
+
           {/* <Text
             variant="caption"
             className="gaegu"
@@ -1692,10 +1704,33 @@ const Arcade = ({
               />
             ))}
           </Grid>
+          <Box
+            as="a"
+            href="/arcade/shop"
+            sx={{
+              backgroundColor: '#FF8C37',
+              color: '#FAEFD6',
+              borderRadius: '5px',
+              border: 'none',
+              fontSize: ['24px', '28px', '32px'],
+              px: '20px',
+              py: '15px',
+              mt: 4,
+              display: 'block',
+              transitionDuration: '0.3s',
+              textDecoration: 'none',
+              '&:hover': {
+                transform: 'scale(1.05)'
+              }
+            }}
+            className="slackey"
+          >
+            See all prizes!
+          </Box>
           <Text
             className="gaegu"
             variant="subtitle"
-            sx={{ mt: '100px', display: 'block', fontWeight: 'bold' }}
+            sx={{ display: 'block', fontWeight: 'bold' }}
           >
             This is just a{' '}
             <Text
@@ -1730,7 +1765,8 @@ const Arcade = ({
             sx={{
               width: '100%',
               position: 'absolute',
-              top: '-8vw'
+              top: '-8vw',
+              zIndex: 0
             }}
           />
           <Box
@@ -1745,14 +1781,19 @@ const Arcade = ({
             <Text
               variant="title"
               className="slackey"
-              sx={{ textAlign: 'center', width: '100%', display: 'block' }}
+              sx={{
+                textAlign: 'center',
+                width: '100%',
+                display: 'block',
+                marginTop: '25px'
+              }}
             >
               F.A.Q.
             </Text>
             <Grid
               sx={{
                 gridTemplateColumns: ['1fr', '1fr', '1fr', '1fr 1fr'],
-                width: '100%',
+                // width: '100%',
                 width: '90vw',
                 maxWidth: '1200px',
                 margin: 'auto',
@@ -1765,7 +1806,7 @@ const Arcade = ({
               />
               <FAQ
                 question="What types of projects count?"
-                answer="Projects need to be open source (ie. linked to a GitHub repo) & have a way for people to experience it (ie. a game, a website, etc). At the end, each 'scrap' of your project will be put together in a timeline, so make sure to document your progress!"
+                answer="Projects need to be open source (ie. linked to a GitHub repo) & have a way for people to experience it (ie. a game, a website, etc). At the end, each 'scrap' of your project will be put together in a timeline, so make sure to document your progress! Check the [constitution](https://github.com/hackclub/arcade-constitution) for details on what counts."
               />
               <FAQ
                 question="How many projects can I build?"
@@ -1777,7 +1818,7 @@ const Arcade = ({
               />
               <FAQ
                 question="I need help!"
-                answer="Get it in the #arcade channel of the [Hack Club Slack](https://hackclub.com/slack). Alternatively, reach out to [arcade@hackclub.com](mailto:arcade@hackclub.com)"
+                answer="Get it in the #arcade-help channel of the [Hack Club Slack](https://hackclub.com/slack). Alternatively, reach out to [arcade@hackclub.com](mailto:arcade@hackclub.com)"
               />
               <FAQ
                 question="My hours aren't counted!"
@@ -1790,6 +1831,10 @@ const Arcade = ({
               <FAQ
                 question="What about school work or a job?"
                 answer="The arcade is about the joy of building for the sake of building. If you're building something for school or work we can't count it."
+              />
+              <FAQ
+                question="What counts as a scrap?"
+                answer="Code needs a commit! Things like sprig or blot share links also work. 3D models should also go on a host like Printables or Github."
               />
             </Grid>
           </Box>
@@ -1862,12 +1907,12 @@ export async function getStaticProps() {
     .filter(sticker => sticker !== 'hero.jpg')
 
   const items = await shopParts()
-  
+
   const carousel = items
     .map(record => ({
       hours: record['Cost Hours'] || 0,
       imageURL: record['Image URL'] || '',
-      enabledCarousel: record['Enabled Carousel'] || false,
+      enabledCarousel: record['Enabled Carousel'] || false
     }))
     .filter(item => item.enabledCarousel)
     .filter(item => item.imageURL !== '')
@@ -1878,11 +1923,11 @@ export async function getStaticProps() {
     .map(record => ({
       // id: record['ID'],
       'Image URL': record['Image URL'] || null,
-      'Name': record['Name'] || null,
+      Name: record['Name'] || null,
       'Small Name': record['Small Name'] || null,
       'Full Name': record['Full Name'] || null,
       'Cost Hours': record['Cost Hours'] || null,
-      'Description': record['Description'] || null,
+      Description: record['Description'] || null,
       'Fulfillment Description': record['Fulfillment Description'] || null,
       'Extra tags': record['Extra tags'] || []
     }))

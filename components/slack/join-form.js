@@ -32,6 +32,8 @@ const JoinForm = ({ sx = {}, router }) => {
 
   const eventReferrer = useField('event').value
 
+  const isAdult = useField('year').value === 'tertiary'
+  
   return (
     <Card sx={{ maxWidth: 'narrow', mx: 'auto', label: { mb: 3 }, ...sx }}>
       <form {...formProps}>
@@ -100,7 +102,7 @@ const JoinForm = ({ sx = {}, router }) => {
             required
           />
         </Label>
-        {/*{isAdult && (
+        {isAdult && (
           <Text
             variant="caption"
             color="secondary"
@@ -114,7 +116,7 @@ const JoinForm = ({ sx = {}, router }) => {
             a email at{' '}
             <Link href="mailto:team@hackclub.com">team@hackclub.com</Link>.
           </Text>
-        )}*/}
+        )}
         <Box>
           <Submit
             status={status}
@@ -126,7 +128,7 @@ const JoinForm = ({ sx = {}, router }) => {
                 ? "You're on the Waitlist!"
                 : 'Check your email for invite!'
             }}
-            disabled={status === 'loading' || status === 'success'}
+            disabled={status === 'loading' || status === 'success' || isAdult}
           />
           {status === 'success' && !useWaitlist && (
             <Text
