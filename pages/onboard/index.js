@@ -104,8 +104,11 @@ const ShipPage = () => {
   const spotlightRef = useRef()
   useEffect(() => {
     const handler = event => {
+      const rect = spotlightRef.current.getBoundingClientRect()
+      const x = event.clientX - rect.left
+      const y = event.clientY - rect.top
       spotlightRef.current.style.background = `radial-gradient(
-				circle at ${event.pageX}px ${event.pageY}px,
+				circle at ${x}px ${y}px,
 				rgba(0, 0, 0, 0) 10px,
 				rgba(0, 0, 0, 0.8) 80px
 			)`
