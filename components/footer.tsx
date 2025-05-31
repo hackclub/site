@@ -124,7 +124,7 @@ const Footer: React.FC<FooterProps> = ({
                     <Link href="https://jams.hackclub.com/">Jams</Link>
                     <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
                     <Link href="https://directory.hackclub.com/">Clubs Directory</Link>
-                    <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
+                    <Link href="/conduct">Code of Conduct</Link>
                 </Box>
                 <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
                     <Logo aria-label="Hack Club logo" width={128} height={45} />
