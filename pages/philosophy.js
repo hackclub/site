@@ -71,23 +71,29 @@ const Ultraline = styled(Heading)`
   }
 `
 
-Ultraline.defaultProps = { sx: { fontSize: [48, 54, 72, 96] } }
-
-const Row = styled(Container)`
-  px: 3;
-  py: [4, 5];
-  color: 'black';
-  display: grid;
-  text-align: left;
-  h2 {
-    line-height: 1;
-    margin-bottom: 18px;
-  }
-  @media screen and (min-width: 48em) {
-    grid-gap: 24px;
-    grid-template-columns: 2fr 3fr;
-  }
-`
+export function Row(props) {
+  return (
+    <Container
+      {...props}
+      sx={{
+        px: 3,
+        py: [3, 4],
+        color: 'black',
+        display: 'grid',
+        textAlign: 'left',
+        h2: {
+          lineHeight: 1,
+          marginBottom: '18px'
+        },
+        // only turn on the 2-col layout at ≥48em
+        '@media screen and (min-width: 48em)': {
+          gridGap: '24px',
+          gridTemplateColumns: '2fr 3fr'
+        }
+      }}
+    />
+  )
+}
 
 Row.defaultProps = { sx: { px: 3, py: [3, 4], color: 'black' } }
 
@@ -119,10 +125,18 @@ export default function Philosophy() {
             px={3}
             align="left"
           >
-            <Ultraline>We're</Ultraline>
-            <Ultraline>at our best</Ultraline>
-            <Ultraline>when we're</Ultraline>
-            <Ultraline>making.</Ultraline>
+            <Ultraline sx={{ fontSize: ['48px', '54px', '72px', '96px'] }}>
+              We're
+            </Ultraline>
+            <Ultraline sx={{ fontSize: ['48px', '54px', '72px', '96px'] }}>
+              at our best
+            </Ultraline>
+            <Ultraline sx={{ fontSize: ['48px', '54px', '72px', '96px'] }}>
+              when we're
+            </Ultraline>
+            <Ultraline sx={{ fontSize: ['48px', '54px', '72px', '96px'] }}>
+              making.
+            </Ultraline>
             <Seal pt={[3, 4]}>
               <Heading
                 fontSize={[1, 2]}
