@@ -34,7 +34,7 @@ const Stat = ({
         as="span"
         sx={{
           color,
-          fontSize: lg ? [5, 6, 7] : sm ? [3, 4] : [4, 5, 6],
+          fontSize: lg ? [5, 6, 7] : sm ? [3, 4] : [5, 6],
           fontWeight: 'heading',
           letterSpacing: 'title',
           my: 0
@@ -78,7 +78,7 @@ const Stat = ({
         as="span"
         variant="caption"
         sx={{
-          fontSize: lg ? [1, 2, 3] : [0, 1],
+          fontSize: lg ? [1, 2, 3] : 1,
           letterSpacing: 'headline',
           textTransform: 'uppercase'
         }}
