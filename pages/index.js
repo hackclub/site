@@ -36,6 +36,7 @@ import Neighborhood from '../components/index/cards/neighborhood'
 import HighSeas from '../components/index/cards/highseas'
 import Shipwrecked from '../components/index/cards/shipwrecked'
 import Juice from '../components/index/cards/juice'
+import Tooltip from '../components/index/tooltip'
 /** @jsxImportSource theme-ui */
 
 const HeaderCarousel = ({ images, memberCount }) => {
@@ -118,7 +119,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
         aria-label="Previous image"
         sx={{
           position: 'absolute',
-          left: ['5px', '20px', '30px'],
+          left: ['5px', '10px', '30px'],
           top: '55%',
           transform: 'translateY(-50%)',
           bg: isDark ? '#333' : '#fdf6ee',
@@ -170,7 +171,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
         aria-label="Next image"
         sx={{
           position: 'absolute',
-          right: ['5px', '20px', '30px'],
+          right: ['5px', '10px', '30px'],
           top: '55%',
           transform: 'translateY(-50%)',
           bg: isDark ? '#333' : '#fdf6ee',
@@ -292,7 +293,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
         sx={{
           position: 'absolute',
           bottom: ['96px', '118px'],
-          right: ['70px', '85px', '100px'],
+          right: ['60px', '75px', '90px'],
           zIndex: 13,
           width: '18px',
           height: '12px',
@@ -311,7 +312,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
         sx={{
           position: 'absolute',
           bottom: '0px',
-          right: ['75px', '90px', '105px'],
+          right: ['65px', '80px', '95px'],
           zIndex: 13,
           width: '16px',
           height: '30px',
@@ -333,7 +334,7 @@ const HeaderCarousel = ({ images, memberCount }) => {
           position: 'absolute',
           bottom: '20px',
           textDecoration: 'none',
-          right: '20px',
+          right: '10px',
           zIndex: 15,
           width: ['120px', '150px', '180px'],
           height: ['80px', '100px', '100px'],
@@ -708,7 +709,7 @@ function Page({
       <Meta
         as={Head}
         title="A Home for High School Hackers"
-        description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
+        description="Hack Club is a global nonprofit network of high school makers & coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
         image="https://cloud-lgl7kg862-hack-club-bot.vercel.app/0start__1_.png"
       />
       <Head>
@@ -772,9 +773,9 @@ function Page({
               mx: 'auto',
               py: [4, 4, 4],
               paddingTop: [
-                '130px !important',
-                '120px !important',
-                '156px !important'
+                '110px !important',
+                '110px !important',
+                '146px !important'
               ],
               px: ['45px', '60px', '90px'],
               textShadow: 'text',
@@ -854,28 +855,70 @@ function Page({
               <Text
                 as="h5"
                 sx={{
-                  color: 'yellow',
-                  mb: [1, 2, 3, 4],
+                  color: '#7F6A4C',
+                  mb: 0,
+                  mt: [1, 2, 3],
                   zIndex: 1,
                   textAlign: 'left',
-
-                  lineHeight: [1.3, 1.2],
+                  borderRadius: '1.5rem 0.75rem 2rem 1rem',
+                  px: [3, 3, 4],
+                  py: [2, 1, 3],
+                  bg: 'rgba(253,246,238,0.97)',
+                  border: isDark ? '4px solid #555' : '4px solid #e4d6c3',
+                  lineHeight: [1.3, 1.4],
                   width: '100%',
                   position: 'relative',
-                  fontSize: ['18px', '20px', '24px'],
-                  fontWeight: 500,
+                  fontSize: ['16px', '18px', '20px'],
+                  textShadow: 'none',
+                  fontWeight: 400,
+                  transform: 'rotate(-1deg)',
+                  transformOrigin: 'left bottom',
                   fontFamily:
                     '"Comic Sans MS", "Comic Sans", "Comic Neue", cursive, sans-serif',
-                  letterSpacing: '-0.01em'
+                  // letterSpacing: '0em',
+                  boxShadow: isDark
+                    ? '2px 3px 8px rgba(0,0,0,0.25)'
+                    : '2px 3px 8px rgba(0,0,0,0.15)'
                 }}
               >
-                We're a global community of high school makers in student-led coding clubs building passion and connection.              </Text>
-              <Box sx={{ display: ['block', 'flex'], mt: [3, 2, 3] }}>
+                {/* Decorative push pin */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: '-10px',
+                    right: '-10px',
+                    transform: 'translateX(-50%)',
+                    width: '24px',
+                    height: '24px',
+                    zIndex: 10,
+                    display: ['none', 'none', 'block'],
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: '24px',
+                      height: '24px',
+                      borderRadius: '50%',
+                      background: isDark
+                        ? 'linear-gradient(135deg, #ff5252 0%, #b71c1c 100%)'
+                        : 'linear-gradient(135deg, #ff5252 0%, #e53935 100%)',
+                      border: '1px solid',
+                      borderColor: isDark ? '#c62828' : '#ffcdd2',
+                      boxShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                      position: 'relative'
+                    }}
+                  >
+                   
+                  </Box>
+                </Box>
+                We're a global community of high school makers & coding clubs building passion and connection.
+              </Text>
+              <Box sx={{ display: ['block', 'block', 'flex'], mt: '16px', pt: 0 }}>
                 <Button
                   variant="cta"
                   as="a"
                   href="/slack"
-                  mt={[3, 0, 0]}
+                  mt={0}
                   mr={3}
                   sx={{
                     transformOrigin: 'center left',
@@ -896,7 +939,7 @@ function Page({
                   variant="cta"
                   as="a"
                   href="/philosophy"
-                  mt={[3, 0, 0]}
+                  mt={[3, 2, 0]}
                   sx={{
                     transformOrigin: 'center left',
                     backgroundImage: t => t.util.gx('green', 'blue'),
@@ -1284,7 +1327,6 @@ function Page({
             </Grid>
           </Box>
         </Box>
-        <Carousel cards={carouselCards} />
         <Box
           id="spotlight"
           as="section"
@@ -1293,7 +1335,9 @@ function Page({
               ? `linear-gradient(rgba(17, 17, 17, 0.9), rgba(17, 17, 17, 0.9))`
               : `linear-gradient(rgba(249, 250, 252, 0.9), rgba(249, 250, 252, 0.9))`,
             position: 'relative',
-            marginBottom: [4, 5, 6],
+            // marginBottom: [1, 2, 3],
+            paddingTop: [2, 3, 4],
+            marginTop: [2, 3, 4],
             bg: isDark ? '#111' : 'snow',
             transition: 'background-color 0.2s ease-in-out'
           }}
@@ -1413,7 +1457,10 @@ function Page({
                 }}
               >
                 We gather both online and in-person to share our love of code
-                and make things together!
+                and make things together! Check out some of our active{' '}
+                <Tooltip content="Programs where Hack Clubbers work on personal projects. When you ship (post) something you've made, we ship you stickers or other rewards!">
+                  You Ship We Ship
+                </Tooltip> programs!
               </Text>
             </Box>
 
@@ -1502,8 +1549,10 @@ function Page({
             </Box>
           </Box>
         </Box>
+        <Carousel cards={carouselCards} />
 
-        <Box>
+
+        <Box sx={{ marginTop: [4, 5, 6] }}>
           <Box py={[4, 5, '0px']}>
             <Box
               sx={{
@@ -1817,7 +1866,7 @@ function Page({
                           }
                         }}
                       >
-                        write software
+                        write software,
                       </Text>
                       <Text
                         as="span"
@@ -1839,7 +1888,7 @@ function Page({
                         build awesome stuff
                       </Text>
                     </Box>{' '}
-                    as an{' '}
+                    games, and tools as an{' '}
                     <Text
                       as="span"
                       sx={{
@@ -1869,7 +1918,10 @@ function Page({
                     In collaboration with engineers on the Hack&nbsp;Club team,
                     Hack Clubbers build learning tools for each other. Get
                     involved with these projects by building something with our
-                    tools or contribute to the tools themselves.
+                    tools or contribute to the tools themselves on{' '}
+                    <Tooltip content="A platform where programmers store, share, and collaborate on code. It's like Google Docs for developers, with version control and many other features for working on software together!">
+                      GitHub
+                    </Tooltip>
                   </Text>
 
                   <Box
@@ -2115,8 +2167,9 @@ function Page({
                         fontSize: ['18px', '20px', '28px'],
                         color: 'red',
                         fontWeight: 'bold',
-                        textShadow:
-                          '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
+                        textShadow: isDark
+                          ? '1px 1px 0 #333, -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333'
+                          : '1px 1px 0 white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white',
                         zIndex: 3
                       }}
                     >
@@ -2135,8 +2188,11 @@ function Page({
                     color: isDark ? '#aaa' : '#665040'
                   }}
                 >
-                  Hack Clubbers organize and join hackathons and coding clubs
-                  all around the world
+                  Hack Clubbers organize and join{' '}
+                  <Tooltip content="Weekend-long events where people come together to build tech projects. Like a marathon for making—teams compete for prizes, learn from each other, and have fun creating!">
+                    hackathons
+                  </Tooltip>{' '}
+                  and coding clubs all around the world
                 </Text>
               </Box>
 

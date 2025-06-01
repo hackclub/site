@@ -21,8 +21,8 @@ const fixed = props =>
     border-bottom: 1px solid rgba(48, 48, 48, 0.125);
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       background-color: ${props.transparent
-        ? 'transparent'
-        : rgbaBgColor(props, 0.92)};
+      ? 'transparent'
+      : rgbaBgColor(props, 0.92)};
       -webkit-backdrop-filter: saturate(120%) blur(8px);
       backdrop-filter: saturate(120%) blur(8px);
     }
@@ -145,9 +145,9 @@ const NavBar = styled(Box, {
     text-decoration: none;
     background: transparent;
     color: ${({ color, theme, dark, scrolled }) =>
-      !dark && !scrolled && (color === 'white' || !color)
-        ? theme.colors.slate || '#334E68'
-        : theme.colors[color] || color};
+    !dark && !scrolled && (color === 'white' || !color)
+      ? theme.colors.slate || '#334E68'
+      : theme.colors[color] || color};
     box-shadow: none;
     transition:
       color 0.13s cubic-bezier(0.68, -0.55, 0.27, 1.55),
@@ -164,7 +164,7 @@ const NavBar = styled(Box, {
       color: ${props => (props.dark ? 'white' : '#111')};
       transform: translateY(-4px) scale(1.06) rotate(-1.5deg);
       box-shadow: ${props =>
-        props.dark ? '0 6px 18px 0 rgba(0,0,0,0.3)' : '0 6px 18px 0 #e4d6c355'};
+    props.dark ? '0 6px 18px 0 rgba(0,0,0,0.3)' : '0 6px 18px 0 #e4d6c355'};
       text-shadow: ${props => (props.dark ? 'none' : '0 1px 0 #fff7')};
       cursor: pointer;
       padding-left: 1.1rem;
@@ -225,7 +225,7 @@ const DropdownMenu = styled(Box)`
 
   a {
     color: ${props =>
-      props.theme.isDark ? '#eee !important' : 'inherit !important'};
+    props.theme.isDark ? '#eee !important' : 'inherit !important'};
     width: 100%;
     padding: 0.75rem 1rem !important;
     transition:
@@ -237,9 +237,9 @@ const DropdownMenu = styled(Box)`
     &:hover,
     &:focus {
       background: ${props =>
-        props.theme.isDark ? '#444 !important' : '#f3ede2 !important'};
+    props.theme.isDark ? '#444 !important' : '#f3ede2 !important'};
       color: ${props =>
-        props.theme.isDark ? 'white !important' : '#111 !important'};
+    props.theme.isDark ? 'white !important' : '#111 !important'};
       box-shadow: none !important;
       text-shadow: none !important;
     }
@@ -767,11 +767,11 @@ const ThemeToggle = styled.button`
   &:focus {
     transform: scale(1.15) rotate(-5deg);
     background: ${props =>
-      props.isDark ? 'rgba(255,255,255,0.15)' : '#f3ede2'};
+    props.isDark ? 'rgba(255,255,255,0.15)' : '#f3ede2'};
     box-shadow: ${props =>
-      props.isDark
-        ? '0 4px 12px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.2)'
-        : '0 4px 12px rgba(0,0,0,0.1), 0 0 0 2px #e4d6c3'};
+    props.isDark
+      ? '0 4px 12px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.2)'
+      : '0 4px 12px rgba(0,0,0,0.1), 0 0 0 2px #e4d6c3'};
     outline: none;
   }
 
@@ -920,6 +920,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
           display: [
             toggled ? 'block' : 'none',
             toggled ? 'block' : 'none',
+            toggled ? 'block' : 'none',
             'none'
           ],
           position: 'absolute',
@@ -1008,9 +1009,9 @@ const ResetButton = styled.button`
     transform: scale(1.2) rotate(-45deg);
     background: ${props => (props.theme.isDark ? '#555' : '#fff')};
     box-shadow: ${props =>
-      props.theme.isDark
-        ? '0 3px 6px rgba(0,0,0,0.4)'
-        : '0 3px 6px rgba(0,0,0,0.15)'};
+    props.theme.isDark
+      ? '0 3px 6px rgba(0,0,0,0.4)'
+      : '0 3px 6px rgba(0,0,0,0.15)'};
     outline: none;
   }
 `
