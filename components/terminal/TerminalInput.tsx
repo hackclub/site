@@ -157,7 +157,7 @@ const SHOUTOUTS = [
 export const TerminalInput = () => {
   const [input, setInput] = useState('');
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
-  const [output, setOutput] = useState<JSX.Element[]>([
+  const [output, setOutput] = useState<React.ReactElement[]>([
     <div key="welcome" className="mb-4 text-terminal-accent">
       <p>Welcome to Hack Club Terminal v1.0.0</p>
       <p className="text-terminal-muted text-sm mt-1">Type 'help' to see available commands</p>
@@ -236,7 +236,7 @@ export const TerminalInput = () => {
   };
 
   // Command processing logic
-  const processCommand = async (cmd: string): Promise<JSX.Element | null> => {
+  const processCommand = async (cmd: string): Promise<React.ReactElement | null> => {
     const command = cmd.split(' ')[0].toLowerCase();
     const args = cmd.split(' ').slice(1);
     
@@ -613,7 +613,7 @@ export const TerminalInput = () => {
   };
   
   // Helper to render nice boxed output
-  const renderBoxedOutput = (content: JSX.Element): JSX.Element => {
+  const renderBoxedOutput = (content: React.ReactElement): React.ReactElement => {
     return (
       <div className="mt-3 mb-1 border border-terminal-accent/30 rounded p-3 bg-terminal-bg/50">
         {content}
@@ -622,7 +622,7 @@ export const TerminalInput = () => {
   };
   
   // Helper to render ASCII art
-  const renderAsciiArt = (): JSX.Element => {
+  const renderAsciiArt = (): React.ReactElement => {
     // Random selection between different ASCII art options
     const artOptions = [
       // Hack Club logo
@@ -697,7 +697,7 @@ export const TerminalInput = () => {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="terminal-input flex-1"
+          className="terminal-input flex-1 bg-transparent"
           placeholder="Enter a command (try 'help')"
           autoFocus
         />

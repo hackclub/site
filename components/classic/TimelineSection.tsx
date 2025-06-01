@@ -1,13 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ScrollArea } from '../ui/scroll-area';
+import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "../ui/dialog";
 import { useKonamiCode } from '../../hooks/useKonamiCode';
 import { Badge } from '../../components/ui/badge';
-import { Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
-// Define a type for the historical event data
+// Types
 interface HistoricalEventData {
   id: number;
   title: string;
@@ -19,89 +18,262 @@ interface HistoricalEventData {
   attendees?: string;
 }
 
-// Define the static event data
+// Static Data
 const staticHistoricalEvents: HistoricalEventData[] = [
   {
-    "id": 1,
-    "title": "Hack Club Launch",
-    "date": "2014-08-01",
-    "location": "San Francisco, CA",
-    "description": "Hack Club was founded by Zach Latta to help high schoolers start coding clubs and build a supportive tech community.",
-    "image_url": "https://assets.hackclub.com/presskit/hackclub-logo.png",
-    "gallery_images": ["https://assets.hackclub.com/presskit/hackclub-logo.png", "https://assets.hackclub.com/presskit/hackclub-banner.png"],
-    "attendees": ""
+    id: 1,
+    title: "Hack Club Founded",
+    date: "2014-01-01",
+    location: "San Francisco, CA",
+    description: "Zach Latta founded Hack Club as a nonprofit to support high school coding clubs worldwide.",
+    image_url: "https://cloud-lgl7kg862-hack-club-bot.vercel.app/0start__1_.png",
+    gallery_images: ["https://cloud-lgl7kg862-hack-club-bot.vercel.app/0start__1_.png"],
+    attendees: ""
   },
   {
-    "id": 2,
-    "title": "Launch of Hack Club Bank",
-    "date": "2018-06-01",
-    "location": "Online",
-    "description": "Hack Club Bank was launched as a financial platform for teen-led organizations and hackathons to manage money legally and transparently.",
-    "image_url": "https://assets.hackclub.com/bank-og.png",
-    "gallery_images": ["https://assets.hackclub.com/bank-og.png", "https://cloud-9tqir75lf-hack-club-bot.vercel.app/0bank.png"],
-    "attendees": ""
+    id: 2,
+    title: "Summer of Making",
+    date: "2020-05-28",
+    location: "Online",
+    description: "Hack Club partnered with GitHub, Adafruit, and Arduino to launch an online summer program, distributing $50,000 in hardware to teen hackers globally.",
+    image_url: "https://assets.hackclub.com/log/2020-06-18_summer.jpg",
+    gallery_images: ["https://assets.hackclub.com/log/2020-06-18_summer.jpg"],
+    attendees: ""
   },
   {
-    "id": 3,
-    "title": "Assemble",
-    "date": "2022-07-22",
-    "location": "San Francisco, CA",
-    "description": "Hack Club's first in-person high school hackathon since the pandemic, bringing together student hackers from around the world.",
-    "image_url": "https://assemble.hackclub.com/og.jpg",
-    "gallery_images": [],
-    "attendees": ""
+    id: 3,
+    title: "Hacker Zephyr",
+    date: "2021-07-16",
+    location: "Across America",
+    description: "A cross-country hackathon on a train across America, bringing together teenage hackers for a unique coding journey.",
+    image_url: "https://camo.githubusercontent.com/1163f12e042beeb96ca7bf8c552d4d56d4a3057469ee06e92d4b5fb42e714aa8/68747470733a2f2f636c6f75642d6b31386337677271632d6861636b2d636c75622d626f742e76657263656c2e6170702f307370616365785f616e645f6861636b5f636c75622e6a7067",
+    gallery_images: ["https://camo.githubusercontent.com/1163f12e042beeb96ca7bf8c552d4d56d4a3057469ee06e92d4b5fb42e714aa8/68747470733a2f2f636c6f75642d6b31386337677271632d6861636b2d636c75622d626f742e76657263656c2e6170702f307370616365785f616e645f6861636b5f636c75622e6a706"],
+    attendees: ""
   },
   {
-    "id": 4,
-    "title": "Outernet",
-    "date": "2023-07-28",
-    "location": "Vermont's Northeast Kingdom",
-    "description": "An outdoor, make-it-yourself programming adventure, encouraging creativity and collaboration in nature.",
-    "image_url": "https://outernet.hackclub.com/og.jpg",
-    "gallery_images": [],
-    "attendees": ""
+    id: 4,
+    title: "Assemble",
+    date: "2022-08-05",
+    location: "San Francisco, CA",
+    description: "The first high school hackathon in San Francisco since the COVID-19 pandemic, aiming to kick off a hackathon renaissance.",
+    image_url: "https://user-images.githubusercontent.com/39828164/189933158-9f00ceaf-7f61-4bef-9911-4cf4a14e0e4d.png",
+    gallery_images: ["https://user-images.githubusercontent.com/39828164/189933158-9f00ceaf-7f61-4bef-9911-4cf4a14e0e4d.png"],
+    attendees: ""
   },
   {
-    "id": 5,
-    "title": "The Hacker Zephyr",
-    "date": "2023-08-01",
-    "location": "Across the United States",
-    "description": "A cross-country hackathon on a train, combining travel and coding in a unique adventure.",
-    "image_url": "https://zephyr.hackclub.com/og.jpg",
-    "gallery_images": [],
-    "attendees": ""
+    id: 5,
+    title: "Winter Hardware Wonderland",
+    date: "2023-12-01",
+    location: "Online",
+    description: "An online winter program where teenagers submitted ideas for hardware projects and received grants of up to $250.",
+    image_url: "g",
+    gallery_images: ["g"],
+    attendees: ""
   },
   {
-    "id": 6,
-    "title": "Epoch",
-    "date": "2023-12-31",
-    "location": "Delhi NCR, India",
-    "description": "A magical New Year's event spent hacking, celebrating the end of the year with the Hack Club community.",
-    "image_url": "https://epoch.hackclub.com/og.png",
-    "gallery_images": [],
-    "attendees": ""
+    id: 6,
+    title: "High Seas Launch",
+    date: "2024-12-04",
+    location: "Online",
+    description: "Hack Club introduced 'High Seas', a program incentivizing teens to build personal projects by offering rewards.",
+    image_url: "https://ahoy.hack.club/ogcard.png",
+    gallery_images: ["https://ahoy.hack.club/ogcard.png"],
+    attendees: ""
   },
   {
-    "id": 7,
-    "title": "Hack Club Summit 2024",
-    "date": "2024-06-15",
-    "location": "Online",
-    "description": "A virtual gathering of Hack Club leaders and members to discuss the future of the community and share experiences.",
-    "image_url": "https://assets.hackclub.com/summit-2024.png",
-    "gallery_images": [],
-    "attendees": ""
+    id: 7,
+    title: "Scrapyard Flagship (Austin, TX)",
+    date: "2025-03-01",
+    location: "Austin, TX",
+    description: "The flagship event of Hack Club's global 'Scrapyard' hackathon series, held in Austin, Texas, where high schoolers built 'useless' inventions for fun.",
+    image_url: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/6fe641d9fa579755048e7548765ce8b86e8d4ff7_ekran_g__r__nt__s___2025-06-01_153242.png",
+    gallery_images: ["https://hc-cdn.hel1.your-objectstorage.com/s/v3/6fe641d9fa579755048e7548765ce8b86e8d4ff7_ekran_g__r__nt__s___2025-06-01_153242.png"],
+    attendees: ""
+  },
+  {
+    id: 8,
+    title: "Scrapyard Worldwide",
+    date: "2025-03-15",
+    location: "Worldwide",
+    description: "Over 100 cities worldwide hosted local Scrapyard hackathons, encouraging teens to create quirky and unconventional projects.",
+    image_url: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/6fe641d9fa579755048e7548765ce8b86e8d4ff7_ekran_g__r__nt__s___2025-06-01_153242.png",
+    gallery_images: ["https://hc-cdn.hel1.your-objectstorage.com/s/v3/6fe641d9fa579755048e7548765ce8b86e8d4ff7_ekran_g__r__nt__s___2025-06-01_153242.png"],
+    attendees: ""
+  },
+  {
+    id: 9,
+    title: "Shipwrecked",
+    date: "2025-08-08",
+    location: "Private Island, Boston",
+    description: "Hack Club hosted 150 teenagers on a private island off the coast of Boston for a themed 3-day hackathon.",
+    image_url: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/81498598a9030326124be5aac57a94da514363aa_image.png",
+    gallery_images: ["https://hc-cdn.hel1.your-objectstorage.com/s/v3/81498598a9030326124be5aac57a94da514363aa_image.png"],
+    attendees: "150"
   }
 ];
 
+// Utility Functions
+const formatDate = (dateStr: string) => {
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+};
+
+// Components
+const TimelineHeader = ({ konamiActivated }: { konamiActivated: boolean }) => (
+  <div className="text-center mb-12 opacity-0 animate-on-scroll">
+    <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-900 text-green-400 mb-4 font-mono border border-green-600">
+      <Calendar size={16} className="mr-2 text-green-500" />
+      <span className="text-sm font-medium">$ ./our-journey.sh --verbose</span>
+      <span className="animate-blink text-green-400 ml-1">▊</span>
+    </div>
+    
+    <h2 className="text-3xl md:text-4xl font-bold mb-4 text-green-400">
+      <span className={konamiActivated ? "animate-glitch" : "glitch-text-subtle"}>
+        Our Journey
+      </span>
+    </h2>
+    
+    <p className="text-xl text-green-200 max-w-2xl mx-auto font-mono">
+      <span className="text-green-500">$</span> cat history.log
+    </p>
+  </div>
+);
+
+const TimelineCard = ({ 
+  event, 
+  konamiActivated, 
+  onOpenDetail 
+}: { 
+  event: HistoricalEventData; 
+  konamiActivated: boolean;
+  onOpenDetail: (event: HistoricalEventData) => void;
+}) => (
+  <div className="relative">
+    <div 
+      className={`rounded-2xl overflow-hidden shadow-lg transition-all duration-300 transform hover:shadow-xl hover:translate-y-[-5px] bg-gray-900 border border-green-600 text-green-200 ${konamiActivated ? 'animate-bounce' : ''}`}
+    >
+      <div 
+        className="relative h-48 cursor-pointer overflow-hidden"
+        onClick={() => onOpenDetail(event)}
+      >
+        <img 
+          src={konamiActivated ? 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGV1N3dyNGd0bDRocmdoOWZreTlseDRpY2owOGNqaHN6bnFwMXk1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K64409MbT84rm/giphy.gif' : event.image_url} 
+          alt={`${event.title} - ${formatDate(event.date)}`}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          loading="lazy"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.onerror = null;
+            target.src = 'https://cloud-5pdwvchgm-hack-club-bot.vercel.app/0placeholder.jpg';
+          }}
+        />
+        
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 font-mono">
+          <h3 className="text-green-400 font-bold text-lg">{event.title}</h3>
+          <p className="text-green-200 text-sm">{formatDate(event.date)}</p>
+          {event.location && (
+            <p className="text-green-300 text-xs">{event.location}</p>
+          )}
+        </div>
+      </div>
+      
+      <div className="p-4 font-mono">
+        <Badge variant="outline" className="mb-2 text-xs bg-black/50 text-green-400 border border-green-600">
+          {formatDate(event.date)}
+        </Badge>
+        <h3 className="font-bold text-lg line-clamp-1 text-green-400">{event.title}</h3>
+        <p className="text-green-200 text-sm mt-1 mb-3 line-clamp-2">
+          {event.description}
+        </p>
+        <Button 
+          variant="outline" 
+          size="sm" 
+          className="w-full border-green-600 text-green-400 hover:bg-green-900/20 hover:text-white font-mono group"
+          onClick={() => onOpenDetail(event)}
+        >
+          <span className="mr-1 text-green-500 group-hover:text-white">$</span> View Details
+        </Button>
+      </div>
+    </div>
+  </div>
+);
+
+const ImageDetailDialog = ({ 
+  event, 
+  onClose,
+  konamiActivated 
+}: { 
+  event: HistoricalEventData;
+  onClose: () => void;
+  konamiActivated: boolean;
+}) => (
+  <Dialog open={true} onOpenChange={(open) => !open && onClose()}>
+    <DialogContent className="max-w-5xl w-[90vw] bg-gray-900 text-green-400 border border-green-600 font-mono">
+      <DialogHeader className="border-b border-green-600/50 pb-3">
+        <DialogTitle className="text-2xl text-green-400">
+          {konamiActivated ? "👾 " : ""}{event.title}
+        </DialogTitle>
+        <DialogDescription className="text-green-200 text-sm">
+          {formatDate(event.date)} • {event.location}
+          {event.attendees && ` • ${event.attendees} attendees`}
+        </DialogDescription>
+      </DialogHeader>
+      
+      <div className="relative h-[60vh] bg-black rounded-md overflow-hidden my-4 border border-green-600">
+        {event.gallery_images && event.gallery_images.length > 0 ? (
+          <img 
+            src={konamiActivated ? 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGV1N3dyNGd0bDRocmdoOWZreTlseDRpY2owOGNqaHN6bnFwMXk1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K64409MbT84rm/giphy.gif' : event.gallery_images[0]} 
+            alt={`Image from ${event.title} event`} 
+            className="w-full h-full object-contain"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.onerror = null;
+              target.src = 'https://cloud-5pdwvchgm-hack-club-bot.vercel.app/0placeholder.jpg';
+            }}
+          />
+        ) : konamiActivated ? (
+          <img 
+            src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGV1N3dyNGd0bDRocmdoOWZreTlseDRpY2owOGNqaHN6bnFwMXk1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K64409MbT84rm/giphy.gif'
+            alt="Konami Code Activated!"
+            className="w-full h-full object-contain"
+          />
+        ) : (
+          <div className="flex justify-center items-center h-full text-green-400 font-mono">
+            <p>$ cat no_image_found.txt</p>
+          </div>
+        )}
+      </div>
+      
+      <div className="font-mono text-sm text-green-200 space-y-2">
+        {event.description && (
+          <p><span className="text-green-500">$ echo</span> "{event.description}"</p>
+        )}
+      </div>
+      
+      <DialogFooter className="mt-6 flex justify-end font-mono">
+        <Button 
+          variant="outline" 
+          onClick={onClose} 
+          className="border-green-600 text-green-400 hover:bg-green-900/20"
+        >
+          <span className="mr-1 text-green-500">$</span> Close
+        </Button>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
+);
+
+// Main Component
 export const TimelineSection = () => {
   const [selectedEvent, setSelectedEvent] = useState<HistoricalEventData | null>(null);
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const timelineRef = useRef<HTMLDivElement>(null);
   const konamiActivated = useKonamiCode();
   
-  useEffect(() => {
+  React.useEffect(() => {
     if (konamiActivated) {
-      // Launch confetti when Konami code is activated
       confetti({
         particleCount: 100,
         spread: 70,
@@ -116,272 +288,40 @@ export const TimelineSection = () => {
     new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
-  const formatDate = (dateStr: string) => {
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    });
-  };
-
-  const openImageDetail = (event: HistoricalEventData, imageIndex: number = 0) => {
+  const openImageDetail = (event: HistoricalEventData) => {
     setSelectedEvent(event);
-    setSelectedImageIndex(imageIndex);
   };
 
   const closeImageDetail = () => {
     setSelectedEvent(null);
   };
 
-  // Fixed image navigation functions
-  const nextImage = () => {
-    if (selectedEvent?.gallery_images && selectedEvent.gallery_images.length > 0) {
-      setSelectedImageIndex((prevIndex) => 
-        prevIndex === selectedEvent.gallery_images!.length - 1 ? 0 : prevIndex + 1
-      );
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedEvent?.gallery_images && selectedEvent.gallery_images.length > 0) {
-      setSelectedImageIndex((prevIndex) => 
-        prevIndex === 0 ? selectedEvent.gallery_images!.length - 1 : prevIndex - 1
-      );
-    }
-  };
-
-  // Scroll timeline functions
-  const scrollLeft = () => {
-    if (timelineRef.current) {
-      timelineRef.current.scrollBy({ left: -300, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRight = () => {
-    if (timelineRef.current) {
-      timelineRef.current.scrollBy({ left: 300, behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="history" className="py-16 px-6 bg-black relative overflow-hidden border-t-4 border-green-600 shadow-[0_0_30px_5px_rgba(34,197,94,0.3)]">
-      {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-black to-transparent"></div>
       <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-grid-pattern opacity-10"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-12 opacity-0 animate-on-scroll">
-          {/* Terminal prompt header */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-900 text-green-400 mb-4 font-mono border border-green-600">
-            <Calendar size={16} className="mr-2 text-green-500" />
-            <span className="text-sm font-medium">$ ./our-journey.sh --verbose</span>
-            <span className="animate-blink text-green-400 ml-1">▊</span>
-          </div>
-          
-          {/* Section title */}
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-green-400">
-            <span className={konamiActivated ? "animate-glitch" : "glitch-text-subtle"}>
-              Our Team's Journey
-            </span>
-          </h2>
-          
-          {/* Section description */}
-          <p className="text-xl text-green-200 max-w-2xl mx-auto font-mono">
-            <span className="text-green-500">$</span> cat history.log
-          </p>
-        </div>
+        <TimelineHeader konamiActivated={konamiActivated} />
 
-        <div className="mb-16 relative">
-          {/* Desktop navigation buttons */}
-          <div className="hidden md:block">
-            <button 
-              onClick={scrollLeft}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-gray-900/80 hover:bg-gray-800 rounded-full p-2 shadow-lg border border-green-600 focus:outline-none focus:ring-2 focus:ring-green-400/40"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft className="h-6 w-6 text-green-400" />
-            </button>
-            <button 
-              onClick={scrollRight}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-gray-900/80 hover:bg-gray-800 rounded-full p-2 shadow-lg border border-green-600 focus:outline-none focus:ring-2 focus:ring-green-400/40"
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="h-6 w-6 text-green-400" />
-            </button>
-          </div>
-
-          {/* Timeline */}
-          <ScrollArea className="pb-4">
-            <div 
-              ref={timelineRef}
-              className="flex flex-row gap-8 overflow-x-auto scrollbar-none py-6 min-h-[400px]"
-              style={{ scrollbarWidth: 'none' }}
-            >
-              {/* Timeline line */}
-              <div className="absolute left-0 right-0 h-1 bg-green-600 top-1/2 transform -translate-y-1/2 z-0"></div>
-              
-              {sortedEvents?.map((event, index) => (
-                <div 
-                  key={event.id} 
-                  className={`relative flex-none w-72 md:w-80 ${index % 2 === 0 ? 'mt-8' : 'mb-8'}`}
-                >
-                  {/* Year marker */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-green-600 text-white font-mono font-bold flex items-center justify-center shadow-lg border-2 border-green-400 z-10">
-                    {new Date(event.date).getFullYear()}
-                  </div>
-                  
-                  {/* Image card */}
-                  <div 
-                    className={`rounded-2xl overflow-hidden shadow-lg transition-all duration-300 transform hover:shadow-xl hover:translate-y-[-5px] bg-gray-900 border border-green-600 text-green-200 ${konamiActivated ? 'animate-bounce' : ''}`}
-                  >
-                    <div 
-                      className="relative h-48 cursor-pointer overflow-hidden"
-                      onClick={() => openImageDetail(event)}
-                    >
-                      <img 
-                        src={konamiActivated && index % 3 === 0 ? 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGV1N3dyNGd0bDRocmdoOWZreTlseDRpY2owOGNqaHN6bnFwMXk1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K64409MbT84rm/giphy.gif' : event.image_url} 
-                        alt={`${event.title} - ${formatDate(event.date)}`}
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                        loading="lazy"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.onerror = null;
-                        }}
-                      />
-                      
-                      {/* Image overlay on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 font-mono">
-                        <h3 className="text-green-400 font-bold text-lg">{event.title}</h3>
-                        <p className="text-green-200 text-sm">{formatDate(event.date)}</p>
-                        {event.location && (
-                          <p className="text-green-300 text-xs">{event.location}</p>
-                        )}
-                      </div>
-                    </div>
-                    
-                    <div className="p-4 font-mono">
-                      <Badge variant="outline" className="mb-2 text-xs bg-black/50 text-green-400 border border-green-600">
-                        {formatDate(event.date)}
-                      </Badge>
-                      <h3 className="font-bold text-lg line-clamp-1 text-green-400">{event.title}</h3>
-                      <p className="text-green-200 text-sm mt-1 mb-3 line-clamp-2">
-                        {event.description}
-                      </p>
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        className="w-full border-green-600 text-green-400 hover:bg-green-900/20 hover:text-white font-mono group"
-                        onClick={() => openImageDetail(event)}
-                      >
-                        <span className="mr-1 text-green-500 group-hover:text-white">$</span> View Details
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </ScrollArea>
-          
-          {/* Mobile scroll indicator */}
-          <div className="flex md:hidden justify-center mt-6">
-            <div className="text-green-400 text-sm flex items-center font-mono">
-              <ChevronLeft className="h-4 w-4 mr-1 text-green-500" />
-              <span>$ swipe_to_explore</span>
-              <ChevronRight className="h-4 w-4 ml-1 text-green-500" />
-              <span className="animate-blink text-green-400 ml-1">▊</span>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedEvents.map((event) => (
+            <TimelineCard
+              key={event.id}
+              event={event}
+              konamiActivated={konamiActivated}
+              onOpenDetail={openImageDetail}
+            />
+          ))}
         </div>
         
-        {/* Image Detail Dialog */}
-        <Dialog open={!!selectedEvent} onOpenChange={(open: boolean) => !open && closeImageDetail()}>
-          {selectedEvent && (
-            <DialogContent className="max-w-5xl w-[90vw] bg-gray-900 text-green-400 border border-green-600 font-mono">
-              <DialogHeader className="border-b border-green-600/50 pb-3">
-                <DialogTitle className="text-2xl text-green-400">
-                  {konamiActivated ? "👾 " : ""}{selectedEvent.title}
-                </DialogTitle>
-                <DialogDescription className="text-green-200 text-sm">
-                  {formatDate(selectedEvent.date)} • {selectedEvent.location}
-                  {selectedEvent.attendees && ` • ${selectedEvent.attendees} attendees`}
-                </DialogDescription>
-              </DialogHeader>
-              
-              <div className="relative h-[60vh] bg-black rounded-md overflow-hidden my-4 border border-green-600">
-                {selectedEvent.gallery_images && selectedEvent.gallery_images.length > 0 ? (
-                  <>
-                    <img 
-                      key={selectedImageIndex} // Add key to force re-render when image changes
-                      src={konamiActivated ? 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGV1N3dyNGd0bDRocmdoOWZreTlseDRpY2owOGNqaHN6bnFwMXk1ZyZlcD12MV9ibnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K64409MbT84rm/giphy.gif' : selectedEvent.gallery_images[selectedImageIndex]} 
-                      alt={`Gallery image ${selectedImageIndex + 1} from ${selectedEvent.title} event`} 
-                      className="w-full h-full object-contain"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.onerror = null;
-                      }}
-                    />
-                    
-                    {/* Image navigation buttons - fixed to use Button component */}
-                    {selectedEvent.gallery_images.length > 1 && (
-                      <>
-                        <Button
-                          variant="carousel"
-                          size="carousel"
-                          onClick={prevImage}
-                          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10"
-                          aria-label="Previous image"
-                        >
-                          <ChevronLeft className="h-6 w-6" />
-                        </Button>
-                        <Button
-                          variant="carousel"
-                          size="carousel"
-                          onClick={nextImage}
-                          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10"
-                          aria-label="Next image"
-                        >
-                          <ChevronRight className="h-6 w-6" />
-                        </Button>
-                        
-                        {/* Image counter */}
-                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 text-white px-3 py-1.5 rounded-full text-sm">
-                          {selectedImageIndex + 1} / {selectedEvent.gallery_images.length}
-                        </div>
-                      </>
-                    )}
-                  </>
-                ) : ( konamiActivated ? (
-                   <img 
-                      src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGV1N3dyNGd0bDRocmdoOWZreTlseDRpY2owOGNqaHN6bnFwMXk1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K64409MbT84rm/giphy.gif'
-                      alt="Konami Code Activated!"
-                      className="w-full h-full object-contain"
-                    />
-                ) : (
-                   <div className="flex justify-center items-center h-full text-green-400 font-mono">
-                      <p>$ cat no_image_found.txt</p>
-                   </div>
-                ))}
-              </div>
-              
-              <div className="font-mono text-sm text-green-200 space-y-2">
-                {selectedEvent.description && (
-                   <p><span className="text-green-500">$ echo</span> "{selectedEvent.description}"</p>
-                )}
-              </div>
-              
-              <DialogFooter className="mt-6 flex justify-end font-mono">
-                <Button 
-                  variant="outline" 
-                  onClick={closeImageDetail} 
-                  className="border-green-600 text-green-400 hover:bg-green-900/20"
-                >
-                  <span className="mr-1 text-green-500">$</span> Close
-                </Button>
-              </DialogFooter>
-            </DialogContent>
-          )}
-        </Dialog>
+        {selectedEvent && (
+          <ImageDetailDialog
+            event={selectedEvent}
+            onClose={closeImageDetail}
+            konamiActivated={konamiActivated}
+          />
+        )}
       </div>
     </section>
   );

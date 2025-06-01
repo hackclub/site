@@ -418,6 +418,30 @@
     "avatar": "https://cachet.dunkirk.sh/users/U04C8LLPKS7/r"
   },
   {
+    "name": "Samuel Fernandez",
+    "department": "HCB",
+    "role": "Engineering Contributor",
+    "acknowledged": false,
+    "bio": "Samuel is a Hack Clubber from Tampa, FL. After finding Hack Club while looking for hackathons, he's now attended and organized many himself, and he now works on improving HCB so other teens can run their own events and nonprofits!",
+    "bioHackFoundation": "",
+    "slackId": "U04G40QKAAD",
+    "email": "samuelf",
+    "website": "https://sfernandez.dev",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a87bb79e3bb856cdccc585a5d0cbeaa9166de0cf_scrapyard-samuel.jpg"
+  },
+  {
+    "name": "Luke Oldenburg",
+    "department": "HCB",
+    "role": "Engineering Contributor",
+    "acknowledged": false,
+    "bio": "Luke is a Hack Clubber based in sunny Tampa, FL. Following being introduced to Hack Club by a friend, he slowly got more involved in the community by attending events and participating in YSWSs. After discovering HCB to run his own hackathons, Luke started patching small bugs he found and now continues to work on HCB to support others in their nonprofit journey!",
+    "bioHackFoundation": "",
+    "slackId": "U06MYDS2LHX",
+    "email": "luke",
+    "website": "https://lukeoldenburg.com/",
+    "avatar": "https://cachet.dunkirk.sh/users/U06MYDS2LHX/r"
+  },
+  {
     "name": "Sean Outram",
     "department": "HCB",
     "role": "Operations Contributor",
@@ -434,12 +458,12 @@
     "department": "HCB",
     "role": "Operations Contributor",
     "acknowledged": false,
-    "bio": "Alex is a current college student from the Seattle area, where he started the Hack Club at his high school after attending Assemble in the summer of 2022, and now is working with Operations for HCB. Alex is deeply involved in his community and giving back, helping with many different events and activities for the community.",
+    "bio": "",
     "bioHackFoundation": "",
     "slackId": "U02CWS020SD",
     "email": "alexd",
     "website": "",
-    "avatar": "https://cloud-181o6w31m-hack-club-bot.vercel.app/0image_2316x3088.jpg"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0513981889e244405d5c4ef0ccd30922e1fecc3c_img_6425_1200x1200.png"
   },
   {
     "name": "Sarvesh Mohan Kumar",
@@ -470,7 +494,7 @@
     "department": "HCB",
     "role": "Operations Contributor",
     "acknowledged": false,
-    "bio": "Aryan is currently a Computer Science freshman from India who likes to tinker with electronics .He holds a special place in his heart for dogs and even has two chihuahuas. He specializes in integrating business systems with websites and apps, and loves to help around in the community.",
+    "bio": "Aryan is currently a Computer Science freshman from India who likes to tinker with electronics. He holds a special place in his heart for dogs and even has two chihuahuas. He specializes in integrating business systems with websites and apps, and loves to help around in the community.",
     "bioHackFoundation": "",
     "slackId": "U078A390FTQ",
     "email": "aryan",
@@ -478,16 +502,16 @@
     "avatar": "https://cachet.dunkirk.sh/users/U078A390FTQ/r"
   },
   {
-    "name": "Leo Wilkin",
+    "name": "Leo W",
     "department": "HCB",
     "role": "Operations Contributor",
     "acknowledged": false,
-    "bio": "Leo, a UK-based student, has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. At HCB, he's leveraging his passion and experience in Operations, helping clubs and non-profits access the financial tools they need for sustainable growth and success.",
+    "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. At HCB, he's leveraging his passion and experience in Operations, helping clubs and non-profits access the financial tools they need for sustainable growth and success.",
     "bioHackFoundation": "",
     "slackId": "U07BLJ1MBEE",
     "email": "leow",
-    "website": "https://wilkin.xyz",
-    "avatar": "https://cachet.dunkirk.sh/users/U07BLJ1MBEE/r"
+    "website": "",
+    "avatar": "https://avatars.githubusercontent.com/u/64415791"
   },
   {
     "name": "Anish Anne",

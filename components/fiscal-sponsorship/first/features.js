@@ -94,7 +94,7 @@ export default function Features() {
           <Module
             icon="payment-transfer"
             name="Reimbursement flow"
-            body="Reimburse teammates for expenses with flexible money transfer options including ACH, PayPal, mailed checks, and more."
+            body="Reimburse teammates for expenses with flexible money transfer options including ACH, mailed checks, and more."
           />
           {/* <Fade bottom>
             <Tilt>

@@ -28,7 +28,7 @@ const staticProjects = [
   {
     name: 'Sprig',
     description: 'A programmable game console for creative coding in the browser and real world.',
-    image_url: 'https://cloud-9tqir75lf-hack-club-bot.vercel.app/0sprig.png',
+    image_url: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/c64b6c247e76bc60a2242aeeca1747b5344da273_r.jpg',
     tags: ['hardware', 'games', 'education'],
     repo_url: 'https://github.com/hackclub/sprig',
     demo_url: 'https://sprig.hackclub.com/'
@@ -36,7 +36,7 @@ const staticProjects = [
   {
     name: 'SineRider',
     description: 'A math puzzle game for learning graphing and functions, built by teens for teens.',
-    image_url: 'https://cloud-9tqir75lf-hack-club-bot.vercel.app/0sinerider.png',
+    image_url: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/82be62b23958f5ac80625ba7041f7f234b239651_a420158c8f14412aba338129d93f8db1b6402dec_oip_photogrid.png',
     tags: ['math', 'games', 'learning'],
     repo_url: 'https://github.com/hackclub/sinerider',
     demo_url: 'https://sinerider.com/'
@@ -44,7 +44,7 @@ const staticProjects = [
   {
     name: 'HCB',
     description: 'A financial platform for student organizations to manage money transparently.',
-    image_url: 'https://cloud-9tqir75lf-hack-club-bot.vercel.app/0bank.png',
+    image_url: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/06c246bfb0eeb077ccf70a14641d9bd5d91559b9_oip__25__photogrid.png',
     tags: ['finance', 'webapp', 'students'],
     repo_url: 'https://github.com/hackclub/bank',
     demo_url: 'https://hcb.hackclub.com/'
@@ -53,11 +53,11 @@ const staticProjects = [
 
 export const OpenSourceSection = () => {
   return (
-    <section id="opensource" className="py-16 px-6 relative overflow-hidden bg-white">
+    <section id="opensource" className="py-20 px-6 relative overflow-hidden bg-white md:py-32">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-dot-pattern opacity-10 -z-10"></div>
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-12 opacity-0 animate-on-scroll">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-16">
+        <div className="text-center mb-16 opacity-0 animate-on-scroll">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-black text-hack-green mb-4 font-mono border border-hack-green/30">
             <CodeIcon width={16} height={16} className="mr-2" />
             <span className="text-sm font-medium">$ git clone hack-club/open-source</span>
@@ -69,8 +69,7 @@ export const OpenSourceSection = () => {
             In collaboration with engineers on the Hack Club team, Hack Clubbers build learning tools for each other.
           </p>
         </div>
-        {/* Project cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {staticProjects.map((project, index) => (
             <Card 
               key={index}
@@ -86,12 +85,9 @@ export const OpenSourceSection = () => {
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.onerror = null; // Prevent infinite loop
-                    target.src = 'https://assets.hackclub.com/api/v0.1/files/bc14129/download/hackclub-rect.jpg';
+                    target.src = '';
                   }}
                 />
-                <div className="absolute top-3 left-3 bg-black/80 rounded-full p-1 backdrop-blur-sm border border-white/10">
-                  <GithubIcon width={14} height={14} />
-                </div>
               </div>
               <CardContent className="pt-4">
                 <h3 className="text-xl font-bold font-display mb-2 flex items-center">
@@ -135,7 +131,7 @@ export const OpenSourceSection = () => {
             <span className="ml-2 animate-pulse text-green-400">▊</span>
             <div className="mt-4 flex justify-center">
               <Button 
-                className="border-green-600 text-green-400 hover:bg-green-900/20 hover:text-white font-mono flex items-center gap-2 px-6 py-2 text-base group"
+                className="bg-gray-800 hover:bg-gray-700 text-green-400 hover:text-white border border-gray-700 rounded-lg font-mono flex items-center gap-2 px-6 py-2 text-base group shadow-lg shadow-gray-900/20 hover:shadow-gray-900/30 hover:scale-105"
                 asChild
               >
                 <a href="https://github.com/hackclub" target="_blank" rel="noopener noreferrer">

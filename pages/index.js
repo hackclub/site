@@ -1,50 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { useTheme } from '../contexts/ThemeContext';
-import { ModeToggle } from '../components/ModeToggle';
-import { TerminalMode } from '../components/terminal/TerminalMode';
-import { ClassicMode } from '../components/classic/ClassicMode';
-import { useKonamiCode } from '../hooks/useKonamiCode';
-import { OGHackClubUI } from '../components/easter-eggs/OGHackClubUI';
-import { useToast } from '../components/ui/use-toast';
+'use client'
 
-// This component uses the theme context
-const HomePage = () => {
-  const { mode } = useTheme();
-  const { toast } = useToast();
-  const konamiActivated = useKonamiCode();
-  const [showOGUI, setShowOGUI] = useState(false);
-  
-  useEffect(() => {
-    if (konamiActivated) {
-      setShowOGUI(true);
-      
-      // Show a toast notification when Konami code is activated
-      toast({
-        title: "Konami Code Activated!",
-        description: "Welcome back, OG Hack Club legend!",
-      });
-      
-      // Auto-hide the OG UI after 10 seconds
-      const timer = setTimeout(() => {
-        setShowOGUI(false);
-      }, 10000);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [konamiActivated, toast]);
-  
+import { useTheme } from '../contexts/ThemeContext'
+import { ClassicMode } from "../components/classic/ClassicMode"
+import { TerminalMode } from "../components/terminal/TerminalMode"
+
+export default function Home() {
+  const { mode } = useTheme()
+
   return (
-    <>
-      {showOGUI ? (
-        <OGHackClubUI onClose={() => setShowOGUI(false)} />
+    <main className="min-h-screen">
+      {mode === 'classic' ? (
+        <ClassicMode />
       ) : (
         <>
-          <ModeToggle />
-          {mode === 'terminal' ? <TerminalMode /> : <ClassicMode />}
+          <TerminalMode />
+          <div className="terminal-card mt-8 max-w-xl mx-auto text-center border-2 border-hack-green shadow-lg">
+            <h2 className="text-hack-green text-2xl font-bold mb-2">Join the network</h2>
+            <p className="mt-2 text-lg">Become a part of our community and access exclusive features, events, and resources. Click the button below to get started!</p>
+            <a
+              href="/onboard"
+              className="inline-block mt-6 px-6 py-3 bg-hack-green text-terminal-bg rounded font-semibold text-lg hover:bg-hack-green/80 transition"
+            >
+              Join Now
+            </a>
+          </div>
         </>
       )}
-    </>
-  );
-};
-
-export default HomePage;
+    </main>
+  )
+}

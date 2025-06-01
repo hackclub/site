@@ -49,24 +49,24 @@ export const ClassicMode = () => {
     };
     
     // Small delay to ensure DOM elements are ready
-    const timer = setTimeout(() => {
-      addCursorBlinkClass();
-    }, 500);
-    
-    return () => clearTimeout(timer);
+    setTimeout(addCursorBlinkClass, 500);
   }, []);
 
   return (
-    <div className="min-h-screen bg-white font-display">
+    <div className="min-h-screen bg-white text-black flex flex-col relative overflow-x-hidden">
       <Navbar />
-      <HeroSection backgroundImageUrl="https://hackclub.com/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fouternet-110.c7a20868.jpg&w=3840&q=75" />
-      <OpenSourceSection />
-      <TimelineSection />
-      <ProgramsSection />
-      <CommunitySection />
-      <TestimonialsSection />
-      <SlackSection />
-      <SignupSection />
+      <main className="flex-grow">
+        <div className="relative">
+          <HeroSection backgroundImageUrl="https://hackclub.com/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fouternet-110.c7a20868.jpg&w=3840&q=75" />
+          <ProgramsSection />
+          <OpenSourceSection />
+          <CommunitySection />
+          <TestimonialsSection />
+          <TimelineSection />
+          <SlackSection />
+          <SignupSection />
+        </div>
+      </main>
       <Footer />
     </div>
   );

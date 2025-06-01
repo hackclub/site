@@ -43,7 +43,7 @@ const communityItems = [
     title: 'Clubs',
     description: 'Student-led coding clubs where teenagers learn to code and build projects together after school.',
     icon: <UsersIcon />,
-    image: 'https://cloud-5pdwvchgm-hack-club-bot.vercel.app/05851864a.jpg',
+    image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/0a9922974bc760b62761be90843eee4e6e6148ed_oip__27___1_.jpg',
     buttonText: 'Start a Club',
     buttonUrl: 'https://hackclub.com/clubs'
   },
@@ -67,12 +67,12 @@ const communityItems = [
 
 export const CommunitySection = () => {
   return (
-    <section className="py-20 px-6 bg-black text-green-400 font-mono relative overflow-hidden border-t-4 border-green-600 shadow-[0_0_30px_5px_rgba(34,197,94,0.3)]">
+    <section className="py-20 px-6 bg-black text-green-400 font-mono relative overflow-hidden  shadow-[0_0_30px_5px_rgba(34,197,94,0.3)] ">
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-12 opacity-0 animate-on-scroll">
+        <div className="text-center mb-12">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-900/30 text-green-400 mb-4 border border-green-600 font-mono">
             <UsersIcon />
             <span className="text-sm font-medium">community@hackclub:~$</span>
@@ -88,39 +88,41 @@ export const CommunitySection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {communityItems.map((item, index) => (
-            <Card 
-              key={index} 
-              className="overflow-hidden border border-green-600 shadow-lg hover:shadow-xl transition-all duration-300 bg-gray-900 text-green-200 rounded-xl animate-on-scroll opacity-0 hover:translate-y-[-5px]"
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <div className="relative h-48">
-                <img 
-                  src={item.image} 
-                  alt={item.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="community-card-overlay"></div>
-                
-                <div className="absolute top-4 left-4 bg-gray-900 rounded-full p-2 shadow-lg border border-green-500">
-                  {item.icon}
+          {Array.isArray(communityItems) && communityItems.map((item, index) => (
+            item ? (
+              <Card 
+                key={index} 
+                className="overflow-hidden border border-green-600 shadow-lg hover:shadow-xl transition-all duration-300 bg-gray-900 text-green-200 rounded-xl hover:translate-y-[-5px]"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div className="relative h-48">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="community-card-overlay"></div>
+                  
+                  <div className="absolute top-4 left-4 bg-gray-900 rounded-full p-2 shadow-lg border border-green-500">
+                    {item.icon}
+                  </div>
                 </div>
-              </div>
-              
-              <div className="p-5">
-                <h3 className="text-xl font-bold mb-2 text-green-400">{item.title}</h3>
-                <p className="text-green-200 mb-4 text-sm">{item.description}</p>
                 
-                <Button 
-                  className="w-full bg-green-700 hover:bg-green-600 text-white font-bold border border-green-500"
-                  asChild
-                >
-                  <a href={item.buttonUrl} target="_blank" rel="noopener noreferrer">
-                    <span className="mr-1 text-white">$</span>{item.buttonText}
-                  </a>
-                </Button>
-              </div>
-            </Card>
+                <div className="p-5">
+                  <h3 className="text-xl font-bold mb-2 text-green-400">{item.title}</h3>
+                  <p className="text-green-200 mb-4 text-sm">{item.description}</p>
+                  
+                  <Button 
+                    className="w-full bg-green-700 hover:bg-green-600 text-white font-bold border border-green-500"
+                    asChild
+                  >
+                    <a href={item.buttonUrl} target="_blank" rel="noopener noreferrer">
+                      <span className="mr-1 text-white">$</span>{item.buttonText}
+                    </a>
+                  </Button>
+                </div>
+              </Card>
+            ) : null
           ))}
         </div>
       </div>

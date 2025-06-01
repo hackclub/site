@@ -66,7 +66,7 @@ const programs = [
     badgeColor: 'bg-hack-green/20 text-hack-green border border-hack-green/30',
     terminalOutput: './run neighborhood',
     date: '📍 SF — Summer 2025',
-    image: 'https://v5.airtableusercontent.com/v3/u/41/41/1747864800000/1X1R_hCUYnJAwr05tkGhHw/pbiivhbUPDsoHgTmvtAfT957-7wnxwBNDm_JVLuKK03JjnN7V3MS58Vur0P3wjICh1UpwGRoB3ysZA8GqNKjTD87H3QlzhysAKTr5_uhK_Dy_BaafdySFlCyzExny82YrMjtL8w5b5ZDohR3CYK3BA9iE2tiVcie9Jyj4AlRZYs/RODn2EfHhrHEg-1PUqjjpVv1achJAwaLkWP8xsAGDnA',
+    image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/643612a8f1971194e495ac8493bf58e1eec7ac7f_ekran_g__r__nt__s___2025-06-01_154551.png',
     tags: ["#summer"],
     fileType: 'sh'
   },

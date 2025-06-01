@@ -1,41 +1,38 @@
+"use client"
+
 import * as React from "react"
+import { type ToastActionElement, type ToastProps } from "./toast"
 
-type ToastProps = {
-  title?: string
-  description?: string
+const TOAST_LIMIT = 1
+const TOAST_REMOVE_DELAY = 1000000
+
+type ToasterToast = ToastProps & {
+  id: string
+  title?: React.ReactNode
+  description?: React.ReactNode
+  action?: ToastActionElement
 }
 
-type ToastContextType = {
-  toast: (props: ToastProps) => void
-  toasts: ToastProps[]
-}
+const ToastContext = React.createContext<{
+  toasts: ToasterToast[]
+  addToast: (toast: ToasterToast) => void
+  removeToast: (id: string) => void
+} | undefined>(undefined)
 
-const ToastContext = React.createContext<ToastContextType | undefined>(undefined)
+export function ToastProvider({ children }: { children: React.ReactNode }) {
+  const [toasts, setToasts] = React.useState<ToasterToast[]>([])
 
-export function ToastProvider({ children }: { children: React.ReactNode }): React.ReactElement {
-  const [toasts, setToasts] = React.useState<ToastProps[]>([])
+  const addToast = React.useCallback((toast: ToasterToast) => {
+    setToasts((prev) => [...prev, toast])
+  }, [])
 
-  const toast = React.useCallback((props: ToastProps) => {
-    setToasts((prev) => [...prev, props])
-    setTimeout(() => {
-      setToasts((prev) => prev.slice(1))
-    }, 3000)
+  const removeToast = React.useCallback((id: string) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id))
   }, [])
 
   return (
-    <ToastContext.Provider value={{ toast, toasts }}>
+    <ToastContext.Provider value={{ toasts, addToast, removeToast }}>
       {children}
-      <div className="fixed bottom-4 right-4 z-50">
-        {toasts.map((t, i) => (
-          <div
-            key={i}
-            className="bg-black text-white p-4 rounded-lg shadow-lg mb-2"
-          >
-            {t.title && <div className="font-bold">{t.title}</div>}
-            {t.description && <div>{t.description}</div>}
-          </div>
-        ))}
-      </div>
     </ToastContext.Provider>
   )
 }
@@ -46,4 +43,4 @@ export function useToast() {
     throw new Error("useToast must be used within a ToastProvider")
   }
   return context
-} 
+}

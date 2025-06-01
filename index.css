@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+  
+  @font-face {
+    font-family: 'Phantom Sans';
+    src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Phantom Sans';
+    src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Custom scrollbar for terminal-style containers */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+@layer components {
+  /* Terminal and text styling */
+  .terminal-text {
+    @apply font-mono text-terminal-text;
+  }
+  
+  .hack-gradient {
+    @apply bg-gradient-to-r from-hack-purple via-hack-red to-hack-blue;
+  }
+  
+  .cursor-blink::after {
+    content: '|';
+    @apply animate-blink;
+  }
+  
+  .typing-effect {
+    @apply overflow-hidden whitespace-nowrap animate-typing;
+  }
+  
+  .terminal-input {
+    @apply bg-transparent border-none font-mono text-terminal-text focus:outline-none focus:ring-0;
+  }
+  
+  /* Card styling */
+  .card-classic {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-100;
+  }
+  
+  .terminal-card {
+    @apply bg-terminal-bg border border-terminal-accent/30 rounded-md p-4;
+  }
+
+  /* Glitch effects */
+  .glitch-text {
+    @apply relative animate-glitch;
+  }
+
+  .glitch-text-subtle {
+    @apply relative animate-glitch-subtle;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 #ec3750;
+    background: transparent;
+    clip-path: inset(44% 0 56% 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+  }
+
+  .glitch-text::after {
+    left: -2px;
+    text-shadow: -1px 0 #338eda;
+    background: transparent;
+    clip-path: inset(67% 0 33% 0);
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+  }
+
+  /* Terminal styling */
+  .terminal-command {
+    @apply font-mono text-xs sm:text-sm relative overflow-hidden rounded;
+    background: #1e1e2e;
+    padding: 0.5rem 1rem;
+    color: #a6e3a1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .terminal-prompt::before {
+    content: '$';
+    color: #89b4fa;
+    margin-right: 0.5rem;
+  }
+
+  .terminal-output {
+    color: #cdd6f4;
+    display: block;
+    margin-top: 0.25rem;
+  }
+
+  /* Enhanced glitch effects */
+  .glitch-container {
+    position: relative;
+  }
+
+  .glitch-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(236, 55, 80, 0.2);
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.3s;
+  }
+
+  .glitch-container:hover::before {
+    opacity: 1;
+    animation: glitch-overlay 0.2s infinite;
+  }
+  
+  /* Animated section transitions */
+  .section-divider {
+    @apply relative h-16 w-full overflow-hidden;
+  }
+  
+  .section-divider-wave {
+    @apply absolute w-full h-full transform;
+  }
+  
+  /* Background patterns */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .bg-dot-pattern {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  /* Enhanced button styles */
+  .button-glow {
+    @apply relative overflow-hidden;
+  }
+  
+  .button-glow::after {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-300;
+  }
+  
+  .button-glow:hover::after {
+    @apply opacity-20;
+    animation: button-glow 1.5s infinite;
+  }
+  
+  /* CRT scanline effect */
+  .animate-scanline {
+    animation: scanline 2s linear infinite;
+  }
+
+  /* New classes for terminal mode improvements */
+  .fixed-height-console {
+    height: 400px !important;
+    overflow: auto;
+    max-height: 400px;
+  }
+  
+  /* Community section card overlays */
+  .community-card-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent;
+  }
+  
+  /* Project card styling */
+  .project-card {
+    @apply bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-hack-purple/20 hover:translate-y-[-5px];
+  }
+}
+
+/* Animation keyframes */
+@keyframes glitch-overlay {
+  0% { transform: translate(0); }
+  25% { transform: translate(-5px, 5px); clip-path: inset(10% 0 89% 0); }
+  50% { transform: translate(5px, 0); clip-path: inset(44% 0 56% 0); }
+  75% { transform: translate(-3px, -5px); clip-path: inset(67% 0 33% 0); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip-path: inset(29% 0 25% 0);
+  }
+  20% {
+    clip-path: inset(54% 0 6% 0);
+  }
+  40% {
+    clip-path: inset(14% 0 62% 0);
+  }
+  60% {
+    clip-path: inset(53% 0 24% 0);
+  }
+  80% {
+    clip-path: inset(67% 0 9% 0);
+  }
+  100% {
+    clip-path: inset(13% 0 42% 0);
+  }
+}
+
+@keyframes button-glow {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-light {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-scanline {
+    animation: scanline 2s linear infinite;
+  }
+  
+  .animate-pulse-light {
+    animation: pulse-light 2s infinite;
+  }
+  
+  .animate-slide-in {
+    animation: slide-in 0.3s ease-out forwards;
+  }
+  
+  /* New utilities for the redesigned sections */
+  .text-shadow-glow {
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+  }
+  
+  .bg-matrix {
+    background-color: #050505;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2300ff00' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+}

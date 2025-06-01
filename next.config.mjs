@@ -25,7 +25,26 @@ const nextConfig = {
     ]
   },
   webpack: (config, { isServer }) => {
-    return config
+    // Add React Query to the list of transpiled modules
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@tanstack/react-query': '@tanstack/react-query',
+      '@tanstack/react-query-devtools': '@tanstack/react-query-devtools'
+    };
+    
+    // Add React Query to the list of transpiled modules
+    config.module.rules.push({
+      test: /\.(js|jsx|ts|tsx)$/,
+      include: [/node_modules\/@tanstack/],
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['next/babel'],
+        },
+      },
+    });
+    
+    return config;
   },
   async redirects() {
     return [
@@ -370,13 +389,10 @@ const nextConfig = {
   }
 }
 
-import million from 'million/compiler'
 import withMDX from '@next/mdx'
 import withTM from 'next-transpile-modules'
 
 const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
 const withAnimeJS = withTM(['animejs'])
 
-export default million.next(withAnimeJS(withMDXConfig(nextConfig)), {
-  auto: true
-})
+export default withAnimeJS(withMDXConfig(nextConfig))
