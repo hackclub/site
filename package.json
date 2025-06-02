@@ -39,6 +39,7 @@
     "animejs": "^3.2.2",
     "axios": "^1.8.1",
     "camelcase": "^8.0.0",
+    "caniuse-lite": "^1.0.30001718",
     "cookies-next": "^4.3.0",
     "country-list": "^2.3.0",
     "country-list-js": "^3.1.8",
