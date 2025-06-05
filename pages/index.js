@@ -774,7 +774,7 @@ function Page({
               py: [4, 4, 4],
               paddingTop: [
                 '110px !important',
-                '110px !important',
+                '120px !important',
                 '146px !important'
               ],
               px: ['45px', '60px', '90px'],
@@ -855,16 +855,17 @@ function Page({
               <Text
                 as="h5"
                 sx={{
-                  color: '#7F6A4C',
-                  mb: 0,
-                  mt: [1, 2, 3],
+                  color: isDark ? 'white' : '#7F6A4C',
+                  mb: [0, 0, 3],
+                  mt: [2, 2, 3],
                   zIndex: 1,
+                  display: 'inline-block',
                   textAlign: 'left',
                   borderRadius: '1.5rem 0.75rem 2rem 1rem',
-                  px: [3, 3, 4],
-                  py: [2, 1, 3],
-                  bg: 'rgba(253,246,238,0.97)',
-                  border: isDark ? '4px solid #555' : '4px solid #e4d6c3',
+                  px: [2, 3],
+                  py: [2, 1, 2],
+                  bg: isDark ? '#333' : 'rgba(253,246,238,0.8)',
+                  border: isDark ? '4px solid #555' : '4px solid rgb(156, 132, 98)',
                   lineHeight: [1.3, 1.4],
                   width: '100%',
                   position: 'relative',
@@ -908,12 +909,12 @@ function Page({
                       position: 'relative'
                     }}
                   >
-                   
+
                   </Box>
                 </Box>
-                We're a global community of high school makers & coding clubs building passion and connection.
+                We're a global network of high school makers & coding clubs building passion<Text sx={{ display: ['none', 'inline', 'inline'] }}> and connection</Text>.
               </Text>
-              <Box sx={{ display: ['block', 'block', 'flex'], mt: '16px', pt: 0 }}>
+              <Box sx={{ display: ['flex', 'block', 'flex'], mt: ['12px', '16px', '6px'], pt: 0 }}>
                 <Button
                   variant="cta"
                   as="a"
@@ -924,6 +925,7 @@ function Page({
                     transformOrigin: 'center left',
                     borderRadius: '10px',
                     py: [2, 2, 2],
+                    height: 'fit-content',
                     boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
                     transition: 'all 0.2s',
                     '&:hover': {
@@ -933,8 +935,8 @@ function Page({
                   }}
                 >
                   <Icon glyph="welcome" size={24} color="white" />
-                  Join Slack
-                </Button>
+                  <div sx={{ display: ['none', 'block', 'block'] }}>Join Slack</div>
+                  <div sx={{ display: ['block', 'none', 'none'] }}>Slack</div>                </Button>
                 <Button
                   variant="cta"
                   as="a"
@@ -945,6 +947,8 @@ function Page({
                     backgroundImage: t => t.util.gx('green', 'blue'),
                     borderRadius: '10px',
                     py: [2, 2, 2],
+                    height: 'fit-content',
+                    marginTop: [0, undefined, undefined],
                     boxShadow: '0 4px 8px rgba(0,0,0,0.25)',
                     transition: 'all 0.2s',
                     '&:hover': {
@@ -954,7 +958,8 @@ function Page({
                   }}
                 >
                   <Icon glyph="compass" size={24} color="white" />
-                  Our Philosophy
+                  <div sx={{ display: ['none', 'block', 'block'] }}>Our Philosophy</div>
+                  <div sx={{ display: ['block', 'none', 'none'] }}>Ethos</div>
                 </Button>
               </Box>
             </Heading>
@@ -1603,7 +1608,7 @@ function Page({
                     top: ['-70px', '-80px', '-90px'],
                     left: 0,
                     width: '100%',
-                    height: ['100px', '120px', '140px'],
+                    height: ['100px', '130px', '140px'],
                     background: isDark
                       ? 'linear-gradient(to bottom, #67282f, #461216)'
                       : 'linear-gradient(to bottom, #e74c3c, #c0392b)',
