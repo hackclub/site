@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
+
+if (process.platform === 'win32') {
+  console.warn('⚠️  WARNING: This site works best on macOS/Linux. If you encounter issues on Windows, please use `yarn dev:no-turbo` instead of `yarn dev`.');
+}
+
 const nextConfig = {
   reactStrictMode: true,
   eslint: {
@@ -46,7 +51,7 @@ const nextConfig = {
       }
     ]
   },
-  webpack: (config) => {
+  webpack: config => {
     return config
   },
   async redirects() {
@@ -222,7 +227,6 @@ const nextConfig = {
         source: '/github',
         destination: 'https://github.com/hackclub',
         permanent: true
-
       },
       {
         source: '/nest',
@@ -344,7 +348,7 @@ const nextConfig = {
       {
         source: '/arcade/power-hour',
         destination: '/arcade/power-hour/index.html'
-      },
+      }
     ]
   },
   async headers() {
@@ -390,20 +394,21 @@ const nextConfig = {
       }
     ]
   },
-  transpilePackages: ["animejs"]
+  transpilePackages: ['animejs'],
+  experimental: {
+    reactCompiler: true
+  }
 }
 
-import million from 'million/compiler'
 import withMDX from '@next/mdx'
-import remarkGfm from 'remark-gfm'
 
 const withMDXConfig = withMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm]
-  },
+    ...(process.platform !== 'win32' && {
+      remarkPlugins: [['remark-gfm']]
+    })
+  }
 })
 
-export default million.next(withMDXConfig(nextConfig), {
-  auto: true
-})
+export default withMDXConfig(nextConfig)
