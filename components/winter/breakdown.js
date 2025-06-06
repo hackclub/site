@@ -8,7 +8,7 @@ import {
   Badge,
   Link
 } from 'theme-ui'
-import { Fade, Slide } from 'react-reveal'
+import { Fade, Slide } from 'react-swift-reveal'
 import BreakdownBox from './breakdown-box'
 
 function Breakdown() {

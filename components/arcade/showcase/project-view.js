@@ -204,7 +204,6 @@ const ProjectView = ({
           {/* <Icon glyph="home" /> View all my ships */}
         </Text>
       </div>
-
       <div
         sx={{
           width: '90%',
@@ -260,7 +259,7 @@ const ProjectView = ({
         </p>
       </div>
     </div>
-  )
+  );
 }
 
 export default ProjectView

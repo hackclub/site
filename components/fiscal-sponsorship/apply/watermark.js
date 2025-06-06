@@ -12,12 +12,20 @@ export default function Watermark() {
   const handleMouseMove = ({ clientX, clientY }) => {
     if (!shineRef.current || !svgRef.current) return
 
-    const svgWidth = svgRef.current.clientWidth / 100
-    // const svgFromTop = svgRef.current.getBoundingClientRect().top
-    // const svgFromLeft = svgRef.current.getBoundingClientRect().left
+    const svg = svgRef.current
+    const shine = shineRef.current
 
-    shineRef.current.style.top = `${clientY / svgWidth + 6.2}px`
-    shineRef.current.style.left = `${clientX / svgWidth + 9.2}px`
+    // Get SVG dimensions and position
+    const svgRect = svg.getBoundingClientRect()
+    const svgWidth = svgRect.width / 100
+
+    // Calculate relative mouse position
+    const relativeX = clientX - svgRect.left
+    const relativeY = clientY - svgRect.top
+
+    // Update shine position with bounds checking
+    shine.style.top = `${Math.max(0, relativeY / svgWidth + 6.2)}px`
+    shine.style.left = `${Math.max(0, relativeX / svgWidth + 9.2)}px`
   }
 
   // Bind event

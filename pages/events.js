@@ -17,7 +17,7 @@ import ForceTheme from '../components/force-theme'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Icon from '../components/icon'
-import Image from 'next/image'
+import Image from "next/image"
 import OuternetPic from '../public/outernet/hack.jpg'
 import { compact } from 'lodash'
 import theme from '@hackclub/theme'
@@ -31,7 +31,7 @@ const events = [
     season: 'Fall',
     year: '2023',
     // repo: 'outernet',
-    image: 'https://cloud-6vo1bh2dg-hack-club-bot.vercel.app/0image.png',
+    image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/706bb62860b058f1a45127978197183b5c24b0a7_94_e54432289279f0a3a76659ea417a8bfa859eff54_0image.webp',
     link: 'https://haunted.hackclub.com'
   },
   {
@@ -126,9 +126,9 @@ const Event = ({
       <Box
         as="iframe"
         src={video}
-        frameborder="0"
+        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
+        allowFullScreen
         width="100%"
         height="250px"
         border="none"
@@ -216,9 +216,11 @@ const Page = ({ jobs }) => (
           <Image
             src={OuternetPic}
             alt="Hack Clubbers coming together at Outernet"
-            layout="fill"
-            objectFit="cover"
-          />
+            fill
+            sizes="100vw"
+            style={{
+              objectFit: "cover"
+            }} />
         </Box>
         <Container>
           <Heading

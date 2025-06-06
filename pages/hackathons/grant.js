@@ -11,7 +11,7 @@ import { Link, Text, Button, Card } from 'theme-ui'
 import Icon from '@hackclub/icons'
 import Apply from '../../components/hackathons/grant/apply'
 
-import Zoom from 'react-reveal/Zoom'
+import { Zoom } from 'react-swift-reveal'
 /** @jsxImportSource theme-ui */
 
 const styles = `
@@ -62,7 +62,7 @@ const HackathonGrant = () => {
         as={Head}
         title="Hackathon Grant"
         description="Hack Club provided $500 grants to in-person high school hackathons. This program ended December 31st, 2024."
-        image="https://cloud-7yw9f6xnv-hack-club-bot.vercel.app/0grant.png"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a90a65c978b37f9d1f3655787ab23e9de7d0cb8a_174_dcc921a786c029cf8114a5ee92d811436537b59f_0grant.webp"
       />
       <style>{styles}</style>
       <Box as="main" key="main">
@@ -76,7 +76,7 @@ const HackathonGrant = () => {
             minHeight: ['70vh', 'none'],
             textAlign: 'center',
             backgroundImage:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://cloud-gxxp8xcyl-hack-club-bot.vercel.app/0fzfm1e-ueaef1qw.jpeg')",
+              "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)), url('https://hc-cdn.hel1.your-objectstorage.com/s/v3/77d35de3abaff595abe22874c8cfe11849eaf79f_175_39cb1d3bd4d80d31790e2b92e785ec7bdebda30b_0fzfm1e-ueaef1qw.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             display: 'flex',
@@ -106,9 +106,8 @@ const HackathonGrant = () => {
               <Flex
                 sx={{ justifyContent: 'center', alignItems: 'center', mb: 2 }}
               >
-                <NextLink href="https://hackclub.com" passHref>
+                <NextLink href="https://hackclub.com">
                   <Box
-                    as="a"
                     width={64}
                     height={64}
                     sx={{
@@ -155,20 +154,20 @@ const HackathonGrant = () => {
             >
               Want to attend a hackathon?
               <Button
-              variant="ctaLg"
-              as="a"
-              href="https://hackathons.hackclub.com"
-              sx={{
-                ml: [0, 3],
-                mt: 2,
-                backgroundImage: t => t.util.gx('green', 'blue')
-              }}
-            >
-              <Text>
-                Find hackathons{' '}
-                <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
-              </Text>
-            </Button>
+                variant="ctaLg"
+                as="a"
+                href="https://hackathons.hackclub.com"
+                sx={{
+                  ml: [0, 3],
+                  mt: 2,
+                  backgroundImage: t => t.util.gx('green', 'blue')
+                }}
+              >
+                <Text>
+                  Find hackathons{' '}
+                  <Text sx={{ display: ['none', 'inline'] }}>near you</Text>
+                </Text>
+              </Button>
             </Box>
           </Box>
         </Box>
@@ -437,7 +436,7 @@ const HackathonGrant = () => {
       </Zoom>
       <Footer dark key="footer" />
     </>
-  )
+  );
 }
 
 export default HackathonGrant

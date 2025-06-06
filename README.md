@@ -6,15 +6,15 @@ Hack Club's new website. This codebase is what runs on [hackclub.com](https://ha
 
 Download the code to your computer:
 
-    $ git clone https://github.com/hackclub/site && cd site
+    git clone https://github.com/hackclub/site && cd site
 
 Install dependencies:
 
-    $ yarn
+    yarn
 
 Start running the website on your computer:
 
-    $ yarn dev
+    yarn dev
 
 And then open up your web browser and go to [localhost:3000](http://localhost:3000).
 
@@ -31,6 +31,8 @@ Code under MIT License, assets may not be re-used or re-distributed.
 Join us in building Hack Club's homepage and show new hackers what Hack Club could be for them 💖.
 
 See something that could be better? Make a PR! Have an easter egg idea? Make a PR! Is the site missing something? Make a PR! _(Do you see a trend? :))_
+
+Pro tip: to fully build the site in development, set a `GITHUB_TOKEN` environment variable to reduce the likelihood of getting rate-limited by GitHub.
 
 If you need to add content to the site, here's how you can:
 

@@ -41,7 +41,7 @@ export const regions = [
     iconColor: 'red',
     icon: 'photo',
     image:
-      'https://cloud-cberabu5z-hack-club-bot.vercel.app/3north_america.png',
+      'https://hc-cdn.hel1.your-objectstorage.com/s/v3/8e7517599a021bb6704dbc2f9ddad4107e6f9ec1_168_48f7f12a0a2a2595ef6a5d29f6b30cd4c67a4953_3north_america.webp',
     ogImage: '/fiscal-sponsorship/climate/NorthAmerica.png'
   },
   {
@@ -50,7 +50,7 @@ export const regions = [
     iconColor: 'orange',
     icon: 'photo',
     image:
-      'https://cloud-cberabu5z-hack-club-bot.vercel.app/4south_america.png',
+      'https://hc-cdn.hel1.your-objectstorage.com/s/v3/d4b40735ce84c9e0cd24463258c9f2d3dff07b0a_169_59c4da67c94f026baba2df1ac0c7cd86cf90f664_4south_america.webp',
     ogImage: '/fiscal-sponsorship/climate/SouthAmerica.png'
   },
   {
@@ -58,7 +58,7 @@ export const regions = [
     color: 'secondary',
     iconColor: 'purple',
     icon: 'explore',
-    image: 'https://cloud-cberabu5z-hack-club-bot.vercel.app/0africa.png',
+    image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/0c06fd36b025bd3fbd92e80624b9682f7a01f8ed_170_309aadddf4d425756c0260a581b828a4926bd086_0africa.webp',
     ogImage: '/fiscal-sponsorship/climate/Africa.png'
   },
   {
@@ -66,7 +66,7 @@ export const regions = [
     color: 'secondary',
     iconColor: 'blue',
     icon: 'explore',
-    image: 'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/1europe.png',
+    image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/f0c7019d0afff290e76804a9df164da1f1ec258b_171_5b09665941ac4a20100a62c4775366010c2fd249_1europe.webp',
     ogImage: '/fiscal-sponsorship/climate/Europe.png'
   },
   {
@@ -76,7 +76,7 @@ export const regions = [
     iconColor: 'green',
     icon: 'explore',
     image:
-      'https://cloud-oax3m4v0t-hack-club-bot.vercel.app/0asia___oceania.png',
+      'https://hc-cdn.hel1.your-objectstorage.com/s/v3/8f0d4583e86a460ab369943ed04abfbc80fdf3a9_172_dce05206531425ec2f06d7ef85a51cb46f013223_0asia___oceania.webp',
     ogImage: '/fiscal-sponsorship/climate/Asia+Oceania.png'
   }
 ]

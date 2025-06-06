@@ -12,7 +12,7 @@ export default function Page({ projects, itemCount, currentPage }) {
     //   currentProjects={projects}
     // />
     <></>
-  )
+  );
 }
 
 // export async function getStaticProps(context) {

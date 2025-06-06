@@ -14,7 +14,7 @@ import {
   Image
 } from 'theme-ui'
 import Photo from '../../components/photo'
-import NextImage from 'next/image'
+import NextImage from "next/image"
 import Marquee from 'react-marquee-slider'
 import Photo1 from '../../public/winter/1.jpeg'
 import Photo2 from '../../public/winter/2.png'
@@ -81,34 +81,40 @@ Sheet.defaultProps = {
 const PhotoRow = ({ photos }) => (
   <Box sx={{ height: '225px', overflow: 'hidden' }}>
     <Box sx={{ display: ['block', 'block', 'block', 'block', 'none'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => { }}>
         {photos.map((photo, index) => (
           <NextImage
             placeholder="blur"
             src={photo}
-            objectFit="cover"
             className="next-image"
             height="225px"
             width="300px"
             alt="Hack Club students"
             key={'image-' + index}
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }} />
         ))}
       </Marquee>
     </Box>
     <Box sx={{ display: ['none', 'none', 'none', 'none', 'block'] }}>
-      <Marquee velocity={12}>
+      <Marquee velocity={12} onInit={() => { }}>
         {photos.map((photo, index) => (
           <NextImage
             placeholder="blur"
             src={photo}
-            objectFit="cover"
             className="next-image"
             height="200px"
             width="600px"
             key={'image-' + index}
             alt="Hack Club students"
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              objectFit: "cover"
+            }} />
         ))}
       </Marquee>
     </Box>
@@ -206,8 +212,8 @@ export default function Projects() {
         <Box
           sx={{
             background: ['#D0BF97 url(/arcade/white_bg.svg) no-repeat center center', '#D0BF97 url(/arcade/white_bg.svg) no-repeat center center', 'rgba(0,0,0, 0.8)', 'rgba(0,0,0, 0.8)'],
-           backgroundSize: 'cover', 
-           zIndex: 1,
+            backgroundSize: 'cover',
+            zIndex: 1,
             position: 'relative',
             color: 'white!important',
             height: ['auto', 'auto', '900px', '900px']
@@ -277,7 +283,7 @@ export default function Projects() {
                   avatar="https://scrapbook.hackclub.com/_next/image?url=https://secure.gravatar.com/avatar/c2e358d7bf4677cac086556035ce1dbc.jpg?s%3D192%26d%3Dhttps%253A%252F%252Fa.slack-edge.com%252Fdf10d%252Fimg%252Favatars%252Fava_0011-192.png&w=640&q=75"
                   username="KonstantinosFragkoulis"
                   description="Well, the drone now should be able to follow the biggest object that it sees with a specific color. I haven't tested it yet though 😞 (I'm too scared to crash it). Here is a clip from earlier today, my genuine reaction to the first takeoff ever (got a bit scared at the end) 👍 "
-                  image="https://cloud-fshng6w8x-hack-club-bot.vercel.app/0videoframe_809.png"
+                  image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d70897a76200fde40d0c792b7ae6a96f3c50795e_14_486e53bb4360a7882ad6692e73d50a8f7cea2651_0videoframe_809.webp"
                 />
               </Grid>
               <Button

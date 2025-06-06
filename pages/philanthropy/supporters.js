@@ -13,7 +13,7 @@ import {
   Avatar
 } from 'theme-ui'
 import Photo from '../../components/photo'
-import Image from 'next/image'
+import Image from "next/image"
 import Head from 'next/head'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../../components/force-theme'
@@ -132,7 +132,7 @@ export default function Donate({ sprig }) {
         as={Head}
         title={title}
         description={desc}
-        image="https://cloud-cz9a6kt0a-hack-club-bot.vercel.app/0social-photo_2.jpg"
+        image="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d0e00bc5c0a2d9560399081d0422bb7c36e7483a_104_9c72ffb39ac22b7f62997bc3f15582036f96fcce_0social-photo_2.webp"
       />
       <Nav color="muted" />
       <ForceTheme theme="light" />

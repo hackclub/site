@@ -14,17 +14,18 @@ export default function Trail() {
         fontFamily: "Fraunces"
       }}
       position={[null, 'bottom', 'bottom']}
-      image={"https://cloud-olwxtauup-hack-club-bot.vercel.app/0stampfit.png"}
+      image={"https://hc-cdn.hel1.your-objectstorage.com/s/v3/9e73ae07ea9a4a41754e16d56ee6e00462baee68_54_df4d3a286c9eaec034b63f5a42ef9cb126c70994_0stampfit.webp"}
     >
       <Grid columns={[1, 1, 2]} sx={{ position: 'relative', zIndex: 2 }}>
         <Flex
           sx={{
             flexDirection: 'column',
+            flexDirection: 'column',
             justifyContent: 'space-between'
           }}
         >
           <Image
-            src="https://cloud-qk962s2kz-hack-club-bot.vercel.app/0traillogo.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ef3f97032327676a1550f31ca10a7fc36e349dc2_55_cfdf62ff967ac5282d451cc9752f38358277d8a6_0traillogo.webp"
             sx={{
               width: ['200px', '250px', '300px'],
               mt: ['-5px', '-5px', '-5px'],

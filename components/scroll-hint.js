@@ -1,10 +1,10 @@
 import { Box } from 'theme-ui'
-import anime from 'animejs/lib/anime.es.js'
+import { animate } from 'animejs'
 
 const handleClick = () => {
   const scroll = { x: document.scrollingElement.scrollTop }
 
-  anime({
+  animate({
     targets: scroll,
     x: window.innerHeight,
     easing: 'easeOutExpo',

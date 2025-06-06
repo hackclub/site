@@ -44,7 +44,6 @@ export default function PersonalInfoForm({ requiredFields }) {
           placeholder="fiona@hackclub.com"
         />
       </Field>
-
       {teenagerLed === 'true' ? (
         <Field
           name="contactOption"
@@ -116,9 +115,8 @@ export default function PersonalInfoForm({ requiredFields }) {
         </Field>
       ) : (
         // When not teenage-led, default to "email" as preferred contact channel
-        <input name="contactOption" type="hidden" value="Email" />
+        (<input name="contactOption" type="hidden" value="Email" />)
       )}
-
       <Field
         name="userPhone"
         label="Phone"
@@ -139,7 +137,6 @@ export default function PersonalInfoForm({ requiredFields }) {
       >
         <Input type="date" name="userBirthday" id="userBirthday" />
       </Field>
-
       <Flex sx={{ flexDirection: 'column', gap: 1 }}>
         <Field
           name="userAddressLine1"
@@ -205,7 +202,6 @@ export default function PersonalInfoForm({ requiredFields }) {
           </Field>
         </Grid>
       </Flex>
-
       <Field
         name="referredBy"
         label="How did you hear about HCB?"
@@ -217,7 +213,6 @@ export default function PersonalInfoForm({ requiredFields }) {
           placeholder="Word of mouth, an event, etc. Be specific!"
         />
       </Field>
-
       <Field
         name="referralCode"
         label="Referral code"
@@ -231,14 +226,12 @@ export default function PersonalInfoForm({ requiredFields }) {
           defaultValue={defaultReferralCode}
         />
       </Field>
-
       <Input
         name="tub_program"
         id="tub_program"
         type="hidden"
         value={getCookie('tub_program')}
       />
-
       <Field
         name="returningUser"
         label="Have you used HCB before?"
@@ -247,7 +240,6 @@ export default function PersonalInfoForm({ requiredFields }) {
       >
         <Checkbox name="returningUser" />
       </Field>
-
       <Field
         name="accommodations"
         label="Accessibility needs"
@@ -261,5 +253,5 @@ export default function PersonalInfoForm({ requiredFields }) {
         />
       </Field>
     </>
-  )
+  );
 }

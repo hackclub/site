@@ -1,8 +1,8 @@
 import { Box, Button, Heading, Text, Card } from 'theme-ui'
-import Fade from 'react-reveal/Fade'
+import { Fade } from 'react-swift-reveal'
 import ScrollHint from '../scroll-hint'
-import Image from 'next/image'
-import hero from '../../public/hackathons/assemble.JPG'
+import Image from "next/image"
+import HeroImage from './assemble.jpg'
 import Icon from '../icon'
 
 export default function Landing() {
@@ -128,16 +128,18 @@ function Slide({ children }) {
       }}
     >
       <Image
-        src={hero}
-        layout="fill"
-        objectFit="cover"
+        src={HeroImage}
         alt="Dark room with a stage and students sitting below"
         // placeholder="blur"
         priority
-      />
+        fill
+        sizes="100vw"
+        style={{
+          objectFit: "cover"
+        }} />
       {children}
     </Box>
-  )
+  );
 }
 
 function BlueGradientFilter() {

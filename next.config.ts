@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
+
+if (process.platform === 'win32') {
+  console.warn(
+    '⚠️  WARNING: This site works best on macOS/Linux. If you encounter issues on Windows, please use `yarn dev:no-turbo` instead of `yarn dev`.'
+  )
+}
+
 const nextConfig = {
   reactStrictMode: true,
   eslint: {
@@ -7,24 +14,46 @@ const nextConfig = {
   trailingSlash: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   images: {
-    domains: [
-      'hackclub.com',
-      'dl.airtable.com',
-      'emoji.slack-edge.com',
-      'cdn.glitch.com',
-      'scrapbook.hackclub.com',
-      'assets.hackclub.com',
-      'v5.airtableusercontent.com',
-      'hcb.hackclub.com'
-    ],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'cloud-*-hack-club-bot.vercel.app'
+      },
+      {
+        protocol: 'https',
+        hostname: 'hackclub.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'dl.airtable.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'emoji.slack-edge.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'scrapbook.hackclub.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'assets.hackclub.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'v5.airtableusercontent.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'hcb.hackclub.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'hc-cdn.hel1.your-objectstorage.com'
       }
     ]
   },
-  webpack: (config, { isServer }) => {
+  webpack: config => {
     return config
   },
   async redirects() {
@@ -200,7 +229,6 @@ const nextConfig = {
         source: '/github',
         destination: 'https://github.com/hackclub',
         permanent: true
-
       },
       {
         source: '/nest',
@@ -322,7 +350,7 @@ const nextConfig = {
       {
         source: '/arcade/power-hour',
         destination: '/arcade/power-hour/index.html'
-      },
+      }
     ]
   },
   async headers() {
@@ -367,16 +395,23 @@ const nextConfig = {
         ]
       }
     ]
+  },
+  transpilePackages: ['animejs'],
+  experimental: {
+    reactCompiler: true
   }
 }
 
-import million from 'million/compiler'
 import withMDX from '@next/mdx'
-import withTM from 'next-transpile-modules'
 
-const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
-const withAnimeJS = withTM(['animejs'])
-
-export default million.next(withAnimeJS(withMDXConfig(nextConfig)), {
-  auto: true
+const withMDXConfig = withMDX({
+  extension: /\.mdx?$/,
+  options: {
+    ...(process.platform !== 'win32' && {
+      remarkPlugins: [['remark-gfm']]
+    })
+  }
 })
+
+// @ts-ignore
+export default withMDXConfig(nextConfig)

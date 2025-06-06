@@ -1,12 +1,9 @@
 import Icon from '@hackclub/icons'
-import { useEffect, useRef, useState } from 'react'
-import { Box, Button, Card, Flex, Grid, Input, Link, Text } from 'theme-ui'
-import { format, parse } from 'date-fns'
+import { useRef, useState } from 'react'
+import { Box, Button, Card, Flex, Grid, Input, Text } from 'theme-ui'
 import BGImg from '../../background-image'
 import background from '../../../public/home/footer.png'
 import MailCard from '../../mail-card'
-
-const markdownToHtml = require('@hackclub/markdown')
 
 const Loading = () => (
   <Box
@@ -29,70 +26,43 @@ const Loading = () => (
   ></Box>
 )
 
-const MailingList = () => {
+const MailingList = ({ posts }) => {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const [data, setData] = useState({ finalHtml: [], names: [] })
   const formRef = useRef(null)
 
   const handleSubmit = async e => {
     e.preventDefault()
     setSubmitting(true)
 
-    let res = await fetch('/api/mailing-list', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: e.target.name.value,
-        email: e.target.email.value
+    try {
+      let res = await fetch('/api/mailing-list', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: e.target.name.value,
+          email: e.target.email.value
+        })
       })
-    })
 
-    formRef.current.reset()
+      formRef.current.reset()
 
-    if (res.ok) {
-      setSubmitted(true)
+      if (res.ok) {
+        setSubmitted(true)
+      } else {
+        console.error('Submission failed:', await res.text())
+        setSubmitted(false)
+      }
+    } catch (error) {
+      console.error('Error during submission:', error)
+      setSubmitted(false)
     }
-    setSubmitting(false)
+    finally {
+      setSubmitting(false)
+    }
   }
-
-  // This lovely concoction of JavaScript basically fetches the last two newsletters from the GitHub repo,
-  // converts them to HTML, gets rid of those HTML tags, the sets all of that as the state of the component.
-  // Then, It makes a second fetch request to get the filename, so that can be used to determine the link.
-  // After that, it removes the file extension, so we can use that as the date.
-  // Finally, it sets the state of data to the final HTML and the names of the files, so we can map that later on!
-
-  useEffect(() => {
-    Promise.all([
-      fetch(
-        'https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates'
-      )
-        .then(response => response.json())
-        .then(data => data.sort((a, b) => b.name.localeCompare(a.name))) // Makes sure we only get the latest two newsletters
-        .then(data => data.slice(0, 2))
-        .then(data => Promise.all(data.map(item => fetch(item.download_url)))) // Makes a separate fetch request for the content of each newsletter
-        .then(responses =>
-          Promise.all(responses.map(response => response.text()))
-        )
-        .then(markdown =>
-          Promise.all(markdown.map(markdown => markdownToHtml(markdown)))
-        )
-        .then(html =>
-          html.map(html =>
-            html.replace(/<[^>]*>/g, '').replace(/The Hackening/g, '')
-          )
-        ), // Chucks out all html tags + 'The Hackening'
-
-      fetch(
-        'https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates'
-      )
-        .then(response => response.json())
-        .then(data => data.sort((a, b) => b.name.localeCompare(a.name)))
-        .then(data => data.map(item => item.name.split('.')[0])) // Grabs the name and gets rid of the file extension
-    ]).then(([finalHtml, names]) => setData({ finalHtml, names }))
-  }, [])
 
   return (
     <Box sx={{ position: 'relative', py: 6, background: 'darker' }}>
@@ -140,16 +110,7 @@ const MailingList = () => {
                 }}
                 as="p"
               >
-                We&apos;ll send you an email no more than once a month, when we
-                work on something cool for you. Check out our{' '}
-                <Link
-                  href="https://workshops.hackclub.com/leader-newsletters/"
-                  target="_blank"
-                  rel="noopener norefferer"
-                >
-                  previous issues
-                </Link>
-                .
+                Join <i>Happenings</i>, our biweekly newsletter about all things Hack Club. No spam, we promise.
               </Text>
             </Box>
             <Grid
@@ -201,7 +162,7 @@ const MailingList = () => {
                   </>
                 ) : submitted ? (
                   <>
-                    <Icon glyph="send" /> You're on the list!
+                    <Icon glyph="send" /> Check your email!
                   </>
                 ) : (
                   'Subscribe'
@@ -217,16 +178,13 @@ const MailingList = () => {
               width: '100%'
             }}
           >
-            {data.finalHtml
-              .map((html, index) => (
+            {posts
+              .map((post, index) => (
                 <MailCard
                   issue={index + 1}
-                  body={html}
-                  date={format(
-                    parse('', '', new Date(data.names[index])),
-                    'MMMM d, yyyy'
-                  )}
-                  link={data.names[index]}
+                  body={post.title}
+                  date={post.date}
+                  link={post.link}
                   key={index}
                 />
               ))
