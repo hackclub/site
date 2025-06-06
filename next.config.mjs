@@ -389,16 +389,21 @@ const nextConfig = {
         ]
       }
     ]
-  }
+  },
+  transpilePackages: ["animejs"]
 }
 
 import million from 'million/compiler'
 import withMDX from '@next/mdx'
-import withTM from 'next-transpile-modules'
+import remarkGfm from 'remark-gfm'
 
-const withMDXConfig = withMDX({ extension: /\.mdx?$/ })
-const withAnimeJS = withTM(['animejs'])
+const withMDXConfig = withMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [remarkGfm]
+  },
+})
 
-export default million.next(withAnimeJS(withMDXConfig(nextConfig)), {
+export default million.next(withMDXConfig(nextConfig), {
   auto: true
 })
