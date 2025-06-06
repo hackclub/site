@@ -109,9 +109,6 @@ export const categories = [
     description: `Hackers are using HCB to run hackathons that'll blow your mind away.`,
     match: org => org.category == 'hackathon',
     icon: 'event-code'
-  },
-  {
-    label: ""
   }
 ]
 
