@@ -14,6 +14,7 @@ import theme from '@hackclub/theme'
 import { Balancer } from 'react-wrap-balancer'
 import { setCookie } from 'cookies-next'
 import { useEffect } from 'react'
+import Announcement from '../../components/announcement'
 
 export default function First({ stats }) {
   useEffect(() => {
@@ -73,6 +74,21 @@ export default function First({ stats }) {
               backdropFilter: 'blur(1.5px)'
             }}
           >
+            <a
+              href="https://hcb.hackclub.com/referrals/ArGHqN"
+              style={{ textDecoration: 'none' }}
+              target="_blank"
+            >
+              <Announcement
+                copy="Win a Flipper Zero!"
+                caption="We’re giving away a Flipper Zero to a lucky teenager! Join the Raffle by June 30th, 2025."
+                imgSrc="/fiscal-sponsorship/first/flipper-zero.png"
+                imgAlt="Flipper Zero"
+                color="primary"
+                textColor="slate"
+              />
+            </a>
+
             <Heading
               as="h1"
               variant="ultratitle"
