@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 
 if (process.platform === 'win32') {
-  console.warn('⚠️  WARNING: This site works best on macOS/Linux. If you encounter issues on Windows, please use `yarn dev:no-turbo` instead of `yarn dev`.');
+  console.warn(
+    '⚠️  WARNING: This site works best on macOS/Linux. If you encounter issues on Windows, please use `yarn dev:no-turbo` instead of `yarn dev`.'
+  )
 }
 
 const nextConfig = {
@@ -411,4 +413,5 @@ const withMDXConfig = withMDX({
   }
 })
 
+// @ts-ignore
 export default withMDXConfig(nextConfig)
