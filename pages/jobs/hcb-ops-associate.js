@@ -11,7 +11,7 @@ const Page = () => (
       as={Head}
       title="HCB Operations Associate"
       description="Hack Club is a hiring a HCB Operations Associate as the 8th full-time member of our team in Burlington, Vermont."
-      image="https://workshop-cards.hackclub.com/hcb%20Ops%20Associate%20%40%20Hack%20Club.png?fontSize=175px&brand=HQ"
+      image="https://workshop-cards.hackclub.com/fiscal-sponsorship%20Ops%20Associate%20%40%20Hack%20Club.png?fontSize=175px&brand=HQ"
     />
     <ForceTheme theme="light" />
     <Nav />

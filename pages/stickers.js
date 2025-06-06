@@ -13,6 +13,13 @@ import { startCase } from 'lodash'
 
 const color = '#EC37AD'
 
+function customStartCase(st) {
+  return st
+    .replace(/\.(svg|png)$/, '')
+    .replace(/[_-]+/g, ' ')
+    .replace(/\b\w/g, char => char.toUpperCase());
+}
+
 const StickersPage = ({ stickers = [] }) => [
   <Box as="main" key="main" sx={{ textAlign: 'center' }}>
     <ForceTheme theme="dark" />
@@ -149,7 +156,7 @@ const StickersPage = ({ stickers = [] }) => [
               alt={st.split('.')[0]}
             />
             <Text as="span" variant="caption" sx={{ fontSize: 2, mt: [2, 3] }}>
-              {startCase(st.replace(/\.(svg|png)/, ''))}
+              {customStartCase(st)}
             </Text>
           </Flex>
         ))}

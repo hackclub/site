@@ -1,15 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  Container,
-  Grid,
-  Heading,
-  Image,
-  Badge,
-  Link,
-  Text
-} from 'theme-ui'
+import { Badge, Box, Button, Card, Container, Grid, Heading, Link, Text } from 'theme-ui'
 import styled from '@emotion/styled'
 import Head from 'next/head'
 import NextLink from 'next/link'
@@ -20,12 +9,9 @@ import BGImg from '../components/background-image'
 import ForceTheme from '../components/force-theme'
 import SlideDown from '../components/slide-down'
 import FadeIn from '../components/fade-in'
-import Photo from '../components/photo'
 import Footer from '../components/footer'
-import FooterImgFile from '../public/home/footer.png'
 import AssembleImgFile from '../public/home/assemble.jpg'
 import Slack from '../components/slack'
-import Announcement from '../components/announcement'
 import Stage from '../components/stage'
 
 let Highlight = styled(Text)`
@@ -96,8 +82,8 @@ const Page = () => (
   <>
     <Meta
       as={Head}
-      title="Clubs – Hack Club"
-      description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
+      title="Coding / Computer Science Clubs"
+      description="Hack Club is a global nonprofit network of high school makers & student-led computer science clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
       image="https://cloud-epiki4yvg.vercel.app/2020-09-09_drbp62kayjuyyy0ek89mf9fwcp5t4kuz.jpeg"
     />
     <Head>
@@ -125,13 +111,6 @@ const Page = () => (
         alt="Hack Clubbers assemble at Figma HQ for the first IRL hackathon in SF since 2020: Assemble. 📸 Photo by Kunal Botla, Hack Clubber in MA!"
         priority
       />
-      {/* <Announcement
-        copy="Epoch: celebrate the New Year with Hack Club."
-        caption="Join 150+ hackers in Delhi for a magical high-school hackathon!"
-        href="https://epoch.hackclub.com"
-        iconLeft="explore"
-        color="primary"
-      /> */}
 
       <SlideDown duration={768}>
         <Heading
@@ -156,7 +135,7 @@ const Page = () => (
               pb: 3
             }}
           >
-            Don’t run your coding&nbsp;club alone.
+            Don’t run your coding&nbsp;club alone.{' '}
           </Text>
           Make it a{' '}
           <Text
@@ -185,7 +164,7 @@ const Page = () => (
             mb: [3, 4]
           }}
         >
-          Hack Club is a nonprofit network of high school coding&nbsp;clubs and
+          Hack Club is a nonprofit network of high school computer science&nbsp;clubs and
           makers around the world. <strong>Applications are now open.</strong>
         </Text>
         <Button
@@ -197,20 +176,18 @@ const Page = () => (
         >
           Apply now
         </Button>
-        <NextLink href="/slack" passHref>
-          <Button
-            as="a"
-            variant="ctaLg"
-            href="/slack"
-            sx={{
-              backgroundImage: t => t.util.gx('green', 'blue'),
-              ml: [0, 3],
-              mt: [3, 0]
-            }}
-          >
-            Join the Slack
-          </Button>
-        </NextLink>
+        <Button
+          as="a"
+          variant="ctaLg"
+          href="/slack"
+          sx={{
+            backgroundImage: t => t.util.gx('green', 'blue'),
+            ml: [0, 3],
+            mt: [3, 0]
+          }}
+        >
+          Join the Slack
+        </Button>
       </FadeIn>
       <Box
         sx={{
@@ -271,12 +248,21 @@ const Page = () => (
           at the end.
         </Text>
         <Grid columns={[null, null, 2, '3fr 2fr']} gap={[3, 4]} pt={[3, 3]}>
-          <Photo
+          {/* <Photo
             src="https://cloud-5pdwvchgm-hack-club-bot.vercel.app/05851864a.jpg"
             alt="Summer Creek Hack Club meeting, February 2020"
             width={3000}
             height={2550}
             showAlt
+          />*/}
+          <iframe
+            width="100%"
+            height="500px"
+            src="https://www.youtube.com/embed/xXIxwV7bQTw?si=gmhvvHTcUxKTVMjt"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            style={{ borderRadius: 12, border: 'hidden' }}
           />
           <Grid
             columns="auto 1fr"
@@ -346,16 +332,11 @@ const Page = () => (
             <NextLink href="/hackathons" passHref>
               <a>hackathons</a>
             </NextLink>{' '}
-            like <a href="https://windyhacks.com">Windy&nbsp;City&nbsp;Hacks</a>{' '}
-            &{' '}
-            <a href="https://www.sfchronicle.com/bayarea/article/Hack-the-Fog-makes-history-as-San-12729895.php">
-              Hack the Fog
-            </a>
-            , run summer programs like{' '}
-            <a href="https://web.archive.org/web/20200808171549/http://thecspn.com/?p=43434">
-              Hack Camp
-            </a>
-            , and compete in events like the{' '}
+            like <a href="https://lioncityhacks.com">Lion City Hacks</a> &{' '}
+            <a href="https://www.youtube.com/watch?v=Hs-hMMeHXaY">HackOC</a>,
+            take part in year long programs like{' '}
+            <NextLink href="/onboard">OnBoard</NextLink>, and compete in events
+            like the{' '}
             <a href="http://www.congressionalappchallenge.us">
               Congressional App Challenge
             </a>
@@ -466,7 +447,7 @@ const Page = () => (
               <>
                 We build tools, such as{' '}
                 <a href="https://sprig.hackclub.com">Sprig</a>, that your
-                members can use to make projects with in meetings! Built more of
+                members can use to make projects with in meetings! Build more of
                 them with us in our <Link href="/slack">Slack community</Link>.
               </>
             }
@@ -479,8 +460,8 @@ const Page = () => (
               <>
                 Come prepared to every meeting with over 100{' '}
                 <a href="https://workshops.hackclub.com">workshops</a> (3 years’
-                worth!) that guide your club members through making fun,
-                creative projects.
+                worth!) and 19 <a href="https://jams.hackclub.com">Jams</a> that
+                guide your club members through making fun, creative projects.
               </>
             }
           ></Feature>
@@ -520,7 +501,7 @@ const Page = () => (
             desc={
               <>
                 Use our 501(c)(3) status and a restricted fund with{' '}
-                <Link href="/hcb">HCB</Link> to fundraise, accept donations, and
+                <Link href="/fiscal-sponsorship">HCB</Link> to fundraise, accept donations, and
                 buy things!
               </>
             }
@@ -551,7 +532,7 @@ const Page = () => (
                 We're always building new tools for leaders, such as{' '}
                 <a href="https://sprig.hackclub.com">Sprig</a>! We've also got
                 free subscriptions to Figma Pro, Postman, and more for running a
-                great club.
+                great computer science club club.
               </>
             }
           />
@@ -568,7 +549,7 @@ const Page = () => (
           name="Existing clubs welcome"
           desc={
             <>
-              When established CS clubs join, they get all the Hack&nbsp;Club
+              When established Computer Science clubs join, they get all the Hack&nbsp;Club
               benefits: Zoom&nbsp;Pro, stickers, our Slack community,{' '}
               <a href="https://workshops.hackclub.com/">workshops</a>, the
               works. They’re welcome to use the “Hack&nbsp;Club” name or keep
@@ -712,14 +693,6 @@ const Page = () => (
         }
       }}
     >
-      <BGImg
-        width={2544}
-        height={2048}
-        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
-        src={FooterImgFile}
-        placeholder="blur"
-        alt="Globe with hundreds of Hack Clubs"
-      />
       <style>
         {`a{
           color: #338eda

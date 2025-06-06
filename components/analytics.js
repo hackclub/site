@@ -4,7 +4,7 @@ const Analytics = () => (
   <Script
     defer
     data-domain="hackclub.com"
-    src="https://plausible.io/js/plausible.js"
+    src="https://plausible.io/js/script.pageview-props.tagged-events.js"
   />
 )
 

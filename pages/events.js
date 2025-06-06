@@ -31,8 +31,7 @@ const events = [
     season: 'Fall',
     year: '2023',
     // repo: 'outernet',
-    image:
-      'https://cloud-6vo1bh2dg-hack-club-bot.vercel.app/0image.png',
+    image: 'https://cloud-6vo1bh2dg-hack-club-bot.vercel.app/0image.png',
     link: 'https://haunted.hackclub.com'
   },
   {
@@ -43,7 +42,7 @@ const events = [
     season: 'Summer',
     year: '2023',
     video: 'https://www.youtube.com/embed/O1s5HqSqKi0',
-    repo: 'outernet',
+    repo: 'outernet'
   },
   {
     name: 'Epoch',

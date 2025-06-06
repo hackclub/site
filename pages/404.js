@@ -160,12 +160,12 @@ const Blinking = styled(Heading)`
   &:after {
     left: 2px;
     text-shadow: -2px 0 ${theme.colors.red};
-    animation: ${animation1} 2s infinite linear alternate-reverse;
+    animation: ${animation1} 2s infinite steps(2, jump-end) alternate-reverse;
   }
   &:before {
     left: -2px;
     text-shadow: -2px 0 ${theme.colors.cyan};
-    animation: ${animation2} 4s infinite linear alternate-reverse;
+    animation: ${animation2} 4s infinite steps(2, jump-end) alternate-reverse;
   }
 `
 
