@@ -81,13 +81,13 @@
     "link": "https://sinerider.com"
   },
   {
-    "background": "dark",
-    "titleColor": "green",
-    "descriptionColor": "white",
-    "title": "OnBoard",
-    "description": "Join 1k teens designing PCBs, learning hardware, and building electronics",
-    "img": "https://cloud-6skkg6eck-hack-club-bot.vercel.app/0image.png",
-    "link": "/onboard"
+    "background": "#508364",
+    "titleColor": "#f5d9a5",
+    "descriptionColor": "#f5d9a5",
+    "title": "Journey",
+    "description": "Make projects - post regular updates - invest in others' projects - get rewards",
+    "img": "https://journey.hackclub.com/assets/puppyeyes-76be22f9.png",
+    "link": "https://journey.hackclub.com/explore"
   },
   {
     "background": "#e9e9e9",

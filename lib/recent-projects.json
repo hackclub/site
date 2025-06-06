@@ -1,0 +1,42 @@
+[
+  {
+    "background": "white",
+    "titleColor": "dark",
+    "descriptionColor": "dark",
+    "title": "Doom in a PDF!",
+    "description": "A Hackclubber ran doom in a pdf!",
+    "link": "https://github.com/ading2210/doompdf"
+  },
+  {
+    "background": "#e3c21e",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "PandA",
+    "description": "A really beautiful foldable 3d printer from scratch.",
+    "link": "https://github.com/lolwutboi987/PandA"
+  },
+  {
+    "background": "dark",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "LibrePods",
+    "description": "Use airpods with android and linux!",
+    "link": "https://github.com/kavishdevar/librepods"
+  },
+  {
+    "background": "#181825",
+    "titleColor": "#cdd6f4",
+    "descriptionColor": "#cdd6f4",
+    "title": "Vortex",
+    "description": "An open-source temp email service!",
+    "link": "https://github.com/SkyfallWasTaken/vortex.email"
+  },
+    {
+    "background": "red",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "HCB-Scan",
+    "description": "The first public explorer for HCB orgs and transactions.",
+    "link": "https://github.com/3kh0/hcbscan"
+  }
+]

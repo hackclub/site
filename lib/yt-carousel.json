@@ -1,0 +1,84 @@
+[
+  {
+    "background": "background: #ff8585;background: linear-gradient(90deg, rgba(255, 133, 133, 1) 0%, rgba(253, 29, 29, 1) 22%, rgba(252, 176, 69, 1) 69%);",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "Juice",
+    "description": "Around 100 hackclubbers from ~23 countries ran a week long popup cafe in the streets of Shanghai.",
+    "img": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4c16121f98762341a7f1d6774e982735b958f051_juiceboxbuilding.png",
+    "link": "https://www.youtube.com/watch?v=fuTlToZ1SX8&list=PLbNbddgD-XxH0TDS6qFynB6-YnWZU5Fhc"
+  },
+  {
+    "background": "#dbd876",
+    "titleColor": "#4F2A0E",
+    "descriptionColor": "#4F2A0E",
+    "title": "Jua",
+    "description": "We hosted the Largest All-Girls hackathon in Nairobi!",
+    "img": "https://jua.hackclub.com/nairobi%20sticker%20logo.png",
+    "link": "https://youtu.be/S5dKIlBN_1s?si=r8GnKE4PYERrvp7v"
+  },
+  {
+    "background": "#327d78",
+    "titleColor": "#e3dac8",
+    "descriptionColor": "#e3dac8",
+    "title": "Scrapyard",
+    "description": "We hosted a hackathon for the WORST Ideas!",
+    "img": "https://cloud-4fnsp2wse-hack-club-bot.vercel.app/0scrapyard.png",
+    "link": "https://youtu.be/8iM1W8kXrQA?si=uBVDO7fd9aghRSQE"
+  },
+  {
+    "background": "#EF6C46",
+    "titleColor": "#EDE2DC",
+    "descriptionColor": "#EDE2DC",
+    "title": "The Boreal Express",
+    "description": "We hosted a hackathon ACROSS Canada, on a train!",
+    "img": "/home/boreal.webp",
+    "link": "https://youtu.be/H5RPsCMl3uM?si=wXgThhbKeaB2ESE_"
+  },
+    {
+    "background": "#3a396e",
+    "titleColor": "#FFFFFF",
+    "descriptionColor": "#FFFFFF",
+    "title": "Counterspell",
+    "description": "We organised a Game Jam in 50 cities simaltaneously!",
+    "img": "https://raw.githubusercontent.com/acornitum/counterspell/refs/heads/master/public/favicon.ico",
+    "link": "https://hackcraft.hackclub.com/"
+  },
+  {
+    "background": "#fef5d8",
+    "titleColor": "#042412",
+    "descriptionColor": "#042412",
+    "title": "The Trail",
+    "description": "The World's First Hikeathon: 30 Teen Hackers hike Pacific Crest Trail!",
+    "img": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/d092a42bb5c6fc8ad52a3165c4ffa443e59608bc_image-removebg-preview.png",
+    "link": "https://youtu.be/ufMUJ9D1fi8?si=NCWACHKKOD0vW7t8"
+  },
+  {
+    "background": "#b42e1e",
+    "titleColor": "#fcec96",
+    "descriptionColor": "#fcec96",
+    "title": "Summit",
+    "description": "We organised The Hackclub Leaders Summit 2024.",
+    "img": "https://raw.githubusercontent.com/hackclub/summit/refs/heads/main/public/favicon-32x32.png",
+    "link": "https://youtu.be/UZEm5lONg7g?si=GWy29PKD8Jo3pH1Y"
+  },
+  {
+    "background": "#f74a66",
+    "titleColor": "#ebd7fa",
+    "textColor": "#ebd7fa",
+    "title": "Assemble",
+    "description": "We hosted a high school hackathon at the Figma HQ in SF!",
+    "img": "https://assemble.hackclub.com/invert.png",
+    "link": "https://youtu.be/PnK4gzO6S3Q?si=Czpzq9s_TnI4UtPF"
+  },
+  {
+    "background": "#e9e9e9",
+    "titleColor": "black",
+    "textColor": "black",
+    "descriptionColor": "black",
+    "title": "Infill",
+    "description": "Around 20 Teen Hackers built their 3d printers from scratch and presented them at The RMRRF!",
+    "img": "https://raw.githubusercontent.com/hackclub/infill/refs/heads/main/website/public/favicon.svg",
+    "link": "https://www.youtube.com/live/EhKuOT_FsDI?si=3N2Ixq-J0tr1KXjq"
+  }
+]
