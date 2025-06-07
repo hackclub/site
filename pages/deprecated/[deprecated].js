@@ -8,7 +8,7 @@ import Footer from '../../components/footer'
 
 const DeprecatedPage = ({ page: { name, desc, icon, link } = {} }) => (
   <>
-    <Nav dark />
+    <Nav />
     <Meta
       as={Head}
       title={name}
@@ -20,8 +20,8 @@ const DeprecatedPage = ({ page: { name, desc, icon, link } = {} }) => (
     <Box
       as="main"
       sx={{
-        bg: 'dark',
-        color: 'muted',
+        // bg: 'dark',
+        color: 'text',
         pt: [5, 6],
         pb: [4, 5],
         textAlign: 'center'
@@ -29,7 +29,7 @@ const DeprecatedPage = ({ page: { name, desc, icon, link } = {} }) => (
     >
       <Container variant="narrow" as="article">
         <Icon size={128} glyph={icon} />
-        <Heading as="h1" variant="title" sx={{ color: 'snow', my: [2, 3] }}>
+        <Heading as="h1" variant="title" sx={{ color: 'slate', my: [2, 3] }}>
           We no longer offer {name}.
         </Heading>
         <Heading as="h2" variant="subtitle" sx={{ mb: 4 }}>
@@ -40,7 +40,7 @@ const DeprecatedPage = ({ page: { name, desc, icon, link } = {} }) => (
         </Button>
       </Container>
     </Box>
-    <Footer dark />
+    <Footer />
   </>
 )
 
