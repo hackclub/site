@@ -19,6 +19,7 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
+import Pizza from '../components/index/cards/pizza'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -684,6 +685,7 @@ function Page({
             </Box>
             <Neighborhood />
             <Trail />
+            <Pizza />
             <Scrapyard />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
