@@ -674,10 +674,10 @@
     "department": "Events",
     "role": "Virtual Events Lead",
     "acknowledged": false,
-    "bio": "Eesha is a 16 year old Hack Clubber from somewhere over the rainbow. Wherever she goes you're sure to find chaos and banana ducks following her, in a fun, loving way of course. She's been working on running virtual events for the Hack Club community whilst being overworked with school and robotics.",
+    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art designs, especially using Sally Hansen black nail polish, since black is her favorite color. When working, she likes to listen to music, especially by Paramore or NF, or watch TV, especially Young Sheldon. She has been involved in Hack Club since March 2024, where she manages virtual events and welcomes people into the Slack.",
     "slackId": "U06QST7V0J2",
     "email": "eesha",
-    "website": "https://beepboopblorp.github.io/personal-website",
+    "website": "https://eesha-kothari.com",
     "avatar": "https://cachet.dunkirk.sh/users/U06QST7V0J2/r"
   },
   {
@@ -911,6 +911,17 @@
     "email": "felix",
     "website": "https://felixgao.dev/",
     "avatar": "https://cachet.dunkirk.sh/users/U07BU2HS17Z/r"
+  },
+  {
+    "name": "Eesha",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art designs, especially using Sally Hansen black nail polish, since black is her favorite color. When working, she likes to listen to music, especially by Paramore or NF, or watch TV, especially Young Sheldon. She has been involved in Hack Club since March 2024, where she manages virtual events and welcomes people into the Slack.",
+    "slackId": "U06QST7V0J2",
+    "email": "eesha",
+    "website": "https://eesha-kothari.com",
+    "avatar": "https://cachet.dunkirk.sh/users/U06QST7V0J2/r"
   },
   {
     "name": "Kyra Ezikeuzor",
