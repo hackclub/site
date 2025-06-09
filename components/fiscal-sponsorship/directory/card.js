@@ -125,7 +125,7 @@ export const OrganizationCard = ({
           alt={`${organization.name} logo`}
           loading="lazy"
           sx={{
-            minWidth: 64,
+            // minWidth: 64,
             height: 64,
             objectFit: 'contain',
             objectPosition: 'left',

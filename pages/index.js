@@ -42,6 +42,7 @@ import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
+import Neighborhood from '../components/index/cards/neighborhood'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -280,9 +281,22 @@ function Page({
                 as="a"
                 href="/slack"
                 mt={[3, 0, 0]}
+                mr={3}
                 sx={{ transformOrigin: 'center left' }}
               >
-                Join our community
+                Join Slack
+              </Button>
+              <Button
+                variant="ctaLg"
+                as="a"
+                href="https://shipwrecked.hack.club/3"
+                mt={3}
+                sx={{ 
+                  transformOrigin: 'left',
+                  backgroundImage: t => t.util.gx('green', 'blue'),
+                }}
+              >
+                Sign Up: Private Island Hackathon
               </Button>
             </Heading>
           </Box>
@@ -359,8 +373,8 @@ function Page({
               }}
             >
               Every day, thousands of Hack&nbsp;Clubbers gather online and
-              in-person to make things with code. Whether you’re a beginner
-              programmer or have years of experience, there’s a place for you at
+              in-person to make things with code. Whether you're a beginner
+              programmer or have years of experience, there's a place for you at
               Hack&nbsp;Club. Read about our{' '}
               <Link href="/philosophy" target="_blank" rel="noopener">
                 hacker ethic
@@ -529,7 +543,7 @@ function Page({
                     <strong sx={{ mb: 1 }}>
                       Connect with other teenage coders
                     </strong>
-                    Have a coding question? Looking for project feedback? You’ll
+                    Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
                     <Link href="/slack" target="_blank" rel="noopener">
                       Slack{' '}
@@ -669,9 +683,10 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Scrapyard />
-            <Pizza />
+            <Neighborhood />
             <Trail />
+            <Pizza />
+            <Scrapyard />
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
@@ -898,7 +913,7 @@ function Page({
                 variant="eyebrow"
                 sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
               >
-                We've got a lot going on - Let’s recap
+                We've got a lot going on - Let's recap
               </Text>
               <Text
                 variant="title"
@@ -1041,7 +1056,7 @@ function Page({
                   icon="github"
                   color="white"
                   name="Explore Our Open Source Tools"
-                  desc="We’re currently building a game engine, daily streak system, graphing game, and more!"
+                  desc="We're currently building a game engine, daily streak system, graphing game, and more!"
                   sx={{
                     p: {
                       fontSize: [1, '16px', '20px']
@@ -1095,7 +1110,7 @@ function Page({
                   icon="clubs"
                   color="white"
                   name="Start A Club"
-                  desc="Build an in-person community of high school hackers, and we’re here to help."
+                  desc="Build an in-person community of high school hackers, and we're here to help."
                   sx={{
                     p: {
                       fontSize: ['18px', '20px', '22px']

@@ -23,6 +23,10 @@ import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
 import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
+import { setCookie, getCookie } from 'cookies-next'
+import { useEffect, useState } from 'react'
+import { unfold } from '../../components/announcement'
+import Icon from '@hackclub/icons'
 
 const organizations = [
   {
@@ -31,9 +35,7 @@ const organizations = [
     description:
       'Publishing techno-optimism, through newsletters, magazines, and events.',
     slug: 'reboot',
-    location: {
-      readable: 'Bay Area, CA, USA'
-    },
+    location: { readable: 'Bay Area, CA, USA' },
     logo: '/fiscal-sponsorship/reboot.png',
     background_image: '/fiscal-sponsorship/reboot-bg.jpg'
   },
@@ -42,9 +44,7 @@ const organizations = [
     name: 'Apocalypse',
     description: "Canada's largest in-person high school hackathon.",
     slug: 'apocalypse',
-    location: {
-      readable: 'Toronto, Canada'
-    },
+    location: { readable: 'Toronto, Canada' },
     logo: '/fiscal-sponsorship/apocalypse.png',
     background_image: '/fiscal-sponsorship/apocalypse-bg.png'
   },
@@ -53,9 +53,7 @@ const organizations = [
     name: 'Green Mountain Robotics',
     description: 'Spreading STEM interest, one robot at a time.',
     slug: 'green-mountain-robotics',
-    location: {
-      readable: 'Chittenden County, VT, USA'
-    },
+    location: { readable: 'Chittenden County, VT, USA' },
     logo: '/fiscal-sponsorship/green-mountain-robotics.png',
     background_image: 'green-mountain-robotics-bg.png'
   },
@@ -64,15 +62,103 @@ const organizations = [
     name: 'Hack Club HQ',
     description: 'This is us! We run our operations on HCB.',
     slug: 'hq',
-    location: {
-      readable: 'Vermont, USA'
-    },
+    location: { readable: 'Vermont, USA' },
     logo: 'https://cloud-91boqw8z9-hack-club-bot.vercel.app/0icon-rounded.png',
     background_image: '/fiscal-sponsorship/hq-bg.jpg'
   }
 ]
 
+function OpenSourceAlert() {
+  return (
+    <Container sx={{ position: 'relative' }}>
+      <Box
+        sx={{
+          py: ['25px', 3],
+          px: 4,
+          background: [
+            'rgba(200, 200, 200, 0.3)',
+            'linear-gradient(rgba(255,255,255,0.4), rgba(200,200,200,.3))'
+          ],
+          backdropFilter: 'blur(20px)',
+          borderRadius: 20,
+          boxShadow:
+            '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          mt: [20, -50],
+          transform: 'scaleY(0)',
+          '@media (prefers-reduced-motion: no-preference)': {
+            animation: `${unfold} 0.5s ease-out forwards`,
+            animationDelay: '0.5s'
+          },
+          flexDirection: ['column', 'row']
+        }}
+      >
+        <span style={{ fontSize: 20 }}>
+          <strong style={{ fontSize: 23 }}>HCB is now open source! </strong>
+          <br />
+          Join us in building the infrastructure powering student-led
+          organizations
+        </span>
+
+        <Box
+          sx={{
+            gap: 2,
+            display: 'flex',
+            width: ['100%', 'auto'],
+            alignItems: ['stretch', 'center'],
+            flexShrink: 0,
+            ml: [undefined, 'auto'],
+            flexDirection: ['column-reverse', 'row']
+          }}
+        >
+          <Button
+            as="a"
+            sx={{ flexShrink: 0, gap: 14, paddingLeft: 25 }}
+            variant="outline"
+            target="_blank"
+            href="https://github.com/hackclub/hcb"
+          >
+            Star on GitHub
+            <Icon glyph="github" />
+          </Button>
+          <Button
+            as="a"
+            sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px' }}
+            href="https://hackclub.com/hcb/open-source"
+            target="_blank"
+          >
+            Read our blog post
+            <Icon glyph="view-forward" />
+          </Button>
+        </Box>
+      </Box>
+    </Container>
+  )
+}
+
 export default function Page() {
+  const [hasReferral, setHasReferral] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+
+    const tubProgram = params.get('tub_program')
+    const referral = params.get('referral')
+    const referralCookie = getCookie('referral')
+
+    if (referral) {
+      setCookie('referral', referral)
+      setCookie('tub_program', 'GFGS')
+    } else if (tubProgram) {
+      setCookie('tub_program', tubProgram)
+      setCookie('referral', '')
+    }
+
+    setHasReferral(!!referral || !!referralCookie)
+  }, [])
+
   return (
     <>
       <Meta
@@ -88,7 +174,7 @@ export default function Page() {
         sx={{
           position: 'relative',
           pt: 6,
-          pb: [4, 5],
+          pb: [4, '90px'],
           bg: 'rgb(104, 41, 205)',
           backgroundImage:
             'radial-gradient(ellipse at 5% 5%, #ec555c 0%, rgba(236,85,92,0) 75%),radial-gradient(ellipse at 95% 5%, #dc71a1 0%, rgba(220,113,161,0) 75%),radial-gradient(ellipse at 95% 95%, #fcc8bf 0%, rgba(252,200,191,0) 75%),radial-gradient(ellipse at 5% 95%, #ffce33 0%, rgba(255,206,51,0) 75%)'
@@ -174,6 +260,36 @@ export default function Page() {
               best-in-class software.
             </Balancer>
           </Text>
+
+          {hasReferral && (
+            <Text variant="lead" sx={{ my: [3, 4] }}>
+              <Box
+                sx={{
+                  bg: 'rgba(255, 255, 255, 0.2)',
+                  p: 3,
+                  borderRadius: 'default',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  backdropFilter: 'blur(8px)',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  mt: 3
+                }}
+              >
+                Apply by <strong>April 16th</strong> using referral code (
+                {getCookie('referral')}) and get stickers + fiscal sponsorship
+                fees waived for the month of May.
+                <Link
+                  href="https://docs.google.com/document/d/e/2PACX-1vTPygv_qfd2FnU3Dslt4o69nBlOoKhvWDuexk67ApjuIH96ghjpLjw9wJhsRUtTZYX3XO4EVdxXVx7Q/pub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Terms apply"
+                  style={{ marginLeft: '4px' }}
+                >
+                  *
+                </Link>
+              </Box>
+            </Text>
+          )}
+
           <Flex
             sx={{
               flexDirection: ['column', 'row'],
@@ -199,20 +315,14 @@ export default function Page() {
           </Flex>
         </Container>
       </Box>
+      <OpenSourceAlert />
       <Box id="organizations" as="section" sx={{ py: [4, 5] }}>
         <Container sx={{}}>
           {/* <Text as="p" variant="headline" sx={{ mt: 0 }}>
             Powering nonprofits at every scale
           </Text> */}
-          <Flex
-            sx={{
-              flexWrap: 'wrap',
-              rowGap: 3,
-              columnGap: [4, 5],
-              mb: 4
-            }}
-          >
-            <Stat value="$30M+" label="processed transactions" reversed />
+          <Flex sx={{ flexWrap: 'wrap', rowGap: 3, columnGap: [4, 5], mb: 4 }}>
+            <Stat value="$40M+" label="processed transactions" reversed />
             <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
@@ -408,7 +518,7 @@ export default function Page() {
                 <UILink>Hack Club</UILink>
               </Link>{' '}
               grew, we needed a way to empower our members. We currently have
-              over 30,000 high schoolers involved in Hack Club with over 400
+              over 60,000 high schoolers involved in Hack Club with over 400
               clubs around the world.
             </p>
             <p>

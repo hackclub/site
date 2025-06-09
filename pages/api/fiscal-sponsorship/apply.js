@@ -7,6 +7,8 @@ const applicationsTable = new AirtablePlus({
   tableName: 'Events'
 })
 
+const tub_programs = ['ftcscout', 'GFGS'] // Pre-approved TUB programs
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.status(405).json({ status: 'error', error: 'Must send POST request' })
@@ -60,7 +62,11 @@ export default async function handler(req, res) {
         'Teenager Led?': data.eventTeenagerLed === 'true',
         '(Adults) Political Activity': data.eventPoliticalActivity,
         '(Adults) Annual Budget': parseInt(data.eventAnnualBudget),
-        'HCB ID': r.id
+        'HCB ID': r.id,
+        'Referral Code': data.referralCode,
+        Tubs: tub_programs.includes(data.tub_program)
+          ? data.tub_program
+          : undefined
       })
       res.status(200).end()
     })
