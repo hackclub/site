@@ -690,9 +690,24 @@ const Philanthropy = ({ posts = [] }) => {
             <Flex sx={{ justifyContent: 'space-between' }} mt={[3, 4]}>
               <Box>
                 <Text as="h2">View Hack Club's Annual Reports</Text>
-                <Text as="p">2024 Report will be shared when ready.</Text>
+                <Text as="p">Reports from 2022-2024</Text>
               </Box>
               <Box>
+              <Button
+                  as="a"
+                  variant="outline"
+                  href="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9182271af3e9fd99e2333e07e1ab5de3d4db3730_final-2024-annual-report.pdf"
+                  target="_blank"
+                  mb={4}
+                  sx={{
+                    fontSize: '1em !important',
+                    width: 'fit-content',
+                    float: 'right',
+                    mt: 2
+                  }}
+                >
+                  2024
+                </Button>
                 <Button
                   as="a"
                   variant="outline"
