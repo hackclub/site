@@ -86,6 +86,7 @@ export default function First({ stats }) {
                 imgAlt="Flipper Zero"
                 color="primary"
                 textColor="slate"
+                sx={{ mt: [3, 4, 4] }}
               />
             </a>
 
