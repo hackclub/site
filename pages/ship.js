@@ -168,5 +168,8 @@ export const getStaticProps = async () => {
     )
     .then(posts => orderBy(posts, 'postedAt', 'desc'))
     .then(posts => take(posts, 24))
+    .catch(error => {
+      console.log(error)
+    })
   return { props: { posts }, revalidate: 2 }
 }

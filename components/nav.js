@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
-import { Box, Container, Flex, Link, Text } from 'theme-ui'
+import { Box, Container, Flex, Link } from 'theme-ui'
 import theme from '../lib/theme'
 import Icon from './icon'
 import Flag from './flag'
@@ -41,10 +41,12 @@ const fixed = props =>
     }
   `
 
-const Root = styled(Box)`
+const Root = styled(Box, {
+  shouldForwardProp: prop => !['bgColor', 'scrolled', 'toggled'].includes(prop)
+})`
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 1000;
   ${fixed};
   @media print {
@@ -52,18 +54,12 @@ const Root = styled(Box)`
   }
 `
 
-export const Content = styled(Box)`
+export const Content = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1024px;
-  margin: auto;
   position: relative;
   z-index: 2;
-  padding-left: ${theme.space[3]}px;
-  @media (min-width: ${theme.breakpoints[2]}em) {
-    padding: 0 ${theme.space[4]}px;
-  }
 `
 
 const hoverColor = name =>
@@ -98,8 +94,7 @@ const layout = props =>
           height: 64px;
           font-weight: bold;
           font-size: ${theme.fontSizes[2]}px;
-          width: 100%;
-          max-width: 18rem;
+          width: 100vw;
           &:not(:last-child) {
             border-bottom: 1px solid rgba(48, 48, 48, 0.125);
           }
@@ -114,18 +109,19 @@ const layout = props =>
           justify-content: flex-end;
         }
         a {
-          font-size: ${theme.fontSizes[1]}px;
-          text-transform: uppercase;
+          font-size: 18px;
           &:hover {
             color: ${theme.colors[hoverColor(props.color)]};
           }
         }
       `
-const NavBar = styled(Box)`
+const NavBar = styled(Box, {
+  shouldForwardProp: prop => !['isMobile', 'toggled'].includes(prop)
+})`
   display: none;
   ${layout};
   a {
-    margin-left: ${theme.space[3]}px;
+    margin-left: ${theme.space[1]}px;
     padding: ${theme.space[3]}px;
     text-decoration: none;
     @media (min-width: 56em) {
@@ -135,23 +131,21 @@ const NavBar = styled(Box)`
 `
 
 const Navigation = props => (
+  // REMINDER: This should be no more than 7 links :)
   <NavBar role="navigation" {...props}>
     <NextLink href="/clubs" passHref>
       <Link>Clubs</Link>
     </NextLink>
-    <NextLink href="/hcb" passHref>
+    <NextLink href="/fiscal-sponsorship" passHref>
       <Link>Fiscal&nbsp;Sponsorship</Link>
     </NextLink>
     <NextLink href="/hackathons" passHref>
       <Link>Hackathons</Link>
     </NextLink>
-    <NextLink href="/slack" passHref>
-      <Link>Slack</Link>
-    </NextLink>
+    <Link href="/slack">Community</Link>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
-    <Link href="https://jams.hackclub.com/">Jams</Link>
-    <NextLink href="/onboard" passHref>
-      <Link>OnBoard</Link>
+    <NextLink href="https://toolbox.hackclub.com/" passHref>
+      <Link>Toolbox</Link>
     </NextLink>
   </NavBar>
 )
@@ -205,13 +199,13 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
   const baseColor = dark
     ? color || 'white'
     : color === 'white' && scrolled
-    ? 'black'
-    : color
+      ? 'black'
+      : color
   const toggleColor = dark
     ? color || 'snow'
     : toggled || (color === 'white' && scrolled)
-    ? 'slate'
-    : color
+      ? 'slate'
+      : color
 
   return (
     <Root

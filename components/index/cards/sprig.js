@@ -159,7 +159,7 @@ function Game({ game, gameImage, gameImage1, ...props }) {
               mb: 1
             }}
           >
-            <RelativeTime value={game['added on']} titleFormat="YYYY-MM-DD" />
+            <RelativeTime value={game['addedOn']} titleFormat="YYYY-MM-DD" />
           </Text>
         </Box>
       </Box>
@@ -257,7 +257,7 @@ export default function Sprig({ stars, game, gameImage, gameImage1 }) {
           >
             <Game
               game={game[0]}
-              // gameImage={gameImage}
+            // gameImage={gameImage}
             />
             <Game
               game={game[1]}

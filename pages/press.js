@@ -61,7 +61,7 @@ const Page = () => (
       </Box>
       <Button
         as="a"
-        href="https://drive.google.com/open?id=1FgPJv68QzLVvCdFFTls0Exu0JO2npIhC"
+        href="https://drive.google.com/drive/folders/1t57tU00j6OZbDCpWsyRYsaQGShQqK9Zh?usp=sharing"
         variant="outline"
         mt={4}
         mb={4}
