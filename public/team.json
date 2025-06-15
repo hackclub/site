@@ -98,7 +98,7 @@
     "name": "Arav Narula",
     "department": "HQ",
     "role": "Community Operations & Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Arav is a high schooler from Toronto (kinda) who loves everything in the intersection of social science, art, and programming. They're also a really big public transit fan, and you can often find them taking the bus to places. Over the last couple of months, Arav has led and helped run the moderation dept, and built custom tools for moderation. This summer, they interned at Hack Club helping run community logtics, and contuining to lead the moderation dept for Hack Club Arcade, running events in the process. They're a senior right now drowning in homework",
     "bioHackFoundation": "",
     "slackId": "",
@@ -536,18 +536,6 @@
     "email": "louisa",
     "website": "",
     "avatar": "https://cloud-o2bkq84pj-hack-club-bot.vercel.app/0image.png"
-  },
-  {
-    "name": "Arav Narula",
-    "department": "Moderation",
-    "role": "Community Moderation Lead",
-    "acknowledged": false,
-    "bio": "Arav is a high schooler from Toronto (kinda) who loves everything in the intersection of social science, art, and programming. They're also a really big public transit fan, and you can often find them taking the bus to places. Over the last couple of months, Arav has led and helped run the moderation dept, and built custom tools for moderation. This summer, they interned at Hack Club helping run community logtics, and contuining to lead the moderation dept for Hack Club Arcade, running events in the process. They're a senior right now drowning in homework",
-    "bioHackFoundation": "",
-    "slackId": "",
-    "email": "arav",
-    "website": "https://radioblahaj.com",
-    "avatar": "https://cloud-3c7rt7s1k-hack-club-bot.vercel.app/0image_512x512__1_.png"
   },
   {
     "name": "Saran Wagner",
