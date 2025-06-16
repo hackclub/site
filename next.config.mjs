@@ -15,7 +15,8 @@ const nextConfig = {
       'scrapbook.hackclub.com',
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
-      'hcb.hackclub.com'
+      'hcb.hackclub.com',
+      "hc-cdn.hel1.your-objectstorage.com"
     ],
     remotePatterns: [
       {
@@ -69,6 +70,11 @@ const nextConfig = {
         permanent: true
       },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
+      {
+        source: '/slack/',
+        destination: 'https://summer.hackclub.com',
+        permanent: false
+      },
       {
         source: '/jobs/bank-tech-lead/',
         destination: '/jobs/lead-hacker/',
