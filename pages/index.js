@@ -204,6 +204,13 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
+          <Announcement
+            width="90vw"
+            copy="This summer is yours for the making!"
+            caption="Get free Flipper Zeros, Framework Laptops, 3D Printers, and more. Join Summer of Making! Jun 16 - Aug 31."
+            href="https://summer.hackclub.com/"
+            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/779a5d748938b66ae93a566cc9699e636b01d462_summerlogo.png"
+          />
           <Box
             sx={{
               width: '90vw',
