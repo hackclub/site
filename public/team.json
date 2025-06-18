@@ -274,6 +274,17 @@
     "avatar": "https://cachet.dunkirk.sh/users/U08B2HD1JNA/r"
   },
   {
+    "name": "Gus Ruben",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U07FCRNHS1J",
+    "email": "gus",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
+  },
+  {
     "name": "Melanie Smith",
     "department": "HCB",
     "role": "Director of Operations",
