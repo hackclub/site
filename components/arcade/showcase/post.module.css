@@ -1,0 +1,88 @@
+.gallery_card{
+    flex: 1;
+    break-inside: avoid;
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+    background-color: rgba(158, 158, 158, 1); /* Equivalent to bg-white/20 */
+    background-clip: padding-box; /* Equivalent to bg-clip-padding */
+    padding: 1.5rem 1.5rem 1rem 1.5rem; /* Equivalent to p-6 pb-4 */
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to shadow-lg */
+    height: fit-content; /* Equivalent to h-fit */
+    width: 100%; /* Make the card width responsive within the column */
+    margin-bottom: 24px; /* Add space between cards vertically */
+    min-height: 300px;
+    background-image: url("https://img.buzzfeed.com/buzzfeed-static/static/2020-05/21/17/asset/19f3032de0de/sub-buzz-1010-1590082675-7.png");
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+
+.feed {
+    min-height: 1000px;
+    padding-top: 32px;        
+    padding-bottom: 32px;    
+    width: 100%;              
+    overflow-y: auto;        
+    overflow-x: hidden;       
+    align-self: center;       
+    column-gap: 24px;           
+    padding: 24px;
+    
+
+    @media (min-width: 640px) {
+        column-count: 1;          
+    }
+    
+      /* Medium screens */
+    @media (min-width: 768px) {
+        column-count: 2;          
+    }
+    
+      /* Large screens */
+    @media (min-width: 1024px) {
+        column-count: 3;          
+    }
+}
+
+.card_title{
+    font-family: 'Trebuchet MS';
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: left;
+    color: #e1e1e1;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Transparent initially */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    border-radius: 0.5rem;
+    padding: 15px;
+
+}
+
+.description {
+    color: white;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery_card:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Black overlay with 60% opacity */
+}
+
+.gallery_card:hover .description {
+    opacity: 1;
+}

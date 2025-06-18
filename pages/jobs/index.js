@@ -137,7 +137,7 @@ const Page = ({ jobs }) => (
                 mr: 1
               }}
             >
-              $ ssh jobs.hackclub.com
+              $ ssh jobs.hackclub.com -p 1337
             </Text>{' '}
             or scroll down to learn more...
           </Heading>
