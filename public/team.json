@@ -251,6 +251,30 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07HEH4N8UV/r"
   },
   {
+    "name": "Karthik Sankar",
+    "department": "HQ",
+    "role": "Club Onboarding and Program Development",
+    "acknowledged": false,
+    "bio": "Karthik is a 18 year old Hack Clubber from Singapore who has been actively involved in club onboarding and YSWSs for the past year. He also worked on Counterspell Globally. He can't wait to help more clubs get started and grow their communities!",
+    "bioHackFoundation": "",
+    "slackId": "U04K5EPMZM1",
+    "email": "karthik",
+    "website": "https://karthik.lol/",
+    "avatar": "https://cachet.dunkirk.sh/users/U04K5EPMZM1/r"
+  },
+  {
+    "name": "Afonso Beato",
+    "department": "HQ",
+    "role": "Club Onboarding and Community Relations",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U07ULNFPQ4T",
+    "email": "afonso",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07ULNFPQ4T/r"
+  },
+  {
     "name": "Sofia Egan",
     "department": "HQ",
     "role": "Engineering",
@@ -1144,7 +1168,6 @@
     "website": "",
     "avatar": "https://cloud-lxq4wuhlt-hack-club-bot.vercel.app/0bean_man_1555x1555.jpg"
   },
-  
   {
     "name": "Holly Delisle",
     "department": "HQ",
