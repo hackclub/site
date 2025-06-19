@@ -239,6 +239,18 @@
     "avatar": "https://cloud-6fxxs7j9y-hack-club-bot.vercel.app/11733036812219.jpg"
   },
   {
+    "name": "Amber",
+    "department": "HQ",
+    "role": "Engineering + Community",
+    "acknowledged": false,
+    "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
+    "bioHackFoundation": "",
+    "slackId": "U054VC2KM9P",
+    "email": "amber",
+    "website": "https://transcental.dev",
+    "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
+  },
+  {
     "name": "Jared Senesac",
     "department": "HQ",
     "role": "Club Operations Lead",
@@ -856,16 +868,15 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07PYPAF5RR/r"
   },
   {
-    "name": "Amber",
+    "name": "Lilia Dostie",
     "department": "Welcoming",
     "role": "Welcome Team Lead",
     "acknowledged": false,
-    "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
-    "bioHackFoundation": "",
-    "slackId": "U054VC2KM9P",
-    "email": "amber",
-    "website": "https://transcental.dev",
-    "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
+    "bio": "Lilia, from Florida, is a Hack Clubber who runs the Gardeners (aka. Welcome Committee), who welcome newcomers to the Slack and help them get settled in!",
+    "slackId": "U07AZFQLPQ8",
+    "email": "",
+    "website": "https://kittycat.hackclub.app/",
+    "avatar": "https://cachet.dunkirk.sh/users/U07AZFQLPQ8/r"
   },
   {
     "name": "Adishree Das",
@@ -888,17 +899,6 @@
     "email": "alexp",
     "website": "https://parkalex.dev",
     "avatar": "https://cachet.dunkirk.sh/users/U01581HFAGZ/r"
-  },
-  {
-    "name": "Lilia Dostie",
-    "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
-    "bio": "Lilia, from Florida, is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
-    "slackId": "U07AZFQLPQ8",
-    "email": "",
-    "website": "https://kittycat.hackclub.app/",
-    "avatar": "https://cachet.dunkirk.sh/users/U07AZFQLPQ8/r"
   },
   {
     "name": "Felix Gao",
