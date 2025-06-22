@@ -24,6 +24,7 @@ import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
 import Clubs from '../components/index/cards/clubs'
+import Highway from '../components/index/cards/highway'
 import Workshops from '../components/index/cards/workshops'
 import HCB from '../components/index/cards/hcb'
 import Hackathons from '../components/index/cards/hackathons'
@@ -690,6 +691,7 @@ function Page({
                 and make things together!
               </Text>
             </Box>
+		<Highway />
             <Neighborhood />
             <Trail />
             <Pizza />
