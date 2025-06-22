@@ -32,7 +32,7 @@ export default function Highway() {
               mb: '8px'
             }}
           >
-            Build any hardware project <br /> Get{' '}
+            This is the <br /> Highway to{' '}
             <Text
               sx={{
                 background: [
@@ -44,7 +44,7 @@ export default function Highway() {
               }}
             >
               {' '}
-              a grant to build it
+              Undercity
             </Text>
           </Text>
 
