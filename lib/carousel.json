@@ -35,6 +35,15 @@
     "img": "https://cloud-m33gqgkp6-hack-club-bot.vercel.app/0image.png",
     "link": "https://cider.hackclub.com/"
   },
+  {
+    "background": "linear-gradient(to bottom right, rgba(255, 0, 0, 1) 0%, rgba(255, 165, 0, 1) 20%, rgba(255, 255, 0, 1) 40%, rgba(0, 128, 0, 1) 60%, rgba(0, 0, 255, 1) 80%, rgba(148, 0, 211, 1) 100%)",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "Highway",
+    "description": "Design any hardware project. Get a grant to make it real",
+    "img": "https://emoji.slack-edge.com/T0266FRGM/highway/8c970c91460d3c66.png",
+    "link": "https://highway.hackclub.com"
+  },
     {
     "background": "#30AE1F",
     "titleColor": "#FFFFFF",
@@ -79,15 +88,6 @@
     "description": "Help build a game about love, math, and graphing 💖",
     "img": "https://emoji.slack-edge.com/T0266FRGM/sinerider/68a0bc1208e885dd.png",
     "link": "https://sinerider.com"
-  },
-  {
-    "background": "dark",
-    "titleColor": "green",
-    "descriptionColor": "white",
-    "title": "OnBoard",
-    "description": "Join 1k teens designing PCBs, learning hardware, and building electronics",
-    "img": "https://cloud-6skkg6eck-hack-club-bot.vercel.app/0image.png",
-    "link": "/onboard"
   },
   {
     "background": "#e9e9e9",
