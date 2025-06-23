@@ -274,6 +274,29 @@
     "avatar": "https://cachet.dunkirk.sh/users/U08B2HD1JNA/r"
   },
   {
+    "name": "Mohamad Mortada",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Mohamad is a Hack Clubber from the San Francisco Bay Area. After being encouraged to join by a friend, he ran a couple YSWS and automated a few internal processes within HQ. He loves web & app development in addition to scripting. He is now continuing to contribute to various projects and events!",
+    "slackId": "U05UQ2RTJ6T",
+    "email": "mohamad",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
+  }, 
+  {
+    "name": "Kate Caulfield",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Kate is a Hackclubber from Manassas Virginia who loves cookies and the color yellow. Currently studying Engineering at George Mason University and Osbourn Park High School, she works mainly with logistics and running the YSWS program BakeBuild. In addition she also helps to run and win hackathons in Northern Virginia with events such as Counterspell, Scrapyard, and [REHACTED].",
+    "slackId": "U07PXU0657B",
+    "email": "katec",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7bf19e299e3e8253096906cef8d599c7aedeed09_image.png"
+  }, 
+
+  {
     "name": "Gus Ruben",
     "department": "HQ",
     "role": "Engineering",
