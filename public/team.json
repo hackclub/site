@@ -274,6 +274,17 @@
     "avatar": "https://cachet.dunkirk.sh/users/U08B2HD1JNA/r"
   },
   {
+    "name": "Mohamad Mortada",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Mohamad is a Hack Clubber from the San Francisco Bay Area. After being encouraged to join by a friend, he ran a couple YSWS and automated a few internal processes within HQ. He loves web & app development in addition to scripting. He is now continuing to contribute to various projects and events!",
+    "slackId": "U05UQ2RTJ6T",
+    "email": "mohamad",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
+  }, 
+  {
     "name": "Gus Ruben",
     "department": "HQ",
     "role": "Engineering",
