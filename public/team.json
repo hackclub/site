@@ -318,6 +318,17 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
   },
   {
+    "name": "Nick Do",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Nick is a Viet-American artist who occasionally dabbles in programming and hardware. Currently an intern, it has previously contributed art for Counterspell, High Seas, and Highway/Undercity. It especially loves the games Mirror's Edge and Portal 2.",
+    "slackId": "U06FMCCDS1K",
+    "email": "nick",
+    "website": "https://bunnyguy.foo/",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0a4ca9139bb87c6438e241096a1513fe4d477d44_bunnyguy-colors.png"
+  }
+  {
     "name": "Melanie Smith",
     "department": "HCB",
     "role": "Director of Operations",
