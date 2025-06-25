@@ -353,6 +353,17 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0a4ca9139bb87c6438e241096a1513fe4d477d44_bunnyguy-colors.png"
   },
   {
+    "name": "Echo",
+    "department": "HQ",
+    "role": "Engineering & Logistics",
+    "acknowledged": false,
+    "bio": "Echo (also known as Rowan) is a programmer from the United States. Commonly seen hunched over a laptop, Rowan loves to build things that sometimes work. In their free time, they enjoy playing Counter Strike, listening to music, and breaking things, especially code. They are currently working on various projects at Hack Club, including Hackatime, Summer of Making, and more.",
+    "slackId": "U080A3QP42C",
+    "email": "3kh0@3kh0.net",
+    "website": "https://3kh0.net/",
+    "avatar": "https://extra.3kh0.net/img/art/xmr_hoodie_small.png"
+  },
+  {
     "name": "Melanie Smith",
     "department": "HCB",
     "role": "Director of Operations",
