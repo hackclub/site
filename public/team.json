@@ -309,6 +309,17 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
   }, 
   {
+    "name": "Charlie Nicholson",
+    "department": "HQ",
+    "role": "YSWS & Events",
+    "acknowledged": false,
+    "bio": "Charlie is a Hack Clubber from the Greater Boston area. He joined Hack Club when he was 12 and launched his first YSWS when he was 13, Ham Club. More recently, he worked on a long-term hackathon called Apex, supported by Hack Club. He is now working for Hack Club to create more hardware YSWSes and events.",
+    "slackId": "U054JRXUNG0",
+    "email": "charlie",
+    "website": "crnicholson.com",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a676e768a45c68eea74c7c3b602feae2eea22d45_screenshot_2024-11-17_at_5.22.37___pm.png"
+  },
+  {
     "name": "Kate Caulfield",
     "department": "HQ",
     "role": "Engineering",
