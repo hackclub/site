@@ -364,6 +364,17 @@
     "avatar": "https://extra.3kh0.net/img/art/xmr_hoodie_small.png"
   },
   {
+    "name": "Jonathan Dong",
+    "department": "HQ",
+    "role": "Engineering & Undercity",
+    "acknowledged": false,
+    "bio": "Jonathan is an aspiring developer from Canada! He likes to tinker around with mainly hardware and a bit of software. Currently he likes to make projects with ESP32s, Arduinos, and a ton of other hardware components. On the side, he likes to play volleyball, baseball, and Minecraft.",
+    "slackId": "U073Q4F60LQ",
+    "email": "jonathan@hackclub.com",
+    "website": "https://github.com/Dongathan-Jong",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/534fd4f5d2643dc80e4ea6a6c6f2eb839528645d_headshot.jpg"
+  },
+  {
     "name": "Melanie Smith",
     "department": "HCB",
     "role": "Director of Operations",
