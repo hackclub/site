@@ -31,7 +31,7 @@ export default function Recap() {
         pt={[3, 4]}
         pb={[5, 6]}
         gap={[4, 3, 4]}
-        columns={[1, null, 3]}
+        columns={[1, null, 2]}
         sx={{
           textAlign: 'left',
           '> a, > div': {
@@ -61,30 +61,7 @@ export default function Recap() {
             icon="slack"
             color="white"
             name="Slack community"
-            desc="Join the Slack and get support in anything hackathon organizing from sponsorships to logistics to ordering food."
-          />
-        </Card>
-        <Card
-          variant="interactive"
-          as="a"
-          href="/hackathons/grant"
-          sx={{
-            background:
-              'linear-gradient(to bottom, rgba(255, 140, 55, 0.9) 0%, rgba(236, 55, 80, 0.9) 100%)',
-            color: 'white',
-            svg: { color: 'rgb(236, 55, 80)' }
-          }}
-        >
-          <Stage
-            icon="bank-account"
-            color="white"
-            name="$500 grants"
-            desc={
-              <>
-                Get a $500 grant for your hackathon!),
-                and access to a suite of financial tools when you join HCB.
-              </>
-            }
+            desc="Chat in Slack for support with organizing your hackathon, from finding a venue to marketing your event."
           />
         </Card>
         <Card
@@ -102,7 +79,7 @@ export default function Recap() {
             icon="event-check"
             color="white"
             name="Marketing"
-            desc="List your event on the front page of Google and emailed to high school hackers in your area."
+            desc="Get your event listed on Google's front page, emailed to nearby teens, and seen by our hackathon calendar's 3K+ monthly users."
           />
         </Card>
       </Grid>
