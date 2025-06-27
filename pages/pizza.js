@@ -200,7 +200,7 @@ import {
               </span>
             </Heading>
             <Text variant="lead">
-              GitHub is providing pizza grants to 850+ Hack Clubs.{' '}
+              GitHub is providing pizza grants to <strong>thousands</strong> Hack Clubs.{' '}
               <strong>You're not too late!</strong>
             </Text>
           </Container>
@@ -731,7 +731,7 @@ import {
                     lineHeight: '150%'
                   }}
                 >
-                  Submit your members' projects and DM <Link href="https://hackclub.slack.com/team/U07HEH4N8UV">@jps</Link> or email <Link href="mailto:jared@hackclub.com">jared@hackclub.com</Link> to receive $5 per completed project.
+                  Submit your members' projects on <Link href="https://dashboard.hackclub.com">the dashboard</Link> and recieve $5 every hour up to $20 per project for pizza!
                 </Text>
                 <Tilt
                   sx={{
@@ -799,8 +799,8 @@ import {
               marginBottom: '32px'
             }}
           >
-            Need help getting your Pizza Grant? Email{' '}
-            <Link href="mailto:jared@hackclub.com">jared@hackclub.com</Link>
+            Need help getting your Pizza Grant? Give us a hollar at{' '}
+            <Link href="mailto:clubs@hackclub.com">clubs@hackclub.com</Link>
             .
           </Text>
         </Container>
