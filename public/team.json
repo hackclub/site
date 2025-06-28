@@ -1677,5 +1677,17 @@
     "email": "",
     "website": "",
     "avatar": "https://cloud-qz70b5lb7-hack-club-bot.vercel.app/0tsw6s4shwqjyta7_thumbnail.jpg"
+  },
+  {
+    "name": "Alex Van Doren",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Alex spends most of his time making boats go fast, but when he's not doing that, he designs software modelling his favourite physics problems. He's currently gap-yearing at Hack Club and is working on the YSWS team.",
+    "bioHackFoundation": "",
+    "slackId": "U0823F39GV8",
+    "email": "",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/812f456bcb039cc2add7e8fba7b742a8b54639c8_45-13042025-5p7a7188-x2.jpg"
   }
 ]
