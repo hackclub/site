@@ -212,6 +212,11 @@ const nextConfig = {
         source: '/nest',
         destination: 'https://hackclub.app',
         permanent: true
+      },
+      {
+        source: '/security',
+        destination: 'https://security.hackclub.com',
+        permanent: true
       }
     ]
   },
