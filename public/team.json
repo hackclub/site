@@ -263,6 +263,42 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07HEH4N8UV/r"
   },
   {
+    "name": "Karthik Sankar",
+    "department": "HQ",
+    "role": "Club Onboarding and Program Development",
+    "acknowledged": false,
+    "bio": "Karthik is a 18 year old Hack Clubber from Singapore who has been actively involved in club onboarding and YSWSs for the past year. He also worked on Counterspell Globally. He can't wait to help more clubs get started and grow their communities!",
+    "bioHackFoundation": "",
+    "slackId": "U04K5EPMZM1",
+    "email": "karthik",
+    "website": "https://karthik.lol/",
+    "avatar": "https://cachet.dunkirk.sh/users/U04K5EPMZM1/r"
+  },
+  {
+    "name": "Afonso Beato",
+    "department": "HQ",
+    "role": "Club Onboarding and Community Relations",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U07ULNFPQ4T",
+    "email": "afonso",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07ULNFPQ4T/r"
+  },
+  {
+    "name": "Ethan Canterbury",
+    "department": "HQ",
+    "role": "Club Engineering and Operations",
+    "acknowledged": false,
+    "bio": "Ethan is a Hack Clubber from New Jersey who LOVES python and... cats... He's on the club operations team and does engineering as well as help with many other projects! He has a vast experiance in Python, Web dev & sysadmin.",
+    "bioHackFoundation": "",
+    "slackId": "U08BH57AZKP",
+    "email": "ethan",
+    "website": "http://ethans.social/",
+    "avatar": "https://cachet.dunkirk.sh/users/U08BH57AZKP/r"
+  },
+  {
     "name": "Sofia Egan",
     "department": "HQ",
     "role": "Engineering",
@@ -286,6 +322,39 @@
     "avatar": "https://cachet.dunkirk.sh/users/U08B2HD1JNA/r"
   },
   {
+    "name": "Mohamad Mortada",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Mohamad is a Hack Clubber from the San Francisco Bay Area. After being encouraged to join by a friend, he ran a couple YSWS and automated a few internal processes within HQ. He loves web & app development in addition to scripting. He is now continuing to contribute to various projects and events!",
+    "slackId": "U05UQ2RTJ6T",
+    "email": "mohamad",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
+  }, 
+  {
+    "name": "Kate Caulfield",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Kate is a Hackclubber from Manassas Virginia who loves cookies and the color yellow. Currently studying Engineering at George Mason University and Osbourn Park High School, she works mainly with logistics and running the YSWS program BakeBuild. In addition she also helps to run and win hackathons in Northern Virginia with events such as Counterspell, Scrapyard, and [REHACTED].",
+    "slackId": "U07PXU0657B",
+    "email": "katec",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7bf19e299e3e8253096906cef8d599c7aedeed09_image.png"
+  }, 
+  {
+    "name": "Micha Albert",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Born and raised in Northern Virginia, Micha enjoys \"what ifs\", crazy ideas, amateur radio operation, whispering lullabies to crusty gaming laptops, and breaking things just so she can put them back together. She loves PCB design and previously served on the OnBoard review team, along with running the OnBoard Live YSWS. Micha enjoys Svelte, Typescript, FastAPI, and Python, and is always working on a new way to engage high school students in computer science!",
+    "slackId": "U05C64XMMHV",
+    "email": "micha",
+    "website": "https://mra.sh",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ca950cf3586abf03d8c3ee2f58e174a7d8a36889_18.jpg"
+  }, 
+  {
     "name": "Gus Ruben",
     "department": "HQ",
     "role": "Engineering",
@@ -295,6 +364,39 @@
     "email": "gus",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
+  },
+  {
+    "name": "Nick Do",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Nick is a Viet-American artist who occasionally dabbles in programming and hardware. Currently an intern, it has previously contributed art for Counterspell, High Seas, and Highway/Undercity. It especially loves the games Mirror's Edge and Portal 2.",
+    "slackId": "U06FMCCDS1K",
+    "email": "nick",
+    "website": "https://bunnyguy.foo/",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0a4ca9139bb87c6438e241096a1513fe4d477d44_bunnyguy-colors.png"
+  },
+  {
+    "name": "Echo",
+    "department": "HQ",
+    "role": "Engineering & Logistics",
+    "acknowledged": false,
+    "bio": "Echo (also known as Rowan) is a programmer from the United States. Commonly seen hunched over a laptop, Rowan loves to build things that sometimes work. In their free time, they enjoy playing Counter Strike, listening to music, and breaking things, especially code. They are currently working on various projects at Hack Club, including Hackatime, Summer of Making, and more.",
+    "slackId": "U080A3QP42C",
+    "email": "3kh0@3kh0.net",
+    "website": "https://3kh0.net/",
+    "avatar": "https://extra.3kh0.net/img/art/xmr_hoodie_small.png"
+  },
+  {
+    "name": "Jonathan Dong",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Jonathan is an aspiring developer from Canada! He likes to tinker around with mainly hardware and a bit of software. Currently he likes to make projects with ESP32s, Arduinos, and a ton of other hardware components. On the side, he likes to play volleyball, baseball, and Minecraft.",
+    "slackId": "U073Q4F60LQ",
+    "email": "jonathan",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/534fd4f5d2643dc80e4ea6a6c6f2eb839528645d_headshot.jpg"
   },
   {
     "name": "Melanie Smith",
@@ -1144,7 +1246,6 @@
     "website": "",
     "avatar": "https://cloud-lxq4wuhlt-hack-club-bot.vercel.app/0bean_man_1555x1555.jpg"
   },
-  
   {
     "name": "Holly Delisle",
     "department": "HQ",
