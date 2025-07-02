@@ -5,11 +5,11 @@ export default function GitHub({
   type,
   img,
   user,
-  key,
   text,
   time,
-  url,
   message,
+  opacity,
+  url,
   ...props
 }) {
   return (
@@ -17,7 +17,7 @@ export default function GitHub({
       variant="pill"
       bg="snow"
       as="a"
-      href={url}
+      href={url || 'https://github.com/hackclub'}
       target="_blank"
       rel="noopener"
       sx={{
@@ -33,7 +33,8 @@ export default function GitHub({
         gap: 2,
         height: '2rem',
         width: ['fit-content', null, null, '100%'],
-        maxWidth: '30rem'
+        maxWidth: '30rem',
+        opacity: opacity
       }}
       {...props}
     >
