@@ -1677,5 +1677,17 @@
     "email": "",
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/812f456bcb039cc2add7e8fba7b742a8b54639c8_45-13042025-5p7a7188-x2.jpg"
+  },
+  {
+    "name": "Sam Liu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Sam is an 18-year-old Hack Clubber from Canada who loves building random stuff. Since joining Hack Club, he has supported hackers around the world through hackathons. Sam is currently gap-yearing at Hack Club to work on You Ship, We Ship programs.",
+    "bioHackFoundation": "",
+    "slackId": "U03UBRVG2MS",
+    "email": "samliu",
+    "website": "https://samliu.dev",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1f2d09365b0ed42d8e9864c80ba4d8561d85ab9b_frame_1.png"
   }
 ]
