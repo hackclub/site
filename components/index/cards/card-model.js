@@ -21,6 +21,7 @@ const CardModel = ({
   delay,
   position,
   filter,
+  visible=false,
   ...props
 }) => (
   // <Zoom delay={delay}>
@@ -37,7 +38,8 @@ const CardModel = ({
       backgroundRepeat: 'no-repeat',
       '& p': {
         fontSize: ['18px', '20px', '22px']
-      }
+      },
+      overflow: visible ? 'visible' : 'hidden'
     }}
     {...props}
   >
