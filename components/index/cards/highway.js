@@ -1,6 +1,7 @@
 import CardModel from './card-model'
 import { Box, Flex, Image, Text } from 'theme-ui'
 import Buttons from './button'
+import Balancer from 'react-wrap-balancer'
 
 /** @jsxImportSource theme-ui */
 
@@ -50,19 +51,19 @@ export default function Highway() {
             mb: 3
           }}
         />
-
-        <Text
-          as="p"
-          variant="subheadline"
-          sx={{
-            color: 'white',
-            fontSize: ['20px', '22px', '24px'],
-            mb: 3
-          }}
-        >
-          Design a hardware project. Get the parts for free.
-        </Text>
-
+        <Balancer>
+          <Text
+            as="p"
+            variant="subheadline"
+            sx={{
+              color: 'white',
+              fontSize: ['20px', '22px', '24px'],
+              mb: 3
+            }}
+          >
+            Design a hardware project. Get the parts for free.
+          </Text>
+        </Balancer>
         <Buttons
           href="https://highway.hackclub.com/"
           target="_blank"

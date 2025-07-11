@@ -10,7 +10,6 @@ export default function Athena() {
       color="white"
       sx={{
         background: 'linear-gradient(30deg,rgb(239, 204, 204), #D35648)',
-        border: '2px solid #fff',
         borderRadius: '24px',
         boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)'
       }}

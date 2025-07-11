@@ -77,7 +77,7 @@ export default function Shipwrecked() {
               as="p"
               variant="subheadline"
               sx={{
-                color: ['#a26057', '#a26057', 'white'],
+                color: ['#7a433c', '#7a433c', 'white'],
                 fontSize: ['20px', '22px', '24px'],
                 backgroundColor: 'rgba(229, 226, 192, 0.02)',
                 backdropFilter: 'blur(5px)',

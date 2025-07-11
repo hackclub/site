@@ -80,7 +80,7 @@ export default function Som() {
           }}
         >
           <Image src="/home/som.png" width={300} height={180} alt="Summer of making logo" />
-          <Box mt={3}>
+          <Box>
             <Buttons
               id="13"
               link="https://summer.hackclub.com/"
@@ -105,7 +105,7 @@ export default function Som() {
           <BreakdownBox
             icon="idea"
             text="Build Projects"
-            description="Build websites, games, apps, or any other personal open-source coding projects to showcase your skills"
+            description="Build websites, games, apps, or any other personal open-source coding projects to showcase your skills."
           />
           <BreakdownBox
             icon="plus-fill"
