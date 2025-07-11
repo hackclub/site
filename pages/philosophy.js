@@ -173,7 +173,7 @@ export default function Philosophy() {
           </Heading>
           <Box sx={{ fontSize: [3, 3] }}>
             There’s never been a better time for making: anywhere in the world,
-            anyone with a laptop and an internet connection can learn to make an
+            anyone with a computer and an internet connection can learn to make an
             app. Building things has never been so globally democratized.
           </Box>
         </Row>
