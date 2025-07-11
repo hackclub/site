@@ -1,8 +1,12 @@
 import { Box, Grid, Image, Text } from 'theme-ui'
 
-export default function Project({ title, description, color, img, itemId }) {
+export default function Project({ title, description, color, img, itemId, link }) {
   return (
     <Grid
+        href={link} 
+        as="a"
+        target="_blank"
+        rel="noopener noreferrer"
       sx={{
         borderRadius: 12,
         gridTemplateColumns: 'auto ',
@@ -17,7 +21,9 @@ export default function Project({ title, description, color, img, itemId }) {
         mr: 16,
         // this is v janky please ignore, thank you.
         ml: ['1rem', '1rem', '1rem', `${itemId === 0 && 'calc(50vw - 36.5rem)'}`],
-        scrollSnapAlign: 'center'
+        scrollSnapAlign: 'center',
+        textDecoration: 'none',
+        cursor: 'pointer'
       }}
       itemId={itemId}
     >

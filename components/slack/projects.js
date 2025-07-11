@@ -1,17 +1,19 @@
 const projects = [
   {
-    title: 'Brainwave device for thought-based computer interaction.',
+    title: 'Putting the “You” in CPU.',
     description:
-      'The team of teens behind Monolith BCI is building both the hardware and software for a brainwave reading device to interact with computers using thoughts',
+      'Curious exactly what happens when you run a program on your computer? Read this article to learn how multiprocessing works, what system calls really are, how computers manage memory with hardware interrupts, and how Linux loads executables.',
     img: 'bci',
     color: ['#ec3750', '#F58695'],
+    link: 'https://cpu.land/',
     itemId: 0
   },
   {
-    title: 'An open source VPN.',
+    title: 'DoomPDF.',
     description:
-      'Lead by an ex-Apple engineer, the team behind Burrow is building an open source VPN to burrow through school firewalls and keep your data safe.',
+      'A port of Doom (1993) that runs inside a PDF file.',
     img: 'burrow',
+    link:'https://github.com/ading2210/doompdf',
     color: ['#f1c40f', '#FAE078'],
     itemId: 1
   },
@@ -20,6 +22,7 @@ const projects = [
     description:
       "The team behind Nest is building a free compute infrastructure for high schoolers to run their code on. It's like AWS, but free and for students.",
     img: 'nest',
+    link: 'https://hackclub.app/',
     color: ['#33d6a6', '#51F5C5'],
     itemId: 2
   }
