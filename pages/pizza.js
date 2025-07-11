@@ -200,7 +200,7 @@ import {
               </span>
             </Heading>
             <Text variant="lead">
-              GitHub is providing pizza grants to <strong>thousands</strong> Hack Clubs.{' '}
+              GitHub is providing pizza grants to <strong>thousands</strong> of Hack Clubs.{' '}
               <strong>You're not too late!</strong>
             </Text>
           </Container>
