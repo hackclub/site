@@ -14,7 +14,6 @@ import useForm from '../../lib/use-form'
 import Submit from '../submit'
 
 import { withRouter } from 'next/router'
-import Summer from '../index/cards/summer'
 
 const JoinForm = ({ sx = {}, router }) => {
   const useWaitlist = process.env.NEXT_PUBLIC_OPEN !== 'true'

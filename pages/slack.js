@@ -16,7 +16,7 @@ import Header from '../components/slack/header'
 import Project from '../components/slack/project'
 import Quote from '../components/slack/quote'
 import Arrows from '../components/slack/arrows'
-import Summer from '../components/index/cards/summer'
+
 
 const SlackPage = () => {
   const nameInputRef = useRef(null)
