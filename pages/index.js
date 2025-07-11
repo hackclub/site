@@ -43,6 +43,7 @@ import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
+import Summer from '../components/index/cards/summer'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -347,6 +348,7 @@ function Page({
               margin: 'auto'
             }}
           >
+            <Summer/>
             <Text
               variant="title"
               as="h1"
@@ -690,6 +692,8 @@ function Page({
                 and make things together!
               </Text>
             </Box>
+            <Summer />
+            <Pizza />
             {/* <Shipwrecked />
             <Trail />
             <Pizza />
@@ -821,6 +825,7 @@ function Page({
                 />
               </Box>
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
+              <Summer />
             </Box>
           </Box>
           <Box

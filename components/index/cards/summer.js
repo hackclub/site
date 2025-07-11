@@ -4,17 +4,17 @@ import Buttons from './button'
 
 /** @jsxImportSource theme-ui */
 
-export default function Summer({ stars }) {
+export default function Summer({ stars,  sx = {} }) {
   return (
     <CardModel
       sx={{
-        maxWidth: 'copyPlus',
+        maxWidth: '100%',
         backgroundColor: 'rgba(0,0,0)',
         backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.4) 50%), url('https://summer.hackclub.com/assets/bg-cf05d959.svg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-        
+        backgroundRepeat: 'no-repeat',
+        ...sx,
       }}
      
       color="white"
