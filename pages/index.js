@@ -812,8 +812,8 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Onboard stars={stars.onboard.stargazerCount} delay={100} />
-              <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
+              {/* <Onboard stars={stars.onboard.stargazerCount} delay={100} /> */}
+              {/* <Haxidraw stars={stars.blot.stargazerCount} delay={100} /> */}
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
@@ -1204,7 +1204,7 @@ function Page({
             </Box>
           </>
         )}
-        <MailingList />
+        {/* <MailingList /> */}
       </Box>
       <Footer
         dark
