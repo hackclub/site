@@ -43,6 +43,7 @@ import Onboard from '../components/index/cards/onboard'
 import Trail from '../components/index/cards/trail'
 import Scrapyard from '../components/index/cards/scrapyard'
 import Neighborhood from '../components/index/cards/neighborhood'
+import Summer from '../components/index/cards/summer'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -347,6 +348,7 @@ function Page({
               margin: 'auto'
             }}
           >
+            <Summer/>
             <Text
               variant="title"
               as="h1"
@@ -690,10 +692,12 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Neighborhood />
+            <Summer />
+            <Pizza />
+            {/* <Shipwrecked />
             <Trail />
             <Pizza />
-            <Scrapyard />
+            <Scrapyard /> */}
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
@@ -810,8 +814,8 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Onboard stars={stars.onboard.stargazerCount} delay={100} />
-              <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
+              {/* <Onboard stars={stars.onboard.stargazerCount} delay={100} /> */}
+              {/* <Haxidraw stars={stars.blot.stargazerCount} delay={100} /> */}
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
@@ -821,6 +825,7 @@ function Page({
                 />
               </Box>
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
+              <Summer />
             </Box>
           </Box>
           <Box
@@ -1202,7 +1207,7 @@ function Page({
             </Box>
           </>
         )}
-        <MailingList />
+        {/* <MailingList /> */}
       </Box>
       <Footer
         dark

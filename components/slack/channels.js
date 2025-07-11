@@ -8,11 +8,11 @@ import SlackEvents from './slack-events'
 const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export default function Channels() {
-  const { data: millionCount } = useSWR(
-    'https://jia.samuel.hackclub.app/api/currentNumber',
-    fetcher,
-    { refreshInterval: 10_000 }
-  )
+  // const { data: millionCount } = useSWR(
+  //   'https://jia.samuel.hackclub.app/api/currentNumber',
+  //   fetcher,
+  //   { refreshInterval: 10_000 }
+  // )
   return (
     <Grid
       columns={[2, 9, 15]}
@@ -59,42 +59,23 @@ export default function Channels() {
         }
       }}
     >
-      <Box
-        as="aside"
-        sx={{
-          gridRow: [null, 'span 2'],
-          gridColumn: ['span 2', 'span 3'],
-          maxHeight: '100%',
-          overflow: 'hidden'
-        }}
-      >
-        <Heading
-          as="h2"
-          variant="subheadline"
+       <Card
+         bg="red"
+          as="a"
+           href="https://athena.hackclub.com/"
+          variant="interactive"
           sx={{
-            mt: 0,
-            mb: 0,
-            color: 'red',
-            textTransform: 'uppercase',
-            letterSpacing: 'headline'
+            gridColumn: ['span 4', 'span 3'],
+            
           }}
         >
-          Live from our&nbsp;Slack <br />
-        </Heading>
-        <Text
-          as="p"
-          variant="caption"
-          sx={{
-            fontSize: 1,
-            fontWeight: 300,
-            fontStyle: 'italic',
-            mb: '16px'
-          }}
-        >
-          Waiting for more messages...
-        </Text>
-        <SlackEvents />
-      </Box>
+          <Icon glyph="external" size={24} />
+          <Heading as="h3" variant="headline">
+           #athena-award
+          </Heading>
+          <Text as="p">By Girls for Girls</Text>
+        </Card>
+
       <NextLink href="/ship" passHref>
         <Card
           as="a"
@@ -114,7 +95,7 @@ export default function Channels() {
       </NextLink>
       <Card
         as="a"
-        href="https://scrapbook.hackclub.com/"
+        href="https://summer.hackclub.com/"
         variant="interactive"
         sx={{
           gridColumn: ['span 2', 'span 5'],
@@ -124,29 +105,21 @@ export default function Channels() {
       >
         <Icon glyph="external" size={24} />
         <Heading as="h3" variant="headline">
-          #scrapbook
+          #summerofmaking
         </Heading>
-        <Text as="p">A daily diary of project updates</Text>
+        <Text as="p">Summer Of Making - Build stuff. Get stuff. Repeat.</Text>
       </Card>
       <Card
-        bg="red"
+        bg="pink"
         sx={{
           gridColumn: ['span 2 !important', 'span 2 !important'],
           gridRow: ['span 1 !important', 'span 3 !important'],
           writingMode: ['lr-tb', 'tb-rl']
         }}
       >
-        <Heading as="h3">#counttoamillion</Heading>
+        <Heading as="h3">#announcements</Heading>
         <Text as="p" sx={{ display: 'flex', alignItems: 'baseline' }}>
-          We’re at{' '}
-          <Badge
-            variant="outline"
-            as="span"
-            sx={{ ml: [2, 0], mt: [0, 2], px: [2, 0], py: [0, 2] }}
-          >
-            {millionCount ? withCommas(millionCount.number) : '???'}
-          </Badge>
-          !
+          Welcome one, welcome all!
         </Text>
       </Card>
       <Card backgroundColor="green">
@@ -171,6 +144,12 @@ export default function Channels() {
         sx={{ h3: { color: 'green', textShadow: '0 0 4px currentColor' } }}
       >
         <h3>#code</h3>
+      </Card>
+        <Card
+        bg="darkgreen"
+        sx={{ h3: { color: 'white' } }}
+      >
+        <h3>#cooking</h3>
       </Card>
       <Card
         sx={{

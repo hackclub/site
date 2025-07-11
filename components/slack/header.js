@@ -3,8 +3,11 @@ import SlideUp from '../slide-up'
 import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
+import Summer from '../index/cards/summer'
+
 
 const Content = () => (
+  <>
   <Grid gap={3} pt={[5, '100px']} pb={[3, 4]}>
     <Box
       sx={{
@@ -13,7 +16,7 @@ const Content = () => (
         textShadow: 'text',
         textAlign: ['center', 'center']
       }}
-    >
+      >
       <Heading
         as="h1"
         variant="title"
@@ -27,7 +30,14 @@ const Content = () => (
         Hack Club Slack
       </Heading>
     </Box>
-    <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
+    <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+        <Summer
+      sx={
+        {
+          maxWidth: "copyPlus",
+        }
+      }
+      />
       <JoinForm
         sx={{
           variant: 'cards.translucent',
@@ -38,6 +48,7 @@ const Content = () => (
       />
     </SlideUp>
   </Grid>
+  </>
 )
 
 const Cover = () => (
