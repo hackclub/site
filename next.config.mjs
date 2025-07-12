@@ -71,6 +71,11 @@ const nextConfig = {
       },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
       {
+        source: '/slack/',
+        destination: 'https://summer.hackclub.com',
+        permanent: false
+      },
+      {
         source: '/jobs/bank-tech-lead/',
         destination: '/jobs/lead-hacker/',
         permanent: true
