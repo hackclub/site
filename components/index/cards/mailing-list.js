@@ -23,8 +23,8 @@ const Loading = () => (
       mr: '5px',
       '@keyframes spin': {
         '0%': { transform: 'rotate(0deg)' },
-        '100%': { transform: 'rotate(360deg)' },
-      },
+        '100%': { transform: 'rotate(360deg)' }
+      }
     }}
   ></Box>
 )
@@ -35,19 +35,19 @@ const MailingList = () => {
   const [data, setData] = useState({ finalHtml: [], names: [] })
   const formRef = useRef(null)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault()
     setSubmitting(true)
 
     let res = await fetch('/api/mailing-list', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         name: e.target.name.value,
-        email: e.target.email.value,
-      }),
+        email: e.target.email.value
+      })
     })
 
     formRef.current.reset()
@@ -66,22 +66,33 @@ const MailingList = () => {
 
   useEffect(() => {
     Promise.all([
-      fetch('https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates')
+      fetch(
+        'https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates'
+      )
         .then(response => response.json())
         .then(data => data.sort((a, b) => b.name.localeCompare(a.name))) // Makes sure we only get the latest two newsletters
         .then(data => data.slice(0, 2))
         .then(data => Promise.all(data.map(item => fetch(item.download_url)))) // Makes a separate fetch request for the content of each newsletter
-        .then(responses => Promise.all(responses.map(response => response.text())))
-        .then(markdown => Promise.all(markdown.map(markdown => markdownToHtml(markdown))))
-        .then(html => html.map(html => html.replace(/<[^>]*>/g, '').replace(/The Hackening/g, ''))), // Chucks out all html tags + 'The Hackening'
-  
-      fetch('https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates')
+        .then(responses =>
+          Promise.all(responses.map(response => response.text()))
+        )
+        .then(markdown =>
+          Promise.all(markdown.map(markdown => markdownToHtml(markdown)))
+        )
+        .then(html =>
+          html.map(html =>
+            html.replace(/<[^>]*>/g, '').replace(/The Hackening/g, '')
+          )
+        ), // Chucks out all html tags + 'The Hackening'
+
+      fetch(
+        'https://api.github.com/repos/hackclub/leaders-newsletter/contents/updates'
+      )
         .then(response => response.json())
         .then(data => data.sort((a, b) => b.name.localeCompare(a.name)))
         .then(data => data.map(item => item.name.split('.')[0])) // Grabs the name and gets rid of the file extension
-    ])
-    .then(([finalHtml, names]) => setData({ finalHtml, names }))
-    }, [])
+    ]).then(([finalHtml, names]) => setData({ finalHtml, names }))
+  }, [])
 
   return (
     <Box sx={{ position: 'relative', py: 6, background: 'darker' }}>
@@ -93,10 +104,12 @@ const MailingList = () => {
           background: 'rgb(255,255,255, 0.45)',
           position: 'relative',
           zIndex: 2,
-          backdropFilter: 'blur(8px)',
+          backdropFilter: 'blur(8px)'
         }}
       >
-        <Flex sx={{ flexDirection: ['column', 'column', 'row'], gridGap: [0, 5] }}>
+        <Flex
+          sx={{ flexDirection: ['column', 'column', 'row'], gridGap: [0, 5] }}
+        >
           <Flex
             sx={{
               placeItems: 'center',
@@ -104,16 +117,16 @@ const MailingList = () => {
               alignItems: ['left', 'left', 'center'],
               flexDirection: 'column',
               gap: '10px',
-              width: ['100%', '100%', '75%'],
+              width: ['100%', '100%', '75%']
             }}
           >
             <Box>
               <Text
-                variant='title'
+                variant="title"
                 sx={{
                   fontSize: [4, '36px', '42px', 6],
                   zIndex: 2,
-                  textAlign: 'left',
+                  textAlign: 'left'
                 }}
               >
                 Join the newsletter
@@ -123,23 +136,24 @@ const MailingList = () => {
                   color: 'darkless',
                   mt: 2,
                   fontSize: 3,
-                  textAlign: 'left',
+                  textAlign: 'left'
                 }}
-                as='p'
+                as="p"
               >
-                We&apos;ll send you an email no more than once a month, when we work
-                on something cool for you. Check out our{' '}
+                We&apos;ll send you an email no more than once a month, when we
+                work on something cool for you. Check out our{' '}
                 <Link
-                  href='https://workshops.hackclub.com/leader-newsletters/'
-                  target='_blank'
-                  rel='noopener norefferer'
+                  href="https://workshops.hackclub.com/leader-newsletters/"
+                  target="_blank"
+                  rel="noopener norefferer"
                 >
                   previous issues
-                </Link>.
+                </Link>
+                .
               </Text>
             </Box>
             <Grid
-              as='form'
+              as="form"
               ref={formRef}
               onSubmit={handleSubmit}
               gap={[2, 3]}
@@ -147,47 +161,47 @@ const MailingList = () => {
                 textAlign: 'center',
                 alignItems: 'end',
                 input: { bg: 'sunken' },
-                width: '100%',
+                width: '100%'
               }}
             >
               <Box sx={{ width: '100%' }}>
                 <Input
-                  autofillBackgroundColor='highlight'
-                  type='text'
-                  name='name'
-                  id='name'
-                  placeholder='Your Name'
+                  autofillBackgroundColor="highlight"
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Your Name"
                   required
                   sx={{
                     width: '100%',
                     textAlign: 'center',
-                    fontSize: 2,
+                    fontSize: 2
                   }}
                 />
               </Box>
               <div>
                 <Input
-                  autofillBackgroundColor='highlight'
-                  type='email'
-                  name='email'
-                  id='email'
-                  placeholder='Your Email'
+                  autofillBackgroundColor="highlight"
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Your Email"
                   required
                   sx={{
                     width: '100%',
                     textAlign: 'center',
-                    fontSize: 2,
+                    fontSize: 2
                   }}
                 />
               </div>
-              <Button type='submit' sx={{ mt: [2, 0], fontSize: 2 }}>
+              <Button type="submit" sx={{ mt: [2, 0], fontSize: 2 }}>
                 {submitting ? (
                   <>
                     <Loading /> Subscribe
                   </>
                 ) : submitted ? (
                   <>
-                    <Icon glyph='send' /> You're on the list!
+                    <Icon glyph="send" /> You're on the list!
                   </>
                 ) : (
                   'Subscribe'
@@ -200,28 +214,33 @@ const MailingList = () => {
               display: 'grid',
               gridGap: 4,
               mt: [4, 0],
-              width: '100%',
+              width: '100%'
             }}
           >
-            {data.finalHtml.map((html, index) => (
-              <MailCard
-                issue={index + 1}
-                body={html}
-                date={format(parse('', '', new Date(data.names[index])), 'MMMM d, yyyy')}
-                link={data.names[index]}
-                key={index}
-              />
-            )).reverse()}
+            {data.finalHtml
+              .map((html, index) => (
+                <MailCard
+                  issue={index + 1}
+                  body={html}
+                  date={format(
+                    parse('', '', new Date(data.names[index])),
+                    'MMMM d, yyyy'
+                  )}
+                  link={data.names[index]}
+                  key={index}
+                />
+              ))
+              .reverse()}
           </Box>
         </Flex>
       </Card>
       <BGImg
         width={2544}
         height={2048}
-        gradient='linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))'
+        gradient="linear-gradient(rgba(0,0,0,0.125), rgba(0,0,0,0.25))"
         src={background}
-        placeholder='blur'
-        alt='Globe with hundreds of Hack Clubs'
+        placeholder="blur"
+        alt="Globe with hundreds of Hack Clubs"
       />
     </Box>
   )
