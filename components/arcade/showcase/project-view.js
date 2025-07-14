@@ -2,9 +2,7 @@ import styles from './project-view.module.css'
 import { useState, useEffect } from 'react'
 import randomNotFoundImg from './random-not-found-img'
 import { Button, Text } from 'theme-ui'
-import Icon from '@hackclub/icons'
 import ReadmeRenderer from './readme-renderer'
-import YoutubeRenderer from './youtube-renderer'
 /** @jsxImportSource theme-ui */
 
 function darkenColor(hex, factor) {
@@ -235,7 +233,8 @@ const ProjectView = ({
               <img src={image} alt="Project Image" className={styles.image} />
             </div>
           )}
-          {video.includes('youtube') && <YoutubeRenderer youtubeLink={video} />}
+          {/* Bug with the video rendering */}
+          {/* {video.includes('youtube') && <YoutubeRenderer youtubeLink={video} />} */ }
           {/* { video != '' && (
             <div
               sx={{
