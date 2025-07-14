@@ -53,13 +53,14 @@ function BreakdownBox({ icon, text, description, href }) {
   )
 }
 
-export default function Som() {
+export default function Som(  sx = {} ) {
   return (
     <CardModel
       color="white"
       sx={{
         backgroundSize: 'cover',
-        backgroundColor: '#D1B290'
+        backgroundColor: '#D1B290',
+        ...sx,
       }}
       background="/home/som-bg.png"
     >

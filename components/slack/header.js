@@ -3,7 +3,7 @@ import SlideUp from '../slide-up'
 import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
 import useHasMounted from '../../lib/use-has-mounted'
-import Summer from '../index/cards/summer'
+import Som from '../index/cards/som'
 
 
 const Content = () => (
@@ -31,13 +31,6 @@ const Content = () => (
       </Heading>
     </Box>
     <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-        <Summer
-      sx={
-        {
-          maxWidth: "copyPlus",
-        }
-      }
-      />
       <JoinForm
         sx={{
           variant: 'cards.translucent',
