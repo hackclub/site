@@ -38,16 +38,11 @@ import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
-import Haxidraw from '../components/index/cards/haxidraw'
-import Onboard from '../components/index/cards/onboard'
 import Som from '../components/index/cards/som'
 import Athena from '../components/index/cards/athena'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
-import Trail from '../components/index/cards/trail'
-import Scrapyard from '../components/index/cards/scrapyard'
-import Neighborhood from '../components/index/cards/neighborhood'
-import Summer from '../components/index/cards/summer'
+
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -352,7 +347,7 @@ function Page({
               margin: 'auto'
             }}
           >
-            <Summer/>
+            <Som />
             <Text
               variant="title"
               as="h1"
@@ -700,14 +695,8 @@ function Page({
             <Athena />
             <Highway />
             <Shipwrecked />
-            <Summer />
             <Pizza />
-            {/* <Shipwrecked />
-            <Trail />
-            <Pizza />
-            <Scrapyard /> */}
             <Slack slackKey={slackKey} data={slackData} events={events} />
-            <Pizza />
           </Box>
         </Box>
         <Box>
@@ -834,7 +823,7 @@ function Page({
                 />
               </Box>
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
-              <Summer />
+              <Som />
             </Box>
           </Box>
           <Box
