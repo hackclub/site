@@ -75,13 +75,13 @@ export default function First({ stats }) {
             }}
           >
             <a
-              href="https://hcb.hackclub.com/referrals/ArGHqN"
+              href="https://hcb.hackclub.com/from/hack-club-site-first-page/J87HyN"
               style={{ textDecoration: 'none' }}
               target="_blank"
             >
               <Announcement
                 copy="Win a Flipper Zero!"
-                caption="We’re giving away a Flipper Zero to a lucky teenager! Join the Raffle by June 30th, 2025."
+                caption="We’re giving away a Flipper Zero to a lucky teenager! Join the Raffle by July 31st, 2025."
                 imgSrc="/fiscal-sponsorship/first/flipper-zero.png"
                 imgAlt="Flipper Zero"
                 color="primary"
