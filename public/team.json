@@ -817,18 +817,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
   },
   {
-    "name": "Aram",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Aram is a Hack Clubber from Seattle, USA. He has been involved in Hack Club for a while now, and has helped out with various events and programs where he gets hack clubbers programming in public, together. He also loves learning about and sharing his knowledge of public transport.",
-    "bioHackFoundation": "",
-    "slackId": "U0616280E6P",
-    "email": "",
-    "website": "https://aram.sh",
-    "avatar": "https://cachet.dunkirk.sh/users/U0616280E6P/r"
-  },
-  {
     "name": "Ascipixi",
     "department": "Events",
     "role": "Event Organiser",
@@ -839,42 +827,6 @@
     "email": "",
     "website": "https://ascipixi.dev",
     "avatar": "https://cachet.dunkirk.sh/users/U082DPCGPST/r"
-  },
-  {
-    "name": "Bartosz",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Bartosz is a Hack Clubber from Poland. He has been involved in Hack Club for a while now, and has helped out with ID verification and prize fulfilment for High Seas as well as hosting several virtual events to bring Hack Clubbers together",
-    "bioHackFoundation": "",
-    "slackId": "U079VBNLTPD",
-    "email": "bartosz",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U079VBNLTPD/r"
-  },
-  {
-    "name": "Mudacumura Brunoblaise",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Brunoblaise is a Hack Clubber from Kigali and has run several virtual community events to get Hack Clubbers programming together during High Seas.",
-    "bioHackFoundation": "",
-    "slackId": "U03T4CQ01RR",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U03T4CQ01RR/r"
-  },
-  {
-    "name": "Evan Gan",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Evan is a Hack Clubber from Greater Boston, USA who's run several game jams to get Hack Clubbers learning new things for larger Hack Club projects such as Arcade and High Seas.",
-    "bioHackFoundation": "",
-    "slackId": "U05D1G4H754",
-    "email": "evan",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U05D1G4H754/r"
   },
   {
     "name": "Darlene Wu",
@@ -911,30 +863,6 @@
     "email": "lucas",
     "website": "https://page.devlucas.page/",
     "avatar": "https://cachet.dunkirk.sh/users/U040N4ESCEL/r"
-  },
-  {
-    "name": "Estella Gu",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Estella is a Hack Clubber from Massachusetts, USA. During her time in the Hack Club community she's helped run both in-person events such as Juice, and plenty of fun virtual hangout events aiming to help Hack Clubbers have fun together.",
-    "bioHackFoundation": "",
-    "slackId": "U06UYA4AH6F",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U06UYA4AH6F/r"
-  },
-  {
-    "name": "Marios Mitsios",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Marios is a 16 year old Hack Clubber from Greece who runs virtual events for the Hack Club community. He has also worked on the Sprig and Hack Club Engineering teams in the past.",
-    "bioHackFoundation": "",
-    "slackId": "U04FMKCVASJ",
-    "email": "marios",
-    "website": "https://read.cv/mariosm",
-    "avatar": "https://cachet.dunkirk.sh/users/U04FMKCVASJ/r"
   },
   {
     "name": "Felix Gao",
