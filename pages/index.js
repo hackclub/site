@@ -38,12 +38,11 @@ import Icon from '../components/icon'
 import GitHub from '../components/index/github'
 import Photo from '../components/photo'
 import Comma from '../components/comma'
-import Haxidraw from '../components/index/cards/haxidraw'
-import Onboard from '../components/index/cards/onboard'
 import Som from '../components/index/cards/som'
 import Athena from '../components/index/cards/athena'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
+
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -348,6 +347,7 @@ function Page({
               margin: 'auto'
             }}
           >
+            <Som />
             <Text
               variant="title"
               as="h1"
@@ -695,8 +695,8 @@ function Page({
             <Athena />
             <Highway />
             <Shipwrecked />
-            <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />
+            <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
         <Box>
@@ -812,8 +812,8 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Onboard stars={stars.onboard.stargazerCount} delay={100} />
-              <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
+              {/* <Onboard stars={stars.onboard.stargazerCount} delay={100} /> */}
+              {/* <Haxidraw stars={stars.blot.stargazerCount} delay={100} /> */}
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
                 <SprigConsole
@@ -823,6 +823,7 @@ function Page({
                 />
               </Box>
               <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
+              <Som />
             </Box>
           </Box>
           <Box
@@ -1204,7 +1205,7 @@ function Page({
             </Box>
           </>
         )}
-        <MailingList />
+        {/* <MailingList /> */}
       </Box>
       <Footer
         dark
