@@ -331,7 +331,7 @@
     "email": "mohamad",
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
-  }, 
+  },
   {
     "name": "Charlie Nicholson",
     "department": "HQ",
@@ -353,7 +353,7 @@
     "email": "katec",
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7bf19e299e3e8253096906cef8d599c7aedeed09_image.png"
-  }, 
+  },
   {
     "name": "Micha Albert",
     "department": "HQ",
@@ -364,7 +364,7 @@
     "email": "micha",
     "website": "https://mra.sh",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ca950cf3586abf03d8c3ee2f58e174a7d8a36889_18.jpg"
-  }, 
+  },
   {
     "name": "Gus Ruben",
     "department": "HQ",
@@ -1628,5 +1628,17 @@
     "email": "samliu",
     "website": "https://samliu.dev",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1f2d09365b0ed42d8e9864c80ba4d8561d85ab9b_frame_1.png"
+  },
+  {
+    "name": "Jiang Tongyu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Tongyu is a 19-year-old Hack Clubber from Singapore who loves making games! She's taking a gap year at Hack Club SF to run events and adventures. She also likes linguistics, making crafts, and sometimes writing music.",
+    "bioHackFoundation": "",
+    "slackId": "U07DJMFAQQP",
+    "email": "tongyu",
+    "website": "https://tongyu.fish",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
   }
 ]
