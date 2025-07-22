@@ -45,7 +45,7 @@
     "cursor-effects": "^1.0.17",
     "date-fns": "^2.30.0",
     "devtools-detect": "^4.0.2",
-    "form-data": "^4.0.2",
+    "form-data": "^4.0.4",
     "fuzzysort": "^2.0.4",
     "geopattern": "^1.2.3",
     "globby": "^11.1.0",
