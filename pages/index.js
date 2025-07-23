@@ -205,13 +205,13 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          <Announcement
+          {/* <Announcement
             width="90vw"
             copy="This summer is yours for the making!"
             caption="Get free Flipper Zeros, Framework Laptops, 3D Printers, and more. Join Summer of Making! Jun 16 - Aug 31."
             href="https://summer.hackclub.com/"
             imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/779a5d748938b66ae93a566cc9699e636b01d462_summerlogo.png"
-          />
+          /> */}
           <Box
             sx={{
               width: '90vw',
@@ -232,7 +232,7 @@ function Page({
               }}
               as="h4"
             >
-              Welcome to Hack&nbsp;Club
+              Welcome to Happy Hacking Space
             </Text>
             <Heading>
               <Text
@@ -277,24 +277,24 @@ function Page({
                     }}
                     aria-hidden="true"
                   >
-                    teen hackers
+                    hackers
                   </Text>
-                  teen hackers
+                  hackers
                 </Text>
-                <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
-                the world who code together
+                <br sx={{ display: ['inline', 'none', 'none'] }} /> from in and around
+                the Mesopotamia who hack together
               </Text>
               <Button
                 variant="ctaLg"
                 as="a"
-                href="/slack"
+                href="https://join.happyhacking.space"
                 mt={[3, 0, 0]}
                 mr={3}
                 sx={{ transformOrigin: 'center left' }}
               >
-                Join Slack
+                Join us
               </Button>
-              <Button
+              {/* <Button
                 variant="ctaLg"
                 as="a"
                 href="https://shipwrecked.hack.club/3"
@@ -305,7 +305,7 @@ function Page({
                 }}
               >
                 Sign Up: Private Island Hackathon
-              </Button>
+              </Button> */}
             </Heading>
           </Box>
           <Box
@@ -318,7 +318,7 @@ function Page({
           >
             <Badge
               as="a"
-              href="https://outernet.hackclub.com/"
+              href="https://join.happyhacking.space"
               target="_blank"
               rel="noopener"
               variant="pill"
@@ -333,9 +333,9 @@ function Page({
                 transition: '0.3s ease'
                 // mixBlendMode: 'multiply'
               }}
-              title="📸 Photo by Matt Gleich, Hack Clubber in NH!"
+              title="📸 Photo by Seyma Alpay Bakir, Diyarbakir"
             >
-              Hackers at Outernet in Vermont
+              Hackers at AMA with HHS
             </Badge>
           </Box>
         </Box>
@@ -367,7 +367,7 @@ function Page({
                   WebkitTextFillColor: 'transparent'
                 }}
               >
-                joy of code
+                joy of hacking
               </Text>
               , together.
             </Text>
@@ -380,10 +380,10 @@ function Page({
                 maxWidth: '62ch'
               }}
             >
-              Every day, thousands of Hack&nbsp;Clubbers gather online and
-              in-person to make things with code. Whether you're a beginner
+              Every day, hackers of Happy Hacking Space gather online and
+              in-person to hack, craft,and explore, together. Whether you're a beginner
               programmer or have years of experience, there's a place for you at
-              Hack&nbsp;Club. Read about our{' '}
+              Happy Hacking Space. Read about our{' '}
               <Link href="/philosophy" target="_blank" rel="noopener">
                 hacker ethic
               </Link>
@@ -549,14 +549,14 @@ function Page({
                   </Text>
                   <Text as="p" variant="subtitle">
                     <strong sx={{ mb: 1 }}>
-                      Connect with other teenage coders
+                      Connect with other coders
                     </strong>
                     Have a coding question? Looking for project feedback? You'll
-                    find hundreds of fabulous people to talk to in our global{' '}
-                    <Link href="/slack" target="_blank" rel="noopener">
-                      Slack{' '}
+                    find hundreds of fabulous people to talk to in our {' '}
+                    <Link href="https://join.happyhacking.space" target="_blank" rel="noopener">
+                      Community{' '}
                     </Link>
-                    (like Discord), active at all hours.
+                    , active at all hours.
                   </Text>
                 </Grid>
                 <Grid
@@ -586,7 +586,7 @@ function Page({
                       Build open source learning tools
                     </strong>
                     We build large open source projects together (
-                    <Link href="https://github.com/hackclub" target="_blank">
+                    <Link href="https://github.com/happyhackingspace" target="_blank">
                       3k+&nbsp;PRs a year
                     </Link>
                     ) like this website, a game engine, daily streak system, and
@@ -610,15 +610,15 @@ function Page({
                     3
                   </Text>
                   <Text as="p" variant="subtitle">
-                    <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
-                    Meet other Hack&nbsp;Clubbers in your community to build
+                    <strong sx={{ mb: 1 }}>Gather IRL with other hackers</strong>
+                    Meet other Happy Hackers in the community to build
                     together at one of the 400+{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
-                      Hack&nbsp;Clubs
+                      Clubs
                     </Link>{' '}
                     and{' '}
                     <Link href="/hackathons" target="_blank" rel="noopener">
-                      high school hackathons
+                      hackathons
                     </Link>
                     .
                   </Text>
@@ -680,7 +680,7 @@ function Page({
                 >
                   builders
                 </Text>{' '}
-                from around the world
+                from the community
               </Text>
               <Text
                 variant="subtitle"
@@ -691,12 +691,12 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Som />
-            <Athena />
-            <Highway />
-            <Shipwrecked />
+            {/* <Som /> */}
+            {/* <Athena /> */}
+            {/* <Highway /> */}
+            {/* <Shipwrecked /> */}
             <Slack slackKey={slackKey} data={slackData} events={events} />
-            <Pizza />
+            {/* <Pizza /> */}
           </Box>
         </Box>
         <Box>
@@ -754,8 +754,8 @@ function Page({
                       maxWidth: '60ch'
                     }}
                   >
-                    In collaboration with engineers on the Hack&nbsp;Club team,
-                    Hack Clubbers build learning tools for each other. Get
+                    In collaboration with engineers on the Happy Hacking Space team,
+                    Happy Hackers build learning tools for each other. Get
                     involved with these projects by building something with our
                     tools or contribute to the tools themselves.
                   </Text>
@@ -892,7 +892,7 @@ function Page({
                     textAlign: 'center'
                   }}
                 >
-                  Thousands of Hack Clubbers organize and participate in
+                  Thousands of Happy Hackers organize and participate in
                   hackathons and after school coding clubs.
                 </Text>
               </Box>
@@ -946,7 +946,7 @@ function Page({
                     WebkitTextFillColor: 'transparent'
                   }}
                 >
-                  Hack&nbsp;Club
+                  HHS
                 </Text>
               </Text>
             </Box>
@@ -971,7 +971,7 @@ function Page({
             >
               <Card
                 as="a"
-                href="/slack"
+                href="https://join.happyhacking.space"
                 target="_blank"
                 rel="noopener"
                 variant="interactive"
@@ -1008,10 +1008,10 @@ function Page({
                   }}
                 />
                 <Stage
-                  icon="slack"
+                  icon="welcome"
                   color="white"
-                  name="Join Our Slack"
-                  desc="Connect with other technical teenagers on Slack and hack on things together."
+                  name="Join Our Community"
+                  desc="Connect with other technical people and hack on things together."
                   sx={{
                     p: {
                       fontSize: ['18px', '20px', '22px']
@@ -1042,7 +1042,7 @@ function Page({
                   }
                 }}
                 as="a"
-                href="https://github.com/hackclub"
+                href="https://github.com/happyhackingspace"
                 variant="interactive"
                 target="_blank"
                 rel="noopener"

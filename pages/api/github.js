@@ -21,13 +21,13 @@ const getUrl = (type, payload, repo) => {
     case 'PushEvent':
       return payload.commits?.[0]?.url
         ? normalizeGitHubCommitUrl(payload.commits[0].url)
-        : 'https://github.com/hackclub'
+        : 'https://github.com/happyhackingspace'
     case 'PullRequestEvent':
       return payload.pull_request.html_url
     case 'WatchEvent':
       return `https://github.com/${repo.name}`
     default:
-      return `https://github.com/hackclub`
+      return `https://github.com/happyhackingspace`
   }
 }
 
@@ -35,7 +35,7 @@ export async function fetchGitHub() {
   try {
 
   const initialGitHubData = await fetch(
-    'https://api.github.com/orgs/hackclub/events'
+    'https://api.github.com/orgs/happyhackingspace/events'
   ).then(r => r.json())
 
   const gitHubData = initialGitHubData
