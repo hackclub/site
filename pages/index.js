@@ -294,18 +294,7 @@ function Page({
               >
                 Join Slack
               </Button>
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="https://shipwrecked.hack.club/3"
-                mt={3}
-                sx={{ 
-                  transformOrigin: 'left',
-                  backgroundImage: t => t.util.gx('green', 'blue'),
-                }}
-              >
-                Sign Up: Private Island Hackathon
-              </Button>
+
             </Heading>
           </Box>
           <Box
