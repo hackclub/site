@@ -73,6 +73,7 @@ function Field({
           onChange={onChange}
           value={value}
           required={required}
+          disabled={true}
         />
       </Box>
     </Box>
@@ -134,6 +135,7 @@ export default function Signup() {
             py: 2
           }}
           type="submit"
+          disabled={true}
         >
           Create new account
         </Button>
