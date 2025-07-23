@@ -26,14 +26,14 @@ const Seal = styled(Box)`
   color: black;
   mix-blend-mode: screen;
   text-align: center;
-  width: 12rem;
-  height: 12rem;
+  width: 16rem;
+  height: 16rem;
   position: absolute;
   margin-top: -1rem;
   transform: rotate(4deg);
   @media screen and (min-width: 32em) {
     transform: rotate(3deg);
-    margin-top: -3rem;
+    margin-top: -4rem;
   }
 `
 
@@ -105,10 +105,11 @@ export default function Philosophy() {
   return (
     <Box sx={{ bg: 'white', color: 'black', minHeight: '100vh' }}>
       <Nav />
+      {/* TODO: Update description and iamge */}
       <Meta
         as={Head}
         title="Philosophy"
-        description="Read about Hack Club, a network of high school computer science clubs. We want to make building apps and websites accessible to everyone through programming clubs at every high school."
+        description="Read about Happy Hacking Space, a network of hackers. We want to make building apps and websites accessible to everyone."
         image="https://cloud-cz9a6kt0a-hack-club-bot.vercel.app/0social-photo_2.jpg"
       />
       <Box>
@@ -122,8 +123,8 @@ export default function Philosophy() {
             <Ultraline>We're</Ultraline>
             <Ultraline>at our best</Ultraline>
             <Ultraline>when we're</Ultraline>
-            <Ultraline>making.</Ultraline>
-            <Seal pt={[3, 4]}>
+            <Ultraline>hacking.</Ultraline>
+            <Seal pt={[2, 4]}>
               <Heading
                 fontSize={[1, 2]}
                 sx={{
@@ -134,7 +135,7 @@ export default function Philosophy() {
                 }}
                 caps
               >
-                The Hack Club
+                Happy Hacking Space
               </Heading>
               <Heading
                 fontSize={[3, 4]}
@@ -187,11 +188,11 @@ export default function Philosophy() {
           </Heading>
           <Box sx={{ fontSize: [3, 3] }}>
             <strong>
-              The goal of Hack Club is to help you become a hacker.
+              The goal of Happy Hacking Space is to help you become a hacker.
             </strong>{' '}
-            We want a space at every school where people are making interesting
-            things with code, every week. Schools don’t provide that, so we’re
-            creating it in every school to make building things accessible to
+            We want a space at every place where people are making interesting
+            things with code, every week. Schools or institutions don’t provide that, so we’re
+            creating it in every place to make building things accessible to
             everyone.
           </Box>
         </Row>
@@ -202,7 +203,7 @@ export default function Philosophy() {
           <Box sx={{ fontSize: [3, 3] }}>
             Most coding classes teach you programming concepts instead of how to
             write real code—it’s like trying to learn carpentry without any
-            wood. So at Hack Club, you learn to code entirely through building
+            wood. So at Happy Hacking Space, you learn to code entirely through building
             things. You start with no experience and build and ship a project
             every meeting.
           </Box>
@@ -233,8 +234,8 @@ export default function Philosophy() {
             Be part of a community.
           </Heading>
           <Box sx={{ fontSize: [3, 3] }}>
-            Hack Club gives you a worldwide community of thousands of other
-            young makers to talk to. We’re artists, writers, engineers,
+            Happy Hacking Space gives you a community of thousands of other
+            makers to talk to. We’re artists, writers, engineers,
             tinkerers, campers, filmmakers, volunteers. We make things. We help
             one another. We have fun. Join us.
           </Box>
@@ -255,7 +256,7 @@ export default function Philosophy() {
           <Heading as="h1" sx={{ fontSize: 5, mb: 2 }}>
             Join the movement!
           </Heading>
-          <Button
+          {/* <Button
             mr={[0, 3]}
             mb={[3, 0]}
             sx={{
@@ -268,10 +269,10 @@ export default function Philosophy() {
             href="https://apply.hackclub.com"
           >
             Start a club
-          </Button>
-          <NextLink href="/slack" passHref>
+          </Button> */}
+          <NextLink href="https://join.happyhacking.space" passHref>
             <Button sx={{ bg: 'white', color: 'red' }} as="a">
-              Join our Slack
+              Join our community
             </Button>
           </NextLink>
         </Box>
