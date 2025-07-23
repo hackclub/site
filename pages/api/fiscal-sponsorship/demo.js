@@ -10,6 +10,8 @@ const applicationsTable = new AirtablePlus({
 })
 
 export default async function handler(req, res) {
+  return res.status(500).json({ status: 'error', error: 'API unsupported' })
+
   if (req.method === 'POST') {
     const data = JSON.parse(req.body)
 
