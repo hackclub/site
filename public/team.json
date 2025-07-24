@@ -723,10 +723,10 @@
   },
   {
     "name": "Angad Behl",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
+    "department": "HQ",
+    "role": "Engineering and Community",
     "acknowledged": false,
-    "bio": "Angad is a 15 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's helped out with creating a peer to peer voting system for Hack Club hackathons and built an anonymous reporting system for the moderation team.",
+    "bio": "Angad is a 16 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's built a peer voting platform for over 2000 students, ran a YSWS providing travel stipends, and build moderation infastructure for Hack Club. In his free time, he enjoys photography, travel, and pondering.",
     "bioHackFoundation": "",
     "slackId": "U075RTSLDQ8",
     "email": "angad",
