@@ -86,7 +86,7 @@ function Page({
 
     jsConfetti.current.addConfetti({
       confettiColors: [
-        // Hack Club colours!
+        // Happy Hacking Space colours!
         '#ec3750',
         '#ff8c37',
         '#f1c40f',
@@ -109,9 +109,9 @@ function Page({
   const [count, setCount] = useState(0)
 
   let images = [
-    { alt: 'Map of Hack Clubs around the world', src: '/home/map.png' },
+    { alt: 'Map of Happy Hacking Spaces in and around the Mesopotamia', src: '/home/map.png' },
     {
-      alt: 'Hack Clubbers at SpaceX HQ in LA',
+      alt: 'Happy Hacking Spacebers at SpaceX HQ in LA',
       src: '/home/zephyr-spacex.jpeg'
     },
     {
@@ -155,8 +155,8 @@ function Page({
     <>
       <Meta
         as={Head}
-        title="A Home for High School Hackers"
-        description="Hack Club is a global nonprofit network of high school makers & student-led coding clubs where young people build the agency, the network, & the technical talent to think big & do big things in the world."
+        title="A Home for Hackers"
+        description="Happy Hacking Space is a nonprofit network of hackers in Mesopotamia where people build the agency, the network, & the technical talent to think big & do big things in the world."
         image="https://cloud-lgl7kg862-hack-club-bot.vercel.app/0start__1_.png"
       />
       <Head>

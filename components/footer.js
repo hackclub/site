@@ -42,7 +42,7 @@ const Service = ({ href, icon, name = '', ...props }) => (
     target="_blank"
     rel="noopener me"
     href={href}
-    title={`Hack Club on ${name ? name : icon}`}
+    title={`Happy Hacking Space on ${name ? name : icon}`}
     {...props}
   >
     <Icon glyph={icon} />
@@ -51,7 +51,7 @@ const Service = ({ href, icon, name = '', ...props }) => (
 
 const Footer = ({
   dark = false,
-  email = 'team@hackclub.com',
+  email = 'team@happyhacking.space',
   children = undefined,
   ...props
 }) => (
@@ -88,7 +88,7 @@ const Footer = ({
       >
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
-            Hack&nbsp;Club
+            Happy Hacking Space
           </Heading>
           <NextLink href="/philosophy" passHref>
             <Link>Philosophy</Link>
@@ -121,7 +121,7 @@ const Footer = ({
           <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
         </Box>
         <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
-          <Logo aria-label="Hack Club logo" width={128} height={45} />
+          <Logo aria-label="Happy Hacking Space logo" width={128} height={45} />
           <Grid
             columns={[8, 4]}
             gap={2}
@@ -142,55 +142,54 @@ const Footer = ({
             }}
           >
             <Service
-              href="/slack"
-              icon="slack-fill"
-              name="Slack"
+              href="https://join.happyhacking.space"
+              icon="welcome"
+              name="Community"
               target="_self"
             />
             <Service
-              href="https://twitter.com/hackclub"
+              href="https://twitter.com/happyhackings"
               icon="twitter"
               name="Twitter"
             />
             <Service
-              href="https://github.com/hackclub"
+              href="https://github.com/happyhackingspace"
               icon="github"
               name="GitHub"
             />
-            <Service
+            {/* <Service
               href="https://figma.com/@hackclub"
               icon="figma-fill"
               name="Figma"
-            />
-            <Service
+            /> */}
+            {/* <Service
               href="https://social.dino.icu/@hackclub"
               icon="mastodon"
               name="Mastodon"
-            />
+            /> */}
             <Service
-              href="https://www.youtube.com/c/HackClubHQ"
+              href="https://www.youtube.com/c/HappyHackingSpace"
               icon="youtube"
               name="YouTube"
             />
             <Service
-              href="https://www.instagram.com/starthackclub"
+              href="https://www.instagram.com/happyhackingspace"
               icon="instagram"
               name="Instagram"
             />
             <Service href={`mailto:${email}`} icon="email-fill" name="Email" />
           </Grid>
-          <Text my={2}>
+          {/* <Text my={2}>
             <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>
             <br />
             <Text as="span" color="muted">
               (call toll-free)
             </Text>
-          </Text>
+          </Text> */}
         </Box>
       </Grid>
       <Text as="p" variant="caption" sx={{ mt: 3 }}>
-        © {new Date().getFullYear()} Hack&nbsp;Club. 501(c)(3) nonprofit (EIN:
-        81-2908499)
+         © {new Date().getFullYear()} Happy Hacking Space. {/* 501(c)(3) nonprofit (EIN: 81-2908499) */}
       </Text>
     </Container>
   </Base>
