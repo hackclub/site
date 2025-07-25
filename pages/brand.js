@@ -21,10 +21,10 @@ import Footer from '../components/footer'
 import { startCase } from 'lodash'
 
 export const Logo = ({ name }) => (
-  <Card variant="sunken" sx={{ p: [3, 3] }}>
+  <Card variant="sunken" sx={{ p: [2, 2] }}>
     <Image
-      src={`https://assets.hackclub.com/${name}.svg`}
-      sx={{ width: '100%', height: 96, mb: 1 }}
+      src={`/branding/${name}.avif`}
+      sx={{ width: '80%', height: 'auto', mb: 1 }}
       alt={startCase(name)}
     />
     <Text
@@ -33,9 +33,9 @@ export const Logo = ({ name }) => (
       sx={{ fontSize: [2, 3], mt: 2, mb: 2 }}
     >
       {startCase(name)
-        .replace('Flag Orpheus', 'Orpheus Flag –')
-        .replace('Bw', ' (B/W)')
-        .replace('Hcb', 'HCB')}
+       .replace('Hhs', 'HHS')
+        .replace('Wo', 'W/O')
+        .replace('Logo', '')}
     </Text>
     <Grid
       columns="repeat(3, 1fr)"
@@ -51,20 +51,20 @@ export const Logo = ({ name }) => (
         }
       }}
     >
-      <Button as="a" href={`https://assets.hackclub.com/${name}.svg`}>
-        SVG
+       <Button as="a" href={`/branding/${name}.avif`}>
+        AVIF
       </Button>
-      <Button as="a" href={`https://assets.hackclub.com/${name}.png`}>
+      <Button as="a" href={`/branding/${name}.png`}>
         PNG
       </Button>
-      <Button as="a" href={`https://assets.hackclub.com/${name}.pdf`}>
+      <Button as="a" href={`/branding/${name}.pdf`}>
         PDF
       </Button>
     </Grid>
     <Input
       as="textarea"
       rows={2}
-      value={`https://assets.hackclub.com/${name}.svg`}
+     value={`/branding/${name}.avif`}
       sx={{ mt: 2, py: 1 }}
       disabled
     />
@@ -75,7 +75,7 @@ const HTML = ({ file, html }) => (
   <tr>
     <td>
       <img
-        src={`https://assets.hackclub.com/${file}.svg`}
+        src={`/branding/${file}.avif`}
         alt={startCase(file)}
       />
     </td>
@@ -110,7 +110,7 @@ const Page = ({ css }) => (
     <Meta
       as={Head}
       title="Branding"
-      description="Download Hack Club HQ’s logos and preview our brand fonts & colors."
+      description="Download Happy Hacking Space's logos and preview our brand fonts & colors."
       image="https://workshop-cards.hackclub.com/Branding.png?theme=dark&fontSize=350px&brand=HQ"
     />
     <ForceTheme theme="light" />
@@ -127,10 +127,10 @@ const Page = ({ css }) => (
     >
       <Container variant="copy">
         <Heading as="h1" variant="title" sx={{ color: 'primary', mt: [2, 4] }}>
-          Hack Club Brand
+           Happy Hacking Space Brand
         </Heading>
         <Heading as="h2" variant="subtitle" sx={{ mt: 3, color: 'text' }}>
-          Download HQ’s logos and preview our brand colors & font.
+          Download Happy Hacking Space’s logos and preview our brand colors & font.
         </Heading>
       </Container>
     </Box>
@@ -142,26 +142,19 @@ const Page = ({ css }) => (
       }}
     >
       <Heading variant="headline">Logos</Heading>
-      <Grid columns={[null, 2, 3]} gap={3}>
+      <Grid columns={[2, 3, 4]} gap={2}>
         {[
-          'flag-orpheus-top',
-          'flag-orpheus-left',
-          'flag-standalone',
-          'flag-orpheus-top-bw',
-          'flag-orpheus-left-bw',
-          'flag-standalone-bw',
-          'flag-standalone-wtransparent',
-          'icon-rounded',
-          'icon-square',
-          'icon-progress-rounded',
-          'icon-progress-square'
+           'hhs-black-wo-black',
+      'hhs-white-wo-white', 
+      'logo-black',
+      'logo-white'
         ].map(key => (
           <Logo name={key} key={key} />
         ))}
       </Grid>
       <Button
         as="a"
-        href="https://assets.hackclub.com/2020_branding.zip"
+         href="/branding/all-logos.zip"
         variant="outline"
         mt={3}
         mb={[4, 5]}
@@ -169,14 +162,14 @@ const Page = ({ css }) => (
         Download all →
       </Button>
 
-      <Heading id="bank" variant="headline">
+      {/* <Heading id="bank" variant="headline">
         HCB Logos
       </Heading>
       <Grid columns={[null, 2, 3]} gap={3}>
         <Logo name="hcb-light" />
         <Logo name="hcb-dark" />
-      </Grid>
-      <Button
+      </Grid> */}
+      {/* <Button
         as="a"
         href="https://hcb.hackclub.com/branding"
         variant="outline"
@@ -184,7 +177,7 @@ const Page = ({ css }) => (
         mb={[4, 5]}
       >
         See all HCB logos →
-      </Button>
+      </Button> */}
 
       <Heading id="banners" variant="headline">
         HTML banners
@@ -209,20 +202,25 @@ const Page = ({ css }) => (
         </Box>
         <tbody>
           <HTML
-            file="flag-orpheus-top"
+            file="logo-white"
             html={`<a href="https://hackclub.com/"><img style="position: absolute; top: 0; left: 10px; border: 0; width: 256px; z-index: 999;" src="https://assets.hackclub.com/flag-orpheus-top.svg" alt="Hack Club"/></a>`}
           />
           <HTML
-            file="flag-orpheus-left"
+            file={`logo-black`}
+            html={`<a href="https://hackclub.com/"><img style="position: absolute; top: 0; left: 10px; border: 0; width: 256px; z-index: 999;" src="https://assets.hackclub.com/banners/${new Date().getFullYear()}.svg" alt="Hack Club"/></a>`}
+          />
+          <HTML
+            file="hhs-white-wo-white"
             html={`<a href="https://hackclub.com/"><img style="position: absolute; top: 0; left: 10px; border: 0; width: 256px; z-index: 999;" src="https://assets.hackclub.com/flag-orpheus-left.svg" alt="Hack Club"/></a>`}
           />
           <HTML
-            file={`banners/${new Date().getFullYear()}`}
+            file={`hhs-black-wo-black`}
             html={`<a href="https://hackclub.com/"><img style="position: absolute; top: 0; left: 10px; border: 0; width: 256px; z-index: 999;" src="https://assets.hackclub.com/banners/${new Date().getFullYear()}.svg" alt="Hack Club"/></a>`}
           />
+           
         </tbody>
       </Box>
-      <Button
+      {/* <Button
         as="a"
         href="https://hackclub.com/banner"
         variant="outline"
@@ -230,7 +228,7 @@ const Page = ({ css }) => (
         mb={[4, 5]}
       >
         React component →
-      </Button>
+      </Button> */}
       <Heading variant="headline">Colors</Heading>
       <Grid columns={[2, 4]} gap={3} mb={[4, 5]}>
         {[
@@ -246,7 +244,7 @@ const Page = ({ css }) => (
           <ColorSwatch key={key} bg={key} />
         ))}
       </Grid>
-      <Heading variant="headline">Fonts</Heading>
+      {/* <Heading variant="headline">Fonts</Heading>
       <Text variant="title">Phantom Sans</Text>
       <Text variant="subtitle" sx={{ mb: 3, ml: 2 }}>
         is our brand font.
@@ -277,8 +275,8 @@ const Page = ({ css }) => (
         ].map(k => (
           <Icon glyph={k} key={k} size={64} />
         ))}
-      </Flex>
-      <Button
+      </Flex> */}
+      {/* <Button
         as="a"
         href="https://icons.hackclub.com"
         sx={{ mt: 3, mb: [4, 5] }}
@@ -315,7 +313,7 @@ const Page = ({ css }) => (
         variant="outline"
       >
         CSS Theme on GitHub →
-      </Button>
+      </Button> */}
     </Container>
     <Footer />
   </>
@@ -325,6 +323,7 @@ export default Page
 
 export const getStaticProps = () => {
   const fs = require('fs')
+  
   const css = fs.readFileSync(
     './node_modules/@hackclub/theme/fonts/reg-ital-bold.css',
     'utf8'
