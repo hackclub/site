@@ -5,7 +5,7 @@
     "descriptionColor": "white",
     "title": "vulnerable target",
     "description": "VT creates intentionally vulnerable environments for security testing.",
-    "img": "https://cloud-7xyxcf3f6-hack-club-bot.vercel.app/0new_project__3_.png",
+    "img": "/project-icon/vulnerability_1.png",
     "link": "https://github.com/HappyHackingSpace/vulnerable-target"
   },
   {
@@ -14,7 +14,7 @@
     "descriptionColor": "#F6D193",
     "title": "Githubmon",
     "description": "Developer Dashboard for GitHub Activity Management  ",
-    "img": "https://cloud-oil5vh30l-hack-club-bot.vercel.app/0boba_hc_toolbox.png",
+    "img": "/project-icon/githubmon.png",
     "link": "https://github.com/HappyHackingSpace/githubmon"
   },
   {
@@ -23,7 +23,7 @@
     "descriptionColor": "#4F2A0E",
     "title": "Community Hub",
     "description": "Club management and task tracking system",
-    "img": "https://cloud-ahkc8uotv-hack-club-bot.vercel.app/0group_15.png",
+    "img": "/project-icon/community_hub.png",
     "link": "https://github.com/HappyHackingSpace/CommunityHub"
   },
   {
@@ -32,7 +32,7 @@
     "descriptionColor": "#EDE2DC",
     "title": "resumeX",
     "description": "AI-powered CV analyzer scores software field suitability.",
-    "img": "https://cloud-m33gqgkp6-hack-club-bot.vercel.app/0image.png",
+    "img": "/project-icon/resumex.png",
     "link": "https://github.com/HappyHackingSpace/resumeX"
   },
   {
@@ -41,7 +41,7 @@
     "descriptionColor": "black",
     "title": "FunURL",
     "description": "A Functional URL Swiss Army Knife 🛠️",
-    "img": "https://cloud-eg2ex8nol-hack-club-bot.vercel.app/0favicon-on-light-removebg-preview.png",
+    "img": "/project-icon/funurl.png",
     "link": "https://github.com/HappyHackingSpace/funURL"
   },
   {
@@ -50,16 +50,16 @@
     "descriptionColor": "white",
     "title": "SkyBound-Quest",
     "description": "Retro pixel platformer: young inventor saves sky islands.",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png",
+    "img": "/project-icon/skybound_quest.png",
     "link": "https://github.com/HappyHackingSpace/SkyBound-Quest"
   },
   {
     "background": "snow",
     "titleColor": "dark",
-    "descriptionColor": "black",
+    "descriptionColor": "black",  
     "title": "HackerTaboo",
     "description": "Taboo for hackers: guess the word without saying it!",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/someassemblyrequired/cfacfacaaa2d8b1d.png",
+    "img": "/project-icon/hackertaboo.png",
     "link": "https://github.com/HappyHackingSpace/HackerTaboo"
   },
   {
@@ -68,7 +68,7 @@
     "textColor": "#CAB4D4",
     "title": "ZmapSdk",
     "description": "A Python SDK for the ZMap network scanner that provides an easy-to-use interface for network scanning operations.",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/sinerider/68a0bc1208e885dd.png",
+    "img": "/project-icon/zmapsdk.png",
     "link": "https://github.com/HappyHackingSpace/ZmapSDK"
   },
   {
@@ -78,7 +78,7 @@
     "descriptionColor": "black",
     "title": "Awesome Hackathon",
     "description": "Tools and resources to help you build, design, and win hackathons! 🏆",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/nest/aa345378581cee0c.png",
+    "img": "/project-icon/awesome_hackathon.png",
     "link": "https://github.com/HappyHackingSpace/awesome-hackathon"
   }
 ]
