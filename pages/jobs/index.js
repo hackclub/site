@@ -7,7 +7,7 @@ import Footer from '../../components/footer'
 import Link from 'next/link'
 import Icon from '../../components/icon'
 import Image from 'next/image'
-import zephyrPic from '../../public/jobs/zephyr-group-pic.jpg'
+import volleyballPic from '../../public/jobs/volleyball-group-pic.jpg'
 import { compact } from 'lodash'
 
 const JobListing = ({
@@ -69,7 +69,7 @@ const Page = ({ jobs }) => (
     <Meta
       as={Head}
       title="Jobs"
-      description="Hack Club is hiring! Check out the open positions."
+      description="Happy Hacking Space is hiring! Check out the open positions."
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -102,8 +102,8 @@ const Page = ({ jobs }) => (
           }}
         >
           <Image
-            src={zephyrPic}
-            alt="Hack Clubbers hacking during the Hacker Zephyr trip"
+            src={volleyballPic}
+            alt="Happy Hackers during a volleyball game"
             layout="fill"
             objectFit="cover"
           />
@@ -116,7 +116,7 @@ const Page = ({ jobs }) => (
               color: 'white'
             }}
           >
-            Join the Hack Club Team
+            Join the Happy Hacking Space Team
           </Heading>
           <Heading
             sx={{
@@ -137,7 +137,7 @@ const Page = ({ jobs }) => (
                 mr: 1
               }}
             >
-              $ ssh jobs.hackclub.com -p 1337
+              $ ssh jobs.happyhacking.space -p 1337
             </Text>{' '}
             or scroll down to learn more...
           </Heading>
@@ -152,7 +152,7 @@ const Page = ({ jobs }) => (
           align="left"
           columns={['1fr', '1fr 1fr']}
         >
-          {jobs.items.length > 0 ? (
+          {/* {jobs.items?.length > 0 ? (
             jobs.items.map(job => (
               <JobListing
                 key={job.id}
@@ -175,7 +175,18 @@ const Page = ({ jobs }) => (
             >
               No open roles at this time. Check back later!
             </Text>
-          )}
+          )} */}
+          <Text
+              variant="headline"
+              sx={{
+                color: 'muted',
+                textAlign: 'center',
+                mx: 'auto',
+                gridColumn: '1 / -1'
+              }}
+            >
+              Please be aware that all positions are currently volunteer based roles. Apply <a href="https://airtable.com/app5eKIfSXPFULKX8/pag0z4PqwOVHdr0ak/form">here</a>. 
+            </Text>
         </Grid>
       </Container>
     </Box>
@@ -188,7 +199,7 @@ export default Page
 
 export async function getStaticProps() {
   const data = await fetch(
-    'https://api.polymer.co/v1/hire/organizations/hackclub/jobs'
+    'https://api.polymer.co/v1/hire/organizations/happyhackingspace/jobs'
   )
   const jobs = await data.json()
   return {
