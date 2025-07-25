@@ -110,16 +110,9 @@ function Page({
 
   let images = [
     { alt: 'Map of Happy Hacking Spaces in and around the Mesopotamia', src: '/home/map.png' },
-    {
-      alt: 'Happy Hacking Spacebers at SpaceX HQ in LA',
-      src: '/home/zephyr-spacex.jpeg'
-    },
-    {
-      alt: 'MA Hacks, Hack Clubber organized hackathon',
-      src: '/hackathons/mahacks.jpeg'
-    },
-    { alt: 'AMA with Sal Khan', src: '/home/ama.png' },
-    { alt: 'Hack Clubbers at Flagship, 2019', src: '/home/flagship_4.jpg' }
+    { alt: 'Happy Hackers organized code jam', src: '/codejams/firstcodejam.jpeg' },
+    { alt: 'Happy Hackers at Language Club', src: '/home/langclub.jpeg' },
+    { alt: 'Happy Hackers organized hackathon', src: '/hackathons/culturehack.jpeg' },
   ]
 
   // janky right now and does not show last image
@@ -585,11 +578,13 @@ function Page({
                     <strong sx={{ mb: 1 }}>
                       Build open source learning tools
                     </strong>
-                    We build large open source projects together (
+                    We build open source projects together
+                    {/* (
                     <Link href="https://github.com/happyhackingspace" target="_blank">
                       3k+&nbsp;PRs a year
                     </Link>
-                    ) like this website, a game engine, daily streak system, and
+                    ) */}
+                    like this website, game, AI tools, security tools, and
                     more!
                   </Text>
                 </Grid>
@@ -612,13 +607,13 @@ function Page({
                   <Text as="p" variant="subtitle">
                     <strong sx={{ mb: 1 }}>Gather IRL with other hackers</strong>
                     Meet other Happy Hackers in the community to build
-                    together at one of the 400+{' '}
-                    <Link href="/clubs" target="_blank" rel="noopener">
-                      Clubs
+                    together at one of the community events{' '}
+                    <Link href="/events" target="_blank" rel="noopener">
+                      Events
                     </Link>{' '}
                     and{' '}
                     <Link href="/hackathons" target="_blank" rel="noopener">
-                      hackathons
+                      Hackathons
                     </Link>
                     .
                   </Text>
@@ -847,7 +842,7 @@ function Page({
                 left: 0
               }}
             >
-              {}
+              { }
             </Box>
             <Box
               py={[4, 5, '82px']}
@@ -1136,75 +1131,75 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-          <>
-            <Box
-              sx={{
-                position: 'fixed',
-                top: 0,
-                width: '100%',
-                zIndex: 1000
-              }}
-            >
+            <>
               <Box
                 sx={{
-                  position: 'relative',
-                  margin: 'auto',
-                  width: 'fit-content',
+                  position: 'fixed',
+                  top: 0,
+                  width: '100%',
+                  zIndex: 1000
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    margin: 'auto',
+                    width: 'fit-content',
+                    lineHeight: 0
+                  }}
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  right: 0,
+                  zIndex: 1000,
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </Box>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                right: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-          </>
-        )}
-        <MailingList />
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 1000,
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </>
+          )}
+        {/* <MailingList /> */}
       </Box>
       <Footer
         dark
