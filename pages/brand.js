@@ -24,7 +24,7 @@ export const Logo = ({ name }) => (
   <Card variant="sunken" sx={{ p: [2, 2] }}>
     <Image
       src={`/branding/${name}.avif`}
-      sx={{ width: '60%', height: 'auto', mb: 1 }}
+      sx={{ width: '80%', height: 'auto', mb: 1 }}
       alt={startCase(name)}
     />
     <Text
@@ -142,7 +142,7 @@ const Page = ({ css }) => (
       }}
     >
       <Heading variant="headline">Logos</Heading>
-      <Grid columns={[null, 2, 3]} gap={3}>
+      <Grid columns={[2, 3, 4]} gap={2}>
         {[
            'hhs-black-wo-black',
       'hhs-white-wo-white', 
