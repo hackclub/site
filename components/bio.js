@@ -105,9 +105,9 @@ export default function Bio({ popup = true, spanTwo = false, ...props }) {
               <Text
                 color="muted"
                 as={'a'}
-                href={`mailto:${email}@hackclub.com`}
+                href={`mailto:${email}@happyhacking.space`}
               >
-                {email}@hackclub.com
+                {email}@happyhacking.space
                 <br />
               </Text>
             ))}

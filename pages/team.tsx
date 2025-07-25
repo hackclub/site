@@ -49,7 +49,7 @@ export default function Team({ team }) {
         <Meta
           as={Head}
           title="Team"
-          description="Meet the team that runs Hack Club, a global nonprofit network of high school computer science clubs."
+          description="Meet the team that runs Happy Hacking Space, a nonprofit network of hackers in Mesopotamia."
         />
         <Box
           pt={6}
@@ -57,15 +57,15 @@ export default function Team({ team }) {
           px={[2, 4]}
           sx={{
             backgroundImage:
-              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)',
+              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(/team/hhsteam.jpg)',
             backgroundSize: 'cover',
-            backgroundPosition: '25% 15%'
+            backgroundPosition: '25% 65%'
           }}
         >
           <Container>
             <Text variant="ultratitle" color="snow">
-              By the students,
-              <br /> for the students.
+              By the hackers,
+              <br /> for the hackers.
             </Text>
 
             <Text
@@ -74,8 +74,8 @@ export default function Team({ team }) {
               color="smoke"
               sx={{ maxWidth: '650px' }}
             >
-              We believe in a world where every young person is empowered to be
-              the change they want to see around them. At Hack Club, we’re
+              We believe in a world where every person is empowered to be
+              the change they want to see around them. At Happy Hacking Space, we’re
               working hard to make it reality.
             </Text>
           </Container>
@@ -110,24 +110,24 @@ export default function Team({ team }) {
               <Box sx={{ flexGrow: 1 }}>
                 <Grid columns={[1, null, 2]} gap={2} mb={2}>
                   <Bio
-                    img="/team/zach.jpg"
-                    name="Zach Latta"
-                    teamRole="Founder"
-                    text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
+                    img="/team/dogan.jpg"
+                    name="Dogan Can Bakir"
+                    teamRole="Founder & Chief Hacking Officer"
+                    text=""
                     pronouns="he/him"
-                    email="zach"
+                    email="dogan"
                   />
                   <Bio
-                    img="/team/christina.jpg"
-                    name="Christina Asquith"
-                    teamRole="Co-founder and COO"
-                    text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
-                    pronouns="she/her"
-                    email="christina"
+                    img="/team/omar.jpg"
+                    name="Omar Kurt"  
+                    teamRole="Co-founder & CISO"
+                    text=""
+                    pronouns="he/him"
+                    email="omar"
                   />
                 </Grid>
                 <Grid columns={[1, null, 3]} gap={2}>
-                  <Bio
+                  {/* <Bio
                     img="https://cloud-80nhjzldl-hack-club-bot.vercel.app/0.jpeg"
                     name="Tom Preston-Werner"
                     teamRole={<>Board Member</>}
@@ -150,7 +150,7 @@ export default function Team({ team }) {
                     href="https://en.wikipedia.org/wiki/John_Abele"
                     subrole="Founder, Boston Scientific"
                     pronouns="he/him"
-                  />
+                  /> */}
                 </Grid>
               </Box>
             </Flex>
@@ -175,6 +175,7 @@ export default function Team({ team }) {
                   <Grid columns={[1, null, 2]} gap={2}>
                     {team.current
                       ?.filter(member => member.department === 'HQ')
+                      .sort((a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name))
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -205,11 +206,11 @@ export default function Team({ team }) {
                     as="h3"
                     sx={{ textAlign: 'center', fontSize: 4 }}
                   >
-                    HCB Team
+                    HHSB Team
                   </Text>
                   <Grid columns={[1, null, 2]} gap={2}>
                     {team.current
-                      ?.filter(member => member.department === 'HCB')
+                      ?.filter(member => member.department === 'HHSB')
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -342,7 +343,7 @@ export default function Team({ team }) {
                 }}
                 as="h2"
               >
-                Thank you to everyone who helped shape Hack Club into what it is
+                Thank you to everyone who helped shape Happy Hacking Space into what it is
                 today...
               </Text>
             </Box>

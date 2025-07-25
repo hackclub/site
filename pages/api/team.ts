@@ -7,7 +7,7 @@ interface TeamMember {
   role: string | string[]
   acknowledged: boolean
   bio: string
-  bioHackFoundation: string
+  bioHHS: string
   slackId: string
   overrideAvatar: string
   email: string
