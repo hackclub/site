@@ -3,82 +3,82 @@
     "background": "linear-gradient(to bottom right, #993CCF 0%, rgba(170, 77, 181, 0.95) 17.19%, rgba(193, 99, 146, 0.90) 31.77%, rgba(223, 129, 101, 0.71) 52.08%, rgba(240, 146, 75, 0.60) 63.54%)",
     "titleColor": "white",
     "descriptionColor": "white",
-    "title": "Jams",
-    "description": "Collaborative coding workshops where sparks ignite, fears dissolve, and inventions come to life",
-    "img": "https://cloud-7xyxcf3f6-hack-club-bot.vercel.app/0new_project__3_.png",
-    "link": "https://jams.hackclub.com"
+    "title": "vulnerable target",
+    "description": "VT creates intentionally vulnerable environments for security testing.",
+    "img": "/project-icon/vulnerability_1.png",
+    "link": "https://github.com/HappyHackingSpace/vulnerable-target"
   },
   {
     "background": "#C76B0F",
     "titleColor": "#F6D193",
     "descriptionColor": "#F6D193",
-    "title": "Boba Drops",
-    "description": "Build a HTML + CSS Static Site!, Get free Boba",
-    "img": "https://cloud-oil5vh30l-hack-club-bot.vercel.app/0boba_hc_toolbox.png",
-    "link": "https://hack.club/boba"
+    "title": "Githubmon",
+    "description": "Developer Dashboard for GitHub Activity Management  ",
+    "img": "/project-icon/githubmon.png",
+    "link": "https://github.com/HappyHackingSpace/githubmon"
   },
   {
     "background": "#FFF1DE",
     "titleColor": "#4F2A0E",
     "descriptionColor": "#4F2A0E",
-    "title": "Hackaccino",
-    "description": "Make a 3D Website • Get a free Frappuccino",
-    "img": "https://cloud-ahkc8uotv-hack-club-bot.vercel.app/0group_15.png",
-    "link": "https://hack.club/fraps"
+    "title": "Community Hub",
+    "description": "Club management and task tracking system",
+    "img": "/project-icon/community_hub.png",
+    "link": "https://github.com/HappyHackingSpace/CommunityHub"
   },
   {
     "background": "#EF6C46",
     "titleColor": "#EDE2DC",
     "descriptionColor": "#EDE2DC",
-    "title": "Cider",
-    "description": "Design, Code, and Ship an iOS app to the App Store in 30 days.",
-    "img": "https://cloud-m33gqgkp6-hack-club-bot.vercel.app/0image.png",
-    "link": "https://cider.hackclub.com/"
+    "title": "resumeX",
+    "description": "AI-powered CV analyzer scores software field suitability.",
+    "img": "/project-icon/resumex.png",
+    "link": "https://github.com/HappyHackingSpace/resumeX"
   },
   {
     "background": "snow",
     "titleColor": "dark",
     "descriptionColor": "black",
-    "title": "Putting The \"You\" In CPU",
-    "description": "Curious exactly what happens when you run a program on your computer? Read this.",
-    "img": "https://cloud-eg2ex8nol-hack-club-bot.vercel.app/0favicon-on-light-removebg-preview.png",
-    "link": "https://cpu.land"
+    "title": "FunURL",
+    "description": "A Functional URL Swiss Army Knife 🛠️",
+    "img": "/project-icon/funurl.png",
+    "link": "https://github.com/HappyHackingSpace/funURL"
   },
   {
     "background": "#000",
     "titleColor": "green",
     "descriptionColor": "white",
-    "title": "Sprig",
-    "description": "Join hundreds of teenagers making tile-based JavaScript games",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/sprig-dino/6f01fec60b51b343.png",
-    "link": "https://sprig.hackclub.com"
+    "title": "SkyBound-Quest",
+    "description": "Retro pixel platformer: young inventor saves sky islands.",
+    "img": "/project-icon/skybound_quest.png",
+    "link": "https://github.com/HappyHackingSpace/SkyBound-Quest"
   },
   {
     "background": "snow",
     "titleColor": "dark",
-    "descriptionColor": "black",
-    "title": "Some Assembly Required",
-    "description": "The 4th most starred Assembly repository on GitHub",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/someassemblyrequired/cfacfacaaa2d8b1d.png",
-    "link": "https://github.com/hackclub/some-assembly-required"
+    "descriptionColor": "black",  
+    "title": "HackerTaboo",
+    "description": "Taboo for hackers: guess the word without saying it!",
+    "img": "/project-icon/hackertaboo.png",
+    "link": "https://github.com/HappyHackingSpace/HackerTaboo"
   },
   {
     "background": "#271932",
     "titleColor": "#CAB4D4",
     "textColor": "#CAB4D4",
-    "title": "SineRider",
-    "description": "Help build a game about love, math, and graphing 💖",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/sinerider/68a0bc1208e885dd.png",
-    "link": "https://sinerider.com"
+    "title": "ZmapSdk",
+    "description": "A Python SDK for the ZMap network scanner that provides an easy-to-use interface for network scanning operations.",
+    "img": "/project-icon/zmapsdk.png",
+    "link": "https://github.com/HappyHackingSpace/ZmapSDK"
   },
   {
     "background": "#e9e9e9",
     "titleColor": "black",
     "textColor": "black",
     "descriptionColor": "black",
-    "title": "Nest",
-    "description": "Free Linux server for all Hack Clubbers to host anything they need",
-    "img": "https://emoji.slack-edge.com/T0266FRGM/nest/aa345378581cee0c.png",
-    "link": "https://hackclub.app"
+    "title": "Awesome Hackathon",
+    "description": "Tools and resources to help you build, design, and win hackathons! 🏆",
+    "img": "/project-icon/awesome_hackathon.png",
+    "link": "https://github.com/HappyHackingSpace/awesome-hackathon"
   }
 ]
