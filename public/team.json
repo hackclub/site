@@ -82,5 +82,17 @@
     "email": "",
     "website": "",
     "avatar": "/team/meltem.jpg"
+  },
+  {
+    "name": "Mahsum Akbaş",
+    "department": "HQ",
+    "role": "Career Development Lead",
+    "acknowledged": false,
+    "bio": "",
+    "bioHHS": "",
+    "slackId": "",
+    "email": "",
+    "website": "",
+    "avatar": "/team/mahsum.jpg"
   }
 ]
