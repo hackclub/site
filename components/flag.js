@@ -80,7 +80,7 @@ const Flag = () => {
         scrolled={scrolled}
         style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
       >
-        <img src={logoSrc} alt="Hack Club Flag" style={{ width: '60%', height: 'auto' }} />
+        <img src={logoSrc} alt="Happy Hacking Space Flag" style={{ width: '60%', height: 'auto' }} />
       </Base>
     </Link>
   );
