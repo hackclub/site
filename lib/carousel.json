@@ -80,5 +80,14 @@
     "description": "Free Linux server for all Hack Clubbers to host anything they need",
     "img": "https://emoji.slack-edge.com/T0266FRGM/nest/aa345378581cee0c.png",
     "link": "https://hackclub.app"
-  }
+  },
+  {
+    "background": "#30AE1F",
+    "titleColor": "#FFFFFF",
+    "descriptionColor": "#FFFFFF",
+    "title": "HackCraft",
+    "description": "Ship a mod - Get Minecraft",
+    "img": "https://cloud-kgilrkgl7-hack-club-bot.vercel.app/0image.png",
+    "link": "https://hackcraft.hackclub.com/"
+	}
 ]
