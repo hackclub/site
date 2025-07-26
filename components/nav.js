@@ -136,17 +136,20 @@ const Navigation = props => (
     <NextLink href="/clubs" passHref>
       <Link>Clubs</Link>
     </NextLink>
-    <NextLink href="/fiscal-sponsorship" passHref>
-      <Link>Fiscal&nbsp;Sponsorship</Link>
+    <NextLink href="/philosophy" passHref>
+      <Link>Philosophy</Link>
     </NextLink>
-    <NextLink href="/hackathons" passHref>
-      <Link>Hackathons</Link>
+    <NextLink href="/events" passHref>
+      <Link>Events</Link>
     </NextLink>
-    <Link href="/slack">Community</Link>
+    <NextLink href="/team" passHref>
+      <Link>Our Team & Board</Link>
+    </NextLink>
+    {/* <Link href="/slack">Community</Link>
     <Link href="https://scrapbook.hackclub.com/">Scrapbook</Link>
     <NextLink href="https://toolbox.hackclub.com/" passHref>
       <Link>Toolbox</Link>
-    </NextLink>
+    </NextLink> */}
   </NavBar>
 )
 
@@ -218,7 +221,7 @@ function Header({ unfixed, color, bgColor, dark, fixed, ...props }) {
       as="header"
     >
       <Content>
-        <Flag scrolled={scrolled || fixed} />
+        <Flag  />
         <Navigation
           as="nav"
           aria-hidden={!!mobile}
