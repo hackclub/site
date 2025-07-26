@@ -2,6 +2,7 @@ import theme from '../lib/theme'
 import styled from '@emotion/styled'
 import { css, keyframes } from '@emotion/react'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const waveFlag = keyframes`
   from {
@@ -33,8 +34,7 @@ const scrolled = props =>
   `
 
 const Base = styled('a')`
-  background-image: url(https://assets.hackclub.com/flag-orpheus-top.svg);
-  background-repeat: no-repeat;
+ 
   background-position: top left;
   background-size: contain;
   cursor: pointer;
@@ -57,10 +57,33 @@ const Base = styled('a')`
   ${scrolled};
 `
 
-const Flag = props => (
-  <Link href="/" passHref>
-    <Base href="https://hackclub.com/" title="Homepage" {...props} />
-  </Link>
-)
+
+const Flag = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const logoSrc = scrolled
+    ? '/branding/hhs-black-wo-black.avif' // sticky: siyah logo
+    : '/branding/hhs-white-wo-white.avif'; // en üstte: beyaz logo
+
+  return (
+    <Link href="/" passHref>
+      <Base
+        as="a"
+        scrolled={scrolled}
+        style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
+        <img src={logoSrc} alt="Hack Club Flag" style={{ width: '60%', height: 'auto' }} />
+      </Base>
+    </Link>
+  );
+}
 
 export default Flag
