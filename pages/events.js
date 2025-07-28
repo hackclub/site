@@ -18,89 +18,87 @@ import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Icon from '../components/icon'
 import Image from 'next/image'
-import OuternetPic from '../public/outernet/hack.jpg'
+import CultureHackPic from '../public/hackathons/culturedigitalizationhackathon.jpg'
 import { compact } from 'lodash'
 import theme from '@hackclub/theme'
 
 const events = [
   {
-    name: 'Haunted House',
-    description: `Where Fright Meets Byte: A Haunted House Hackathon Experience in Downtown Chicago.`,
-    logo: 'https://emoji.slack-edge.com/T0266FRGM/hauntedhouse/427353c4bd656767.png',
-    location: 'Chicago, Illinois',
-    season: 'Fall',
-    year: '2023',
-    // repo: 'outernet',
-    image: 'https://cloud-6vo1bh2dg-hack-club-bot.vercel.app/0image.png',
-    link: 'https://haunted.hackclub.com'
+    name: 'Hackathon: The Cultural Heritage and Digitalization ',
+    description: `A hackathon focused on the cultural heritage and digitalization of the city of Diyarbakır and Mesopotamia.`,
+    // logo: '',
+    location: 'Diyarbakır, Turkey',
+    season: 'December',
+    year: '2024',
+    // repo: 'culturehack',
+    image: '/hackathons/culturehack.jpeg',
+    // link: 'https://cunted.hackclub.com'
   },
   {
-    name: 'Outernet',
-    description: `An out-of-doors, make-it-yours programming and camping adventure in Vermont's Northeast Kingdom.`,
-    logo: 'https://emoji.slack-edge.com/T0266FRGM/outernet/522a19d904a627e6.png',
-    location: 'Cabot, Vermont',
-    season: 'Summer',
-    year: '2023',
-    video: 'https://www.youtube.com/embed/O1s5HqSqKi0',
-    repo: 'outernet'
+    name: 'Code Jam 181925',
+    description: `An event dedicated to spreading the culture of competitive programming and the joy of hacking. Participants engaged in a series of challenges to test their coding skills and creativity.`,
+    location: 'Diyarbakır, Turkey',
+    season: 'January',
+    year: '2025',
+    image: '/codejams/firstcodejam.jpeg',
   },
-  {
-    name: 'Epoch',
-    logo: `https://emoji.slack-edge.com/T0266FRGM/epoch/1337c0f7f3c8341d.png`,
-    description: `A magical New Year's spent hacking in New Delhi, our first flagship event abroad and in India.`,
-    location: 'Delhi NCR, India',
-    season: 'Winter',
-    year: '2022/23',
-    video: 'https://www.youtube.com/embed/KLx4NZZPzMc',
-    repo: 'epoch'
-  },
-  {
-    name: 'Assemble',
-    logo: 'https://emoji.slack-edge.com/T0266FRGM/assemble/4f9465eb00175463.png',
-    description:
-      'The first high school hackathon since the pandemic! Hosted by a team of Hack Clubbers to kick off a hackathon renaissance.',
-    location: 'San Francisco, California',
-    season: 'Summer',
-    year: '2022',
-    video: 'https://youtube.com/embed/PnK4gzO6S3Q',
-    repo: 'assemble'
-  },
-  {
-    name: 'The Hacker Zephyr',
-    logo: 'https://hackclub.com/stickers/zephyr.svg',
-    description:
-      'A cross-country hacker adventure on a train and the longest hackathon (by miles) on land.',
-    location: 'Burlington (VT) to Los Angeles (CA)',
-    season: 'Summer',
-    year: '2021',
-    video: 'https://youtube.com/embed/2BID8_pGuqA',
-    repo: 'the-hacker-zephyr'
-  },
-  {
-    name: 'Summer of Making',
-    logo: 'https://hackclub.com/stickers/summer_of_making.svg',
-    description:
-      '$50k in hardware donations to teen hackers around the world and the creation of Scrapbook:',
-    location: 'Online (thanks COVID-19!)',
-    season: 'Summer',
-    year: '2020',
-    image:
-      'https://cdn.sanity.io/images/2ejqxsnu/production/ed144128afb78a7095d6c77945efdd2c38078ecf-1637x990.png?w=3840&q=75&fit=clip&auto=format',
-    link: 'https://scrapbook.hackclub.com/r/summer-of-making',
-    ghTag: 'summer-of-making'
-  },
-  {
-    name: 'Flagship',
-    logo: 'https://hackclub.com/stickers/ship.png',
-    description:
-      'An IRL meetup of high school hackathon organizers and coding club leaders. Our first "flagship" event.',
-    location: 'San Francisco, California',
-    season: 'Summer',
-    year: '2019',
-    image:
-      'https://github.com/hackclub/www-assemble/blob/main/public/hackers-assemble.jpg?raw=true',
-    link: 'https://hack.af/flagship-album'
-  }
+  // {
+  //   name: 'Epoch',
+  //   logo: `https://emoji.slack-edge.com/T0266FRGM/epoch/1337c0f7f3c8341d.png`,
+  //   description: `A magical New Year's spent hacking in New Delhi, our first flagship event abroad and in India.`,
+  //   location: 'Delhi NCR, India',
+  //   season: 'Winter',
+  //   year: '2022/23',
+  //   video: 'https://www.youtube.com/embed/KLx4NZZPzMc',
+  //   repo: 'epoch'
+  // },
+  // {
+  //   name: 'Assemble',
+  //   logo: 'https://emoji.slack-edge.com/T0266FRGM/assemble/4f9465eb00175463.png',
+  //   description:
+  //     'The first high school hackathon since the pandemic! Hosted by a team of Hack Clubbers to kick off a hackathon renaissance.',
+  //   location: 'San Francisco, California',
+  //   season: 'Summer',
+  //   year: '2022',
+  //   video: 'https://youtube.com/embed/PnK4gzO6S3Q',
+  //   repo: 'assemble'
+  // },
+  // {
+  //   name: 'The Hacker Zephyr',
+  //   logo: 'https://hackclub.com/stickers/zephyr.svg',
+  //   description:
+  //     'A cross-country hacker adventure on a train and the longest hackathon (by miles) on land.',
+  //   location: 'Burlington (VT) to Los Angeles (CA)',
+  //   season: 'Summer',
+  //   year: '2021',
+  //   video: 'https://youtube.com/embed/2BID8_pGuqA',
+  //   repo: 'the-hacker-zephyr'
+  // },
+  // {
+  //   name: 'Summer of Making',
+  //   logo: 'https://hackclub.com/stickers/summer_of_making.svg',
+  //   description:
+  //     '$50k in hardware donations to teen hackers around the world and the creation of Scrapbook:',
+  //   location: 'Online (thanks COVID-19!)',
+  //   season: 'Summer',
+  //   year: '2020',
+  //   image:
+  //     'https://cdn.sanity.io/images/2ejqxsnu/production/ed144128afb78a7095d6c77945efdd2c38078ecf-1637x990.png?w=3840&q=75&fit=clip&auto=format',
+  //   link: 'https://scrapbook.hackclub.com/r/summer-of-making',
+  //   ghTag: 'summer-of-making'
+  // },
+  // {
+  //   name: 'Flagship',
+  //   logo: 'https://hackclub.com/stickers/ship.png',
+  //   description:
+  //     'An IRL meetup of high school hackathon organizers and coding club leaders. Our first "flagship" event.',
+  //   location: 'San Francisco, California',
+  //   season: 'Summer',
+  //   year: '2019',
+  //   image:
+  //     'https://github.com/hackclub/www-assemble/blob/main/public/hackers-assemble.jpg?raw=true',
+  //   link: 'https://hack.af/flagship-album'
+  // }
 ]
 
 const Event = ({
@@ -157,8 +155,8 @@ const Event = ({
     <Box>
       {' '}
       {repo && (
-        <Link href={`https://github.com/hackclub/${repo}`}>
-          <>github.com/hackclub/{repo}</>
+        <Link href={`https://github.com/happyhackingspace/${repo}`}>
+          <>github.com/happyhackingspace/{repo}</>
         </Link>
       )}
       {ghTag && (
@@ -180,8 +178,8 @@ const Page = ({ jobs }) => (
     <Meta
       as={Head}
       title="Events"
-      description="Every summer (and now every winter!), Hack Club does something special to bring the community together. Let's take a trip down memory lane."
-      image="https://hackclub.com/outernet/hack.jpg"
+      description="Now and then, we gather, not just to build things, but to play, to wonder, to disrupt the ordinary. Let’s look back at how it all unfolded."
+      image="/hackathons/culturedigitalizationhackathon.jpg"
     />
     <ForceTheme theme="light" />
     <Nav />
@@ -214,8 +212,8 @@ const Page = ({ jobs }) => (
           }}
         >
           <Image
-            src={OuternetPic}
-            alt="Hack Clubbers coming together at Outernet"
+            src={CultureHackPic}
+            alt="Happy Hackers at The Cultural Heritage and Digitalization Hackathon"
             layout="fill"
             objectFit="cover"
           />
@@ -229,7 +227,7 @@ const Page = ({ jobs }) => (
               textShadow: 'elevated'
             }}
           >
-            Hack Club's Events
+            Happy Hacking Space's Events
           </Heading>
           <Heading
             sx={{
@@ -243,13 +241,13 @@ const Page = ({ jobs }) => (
               textShadow: 'small'
             }}
           >
-            Every summer and now every winter, Hack Club does something special
-            to bring the community together. Let's take a trip down memory lane.
+            Now and then, we gather, not just to build things, but to play, to wonder, to disrupt the ordinary.
+            Let’s look back at how it all unfolded.
           </Heading>
           <Button
             as="a"
             variant="ctaLg"
-            href="https://hackclub.com/slack"
+            href="https://join.happyhacking.space"
             target="_blank"
             rel="noopener"
             sx={{ mt: 3, background: theme.util.gx('purple', 'blue') }}
@@ -285,18 +283,18 @@ const Page = ({ jobs }) => (
           }}
         >
           <Box sx={{ maxWidth: '600px', mx: 'auto' }}>
-            Looking for more? Hack Clubbers often organise their own hackathons!
+            Looking for more? Happy Hackers often organise their own hackathons!
             Check them out at{' '}
             <Link
-              href="https://hackathons.hackclub.com"
+              href="https://hackathons.happyhacking.space"
               sx={{ color: 'white' }}
               target="_blank"
             >
-              hackathons.hackclub.com
+              hackathons.happyhacking.space
             </Link>
-            . Hack Club is also behind a series of{' '}
+            . Happy Hacking Space is also behind a series of{' '}
             <Link
-              href="https://daysofservice.hackclub.com/"
+              href="https://daysofservice.happyhacking.space/"
               sx={{ color: 'white' }}
               target="_blank"
             >
@@ -304,7 +302,7 @@ const Page = ({ jobs }) => (
             </Link>{' '}
             events and{' '}
             <Link
-              href="https://events.hackclub.com/"
+              href="https://events.happyhacking.space/"
               sx={{ color: 'white' }}
               target="_blank"
             >
