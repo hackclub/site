@@ -88,9 +88,9 @@ const Footer = ({
           <NextLink href="/team" passHref>
             <Link>Our Team & Board</Link>
           </NextLink>
-          {/* <NextLink href="/jobs" passHref>
+          <NextLink href="/jobs" passHref>
             <Link>Jobs</Link>
-          </NextLink> */}
+          </NextLink>
           <NextLink href="/brand" passHref>
             <Link>Branding</Link>
           </NextLink>
