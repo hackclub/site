@@ -75,7 +75,7 @@ export default function First({ stats }) {
             }}
           >
             <a
-              href="https://hcb.hackclub.com/from/hack-club-site-first-page/M2PHxN"
+              href="https://hcb.hackclub.com/from/hack-club-site-fs-first-page/M2PHxN"
               style={{ textDecoration: 'none' }}
               target="_blank"
             >
