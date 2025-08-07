@@ -375,7 +375,7 @@
     "email": "gus",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
-  },
+  },  
   {
     "name": "Nick Do",
     "department": "HQ",
@@ -409,6 +409,17 @@
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/534fd4f5d2643dc80e4ea6a6c6f2eb839528645d_headshot.jpg"
   },
+  {
+    "name": "Manitej Boorgu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U04QD71QWS0",
+    "email": "manitej",
+    "website": "https://manitej.com",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/67d9d436641ebb92d105815f98352851456131e5_a4ff0caf-c22e-44ec-b58a-89d18fa37997_1_105_c.jpeg"
+  },  
   {
     "name": "Melanie Smith",
     "department": "HCB",
