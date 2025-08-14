@@ -331,7 +331,7 @@
     "email": "mohamad",
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
-  }, 
+  },
   {
     "name": "Charlie Nicholson",
     "department": "HQ",
@@ -353,7 +353,7 @@
     "email": "katec",
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7bf19e299e3e8253096906cef8d599c7aedeed09_image.png"
-  }, 
+  },
   {
     "name": "Micha Albert",
     "department": "HQ",
@@ -364,7 +364,7 @@
     "email": "micha",
     "website": "https://mra.sh",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ca950cf3586abf03d8c3ee2f58e174a7d8a36889_18.jpg"
-  }, 
+  },
   {
     "name": "Gus Ruben",
     "department": "HQ",
@@ -375,7 +375,7 @@
     "email": "gus",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
-  },
+  },  
   {
     "name": "Nick Do",
     "department": "HQ",
@@ -409,6 +409,17 @@
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/534fd4f5d2643dc80e4ea6a6c6f2eb839528645d_headshot.jpg"
   },
+  {
+    "name": "Manitej Boorgu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U04QD71QWS0",
+    "email": "manitej",
+    "website": "https://manitej.com",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/67d9d436641ebb92d105815f98352851456131e5_a4ff0caf-c22e-44ec-b58a-89d18fa37997_1_105_c.jpeg"
+  },  
   {
     "name": "Melanie Smith",
     "department": "HCB",
@@ -723,10 +734,10 @@
   },
   {
     "name": "Angad Behl",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
+    "department": "HQ",
+    "role": "Engineering and Community",
     "acknowledged": false,
-    "bio": "Angad is a 15 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's helped out with creating a peer to peer voting system for Hack Club hackathons and built an anonymous reporting system for the moderation team.",
+    "bio": "Angad is a 16 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's built a peer voting platform for over 2000 students, ran a YSWS providing travel stipends, and build moderation infastructure for Hack Club. In his free time, he enjoys photography, travel, and pondering.",
     "bioHackFoundation": "",
     "slackId": "U075RTSLDQ8",
     "email": "angad",
@@ -1640,5 +1651,17 @@
     "email": "samliu",
     "website": "https://samliu.dev",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1f2d09365b0ed42d8e9864c80ba4d8561d85ab9b_frame_1.png"
+  },
+  {
+    "name": "Jiang Tongyu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Tongyu is a 19-year-old Hack Clubber from Singapore who loves making games! She's taking a gap year at Hack Club SF to run events and adventures. She also likes linguistics, making crafts, and sometimes writing music.",
+    "bioHackFoundation": "",
+    "slackId": "U07DJMFAQQP",
+    "email": "tongyu",
+    "website": "https://tongyu.fish",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
   }
 ]

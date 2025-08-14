@@ -27,6 +27,7 @@ import { setCookie, getCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
 import { unfold } from '../../components/announcement'
 import Icon from '@hackclub/icons'
+import Announcement from '../../components/announcement'
 
 const organizations = [
   {
@@ -312,6 +313,21 @@ export default function Page() {
               </Button>
             </Link>
             <SignIn />
+            <a
+              href="https://hcb.hackclub.com/from/hack-club-site-fs-page/JRzHxJ"
+              style={{ textDecoration: 'none' }}
+              target="_blank"
+            >
+              <Announcement
+                copy="Win a 13-inch MacBook Air!"
+                caption="We’re giving away a MacBook to a lucky teenager! Join the Raffle by August 31st, 2025."
+                imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef010a890d7c554a6da9328d62f9a592df9ae5d_laptop-removebg-preview.png"
+                imgAlt="13-inch MacBook Air"
+                color="primary"
+                textColor="slate"
+                sx={{ mb: [1, 1], mt: [3, 4, 1] }}
+              />
+            </a>
           </Flex>
         </Container>
       </Box>
@@ -401,10 +417,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                  {
-                    backgroundImage:
-                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                  }
+                {
+                  backgroundImage:
+                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                }
               }}
               style={{ margin: 0 }}
             >
