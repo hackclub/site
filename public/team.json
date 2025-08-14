@@ -238,6 +238,18 @@
     "website": "https://phthallo.com",
     "avatar": "https://cloud-6fxxs7j9y-hack-club-bot.vercel.app/11733036812219.jpg"
   },
+    {
+    "name": "Reem Khalifa",
+    "department": "HQ",
+    "role": "Engineering & Community",
+    "acknowledged": false,
+    "bio": "Reem is a 17 year old Hack Clubber from New York City. She's currently gap-yearing for Hack Club's Athena Initative, working to increase the number of girls and non-binary teens in tech. In her free time, you can either find her diving into a swimming pool or snuggled in bed reading a book with her cat.",
+    "bioHackFoundation": "", 
+    "slackId": "U06U80G86H1", 
+    "email": "reem",
+    "website": "https://reemkhalifa.xyz",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b419a2679e0f5a23c9779f479c0ead155edeb875_image.png"
+  },
   {
     "name": "Amber",
     "department": "HQ",
