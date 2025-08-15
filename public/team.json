@@ -1677,6 +1677,30 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
   },
   {
+    "name": "Briyan Dyju",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "Briyan is a 16-year-old Indian Hack Clubber born and raised in Dubai. He has a passion for jailbreaking and modding any device that lands in his hands. He handles the day-to-day operations at HCB, so if you mail them, there's a slight chance he's the one who might reply. If he is not doing either of these things, you'll probably find him kicking a soccer ball somewhere.",
+    "bioHackFoundation": "",
+    "slackId": "U04FS5WUXL3",
+    "email": "briyan",
+    "website": "",
+    "avatar": "https://ca.slack-edge.com/T0266FRGM-U04FS5WUXL3-c46373538def-512"
+  },
+  {
+    "name": "Matthew Soh",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U07DPHQCCCS",
+    "email": "mattsoh",
+    "website": "",
+    "avatar": "https://ca.slack-edge.com/T0266FRGM-U07DPHQCCCS-cda522776bd3-512"
+  },
+  {
     "name": "David Cornu",
     "department": "HCB",
     "role": "Engineering",
