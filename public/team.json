@@ -840,18 +840,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
   },
   {
-    "name": "Ascipixi",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Ascipixi has hosted several technical events in the Hack Club Slack and believes in keeping computers fun!",
-    "bioHackFoundation": "",
-    "slackId": "U082DPCGPST",
-    "email": "",
-    "website": "https://ascipixi.dev",
-    "avatar": "https://cachet.dunkirk.sh/users/U082DPCGPST/r"
-  },
-  {
     "name": "Darlene Wu",
     "department": "Events",
     "role": "Event Organiser",
@@ -1676,6 +1664,17 @@
     "website": "https://tongyu.fish",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
   },
+  {
+    "name": "ascpixi",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U082DPCGPST",
+    "email": "ascpixi",
+    "website": "https://ascpii.dev",
+    "avatar": "https://cachet.dunkirk.sh/users/U082DPCGPST/r"
+  },  
   {
     "name": "Briyan Dyju",
     "department": "HCB",
