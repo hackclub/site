@@ -322,6 +322,18 @@
     "website": "",
     "avatar": "https://cloud-b6ykpb7te-hack-club-bot.vercel.app/0image.png"
   },
+    {
+    "name": "Evan Gan",
+    "department": "HQ",
+    "role": "Events & Engineering",
+    "acknowledged": false,
+    "bio": "Evan is a 17 year old from the Greater Boston area. Evan enjoys running large scale events like Shipwrecked, working on logistics and event infrastructure.",
+    "bioHackFoundation": "",
+    "slackId": "U05D1G4H754",
+    "email": "evan",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U05D1G4H754/r"
+  }
   {
     "name": "Phoebe",
     "department": "HQ",
