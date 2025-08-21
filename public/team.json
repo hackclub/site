@@ -1674,7 +1674,19 @@
     "email": "ascpixi",
     "website": "https://ascpii.dev",
     "avatar": "https://cachet.dunkirk.sh/users/U082DPCGPST/r"
-  },  
+  },
+  {
+    "name": "Sebastian",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Sebastian (a.k.a. Leafd) is a 17-year-old developer from México who likes making large-scale Minecraft events, loves working with Kubernetes, likes creating and learning new things, and sometimes does music production.",
+    "bioHackFoundation": "",
+    "slackId": "U07UBCSSQH3",
+    "email": "sebastian",
+    "website": "https://leafd.dev",
+    "avatar": "https://cdn.leafd.dev/leafdavatar.jpg"
+  },
   {
     "name": "Briyan Dyju",
     "department": "HCB",
