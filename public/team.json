@@ -51,7 +51,7 @@
     "name": "Zenab",
     "department": "HQ",
     "role": "Creative Events Manager",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Zenab works as a Creative Events Manager for the Days of Service program, helping non-binary youth and young girls write their first lines of code.",
     "slackId": "U079FFTKM37",
     "email": "zenab",
