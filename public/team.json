@@ -517,9 +517,21 @@
     "avatar": "https://cloud-r09ga84qd-hack-club-bot.vercel.app/8image.png"
   },
   {
-    "name": "Rhys Panopio",
+    "name": "Alex DeForrest",
     "department": "HCB",
     "role": "Operations Gap Year",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U02CWS020SD",
+    "email": "alexd",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0513981889e244405d5c4ef0ccd30922e1fecc3c_img_6425_1200x1200.png"
+  },
+  {
+    "name": "Rhys Panopio",
+    "department": "HCB",
+    "role": "Operations",
     "acknowledged": false,
     "bio": "Rhys is a Hack Clubber from Los Angeles, he started a Hack Club at his high school and eventually shifted into working on Operations for HCB. Rhys loves helping out in all areas on HCB but more than anything loves to make pizza.",
     "bioHackFoundation": "",
@@ -623,18 +635,6 @@
     "email": "sean",
     "website": "https://sean.cyou",
     "avatar": "https://cachet.dunkirk.sh/users/U04FATFRE6T/r"
-  },
-  {
-    "name": "Alex DeForrest",
-    "department": "HCB",
-    "role": "Operations Contributor",
-    "acknowledged": false,
-    "bio": "",
-    "bioHackFoundation": "",
-    "slackId": "U02CWS020SD",
-    "email": "alexd",
-    "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0513981889e244405d5c4ef0ccd30922e1fecc3c_img_6425_1200x1200.png"
   },
   {
     "name": "Sarvesh Mohan Kumar",
