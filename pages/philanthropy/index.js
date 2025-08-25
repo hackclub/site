@@ -628,7 +628,7 @@ const Philanthropy = ({ posts = [] }) => {
             <Flex sx={{ justifyContent: 'space-between' }} mt={[3, 4]}>
               <Box>
                 <Text as="h2">View Hack Club's IRS Form 990s</Text>
-                <Text as="p">2023 Form will be shared when ready.</Text>
+                <Text as="p">2024 Form will be shared when ready.</Text>
               </Box>
               <Box>
                 <Button
@@ -656,7 +656,8 @@ const Philanthropy = ({ posts = [] }) => {
                     fontSize: '1em !important',
                     width: 'fit-content',
                     float: 'right',
-                    mt: 2
+                    mt: 2,
+                    mr: 2
                   }}
                 >
                   2022
