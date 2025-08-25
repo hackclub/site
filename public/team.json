@@ -51,7 +51,7 @@
     "name": "Zenab",
     "department": "HQ",
     "role": "Creative Events Manager",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Zenab works as a Creative Events Manager for the Days of Service program, helping non-binary youth and young girls write their first lines of code.",
     "slackId": "U079FFTKM37",
     "email": "zenab",
@@ -62,9 +62,9 @@
     "name": "Ben Dixon",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars.",
-    "bioHackFoundation": "Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At The Hack Foundation, Ben designs and implements snazzy new features for HCB, along with raiding their granola bars.",
+    "bioHackFoundation": "",
     "slackId": "U03DFNYGPCN",
     "email": "malted",
     "website": "",
@@ -323,6 +323,18 @@
     "avatar": "https://cloud-b6ykpb7te-hack-club-bot.vercel.app/0image.png"
   },
   {
+    "name": "Evan Gan",
+    "department": "HQ",
+    "role": "Events & Engineering",
+    "acknowledged": false,
+    "bio": "Evan is a 17 year old from the Greater Boston area. Evan enjoys running large scale events like Shipwrecked, working on logistics and event infrastructure.",
+    "bioHackFoundation": "",
+    "slackId": "U05D1G4H754",
+    "email": "evan",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U05D1G4H754/r"
+  },
+  {
     "name": "Phoebe",
     "department": "HQ",
     "role": "Communications & Partnership",
@@ -351,7 +363,7 @@
     "acknowledged": false,
     "bio": "Charlie is a Hack Clubber from the Greater Boston area. He joined Hack Club when he was 12 and launched his first YSWS when he was 13, Ham Club. More recently, he worked on a long-term hackathon called Apex, supported by Hack Club. He is now working for Hack Club to create more hardware YSWSs and events.",
     "slackId": "U054JRXUNG0",
-    "email": "charlie",
+    "email": "charlien",
     "website": "crnicholson.com",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a676e768a45c68eea74c7c3b602feae2eea22d45_screenshot_2024-11-17_at_5.22.37___pm.png"
   },
@@ -505,9 +517,21 @@
     "avatar": "https://cloud-r09ga84qd-hack-club-bot.vercel.app/8image.png"
   },
   {
-    "name": "Rhys Panopio",
+    "name": "Alex DeForrest",
     "department": "HCB",
     "role": "Operations Gap Year",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U02CWS020SD",
+    "email": "alexd",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0513981889e244405d5c4ef0ccd30922e1fecc3c_img_6425_1200x1200.png"
+  },
+  {
+    "name": "Rhys Panopio",
+    "department": "HCB",
+    "role": "Operations",
     "acknowledged": false,
     "bio": "Rhys is a Hack Clubber from Los Angeles, he started a Hack Club at his high school and eventually shifted into working on Operations for HCB. Rhys loves helping out in all areas on HCB but more than anything loves to make pizza.",
     "bioHackFoundation": "",
@@ -613,18 +637,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U04FATFRE6T/r"
   },
   {
-    "name": "Alex DeForrest",
-    "department": "HCB",
-    "role": "Operations Contributor",
-    "acknowledged": false,
-    "bio": "",
-    "bioHackFoundation": "",
-    "slackId": "U02CWS020SD",
-    "email": "alexd",
-    "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0513981889e244405d5c4ef0ccd30922e1fecc3c_img_6425_1200x1200.png"
-  },
-  {
     "name": "Sarvesh Mohan Kumar",
     "department": "HCB",
     "role": "Operations Contributor",
@@ -668,7 +680,7 @@
     "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. At HCB, he's leveraging his passion and experience in Operations, helping clubs and non-profits access the financial tools they need for sustainable growth and success.",
     "bioHackFoundation": "",
     "slackId": "U07BLJ1MBEE",
-    "email": "leow",
+    "email": "leo",
     "website": "",
     "avatar": "https://avatars.githubusercontent.com/u/64415791"
   },
@@ -838,18 +850,6 @@
     "email": "amber",
     "website": "https://transcental.dev",
     "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
-  },
-  {
-    "name": "Ascipixi",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Ascipixi has hosted several technical events in the Hack Club Slack and believes in keeping computers fun!",
-    "bioHackFoundation": "",
-    "slackId": "U082DPCGPST",
-    "email": "",
-    "website": "https://ascipixi.dev",
-    "avatar": "https://cachet.dunkirk.sh/users/U082DPCGPST/r"
   },
   {
     "name": "Darlene Wu",
@@ -1675,6 +1675,29 @@
     "email": "tongyu",
     "website": "https://tongyu.fish",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
+  },
+  {
+    "name": "ascpixi",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U082DPCGPST",
+    "email": "ascpixi",
+    "website": "https://ascpixi.dev",
+    "avatar": "https://cachet.dunkirk.sh/users/U082DPCGPST/r"
+  },
+  {
+    "name": "Sebastian",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Sebastian (a.k.a. Leafd) is a 17-year-old developer from México who likes making large-scale Minecraft events, loves working with Kubernetes, likes creating and learning new things, and sometimes does music production.",
+    "bioHackFoundation": "",
+    "slackId": "U07UBCSSQH3",
+    "email": "sebastian",
+    "website": "https://leafd.dev",
+    "avatar": "https://cdn.leafd.dev/leafdavatar.jpg"
   },
   {
     "name": "Briyan Dyju",

@@ -208,7 +208,7 @@ function Page({
           <Announcement
             width="90vw"
             copy="This summer is yours for the making!"
-            caption="Get free Flipper Zeros, Framework Laptops, 3D Printers, and more. Join Summer of Making! Jun 16 - Aug 31."
+            caption="Get free Flipper Zeros, Framework Laptops, 3D Printers, and more. Join Summer of Making! Jun 16 - Sep 30."
             href="https://summer.hackclub.com/"
             imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/779a5d748938b66ae93a566cc9699e636b01d462_summerlogo.png"
           />
@@ -307,7 +307,7 @@ function Page({
                     mt: 1
                   }}
                 >
-                  Ends August 31st
+                  Ends September 30th
                 </Text>
               </Button>
             </Heading>
