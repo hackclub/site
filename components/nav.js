@@ -148,7 +148,7 @@ const Navigation = props => (
       <Link>Toolbox</Link>
     </NextLink>
     <NextLink href="/philanthropy" passHref>
-      <Link>Philanthropy</Link>
+      <Link>Donors</Link>
     </NextLink>
   </NavBar>
 )
