@@ -240,7 +240,8 @@ function DesktopMode({ billboardBottom }) {
                   fontSize: '25px',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  zIndex: '200'
                 }}
               >
                 SIGN UP <Icon glyph="enter" size={35} />
@@ -511,7 +512,8 @@ function TabletMode() {
                   fontSize: '25px',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  zIndex: '200'
                 }}
               >
                 SIGN UP <Icon glyph="enter" size={35} />
@@ -782,7 +784,8 @@ function MobileMode() {
                   fontSize: '25px',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  zIndex: '200'
                 }}
               >
                 SIGN UP <Icon glyph="enter" size={35} />
