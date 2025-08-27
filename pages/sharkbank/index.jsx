@@ -16,7 +16,13 @@ function DesktopMode({ billboardBottom }) {
           objectFit="cover"
           alt="Buildings"
           priority
-          style={{ zIndex: '20' }}
+          style={{
+            zIndex: '20',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
         />
 
         {/* Billboard */}
@@ -295,25 +301,26 @@ function TabletMode() {
           style={{
             position: 'absolute',
             left: 0,
-            bottom: isSmallScreen ? `-100px` : `-110px`,
+            bottom: '-400px',
             width: '100%',
             display: 'flex',
             justifyContent: 'center'
           }}
         >
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative', minWidth: '780px' }}>
             <Image
-              src="/sharkbank/BILLBOARD_1.PNG"
+              src="/sharkbank/billboardMobile.PNG"
               alt="Billboard"
-              width={isSmallScreen ? 600 : 800}
-              height={isSmallScreen ? 700 : 900}
+              width={1200}
+              height={2600}
+              style={{ transform: 'scale(1.9)' }}
               objectFit="contain"
               priority
             />
             <div
               style={{
                 position: 'absolute',
-                top: 0,
+                top: '150px',
                 left: 0,
                 width: '100%',
                 height: '100%',
@@ -328,7 +335,7 @@ function TabletMode() {
               <Text
                 as="h4"
                 sx={{
-                  marginTop: isSmallScreen ? '-250px' : '-320px',
+                  marginTop: '-290px',
                   fontSize: isSmallScreen ? '40px' : '50px',
                   color: 'white'
                 }}
@@ -339,7 +346,7 @@ function TabletMode() {
                 as="p"
                 sx={{
                   fontSize: isSmallScreen ? '20px' : '25px',
-                  maxWidth: '700px',
+                  maxWidth: isSmallScreen ? '400px' : '500px',
                   textAlign: 'center',
                   color: 'white'
                 }}
@@ -395,7 +402,7 @@ function TabletMode() {
         </Box>
       </Section>
 
-      <Section bg="/sharkbank/row-3-column-1-tab.png" minHeight="1535px">
+      <Section bg="/sharkbank/row-3-column-1-tab.png" minHeight="1560px">
         {/* Text  */}
         <Box
           as={'div'}
@@ -562,13 +569,13 @@ function MobileMode() {
 
   return (
     <>
-      <Section bg="/sharkbank/row-1-column-1.png" minHeight="644px">
+      <Section bg="/sharkbank/row-1-column-1.png" minHeight="950px">
         <Box
           as="div"
           style={{
             position: 'absolute',
             left: 0,
-            bottom: '20px',
+            bottom: '220px',
             width: '100%',
             display: 'flex',
             justifyContent: 'center'
@@ -581,7 +588,8 @@ function MobileMode() {
               src="/sharkbank/billboardMobile.PNG"
               alt="Billboard"
               width={1200}
-              height={1600}
+              height={2600}
+              style={{ transform: 'scale(1.8)' }}
               objectFit="contain"
               priority
             />
@@ -603,7 +611,7 @@ function MobileMode() {
               <Text
                 as="h4"
                 sx={{
-                  marginTop: '-400px',
+                  marginTop: '0px',
                   fontSize: '30px',
                   color: 'white'
                 }}
@@ -626,7 +634,7 @@ function MobileMode() {
           </div>
         </Box>
       </Section>
-      <Section bg="/sharkbank/row-2-column-1.png" minHeight="644px">
+      <Section bg="/sharkbank/row-2-column-1.png" minHeight="950px">
         <Box
           as="div"
           sx={{
@@ -652,7 +660,7 @@ function MobileMode() {
           sx={{
             position: 'absolute',
             width: '100%',
-            right: '-12%',
+            right: '-24%',
             bottom: '-25px',
             display: 'flex',
             justifyContent: 'center'
@@ -668,7 +676,7 @@ function MobileMode() {
           />
         </Box>
       </Section>
-      <Section bg="/sharkbank/row-3-column-1.png" minHeight="644px">
+      <Section bg="/sharkbank/row-3-column-1.png" minHeight="950px">
         {/* Text  */}
         <Box
           as={'div'}
@@ -680,13 +688,13 @@ function MobileMode() {
             alignItems: 'center',
             position: 'absolute',
             zIndex: '200',
-            top: '-417px'
+            top: '-350px'
           }}
         >
           <Text
             as={'span'}
             sx={{
-              fontSize: '15px',
+              fontSize: '20px',
               position: 'absolute',
               zIndex: '20',
               maxWidth: '300px',
