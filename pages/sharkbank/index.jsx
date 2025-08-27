@@ -144,7 +144,7 @@ function DesktopMode({ billboardBottom }) {
               fontSize: '30px',
               position: 'absolute',
               zIndex: '20',
-              maxWidth: '600px',
+              maxWidth: '550px',
               textAlign: 'center',
               transform: 'perspective(800px) rotateX(17deg)',
               transformStyle: 'preserve-3d',
@@ -413,10 +413,10 @@ function TabletMode() {
           <Text
             as={'span'}
             sx={{
-              fontSize: '30px',
+              fontSize: '25px',
               position: 'absolute',
               zIndex: '20',
-              maxWidth: '800px',
+              maxWidth: '700px',
               textAlign: 'center',
               transform: 'perspective(800px) rotateX(17deg)',
               transformStyle: 'preserve-3d',
@@ -562,7 +562,7 @@ function MobileMode() {
 
   return (
     <>
-      <Section bg="/sharkbank/row-1-column-1.png" minHeight="950px">
+      <Section bg="/sharkbank/row-1-column-1.png" minHeight="644px">
         <Box
           as="div"
           style={{
@@ -574,7 +574,9 @@ function MobileMode() {
             justifyContent: 'center'
           }}
         >
-          <div style={{ position: 'relative', minWidth: '500px' }}>
+          <div
+            style={{ position: 'relative', minWidth: '500px', top: '200px' }}
+          >
             <Image
               src="/sharkbank/billboardMobile.png"
               alt="Billboard"
@@ -624,7 +626,7 @@ function MobileMode() {
           </div>
         </Box>
       </Section>
-      <Section bg="/sharkbank/row-2-column-1.png" minHeight="950px">
+      <Section bg="/sharkbank/row-2-column-1.png" minHeight="644px">
         <Box
           as="div"
           sx={{
@@ -650,8 +652,8 @@ function MobileMode() {
           sx={{
             position: 'absolute',
             width: '100%',
-            right: '-26%',
-            bottom: '290px',
+            right: '-12%',
+            bottom: '-25px',
             display: 'flex',
             justifyContent: 'center'
           }}
@@ -666,7 +668,7 @@ function MobileMode() {
           />
         </Box>
       </Section>
-      <Section bg="/sharkbank/row-3-column-1.png" minHeight="950px">
+      <Section bg="/sharkbank/row-3-column-1.png" minHeight="644px">
         {/* Text  */}
         <Box
           as={'div'}
@@ -687,7 +689,7 @@ function MobileMode() {
               fontSize: '15px',
               position: 'absolute',
               zIndex: '20',
-              maxWidth: '400px',
+              maxWidth: '300px',
               textAlign: 'center',
               transform: 'perspective(800px) rotateX(17deg)',
               transformStyle: 'preserve-3d',
@@ -705,10 +707,11 @@ function MobileMode() {
           sx={{
             position: 'absolute',
             width: '100%',
-            bottom: '200px',
-            right: '-100px',
+            bottom: '100px',
+            right: '-70px',
             display: 'flex',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            transform: 'scale(0.7)'
           }}
         >
           <div
@@ -798,10 +801,11 @@ function MobileMode() {
           sx={{
             position: 'absolute',
             width: '100%',
-            bottom: '-150px',
+            bottom: '-240px',
             right: '80px',
             display: 'flex',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            transform: 'scale(0.7)'
           }}
         >
           <Image
