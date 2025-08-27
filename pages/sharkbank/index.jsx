@@ -4,39 +4,14 @@ import Image from 'next/image'
 import Icon from '@hackclub/icons'
 import { Box, Text } from 'theme-ui'
 
-// Desktop images
-import firstSectionBG from '../../public/sharkbank/firstSectionBG.png'
-import secondSectionBG from '../../public/sharkbank/secondSectionBG.png'
-import thirdSectionBG from '../../public/sharkbank/thirdSectionBG.png'
-import buildingsFirstSection from '../../public/sharkbank/bgBuildingsFirstSection.png'
-import billboard from '../../public/sharkbank/BILLBOARD_1.png'
-import banner1 from '../../public/sharkbank/BANNER_1.png'
-import banner2 from '../../public/sharkbank/BANNER_2.png'
-import shark1 from '../../public/sharkbank/shark1.png'
-import shark2 from '../../public/sharkbank/shark2.png'
-import sign1 from '../../public/sharkbank/SIGN.png'
-
-// Tablet images
-import firstSectionBGTab from '../../public/sharkbank/row-1-column-1-tab.png'
-import secondSectionBGTab from '../../public/sharkbank/row-2-column-1-tab.png'
-import thirdSectionBGTab from '../../public/sharkbank/row-3-column-1-tab.png'
-import banner1Mobile from '../../public/sharkbank/banner-1-mobile.png'
-import banner2Mobile from '../../public/sharkbank/banner-2-mobile.png'
-
-// Mobile images
-import firstSectionBGMobile from '../../public/sharkbank/row-1-column-1.png'
-import secondSectionBGMobile from '../../public/sharkbank/row-2-column-1.png'
-import thirdSectionBGMobile from '../../public/sharkbank/row-3-column-1.png'
-import billboardMobile from '../../public/sharkbank/billboardMobile.png'
-
 //Desktop Mode
 function DesktopMode({ billboardBottom }) {
   return (
     <>
       {/* First Section */}
-      <Section bg={firstSectionBG} minHeight="950px">
+      <Section bg="/sharkbank/firstSectionBG.png" minHeight="950px">
         <Image
-          src={buildingsFirstSection}
+          src="/sharkbank/bgBuildingsFirstSection.png"
           layout="fill"
           objectFit="cover"
           alt="Buildings"
@@ -58,7 +33,7 @@ function DesktopMode({ billboardBottom }) {
         >
           <div style={{ position: 'relative' }}>
             <Image
-              src={billboard}
+              src="/sharkbank/BILLBOARD_1.png"
               alt="Billboard"
               width={950}
               height={850}
@@ -104,7 +79,7 @@ function DesktopMode({ billboardBottom }) {
       </Section>
 
       {/* Second Section */}
-      <Section bg={secondSectionBG} minHeight="950px">
+      <Section bg="/sharkbank/secondSectionBG.png" minHeight="950px">
         {/* Banners */}
         <Box
           as="div"
@@ -117,7 +92,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src={banner1}
+            src="/sharkbank/BANNER_1.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -137,7 +112,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src={banner2}
+            src="/sharkbank/BANNER_2.png"
             alt="Banner-2"
             width="275px"
             height="800px"
@@ -148,7 +123,40 @@ function DesktopMode({ billboardBottom }) {
       </Section>
 
       {/* Third Section */}
-      <Section bg={thirdSectionBG} minHeight="950px">
+      <Section bg="/sharkbank/thirdSectionBG.png" minHeight="950px">
+        {/* Text  */}
+        <Box
+          as={'div'}
+          sx={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            zIndex: '200',
+            bottom: '300px'
+          }}
+        >
+          <Text
+            as={'span'}
+            sx={{
+              fontSize: '30px',
+              position: 'absolute',
+              zIndex: '20',
+              maxWidth: '600px',
+              textAlign: 'center',
+              transform: 'perspective(800px) rotateX(17deg)',
+              transformStyle: 'preserve-3d',
+              color: 'white'
+            }}
+          >
+            HCB is hosting its first ever event, Shark Bank an exciting
+            opportunity to pitch your organization's mission and the awesome
+            steps you've taken to a panel of judges for a chance to win up to
+            $1000 in funding!
+          </Text>
+        </Box>
         <Box
           as="div"
           sx={{
@@ -177,7 +185,7 @@ function DesktopMode({ billboardBottom }) {
               }}
             >
               <Image
-                src={shark1}
+                src="/sharkbank/shark1.png"
                 alt="Shark"
                 width="275px"
                 height="800px"
@@ -195,7 +203,7 @@ function DesktopMode({ billboardBottom }) {
               }}
             >
               <Image
-                src={sign1}
+                src="/sharkbank/SIGN.png"
                 alt="Sign"
                 width="275px"
                 height="800px"
@@ -252,7 +260,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src={shark2}
+            src="/sharkbank/shark2.png"
             alt="Shark"
             width="275px"
             height="800px"
@@ -280,7 +288,7 @@ function TabletMode() {
 
   return (
     <>
-      <Section bg={firstSectionBGTab} minHeight="950px">
+      <Section bg="/sharkbank/row-1-column-1-tab.png" minHeight="950px">
         <Box
           as="div"
           style={{
@@ -294,7 +302,7 @@ function TabletMode() {
         >
           <div style={{ position: 'relative' }}>
             <Image
-              src={billboard}
+              src="/sharkbank/BILLBOARD_1.png"
               alt="Billboard"
               width={isSmallScreen ? 600 : 800}
               height={isSmallScreen ? 700 : 900}
@@ -343,7 +351,7 @@ function TabletMode() {
         </Box>
       </Section>
 
-      <Section bg={secondSectionBGTab} minHeight="1561px">
+      <Section bg="/sharkbank/row-2-column-1-tab.png" minHeight="1561px">
         <Box
           as="div"
           sx={{
@@ -356,7 +364,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src={banner1Mobile}
+            src="/sharkbank/banner-1-mobile.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -376,7 +384,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src={banner2Mobile}
+            src="/sharkbank/banner-2-mobile.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -386,7 +394,40 @@ function TabletMode() {
         </Box>
       </Section>
 
-      <Section bg={thirdSectionBGTab} minHeight="1535px">
+      <Section bg="/sharkbank/row-3-column-1-tab.png" minHeight="1535px">
+        {/* Text  */}
+        <Box
+          as={'div'}
+          sx={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            zIndex: '200',
+            top: '-500px'
+          }}
+        >
+          <Text
+            as={'span'}
+            sx={{
+              fontSize: '30px',
+              position: 'absolute',
+              zIndex: '20',
+              maxWidth: '800px',
+              textAlign: 'center',
+              transform: 'perspective(800px) rotateX(17deg)',
+              transformStyle: 'preserve-3d',
+              color: 'white'
+            }}
+          >
+            HCB is hosting its first ever event, Shark Bank an exciting
+            opportunity to pitch your organization's mission and the awesome
+            steps you've taken to a panel of judges for a chance to win up to
+            $1000 in funding!
+          </Text>
+        </Box>
         <Box
           as="div"
           sx={{
@@ -415,7 +456,7 @@ function TabletMode() {
               }}
             >
               <Image
-                src={shark1}
+                src="/sharkbank/shark1.png"
                 alt="Shark"
                 width="275px"
                 height="800px"
@@ -433,7 +474,7 @@ function TabletMode() {
               }}
             >
               <Image
-                src={sign1}
+                src="/sharkbank/SIGN.png"
                 alt="Sign"
                 width="275px"
                 height="800px"
@@ -490,7 +531,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src={shark2}
+            src="/sharkbank/shark2.png"
             alt="Shark"
             width="275px"
             height="800px"
@@ -519,7 +560,7 @@ function MobileMode() {
 
   return (
     <>
-      <Section bg={firstSectionBGMobile} minHeight="950px">
+      <Section bg="/sharkbank/row-1-column-1.png" minHeight="950px">
         <Box
           as="div"
           style={{
@@ -533,7 +574,7 @@ function MobileMode() {
         >
           <div style={{ position: 'relative', minWidth: '500px' }}>
             <Image
-              src={billboardMobile}
+              src="/sharkbank/billboardMobile.png"
               alt="Billboard"
               width={1200}
               height={1600}
@@ -581,7 +622,7 @@ function MobileMode() {
           </div>
         </Box>
       </Section>
-      <Section bg={secondSectionBGMobile} minHeight="950px">
+      <Section bg="/sharkbank/row-2-column-1.png" minHeight="950px">
         <Box
           as="div"
           sx={{
@@ -594,7 +635,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src={banner1Mobile}
+            src="/sharkbank/banner-1-mobile.png"
             alt="Banner-1"
             width={imgWidth}
             height={imgHeight}
@@ -614,7 +655,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src={banner2Mobile}
+            src="/sharkbank/banner-2-mobile.png"
             alt="Banner-2"
             width={imgWidth}
             height={imgHeight}
@@ -623,7 +664,40 @@ function MobileMode() {
           />
         </Box>
       </Section>
-      <Section bg={thirdSectionBGMobile} minHeight="950px">
+      <Section bg="/sharkbank/row-3-column-1.png" minHeight="950px">
+        {/* Text  */}
+        <Box
+          as={'div'}
+          sx={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'absolute',
+            zIndex: '200',
+            top: '-417px'
+          }}
+        >
+          <Text
+            as={'span'}
+            sx={{
+              fontSize: '15px',
+              position: 'absolute',
+              zIndex: '20',
+              maxWidth: '400px',
+              textAlign: 'center',
+              transform: 'perspective(800px) rotateX(17deg)',
+              transformStyle: 'preserve-3d',
+              color: 'white'
+            }}
+          >
+            HCB is hosting its first ever event, Shark Bank an exciting
+            opportunity to pitch your organization's mission and the awesome
+            steps you've taken to a panel of judges for a chance to win up to
+            $1000 in funding!
+          </Text>
+        </Box>
         <Box
           as="div"
           sx={{
@@ -653,7 +727,7 @@ function MobileMode() {
               }}
             >
               <Image
-                src={shark1}
+                src="/sharkbank/shark1.png"
                 alt="Shark"
                 width="275px"
                 height="800px"
@@ -671,7 +745,7 @@ function MobileMode() {
               }}
             >
               <Image
-                src={sign1}
+                src="/sharkbank/SIGN.png"
                 alt="Sign"
                 width="275px"
                 height="800px"
@@ -728,7 +802,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src={shark2}
+            src="/sharkbank/shark2.png"
             alt="Shark"
             width="275px"
             height="800px"
@@ -801,7 +875,7 @@ export default function SharkBank() {
       }}
       className="main-sharkbank-page"
     >
-      <Nav color="rgba(240, 240, 240, 1)" dark />
+      <Nav color="#bdd8e0ff" dark />
 
       {isDesktop && <DesktopMode billboardBottom={billboardBottom} />}
       {isTablet && <TabletMode />}
