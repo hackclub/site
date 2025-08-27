@@ -33,7 +33,7 @@ function DesktopMode({ billboardBottom }) {
         >
           <div style={{ position: 'relative' }}>
             <Image
-              src="/sharkbank/BILLBOARD_1.png"
+              src="/sharkbank/BILLBOARD_1.PNG"
               alt="Billboard"
               width={950}
               height={850}
@@ -92,7 +92,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src="/sharkbank/BANNER_1.png"
+            src="/sharkbank/BANNER_1.PNG"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -112,7 +112,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src="/sharkbank/BANNER_2.png"
+            src="/sharkbank/BANNER_2.PNG"
             alt="Banner-2"
             width="275px"
             height="800px"
@@ -185,7 +185,7 @@ function DesktopMode({ billboardBottom }) {
               }}
             >
               <Image
-                src="/sharkbank/shark1.png"
+                src="/sharkbank/shark1.PNG"
                 alt="Shark"
                 width="275px"
                 height="800px"
@@ -203,7 +203,7 @@ function DesktopMode({ billboardBottom }) {
               }}
             >
               <Image
-                src="/sharkbank/SIGN.png"
+                src="/sharkbank/SIGN.PNG"
                 alt="Sign"
                 width="275px"
                 height="800px"
@@ -261,7 +261,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src="/sharkbank/shark2.png"
+            src="/sharkbank/shark2.PNG"
             alt="Shark"
             width="275px"
             height="800px"
@@ -303,7 +303,7 @@ function TabletMode() {
         >
           <div style={{ position: 'relative' }}>
             <Image
-              src="/sharkbank/BILLBOARD_1.png"
+              src="/sharkbank/BILLBOARD_1.PNG"
               alt="Billboard"
               width={isSmallScreen ? 600 : 800}
               height={isSmallScreen ? 700 : 900}
@@ -365,7 +365,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src="/sharkbank/banner-1-mobile.png"
+            src="/sharkbank/banner-1-mobile.PNG"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -385,7 +385,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src="/sharkbank/banner-2-mobile.png"
+            src="/sharkbank/banner-2-mobile.PNG"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -457,7 +457,7 @@ function TabletMode() {
               }}
             >
               <Image
-                src="/sharkbank/shark1.png"
+                src="/sharkbank/shark1.PNG"
                 alt="Shark"
                 width="275px"
                 height="800px"
@@ -475,7 +475,7 @@ function TabletMode() {
               }}
             >
               <Image
-                src="/sharkbank/SIGN.png"
+                src="/sharkbank/SIGN.PNG"
                 alt="Sign"
                 width="275px"
                 height="800px"
@@ -533,7 +533,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src="/sharkbank/shark2.png"
+            src="/sharkbank/shark2.PNG"
             alt="Shark"
             width="275px"
             height="800px"
@@ -578,7 +578,7 @@ function MobileMode() {
             style={{ position: 'relative', minWidth: '500px', top: '200px' }}
           >
             <Image
-              src="/sharkbank/billboardMobile.png"
+              src="/sharkbank/billboardMobile.PNG"
               alt="Billboard"
               width={1200}
               height={1600}
@@ -639,7 +639,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src="/sharkbank/banner-1-mobile.png"
+            src="/sharkbank/banner-1-mobile.PNG"
             alt="Banner-1"
             width={imgWidth}
             height={imgHeight}
@@ -659,7 +659,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src="/sharkbank/banner-2-mobile.png"
+            src="/sharkbank/banner-2-mobile.PNG"
             alt="Banner-2"
             width={imgWidth}
             height={imgHeight}
@@ -732,7 +732,7 @@ function MobileMode() {
               }}
             >
               <Image
-                src="/sharkbank/shark1.png"
+                src="/sharkbank/shark1.PNG"
                 alt="Shark"
                 width="275px"
                 height="800px"
@@ -750,7 +750,7 @@ function MobileMode() {
               }}
             >
               <Image
-                src="/sharkbank/SIGN.png"
+                src="/sharkbank/SIGN.PNG"
                 alt="Sign"
                 width="275px"
                 height="800px"
@@ -809,7 +809,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src="/sharkbank/shark2.png"
+            src="/sharkbank/shark2.PNG"
             alt="Shark"
             width="275px"
             height="800px"
