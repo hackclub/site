@@ -1745,5 +1745,17 @@
     "email": "davidc",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U092BUBS28G/r"
-  }
+  },
+  {
+    "name": "Bartosz Budnik",
+    "department": "Hacker Resources",
+    "role": "Verifications & Operations",
+    "acknowledged": false,
+    "bio": "Bartosz is a Hack Clubber from Poland who does a little of everything. Mainly focuses on checking verifications, but also helps detecting fraud and does some general operational work. Loves creating games and making things for others.",
+    "bioHackFoundation": "",
+    "slackId": "U079VBNLTPD",
+    "email": "bartosz",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/61f1b6d29e7880f8b02a72dd0ec25f891a77cc85_image.png"
+  },
 ]
