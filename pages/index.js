@@ -208,7 +208,7 @@ function Page({
           <Announcement
             width="90vw"
             copy="This summer is yours for the making!"
-            caption="Get free Flipper Zeros, Framework Laptops, 3D Printers, and more. Join Summer of Making! Jun 16 - Aug 31."
+            caption="Get free Flipper Zeros, Framework Laptops, 3D Printers, and more. Join Summer of Making! Jun 16 - Sep 30."
             href="https://summer.hackclub.com/"
             imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/779a5d748938b66ae93a566cc9699e636b01d462_summerlogo.png"
           />
@@ -287,24 +287,28 @@ function Page({
               <Button
                 variant="ctaLg"
                 as="a"
-                href="/slack"
+                href="https://summer.hackclub.com"
                 mt={[3, 0, 0]}
                 mr={3}
-                sx={{ transformOrigin: 'center left' }}
-              >
-                Join Slack
-              </Button>
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="https://shipwrecked.hack.club/3"
-                mt={3}
                 sx={{ 
-                  transformOrigin: 'left',
-                  backgroundImage: t => t.util.gx('green', 'blue'),
+                  transformOrigin: 'center left',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  width: 'fit-content'
                 }}
               >
-                Sign Up: Private Island Hackathon
+                Join Summer of Making
+                <Text
+                  as="span"
+                  sx={{
+                    fontSize: 0,
+                    opacity: 0.8,
+                    mt: 1
+                  }}
+                >
+                  Ends September 30th
+                </Text>
               </Button>
             </Heading>
           </Box>

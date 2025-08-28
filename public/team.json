@@ -48,10 +48,21 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ba0e4f09a7d26809ffd166edf96bae4e6371b39e_bio.jpg"
   },
   {
+    "name": "Arpan",
+    "department": "HQ",
+    "role": "Clubs Operation/Special Activites Director",
+    "acknowledged": true,
+    "bio": "Arpan joined HC through Epoch in 2022. Then worked with Clubs Operations, developing Clubs Directory, OpenAI Gateway and managing clubs in the APAC region. He then helped establish the Special Activities Division as it's first Director which runs virtual events for hackclubbers. He also led the Fraud Detection team for Hack Club Arcade.",
+    "slackId": "U0409FSKU82",
+    "email": "arpan",
+    "website": "https://arpanpandey.dev",
+    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQHgJ1rUos6FFA/profile-displayphoto-shrink_800_800/B56Zd.1nF2H8Ac-/0/1750179673148?e=1759363200&v=beta&t=Ta3W1GF6ZNYl7U-D6YSCAzNUJl4SHwERjslWbDsvEdQ"
+  },
+  {
     "name": "Zenab",
     "department": "HQ",
     "role": "Creative Events Manager",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Zenab works as a Creative Events Manager for the Days of Service program, helping non-binary youth and young girls write their first lines of code.",
     "slackId": "U079FFTKM37",
     "email": "zenab",
@@ -62,9 +73,9 @@
     "name": "Ben Dixon",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At Hack Club, Ben designs and implements snazzy new features at HCB, along with raiding their granola bars.",
-    "bioHackFoundation": "Coming all the way from drizzly England, Ben reconnected with his adoration for teaching people about programming through the computer graphics demoscene during lockdown; firmly believing “HLSL is basically pseudocode”. At The Hack Foundation, Ben designs and implements snazzy new features for HCB, along with raiding their granola bars.",
+    "bioHackFoundation": "",
     "slackId": "U03DFNYGPCN",
     "email": "malted",
     "website": "",
@@ -238,6 +249,18 @@
     "website": "https://phthallo.com",
     "avatar": "https://cloud-6fxxs7j9y-hack-club-bot.vercel.app/11733036812219.jpg"
   },
+    {
+    "name": "Reem Khalifa",
+    "department": "HQ",
+    "role": "Engineering & Community",
+    "acknowledged": false,
+    "bio": "Reem is a 17 year old Hack Clubber from New York City. She's currently gap-yearing for Hack Club's Athena Initative, working to increase the number of girls and non-binary teens in tech. In her free time, you can either find her diving into a swimming pool or snuggled in bed reading a book with her cat.",
+    "bioHackFoundation": "", 
+    "slackId": "U06U80G86H1", 
+    "email": "reem",
+    "website": "https://reemkhalifa.xyz",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b419a2679e0f5a23c9779f479c0ead155edeb875_image.png"
+  },
   {
     "name": "Amber",
     "department": "HQ",
@@ -261,6 +284,18 @@
     "email": "jared",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07HEH4N8UV/r"
+  },
+  {
+    "name": "Estella Gu",
+    "department": "HQ",
+    "role": "Engineering & Community",
+    "acknowledged": false,
+    "bio": "Estella is a Hack Clubber from Massachusetts who has been actively involved in events, YSWS, and the Athena Initiative. She has worked on design for Juice and Celestial. Recently during her HQ internship, she led Jumpstart, a game-dev program. In her free time, she enjoys art, writing, photography, and piano.",
+    "bioHackFoundation": "",
+    "slackId": "U06UYA4AH6F",
+    "email": "estella",
+    "website": "https://estellagu.com",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/fd48e2e86d64bf98099b25a6cfd8f5bdc315781d_headshot.png"
   },
   {
     "name": "Karthik Sankar",
@@ -322,6 +357,18 @@
     "avatar": "https://cloud-b6ykpb7te-hack-club-bot.vercel.app/0image.png"
   },
   {
+    "name": "Evan Gan",
+    "department": "HQ",
+    "role": "Events & Engineering",
+    "acknowledged": false,
+    "bio": "Evan is a 17 year old from the Greater Boston area. Evan enjoys running large scale events like Shipwrecked, working on logistics and event infrastructure.",
+    "bioHackFoundation": "",
+    "slackId": "U05D1G4H754",
+    "email": "evan",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U05D1G4H754/r"
+  },
+  {
     "name": "Phoebe",
     "department": "HQ",
     "role": "Communications & Partnership",
@@ -342,7 +389,7 @@
     "email": "mohamad",
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
-  }, 
+  },
   {
     "name": "Charlie Nicholson",
     "department": "HQ",
@@ -350,7 +397,7 @@
     "acknowledged": false,
     "bio": "Charlie is a Hack Clubber from the Greater Boston area. He joined Hack Club when he was 12 and launched his first YSWS when he was 13, Ham Club. More recently, he worked on a long-term hackathon called Apex, supported by Hack Club. He is now working for Hack Club to create more hardware YSWSs and events.",
     "slackId": "U054JRXUNG0",
-    "email": "charlie",
+    "email": "charlien",
     "website": "crnicholson.com",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a676e768a45c68eea74c7c3b602feae2eea22d45_screenshot_2024-11-17_at_5.22.37___pm.png"
   },
@@ -364,7 +411,7 @@
     "email": "katec",
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7bf19e299e3e8253096906cef8d599c7aedeed09_image.png"
-  }, 
+  },
   {
     "name": "Micha Albert",
     "department": "HQ",
@@ -375,7 +422,7 @@
     "email": "micha",
     "website": "https://mra.sh",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ca950cf3586abf03d8c3ee2f58e174a7d8a36889_18.jpg"
-  }, 
+  },
   {
     "name": "Gus Ruben",
     "department": "HQ",
@@ -386,7 +433,7 @@
     "email": "gus",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
-  },
+  },  
   {
     "name": "Nick Do",
     "department": "HQ",
@@ -420,6 +467,17 @@
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/534fd4f5d2643dc80e4ea6a6c6f2eb839528645d_headshot.jpg"
   },
+  {
+    "name": "Manitej Boorgu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U04QD71QWS0",
+    "email": "manitej",
+    "website": "https://manitej.com",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/67d9d436641ebb92d105815f98352851456131e5_a4ff0caf-c22e-44ec-b58a-89d18fa37997_1_105_c.jpeg"
+  },  
   {
     "name": "Melanie Smith",
     "department": "HCB",
@@ -493,9 +551,21 @@
     "avatar": "https://cloud-r09ga84qd-hack-club-bot.vercel.app/8image.png"
   },
   {
-    "name": "Rhys Panopio",
+    "name": "Alex DeForrest",
     "department": "HCB",
     "role": "Operations Gap Year",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U02CWS020SD",
+    "email": "alexd",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0513981889e244405d5c4ef0ccd30922e1fecc3c_img_6425_1200x1200.png"
+  },
+  {
+    "name": "Rhys Panopio",
+    "department": "HCB",
+    "role": "Operations",
     "acknowledged": false,
     "bio": "Rhys is a Hack Clubber from Los Angeles, he started a Hack Club at his high school and eventually shifted into working on Operations for HCB. Rhys loves helping out in all areas on HCB but more than anything loves to make pizza.",
     "bioHackFoundation": "",
@@ -601,18 +671,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U04FATFRE6T/r"
   },
   {
-    "name": "Alex DeForrest",
-    "department": "HCB",
-    "role": "Operations Contributor",
-    "acknowledged": false,
-    "bio": "",
-    "bioHackFoundation": "",
-    "slackId": "U02CWS020SD",
-    "email": "alexd",
-    "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0513981889e244405d5c4ef0ccd30922e1fecc3c_img_6425_1200x1200.png"
-  },
-  {
     "name": "Sarvesh Mohan Kumar",
     "department": "HCB",
     "role": "Operations Contributor",
@@ -656,7 +714,7 @@
     "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. At HCB, he's leveraging his passion and experience in Operations, helping clubs and non-profits access the financial tools they need for sustainable growth and success.",
     "bioHackFoundation": "",
     "slackId": "U07BLJ1MBEE",
-    "email": "leow",
+    "email": "leo",
     "website": "",
     "avatar": "https://avatars.githubusercontent.com/u/64415791"
   },
@@ -734,10 +792,10 @@
   },
   {
     "name": "Angad Behl",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
+    "department": "HQ",
+    "role": "Engineering and Community",
     "acknowledged": false,
-    "bio": "Angad is a 15 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's helped out with creating a peer to peer voting system for Hack Club hackathons and built an anonymous reporting system for the moderation team.",
+    "bio": "Angad is a 16 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's built a peer voting platform for over 2000 students, ran a YSWS providing travel stipends, and build moderation infastructure for Hack Club. In his free time, he enjoys photography, travel, and pondering.",
     "bioHackFoundation": "",
     "slackId": "U075RTSLDQ8",
     "email": "angad",
@@ -828,66 +886,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
   },
   {
-    "name": "Aram",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Aram is a Hack Clubber from Seattle, USA. He has been involved in Hack Club for a while now, and has helped out with various events and programs where he gets hack clubbers programming in public, together. He also loves learning about and sharing his knowledge of public transport.",
-    "bioHackFoundation": "",
-    "slackId": "U0616280E6P",
-    "email": "",
-    "website": "https://aram.sh",
-    "avatar": "https://cachet.dunkirk.sh/users/U0616280E6P/r"
-  },
-  {
-    "name": "Ascipixi",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Ascipixi has hosted several technical events in the Hack Club Slack and believes in keeping computers fun!",
-    "bioHackFoundation": "",
-    "slackId": "U082DPCGPST",
-    "email": "",
-    "website": "https://ascipixi.dev",
-    "avatar": "https://cachet.dunkirk.sh/users/U082DPCGPST/r"
-  },
-  {
-    "name": "Bartosz",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Bartosz is a Hack Clubber from Poland. He has been involved in Hack Club for a while now, and has helped out with ID verification and prize fulfilment for High Seas as well as hosting several virtual events to bring Hack Clubbers together",
-    "bioHackFoundation": "",
-    "slackId": "U079VBNLTPD",
-    "email": "bartosz",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U079VBNLTPD/r"
-  },
-  {
-    "name": "Mudacumura Brunoblaise",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Brunoblaise is a Hack Clubber from Kigali and has run several virtual community events to get Hack Clubbers programming together during High Seas.",
-    "bioHackFoundation": "",
-    "slackId": "U03T4CQ01RR",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U03T4CQ01RR/r"
-  },
-  {
-    "name": "Evan Gan",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Evan is a Hack Clubber from Greater Boston, USA who's run several game jams to get Hack Clubbers learning new things for larger Hack Club projects such as Arcade and High Seas.",
-    "bioHackFoundation": "",
-    "slackId": "U05D1G4H754",
-    "email": "evan",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U05D1G4H754/r"
-  },
-  {
     "name": "Darlene Wu",
     "department": "Events",
     "role": "Event Organiser",
@@ -922,30 +920,6 @@
     "email": "lucas",
     "website": "https://page.devlucas.page/",
     "avatar": "https://cachet.dunkirk.sh/users/U040N4ESCEL/r"
-  },
-  {
-    "name": "Estella Gu",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Estella is a Hack Clubber from Massachusetts, USA. During her time in the Hack Club community she's helped run both in-person events such as Juice, and plenty of fun virtual hangout events aiming to help Hack Clubbers have fun together.",
-    "bioHackFoundation": "",
-    "slackId": "U06UYA4AH6F",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U06UYA4AH6F/r"
-  },
-  {
-    "name": "Marios Mitsios",
-    "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": false,
-    "bio": "Marios is a 16 year old Hack Clubber from Greece who runs virtual events for the Hack Club community. He has also worked on the Sprig and Hack Club Engineering teams in the past.",
-    "bioHackFoundation": "",
-    "slackId": "U04FMKCVASJ",
-    "email": "marios",
-    "website": "https://read.cv/mariosm",
-    "avatar": "https://cachet.dunkirk.sh/users/U04FMKCVASJ/r"
   },
   {
     "name": "Felix Gao",
@@ -1701,6 +1675,18 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/812f456bcb039cc2add7e8fba7b742a8b54639c8_45-13042025-5p7a7188-x2.jpg"
   },
   {
+    "name": "Olive Wu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Olive is a gap year working on the YSWS team this year at HC! In her free time, she loves to bake cupcakes, play cello, and work on fun projects. She also loves penguins.",
+    "bioHackFoundation": "",
+    "slackId": "U07BN55GN3D",
+    "email": "olive",
+    "website": "",
+    "avatar": "https://ca.slack-edge.com/T0266FRGM-U07BN55GN3D-2f76fc57cd24-512"
+  },
+  {
     "name": "Sam Liu",
     "department": "HQ",
     "role": "Engineering",
@@ -1711,5 +1697,76 @@
     "email": "samliu",
     "website": "https://samliu.dev",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1f2d09365b0ed42d8e9864c80ba4d8561d85ab9b_frame_1.png"
+  },
+  {
+    "name": "Jiang Tongyu",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Tongyu is a 19-year-old Hack Clubber from Singapore who loves making games! She's taking a gap year at Hack Club SF to run events and adventures. She also likes linguistics, making crafts, and sometimes writing music.",
+    "bioHackFoundation": "",
+    "slackId": "U07DJMFAQQP",
+    "email": "tongyu",
+    "website": "https://tongyu.fish",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
+  },
+  {
+    "name": "ascpixi",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "slackId": "U082DPCGPST",
+    "email": "ascpixi",
+    "website": "https://ascpixi.dev",
+    "avatar": "https://cachet.dunkirk.sh/users/U082DPCGPST/r"
+  },
+  {
+    "name": "Sebastian",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Sebastian (a.k.a. Leafd) is a 17-year-old developer from México who likes making large-scale Minecraft events, loves working with Kubernetes, likes creating and learning new things, and sometimes does music production.",
+    "bioHackFoundation": "",
+    "slackId": "U07UBCSSQH3",
+    "email": "sebastian",
+    "website": "https://leafd.dev",
+    "avatar": "https://cdn.leafd.dev/leafdavatar.jpg"
+  },
+  {
+    "name": "Briyan Dyju",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "Briyan is a 16-year-old Indian Hack Clubber born and raised in Dubai. He has a passion for jailbreaking and modding any device that lands in his hands. He handles the day-to-day operations at HCB, so if you mail them, there's a slight chance he's the one who might reply. If he is not doing either of these things, you'll probably find him kicking a soccer ball somewhere.",
+    "bioHackFoundation": "",
+    "slackId": "U04FS5WUXL3",
+    "email": "briyan",
+    "website": "",
+    "avatar": "https://ca.slack-edge.com/T0266FRGM-U04FS5WUXL3-c46373538def-512"
+  },
+  {
+    "name": "Matthew Soh",
+    "department": "HCB",
+    "role": "Operations Contributor",
+    "acknowledged": false,
+    "bio": "Matthew is a 15-year-old Singaporean coder and informatics enthusiast, now living in Cambridge, UK. He enjoys exploring algorithms, more algorithms, and occasionally organising hackathons with the Youthacks team. Outside of programming, you might find him at the piano or behind a percussion set.",
+    "bioHackFoundation": "",
+    "slackId": "U07DPHQCCCS",
+    "email": "mattsoh",
+    "website": "https://youthacks.org",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4926a04e4aa9a101e4919d8b8071991a74c20b08_compressjpeg.online_img_512x512_.jpg"
+  },
+  {
+    "name": "David Cornu",
+    "department": "HCB",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U092BUBS28G",
+    "email": "davidc",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U092BUBS28G/r"
   }
 ]

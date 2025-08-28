@@ -75,15 +75,15 @@ export default function First({ stats }) {
             }}
           >
             <a
-              href="https://hcb.hackclub.com/referrals/ArGHqN"
+              href="https://hcb.hackclub.com/from/hack-club-site-fs-first-page/M2PHxN"
               style={{ textDecoration: 'none' }}
               target="_blank"
             >
               <Announcement
-                copy="Win a Flipper Zero!"
-                caption="We’re giving away a Flipper Zero to a lucky teenager! Join the Raffle by June 30th, 2025."
-                imgSrc="/fiscal-sponsorship/first/flipper-zero.png"
-                imgAlt="Flipper Zero"
+                copy="Win a 13-inch MacBook Air!"
+                caption="We’re giving away a MacBook to a lucky teenager! Join the Raffle by August 31st, 2025."
+                imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef010a890d7c554a6da9328d62f9a592df9ae5d_laptop-removebg-preview.png"
+                imgAlt="13-inch MacBook Air"
                 color="primary"
                 textColor="slate"
                 sx={{ mt: [3, 4, 4] }}
