@@ -48,6 +48,17 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ba0e4f09a7d26809ffd166edf96bae4e6371b39e_bio.jpg"
   },
   {
+    "name": "Arpan",
+    "department": "HQ",
+    "role": "Clubs Operation/Special Activites Director",
+    "acknowledged": true,
+    "bio": "Arpan joined HC through Epoch in 2022. Then worked with Clubs Operations, developing Clubs Directory, OpenAI Gateway and managing clubs in the APAC region. He then helped establish the Special Activities Division as it's first Director which runs virtual events for hackclubbers. He also led the Fraud Detection team for Hack Club Arcade.",
+    "slackId": "U0409FSKU82",
+    "email": "arpan",
+    "website": "https://arpanpandey.dev",
+    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQHgJ1rUos6FFA/profile-displayphoto-shrink_800_800/B56Zd.1nF2H8Ac-/0/1750179673148?e=1759363200&v=beta&t=Ta3W1GF6ZNYl7U-D6YSCAzNUJl4SHwERjslWbDsvEdQ"
+  },
+  {
     "name": "Zenab",
     "department": "HQ",
     "role": "Creative Events Manager",
@@ -273,6 +284,18 @@
     "email": "jared",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07HEH4N8UV/r"
+  },
+  {
+    "name": "Estella Gu",
+    "department": "HQ",
+    "role": "Engineering & Community",
+    "acknowledged": false,
+    "bio": "Estella is a Hack Clubber from Massachusetts who has been actively involved in events, YSWS, and the Athena Initiative. She has worked on design for Juice and Celestial. Recently during her HQ internship, she led Jumpstart, a game-dev program. In her free time, she enjoys art, writing, photography, and piano.",
+    "bioHackFoundation": "",
+    "slackId": "U06UYA4AH6F",
+    "email": "estella",
+    "website": "https://estellagu.com",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/fd48e2e86d64bf98099b25a6cfd8f5bdc315781d_headshot.png"
   },
   {
     "name": "Karthik Sankar",
