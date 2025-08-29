@@ -151,17 +151,25 @@ function DesktopMode({ billboardBottom }) {
               fontSize: '30px',
               position: 'absolute',
               zIndex: '20',
-              maxWidth: '550px',
+              maxWidth: '750px',
               textAlign: 'center',
               transform: 'perspective(800px) rotateX(17deg)',
               transformStyle: 'preserve-3d',
               color: 'white'
             }}
           >
-            HCB is hosting its first ever event, Shark Bank an exciting
-            opportunity to pitch your organization's mission and the awesome
-            steps you've taken to a panel of judges for a chance to win up to
-            $1000 in funding!
+            <span style={{ display: 'block', transform: 'scaleX(0.9)', transformOrigin: 'top center' }}>
+              HCB is hosting its first ever event, Shark Bank! <br /> An exciting opportunity for teen organizations
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1)', transformOrigin: 'top center' }}>
+              who are passionate about their mission to showcase <br /> their work and potentially receive funding to take their ideas to the next level.
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
+              Participants will pitch their organization’s mission and highlight the awesome steps they’ve already taken to a panel of judges for a chance to win up to $1000 in funding.
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1.2)', transformOrigin: 'top center' }}>
+              You must run a teenager-led organization on HCB to be eligible to apply.
+            </span>
           </Text>
         </Box>
         <Box
@@ -433,10 +441,18 @@ function TabletMode() {
               color: 'white'
             }}
           >
-            HCB is hosting its first ever event, Shark Bank an exciting
-            opportunity to pitch your organization's mission and the awesome
-            steps you've taken to a panel of judges for a chance to win up to
-            $1000 in funding!
+            <span style={{ display: 'block', transform: 'scaleX(0.9)', transformOrigin: 'top center' }}>
+              HCB is hosting its first ever event, Shark Bank! <br /> An exciting opportunity for teen organizations
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1)', transformOrigin: 'top center' }}>
+              who are passionate about their mission to showcase <br /> their work and potentially receive funding to take their ideas to the next level.
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
+              Participants will pitch their organization’s mission and highlight the awesome steps they’ve already taken to a panel of judges for a chance to win up to $1000 in funding.
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1.2)', transformOrigin: 'top center' }}>
+              You must run a teenager-led organization on HCB to be eligible to apply.
+            </span>
           </Text>
         </Box>
         <Box
@@ -709,10 +725,18 @@ function MobileMode() {
               color: 'white'
             }}
           >
-            HCB is hosting its first ever event, Shark Bank an exciting
-            opportunity to pitch your organization's mission and the awesome
-            steps you've taken to a panel of judges for a chance to win up to
-            $1000 in funding!
+            <span style={{ display: 'block', transform: 'scaleX(0.9)', transformOrigin: 'top center' }}>
+              HCB is hosting its first ever event, Shark Bank! <br /> An exciting opportunity for teen organizations
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1)', transformOrigin: 'top center' }}>
+              who are passionate about their mission to showcase <br /> their work and potentially receive funding to take their ideas to the next level.
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
+              Participants will pitch their organization’s mission and highlight the awesome steps they’ve already taken to a panel of judges for a chance to win up to $1000 in funding.
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1.2)', transformOrigin: 'top center' }}>
+              You must run a teenager-led organization on HCB to be eligible to apply.
+            </span>
           </Text>
         </Box>
         <Box
