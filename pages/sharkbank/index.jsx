@@ -240,16 +240,15 @@ function DesktopMode({ billboardBottom }) {
               <Link href="https://forms.hackclub.com/sharkbank" passHref>
                 <button
                   style={{
-                    height: '50px',
+                    height: '65px',
                     width: '220px',
                     position: 'absolute',
                     bottom: '-326px',
                     left: '180px',
                     zIndex: 2,
                     rotate: '-5deg',
-                    border: '2px solid black',
                     borderRadius: '50px',
-                    background: '#E8E5C8',
+                    border: 'none',
                     cursor: 'pointer',
                     fontFamily: 'Phantom Sans',
                     fontWeight: 500,
@@ -257,9 +256,24 @@ function DesktopMode({ billboardBottom }) {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    zIndex: '200'
+                    zIndex: '200',
+                    background: 'transparent',
                   }}
                 >
+                  <img
+                    src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                    alt="Button background"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover', // Scale image to fill the button
+                      position: 'absolute', // Position the image to fill the button
+                      top: '0',
+                      left: '0',
+                      zIndex: '-1', // Place the image behind the text
+                      borderRadius: '50px', // Apply the same border-radius as the button
+                    }}
+                  />
                   SIGN UP <Icon glyph="enter" size={35} />
                 </button>
               </Link>
@@ -519,16 +533,14 @@ function TabletMode() {
               <Link href="https://forms.hackclub.com/sharkbank" passHref>
                 <button
                   style={{
-                    height: '50px',
+                    height: '65px',
                     width: '220px',
                     position: 'absolute',
                     bottom: '-326px',
                     left: '180px',
                     zIndex: 2,
                     rotate: '-5deg',
-                    border: '2px solid black',
                     borderRadius: '50px',
-                    background: '#E8E5C8',
                     cursor: 'pointer',
                     fontFamily: 'Phantom Sans',
                     fontWeight: 500,
@@ -536,9 +548,25 @@ function TabletMode() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    zIndex: '200'
+                    zIndex: '200',
+                    background: 'transparent',
+                    border: 'none'
                   }}
                 >
+                  <img
+                    src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                    alt="Button background"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover', // Scale image to fill the button
+                      position: 'absolute', // Position the image to fill the button
+                      top: '0',
+                      left: '0',
+                      zIndex: '-1', // Place the image behind the text
+                      borderRadius: '50px', // Apply the same border-radius as the button
+                    }}
+                  />
                   SIGN UP <Icon glyph="enter" size={35} />
                 </button>
               </Link>
@@ -801,16 +829,14 @@ function MobileMode() {
               <Link href="https://forms.hackclub.com/sharkbank" passHref>
                 <button
                   style={{
-                    height: '50px',
+                    height: '65px',
                     width: '220px',
                     position: 'absolute',
                     bottom: '-326px',
                     left: '180px',
                     zIndex: 2,
                     rotate: '-5deg',
-                    border: '2px solid black',
                     borderRadius: '50px',
-                    background: '#E8E5C8',
                     cursor: 'pointer',
                     fontFamily: 'Phantom Sans',
                     fontWeight: 500,
@@ -818,9 +844,25 @@ function MobileMode() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    zIndex: '200'
+                    zIndex: '200',
+                    background: 'transparent',
+                    border: 'none'
                   }}
                 >
+                  <img
+                    src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                    alt="Button background"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover', // Scale image to fill the button
+                      position: 'absolute', // Position the image to fill the button
+                      top: '0',
+                      left: '0',
+                      zIndex: '-1', // Place the image behind the text
+                      borderRadius: '50px', // Apply the same border-radius as the button
+                    }}
+                  />
                   SIGN UP <Icon glyph="enter" size={35} />
                 </button>
               </Link>
