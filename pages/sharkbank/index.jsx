@@ -229,30 +229,32 @@ function DesktopMode({ billboardBottom }) {
               >
                 Sign up now!
               </Text>
-              <button
-                style={{
-                  height: '50px',
-                  width: '220px',
-                  position: 'absolute',
-                  bottom: '-326px',
-                  left: '180px',
-                  zIndex: 2,
-                  rotate: '-5deg',
-                  border: '2px solid black',
-                  borderRadius: '50px',
-                  background: '#E8E5C8',
-                  cursor: 'pointer',
-                  fontFamily: 'Phantom Sans',
-                  fontWeight: 500,
-                  fontSize: '25px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: '200'
-                }}
-              >
-                SIGN UP <Icon glyph="enter" size={35} />
-              </button>
+              <Link href="https://forms.hackclub.com/sharkbank" passHref>
+                <button
+                  style={{
+                    height: '50px',
+                    width: '220px',
+                    position: 'absolute',
+                    bottom: '-326px',
+                    left: '180px',
+                    zIndex: 2,
+                    rotate: '-5deg',
+                    border: '2px solid black',
+                    borderRadius: '50px',
+                    background: '#E8E5C8',
+                    cursor: 'pointer',
+                    fontFamily: 'Phantom Sans',
+                    fontWeight: 500,
+                    fontSize: '25px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: '200'
+                  }}
+                >
+                  SIGN UP <Icon glyph="enter" size={35} />
+                </button>
+              </Link>
             </div>
           </div>
         </Box>
@@ -502,30 +504,32 @@ function TabletMode() {
               >
                 Sign up now!
               </Text>
-              <button
-                style={{
-                  height: '50px',
-                  width: '220px',
-                  position: 'absolute',
-                  bottom: '-326px',
-                  left: '180px',
-                  zIndex: 2,
-                  rotate: '-5deg',
-                  border: '2px solid black',
-                  borderRadius: '50px',
-                  background: '#E8E5C8',
-                  cursor: 'pointer',
-                  fontFamily: 'Phantom Sans',
-                  fontWeight: 500,
-                  fontSize: '25px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: '200'
-                }}
-              >
-                SIGN UP <Icon glyph="enter" size={35} />
-              </button>
+              <Link href="https://forms.hackclub.com/sharkbank" passHref>
+                <button
+                  style={{
+                    height: '50px',
+                    width: '220px',
+                    position: 'absolute',
+                    bottom: '-326px',
+                    left: '180px',
+                    zIndex: 2,
+                    rotate: '-5deg',
+                    border: '2px solid black',
+                    borderRadius: '50px',
+                    background: '#E8E5C8',
+                    cursor: 'pointer',
+                    fontFamily: 'Phantom Sans',
+                    fontWeight: 500,
+                    fontSize: '25px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: '200'
+                  }}
+                >
+                  SIGN UP <Icon glyph="enter" size={35} />
+                </button>
+              </Link>
             </div>
           </div>
         </Box>
