@@ -3,13 +3,14 @@ import Nav from '../../components/nav'
 import Image from 'next/image'
 import Icon from '@hackclub/icons'
 import { Box, Text } from 'theme-ui'
+import Link from 'next/link'
 
 //Desktop Mode
 function DesktopMode({ billboardBottom }) {
   return (
     <>
       {/* First Section */}
-      <Section bg="/sharkbank/firstSectionBG.png" minHeight="950px">
+      <Section bg="/sharkbank/firstSectionBG.png" minHeight="1100px">
         <Image
           src="/sharkbank/bgBuildingsFirstSection.png"
           layout="fill"
@@ -85,7 +86,7 @@ function DesktopMode({ billboardBottom }) {
       </Section>
 
       {/* Second Section */}
-      <Section bg="/sharkbank/secondSectionBG.png" minHeight="950px">
+      <Section bg="/sharkbank/secondSectionBG.png" minHeight="1100px">
         {/* Banners */}
         <Box
           as="div"
@@ -129,7 +130,7 @@ function DesktopMode({ billboardBottom }) {
       </Section>
 
       {/* Third Section */}
-      <Section bg="/sharkbank/thirdSectionBG.png" minHeight="950px">
+      <Section bg="/sharkbank/thirdSectionBG.png" minHeight="1100px">
         {/* Text  */}
         <Box
           as={'div'}
