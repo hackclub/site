@@ -441,16 +441,12 @@ function TabletMode() {
               color: 'white'
             }}
           >
-            <span style={{ display: 'block', transform: 'scaleX(0.9)', transformOrigin: 'top center' }}>
+            <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
               HCB is hosting its first ever event, Shark Bank! <br /> An exciting opportunity for teen organizations
-            </span>
-            <span style={{ display: 'block', transform: 'scaleX(1)', transformOrigin: 'top center' }}>
-              who are passionate about their mission to showcase <br /> their work and potentially receive funding to take their ideas to the next level.
+              who are passionate about their mission to showcase their work and potentially receive funding to take their ideas to the next level.
             </span>
             <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
               Participants will pitch their organization’s mission and highlight the awesome steps they’ve already taken to a panel of judges for a chance to win up to $1000 in funding.
-            </span>
-            <span style={{ display: 'block', transform: 'scaleX(1.2)', transformOrigin: 'top center' }}>
               You must run a teenager-led organization on HCB to be eligible to apply.
             </span>
           </Text>
@@ -709,7 +705,7 @@ function MobileMode() {
             alignItems: 'center',
             position: 'absolute',
             zIndex: '200',
-            top: '-350px'
+            top: '-300px'
           }}
         >
           <Text
@@ -718,7 +714,7 @@ function MobileMode() {
               fontSize: '20px',
               position: 'absolute',
               zIndex: '20',
-              maxWidth: '300px',
+              maxWidth: '350px',
               textAlign: 'center',
               transform: 'perspective(800px) rotateX(17deg)',
               transformStyle: 'preserve-3d',
@@ -726,15 +722,11 @@ function MobileMode() {
             }}
           >
             <span style={{ display: 'block', transform: 'scaleX(0.9)', transformOrigin: 'top center' }}>
-              HCB is hosting its first ever event, Shark Bank! <br /> An exciting opportunity for teen organizations
+              HCB is hosting its first ever event, Shark Bank! An exciting opportunity for teen organizations 
+              who are passionate about their mission to showcase their work and potentially receive funding to take their ideas to the next level.
             </span>
-            <span style={{ display: 'block', transform: 'scaleX(1)', transformOrigin: 'top center' }}>
-              who are passionate about their mission to showcase <br /> their work and potentially receive funding to take their ideas to the next level.
-            </span>
-            <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
+            <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
               Participants will pitch their organization’s mission and highlight the awesome steps they’ve already taken to a panel of judges for a chance to win up to $1000 in funding.
-            </span>
-            <span style={{ display: 'block', transform: 'scaleX(1.2)', transformOrigin: 'top center' }}>
               You must run a teenager-led organization on HCB to be eligible to apply.
             </span>
           </Text>
