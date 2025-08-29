@@ -375,7 +375,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d8f64e2c6d0012d98c9205dc6a3a002f38a2b775_banner-2-mobile.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6b4aa76d177f19a351b222c9114eba5745df67a3_banner-1-mobile.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -395,7 +395,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6b4aa76d177f19a351b222c9114eba5745df67a3_banner-1-mobile.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d8f64e2c6d0012d98c9205dc6a3a002f38a2b775_banner-2-mobile.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -652,7 +652,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6b4aa76d177f19a351b222c9114eba5745df67a3_banner-1-mobile.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d8f64e2c6d0012d98c9205dc6a3a002f38a2b775_banner-2-mobile.png"
             alt="Banner-1"
             width={imgWidth}
             height={imgHeight}
@@ -672,7 +672,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d8f64e2c6d0012d98c9205dc6a3a002f38a2b775_banner-2-mobile.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6b4aa76d177f19a351b222c9114eba5745df67a3_banner-1-mobile.png"
             alt="Banner-2"
             width={imgWidth}
             height={imgHeight}
