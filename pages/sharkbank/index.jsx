@@ -99,7 +99,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src="/sharkbank/BANNER_1.PNG"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9c0ab7087b7324f484a3f86e59d1426f3089a792_BANNER_1.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -119,7 +119,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src="/sharkbank/BANNER_2.PNG"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/51b2111a5b362b93ddd2ffc677591105b01914a4_BANNER_2.png"
             alt="Banner-2"
             width="275px"
             height="800px"
@@ -375,7 +375,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src="/sharkbank/banner-1-mobile.PNG"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6b4aa76d177f19a351b222c9114eba5745df67a3_banner-1-mobile.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -395,7 +395,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src="/sharkbank/banner-2-mobile.PNG"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d8f64e2c6d0012d98c9205dc6a3a002f38a2b775_banner-2-mobile.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -652,7 +652,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src="/sharkbank/banner-1-mobile.PNG"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6b4aa76d177f19a351b222c9114eba5745df67a3_banner-1-mobile.png"
             alt="Banner-1"
             width={imgWidth}
             height={imgHeight}
@@ -672,7 +672,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src="/sharkbank/banner-2-mobile.PNG"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d8f64e2c6d0012d98c9205dc6a3a002f38a2b775_banner-2-mobile.png"
             alt="Banner-2"
             width={imgWidth}
             height={imgHeight}
