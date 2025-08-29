@@ -78,7 +78,7 @@ function DesktopMode({ billboardBottom }) {
                 }}
               >
                 HCB, the Sharks, are ready to invest, using their own money but
-                only to the nonprofits with the most well thought out plan.
+                only to the nonprofits with the most well thought out plan. -- quote mel stole
               </Text>
             </div>
           </div>
