@@ -64,7 +64,7 @@ function DesktopMode({ billboardBottom }) {
             >
               <Text
                 as="h4"
-                sx={{ marginTop: '-354px', fontSize: '70px', color: 'white' }}
+                sx={{ marginTop: '-354px', fontSize: '60px', color: 'white' }}
               >
                 Welcome to SharkBank!
               </Text>
@@ -72,13 +72,13 @@ function DesktopMode({ billboardBottom }) {
                 as="p"
                 sx={{
                   fontSize: '30px',
-                  maxWidth: '700px',
+                  maxWidth: '850px',
                   textAlign: 'center',
                   color: 'white'
                 }}
               >
-                HCB, the Sharks, are ready to invest, using their own money but
-                only to the nonprofits with the most well thought out plan. -- quote mel stole
+                The Sharks (aka HCB) are ready to invest in YOUR nonprofit. Proposals are officially open to try and earn a spot 
+                pitching your nonprofit mission to our panel of judges. Win up to $1000 in funds to propel your mission forward.
               </Text>
             </div>
           </div>
@@ -142,7 +142,7 @@ function DesktopMode({ billboardBottom }) {
             alignItems: 'center',
             position: 'absolute',
             zIndex: '200',
-            bottom: '300px'
+            bottom: '200px'
           }}
         >
           <Text
@@ -158,17 +158,15 @@ function DesktopMode({ billboardBottom }) {
               color: 'white'
             }}
           >
-            <span style={{ display: 'block', transform: 'scaleX(0.9)', transformOrigin: 'top center' }}>
-              HCB is hosting its first ever event, Shark Bank! <br /> An exciting opportunity for teen organizations
-            </span>
-            <span style={{ display: 'block', transform: 'scaleX(1)', transformOrigin: 'top center' }}>
-              who are passionate about their mission to showcase <br /> their work and potentially receive funding to take their ideas to the next level.
+            <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
+              HCB is hosting its first ever competition, Shark Bank!  Win up to $1000 in funding to propel your mission out to sea!
             </span>
             <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
-              Participants will pitch their organization’s mission and highlight the awesome steps they’ve already taken to a panel of judges for a chance to win up to $1000 in funding.
+              Get ready for an exciting opportunity to pitch your organization’s 
+              mission to a panel of HCB teen judges.
             </span>
             <span style={{ display: 'block', transform: 'scaleX(1.2)', transformOrigin: 'top center' }}>
-              You must run a teenager-led organization on HCB to be eligible to apply.
+              Win up to $1000 in funding to propel your mission out to sea!
             </span>
           </Text>
         </Box>
@@ -376,8 +374,8 @@ function TabletMode() {
                   color: 'white'
                 }}
               >
-                HCB, the Sharks, are ready to invest, using their own money but
-                only to the nonprofits with the most well thought out plan.
+                The Sharks (aka HCB) are ready to invest in YOUR nonprofit. Proposals are officially open to try and earn a spot 
+                pitching your nonprofit mission to our panel of judges. Win up to $1000 in funds to propel your mission forward.
               </Text>
             </div>
           </div>
@@ -439,7 +437,7 @@ function TabletMode() {
             alignItems: 'center',
             position: 'absolute',
             zIndex: '200',
-            top: '-500px'
+            top: '-350px'
           }}
         >
           <Text
@@ -448,7 +446,7 @@ function TabletMode() {
               fontSize: '25px',
               position: 'absolute',
               zIndex: '20',
-              maxWidth: '700px',
+              maxWidth: '600px',
               textAlign: 'center',
               transform: 'perspective(800px) rotateX(17deg)',
               transformStyle: 'preserve-3d',
@@ -456,12 +454,14 @@ function TabletMode() {
             }}
           >
             <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
-              HCB is hosting its first ever event, Shark Bank! <br /> An exciting opportunity for teen organizations
-              who are passionate about their mission to showcase their work and potentially receive funding to take their ideas to the next level.
+              HCB is hosting its first ever competition, Shark Bank!  Win up to $1000 in funding to propel your mission out to sea!
             </span>
             <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
-              Participants will pitch their organization’s mission and highlight the awesome steps they’ve already taken to a panel of judges for a chance to win up to $1000 in funding.
-              You must run a teenager-led organization on HCB to be eligible to apply.
+              Get ready for an exciting opportunity to pitch your organization’s 
+              mission to a panel of HCB teen judges.
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1.2)', transformOrigin: 'top center' }}>
+              Win up to $1000 in funding to propel your mission out to sea!
             </span>
           </Text>
         </Box>
@@ -657,7 +657,7 @@ function MobileMode() {
                 as="h4"
                 sx={{
                   marginTop: '0px',
-                  fontSize: '30px',
+                  fontSize: '25px',
                   color: 'white'
                 }}
               >
@@ -672,8 +672,8 @@ function MobileMode() {
                   color: 'white'
                 }}
               >
-                HCB, the Sharks, are ready to invest, using their own money but
-                only to the nonprofits with the most well thought out plan.
+                The Sharks (aka HCB) are ready to invest in YOUR nonprofit. Proposals are officially open to try and earn a spot 
+                pitching your nonprofit mission to our panel of judges. Win up to $1000 in funds to propel your mission forward.
               </Text>
             </div>
           </div>
@@ -742,7 +742,7 @@ function MobileMode() {
               fontSize: '20px',
               position: 'absolute',
               zIndex: '20',
-              maxWidth: '350px',
+              maxWidth: '300px',
               textAlign: 'center',
               transform: 'perspective(800px) rotateX(17deg)',
               transformStyle: 'preserve-3d',
@@ -750,12 +750,14 @@ function MobileMode() {
             }}
           >
             <span style={{ display: 'block', transform: 'scaleX(0.9)', transformOrigin: 'top center' }}>
-              HCB is hosting its first ever event, Shark Bank! An exciting opportunity for teen organizations 
-              who are passionate about their mission to showcase their work and potentially receive funding to take their ideas to the next level.
+              HCB is hosting its first ever competition, Shark Bank!  Win up to $1000 in funding to propel your mission out to sea!
             </span>
             <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
-              Participants will pitch their organization’s mission and highlight the awesome steps they’ve already taken to a panel of judges for a chance to win up to $1000 in funding.
-              You must run a teenager-led organization on HCB to be eligible to apply.
+              Get ready for an exciting opportunity to pitch your organization’s 
+              mission to a panel of HCB teen judges.
+            </span>
+            <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
+              Win up to $1000 in funding to propel your mission out to sea!
             </span>
           </Text>
         </Box>
