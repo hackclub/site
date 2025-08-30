@@ -28,12 +28,12 @@
     "department": "HQ",
     "role": "Events Lead",
     "acknowledged": false,
-    "bio": "Deven is a Hack Clubber from India who enjoys building meaningful things at the intersections of art and technology. He also loves music and plays the guitar & drums! Along with this, he also likes talking to strangers over the internet and having interesting & deep conversations. He is also a sucker for nature photography and enjoys hikes and treks into the wild!",
+    "bio": "After organizing hackathons and building in-person communities in highschool, Deven now works on Hack Club's in-person events and hackathons program. He is incredibly passionate about creating magical in-person interactions for thousands of Hack Clubbers each year. In his free time, Deven loves listening to music and playing the guitar- along with having deep, meaningful conversations with people!",
     "bioHackFoundation": "",
     "slackId": "U0261EB1EG7",
     "email": "dev",
     "website": "",
-    "avatar": "https://cloud-ef7jkweco-hack-club-bot.vercel.app/0image_47u2ffcxskiet6njqmuexzch.png"
+    "avatar": "https://github.com/devenjadhav.png"
   },
   {
     "name": "Graham Darcey",
@@ -284,6 +284,18 @@
     "email": "jared",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07HEH4N8UV/r"
+  },
+  {
+    "name": "Estella Gu",
+    "department": "HQ",
+    "role": "Engineering & Community",
+    "acknowledged": false,
+    "bio": "Estella is a Hack Clubber from Massachusetts who has been actively involved in events, YSWS, and the Athena Initiative. She has worked on design for Juice and Celestial. Recently during her HQ internship, she led Jumpstart, a game-dev program. In her free time, she enjoys art, writing, photography, and piano.",
+    "bioHackFoundation": "",
+    "slackId": "U06UYA4AH6F",
+    "email": "estella",
+    "website": "https://estellagu.com",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/fd48e2e86d64bf98099b25a6cfd8f5bdc315781d_headshot.png"
   },
   {
     "name": "Karthik Sankar",
