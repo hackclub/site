@@ -99,7 +99,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9c0ab7087b7324f484a3f86e59d1426f3089a792_BANNER_1.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c32a26f584d572c67c00fbe2701c70afa7111261_red_desktop.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -159,7 +159,7 @@ function DesktopMode({ billboardBottom }) {
             }}
           >
             <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
-              HCB is hosting its first ever competition, Shark Bank!  Win up to $1000 in funding to propel your mission out to sea!
+              HCB is hosting its first ever competition, SharkBank!  Win up to $1000 in funding to propel your mission out to sea!
             </span>
             <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
               Get ready for an exciting opportunity to pitch your organization’s 
@@ -395,7 +395,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d8f64e2c6d0012d98c9205dc6a3a002f38a2b775_banner-2-mobile.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/899512573085f07df33d298375e45ac1fd66c6b5_red_mobile.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -454,7 +454,7 @@ function TabletMode() {
             }}
           >
             <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
-              HCB is hosting its first ever competition, Shark Bank!  Win up to $1000 in funding to propel your mission out to sea!
+              HCB is hosting its first ever competition, SharkBank!  Win up to $1000 in funding to propel your mission out to sea!
             </span>
             <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
               Get ready for an exciting opportunity to pitch your organization’s 
@@ -530,7 +530,7 @@ function TabletMode() {
               >
                 Sign up now!
               </Text>
-              <Link href="https://forms.hackclub.com/sharkbank" passHref>
+              <Link href="https://forms.hackclub.com/sharkbank">
                 <button
                   style={{
                     height: '65px',
@@ -692,7 +692,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/d8f64e2c6d0012d98c9205dc6a3a002f38a2b775_banner-2-mobile.png"
+            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/899512573085f07df33d298375e45ac1fd66c6b5_red_mobile.png"
             alt="Banner-1"
             width={imgWidth}
             height={imgHeight}
@@ -750,7 +750,7 @@ function MobileMode() {
             }}
           >
             <span style={{ display: 'block', transform: 'scaleX(0.9)', transformOrigin: 'top center' }}>
-              HCB is hosting its first ever competition, Shark Bank!  Win up to $1000 in funding to propel your mission out to sea!
+              HCB is hosting its first ever competition, SharkBank!  Win up to $1000 in funding to propel your mission out to sea!
             </span>
             <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
               Get ready for an exciting opportunity to pitch your organization’s 
@@ -770,7 +770,6 @@ function MobileMode() {
             right: '-70px',
             display: 'flex',
             justifyContent: 'center',
-            transform: 'scale(0.7)'
           }}
         >
           <div
@@ -786,6 +785,8 @@ function MobileMode() {
               style={{
                 height: '300px',
                 width: '300px',
+                top: '250px',
+                left: '75px',
                 position: 'absolute',
                 zIndex: 2
               }}
@@ -793,8 +794,8 @@ function MobileMode() {
               <Image
                 src="/sharkbank/shark1.PNG"
                 alt="Shark"
-                width="275px"
-                height="800px"
+                width="175px"
+                height="500px"
                 objectFit="contain"
                 priority
               />
@@ -804,15 +805,15 @@ function MobileMode() {
                 height: '100%',
                 width: '100%',
                 position: 'absolute',
-                bottom: '150px',
-                left: '-77px'
+                left: '10px',
+                top: '200px'
               }}
             >
               <Image
                 src="/sharkbank/SIGN.PNG"
                 alt="Sign"
-                width="275px"
-                height="800px"
+                width="220px"
+                height="400px"
                 objectFit="contain"
                 priority
               />
@@ -820,29 +821,29 @@ function MobileMode() {
                 as="span"
                 sx={{
                   position: 'absolute',
-                  top: '332px',
-                  left: '46px',
-                  fontSize: '35px',
+                  top: '145px',
+                  left: '32px',
+                  fontSize: '30px',
                   color: '#E8E5C8'
                 }}
               >
                 Sign up now!
               </Text>
-              <Link href="https://forms.hackclub.com/sharkbank" passHref>
+              <Link href="https://forms.hackclub.com/sharkbank">
                 <button
                   style={{
                     height: '65px',
-                    width: '220px',
+                    width: '170px',
                     position: 'absolute',
-                    bottom: '-326px',
-                    left: '180px',
+                    bottom: '-55px',
+                    left: '135px',
                     zIndex: 2,
                     rotate: '-5deg',
                     borderRadius: '50px',
                     cursor: 'pointer',
                     fontFamily: 'Phantom Sans',
                     fontWeight: 500,
-                    fontSize: '25px',
+                    fontSize: '22px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -856,10 +857,10 @@ function MobileMode() {
                     alt="Button background"
                     style={{
                       width: '100%',
-                      height: '100%',
+                      height: '75%',
                       objectFit: 'cover', // Scale image to fill the button
                       position: 'absolute', // Position the image to fill the button
-                      top: '0',
+                      top: '6px',
                       left: '0',
                       zIndex: '-1', // Place the image behind the text
                       borderRadius: '50px', // Apply the same border-radius as the button
