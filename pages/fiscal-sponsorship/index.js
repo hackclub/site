@@ -1,6 +1,5 @@
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Balancer } from 'react-wrap-balancer'
 import {
@@ -19,112 +18,148 @@ import Nav from '../../components/nav'
 import Footer from '../../components/footer'
 import Photo from '../../components/photo'
 import Stat from '../../components/stat'
-import Tilt from '../../components/tilt'
-
 import ContactBanner from '../../components/fiscal-sponsorship/contact'
 import Features from '../../components/fiscal-sponsorship/features'
 import OuternetImgFile from '../../public/home/outernet-110.jpg'
 import SignIn from '../../components/fiscal-sponsorship/sign-in'
+import OrganizationSpotlight from '../../components/fiscal-sponsorship/organization-spotlight'
+import { setCookie, getCookie } from 'cookies-next'
+import { useEffect, useState } from 'react'
+import { unfold } from '../../components/announcement'
+import Icon from '@hackclub/icons'
+import Announcement from '../../components/announcement'
 
 const organizations = [
   {
     id: 'org_MpJurQ',
-    object: 'directory_organization',
     name: 'Reboot',
     description:
       'Publishing techno-optimism, through newsletters, magazines, and events.',
     slug: 'reboot',
-    website: '',
-    transparent: true,
-    location: {
-      readable: 'Bay Area, CA, USA',
-      country_code: 'US',
-      country: 'United States',
-      continent: 'North America'
-    },
-    category: 'nonprofit',
-    missions: [],
-    climate: false,
-    partners: {},
+    location: { readable: 'Bay Area, CA, USA' },
     logo: '/fiscal-sponsorship/reboot.png',
-    background_image: '/fiscal-sponsorship/reboot-bg.jpg',
-    donation_link: 'https://hcb.hackclub.com/donations/start/reboot'
+    background_image: '/fiscal-sponsorship/reboot-bg.jpg'
   },
   {
-    id: 'org_raices',
-    object: 'directory_organization',
-    name: 'Raices Cyber',
-    description:
-      'Empowering the Hispanic and Latino cyber and technology community.',
-    slug: 'raices-cyber-org',
-    website: 'https://raicescyber.org',
-    transparent: false,
-    location: {
-      readable: 'Philadelphia, PA, USA',
-      country_code: 'US',
-      country: 'United States',
-      continent: 'North America'
-    },
-    category: 'nonprofit',
-    logo: '/fiscal-sponsorship/raices.png',
-    background_image: '/fiscal-sponsorship/raices-bg.jpg',
-    donation_link: 'https://hcb.hackclub.com/donations/start/raices-cyber-org'
+    id: 'org_AluOql',
+    name: 'Apocalypse',
+    description: "Canada's largest in-person high school hackathon.",
+    slug: 'apocalypse',
+    location: { readable: 'Toronto, Canada' },
+    logo: '/fiscal-sponsorship/apocalypse.png',
+    background_image: '/fiscal-sponsorship/apocalypse-bg.png'
   },
-
   {
-    id: 'org_XDundl',
-    object: 'directory_organization',
-    name: 'Fridays For Future Uganda',
-    description: 'Leading the environmental justice fight in Uganda.',
-    slug: 'fridays-for-future-uganda',
-    website: 'http://www.fridaysforfutureug.earth/',
-    transparent: true,
-    location: {
-      readable: 'Uganda',
-      country_code: 'UG',
-      country: 'Uganda',
-      continent: 'Africa'
-    },
-    category: 'nonprofit',
-    missions: [],
-    climate: true,
-    partners: {
-      '128_collective': {
-        funded: false,
-        recommended: true
-      }
-    },
-    logo: '/fiscal-sponsorship/fff-uganda.png',
-    background_image:
-      'https://hcb.hackclub.com/storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBc3pJIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--854fedfb94c579a004bd6c8284e55db7b640fa4f/FFF%20Uganda%20photo.jpeg',
-    donation_link:
-      'https://hcb.hackclub.com/donations/start/fridays-for-future-uganda'
+    id: 'org_BbVuWN',
+    name: 'Green Mountain Robotics',
+    description: 'Spreading STEM interest, one robot at a time.',
+    slug: 'green-mountain-robotics',
+    location: { readable: 'Chittenden County, VT, USA' },
+    logo: '/fiscal-sponsorship/green-mountain-robotics.png',
+    background_image: 'green-mountain-robotics-bg.png'
   },
   {
     id: 'org_a29uVj',
-    object: 'directory_organization',
     name: 'Hack Club HQ',
     description: 'This is us! We run our operations on HCB.',
     slug: 'hq',
-    website: 'https://hackclub.com',
-    transparent: true,
-    location: {
-      readable: 'Vermont, USA',
-      country_code: 'US',
-      country: 'United States',
-      continent: 'North America'
-    },
-    category: 'hack_club_hq',
-    missions: [],
-    climate: false,
-    partners: {},
+    location: { readable: 'Vermont, USA' },
     logo: 'https://cloud-91boqw8z9-hack-club-bot.vercel.app/0icon-rounded.png',
-    background_image: '/fiscal-sponsorship/hq-bg.jpg',
-    donation_link: 'https://hcb.hackclub.com/donations/start/hq'
+    background_image: '/fiscal-sponsorship/hq-bg.jpg'
   }
 ]
 
+function OpenSourceAlert() {
+  return (
+    <Container sx={{ position: 'relative' }}>
+      <Box
+        sx={{
+          py: ['25px', 3],
+          px: 4,
+          background: [
+            'rgba(200, 200, 200, 0.3)',
+            'linear-gradient(rgba(255,255,255,0.4), rgba(200,200,200,.3))'
+          ],
+          backdropFilter: 'blur(20px)',
+          borderRadius: 20,
+          boxShadow:
+            '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+          mt: [20, -50],
+          transform: 'scaleY(0)',
+          '@media (prefers-reduced-motion: no-preference)': {
+            animation: `${unfold} 0.5s ease-out forwards`,
+            animationDelay: '0.5s'
+          },
+          flexDirection: ['column', 'row']
+        }}
+      >
+        <span style={{ fontSize: 20 }}>
+          <strong style={{ fontSize: 23 }}>HCB is now open source! </strong>
+          <br />
+          Join us in building the infrastructure powering student-led
+          organizations
+        </span>
+
+        <Box
+          sx={{
+            gap: 2,
+            display: 'flex',
+            width: ['100%', 'auto'],
+            alignItems: ['stretch', 'center'],
+            flexShrink: 0,
+            ml: [undefined, 'auto'],
+            flexDirection: ['column-reverse', 'row']
+          }}
+        >
+          <Button
+            as="a"
+            sx={{ flexShrink: 0, gap: 14, paddingLeft: 25 }}
+            variant="outline"
+            target="_blank"
+            href="https://github.com/hackclub/hcb"
+          >
+            Star on GitHub
+            <Icon glyph="github" />
+          </Button>
+          <Button
+            as="a"
+            sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px' }}
+            href="https://hackclub.com/hcb/open-source"
+            target="_blank"
+          >
+            Read our blog post
+            <Icon glyph="view-forward" />
+          </Button>
+        </Box>
+      </Box>
+    </Container>
+  )
+}
+
 export default function Page() {
+  const [hasReferral, setHasReferral] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+
+    const tubProgram = params.get('tub_program')
+    const referral = params.get('referral')
+    const referralCookie = getCookie('referral')
+
+    if (referral) {
+      setCookie('referral', referral)
+      setCookie('tub_program', 'GFGS')
+    } else if (tubProgram) {
+      setCookie('tub_program', tubProgram)
+      setCookie('referral', '')
+    }
+
+    setHasReferral(!!referral || !!referralCookie)
+  }, [])
+
   return (
     <>
       <Meta
@@ -140,7 +175,7 @@ export default function Page() {
         sx={{
           position: 'relative',
           pt: 6,
-          pb: [4, 5],
+          pb: [4, '90px'],
           bg: 'rgb(104, 41, 205)',
           backgroundImage:
             'radial-gradient(ellipse at 5% 5%, #ec555c 0%, rgba(236,85,92,0) 75%),radial-gradient(ellipse at 95% 5%, #dc71a1 0%, rgba(220,113,161,0) 75%),radial-gradient(ellipse at 95% 95%, #fcc8bf 0%, rgba(252,200,191,0) 75%),radial-gradient(ellipse at 5% 95%, #ffce33 0%, rgba(255,206,51,0) 75%)'
@@ -226,6 +261,36 @@ export default function Page() {
               best-in-class software.
             </Balancer>
           </Text>
+
+          {hasReferral && (
+            <Text variant="lead" sx={{ my: [3, 4] }}>
+              <Box
+                sx={{
+                  bg: 'rgba(255, 255, 255, 0.2)',
+                  p: 3,
+                  borderRadius: 'default',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  backdropFilter: 'blur(8px)',
+                  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                  mt: 3
+                }}
+              >
+                Apply by <strong>April 16th</strong> using referral code (
+                {getCookie('referral')}) and get stickers + fiscal sponsorship
+                fees waived for the month of May.
+                <Link
+                  href="https://docs.google.com/document/d/e/2PACX-1vTPygv_qfd2FnU3Dslt4o69nBlOoKhvWDuexk67ApjuIH96ghjpLjw9wJhsRUtTZYX3XO4EVdxXVx7Q/pub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Terms apply"
+                  style={{ marginLeft: '4px' }}
+                >
+                  *
+                </Link>
+              </Box>
+            </Text>
+          )}
+
           <Flex
             sx={{
               flexDirection: ['column', 'row'],
@@ -248,104 +313,39 @@ export default function Page() {
               </Button>
             </Link>
             <SignIn />
+            <a
+              href="https://hcb.hackclub.com/from/hack-club-site-fs-page/JRzHxJ"
+              style={{ textDecoration: 'none' }}
+              target="_blank"
+            >
+              <Announcement
+                copy="Win a 13-inch MacBook Air!"
+                caption="We’re giving away a MacBook to a lucky teenager! Join the Raffle by August 31st, 2025."
+                imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef010a890d7c554a6da9328d62f9a592df9ae5d_laptop-removebg-preview.png"
+                imgAlt="13-inch MacBook Air"
+                color="primary"
+                textColor="slate"
+                sx={{ mb: [1, 1], mt: [3, 4, 1] }}
+              />
+            </a>
           </Flex>
         </Container>
       </Box>
+      <OpenSourceAlert />
       <Box id="organizations" as="section" sx={{ py: [4, 5] }}>
         <Container sx={{}}>
           {/* <Text as="p" variant="headline" sx={{ mt: 0 }}>
             Powering nonprofits at every scale
           </Text> */}
-          <Flex
-            sx={{
-              flexWrap: 'wrap',
-              rowGap: 3,
-              columnGap: [4, 5],
-              mb: 4
-            }}
-          >
-            <Stat value="$20M+" label="processed transactions" reversed />
-            <Stat value="1500+" label="projects" reversed />
+          <Flex sx={{ flexWrap: 'wrap', rowGap: 3, columnGap: [4, 5], mb: 4 }}>
+            <Stat value="$40M+" label="processed transactions" reversed />
+            <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
           <Grid columns={[1, 2]} gap={[3, 4]} sx={{ mt: 4 }}>
-            {organizations
-              // .map(org => new Organization(org))
-              .map(organization => (
-                <Tilt key={organization.id}>
-                  <Card
-                    as="a"
-                    href={
-                      organization.transparent
-                        ? `https://hcb.hackclub.com/${organization.slug}`
-                        : organization.donation_link
-                    }
-                    sx={{
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      minHeight: 128,
-                      color: 'white',
-                      cursor: 'pointer',
-                      textShadow: '0 1px 4px rgba(0, 0, 0, 0.5)',
-                      textDecoration: 'none',
-                      backgroundColor: 'black',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      borderRadius: 'extra',
-                      overflow: 'hidden',
-                      position: 'relative',
-                      p: 3,
-                      height: '100%',
-                      display: 'grid',
-                      gridTemplateColumns: '64px 1fr',
-                      columnGap: 3,
-                      rowGap: 2
-                    }}
-                    style={{
-                      backgroundImage: `linear-gradient(rgba(0,0,0,0.375) 0%, rgba(0,0,0,0.5) 75%), url('${organization.background_image}')`
-                    }}
-                  >
-                    <Image
-                      src={organization.logo}
-                      alt={`${organization.name} logo`}
-                      loading="lazy"
-                      width={64}
-                      height={64}
-                      sx={{
-                        objectFit: 'contain',
-                        borderRadius: 'extra'
-                      }}
-                    />
-                    <div>
-                      <Heading
-                        as="h3"
-                        sx={{
-                          fontSize: [3, 4],
-                          m: 0,
-                          overflowWrap: 'anywhere',
-                          width: '100%',
-                          display: 'block'
-                        }}
-                      >
-                        {organization.name}
-                      </Heading>
-                      <Text
-                        variant="caption"
-                        sx={{
-                          color: 'white',
-                          opacity: 0.875
-                        }}
-                      >
-                        {organization.location.readable}
-                      </Text>
-                    </div>
-                    <Text as="p" sx={{ gridColumn: ['span 2', '2'] }}>
-                      <Balancer>{organization.description}</Balancer>
-                    </Text>
-                  </Card>
-                </Tilt>
-              ))}
+            {organizations.map(org => (
+              <OrganizationSpotlight organization={org} key={org.id} />
+            ))}
           </Grid>
           <Box
             sx={{
@@ -417,10 +417,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                  {
-                    backgroundImage:
-                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                  }
+                {
+                  backgroundImage:
+                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                }
               }}
               style={{ margin: 0 }}
             >
@@ -441,6 +441,7 @@ export default function Page() {
           </Grid>
         </Container>
       </Box>
+      {/** removed for now
       <Box as="section" bg="snow" sx={{ py: 5 }}>
         <Container>
           <Grid columns={[null, null, 2]} gap={[4, 5]}>
@@ -466,7 +467,7 @@ export default function Page() {
                   }
                 }}
               >
-                {['128.png', 'ycjf.png', 'first.png'].map(file => (
+                {['ycjf.png', 'first.png'].map(file => (
                   <img
                     key={file}
                     src={`/fiscal-sponsorship/${file}`}
@@ -488,9 +489,7 @@ export default function Page() {
                   textIndent: '-0.33em'
                 }}
               >
-                “HCB’s Climate fiscal sponsorship program removes funding
-                barriers with a blend of youth-centered, tech-savvy services and
-                a deep commitment to authentic youth empowerment.”
+                “Quote goes here”
               </Text>
               <Text
                 as="p"
@@ -499,18 +498,18 @@ export default function Page() {
               >
                 —
                 <Text as="strong" color="slate">
-                  Kate Goss
+                  FirstName LastName
                 </Text>
-                , Executive Director,{' '}
-                <UILink href="https://128collective.org">
-                  128&nbsp;Collective
+                , Title,{' '}
+                <UILink href="https://example.com">
+                  Organization
                 </UILink>
               </Text>
             </Card>
           </Grid>
         </Container>
       </Box>
-
+      */}
       <Container>
         <Grid
           columns={[null, null, 2]}
@@ -535,7 +534,7 @@ export default function Page() {
                 <UILink>Hack Club</UILink>
               </Link>{' '}
               grew, we needed a way to empower our members. We currently have
-              over 30,000 high schoolers involved in Hack Club with over 400
+              over 60,000 high schoolers involved in Hack Club with over 400
               clubs around the world.
             </p>
             <p>
@@ -566,7 +565,7 @@ export default function Page() {
                 <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
               </svg>
               <span>
-                As part of our commitment to climate justice, funding for HCB’s
+                As part of our commitment to the environment, funding for HCB’s
                 operations&nbsp;and staff will never come from the{' '}
                 <UILink
                   href="https://www.ffisolutions.com/the-carbon-underground-200-500/"

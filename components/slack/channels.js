@@ -9,7 +9,7 @@ const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export default function Channels() {
   const { data: millionCount } = useSWR(
-    'https://jia.haas.hackclub.com/api/currentNumber',
+    'https://drac.firepup650.hackclub.app/api/currentNumber',
     fetcher,
     { refreshInterval: 10_000 }
   )

@@ -40,8 +40,10 @@ import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
-import Trail from '../components/index/cards/trail'
-
+import Som from '../components/index/cards/som'
+import Athena from '../components/index/cards/athena'
+import Highway from '../components/index/cards/highway'
+import Shipwrecked from '../components/index/cards/shipwrecked'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -203,6 +205,13 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
+          <Announcement
+            width="90vw"
+            copy="This summer is yours for the making!"
+            caption="Get free Flipper Zeros, Framework Laptops, 3D Printers, and more. Join Summer of Making! Jun 16 - Sep 30."
+            href="https://summer.hackclub.com/"
+            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/779a5d748938b66ae93a566cc9699e636b01d462_summerlogo.png"
+          />
           <Box
             sx={{
               width: '90vw',
@@ -278,11 +287,28 @@ function Page({
               <Button
                 variant="ctaLg"
                 as="a"
-                href="/slack"
+                href="https://summer.hackclub.com"
                 mt={[3, 0, 0]}
-                sx={{ transformOrigin: 'center left' }}
+                mr={3}
+                sx={{ 
+                  transformOrigin: 'center left',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  width: 'fit-content'
+                }}
               >
-                Join our community
+                Join Summer of Making
+                <Text
+                  as="span"
+                  sx={{
+                    fontSize: 0,
+                    opacity: 0.8,
+                    mt: 1
+                  }}
+                >
+                  Ends September 30th
+                </Text>
               </Button>
             </Heading>
           </Box>
@@ -359,8 +385,8 @@ function Page({
               }}
             >
               Every day, thousands of Hack&nbsp;Clubbers gather online and
-              in-person to make things with code. Whether you’re a beginner
-              programmer or have years of experience, there’s a place for you at
+              in-person to make things with code. Whether you're a beginner
+              programmer or have years of experience, there's a place for you at
               Hack&nbsp;Club. Read about our{' '}
               <Link href="/philosophy" target="_blank" rel="noopener">
                 hacker ethic
@@ -529,7 +555,7 @@ function Page({
                     <strong sx={{ mb: 1 }}>
                       Connect with other teenage coders
                     </strong>
-                    Have a coding question? Looking for project feedback? You’ll
+                    Have a coding question? Looking for project feedback? You'll
                     find hundreds of fabulous people to talk to in our global{' '}
                     <Link href="/slack" target="_blank" rel="noopener">
                       Slack{' '}
@@ -669,9 +695,12 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Pizza />
-            <Trail />
+            <Som />
+            <Athena />
+            <Highway />
+            <Shipwrecked />
             <Slack slackKey={slackKey} data={slackData} events={events} />
+            <Pizza />
           </Box>
         </Box>
         <Box>
@@ -897,7 +926,7 @@ function Page({
                 variant="eyebrow"
                 sx={{ fontSize: ['22px', 2, 3], textAlign: 'center' }}
               >
-                We've got a lot going on - Let’s recap
+                We've got a lot going on - Let's recap
               </Text>
               <Text
                 variant="title"
@@ -1040,7 +1069,7 @@ function Page({
                   icon="github"
                   color="white"
                   name="Explore Our Open Source Tools"
-                  desc="We’re currently building a game engine, daily streak system, graphing game, and more!"
+                  desc="We're currently building a game engine, daily streak system, graphing game, and more!"
                   sx={{
                     p: {
                       fontSize: [1, '16px', '20px']
@@ -1094,7 +1123,7 @@ function Page({
                   icon="clubs"
                   color="white"
                   name="Start A Club"
-                  desc="Build an in-person community of high school hackers, and we’re here to help."
+                  desc="Build an in-person community of high school hackers, and we're here to help."
                   sx={{
                     p: {
                       fontSize: ['18px', '20px', '22px']
@@ -1212,17 +1241,20 @@ export async function getStaticProps() {
 
   // HCB: get total raised
   let bankData = []
-  let initialBankData = await fetch('https://hcb.hackclub.com/stats').then(r =>
-    r.json()
-  )
-  let raised = initialBankData.raised / 100
+  let initialBankData = await fetch('https://hcb.hackclub.com/stats')
+  try {
+    const bd = await initialBankData.json()
+    let raised = bd.raised / 100
 
-  bankData.push(
-    `💰 ${raised.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    })} raised`
-  )
+    bankData.push(
+      `💰 ${raised.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      })} raised`
+    )
+  } catch {
+    bankData.push('error')
+  }
 
   // Slack: get total raised
   const { Slack: Slacky } = require('./api/slack')

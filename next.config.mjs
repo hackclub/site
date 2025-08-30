@@ -5,7 +5,7 @@ const nextConfig = {
     ignoreDuringBuilds: true
   },
   trailingSlash: true,
-  pageExtensions: ['js', 'jsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   images: {
     domains: [
       'hackclub.com',
@@ -15,7 +15,8 @@ const nextConfig = {
       'scrapbook.hackclub.com',
       'assets.hackclub.com',
       'v5.airtableusercontent.com',
-      'hcb.hackclub.com'
+      'hcb.hackclub.com',
+      "hc-cdn.hel1.your-objectstorage.com"
     ],
     remotePatterns: [
       {
@@ -28,7 +29,6 @@ const nextConfig = {
     return config
   },
   async redirects() {
-
     return [
       {
         source: '/bank/:path*',
@@ -70,6 +70,11 @@ const nextConfig = {
         permanent: true
       },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
+      {
+        source: '/slack/',
+        destination: 'https://summer.hackclub.com',
+        permanent: false
+      },
       {
         source: '/jobs/bank-tech-lead/',
         destination: '/jobs/lead-hacker/',
@@ -197,6 +202,22 @@ const nextConfig = {
         destination: '/philanthropy',
         permanent: false
       },
+      {
+        source: '/github',
+        destination: 'https://github.com/hackclub',
+        permanent: true
+
+      },
+      {
+        source: '/nest',
+        destination: 'https://hackclub.app',
+        permanent: true
+      },
+      {
+        source: '/security',
+        destination: 'https://security.hackclub.com',
+        permanent: true
+      }
     ]
   },
   async rewrites() {
@@ -206,8 +227,8 @@ const nextConfig = {
         destination: 'https://leaders-letters.vercel.app/'
       },
       {
-              source: '/letters',
-              destination: 'https://leaders-letters.vercel.app/'
+        source: '/letters',
+        destination: 'https://leaders-letters.vercel.app/'
       },
       {
         source: '/clubs/leaders-letters/:path*',
@@ -313,10 +334,6 @@ const nextConfig = {
         source: '/arcade/power-hour',
         destination: '/arcade/power-hour/index.html'
       },
-      {
-        source: '/nest/',
-        destination: 'https://hackclub.app/'
-      }
     ]
   },
   async headers() {

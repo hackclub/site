@@ -12,8 +12,26 @@ import Testimonials from '../../components/fiscal-sponsorship/first/testimonials
 import Start from '../../components/fiscal-sponsorship/first/start'
 import theme from '@hackclub/theme'
 import { Balancer } from 'react-wrap-balancer'
+import { setCookie } from 'cookies-next'
+import { useEffect } from 'react'
+import Announcement from '../../components/announcement'
 
 export default function First({ stats }) {
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+
+    const tubProgram = params.get('tub_program')
+    const referral = params.get('referral')
+
+    if (referral) {
+      setCookie('referral', referral)
+      setCookie('tub_program', 'GFGS')
+    } else if (tubProgram) {
+      setCookie('tub_program', tubProgram)
+      setCookie('referral', '')
+    }
+  }, [])
+
   return (
     <>
       <style>
@@ -56,6 +74,22 @@ export default function First({ stats }) {
               backdropFilter: 'blur(1.5px)'
             }}
           >
+            <a
+              href="https://hcb.hackclub.com/from/hack-club-site-fs-first-page/M2PHxN"
+              style={{ textDecoration: 'none' }}
+              target="_blank"
+            >
+              <Announcement
+                copy="Win a 13-inch MacBook Air!"
+                caption="We’re giving away a MacBook to a lucky teenager! Join the Raffle by August 31st, 2025."
+                imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef010a890d7c554a6da9328d62f9a592df9ae5d_laptop-removebg-preview.png"
+                imgAlt="13-inch MacBook Air"
+                color="primary"
+                textColor="slate"
+                sx={{ mt: [3, 4, 4] }}
+              />
+            </a>
+
             <Heading
               as="h1"
               variant="ultratitle"
@@ -184,12 +218,20 @@ export default function First({ stats }) {
 
 export async function getStaticProps(context) {
   const res = await fetch(`https://hcb.hackclub.com/stats`)
-  const stats = await res.json()
-
-  return {
-    props: {
-      stats
-    },
-    revalidate: 10
+  try {
+    const stats = await res.json()
+    return {
+      props: {
+        stats
+      },
+      revalidate: 60 * 60 // once an hour
+    }
+  } catch (e) {
+    return {
+      props: {
+        stats: {}
+      },
+      revalidate: 60 * 60 // once an hour
+    }
   }
 }
