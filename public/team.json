@@ -446,6 +446,18 @@
     "avatar": "https://extra.3kh0.net/img/art/xmr_hoodie_small.png"
   },
   {
+    "name": "Neon",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Neon is a 17 year old from kentucky who likes making slack apps and other cool gizmos and is on the summer of making team and is also helping with fraud review for hackclub events/ysws's. ",
+    "bioHackFoundation": "",
+    "slackId": "U07L45W79E1",
+    "email": "neon",
+    "website": "https://saahild.com",
+    "avatar": "https://cachet.dunkirk.sh/users/U07L45W79E1/r"
+  },
+  {
     "name": "Jonathan Dong",
     "department": "HQ",
     "role": "Engineering",
