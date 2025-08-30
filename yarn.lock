@@ -1226,10 +1226,10 @@
   resolved "https://registry.npmjs.org/@graphql-typed-document-node/core/-/core-3.2.0.tgz"
   integrity sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==
 
-"@hackclub/icons@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.npmjs.org/@hackclub/icons/-/icons-0.0.14.tgz"
-  integrity sha512-xH/DV6TxlsvLuNGeBIausfKlH4eyp6CYXCckAxcYahL2NOdcZTZoJWKZBG38BzM5WfWnhfFkud/mQ5bqeFQK3g==
+"@hackclub/icons@^0.0.15":
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/@hackclub/icons/-/icons-0.0.15.tgz#612b9e107d9eabb44e0eeb1f8ebfcdc6b88c2e28"
+  integrity sha512-IKJ5JQhRhlkYINv9pxzT//fn3aYwsGBeyNNBcw7eU+J0lfs0wGrq9lh7CGcXUUGXaKFxDPRlWhTxaAVaRdZVRA==
 
 "@hackclub/markdown@^0.0.43":
   version "0.0.43"
