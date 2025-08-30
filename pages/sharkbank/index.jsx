@@ -165,9 +165,6 @@ function DesktopMode({ billboardBottom }) {
               Get ready for an exciting opportunity to pitch your organization’s 
               mission to a panel of HCB teen judges.
             </span>
-            <span style={{ display: 'block', transform: 'scaleX(1.2)', transformOrigin: 'top center' }}>
-              Win up to $1000 in funding to propel your mission out to sea!
-            </span>
           </Text>
         </Box>
         <Box
@@ -459,9 +456,6 @@ function TabletMode() {
             <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
               Get ready for an exciting opportunity to pitch your organization’s 
               mission to a panel of HCB teen judges.
-            </span>
-            <span style={{ display: 'block', transform: 'scaleX(1.2)', transformOrigin: 'top center' }}>
-              Win up to $1000 in funding to propel your mission out to sea!
             </span>
           </Text>
         </Box>
@@ -755,9 +749,6 @@ function MobileMode() {
             <span style={{ display: 'block', transform: 'scaleX(1.0)', transformOrigin: 'top center' }}>
               Get ready for an exciting opportunity to pitch your organization’s 
               mission to a panel of HCB teen judges.
-            </span>
-            <span style={{ display: 'block', transform: 'scaleX(1.1)', transformOrigin: 'top center' }}>
-              Win up to $1000 in funding to propel your mission out to sea!
             </span>
           </Text>
         </Box>
