@@ -97,6 +97,7 @@ const Footer = ({
           <Link as={NextLink} href="/brand">Brand Guide</Link>
           <Link as={NextLink} href="/press">Press Inquiries</Link>
           <Link as={NextLink} href="/philanthropy">Donate</Link>
+          <Link as={NextLink} href="/imprint">Imprint</Link>
         </Box>
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
