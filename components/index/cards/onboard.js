@@ -7,6 +7,14 @@ import Buttons from './button'
 
 export default function Onboard({ stars }) {
   const [projects, setProjects] = useState(0)
+  const [repoStars, setRepoStars] = useState(stars || 0)
+
+  useEffect(() => {
+    fetch('https://api.github.com/repos/HappyHackingSpace/CommunityHub')
+      .then(response => response.json())
+      .then(data => setRepoStars(data.stargazers_count))
+      .catch(error => console.error('Error fetching stars:', error))
+  }, [])
 
   // useEffect(() => {
   //   fetch(
@@ -27,7 +35,7 @@ export default function Onboard({ stars }) {
       github_link="https://github.com/HappyHackingSpace/CommunityHub"
       color="white"
       highlight="#FEF1DC"
-      stars={stars}
+      stars={repoStars}
     >
       <video
         autoPlay
