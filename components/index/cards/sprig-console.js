@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Box, Grid, Image, Text } from 'theme-ui'
 import Buttons from './button'
 import CardModel from './card-model'
@@ -6,22 +7,49 @@ import Tilt from '../../tilt'
 /** @jsxImportSource theme-ui */
 
 export default function SprigConsole({ stars, consoleCount }) {
+  const [repoStars, setRepoStars] = useState(stars || 0)
+
+  useEffect(() => {
+    fetch('https://api.github.com/repos/HappyHackingSpace/awesome-hackathon')
+      .then(response => response.json())
+      .then(data => setRepoStars(data.stargazers_count))
+      .catch(error => console.error('Error fetching stars:', error))
+  }, [])
+
   return (
     <Box sx={{ position: 'relative' }}>
       <CardModel
-        github_link="https://github.com/hackclub/sprig-hardware"
-        stars={stars}
+        github_link="https://github.com/HappyHackingSpace/awesome-hackathon"
+        stars={repoStars}
         color="white"
         sx={{
-          backgroundSize: 'cover',
+          position: 'relative',
+          overflow: 'hidden',
           backgroundColor: '#1A3C14',
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat',
-          minHeight: ['300px', '400px', '400px']
+          height: 'auto',
+          aspectRatio: '5600/1350'
         }}
         highlight="#427A43"
       >
-        <Image
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain',
+            zIndex: 0
+          }}
+        >
+          <source src="/home/awesome.mp4" type="video/mp4" />
+        </video>
+        <Box sx={{ position: 'relative', zIndex: 1 }}>
+        {/* <Image
           src="https://sprig.hackclub.com/pcb.svg"
           sx={{
             objectFit: 'cover',
@@ -34,8 +62,8 @@ export default function SprigConsole({ stars, consoleCount }) {
             zIndex: 0
           }}
           alt="Printed circuit board"
-        />
-        <Image
+        /> */}
+        {/* <Image
           src="https://cloud-8u6hh0ho9-hack-club-bot.vercel.app/0sprig_console.svg"
           sx={{
             width: ['90%', '320px', '450px', '500px'],
@@ -46,8 +74,8 @@ export default function SprigConsole({ stars, consoleCount }) {
             color: 'white'
           }}
           alt="Sprig console"
-        />
-        <Text
+        /> */}
+        {/* <Text
           as="p"
           variant="subheadline"
           sx={{
@@ -63,13 +91,13 @@ export default function SprigConsole({ stars, consoleCount }) {
           }}
         >
           Join the other {consoleCount} teenagers with Sprigs!
-        </Text>
+        </Text> */}
         <Grid
           columns={[1, 1, '1.2fr 1fr', '1.2fr 1fr']}
           sx={{ zIndex: 2, position: 'relative' }}
         >
-          <Box>
-            <Image
+          <Box sx={{ mt: [2, 3, 4], px: [2, 3, 4]  }}>
+            {/* <Image
               src="https://cloud-b8z9l7ihq-hack-club-bot.vercel.app/0sprig-light-top-min.png"
               sx={{
                 width: ['120%', '', ''],
@@ -80,27 +108,29 @@ export default function SprigConsole({ stars, consoleCount }) {
                 display: [null, null, 'none', 'none']
               }}
               alt="Sprig console"
-            />
-            <Text as="p" variant="subtitle" mt={[0, null, null]}>
-              Play your own Sprig games on this console, which you can assemble
-              and disassemble. Each kit includes parts needed for getting
-              started with hardware engineering and embedded systems
-              programming.{' '}
+            /> */}
+            <Text as="p" variant="subtitle" mt={[1, 3, 4]} sx={{ 
+              color: 'black',
+             
+            }}>
+              Tools and resources to help you build, design, and win hackathons! 🏆
             </Text>
+
+          </Box>
             <Buttons
               id="6"
-              icon="emoji"
-              link="https://github.com/hackclub/sprig/blob/main/docs/GET_A_SPRIG.md"
-              primary="#427A43"
+              
+              link="/events"
+              primary="#000000ff"
               sx={{ mt: [3, 3, 4] }}
             >
-              Build a game and get your console
+              Discover events
             </Buttons>
-          </Box>
-          <Box></Box>
+       
         </Grid>
+        </Box>
       </CardModel>
-      <Tilt>
+      {/* <Tilt>
         <Image
           src="/home/sprig-console.webp"
           sx={{
@@ -116,7 +146,7 @@ export default function SprigConsole({ stars, consoleCount }) {
           }}
           alt="Sprig console"
         />
-      </Tilt>
+      </Tilt> */}
     </Box>
   )
 }
