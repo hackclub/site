@@ -160,7 +160,7 @@ const Footer = ({
               name="Mastodon"
             /> */}
             <Service
-              href="https://www.youtube.com/c/HappyHackingSpace"
+              href="https://www.youtube.com/@HappyHackingSpace"
               icon="youtube"
               name="YouTube"
             />
