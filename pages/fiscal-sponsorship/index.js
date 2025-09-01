@@ -312,6 +312,19 @@ export default function Page() {
                 Apply now
               </Button>
             </Link>
+            <Link href="/sharkbank" passHref legacyBehavior>
+              <a>
+                <img
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/7c5e553bd0048abf1a6b247a8064206c6100a4e7_Frame_6.svg"
+                  alt="Join SharkBank!"
+                  style={{
+                    width: "220px",
+                    cursor: "pointer",
+                    marginBottom: "65px"
+                  }}
+                />
+              </a>
+            </Link>
             <SignIn />
             <a
               href="https://hcb.hackclub.com/from/hack-club-site-fs-page/AYdHnM"
