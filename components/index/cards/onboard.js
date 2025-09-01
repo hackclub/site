@@ -8,29 +8,29 @@ import Buttons from './button'
 export default function Onboard({ stars }) {
   const [projects, setProjects] = useState(0)
 
-  useEffect(() => {
-    fetch(
-      'https://api.github.com/search/issues?q=repo:hackclub/onboard+is:pr+is:merged+label:Submission'
-    )
-      .then(response => response.json())
-      .then(data => setProjects(data.total_count))
-  }, [])
+  // useEffect(() => {
+  //   fetch(
+  //     'https://api.github.com/search/issues?q=repo:hackclub/onboard+is:pr+is:merged+label:Submission'
+  //   )
+  //     .then(response => response.json())
+  //     .then(data => setProjects(data.total_count))
+  // }, [])
 
   return (
     <CardModel
       sx={{
         backgroundColor: 'rgba(0,0,0)',
-        backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8) 20%, rgba(0, 0, 0, 0.4) 50%), url('https://cloud-fyrwj5rn5-hack-club-bot.vercel.app/0pcb.svg')`,
+        backgroundImage: `url(/home/communityhub.png)`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}
-      github_link="https://github.com/hackclub/onboard/"
+      github_link="https://github.com/HappyHackingSpace/CommunityHub"
       color="white"
-      highlight="#87ffa1"
+      highlight="#FEF1DC"
       stars={stars}
     >
-      <Text
+      {/* <Text
         variant="title"
         as="h3"
         sx={{
@@ -43,10 +43,10 @@ export default function Onboard({ stars }) {
         }}
       >
         OnBoard
-      </Text>
-      <Grid columns={[1, 2]}>
+      </Text> */}
+      <Grid columns={[1, 2] }>
         <Box>
-          <Text
+          {/* <Text
             as="p"
             variant="subheadline"
             sx={{
@@ -62,31 +62,31 @@ export default function Onboard({ stars }) {
             }}
           >
             {projects} projects built
-          </Text>
-          <Text as="p" variant="subtitle">
+          </Text> */}
+          <Text as="p" variant="subtitle" sx={{ mt: [3, 4, 5], color: 'white' }}>
             Circuit boards are magical. You design one, we'll print it.
             Completely for free! Get a $100 grant to fuel the creation of your
             dream project with OnBoard.
           </Text>
         </Box>
         <Flex
-          sx={{ flexDirection: 'column', mt: [3, 3, 4], placeSelf: 'start' }}
+          sx={{ flexDirection: 'column', mt: [3, 4, 5],  ml: [0, 2, 3], placeSelf: 'start' }}
         >
           <Buttons
             id="59"
             icon="emoji"
             link="https://github.com/hackclub/OnBoard/blob/main/README.md"
-            primary="#87ffa1"
+            primary="#FEF1DC"
             color="black"
           >
-            Get a grant
+            Be a member
           </Buttons>
-          <Buttons icon="docs" link="https://jams.hackclub.com/tag/pcb" id="60">
+          {/* <Buttons icon="docs" link="https://jams.hackclub.com/tag/pcb" id="60">
             Learn how to design a PCB
           </Buttons>
           <Buttons icon="friend" link="/slack?event=onboard" id="61">
             See what other hackers have built
-          </Buttons>
+          </Buttons> */}
         </Flex>
       </Grid>
     </CardModel>
