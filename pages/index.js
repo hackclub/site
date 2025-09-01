@@ -817,7 +817,7 @@ function Page({
                   consoleCount={consoleCount}
                 />
               </Box>
-              <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
+              {/* <Workshops delay={400} stars={stars.hackclub.stargazerCount} /> */}
             </Box>
           </Box>
           <Box
