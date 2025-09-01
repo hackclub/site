@@ -137,7 +137,7 @@ const Footer = ({
               href="https://join.happyhacking.space"
               icon="welcome"
               name="Community"
-              target="_self"
+              target="_blank"
             />
             <Service
               href="https://twitter.com/happyhackings"
@@ -169,7 +169,7 @@ const Footer = ({
               icon="instagram"
               name="Instagram"
             />
-            <Service href={`mailto:${email}`} icon="email-fill" name="Email" />
+            {/* <Service href={`mailto:${email}`} icon="email-fill" name="Email" /> */}
           </Grid>
           {/* <Text my={2}>
             <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>
