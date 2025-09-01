@@ -51,12 +51,14 @@ export default function Buttons({
         rel="noreferrer"
         {...props}
       >
-        <Icon
-          glyph={icon || 'plus-fill'}
-          sx={{ color: 'inherit', marginRight: 2 }}
-          size={24}
-          mr={2}
-        />
+        {icon && (
+          <Icon
+            glyph={icon}
+            sx={{ color: 'inherit', marginRight: 2 }}
+            size={24}
+            mr={2}
+          />
+        )}
         <Text sx={{ fontFamily: 'Phantom Sans', textAlign: 'left' }}>
           {children}
         </Text>

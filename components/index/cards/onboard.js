@@ -19,17 +19,34 @@ export default function Onboard({ stars }) {
   return (
     <CardModel
       sx={{
+        position: 'relative',
+        overflow: 'hidden',
         backgroundColor: 'rgba(0,0,0)',
-        backgroundImage: `url(/home/communityhub.png)`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+     
       }}
       github_link="https://github.com/HappyHackingSpace/CommunityHub"
       color="white"
       highlight="#FEF1DC"
       stars={stars}
     >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: 0
+        }}
+      >
+        <source src="/home/Communityhub1.mp4" type="video/mp4" />
+      </video>
+      <Box sx={{ position: 'relative', zIndex: 1 }}>
       {/* <Text
         variant="title"
         as="h3"
@@ -70,7 +87,7 @@ export default function Onboard({ stars }) {
           </Text>
         </Box>
         <Flex
-          sx={{ flexDirection: 'column', mt: [3, 4, 5],  ml: [0, 2, 3], placeSelf: 'start' }}
+          sx={{ flexDirection: 'column', mt: [4, 5, 5],  ml: [0, 2, 3], placeSelf: 'start' }}
         >
           <Buttons
             id="59"
@@ -89,6 +106,7 @@ export default function Onboard({ stars }) {
           </Buttons> */}
         </Flex>
       </Grid>
+      </Box>
     </CardModel>
   )
 }
