@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import CardModel from './card-model'
 import { Box, Flex, Grid, Text } from 'theme-ui'
 import Buttons from './button'
@@ -5,47 +6,63 @@ import Buttons from './button'
 /** @jsxImportSource theme-ui */
 
 export default function Haxidraw({ stars }) {
+  const [repoStars, setRepoStars] = useState(stars || 0)
+
+  useEffect(() => {
+    fetch('https://api.github.com/repos/HappyHackingSpace/githubmon')
+      .then(response => response.json())
+      .then(data => setRepoStars(data.stargazers_count))
+      .catch(error => console.error('Error fetching stars:', error))
+  }, [])
+
   return (
     <CardModel
-      github_link="https://github.com/hackclub/blot/"
-      color="white"
+      github_link="https://github.com/HappyHackingSpace/githubmon"
+      color="#54738d"
       sx={{
         backgroundSize: 'cover',
         backgroundColor: '#95C9E5',
-        backgroundImage: `linear-gradient(120deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.9) 30%, rgba(0, 0, 0, 0.4) 70%), url('https://cloud-1tnl6uqvw-hack-club-bot.vercel.app/0image.png')`
+        backgroundImage: `url(/home/gitmon.png)`
       }}
       position={[null, 'bottom', 'bottom']}
-      highlight="#2b27f8d9"
+      highlight="dark"
       filter="brightness(0.8)"
-      stars={stars}
+      stars={repoStars}
     >
-      <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
+      {/* <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
         Blot
-      </Text>
+      </Text> */}
       <Grid columns={[1, 2]}>
-        <Box>
+        <Box sx={{ mt: [3, 4, 5] }}>
           <Text
             as="p"
             variant="subtitle"
-            sx={{ zIndex: 2, position: 'relative' }}
+            sx={{ 
+              zIndex: 2, 
+              position: 'relative', 
+              color: '#54738d',
+              backgroundColor: 'rgba(255, 255, 255, 0.4)',
+              padding: '1px',
+              borderRadius: '5px'
+            }}
           >
-            Blot is an open source drawing machine and online editor, designed
-            to be a fun and beginner friendly introduction to digital
-            fabrication and generative art.
+           GitMon is an open source GitHub analytics and monitoring platform, designed 
+to be a fun and developer-friendly introduction to repository insights 
+and performance tracking.
           </Text>
         </Box>
         <Box>
-          <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
+          <Flex sx={{ flexDirection: 'column', mt: [4, 5, 6] }}>
             <Buttons
               id="51"
               icon="align-left"
-              link="https://blot.hackclub.dev"
+              link="https://github.com/HappyHackingSpace/gitmon"
               primary="rgba(255, 255, 255, 0.9)"
-              sx={{ color: 'black' }}
+              sx={{ color: 'black', ml: [4, 5, 6] }}
             >
               Learn more
             </Buttons>
-            <Buttons
+            {/* <Buttons
               id="52"
               icon="code"
               link="https://blot.hackclub.dev/editor"
@@ -53,8 +70,8 @@ export default function Haxidraw({ stars }) {
               sx={{ color: 'black' }}
             >
               Create something in the editor
-            </Buttons>
-            <Buttons
+            </Buttons> */}
+            {/* <Buttons
               id="54"
               icon="slack"
               link="/slack"
@@ -62,7 +79,7 @@ export default function Haxidraw({ stars }) {
               sx={{ color: 'black' }}
             >
               Share your creations and chat on Slack
-            </Buttons>
+            </Buttons> */}
           </Flex>
         </Box>
       </Grid>

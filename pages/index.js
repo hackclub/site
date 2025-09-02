@@ -809,7 +809,7 @@ function Page({
               />
               <Onboard stars={stars.onboard.stargazerCount} delay={100} />
               <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
-              <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
+              {/* <Sinerider delay={200} stars={stars.sinerider.stargazerCount} /> */}
               <Box as="section" id="sprig">
                 <SprigConsole
                   delay={300}
@@ -817,7 +817,7 @@ function Page({
                   consoleCount={consoleCount}
                 />
               </Box>
-              <Workshops delay={400} stars={stars.hackclub.stargazerCount} />
+              {/* <Workshops delay={400} stars={stars.hackclub.stargazerCount} /> */}
             </Box>
           </Box>
           <Box

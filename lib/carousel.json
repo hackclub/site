@@ -63,15 +63,6 @@
     "link": "https://github.com/HappyHackingSpace/HackerTaboo"
   },
   {
-    "background": "#271932",
-    "titleColor": "#CAB4D4",
-    "textColor": "#CAB4D4",
-    "title": "ZmapSdk",
-    "description": "A Python SDK for the ZMap network scanner that provides an easy-to-use interface for network scanning operations.",
-    "img": "/project-icon/zmapsdk.png",
-    "link": "https://github.com/HappyHackingSpace/ZmapSDK"
-  },
-  {
     "background": "#e9e9e9",
     "titleColor": "black",
     "textColor": "black",

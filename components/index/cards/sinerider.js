@@ -45,7 +45,7 @@ export default function Sinerider({ stars }) {
             everything up to date and running smoothly.
           </Text>
           <Flex sx={{ flexDirection: 'column', mt: [3, 3, 4] }}>
-            <Buttons
+            {/* <Buttons
               icon="view"
               href="https://sinerider.com/"
               target="_blank"
@@ -55,7 +55,7 @@ export default function Sinerider({ stars }) {
               sx={{ color: '#271932' }}
             >
               Play now
-            </Buttons>
+            </Buttons> */}
             <Buttons
               icon="rainbow"
               href="https://github.com/hackclub/sinerider/#readme"
