@@ -19,9 +19,9 @@ const Base = styled(Box, { shouldForwardProp: prop => prop !== 'dark' })`
   }
 `
 
-const Logo = props => (
+const Logo = ({ dark, ...props }) => (
   <Image
-    src="/branding/hhs-white-wo-white.avif"
+    src={dark ? "/branding/hhs-white-wo-white.avif" : "/branding/hhs-black-wo-black.avif"}
     alt="Happy Hacking Space logo"
     width={128}
     height={45}
@@ -105,7 +105,7 @@ const Footer = ({
           <Heading as="h2" variant="subheadline" mb={3}>
             Resources
           </Heading>
-          <Link href="https://hackclub.com/pizza">Clubs Pizza Grant</Link>
+          <Link href="https://hackclub.com/pizza">Manifesto</Link>
           <Link href="https://events.hackclub.com/">Community Events</Link>
           <Link href="https://jams.hackclub.com/">Jams</Link>
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
@@ -113,7 +113,7 @@ const Footer = ({
           <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
         </Box> */}
         <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
-          <Logo aria-label="Happy Hacking Space logo" width={128} height={45} />
+          <Logo aria-label="Happy Hacking Space logo" width={128} height={45} dark={dark} />
           <Grid
             columns={[8, 4]}
             gap={2}
@@ -137,7 +137,7 @@ const Footer = ({
               href="https://join.happyhacking.space"
               icon="welcome"
               name="Community"
-              target="_self"
+              target="_blank"
             />
             <Service
               href="https://twitter.com/happyhackings"
@@ -160,7 +160,7 @@ const Footer = ({
               name="Mastodon"
             /> */}
             <Service
-              href="https://www.youtube.com/c/HappyHackingSpace"
+              href="https://www.youtube.com/@HappyHackingSpace"
               icon="youtube"
               name="YouTube"
             />
@@ -169,7 +169,7 @@ const Footer = ({
               icon="instagram"
               name="Instagram"
             />
-            <Service href={`mailto:${email}`} icon="email-fill" name="Email" />
+            {/* <Service href={`mailto:${email}`} icon="email-fill" name="Email" /> */}
           </Grid>
           {/* <Text my={2}>
             <Link href="tel:1-855-625-HACK">1-855-625-HACK</Link>

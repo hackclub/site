@@ -137,7 +137,7 @@ const Page = () => (
           >
             Don’t run your coding&nbsp;club alone.{' '}
           </Text>
-          Make it a{' '}
+          Make it a{' '}<br />
           <Text
             as="span"
             sx={{
@@ -146,7 +146,7 @@ const Page = () => (
               WebkitTextFillColor: 'transparent'
             }}
           >
-            Hack&nbsp;Club
+            Happy Hacking Space&nbsp;Club
           </Text>
           .
         </Heading>
@@ -164,7 +164,7 @@ const Page = () => (
             mb: [3, 4]
           }}
         >
-          Hack Club is a nonprofit network of high school computer science&nbsp;clubs and
+          Happy Hacking Space is a nonprofit network of high school computer science&nbsp;clubs and
           makers around the world. <strong>Applications are now open.</strong>
         </Text>
         <Button
