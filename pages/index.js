@@ -844,7 +844,7 @@ function Page({
             >
               { }
             </Box>
-            <Box
+            {/* <Box
               py={[4, 5, '82px']}
               sx={{
                 width: '90vw',
@@ -852,8 +852,8 @@ function Page({
                 margin: 'auto',
                 position: 'relative'
               }}
-            >
-              <Box>
+            > */}
+              {/* <Box>
                 <Text
                   variant="title"
                   as="h2"
@@ -890,17 +890,17 @@ function Page({
                   Thousands of Happy Hackers organize and participate in
                   hackathons and after school coding clubs.
                 </Text>
-              </Box>
-              <Clubs />
-              <Hackathons
+              </Box> */}
+              {/* <Clubs /> */}
+              {/* <Hackathons
                 delay={400}
                 data={hackathonsData}
                 stars={stars.hackathons.stargazerCount}
-              />
+              /> */}
 
               {/* <Events events={events} /> */}
-              <HCB data={bankData} />
-            </Box>
+              {/* <HCB data={bankData} /> */}
+            {/* </Box> */}
           </Box>
         </Box>
         <Box py={[4, 5, '82px']}>
