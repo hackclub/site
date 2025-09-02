@@ -56,7 +56,7 @@ and performance tracking.
             <Buttons
               id="51"
               icon="align-left"
-              link="https://github.com/HappyHackingSpace/gitmon"
+              link="https://github.com/HappyHackingSpace/githubmon"
               primary="rgba(255, 255, 255, 0.9)"
               sx={{ color: 'black', ml: [4, 5, 6] }}
             >
