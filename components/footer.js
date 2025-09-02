@@ -117,7 +117,7 @@ const Footer = ({
           <Link href="https://events.hackclub.com/">Community Events</Link>
           <Link href="https://jams.hackclub.com/">Jams</Link>
           <Link href="https://toolbox.hackclub.com/">Toolbox</Link>
-          <Link href="https://directory.hackclub.com/">Clubs Directory</Link>
+          <Link href="https://hackclub.com/map">Clubs Map</Link>
           <Link href="https://hackclub.com/conduct/">Code of Conduct</Link>
         </Box>
         <Box sx={{ gridColumn: ['span 2', 'span 1'] }}>
