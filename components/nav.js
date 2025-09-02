@@ -133,9 +133,9 @@ const NavBar = styled(Box, {
 const Navigation = props => (
   // REMINDER: This should be no more than 7 links :)
   <NavBar role="navigation" {...props}>
-    <NextLink href="/clubs" passHref>
+    {/* <NextLink href="/clubs" passHref>
       <Link>Clubs</Link>
-    </NextLink>
+    </NextLink> */}
     <NextLink href="/philosophy" passHref>
       <Link>Philosophy</Link>
     </NextLink>
