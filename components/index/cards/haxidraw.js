@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import CardModel from './card-model'
 import { Box, Flex, Grid, Text } from 'theme-ui'
 import Buttons from './button'
@@ -5,9 +6,18 @@ import Buttons from './button'
 /** @jsxImportSource theme-ui */
 
 export default function Haxidraw({ stars }) {
+  const [repoStars, setRepoStars] = useState(stars || 0)
+
+  useEffect(() => {
+    fetch('https://api.github.com/repos/HappyHackingSpace/githubmon')
+      .then(response => response.json())
+      .then(data => setRepoStars(data.stargazers_count))
+      .catch(error => console.error('Error fetching stars:', error))
+  }, [])
+
   return (
     <CardModel
-      github_link="https://github.com/HappyHackingSpace/gitmon"
+      github_link="https://github.com/HappyHackingSpace/githubmon"
       color="#54738d"
       sx={{
         backgroundSize: 'cover',
@@ -17,7 +27,7 @@ export default function Haxidraw({ stars }) {
       position={[null, 'bottom', 'bottom']}
       highlight="dark"
       filter="brightness(0.8)"
-      stars={stars}
+      stars={repoStars}
     >
       {/* <Text variant="title" as="h3" sx={{ fontSize: ['36px', 4, 5] }}>
         Blot
