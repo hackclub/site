@@ -576,6 +576,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U03CFAP9ABC/r"
   },
   {
+    "name": "Emma Borghi",
+    "department": "HQ",
+    "role": "AI and Robotics",
+    "acknowledged": false,
+    "bio": "Emma is a content creator from Italy, she started by partecipating in HCB's hackathon around the world, then she joined the team. She works in the AI and Robotic field, sharing content in Youtube, and now she organize YSWS programs",
+    "bioHackFoundation": "",
+    "slackId": "U078DFX40A2",
+    "email": "emma",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b7417c399bb6512d4c3b2fdb012ccba2a7769689_IMG_8784.jpeg"
+  },
+  {
     "name": "Sam Poder",
     "department": "HCB",
     "role": "Engineering",
