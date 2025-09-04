@@ -274,6 +274,17 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b419a2679e0f5a23c9779f479c0ead155edeb875_image.png"
   },
   {
+    "name": "Rebeka Lawrence-Gomez",
+    "department": "HQ",
+    "role": "Deputy to the Co-Founder",
+    "acknowledged": false,
+    "bio":"",
+    "slackId": "U093FC28A82", 
+    "email": "rebeka",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7d53388eeda6547a309ca478d455e2b824791bbf_image.png"
+  },
+  {
     "name": "Amber",
     "department": "HQ",
     "role": "Engineering + Community",
