@@ -1,4 +1,4 @@
-import { BaseStyles, Box, Button, Container, Grid, Heading, Link, Text } from 'theme-ui'
+import { BaseStyles, Box, Container, Heading, Link, Text } from 'theme-ui'
 import Meta from '@hackclub/meta'
 import Head from 'next/head'
 import Nav from '../components/nav'
