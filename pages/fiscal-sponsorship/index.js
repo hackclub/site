@@ -312,15 +312,28 @@ export default function Page() {
                 Apply now
               </Button>
             </Link>
+            <Link href="/sharkbank" passHref legacyBehavior>
+              <a>
+                <img
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/7c5e553bd0048abf1a6b247a8064206c6100a4e7_Frame_6.svg"
+                  alt="Join SharkBank!"
+                  style={{
+                    width: "220px",
+                    cursor: "pointer",
+                    marginBottom: "65px"
+                  }}
+                />
+              </a>
+            </Link>
             <SignIn />
             <a
-              href="https://hcb.hackclub.com/from/hack-club-site-fs-page/JRzHxJ"
+              href="https://hcb.hackclub.com/from/hack-club-site-fs-page/AYdHnM"
               style={{ textDecoration: 'none' }}
               target="_blank"
             >
               <Announcement
                 copy="Win a 13-inch MacBook Air!"
-                caption="We’re giving away a MacBook to a lucky teenager! Join the Raffle by August 31st, 2025."
+                caption="We’re giving away a MacBook to a lucky teenager! Join the Raffle by September 30th, 2025."
                 imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef010a890d7c554a6da9328d62f9a592df9ae5d_laptop-removebg-preview.png"
                 imgAlt="13-inch MacBook Air"
                 color="primary"

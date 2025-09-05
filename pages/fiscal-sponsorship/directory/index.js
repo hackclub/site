@@ -71,7 +71,7 @@ export const regions = [
   },
   {
     label: 'Asia & Oceania',
-    continents: ['Asia', 'Oceania'],
+    continents: ['Asia', 'Oceania', 'Australia'],
     color: 'secondary',
     iconColor: 'green',
     icon: 'explore',

@@ -28,12 +28,12 @@
     "department": "HQ",
     "role": "Events Lead",
     "acknowledged": false,
-    "bio": "Deven is a Hack Clubber from India who enjoys building meaningful things at the intersections of art and technology. He also loves music and plays the guitar & drums! Along with this, he also likes talking to strangers over the internet and having interesting & deep conversations. He is also a sucker for nature photography and enjoys hikes and treks into the wild!",
+    "bio": "After organizing hackathons and building in-person communities in highschool, Deven now works on Hack Club's in-person events and hackathons program. He is incredibly passionate about creating magical in-person interactions for thousands of Hack Clubbers each year. In his free time, Deven loves listening to music and playing the guitar- along with having deep, meaningful conversations with people!",
     "bioHackFoundation": "",
     "slackId": "U0261EB1EG7",
     "email": "dev",
     "website": "",
-    "avatar": "https://cloud-ef7jkweco-hack-club-bot.vercel.app/0image_47u2ffcxskiet6njqmuexzch.png"
+    "avatar": "https://github.com/devenjadhav.png"
   },
   {
     "name": "Graham Darcey",
@@ -190,6 +190,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U06PR6B8D37/r"
   },
   {
+    "name": "Euan Ripper",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Euan learned to code to automate a boring job at 16, He realised he loved coding and making so started to teach robotics to younger kids and now is building programs to teach kids all around the world at Hack Club",
+    "bioHackFoundatio": "",
+    "slackId": "U06T30DNB3L",
+    "email": "euan",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b896479422f28250d8ee0468c23f1e67404f537a_IMG_20250727_131859572_HDR.jpg"
+  },
+  {
     "name": "Lux Loff",
     "department": "HQ",
     "role": "Engineering",
@@ -260,6 +272,17 @@
     "email": "reem",
     "website": "https://reemkhalifa.xyz",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b419a2679e0f5a23c9779f479c0ead155edeb875_image.png"
+  },
+  {
+    "name": "Rebeka Lawrence-Gomez",
+    "department": "HQ",
+    "role": "Deputy to the Co-Founder",
+    "acknowledged": false,
+    "bio":"",
+    "slackId": "U093FC28A82", 
+    "email": "rebeka",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7d53388eeda6547a309ca478d455e2b824791bbf_image.png"
   },
   {
     "name": "Amber",
@@ -585,6 +608,30 @@
     "email": "",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U03CFAP9ABC/r"
+  },
+  {
+    "name": "Emma Borghi",
+    "department": "HQ",
+    "role": "AI and Robotics",
+    "acknowledged": false,
+    "bio": "Emma is a content creator from Italy, she started by participating in Hack Club's hackathons around the world, then she joined the team. She works in the AI and Robotic field, sharing content in Youtube, and now she organize YSWS programs",
+    "bioHackFoundation": "",
+    "slackId": "U078DFX40A2",
+    "email": "emma",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b7417c399bb6512d4c3b2fdb012ccba2a7769689_IMG_8784.jpeg"
+  },
+  {
+    "name": "Clay Nicholson",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Originally from Vermont, Clay joined Hack Club in 2022. In his free time, he enjoys mountain biking, playing ultimate frisbee, and skiing. In high school, Clay served as captain and programming/mechanical lead for two robotics teams. Today, he focuses primarily on creating hardware YSWS programs.",
+    "bioHackFoundation": "",
+    "slackId": "U078DFX40A2",
+    "email": "clay",
+    "website": "https://claynicholson.com/",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/8cc1b22323fe330d2e13a5d59334c9b58cc7bc14_1756333983052.jpg"
   },
   {
     "name": "Sam Poder",
