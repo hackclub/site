@@ -97,7 +97,7 @@ function OpenSourceAlert() {
         }}
       >
         <span style={{ fontSize: 20 }}>
-          <strong style={{ fontSize: 23 }}>HCB is now open source! </strong>
+          <strong style={{ fontSize: 23 }}>HCB is open source! </strong>
           <br />
           Join us in building the infrastructure powering student-led
           organizations
