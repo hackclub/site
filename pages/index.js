@@ -296,32 +296,6 @@ function Page({
                 <Button
                   variant="ctaLg"
                   as="a"
-                  href="https://summer.hackclub.com"
-                  mt={[3, 0, 0]}
-                  mr={3}
-                  sx={{ 
-                    transformOrigin: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    width: 'fit-content'
-                  }}
-                >
-                  Join Summer of Making
-                  <Text
-                    as="span"
-                    sx={{
-                      fontSize: 0,
-                      opacity: 0.8,
-                      mt: 1
-                    }}
-                  >
-                    Ends September 30th
-                  </Text>
-                </Button>
-                <Button
-                  variant="ctaLg"
-                  as="a"
                   href="https://daydream.hackclub.com"
                   mt={[3, 0, 0]}
                   mr={3}
@@ -344,6 +318,32 @@ function Page({
                     }}
                   >
                     Takes place September 27th & 28th
+                  </Text>
+                </Button>
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  href="https://summer.hackclub.com"
+                  mt={[3, 0, 0]}
+                  mr={3}
+                  sx={{ 
+                    transformOrigin: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: 'fit-content'
+                  }}
+                >
+                  Join Summer of Making
+                  <Text
+                    as="span"
+                    sx={{
+                      fontSize: 0,
+                      opacity: 0.8,
+                      mt: 1
+                    }}
+                  >
+                    Ends September 30th
                   </Text>
                 </Button>
               </Box>
