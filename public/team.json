@@ -562,6 +562,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U06859NLY5D/r"
   },
   {
+    "name": "David Cornu",
+    "department": "HCB",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U092BUBS28G",
+    "email": "davidc",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U092BUBS28G/r"
+  },
+  {
     "name": "Arianna Martinelli",
     "department": "HCB",
     "role": "Operations Mentor",
@@ -588,7 +600,7 @@
   {
     "name": "Rhys Panopio",
     "department": "HCB",
-    "role": "Operations",
+    "role": "Operations Contributor",
     "acknowledged": false,
     "bio": "Rhys is a Hack Clubber from Los Angeles, he started a Hack Club at his high school and eventually shifted into working on Operations for HCB. Rhys loves helping out in all areas on HCB but more than anything loves to make pizza.",
     "bioHackFoundation": "",
@@ -745,7 +757,7 @@
     "name": "Aryan Kapoor",
     "department": "HCB",
     "role": "Operations Contributor",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Aryan is currently a Computer Science freshman from India who likes to tinker with electronics. He holds a special place in his heart for dogs and even has two chihuahuas. He specializes in integrating business systems with websites and apps, and loves to help around in the community.",
     "bioHackFoundation": "",
     "slackId": "U078A390FTQ",
@@ -1803,17 +1815,5 @@
     "email": "mattsoh",
     "website": "https://youthacks.org",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4926a04e4aa9a101e4919d8b8071991a74c20b08_compressjpeg.online_img_512x512_.jpg"
-  },
-  {
-    "name": "David Cornu",
-    "department": "HCB",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "",
-    "bioHackFoundation": "",
-    "slackId": "U092BUBS28G",
-    "email": "davidc",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U092BUBS28G/r"
   }
 ]
