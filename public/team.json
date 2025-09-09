@@ -757,7 +757,7 @@
     "name": "Aryan Kapoor",
     "department": "HCB",
     "role": "Operations Contributor",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Aryan is currently a Computer Science freshman from India who likes to tinker with electronics. He holds a special place in his heart for dogs and even has two chihuahuas. He specializes in integrating business systems with websites and apps, and loves to help around in the community.",
     "bioHackFoundation": "",
     "slackId": "U078A390FTQ",
