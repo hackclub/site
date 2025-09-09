@@ -6,7 +6,7 @@ import { Global } from '@emotion/react'
 
 /** @jsxImportSource theme-ui */
 
-export default function Highway() {
+export default function Daydream() {
   return (
     <CardModel
       color="white"
@@ -123,7 +123,7 @@ export default function Highway() {
           />
         </Box>
         <Buttons
-          href="https://highway.hackclub.com/"
+          href="https://daydream.hackclub.com/?r=index-announcement"
           target="_blank"
           rel="noopener"
           primary="#e472ab"
