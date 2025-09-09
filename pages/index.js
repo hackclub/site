@@ -210,7 +210,7 @@ function Page({
             width="90vw"
             copy="You're invited to the world's largest high-school game jam!"
             caption="We're running a game jam in 100+ cities worldwide. Sign up to make a game in-person on September 27th & 28th!"
-            href="https://daydream.hackclub.com/"
+            href="https://daydream.hackclub.com/?r=index-announcement"
             imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/997e5fcca4f34cfee1a8d859e910e97a285521c4_icon-tight.png"
           />
           <Box
