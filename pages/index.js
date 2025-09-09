@@ -42,6 +42,7 @@ import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Som from '../components/index/cards/som'
 import Athena from '../components/index/cards/athena'
+import Daydream from '../components/index/cards/daydream'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
 /** @jsxImportSource theme-ui */
@@ -695,6 +696,7 @@ function Page({
                 and make things together!
               </Text>
             </Box>
+            <Daydream />
             <Som />
             <Athena />
             <Highway />
