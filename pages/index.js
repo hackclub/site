@@ -285,32 +285,68 @@ function Page({
                 <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
                 the world who code together
               </Text>
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="https://summer.hackclub.com"
-                mt={[3, 0, 0]}
-                mr={3}
-                sx={{ 
-                  transformOrigin: 'center left',
+              <Box
+                sx={{
                   display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  width: 'fit-content'
+                  flexWrap: 'wrap',
+                  flexDirection: 'row',
+                  rowGap: 3,
                 }}
               >
-                Join Summer of Making
-                <Text
-                  as="span"
-                  sx={{
-                    fontSize: 0,
-                    opacity: 0.8,
-                    mt: 1
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  href="https://daydream.hackclub.com"
+                  mt={[3, 0, 0]}
+                  mr={3}
+                  sx={{ 
+                    transformOrigin: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: 'fit-content',
+                    backgroundImage: t => t.util.gx('green', 'blue'),
                   }}
                 >
-                  Ends September 30th
-                </Text>
-              </Button>
+                  Sign Up for Daydream
+                  <Text
+                    as="span"
+                    sx={{
+                      fontSize: 0,
+                      opacity: 0.8,
+                      mt: 1
+                    }}
+                  >
+                    Takes place September 27th & 28th
+                  </Text>
+                </Button>
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  href="https://summer.hackclub.com"
+                  mt={[3, 0, 0]}
+                  mr={3}
+                  sx={{ 
+                    transformOrigin: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: 'fit-content'
+                  }}
+                >
+                  Join Summer of Making
+                  <Text
+                    as="span"
+                    sx={{
+                      fontSize: 0,
+                      opacity: 0.8,
+                      mt: 1
+                    }}
+                  >
+                    Ends September 30th
+                  </Text>
+                </Button>
+              </Box>
             </Heading>
           </Box>
           <Box
