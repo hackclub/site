@@ -123,7 +123,7 @@ export default function Daydream() {
           />
         </Box>
         <Buttons
-          href="https://daydream.hackclub.com/?r=index-announcement"
+          href="https://daydream.hackclub.com/?r=3928"
           target="_blank"
           rel="noopener"
           primary="#e472ab"
