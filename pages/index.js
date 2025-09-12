@@ -735,8 +735,6 @@ function Page({
             <Daydream />
             <Som />
             <Athena />
-            <Highway />
-            <Shipwrecked />
             <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />
           </Box>
