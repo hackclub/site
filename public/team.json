@@ -190,6 +190,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U06PR6B8D37/r"
   },
   {
+    "name": "Euan Ripper",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Euan learned to code to automate a boring job at 16, He realised he loved coding and making so started to teach robotics to younger kids and now is building programs to teach kids all around the world at Hack Club",
+    "bioHackFoundatio": "",
+    "slackId": "U06T30DNB3L",
+    "email": "euan",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b896479422f28250d8ee0468c23f1e67404f537a_IMG_20250727_131859572_HDR.jpg"
+  },
+  {
     "name": "Lux Loff",
     "department": "HQ",
     "role": "Engineering",
@@ -262,6 +274,17 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b419a2679e0f5a23c9779f479c0ead155edeb875_image.png"
   },
   {
+    "name": "Rebeka Lawrence-Gomez",
+    "department": "HQ",
+    "role": "Deputy to the Co-Founder",
+    "acknowledged": false,
+    "bio":"",
+    "slackId": "U093FC28A82", 
+    "email": "rebeka",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7d53388eeda6547a309ca478d455e2b824791bbf_image.png"
+  },
+  {
     "name": "Amber",
     "department": "HQ",
     "role": "Engineering + Community",
@@ -310,16 +333,27 @@
     "avatar": "https://cachet.dunkirk.sh/users/U04K5EPMZM1/r"
   },
   {
-    "name": "Afonso Beato",
+    "name": "Fonz Beato",
     "department": "HQ",
-    "role": "Club Onboarding and Community Relations",
+    "role": "Club Operations and Community Relations",
     "acknowledged": false,
-    "bio": "",
+    "bio": "Fonz (or Lynn) is a 14 year old Hack Clubber from Portugal, who got involved with Clubs in November 2024, when they started their club at their school. He's also ran their own Scrapyard event, in Lisbon. They can't wait to get more clubs up and running with cool resources!",
     "bioHackFoundation": "",
     "slackId": "U07ULNFPQ4T",
-    "email": "afonso",
-    "website": "",
+    "email": "fonz",
+    "website": "https://fonz.pt/",
     "avatar": "https://cachet.dunkirk.sh/users/U07ULNFPQ4T/r"
+  },
+  {
+    "name": "Rushil Chopra",
+    "department": "HQ",
+    "role": "YSWS Operations",
+    "acknowledged": false,
+    "bio": "Rushil is a 16-year-old from California who runs a yoga nonprofit and is building a mental health app for teens. He joined the YSWS Team to help grow the program and bring more people into Hack Club!",
+    "slackId": "U020X4GCWSF",
+    "email": "rushil",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U020X4GCWSF/r"
   },
   {
     "name": "Ethan Canterbury",
@@ -528,6 +562,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U06859NLY5D/r"
   },
   {
+    "name": "David Cornu",
+    "department": "HCB",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U092BUBS28G",
+    "email": "davidc",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U092BUBS28G/r"
+  },
+  {
     "name": "Arianna Martinelli",
     "department": "HCB",
     "role": "Operations Mentor",
@@ -554,7 +600,7 @@
   {
     "name": "Rhys Panopio",
     "department": "HCB",
-    "role": "Operations",
+    "role": "Operations Contributor",
     "acknowledged": false,
     "bio": "Rhys is a Hack Clubber from Los Angeles, he started a Hack Club at his high school and eventually shifted into working on Operations for HCB. Rhys loves helping out in all areas on HCB but more than anything loves to make pizza.",
     "bioHackFoundation": "",
@@ -574,6 +620,30 @@
     "email": "",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U03CFAP9ABC/r"
+  },
+  {
+    "name": "Emma Borghi",
+    "department": "HQ",
+    "role": "AI and Robotics",
+    "acknowledged": false,
+    "bio": "Emma is a content creator from Italy, she started by participating in Hack Club's hackathons around the world, then she joined the team. She works in the AI and Robotic field, sharing content in Youtube, and now she organize YSWS programs",
+    "bioHackFoundation": "",
+    "slackId": "U078DFX40A2",
+    "email": "emma",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b7417c399bb6512d4c3b2fdb012ccba2a7769689_IMG_8784.jpeg"
+  },
+  {
+    "name": "Clay Nicholson",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Originally from Vermont, Clay joined Hack Club in 2022. In his free time, he enjoys mountain biking, playing ultimate frisbee, and skiing. In high school, Clay served as captain and programming/mechanical lead for two robotics teams. Today, he focuses primarily on creating hardware YSWS programs.",
+    "bioHackFoundation": "",
+    "slackId": "U078DFX40A2",
+    "email": "clay",
+    "website": "https://claynicholson.com/",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/8cc1b22323fe330d2e13a5d59334c9b58cc7bc14_1756333983052.jpg"
   },
   {
     "name": "Sam Poder",
@@ -687,7 +757,7 @@
     "name": "Aryan Kapoor",
     "department": "HCB",
     "role": "Operations Contributor",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Aryan is currently a Computer Science freshman from India who likes to tinker with electronics. He holds a special place in his heart for dogs and even has two chihuahuas. He specializes in integrating business systems with websites and apps, and loves to help around in the community.",
     "bioHackFoundation": "",
     "slackId": "U078A390FTQ",
@@ -988,17 +1058,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U01581HFAGZ/r"
   },
   {
-    "name": "Felix Gao",
-    "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
-    "bio": "Felix, a teen Hack Clubber from Toronto, Canada, leads a team that writes various newsletters, ensuring Hack Clubbers know what's going on in the Slack and beyond. You'll often find him writing code or drowning two metres deep in homework. He has an absurd variety of niche interests and loves learning more about them, one of the biggest being urban planning/design.",
-    "slackId": "U07BU2HS17Z",
-    "email": "felix",
-    "website": "https://felixgao.dev/",
-    "avatar": "https://cachet.dunkirk.sh/users/U07BU2HS17Z/r"
-  },
-  {
     "name": "Eesha",
     "department": "Welcoming",
     "role": "Welcomer",
@@ -1069,13 +1128,25 @@
   {
     "name": "Ruby",
     "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
+    "role": "Past Welcomer",
+    "acknowledged": true,
     "bio": "Ruby is a Hack Clubber from Canada who welcomes people into the Slack and helps them settle in. She also worked on organising Scrapyard, a global hackathon and is an ultimate vibes engineer, as she likes to say. In her free time, she loves creating amazing artwork too!",
     "slackId": "U0779CJQLM8",
     "email": "",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U0779CJQLM8/r"
+  },
+  {
+    "name": "Darlene Wu",
+    "department": "Welcoming",
+    "role": "Past Welcomer",
+    "acknowledged": true,
+    "bio": "Darlene is a 16 year old Hack Clubber from Indonesia who runs virtual events for the Hack Club community. She also helps welcome members into the Slack",
+    "bioHackFoundation": "",
+    "slackId": "U07SX29CECA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07SX29CECA/r"
   },
   {
     "name": "Samvid",
