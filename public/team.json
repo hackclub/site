@@ -345,6 +345,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07ULNFPQ4T/r"
   },
   {
+    "name": "Jenin Henin",
+    "department": "HQ",
+    "role": "Club Operations",
+    "acknowledged": false,
+    "bio": "Jenin is a 14 year old Hack Clubber from Canada, who got involved with Hack Club in July 2025. He hopes to help Hack Clubbers achieve new things!",
+    "bioHackFoundation": "",
+    "slackId": "U0926UASBJ7",
+    "email": "jenin",
+    "avatar": "https://cachet.dunkirk.sh/users/U0926UASBJ7/r"
+  },
+  
+  {
     "name": "Zeyu (Peter) Yao",
     "department": "HQ",
     "role": "Club Engineering and Operations",
