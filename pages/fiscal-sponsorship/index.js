@@ -27,6 +27,7 @@ import { setCookie, getCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
 import { unfold } from '../../components/announcement'
 import Icon from '@hackclub/icons'
+import Announcement from '../../components/announcement'
 
 const organizations = [
   {
@@ -96,7 +97,7 @@ function OpenSourceAlert() {
         }}
       >
         <span style={{ fontSize: 20 }}>
-          <strong style={{ fontSize: 23 }}>HCB is now open source! </strong>
+          <strong style={{ fontSize: 23 }}>HCB is open source! </strong>
           <br />
           Join us in building the infrastructure powering student-led
           organizations
@@ -311,7 +312,35 @@ export default function Page() {
                 Apply now
               </Button>
             </Link>
+            <Link href="/sharkbank" passHref legacyBehavior>
+              <a>
+                <img
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/7c5e553bd0048abf1a6b247a8064206c6100a4e7_Frame_6.svg"
+                  alt="Join SharkBank!"
+                  style={{
+                    width: "220px",
+                    cursor: "pointer",
+                    marginBottom: "65px"
+                  }}
+                />
+              </a>
+            </Link>
             <SignIn />
+            <a
+              href="https://hcb.hackclub.com/from/hack-club-site-fs-page/AYdHnM"
+              style={{ textDecoration: 'none' }}
+              target="_blank"
+            >
+              <Announcement
+                copy="Win a 13-inch MacBook Air!"
+                caption="We’re giving away a MacBook to a lucky teenager! Join the Raffle by September 30th, 2025."
+                imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef010a890d7c554a6da9328d62f9a592df9ae5d_laptop-removebg-preview.png"
+                imgAlt="13-inch MacBook Air"
+                color="primary"
+                textColor="slate"
+                sx={{ mb: [1, 1], mt: [3, 4, 1] }}
+              />
+            </a>
           </Flex>
         </Container>
       </Box>
@@ -322,7 +351,7 @@ export default function Page() {
             Powering nonprofits at every scale
           </Text> */}
           <Flex sx={{ flexWrap: 'wrap', rowGap: 3, columnGap: [4, 5], mb: 4 }}>
-            <Stat value="$40M+" label="processed transactions" reversed />
+            <Stat value="$67M+" label="processed transactions" reversed />
             <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
@@ -401,10 +430,10 @@ export default function Page() {
                     'linear-gradient(to right, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
                 },
                 '@supports (-webkit-background-clip: text) and (background: linear-gradient(to right in oklch, white, black)':
-                  {
-                    backgroundImage:
-                      'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
-                  }
+                {
+                  backgroundImage:
+                    'linear-gradient(to right in oklch, #f06844 0%, #ee4c54 25%, #d45e95 50%, #9c6ca6 75%, #6583c1 100%) !important'
+                }
               }}
               style={{ margin: 0 }}
             >
