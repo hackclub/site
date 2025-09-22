@@ -82,6 +82,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U03DFNYGPCN/r"
   },
   {
+    "name": "Sahiti Dasari",
+    "department": "HQ",
+    "role": "Prev. Clubs Operations",
+    "acknowledged": true,
+    "bio": "Sahiti's Hack Club journey kicked off when she stumbled upon resources to start her own high school coding club, which later led to her running a county-wide hackathon. These days, she's an active member of the Clubs Operations & Engineering team and has previously interned with Hack Club for philanthropy & communications. She strives to create technology tools and resources for clubs, such as the Hack Club Jams initiative and Club Leader onboarding. Beyond programming, Sahiti loves all things finance, business, and literature. Her mission is to make an impact by spreading opportunities.\n\n... .... . .----. ... / .- .-.. ... --- / ..-. .-.. ..- . -. - / .. -. / -- --- .-. ... . / -.-. --- -.. . -.-.--",
+    "bioHackFoundation": "",
+    "slackId": "U03RU99SGKA",
+    "email": "sahiti",
+    "website": "",
+    "avatar": "https://cloud-m9lcvt46z-hack-club-bot.vercel.app/0qlinq_image_2387x2387.png"
+  },
+  {
     "name": "Woody Keppel",
     "department": "HQ",
     "role": "Event Alchemist",
@@ -140,18 +152,6 @@
     "email": "lucas",
     "website": "",
     "avatar": "https://cloud-jaaokph0b-hack-club-bot.vercel.app/0lucash_1836x1835.png"
-  },
-  {
-    "name": "Sahiti Dasari",
-    "department": "HQ",
-    "role": "Clubs Operations & Engineering",
-    "acknowledged": false,
-    "bio": "Sahiti's Hack Club journey kicked off when she stumbled upon resources to start her own high school coding club, which later led to her running a county-wide hackathon. These days, she's an active member of the Clubs Operations & Engineering team and has previously interned with Hack Club for philanthropy & communications. She strives to create technology tools and resources for clubs, such as the Hack Club Jams initiative and Club Leader onboarding. Beyond programming, Sahiti loves all things finance, business, and literature. Her mission is to make an impact by spreading opportunities.\n\n... .... . .----. ... / .- .-.. ... --- / ..-. .-.. ..- . -. - / .. -. / -- --- .-. ... . / -.-. --- -.. . -.-.--",
-    "bioHackFoundation": "",
-    "slackId": "U03RU99SGKA",
-    "email": "sahiti",
-    "website": "",
-    "avatar": "https://cloud-m9lcvt46z-hack-club-bot.vercel.app/0qlinq_image_2387x2387.png"
   },
   {
     "name": "Shubham Panth",
