@@ -42,6 +42,7 @@ import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Som from '../components/index/cards/som'
 import Athena from '../components/index/cards/athena'
+import Daydream from '../components/index/cards/daydream'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
 /** @jsxImportSource theme-ui */
@@ -207,10 +208,10 @@ function Page({
           />
           <Announcement
             width="90vw"
-            copy="This summer is yours for the making!"
-            caption="Get free Flipper Zeros, Framework Laptops, 3D Printers, and more. Join Summer of Making! Jun 16 - Sep 30."
-            href="https://summer.hackclub.com/"
-            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/779a5d748938b66ae93a566cc9699e636b01d462_summerlogo.png"
+            copy="You're invited to the world's largest high-school game jam!"
+            caption="We're running a game jam in 100+ cities worldwide. Sign up to make a game in-person on September 27th & 28th!"
+            href="https://daydream.hackclub.com/?r=3928"
+            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/997e5fcca4f34cfee1a8d859e910e97a285521c4_icon-tight.png"
           />
           <Box
             sx={{
@@ -284,32 +285,68 @@ function Page({
                 <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
                 the world who code together
               </Text>
-              <Button
-                variant="ctaLg"
-                as="a"
-                href="https://summer.hackclub.com"
-                mt={[3, 0, 0]}
-                mr={3}
-                sx={{ 
-                  transformOrigin: 'center left',
+              <Box
+                sx={{
                   display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  width: 'fit-content'
+                  flexWrap: 'wrap',
+                  flexDirection: 'row',
+                  rowGap: 3,
                 }}
               >
-                Join Summer of Making
-                <Text
-                  as="span"
-                  sx={{
-                    fontSize: 0,
-                    opacity: 0.8,
-                    mt: 1
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  href="https://daydream.hackclub.com/?r=3928"
+                  mt={[3, 0, 0]}
+                  mr={3}
+                  sx={{ 
+                    transformOrigin: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: 'fit-content',
+                    backgroundImage: t => t.util.gx('green', 'blue'),
                   }}
                 >
-                  Ends September 30th
-                </Text>
-              </Button>
+                  Sign Up for Daydream
+                  <Text
+                    as="span"
+                    sx={{
+                      fontSize: 0,
+                      opacity: 0.8,
+                      mt: 1
+                    }}
+                  >
+                    Takes place September 27th & 28th
+                  </Text>
+                </Button>
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  href="https://summer.hackclub.com"
+                  mt={[3, 0, 0]}
+                  mr={3}
+                  sx={{ 
+                    transformOrigin: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    width: 'fit-content'
+                  }}
+                >
+                  Join Summer of Making
+                  <Text
+                    as="span"
+                    sx={{
+                      fontSize: 0,
+                      opacity: 0.8,
+                      mt: 1
+                    }}
+                  >
+                    Ends September 30th
+                  </Text>
+                </Button>
+              </Box>
             </Heading>
           </Box>
           <Box
@@ -695,10 +732,9 @@ function Page({
                 and make things together!
               </Text>
             </Box>
+            <Daydream />
             <Som />
             <Athena />
-            <Highway />
-            <Shipwrecked />
             <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />
           </Box>
