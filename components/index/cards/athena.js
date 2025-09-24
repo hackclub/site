@@ -71,7 +71,7 @@ export default function Athena() {
             Earn an <b>industry recognized technical certificate</b> for coding
             30 hours and building 3 personal projects. Win prizes as you code,
             and a chance to travel to NYC for 2025's largest high school
-            hackathon for girls.
+            hackathon for girls and non-binary students.
           </Text>
 
           <Buttons
