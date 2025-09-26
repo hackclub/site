@@ -217,6 +217,11 @@ const nextConfig = {
         source: '/security',
         destination: 'https://security.hackclub.com',
         permanent: true
+      },
+      {
+        source: '/congressional-app-challenge',
+        destination: 'https://finalist.hackclub.com',
+        permanent: true
       }
     ]
   },
