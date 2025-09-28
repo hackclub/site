@@ -470,17 +470,6 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ca950cf3586abf03d8c3ee2f58e174a7d8a36889_18.jpg"
   },
   {
-    "name": "Meghana Madiraju",
-    "department": "HQ",
-    "role": "Engineering & Event operations",
-    "acknowledged": false,
-    "bio": "Hey, I'm Meghana. I'm a 16 year old that spends her free time messing around with robots and making PCBs. I made Pathfinder and Hermes, and ran global operations for Daydream",
-    "slackId": "U06P62WGWAV",
-    "email": "meghana",
-    "website": "https://meghana.co",
-    "avatar": "https://cachet.dunkirk.sh/users/U06P62WGWAV/r"
-  },
-  {
     "name": "Gus Ruben",
     "department": "HQ",
     "role": "Engineering",
@@ -491,6 +480,17 @@
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
   },  
+  {
+    "name": "Meghana Madiraju",
+    "department": "HQ",
+    "role": "Engineering & Event operations",
+    "acknowledged": false,
+    "bio": "Hey, I'm Meghana. I'm a 16 year old that spends her free time messing around with robots and making PCBs. I made Pathfinder and Hermes, and ran global operations for Daydream",
+    "slackId": "U06P62WGWAV",
+    "email": "meghana",
+    "website": "https://meghana.co",
+    "avatar": "https://cachet.dunkirk.sh/users/U06P62WGWAV/r"
+  },
   {
     "name": "Nick Do",
     "department": "HQ",
