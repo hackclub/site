@@ -481,6 +481,17 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
   },  
   {
+    "name": "Meghana Madiraju",
+    "department": "HQ",
+    "role": "Engineering & Event operations",
+    "acknowledged": false,
+    "bio": "Hey, I'm Meghana. I'm a 16 year old that spends her free time messing around with robots and making PCBs. I made Pathfinder and Hermes, and ran global operations for Daydream",
+    "slackId": "U06P62WGWAV",
+    "email": "meghana",
+    "website": "https://meghana.co",
+    "avatar": "https://cachet.dunkirk.sh/users/U06P62WGWAV/r"
+  },
+  {
     "name": "Nick Do",
     "department": "HQ",
     "role": "Engineering",
