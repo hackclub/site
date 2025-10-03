@@ -5,6 +5,8 @@ import Icon from '../icon'
 
 export default function CarouselCards({
   background,
+  backgroundImage,
+  backgroundSize,
   titleColor,
   descriptionColor,
   title,
@@ -57,6 +59,8 @@ export default function CarouselCards({
           sx={{
             mr: 3,
             background,
+            backgroundImage,
+            backgroundSize,
             position: 'relative',
             color: 'white',
             width: ['200px', '300px', '300px'],
