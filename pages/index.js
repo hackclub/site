@@ -62,6 +62,7 @@ function Page({
   gameTitle,
   events,
   carouselCards,
+  blueprintData,
   context
 }) {
   let [gameImage, setGameImage] = useState('')
@@ -211,7 +212,7 @@ function Page({
             width="90vw"
             copy="Get up to $400 to make a hardware project!"
             caption="Design a project and get a grant to make it real with Blueprint, Hack Club's largest hardware program"
-            href="https://blueprint.hackclub.com/?ref=site-announcement"
+            href="https://blueprint.hackclub.com/?utm_source=site-announcement"
             imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png"/>
           <Box
             sx={{
@@ -732,7 +733,7 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Blueprint/>
+            <Blueprint blueprintData={blueprintData} stars={stars.onboard.stargazerCount} />
             <Daydream />
             <Som />
             <Athena />
@@ -1320,6 +1321,10 @@ export async function getStaticProps() {
   const { getConsoles } = require('./api/sprig-console')
   const consoleCount = await getConsoles()
 
+  // Blueprint: get project count
+  const { fetchBlueprint } = require('./api/blueprint')
+  const blueprintData = await fetchBlueprint()
+
   // Hackathons: get latest hackathons
   let hackathonsData
   try {
@@ -1356,7 +1361,8 @@ export async function getStaticProps() {
       slackData,
       stars,
       events,
-      carouselCards
+      carouselCards,
+      blueprintData
     },
     revalidate: 60
   }
