@@ -5,15 +5,19 @@ import Buttons from './button'
 
 /** @jsxImportSource theme-ui */
 
-export default function Blueprint({ stars }) {
-  const [projects, setProjects] = useState(0)
+export default function Blueprint({ stars, blueprintData }) {
+  const [projects, setProjects] = useState(blueprintData || '100+ projects built')
 
   useEffect(() => {
-    fetch(
-      'https://api.github.com/search/issues?q=repo:hackclub/blueprint-submissions+is:pr+is:merged'
-    )
-      .then(response => response.json())
-      .then(data => setProjects(data.total_count))
+    if (!blueprintData) {
+      fetch('/api/blueprint')
+        .then(response => response.json())
+        .then(data => setProjects(data))
+        .catch(error => {
+          console.error('Error fetching Blueprint data:', error)
+          setProjects('100+ projects built')
+        })
+    }
   }, [])
 
   return (
@@ -68,26 +72,79 @@ export default function Blueprint({ stars }) {
         />
       </Box>
       <Box>
-        <Text
-          as="p"
-          variant="subheadline"
+        <Flex
           sx={{
+            alignItems: 'baseline',
+            gap: 1,
             px: 2,
             py: 1,
             width: 'fit-content',
             borderRadius: 'extra',
             border: 'rgba(255,255,255,0.2) dashed 1px',
             zIndex: 2,
-            color: 'white',
             mb: 3
           }}
         >
-          100+ projects built
-        </Text>
+          <Box
+            sx={{
+              position: 'relative',
+              display: 'flex',
+              width: '12px',
+              height: '12px',
+              flexShrink: 0,
+              mb: '2px',
+              mr: '5px'
+            }}
+          >
+            <Box
+              sx={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                borderRadius: '9999px',
+                backgroundColor: '#a8f0ae',
+                alignItems: 'center',
+                animation: 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+                '@keyframes ping': {
+                  '0%': {
+                    transform: 'scale(1)',
+                    opacity: 1
+                  },
+                  '75%, 100%': {
+                    transform: 'scale(2)',
+                    opacity: 0
+                  }
+                }
+              }}
+            />
+            <Box
+              sx={{
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+                borderRadius: '9999px',
+                backgroundColor: '#a8f0ae'
+              }}
+            />
+          </Box>
+          <Text
+            as="span"
+            variant="subheadline"
+            sx={{
+              color: 'white',
+              display: 'flex',
+              alignItems: 'center',
+              m: 0,
+              lineHeight: 1
+            }}
+          >
+            {projects}
+          </Text>
+        </Flex>
         <Text as="p" variant="subtitle" sx={{ color: 'white', mb: 4, maxWidth: '600px' }}>
           Design a Hardware project and get up to $400 to make it real!
         </Text>
-        
+
         <Flex sx={{ flexDirection: ['column', 'row'], gap: 3, alignItems: ['stretch', 'center'], flexWrap: 'wrap' }}>
           <Buttons
             id="59"
