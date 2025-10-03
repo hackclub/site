@@ -101,7 +101,7 @@ export default function Blueprint({ stars }) {
           <Buttons icon="docs" link="https://blueprint.hackclub.com/guides/?utm_source=site" id="60">
             Learn how to build hardware
           </Buttons>
-          <Buttons icon="friend" link="https://blueprint.hackclub.com/exploret/?utm_source=site" id="61">
+          <Buttons icon="friend" link="https://blueprint.hackclub.com/explore/?utm_source=site" id="61">
             See what other hackers have built
           </Buttons>
         </Flex>
