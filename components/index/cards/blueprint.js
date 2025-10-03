@@ -5,15 +5,19 @@ import Buttons from './button'
 
 /** @jsxImportSource theme-ui */
 
-export default function Blueprint({ stars }) {
-  const [projects, setProjects] = useState(0)
+export default function Blueprint({ stars, blueprintData }) {
+  const [projects, setProjects] = useState(blueprintData || '100+ projects built')
 
   useEffect(() => {
-    fetch(
-      'https://api.github.com/search/issues?q=repo:hackclub/blueprint-submissions+is:pr+is:merged'
-    )
-      .then(response => response.json())
-      .then(data => setProjects(data.total_count))
+    if (!blueprintData) {
+      fetch('/api/blueprint')
+        .then(response => response.json())
+        .then(data => setProjects(data))
+        .catch(error => {
+          console.error('Error fetching Blueprint data:', error)
+          setProjects('100+ projects built')
+        })
+    }
   }, [])
 
   return (
@@ -82,7 +86,7 @@ export default function Blueprint({ stars }) {
             mb: 3
           }}
         >
-          100+ projects built
+          {projects}
         </Text>
         <Text as="p" variant="subtitle" sx={{ color: 'white', mb: 4, maxWidth: '600px' }}>
           Design a Hardware project and get up to $400 to make it real!

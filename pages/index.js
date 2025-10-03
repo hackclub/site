@@ -62,6 +62,7 @@ function Page({
   gameTitle,
   events,
   carouselCards,
+  blueprintData,
   context
 }) {
   let [gameImage, setGameImage] = useState('')
@@ -1320,6 +1321,10 @@ export async function getStaticProps() {
   const { getConsoles } = require('./api/sprig-console')
   const consoleCount = await getConsoles()
 
+  // Blueprint: get project count
+  const { fetchBlueprint } = require('./api/blueprint')
+  const blueprintData = await fetchBlueprint()
+
   // Hackathons: get latest hackathons
   let hackathonsData
   try {
@@ -1356,7 +1361,8 @@ export async function getStaticProps() {
       slackData,
       stars,
       events,
-      carouselCards
+      carouselCards,
+      blueprintData
     },
     revalidate: 60
   }
