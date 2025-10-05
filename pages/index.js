@@ -294,10 +294,10 @@ function Page({
                   rowGap: 3,
                 }}
               >
-                <Button
+                               <Button
                   variant="ctaLg"
                   as="a"
-                  href="https://daydream.hackclub.com/?r=3928"
+                  href="https://blueprint.hackclub.com/?utm_source=site-cta"
                   mt={[3, 0, 0]}
                   mr={3}
                   sx={{ 
@@ -306,19 +306,28 @@ function Page({
                     flexDirection: 'column',
                     alignItems: 'center',
                     width: 'fit-content',
-                    backgroundImage: t => t.util.gx('green', 'blue'),
+                    backgroundColor: '#0e305b',
+                    backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+                    backgroundSize: '50px 50px',
+                    border: '2px solid #dbe4ee',
+                    color: '#dbe4ee',
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                      boxShadow: '0 0 20px rgba(219, 228, 238, 0.4)'
+                    }
                   }}
                 >
-                  Sign Up for Daydream
+                  Sign Up for Blueprint
                   <Text
                     as="span"
                     sx={{
                       fontSize: 0,
                       opacity: 0.8,
-                      mt: 1
+                      mt: 1,
+                      color: '#dbe4ee'
                     }}
                   >
-                    Takes place September 27th & 28th
+                    Get up to $400 to make Hardware
                   </Text>
                 </Button>
                 <Button
