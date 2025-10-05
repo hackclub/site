@@ -8,7 +8,7 @@ Download the code to your computer:
 
     $ git clone https://github.com/hackclub/site && cd site
 
-Install dependencies:
+Install dependencies: 
 
     $ yarn
 
