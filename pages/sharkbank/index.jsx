@@ -86,7 +86,7 @@ function DesktopMode({ billboardBottom }) {
       </Section>
 
       {/* Second Section */}
-      <Section bg="/sharkbank/secondSectionBG.png" minHeight="1100px">
+      <Section bg="/sharkbank/desktop-row-2-column-1-closed.png" minHeight="1100px">
         {/* Banners */}
         <Box
           as="div"
@@ -99,7 +99,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c32a26f584d572c67c00fbe2701c70afa7111261_red_desktop.png"
+            src="/sharkbank/desktop-red-closed.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -119,7 +119,7 @@ function DesktopMode({ billboardBottom }) {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/51b2111a5b362b93ddd2ffc677591105b01914a4_BANNER_2.png"
+            src="/sharkbank/desktop-blue-closed.png"
             alt="Banner-2"
             width="275px"
             height="800px"
@@ -213,65 +213,51 @@ function DesktopMode({ billboardBottom }) {
               }}
             >
               <Image
-                src="/sharkbank/SIGN.PNG"
+                src="/sharkbank/sign-closed.png"
                 alt="Sign"
                 width="275px"
                 height="800px"
                 objectFit="contain"
                 priority
               />
-              <Text
-                as="span"
-                sx={{
+              <button
+                style={{
+                  height: '65px',
+                  width: '220px',
                   position: 'absolute',
-                  top: '332px',
-                  left: '46px',
-                  fontSize: '35px',
-                  color: '#E8E5C8'
+                  bottom: '-326px',
+                  left: '180px',
+                  zIndex: 2,
+                  rotate: '-5deg',
+                  borderRadius: '50px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontFamily: 'Phantom Sans',
+                  fontWeight: 500,
+                  fontSize: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: '200',
+                  background: 'transparent',
                 }}
               >
-                Sign up now!
-              </Text>
-              <Link href="https://forms.hackclub.com/sharkbank" passHref>
-                <button
+                <img
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                  alt="Button background"
                   style={{
-                    height: '65px',
-                    width: '220px',
-                    position: 'absolute',
-                    bottom: '-326px',
-                    left: '180px',
-                    zIndex: 2,
-                    rotate: '-5deg',
-                    borderRadius: '50px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontFamily: 'Phantom Sans',
-                    fontWeight: 500,
-                    fontSize: '25px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    zIndex: '200',
-                    background: 'transparent',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover', // Scale image to fill the button
+                    position: 'absolute', // Position the image to fill the button
+                    top: '0',
+                    left: '0',
+                    zIndex: '-1', // Place the image behind the text
+                    borderRadius: '50px', // Apply the same border-radius as the button
                   }}
-                >
-                  <img
-                    src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
-                    alt="Button background"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover', // Scale image to fill the button
-                      position: 'absolute', // Position the image to fill the button
-                      top: '0',
-                      left: '0',
-                      zIndex: '-1', // Place the image behind the text
-                      borderRadius: '50px', // Apply the same border-radius as the button
-                    }}
-                  />
-                  SIGN UP <Icon glyph="enter" size={35} />
-                </button>
-              </Link>
+                />
+                Applications closed!
+              </button>
             </div>
           </div>
         </Box>
@@ -392,7 +378,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/899512573085f07df33d298375e45ac1fd66c6b5_red_mobile.png"
+            src="/sharkbank/mobile-red-closed.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -412,7 +398,7 @@ function TabletMode() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6b4aa76d177f19a351b222c9114eba5745df67a3_banner-1-mobile.png"
+            src="/sharkbank/mobile-blue-closed.png"
             alt="Banner-1"
             width="275px"
             height="800px"
@@ -505,65 +491,51 @@ function TabletMode() {
               }}
             >
               <Image
-                src="/sharkbank/SIGN.PNG"
+                src="/sharkbank/sign-closed.PNG"
                 alt="Sign"
                 width="275px"
                 height="800px"
                 objectFit="contain"
                 priority
               />
-              <Text
-                as="span"
-                sx={{
+              <button
+                style={{
+                  height: '65px',
+                  width: '220px',
                   position: 'absolute',
-                  top: '332px',
-                  left: '46px',
-                  fontSize: '35px',
-                  color: '#E8E5C8'
+                  bottom: '-326px',
+                  left: '180px',
+                  zIndex: 2,
+                  rotate: '-5deg',
+                  borderRadius: '50px',
+                  cursor: 'pointer',
+                  fontFamily: 'Phantom Sans',
+                  fontWeight: 500,
+                  fontSize: '20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: '200',
+                  background: 'transparent',
+                  border: 'none'
                 }}
               >
-                Sign up now!
-              </Text>
-              <Link href="https://forms.hackclub.com/sharkbank">
-                <button
+                <img
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                  alt="Button background"
                   style={{
-                    height: '65px',
-                    width: '220px',
-                    position: 'absolute',
-                    bottom: '-326px',
-                    left: '180px',
-                    zIndex: 2,
-                    rotate: '-5deg',
-                    borderRadius: '50px',
-                    cursor: 'pointer',
-                    fontFamily: 'Phantom Sans',
-                    fontWeight: 500,
-                    fontSize: '25px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    zIndex: '200',
-                    background: 'transparent',
-                    border: 'none'
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover', // Scale image to fill the button
+                    position: 'absolute', // Position the image to fill the button
+                    top: '0',
+                    left: '0',
+                    zIndex: '-1', // Place the image behind the text
+                    borderRadius: '50px', // Apply the same border-radius as the button
                   }}
-                >
-                  <img
-                    src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
-                    alt="Button background"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover', // Scale image to fill the button
-                      position: 'absolute', // Position the image to fill the button
-                      top: '0',
-                      left: '0',
-                      zIndex: '-1', // Place the image behind the text
-                      borderRadius: '50px', // Apply the same border-radius as the button
-                    }}
-                  />
-                  SIGN UP <Icon glyph="enter" size={35} />
-                </button>
-              </Link>
+                />
+                Applications closed!
+              </button>
             </div>
           </div>
         </Box>
@@ -686,7 +658,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/899512573085f07df33d298375e45ac1fd66c6b5_red_mobile.png"
+            src="/sharkbank/mobile-red-closed.png"
             alt="Banner-1"
             width={imgWidth}
             height={imgHeight}
@@ -706,7 +678,7 @@ function MobileMode() {
           }}
         >
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/6b4aa76d177f19a351b222c9114eba5745df67a3_banner-1-mobile.png"
+            src="/sharkbank/mobile-blue-closed.png"
             alt="Banner-2"
             width={imgWidth}
             height={imgHeight}
@@ -801,65 +773,51 @@ function MobileMode() {
               }}
             >
               <Image
-                src="/sharkbank/SIGN.PNG"
+                src="/sharkbank/sign-closed.png"
                 alt="Sign"
                 width="220px"
                 height="400px"
                 objectFit="contain"
                 priority
               />
-              <Text
-                as="span"
-                sx={{
+              <button
+                style={{
+                  height: '65px',
+                  width: '170px',
                   position: 'absolute',
-                  top: '145px',
-                  left: '32px',
-                  fontSize: '30px',
-                  color: '#E8E5C8'
+                  bottom: '-55px',
+                  left: '135px',
+                  zIndex: 2,
+                  rotate: '-5deg',
+                  borderRadius: '50px',
+                  cursor: 'pointer',
+                  fontFamily: 'Phantom Sans',
+                  fontWeight: 500,
+                  fontSize: '15px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: '200',
+                  background: 'transparent',
+                  border: 'none'
                 }}
               >
-                Sign up now!
-              </Text>
-              <Link href="https://forms.hackclub.com/sharkbank">
-                <button
+                <img
+                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                  alt="Button background"
                   style={{
-                    height: '65px',
-                    width: '170px',
-                    position: 'absolute',
-                    bottom: '-55px',
-                    left: '135px',
-                    zIndex: 2,
-                    rotate: '-5deg',
-                    borderRadius: '50px',
-                    cursor: 'pointer',
-                    fontFamily: 'Phantom Sans',
-                    fontWeight: 500,
-                    fontSize: '22px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    zIndex: '200',
-                    background: 'transparent',
-                    border: 'none'
+                    width: '100%',
+                    height: '75%',
+                    objectFit: 'cover', // Scale image to fill the button
+                    position: 'absolute', // Position the image to fill the button
+                    top: '6px',
+                    left: '0',
+                    zIndex: '-1', // Place the image behind the text
+                    borderRadius: '50px', // Apply the same border-radius as the button
                   }}
-                >
-                  <img
-                    src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
-                    alt="Button background"
-                    style={{
-                      width: '100%',
-                      height: '75%',
-                      objectFit: 'cover', // Scale image to fill the button
-                      position: 'absolute', // Position the image to fill the button
-                      top: '6px',
-                      left: '0',
-                      zIndex: '-1', // Place the image behind the text
-                      borderRadius: '50px', // Apply the same border-radius as the button
-                    }}
-                  />
-                  SIGN UP <Icon glyph="enter" size={35} />
-                </button>
-              </Link>
+                />
+                Applications closed!
+              </button>
             </div>
           </div>
         </Box>
