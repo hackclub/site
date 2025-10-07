@@ -344,7 +344,7 @@ function Page({
                     width: 'fit-content'
                   }}
                 >
-                  Join Summer of Making
+                  Join Summer of Making "ENDED"
                   <Text
                     as="span"
                     sx={{
