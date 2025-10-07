@@ -41,7 +41,7 @@ import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
-import Som from '../components/index/cards/som'
+// ...existing code...
 import Athena from '../components/index/cards/athena'
 import Daydream from '../components/index/cards/daydream'
 import Highway from '../components/index/cards/highway'
@@ -744,7 +744,7 @@ function Page({
             </Box>
             <Blueprint blueprintData={blueprintData} stars={stars.onboard.stargazerCount} />
             <Daydream />
-            <Som />
+// ...existing code...
             <Athena />
             <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />
