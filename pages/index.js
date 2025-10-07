@@ -344,7 +344,7 @@ function Page({
                     width: 'fit-content'
                   }}
                 >
-                  Join Summer of Making "ENDED"
+                   Summer of Making
                   <Text
                     as="span"
                     sx={{
@@ -353,7 +353,7 @@ function Page({
                       mt: 1
                     }}
                   >
-                    Ends September 30th
+                    ENDED - See you next summer!
                   </Text>
                 </Button>
               </Box>
