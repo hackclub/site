@@ -41,7 +41,6 @@ import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
-import Som from '../components/index/cards/som'
 import Athena from '../components/index/cards/athena'
 import Daydream from '../components/index/cards/daydream'
 import Highway from '../components/index/cards/highway'
@@ -328,32 +327,6 @@ function Page({
                     }}
                   >
                     Get up to $400 to make Hardware
-                  </Text>
-                </Button>
-                <Button
-                  variant="ctaLg"
-                  as="a"
-                  href="https://summer.hackclub.com"
-                  mt={[3, 0, 0]}
-                  mr={3}
-                  sx={{ 
-                    transformOrigin: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    width: 'fit-content'
-                  }}
-                >
-                  Join Summer of Making
-                  <Text
-                    as="span"
-                    sx={{
-                      fontSize: 0,
-                      opacity: 0.8,
-                      mt: 1
-                    }}
-                  >
-                    Ends September 30th
                   </Text>
                 </Button>
               </Box>
@@ -744,7 +717,6 @@ function Page({
             </Box>
             <Blueprint blueprintData={blueprintData} stars={stars.onboard.stargazerCount} />
             <Daydream />
-            <Som />
             <Athena />
             <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />

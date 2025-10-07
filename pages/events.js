@@ -77,19 +77,6 @@ const events = [
     repo: 'the-hacker-zephyr'
   },
   {
-    name: 'Summer of Making',
-    logo: 'https://hackclub.com/stickers/summer_of_making.svg',
-    description:
-      '$50k in hardware donations to teen hackers around the world and the creation of Scrapbook:',
-    location: 'Online (thanks COVID-19!)',
-    season: 'Summer',
-    year: '2020',
-    image:
-      'https://cdn.sanity.io/images/2ejqxsnu/production/ed144128afb78a7095d6c77945efdd2c38078ecf-1637x990.png?w=3840&q=75&fit=clip&auto=format',
-    link: 'https://scrapbook.hackclub.com/r/summer-of-making',
-    ghTag: 'summer-of-making'
-  },
-  {
     name: 'Flagship',
     logo: 'https://hackclub.com/stickers/ship.png',
     description:
