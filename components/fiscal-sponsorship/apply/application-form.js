@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Alert, Button, Text } from 'theme-ui'
 import FormContainer from './form-container'
 import OrganizationInfoForm from './org-form'
@@ -11,8 +11,10 @@ import MultiStepForm from './multi-step-form'
 export default function ApplicationForm() {
   const router = useRouter()
   const formContainer = useRef()
+  const roboticsPriorityCheckbox = useRef(null)
   const [formError, setFormError] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [roboticsPriorityEnabled, setRoboticsPriorityEnabled] = useState(false)
 
   const requiredFields = {
     // Key: form field name
@@ -58,6 +60,30 @@ export default function ApplicationForm() {
     </Button>
   )
 
+  // Prefill hidden Robotics Priority field from query params or saved progress
+  useEffect(() => {
+    if (!roboticsPriorityCheckbox.current || !router.isReady) return
+
+    const queryValueRaw = router.query['robotics-priority']
+    const queryValue = Array.isArray(queryValueRaw)
+      ? queryValueRaw[queryValueRaw.length - 1]
+      : queryValueRaw
+
+    const shouldCheck =
+      typeof queryValue === 'string' &&
+      ['true', '1', 'yes', 'on'].includes(queryValue.toLowerCase())
+
+    roboticsPriorityCheckbox.current.checked = shouldCheck
+    setRoboticsPriorityEnabled(shouldCheck)
+
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem(
+        'bank-signup-robotics-priority',
+        shouldCheck ? 'true' : 'false'
+      )
+    }
+  }, [router.isReady, router.query])
+
   return (
     <FormContainer
       ref={formContainer}
@@ -73,6 +99,16 @@ export default function ApplicationForm() {
         })
       }
     >
+      <input type="hidden" name="robotics-priority" value="false" />
+      <input
+        ref={roboticsPriorityCheckbox}
+        type="checkbox"
+        name="robotics-priority"
+        value="true"
+        style={{ display: 'none' }}
+        tabIndex={-1}
+        aria-hidden="true"
+      />
       <MultiStepForm
         submitButton={submitButton}
         validationErrors={
@@ -86,15 +122,20 @@ export default function ApplicationForm() {
         {/* Step 1 */}
         <MultiStepForm.Step title="Let's get started">
           <Text as="p" variant="caption" sx={{ marginBottom: '1rem' }}>
-            Fill out this quick application to run your project on HCB. If you
-            are a teenager, there is a very high likelihood we will accept your
-            project. We just need to collect a few pieces of information first.
+            Fill out this quick application to run your{' '}
+            {roboticsPriorityEnabled ? 'robotics team' : 'project'} on HCB. If
+            you are a teenager, there is a very high likelihood we will accept{' '}
+            your project. We just need to collect a few pieces of information
+            first.
           </Text>
           <TeenagerOrAdultForm requiredFields={requiredFields} />
         </MultiStepForm.Step>
         {/* Step 2 */}
         <MultiStepForm.Step>
-          <OrganizationInfoForm requiredFields={requiredFields} />
+          <OrganizationInfoForm
+            requiredFields={requiredFields}
+            roboticsPriorityEnabled={roboticsPriorityEnabled}
+          />
         </MultiStepForm.Step>
         {/* Step 3 */}
         <MultiStepForm.Step title="Personal details">

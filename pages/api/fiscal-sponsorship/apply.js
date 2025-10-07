@@ -16,6 +16,7 @@ export default async function handler(req, res) {
   }
 
   const data = req.body
+  const roboticsPriority = data['robotics-priority'] === 'true'
 
   await fetch('https://hcb.hackclub.com/api/v1/events/create_demo', {
     body: JSON.stringify({
@@ -66,7 +67,8 @@ export default async function handler(req, res) {
         'Referral Code': data.referralCode,
         Tubs: tub_programs.includes(data.tub_program)
           ? data.tub_program
-          : undefined
+          : undefined,
+        'Org Type': roboticsPriority ? 'FIRST/Robotics' : undefined
       })
       res.status(200).end()
     })
