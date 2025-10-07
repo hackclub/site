@@ -717,7 +717,6 @@ function Page({
             </Box>
             <Blueprint blueprintData={blueprintData} stars={stars.onboard.stargazerCount} />
             <Daydream />
-// ...existing code...
             <Athena />
             <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />
