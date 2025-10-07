@@ -41,7 +41,6 @@ import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
-import Som from '../components/index/cards/som'
 import Athena from '../components/index/cards/athena'
 import Daydream from '../components/index/cards/daydream'
 import Highway from '../components/index/cards/highway'
@@ -213,7 +212,8 @@ function Page({
             copy="Get up to $400 to make a hardware project!"
             caption="Design a project and get a grant to make it real with Blueprint, Hack Club's largest hardware program"
             href="https://blueprint.hackclub.com/?utm_source=site-announcement"
-            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png"/>
+            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png"
+          />
           <Box
             sx={{
               width: '90vw',
@@ -291,23 +291,24 @@ function Page({
                   display: 'flex',
                   flexWrap: 'wrap',
                   flexDirection: 'row',
-                  rowGap: 3,
+                  rowGap: 3
                 }}
               >
-                               <Button
+                <Button
                   variant="ctaLg"
                   as="a"
                   href="https://blueprint.hackclub.com/?utm_source=site-cta"
                   mt={[3, 0, 0]}
                   mr={3}
-                  sx={{ 
+                  sx={{
                     transformOrigin: 'center',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     width: 'fit-content',
                     backgroundColor: '#0e305b',
-                    backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+                    backgroundImage:
+                      'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
                     backgroundSize: '50px 50px',
                     border: '2px solid #dbe4ee',
                     color: '#dbe4ee',
@@ -328,32 +329,6 @@ function Page({
                     }}
                   >
                     Get up to $400 to make Hardware
-                  </Text>
-                </Button>
-                <Button
-                  variant="ctaLg"
-                  as="a"
-                  href="https://summer.hackclub.com"
-                  mt={[3, 0, 0]}
-                  mr={3}
-                  sx={{ 
-                    transformOrigin: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    width: 'fit-content'
-                  }}
-                >
-                  Join Summer of Making
-                  <Text
-                    as="span"
-                    sx={{
-                      fontSize: 0,
-                      opacity: 0.8,
-                      mt: 1
-                    }}
-                  >
-                    Ends September 30th
                   </Text>
                 </Button>
               </Box>
@@ -742,9 +717,11 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Blueprint blueprintData={blueprintData} stars={stars.onboard.stargazerCount} />
+            <Blueprint
+              blueprintData={blueprintData}
+              stars={stars.onboard.stargazerCount}
+            />
             <Daydream />
-            <Som />
             <Athena />
             <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />
@@ -1352,9 +1329,9 @@ export async function getStaticProps() {
 
   let events = []
   try {
-    await fetch(
-      'https://events.hackclub.com/api/events/upcoming/'
-    ).then(res => res.json())
+    await fetch('https://events.hackclub.com/api/events/upcoming/').then(res =>
+      res.json()
+    )
   } catch (error) {
     console.error('Error fetching events:', error)
   }
