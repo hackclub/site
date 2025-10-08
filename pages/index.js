@@ -331,6 +331,17 @@ function Page({
                     Get up to $400 to make Hardware
                   </Text>
                 </Button>
+
+                <Button
+                  variant="ctaLg"
+                  as="a"
+                  href="/slack"
+                  mt={[3, 0, 0]}
+                  mr={3}
+                  sx={{ transformOrigin: 'center left' }}
+                >
+                  Join Slack
+                </Button>
               </Box>
             </Heading>
           </Box>
