@@ -42,7 +42,6 @@ import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
 import Athena from '../components/index/cards/athena'
-import Daydream from '../components/index/cards/daydream'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
 /** @jsxImportSource theme-ui */
@@ -732,7 +731,6 @@ function Page({
               blueprintData={blueprintData}
               stars={stars.onboard.stargazerCount}
             />
-            <Daydream />
             <Athena />
             <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />
