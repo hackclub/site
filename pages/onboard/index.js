@@ -171,23 +171,28 @@ const ShipPage = () => {
 
       <Box
         sx={{
-          bg: '#ff6b35',
+          backgroundColor: '#0e305b',
+          backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
+          backgroundPosition: '0 0, 0 0',
           color: 'white',
           p: 3,
           textAlign: 'center',
           fontSize: 3,
-          fontWeight: 'bold'
+          fontWeight: 'bold',
+          position: 'relative',
+          border: '4px solid white'
         }}
       >
-        OnBoard has ended! We gave away $100 PCB grants to 1,000 high schoolers!{' '}
+        OnBoard has ended!{' '}
         <Link
-          href="https://forms.hackclub.com/t/xtYYcGvNTCus"
+          href="https://blueprint.hackclub.com/?utm_source=onboard-site"
           target="_blank"
           sx={{ color: 'white', textDecoration: 'underline' }}
         >
-          Sign up here
+          Click here
         </Link>{' '}
-        to hear about future electronics grants!
+        to sign up for Blueprint - the next hardware program
       </Box>
 
       <Box
