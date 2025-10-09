@@ -1,6 +1,7 @@
 import { Box, Flex, Grid, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Icon from '@hackclub/icons'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../../../components/force-theme'
@@ -11,6 +12,18 @@ import ApplicationForm from '../../../components/fiscal-sponsorship/apply/applic
 import { MultiStepProvider } from '../../../components/fiscal-sponsorship/apply/multi-step-context'
 
 export default function Apply() {
+  const router = useRouter()
+  const roboticsPriorityRaw = router?.query?.['robotics-priority']
+  const roboticsPriorityValue = Array.isArray(roboticsPriorityRaw)
+    ? roboticsPriorityRaw[roboticsPriorityRaw.length - 1]
+    : roboticsPriorityRaw
+  const roboticsPriorityEnabled =
+    typeof roboticsPriorityValue === 'string' &&
+    ['true', '1', 'yes', 'on'].includes(roboticsPriorityValue.toLowerCase())
+  const heroCaption = roboticsPriorityEnabled
+    ? 'Use HCB to raise nonprofit dollars to fund your robotics team.'
+    : 'Use HCB to raise nonprofit dollars to fund your project.'
+
   return (
     <>
       <Meta as={Head} title="Apply for HCB" />
@@ -88,9 +101,7 @@ export default function Apply() {
                   HCB
                 </Flex>
               </Heading>
-              <Text variant="caption">
-                Use HCB to raise nonprofit dollars to fund your project.
-              </Text>
+              <Text variant="caption">{heroCaption}</Text>
             </Box>
             <HCBInfo />
             <ContactBanner

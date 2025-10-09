@@ -327,13 +327,13 @@ export default function Page() {
             </Link>
             <SignIn />
             <a
-              href="https://hcb.hackclub.com/from/hack-club-site-fs-page/AYdHnM"
+              href="https://hcb.hackclub.com/from/hack-club-site-fs-page/JD9HyM"
               style={{ textDecoration: 'none' }}
               target="_blank"
             >
               <Announcement
                 copy="Win a 13-inch MacBook Air!"
-                caption="We’re giving away a MacBook to a lucky teenager! Join the Raffle by September 30th, 2025."
+                caption="We’re giving away a MacBook to a lucky teenager! Join the raffle by October 31st, 2025."
                 imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef010a890d7c554a6da9328d62f9a592df9ae5d_laptop-removebg-preview.png"
                 imgAlt="13-inch MacBook Air"
                 color="primary"
@@ -351,7 +351,7 @@ export default function Page() {
             Powering nonprofits at every scale
           </Text> */}
           <Flex sx={{ flexWrap: 'wrap', rowGap: 3, columnGap: [4, 5], mb: 4 }}>
-            <Stat value="$40M+" label="processed transactions" reversed />
+            <Stat value="$67M+" label="processed transactions" reversed />
             <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>

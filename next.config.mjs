@@ -71,11 +71,6 @@ const nextConfig = {
       },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
       {
-        source: '/slack/',
-        destination: 'https://summer.hackclub.com',
-        permanent: false
-      },
-      {
         source: '/jobs/bank-tech-lead/',
         destination: '/jobs/lead-hacker/',
         permanent: true
@@ -216,6 +211,16 @@ const nextConfig = {
       {
         source: '/security',
         destination: 'https://security.hackclub.com',
+        permanent: true
+      },
+      {
+        source: '/congressional-app-challenge',
+        destination: 'https://finalist.hackclub.com',
+        permanent: true
+      },
+      {
+        source: '/hardware',
+        destination: 'https://blueprint.hackclub.com',
         permanent: true
       }
     ]

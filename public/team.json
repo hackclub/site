@@ -82,6 +82,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U03DFNYGPCN/r"
   },
   {
+    "name": "Sahiti Dasari",
+    "department": "HQ",
+    "role": "Prev. Clubs Operations",
+    "acknowledged": true,
+    "bio": "Sahiti's Hack Club journey kicked off when she stumbled upon resources to start her own high school coding club, which later led to her running a county-wide hackathon. These days, she's an active member of the Clubs Operations & Engineering team and has previously interned with Hack Club for philanthropy & communications. She strives to create technology tools and resources for clubs, such as the Hack Club Jams initiative and Club Leader onboarding. Beyond programming, Sahiti loves all things finance, business, and literature. Her mission is to make an impact by spreading opportunities.\n\n... .... . .----. ... / .- .-.. ... --- / ..-. .-.. ..- . -. - / .. -. / -- --- .-. ... . / -.-. --- -.. . -.-.--",
+    "bioHackFoundation": "",
+    "slackId": "U03RU99SGKA",
+    "email": "sahiti",
+    "website": "",
+    "avatar": "https://cloud-m9lcvt46z-hack-club-bot.vercel.app/0qlinq_image_2387x2387.png"
+  },
+  {
     "name": "Woody Keppel",
     "department": "HQ",
     "role": "Event Alchemist",
@@ -142,18 +154,6 @@
     "avatar": "https://cloud-jaaokph0b-hack-club-bot.vercel.app/0lucash_1836x1835.png"
   },
   {
-    "name": "Sahiti Dasari",
-    "department": "HQ",
-    "role": "Clubs Operations & Engineering",
-    "acknowledged": false,
-    "bio": "Sahiti's Hack Club journey kicked off when she stumbled upon resources to start her own high school coding club, which later led to her running a county-wide hackathon. These days, she's an active member of the Clubs Operations & Engineering team and has previously interned with Hack Club for philanthropy & communications. She strives to create technology tools and resources for clubs, such as the Hack Club Jams initiative and Club Leader onboarding. Beyond programming, Sahiti loves all things finance, business, and literature. Her mission is to make an impact by spreading opportunities.\n\n... .... . .----. ... / .- .-.. ... --- / ..-. .-.. ..- . -. - / .. -. / -- --- .-. ... . / -.-. --- -.. . -.-.--",
-    "bioHackFoundation": "",
-    "slackId": "U03RU99SGKA",
-    "email": "sahiti",
-    "website": "",
-    "avatar": "https://cloud-m9lcvt46z-hack-club-bot.vercel.app/0qlinq_image_2387x2387.png"
-  },
-  {
     "name": "Shubham Panth",
     "department": "HQ",
     "role": "Engineering",
@@ -205,8 +205,8 @@
     "name": "Lux Loff",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
-    "bio": "As a high school student, Lux joined the Hack Club Slack after finding the SSH jobs board. Now in her 20s, she's been brought on to do engineering at Hack Club HQ. In her spare time, she can be found producing music as \"sporeball\" or designing her own rhythm game, called Khel.",
+    "acknowledged": true,
+    "bio": "As a high school student, Lux joined the Hack Club Slack after finding the SSH jobs board. In her 20s, she joined the You Ship, We Ship team at Hack Club HQ, where she launched six events of varying shapes and sizes. In her spare time, you'll still find her producing music (as \"sporeball\") or designing her own rhythm game (called Khel), among other \"weird things\".",
     "bioHackFoundation": "",
     "slackId": "U01G0Q9K998",
     "email": "lux",
@@ -345,6 +345,29 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07ULNFPQ4T/r"
   },
   {
+    "name": "Jenin Henin",
+    "department": "HQ",
+    "role": "Club Operations",
+    "acknowledged": false,
+    "bio": "Jenin is a 14-year-old Hack Clubber from Canada who got involved with Hack Club in July 2025. He hopes to help Hack Clubbers achieve new things!",
+    "bioHackFoundation": "",
+    "slackId": "U0926UASBJ7",
+    "email": "jenin",
+    "avatar": "https://cachet.dunkirk.sh/users/U0926UASBJ7/r"
+  },
+  {
+    "name": "Zeyu (Peter) Yao",
+    "department": "HQ",
+    "role": "Club Operations",
+    "acknowledged": false,
+    "bio": "Peter is a 17-year-old Hack Clubber from Singapore. He founded the SAIS Hack Club, grew it to 40+ members, and made it one of the most sustained student-led tech clubs at his school. He was then invited by HQ to speak at the inaugural Hack Club Leaders' Summit in San Francisco, where he mentored peers and led a panel on diversity and inclusion. Beyond Hack Club, he organized BuildingBloCS, Singapore's largest AI-themed student conference, and spoke at Geekcamp Singapore, where he advocates for rethinking computer science education to empower students as creators. Today, Peter mentors new leaders, supports global club operations, and coordinates the launch of Hack Clubs across the Asia-Pacific region while facilitating local workshops and hackathons.",
+    "bioHackFoundation": "",
+    "slackId": "U03DDMP76GL",
+    "email": "",
+    "website": "https://cytronicoder.com",
+    "avatar": "https://cachet.dunkirk.sh/users/U03DDMP76GL/r"
+  },
+  {
     "name": "Rushil Chopra",
     "department": "HQ",
     "role": "YSWS Operations",
@@ -358,7 +381,7 @@
   {
     "name": "Ethan Canterbury",
     "department": "HQ",
-    "role": "Club Engineering and Operations",
+    "role": "Club Engineering Lead and Operations",
     "acknowledged": false,
     "bio": "Ethan is a Hack Clubber from New Jersey who LOVES python and... cats... He's on the club operations team and does engineering as well as help with many other projects! He has a vast experiance in Python, Web dev & sysadmin.",
     "bioHackFoundation": "",
@@ -457,6 +480,17 @@
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
   },  
+  {
+    "name": "Meghana Madiraju",
+    "department": "HQ",
+    "role": "Engineering & Event operations",
+    "acknowledged": false,
+    "bio": "Hey, I'm Meghana. I'm a 16 year old that spends her free time messing around with robots and making PCBs. I made Pathfinder and Hermes, and ran global operations for Daydream",
+    "slackId": "U06P62WGWAV",
+    "email": "meghana",
+    "website": "https://meghana.co",
+    "avatar": "https://cachet.dunkirk.sh/users/U06P62WGWAV/r"
+  },
   {
     "name": "Nick Do",
     "department": "HQ",
@@ -595,7 +629,7 @@
     "slackId": "U02CWS020SD",
     "email": "alexd",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0513981889e244405d5c4ef0ccd30922e1fecc3c_img_6425_1200x1200.png"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/cc32793d5022517d19c7f34d06b2d84425335bf4_img_5743.jpeg"
   },
   {
     "name": "Rhys Panopio",
@@ -1056,17 +1090,6 @@
     "email": "alexp",
     "website": "https://parkalex.dev",
     "avatar": "https://cachet.dunkirk.sh/users/U01581HFAGZ/r"
-  },
-  {
-    "name": "Felix Gao",
-    "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
-    "bio": "Felix, a teen Hack Clubber from Toronto, Canada, leads a team that writes various newsletters, ensuring Hack Clubbers know what's going on in the Slack and beyond. You'll often find him writing code or drowning two metres deep in homework. He has an absurd variety of niche interests and loves learning more about them, one of the biggest being urban planning/design.",
-    "slackId": "U07BU2HS17Z",
-    "email": "felix",
-    "website": "https://felixgao.dev/",
-    "avatar": "https://cachet.dunkirk.sh/users/U07BU2HS17Z/r"
   },
   {
     "name": "Eesha",

@@ -7,8 +7,24 @@ import useOrganizationI18n from '../organizationI18n'
 import OrganizationAdultForm from './org-adult-form'
 import { useTeenagerLedContext } from './teenager-led-context'
 
-export default function OrganizationInfoForm({ requiredFields }) {
+export default function OrganizationInfoForm({
+  requiredFields,
+  roboticsPriorityEnabled = false
+}) {
   const org = useOrganizationI18n()
+  const nameLabel = roboticsPriorityEnabled ? 'Team name and number' : `${org} name`
+  const descriptionLabel = roboticsPriorityEnabled
+    ? 'Tell us about your robotics team'
+    : `Tell us about your ${org.toLowerCase()}`
+  const descriptionCaption = roboticsPriorityEnabled
+    ? "What leagues are you in? Are you affiliated with any schools? What's the history of your robotics team?"
+    : 'Are you running a hackathon, robotics team, organizing a nonprofit, building a project, etc.?'
+  const websiteQuestionLabel = roboticsPriorityEnabled
+    ? 'Does your robotics team have a website?'
+    : 'Does your project have a website?'
+  const websiteFieldLabel = roboticsPriorityEnabled
+    ? 'Team website'
+    : `${org} website`
 
   const { teenagerLed } = useTeenagerLedContext()
 
@@ -50,25 +66,26 @@ export default function OrganizationInfoForm({ requiredFields }) {
     <>
       <Field
         name="eventName"
-        label={`${org} name`}
+        label={nameLabel}
         requiredFields={requiredFields}
       >
         <Input
           name="eventName"
           id="eventName"
-          placeholder="Shelburne School Hackathon"
+          placeholder={
+            roboticsPriorityEnabled
+              ? '#4225 The Hackers'
+              : 'Shelburne School Hackathon'
+          }
         />
       </Field>
 
       <Field
         name="eventDescription"
-        label={`Tell us about your ${org.toLowerCase()}`}
+        label={descriptionLabel}
         requiredFields={requiredFields}
       >
-        <Text variant="caption">
-          Are you running a hackathon, robotics team, organizing a nonprofit,
-          building a project, etc.?
-        </Text>
+        <Text variant="caption">{descriptionCaption}</Text>
         <Textarea
           name="eventDescription"
           id="eventDescription"
@@ -80,7 +97,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
       </Field>
 
       <Field
-        label="Does your project have a website?"
+        label={websiteQuestionLabel}
         name="eventHasWebsite"
         requiredFields={requiredFields}
       >
@@ -99,7 +116,7 @@ export default function OrganizationInfoForm({ requiredFields }) {
       {hasWebsite ? (
         <Field
           name="eventWebsite"
-          label={`${org} website`}
+          label={websiteFieldLabel}
           requiredFields={requiredFields}
         >
           <Input
