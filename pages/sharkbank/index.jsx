@@ -879,6 +879,9 @@ function Section({ bg, minHeight, minWidth, children }) {
         />
         {children}
       </Box>
+
+      <ContactBanner sx={{ justifyContent: 'center' }} />
+      <Footer />
     </div>
   )
 }
