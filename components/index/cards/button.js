@@ -6,6 +6,7 @@ import Icon from '@hackclub/icons'
 export default function Buttons({
   children,
   icon,
+  customIcon,
   id,
   content,
   link,
@@ -51,12 +52,18 @@ export default function Buttons({
         rel="noreferrer"
         {...props}
       >
-        <Icon
-          glyph={icon || 'plus-fill'}
-          sx={{ color: 'inherit', marginRight: 2 }}
-          size={24}
-          mr={2}
-        />
+        {customIcon ? (
+          <Box sx={{ marginRight: 2, display: 'flex', alignItems: 'center' }}>
+            {customIcon}
+          </Box>
+        ) : (
+          <Icon
+            glyph={icon || 'plus-fill'}
+            sx={{ color: 'inherit', marginRight: 2 }}
+            size={24}
+            mr={2}
+          />
+        )}
         <Text sx={{ fontFamily: 'Phantom Sans', textAlign: 'left' }}>
           {children}
         </Text>
