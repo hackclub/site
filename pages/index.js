@@ -42,11 +42,6 @@ import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
 import Athena from '../components/index/cards/athena'
-<<<<<<< HEAD
-
-=======
-import Daydream from '../components/index/cards/daydream'
->>>>>>> c11faf46 (excising lockfiles)
 import Moonshot from '../components/index/cards/moonshot'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
