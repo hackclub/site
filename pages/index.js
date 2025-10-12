@@ -728,11 +728,11 @@ function Page({
                 and make things together!
               </Text>
             </Box>
+            <Moonshot />
             <Blueprint
               blueprintData={blueprintData}
               stars={stars.onboard.stargazerCount}
             />
-            <Moonshot />
             <Athena />
             <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />
