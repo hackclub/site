@@ -18,15 +18,6 @@
     "link": "https://hack.club/boba"
   },
   {
-    "background": "#EF6C46",
-    "titleColor": "#EDE2DC",
-    "descriptionColor": "#EDE2DC",
-    "title": "Cider",
-    "description": "Design, Code, and Ship an iOS app to the App Store in 30 days. Currently on pause.",
-    "img": "https://cloud-m33gqgkp6-hack-club-bot.vercel.app/0image.png",
-    "link": "https://cider.hackclub.com/"
-  },
-  {
     "background": "snow",
     "titleColor": "dark",
     "descriptionColor": "black",
