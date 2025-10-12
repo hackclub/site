@@ -74,5 +74,14 @@
     "description": "Design a hardware project and get up to $400 to make it real",
     "img": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png",
     "link": "https://blueprint.hackclub.com/?utm_source=site-carousel"
+  },
+  {
+    "background": "#ec3750",
+    "titleColor": "white",
+    "descriptionColor": "white",
+    "title": "YSWS Programs",
+    "description": "Build something amazing, and Hack Club will ship you something epic in return.",
+    "img": "https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f680@2x.png",
+    "link": "ysws.hackclub.com"
   }
 ]
