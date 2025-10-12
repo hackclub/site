@@ -71,6 +71,8 @@ function Page({
   let [github, setGithub] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
+  const [announcementVariant, setAnnouncementVariant] = useState('blueprint')
+  const [ctaVariant, setCtaVariant] = useState('blueprint')
 
   const { asPath } = useRouter()
 
@@ -81,6 +83,18 @@ function Page({
 
     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
     window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
+  }, [])
+
+  // Decide which announcement to show on the client to avoid hydration mismatches
+  useEffect(() => {
+    const roll = Math.floor(Math.random() * 2) + 1 // 1d2
+    if (roll === 2) setAnnouncementVariant('moonshot')
+  }, [])
+
+  // Decide which CTA to show on the client (default to Blueprint on SSR)
+  useEffect(() => {
+    const roll = Math.floor(Math.random() * 2) + 1 // 1d2
+    if (roll === 2) setCtaVariant('moonshot')
   }, [])
 
   const easterEgg = () => {
@@ -207,13 +221,23 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          <Announcement
-            width="90vw"
-            copy="Get up to $400 to make a hardware project!"
-            caption="Design a project and get a grant to make it real with Blueprint, Hack Club's largest hardware program"
-            href="https://blueprint.hackclub.com/?utm_source=site-announcement"
-            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png"
-          />
+          {announcementVariant === 'blueprint' ? (
+            <Announcement
+              width="90vw"
+              copy="Get up to $400 to make a hardware project!"
+              caption="Design a project and get a grant to make it real with Blueprint, Hack Club's largest hardware program"
+              href="https://blueprint.hackclub.com/?utm_source=site-announcement"
+              imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png"
+            />
+          ) : (
+            <Announcement
+              width="90vw"
+              copy="Moonshot: 4-day hackathon in Orlando"
+              caption="Join us — free NASA & Universal Studios trips"
+              href="https://moonshot.hackclub.com?t=webt"
+              imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/20dccaf98bc294f15d07534c407c56debcb6ec8d_favicon.png"
+            />
+          )}
           <Box
             sx={{
               width: '90vw',
@@ -294,43 +318,77 @@ function Page({
                   rowGap: 3
                 }}
               >
-                <Button
-                  variant="ctaLg"
-                  as="a"
-                  href="https://blueprint.hackclub.com/?utm_source=site-cta"
-                  mt={[3, 0, 0]}
-                  mr={3}
-                  sx={{
-                    transformOrigin: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    width: 'fit-content',
-                    backgroundColor: '#0e305b',
-                    backgroundImage:
-                      'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
-                    backgroundSize: '50px 50px',
-                    border: '2px solid #dbe4ee',
-                    color: '#dbe4ee',
-                    '&:hover': {
-                      transform: 'scale(1.05)',
-                      boxShadow: '0 0 20px rgba(219, 228, 238, 0.4)'
-                    }
-                  }}
-                >
-                  Sign Up for Blueprint
-                  <Text
-                    as="span"
+                {ctaVariant === 'blueprint' ? (
+                  <Button
+                    variant="ctaLg"
+                    as="a"
+                    href="https://blueprint.hackclub.com/?utm_source=site-cta"
+                    mt={[3, 0, 0]}
+                    mr={3}
                     sx={{
-                      fontSize: 0,
-                      opacity: 0.8,
-                      mt: 1,
-                      color: '#dbe4ee'
+                      transformOrigin: 'center',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      width: 'fit-content',
+                      backgroundColor: '#0e305b',
+                      backgroundImage:
+                        'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+                      backgroundSize: '50px 50px',
+                      border: '2px solid #dbe4ee',
+                      color: '#dbe4ee',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                        boxShadow: '0 0 20px rgba(219, 228, 238, 0.4)'
+                      }
                     }}
                   >
-                    Get up to $400 to make Hardware
-                  </Text>
-                </Button>
+                    Sign Up for Blueprint
+                    <Text
+                      as="span"
+                      sx={{
+                        fontSize: 0,
+                        opacity: 0.8,
+                        mt: 1,
+                        color: '#dbe4ee'
+                      }}
+                    >
+                      Get up to $400 to make Hardware
+                    </Text>
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      variant="ctaLg"
+                      as="a"
+                      href="https://moonshot.hackclub.com?t=webt"
+                      mt={[3, 0, 0]}
+                      mr={3}
+                      sx={{
+                        transformOrigin: 'center left',
+                        backgroundColor: 'black',
+                        color: 'white',
+                        border: '2px solid white',
+                        boxShadow: '0 0 10px rgba(255,255,255,0.25)',
+                        animation: 'moonshotPulse 2s ease-in-out infinite',
+                        textShadow: '0 1px 1px rgba(0,0,0,0.6)',
+                        backgroundImage: 'none',
+                        '&:hover': {
+                          transform: 'scale(1.05)'
+                        }
+                      }}
+                    >
+                      RSVP for Moonshot!
+                    </Button>
+                    <style>{`
+                      @keyframes moonshotPulse {
+                        0% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
+                        50% { box-shadow: 0 0 16px rgba(255,255,255,0.6), 0 0 24px rgba(255,255,255,0.35); }
+                        100% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
+                      }
+                    `}</style>
+                  </>
+                )}
 
                 <Button
                   variant="ctaLg"
