@@ -122,7 +122,7 @@ export default function Moonshot() {
         </Box>
 
         <Buttons
-          href="https://moonshot.hackclub.com"
+          href="https://moonshot.hackclub.com?t=web"
           target="_blank"
           rel="noopener"
           primary="#32466E"
