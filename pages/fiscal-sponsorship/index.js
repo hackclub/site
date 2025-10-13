@@ -519,7 +519,7 @@ export default function Page() {
           <Link href="https://outernet.hackclub.com/">
             <Photo
               src={OuternetImgFile}
-              alt="Each year, 1000s of teenagers attend Hack Club events like this"
+              alt="Each year, thousands of teenagers attend Hack Club events like this"
               showAlt
               sx={{ height: '100%' }}
             />
