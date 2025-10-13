@@ -258,7 +258,7 @@ function Page({
               }}
               as="h4"
             >
-              Welcome to Hack&nbsp;Club
+              Welcome to UwU&nbsp;Club
             </Text>
             <Heading>
               <Text
