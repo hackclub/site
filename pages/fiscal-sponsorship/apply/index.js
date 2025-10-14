@@ -60,7 +60,7 @@ export default function Apply() {
                   sx={{
                     mb: 3,
                     gap: 2,
-                    display: 'flex',
+                    display: 'inline-flex',
                     alignItems: 'center',
                     color: 'muted',
                     textDecoration: 'none',
