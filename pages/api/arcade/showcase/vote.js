@@ -2,13 +2,13 @@ import AirtablePlus from 'airtable-plus'
 
 const usersTable = new AirtablePlus({
   baseID: 'app4kCWulfB02bV8Q',
-  apiKey: process.env.AIRTABLE_API_KEY,
+  apiKey: process.env.AIRTABLE_WRITE_API_KEY,
   tableName: 'Users'
 })
 
 const votesTable = new AirtablePlus({
   baseID: 'app4kCWulfB02bV8Q',
-  apiKey: process.env.AIRTABLE_API_KEY,
+  apiKey: process.env.AIRTABLE_WRITE_API_KEY,
   tableName: 'Vote'
 })
 

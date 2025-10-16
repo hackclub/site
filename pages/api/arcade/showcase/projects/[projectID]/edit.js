@@ -47,7 +47,7 @@ export default async function handler(req, res) {
   updatedFields['ReadMeLink'] = body.readMeLink
 
   const airtable = new AirtablePlus({
-    apiKey: process.env.AIRTABLE_API_KEY,
+    apiKey: process.env.AIRTABLE_WRITE_API_KEY,
     baseID: 'app4kCWulfB02bV8Q',
     tableName: 'Showcase'
   })

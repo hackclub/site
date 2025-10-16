@@ -3,7 +3,7 @@ import AirtablePlus from "airtable-plus"
 
 const saveProject = async (parts = [], idea) => {
   const airtable = new AirtablePlus({
-    apiKey: process.env.AIRTABLE_API_KEY,
+    apiKey: process.env.AIRTABLE_WRITE_API_KEY,
     baseID: 'appKjALSnOoA0EmPk',
     tableName: 'Cached Ideas'
   })
