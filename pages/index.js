@@ -44,6 +44,7 @@ import Blueprint from '../components/index/cards/blueprint'
 import Athena from '../components/index/cards/athena'
 import Moonshot from '../components/index/cards/moonshot'
 import Milkyway from '../components/index/cards/milkyway'
+import Aces from '../components/index/cards/aces'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
 /** @jsxImportSource theme-ui */
@@ -787,6 +788,7 @@ function Page({
                 and make things together!
               </Text>
             </Box>
+            <Aces/>                  
             <Milkyway/>
             <Moonshot />
             <Blueprint
