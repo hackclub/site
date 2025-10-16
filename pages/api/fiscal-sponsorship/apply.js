@@ -3,7 +3,7 @@ import { getCode } from 'country-list'
 
 const applicationsTable = new AirtablePlus({
   baseID: 'apppALh5FEOKkhjLR',
-  apiKey: process.env.AIRTABLE_API_KEY,
+  apiKey: process.env.AIRTABLE_WRITE_API_KEY,
   tableName: 'Events'
 })
 
