@@ -1839,6 +1839,18 @@
     "website": "https://tongyu.fish",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
   },
+    {
+    "name": "Chan Kai Ling",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Kai Ling is a Hack Clubber from Singapore that enjoys everything art, design and merchandising! Based in HQ-SF, she designs for + runs online events and in-person adventures. In her free time, she loves sewing, crows and making trinkets.",
+    "bioHackFoundation": "",
+    "slackId": "U07DJMFAQQP",
+    "email": "kl",
+    "website": "https://kailings.garden",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a7f4268474dc54c0ecabf4dbd66b51abb6f8ac0d_img_1687.jpg"
+  },
   {
     "name": "ascpixi",
     "department": "HQ",
