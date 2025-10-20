@@ -448,7 +448,7 @@ function Page({
                   size={24}
                   mr={2}
                 />
-                Check out more programs
+                View more programs
               </Button>
             </Heading>
           </Box>
