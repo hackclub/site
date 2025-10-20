@@ -14,14 +14,14 @@ export async function getStaticProps() {
   const res = await fetch(`${host}/api/bin/gallery/posts/`);
   const posts = await res.json();
 
-  const filteredPosts = await posts.filter(post => post.status === 'Accepted' && post.parts && !post.hide);
+  const filteredPosts = Array.isArray(posts) ? posts.filter(post => post.status === 'Accepted' && post.parts && !post.hide) : [];
 
   //Tags
 
   const resTag = await fetch(`${host}/api/bin/gallery/tags/`);
   const tags = await resTag.json();
   
-  const filteredTags = tags.filter(tag => !tag.hide);
+  const filteredTags = Array.isArray(tags) ? tags.filter(tag => !tag.hide) : [];
   return {
     props: { posts: filteredPosts, 
              tags: filteredTags

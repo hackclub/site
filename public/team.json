@@ -960,7 +960,7 @@
     "department": "Events",
     "role": "Virtual Events Lead",
     "acknowledged": false,
-    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art designs, especially using Sally Hansen black nail polish, since black is her favorite color. When working, she likes to listen to music, especially by Paramore or NF, or watch TV, especially Young Sheldon. She has been involved in Hack Club since March 2024, where she manages virtual events and welcomes people into the Slack.",
+    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art and learning about art history. When working, she likes to listen to Paramore or NF. She has been involved in Hack Club since March 2024, where she manages virtual events and welcomes people into the Slack.",
     "slackId": "U06QST7V0J2",
     "email": "eesha",
     "website": "https://eesha-kothari.com",
@@ -991,6 +991,17 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07SX29CECA/r"
   },
   {
+    "name": "Victorio",
+    "department": "Events",
+    "role": "Virtual Events Infra",
+    "acknowledged": false,
+    "bio": "Victorio is a Hack Clubber from Spain who welcomes people into the Slack and helps them settle in. He also loves fish, and homelabs!",
+    "slackId": "U072PTA5BNG",
+    "email": "",
+    "website": "https://v1c.rocks/",
+    "avatar": "https://cachet.dunkirk.sh/users/U072PTA5BNG/r"
+  },
+  {
     "name": "Irtaza",
     "department": "Events",
     "role": "Event Organiser",
@@ -1013,6 +1024,30 @@
     "email": "lucas",
     "website": "https://page.devlucas.page/",
     "avatar": "https://cachet.dunkirk.sh/users/U040N4ESCEL/r"
+  },
+  {
+    "name": "Aishaani",
+    "department": "Events",
+    "role": "Event Organiser",
+    "acknowledged": false,
+    "bio": "Aishaani is a 15 year old Hack Clubber from Canada. She focuses on organizing and supporting virtual events through Slack as part of the Special Activities Division and loves organizing hackathons. She revolves around all things tech; hardware, web development, 3D design/CAD... and sometimes helps out with art for Hack Club projects. In her free time, she enjoys listening to music and producing her own songs, writing, rollerblading, and ice skating. She is also working on her podcast series, Orbiting the Future.",
+    "bioHackFoundation": "",
+    "slackId": "U097UCZE2BB",
+    "email": "",
+    "website": "https://j-ai.pages.dev/",
+    "avatar": "https://cachet.dunkirk.sh/users/U097UCZE2BB/r"
+  },
+  {
+    "name": "Charlotte",
+    "department": "Events",
+    "role": "Event Organiser",
+    "acknowledged": false,
+    "bio": "Charlotte is a 16-year-old aspiring software engineer and AI enthusiast. As a Virtual Events member, she organizes virtual events in the Slack to make Hack Club a closer community, and outside of Hack Club she programs for her school's FIRST robotics team, 2415, and runs on cross country. In the past, she has organized Daydream Atlanta, a Hack Club affiliated satellite event, and qualified for Shipwrecked, a four-day island hackathon. In her free time, she enjoys building projects, whether coding a Flask website, creating a game in Godot, or, more recently, exploring CAD in Onshape.",
+    "bioHackFoundation": "",
+    "slackId": "U084T4KCZ8Q",
+    "email": "",
+    "website": "https://www.charlottewoodrum.dev/",
+    "avatar": "https://cachet.dunkirk.sh/users/U084T4KCZ8Q/r"
   },
   {
     "name": "Felix Gao",
@@ -1803,6 +1838,18 @@
     "email": "tongyu",
     "website": "https://tongyu.fish",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
+  },
+  {
+    "name": "Chan Kai Ling",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "bio": "Kai Ling is a Hack Clubber from Singapore that enjoys everything art, design and merchandising! Based in HQ-SF, she designs for + runs online events and in-person adventures. In her free time, she loves sewing, crows and making trinkets.",
+    "bioHackFoundation": "",
+    "slackId": "U07DJMFAQQP",
+    "email": "kl",
+    "website": "https://kailings.garden",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a7f4268474dc54c0ecabf4dbd66b51abb6f8ac0d_img_1687.jpg"
   },
   {
     "name": "ascpixi",
