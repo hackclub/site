@@ -52,6 +52,7 @@ export default function CTAS({ cards }) {
 
             return (
               <Box
+                key={idx}
                 sx={{
                   position: 'relative',
                   display: 'inline-block',
