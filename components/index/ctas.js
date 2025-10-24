@@ -38,6 +38,8 @@ export default function CTAS({ cards }) {
               background,
               backgroundImage,
               backgroundSize,
+              gridBackground,
+              stickerImage,
 
               description,
               descriptionColor,
@@ -53,12 +55,17 @@ export default function CTAS({ cards }) {
             return (
               <Box
                 key={idx}
+                as="a"
+                href={link}
+                target="_blank"
+                rel="noreferrer"
                 sx={{
                   position: 'relative',
                   display: 'inline-block',
                   width: ['100%', '100%', 'auto'],
                   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.125)',
                   transition: 'transform .125s ease-in-out, box-shadow .125s ease-in-out',
+                  textDecoration: 'none',
                   '&:hover': { transform: 'scale(1.0625)' },
                   '.icon': {
                     transition: 'transform 0.25s ease-in-out, opacity 0.43s ease-in-out'
@@ -71,12 +78,31 @@ export default function CTAS({ cards }) {
                   }
                 }}
               >
+                {stickerImage && (
+                  <Image
+                    src={stickerImage}
+                    alt="Sticker"
+                    sx={{
+                      position: 'absolute',
+                      bottom: '-20px',
+                      right: '-20px',
+                      width: ['120px', '140px', '160px'],
+                      height: 'auto',
+                      zIndex: 10,
+                      transform: 'rotate(15deg)',
+                      pointerEvents: 'none'
+                    }}
+                  />
+                )}
                 <Card
                   // variant="interactive"
                   sx={{
                     background,
-                    backgroundImage,
-                    backgroundSize,
+                    backgroundImage: gridBackground 
+                      ? 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)'
+                      : backgroundImage,
+                    backgroundSize: gridBackground ? '50px 50px' : backgroundSize,
+                    backgroundPosition: gridBackground ? '0 0, 0 0' : undefined,
                     position: 'relative',
                     color: 'white',
                     width: ['100%', '100%', '300px'],
