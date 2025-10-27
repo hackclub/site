@@ -391,6 +391,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U08BH57AZKP/r"
   },
   {
+    "name": "Ivie Fonner",
+    "department": "HQ",
+    "role": "Club Engineering and Operations",
+    "acknowledged": false,
+    "bio": "Ivie (aka. Charmunk) is a 14 year old Hack Clubber from the DC area. When she is not coding, she enjoys sci-fi novels, card games, and video editing.",
+    "bioHackFoundation": "",
+    "slackId": "U04KEK4TS72",
+    "email": "ivie",
+    "website": "https://ivie.codes",
+    "avatar": "https://ivie.codes/assets/pfp.jpg"
+  },
+  {
     "name": "Sofia Egan",
     "department": "HQ",
     "role": "Engineering",
