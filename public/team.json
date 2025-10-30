@@ -391,6 +391,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U08BH57AZKP/r"
   },
   {
+    "name": "Ivie Fonner",
+    "department": "HQ",
+    "role": "Club Engineering and Operations",
+    "acknowledged": false,
+    "bio": "Ivie (aka. Charmunk) is a 14 year old Hack Clubber from the DC area. When she is not coding, she enjoys sci-fi novels, card games, and video editing.",
+    "bioHackFoundation": "",
+    "slackId": "U04KEK4TS72",
+    "email": "ivie",
+    "website": "https://ivie.codes",
+    "avatar": "https://ivie.codes/assets/pfp.jpg"
+  },
+  {
     "name": "Sofia Egan",
     "department": "HQ",
     "role": "Engineering",
@@ -611,8 +623,8 @@
     "name": "Arianna Martinelli",
     "department": "HCB",
     "role": "Operations Mentor",
-    "acknowledged": false,
-    "bio": "Arianna (a current freshman at Carnegie-Mellon University and a former Hack Club leader from Kentucky) loves onboarding all our cool organizations and making HCB more accessible. When she’s not learning about how humans and computers can work together, she’s making memes and decorating the world with Hack Club stickers.",
+    "acknowledged": true,
+    "bio": "Arianna (a current freshman at Carnegie-Mellon University and a former Hack Club leader from Kentucky) loved onboarding all our cool organizations and making HCB more accessible. When she’s not learning about how humans and computers can work together, she’s making memes and decorating the world with Hack Club stickers.",
     "bioHackFoundation": "",
     "slackId": "U012U7V5W22",
     "email": "arianna",
@@ -622,7 +634,7 @@
   {
     "name": "Alex DeForrest",
     "department": "HCB",
-    "role": "Operations Gap Year",
+    "role": "Operations Engineer",
     "acknowledged": false,
     "bio": "",
     "bioHackFoundation": "",
