@@ -112,7 +112,8 @@ import {
         <Nav color="dark" sx={{ backgroundColor: 'white' }} />
         <Box
           sx={{
-            paddingBottom: 256
+            paddingBottom: 256,
+            overflowX: 'hidden'
           }}
         >
           <Box
@@ -238,12 +239,14 @@ import {
         <Container
           sx={{
             display: 'flex',
-            width: 'calc(100% - 32px)',
+            width: ['calc(100% - 16px)', 'calc(100% - 32px)'],
             position: 'relative',
             marginTop: '-196px',
-            padding: '32px',
+            padding: ['16px', '32px'],
             border: '1px solid #FF8C37',
-            borderRadius: '16px'
+            borderRadius: '16px',
+            maxWidth: '100%',
+            boxSizing: 'border-box'
           }}
         >
           {/* <Tilt>
@@ -445,7 +448,7 @@ import {
             </Box>
           </Grid>
         </Container>
-        <Box>
+        <Box sx={{ overflowX: 'hidden', width: '100%' }}>
           <Container sx={{ marginTop: 32, padding: '16px' }}>
             <Heading
               as="h2"
@@ -465,7 +468,7 @@ import {
             </Heading>{' '}
           </Container>
   
-          <Ticker speed={3} sx={{ overflowX: 'hidden' }}>
+          <Ticker speed={3} sx={{ overflowX: 'hidden', width: '100%' }}>
             {() => (
               <Box as="div" sx={{ display: 'flex', py: [4, 5, 5] }}>
                 {pizzasByClubs.map((pizzaByClub, idx) => (
@@ -475,10 +478,12 @@ import {
                       position: 'relative',
                       borderRadius: '16px',
                       padding: '8px 16px 16px 16px',
-                      width: ['300px', '500px'],
+                      width: ['280px', '400px', '500px'],
+                      minWidth: ['280px', '400px', '500px'],
                       marginLeft: '16px',
                       marginRight: '16px',
-                      border: '1px solid var(--Muted, #8492A6)'
+                      border: '1px solid var(--Muted, #8492A6)',
+                      flexShrink: 0
                     }}
                   >
                     <Tilt
