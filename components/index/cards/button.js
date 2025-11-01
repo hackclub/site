@@ -22,7 +22,7 @@ export default function Buttons({
       as="button"
       sx={{ background: 'transparent', border: 'none', color: 'white', zIndex: zIndex ||0 }}
       py={1}
-
+      tabIndex={-1}
     >
       <Button
         data-place="right"
