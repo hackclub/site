@@ -416,7 +416,7 @@ function Page({
                     textShadow: 'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
                   }}
                 >
-                  Or, check out our programs:
+                  And check out our programs:
                 </Text>
               </Box>
               <CTAS cards={ctaCards} />
