@@ -157,7 +157,7 @@
     "name": "Shubham Panth",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Shubham, a self-taught coder hailing from the serene landscapes of Sweden, has been navigating the complexities of C# and Unity3D since 2017. Initially harnessing the power of HCB to propel his own dreams as a developer, he has since shifted his focus towards empowering others. Now part of the dynamic team at HQ Engineering, Shubham dedicates his talents to contributing to open source projects and crafting tools designed to introduce programming to kids and teens. His goal is to ensure that every young aspiring coder finds their journey through the realms of technology as smooth and invigorating as his own adventures in coding.",
     "bioHackFoundation": "",
     "slackId": "U014E8132DB",
