@@ -452,7 +452,7 @@
     "name": "Charlie Nicholson",
     "department": "HQ",
     "role": "YSWS & Events",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Charlie is a Hack Clubber from the Greater Boston area. He joined Hack Club when he was 12 and launched his first YSWS when he was 13, Ham Club. More recently, he worked on a long-term hackathon called Apex, supported by Hack Club. He is now working for Hack Club to create more hardware YSWSs and events.",
     "slackId": "U054JRXUNG0",
     "email": "charlien",
