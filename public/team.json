@@ -474,7 +474,7 @@
     "name": "Micha Albert",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Born and raised in Northern Virginia, Micha enjoys \"what ifs\", crazy ideas, amateur radio operation, whispering lullabies to crusty gaming laptops, and breaking things just so she can put them back together. She loves PCB design and previously served on the OnBoard review team, along with running the OnBoard Live YSWS. Micha enjoys Svelte, Typescript, FastAPI, and Python, and is always working on a new way to engage high school students in computer science!",
     "slackId": "U05C64XMMHV",
     "email": "micha",
