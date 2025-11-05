@@ -430,7 +430,7 @@
     "name": "Phoebe",
     "department": "HQ",
     "role": "Communications & Partnership",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Phoebe is a Franco-American netizen with a passion for art, hacking and music. After going to the forward-thinking Paris 8 University - and working as a software engineer - she joined Hack Club to help with communications and partnerships!",
     "slackId": "U08B2HD1JNA",
     "email": "phoebe",
