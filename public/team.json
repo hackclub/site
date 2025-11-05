@@ -507,7 +507,7 @@
     "name": "Nick Do",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Nick is a Viet-American artist who occasionally dabbles in programming and hardware. Currently an intern, it has previously contributed art for Counterspell, High Seas, and Highway/Undercity. It especially loves the games Mirror's Edge and Portal 2.",
     "slackId": "U06FMCCDS1K",
     "email": "nick",
