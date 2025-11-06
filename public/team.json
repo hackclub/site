@@ -202,6 +202,18 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b896479422f28250d8ee0468c23f1e67404f537a_IMG_20250727_131859572_HDR.jpg"
   },
   {
+    "name": "Leo W",
+    "department": "HQ",
+    "role": "Event Operations Lead",
+    "acknowledged": false,
+    "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. Formerly at HCB, he's now leveraging his passion and experience in Operations, helping hackathons share the magic of code to students worldwide.",
+    "bioHackFoundation": "",
+    "slackId": "U07BLJ1MBEE",
+    "email": "leo",
+    "website": "",
+    "avatar": "https://avatars.githubusercontent.com/u/64415791"
+  },
+  {
     "name": "Lux Loff",
     "department": "HQ",
     "role": "Engineering",
@@ -546,7 +558,7 @@
     "email": "manitej",
     "website": "https://manitej.com",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/67d9d436641ebb92d105815f98352851456131e5_a4ff0caf-c22e-44ec-b58a-89d18fa37997_1_105_c.jpeg"
-  },  
+  },
   {
     "name": "Melanie Smith",
     "department": "HCB",
@@ -810,18 +822,6 @@
     "email": "aryan",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U078A390FTQ/r"
-  },
-  {
-    "name": "Leo W",
-    "department": "HCB",
-    "role": "Operations Contributor",
-    "acknowledged": false,
-    "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. At HCB, he's leveraging his passion and experience in Operations, helping clubs and non-profits access the financial tools they need for sustainable growth and success.",
-    "bioHackFoundation": "",
-    "slackId": "U07BLJ1MBEE",
-    "email": "leo",
-    "website": "",
-    "avatar": "https://avatars.githubusercontent.com/u/64415791"
   },
   {
     "name": "Anish Anne",
