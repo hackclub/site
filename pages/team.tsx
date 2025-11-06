@@ -57,7 +57,7 @@ export default function Team({ team }) {
           px={[2, 4]}
           sx={{
             backgroundImage:
-              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)',
+              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/8aacc1832fb05a24ff9b2243c4477f7ba4437e54_IMG_9920.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: '25% 15%'
           }}
