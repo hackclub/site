@@ -475,7 +475,7 @@
     "name": "Kate Caulfield",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Kate is a Hackclubber from Manassas Virginia who loves cookies and the color yellow. Currently studying Engineering at George Mason University and Osbourn Park High School, she works mainly with logistics and running the YSWS program BakeBuild. In addition she also helps to run and win hackathons in Northern Virginia with events such as Counterspell, Scrapyard, and [REHACTED].",
     "slackId": "U07PXU0657B",
     "email": "katec",
