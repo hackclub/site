@@ -2,7 +2,7 @@ import AirtablePlus from "airtable-plus"
 
 export const findOrCreateProject = async (partsList = []) => {
   const airtable = new AirtablePlus({
-    apiKey: process.env.AIRTABLE_API_KEY,
+    apiKey: process.env.AIRTABLE_WRITE_API_KEY,
     baseID: 'appKjALSnOoA0EmPk',
     tableName: 'Cached Projects'
   })
@@ -32,7 +32,7 @@ export const findOrCreateProject = async (partsList = []) => {
 
 const createProject = async (partsList = []) => {
   const airtable = new AirtablePlus({
-    apiKey: process.env.AIRTABLE_API_KEY,
+    apiKey: process.env.AIRTABLE_WRITE_API_KEY,
     baseID: 'appKjALSnOoA0EmPk',
     tableName: 'Supported Parts'
   })

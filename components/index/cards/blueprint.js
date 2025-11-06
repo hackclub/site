@@ -38,19 +38,27 @@ export default function Blueprint({ stars, blueprintData }) {
       <Box
         sx={{
           position: 'absolute',
-          right: ['-30px', '-40px', '-50px'],
-          top: ['-30px', '-40px', '-50px'],
-          zIndex: 2
+          right: ['20px', '40px', '60px'],
+          top: ['-10px', '10px', '30px'],
+          zIndex: 2,
+          animation: 'sway 3s ease-in-out infinite',
+          '@keyframes sway': {
+            '0%, 100%': {
+              transform: 'rotate(12deg)'
+            },
+            '50%': {
+              transform: 'rotate(-8deg)'
+            }
+          }
         }}
       >
         <img
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png"
+          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a1ac108c50a27a1a7f6ba78122a19b427a84231f_IMG_3101__1_.png"
           alt="Blueprint Logo"
           style={{
-            width: '180px',
+            width: '220px',
             height: 'auto',
-            filter: 'drop-shadow(0 0 10px rgba(219, 228, 238, 0.4))',
-            transform: 'rotate(12deg)'
+            filter: 'drop-shadow(0 0 10px rgba(219, 228, 238, 0.4))'
           }}
         />
       </Box>

@@ -2,7 +2,7 @@ import AirtablePlus from 'airtable-plus'
 
 const airtable = new AirtablePlus({
   baseID: 'app1o9tRo6XulLnsr',
-  apiKey: process.env.AIRTABLE_API_KEY,
+  apiKey: process.env.AIRTABLE_WRITE_API_KEY,
   tableName: 'rsvp'
 })
 
