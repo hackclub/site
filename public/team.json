@@ -157,7 +157,7 @@
     "name": "Shubham Panth",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Shubham, a self-taught coder hailing from the serene landscapes of Sweden, has been navigating the complexities of C# and Unity3D since 2017. Initially harnessing the power of HCB to propel his own dreams as a developer, he has since shifted his focus towards empowering others. Now part of the dynamic team at HQ Engineering, Shubham dedicates his talents to contributing to open source projects and crafting tools designed to introduce programming to kids and teens. His goal is to ensure that every young aspiring coder finds their journey through the realms of technology as smooth and invigorating as his own adventures in coding.",
     "bioHackFoundation": "",
     "slackId": "U014E8132DB",
@@ -200,6 +200,18 @@
     "email": "euan",
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b896479422f28250d8ee0468c23f1e67404f537a_IMG_20250727_131859572_HDR.jpg"
+  },
+  {
+    "name": "Leo W",
+    "department": "HQ",
+    "role": "Event Operations Lead",
+    "acknowledged": false,
+    "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. Formerly at HCB, he's now leveraging his passion and experience in Operations, helping hackathons share the magic of code to students worldwide.",
+    "bioHackFoundation": "",
+    "slackId": "U07BLJ1MBEE",
+    "email": "leo",
+    "website": "",
+    "avatar": "https://avatars.githubusercontent.com/u/64415791"
   },
   {
     "name": "Lux Loff",
@@ -370,9 +382,9 @@
   {
     "name": "Rushil Chopra",
     "department": "HQ",
-    "role": "YSWS Operations",
+    "role": "YSWS & Club Operations",
     "acknowledged": false,
-    "bio": "Rushil is a 16-year-old from California who runs a yoga nonprofit and is building a mental health app for teens. He joined the YSWS Team to help grow the program and bring more people into Hack Club!",
+    "bio": "Rushil is a 16-year-old from California who runs a yoga nonprofit and is building a mental health app for teens. He joined the YSWS & Clubs Team to help grow the program and bring more people into Hack Club!",
     "slackId": "U020X4GCWSF",
     "email": "rushil",
     "website": "",
@@ -389,6 +401,18 @@
     "email": "ethan",
     "website": "http://ethans.social/",
     "avatar": "https://cachet.dunkirk.sh/users/U08BH57AZKP/r"
+  },
+  {
+    "name": "Ivie Fonner",
+    "department": "HQ",
+    "role": "Club Engineering and Operations",
+    "acknowledged": false,
+    "bio": "Ivie (aka. Charmunk) is a 14 year old Hack Clubber from the DC area. When she is not coding, she enjoys sci-fi novels, card games, and video editing.",
+    "bioHackFoundation": "",
+    "slackId": "U04KEK4TS72",
+    "email": "ivie",
+    "website": "https://ivie.codes",
+    "avatar": "https://ivie.codes/assets/pfp.jpg"
   },
   {
     "name": "Sofia Egan",
@@ -418,7 +442,7 @@
     "name": "Phoebe",
     "department": "HQ",
     "role": "Communications & Partnership",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Phoebe is a Franco-American netizen with a passion for art, hacking and music. After going to the forward-thinking Paris 8 University - and working as a software engineer - she joined Hack Club to help with communications and partnerships!",
     "slackId": "U08B2HD1JNA",
     "email": "phoebe",
@@ -440,7 +464,7 @@
     "name": "Charlie Nicholson",
     "department": "HQ",
     "role": "YSWS & Events",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Charlie is a Hack Clubber from the Greater Boston area. He joined Hack Club when he was 12 and launched his first YSWS when he was 13, Ham Club. More recently, he worked on a long-term hackathon called Apex, supported by Hack Club. He is now working for Hack Club to create more hardware YSWSs and events.",
     "slackId": "U054JRXUNG0",
     "email": "charlien",
@@ -451,7 +475,7 @@
     "name": "Kate Caulfield",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Kate is a Hackclubber from Manassas Virginia who loves cookies and the color yellow. Currently studying Engineering at George Mason University and Osbourn Park High School, she works mainly with logistics and running the YSWS program BakeBuild. In addition she also helps to run and win hackathons in Northern Virginia with events such as Counterspell, Scrapyard, and [REHACTED].",
     "slackId": "U07PXU0657B",
     "email": "katec",
@@ -462,7 +486,7 @@
     "name": "Micha Albert",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Born and raised in Northern Virginia, Micha enjoys \"what ifs\", crazy ideas, amateur radio operation, whispering lullabies to crusty gaming laptops, and breaking things just so she can put them back together. She loves PCB design and previously served on the OnBoard review team, along with running the OnBoard Live YSWS. Micha enjoys Svelte, Typescript, FastAPI, and Python, and is always working on a new way to engage high school students in computer science!",
     "slackId": "U05C64XMMHV",
     "email": "micha",
@@ -495,7 +519,7 @@
     "name": "Nick Do",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Nick is a Viet-American artist who occasionally dabbles in programming and hardware. Currently an intern, it has previously contributed art for Counterspell, High Seas, and Highway/Undercity. It especially loves the games Mirror's Edge and Portal 2.",
     "slackId": "U06FMCCDS1K",
     "email": "nick",
@@ -534,7 +558,7 @@
     "email": "manitej",
     "website": "https://manitej.com",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/67d9d436641ebb92d105815f98352851456131e5_a4ff0caf-c22e-44ec-b58a-89d18fa37997_1_105_c.jpeg"
-  },  
+  },
   {
     "name": "Melanie Smith",
     "department": "HCB",
@@ -611,8 +635,8 @@
     "name": "Arianna Martinelli",
     "department": "HCB",
     "role": "Operations Mentor",
-    "acknowledged": false,
-    "bio": "Arianna (a current freshman at Carnegie-Mellon University and a former Hack Club leader from Kentucky) loves onboarding all our cool organizations and making HCB more accessible. When she’s not learning about how humans and computers can work together, she’s making memes and decorating the world with Hack Club stickers.",
+    "acknowledged": true,
+    "bio": "Arianna (a current freshman at Carnegie-Mellon University and a former Hack Club leader from Kentucky) loved onboarding all our cool organizations and making HCB more accessible. When she’s not learning about how humans and computers can work together, she’s making memes and decorating the world with Hack Club stickers.",
     "bioHackFoundation": "",
     "slackId": "U012U7V5W22",
     "email": "arianna",
@@ -622,7 +646,7 @@
   {
     "name": "Alex DeForrest",
     "department": "HCB",
-    "role": "Operations Gap Year",
+    "role": "Operations Engineer",
     "acknowledged": false,
     "bio": "",
     "bioHackFoundation": "",
@@ -701,7 +725,7 @@
     "slackId": "U022XFD2TML",
     "email": "ian",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U022XFD2TML/r"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/014772700ca097a561ae3f9535f5a972b63c7371_ian.png"
   },
   {
     "name": "Ruien Luo",
@@ -798,18 +822,6 @@
     "email": "aryan",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U078A390FTQ/r"
-  },
-  {
-    "name": "Leo W",
-    "department": "HCB",
-    "role": "Operations Contributor",
-    "acknowledged": false,
-    "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. At HCB, he's leveraging his passion and experience in Operations, helping clubs and non-profits access the financial tools they need for sustainable growth and success.",
-    "bioHackFoundation": "",
-    "slackId": "U07BLJ1MBEE",
-    "email": "leo",
-    "website": "",
-    "avatar": "https://avatars.githubusercontent.com/u/64415791"
   },
   {
     "name": "Anish Anne",
@@ -1193,6 +1205,17 @@
     "email": "",
     "website": "https://pbhak.dev/",
     "avatar": "https://cachet.dunkirk.sh/users/U07V1ND4H0Q/r"
+  },
+  {
+    "name": "Joel Gallagher",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Joel, who goes by PianoMan0 online, is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U07V1ND4H0Q",
+    "email": "",
+    "website": "https://pianoman0.com/",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0beef222fac6d4440cd07b2546dc04e547c08293_pianoman0_profile_pic.jpeg"
   },
   {
     "name": "Ruby",
