@@ -15,9 +15,23 @@ import {
   import Nav from '../components/nav'
   import Tilt from '../components/tilt'
   import Ticker from 'react-ticker'
-  import { useState } from 'react'
+  import { useState, useEffect } from 'react'
   
   const PizzaPage = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    useEffect(() => {
+      setIsModalOpen(true)
+    }, [])
+
+    useEffect(() => {
+      if (isModalOpen) {
+        document.body.style.overflow = 'hidden'
+      }
+      else {
+        document.body.style.overflow = 'auto'
+      }
+    }, [isModalOpen])
+
     const getColor = idx => {
       const colors = ['#EEA820', '#FF8C37', '#EC3750']
       return colors[idx % colors.length]
@@ -108,6 +122,66 @@ import {
           description="GitHub is providing pizza grants to 500 Hack Clubs around the world. Wondering How To Start A Coding Club? Hack Club is the answer."
           image="https://cloud-p6r4eeji5-hack-club-bot.vercel.app/00club-min__1___1___1_.png"
         />
+
+        {isModalOpen && (
+          <Box
+            onClick={() => setIsModalOpen(false)}
+            sx={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              bg: 'rgba(0, 0, 0, 0.5)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 9999
+            }}
+          >
+            <Box
+              onClick={(e) => e.stopPropagation()}
+              sx={{
+                bg: 'white',
+                borderRadius: '16px',
+                p: 4,
+                maxWidth: '600px',
+                width: '90%',
+                maxHeight: '80vh',
+                overflowY: 'auto',
+                position: 'relative'
+              }}
+            >
+              <Button
+                onClick={() => setIsModalOpen(false)}
+                sx={{
+                  position: 'absolute',
+                  top: 2,
+                  right: 2,
+                  bg: 'muted',
+                  cursor: 'pointer',
+                  borderRadius: '50%',
+                  width: '32px',
+                  height: '32px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '20px',
+                  border: 'none'
+                }}
+              >
+                ✕
+              </Button>
+              
+              <Heading mb={3}>The pizza grant is ending! (for now)</Heading>
+              <Text 
+                sx={{fontSize: 22}}
+              >
+                Hey there! The pizza grant has ended, but we're working on a system to bring it back soon. For now, we've temporarily disabled submissions. Keep an eye on your Leaders newsletter for updates!
+              </Text>
+            </Box>
+          </Box>
+        )}
         <ForceTheme theme="light" />
         <Nav color="dark" sx={{ backgroundColor: 'white' }} />
         <Box
@@ -201,7 +275,7 @@ import {
             </Heading>
             <Text variant="lead">
               GitHub is providing pizza grants to <strong>thousands</strong> of Hack Clubs.{' '}
-              <strong>You're not too late!</strong>
+              {/* <strong>You're not too late!</strong> */}
             </Text>
           </Container>
   
@@ -753,11 +827,15 @@ import {
                 <Box>
                   <Button
                     variant="cta"
-                    as="a"
-                    href="https://airtable.com/appSUAc40CDu6bDAp/pagvu2xGhfsMC8AOL/form"
+                    // as="a"
+                    // href="https://airtable.com/appSUAc40CDu6bDAp/pagvu2xGhfsMC8AOL/form"
                     mt={[3, 0, 0]}
+                    disabled={true}
                     sx={{
-                      fontSize: '18px'
+                      fontSize: '18px',
+                      opacity: 0.7,
+                      cursor: 'not-allowed',
+                      pointerEvents: 'none'
                     }}
                   >
                     Submit Projects
