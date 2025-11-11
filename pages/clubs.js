@@ -532,7 +532,7 @@ const Page = () => (
                 We're always building new tools for leaders, such as{' '}
                 <a href="https://dashboard.hackclub.com">The Dashboard</a>! A place to manage your club! We've also got
                 free subscriptions to Figma Pro, Postman, and more for running a
-                great computer science club club.
+                great computer science club.
               </>
             }
           />
