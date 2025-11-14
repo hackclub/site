@@ -108,6 +108,9 @@ const Footer = ({
           <NextLink href="/philanthropy" passHref>
             <Link>Donate</Link>
           </NextLink>
+          <NextLink href="/imprint" passHref>
+            <Link>Imprint</Link>
+          </NextLink>
         </Box>
         <Box>
           <Heading as="h2" variant="subheadline" mb={3}>
