@@ -182,6 +182,8 @@ const Footer = ({
           <Text my={2}>
             <Link href="tel:1-855-625-4225">1-855-625-4225</Link>
             <br />
+            <Link href="tel:1-855-625-4225">(1-855-625-4225)</Link>
+            <br />
             <Text as="span" color="muted">
               (call toll-free)
             </Text>
