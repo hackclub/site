@@ -175,7 +175,8 @@ const Footer = () => {
                         </a>
                     </div>
                     <span>
-                        <a href="tel:1-855-625-HACK" className={styles.footer_tel}>1-855-625-HACK</a>
+                          <a href="tel:1-855-625-HACK" className={styles.footer_tel}>1-855-625-HACK</a>
+                          <a href="tel:1-855-625-4225" className={styles.footer_tel}>(1-855-625-4225)</a>
                         <span>(call toll-free)</span>
                     </span>
                 </div>
