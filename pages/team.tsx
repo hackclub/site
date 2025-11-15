@@ -262,6 +262,24 @@ export default function Team({ team }) {
                       ))}
                   </Grid>
                 </CommunityTeamBox>
+                <CommunityTeamBox title="Welcomers">
+                  <Grid columns={[1, null, 2]} gap={2} m={10}>
+                    {team.current
+                      ?.filter(member => member.department === 'Welcoming')
+                      .map(member => (
+                        <Bio
+                          img={member.avatar}
+                          name={member.name}
+                          teamRole={member.role}
+                          text={member.bio}
+                          pronouns={member.pronouns}
+                          email={member.email}
+                          href={member.website}
+                          key={member.name}
+                        />
+                      ))}
+                  </Grid>
+                </CommunityTeamBox>
                 <CommunityTeamBox title="Virtual Events">
                   <Grid columns={[1, null, 2]} gap={2} m={10}>
                     {team.current
@@ -284,24 +302,6 @@ export default function Team({ team }) {
                   <Grid columns={[1, null, 2]} gap={2} m={10}>
                     {team.current
                       ?.filter(member => member.department === 'Newspaper')
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
-                </CommunityTeamBox>
-                <CommunityTeamBox title="Welcomers">
-                  <Grid columns={[1, null, 2]} gap={2} m={10}>
-                    {team.current
-                      ?.filter(member => member.department === 'Welcoming')
                       .map(member => (
                         <Bio
                           img={member.avatar}
