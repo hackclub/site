@@ -438,17 +438,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U08B2HD1JNA/r"
   },
   {
-    "name": "Mohamad Mortada",
-    "department": "HQ",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "Mohamad is a Hack Clubber from the San Francisco Bay Area. After being encouraged to join by a friend, he ran a couple YSWS and automated a few internal processes within HQ. He loves web & app development in addition to scripting. He is now continuing to contribute to various projects and events!",
-    "slackId": "U05UQ2RTJ6T",
-    "email": "mohamad",
-    "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
-  },
-  {
     "name": "Charlie Nicholson",
     "department": "HQ",
     "role": "YSWS & Events",
@@ -762,6 +751,17 @@
     "email": "luke",
     "website": "https://lukeoldenburg.com/",
     "avatar": "https://cachet.dunkirk.sh/users/U06MYDS2LHX/r"
+  },
+  {
+    "name": "Mohamad Mortada",
+    "department": "HCB",
+    "role": "Engineering Contributor",
+    "acknowledged": false,
+    "bio": "Mohamad is a Hack Clubber from the San Francisco Bay Area. After being encouraged to join by a friend, he ran a couple YSWS and automated a few internal processes within HQ. He loves web & app development in addition to scripting. He is now working on HCB and its brand new mobile app!",
+    "slackId": "U05UQ2RTJ6T",
+    "email": "mohamad",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/63a2643b5d7fa7ead71eb93ef06f628f0080e9ee_image_1558.png"
   },
   {
     "name": "Sean Outram",
@@ -1227,18 +1227,6 @@
     "email": "",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U0779CJQLM8/r"
-  },
-  {
-    "name": "Darlene Wu",
-    "department": "Welcoming",
-    "role": "Past Welcomer",
-    "acknowledged": true,
-    "bio": "Darlene is a 16 year old Hack Clubber from Indonesia who runs virtual events for the Hack Club community. She also helps welcome members into the Slack",
-    "bioHackFoundation": "",
-    "slackId": "U07SX29CECA",
-    "email": "",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U07SX29CECA/r"
   },
   {
     "name": "Samvid",
@@ -1920,18 +1908,6 @@
     "email": "mattsoh",
     "website": "https://youthacks.org",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4926a04e4aa9a101e4919d8b8071991a74c20b08_compressjpeg.online_img_512x512_.jpg"
-  },
-  {
-    "name": "David Cornu",
-    "department": "HCB",
-    "role": "Engineering",
-    "acknowledged": false,
-    "bio": "",
-    "bioHackFoundation": "",
-    "slackId": "U092BUBS28G",
-    "email": "davidc",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U092BUBS28G/r"
   },
   {
     "name": "Bartosz Budnik",
