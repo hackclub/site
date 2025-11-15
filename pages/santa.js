@@ -21,7 +21,7 @@ import { useState } from 'react'
 
 const year = 2025
 const announcementMessage =
-  'https://hackclub.slack.com/archives/CQFS7Q4A1/p1730478548123589'
+  'https://hackclub.slack.com/docs/T0266FRGM/F0671A687SA'
 const signupsOpen = true
 
 const Hero = styled(Box)`
@@ -89,7 +89,7 @@ const Page = () => (
           caps
         >
           <FadeIn delay={300} duration={600}>
-            It's 2024,
+            It's 2025,
           </FadeIn>
           <FadeIn delay={1200} duration={600}>
             the holidays have come,
