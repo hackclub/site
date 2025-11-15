@@ -19,10 +19,10 @@ import FadeIn from '../components/fade-in'
 import { keyframes } from '@emotion/react'
 import { useState } from 'react'
 
-const year = 2024
+const year = 2025
 const announcementMessage =
   'https://hackclub.slack.com/archives/CQFS7Q4A1/p1730478548123589'
-const signupsOpen = false
+const signupsOpen = true
 
 const Hero = styled(Box)`
   background-image: linear-gradient(
@@ -196,7 +196,7 @@ function Signup() {
   return (
     <Base
       method="get"
-      action="https://forms.hackclub.com/2024-secret-santa-form"
+      action="https://forms.hackclub.com/santa"
     >
       <Heading sx={{ color: 'black', textAlign: 'left', mb: 2 }}>
         Register!
