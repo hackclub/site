@@ -7,7 +7,8 @@ import {
   Grid,
   Heading,
   Link,
-  Text
+  Text,
+  Image
 } from 'theme-ui'
 import React, { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
@@ -184,7 +185,15 @@ function Page({
           property="og:logo"
           content="https://assets.hackclub.com/icon-rounded.png"
           size="512x512"
-        />
+          />
+        <style>{`
+          @font-face {
+            font-family: 'Wack Club Sans';
+            src: url('https://cloud-599nblthw-hack-club-bot.vercel.app/0wackclubsans-regular.woff2')
+                format('woff2'),
+              
+          }
+        `}</style>
       </Head>
       <ForceTheme theme="light" />
       <Nav />
@@ -533,7 +542,37 @@ function Page({
               </Link>
               .
             </Text>
-            <Grid columns={[1, 1, 1, '2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
+            <Text
+                as="p"
+                sx={{
+                  fontSize: ['18px', '20px', '22px'],
+                  lineHeight: '20px',
+                  pb: [3, 3, 4],
+                  ml: '-150px',
+                  maxWidth: '62ch',
+                  position: 'absolute',
+                  transform: 'rotate(-25deg)',
+                  textAlign: 'center',
+                  fontWeight: 'bold',
+                  fontFamily: 'Wack Club Sans, sans-serif'
+                }}
+              >
+                Click to see 
+                <br></br>
+                more!
+                <br></br>
+                <Image src="/home/arrow.png"
+              sx={{
+                position: 'absolute',
+                width: '50%',
+                pt: '5px',
+              }}
+            >
+              
+            </Image>
+            </Text>
+            
+            <Grid columns={['2.5fr 3fr']} gap={[0, 3, 4]} pt={[3, 4]}>
               <Box
                 sx={{
                   position: 'relative',
@@ -547,6 +586,7 @@ function Page({
                 <Box
                   sx={{ position: 'absolute', width: '100%', height: '100%' }}
                 >
+                      
                   <Box
                     sx={{
                       position: 'relative',
