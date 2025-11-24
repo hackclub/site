@@ -29,7 +29,7 @@ export default function Join() {
             variant="title"
             sx={{ mb: 3, fontSize: ['36px', '48px', '56px'] }}
           >
-            Discover the f          </Text>
+            Discover the Hack Club Slack       </Text>
           <Link
             href="#"
             sx={{
