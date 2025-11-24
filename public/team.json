@@ -429,14 +429,14 @@
   {
     "name": "Sofia Egan",
     "department": "HQ",
-    "role": "Engineering",
+    "role": "Events & Engineering",
     "acknowledged": false,
-    "bio": "",
+    "bio": "Sofia is a high schooler from Greater Boston who loves running events like Counterspell and Shipwrecked.",
     "bioHackFoundation": "",
-    "slackId": "",
+    "slackId": "U056J6JURFF",
     "email": "sofia",
-    "website": "",
-    "avatar": "https://cloud-b6ykpb7te-hack-club-bot.vercel.app/0image.png"
+    "website": "https://eeriergosling.dev",
+    "avatar": "https://github.com/EerierGosling/Personal-Website/blob/main/public/hc-team-pfp.jpg?raw=true"
   },
   {
     "name": "Evan Gan",
