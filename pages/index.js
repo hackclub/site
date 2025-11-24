@@ -401,7 +401,7 @@ function Page({
                   mr={3}
                   sx={{ transformOrigin: 'center left' }}
                 >
-                  Join Slack
+                  Join our Slack (temporarily down)
                 </Button>
                 <Text
                   variant="eyebrow"

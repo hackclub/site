@@ -1,4 +1,4 @@
-import { Box, Grid, Heading } from 'theme-ui'
+import { Box, Grid, Heading, Text } from 'theme-ui'
 import SlideUp from '../slide-up'
 import JoinForm from './join-form'
 import usePrefersMotion from '../../lib/use-prefers-motion'
@@ -26,6 +26,12 @@ const Content = () => (
       >
         Hack Club Slack
       </Heading>
+      <Text
+        as="p"
+        sx={{ color: 'white', fontSize: [1, 2], mt: 2, opacity: 0.9 }}
+      >
+        (temporarily down)
+      </Text>
     </Box>
     <SlideUp sx={{ zIndex: 5, display: 'flex', alignItems: 'center' }}>
       <JoinForm
