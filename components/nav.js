@@ -133,7 +133,7 @@ const NavBar = styled(Box, {
 const Navigation = props => (
   // REMINDER: This should be no more than 7 links :)
   <NavBar role="navigation" {...props}>
-    <NextLink href="/clubs" passHref>
+    <NextLink href="https://clubs.hackclub.com" passHref>
       <Link>Clubs</Link>
     </NextLink>
     <NextLink href="/fiscal-sponsorship" passHref>

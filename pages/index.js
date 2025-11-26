@@ -19,7 +19,7 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Pizza from '../components/index/cards/pizza'
+import StartClub from '../components/index/cards/start-club'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -757,7 +757,7 @@ function Page({
                     <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
                     Meet other Hack&nbsp;Clubbers in your community to build
                     together at one of the 400+{' '}
-                    <Link href="/clubs" target="_blank" rel="noopener">
+                    <Link href="https://clubs.hackclub.com" target="_blank" rel="noopener">
                       Hack&nbsp;Clubs
                     </Link>{' '}
                     and{' '}
@@ -843,8 +843,8 @@ function Page({
               stars={stars.onboard.stargazerCount}
             />
             <Athena />
+            <StartClub />
             <Slack slackKey={slackKey} data={slackData} events={events} />
-            <Pizza />
           </Box>
         </Box>
         <Box>
@@ -1243,7 +1243,7 @@ function Page({
                   }
                 }}
                 as="a"
-                href="/clubs"
+                href="https://clubs.hackclub.com"
                 variant="interactive"
                 target="_blank"
                 rel="noopener"
