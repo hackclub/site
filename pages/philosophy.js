@@ -190,7 +190,7 @@ export default function Philosophy() {
               The goal of Hack Club is to help you become a hacker.
             </strong>{' '}
             We want a space at every school where people are making interesting
-            things with code, every week. Schools don’t provide that, so we’re
+            things with code, every week. Most schools don’t provide that, so we’re
             creating it in every school to make building things accessible to
             everyone.
           </Box>
