@@ -1219,6 +1219,39 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07V1ND4H0Q/r"
   },
   {
+    "name": "Kat",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Kat is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U06SQJ508LF",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U06SQJ508LF/r"
+  },
+  {
+    "name": "Maadhav",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Maadhav is a Hack Clubber from India who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U08L7HLBT6V",
+    "email": "",
+    "website": "https://maadhavbhatt.github.io",
+    "avatar": "https://cachet.dunkirk.sh/users/U08L7HLBT6V/r"
+  },
+  {
+    "name": "Aishaani",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Aishaani is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U097UCZE2BB",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U097UCZE2BB/r"
+  },
+  {
     "name": "Joel Gallagher",
     "department": "Welcoming",
     "role": "Welcomer",
