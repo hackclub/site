@@ -6,7 +6,7 @@ import imgLaptop from '../../public/fiscal-sponsorship/laptop.png'
 
 export default function Features() {
   return (
-    <Box sx={{ pt: 5, pb: [5, 6], bg: 'snow' }}>
+    <Box sx={{ pt: 5, pb: [5, 6] }}>
       <Container>
         <Heading as="h2" variant="title" sx={{ mb: 3, maxWidth: 'copyUltra' }}>
           <Balancer>
