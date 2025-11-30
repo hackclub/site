@@ -429,7 +429,7 @@ export default function Page() {
             </Balancer>
           </Heading>
           <Flex sx={{ flexWrap: 'wrap', rowGap: 3, columnGap: [4, 5], mb: 4 }}>
-            <Stat value="$67M+" label="processed transactions" reversed />
+            <Stat value="$80M+" label="processed transactions" reversed />
             <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
