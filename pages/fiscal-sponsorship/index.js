@@ -146,7 +146,7 @@ function MobileAppAlert() {
             style={{ padding: 0, margin: 0, height: 40 }}
           >
             <img
-              src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+              src="apple-web-badge.svg"
               alt="Download on the App Store"
               style={{ height: 40 }}
             />
@@ -405,6 +405,15 @@ export default function Page() {
                   </Text>
                 </Card>
               </Grid>
+              <Button
+                  as="a"
+                  sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px', marginTop: '20px' }}
+                  href="/hcb/mobile"
+                  target="_blank"
+                >
+                  Read our blog post
+                  <Icon glyph="view-forward" />
+              </Button>
             </Box>
             <Card sx={{ backgroundImage: 'linear-gradient(to right, #fcc8bf, #ffce33)', px: [5, 5], py: '0 !important', height: 'fit-content', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
               <Box as="img" src="mobile-mockup.png" sx={{ display: 'block', width: '100%', height: 'auto' }} />
