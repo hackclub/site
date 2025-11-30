@@ -13,6 +13,11 @@ export default function AnnouncementHolder({ children }) {
           color: 'cyan',
           my: 4,
           a: { color: 'inherit' }
+        },
+        'a[href^="#fn-"], a[href^="#fnref-"]': {
+          textDecoration: 'none',
+          color: 'inherit',
+          pointerEvents: 'none',
         }
       }}
     >

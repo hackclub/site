@@ -1,0 +1,38 @@
+I’m Mohamad, a 17-year-old from the SF Bay Area, and I just shipped the official mobile app for HCB.
+
+If you haven't heard of it, HCB is the financial backbone for over 6,500 student-led nonprofits, clubs, and hackathons. We provide a 501(c)(3) legal entity, bank account, debit cards, and tax filing for thousands of young people trying to do good in their communities.
+
+HCB is currently processing an average of $6 million per month (over $80M in its lifetime).[^1] For the last year, I’ve been leading the project to build the first-ever mobile app for this entire ecosystem.
+
+***The entire project is open source on [GitHub](https://github.com/hackclub/hcb-mobile) (we'd love a ⭐️!).***
+
+## Why build this?
+
+Our users are students. They aren’t sitting at desks. They’re running robotics competitions, hosting hackathons, or organizing climate protests. They needed a way to manage their organization's finances from their pocket.
+The new app lets them:
+
+- See their organization's balance and transactions at a glance.
+- Issue new cards, add them to Apple / Google Wallet, and freeze or cancel them directly from your phone!
+- Upload photos directly from your device or match existing receipts in your Receipt Bin to transactions with a tap.
+- Accept in-person donations directly on your device, perfect for an in-person fundraiser or event! No extra hardware required.
+
+## The Technical Stuff
+
+When starting out building this app, I wanted to create in native code like SwiftUI for iOS and Kotlin/Jetpack Compose for Android. However realistically it would be a pain for a single part time developer to handle two codebases and having to always duplicate every feature I create for one OS to the other. Then I discovered Expo, a React Native framework, that unifies my logic in an elegant way. 
+
+Every new bug fix, feature, or refactoring taught me something new. Whether it's creating my own Expo Modules (to bridge native code features to Typescript), learning optimization methods such as memoization or component recycling, or just the struggle of app review. 
+
+After over 250 hours of pure development, I was able to successfully launch the app that I had imagined it to be when I first started. 
+
+## Why I'm posting this
+
+I'm incredibly proud of this because it’s built for fellow teenagers. Furthermore, we’re open-source, and our 7% fee goes directly back into running and improving the platform.
+We’re trying to give young people the power to build, and remove the financial and legal roadblocks that stop them.
+
+You can download the app here:
+- **[App Store](https://apps.apple.com/us/app/hcb-by-hack-club/id6465424810)**
+- **[Google Play](https://play.google.com/store/apps/details?id=com.hackclub.hcb)**
+
+PS: if you’re looking to start a nonprofit, we’re accepting applications! Head over to [nonprofit.new](https://nonprofit.new) and we’ll be in touch.
+
+[^1] *This amount is excluding HQ (our own) finances and may be higher than shown.*
