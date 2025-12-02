@@ -1,6 +1,6 @@
 I’m Mohamad, a 17-year-old from the SF Bay Area, and I just shipped the official mobile app for HCB.
 
-If you haven't heard of it, HCB is the financial backbone for over 6,500 student-led nonprofits, clubs, and hackathons. We provide a 501(c)(3) legal entity, bank account, debit cards, and tax filing for thousands of young people trying to do good in their communities.
+If you haven't heard of it, HCB is the financial backbone for over 6,500 teenager-led nonprofits, clubs, and hackathons. We provide them a 501(c)(3) legal entity, access to a bank account, a donation platform, and debit cards for thousands of young people trying to do good in their communities.
 
 HCB is currently processing an average of $6 million per month (over $80M in its lifetime).[^1] For the last year, I’ve led the project to build the first-ever mobile app for this entire ecosystem.
 
@@ -8,28 +8,23 @@ HCB is currently processing an average of $6 million per month (over $80M in its
 
 ## Why build this?
 
-Our users are students. They aren’t sitting at desks. They’re running robotics competitions, hosting hackathons, or organizing climate protests. They needed a way to manage their organization's finances from their pocket.
-The new app lets them:
+Our users are teens who run robotics competitions, hackathons, and nonprofit projects that improve their community. They need a way to manage their organization's finances from their pocket.
+With HCB Mobile, they'll be able to:
 
-- See their organization's balance and transactions at a glance.
-- Issue new cards, add them to Apple / Google Wallet, and freeze or cancel them directly from your phone!
-- Upload photos directly from your device or match existing receipts in your Receipt Bin to transactions with a tap.
-- Accept in-person donations directly on your device, perfect for an in-person fundraiser or event! No extra hardware required.
+- Track their organization's balance and transactions on the go.
+- Issue new cards, add them to Apple / Google Wallet, and freeze or cancel them directly from their phone.
+- Upload receipts directly from their device or match existing receipts in Receipt Bin to transactions with a tap.
+- Accept in-person tap-to-pay donations, perfect for an in-person fundraiser or event! No extra hardware required.
 
 ## The Technical Stuff
 
-When starting out building this app, I wanted to create in native code like SwiftUI for iOS and Kotlin/Jetpack Compose for Android. However realistically it would be a pain for a single part time developer to handle two codebases and having to always duplicate every feature I create for one OS to the other. Then I discovered Expo, a React Native framework, that unifies my logic in an elegant way. 
+When I started working on this app, I wanted to build in native code like SwiftUI for iOS and Kotlin/Jetpack Compose for Android. However, realistically, I realized that it would be a pain for me, a full-time student with classes, to handle two codebases. I'd have to duplicate every feature I created for one OS to the other and deal with all the integration issues along the way. Then, I discovered Expo (a React Native framework) which allowed me to write one app that worked on multiple devices. Working with Expo, I learned about creating my own Expo Modules (to bridge native code features to Typescript) and optimization methods like memoization and component recycling.
 
-Every new bug fix, feature, or refactoring taught me something new. Whether it's creating my own Expo Modules (to bridge native code features to Typescript), learning optimization methods such as memoization or component recycling, or just the struggle of app review. 
+The non-code side of this app was no joke, either. I had to work with the Apple and Google app review teams to obtain restricted entitlements for features like mobile tap-to-pay terminal provisioning (made possible by Stripe) and push provisioning (which allows users to add cards to their payment wallet directly from HCB Mobile). It took several months and many back-and-forth email chains to finally get the entitlements we needed.
 
-After over 250 hours of pure development, I was able to successfully launch the app that I had imagined it to be when I first started. 
+After over 250 hours of development work, I can say that I'm incredibly proud of HCB Mobile because it's built to make it even easier for teenagers like me to run nonprofit organizations and projects with HCB.
 
-## Why I'm posting this
-
-I'm incredibly proud of this because it’s built for fellow teenagers. Furthermore, we’re open-source, and our 7% fee goes directly back into running and improving the platform.
-We’re trying to give young people the power to build, and remove the financial and legal roadblocks that stop them.
-
-You can download the app here:
+## Download the app!
 
 <a href="https://apps.apple.com/us/app/hcb-by-hack-club/id6465424810">
   <img src="/fiscal-sponsorship/apple-web-badge.svg" alt="Download on the App Store" height="40" />
