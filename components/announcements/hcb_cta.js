@@ -14,13 +14,13 @@ export default function HCBCTA() {
       }}
     >
       <Grid gap={[3, 4]} columns={[null, 'auto 1fr']} variant="layout.copy">
-        <Icon glyph="welcome" size={72} />
+        <Icon glyph="bank-account" size={72} />
         <Box>
           <Heading as="h2" variant="headline" mt={0}>
-            Teenager? New here? Welcome!
+            Looking to start a nonprofit?
           </Heading>
           <Text variant="subtitle" sx={{ lineHeight: 'caption', mb: 3 }}>
-            If you're looking to start a nonprofit, we're accepting applications!
+            We're accepting applications! No startup fees, no minimum balance, and no long wait time.
           </Text>
           <br />
           <br />
