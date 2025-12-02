@@ -31,7 +31,7 @@ const Link = props => {
   )
 }
 
-const RelonPage = () => (
+const MobilePage = () => (
   <>
     <Meta
       as={Head}
@@ -98,4 +98,4 @@ const RelonPage = () => (
   </>
 )
 
-export default RelonPage
+export default MobilePage
