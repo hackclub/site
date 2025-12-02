@@ -123,7 +123,7 @@ function MobileAppAlert() {
         <span style={{ fontSize: 20 }}>
           <strong style={{ fontSize: 23 }}>HCB Mobile is here!</strong>
           <br />
-          View and manage your HCB organizations on the go. Issue cards, view transactions, and more!
+          Manage your HCB organizations on the go. Issue cards, view transactions, and more!
         </span>
 
         <Box
