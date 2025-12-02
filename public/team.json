@@ -321,6 +321,18 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07HEH4N8UV/r"
   },
   {
+    "name": "Ivie Fonner",
+    "department": "HQ",
+    "role": "Club Infrastructure and Operations",
+    "acknowledged": false,
+    "bio": "Ivie (aka. Charmunk) is a 14 year old Hack Clubber from the DC area. When she is not coding, she enjoys sci-fi novels, and playing card games. At Hack Club, she builds the underlining systems allowing Hack Club Clubs to run smoothly. She joined Hack Club in late 2024 and has been working on various projects since then.",
+    "bioHackFoundation": "",
+    "slackId": "U04KEK4TS72",
+    "email": "ivie",
+    "website": "https://ivie.codes",
+    "avatar": "https://ivie.codes/assets/pfp.jpg"
+  },
+  {
     "name": "Dhyan",
     "department": "HQ",
     "role": "Club Engineering & Operations",
@@ -348,7 +360,7 @@
     "name": "Karthik Sankar",
     "department": "HQ",
     "role": "Club Onboarding and Program Development",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Karthik is a 18 year old Hack Clubber from Singapore who has been actively involved in club onboarding and YSWSs for the past year. He also worked on Counterspell Globally. He can't wait to help more clubs get started and grow their communities!",
     "bioHackFoundation": "",
     "slackId": "U04K5EPMZM1",
@@ -366,7 +378,7 @@
     "slackId": "U07ULNFPQ4T",
     "email": "lynn",
     "website": "https://lynn.pt/",
-    "avatar": "https://cachet.dunkirk.sh/users/U07ULNFPQ4T/r"
+    "avatar": "https://pfp.lynn.pt/api/current"
   },
   {
     "name": "Jenin Henin",
@@ -413,18 +425,6 @@
     "email": "ethan",
     "website": "http://ethans.social/",
     "avatar": "https://cachet.dunkirk.sh/users/U08BH57AZKP/r"
-  },
-  {
-    "name": "Ivie Fonner",
-    "department": "HQ",
-    "role": "Club Engineering and Operations",
-    "acknowledged": false,
-    "bio": "Ivie (aka. Charmunk) is a 14 year old Hack Clubber from the DC area. When she is not coding, she enjoys sci-fi novels, card games, and video editing.",
-    "bioHackFoundation": "",
-    "slackId": "U04KEK4TS72",
-    "email": "ivie",
-    "website": "https://ivie.codes",
-    "avatar": "https://ivie.codes/assets/pfp.jpg"
   },
   {
     "name": "Sofia Egan",
