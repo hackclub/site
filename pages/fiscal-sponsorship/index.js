@@ -411,7 +411,7 @@ export default function Page() {
                   href="/hcb/mobile"
                   target="_blank"
                 >
-                  Read our blog post
+                  Read our story
                   <Icon glyph="view-forward" />
               </Button>
             </Box>
