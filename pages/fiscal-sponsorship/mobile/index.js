@@ -13,7 +13,7 @@ import Nav from '../../../components/nav'
 import ForceTheme from '../../../components/force-theme'
 import Footer from '../../../components/footer'
 import Copy from '../../../components/announcements/hcb-mobile.mdx'
-import SlackCTA from '../../../components/announcements/cta'
+import HCBCTA from '../../../components/announcements/hcb_cta'
 import AnnouncementHolder from '../../../components/announcements/holder'
 import Balancer from 'react-wrap-balancer'
 
@@ -93,7 +93,7 @@ const MobilePage = () => (
       </PillHolder>
       <Copy />
     </AnnouncementHolder>
-    <SlackCTA />
+    <HCBCTA />
     <Footer />
   </>
 )
