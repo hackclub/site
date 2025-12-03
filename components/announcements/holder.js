@@ -16,8 +16,7 @@ export default function AnnouncementHolder({ children }) {
         },
         'a[href^="#fn-"], a[href^="#fnref-"]': {
           textDecoration: 'none',
-          color: 'inherit',
-          pointerEvents: 'none',
+          color: 'inherit'
         }
       }}
     >
