@@ -387,7 +387,7 @@ export default function Page() {
                     <span style={{ maxWidth: 'calc(100% - 32px)' }}>Accept Tap to Pay donations</span><Icon glyph="bolt-circle" size={32} sx={{ color: 'red', flexShrink: 0 }} />
                   </Text>
                   <Text>
-                    No extra hardware required! Great for in-person fundraisers.
+                    No extra hardware required! Tap any card against your phone. Great for in-person fundraisers.
                   </Text>
                 </Card>
                 <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
