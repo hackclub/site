@@ -370,7 +370,7 @@ export default function Page() {
                 HCB in your <Sparkles sx={{ color: 'red'}}>pocket</Sparkles>
               </Heading>
               <Text as="p" variant="lead" sx={{ mb: 3 }}>
-                The official mobile app for HCB lets you manage your
+                The official mobile app lets you manage your
                 organization&apos;s finances, issue cards, and more!
               </Text>
               <Grid columns={[1, 2]} gap={3}>
