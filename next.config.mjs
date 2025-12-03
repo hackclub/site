@@ -228,6 +228,10 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: '/fiscal-sponsorship/mobile-app/',
+        destination: '/fiscal-sponsorship/mobile/'
+      },
+      {
         source: '/clubs/leaders-letters',
         destination: 'https://leaders-letters.vercel.app/'
       },
