@@ -77,7 +77,8 @@ const MobilePage = () => (
               mx: 'auto'
             }}
           >
-            Manage your HCB organizations on the go. Issue cards, view transactions, and more!
+            Manage your HCB organizations on the go. Issue cards, view
+            transactions, and more!
           </Heading>
         </Balancer>
       </Container>
