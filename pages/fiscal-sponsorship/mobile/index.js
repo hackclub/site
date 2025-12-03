@@ -90,7 +90,7 @@ const MobilePage = () => (
           tag="Mohamad Mortada"
           image="https://github.com/thedev132.png"
         />
-        <DatePill tag="Dec 1, 2025" />
+        <DatePill tag="Dec 2, 2025" />
       </PillHolder>
       <Copy />
     </AnnouncementHolder>
