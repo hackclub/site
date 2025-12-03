@@ -724,6 +724,9 @@ export default function Page() {
             </Button>
           </Link>
           <Text as="p" variant="lead" sx={{ color: 'white', mb: [0, 0] }}>
+            <Balancer>If you apply before <strong>December 31st, 2025</strong> and complete onboarding by <strong>January 31st, 2026</strong>,<br />we'll add $20 to your organization's balance!</Balancer>
+          </Text>
+          <Text as="p" variant="lead" sx={{ color: 'white', mb: [0, 0] }}>
             <Balancer>No startup fees, no&nbsp;minimum balance.</Balancer>
           </Text>
         </Flex>
