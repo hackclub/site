@@ -124,6 +124,8 @@ function MobileAppAlert() {
           <strong style={{ fontSize: 23 }}>HCB Mobile is here!</strong>
           <br />
           Manage your HCB organizations on the go. Issue cards, view transactions, and more!
+          <br />
+          <strong>For a limited time only</strong>, get exclusive stickers by downloading the app and signing in!
         </span>
 
         <Box
