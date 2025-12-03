@@ -384,6 +384,14 @@ export default function Page() {
                 </Card>
                 <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
                   <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
+                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Accept Tap to Pay donations</span><Icon glyph="bolt-circle" size={32} sx={{ color: 'red', flexShrink: 0 }} />
+                  </Text>
+                  <Text>
+                    No extra hardware required! Great for in-person fundraisers.
+                  </Text>
+                </Card>
+                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
+                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
                     <span style={{ maxWidth: 'calc(100% - 32px)' }}>Issue, manage, and<br />add cards</span><Icon glyph="card" size={32} sx={{ color: 'red', flexShrink: 0 }} />
                   </Text>
                   <Text>
@@ -395,14 +403,6 @@ export default function Page() {
                     <span style={{ maxWidth: 'calc(100% - 32px)' }}>Upload receipts the easy way</span><Icon glyph="docs" size={32} sx={{ color: 'red', flexShrink: 0 }} />
                   </Text>
                   <Text>Quickly snap a photo or upload a file!</Text>
-                </Card>
-                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
-                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
-                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Accept Tap to Pay donations</span><Icon glyph="bolt-circle" size={32} sx={{ color: 'red', flexShrink: 0 }} />
-                  </Text>
-                  <Text>
-                    No extra hardware required! Great for in-person fundraisers.
-                  </Text>
                 </Card>
               </Grid>
               <Button
