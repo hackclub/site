@@ -125,7 +125,7 @@ function MobileAppAlert() {
           <br />
           Manage your HCB organizations on the go. Issue cards, view transactions, and more!
           <br />
-          Get <strong>limited edition</strong> stickers by downloading the app and signing in!
+          Get <strong>limited edition</strong> stickers by downloading the app and signing in.
         </span>
 
         <Box
