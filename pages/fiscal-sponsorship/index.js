@@ -173,6 +173,14 @@ function MobileAppAlert() {
 
 export default function Page() {
   const [hasReferral, setHasReferral] = useState(false)
+const [mobileInstalls, setMobileInstalls] = useState(0)
+  useEffect(() => {
+    fetch('https://hcb.hackclub.com/stats')
+      .then(res => res.json())
+      .then(data => {
+        setMobileInstalls(data.mobile_installs)
+      })
+  }, [])
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -417,7 +425,10 @@ export default function Page() {
                   <Icon glyph="view-forward" />
               </Button>
             </Box>
-            <Card sx={{ backgroundImage: 'linear-gradient(to right, #fcc8bf, #ffce33)', px: [5, 5], py: '0 !important', height: 'fit-content', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+            <Card sx={{ backgroundImage: 'linear-gradient(to right, #fcc8bf, #ffce33)', px: [5, 5], py: '0 !important', height: 'fit-content', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative' }}>
+              <Text as="span" sx={{ position: 'absolute', bottom: 12, left: 12, bg: 'white', color: 'slate', fontSize: 14, fontWeight: 'bold', px: 3, py: 2, borderRadius: 30, boxShadow: 'small' }}>
+                {mobileInstalls.toLocaleString()} installs
+              </Text>
               <Box as="img" src="mobile-mockup.png" sx={{ display: 'block', width: '100%', height: 'auto' }} />
             </Card>
           </Grid>

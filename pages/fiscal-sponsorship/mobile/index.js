@@ -63,7 +63,7 @@ const MobilePage = () => (
             }
           }}
         >
-          <Link href="/fiscal-sponsorship">HCB Mobile</Link> is here!
+          <Link href="/fiscal-sponsorship">HCB</Link> Mobile is here!
         </Heading>
         <Balancer>
           <Heading
