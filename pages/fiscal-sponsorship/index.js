@@ -736,7 +736,7 @@ const [mobileInstalls, setMobileInstalls] = useState(0)
               Apply now
             </Button>
           </Link>
-          <Text as="p" variant="lead" sx={{ color: 'white', mt: '10px', mb: '10px', background: 'rgba(200, 200, 200, 0.3)', padding: '10px', borderRadius: 10 }}>
+          <Text as="p" variant="lead" sx={{ color: 'white', mt: '10px', maxWidth: '700px', mb: [0,0], background: 'rgba(255, 255, 255, 0.2)', padding: '20px', borderRadius: 20 }}>
             <Balancer><strong>$20 to kick off your mission!</strong>. If you apply before <strong>December 31st, 2025</strong> and complete onboarding by <strong>January 31st, 2026</strong>,<br />we'll add $20 to your organization's balance!</Balancer>
           </Text>
           <Text as="p" variant="lead" sx={{ color: 'white', mb: [0, 0] }}>
