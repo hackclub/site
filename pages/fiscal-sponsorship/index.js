@@ -125,7 +125,7 @@ function MobileAppAlert() {
           <br />
           Manage your HCB organizations on the go. Issue cards, view transactions, and more!
           <br />
-          <strong>For a limited time only</strong>, get exclusive stickers by downloading the app and signing in!
+          Get <strong>limited edition</strong> stickers by downloading the app and signing in!
         </span>
 
         <Box
@@ -737,7 +737,7 @@ const [mobileInstalls, setMobileInstalls] = useState(0)
             </Button>
           </Link>
           <Text as="p" variant="lead" sx={{ color: 'white', mt: '10px', mb: '10px', background: 'rgba(200, 200, 200, 0.3)', padding: '10px', borderRadius: 10 }}>
-            <Balancer>If you apply before <strong>December 31st, 2025</strong> and complete onboarding by <strong>January 31st, 2026</strong>,<br />we'll add $20 to your organization's balance!</Balancer>
+            <Balancer><strong>$20 to kick off your mission!</strong>. If you apply before <strong>December 31st, 2025</strong> and complete onboarding by <strong>January 31st, 2026</strong>,<br />we'll add $20 to your organization's balance!</Balancer>
           </Text>
           <Text as="p" variant="lead" sx={{ color: 'white', mb: [0, 0] }}>
             <Balancer>No startup fees, no&nbsp;minimum balance.</Balancer>
