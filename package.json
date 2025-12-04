@@ -99,7 +99,7 @@
     "swr": "^2.3.2",
     "theme-ui": "^0.14.7",
     "tinytime": "^0.2.6",
-    "turndown": "^7.2.0",
+    "turndown": "^7.2.2",
     "vanilla-tilt": "^1.8.1",
     "yarn": "^1.22.22"
   },
