@@ -33,7 +33,7 @@ function PromoCTA() {
       <ul style={{ paddingLeft: '20px', marginTop: 0 }}>
         <li>Must be teen-led (18 or under)</li>
         <li>Teen applicant must be the organization owner</li>
-        <li>Not available for Hack Club affiliated projects</li>
+        <li>Hack Club HQ affiliated projects (e.g. Campfire) are ineligible</li>
         <li>Clubs welcome</li>
       </ul>
     </Box>
