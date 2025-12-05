@@ -48,6 +48,8 @@ import Aces from '../components/index/cards/aces'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
 import CTAS from '../components/index/ctas'
+import RotatingProject from '../components/index/rotating-project'
+import featuredProject from '../lib/rotating-projects-data'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -212,7 +214,7 @@ function Page({
           as="header"
           sx={{
             bg: 'dark',
-            pt: [5, 6],
+            pt: [4, 5],
             pb: [2, 3],
             textAlign: 'left',
             position: 'relative',
@@ -225,7 +227,7 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          {announcementVariant === 'blueprint' ? (
+          {/* {announcementVariant === 'blueprint' ? (
             <Announcement
               width="90vw"
               copy="Get up to $400 to make a hardware project!"
@@ -241,7 +243,7 @@ function Page({
               href="https://moonshot.hackclub.com?t=webt"
               imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/20dccaf98bc294f15d07534c407c56debcb6ec8d_favicon.png"
             />
-          )}
+          )} */}
           <Box
             sx={{
               width: '90vw',
@@ -265,160 +267,172 @@ function Page({
               Welcome to Hack&nbsp;Club
             </Text>
             <Heading>
-              <Text
-                as="p"
-                variant="title"
-                sx={{
-                  color: 'white',
-                  mb: [3, 4],
-                  zIndex: 1,
-                  textAlign: 'left',
-                  fontSize: ['42px', '52px', '64px'],
-                  lineHeight: 1.2,
-                  width: '100%'
-                }}
+              <Grid
+                columns={[1, 1, '1.5fr 1fr']}
+                gap={[4, 5]}
+                sx={{ alignItems: 'center' }}
               >
-                We are <Comma>{slackData.total_members_count}</Comma>{' '}
-                <Text
-                  sx={{
-                    color: 'transparent',
-                    ml: 2,
-                    mr: 3,
-                    whiteSpace: 'nowrap'
-                  }}
-                >
+                <Box>
                   <Text
-                    onClick={() => {
-                      !reveal ? setReveal(true) : setReveal(false)
-                    }}
+                    as="p"
+                    variant="title"
                     sx={{
-                      // lineHeight: 0.875,
-                      px: 2,
-                      backgroundColor: 'red',
-                      position: 'absolute',
-                      borderRadius: 10,
-                      transform: 'rotate(-3deg) translateY(-5px)',
                       color: 'white',
-                      whiteSpace: 'nowrap',
-                      textDecoration: 'none',
-                      '&:hover': {
-                        cursor: 'pointer'
-                      }
-                    }}
-                    aria-hidden="true"
-                  >
-                    teen hackers
-                  </Text>
-                  teen hackers
-                </Text>
-                <br sx={{ display: ['inline', 'none', 'none'] }} /> from around
-                the world who code together
-              </Text>
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexWrap: 'nowrap',
-                  flexDirection: 'row',
-                  rowGap: 3
-                }}
-              >
-                {/* {ctaVariant === 'blueprint' ? (
-                  <Button
-                    variant="ctaLg"
-                    as="a"
-                    href="https://blueprint.hackclub.com/?utm_source=site-cta"
-                    mt={[3, 0, 0]}
-                    mr={3}
-                    sx={{
-                      transformOrigin: 'center',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      width: 'fit-content',
-                      backgroundColor: '#0e305b',
-                      backgroundImage:
-                        'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
-                      backgroundSize: '50px 50px',
-                      border: '2px solid #dbe4ee',
-                      color: '#dbe4ee',
-                      '&:hover': {
-                        transform: 'scale(1.05)',
-                        boxShadow: '0 0 20px rgba(219, 228, 238, 0.4)'
-                      }
+                      mb: [3, 4],
+                      zIndex: 1,
+                      textAlign: 'left',
+                      fontSize: ['42px', '52px', '64px'],
+                      lineHeight: 1.2,
+                      width: '100%'
                     }}
                   >
-                    Sign Up for Blueprint
+                    We are <Comma>{slackData.total_members_count}</Comma>{' '}
                     <Text
-                      as="span"
                       sx={{
-                        fontSize: 0,
-                        opacity: 0.8,
-                        mt: 1,
-                        color: '#dbe4ee'
+                        color: 'transparent',
+                        ml: 2,
+                        mr: 3,
+                        whiteSpace: 'nowrap'
                       }}
                     >
-                      Get up to $400 to make Hardware
+                      <Text
+                        onClick={() => {
+                          !reveal ? setReveal(true) : setReveal(false)
+                        }}
+                        sx={{
+                          // lineHeight: 0.875,
+                          px: 2,
+                          backgroundColor: 'red',
+                          position: 'absolute',
+                          borderRadius: 10,
+                          transform: 'rotate(-3deg) translateY(-5px)',
+                          color: 'white',
+                          whiteSpace: 'nowrap',
+                          textDecoration: 'none',
+                          '&:hover': {
+                            cursor: 'pointer'
+                          }
+                        }}
+                        aria-hidden="true"
+                      >
+                        teen hackers
+                      </Text>
+                      teen hackers
                     </Text>
-                  </Button>
-                ) : (
-                  <>
+                    <br sx={{ display: ['inline', 'none', 'none'] }} /> from
+                    around the world who code together
+                  </Text>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexWrap: 'nowrap',
+                      flexDirection: 'row',
+                      rowGap: 3
+                    }}
+                  >
+                    {/* {ctaVariant === 'blueprint' ? (
+                      <Button
+                        variant="ctaLg"
+                        as="a"
+                        href="https://blueprint.hackclub.com/?utm_source=site-cta"
+                        mt={[3, 0, 0]}
+                        mr={3}
+                        sx={{
+                          transformOrigin: 'center',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          width: 'fit-content',
+                          backgroundColor: '#0e305b',
+                          backgroundImage:
+                            'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+                          backgroundSize: '50px 50px',
+                          border: '2px solid #dbe4ee',
+                          color: '#dbe4ee',
+                          '&:hover': {
+                            transform: 'scale(1.05)',
+                            boxShadow: '0 0 20px rgba(219, 228, 238, 0.4)'
+                          }
+                        }}
+                      >
+                        Sign Up for Blueprint
+                        <Text
+                          as="span"
+                          sx={{
+                            fontSize: 0,
+                            opacity: 0.8,
+                            mt: 1,
+                            color: '#dbe4ee'
+                          }}
+                        >
+                          Get up to $400 to make Hardware
+                        </Text>
+                      </Button>
+                    ) : (
+                      <>
+                        <Button
+                          variant="ctaLg"
+                          as="a"
+                          href="https://moonshot.hackclub.com?t=webt"
+                          mt={[3, 0, 0]}
+                          mr={3}
+                          sx={{
+                            transformOrigin: 'center left',
+                            backgroundColor: 'black',
+                            color: 'white',
+                            border: '2px solid white',
+                            boxShadow: '0 0 10px rgba(255,255,255,0.25)',
+                            animation: 'moonshotPulse 2s ease-in-out infinite',
+                            textShadow: '0 1px 1px rgba(0,0,0,0.6)',
+                            backgroundImage: 'none',
+                            '&:hover': {
+                              transform: 'scale(1.05)'
+                            }
+                          }}
+                        >
+                          RSVP for Moonshot!
+                        </Button>
+                        <style>{`
+                          @keyframes moonshotPulse {
+                            0% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
+                            50% { box-shadow: 0 0 16px rgba(255,255,255,0.6), 0 0 24px rgba(255,255,255,0.35); }
+                            100% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
+                          }
+                        `}</style>
+                      </>
+                    )} */}
                     <Button
                       variant="ctaLg"
                       as="a"
-                      href="https://moonshot.hackclub.com?t=webt"
+                      href="/slack"
                       mt={[3, 0, 0]}
                       mr={3}
+                      sx={{ transformOrigin: 'center left' }}
+                    >
+                      Join Slack
+                    </Button>
+                    <Text
+                      variant="eyebrow"
+                      as="h4"
                       sx={{
-                        transformOrigin: 'center left',
-                        backgroundColor: 'black',
+                        fontSize: ['16px', 2, 3],
+                        maxWidth: 'layout',
+                        marginTop: 'auto',
+                        marginBottom: 'auto',
+                        alignSelf: 'center',
                         color: 'white',
-                        border: '2px solid white',
-                        boxShadow: '0 0 10px rgba(255,255,255,0.25)',
-                        animation: 'moonshotPulse 2s ease-in-out infinite',
-                        textShadow: '0 1px 1px rgba(0,0,0,0.6)',
-                        backgroundImage: 'none',
-                        '&:hover': {
-                          transform: 'scale(1.05)'
-                        }
+                        textShadow:
+                          'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
                       }}
                     >
-                      RSVP for Moonshot!
-                    </Button>
-                    <style>{`
-                      @keyframes moonshotPulse {
-                        0% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
-                        50% { box-shadow: 0 0 16px rgba(255,255,255,0.6), 0 0 24px rgba(255,255,255,0.35); }
-                        100% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
-                      }
-                    `}</style>
-                  </>
-                )} */}
-                <Button
-                  variant="ctaLg"
-                  as="a"
-                  href="/slack"
-                  mt={[3, 0, 0]}
-                  mr={3}
-                  sx={{ transformOrigin: 'center left' }}
-                >
-                  Join Slack
-                </Button>
-                <Text
-                  variant="eyebrow"
-                  as="h4"
-                  sx={{
-                    fontSize: ['16px', 2, 3],
-                    maxWidth: 'layout',
-                    marginTop: 'auto',
-                    marginBottom: 'auto',
-                    alignSelf: 'center',
-                    color: 'white',
-                    textShadow: 'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
-                  }}
-                >
-                  Or, check out our programs:
-                </Text>
-              </Box>
+                      Or, check out our programs:
+                    </Text>
+                  </Box>
+                </Box>
+                <Box sx={{ display: ['block', 'block', 'block'] }}>
+                  <RotatingProject project={featuredProject} />
+                </Box>
+              </Grid>
               <CTAS cards={ctaCards} />
               <Button
                 sx={{
@@ -437,7 +451,7 @@ function Page({
                   fontSize: [1, '16px', '18px'],
                   backdropFilter: 'blur(2px)',
                   fontWeight: 'normal',
-                  zIndex: 999,
+                  zIndex: 999
                 }}
                 as="a"
                 href="#spotlight"
