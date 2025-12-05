@@ -628,9 +628,24 @@ const Philanthropy = ({ posts = [] }) => {
             <Flex sx={{ justifyContent: 'space-between' }} mt={[3, 4]}>
               <Box>
                 <Text as="h2">View Hack Club's IRS Form 990s</Text>
-                <Text as="p">2024 Form will be shared when ready.</Text>
+                <Text as="p">2025 Form will be shared when ready.</Text>
               </Box>
               <Box>
+                <Button
+                  as="a"
+                  variant="outline"
+                  href="https://hc-cdn.hel1.your-objectstorage.com/s/v3/de615b00d6923a7b46ac6c866e9d2782a633a0c6_hack_club_fy24_990_-_public.pdf"
+                  target="_blank"
+                  mb={4}
+                  sx={{
+                    fontSize: '1em !important',
+                    width: 'fit-content',
+                    float: 'right',
+                    mt: 2
+                  }}
+                >
+                  2024
+                </Button>
                 <Button
                   as="a"
                   variant="outline"
@@ -641,7 +656,8 @@ const Philanthropy = ({ posts = [] }) => {
                     fontSize: '1em !important',
                     width: 'fit-content',
                     float: 'right',
-                    mt: 2
+                    mt: 2,
+                    mr: 2
                   }}
                 >
                   2023
