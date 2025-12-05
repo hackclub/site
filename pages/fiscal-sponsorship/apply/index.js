@@ -19,7 +19,6 @@ function PromoCTA() {
       sx={{
         borderRadius: 'default',
         color: 'muted',
-        a: { color: 'background', textDecoration: 'underline' }
       }}
     >
       <Heading as="h2" variant="subheadline" sx={{ mb: 2, color: 'black' }}>
