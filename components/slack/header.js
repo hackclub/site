@@ -55,18 +55,36 @@ const Content = () => (
             as="a"
             href="https://auth.hackclub.com/slack"
             sx={{
-              bg: 'primary',
+              bg: 'red',
+              backgroundImage: t => t.util.gx('orange', 'red'),
               color: 'white',
               fontSize: [2, 3],
               px: 4,
-              py: 2,
+              py: 3,
               borderRadius: 'extra',
               fontWeight: 'bold',
               textDecoration: 'none',
               display: 'inline-block',
+              position: 'relative',
+              overflow: 'hidden',
+              transition: 'transform 0.125s ease-in-out',
               ':hover': {
-                transform: 'scale(1.05)',
-                transition: 'transform 0.125s ease-in-out'
+                transform: 'scale(1.05)'
+              },
+              '::before': {
+                content: '""',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                background: 'linear-gradient(120deg, transparent 10%, rgba(255,255,255,0.2) 50%, transparent 90%)',
+                transform: 'translateX(-100%)',
+                animation: 'shimmer 2.5s ease-in-out infinite'
+              },
+              '@keyframes shimmer': {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' }
               }
             }}
           >
