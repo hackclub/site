@@ -46,6 +46,11 @@ const Sponsors = props => (
       href="https://ffwd.org"
       img="fastforward.png"
     />
+    <Sponsor
+      name="Intercom"
+      href="https://www.intercom.com"
+      img="intercom.png"
+    />
   </Base>
 )
 
