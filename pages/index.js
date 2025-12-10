@@ -41,7 +41,6 @@ import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
-import Athena from '../components/index/cards/athena'
 import Moonshot from '../components/index/cards/moonshot'
 import Milkyway from '../components/index/cards/milkyway'
 import Aces from '../components/index/cards/aces'
@@ -842,7 +841,6 @@ function Page({
               blueprintData={blueprintData}
               stars={stars.onboard.stargazerCount}
             />
-            <Athena />
             <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />
           </Box>
