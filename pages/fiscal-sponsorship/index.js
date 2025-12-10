@@ -491,7 +491,7 @@ const [mobileInstalls, setMobileInstalls] = useState(0)
               >
                 One simple, transparent fee:
                 <br />
-                7% of income.
+                7% of revenue.
               </Text>
               <Text
                 as="p"
