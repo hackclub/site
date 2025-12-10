@@ -100,7 +100,7 @@ const Footer = ({
             <Link>Jobs</Link>
           </NextLink>
           <NextLink href="/brand" passHref>
-            <Link>Brand guide</Link>
+            <Link>Brand Guide</Link>
           </NextLink>
           <NextLink href="/press" passHref>
             <Link>Press Inquiries</Link>
