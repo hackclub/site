@@ -1,0 +1,10 @@
+{
+    "enabled": true,
+    "id": "hydra",
+    "name": "Hydra",
+    "description": "An experimental Nintendo Switch emulator for macOS.",
+    "author": "SamoZ256",
+    "age": 18,
+    "url": "https://github.com/SamoZ256/hydra",
+    "image": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/37cdc4369fcfe6c5d941beac8d3cea0cdaa55296_image.png"
+}
