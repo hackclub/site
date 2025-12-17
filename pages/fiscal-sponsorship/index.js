@@ -26,8 +26,11 @@ import OrganizationSpotlight from '../../components/fiscal-sponsorship/organizat
 import { setCookie, getCookie } from 'cookies-next'
 import { useEffect, useState } from 'react'
 import { unfold } from '../../components/announcement'
-import Icon from '@hackclub/icons'
 import Announcement from '../../components/announcement'
+import OpenSource from '../../components/fiscal-sponsorship/open-source'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import Sparkles from '../../components/sparkles'
+import Icon from '../../components/icon'
 
 const organizations = [
   {
@@ -69,11 +72,13 @@ const organizations = [
   }
 ]
 
-function OpenSourceAlert() {
+function MobileAppAlert() {
   return (
     <Container sx={{ position: 'relative' }}>
       <Box
         sx={{
+          position: 'relative',
+          overflow: 'hidden',
           py: ['25px', 3],
           px: 4,
           background: [
@@ -96,11 +101,31 @@ function OpenSourceAlert() {
           flexDirection: ['column', 'row']
         }}
       >
+        <Box
+          sx={{
+            position: 'absolute',
+            top: 15,
+            right: -30,
+            bg: 'red',
+            color: 'white',
+            transform: 'rotate(45deg)',
+            width: 120,
+            textAlign: 'center',
+            py: 1,
+            fontSize: 1,
+            zIndex: 40,
+            fontWeight: 'bold',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+          }}
+        >
+          New!
+        </Box>
         <span style={{ fontSize: 20 }}>
-          <strong style={{ fontSize: 23 }}>HCB is open source! </strong>
+          <strong style={{ fontSize: 23 }}>HCB Mobile is here!</strong>
           <br />
-          Join us in building the infrastructure powering student-led
-          organizations
+          Manage your HCB organizations on the go. Issue cards, view transactions, and more!
+          <br />
+          Get <strong>limited edition</strong> stickers by downloading the app and signing in.
         </span>
 
         <Box
@@ -111,28 +136,35 @@ function OpenSourceAlert() {
             alignItems: ['stretch', 'center'],
             flexShrink: 0,
             ml: [undefined, 'auto'],
-            flexDirection: ['column-reverse', 'row']
+            flexDirection: ['column', 'row'],
+            flexWrap: 'wrap',
+            alignItems: 'center',
           }}
         >
-          <Button
-            as="a"
-            sx={{ flexShrink: 0, gap: 14, paddingLeft: 25 }}
-            variant="outline"
+          <a
+            href="https://apps.apple.com/us/app/hcb-by-hack-club/id6465424810"
             target="_blank"
-            href="https://github.com/hackclub/hcb"
+            rel="noreferrer"
+            style={{ padding: 0, margin: 0, height: 40 }}
           >
-            Star on GitHub
-            <Icon glyph="github" />
-          </Button>
-          <Button
-            as="a"
-            sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px' }}
-            href="https://hackclub.com/hcb/open-source"
+            <img
+              src="apple-web-badge.svg"
+              alt="Download on the App Store"
+              style={{ height: 40 }}
+            />
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.hackclub.hcb"
             target="_blank"
+            rel="noreferrer"
+            style={{ padding: 0, margin: 0, height: 40 }}
           >
-            Read our blog post
-            <Icon glyph="view-forward" />
-          </Button>
+            <img
+              src="google-play-web-badge.png"
+              alt="Get it on Google Play"
+              style={{ height: 40 }}
+            />
+          </a>
         </Box>
       </Box>
     </Container>
@@ -141,6 +173,14 @@ function OpenSourceAlert() {
 
 export default function Page() {
   const [hasReferral, setHasReferral] = useState(false)
+const [mobileInstalls, setMobileInstalls] = useState(0)
+  useEffect(() => {
+    fetch('https://hcb.hackclub.com/stats')
+      .then(res => res.json())
+      .then(data => {
+        setMobileInstalls(data.mobile_installs)
+      })
+  }, [])
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -331,14 +371,78 @@ export default function Page() {
           </Flex>
         </Container>
       </Box>
-      <OpenSourceAlert />
-      <Box id="organizations" as="section" sx={{ py: [4, 5] }}>
+      <MobileAppAlert />
+      <Box as="section" sx={{ py: [4, 5], alignItems: 'center' }}>
+        <Container sx={{ alignItems: 'center' }}>
+          <Grid gap={[4, 5]} columns={[null, null, 2]} sx={{ alignItems: 'center'}}>
+            <Box>
+              <Heading as="h2" variant="title" sx={{ mb: 3, maxWidth: 'copyUltra' }}>
+                HCB in your <Sparkles sx={{ color: 'red'}}>pocket</Sparkles>
+              </Heading>
+              <Text as="p" variant="lead" sx={{ mb: 3 }}>
+                The official mobile app lets you manage your
+                organization&apos;s finances, issue cards, and more!
+              </Text>
+              <Grid columns={[1, 2]} gap={3}>
+                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
+                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 1, justifyContent: 'space-between' }}>
+                    <span style={{ maxWidth: 'calc(100% - 36px)' }}>See your organization's spending</span><Icon glyph="view" size={36} sx={{ color: 'red', flexShrink: 0 }} />
+                  </Text>
+                  <Text>
+                    Stay up to date on your organization's balance and transactions.
+                  </Text>
+                </Card>
+                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
+                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
+                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Accept Tap to Pay donations</span><Icon glyph="bolt-circle" size={32} sx={{ color: 'red', flexShrink: 0 }} />
+                  </Text>
+                  <Text>
+                    No extra hardware required! Tap any card against your phone. Great for in-person fundraisers.
+                  </Text>
+                </Card>
+                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
+                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
+                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Issue, manage, and<br />add cards</span><Icon glyph="card" size={32} sx={{ color: 'red', flexShrink: 0 }} />
+                  </Text>
+                  <Text>
+                    You can directly add cards to Apple&nbsp;Wallet and Google&nbsp;Wallet. No more forgetting your card!
+                  </Text>
+                </Card>
+                <Card variant="sunken" sx={{ p: '1.5rem !important', bg: 'snow', borderRadius: 'default' }}>
+                  <Text as="strong" color="slate" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 2, mb: 1 }}>
+                    <span style={{ maxWidth: 'calc(100% - 32px)' }}>Upload receipts the easy way</span><Icon glyph="docs" size={32} sx={{ color: 'red', flexShrink: 0 }} />
+                  </Text>
+                  <Text>Quickly snap a photo or upload a file!</Text>
+                </Card>
+              </Grid>
+              <Button
+                  as="a"
+                  sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px', marginTop: '20px' }}
+                  href="/hcb/mobile"
+                  target="_blank"
+                >
+                  Read our story
+                  <Icon glyph="view-forward" />
+              </Button>
+            </Box>
+            <Card sx={{ backgroundImage: 'linear-gradient(to right, #fcc8bf, #ffce33)', px: [5, 5], py: '0 !important', height: 'fit-content', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative' }}>
+              <Text as="span" sx={{ position: 'absolute', bottom: 12, left: 12, bg: 'white', color: 'slate', fontSize: 14, fontWeight: 'bold', px: 3, py: 2, borderRadius: 30, boxShadow: 'small' }}>
+                {mobileInstalls.toLocaleString()} installs
+              </Text>
+              <Box as="img" src="mobile-mockup.png" sx={{ display: 'block', width: '100%', height: 'auto' }} />
+            </Card>
+          </Grid>
+        </Container>
+      </Box>
+      <Box id="organizations" as="section" sx={{ py: [4, 5], bg: 'snow' }}>
         <Container sx={{}}>
-          {/* <Text as="p" variant="headline" sx={{ mt: 0 }}>
-            Powering nonprofits at every scale
-          </Text> */}
+          <Heading as="h2" variant="title" sx={{ mt: 0, mb: 3, maxWidth: 'copyUltra' }}>
+            <Balancer>
+              Powering nonprofits at every scale
+            </Balancer>
+          </Heading>
           <Flex sx={{ flexWrap: 'wrap', rowGap: 3, columnGap: [4, 5], mb: 4 }}>
-            <Stat value="$67M+" label="processed transactions" reversed />
+            <Stat value="$80M+" label="processed transactions" reversed />
             <Stat value="6500+" label="projects" reversed />
             <Stat value="2018" label="serving nonprofits since" reversed />
           </Flex>
@@ -377,8 +481,7 @@ export default function Page() {
         </Container>
       </Box>
       <Features />
-
-      <Box id="fees" as="section" sx={{ position: 'relative', py: 5 }}>
+      <Box id="fees" as="section" sx={{ position: 'relative', py: 5, bg: 'snow' }}>
         <Container>
           <Grid columns={[null, null, 2]} gap={[4, 5]}>
             <div>
@@ -388,7 +491,7 @@ export default function Page() {
               >
                 One simple, transparent fee:
                 <br />
-                7% of income.
+                7% of revenue.
               </Text>
               <Text
                 as="p"
@@ -565,7 +668,7 @@ export default function Page() {
                 <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
               </svg>
               <span>
-                As part of our commitment to the environment, funding for HCB’s
+                As part of our commitment to the environment, funding for HCB&apos;s
                 operations&nbsp;and staff will never come from the{' '}
                 <UILink
                   href="https://www.ffisolutions.com/the-carbon-underground-200-500/"
@@ -579,7 +682,7 @@ export default function Page() {
           </div>
         </Grid>
       </Container>
-
+      <OpenSource />
       <Box
         as="section"
         id="apply"
@@ -633,8 +736,14 @@ export default function Page() {
               Apply now
             </Button>
           </Link>
-          <Text as="p" variant="lead" sx={{ color: 'white', mb: [0, 0] }}>
-            <Balancer>No startup fees, no&nbsp;minimum balance.</Balancer>
+          <Text as="p" variant="lead" sx={{ color: "white", mb: [0, 0] }}>
+            <strong>$20 to kick off your mission!</strong>
+          </Text>
+          <Text as="p" variant="lead" sx={{ fontSize: [16, 18], color: "white", mt: [0, 0] }}>
+            <Balancer>
+              If you apply before <strong>December 31st, 2025</strong> and complete onboarding by <strong>January 31st, 2026</strong>,<br />we'll add $20 to your organization's balance!
+              No startup fees, no&nbsp;minimum balance.
+            </Balancer>
           </Text>
         </Flex>
       </Box>

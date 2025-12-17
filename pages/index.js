@@ -41,7 +41,6 @@ import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
-import Athena from '../components/index/cards/athena'
 import Moonshot from '../components/index/cards/moonshot'
 import Milkyway from '../components/index/cards/milkyway'
 import Aces from '../components/index/cards/aces'
@@ -756,7 +755,7 @@ function Page({
                   <Text as="p" variant="subtitle">
                     <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
                     Meet other Hack&nbsp;Clubbers in your community to build
-                    together at one of the 400+{' '}
+                    together at one of the 1000+{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
                       Hack&nbsp;Clubs
                     </Link>{' '}
@@ -842,7 +841,6 @@ function Page({
               blueprintData={blueprintData}
               stars={stars.onboard.stargazerCount}
             />
-            <Athena />
             <Slack slackKey={slackKey} data={slackData} events={events} />
             <Pizza />
           </Box>
