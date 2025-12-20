@@ -58,6 +58,11 @@ export default function ApplicationSuccess() {
             We’ll review your application and get back to you {eta}.
           </Balancer>
         </Text>
+        <Text as="p">
+          <Balancer>
+            <em>During the holiday season, it might take a little longer for us to review your application. We appreciate your understanding!</em>
+          </Balancer>
+        </Text>
       </header>
     </Container>
   )
