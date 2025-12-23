@@ -12,8 +12,7 @@ export default function Flavortown() {
         background:
           'url("https://flavortown.hackclub.com/assets/mask/project-card-bd9acd6b.webp"), linear-gradient(to top, rgba(123,73,66,0.9), rgba(123,73,66,0.9))',
         borderRadius: '24px',
-        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
-        fontFamily: '"Jua", cursive'
+        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)'
       }}
       position={[null, 'bottom', 'bottom']}
       visible={true}
