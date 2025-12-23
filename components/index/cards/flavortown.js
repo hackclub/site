@@ -39,7 +39,6 @@ export default function Flavortown() {
             variant="subtitle"
             sx={{
               color: '#f0dcc8ff',
-              fontFamily: '"Jua", cursive',
               fontSize: ['18px', '20px'],
               fontWeight: 500,
               lineHeight: 1.5,
