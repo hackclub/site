@@ -43,6 +43,7 @@ import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
 import Moonshot from '../components/index/cards/moonshot'
 import Milkyway from '../components/index/cards/milkyway'
+import Flavortown from '../components/index/cards/flavortown'
 import Aces from '../components/index/cards/aces'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
@@ -412,7 +413,8 @@ function Page({
                     marginBottom: 'auto',
                     alignSelf: 'center',
                     color: 'white',
-                    textShadow: 'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
+                    textShadow:
+                      'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
                   }}
                 >
                   Or, check out our programs:
@@ -436,7 +438,7 @@ function Page({
                   fontSize: [1, '16px', '18px'],
                   backdropFilter: 'blur(2px)',
                   fontWeight: 'normal',
-                  zIndex: 999,
+                  zIndex: 999
                 }}
                 as="a"
                 href="#spotlight"
@@ -834,8 +836,9 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Aces/>                  
-            <Milkyway/>
+            <Flavortown />
+            <Aces />
+            <Milkyway />
             <Moonshot />
             <Blueprint
               blueprintData={blueprintData}
@@ -1408,7 +1411,7 @@ export async function getStaticProps() {
   const { fetchGitHub } = require('./api/github')
   // let gitHubData = await fetchGitHub()
 
-    let gitHubData = null
+  let gitHubData = null
 
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')
