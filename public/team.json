@@ -868,20 +868,20 @@
     "bioHackFoundation": "",
     "slackId": "",
     "email": "louisa",
-    "website": "",
-    "avatar": "https://cloud-o2bkq84pj-hack-club-bot.vercel.app/0image.png"
+    "website": "U06EMBJH71S",
+    "avatar": "https://cachet.dunkirk.sh/users/U06EMBJH71S/r"
   },
   {
     "name": "Saran Wagner",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Saran is a current high schooler who comes from the land of corn (the Midwest) in the United States who loves anything technology and engineering. At Hack Club, she is responsible of handling Slack moderation and being a welcoming figure to all in the community. In her free time, Saran can be found hacking up one of her projects, hanging out with others, and listening to copious and unhealthy amounts of music.",
     "bioHackFoundation": "",
     "slackId": "U060YRK2734",
     "email": "saran",
     "website": "",
-    "avatar": "https://cloud-cyw053qnp-hack-club-bot.vercel.app/1image.png"
+    "avatar": "https://cachet.dunkirk.sh/users/U060YRK2734/r"
   },
   {
     "name": "Phaedra Sanon",
@@ -917,7 +917,7 @@
     "slackId": "U078J6H1XL3",
     "email": "annabel",
     "website": "https://phthallo.com",
-    "avatar": "https://cloud-6fxxs7j9y-hack-club-bot.vercel.app/11733036812219.jpg"
+    "avatar": "https://cachet.dunkirk.sh/users/U078J6H1XL3/r"
   },
   {
     "name": "Angad Behl",
@@ -947,7 +947,7 @@
     "name": "Elliot",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Elliot is a 15 year old Hack Clubber from Vermont, USA. He is a passionate coder and has made several esoteric languages. Elliot is currently a member of the Hack Club moderation team and helps out in the community a lot.",
     "bioHackFoundation": "",
     "slackId": "U041DAECHHA",
@@ -959,7 +959,7 @@
     "name": "Kestrel",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Kestrel is an 18 year old Hack Clubber from the US. Throughout their time at Hack Club they've ran a You Ship We Ship program focusing on size limitations, helped countless people and have contributed to the moderation team.",
     "bioHackFoundation": "",
     "slackId": "U07346379NY",
@@ -980,10 +980,106 @@
     "avatar": "https://cachet.dunkirk.sh/users/U04QD71QWS0/r"
   },
   {
-    "name": "Sean Outram",
+    "name": "Aram",
     "department": "Moderation",
     "role": "Moderation & Conduct",
     "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U0616280E6P",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U0616280E6P/r"
+  },
+  {
+    "name": "Dhyan",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U0824G9PTFE",
+    "email": "dhyan",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U0824G9PTFE/r"
+  },
+  {
+    "name": "Hasan",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U062U3SQ2T1",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U062U3SQ2T1/r"
+  },
+  {
+    "name": "Felix Gao",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "Felix, a teen Hack Clubber from Toronto, Canada, leads a team that writes various newsletters, ensuring Hack Clubbers know what's going on in the Slack and beyond. You'll often find him writing code or drowning two metres deep in homework. He has an absurd variety of niche interests and loves learning more about them, one of the biggest being urban planning/design.",
+    "bioHackFoundation": "",
+    "slackId": "U07BU2HS17Z",
+    "email": "felix",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07BU2HS17Z/r"
+  },
+  {
+    "name": "Leo W",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. Formerly at HCB, he's now leveraging his passion and experience in Operations, helping hackathons share the magic of code to students worldwide.",
+    "bioHackFoundation": "",
+    "slackId": "U07BLJ1MBEE",
+    "email": "leo",
+    "website": "",
+    "avatar": "https://avatars.githubusercontent.com/u/64415791"
+  },
+  {
+    "name": "Junya",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U082PAFDDS5",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U082PAFDDS5/r"
+  },
+  {
+    "name": "Miguel",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "U07VC9705D4",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07VC9705D4/r"
+  },
+  {
+    "name": "Darlene Wu",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": false,
+    "bio": "Darlene is a 16 year old Hack Clubber from Indonesia who runs virtual events for the Hack Club community. She also helps welcome members into the Slack",
+    "bioHackFoundation": "",
+    "slackId": "U07SX29CECA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07SX29CECA/r"
+  },
+  {
+    "name": "Sean Outram",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": true,
     "bio": "Sean is a hackclubber hailing from the UK, they started by helping with HCB's operations, however more recently, they've started helping to moderate the Slack. They have also taken part in programs like HCB mentorship and helped with Arcade prize fulfillment and still help with ID verifications.",
     "bioHackFoundation": "",
     "slackId": "U04FATFRE6T",
@@ -1122,7 +1218,7 @@
     "name": "Neko",
     "department": "Newspaper",
     "role": "Reporter",
-    "acknowledged": false,
+    "acknowledged": true,
     "bio": "Neko, the local queer suffering in Texas, contributes to a newsletter which keeps Hack Clubbers informed on what's currently happening.",
     "slackId": "U07PYPAF5RR",
     "email": "",
@@ -1183,18 +1279,6 @@
     "email": "kyra",
     "website": "https://kyraezikeuzor.vercel.app/",
     "avatar": "https://cachet.dunkirk.sh/users/U03RG1Y7HNW/r"
-  },
-  {
-    "name": "Saran Wagner",
-    "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
-    "bio": "Saran is a current high schooler who comes from the land of corn (the Midwest) in the United States who loves anything technology and engineering. At Hack Club, she is responsible of handling Slack moderation and being a welcoming figure to all in the community. In her free time, Saran can be found hacking up one of her projects, hanging out with others, and listening to copious and unhealthy amounts of music.",
-    "bioHackFoundation": "",
-    "slackId": "U060YRK2734",
-    "email": "saran",
-    "website": "",
-    "avatar": "https://cloud-cyw053qnp-hack-club-bot.vercel.app/1image.png"
   },
   {
     "name": "Louisa",
