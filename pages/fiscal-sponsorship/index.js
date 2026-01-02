@@ -173,7 +173,7 @@ function MobileAppAlert() {
 
 export default function Page() {
   const [hasReferral, setHasReferral] = useState(false)
-const [mobileInstalls, setMobileInstalls] = useState(0)
+  const [mobileInstalls, setMobileInstalls] = useState(0)
   useEffect(() => {
     fetch('https://hcb.hackclub.com/stats')
       .then(res => res.json())
@@ -353,31 +353,16 @@ const [mobileInstalls, setMobileInstalls] = useState(0)
               </Button>
             </Link>
             <SignIn />
-            <a
-              href="https://hcb.hackclub.com/from/hack-club-site-fs-page/JOEHOA"
-              style={{ textDecoration: 'none' }}
-              target="_blank"
-            >
-              <Announcement
-                copy="Win a 13-inch MacBook Air!"
-                caption="We’re giving away a MacBook to a lucky teenager! Join the raffle by December 31st, 2025."
-                imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef010a890d7c554a6da9328d62f9a592df9ae5d_laptop-removebg-preview.png"
-                imgAlt="13-inch MacBook Air"
-                color="primary"
-                textColor="slate"
-                sx={{ mb: [1, 1], mt: [3, 4, 1] }}
-              />
-            </a>
           </Flex>
         </Container>
       </Box>
       <MobileAppAlert />
       <Box as="section" sx={{ py: [4, 5], alignItems: 'center' }}>
         <Container sx={{ alignItems: 'center' }}>
-          <Grid gap={[4, 5]} columns={[null, null, 2]} sx={{ alignItems: 'center'}}>
+          <Grid gap={[4, 5]} columns={[null, null, 2]} sx={{ alignItems: 'center' }}>
             <Box>
               <Heading as="h2" variant="title" sx={{ mb: 3, maxWidth: 'copyUltra' }}>
-                HCB in your <Sparkles sx={{ color: 'red'}}>pocket</Sparkles>
+                HCB in your <Sparkles sx={{ color: 'red' }}>pocket</Sparkles>
               </Heading>
               <Text as="p" variant="lead" sx={{ mb: 3 }}>
                 The official mobile app lets you manage your
@@ -416,13 +401,13 @@ const [mobileInstalls, setMobileInstalls] = useState(0)
                 </Card>
               </Grid>
               <Button
-                  as="a"
-                  sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px', marginTop: '20px' }}
-                  href="/hcb/mobile"
-                  target="_blank"
-                >
-                  Read our story
-                  <Icon glyph="view-forward" />
+                as="a"
+                sx={{ flexShrink: 0, gap: 1, paddingLeft: 25, paddingRight: '5px', marginTop: '20px' }}
+                href="/hcb/mobile"
+                target="_blank"
+              >
+                Read our story
+                <Icon glyph="view-forward" />
               </Button>
             </Box>
             <Card sx={{ backgroundImage: 'linear-gradient(to right, #fcc8bf, #ffce33)', px: [5, 5], py: '0 !important', height: 'fit-content', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', position: 'relative' }}>
