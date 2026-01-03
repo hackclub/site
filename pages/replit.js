@@ -274,7 +274,7 @@ const ReplitPage = () => {
 
           You can now{' '}
           <Text as="span" sx={{ fontWeight: 'bold' }}>
-            download all your repos using Replits "bulk exporter".
+            download all your repls using Replits "bulk exporter".
           </Text>
           <br />
 
