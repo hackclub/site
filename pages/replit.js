@@ -261,10 +261,46 @@ const ReplitPage = () => {
           endpoint works (presumably specifically to kill this project).
           <br />
           The time spent fixing it would not be worth it;{' '}
+          
+          <br />
+          <br />
+
+          Both of the following alternative ways to export your code will not{' '}
           <Text as="span" sx={{ fontWeight: 'bold' }}>
-            though you can still download individual Repls as ZIP archives.
+            not contain edit history.
+          </Text>
+          <br />
+          <br />
+
+          You can now{' '}
+          <Text as="span" sx={{ fontWeight: 'bold' }}>
+            download all your repos using replit's "bulk exporter".
+          </Text>
+          <br />
+
+          Go to your{' '}
+          <Link href="https://replit.com/account">account settings</Link>
+          , scroll to the "Account" section and click the "Start Export" button.
+          <Image
+              src="/replit/BulkExportReplsReplit.png">  
+          </Image>
+          <br />
+
+          This will open the following pop-up. {' '}
+          <Text as="span" sx={{ fontWeight: 'bold' }}>
+            Click "Start Export".
+          </Text>
+          <Image 
+            src="/replit/ExportReplsReplit.png">
+          </Image>
+          <br />
+          After some time, you will recieve an e-mail containing a download link.
+          <br />
+          <br />
+          
+          <Text as="span" sx={{ fontWeight: 'bold' }}>
+            Or you can alternatively still download individual Repls as ZIP archives.
           </Text>{' '}
-          They won't have edit history though.
         </Text>
 
         <Image
