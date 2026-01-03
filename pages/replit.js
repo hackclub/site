@@ -284,7 +284,7 @@ const ReplitPage = () => {
           <Image
               src="/replit/BulkExportReplsReplit.png"
               sx={{
-                width: '30%',
+                width: '40%',
                 marginX: 'auto',
                 display: 'block',
                 borderRadius: 12
