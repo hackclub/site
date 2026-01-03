@@ -282,8 +282,14 @@ const ReplitPage = () => {
           <Link href="https://replit.com/account">account settings</Link>
           , scroll to the "Account" section and click the "Start Export" button.
           <Image
-              src="/replit/BulkExportReplsReplit.png">  
-          </Image>
+              src="/replit/BulkExportReplsReplit.png"
+              sx={{
+                width: '30%',
+                marginX: 'auto',
+                display: 'block',
+                borderRadius: 12
+              }}
+          />
           <br />
 
           This will open the following pop-up. {' '}
@@ -291,8 +297,14 @@ const ReplitPage = () => {
             Click "Start Export".
           </Text>
           <Image 
-            src="/replit/ExportReplsReplit.png">
-          </Image>
+            src="/replit/ExportReplsReplit.png"
+            sx={{
+              width: '50%',
+              marginX: 'auto',
+              display: 'block',
+              borderRadius: 12
+            }}
+          />
           <br />
           After some time, you will recieve an e-mail containing a download link.
           <br />
