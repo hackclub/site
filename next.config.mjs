@@ -46,6 +46,7 @@ const nextConfig = {
         permanent: false
       },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
+      { source: '/privacy/', destination: '/privacy-and-terms/', permanent: true },
       {
         source: '/sprig/',
         destination: 'https://sprig.hackclub.com',
@@ -228,6 +229,10 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: '/fiscal-sponsorship/mobile-app/',
+        destination: '/fiscal-sponsorship/mobile/'
+      },
+      {
         source: '/clubs/leaders-letters',
         destination: 'https://leaders-letters.vercel.app/'
       },
@@ -282,6 +287,10 @@ const nextConfig = {
       {
         source: '/conduct/',
         destination: 'https://workshops.hackclub.com/conduct/'
+      },
+      {
+        source: '/privacy-and-terms/',
+        destination: 'https://workshops.hackclub.com/privacy-and-terms/'
       },
       {
         source: '/workshop-bounty/',
