@@ -121,7 +121,11 @@ const Footer = ({
           <Link href="https://hackclub.com/privacy/">Privacy & Terms</Link>
         </Box>
         <Box sx={{ gridColumn: ["span 2", "span 1"] }}>
-          <Logo aria-label="Hack Club logo" width={128} height={45} />
+          <NextLink href="/" passHref>
+            <Link sx={{ lineHeight: 0, display: "inline-block" }}>
+              <Logo aria-label="Hack Club logo" width={128} height={45} />
+            </Link>
+          </NextLink>
           <Grid
             columns={[8, 4]}
             gap={2}
