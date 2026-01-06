@@ -74,22 +74,6 @@ export default function First({ stats }) {
               backdropFilter: 'blur(1.5px)'
             }}
           >
-            <a
-              href="https://hcb.hackclub.com/from/hack-club-site-fs-first-page/A5OHBJ"
-              style={{ textDecoration: 'none' }}
-              target="_blank"
-            >
-              <Announcement
-                copy="Win a 13-inch MacBook Air!"
-                caption="We’re giving away a MacBook to a lucky teenager! Join the raffle by October 31st, 2025."
-                imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/9ef010a890d7c554a6da9328d62f9a592df9ae5d_laptop-removebg-preview.png"
-                imgAlt="13-inch MacBook Air"
-                color="primary"
-                textColor="slate"
-                sx={{ mt: [3, 4, 4] }}
-              />
-            </a>
-
             <Heading
               as="h1"
               variant="ultratitle"

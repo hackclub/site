@@ -5,7 +5,7 @@ const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 const joinTable = new AirtablePlus({
-  apiKey: process.env.AIRTABLE_API_KEY,
+  apiKey: process.env.AIRTABLE_WRITE_API_KEY,
   baseID: 'appaqcJtn33vb59Au',
   tableName: 'Join Requests'
 })

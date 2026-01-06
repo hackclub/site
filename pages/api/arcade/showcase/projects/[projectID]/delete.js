@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   const updatedFields = { deleted: true }
 
   const airtable = new AirtablePlus({
-    apiKey: process.env.AIRTABLE_API_KEY,
+    apiKey: process.env.AIRTABLE_WRITE_API_KEY,
     baseID: 'app4kCWulfB02bV8Q',
     tableName: 'Showcase'
   })

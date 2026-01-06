@@ -734,7 +734,8 @@ const Philanthropy = ({ posts = [] }) => {
                     fontSize: '1em !important',
                     width: 'fit-content',
                     float: 'right',
-                    mt: 2
+                    mt: 2,
+                    mr: 2
                   }}
                 >
                   2023

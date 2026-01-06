@@ -19,7 +19,6 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Pizza from '../components/index/cards/pizza'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -41,11 +40,13 @@ import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
-import Athena from '../components/index/cards/athena'
 import Moonshot from '../components/index/cards/moonshot'
 import Milkyway from '../components/index/cards/milkyway'
+import Flavortown from '../components/index/cards/flavortown'
+import Aces from '../components/index/cards/aces'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
+import CTAS from '../components/index/ctas'
 /** @jsxImportSource theme-ui */
 
 function Page({
@@ -63,7 +64,8 @@ function Page({
   events,
   carouselCards,
   blueprintData,
-  context
+  context,
+  ctaCards
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -314,12 +316,12 @@ function Page({
               <Box
                 sx={{
                   display: 'flex',
-                  flexWrap: 'wrap',
+                  flexWrap: 'nowrap',
                   flexDirection: 'row',
                   rowGap: 3
                 }}
               >
-                {ctaVariant === 'blueprint' ? (
+                {/* {ctaVariant === 'blueprint' ? (
                   <Button
                     variant="ctaLg"
                     as="a"
@@ -389,8 +391,7 @@ function Page({
                       }
                     `}</style>
                   </>
-                )}
-
+                )} */}
                 <Button
                   variant="ctaLg"
                   as="a"
@@ -401,7 +402,54 @@ function Page({
                 >
                   Join Slack
                 </Button>
+                <Text
+                  variant="eyebrow"
+                  as="h4"
+                  sx={{
+                    fontSize: ['16px', 2, 3],
+                    maxWidth: 'layout',
+                    marginTop: 'auto',
+                    marginBottom: 'auto',
+                    alignSelf: 'center',
+                    color: 'white',
+                    textShadow:
+                      'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
+                  }}
+                >
+                  Or, check out our programs:
+                </Text>
               </Box>
+              <CTAS cards={ctaCards} />
+              <Button
+                sx={{
+                  background: 'rgb(255, 255, 255, 0.3)',
+                  color: 'white',
+
+                  borderRadius: '100px',
+                  border: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  px: '3',
+                  py: 2,
+                  width: 'fit-content',
+                  textTransform: 'none',
+                  fontWeight: '400',
+                  fontSize: [1, '16px', '18px'],
+                  backdropFilter: 'blur(2px)',
+                  fontWeight: 'normal',
+                  zIndex: 999
+                }}
+                as="a"
+                href="#spotlight"
+              >
+                <Icon
+                  glyph={'rep'}
+                  sx={{ color: 'inherit', marginRight: 2 }}
+                  size={24}
+                  mr={2}
+                />
+                View more programs
+              </Button>
             </Heading>
           </Box>
           <Box
@@ -708,7 +756,7 @@ function Page({
                   <Text as="p" variant="subtitle">
                     <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
                     Meet other Hack&nbsp;Clubbers in your community to build
-                    together at one of the 400+{' '}
+                    together at one of the 1000+{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
                       Hack&nbsp;Clubs
                     </Link>{' '}
@@ -787,15 +835,15 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Milkyway/>
+            <Flavortown />
+            <Aces />
+            <Milkyway />
             <Moonshot />
             <Blueprint
               blueprintData={blueprintData}
               stars={stars.onboard.stargazerCount}
             />
-            <Athena />
             <Slack slackKey={slackKey} data={slackData} events={events} />
-            <Pizza />
           </Box>
         </Box>
         <Box>
@@ -1332,6 +1380,7 @@ const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
   const carouselCards = require('../lib/carousel.json')
+  const ctaCards = require('../lib/cta.json')
 
   // HCB: get total raised
   let bankData = []
@@ -1358,9 +1407,9 @@ export async function getStaticProps() {
   // preventing the site from deploying
 
   const { fetchGitHub } = require('./api/github')
-  let gitHubData = await fetchGitHub()
+  // let gitHubData = await fetchGitHub()
 
-  //   let gitHubData = null
+  let gitHubData = null
 
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')
@@ -1419,7 +1468,8 @@ export async function getStaticProps() {
       stars,
       events,
       carouselCards,
-      blueprintData
+      blueprintData,
+      ctaCards
     },
     revalidate: 60
   }

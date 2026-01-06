@@ -10,6 +10,36 @@ import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
 import ContactBanner from '../../../components/fiscal-sponsorship/contact'
 import ApplicationForm from '../../../components/fiscal-sponsorship/apply/application-form'
 import { MultiStepProvider } from '../../../components/fiscal-sponsorship/apply/multi-step-context'
+import Balancer from 'react-wrap-balancer'
+
+function PromoCTA() {
+  return (
+    <Box
+      as="section"
+      sx={{
+        borderRadius: 'default',
+        color: 'muted',
+      }}
+    >
+      <Heading as="h2" variant="subheadline" sx={{ mb: 2, color: 'black' }}>
+        Get $20 to jumpstart your project
+      </Heading>
+      <Text variant="body">
+        <Balancer>
+          Apply by 12/31/25 and complete onboarding by 1/31/26 to receive a $20 bonus in your organization balance.<br /><span style={{ marginTop: 5, display: 'block' }}>Terms apply:</span>
+        </Balancer>
+      </Text>
+
+      <ul style={{ paddingLeft: '20px', marginTop: 0 }}>
+        <li>Must be teen-led (18 or under)</li>
+        <li>Teen applicant must be the organization owner</li>
+        <li>Hack Club HQ affiliated projects (e.g. Campfire) are ineligible</li>
+        <li>Clubs welcome</li>
+      </ul>
+    </Box>
+  )
+}
+
 
 export default function Apply() {
   const router = useRouter()
@@ -60,7 +90,7 @@ export default function Apply() {
                   sx={{
                     mb: 3,
                     gap: 2,
-                    display: 'flex',
+                    display: 'inline-flex',
                     alignItems: 'center',
                     color: 'muted',
                     textDecoration: 'none',
@@ -103,6 +133,7 @@ export default function Apply() {
               </Heading>
               <Text variant="caption">{heroCaption}</Text>
             </Box>
+            <PromoCTA />
             <HCBInfo />
             <ContactBanner
               sx={{ borderRadius: 'default', bg: 'snow', width: 'fit-content' }}
