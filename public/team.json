@@ -1920,7 +1920,8 @@
     "slackId": "U0823F39GV8",
     "email": "",
     "website": "",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/812f456bcb039cc2add7e8fba7b742a8b54639c8_45-13042025-5p7a7188-x2.jpg"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/812f456bcb039cc2add7e8fba7b742a8b54639c8_45-13042025-5p7a7188-x2.jpg",
+    "gapyear": true
   },
   {
     "name": "Olive Wu",
@@ -1932,7 +1933,8 @@
     "slackId": "U07BN55GN3D",
     "email": "olive",
     "website": "",
-    "avatar": "https://ca.slack-edge.com/T0266FRGM-U07BN55GN3D-2f76fc57cd24-512"
+    "avatar": "https://ca.slack-edge.com/T0266FRGM-U07BN55GN3D-2f76fc57cd24-512",
+    "gapyear": true
   },
   {
     "name": "Sam Liu",
@@ -1956,7 +1958,8 @@
     "slackId": "U07DJMFAQQP",
     "email": "tongyu",
     "website": "https://tongyu.fish",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ae856042089cb4a5e0c6b53cf93f29008c1bc54e_big.png",
+    "gapyear": true
   },
   {
     "name": "Chan Kai Ling",

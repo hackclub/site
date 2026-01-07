@@ -22,7 +22,7 @@ const CommunityTeamBox = ({ title, children }) => {
         <Text
           variant="headline"
           as="h4"
-          sx={{ textAlign: 'center', fontSize: 3 }}
+          sx={{ textAlign: 'center', fontSize: 4 }}
         >
           {title}
         </Text>
@@ -82,99 +82,110 @@ export default function Team({ team }) {
         </Box>
         <Box bg="#f9f9fa" py={4}>
           <Container>
-            <Flex
+            <Box
               sx={{
                 bg: 'rgb(51 142 218 / 40%)',
                 p: 3,
                 borderRadius: '20px',
-                mb: 3,
-                gap: 3,
-                flexWrap: ['wrap', null, null, 'nowrap']
+                mb: 3
               }}
             >
               <Text
                 variant="headline"
+                mt={2}
+                mb={3}
                 as="h3"
-                sx={{
-                  textAlign: 'center',
-                  fontSize: 3,
-                  writingMode: [null, null, null, 'vertical-rl'],
-                  mr: [0, 0, 0, 1],
-                  transform: [null, null, null, 'rotate(180deg)'],
-                  width: ['100%', null, null, 'fit-content'],
-                  my: ['0px!important', '0px!important', '0px!important', 3]
-                }}
+                sx={{ textAlign: 'center', fontSize: 5 }}
               >
                 Board & Advisors
               </Text>
-              <Box sx={{ flexGrow: 1 }}>
-                <Grid columns={[1, null, 2]} gap={2} mb={2}>
-                  <Bio
-                    img="/team/zach.jpg"
-                    name="Zach Latta"
-                    teamRole="Founder"
-                    text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
-                    pronouns="he/him"
-                    email="zach"
-                  />
-                  <Bio
-                    img="/team/christina.jpg"
-                    name="Christina Asquith"
-                    teamRole="Co-founder and COO"
-                    text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
-                    pronouns="she/her"
-                    email="christina"
-                  />
-                </Grid>
-                <Grid columns={[1, null, 3]} gap={2}>
-                  <Bio
-                    img="https://cloud-80nhjzldl-hack-club-bot.vercel.app/0.jpeg"
-                    name="Tom Preston-Werner"
-                    teamRole={<>Board Member</>}
-                    subrole="Co-Founder, GitHub"
-                    pronouns="he/him"
-                    href="https://github.com/mojombo"
-                  />
-                  <Bio
-                    img="https://philanthropy.hackclub.com/_next/image?url=/quinn.png&w=1200&q=75"
-                    name="Quinn Slack"
-                    teamRole={<>Board Member</>}
-                    subrole="CEO, Sourcegraph"
-                    pronouns="he/him"
-                    href="https://github.com/sqs"
-                  />
-                  <Bio
-                    img="https://media.licdn.com/dms/image/C5603AQFum8zxW-IEEA/profile-displayphoto-shrink_800_800/0/1517058384850?e=2147483647&v=beta&t=-oM8no3Zc7xUzCDBsHxajD_joBkQi8Ge5iPaeF5p0gM"
-                    name="John Abele"
-                    teamRole={<>Board Advisor</>}
-                    href="https://en.wikipedia.org/wiki/John_Abele"
-                    subrole="Founder, Boston Scientific"
-                    pronouns="he/him"
-                  />
-                </Grid>
-              </Box>
-            </Flex>
-            <Grid columns={[1, null, 2]} gap={3}>
-              <Box>
-                <Box
-                  sx={{
-                    bg: 'rgb(51 214 166 / 40%)',
-                    p: 3,
-                    borderRadius: '20px'
-                  }}
-                >
+              <Grid columns={[1, null, 2]} gap={2} mb={2}>
+                <Bio
+                  img="/team/zach.jpg"
+                  name="Zach Latta"
+                  teamRole="Founder"
+                  text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
+                  email="zach"
+                />
+                <Bio
+                  img="/team/christina.jpg"
+                  name="Christina Asquith"
+                  teamRole="Co-founder and COO"
+                  text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book 'The Emergency Teacher.'"
+                  email="christina"
+                />
+              </Grid>
+              <Grid columns={[1, null, 3]} gap={2}>
+                <Bio
+                  img="https://cloud-80nhjzldl-hack-club-bot.vercel.app/0.jpeg"
+                  name="Tom Preston-Werner"
+                  teamRole={<>Board Member</>}
+                  subrole="Co-Founder, GitHub"
+                  href="https://github.com/mojombo"
+                />
+                <Bio
+                  img="https://philanthropy.hackclub.com/_next/image?url=/quinn.png&w=1200&q=75"
+                  name="Quinn Slack"
+                  teamRole={<>Board Member</>}
+                  subrole="CEO, Sourcegraph"
+                  href="https://github.com/sqs"
+                />
+                <Bio
+                  img="https://media.licdn.com/dms/image/C5603AQFum8zxW-IEEA/profile-displayphoto-shrink_800_800/0/1517058384850?e=2147483647&v=beta&t=-oM8no3Zc7xUzCDBsHxajD_joBkQi8Ge5iPaeF5p0gM"
+                  name="John Abele"
+                  teamRole={<>Board Advisor</>}
+                  href="https://en.wikipedia.org/wiki/John_Abele"
+                  subrole="Founder, Boston Scientific"
+                />
+              </Grid>
+            </Box>
+            <Box
+              sx={{
+                bg: 'rgb(51 214 166 / 40%)',
+                p: 3,
+                borderRadius: '20px',
+                mb: 3
+              }}
+            >
+              <Text
+                variant="headline"
+                mt={2}
+                mb={3}
+                as="h3"
+                sx={{ textAlign: 'center', fontSize: 5 }}
+              >
+                Hacker Resources Team
+              </Text>
+              <Grid columns={[1, null, 2, 3]} gap={3}>
+                {team.current
+                  ?.filter(member => member.department === 'HQ' && !member.gapyear)
+                  .map(member => (
+                    <Bio
+                      img={member.avatar}
+                      name={member.name}
+                      teamRole={member.role}
+                      text={member.bio}
+                      pronouns={member.pronouns}
+                      email={member.email}
+                      href={member.website}
+                      key={member.name}
+                    />
+                  ))}
+              </Grid>
+              {team.current?.filter(member => member.department === 'HQ' && member.gapyear).length > 0 && (
+                <>
                   <Text
                     variant="headline"
-                    mt={2}
-                    mb={3}
-                    as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
+                    mt={3}
+                    mb={2}
+                    as="h4"
+                    sx={{ fontSize: 3 }}
                   >
-                    Hacker Resources Team
+                    2025-2026 Gap Years:
                   </Text>
-                  <Grid columns={[1, null, 2]} gap={2}>
+                  <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
-                      ?.filter(member => member.department === 'HQ')
+                      ?.filter(member => member.department === 'HQ' && member.gapyear)
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -188,28 +199,55 @@ export default function Team({ team }) {
                         />
                       ))}
                   </Grid>
-                </Box>
-              </Box>
-              <Box>
-                <Box
-                  sx={{
-                    bg: 'rgb(236 55 80 / 40%)',
-                    p: 3,
-                    borderRadius: '20px'
-                  }}
-                >
+                </>
+              )}
+            </Box>
+            <Box
+              sx={{
+                bg: 'rgb(236 55 80 / 40%)',
+                p: 3,
+                borderRadius: '20px'
+              }}
+            >
+              <Text
+                variant="headline"
+                mt={2}
+                mb={3}
+                as="h3"
+                sx={{ textAlign: 'center', fontSize: 5 }}
+              >
+                HCB Team
+              </Text>
+              <Grid columns={[1, null, 2, 3]} gap={3}>
+                {team.current
+                  ?.filter(member => member.department === 'HCB' && !member.gapyear)
+                  .map(member => (
+                    <Bio
+                      img={member.avatar}
+                      name={member.name}
+                      teamRole={member.role}
+                      text={member.bio}
+                      pronouns={member.pronouns}
+                      email={member.email}
+                      href={member.website}
+                      key={member.name}
+                    />
+                  ))}
+              </Grid>
+              {team.current?.filter(member => member.department === 'HCB' && member.gapyear).length > 0 && (
+                <>
                   <Text
                     variant="headline"
-                    mt={2}
-                    mb={3}
-                    as="h3"
-                    sx={{ textAlign: 'center', fontSize: 4 }}
+                    mt={3}
+                    mb={2}
+                    as="h4"
+                    sx={{ fontSize:3 }}
                   >
-                    HCB Team
+                    Gap Years:
                   </Text>
-                  <Grid columns={[1, null, 2]} gap={2}>
+                  <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
-                      ?.filter(member => member.department === 'HCB')
+                      ?.filter(member => member.department === 'HCB' && member.gapyear)
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -223,9 +261,9 @@ export default function Team({ team }) {
                         />
                       ))}
                   </Grid>
-                </Box>
-              </Box>
-            </Grid>
+                </>
+              )}
+            </Box>
             <Box
               sx={{
                 bg: 'rgb(166 51 214 / 40%)',
@@ -239,15 +277,15 @@ export default function Team({ team }) {
                 mt={2}
                 mb={3}
                 as="h3"
-                sx={{ textAlign: 'center', fontSize: 4 }}
+                sx={{ textAlign: 'center', fontSize: 5 }}
               >
                 Community Team
               </Text>
               <Grid columns={[1, null, 2]} gap={3}>
                 <CommunityTeamBox title="Moderation">
-                  <Grid columns={[1, null, 2]} gap={2} m={10}>
+                  <Grid columns={[1, null, 2]} gap={3} m={10}>
                     {team.current
-                      ?.filter(member => member.department === 'Moderation')
+                      ?.filter(member => member.department === 'Moderation' && !member.gapyear)
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -261,11 +299,40 @@ export default function Team({ team }) {
                         />
                       ))}
                   </Grid>
+                  {team.current?.filter(member => member.department === 'Moderation' && member.gapyear).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Gap Years:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Moderation' && member.gapyear)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                 </CommunityTeamBox>
                 <CommunityTeamBox title="Welcomers">
-                  <Grid columns={[1, null, 2]} gap={2} m={10}>
+                  <Grid columns={[1, null, 2]} gap={3} m={10}>
                     {team.current
-                      ?.filter(member => member.department === 'Welcoming')
+                      ?.filter(member => member.department === 'Welcoming' && !member.gapyear)
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -279,11 +346,40 @@ export default function Team({ team }) {
                         />
                       ))}
                   </Grid>
+                  {team.current?.filter(member => member.department === 'Welcoming' && member.gapyear).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Gap Years:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Welcoming' && member.gapyear)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                 </CommunityTeamBox>
                 <CommunityTeamBox title="Virtual Events">
-                  <Grid columns={[1, null, 2]} gap={2} m={10}>
+                  <Grid columns={[1, null, 2]} gap={3} m={10}>
                     {team.current
-                      ?.filter(member => member.department === 'Events')
+                      ?.filter(member => member.department === 'Events' && !member.gapyear)
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -297,11 +393,40 @@ export default function Team({ team }) {
                         />
                       ))}
                   </Grid>
+                  {team.current?.filter(member => member.department === 'Events' && member.gapyear).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Gap Years:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Events' && member.gapyear)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                 </CommunityTeamBox>
                 <CommunityTeamBox title="Newspaper">
-                  <Grid columns={[1, null, 2]} gap={2} m={10}>
+                  <Grid columns={[1, null, 2]} gap={3} m={10}>
                     {team.current
-                      ?.filter(member => member.department === 'Newspaper')
+                      ?.filter(member => member.department === 'Newspaper' && !member.gapyear)
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -315,6 +440,35 @@ export default function Team({ team }) {
                         />
                       ))}
                   </Grid>
+                  {team.current?.filter(member => member.department === 'Newspaper' && member.gapyear).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize:3 }}
+                      >
+                        Gap Years:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Newspaper' && member.gapyear)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                 </CommunityTeamBox>
               </Grid>
             </Box>
@@ -346,7 +500,7 @@ export default function Team({ team }) {
                 today...
               </Text>
             </Box>
-            <Grid columns={[1, null, 2, 4]} gap={2}>
+            <Grid columns={[1, null, 2, 3]} gap={3}>
               {team.acknowledged?.map(member => (
                 <Bio
                   img={member.avatar}
