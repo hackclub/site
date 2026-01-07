@@ -2028,5 +2028,17 @@
     "email": "bartosz",
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/61f1b6d29e7880f8b02a72dd0ec25f891a77cc85_image.png"
+  },
+  {
+    "name": "Alex Park",
+    "department": "HQ",
+    "role": "Events & Engineering",
+    "acknowledged": false,
+    "bio": "Alex is a Hack Clubber from the Houston area who likes trains and PCB design. Alex loves building infrastructure and has helped organize hackathons like The Boreal Express and Shipwrecked.",
+    "bioHackFoundation": "",
+    "slackId": "U01581HFAGZ",
+    "email": "alexp",
+    "website": "https://parkalex.dev",
+    "avatar": "https://cachet.dunkirk.sh/users/U01581HFAGZ/r"
   }
 ]
