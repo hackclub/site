@@ -19,7 +19,6 @@ import ForceTheme from '../components/force-theme'
 import Footer from '../components/footer'
 import Stage from '../components/stage'
 import Carousel from '../components/index/carousel'
-import Pizza from '../components/index/cards/pizza'
 import Sprig from '../components/index/cards/sprig'
 import Sinerider from '../components/index/cards/sinerider'
 import SprigConsole from '../components/index/cards/sprig-console'
@@ -40,12 +39,47 @@ import Photo from '../components/photo'
 import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
-import Som from '../components/index/cards/som'
-import Athena from '../components/index/cards/athena'
-import Daydream from '../components/index/cards/daydream'
+import Blueprint from '../components/index/cards/blueprint'
+import Moonshot from '../components/index/cards/moonshot'
+import Milkyway from '../components/index/cards/milkyway'
+import Flavortown from '../components/index/cards/flavortown'
+import Aces from '../components/index/cards/aces'
 import Highway from '../components/index/cards/highway'
 import Shipwrecked from '../components/index/cards/shipwrecked'
+import CTAS from '../components/index/ctas'
 /** @jsxImportSource theme-ui */
+
+const ANNOUNCEMENTS = [
+  {
+    id: 'blueprint',
+    expiresAt: new Date('2026-01-31'),
+    copy: 'Get up to $400 to make a hardware project!',
+    caption: 'Design a project and get a grant to make it real with Blueprint, Hack Club\'s largest hardware program',
+    href: 'https://blueprint.hackclub.com/?utm_source=site-announcement',
+    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png'
+  },
+  {
+    id: 'moonshot',
+    expiresAt: new Date('2025-01-01'),
+    copy: 'Moonshot: 4-day hackathon in Orlando',
+    caption: 'Join us — free NASA & Universal Studios trips',
+    href: 'https://moonshot.hackclub.com?t=webt',
+    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/20dccaf98bc294f15d07534c407c56debcb6ec8d_favicon.png'
+  },
+  {
+    id: 'flavortown',
+    expiresAt: new Date('2026-12-31'),
+    copy: 'Build projects, earn cookies, get free tech!',
+    caption: 'Make a website, game, or hardware project and exchange cookies for iPads, MacBooks, and more',
+    href: 'https://flavortown.hackclub.com/?ref=site-announcement',
+    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/0256e44f53eb79e4_logo-b28e0e8b.avif'
+  }
+]
+
+function getActiveAnnouncements() {
+  const now = new Date()
+  return ANNOUNCEMENTS.filter(a => a.expiresAt > now)
+}
 
 function Page({
   hackathonsData,
@@ -61,7 +95,9 @@ function Page({
   gameTitle,
   events,
   carouselCards,
-  context
+  blueprintData,
+  context,
+  ctaCards
 }) {
   let [gameImage, setGameImage] = useState('')
   let [gameImage1, setGameImage1] = useState('')
@@ -70,6 +106,7 @@ function Page({
   let [github, setGithub] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
+  const [announcement, setAnnouncement] = useState(null)
 
   const { asPath } = useRouter()
 
@@ -80,6 +117,15 @@ function Page({
 
     window.kc = `In the days of old, when gaming was young \nA mysterious code was found among \nA sequence of buttons, pressed in a row \nIt unlocked something special, we all know \n\nUp, up, down, down, left, right, left, right \nB, A, Start, we all have heard it's plight \nIn the 8-bit days, it was all the rage \nAnd it still lives on, with time, it will never age \n\nKonami Code, it's a legend of days gone by \nIt's a reminder of the classics we still try \nNo matter the game, no matter the system \nThe code will live on, and still be with them \n\nSo the next time you play, take a moment to pause \nAnd remember the code, and the Konami cause \nIt's a part of gaming's history, and a part of our lives \nLet's keep it alive, and let the Konami Code thrive!\n`
     window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
+  }, [])
+
+  // Pick a random active announcement on client to avoid hydration mismatches
+  useEffect(() => {
+    const active = getActiveAnnouncements()
+    if (active.length > 0) {
+      const randomIndex = Math.floor(Math.random() * active.length)
+      setAnnouncement(active[randomIndex])
+    }
   }, [])
 
   const easterEgg = () => {
@@ -206,13 +252,15 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          <Announcement
-            width="90vw"
-            copy="You're invited to the world's largest high-school game jam!"
-            caption="We're running a game jam in 100+ cities worldwide. Sign up to make a game in-person on September 27th & 28th!"
-            href="https://daydream.hackclub.com/?r=3928"
-            imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/997e5fcca4f34cfee1a8d859e910e97a285521c4_icon-tight.png"
-          />
+          {announcement && (
+            <Announcement
+              width="90vw"
+              copy={announcement.copy}
+              caption={announcement.caption}
+              href={announcement.href}
+              imgSrc={announcement.imgSrc}
+            />
+          )}
           <Box
             sx={{
               width: '90vw',
@@ -288,65 +336,140 @@ function Page({
               <Box
                 sx={{
                   display: 'flex',
-                  flexWrap: 'wrap',
+                  flexWrap: 'nowrap',
                   flexDirection: 'row',
-                  rowGap: 3,
+                  rowGap: 3
                 }}
               >
+                {/* {ctaVariant === 'blueprint' ? (
+                  <Button
+                    variant="ctaLg"
+                    as="a"
+                    href="https://blueprint.hackclub.com/?utm_source=site-cta"
+                    mt={[3, 0, 0]}
+                    mr={3}
+                    sx={{
+                      transformOrigin: 'center',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      width: 'fit-content',
+                      backgroundColor: '#0e305b',
+                      backgroundImage:
+                        'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
+                      backgroundSize: '50px 50px',
+                      border: '2px solid #dbe4ee',
+                      color: '#dbe4ee',
+                      '&:hover': {
+                        transform: 'scale(1.05)',
+                        boxShadow: '0 0 20px rgba(219, 228, 238, 0.4)'
+                      }
+                    }}
+                  >
+                    Sign Up for Blueprint
+                    <Text
+                      as="span"
+                      sx={{
+                        fontSize: 0,
+                        opacity: 0.8,
+                        mt: 1,
+                        color: '#dbe4ee'
+                      }}
+                    >
+                      Get up to $400 to make Hardware
+                    </Text>
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      variant="ctaLg"
+                      as="a"
+                      href="https://moonshot.hackclub.com?t=webt"
+                      mt={[3, 0, 0]}
+                      mr={3}
+                      sx={{
+                        transformOrigin: 'center left',
+                        backgroundColor: 'black',
+                        color: 'white',
+                        border: '2px solid white',
+                        boxShadow: '0 0 10px rgba(255,255,255,0.25)',
+                        animation: 'moonshotPulse 2s ease-in-out infinite',
+                        textShadow: '0 1px 1px rgba(0,0,0,0.6)',
+                        backgroundImage: 'none',
+                        '&:hover': {
+                          transform: 'scale(1.05)'
+                        }
+                      }}
+                    >
+                      RSVP for Moonshot!
+                    </Button>
+                    <style>{`
+                      @keyframes moonshotPulse {
+                        0% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
+                        50% { box-shadow: 0 0 16px rgba(255,255,255,0.6), 0 0 24px rgba(255,255,255,0.35); }
+                        100% { box-shadow: 0 0 8px rgba(255,255,255,0.25), 0 0 0 rgba(255,255,255,0.15); }
+                      }
+                    `}</style>
+                  </>
+                )} */}
                 <Button
                   variant="ctaLg"
                   as="a"
-                  href="https://daydream.hackclub.com/?r=3928"
+                  href="/slack"
                   mt={[3, 0, 0]}
                   mr={3}
-                  sx={{ 
-                    transformOrigin: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    width: 'fit-content',
-                    backgroundImage: t => t.util.gx('green', 'blue'),
+                  sx={{ transformOrigin: 'center left' }}
+                >
+                  Join Slack
+                </Button>
+                <Text
+                  variant="eyebrow"
+                  as="h4"
+                  sx={{
+                    fontSize: ['16px', 2, 3],
+                    maxWidth: 'layout',
+                    marginTop: 'auto',
+                    marginBottom: 'auto',
+                    alignSelf: 'center',
+                    color: 'white',
+                    textShadow:
+                      'rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 1) 0 0 10px, rgba(0, 0, 0, 0.5) 0 0 10px'
                   }}
                 >
-                  Sign Up for Daydream
-                  <Text
-                    as="span"
-                    sx={{
-                      fontSize: 0,
-                      opacity: 0.8,
-                      mt: 1
-                    }}
-                  >
-                    Takes place September 27th & 28th
-                  </Text>
-                </Button>
-                <Button
-                  variant="ctaLg"
-                  as="a"
-                  href="https://summer.hackclub.com"
-                  mt={[3, 0, 0]}
-                  mr={3}
-                  sx={{ 
-                    transformOrigin: 'center',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    width: 'fit-content'
-                  }}
-                >
-                  Join Summer of Making
-                  <Text
-                    as="span"
-                    sx={{
-                      fontSize: 0,
-                      opacity: 0.8,
-                      mt: 1
-                    }}
-                  >
-                    Ends September 30th
-                  </Text>
-                </Button>
+                  Or, check out our programs:
+                </Text>
               </Box>
+              <CTAS cards={ctaCards} />
+              <Button
+                sx={{
+                  background: 'rgb(255, 255, 255, 0.3)',
+                  color: 'white',
+
+                  borderRadius: '100px',
+                  border: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  px: '3',
+                  py: 2,
+                  width: 'fit-content',
+                  textTransform: 'none',
+                  fontWeight: '400',
+                  fontSize: [1, '16px', '18px'],
+                  backdropFilter: 'blur(2px)',
+                  fontWeight: 'normal',
+                  zIndex: 999
+                }}
+                as="a"
+                href="#spotlight"
+              >
+                <Icon
+                  glyph={'rep'}
+                  sx={{ color: 'inherit', marginRight: 2 }}
+                  size={24}
+                  mr={2}
+                />
+                View more programs
+              </Button>
             </Heading>
           </Box>
           <Box
@@ -653,7 +776,7 @@ function Page({
                   <Text as="p" variant="subtitle">
                     <strong sx={{ mb: 1 }}>Gather IRL with other makers</strong>
                     Meet other Hack&nbsp;Clubbers in your community to build
-                    together at one of the 400+{' '}
+                    together at one of the 1000+{' '}
                     <Link href="/clubs" target="_blank" rel="noopener">
                       Hack&nbsp;Clubs
                     </Link>{' '}
@@ -732,11 +855,15 @@ function Page({
                 and make things together!
               </Text>
             </Box>
-            <Daydream />
-            <Som />
-            <Athena />
+            <Flavortown />
+            <Aces />
+            <Milkyway />
+            <Moonshot />
+            <Blueprint
+              blueprintData={blueprintData}
+              stars={stars.onboard.stargazerCount}
+            />
             <Slack slackKey={slackKey} data={slackData} events={events} />
-            <Pizza />
           </Box>
         </Box>
         <Box>
@@ -852,7 +979,6 @@ function Page({
                 gameImage={gameImage}
                 gameImage1={gameImage1}
               />
-              <Onboard stars={stars.onboard.stargazerCount} delay={100} />
               <Haxidraw stars={stars.blot.stargazerCount} delay={100} />
               <Sinerider delay={200} stars={stars.sinerider.stargazerCount} />
               <Box as="section" id="sprig">
@@ -1274,6 +1400,7 @@ const withCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 
 export async function getStaticProps() {
   const carouselCards = require('../lib/carousel.json')
+  const ctaCards = require('../lib/cta.json')
 
   // HCB: get total raised
   let bankData = []
@@ -1300,9 +1427,9 @@ export async function getStaticProps() {
   // preventing the site from deploying
 
   const { fetchGitHub } = require('./api/github')
-  let gitHubData = await fetchGitHub()
+  // let gitHubData = await fetchGitHub()
 
-  //   let gitHubData = null
+  let gitHubData = null
 
   // GitHub: get latest GitHub stars
   const { fetchStars } = require('./api/stars')
@@ -1319,6 +1446,10 @@ export async function getStaticProps() {
   // Sprig: get console count
   const { getConsoles } = require('./api/sprig-console')
   const consoleCount = await getConsoles()
+
+  // Blueprint: get project count
+  const { fetchBlueprint } = require('./api/blueprint')
+  const blueprintData = await fetchBlueprint()
 
   // Hackathons: get latest hackathons
   let hackathonsData
@@ -1338,9 +1469,9 @@ export async function getStaticProps() {
 
   let events = []
   try {
-    await fetch(
-      'https://events.hackclub.com/api/events/upcoming/'
-    ).then(res => res.json())
+    await fetch('https://events.hackclub.com/api/events/upcoming/').then(res =>
+      res.json()
+    )
   } catch (error) {
     console.error('Error fetching events:', error)
   }
@@ -1356,7 +1487,9 @@ export async function getStaticProps() {
       slackData,
       stars,
       events,
-      carouselCards
+      carouselCards,
+      blueprintData,
+      ctaCards
     },
     revalidate: 60
   }

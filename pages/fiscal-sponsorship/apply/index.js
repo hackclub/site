@@ -1,6 +1,7 @@
 import { Box, Flex, Grid, Heading, Text } from 'theme-ui'
 import Head from 'next/head'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Icon from '@hackclub/icons'
 import Meta from '@hackclub/meta'
 import ForceTheme from '../../../components/force-theme'
@@ -9,8 +10,50 @@ import Watermark from '../../../components/fiscal-sponsorship/apply/watermark'
 import ContactBanner from '../../../components/fiscal-sponsorship/contact'
 import ApplicationForm from '../../../components/fiscal-sponsorship/apply/application-form'
 import { MultiStepProvider } from '../../../components/fiscal-sponsorship/apply/multi-step-context'
+import Balancer from 'react-wrap-balancer'
+
+function PromoCTA() {
+  return (
+    <Box
+      as="section"
+      sx={{
+        borderRadius: 'default',
+        color: 'muted',
+      }}
+    >
+      <Heading as="h2" variant="subheadline" sx={{ mb: 2, color: 'black' }}>
+        Get $20 to jumpstart your project
+      </Heading>
+      <Text variant="body">
+        <Balancer>
+          Apply by 12/31/25 and complete onboarding by 1/31/26 to receive a $20 bonus in your organization balance.<br /><span style={{ marginTop: 5, display: 'block' }}>Terms apply:</span>
+        </Balancer>
+      </Text>
+
+      <ul style={{ paddingLeft: '20px', marginTop: 0 }}>
+        <li>Must be teen-led (18 or under)</li>
+        <li>Teen applicant must be the organization owner</li>
+        <li>Hack Club HQ affiliated projects (e.g. Campfire) are ineligible</li>
+        <li>Clubs welcome</li>
+      </ul>
+    </Box>
+  )
+}
+
 
 export default function Apply() {
+  const router = useRouter()
+  const roboticsPriorityRaw = router?.query?.['robotics-priority']
+  const roboticsPriorityValue = Array.isArray(roboticsPriorityRaw)
+    ? roboticsPriorityRaw[roboticsPriorityRaw.length - 1]
+    : roboticsPriorityRaw
+  const roboticsPriorityEnabled =
+    typeof roboticsPriorityValue === 'string' &&
+    ['true', '1', 'yes', 'on'].includes(roboticsPriorityValue.toLowerCase())
+  const heroCaption = roboticsPriorityEnabled
+    ? 'Use HCB to raise nonprofit dollars to fund your robotics team.'
+    : 'Use HCB to raise nonprofit dollars to fund your project.'
+
   return (
     <>
       <Meta as={Head} title="Apply for HCB" />
@@ -47,7 +90,7 @@ export default function Apply() {
                   sx={{
                     mb: 3,
                     gap: 2,
-                    display: 'flex',
+                    display: 'inline-flex',
                     alignItems: 'center',
                     color: 'muted',
                     textDecoration: 'none',
@@ -88,10 +131,9 @@ export default function Apply() {
                   HCB
                 </Flex>
               </Heading>
-              <Text variant="caption">
-                Use HCB to raise nonprofit dollars to fund your project.
-              </Text>
+              <Text variant="caption">{heroCaption}</Text>
             </Box>
+            <PromoCTA />
             <HCBInfo />
             <ContactBanner
               sx={{ borderRadius: 'default', bg: 'snow', width: 'fit-content' }}

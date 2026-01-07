@@ -1,12 +1,12 @@
 import AirtablePlus from 'airtable-plus'
 
 const peopleTable = new AirtablePlus({
-  apiKey: process.env.AIRTABLE_API_KEY,
+  apiKey: process.env.AIRTABLE_WRITE_API_KEY,
   baseID: 'apptEEFG5HTfGQE7h',
   tableName: 'People'
 })
 const addressesTable = new AirtablePlus({
-  apiKey: process.env.AIRTABLE_API_KEY,
+  apiKey: process.env.AIRTABLE_WRITE_API_KEY,
   baseID: 'apptEEFG5HTfGQE7h',
   tableName: 'Addresses'
 })

@@ -46,6 +46,7 @@ const nextConfig = {
         permanent: false
       },
       { source: '/grant/', destination: '/hackathons/grant', permanent: false },
+      { source: '/privacy/', destination: '/privacy-and-terms/', permanent: true },
       {
         source: '/sprig/',
         destination: 'https://sprig.hackclub.com',
@@ -70,11 +71,6 @@ const nextConfig = {
         permanent: true
       },
       { source: '/slack_invite/', destination: '/slack/', permanent: true },
-      {
-        source: '/slack/',
-        destination: 'https://summer.hackclub.com',
-        permanent: false
-      },
       {
         source: '/jobs/bank-tech-lead/',
         destination: '/jobs/lead-hacker/',
@@ -217,11 +213,25 @@ const nextConfig = {
         source: '/security',
         destination: 'https://security.hackclub.com',
         permanent: true
+      },
+      {
+        source: '/congressional-app-challenge',
+        destination: 'https://finalist.hackclub.com',
+        permanent: true
+      },
+      {
+        source: '/hardware',
+        destination: 'https://blueprint.hackclub.com',
+        permanent: true
       }
     ]
   },
   async rewrites() {
     return [
+      {
+        source: '/fiscal-sponsorship/mobile-app/',
+        destination: '/fiscal-sponsorship/mobile/'
+      },
       {
         source: '/clubs/leaders-letters',
         destination: 'https://leaders-letters.vercel.app/'
@@ -277,6 +287,10 @@ const nextConfig = {
       {
         source: '/conduct/',
         destination: 'https://workshops.hackclub.com/conduct/'
+      },
+      {
+        source: '/privacy-and-terms/',
+        destination: 'https://workshops.hackclub.com/privacy-and-terms/'
       },
       {
         source: '/workshop-bounty/',

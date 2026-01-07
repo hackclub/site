@@ -57,7 +57,7 @@ export default function Team({ team }) {
           px={[2, 4]}
           sx={{
             backgroundImage:
-              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://cloud-6b7atvvf8-hack-club-bot.vercel.app/0hack_club_team_-_july_2023.jpg)',
+              'radial-gradient(ellipse farthest-corner at top left,rgb(36 181 165 / 70%),rgb(30 151 137 / 70%)), url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/cf3488823b5ae7c41ed968224485ea06423a6862_IMG_9920.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: '25% 15%'
           }}
@@ -262,6 +262,24 @@ export default function Team({ team }) {
                       ))}
                   </Grid>
                 </CommunityTeamBox>
+                <CommunityTeamBox title="Welcomers">
+                  <Grid columns={[1, null, 2]} gap={2} m={10}>
+                    {team.current
+                      ?.filter(member => member.department === 'Welcoming')
+                      .map(member => (
+                        <Bio
+                          img={member.avatar}
+                          name={member.name}
+                          teamRole={member.role}
+                          text={member.bio}
+                          pronouns={member.pronouns}
+                          email={member.email}
+                          href={member.website}
+                          key={member.name}
+                        />
+                      ))}
+                  </Grid>
+                </CommunityTeamBox>
                 <CommunityTeamBox title="Virtual Events">
                   <Grid columns={[1, null, 2]} gap={2} m={10}>
                     {team.current
@@ -284,24 +302,6 @@ export default function Team({ team }) {
                   <Grid columns={[1, null, 2]} gap={2} m={10}>
                     {team.current
                       ?.filter(member => member.department === 'Newspaper')
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
-                </CommunityTeamBox>
-                <CommunityTeamBox title="Welcomers">
-                  <Grid columns={[1, null, 2]} gap={2} m={10}>
-                    {team.current
-                      ?.filter(member => member.department === 'Welcoming')
                       .map(member => (
                         <Bio
                           img={member.avatar}
