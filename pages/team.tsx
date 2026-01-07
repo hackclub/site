@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Nav from '../components/nav'
 import Footer from '../components/footer'
 import Bio from '../components/bio'
+import BoardBox from '../components/boardbio'
 import ForceTheme from '../components/force-theme'
 import { fetchTeam } from './api/team'
 
@@ -40,6 +41,9 @@ const CommunityTeamBox = ({ title, children }) => {
 }
 
 export default function Team({ team }) {
+  // Spacing between major team section boxes
+  const BOX_SPACING = 5
+
   return (
     <>
       <Box as="main" key="main">
@@ -82,15 +86,10 @@ export default function Team({ team }) {
         </Box>
         <Box bg="#f9f9fa" py={4}>
           <Container>
-            <Box
-              sx={{
-                bg: 'rgb(51 142 218 / 40%)',
-                p: 3,
-                borderRadius: '20px',
-                mb: 3
-              }}
-            >
-              <Text
+            <Box sx={{
+                mb: BOX_SPACING
+              }}>
+            <Text
                 variant="headline"
                 mt={2}
                 mb={3}
@@ -99,52 +98,52 @@ export default function Team({ team }) {
               >
                 Board & Advisors
               </Text>
-              <Grid columns={[1, null, 2]} gap={2} mb={2}>
-                <Bio
-                  img="/team/zach.jpg"
-                  name="Zach Latta"
-                  teamRole="Founder"
-                  text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
-                  email="zach"
-                />
-                <Bio
-                  img="/team/christina.jpg"
-                  name="Christina Asquith"
-                  teamRole="Co-founder and COO"
-                  text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book 'The Emergency Teacher.'"
-                  email="christina"
-                />
+            <Grid columns={[1, null, 2]} gap={5} mb={4}>
+            <BoardBox 
+img="/team/zach.jpg"
+name="Zach Latta"
+teamRole="Founder"
+text="Zach dropped out of high school after his freshman year to work in the technology industry and had over 5 million people using his software by the time he turned 17. He founded Hack Club to build the program he wish he had in high school and has been awarded the Thiel Fellowship and Forbes 30 Under 30 for his work."
+email="zach"
+/>
+<BoardBox 
+  img="/team/christina.jpg"
+  name="Christina Asquith"
+  teamRole="Co-founder and COO"
+  text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
+  email="christina"
+/>
               </Grid>
-              <Grid columns={[1, null, 3]} gap={2}>
-                <Bio
-                  img="https://cloud-80nhjzldl-hack-club-bot.vercel.app/0.jpeg"
-                  name="Tom Preston-Werner"
-                  teamRole={<>Board Member</>}
-                  subrole="Co-Founder, GitHub"
-                  href="https://github.com/mojombo"
-                />
-                <Bio
-                  img="https://philanthropy.hackclub.com/_next/image?url=/quinn.png&w=1200&q=75"
-                  name="Quinn Slack"
-                  teamRole={<>Board Member</>}
-                  subrole="CEO, Sourcegraph"
-                  href="https://github.com/sqs"
-                />
-                <Bio
-                  img="https://media.licdn.com/dms/image/C5603AQFum8zxW-IEEA/profile-displayphoto-shrink_800_800/0/1517058384850?e=2147483647&v=beta&t=-oM8no3Zc7xUzCDBsHxajD_joBkQi8Ge5iPaeF5p0gM"
-                  name="John Abele"
-                  teamRole={<>Board Advisor</>}
-                  href="https://en.wikipedia.org/wiki/John_Abele"
-                  subrole="Founder, Boston Scientific"
-                />
+            <Grid columns={[1, null, 3]} gap={4} mb={4}>
+            <BoardBox 
+                img="https://cloud-80nhjzldl-hack-club-bot.vercel.app/0.jpeg"
+                name="Tom Preston-Werner"
+                teamRole={<>Board Member</>}
+                subrole="Co-Founder, GitHub"
+                href="https://github.com/mojombo"
+              />
+              <BoardBox 
+                img="https://philanthropy.hackclub.com/_next/image?url=/quinn.png&w=1200&q=75"
+                name="Quinn Slack"
+                teamRole={<>Board Member</>}
+                subrole="CEO, Sourcegraph"
+                href="https://github.com/sqs"
+              />
+              <BoardBox 
+                img="https://media.licdn.com/dms/image/C5603AQFum8zxW-IEEA/profile-displayphoto-shrink_800_800/0/1517058384850?e=2147483647&v=beta&t=-oM8no3Zc7xUzCDBsHxajD_joBkQi8Ge5iPaeF5p0gM"
+                name="John Abele"
+                teamRole={<>Board Advisor</>}
+                href="https://en.wikipedia.org/wiki/John_Abele"
+                subrole="Founder, Boston Scientific"
+              />
               </Grid>
             </Box>
             <Box
               sx={{
-                bg: 'rgb(51 214 166 / 40%)',
+                bg: '#afcfee',
                 p: 3,
                 borderRadius: '20px',
-                mb: 3
+                mb: BOX_SPACING
               }}
             >
               <Text
@@ -206,7 +205,8 @@ export default function Team({ team }) {
               sx={{
                 bg: 'rgb(236 55 80 / 40%)',
                 p: 3,
-                borderRadius: '20px'
+                borderRadius: '20px',
+                mb: BOX_SPACING
               }}
             >
               <Text
@@ -268,8 +268,7 @@ export default function Team({ team }) {
               sx={{
                 bg: 'rgb(166 51 214 / 40%)',
                 p: 3,
-                borderRadius: '20px',
-                mt: 3
+                borderRadius: '20px'
               }}
             >
               <Text
