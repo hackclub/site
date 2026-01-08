@@ -43,7 +43,7 @@ export default function BoardBox({ popup = true, ...props }) {
           <>
             <Text
               variant="headline"
-              sx={{ fontSize: 4, textAlign: 'center', mb: subrole ? 1 : 2, mt: subrole ? -2: -1 }}
+              sx={{ fontSize: subrole ? 3 : 4, textAlign: 'center', mb: subrole ? 0 : 1, mt: subrole ? -3: -2 }}
               color="black"
             >
               {name}
@@ -51,7 +51,7 @@ export default function BoardBox({ popup = true, ...props }) {
             <Text
               color="#24B5A5"
               variant="subheadline"
-              sx={{ fontSize: 3, textAlign: 'center', mb: subrole ? 0 : 3 }}
+              sx={{ fontSize: subrole ? 1 : 3, textAlign: 'center', mb: subrole ? 0 : 2 }}
             >
               {teamRole}
             </Text>
@@ -59,7 +59,7 @@ export default function BoardBox({ popup = true, ...props }) {
               <Text
                 color="#24B5A5"
                 sx={{
-                  fontSize: 2,
+                  fontSize: 1,
                   textAlign: 'center',
                   mb: 2,
                   fontWeight: 400
@@ -73,8 +73,8 @@ export default function BoardBox({ popup = true, ...props }) {
               src={img}
               alt={name}
               sx={{
-                width: '160px',
-                height: '160px',
+                width: '120px',
+                height: '120px',
                 borderRadius: '50%',
                 objectFit: 'cover',
                 mb: subrole ? -3: -2
