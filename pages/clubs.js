@@ -165,7 +165,7 @@ const Page = () => (
           }}
         >
           Hack Club is a nonprofit network of high school computer science&nbsp;clubs and
-          makers around the world. <strong>Applications are now open.</strong>
+          makers around the world. 
         </Text>
         <Button
           as="a"
@@ -332,10 +332,10 @@ const Page = () => (
             <NextLink href="/hackathons" passHref>
               <a>hackathons</a>
             </NextLink>{' '}
-            like <a href="https://lioncityhacks.com">Lion City Hacks</a> &{' '}
-            <a href="https://www.youtube.com/watch?v=Hs-hMMeHXaY">HackOC</a>,
+            like <a href="https://daydream.hackclub.com/">Daydream</a> &{' '}
+            <a href="https://scrapyard.hackclub.com/">Scrapyard</a>,
             take part in year long programs like{' '}
-            <NextLink href="/onboard">OnBoard</NextLink>, and compete in events
+            <NextLink href="https://blueprint.hackclub.com/">Blueprint</NextLink>, and compete in events
             like the{' '}
             <a href="http://www.congressionalappchallenge.us">
               Congressional App Challenge
@@ -484,10 +484,10 @@ const Page = () => (
             />
           </Feature> */}
           <Feature
-            name="Stickers"
+            name="Marketing"
             desc={
               <>
-                Get <Link href="/stickers">amazing stickers</Link> for marketing
+                Get <Link href="/stickers">amazing stickers</Link> and posters for marketing
                 your club shipped directly to you & your club members.
               </>
             }
@@ -510,7 +510,7 @@ const Page = () => (
             name="Weekly events"
             desc={
               <>
-                From <Link href="/night">Hack Night</Link> to{' '}
+                From <Link href="https://events.hackclub.com/">Lock-in calls</Link> to{' '}
                 <Link href="/amas">AMAs</Link>
                 {' to '}
                 <a href="https://twitter.com/hackclub/status/1300494921997193217?s=21">
@@ -529,9 +529,9 @@ const Page = () => (
             name="A basket of free tools"
             desc={
               <>
-                We're always building new tools for leaders, such as{' '}
-                <a href="https://dashboard.hackclub.com">The Dashboard</a>! A place to manage your club! We've also got
-                free subscriptions to Figma Pro, Postman, and more for running a
+                We're always building new tools for leaders, such as the{' '}
+                <a href="https://leaders.hackclub.com"> Leaders Portal</a>! A place to manage your club! We've also got
+                free subscriptions to Brilliant Premium, Code Crafters, and more for running a
                 great computer science club.
               </>
             }
@@ -646,10 +646,10 @@ const Page = () => (
             }}
           >
             <Stage
-              icon="emoji"
+              icon="person"
               color="white"
-              name="2. Onboarding call"
-              desc="Hop on a quick Zoom with someone from Hack Club HQ."
+              name="2. School approval"
+              desc="Get approval from your school to start your club."
             />
           </Card>
           <Card
@@ -676,6 +676,7 @@ const Page = () => (
         >
           Apply to Hack Club
         </Button>
+        
       </Container>
     </Box>
     <Footer
