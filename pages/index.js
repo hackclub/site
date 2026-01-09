@@ -49,6 +49,38 @@ import Shipwrecked from '../components/index/cards/shipwrecked'
 import CTAS from '../components/index/ctas'
 /** @jsxImportSource theme-ui */
 
+const ANNOUNCEMENTS = [
+  {
+    id: 'blueprint',
+    expiresAt: new Date('2026-01-31'),
+    copy: 'Get up to $400 to make a hardware project!',
+    caption: 'Design a project and get a grant to make it real with Blueprint, Hack Club\'s largest hardware program',
+    href: 'https://blueprint.hackclub.com/?utm_source=site-announcement',
+    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png'
+  },
+  {
+    id: 'moonshot',
+    expiresAt: new Date('2025-01-01'),
+    copy: 'Moonshot: 4-day hackathon in Orlando',
+    caption: 'Join us — free NASA & Universal Studios trips',
+    href: 'https://moonshot.hackclub.com?t=webt',
+    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/20dccaf98bc294f15d07534c407c56debcb6ec8d_favicon.png'
+  },
+  {
+    id: 'flavortown',
+    expiresAt: new Date('2026-12-31'),
+    copy: 'Build projects, earn cookies, get free tech!',
+    caption: 'Make a website, game, or hardware project and exchange cookies for iPads, MacBooks, and more',
+    href: 'https://flavortown.hackclub.com/?ref=site-announcement',
+    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/0256e44f53eb79e4_logo-b28e0e8b.avif'
+  }
+]
+
+function getActiveAnnouncements() {
+  const now = new Date()
+  return ANNOUNCEMENTS.filter(a => a.expiresAt > now)
+}
+
 function Page({
   hackathonsData,
   bankData,
@@ -74,8 +106,7 @@ function Page({
   let [github, setGithub] = useState(0)
   let [slackKey, setSlackKey] = useState(0)
   let [key, setKey] = useState(0)
-  const [announcementVariant, setAnnouncementVariant] = useState('blueprint')
-  const [ctaVariant, setCtaVariant] = useState('blueprint')
+  const [announcement, setAnnouncement] = useState(null)
 
   const { asPath } = useRouter()
 
@@ -88,16 +119,13 @@ function Page({
     window.paper = `Welcome, intrepid hacker! We'd love to have you in our community. Get your invite at hack.af/slack. Under "Why do you want to join the Hack Club Slack?" add a 🦄 and we'll ship you some exclusive stickers! `
   }, [])
 
-  // Decide which announcement to show on the client to avoid hydration mismatches
+  // Pick a random active announcement on client to avoid hydration mismatches
   useEffect(() => {
-    const roll = Math.floor(Math.random() * 2) + 1 // 1d2
-    if (roll === 2) setAnnouncementVariant('moonshot')
-  }, [])
-
-  // Decide which CTA to show on the client (default to Blueprint on SSR)
-  useEffect(() => {
-    const roll = Math.floor(Math.random() * 2) + 1 // 1d2
-    if (roll === 2) setCtaVariant('moonshot')
+    const active = getActiveAnnouncements()
+    if (active.length > 0) {
+      const randomIndex = Math.floor(Math.random() * active.length)
+      setAnnouncement(active[randomIndex])
+    }
   }, [])
 
   const easterEgg = () => {
@@ -224,21 +252,13 @@ function Page({
             priority
             gradient="linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.45))"
           />
-          {announcementVariant === 'blueprint' ? (
+          {announcement && (
             <Announcement
               width="90vw"
-              copy="Get up to $400 to make a hardware project!"
-              caption="Design a project and get a grant to make it real with Blueprint, Hack Club's largest hardware program"
-              href="https://blueprint.hackclub.com/?utm_source=site-announcement"
-              imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png"
-            />
-          ) : (
-            <Announcement
-              width="90vw"
-              copy="Moonshot: 4-day hackathon in Orlando"
-              caption="Join us — free NASA & Universal Studios trips"
-              href="https://moonshot.hackclub.com?t=webt"
-              imgSrc="https://hc-cdn.hel1.your-objectstorage.com/s/v3/20dccaf98bc294f15d07534c407c56debcb6ec8d_favicon.png"
+              copy={announcement.copy}
+              caption={announcement.caption}
+              href={announcement.href}
+              imgSrc={announcement.imgSrc}
             />
           )}
           <Box
