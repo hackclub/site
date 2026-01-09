@@ -727,7 +727,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cloud-qfyq0eotn-hack-club-bot.vercel.app/02023_annual_report.pdf"
+                  href="https://vercel-hc-cdn.hel1.your-objectstorage.com/cloud-qfyq0eotn/02023_annual_report.pdf"
                   target="_blank"
                   mb={4}
                   sx={{
@@ -743,7 +743,7 @@ const Philanthropy = ({ posts = [] }) => {
                 <Button
                   as="a"
                   variant="outline"
-                  href="https://cloud-8zfcx3ub5-hack-club-bot.vercel.app/0hack_club_annual_report_2022.pdf"
+                  href="https://vercel-hc-cdn.hel1.your-objectstorage.com/cloud-8zfcx3ub5/0hack_club_annual_report_2022.pdf"
                   target="_blank"
                   mb={4}
                   sx={{

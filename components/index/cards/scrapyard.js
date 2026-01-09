@@ -45,7 +45,7 @@ export default function Scrapyard() {
           }}
         >
           <Image
-            src="https://cloud-4fnsp2wse-hack-club-bot.vercel.app/0scrapyard.png"
+            src="https://vercel-hc-cdn.hel1.your-objectstorage.com/cloud-4fnsp2wse/0scrapyard.png"
             sx={{
               width: ['400px', '450px', '500px'],
               mt: ['30px', '40px', '45px'],
@@ -159,7 +159,7 @@ export default function Scrapyard() {
     
       </Grid>
       <Image
-            src="https://cloud-hqnbfdg3v-hack-club-bot.vercel.app/0image__14_.png"
+            src="https://vercel-hc-cdn.hel1.your-objectstorage.com/cloud-hqnbfdg3v/0image__14_.png"
             sx={{
               width: ['100%', '100%', '100%'],
               mb: ['0px', '0px', '0px'],
