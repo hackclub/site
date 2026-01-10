@@ -161,7 +161,7 @@ export default function PersonalInfoForm({ requiredFields }) {
           >
             <Input
               name="userAddressCity"
-              placeholder="Santa Monica"
+              placeholder="West Hollywood"
               id="userAddressCity"
             />
           </Field>
