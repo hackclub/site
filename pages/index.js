@@ -59,14 +59,6 @@ const ANNOUNCEMENTS = [
     imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png'
   },
   {
-    id: 'moonshot',
-    expiresAt: new Date('2025-01-01'),
-    copy: 'Moonshot: 4-day hackathon in Orlando',
-    caption: 'Join us — free NASA & Universal Studios trips',
-    href: 'https://moonshot.hackclub.com?t=webt',
-    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/20dccaf98bc294f15d07534c407c56debcb6ec8d_favicon.png'
-  },
-  {
     id: 'flavortown',
     expiresAt: new Date('2026-12-31'),
     copy: 'Build projects, earn cookies, get free tech!',
@@ -856,13 +848,13 @@ function Page({
               </Text>
             </Box>
             <Flavortown />
-            <Aces />
-            <Milkyway />
-            <Moonshot />
             <Blueprint
               blueprintData={blueprintData}
               stars={stars.onboard.stargazerCount}
             />
+            <Milkyway />
+            <Aces />
+
             <Slack slackKey={slackKey} data={slackData} events={events} />
           </Box>
         </Box>
@@ -1013,7 +1005,7 @@ function Page({
                 left: 0
               }}
             >
-              {}
+              { }
             </Box>
             <Box
               py={[4, 5, '82px']}
@@ -1302,74 +1294,74 @@ function Page({
 
         {new URL(asPath, 'http://example.com').searchParams.get('gen') ===
           'z' && (
-          <>
-            <Box
-              sx={{
-                position: 'fixed',
-                top: 0,
-                width: '100%',
-                zIndex: 1000
-              }}
-            >
+            <>
               <Box
                 sx={{
-                  position: 'relative',
-                  margin: 'auto',
-                  width: 'fit-content',
+                  position: 'fixed',
+                  top: 0,
+                  width: '100%',
+                  zIndex: 1000
+                }}
+              >
+                <Box
+                  sx={{
+                    position: 'relative',
+                    margin: 'auto',
+                    width: 'fit-content',
+                    lineHeight: 0
+                  }}
+                >
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  right: 0,
+                  zIndex: 1000,
                   lineHeight: 0
                 }}
               >
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube-nocookie.com/embed/sJNK4VKeoBM?si=zvhDKhb9C5G2b4TJ&controls=1&autoplay=1&mute=1"
+                  src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen
                 ></iframe>
               </Box>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                right: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/ChBg4aowzX8?si=X2J_T95yiaKXB2q4&controls=1&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-            <Box
-              sx={{
-                position: 'fixed',
-                bottom: 0,
-                left: 0,
-                zIndex: 1000,
-                lineHeight: 0
-              }}
-            >
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </Box>
-          </>
-        )}
+              <Box
+                sx={{
+                  position: 'fixed',
+                  bottom: 0,
+                  left: 0,
+                  zIndex: 1000,
+                  lineHeight: 0
+                }}
+              >
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube-nocookie.com/embed/JDQr1vICu54?si=U6-9AFtk7EdTabfp&autoplay=1&mute=1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </Box>
+            </>
+          )}
         <MailingList />
       </Box>
       <Footer
