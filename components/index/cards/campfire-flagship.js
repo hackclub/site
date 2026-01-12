@@ -4,10 +4,8 @@ import Buttons from './button'
 
 /** @jsxImportSource theme-ui */
 
-export default function Milkyway() {
+export default function CampfireFlagship() {
   return (
-
-
     <Box sx={{ position: 'relative', my: [4, 4] }}>
 
       <CardModel
