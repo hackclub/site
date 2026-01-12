@@ -1,4 +1,15 @@
 [
+     {
+        "title": "Flavortown",
+        "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/78c8f69432a9421d_flavortown-logo.png",
+        "background": "#7B4942",
+        "stickerImage": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0256e44f53eb79e4_logo-b28e0e8b.avif",
+        "description": "Cook tasty personal projects, win free prizes!",
+        "descriptionColor": "white",
+        "buttonText": "JOIN NOW",
+        "buttonColor": "#AD7858",
+        "link": "https://flavortown.hackclub.com/?ref=site-0"
+    },
     {
         "title": "Blueprint",
         "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c06427309a3db7299065c0a41f1e8cc70531f0a9_blueprint.png",
@@ -10,27 +21,6 @@
         "buttonText": "JOIN NOW",
         "buttonColor": "rgb(50, 70, 110)",
         "link": "https://blueprint.hackclub.com/?utm_source=cta"
-    },
-    {
-        "title": "Midnight",
-        "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b2f4135894a031a645b0079c66c8a54069c472ed_image.png",
-        "background": "#453B61",
-        "stickerImage": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/84810e49fd06e5ed8ef0f0219fcc78a1893c45d7_image.png",
-        "description": "Spend 50 hours building projects, earn a trip to Vienna for a murder mystery hackathon.",
-        "descriptionColor": "white",
-        "buttonText": "RSVP",
-        "buttonColor": "#F24B4B",
-        "link": "https://midnight.hackclub.com"
-    },
-    {
-        "title": "Flavortown",
-        "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/78c8f69432a9421d_flavortown-logo.png",
-        "background": "#7B4942",
-        "stickerImage": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0256e44f53eb79e4_logo-b28e0e8b.avif",
-        "description": "Cook tasty personal projects, win free prizes!",
-        "descriptionColor": "white",
-        "buttonText": "JOIN NOW",
-        "buttonColor": "#AD7858",
-        "link": "https://flavortown.hackclub.com/?ref=site-0"
     }
+   
 ]
