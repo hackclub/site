@@ -21,6 +21,16 @@
         "buttonText": "JOIN NOW",
         "buttonColor": "rgb(50, 70, 110)",
         "link": "https://blueprint.hackclub.com/?utm_source=cta"
+    },
+    {
+        "title": "Campfire Flagship",
+        "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/542f4bf6aa9cd5cc_logo-w-info-v2.png",
+        "background": "#000015",
+        "stickerImage": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a02495e0d090461b_smore-smaller.png",
+        "description": "Code with your favorite YouTubers at a Game Jam this February!",
+        "descriptionColor": "white",
+        "buttonText": "JOIN NOW",
+        "buttonColor": "#2b2b59",
+        "link": "https://flagship.campfire.hackclub.com"
     }
-   
 ]

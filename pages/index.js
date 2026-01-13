@@ -40,12 +40,10 @@ import Comma from '../components/comma'
 import Haxidraw from '../components/index/cards/haxidraw'
 import Onboard from '../components/index/cards/onboard'
 import Blueprint from '../components/index/cards/blueprint'
-import Moonshot from '../components/index/cards/moonshot'
+import CampfireFlagship from '../components/index/cards/campfire-flagship'
 import Milkyway from '../components/index/cards/milkyway'
 import Flavortown from '../components/index/cards/flavortown'
 import Aces from '../components/index/cards/aces'
-import Highway from '../components/index/cards/highway'
-import Shipwrecked from '../components/index/cards/shipwrecked'
 import CTAS from '../components/index/ctas'
 /** @jsxImportSource theme-ui */
 
@@ -57,6 +55,14 @@ const ANNOUNCEMENTS = [
     caption: 'Design a project and get a grant to make it real with Blueprint, Hack Club\'s largest hardware program',
     href: 'https://blueprint.hackclub.com/?utm_source=site-announcement',
     imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png'
+  },
+  {
+    id: 'campfire-flagship',
+    expiresAt: new Date('2026-02-20'),
+    copy: 'Code with your favorite YouTubers at a Game Jam!',
+    caption: 'Spend up to 60 hours building games, earn a ticket to attend. Join us in LA this February!',
+    href: 'https://flagship.campfire.hackclub.com',
+    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/533c527e1ab6a77f_smore.png'
   },
   {
     id: 'flavortown',
@@ -852,6 +858,7 @@ function Page({
               blueprintData={blueprintData}
               stars={stars.onboard.stargazerCount}
             />
+            <CampfireFlagship />
             <Milkyway />
             <Aces />
 
