@@ -721,15 +721,6 @@ export default function Page() {
               Apply now
             </Button>
           </Link>
-          <Text as="p" variant="lead" sx={{ color: "white", mb: [0, 0] }}>
-            <strong>$20 to kick off your mission!</strong>
-          </Text>
-          <Text as="p" variant="lead" sx={{ fontSize: [16, 18], color: "white", mt: [0, 0] }}>
-            <Balancer>
-              If you apply before <strong>December 31st, 2025</strong> and complete onboarding by <strong>January 31st, 2026</strong>,<br />we'll add $20 to your organization's balance!
-              No startup fees, no&nbsp;minimum balance.
-            </Balancer>
-          </Text>
         </Flex>
       </Box>
       <ContactBanner sx={{ justifyContent: 'center' }} />
