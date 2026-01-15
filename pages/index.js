@@ -61,7 +61,7 @@ const ANNOUNCEMENTS = [
     expiresAt: new Date('2026-02-20'),
     copy: 'Code with your favorite YouTubers at a Game Jam!',
     caption: 'Spend up to 60 hours building games, earn a ticket to attend. Join us in LA with YouTubers like Michael Reeves this February!',
-    href: 'https://flagship.campfire.hackclub.com',
+    href: 'https://flagship.hackclub.com?utm_source=site_announcement',
     imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/533c527e1ab6a77f_smore.png'
   },
   {
