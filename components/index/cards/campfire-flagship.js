@@ -62,7 +62,7 @@ export default function CampfireFlagship() {
             <Buttons
               id="campfire-flagship-join"
               icon="enter"
-              link="https://flagship.campfire.hackclub.com"
+              link="https://flagship.hackclub.com?utm_source=site_card"
               target="_blank"
               rel="noopener"
               sx={{
