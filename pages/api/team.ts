@@ -14,6 +14,8 @@ interface TeamMember {
   website: string
   pronouns: string
   avatar: string
+  staff?: boolean
+  gapyear?: boolean
 }
 
 export async function fetchTeam() {

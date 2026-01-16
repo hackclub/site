@@ -109,14 +109,14 @@ email="zach"
 <BoardBox 
   img="/team/christina.jpg"
   name="Christina Asquith"
-  teamRole="Co-founder and COO"
+  teamRole="Co-Founder and COO"
   text="With more than a decade of experience in starting and leading organizations, Christina has built global teams and raised millions of dollars. She has 20 years experience as a journalist, including reporting for The New York Times from Iraq. She has an MA in education, and taught as a public school teacher in 2000, which inspired her book “The Emergency Teacher.”"
   email="christina"
 />
               </Grid>
             <Grid columns={[1, null, 3]} gap={4} mb={4}>
             <BoardBox 
-                img="https://cloud-80nhjzldl-hack-club-bot.vercel.app/0.jpeg"
+                img="https://upload.wikimedia.org/wikipedia/commons/7/75/Tom_Preston-Werner_%282024%29.jpg"
                 name="Tom Preston-Werner"
                 teamRole={<>Board Member</>}
                 subrole="Co-Founder, GitHub"
@@ -126,7 +126,7 @@ email="zach"
                 img="https://philanthropy.hackclub.com/_next/image?url=/quinn.png&w=1200&q=75"
                 name="Quinn Slack"
                 teamRole={<>Board Member</>}
-                subrole="CEO, Sourcegraph"
+                subrole="Co-Founder and CEO, AMP"
                 href="https://github.com/sqs"
               />
               <BoardBox 
@@ -155,22 +155,35 @@ email="zach"
               >
                 Hacker Resources Team
               </Text>
-              <Grid columns={[1, null, 2, 3]} gap={3}>
-                {team.current
-                  ?.filter(member => member.department === 'HQ' && !member.gapyear)
-                  .map(member => (
-                    <Bio
-                      img={member.avatar}
-                      name={member.name}
-                      teamRole={member.role}
-                      text={member.bio}
-                      pronouns={member.pronouns}
-                      email={member.email}
-                      href={member.website}
-                      key={member.name}
-                    />
-                  ))}
-              </Grid>
+              {team.current?.filter(member => member.department === 'HQ' && member.staff).length > 0 && (
+                <>
+                  <Text
+                    variant="headline"
+                    mt={2}
+                    mb={2}
+                    as="h4"
+                    sx={{ fontSize: 3 }}
+                  >
+                    Staff:
+                  </Text>
+                  <Grid columns={[1, null, 2, 3]} gap={3}>
+                    {team.current
+                      ?.filter(member => member.department === 'HQ' && member.staff)
+                      .map(member => (
+                        <Bio
+                          img={member.avatar}
+                          name={member.name}
+                          teamRole={member.role}
+                          text={member.bio}
+                          pronouns={member.pronouns}
+                          email={member.email}
+                          href={member.website}
+                          key={member.name}
+                        />
+                      ))}
+                  </Grid>
+                </>
+              )}
               {team.current?.filter(member => member.department === 'HQ' && member.gapyear).length > 0 && (
                 <>
                   <Text
@@ -185,6 +198,35 @@ email="zach"
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
                       ?.filter(member => member.department === 'HQ' && member.gapyear)
+                      .map(member => (
+                        <Bio
+                          img={member.avatar}
+                          name={member.name}
+                          teamRole={member.role}
+                          text={member.bio}
+                          pronouns={member.pronouns}
+                          email={member.email}
+                          href={member.website}
+                          key={member.name}
+                        />
+                      ))}
+                  </Grid>
+                </>
+              )}
+              {team.current?.filter(member => member.department === 'HQ' && !member.gapyear && !member.staff).length > 0 && (
+                <>
+                  <Text
+                    variant="headline"
+                    mt={3}
+                    mb={2}
+                    as="h4"
+                    sx={{ fontSize: 3 }}
+                  >
+                    Contractors:
+                  </Text>
+                  <Grid columns={[1, null, 2, 3]} gap={3}>
+                    {team.current
+                      ?.filter(member => member.department === 'HQ' && !member.gapyear && !member.staff)
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -218,22 +260,35 @@ email="zach"
               >
                 HCB Team
               </Text>
-              <Grid columns={[1, null, 2, 3]} gap={3}>
-                {team.current
-                  ?.filter(member => member.department === 'HCB' && !member.gapyear)
-                  .map(member => (
-                    <Bio
-                      img={member.avatar}
-                      name={member.name}
-                      teamRole={member.role}
-                      text={member.bio}
-                      pronouns={member.pronouns}
-                      email={member.email}
-                      href={member.website}
-                      key={member.name}
-                    />
-                  ))}
-              </Grid>
+              {team.current?.filter(member => member.department === 'HCB' && member.staff).length > 0 && (
+                <>
+                  <Text
+                    variant="headline"
+                    mt={2}
+                    mb={2}
+                    as="h4"
+                    sx={{ fontSize: 3 }}
+                  >
+                    Staff:
+                  </Text>
+                  <Grid columns={[1, null, 2, 3]} gap={3}>
+                    {team.current
+                      ?.filter(member => member.department === 'HCB' && member.staff)
+                      .map(member => (
+                        <Bio
+                          img={member.avatar}
+                          name={member.name}
+                          teamRole={member.role}
+                          text={member.bio}
+                          pronouns={member.pronouns}
+                          email={member.email}
+                          href={member.website}
+                          key={member.name}
+                        />
+                      ))}
+                  </Grid>
+                </>
+              )}
               {team.current?.filter(member => member.department === 'HCB' && member.gapyear).length > 0 && (
                 <>
                   <Text
@@ -243,11 +298,40 @@ email="zach"
                     as="h4"
                     sx={{ fontSize:3 }}
                   >
-                    Gap Years:
+                    2025-2026 Gap Years:
                   </Text>
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
                       ?.filter(member => member.department === 'HCB' && member.gapyear)
+                      .map(member => (
+                        <Bio
+                          img={member.avatar}
+                          name={member.name}
+                          teamRole={member.role}
+                          text={member.bio}
+                          pronouns={member.pronouns}
+                          email={member.email}
+                          href={member.website}
+                          key={member.name}
+                        />
+                      ))}
+                  </Grid>
+                </>
+              )}
+              {team.current?.filter(member => member.department === 'HCB' && !member.gapyear && !member.staff).length > 0 && (
+                <>
+                  <Text
+                    variant="headline"
+                    mt={3}
+                    mb={2}
+                    as="h4"
+                    sx={{ fontSize: 3 }}
+                  >
+                    Contractors:
+                  </Text>
+                  <Grid columns={[1, null, 2, 3]} gap={3}>
+                    {team.current
+                      ?.filter(member => member.department === 'HCB' && !member.gapyear && !member.staff)
                       .map(member => (
                         <Bio
                           img={member.avatar}
@@ -282,22 +366,35 @@ email="zach"
               </Text>
               <Grid columns={[1, null, 2]} gap={3}>
                 <CommunityTeamBox title="Moderation">
-                  <Grid columns={[1, null, 2]} gap={3} m={10}>
-                    {team.current
-                      ?.filter(member => member.department === 'Moderation' && !member.gapyear)
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
+                  {team.current?.filter(member => member.department === 'Moderation' && member.staff).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Staff:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Moderation' && member.staff)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                   {team.current?.filter(member => member.department === 'Moderation' && member.gapyear).length > 0 && (
                     <>
                       <Text
@@ -307,7 +404,7 @@ email="zach"
                         as="h4"
                         sx={{ fontSize: 3 }}
                       >
-                        Gap Years:
+                        2025-2026 Gap Years:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current
@@ -327,24 +424,66 @@ email="zach"
                       </Grid>
                     </>
                   )}
+                  {team.current?.filter(member => member.department === 'Moderation' && !member.gapyear && !member.staff).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Contractors:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Moderation' && !member.gapyear && !member.staff)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                 </CommunityTeamBox>
                 <CommunityTeamBox title="Welcomers">
-                  <Grid columns={[1, null, 2]} gap={3} m={10}>
-                    {team.current
-                      ?.filter(member => member.department === 'Welcoming' && !member.gapyear)
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
+                  {team.current?.filter(member => member.department === 'Welcoming' && member.staff).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Staff:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Welcoming' && member.staff)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                   {team.current?.filter(member => member.department === 'Welcoming' && member.gapyear).length > 0 && (
                     <>
                       <Text
@@ -354,7 +493,7 @@ email="zach"
                         as="h4"
                         sx={{ fontSize: 3 }}
                       >
-                        Gap Years:
+                        2025-2026 Gap Years:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current
@@ -374,24 +513,66 @@ email="zach"
                       </Grid>
                     </>
                   )}
+                  {team.current?.filter(member => member.department === 'Welcoming' && !member.gapyear && !member.staff).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Contractors:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Welcoming' && !member.gapyear && !member.staff)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                 </CommunityTeamBox>
                 <CommunityTeamBox title="Virtual Events">
-                  <Grid columns={[1, null, 2]} gap={3} m={10}>
-                    {team.current
-                      ?.filter(member => member.department === 'Events' && !member.gapyear)
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
+                  {team.current?.filter(member => member.department === 'Events' && member.staff).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Staff:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Events' && member.staff)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                   {team.current?.filter(member => member.department === 'Events' && member.gapyear).length > 0 && (
                     <>
                       <Text
@@ -401,7 +582,7 @@ email="zach"
                         as="h4"
                         sx={{ fontSize: 3 }}
                       >
-                        Gap Years:
+                        2025-2026 Gap Years:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current
@@ -421,24 +602,66 @@ email="zach"
                       </Grid>
                     </>
                   )}
+                  {team.current?.filter(member => member.department === 'Events' && !member.gapyear && !member.staff).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Contractors:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Events' && !member.gapyear && !member.staff)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                 </CommunityTeamBox>
                 <CommunityTeamBox title="Newspaper">
-                  <Grid columns={[1, null, 2]} gap={3} m={10}>
-                    {team.current
-                      ?.filter(member => member.department === 'Newspaper' && !member.gapyear)
-                      .map(member => (
-                        <Bio
-                          img={member.avatar}
-                          name={member.name}
-                          teamRole={member.role}
-                          text={member.bio}
-                          pronouns={member.pronouns}
-                          email={member.email}
-                          href={member.website}
-                          key={member.name}
-                        />
-                      ))}
-                  </Grid>
+                  {team.current?.filter(member => member.department === 'Newspaper' && member.staff).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Staff:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Newspaper' && member.staff)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
                   {team.current?.filter(member => member.department === 'Newspaper' && member.gapyear).length > 0 && (
                     <>
                       <Text
@@ -448,11 +671,40 @@ email="zach"
                         as="h4"
                         sx={{ fontSize:3 }}
                       >
-                        Gap Years:
+                        2025-2026 Gap Years:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current
                           ?.filter(member => member.department === 'Newspaper' && member.gapyear)
+                          .map(member => (
+                            <Bio
+                              img={member.avatar}
+                              name={member.name}
+                              teamRole={member.role}
+                              text={member.bio}
+                              pronouns={member.pronouns}
+                              email={member.email}
+                              href={member.website}
+                              key={member.name}
+                            />
+                          ))}
+                      </Grid>
+                    </>
+                  )}
+                  {team.current?.filter(member => member.department === 'Newspaper' && !member.gapyear && !member.staff).length > 0 && (
+                    <>
+                      <Text
+                        variant="headline"
+                        mt={2}
+                        mb={2}
+                        as="h4"
+                        sx={{ fontSize: 3 }}
+                      >
+                        Contractors:
+                      </Text>
+                      <Grid columns={[1, null, 2]} gap={3} m={10}>
+                        {team.current
+                          ?.filter(member => member.department === 'Newspaper' && !member.gapyear && !member.staff)
                           .map(member => (
                             <Bio
                               img={member.avatar}
