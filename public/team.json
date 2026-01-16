@@ -36,6 +36,18 @@
     "avatar": "https://github.com/devenjadhav.png"
   },
   {
+    "name": "Graham Darcey",
+    "department": "HQ",
+    "role": "Creative Technologist",
+    "acknowledged": true,
+    "bio": "Originally from Vermont, Graham has worked as a full-stack software engineer in Silicon Valley for over twenty years, most recently at Uber where he worked on their core routing services and map data platform. He recently (2021) moved back east, and currently resides in Shelburne VT. Graham's hobbies include gaming, gamedev, cooking with his wife, and playing joyfully with his five year old daughter.",
+    "bioHackFoundation": "",
+    "slackId": "U04QH1TTMBP",
+    "email": "graham",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ba0e4f09a7d26809ffd166edf96bae4e6371b39e_bio.jpg"
+  },
+  {
     "name": "Arpan",
     "department": "HQ",
     "role": "Clubs Operation/Special Activites Director",
