@@ -92,5 +92,14 @@
    "description": "Build something amazing, and Hack Club will ship you something epic in return.", 
    "img":"https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f680@2x.png",
    "link": "https://ysws.hackclub.com" 
-  }
+  },
+  {
+    "background": "#30AE1F",
+    "titleColor": "#FFFFFF",
+    "descriptionColor": "#FFFFFF",
+    "title": "HackCraft",
+    "description": "Ship a mod - Get Minecraft",
+    "img": "https://vercel-hc-cdn.hel1.your-objectstorage.com/cloud-kgilrkgl7/0image.png",
+    "link": "https://hackcraft.hackclub.com/"
+	}
 ]
