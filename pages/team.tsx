@@ -7,6 +7,7 @@ import Bio from '../components/bio'
 import BoardBox from '../components/boardbio'
 import ForceTheme from '../components/force-theme'
 import { fetchTeam } from './api/team'
+import Link from 'next/link'
 
 const CommunityTeamBox = ({ title, children }) => {
   return (
@@ -724,49 +725,25 @@ email="zach"
               </Grid>
             </Box>
             <br />
-            <Box sx={{ textAlign: 'center', mt: 100, mb: [3, 4] }}>
-              <Text
-                variant="title"
+                  <div style={{ fontWeight: 'bold' }}>
+        <a href="/acknowledged/">
+        <Text
+          variant="title"
                 color="orange"
-                sx={{ lineHeight: '1em', fontSize: [4, 5, 6] }}
+                sx={{ lineHeight: '1em', fontSize: [4, 5, 6], textAlign: 'center' }}
                 as="h2"
-              >
-                Acknowledgements
-              </Text>
-              <Text
-                variant="title"
-                color="text"
-                sx={{
-                  lineHeight: '1.2',
-                  fontSize: [1, 3, 4],
-                  my: [3, 0, 0],
-                  fontWeight: 400,
-                  maxWidth: '600px',
-                  width: '100%',
-                  margin: 'auto'
-                }}
-                as="h2"
-              >
-                Thank you to everyone who helped shape Hack Club into what it is
-                today...
-              </Text>
-            </Box>
-            <Grid columns={[1, null, 2, 3]} gap={3}>
-              {team.acknowledged?.map(member => (
-                <Bio
-                  img={member.avatar}
-                  name={member.name}
-                  teamRole={member.role}
-                  text={member.bio}
-                  pronouns={member.pronouns}
-                  key={member.name}
-                  href={member.website}
-                />
-              ))}
-            </Grid>
+                pt={5}
+        >
+          Acknowledgements
+        </Text>
+        </a>
+      </div>
           </Container>
+          
         </Box>
+        
       </Box>
+      
       <Footer light key="footer" />
     </>
   )
