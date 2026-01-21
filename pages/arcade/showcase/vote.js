@@ -3,7 +3,6 @@ import { Button, Text, Box, Close, Flex } from 'theme-ui'
 import ProjectView from '../../../components/arcade/showcase/project-view'
 import SmallView from '../../../components/arcade/showcase/small-view-card'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import JSConfetti from 'js-confetti'
 
 /** @jsxImportSource theme-ui */
 
@@ -715,7 +714,9 @@ const Vote = () => {
   let jsConfetti = useRef()
 
   useEffect(() => {
-    jsConfetti.current = new JSConfetti()
+    import('js-confetti').then(({ default: JSConfetti }) => {
+      jsConfetti.current = new JSConfetti()
+    })
   }, [])
 
   useEffect(() => {

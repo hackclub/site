@@ -88,9 +88,18 @@
    "background": "#ec3750",
    "titleColor": "white",
    "descriptionColor": "white",
-   "title": "YSWS Programs", 
-   "description": "Build something amazing, and Hack Club will ship you something epic in return.", 
+   "title": "YSWS Programs",
+   "description": "Build something amazing, and Hack Club will ship you something epic in return.",
    "img":"https://a.slack-edge.com/production-standard-emoji-assets/14.0/apple-large/1f680@2x.png",
-   "link": "https://ysws.hackclub.com" 
+   "link": "https://ysws.hackclub.com"
+  },
+  {
+    "background": "#7B4942",
+    "titleColor": "white",
+    "descriptionColor": "#f0dcc8",
+    "title": "Flavortown",
+    "description": "Build projects, earn cookies, and exchange them for iPads, MacBooks, and more!",
+    "img": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0256e44f53eb79e4_logo-b28e0e8b.avif",
+    "link": "https://flavortown.hackclub.com/?ref=site-carousel"
   }
 ]
