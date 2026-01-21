@@ -1,4 +1,16 @@
 [
+      {
+    "name": "Louisa",
+    "department": "Moderation",
+    "role": "Community Moderation Lead",
+    "acknowledged": false,
+    "bio": "Louisa is a high schooler from Kenya who helps lead the Hack Club Community moderation dept",
+    "bioHackFoundation": "",
+    "slackId": "",
+    "email": "louisa",
+    "website": "U06EMBJH71S",
+    "avatar": "https://athena.hackclub.com/_next/image?url=https%3A%2F%2Fhc-cdn.hel1.your-objectstorage.com%2Fs%2Fv3%2F0c0306bad2c52f721b120474ade9de27f4857cd7_lou.png&w=256&q=75"
+  },
   {
     "name": "Amogh Chaubey",
     "department": "Community",
@@ -10,6 +22,17 @@
     "email": "",
     "website": "",
     "avatar": "https://cloud-qz70b5lb7-hack-club-bot.vercel.app/0tsw6s4shwqjyta7_thumbnail.jpg"
+  },
+   {
+    "name": "Eesha",
+    "department": "Events",
+    "role": "Virtual Events Lead",
+    "acknowledged": false,
+    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art designs, especially using Sally Hansen black nail polish, since black is her favorite color. When working, she likes to listen to music, especially by Paramore or NF, or watch TV, especially Young Sheldon. She has been involved in Hack Club since March 2024, where she manages virtual events and welcomes people into the Slack.",
+    "slackId": "U06QST7V0J2",
+    "email": "eesha",
+    "website": "https://eesha-kothari.com",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/abc1c9014053a938_IMG_7832.jpg"
   },
   {
     "name": "Claire Wang",
@@ -57,7 +80,7 @@
     "slackId": "U097UCZE2BB",
     "email": "",
     "website": "https://j-ai.pages.dev/",
-    "avatar": "https://cachet.dunkirk.sh/users/U097UCZE2BB/r"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4d6b586d48d6ff2b_profile-aishaani.jpeg"
   },
   {
     "name": "Amber",
@@ -107,7 +130,7 @@
     "slackId": "U079EQY9X1D",
     "email": "",
     "website": "https://irtaza.xyz/portfolio",
-    "avatar": "https://cachet.dunkirk.sh/users/U079EQY9X1D/r"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4fa317de1f125fd9_irtaza.jpeg"
   },
   {
     "name": "Lucas Honda",
@@ -130,7 +153,7 @@
     "slackId": "U072PTA5BNG",
     "email": "",
     "website": "https://v1c.rocks/",
-    "avatar": "https://cachet.dunkirk.sh/users/U072PTA5BNG/r"
+    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U072PTA5BNG-66f740620bcc-512"
   },
   {
     "name": "Gary Tou",
@@ -412,6 +435,17 @@
     "email": "manu",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U04C8LLPKS7/r"
+  },
+    {
+    "name": "Lilia Dostie",
+    "department": "Welcoming",
+    "role": "Welcome Team Lead",
+    "acknowledged": false,
+    "bio": "Lilia, from Florida, is a Hack Clubber who runs the Gardeners (aka. Welcome Committee), who welcome newcomers to the Slack and help them get settled in!",
+    "slackId": "U07AZFQLPQ8",
+    "email": "",
+    "website": "https://kittycat.hackclub.app/",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/5a951ba4eeecc4be_785000D7-213E-4D52-9358-939285EA793F_1_105_c__1_.jpeg"
   },
   {
     "name": "Matthew Soh",
@@ -734,6 +768,18 @@
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/812f456bcb039cc2add7e8fba7b742a8b54639c8_45-13042025-5p7a7188-x2.jpg",
     "gapyear": true
+  },
+  {
+    "name": "Dhamari Trice-Hanson",
+    "department": "HQ",
+    "gapyear": true,
+    "role": "Engineering",
+    "acknowledged": false,
+    "bioHackFoundation": "",
+    "slackId": "U08RWM5U4L9",
+    "email": "dev",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4d3dd0cf73a29260_Untitled-1__1___1_.png "
   },
   {
     "name": "Amber",
@@ -1706,7 +1752,7 @@
     "slackId": "U07SX29CECA",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U07SX29CECA/r"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c87fd78d2ce7a8ab_Screenshot_2026-01-21_at_2.06.48_PM.png"
   },
   {
     "name": "Kat",
@@ -1739,7 +1785,7 @@
     "slackId": "U097UCZE2BB",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U097UCZE2BB/r"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4d6b586d48d6ff2b_profile-aishaani.jpeg"
   },
     {
     "name": "Darlene Wu",
@@ -1751,7 +1797,7 @@
     "slackId": "U07SX29CECA",
     "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U07SX29CECA/r"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c87fd78d2ce7a8ab_Screenshot_2026-01-21_at_2.06.48_PM.png"
   },
   {
     "name": "Elliot",
@@ -1813,19 +1859,6 @@
     "email": "",
     "website": "https://commonkestrel.github.io",
     "avatar": "https://cachet.dunkirk.sh/users/U07346379NY/r"
-  },
-  {
-    "name": "Louisa",
-    "department": "Moderation",
-    "role": "Community Moderation Lead",
-    "acknowledged": false,
-    "bio": "Louisa is a high schooler from Kenya who helps lead the Hack Club Community moderation dept",
-    "bioHackFoundation": "",
-    "slackId": "",
-    "staff": true,
-    "email": "louisa",
-    "website": "U06EMBJH71S",
-    "avatar": "https://athena.hackclub.com/_next/image?url=https%3A%2F%2Fhc-cdn.hel1.your-objectstorage.com%2Fs%2Fv3%2F0c0306bad2c52f721b120474ade9de27f4857cd7_lou.png&w=256&q=75"
   },
   {
     "name": "Manitej Boorgu",
@@ -1941,17 +1974,6 @@
     "website": "https://eesha-kothari.com",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/abc1c9014053a938_IMG_7832.jpg"
   },
-    {
-    "name": "Eesha",
-    "department": "Events",
-    "role": "Virtual Events Lead",
-    "acknowledged": false,
-    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art designs, especially using Sally Hansen black nail polish, since black is her favorite color. When working, she likes to listen to music, especially by Paramore or NF, or watch TV, especially Young Sheldon. She has been involved in Hack Club since March 2024, where she manages virtual events and welcomes people into the Slack.",
-    "slackId": "U06QST7V0J2",
-    "email": "eesha",
-    "website": "https://eesha-kothari.com",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/abc1c9014053a938_IMG_7832.jpg"
-  },
   {
     "name": "Kyra Ezikeuzor",
     "department": "Welcoming",
@@ -1962,17 +1984,6 @@
     "email": "kyra",
     "website": "https://kyraezikeuzor.vercel.app/",
     "avatar": "https://cachet.dunkirk.sh/users/U03RG1Y7HNW/r"
-  },
-  {
-    "name": "Lilia Dostie",
-    "department": "Welcoming",
-    "role": "Welcome Team Lead",
-    "acknowledged": false,
-    "bio": "Lilia, from Florida, is a Hack Clubber who runs the Gardeners (aka. Welcome Committee), who welcome newcomers to the Slack and help them get settled in!",
-    "slackId": "U07AZFQLPQ8",
-    "email": "",
-    "website": "https://kittycat.hackclub.app/",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/5a951ba4eeecc4be_785000D7-213E-4D52-9358-939285EA793F_1_105_c__1_.jpeg"
   },
   {
     "name": "Louisa",
@@ -2028,6 +2039,6 @@
     "slackId": "U072PTA5BNG",
     "email": "",
     "website": "https://v1c.rocks/",
-    "avatar": "https://cachet.dunkirk.sh/users/U072PTA5BNG/r"
+    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U072PTA5BNG-66f740620bcc-512"
   }
 ]

@@ -434,7 +434,7 @@ email="zach"
                         as="h4"
                         sx={{ fontSize: 3 }}
                       >
-                        Teen Contractors:
+                        Teen Contractors/Volunteers:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current
@@ -523,7 +523,7 @@ email="zach"
                         as="h4"
                         sx={{ fontSize: 3 }}
                       >
-                        Teen Contractors:
+                        Teen Contractors/Volunteers:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current
@@ -612,7 +612,7 @@ email="zach"
                         as="h4"
                         sx={{ fontSize: 3 }}
                       >
-                        Teen Contractors:
+                        Teen Contractors/Volunteers:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current
