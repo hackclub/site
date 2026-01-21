@@ -1149,12 +1149,24 @@
     "name": "Gus Ruben",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": true,
+    "acknowledged": false,
+    "gapyear": true,
     "bio": "",
     "slackId": "U07FCRNHS1J",
     "email": "gus",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07FCRNHS1J/r"
+  },
+    {
+    "name": "Renran Sun",
+    "department": "HQ",
+    "role": "Engineering",
+    "acknowledged": false,
+    "gapyear": true,
+    "bio": "",
+    "slackId": "U07ACECRYM6",
+    "website": "",
+    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U07ACECRYM6-757ba9c4219d-512"
   },
   {
     "name": "Harsh Bajpai",
@@ -1798,6 +1810,16 @@
     "email": "",
     "website": "",
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c87fd78d2ce7a8ab_Screenshot_2026-01-21_at_2.06.48_PM.png"
+  },
+      {
+    "name": "Joel Gallagher",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Joel, who goes by PianoMan0 online, is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "bioHackFoundation": "",
+    "slackId": "U0829HRSQ76",
+    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U0829HRSQ76-d5355bd1e025-512"
   },
   {
     "name": "Elliot",
