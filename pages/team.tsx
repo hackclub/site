@@ -223,7 +223,7 @@ email="zach"
                     as="h4"
                     sx={{ fontSize: 3 }}
                   >
-                    Contractors:
+                    Teen Contractors:
                   </Text>
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
@@ -328,7 +328,7 @@ email="zach"
                     as="h4"
                     sx={{ fontSize: 3 }}
                   >
-                    Contractors:
+                    Teen Contractors:
                   </Text>
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
@@ -434,7 +434,7 @@ email="zach"
                         as="h4"
                         sx={{ fontSize: 3 }}
                       >
-                        Contractors:
+                        Teen Contractors:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current
@@ -523,7 +523,7 @@ email="zach"
                         as="h4"
                         sx={{ fontSize: 3 }}
                       >
-                        Contractors:
+                        Teen Contractors:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current
@@ -612,7 +612,7 @@ email="zach"
                         as="h4"
                         sx={{ fontSize: 3 }}
                       >
-                        Contractors:
+                        Teen Contractors:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current
@@ -701,7 +701,7 @@ email="zach"
                         as="h4"
                         sx={{ fontSize: 3 }}
                       >
-                        Contractors:
+                        Teen Contractors:
                       </Text>
                       <Grid columns={[1, null, 2]} gap={3} m={10}>
                         {team.current

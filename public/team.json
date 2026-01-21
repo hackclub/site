@@ -50,8 +50,8 @@
   {
     "name": "Aishaani",
     "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": true,
+    "role": "Special Activities Division",
+    "acknowledged": false,
     "bio": "Aishaani is a 15 year old Hack Clubber from Canada. She focuses on organizing and supporting virtual events through Slack as part of the Special Activities Division and loves organizing hackathons. She revolves around all things tech; hardware, web development, 3D design/CAD... and sometimes helps out with art for Hack Club projects. In her free time, she enjoys listening to music and producing her own songs, writing, rollerblading, and ice skating. She is also working on her podcast series, Orbiting the Future.",
     "bioHackFoundation": "",
     "slackId": "U097UCZE2BB",
@@ -64,6 +64,7 @@
     "department": "Events",
     "role": "Virtual Events Infra",
     "acknowledged": false,
+    "gapyear": true,
     "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
     "bioHackFoundation": "",
     "slackId": "U054VC2KM9P",
@@ -71,10 +72,11 @@
     "website": "https://transcental.dev",
     "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
   },
+  
   {
     "name": "Charlotte",
     "department": "Events",
-    "role": "Event Organiser",
+    "role": "Special Activities Division",
     "acknowledged": false,
     "bio": "Charlotte is a 16-year-old aspiring software engineer and AI enthusiast. As a Virtual Events member, she organizes virtual events in the Slack to make Hack Club a closer community, and outside of Hack Club she programs for her school's FIRST robotics team, 2415, and runs on cross country. In the past, she has organized Daydream Atlanta, a Hack Club affiliated satellite event, and qualified for Shipwrecked, a four-day island hackathon. In her free time, she enjoys building projects, whether coding a Flask website, creating a game in Godot, or, more recently, exploring CAD in Onshape.",
     "bioHackFoundation": "",
@@ -96,21 +98,10 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07SX29CECA/r"
   },
   {
-    "name": "Eesha",
-    "department": "Events",
-    "role": "Virtual Events Lead",
-    "acknowledged": true,
-    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art and learning about art history. When working, she likes to listen to Paramore or NF. She has been involved in Hack Club since March 2024, where she manages virtual events and welcomes people into the Slack.",
-    "slackId": "U06QST7V0J2",
-    "email": "eesha",
-    "website": "https://eesha-kothari.com",
-    "avatar": "https://cachet.dunkirk.sh/users/U06QST7V0J2/r"
-  },
-  {
     "name": "Irtaza",
     "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": true,
+    "role": "Special Activities Division",
+    "acknowledged": false,
     "bio": "Irtaza is a 15 year old Hack Clubber from Pakistan who runs virtual events for the Hack Club community.",
     "bioHackFoundation": "",
     "slackId": "U079EQY9X1D",
@@ -121,8 +112,8 @@
   {
     "name": "Lucas Honda",
     "department": "Events",
-    "role": "Event Organiser",
-    "acknowledged": true,
+    "role": "Special Activities Division",
+    "acknowledged": false,
     "bio": "Lucas is a Hack Clubber from Sao Paulo, Brazil. Since joining the Hack Club, he has been fascinated by Sprig and is currently leading Sprig App Review Team, and working to make it the best it possibly can be. He is also member of Special Activities Division. He loves all aspects of aviation, and scours the internet/skies looking for and investigating flying machines. He spends a good portion of his time with his dog, a happy and playful dog.",
     "bioHackFoundation": "",
     "slackId": "U040N4ESCEL",
@@ -134,7 +125,7 @@
     "name": "Victorio",
     "department": "Events",
     "role": "Virtual Events Infra",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "Victorio is a Hack Clubber from Spain who welcomes people into the Slack and helps them settle in. He also loves fish, and homelabs!",
     "slackId": "U072PTA5BNG",
     "email": "",
@@ -178,7 +169,7 @@
     "slackId": "U01QHUY5XLK",
     "email": "melanie",
     "website": "",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1d48552e2d3e77e5_image__10_.png"
   },
   {
     "name": "Kris Hoadley",
@@ -234,7 +225,7 @@
     "name": "Anish Anne",
     "department": "HCB",
     "role": "Operations Contributor",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "",
     "bioHackFoundation": "",
     "slackId": "UR83LFD36",
@@ -270,7 +261,7 @@
     "name": "Bartosz Budnik",
     "department": "HCB",
     "role": "Verifications & Operations Contributor",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "Bartosz is a Hack Clubber from Poland who does a little of everything. Mainly focuses on checking verifications, but also helps detecting fraud and does some general operational work. Loves creating games and making things for others.",
     "bioHackFoundation": "",
     "slackId": "U079VBNLTPD",
@@ -282,7 +273,7 @@
     "name": "Briyan Dyju",
     "department": "HCB",
     "role": "Operations Contributor",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "Briyan is a 16-year-old Indian Hack Clubber born and raised in Dubai. He has a passion for jailbreaking and modding any device that lands in his hands. He handles the day-to-day operations at HCB, so if you mail them, there's a slight chance he's the one who might reply. If he is not doing either of these things, you'll probably find him kicking a soccer ball somewhere.",
     "bioHackFoundation": "",
     "slackId": "U04FS5WUXL3",
@@ -408,13 +399,13 @@
     "slackId": "U06MYDS2LHX",
     "email": "luke",
     "website": "https://lukeoldenburg.com/",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a2f3f47164e814d7_luke.jpg"
   },
   {
     "name": "Manu Gurudath",
     "department": "HCB",
     "role": "Engineering Contributor",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "",
     "bioHackFoundation": "",
     "slackId": "U04C8LLPKS7",
@@ -426,7 +417,7 @@
     "name": "Matthew Soh",
     "department": "HCB",
     "role": "Operations Contributor",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "Matthew is a 15-year-old Singaporean coder and informatics enthusiast, now living in Cambridge, UK. He enjoys exploring algorithms, more algorithms, and occasionally organising hackathons with the Youthacks team. Outside of programming, you might find him at the piano or behind a percussion set.",
     "bioHackFoundation": "",
     "slackId": "U07DPHQCCCS",
@@ -554,19 +545,6 @@
     "avatar": "https://cloud-g73jcrk00-hack-club-bot.vercel.app/0image.png"
   },
   {
-    "name": "Chris Walker",
-    "staff": true,
-    "department": "HQ",
-    "role": "Hacker Resources",
-    "acknowledged": false,
-    "bio": "Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He does a little bit of everything here.",
-    "bioHackFoundation": "",
-    "slackId": "UDK5M9Y13",
-    "email": "cwalker",
-    "website": "",
-    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-UDK5M9Y13-be619c5a7099-512"
-  },
-  {
     "name": "Max Wofford",
     "staff": true,
     "department": "HQ",
@@ -578,6 +556,19 @@
     "email": "max",
     "website": "",
     "avatar": "https://www.gravatar.com/avatar/0c898623b15817167d8f81b314ffc034?s=512"
+  },
+  {
+    "name": "Chris Walker",
+    "staff": true,
+    "department": "HQ",
+    "role": "Hacker Resources",
+    "acknowledged": false,
+    "bio": "Chris started programming games in middle school, a hobby that developed into a deep passion for educational software. In 2013 he accepted a Thiel Fellowship and moved to San Francisco, where he watched Hack Club grow from an early stage. He does a little bit of everything here.",
+    "bioHackFoundation": "",
+    "slackId": "UDK5M9Y13",
+    "email": "cwalker",
+    "website": "",
+    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-UDK5M9Y13-be619c5a7099-512"
   },
   {
     "name": "Deven Jadhav",
@@ -593,9 +584,22 @@
     "avatar": "https://github.com/devenjadhav.png"
   },
   {
-    "name": "Leo W",
+    "name": "Leo Wilkin",
     "staff": true,
-    "department": "HQ",
+    "department": "Moderation",
+    "role": "Fire Department",
+    "acknowledged": false,
+    "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. Formerly at HCB, he's now leveraging his passion and experience in Operations, helping hackathons share the magic of code to students worldwide.",
+    "bioHackFoundation": "",
+    "slackId": "U07BLJ1MBEE",
+    "email": "leo",
+    "website": "",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/5cef35e7c401eb5d_Square_Image_Cropped.png"
+  },
+    {
+    "name": "Leo Wilkin",
+    "staff": true,
+    "department": "Community",
     "role": "Event Operations Lead",
     "acknowledged": false,
     "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. Formerly at HCB, he's now leveraging his passion and experience in Operations, helping hackathons share the magic of code to students worldwide.",
@@ -603,7 +607,7 @@
     "slackId": "U07BLJ1MBEE",
     "email": "leo",
     "website": "",
-    "avatar": "https://avatars.githubusercontent.com/u/64415791"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/5cef35e7c401eb5d_Square_Image_Cropped.png"
   },
   {
     "name": "Rebeka Lawrence-Gomez",
@@ -673,6 +677,7 @@
     "name": "Paolo Carino",
     "department": "HQ",
     "role": "Media Creations",
+    "staff": true,
     "acknowledged": false,
     "bio": "Paolo is a video creator from Chicago who loves telling stories through video. During the summer of 2024, he started a series online documenting his journey everyday of becoming a freelance video editor from scratch. This garnered over 200k+ views across 3 months, and fortunately, lead to the opportunity of joining Hack Club as gap year for Media Creations. In his free time Paolo loves to play music, and is currently learning more about web development.",
     "bioHackFoundation": "",
@@ -715,7 +720,7 @@
     "slackId": "U06PR6B8D37",
     "email": "alexren",
     "website": "",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c63e9429c631c403_PXL_20251221_205516613_2.jpg"
   },
   {
     "name": "Alex Van Doren",
@@ -735,6 +740,7 @@
     "department": "HQ",
     "role": "Engineering + Community",
     "acknowledged": false,
+    "gapyear": true,
     "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
     "bioHackFoundation": "",
     "slackId": "U054VC2KM9P",
@@ -746,6 +752,18 @@
     "name": "Angad Behl",
     "department": "HQ",
     "role": "Engineering and Community",
+    "acknowledged": false,
+    "bio": "Angad is a 16 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's built a peer voting platform for over 2000 students, ran a YSWS providing travel stipends, and build moderation infastructure for Hack Club. In his free time, he enjoys photography, travel, and pondering.",
+    "bioHackFoundation": "",
+    "slackId": "U075RTSLDQ8",
+    "email": "angad",
+    "website": "https://angad.me",
+    "avatar": "https://cachet.dunkirk.sh/users/U075RTSLDQ8/r"
+  },
+    {
+    "name": "Angad Behl",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
     "acknowledged": false,
     "bio": "Angad is a 16 year old Hack Clubber from Wisconsin. During his time in the Hack Club community, he's built a peer voting platform for over 2000 students, ran a YSWS providing travel stipends, and build moderation infastructure for Hack Club. In his free time, he enjoys photography, travel, and pondering.",
     "bioHackFoundation": "",
@@ -775,6 +793,7 @@
     "bioHackFoundation": "",
     "slackId": "U078J6H1XL3",
     "email": "annabel",
+    "gapyear": true,
     "website": "https://phthallo.com",
     "avatar": "https://media.licdn.com/dms/image/v2/D5603AQGlx6Nyb0CT7A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1733036812203?e=1770249600&v=beta&t=bp6MCiuo8CH4ZBFKjQJrQFybZRfyWuJ-4eTwSIKGXtM"
   },
@@ -959,10 +978,11 @@
     "avatar": "https://cloud-2dne45yzx-hack-club-bot.vercel.app/0image.png"
   },
   {
-    "name": "Echo",
+    "name": "Rowan",
+    "staff": true,
     "department": "HQ",
     "role": "Engineering & Logistics",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "Echo (also known as Rowan) is a programmer from the United States. Commonly seen hunched over a laptop, Rowan loves to build things that sometimes work. In their free time, they enjoy playing Counter Strike, listening to music, and breaking things, especially code. They are currently working on various projects at Hack Club, including Hackatime, Summer of Making, and more.",
     "slackId": "U080A3QP42C",
     "email": "3kh0@3kh0.net",
@@ -1189,7 +1209,7 @@
     "name": "Jiang Tongyu",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "Tongyu is a 19-year-old Hack Clubber from Singapore who loves making games! She's taking a gap year at Hack Club SF to run events and adventures. She also likes linguistics, making crafts, and sometimes writing music.",
     "bioHackFoundation": "",
     "slackId": "U07DJMFAQQP",
@@ -1261,7 +1281,8 @@
     "name": "Kartikey Singh Chauhan",
     "department": "HQ",
     "role": "Engineering & Community",
-    "acknowledged": true,
+    "acknowledged": false,
+    "gapyear": true,
     "bio": "Kartikey is a 17 year old Hack Clubber from Lucknow, India.",
     "bioHackFoundation": "",
     "slackId": "U05F4B48GBF",
@@ -1437,13 +1458,13 @@
     "name": "Olive Wu",
     "department": "HQ",
     "role": "Engineering",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "Olive is a gap year working on the YSWS team this year at HC! In her free time, she loves to bake cupcakes, play cello, and work on fun projects. She also loves penguins.",
     "bioHackFoundation": "",
     "slackId": "U07BN55GN3D",
     "email": "olive",
     "website": "",
-    "avatar": "https://ca.slack-edge.com/T0266FRGM-U07BN55GN3D-2f76fc57cd24-512",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/b641d54e24f9d7fe_image__11_.png",
     "gapyear": true
   },
   {
@@ -1527,8 +1548,9 @@
     "bioHackFoundation": "",
     "slackId": "U07UBCSSQH3",
     "email": "sebastian",
+    "gapyear": true,
     "website": "https://leafd.dev",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/2d13d93c6832a798_IMG_1496.jpeg"
   },
   {
     "name": "Shawn Malluwa-Wadu",
@@ -1638,40 +1660,29 @@
     "avatar": "https://cachet.dunkirk.sh/users/U03DDMP76GL/r"
   },
   {
-    "name": "ascpixi",
+    "name": "Asc",
     "department": "HQ",
     "role": "Engineering",
     "acknowledged": false,
     "bio": "",
+    "gapyear": true,
     "slackId": "U082DPCGPST",
     "email": "ascpixi",
     "website": "https://ascpixi.dev",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/52ee0cb05b1a3ea3_1000002893.JPG"
   },
   {
     "name": "Amber",
     "department": "Moderation",
     "role": "Moderation & Conduct",
     "acknowledged": false,
+    "gapyear": true,
     "bio": "Amber is a 17 year old student from Leicester (UK) who loves programming Slack apps and random scripts. She also has a deep passion for music and you'll rarely find her without headphones on. Since joining Hack Club, she's reviewed thousands of hours for Arcade, supported thousands of hackers in Arcade and around Slack, helped moderate the community, built tools for the community and welcomed new members all whilst drowning in coursework. Currently she's helping with moderation and events and also leads the Welcome team and, helping new members get settled in and feel at home whilst working on other Hack Club projects on the side.",
     "bioHackFoundation": "",
     "slackId": "U054VC2KM9P",
     "email": "amber",
     "website": "https://transcental.dev",
     "avatar": "https://cachet.dunkirk.sh/users/U054VC2KM9P/r"
-  },
-  {
-    "name": "Annabel",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "Annabel is a 17 year old Hack Clubber from Australia. They're currently gap-yearing for Hack Club and have worked on several programs and the Athena intiative. They're an avid Celeste and Hollow Knight fan and love to play games in their free time. They also love to build things, and have built several tools for Hack Club.",
-    "bioHackFoundation": "",
-    "slackId": "U078J6H1XL3",
-    "email": "annabel",
-    "website": "https://phthallo.com",
-    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQGlx6Nyb0CT7A/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1733036812203?e=1770249600&v=beta&t=bp6MCiuo8CH4ZBFKjQJrQFybZRfyWuJ-4eTwSIKGXtM",
-    "gapyear": true
   },
   {
     "name": "Aram",
@@ -1687,9 +1698,9 @@
   },
   {
     "name": "Darlene Wu",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": true,
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
     "bio": "Darlene is a 16 year old Hack Clubber from Indonesia who runs virtual events for the Hack Club community. She also helps welcome members into the Slack",
     "bioHackFoundation": "",
     "slackId": "U07SX29CECA",
@@ -1698,16 +1709,49 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07SX29CECA/r"
   },
   {
-    "name": "Dhyan",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
+    "name": "Kat",
+    "department": "Welcoming",
+    "role": "Welcomer",
     "acknowledged": false,
-    "bio": "",
-    "bioHackFoundation": "",
-    "slackId": "U0824G9PTFE",
-    "email": "dhyan",
+    "bio": "Kat is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U06SQJ508LF",
+    "email": "",
     "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U0824G9PTFE/r"
+    "avatar": "https://cachet.dunkirk.sh/users/U06SQJ508LF/r"
+  },
+  {
+    "name": "Maadhav",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Maadhav is a Hack Clubber from India who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U08L7HLBT6V",
+    "email": "",
+    "website": "https://maadhavbhatt.github.io",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/bd225c0d2d75e82d_maadhav.jpeg"
+  },
+  {
+    "name": "Aishaani",
+    "department": "Welcoming",
+    "role": "Welcomer",
+    "acknowledged": false,
+    "bio": "Aishaani is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
+    "slackId": "U097UCZE2BB",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U097UCZE2BB/r"
+  },
+    {
+    "name": "Darlene Wu",
+    "department": "Events",
+    "role": "Special Activities Division",
+    "acknowledged": false,
+    "bio": "Darlene is a 16 year old Hack Clubber from Indonesia who runs virtual events for the Hack Club community. She also helps welcome members into the Slack",
+    "bioHackFoundation": "",
+    "slackId": "U07SX29CECA",
+    "email": "",
+    "website": "",
+    "avatar": "https://cachet.dunkirk.sh/users/U07SX29CECA/r"
   },
   {
     "name": "Elliot",
@@ -1725,7 +1769,7 @@
     "name": "Hasan",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "",
     "bioHackFoundation": "",
     "slackId": "U062U3SQ2T1",
@@ -1737,7 +1781,7 @@
     "name": "Junya",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": true,
+    "acknowledged": false,
     "bio": "",
     "bioHackFoundation": "",
     "slackId": "U082PAFDDS5",
@@ -1749,7 +1793,8 @@
     "name": "Kartikey Singh Chauhan",
     "department": "Moderation",
     "role": "Moderation & Conduct",
-    "acknowledged": true,
+    "acknowledged": false,
+    "gapyear": true,
     "bio": "Kartikey is a 17 year old Hack Clubber from Lucknow, India.",
     "bioHackFoundation": "",
     "slackId": "U05F4B48GBF",
@@ -1770,18 +1815,6 @@
     "avatar": "https://cachet.dunkirk.sh/users/U07346379NY/r"
   },
   {
-    "name": "Leo W",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "Leo has a heart for equitable access to the digital world, especially when it comes to ensuring safety for children online. Formerly at HCB, he's now leveraging his passion and experience in Operations, helping hackathons share the magic of code to students worldwide.",
-    "bioHackFoundation": "",
-    "slackId": "U07BLJ1MBEE",
-    "email": "leo",
-    "website": "",
-    "avatar": "https://avatars.githubusercontent.com/u/64415791"
-  },
-  {
     "name": "Louisa",
     "department": "Moderation",
     "role": "Community Moderation Lead",
@@ -1789,6 +1822,7 @@
     "bio": "Louisa is a high schooler from Kenya who helps lead the Hack Club Community moderation dept",
     "bioHackFoundation": "",
     "slackId": "",
+    "staff": true,
     "email": "louisa",
     "website": "U06EMBJH71S",
     "avatar": "https://athena.hackclub.com/_next/image?url=https%3A%2F%2Fhc-cdn.hel1.your-objectstorage.com%2Fs%2Fv3%2F0c0306bad2c52f721b120474ade9de27f4857cd7_lou.png&w=256&q=75"
@@ -1816,18 +1850,6 @@
     "email": "",
     "website": "",
     "avatar": "https://cachet.dunkirk.sh/users/U07VC9705D4/r"
-  },
-  {
-    "name": "Phaedra Sanon",
-    "department": "Moderation",
-    "role": "Moderation & Conduct",
-    "acknowledged": false,
-    "bio": "Phaedra is a high school student hailing from New England in the United States. Beyond her building tons of websites in her free time, she loves to sing in a local choir and listen to lots of music, especially through carefully-constructed playlists on Spotify.",
-    "bioHackFoundation": "",
-    "slackId": "U05468GUS7J",
-    "email": "phaedra",
-    "website": "",
-    "avatar": "https://cachet.dunkirk.sh/users/U05468GUS7J/r"
   },
   {
     "name": "Saran Wagner",
@@ -1862,7 +1884,18 @@
     "slackId": "U07BU2HS17Z",
     "email": "felix",
     "website": "https://felixgao.dev/",
-    "avatar": "https://cachet.dunkirk.sh/users/U07BU2HS17Z/r"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/3893bafb03c0e912_Screenshot_2026-01-21_at_12.04.10_PM.png"
+  },
+    {
+    "name": "Felix Gao",
+    "department": "Moderation",
+    "role": "Fire Department",
+    "acknowledged": false,
+    "bio": "Felix, a teen Hack Clubber from Toronto, Canada, leads a team that writes various newsletters, ensuring Hack Clubbers know what's going on in the Slack and beyond. You'll often find him writing code or drowning two metres deep in homework. He has an absurd variety of niche interests and loves learning more about them, one of the biggest being urban planning/design.",
+    "slackId": "U07BU2HS17Z",
+    "email": "felix",
+    "website": "https://felixgao.dev/",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/3893bafb03c0e912_Screenshot_2026-01-21_at_12.04.10_PM.png"
   },
   {
     "name": "Mahad Kalam",
@@ -1873,18 +1906,7 @@
     "slackId": "U059VC0UDEU",
     "email": "mahad",
     "website": "https://skyfall.dev",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
-  },
-  {
-    "name": "Neko",
-    "department": "Newspaper",
-    "role": "Reporter",
-    "acknowledged": false,
-    "bio": "Neko, the local queer suffering in Texas, contributes to a newsletter which keeps Hack Clubbers informed on what's currently happening.",
-    "slackId": "U07PYPAF5RR",
-    "email": "",
-    "website": "",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://mahadk.com/me.webp"
   },
   {
     "name": "Adishree Das",
@@ -1917,29 +1939,18 @@
     "slackId": "U06QST7V0J2",
     "email": "eesha",
     "website": "https://eesha-kothari.com",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/abc1c9014053a938_IMG_7832.jpg"
   },
-  {
-    "name": "Jan Ptaszek",
-    "department": "Welcoming",
-    "role": "Welcomer",
+    {
+    "name": "Eesha",
+    "department": "Events",
+    "role": "Virtual Events Lead",
     "acknowledged": false,
-    "bio": "Jan is a Hack Clubber from Poland who welcomes people into the Slack and helps them settle in.",
-    "slackId": "U07H08JHT2L",
-    "email": "",
-    "website": "",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
-  },
-  {
-    "name": "Joel Gallagher",
-    "department": "Welcoming",
-    "role": "Welcomer",
-    "acknowledged": false,
-    "bio": "Joel, who goes by PianoMan0 online, is a Hack Clubber who welcomes people into the Slack and helps them settle in.",
-    "slackId": "U07V1ND4H0Q",
-    "email": "",
-    "website": "https://pianoman0.com/",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "bio": "Eesha is a 17 year old Hack Clubber from the USA who enjoys robotics, physics, and programming websites. She also likes doing nail art designs, especially using Sally Hansen black nail polish, since black is her favorite color. When working, she likes to listen to music, especially by Paramore or NF, or watch TV, especially Young Sheldon. She has been involved in Hack Club since March 2024, where she manages virtual events and welcomes people into the Slack.",
+    "slackId": "U06QST7V0J2",
+    "email": "eesha",
+    "website": "https://eesha-kothari.com",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/abc1c9014053a938_IMG_7832.jpg"
   },
   {
     "name": "Kyra Ezikeuzor",
@@ -1961,7 +1972,7 @@
     "slackId": "U07AZFQLPQ8",
     "email": "",
     "website": "https://kittycat.hackclub.app/",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/5a951ba4eeecc4be_785000D7-213E-4D52-9358-939285EA793F_1_105_c__1_.jpeg"
   },
   {
     "name": "Louisa",
@@ -1984,7 +1995,7 @@
     "slackId": "U07V1ND4H0Q",
     "email": "",
     "website": "https://pbhak.dev/",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U07V1ND4H0Q-694b3547e557-512"
   },
   {
     "name": "Ruby",
@@ -2006,9 +2017,9 @@
     "slackId": "U05RFBS4BEW",
     "email": "",
     "website": "https://samvid.bearblog.dev/",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/8c04f3e9d93eab02_samvid.jpg"
   },
-  {
+      {
     "name": "Victorio",
     "department": "Welcoming",
     "role": "Welcomer",
@@ -2017,6 +2028,6 @@
     "slackId": "U072PTA5BNG",
     "email": "",
     "website": "https://v1c.rocks/",
-    "avatar": "https://img.freepik.com/free-photo/red-paper-background-elegant-scarlet-background-holiday-decoration-web-design-paper-texture_166373-2152.jpg?semt=ais_hybrid&w=740&q=80"
+    "avatar": "https://cachet.dunkirk.sh/users/U072PTA5BNG/r"
   }
 ]

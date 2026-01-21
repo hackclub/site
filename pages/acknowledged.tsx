@@ -84,7 +84,6 @@ export default function Acknowleged({ team }) {
             <Grid columns={[1, null, 2, 3]} gap={3}>
               {team.acknowledged?.map(member => (
                 <Bio
-                  img={member.avatar}
                   name={member.name}
                   teamRole={member.role}
                   text={member.bio}
