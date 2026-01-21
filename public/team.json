@@ -656,6 +656,13 @@
     "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7d53388eeda6547a309ca478d455e2b824791bbf_image.png"
   },
   {
+    "name": "Evan Streams",
+    "staff": true,
+    "department": "HQ",
+    "role": "Community Manager",
+    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/98b85b76330e573e_IMG_5068.jpeg"
+  },
+  {
     "name": "Jared Senesac",
     "staff": true,
     "department": "HQ",
@@ -1478,6 +1485,12 @@
     "website": "https://meghana.co",
     "avatar": "https://cachet.dunkirk.sh/users/U06P62WGWAV/r"
   },
+    {
+    "name": "Celeste Roselli",
+    "department": "HQ",
+    "role": "Engineering, Athena Initiative",
+    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQFoozVA0wJ91Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731707096650?e=1770854400&v=beta&t=kpJm0x_YsHXdvatZurHfIT76nvz9oMuIzrYo4Kmf8_Q"
+  },
   {
     "name": "Micha Albert",
     "department": "HQ",
@@ -2062,5 +2075,45 @@
     "email": "",
     "website": "https://v1c.rocks/",
     "avatar": "https://ca.slack-edge.com/E09V59WQY1E-U072PTA5BNG-66f740620bcc-512"
+  }, 
+  {
+    "name": "Annlee Fores",
+    "department": "HQ",
+    "role": "APAC Operations",
+    "acknowledged": true,
+    "bio": "As the COO of Hack Club APAC, Annlee oversaw operations and handled event organisation & logistics at Hack Club APAC. When not busy juggling different tasks he takes up, he enjoys tinkering & building fun projects."
+  },
+  {"name": "Aram",
+    "department": "Moderation",
+    "role": "Moderation & Conduct",
+    "acknowledged": true,
+    "bio": "",
+    "bioHackFoundation": "",
+    "slackId": "",
+    "email": "",
+    "website": "",
+    "avatar": "https://cloud-9oehj9fy6-hack-club-bot.vercel.app/0annlee_fores_avatar.jpeg"
+  }, 
+  {"name": "Arav Narula",
+    "department": "HQ",
+    "role": "Community Operations & Engineering",
+    "acknowledged": true,
+    "bio": "Arav is a high schooler from Toronto (kinda) who loves everything in the intersection of social science, art, and programming. They're also a really big public transit fan, and you can often find them taking the bus to places. Over the last couple of months, Arav has led and helped run the moderation dept, and built custom tools for moderation. This summer, they interned at Hack Club helping run community logtics, and contuining to lead the moderation dept for Hack Club Arcade, running events in the process. They're a senior right now drowning in homework",
+    "bioHackFoundation": "",
+    "slackId": "",
+    "email": "arav",
+    "website": "https://radioblahaj.com",
+    "avatar": "https://cloud-3c7rt7s1k-hack-club-bot.vercel.app/0image_512x512__1_.png"
+  },
+  {
+    "name": "Arpan",
+    "department": "HQ",
+    "role": "Clubs Operation/Special Activites Director",
+    "acknowledged": true,
+    "bio": "Arpan joined HC through Epoch in 2022. Then worked with Clubs Operations, developing Clubs Directory, OpenAI Gateway and managing clubs in the APAC region. He then helped establish the Special Activities Division as it's first Director which runs virtual events for hackclubbers. He also led the Fraud Detection team for Hack Club Arcade.",
+    "slackId": "U0409FSKU82",
+    "email": "arpan",
+    "website": "https://arpanpandey.dev",
+    "avatar": "https://media.licdn.com/dms/image/v2/D5603AQHgJ1rUos6FFA/profile-displayphoto-shrink_800_800/B56Zd.1nF2H8Ac-/0/1750179673148?e=1759363200&v=beta&t=Ta3W1GF6ZNYl7U-D6YSCAzNUJl4SHwERjslWbDsvEdQ"
   }
-]
+  ]
