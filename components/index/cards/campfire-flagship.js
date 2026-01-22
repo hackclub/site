@@ -19,9 +19,9 @@ export default function CampfireFlagship() {
           overflow: 'hidden',
           textAlign: 'center',
           backgroundImage: [
-            "url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/145056833a228762_bg-tall.png)",
-            "url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/145056833a228762_bg-tall.png)",
-            "url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/e909b5fc4f714382_bg-wide.png)"
+            "url(/hc-cdn/145056833a228762_bg-tall.png)",
+            "url(/hc-cdn/145056833a228762_bg-tall.png)",
+            "url(/hc-cdn/e909b5fc4f714382_bg-wide.png)"
           ],
           backgroundSize: 'cover',
           backgroundPosition: 'center',

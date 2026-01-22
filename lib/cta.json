@@ -1,9 +1,9 @@
 [
      {
         "title": "Flavortown",
-        "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/78c8f69432a9421d_flavortown-logo.png",
+        "logo": "/hc-cdn/78c8f69432a9421d_flavortown-logo.png",
         "background": "#7B4942",
-        "stickerImage": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0256e44f53eb79e4_logo-b28e0e8b.avif",
+        "stickerImage": "/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif",
         "description": "Cook tasty personal projects, win free prizes!",
         "descriptionColor": "white",
         "buttonText": "JOIN NOW",
@@ -12,10 +12,10 @@
     },
     {
         "title": "Blueprint",
-        "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c06427309a3db7299065c0a41f1e8cc70531f0a9_blueprint.png",
+        "logo": "/hc-cdn/c06427309a3db7299065c0a41f1e8cc70531f0a9_blueprint.png",
         "background": "#0e305b",
         "gridBackground": true,
-        "stickerImage": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/8292f6b4eba5e1fc29b51e9bc08eea5521e9ff46_IMG_3099__1_.png",
+        "stickerImage": "/hc-cdn/8292f6b4eba5e1fc29b51e9bc08eea5521e9ff46_IMG_3099__1_.png",
         "description": "Design a Hardware project and get up to $400 to make it real!",
         "descriptionColor": "white",
         "buttonText": "JOIN NOW",
@@ -24,9 +24,9 @@
     },
     {
         "title": "Campfire Flagship",
-        "logo": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/542f4bf6aa9cd5cc_logo-w-info-v2.png",
+        "logo": "/hc-cdn/542f4bf6aa9cd5cc_logo-w-info-v2.png",
         "background": "#000015",
-        "stickerImage": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a02495e0d090461b_smore-smaller.png",
+        "stickerImage": "/hc-cdn/a02495e0d090461b_smore-smaller.png",
         "description": "Code with your favorite YouTubers at a Game Jam this February!",
         "descriptionColor": "white",
         "buttonText": "JOIN NOW",
