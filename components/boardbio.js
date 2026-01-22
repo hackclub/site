@@ -27,7 +27,6 @@ export default function BoardBox({ popup = true, ...props }) {
           zIndex: !popup ? 1003 : 5,
           maxHeight: popup ? 'auto' : '90vh',
           overflowY: 'hidden',
-          overscrollBehavior: 'contain',
           position: 'relative'
         }}
         as={href && !text ? 'a' : 'div'}
