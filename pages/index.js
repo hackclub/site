@@ -54,7 +54,7 @@ const ANNOUNCEMENTS = [
     copy: 'Get up to $400 to make a hardware project!',
     caption: 'Design a project and get a grant to make it real with Blueprint, Hack Club\'s largest hardware program',
     href: 'https://blueprint.hackclub.com/?utm_source=site-announcement',
-    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png'
+    imgSrc: '/hc-cdn/db8d0fd43bb664a8b07431b0262a7ca13c1602c7_blueprint_logo__img_.png'
   },
   {
     id: 'campfire-flagship',
@@ -62,7 +62,7 @@ const ANNOUNCEMENTS = [
     copy: 'Code with your favorite YouTubers at a Game Jam!',
     caption: 'Spend up to 60 hours building games, earn a ticket to attend. Join us in LA with YouTubers like Michael Reeves this February!',
     href: 'https://flagship.hackclub.com?utm_source=site_announcement',
-    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/533c527e1ab6a77f_smore.png'
+    imgSrc: '/hc-cdn/533c527e1ab6a77f_smore.png'
   },
   {
     id: 'flavortown',
@@ -70,7 +70,7 @@ const ANNOUNCEMENTS = [
     copy: 'Build projects, earn cookies, get free tech!',
     caption: 'Make a website, game, or hardware project and exchange cookies for iPads, MacBooks, and more',
     href: 'https://flavortown.hackclub.com/?ref=site-announcement',
-    imgSrc: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/0256e44f53eb79e4_logo-b28e0e8b.avif'
+    imgSrc: '/hc-cdn/0256e44f53eb79e4_logo-b28e0e8b.avif'
   }
 ]
 

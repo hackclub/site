@@ -142,7 +142,7 @@
     "slackId": "U040N4ESCEL",
     "email": "lucas",
     "website": "https://devlucas.page",
-    "avatar": "https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0da86cdb050733a_img_7387.jpg"
+    "avatar": "/hc-cdn/a0da86cdb050733a_img_7387.jpg"
   },
   {
     "name": "Victorio",
@@ -403,6 +403,7 @@
   {
     "name": "Lucy Tran",
     "department": "HCB",
+    "staff": true,
     "role": "Financial Operations",
     "acknowledged": false,
     "bio": "",
