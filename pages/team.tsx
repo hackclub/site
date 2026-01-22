@@ -328,7 +328,7 @@ email="zach"
                     as="h4"
                     sx={{ fontSize: 3 }}
                   >
-                    Teen Contractors:
+                    Teen Contractors and Part-Time:
                   </Text>
                   <Grid columns={[1, null, 2, 3]} gap={3}>
                     {team.current
