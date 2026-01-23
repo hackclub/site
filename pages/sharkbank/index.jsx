@@ -243,7 +243,7 @@ function DesktopMode({ billboardBottom }) {
                 }}
               >
                 <img
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                  src="/hc-cdn/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
                   alt="Button background"
                   style={{
                     width: '100%',
@@ -521,7 +521,7 @@ function TabletMode() {
                 }}
               >
                 <img
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                  src="/hc-cdn/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
                   alt="Button background"
                   style={{
                     width: '100%',
@@ -803,7 +803,7 @@ function MobileMode() {
                 }}
               >
                 <img
-                  src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
+                  src="/hc-cdn/a0d39c115cee39b28bb47feada3728e543c4e3cc_sign-up-button.PNG"
                   alt="Button background"
                   style={{
                     width: '100%',

@@ -18,7 +18,7 @@ export default function Moonshot() {
       >
         <Box
           as="img"
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ac76f2248f521ed47d23aa5c7c0af8183190a30c_cat.png"
+          src="/hc-cdn/ac76f2248f521ed47d23aa5c7c0af8183190a30c_cat.png"
           alt="Moonshot Cat"
           sx={{
             width: ['100px', '140px', '190px'],
@@ -39,7 +39,7 @@ export default function Moonshot() {
       >
         <Box
           as="img"
-          src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/c174c635c2bacbc66963c134c26696e89da3f100_orpheus.png"
+          src="/hc-cdn/c174c635c2bacbc66963c134c26696e89da3f100_orpheus.png"
           alt="Orpheus"
           sx={{
             width: ['100px', '140px', '180px'],
@@ -60,7 +60,7 @@ export default function Moonshot() {
           height: '358.2px',
           overflow: 'hidden',
           textAlign: 'center',
-          backgroundImage: "url(https://hc-cdn.hel1.your-objectstorage.com/s/v3/06ca4c7576384b0f1a09d080433997f25d6c1191_moonshot_bg_final.png)",
+          backgroundImage: "url(/hc-cdn/06ca4c7576384b0f1a09d080433997f25d6c1191_moonshot_bg_final.png)",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderRadius: 'extra'
@@ -83,7 +83,7 @@ export default function Moonshot() {
       >
         <Box sx={{ mb: 3, textAlign: 'center' }}>
           <Image
-            src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/bb539d76681c26f45247d69cdab86d9d863a1a95_image_105.png"
+            src="/hc-cdn/bb539d76681c26f45247d69cdab86d9d863a1a95_image_105.png"
             alt="moonshot!"
             sx={{
               width: ['250px', '320px', '400px'],
